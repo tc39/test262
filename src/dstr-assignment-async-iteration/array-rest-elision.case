@@ -1,0 +1,28 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    ArrayAssignmentPattern may include elisions at any position preceeding a
+    AssignmentRestElement in a AssignmentElementList.
+template: default
+---*/
+
+//- setup
+let x, y;
+//- elems
+[, , x, , ...y]
+//- vals
+[1, 2, 3, 4, 5, 6]
+//- body
+assert.sameValue(x, 3);
+assert.sameValue(y.length, 2);
+assert.sameValue(y[0], 5);
+assert.sameValue(y[1], 6);
+
+
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

@@ -1,0 +1,59 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Reference is evaluated during assignment
+info: |
+    ArrayAssignmentPattern : [ Elisionopt AssignmentRestElement ]
+
+    [...]
+    4. Let result be the result of performing
+      IteratorDestructuringAssignmentEvaluation of AssignmentRestElement
+      with iteratorRecord as the argument.
+    5. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+
+
+    AssignmentRestElement[Yield] : ... DestructuringAssignmentTarget
+
+    1. If DestructuringAssignmentTarget is neither an ObjectLiteral nor an
+       ArrayLiteral, then
+       a. Let lref be the result of evaluating DestructuringAssignmentTarget.
+       b. ReturnIfAbrupt(lref).
+    [...]
+features: [Symbol.iterator]
+template: async-generator
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let nextCount = 0;
+let returnCount = 0;
+let iterator = {
+  next() {
+    nextCount += 1;
+    return { done: true };
+  },
+  return() {
+    returnCount += 1;
+  }
+};
+let obj = {};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- elems
+[...obj['a' + 'b']]
+//- vals
+iterable
+//- body
+assert.sameValue(nextCount, 1);
+assert.sameValue(returnCount, 0);
+assert(!!obj.ab);
+assert.sameValue(obj.ab.length, 0);
+
+//- teardown
+iter.next()
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);
+

@@ -1,0 +1,47 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Abrupt completion returned from IteratorClose
+info: |
+    ArrayAssignmentPattern : [ AssignmentElementList ]
+
+    [...]
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+
+features: [Symbol.iterator]
+template: async-generator
+es6id: 12.14.5.2
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let nextCount = 0;
+let returnCount = 0;
+let _;
+let iterator = {
+  next() {
+    nextCount += 1;
+    // Set an upper-bound to limit unnecessary iteration in non-conformant
+    // implementations
+    return { done: nextCount > 10 };
+  },
+  return() {
+    returnCount += 1;
+    throw new Test262Error();
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- elems
+[ _ ]
+//- vals
+iterable
+//- teardown
+iter.next().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(nextCount, 1);
+  assert.sameValue(returnCount, 1);
+  assert.sameValue(constructor, Test262Error);
+}).then($DONE, $DONE);

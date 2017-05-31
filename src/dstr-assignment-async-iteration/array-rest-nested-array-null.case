@@ -1,0 +1,26 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    When DestructuringAssignmentTarget is an array literal and the iterable
+    emits `null` as the only value, an array with a single `null` element
+    should be used as the value of the nested DestructuringAssignment.
+template: default
+---*/
+
+//- setup
+let x, y;
+//- elems
+[...[x, y]]
+//- vals
+[null]
+//- body
+assert.sameValue(x, null);
+assert.sameValue(y, undefined);
+
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

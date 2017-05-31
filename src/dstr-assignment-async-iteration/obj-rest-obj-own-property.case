@@ -1,0 +1,29 @@
+// Copyright (C) 2017 Caio Lima & the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Rest object contains just source object's own properties
+template: default
+esid: pending
+features: [object-rest]
+---*/
+
+//- setup
+let o = Object.create({ x: 1, y: 2 });
+o.z = 3;
+
+let x, y, z;
+//- elems
+{ x, ...{y , z} }
+//- vals
+o
+//- body
+assert.sameValue(x, 1);
+assert.sameValue(y, undefined);
+assert.sameValue(z, 3);
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

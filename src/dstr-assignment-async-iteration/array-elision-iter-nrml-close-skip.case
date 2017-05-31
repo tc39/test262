@@ -1,0 +1,49 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    IteratorClose is not called when iteration has exhausted the iterator
+info: |
+    ArrayAssignmentPattern : [ Elision ]
+
+    1. Let iterator be ? GetIterator(value).
+
+    [...]
+
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result)..
+    [...]
+features: [Symbol.iterator]
+template: async-generator
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let nextCount = 0;
+let returnCount = 0;
+let iterator = {
+  next() {
+    nextCount += 1;
+    return { done: true };
+  },
+  return() {
+    returnCount += 1;
+    return {};
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- elems
+[ , ]
+//- vals
+iterable
+//- body
+assert.sameValue(nextCount, 1);
+assert.sameValue(returnCount, 0);
+
+//- teardown
+iter.next()
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

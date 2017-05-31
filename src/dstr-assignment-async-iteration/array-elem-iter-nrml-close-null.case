@@ -1,0 +1,55 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    IteratorClose throws a TypeError when `return` returns a non-Object value
+info: |
+    ArrayAssignmentPattern : [ AssignmentElementList ]
+
+    [...]
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+    5. Return result.
+
+    7.4.6 IteratorClose( iterator, completion )
+
+    [...]
+    5. Let innerResult be Call(return, iterator, « »).
+    6. If completion.[[Type]] is throw, return Completion(completion).
+    7. If innerResult.[[Type]] is throw, return Completion(innerResult).
+    8. If Type(innerResult.[[Value]]) is not Object, throw a TypeError exception.
+
+features: [Symbol.iterator]
+template: async-generator
+es6id: 12.14.5.2
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let _;
+let nextCount = 0;
+let iterator = {
+  next() {
+    nextCount += 1;
+    // Set an upper-bound to limit unnecessary iteration in non-conformant
+    // implementations
+    return { done: nextCount > 10 };
+  },
+  return() {
+    return null;
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- elems
+[ _ ]
+//- vals
+iterable
+//- teardown
+iter.next().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(nextCount, 1);
+  assert.sameValue(constructor, TypeError);
+}).then($DONE, $DONE);
+

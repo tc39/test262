@@ -1,0 +1,24 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    The DestructuringAssignmentTarget of an AssignmentElement may be a
+    PropertyReference.
+template: default
+---*/
+
+//- setup
+let x = {};
+//- elems
+[x.y]
+//- vals
+[4]
+//- body
+assert.sameValue(x.y, 4);
+
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

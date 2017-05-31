@@ -1,0 +1,25 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Initializer values should be assigned in left-to-right order.
+template: default
+es6id: 12.14.5.4
+---*/
+
+//- setup
+let x = 0;
+let a, b;
+//- elems
+{ a = x += 1, b = x *= 2 }
+//- vals
+{}
+//- body
+assert.sameValue(a, 1);
+assert.sameValue(b, 2);
+assert.sameValue(x, 2);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

@@ -1,0 +1,27 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    An AssignmentRestElement following an elision consumes all remaining
+    iterable values.
+template: default
+---*/
+
+//- setup
+let x;
+//- elems
+[, ...x]
+//- vals
+[1, 2, 3]
+//- body
+assert.sameValue(x.length, 2);
+assert.sameValue(x[0], 2);
+assert.sameValue(x[1], 3);
+
+
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

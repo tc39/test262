@@ -1,0 +1,26 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Outside of strict mode, if the the assignment target is an unresolvable
+    reference, a new `var` binding should be created in the environment record.
+template: default
+es6id: 12.14.5.4
+flags: [noStrict]
+---*/
+
+//- setup
+{
+//- elems
+{ x: unresolvable }
+//- vals
+{}
+//- teardown
+promise
+  .then(() => {
+    assert.sameValue(unresolvable, undefined);
+    assert.sameValue(iterCount, 1, 'iteration occurred as expected');
+  }, $DONE)
+  .then($DONE, $DONE);
+}

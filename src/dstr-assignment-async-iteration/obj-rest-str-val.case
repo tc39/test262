@@ -1,0 +1,28 @@
+// Copyright (C) 2017 Caio Lima & the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    RestBindingInitialization creats an object with indexes as property name
+template: default
+esid: pending
+features: [object-rest]
+---*/
+
+//- setup
+let rest;
+
+//- elems
+{...rest}
+//- vals
+"foo"
+//- body
+assert.sameValue(rest["0"], "f");
+assert.sameValue(rest["1"], "o");
+assert.sameValue(rest["2"], "o");
+assert(rest instanceof Object);
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

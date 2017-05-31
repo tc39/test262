@@ -1,0 +1,17 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    The assignment target should obey `const` semantics.
+template: default
+es6id: 12.14.5.3
+features: [const]
+---*/
+
+//- setup
+const c = null;
+//- elems
+[ c ]
+//- vals
+[1]

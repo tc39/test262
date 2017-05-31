@@ -1,0 +1,70 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    IteratorClose is invoked when evaluation of AssignmentElementList completes
+    without exhausting the iterator
+info: |
+    ArrayAssignmentPattern :
+        [ AssignmentElementList , Elisionopt AssignmentRestElementopt ]
+
+    [...]
+    2. Let iteratorRecord be Record {[[iterator]]: iterator, [[done]]: false}.
+    3. Let status be the result of performing
+       IteratorDestructuringAssignmentEvaluation of AssignmentElementList using
+       iteratorRecord as the argument.
+    4. If status is an abrupt completion, then
+       a. If iteratorRecord.[[done]] is false, return IteratorClose(iterator,
+          status).
+       b. Return Completion(status).
+
+    7.4.6 IteratorClose ( iterator, completion )
+
+    [...]
+    5. Let innerResult be Call(return, iterator, « »).
+    [...]
+features: [Symbol.iterator]
+template: async-generator
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let nextCount = 0;
+let returnCount = 0;
+let thisValue = null;
+let args = null;
+let x;
+let iterator = {
+  next() {
+    nextCount += 1;
+    // Set an upper-bound to limit unnecessary iteration in non-conformant
+    // implementations
+    return { done: nextCount > 10 };
+  },
+  return() {
+    returnCount += 1;
+    thisValue = this;
+    args = arguments;
+    return {};
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- elems
+[ x , ]
+//- vals
+iterable
+//- body
+assert.sameValue(nextCount, 1);
+assert.sameValue(returnCount, 1);
+assert.sameValue(thisValue, iterator, 'correct `this` value');
+assert(!!args, 'arguments object provided');
+assert.sameValue(args.length, 0, 'zero arguments specified');
+
+//- teardown
+iter.next()
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

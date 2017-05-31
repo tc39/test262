@@ -1,0 +1,32 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    If the DestructuringAssignmentTarget of an AssignmentElement is a
+    PropertyReference, it should not be evaluated.
+template: default
+---*/
+
+//- setup
+let x, setValue;
+x = {
+  get y() {
+    $ERROR('The property should not be accessed.');
+  },
+  set y(val) {
+    setValue = val;
+  }
+};
+//- elems
+[x.y]
+//- vals
+[23]
+//- body
+assert.sameValue(setValue, 23);
+
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

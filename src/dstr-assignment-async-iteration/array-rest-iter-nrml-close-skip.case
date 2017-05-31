@@ -1,0 +1,50 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    IteratorClose is not called when assignment evaluation has exhausted the
+    iterator
+info: |
+    ArrayAssignmentPattern : [ Elisionopt AssignmentRestElement ]
+
+    [...]
+    4. Let result be the result of performing
+      IteratorDestructuringAssignmentEvaluation of AssignmentRestElement
+      with iteratorRecord as the argument.
+    5. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+    6. Return result.
+features: [Symbol.iterator]
+template: async-generator
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let nextCount = 0;
+let returnCount = 0;
+let x;
+let iterator = {
+  next() {
+    nextCount += 1;
+    return { done: true };
+  },
+  return() {
+    returnCount += 1;
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- elems
+[ ...x ]
+//- vals
+iterable
+//- body
+assert.sameValue(nextCount, 1);
+assert.sameValue(returnCount, 0);
+
+//- teardown
+iter.next()
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

@@ -1,0 +1,37 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Assignment of function `name` attribute (GeneratorExpression)
+template: default
+info: >
+    AssignmentElement[Yield] : DestructuringAssignmentTarget Initializeropt
+
+    [...]
+    7. If Initializer is present and value is undefined and
+       IsAnonymousFunctionDefinition(Initializer) and IsIdentifierRef of
+       DestructuringAssignmentTarget are both true, then
+       a. Let hasNameProperty be ? HasOwnProperty(v, "name").
+       b. If hasNameProperty is false, perform SetFunctionName(v, GetReferencedName(lref)).
+includes: [propertyHelper.js]
+features: [generators]
+---*/
+
+//- setup
+let xGen, gen;
+//- elems
+[ xGen = function* x() {}, gen = function*() {} ]
+//- vals
+[]
+//- body
+assert.notSameValue(xGen.name, 'xGen');
+
+assert.sameValue(gen.name, 'gen');
+verifyNotEnumerable(gen, 'name');
+verifyNotWritable(gen, 'name');
+verifyConfigurable(gen, 'name');
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

@@ -1,0 +1,31 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    When a `yield` token appears within the Initializer of an AssignmentElement
+    and within a generator function body, it should behave as a
+    YieldExpression.
+template: async-generator
+es6id: 12.14.5.4
+features: [generators]
+---*/
+
+//- setup
+let x;
+//- elems
+{ x: x = yield }
+//- vals
+{}
+//- teardown
+iter.next().then(result => {
+  assert.sameValue(result.value, undefined);
+  assert.sameValue(result.done, false);
+  assert.sameValue(x, undefined);
+
+  iter.next(86).then(result => {
+    assert.sameValue(result.value, undefined);
+    assert.sameValue(result.done, true);
+    assert.sameValue(x, 86);
+  }).then($DONE, $DONE);
+});

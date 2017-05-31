@@ -1,0 +1,25 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    PropertyName of an AssignmentProperty may be a ComputedPropertyName.
+template: default
+es6id: 12.14.5.2
+---*/
+
+//- setup
+let x, y, xy;
+//- elems
+{ ['x' + 'y']: x }
+//- vals
+{ x: 1, xy: 23, y: 2 }
+//- body
+assert.sameValue(x, 23);
+assert.sameValue(y, undefined);
+assert.sameValue(xy, undefined);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);
+

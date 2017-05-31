@@ -1,0 +1,37 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Assignment of function `name` attribute (CoverParenthesizedExpression)
+template: default
+info: >
+    AssignmentElement[Yield] : DestructuringAssignmentTarget Initializeropt
+
+    [...]
+    7. If Initializer is present and value is undefined and
+       IsAnonymousFunctionDefinition(Initializer) and IsIdentifierRef of
+       DestructuringAssignmentTarget are both true, then
+       a. Let hasNameProperty be ? HasOwnProperty(v, "name").
+       b. If hasNameProperty is false, perform SetFunctionName(v, GetReferencedName(lref)).
+includes: [propertyHelper.js]
+---*/
+
+//- setup
+let xCover, cover;
+//- elems
+[ xCover = (0, function() {}), cover = (function() {}) ]
+//- vals
+[]
+//- body
+assert(xCover.name !== 'xCover');
+
+assert.sameValue(cover.name, 'cover');
+verifyNotEnumerable(cover, 'name');
+verifyNotWritable(cover, 'name');
+verifyConfigurable(cover, 'name');
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

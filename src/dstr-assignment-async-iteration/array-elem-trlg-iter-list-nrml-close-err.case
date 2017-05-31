@@ -1,0 +1,59 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Abrupt completion returned from IteratorClose
+info: |
+    ArrayAssignmentPattern :
+        [ AssignmentElementList , Elisionopt AssignmentRestElementopt ]
+
+    [...]
+    2. Let iteratorRecord be Record {[[Iterator]]: iterator, [[Done]]: false}.
+    3. Let status be the result of performing
+       IteratorDestructuringAssignmentEvaluation of AssignmentElementList using
+       iteratorRecord as the argument.
+    4. If status is an abrupt completion, then
+       a. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, status).
+       b. Return Completion(status).
+
+features: [Symbol.iterator]
+template: async-generator
+es6id: 12.14.5.2
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let nextCount = 0;
+let returnCount = 0;
+let thrower = function() {
+  throw new Test262Error();
+};
+let x;
+let iterator = {
+  next() {
+    nextCount += 1;
+    return { done: nextCount > 10 };
+  },
+  return() {
+    returnCount += 1;
+    throw new Test262Error();
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+//- error
+Test262Error
+//- elems
+[ x , ]
+//- vals
+iterable
+//- teardown
+iter.next().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(nextCount, 1);
+  assert.sameValue(returnCount, 1);
+  assert.sameValue(constructor, Test262Error);
+}).then($DONE, $DONE);
+
+

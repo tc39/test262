@@ -1,0 +1,38 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Assignment of function `name` attribute (FunctionExpression)
+template: default
+es6id: 12.14.5.2
+info: >
+    AssignmentProperty : IdentifierReference Initializeropt
+
+    [...]
+    6. If Initializeropt is present and v is undefined, then
+       [...]
+       d. If IsAnonymousFunctionDefinition(Initializer) is true, then
+          i. Let hasNameProperty be HasOwnProperty(v, "name").
+          ii. ReturnIfAbrupt(hasNameProperty).
+          iii. If hasNameProperty is false, perform SetFunctionName(v, P).
+includes: [propertyHelper.js]
+---*/
+
+//- setup
+let xFnexp, fnexp;
+//- elems
+{ xFnexp = function x() {}, fnexp = function() {} }
+//- vals
+{}
+//- body
+assert.notSameValue(xFnexp.name, 'xFnexp');
+
+assert.sameValue(fnexp.name, 'fnexp');
+verifyNotEnumerable(fnexp, 'name');
+verifyNotWritable(fnexp, 'name');
+verifyConfigurable(fnexp, 'name');
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

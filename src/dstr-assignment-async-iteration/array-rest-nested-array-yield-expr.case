@@ -1,0 +1,31 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    When a `yield` token appears within the DestructuringAssignmentTarget of a
+    nested destructuring assignment and within a generator function body, it
+    should behave as a YieldExpression.
+template: async-generator
+features: [generators]
+---*/
+
+//- setup
+let x = {};
+
+//- elems
+[...[x[yield]]]
+//- vals
+[86]
+//- teardown
+iter.next().then(iterationResult => {
+  assert.sameValue(iterationResult.value, undefined);
+  assert.sameValue(iterationResult.done, false);
+  assert.sameValue(x.prop, undefined);
+
+  iter.next('prop').then(iterationResult => {
+    assert.sameValue(iterationResult.value, undefined);
+    assert.sameValue(iterationResult.done, true);
+    assert.sameValue(x.prop, 86);
+  }).then($DONE, $DONE);
+});
