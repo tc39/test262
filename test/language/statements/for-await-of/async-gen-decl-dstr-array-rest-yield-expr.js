@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-yield-expr.case
+// - src/dstr-assignment-for-await/array-rest-yield-expr.case
 // - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
 /*---
-description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentElement within a generator function body, it behaves as a YieldExpression. (for-await-of statement in an async generator declaration)
+description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentRestElement and within the body of a generator function, it should behave as a YieldExpression. (for-await-of statement in an async generator declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [generators, destructuring-binding, async-iteration]
 flags: [generated, async]
@@ -24,16 +24,12 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let value = [33];
 let x = {};
-let iterationResult;
 
 
 let iterCount = 0;
 async function * fn() {
-  for await ([ x[yield] ] of [[33]
-
-]) {
+  for await ([...x[yield]] of [[33, 44, 55]]) {
     
     iterCount += 1;
   }
@@ -49,6 +45,11 @@ iter.next().then(iterationResult => {
   iter.next('prop').then(iterationResult => {
     assert.sameValue(iterationResult.value, undefined);
     assert.sameValue(iterationResult.done, true);
-    assert.sameValue(x.prop, 33);
+    assert.sameValue(x.prop.length, 3);
+    assert.sameValue(x.prop[0], 33);
+    assert.sameValue(x.prop[1], 44);
+    assert.sameValue(x.prop[2], 55);
+    assert.sameValue(iterCount, 1);
   }).then($DONE, $DONE);
 });
+

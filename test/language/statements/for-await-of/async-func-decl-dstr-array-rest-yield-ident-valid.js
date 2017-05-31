@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-simple-no-strict.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment-for-await/array-rest-yield-ident-valid.case
+// - src/dstr-assignment-for-await/async-function/async-func-decl.template
 /*---
-description: Identifiers that appear as the DestructuringAssignmentTarget in an AssignmentElement should take on the iterated value corresponding to their position in the ArrayAssignmentPattern. (for-await-of statement in an async generator declaration)
+description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentRestElement and outside of a generator function body, it should behave as an IdentifierReference. (for-await-of statement in an async function declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [destructuring-binding, async-iteration]
 flags: [generated, noStrict, async]
@@ -24,21 +24,24 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let argument, eval;
+let yield = 'prop';
+let x = {};
 
 let iterCount = 0;
-async function * fn() {
-  for await ([arguments, eval] of [[2, 3]]) {
-    assert.sameValue(arguments, 2);
-    assert.sameValue(eval, 3);
+async function fn() {
+  for await ([...x[yield]] of [[33, 44, 55]]) {
+    assert.sameValue(x.prop.length, 3);
+    assert.sameValue(x.prop[0], 33);
+    assert.sameValue(x.prop[1], 44);
+    assert.sameValue(x.prop[2], 55);
 
 
     iterCount += 1;
   }
 }
 
-let iter = fn();
+let promise = fn();
 
-iter.next()
+promise
   .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);

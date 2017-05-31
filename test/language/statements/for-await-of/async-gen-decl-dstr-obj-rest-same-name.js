@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-simple-no-strict.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment-for-await/obj-rest-same-name.case
+// - src/dstr-assignment-for-await/default/async-gen-decl.template
 /*---
-description: Identifiers that appear as the DestructuringAssignmentTarget in an AssignmentElement should take on the iterated value corresponding to their position in the ArrayAssignmentPattern. (for-await-of statement in an async generator declaration)
+description: Proper setting in the values for rest name equal to a property name. (for-await-of statement in an async generator declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [destructuring-binding, async-iteration]
-flags: [generated, noStrict, async]
+features: [object-rest, destructuring-binding, async-iteration]
+flags: [generated, async]
 info: |
     IterationStatement :
       for await ( LeftHandSideExpression of AssignmentExpression ) Statement
@@ -24,21 +24,33 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let argument, eval;
+let o = {
+  x: 42,
+  y: 39,
+  z: 'cheeseburger'
+};
+
+let x, y, z;
 
 let iterCount = 0;
 async function * fn() {
-  for await ([arguments, eval] of [[2, 3]]) {
-    assert.sameValue(arguments, 2);
-    assert.sameValue(eval, 3);
+  for await ({ x, ...z } of [o]) {
+    assert.sameValue(x, 42);
+    assert.sameValue(y, undefined);
+    assert.sameValue(z.y, 39);
+    assert.sameValue(z.z, 'cheeseburger');
 
+    let keys = Object.keys(z);
+    assert.sameValue(keys.length, 2);
+    assert.sameValue(keys[0], 'y');
+    assert.sameValue(keys[1], 'z');
 
     iterCount += 1;
   }
 }
 
-let iter = fn();
+let promise = fn().next();
 
-iter.next()
+promise
   .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);

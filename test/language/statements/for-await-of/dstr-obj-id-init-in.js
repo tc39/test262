@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-simple-no-strict.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment/obj-id-init-in.case
+// - src/dstr-assignment/default/for-await-of.template
 /*---
-description: Identifiers that appear as the DestructuringAssignmentTarget in an AssignmentElement should take on the iterated value corresponding to their position in the ArrayAssignmentPattern. (for-await-of statement in an async generator declaration)
+description: The Initializer in an AssignmentProperty may be an `in` expression. (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [destructuring-binding, async-iteration]
-flags: [generated, noStrict, async]
+flags: [generated, async]
 info: |
     IterationStatement :
       for await ( LeftHandSideExpression of AssignmentExpression ) Statement
@@ -24,21 +24,17 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let argument, eval;
+var prop;
 
-let iterCount = 0;
-async function * fn() {
-  for await ([arguments, eval] of [[2, 3]]) {
-    assert.sameValue(arguments, 2);
-    assert.sameValue(eval, 3);
+var counter = 0;
 
-
-    iterCount += 1;
+async function fn() {
+  for await ({ prop = 'x' in {} } of [{}]) {
+    assert.sameValue(prop, false);
+    counter += 1;
   }
 }
 
-let iter = fn();
-
-iter.next()
-  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+fn()
+  .then(() => assert.sameValue(counter, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);

@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-yield-expr.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment-for-await/array-rest-iteration.case
+// - src/dstr-assignment-for-await/default/async-gen-decl.template
 /*---
-description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentElement within a generator function body, it behaves as a YieldExpression. (for-await-of statement in an async generator declaration)
+description: In the presense of an AssignmentRestElement, value iteration exhausts the iterable value; (for-await-of statement in an async generator declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [generators, destructuring-binding, async-iteration]
 flags: [generated, async]
@@ -24,31 +24,29 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let value = [33];
-let x = {};
-let iterationResult;
-
+let count = 0;
+let g = function*() {
+  count += 1;
+  yield;
+  count += 1;
+  yield;
+  count += 1;
+}
+let x;
 
 let iterCount = 0;
 async function * fn() {
-  for await ([ x[yield] ] of [[33]
+  for await ([...x] of [g()]) {
+    assert.sameValue(count, 3);
 
-]) {
-    
     iterCount += 1;
   }
 }
 
-let iter = fn();
+let promise = fn().next();
 
-iter.next().then(iterationResult => {
-  assert.sameValue(iterationResult.value, undefined);
-  assert.sameValue(iterationResult.done, false);
-  assert.sameValue(x.prop, undefined);
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);
 
-  iter.next('prop').then(iterationResult => {
-    assert.sameValue(iterationResult.value, undefined);
-    assert.sameValue(iterationResult.done, true);
-    assert.sameValue(x.prop, 33);
-  }).then($DONE, $DONE);
-});
+

@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-yield-expr.case
+// - src/dstr-assignment-for-await/array-elem-iter-nrml-close-skip.case
 // - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
 /*---
-description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentElement within a generator function body, it behaves as a YieldExpression. (for-await-of statement in an async generator declaration)
+description: IteratorClose is not called when assignment evaluation has exhausted the iterator (for-await-of statement in an async generator declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [generators, destructuring-binding, async-iteration]
+features: [Symbol.iterator, destructuring-binding, async-iteration]
 flags: [generated, async]
 info: |
     IterationStatement :
@@ -23,32 +23,45 @@ info: |
        b. Let assignmentPattern be the parse of the source text corresponding to
           lhs using AssignmentPattern as the goal symbol.
     [...]
----*/
-let value = [33];
-let x = {};
-let iterationResult;
 
+    ArrayAssignmentPattern : [ AssignmentElementList ]
+
+    [...]
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+    5. Return result.
+
+---*/
+let nextCount = 0;
+let returnCount = 0;
+let _;
+let iterator = {
+  next() {
+    nextCount += 1;
+    return { done: true };
+  },
+  return() {
+    returnCount += 1;
+    return {};
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
 
 let iterCount = 0;
 async function * fn() {
-  for await ([ x[yield] ] of [[33]
+  for await ([ _ ] of [iterable]) {
+    assert.sameValue(nextCount, 1);
+    assert.sameValue(returnCount, 0);
 
-]) {
-    
     iterCount += 1;
   }
 }
 
 let iter = fn();
 
-iter.next().then(iterationResult => {
-  assert.sameValue(iterationResult.value, undefined);
-  assert.sameValue(iterationResult.done, false);
-  assert.sameValue(x.prop, undefined);
-
-  iter.next('prop').then(iterationResult => {
-    assert.sameValue(iterationResult.value, undefined);
-    assert.sameValue(iterationResult.done, true);
-    assert.sameValue(x.prop, 33);
-  }).then($DONE, $DONE);
-});
+iter.next().then(() => {
+  assert.sameValue(iterCount, 1);
+}).then($DONE, $DONE);

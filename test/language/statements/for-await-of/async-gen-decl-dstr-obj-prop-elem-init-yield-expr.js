@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-yield-expr.case
+// - src/dstr-assignment-for-await/obj-prop-elem-init-yield-expr.case
 // - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
 /*---
-description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentElement within a generator function body, it behaves as a YieldExpression. (for-await-of statement in an async generator declaration)
+description: When a `yield` token appears within the Initializer of an AssignmentElement and within a generator function body, it should behave as a YieldExpression. (for-await-of statement in an async generator declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [generators, destructuring-binding, async-iteration]
 flags: [generated, async]
@@ -24,16 +24,11 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let value = [33];
-let x = {};
-let iterationResult;
-
+let x;
 
 let iterCount = 0;
 async function * fn() {
-  for await ([ x[yield] ] of [[33]
-
-]) {
+  for await ({ x: x = yield } of [{}]) {
     
     iterCount += 1;
   }
@@ -41,14 +36,14 @@ async function * fn() {
 
 let iter = fn();
 
-iter.next().then(iterationResult => {
-  assert.sameValue(iterationResult.value, undefined);
-  assert.sameValue(iterationResult.done, false);
-  assert.sameValue(x.prop, undefined);
+iter.next().then(result => {
+  assert.sameValue(result.value, undefined);
+  assert.sameValue(result.done, false);
+  assert.sameValue(x, undefined);
 
-  iter.next('prop').then(iterationResult => {
-    assert.sameValue(iterationResult.value, undefined);
-    assert.sameValue(iterationResult.done, true);
-    assert.sameValue(x.prop, 33);
+  iter.next(86).then(result => {
+    assert.sameValue(result.value, undefined);
+    assert.sameValue(result.done, true);
+    assert.sameValue(x, 86);
   }).then($DONE, $DONE);
 });

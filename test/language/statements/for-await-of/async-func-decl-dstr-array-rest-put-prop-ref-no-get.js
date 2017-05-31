@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-simple-no-strict.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment-for-await/array-rest-put-prop-ref-no-get.case
+// - src/dstr-assignment-for-await/default/async-func-decl.template
 /*---
-description: Identifiers that appear as the DestructuringAssignmentTarget in an AssignmentElement should take on the iterated value corresponding to their position in the ArrayAssignmentPattern. (for-await-of statement in an async generator declaration)
+description: If the DestructuringAssignmentTarget of an AssignmentElement is a PropertyReference, it should not be evaluated. (for-await-of statement in an async function declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [destructuring-binding, async-iteration]
-flags: [generated, noStrict, async]
+flags: [generated, async]
 info: |
     IterationStatement :
       for await ( LeftHandSideExpression of AssignmentExpression ) Statement
@@ -24,21 +24,29 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let argument, eval;
+let setValue;
+let x = {
+  get y() {
+    $ERROR('The property should not be accessed.');
+  },
+  set y(val) {
+    setValue = val;
+  }
+};
 
 let iterCount = 0;
-async function * fn() {
-  for await ([arguments, eval] of [[2, 3]]) {
-    assert.sameValue(arguments, 2);
-    assert.sameValue(eval, 3);
-
-
+async function fn() {
+  for await ([...x.y] of [[23, 45, 99]]) {
+    assert.sameValue(setValue.length, 3);
+    assert.sameValue(setValue[0], 23);
+    assert.sameValue(setValue[1], 45);
+    assert.sameValue(setValue[2], 99);
     iterCount += 1;
   }
 }
 
-let iter = fn();
+let promise = fn();
 
-iter.next()
+promise
   .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);
