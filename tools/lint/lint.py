@@ -6,6 +6,7 @@ import argparse
 import sys
 
 from lib.collect_files import collect_files
+from lib.checks.features import CheckFeatures
 from lib.checks.frontmatter import CheckFrontmatter
 from lib.checks.license import CheckLicense
 from lib.eprint import eprint
@@ -20,7 +21,7 @@ parser.add_argument('path',
         nargs='+',
         help='file name or directory of files to lint')
 
-checks = [CheckFrontmatter(), CheckLicense()]
+checks = [CheckFrontmatter(), CheckFeatures('features.txt'), CheckLicense()]
 
 def lint(file_names):
     errors = dict()
