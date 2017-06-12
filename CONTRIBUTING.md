@@ -1,5 +1,11 @@
 # Test262 Authoring Guidelines
 
+## Source Material
+
+- https://tc39.github.io/ecma262/
+- https://github.com/tc39/ecma262/pulls?q=is%3Apr+is%3Aopen+label%3A%22needs+tests%22
+  + This is a list of the "needs tests" PRs for changes to the specification.
+
 ## Test Case Names
 
 Test cases should be created in files that are named to identify the feature or API that's being tested.
