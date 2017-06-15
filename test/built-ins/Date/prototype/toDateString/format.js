@@ -15,5 +15,5 @@ let match = dateRegExp.exec(new Date().toDateString());
 assert.notSameValue(null, match);
 
 // Years are padded to the left with zeroes
-match = stringRegExp.exec(new Date('0020-01-01T00:00:00Z').toDateString());
+match = dateRegExp.exec(new Date('0020-01-01T00:00:00Z').toDateString());
 assert.notSameValue(null, match);
