@@ -39,6 +39,12 @@ function verifyProperty(obj, name, desc, options) {
 
   var failures = [];
 
+  if (Object.prototype.hasOwnProperty.call(desc, 'value')) {
+    if (desc.value !== originalDesc.value) {
+      failures.push(`descriptor value should be ${desc.value}`);
+    }
+  }
+
   if (Object.prototype.hasOwnProperty.call(desc, 'enumerable')) {
     if (desc.enumerable !== originalDesc.enumerable ||
         desc.enumerable !== isEnumerable(obj, name)) {
