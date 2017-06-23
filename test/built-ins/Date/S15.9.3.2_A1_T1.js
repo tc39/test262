@@ -7,8 +7,7 @@ info: >
     a constructor: it initialises the newly created object
 es5id: 15.9.3.2_A1_T1
 description: Checking types of newly created objects and it values
-includes:
-    - Date_constants.js
+includes: [dateConstants.js]
 ---*/
 
 if (typeof new Date(date_1899_end) !== "object") {

@@ -8,8 +8,7 @@ info: >
     initial value of Date.prototype
 es5id: 15.9.3.2_A2_T1
 description: Checking Date.prototype property of newly constructed objects
-includes:
-    - Date_constants.js
+includes: [dateConstants.js]
 ---*/
 
 var x11 = new Date(date_1899_end);
