@@ -3,6 +3,11 @@
 
 /*---
 description: >
+    Including sta.js will expose two functions:
+
+        Test262Error
+        $ERROR
+
     Assert that global $ERROR is overridable
 includes: [sta.js]
 ---*/
