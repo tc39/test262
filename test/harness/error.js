@@ -3,10 +3,10 @@
 
 /*---
 description: >
-    The global `$ERROR` function throws an instance of the global `Test262`
+    The global `$ERROR` function throws an instance of the global `Test262Error`
     function with the specified message.
+includes: [sta.js]
 ---*/
-
 var threw = false;
 
 try {
@@ -25,5 +25,5 @@ try {
 }
 
 if (threw === false) {
-  throw new Error('Expected a Test262Error, but no error was thrown.');
+  $ERROR('Expected a Test262Error, but no error was thrown.');
 }
