@@ -2,7 +2,7 @@
  * Verify that a subArray is contained within an array.
  *
  * @param {Array} array
- * @param {Array} array
+ * @param {Array} subArray
  */
 
 function arrayContains(array, subArray) {
