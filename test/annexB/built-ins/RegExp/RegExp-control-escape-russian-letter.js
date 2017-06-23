@@ -42,17 +42,11 @@ for (let letter of invalidControls()) {
     var char = letter.charCodeAt(0);
     var str = String.fromCharCode(char % 32);
     var arr = re.exec(str);
+    assert.sameValue(arr, null, `Character ${letter} unreasonably wrapped around as a control character`);
+  }
+  arr = re.exec(source.substring(1));
+  assert.sameValue(arr, null, `invalid \\c escape matched c rather than \\c when followed by ${letter}`);
 
-    if (arr !== null) {
-      $ERROR(`Character ${letter} unreasonably wrapped around as a control character`);
-    }
-  }
-  arr = re.exec(source.substring(1))
-  if (arr !== null) {
-    $ERROR(`invalid \\c escape matched c rather than \\c when followed by ${letter}`);
-  }
-  arr = re.exec(source)
-  if (arr === null) {
-    $ERROR(`invalid \\c escape failed to match \\c when followed by ${letter}`);
-  }
+  arr = re.exec(source);
+  assert.notSameValue(arr, null, `invalid \\c escape failed to match \\c when followed by ${letter}`);
 }
