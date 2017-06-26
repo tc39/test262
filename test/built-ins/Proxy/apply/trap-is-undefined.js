@@ -2,8 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 9.5.13
+esid: sec-proxy-object-internal-methods-and-internal-slots-call-thisargument-argumentslist
 description: >
-    If trap is undefined, propagate the call to the target object.
+    If trap is null or undefined, propagate the call to the target object.
 info: >
     [[Call]] (thisArgument, argumentsList)
 
@@ -11,11 +12,20 @@ info: >
     argumentsList).
 ---*/
 
-var target = function(a, b) {
+let ctx = {};
+let target = function(a, b) {
+    assert.sameValue(this, ctx);
     return a + b;
 };
-var p = new Proxy(target, {
-    apply: undefined
-});
 
-assert.sameValue(p(1, 2), 3);
+let handlers = [
+    {},
+    {apply: undefined},
+    {apply: null},
+];
+
+for (let handler of handlers) {
+    let p = new Proxy(target, handler);
+    let res = Reflect.apply(p, ctx, [1, 2]);
+    assert.sameValue(res, 3);
+}
