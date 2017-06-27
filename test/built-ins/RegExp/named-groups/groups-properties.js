@@ -31,9 +31,3 @@ assert.sameValue(counter, 0);
 verifyWritable(groups, "x");
 verifyEnumerable(groups, "x");
 verifyConfigurable(groups, "x");
-
-// The '__proto__' property on the groups object is not special,
-// and does not affect the [[Prototype]] of the resulting groups object.
-groups = /(?<__proto__>a)/u.exec("a").groups;
-assert.sameValue("a", groups.__proto__);
-assert.sameValue(null, Object.getPrototypeOf(groups));

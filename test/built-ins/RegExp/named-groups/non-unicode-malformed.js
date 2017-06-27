@@ -23,6 +23,7 @@ assert(/\k<a/.test("k<a"));
 assert(/\k/.test("k"));
 assert.throws(SyntaxError, () => eval("/(?<a>.)\\k/"));
 assert.throws(SyntaxError, () => eval("/(?<a>.)\\k<a/"));
+assert.throws(SyntaxError, () => eval("/(?<a>.)\\k<>/"));
 assert.throws(SyntaxError, () => eval("/(?<a>.)\\k<b>/"));
 assert.throws(SyntaxError, () => eval("/(?<a>a)\\k<ab>/"));
 assert.throws(SyntaxError, () => eval("/(?<ab>a)\\k<a>/"));
