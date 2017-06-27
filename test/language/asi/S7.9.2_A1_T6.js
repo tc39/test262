@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: Check examples for automatic semicolon insertion from the Standart
+description: Check examples for automatic semicolon insertion from the Standart
 es5id: 7.9.2_A1_T6
-description: >
+info: >
     if(a>b) \n else c=d is not a valid sentence in the ECMAScript
     grammar
 negative:
