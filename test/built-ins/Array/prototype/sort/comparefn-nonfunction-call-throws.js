@@ -47,3 +47,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   sample.sort({});
 });
+
+assert.throws(TypeError, function() {
+  sample.sort(Symbol());
+});
