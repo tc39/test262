@@ -1,4 +1,4 @@
-// Copyright (C) 2017 Rick Waldron, 2016 the V8 project authors.
+// Copyright (C) 2017 Rick Waldron, 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
@@ -11,8 +11,8 @@ description: >
 includes: [nans.js]
 ---*/
 
-assert.sameValue(isNaN(distinctNaNs[0]), true);
-assert.sameValue(isNaN(distinctNaNs[1]), true);
-assert.sameValue(isNaN(distinctNaNs[2]), true);
-assert.sameValue(isNaN(distinctNaNs[3]), true);
-assert.sameValue(isNaN(distinctNaNs[4]), true);
+assert.sameValue(Number.isNaN(distinctNaNs[0]), true);
+assert.sameValue(Number.isNaN(distinctNaNs[1]), true);
+assert.sameValue(Number.isNaN(distinctNaNs[2]), true);
+assert.sameValue(Number.isNaN(distinctNaNs[3]), true);
+assert.sameValue(Number.isNaN(distinctNaNs[4]), true);
