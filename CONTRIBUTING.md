@@ -51,7 +51,7 @@ Test262 supports the following tags:
  - [**negative**](#negative)
  - [**es5id**](#es5id)
  - [**es6id**](#es6id)
- - [**esid**](#esid) (required)
+ - [**esid**](#esid) (required for new tests)
  - [**includes**](#includes)
  - [**timeout**](#timeout)
  - [**author**](#author)
@@ -61,7 +61,7 @@ Test262 supports the following tags:
 #### description
 **description**: [string]
 
-This one of two required frontmatter tags. It should be a short, one-line
+This is one of two required frontmatter tags. It should be a short, one-line
 description of the purpose of this testcase.  This is the string displayed by
 the browser runnner.
 
