@@ -1,5 +1,4 @@
-//Date_constants.js
-// Copyright 2009 the Sputnik authors.  All rights reserved.
+// Copyright (C) 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 var date_1899_end = -2208988800001;

@@ -7,8 +7,7 @@ info: >
     is set to "Date"
 es5id: 15.9.3.2_A3_T1.1
 description: Test based on delete prototype.toString
-includes:
-    - Date_constants.js
+includes: [dateConstants.js]
 ---*/
 
 var x1 = new Date(date_1899_end);

@@ -6,4 +6,6 @@ function checkSequence(arr, message) {
              " '" + arr.join(',') + "'");
     }
   });
+
+  return true;
 }
