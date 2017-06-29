@@ -7,6 +7,8 @@ info: >
     without [B1, B2] = [0xE0, 0x80 - 0x9F], [0xED, 0xA0 - 0xBF] (0xD800 -
     0xDFFF), return UTF8(B1, B2, B3)
 es5id: 15.1.3.1_A2.4_T1
+es6id: 18.2.6.2
+esid: sec-decodeuri-encodeduri
 description: Complex tests, use RFC 3629
 includes: [decimalToHexString.js]
 ---*/
