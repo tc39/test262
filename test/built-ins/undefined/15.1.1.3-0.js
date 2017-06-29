@@ -10,7 +10,7 @@ description: >
     (false)
 ---*/
 
-    var desc = Object.getOwnPropertyDescriptor(this, 'undefined');
+var desc = Object.getOwnPropertyDescriptor(this, 'undefined');
 
 assert.sameValue(desc.writable, false, 'desc.writable');
 assert.sameValue(desc.enumerable, false, 'desc.enumerable');
