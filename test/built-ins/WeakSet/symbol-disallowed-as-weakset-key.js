@@ -13,5 +13,3 @@ var sym = Symbol();
 assert.throws(TypeError, function() {
   weakset.add(sym);
 });
-
-
