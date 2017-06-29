@@ -22,27 +22,27 @@ for (var indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {
   for (var indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
     count++;
     var hexB1_B2 = hexB1 + decimalToPercentHexString(indexB2);
-    var index = (indexB1 & 0x1F) * 0x40 + (indexB2 & 0x3F);  
+    var index = (indexB1 & 0x1F) * 0x40 + (indexB2 & 0x3F);
     if (decodeURIComponent(hexB1_B2) === String.fromCharCode(index)) continue;
 
-    if (indexO === 0) { 
+    if (indexO === 0) {
       indexO = index;
     } else {
-      if ((index - indexP) !== 1) {             
+      if ((index - indexP) !== 1) {
         if ((indexP - indexO) !== 0) {
           var hexP = decimalToHexString(indexP);
           var hexO = decimalToHexString(indexO);
           $ERROR('#' + hexO + '-' + hexP + ' ');
-        } 
+        }
         else {
           var hexP = decimalToHexString(indexP);
           $ERROR('#' + hexP + ' ');
-        }  
+        }
         indexO = index;
-      }         
+      }
     }
     indexP = index;
-    errorCount++;       
+    errorCount++;
   }
 }
 
@@ -54,6 +54,6 @@ if (errorCount > 0) {
   } else {
     var hexP = decimalToHexString(indexP);
     $ERROR('#' + hexP + ' ');
-  }     
+  }
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count + ' ');
 }

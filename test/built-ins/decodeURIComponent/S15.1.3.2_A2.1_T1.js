@@ -16,20 +16,20 @@ var count = 0;
 for (var indexI = 0; indexI <= 65535; indexI++) {
   if (indexI !== 0x25) {
     var hex = decimalToHexString(indexI);
-    try {    
+    try {
       var str = String.fromCharCode(indexI);
-      if (decodeURIComponent(str) !== str) {    
+      if (decodeURIComponent(str) !== str) {
         $ERROR('#' + hex + ' ');
         errorCount++;
-      }    
+      }
     } catch (e){
       $ERROR('#' + hex + ' ');
       errorCount++;
-    } 
+    }
     count++;
   }
-}  
+}
 
-if (errorCount > 0) {    
+if (errorCount > 0) {
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);
 }
