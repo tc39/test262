@@ -19,14 +19,14 @@ for (var indexI = 0; indexI < interval.length; indexI++) {
     try {
       decodeURI("%" + String.fromCharCode(indexJ) + "1");
       result = false;
-    } catch (e) {   
+    } catch (e) {
       if ((e instanceof URIError) !== true) {
         result = false;
       }
-    }    
-  }  
-}  
+    }
+  }
+}
 
-if (result !== true) {    
+if (result !== true) {
   $ERROR('#1: If string.charAt(k+1) does not represent hexadecimal digits, throw URIError');
 }

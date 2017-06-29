@@ -16,10 +16,10 @@ var indexP;
 var indexO = 0;
 var uriReserved = [";", "/", "?", ":", "@", "&", "=", "+", "$", ","];
 l:
-for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {       
+for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {
   count++;
   var hexB1 = decimalToPercentHexString(indexB1);
-  var index = indexB1;  
+  var index = indexB1;
   var hex = String.fromCharCode(index);
   for (var indexC = 0; indexC < uriReserved.length; indexC++) {
     if (hex === uriReserved[indexC]) continue l;
@@ -27,24 +27,24 @@ for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {
   if (hex === "#") continue;
   if (decodeURI(hexB1) === hex) continue;
 
-  if (indexO === 0) { 
+  if (indexO === 0) {
     indexO = index;
   } else {
-    if ((index - indexP) !== 1) {             
+    if ((index - indexP) !== 1) {
       if ((indexP - indexO) !== 0) {
         var hexP = decimalToHexString(indexP);
         var hexO = decimalToHexString(indexO);
         $ERROR('#' + hexO + '-' + hexP + ' ');
-      } 
+      }
       else {
         var hexP = decimalToHexString(indexP);
         $ERROR('#' + hexP + ' ');
-      }  
+      }
       indexO = index;
-    }         
+    }
   }
   indexP = index;
-  errorCount++;         
+  errorCount++;
 }
 
 if (errorCount > 0) {
@@ -55,6 +55,6 @@ if (errorCount > 0) {
   } else {
     var hexP = decimalToHexString(indexP);
     $ERROR('#' + hexP + ' ');
-  }     
+  }
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count + ' ');
 }
