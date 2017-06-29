@@ -19,7 +19,7 @@ var result = true;
 for (p in eval){
   if (p === "length") {
     result = false;
-  }  
+  }
 }
 
 if (result !== true) {
