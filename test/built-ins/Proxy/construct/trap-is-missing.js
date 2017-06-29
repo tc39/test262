@@ -10,22 +10,15 @@ info: >
 
     7. If trap is undefined, then
         b. Return Construct(target, argumentsList, newTarget).
+features: [Reflect.construct]
 ---*/
 
-let NewTarget = function() {};
-let Target = function(a, b) {
+function NewTarget() {}
+function Target(a, b) {
     assert.sameValue(new.target, NewTarget);
     return {sum: a + b};
-};
-
-let handlers = [
-    {},
-    {construct: undefined},
-    {construct: null},
-];
-
-for (let handler of handlers) {
-    let P = new Proxy(Target, handler);
-    let res = Reflect.construct(P, [1, 2], NewTarget);
-    assert.sameValue(res.sum, 3);
 }
+
+var P = new Proxy(Target, {});
+var obj = Reflect.construct(P, [1, 2], NewTarget);
+assert.sameValue(obj.sum, 3, "`construct` trap is missing");
