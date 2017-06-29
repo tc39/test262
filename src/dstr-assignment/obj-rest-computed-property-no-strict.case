@@ -9,11 +9,11 @@ template: default
 esid: pending
 includes: [propertyHelper.js]
 features: [object-rest]
+flags: [noStrict]
 ---*/
 
 //- setup
 var a = "foo";
-var b, rest;
 //- elems
 {[a]:b, ...rest}
 //- vals
