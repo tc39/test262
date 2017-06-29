@@ -16,31 +16,31 @@ var indexP;
 var indexO = 0;
 
 for (var index = 0xDC00; index <= 0xDFFF; index++) {
-  count++; 
+  count++;
   var hex = decimalToHexString(index);
   try {
     encodeURI(String.fromCharCode(index));
-  } catch (e) { 
-    if ((e instanceof URIError) === true) continue;                
+  } catch (e) {
+    if ((e instanceof URIError) === true) continue;
   }
-  if (indexO === 0) { 
+  if (indexO === 0) {
     indexO = index;
   } else {
-    if ((index - indexP) !== 1) {             
+    if ((index - indexP) !== 1) {
       if ((indexP - indexO) !== 0) {
         var hexP = decimalToHexString(indexP);
         var hexO = decimalToHexString(indexO);
         $ERROR('#' + hexO + '-' + hexP + ' ');
-      } 
+      }
       else {
         var hexP = decimalToHexString(indexP);
         $ERROR('#' + hexP + ' ');
-      }  
+      }
       indexO = index;
-    }         
+    }
   }
   indexP = index;
-  errorCount++;       
+  errorCount++;
 }
 
 if (errorCount > 0) {
@@ -51,6 +51,6 @@ if (errorCount > 0) {
   } else {
     var hexP = decimalToHexString(indexP);
     $ERROR('#' + hexP + ' ');
-  }     
+  }
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count + ' ');
 }
