@@ -19,10 +19,10 @@ function Target(a, b) {
     return {sum: a + b};
 }
 
-var P = new Proxy(Target, {construct: undefined});
+var P = new Proxy(Target, {construct: null});
 var obj = Reflect.construct(P, [3, 4], NewTarget);
-assert.sameValue(obj.sum, 7, "`construct` trap is `undefined`");
+assert.sameValue(obj.sum, 7, "`construct` trap is `null`");
 
-P = new Proxy(Target, {construct: null});
+P = new Proxy(Target, {construct: undefined});
 obj = Reflect.construct(P, [5, 6], NewTarget);
-assert.sameValue(obj.sum, 11, "`construct` trap is `null`");
+assert.sameValue(obj.sum, 11, "`construct` trap is `undefined`");
