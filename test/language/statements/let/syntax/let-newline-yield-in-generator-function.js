@@ -5,11 +5,11 @@
 author: Jeff Walden <jwalden+code@mit.edu>
 esid: sec-let-and-const-declarations
 description: >
-  `let await` does not permit ASI in between, as `await` is a BindingIdentifier
+  `let yield` does not permit ASI in between, as `yield` is a BindingIdentifier
 info: >
-  `await` is a perfectly cromulent binding name in any context grammatically, just
+  `yield` is a perfectly cromulent binding name in any context grammatically, just
   prohibited by static semantics in some contexts.  Therefore ASI can never apply
-  between `let` (where a LexicalDeclaration is permitted) and `await`,
+  between `let` (where a LexicalDeclaration is permitted) and `yield`,
   so a subsequent `0` where `=` was expected is a syntax error.
 negative:
   phase: early
@@ -18,7 +18,7 @@ negative:
 
 throw "Test262: This statement should not be evaluated.";
 
-async function f() {
+function* f() {
     let
-    await 0;
+    yield 0;
 }
