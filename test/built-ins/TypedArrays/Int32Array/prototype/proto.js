@@ -3,6 +3,7 @@
 
 /*---
 es6id: 22.2.6
+esid: sec-properties-of-typedarray-prototype-objects
 description: >
   The prototype of Int32Array.prototype is %TypedArrayPrototype%.
 info: >
