@@ -7,3 +7,8 @@
 # test/language/made-up-file.js FRONTMATTER LICENSE
 #
 # Note that lines prefixed with the "hash" symbol (#) will be ignored.
+test/language/directive-prologue/10.1.1-5gs.js NEGATIVE
+test/language/directive-prologue/10.1.1-2gs.js NEGATIVE
+test/language/directive-prologue/14.1-5gs.js NEGATIVE
+test/language/directive-prologue/14.1-4gs.js NEGATIVE
+test/language/directive-prologue/10.1.1-8gs.js NEGATIVE
