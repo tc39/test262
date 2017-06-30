@@ -10,4 +10,6 @@ negative:
   type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
+
 function __func(){\A\B\C};

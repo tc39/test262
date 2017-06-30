@@ -51,7 +51,7 @@ Test262 supports the following tags:
  - [**negative**](#negative)
  - [**es5id**](#es5id)
  - [**es6id**](#es6id)
- - [**esid**](#esid)
+ - [**esid**](#esid) (required for new tests)
  - [**includes**](#includes)
  - [**timeout**](#timeout)
  - [**author**](#author)
@@ -61,7 +61,7 @@ Test262 supports the following tags:
 #### description
 **description**: [string]
 
-This is the only required frontmatter tag. It should be a short, one-line
+This is one of two required frontmatter tags. It should be a short, one-line
 description of the purpose of this testcase.  This is the string displayed by
 the browser runnner.
 
@@ -106,7 +106,7 @@ This tag identifies the section number from the portion of the ECMAScript 6 stan
 #### esid
 **esid**: [spec-id]
 
-This tag identifies the hash ID from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `esid: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
+This tag is required for all new feature tests. This tag identifies the hash ID from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `esid: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
 
 When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash ID is not available.
 
@@ -187,7 +187,7 @@ function $DONE(arg) {
 
 ## Handling Errors and Negative Test Cases
 
-Expectations for **parsing errors** should be declared using [the `negative` frontmatter flag](#negative):
+Expectations for **parsing errors** should be declared using [the `negative` frontmatter flag](#negative). They must also include the exact `throw` statement specified in this example (in order to guarantee that implementations do not execute the code):
 
 ```javascript
 /*---
@@ -195,6 +195,8 @@ negative:
   phase: early
   type: SyntaxError
 ---*/
+
+throw "Test262: This statement should not be evaluated.";
 
 var var = var;
 ```

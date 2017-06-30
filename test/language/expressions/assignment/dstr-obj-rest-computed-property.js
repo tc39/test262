@@ -2,7 +2,7 @@
 // - src/dstr-assignment/obj-rest-computed-property.case
 // - src/dstr-assignment/default/assignment-expr.template
 /*---
-description: Destructuring field can be a computed property, i.e it can be defined  only at runtime. Rest operantion needs to skip these properties as well. (AssignmentExpression)
+description: Destructuring field can be a computed property, i.e it can be defined only at runtime. Rest operantion needs to skip these properties as well. (AssignmentExpression)
 esid: sec-variable-statement-runtime-semantics-evaluation
 es6id: 13.3.2.4
 features: [object-rest, destructuring-binding]
@@ -18,6 +18,7 @@ info: |
        BindingPattern passing rval and undefined as arguments.
 ---*/
 var a = "foo";
+var b, rest;
 
 var result;
 var vals = { foo: 1, bar: 2, baz: 3 };

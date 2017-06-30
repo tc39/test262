@@ -7,8 +7,7 @@ info: >
     is set to "Date"
 es5id: 15.9.3.2_A3_T1.2
 description: Test based on overwriting prototype.toString
-includes:
-    - Date_constants.js
+includes: [dateConstants.js]
 ---*/
 
 Date.prototype.toString = Object.prototype.toString;

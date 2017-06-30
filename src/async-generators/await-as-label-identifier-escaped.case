@@ -17,5 +17,7 @@ negative:
 template: syntax
 ---*/
 
+//- setup
+throw "Test262: This statement should not be evaluated.";
 //- body
   \u0061wait: ;

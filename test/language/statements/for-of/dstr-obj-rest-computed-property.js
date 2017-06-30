@@ -2,7 +2,7 @@
 // - src/dstr-assignment/obj-rest-computed-property.case
 // - src/dstr-assignment/default/for-of.template
 /*---
-description: Destructuring field can be a computed property, i.e it can be defined  only at runtime. Rest operantion needs to skip these properties as well. (For..of statement)
+description: Destructuring field can be a computed property, i.e it can be defined only at runtime. Rest operantion needs to skip these properties as well. (For..of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 es6id: 13.7.5.11
 features: [object-rest, destructuring-binding]
@@ -27,6 +27,7 @@ info: |
     [...]
 ---*/
 var a = "foo";
+var b, rest;
 
 var counter = 0;
 

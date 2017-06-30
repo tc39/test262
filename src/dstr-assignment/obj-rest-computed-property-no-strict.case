@@ -1,0 +1,39 @@
+// Copyright (C) 2017 Caio Lima. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Destructuring field can be a computed property, i.e it can be defined
+    only at runtime. Rest operantion needs to skip these properties as well.
+template: default
+esid: pending
+includes: [propertyHelper.js]
+features: [object-rest]
+flags: [noStrict]
+---*/
+
+//- setup
+var a = "foo";
+//- elems
+{[a]:b, ...rest}
+//- vals
+{ foo: 1, bar: 2, baz: 3 }
+//- body
+assert.sameValue(b, 1);
+assert.sameValue(rest.bar, 2);
+assert.sameValue(rest.baz, 3);
+
+assert.sameValue(Object.getOwnPropertyDescriptor(rest, "foo"), undefined);
+
+verifyProperty(rest, "bar", {
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+
+verifyProperty(rest, "baz", {
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+

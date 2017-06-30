@@ -17,6 +17,8 @@ negative:
   type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
+
 var yield = 23;
 var f, paramValue;
 

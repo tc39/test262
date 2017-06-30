@@ -3,7 +3,7 @@
 
 /*---
 desc: >
-    Destructuring field can be a computed property, i.e it can be defined 
+    Destructuring field can be a computed property, i.e it can be defined
     only at runtime. Rest operantion needs to skip these properties as well.
 template: default
 esid: pending
@@ -13,6 +13,7 @@ features: [object-rest]
 
 //- setup
 var a = "foo";
+var b, rest;
 //- elems
 {[a]:b, ...rest}
 //- vals
