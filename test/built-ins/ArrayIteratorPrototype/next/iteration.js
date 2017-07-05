@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+  esid: sec-%arrayiteratorprototype%.next
   description: >
       The method should return a valid iterator with the context as the
       IteratedObject.
