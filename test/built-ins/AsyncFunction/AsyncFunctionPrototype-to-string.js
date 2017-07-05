@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-esid: pending
+esid: sec-async-function-prototype-properties-toStringTag
 description: >
   %AsyncFunctionPrototype% has a Symbol.toStringTag property of "AsyncFunction"
 includes: [propertyHelper.js]
