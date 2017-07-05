@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+  esid: sec-%arrayiteratorprototype%-@@tostringtag
   description: >
       `Object.prototype.toString` should honor the value of the @@toStringTag
       attribute.
