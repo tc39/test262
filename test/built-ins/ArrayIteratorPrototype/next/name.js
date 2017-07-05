@@ -3,6 +3,7 @@
 
 /*---
 es6id: 22.1.5.2.1
+esid: sec-%arrayiteratorprototype%.next
 description: >
   %ArrayIteratorPrototype%.next.name is "next".
 info: >

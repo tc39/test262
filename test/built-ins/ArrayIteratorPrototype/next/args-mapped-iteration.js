@@ -1,7 +1,8 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 9.4.4.7 S22
+es6id: 9.4.4.7
+esid: sec-%arrayiteratorprototype%.next S22
 description: >
     Mapped arguments exotic objects should implement the Array iterator
     protocol.
