@@ -11,4 +11,6 @@ info: |
      a. If SameValue(R, %RegExpPrototype%) is true, return "(?:)".
 ---*/
 
-assert.sameValue(RegExp.prototype.source, '(?:)');
+var get = Object.getOwnPropertyDescriptor(RegExp.prototype, 'source').get;
+
+assert.sameValue(get.call(RegExp.prototype), '(?:)');
