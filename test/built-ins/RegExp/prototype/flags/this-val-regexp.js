@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-get-regexp.prototype.flags
-description: `flags` returns RegExp flags as a string
+description: >
+  RegExp.prototype.flags returns RegExp flags as a string
 info: |
   1. Let R be the this value.
   2. If Type(R) is not Object, throw a TypeError exception.
