@@ -9,6 +9,11 @@ info: >
 
   [...]
   4. Let global be ToBoolean(? Get(R, "global")).
+  6. Let ignoreCase be ToBoolean(? Get(R, "ignoreCase")).
+  8. Let multiline be ToBoolean(? Get(R, "multiline")).
+  10. Let dotAll be ToBoolean(? Get(R, "dotAll")).
+  12. Let unicode be ToBoolean(? Get(R, "unicode")).
+  14. Let sticky be ToBoolean(? Get(R, "sticky")).
 features: [Symbol, regexp-dotall]
 ---*/
 
