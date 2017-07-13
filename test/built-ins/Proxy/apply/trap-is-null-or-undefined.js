@@ -10,7 +10,6 @@ info: >
 
     7. If trap is undefined, then Return Call(target, thisArgument,
     argumentsList).
-features: [Reflect.apply]
 ---*/
 
 function target(a, b) {
@@ -20,9 +19,9 @@ function target(a, b) {
 
 var ctx = {};
 var p = new Proxy(target, {apply: null});
-var res = Reflect.apply(p, ctx, [1, 2]);
+var res = p.call(ctx, 1, 2);
 assert.sameValue(res, 3, "`apply` trap is `null`");
 
 p = new Proxy(target, {apply: undefined});
-res = Reflect.apply(p, ctx, [3, 4]);
+res = p.call(ctx, 3, 4);
 assert.sameValue(res, 7, "`apply` trap is `undefined`");

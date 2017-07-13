@@ -10,7 +10,6 @@ info: >
 
     7. If trap is undefined, then Return Call(target, thisArgument,
     argumentsList).
-features: [Reflect.apply]
 ---*/
 
 function target(a, b) {
@@ -20,5 +19,5 @@ function target(a, b) {
 
 var ctx = {};
 var p = new Proxy(target, {});
-var res = Reflect.apply(p, ctx, [1, 2]);
+var res = p.call(ctx, 1, 2);
 assert.sameValue(res, 3, "`apply` trap is missing");
