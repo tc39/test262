@@ -1,5 +1,9 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    A function used to assert the correctness of built-in objects.
+---*/
 
 /**
  * @description Tests that obj meets the requirements for built-in objects

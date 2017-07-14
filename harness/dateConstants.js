@@ -1,5 +1,9 @@
 // Copyright (C) 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    Collection of date-centric values
+---*/
 
 var date_1899_end = -2208988800001;
 var date_1900_start = -2208988800000;

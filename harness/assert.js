@@ -1,3 +1,10 @@
+// Copyright (C) 2017 Ecma International.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    Collection of assertion functions used throughout test262
+---*/
+
 function assert(mustBeTrue, message) {
   if (mustBeTrue === true) {
     return;

@@ -1,11 +1,14 @@
-// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
-// Copyright 2012-2013 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2011 2012 Norbert Lindenberg. All rights reserved.
+// Copyright (C) 2012 2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    This file contains shared functions for the tests in the conformance test
+    suite for the ECMAScript Internationalization API.
+author: Norbert Lindenberg
+---*/
 
 /**
- * This file contains shared functions for the tests in the conformance test
- * suite for the ECMAScript Internationalization API.
- * @author Norbert Lindenberg
  */
 
 
