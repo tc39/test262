@@ -1,3 +1,10 @@
+// Copyright (C) 2017 Ecma International.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    Collection of functions used to safely verify the correctness of
+    property descriptors.
+---*/
 
 function verifyProperty(obj, name, desc, options) {
   assert(

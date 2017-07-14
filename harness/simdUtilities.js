@@ -1,5 +1,12 @@
 // Copyright (C) 2016 ecmascript_simd authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    Collection of functions used to assert the correctness of SIMD objects.
+
+    No longer used in any tests.
+---*/
+
 
 function minNum(x, y) {
   return x != x ? y :

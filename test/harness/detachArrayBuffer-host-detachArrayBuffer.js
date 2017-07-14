@@ -6,7 +6,7 @@ description: >
 
         $DETACHBUFFER
 
-    $DETACHBUFFER relies on the presence of a definition for $262.detachArrayBuffer
+    $DETACHBUFFER relies on the presence of a host definition for $262.detachArrayBuffer
 
 includes: [detachArrayBuffer.js,sta.js]
 ---*/
@@ -14,7 +14,8 @@ includes: [detachArrayBuffer.js,sta.js]
 var $262 = {
   detachArrayBuffer() {
     throw new Test262Error('$262.detachArrayBuffer called.');
-  }
+  },
+  destroy() {}
 };
 
 var ab = new ArrayBuffer(1);
