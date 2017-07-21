@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 9.4.4.6
-esid: sec-%arrayiteratorprototype%.next S7
+esid: sec-%arrayiteratorprototype%.next
 description: >
     Once exhausted, iterators for unmapped arguments exotic objects should not
     emit new values added to the object.
