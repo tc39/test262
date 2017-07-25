@@ -1,8 +1,7 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 9.4.4.6
-esid: sec-%arrayiteratorprototype%.next
+es6id: 9.4.4.6 S7
 description: >
     Prior to being exhausted, iterators for unmapped arguments exotic objects
     should honor the insertion of additional argument values.
