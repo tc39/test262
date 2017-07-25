@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 9.4.4.7
-esid: sec-%arrayiteratorprototype%.next
+esid: sec-%arrayiteratorprototype%.next S22
 description: >
     Prior to being exhausted, iterators for mapped arguments exotic objects
     should honor argument removal.
