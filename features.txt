@@ -7,6 +7,10 @@
 #
 # https://github.com/tc39/process-document
 
+# Promise.prototype.finally
+# https://github.com/tc39/proposal-promise-finally
+Promise.prototype.finally
+
 # Async Iteration and Generators
 # https://github.com/tc39/proposal-async-iteration
 async-iteration
