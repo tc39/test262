@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.and
 description: >
   Test Atomics.and on view values other than TypedArrays
 includes: [testAtomics.js]

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.compareexchange
 description: >
   Test range checking of Atomics.compareExchange on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]

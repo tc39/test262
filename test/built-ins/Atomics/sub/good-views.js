@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.sub
 description: Test Atomics.sub on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
 ---*/

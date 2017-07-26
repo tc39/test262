@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.wait
 description: >
   Test that Atomics.wait returns the right result when it timed out and that
   the time to time out is reasonable.
