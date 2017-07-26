@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.exchange
 description: >
   Test Atomics.exchange on shared non-integer TypedArrays
 includes: [testTypedArray.js]

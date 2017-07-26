@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.wait
 description: >
   Test Atomics.wait on non-shared integer TypedArrays
 includes: [testTypedArray.js]
