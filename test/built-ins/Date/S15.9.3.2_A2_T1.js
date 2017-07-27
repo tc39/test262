@@ -6,6 +6,7 @@ info: >
     The [[Prototype]] property of the newly constructed object
     is set to the original Date prototype object, the one that is the
     initial value of Date.prototype
+esid: sec-date-value
 es5id: 15.9.3.2_A2_T1
 description: Checking Date.prototype property of newly constructed objects
 includes: [dateConstants.js]
