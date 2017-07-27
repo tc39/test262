@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-tointeger
 info: >
     Result of ToInteger(value) conversion is the result of computing
     sign(ToNumber(value)) * floor(abs(ToNumber(value)))
