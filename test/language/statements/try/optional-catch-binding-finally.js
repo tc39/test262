@@ -3,7 +3,7 @@
 
 /*---
 esid: pending
-description: try/catch syntax with omission of the catch binding
+description: try/catch/finally syntax with omission of the catch binding
 features: [optional-catch-binding]
 info: |
   Optional Catch Binding
@@ -13,4 +13,4 @@ info: |
     catch Block[?Yield, ?Await, ?Return]
 ---*/
 
-try {} catch {}
+try {} catch {} finally {}
