@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+author: Lucas Azzola
 esid: pending
 description: >
   It is a SyntaxError to have a try/catch statement with an empty CatchParameter
@@ -17,3 +18,4 @@ negative:
 throw "Test262: This statement should not be evaluated.";
 
 try {} catch () {}
+

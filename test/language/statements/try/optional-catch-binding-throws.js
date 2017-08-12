@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+author: Lucas Azzola
 esid: pending
 description: errors can be thrown from catch clause without binding
 features: [optional-catch-binding]

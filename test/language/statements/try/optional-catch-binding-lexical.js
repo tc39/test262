@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+author: Lucas Azzola
 esid: pending
 description: lexical environment runtime semantics for optional catch binding
 features: [optional-catch-binding]
