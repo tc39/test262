@@ -11,13 +11,8 @@ info: |
 
     ArrowParameters[?Yield] [no LineTerminator here] => ConciseBody[?In]
 features: [default-parameters]
-flags: [onlyStrict]
-negative:
-  phase: early
-  type: SyntaxError
+flags: [noStrict]
 ---*/
-
-throw "Test262: This statement should not be evaluated.";
 
 var yield = 23;
 var f, paramValue;
