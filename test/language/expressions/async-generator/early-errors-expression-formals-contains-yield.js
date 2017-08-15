@@ -5,7 +5,7 @@
 author: Caitlin Potter <caitp@igalia.com>
 esid: 12.1
 description: >
-  `await` is a reserved keyword within async generator function bodies and may
+  `yield` is a reserved keyword within async generator function bodies and may
   not be used as the binding identifier of a parameter.
 negative:
   phase: early
