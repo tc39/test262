@@ -19,7 +19,7 @@ info: |
     1. If iteratorRecord.[[done]] is false, then
        [...]
     2. Return NormalCompletion(empty).
-features: [generator]
+features: [generators]
 ---*/
 
 //- setup
