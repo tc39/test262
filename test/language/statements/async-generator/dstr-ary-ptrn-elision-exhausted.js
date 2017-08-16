@@ -4,7 +4,7 @@
 /*---
 description: Elision accepts exhausted iterator (async generator function declaration)
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated, async]
 info: |
     AsyncGeneratorDeclaration : async [no LineTerminator here] function * BindingIdentifier

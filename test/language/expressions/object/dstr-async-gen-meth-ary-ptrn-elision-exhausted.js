@@ -4,7 +4,7 @@
 /*---
 description: Elision accepts exhausted iterator (async generator method)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated, async]
 info: |
     AsyncGeneratorMethod :
