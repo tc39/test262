@@ -68,7 +68,6 @@ default-arg
 default-parameters
 destructuring-binding
 Float64Array
-generator
 generators
 Int8Array
 let

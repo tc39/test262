@@ -22,7 +22,7 @@ info: |
        c. ReturnIfAbrupt(next).
        d. If next is false, set iteratorRecord.[[done]] to true.
     2. Return NormalCompletion(empty).
-features: [generator]
+features: [generators]
 ---*/
 
 //- setup

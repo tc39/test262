@@ -4,7 +4,7 @@
 /*---
 description: Elision accepts exhausted iterator (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [generator, destructuring-binding, async-iteration]
+features: [generators, destructuring-binding, async-iteration]
 flags: [generated, async]
 info: |
     IterationStatement :
