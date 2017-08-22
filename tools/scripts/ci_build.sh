@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ $TRAVIS_PULL_REQUEST != "false" ]; then
-  ./make.py clean
+  ./make.py clean > /dev/null
 fi
 ./make.py
 if [ -n "$(git status --porcelain)" -a $TRAVIS_PULL_REQUEST != "false" ]; then
