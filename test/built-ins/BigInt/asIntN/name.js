@@ -9,10 +9,12 @@ info: >
   17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [BigInt]
 ---*/
 
-assert.sameValue(BigInt.asIntN.name, 'asIntN');
-
-verifyNotEnumerable(BigInt.asIntN, 'name');
-verifyNotWritable(BigInt.asIntN, 'name');
-verifyConfigurable(BigInt.asIntN, 'name');
+verifyProperty(BigInt.asIntN, "name", {
+  value: "asIntN",
+  enumerable: false,
+  writable: false,
+  configurable: true
+});

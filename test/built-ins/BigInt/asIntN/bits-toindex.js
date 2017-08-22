@@ -7,7 +7,8 @@ info: >
   BigInt.asIntN ( bits, bigint )
 
   1. Let bits be ? ToIndex(bits).
-features: [Symbol]
+
+features: [BigInt, Symbol, arrow-function]
 ---*/
 
 function MyError() {}

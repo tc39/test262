@@ -8,6 +8,8 @@ info: >
 
   3. Let mod be a BigInt representing bigint modulo 2**bits.
   4. If mod ≥ 2**bits - 1, return mod - 2**bits; otherwise, return mod.
+
+features: [BigInt]
 ---*/
 
 assert.sameValue(BigInt.asIntN(0, -2n), 0n);

@@ -7,7 +7,8 @@ info: >
   BigInt.asIntN ( bits, bigint )
 
   2. Let bigint ? ToBigInt(bigint).
-features: [Symbol]
+
+features: [BigInt, Symbol, arrow-function]
 ---*/
 
 function MyError() {}

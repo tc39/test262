@@ -8,6 +8,8 @@ info: >
 
   1. Let bits be ? ToIndex(bits).
   2. Let bigint ? ToBigInt(bigint).
+
+features: [BigInt]
 ---*/
 
 var i = 0;
