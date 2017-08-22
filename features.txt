@@ -11,6 +11,10 @@
 # https://github.com/tc39/proposal-bigint
 BigInt
 
+# Class Fields
+# https://github.com/tc39/proposal-class-fields
+class-fields
+
 # Promise.prototype.finally
 # https://github.com/tc39/proposal-promise-finally
 Promise.prototype.finally
