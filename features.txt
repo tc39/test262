@@ -7,6 +7,10 @@
 #
 # https://github.com/tc39/process-document
 
+# BigInt
+# https://github.com/tc39/proposal-bigint
+BigInt
+
 # Promise.prototype.finally
 # https://github.com/tc39/proposal-promise-finally
 Promise.prototype.finally
