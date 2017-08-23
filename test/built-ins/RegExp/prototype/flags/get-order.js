@@ -41,5 +41,5 @@ var re = {
 
 var get = Object.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get;
 
-assert.sameValue(get.call(re), '');
+get.call(re);
 assert.sameValue(calls, 'gimsuy');
