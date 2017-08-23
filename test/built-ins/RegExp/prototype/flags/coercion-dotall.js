@@ -10,7 +10,7 @@ info: >
   ...
   10. Let dotAll be ToBoolean(? Get(R, "dotAll")).
   ...
-features: [Symbol, regexp-dotAll]
+features: [Symbol, regexp-dotall]
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(RegExp.prototype, "flags").get;
