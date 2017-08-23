@@ -66,6 +66,7 @@ arrow-function
 async-functions
 caller
 class
+computed-property-names
 const
 DataView
 DataView.prototype.getFloat32
