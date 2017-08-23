@@ -25,7 +25,7 @@ assert.throws(Test262Error, function() {
       throw new Test262Error();
     },
   });
-}, 'global');
+}, 'Let global be ToBoolean(? Get(R, "global"))');
 
 assert.throws(Test262Error, function() {
   get.call({
@@ -33,7 +33,7 @@ assert.throws(Test262Error, function() {
       throw new Test262Error();
     },
   });
-}, 'ignoreCase');
+}, 'Let ignoreCase be ToBoolean(? Get(R, "ignoreCase"))');
 
 assert.throws(Test262Error, function() {
   get.call({
@@ -41,7 +41,7 @@ assert.throws(Test262Error, function() {
       throw new Test262Error();
     },
   });
-}, 'multiline');
+}, 'Let multiline be ToBoolean(? Get(R, "multiline"))');
 
 assert.throws(Test262Error, function() {
   get.call({
@@ -49,7 +49,7 @@ assert.throws(Test262Error, function() {
       throw new Test262Error();
     },
   });
-}, 'dotAll');
+}, 'Let dotAll be ToBoolean(? Get(R, "dotAll"))');
 
 assert.throws(Test262Error, function() {
   get.call({
@@ -57,7 +57,7 @@ assert.throws(Test262Error, function() {
       throw new Test262Error();
     },
   });
-}, 'unicode');
+}, 'Let unicode be ToBoolean(? Get(R, "unicode"))');
 
 assert.throws(Test262Error, function() {
   get.call({
@@ -65,4 +65,4 @@ assert.throws(Test262Error, function() {
       throw new Test262Error();
     },
   });
-}, 'sticky');
+}, 'Let sticky be ToBoolean(? Get(R, "sticky"))');
