@@ -1,0 +1,33 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: prod-FieldDefinition
+desc: String literal names
+info: |
+  ClassElement:
+    ...
+    FieldDefinition ;
+
+  FieldDefinition:
+    ClassElementName Initializer_opt
+
+  ClassElementName:
+    PropertyName
+template: default
+includes: [propertyHelper.js]
+---*/
+
+//- fields
+'a'; "b"; 'c' = 39;
+"d" = 42
+//- assertions
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
+assert.sameValue(Object.hasOwnProperty.call(C, "a"), false);
+
+verifyProperty(c, "a", {
+  value: 42,
+  enumerable: true,
+  writable: true,
+  configurable: true
+});

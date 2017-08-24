@@ -1,0 +1,16 @@
+  ClassElement:
+    MethodDefinition
+    static MethodDefinition
+    FieldDefinition ;
+    static FieldDefinition ;
+    ;
+
+  FieldDefinition:
+    ClassElementName Initializer_opt
+
+  ClassElementName:
+    PropertyName
+    PrivateName
+
+  PrivateName ::
+    # IdentifierName
