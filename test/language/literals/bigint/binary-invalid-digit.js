@@ -3,11 +3,24 @@
 
 /*---
 description: Binary BigInt literal containing an invalid digit
-esid: pending
-features: [BigInt]
+esid: prod-NumericLiteral
+info: |
+  NumericLiteral ::
+    NumericLiteralBase NumericLiteralSuffix
+
+  NumericLiteralBase ::
+    DecimalLiteral
+    BinaryIntegerLiteral
+    OctalIntegerLiteral
+    HexIntegerLiteral
+
+  NumericLiteralSuffix :: n
 negative:
   phase: early
   type: SyntaxError
+features: [BigInt]
 ---*/
+
+throw "Test262: This statement should not be evaluated.";
 
 0b2n;

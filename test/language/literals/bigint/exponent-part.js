@@ -2,12 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: BigInt literal containing an exponent part
-esid: pending
+description: > 
+  It is a Syntax Error if the NumericLiteralBase contains an ExponentPart.
+esid: sec-numeric-literal-static-semantics-early-errors
 features: [BigInt]
 negative:
   phase: early
   type: SyntaxError
 ---*/
+
+throw "Test262: This statement should not be evaluated.";
 
 0e0n;
