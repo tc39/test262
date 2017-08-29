@@ -11,20 +11,18 @@ info: >
 includes: [typeCoercion.js]
 ---*/
 
-getValuesCoercibleToIntegerZero().forEach(function(zero) {
-  assert.sameValue("aaaa".indexOf("aa", zero), 0, "with value " + zero);
+testCoercibleToIntegerZero(function(zero) {
+  assert.sameValue("aaaa".indexOf("aa", zero), 0);
 });
 
-getValuesCoercibleToIntegerOne().forEach(function(one) {
-  assert.sameValue("aaaa".indexOf("aa", one), 1, "with value " + one);
+testCoercibleToIntegerOne(function(one) {
+  assert.sameValue("aaaa".indexOf("aa", one), 1);
 });
 
-getValuesCoercibleToIntegerFromInteger(2).forEach(function(two) {
-  assert.sameValue("aaaa".indexOf("aa", two), 2, "with value " + two);
+testCoercibleToIntegerFromInteger(2, function(two) {
+  assert.sameValue("aaaa".indexOf("aa", two), 2);
 });
 
-getValuesNotCoercibleToInteger().forEach(function(pair) {
-  var error = pair.error;
-  var value = pair.value;
+testNotCoercibleToInteger(function(error, value) {
   assert.throws(error, function() { "".indexOf("", value); });
 });
