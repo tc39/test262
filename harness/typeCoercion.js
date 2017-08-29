@@ -6,249 +6,219 @@ description: |
     operations like ToNumber.
 ---*/
 
-function getValuesCoercibleToIntegerZero() {
-  var result = [];
+function testCoercibleToIntegerZero(test) {
+  function testPrimitiveValue(value) {
+    test(value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "number", test);
+  }
 
-  var primitiveValues = [
-    // ToNumber
-    null,
-    false,
-    0,
-    "0",
+  // ToNumber
+  testPrimitiveValue(null);
+  testPrimitiveValue(false);
+  testPrimitiveValue(0);
+  testPrimitiveValue("0");
 
-    // ToInteger: NaN -> +0
-    undefined,
-    NaN,
-    "",
-    "foo",
-    "true",
+  // ToInteger: NaN -> +0
+  testPrimitiveValue(undefined);
+  testPrimitiveValue(NaN);
+  testPrimitiveValue("");
+  testPrimitiveValue("foo");
+  testPrimitiveValue("true");
 
-    // ToInteger: floor(abs(number))
-    0.9,
-    -0,
-    -0.9,
-    "0.9",
-    "-0",
-    "-0.9",
-  ];
-
-  // ToPrimitive
-  primitiveValues.forEach(function(zero) {
-    result.push(zero);
-    result = result.concat(getPrimitiveWrappers(zero, "number"));
-  });
+  // ToInteger: floor(abs(number))
+  testPrimitiveValue(0.9);
+  testPrimitiveValue(-0);
+  testPrimitiveValue(-0.9);
+  testPrimitiveValue("0.9");
+  testPrimitiveValue("-0");
+  testPrimitiveValue("-0.9");
 
   // Non-primitive values that coerce to 0:
   // toString() returns a string that parses to NaN.
-  result = result.concat([
-    {},
-    [],
-  ]);
-
-  return result;
+  test({});
+  test([]);
 }
 
-function getValuesCoercibleToIntegerOne() {
-  var result = [];
+function testCoercibleToIntegerOne(test) {
+  function testPrimitiveValue(value) {
+    test(value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "number", test);
+  }
 
-  var primitiveValues = [
-    // ToNumber
-    true,
-    1,
-    "1",
+  // ToNumber
+  testPrimitiveValue(true);
+  testPrimitiveValue(1);
+  testPrimitiveValue("1");
 
-    // ToInteger: floor(abs(number))
-    1.9,
-    "1.9",
-  ];
-
-  // ToPrimitive
-  primitiveValues.forEach(function(value) {
-    result.push(value);
-    result = result.concat(getPrimitiveWrappers(value, "number"));
-  });
+  // ToInteger: floor(abs(number))
+  testPrimitiveValue(1.9);
+  testPrimitiveValue("1.9");
 
   // Non-primitive values that coerce to 1:
   // toString() returns a string that parses to 1.
-  result = result.concat([
-    [1],
-    ["1"],
-  ]);
-
-  return result;
+  test([1]);
+  test(["1"]);
 }
 
-function getValuesCoercibleToIntegerFromInteger(nominalInteger) {
+function testCoercibleToIntegerFromInteger(nominalInteger, test) {
   assert(Number.isInteger(nominalInteger));
-  var result = [];
 
-  var primitiveValues = [ nominalInteger ];
+  function testPrimitiveValue(value) {
+    test(value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "number", test);
+
+    // Non-primitive values that coerce to the nominal integer:
+    // toString() returns a string that parsers to a primitive value.
+    test([value]);
+  }
+
+  function testPrimitiveNumber(number) {
+    testPrimitiveValue(number);
+    // ToNumber: String -> Number
+    testPrimitiveValue(number.toString());
+  }
+
+  testPrimitiveNumber(nominalInteger);
 
   // ToInteger: floor(abs(number))
   if (nominalInteger >= 0) {
-    primitiveValues.push(nominalInteger + 0.9);
+    testPrimitiveNumber(nominalInteger + 0.9);
   }
   if (nominalInteger <= 0) {
-    primitiveValues.push(nominalInteger - 0.9);
+    testPrimitiveNumber(nominalInteger - 0.9);
   }
-
-  // ToNumber: String -> Number
-  primitiveValues = primitiveValues.concat(primitiveValues.map(function(number) { return number.toString(); }));
-
-  // ToPrimitive
-  primitiveValues.forEach(function(value) {
-    result.push(value);
-    result = result.concat(getPrimitiveWrappers(value, "number"));
-  });
-
-  // Non-primitive values that coerce to the nominal integer:
-  // toString() returns a string that parsers to a primitive value.
-  result = result.concat(primitiveValues.map(function(number) { return [number]; }));
-
-  return result;
 }
 
-function getPrimitiveWrappers(primitiveValue, hint) {
-  assert(hint === "number" || hint === "string");
-  var result = [];
-
+function testPrimitiveWrappers(primitiveValue, hint, test) {
   if (primitiveValue != null) {
     // null and undefined result in {} rather than a proper wrapper,
     // so skip this case for those values.
-    result.push(Object(primitiveValue));
+    test(Object(primitiveValue));
   }
 
-  result = result.concat(getValuesCoercibleToPrimitiveWithMethod(hint, function() {
+  testCoercibleToPrimitiveWithMethod(hint, function() {
     return primitiveValue;
-  }));
-  return result;
+  }, test);
 }
 
-function getValuesCoercibleToPrimitiveWithMethod(hint, method) {
+function testCoercibleToPrimitiveWithMethod(hint, method, test) {
   var methodNames;
   if (hint === "number") {
     methodNames = ["valueOf", "toString"];
-  } else {
+  } else if (hint === "string") {
     methodNames = ["toString", "valueOf"];
+  } else {
+    throw new Test262Error();
   }
-  return [
-    // precedence order
-    {
-      [Symbol.toPrimitive]: method,
-      [methodNames[0]]: function() { throw new Test262Error(); },
-      [methodNames[1]]: function() { throw new Test262Error(); },
-    }, {
-      [methodNames[0]]: method,
-      [methodNames[1]]: function() { throw new Test262Error(); },
-    }, {
-      [methodNames[1]]: method,
-    },
+  // precedence order
+  test({
+    [Symbol.toPrimitive]: method,
+    [methodNames[0]]: function() { throw new Test262Error(); },
+    [methodNames[1]]: function() { throw new Test262Error(); },
+  });
+  test({
+    [methodNames[0]]: method,
+    [methodNames[1]]: function() { throw new Test262Error(); },
+  });
+  test({
+    [methodNames[1]]: method,
+  });
 
-    // GetMethod: if func is undefined or null, return undefined.
-    {
-      [Symbol.toPrimitive]: undefined,
-      [methodNames[0]]: method,
-      [methodNames[1]]: method,
-    }, {
-      [Symbol.toPrimitive]: null,
-      [methodNames[0]]: method,
-      [methodNames[1]]: method,
-    },
+  // GetMethod: if func is undefined or null, return undefined.
+  test({
+    [Symbol.toPrimitive]: undefined,
+    [methodNames[0]]: method,
+    [methodNames[1]]: method,
+  });
+  test({
+    [Symbol.toPrimitive]: null,
+    [methodNames[0]]: method,
+    [methodNames[1]]: method,
+  });
 
-    // if methodNames[0] is not callable, fallback to methodNames[1]
-    {
-      [methodNames[0]]: null,
-      [methodNames[1]]: method,
-    }, {
-      [methodNames[0]]: 1,
-      [methodNames[1]]: method,
-    }, {
-      [methodNames[0]]: {},
-      [methodNames[1]]: method,
-    },
+  // if methodNames[0] is not callable, fallback to methodNames[1]
+  test({
+    [methodNames[0]]: null,
+    [methodNames[1]]: method,
+  });
+  test({
+    [methodNames[0]]: 1,
+    [methodNames[1]]: method,
+  });
+  test({
+    [methodNames[0]]: {},
+    [methodNames[1]]: method,
+  });
 
-    // if methodNames[0] returns an object, fallback to methodNames[1]
-    {
-      [methodNames[0]]: function() { return {}; },
-      [methodNames[1]]: method,
-    }, {
-      [methodNames[0]]: function() { return Object(1); },
-      [methodNames[1]]: method,
-    },
-  ];
+  // if methodNames[0] returns an object, fallback to methodNames[1]
+  test({
+    [methodNames[0]]: function() { return {}; },
+    [methodNames[1]]: method,
+  });
+  test({
+    [methodNames[0]]: function() { return Object(1); },
+    [methodNames[1]]: method,
+  });
 }
 
-function getValuesNotCoercibleToInteger() {
+function testNotCoercibleToInteger(test) {
   // ToInteger only throws from ToNumber.
-  return getValuesNotCoercibleToNumber();
+  return testNotCoercibleToNumber(test);
 }
-function getValuesNotCoercibleToNumber() {
-  var result = [];
+function testNotCoercibleToNumber(test) {
+  function testPrimitiveValue(value) {
+    test(TypeError, value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "number", function(value) {
+      test(TypeError, value);
+    });
+  }
 
   // ToNumber: Symbol -> TypeError
-  var primitiveValues = [
-    Symbol("1"),
-  ];
+  testPrimitiveValue(Symbol("1"));
+
   if (typeof BigInt !== "undefined") {
     // ToNumber: BigInt -> TypeError
-    primitiveValues.push(BigInt(0));
+    testPrimitiveValue(BigInt(0));
   }
-  primitiveValues.forEach(function(value) {
-    result.push({error:TypeError, value:value});
-    getPrimitiveWrappers(value, "number").forEach(function(value) {
-      result.push({error:TypeError, value:value});
-    });
-  });
 
   // ToPrimitive
-  result = result.concat(getValuesNotCoercibleToPrimitive("number"));
-
-  return result;
+  testNotCoercibleToPrimitive("number", test);
 }
 
-function getValuesNotCoercibleToPrimitive(hint) {
+function testNotCoercibleToPrimitive(hint, test) {
   function MyError() {}
 
-  var result = [];
-
-  var methodNames;
-  if (hint === "number") {
-    methodNames = ["valueOf", "toString"];
-  } else {
-    methodNames = ["toString", "valueOf"];
-  }
-
   // ToPrimitive: input[@@toPrimitive] is not callable (and non-null)
-  result.push({error:TypeError, value:{[Symbol.toPrimitive]: 1}});
-  result.push({error:TypeError, value:{[Symbol.toPrimitive]: {}}});
+  test(TypeError, {[Symbol.toPrimitive]: 1});
+  test(TypeError, {[Symbol.toPrimitive]: {}});
 
   // ToPrimitive: input[@@toPrimitive] returns object
-  result.push({error:TypeError, value:{[Symbol.toPrimitive]: function() { return Object(1); }}});
-  result.push({error:TypeError, value:{[Symbol.toPrimitive]: function() { return {}; }}});
+  test(TypeError, {[Symbol.toPrimitive]: function() { return Object(1); }});
+  test(TypeError, {[Symbol.toPrimitive]: function() { return {}; }});
 
   // ToPrimitive: input[@@toPrimitive] throws
-  result.push({error:MyError, value:{[Symbol.toPrimitive]: function() { throw new MyError(); }}});
+  test(MyError, {[Symbol.toPrimitive]: function() { throw new MyError(); }});
 
   // OrdinaryToPrimitive: method throws
-  result = result.concat(getValuesCoercibleToPrimitiveWithMethod(hint, function() {
+  testCoercibleToPrimitiveWithMethod(hint, function() {
     throw new MyError();
-  }).map(function(value) {
-    return {error:MyError, value:value};
-  }));
-
-  // OrdinaryToPrimitive: both methods are unsuitable
-  var unsuitableMethods = [
-    // not callable:
-    null,
-    1,
-    {},
-    // returns object:
-    function() { return Object(1); },
-    function() { return {}; },
-  ];
-  unsuitableMethods.forEach(function(method) {
-    result.push({error:TypeError, value:{valueOf:method, toString:method}});
+  }, function(value) {
+    test(MyError, value);
   });
 
-  return result;
+  // OrdinaryToPrimitive: both methods are unsuitable
+  function testUnsuitableMethod(method) {
+    test(TypeError, {valueOf:method, toString:method});
+  }
+  // not callable:
+  testUnsuitableMethod(null);
+  testUnsuitableMethod(1);
+  testUnsuitableMethod({});
+  // returns object:
+  testUnsuitableMethod(function() { return Object(1); });
+  testUnsuitableMethod(function() { return {}; });
 }
