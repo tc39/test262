@@ -7,59 +7,65 @@ description: |
 ---*/
 
 function testCoercibleToIntegerZero(test) {
-  function testPrimitiveValue(value) {
-    test(value);
-    // ToPrimitive
-    testPrimitiveWrappers(value, "number", test);
-  }
+  testCoercibleToNumberZero(test);
 
-  // ToNumber
-  testPrimitiveValue(null);
-  testPrimitiveValue(false);
-  testPrimitiveValue(0);
-  testPrimitiveValue("0");
+  testCoercibleToIntegerFromInteger(0, test);
 
-  // ToInteger: NaN -> +0
-  testPrimitiveValue(undefined);
-  testPrimitiveValue(NaN);
-  testPrimitiveValue("");
-  testPrimitiveValue("foo");
-  testPrimitiveValue("true");
+  // NaN -> +0
+  testCoercibleToNumberNan(test);
 
-  // ToInteger: floor(abs(number))
-  testPrimitiveValue(0.9);
-  testPrimitiveValue(-0);
-  testPrimitiveValue(-0.9);
-  testPrimitiveValue("0.9");
-  testPrimitiveValue("-0");
-  testPrimitiveValue("-0.9");
-
-  // Non-primitive values that coerce to 0:
-  // toString() returns a string that parses to NaN.
+  // When toString() returns a string that parses to NaN:
   test({});
   test([]);
 }
 
 function testCoercibleToIntegerOne(test) {
+  testCoercibleToNumberOne(test);
+
+  testCoercibleToIntegerFromInteger(1, test);
+
+  // When toString() returns "1"
+  test([1]);
+  test(["1"]);
+}
+
+function testCoercibleToNumberZero(test) {
   function testPrimitiveValue(value) {
     test(value);
     // ToPrimitive
     testPrimitiveWrappers(value, "number", test);
   }
 
-  // ToNumber
+  testPrimitiveValue(null);
+  testPrimitiveValue(false);
+  testPrimitiveValue(0);
+  testPrimitiveValue("0");
+}
+
+function testCoercibleToNumberNan(test) {
+  function testPrimitiveValue(value) {
+    test(value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "number", test);
+  }
+
+  testPrimitiveValue(undefined);
+  testPrimitiveValue(NaN);
+  testPrimitiveValue("");
+  testPrimitiveValue("foo");
+  testPrimitiveValue("true");
+}
+
+function testCoercibleToNumberOne(test) {
+  function testPrimitiveValue(value) {
+    test(value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "number", test);
+  }
+
   testPrimitiveValue(true);
   testPrimitiveValue(1);
   testPrimitiveValue("1");
-
-  // ToInteger: floor(abs(number))
-  testPrimitiveValue(1.9);
-  testPrimitiveValue("1.9");
-
-  // Non-primitive values that coerce to 1:
-  // toString() returns a string that parses to 1.
-  test([1]);
-  test(["1"]);
 }
 
 function testCoercibleToIntegerFromInteger(nominalInteger, test) {
