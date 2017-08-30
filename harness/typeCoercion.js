@@ -129,9 +129,15 @@ function testCoercibleToPrimitiveWithMethod(hint, method, test) {
     [methodNames[0]]: method,
     [methodNames[1]]: function() { throw new Test262Error(); },
   });
-  test({
-    [methodNames[1]]: method,
-  });
+  if (hint === "number") {
+    // The default valueOf returns an object, which is unsuitable.
+    // The default toString returns a String, which is suitable.
+    // Therefore this test only works for valueOf falling back to toString.
+    test({
+      // this is toString:
+      [methodNames[1]]: method,
+    });
+  }
 
   // GetMethod: if func is undefined or null, return undefined.
   test({
@@ -227,4 +233,53 @@ function testNotCoercibleToPrimitive(hint, test) {
   // returns object:
   testUnsuitableMethod(function() { return Object(1); });
   testUnsuitableMethod(function() { return {}; });
+}
+
+function testCoercibleToString(test) {
+  function testPrimitiveValue(value, expectedString) {
+    test(value, expectedString);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "string", function(value) {
+      test(value, expectedString);
+    });
+  }
+
+  testPrimitiveValue(undefined, "undefined");
+  testPrimitiveValue(null, "null");
+  testPrimitiveValue(true, "true");
+  testPrimitiveValue(false, "false");
+  testPrimitiveValue(0, "0");
+  testPrimitiveValue(-0, "0");
+  testPrimitiveValue(Infinity, "Infinity");
+  testPrimitiveValue(-Infinity, "-Infinity");
+  testPrimitiveValue(123.456, "123.456");
+  testPrimitiveValue(-123.456, "-123.456");
+  testPrimitiveValue("", "");
+  testPrimitiveValue("foo", "foo");
+
+  if (typeof BigInt !== "undefined") {
+    // BigInt -> TypeError
+    testPrimitiveValue(BigInt(0), "0");
+  }
+
+  // toString of a few objects
+  test([], "");
+  test(["foo", "bar"], "foo,bar");
+  test({}, "[object Object]");
+}
+
+function testNotCoercibleToString(test) {
+  function testPrimitiveValue(value) {
+    test(TypeError, value);
+    // ToPrimitive
+    testPrimitiveWrappers(value, "string", function(value) {
+      test(TypeError, value);
+    });
+  }
+
+  // Symbol -> TypeError
+  testPrimitiveValue(Symbol("1"));
+
+  // ToPrimitive
+  testNotCoercibleToPrimitive("string", test);
 }
