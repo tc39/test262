@@ -140,9 +140,9 @@ function isWritable(obj, name, verifyProp, value) {
   // configurations)
   if (writeSucceeded) {
     if (hadValue) {
-    obj[name] = oldValue;
+      obj[name] = oldValue;
     } else {
-    delete obj[name];
+      delete obj[name];
     }
   }
 
