@@ -14,6 +14,7 @@ info: |
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
+features: [BigInt]
 ---*/
 
 verifyProperty(this, "BigInt", {
