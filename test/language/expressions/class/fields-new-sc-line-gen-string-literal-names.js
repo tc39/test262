@@ -28,7 +28,7 @@ var C = class {
 
 var c = new C();
 
-assert.sameValue(c.g().next().value, 42);
+assert.sameValue(c.m().next().value, 42);
 assert.sameValue(c.m, C.prototype.m);
 assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
 
@@ -42,6 +42,36 @@ assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
 assert.sameValue(Object.hasOwnProperty.call(C, "a"), false);
 
 verifyProperty(c, "a", {
+  value: undefined,
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "b"), false);
+assert.sameValue(Object.hasOwnProperty.call(C, "b"), false);
+
+verifyProperty(c, "b", {
+  value: undefined,
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "c"), false);
+assert.sameValue(Object.hasOwnProperty.call(C, "c"), false);
+
+verifyProperty(c, "c", {
+  value: 39,
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "d"), false);
+assert.sameValue(Object.hasOwnProperty.call(C, "d"), false);
+
+verifyProperty(c, "d", {
   value: 42,
   enumerable: true,
   writable: true,

@@ -29,7 +29,7 @@ class C {
 
 var c = new C();
 
-assert.sameValue(c.g().next().value, 42);
+assert.sameValue(c.m().next().value, 42);
 assert.sameValue(c.m, C.prototype.m);
 assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
 
@@ -77,7 +77,7 @@ assert.sameValue(Object.hasOwnProperty.call(C.prototype, "not initialized"), fal
 assert.sameValue(Object.hasOwnProperty.call(C, "not initialized"), false);
 
 verifyProperty(c, "not initialized", {
-  value: "meep",
+  value: undefined,
   enumerable: true,
   writable: true,
   configurable: true

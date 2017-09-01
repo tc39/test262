@@ -76,7 +76,7 @@ assert.sameValue(Object.hasOwnProperty.call(C.prototype, "not initialized"), fal
 assert.sameValue(Object.hasOwnProperty.call(C, "not initialized"), false);
 
 verifyProperty(c, "not initialized", {
-  value: "meep",
+  value: undefined,
   enumerable: true,
   writable: true,
   configurable: true

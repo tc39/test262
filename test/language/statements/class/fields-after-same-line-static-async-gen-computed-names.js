@@ -35,7 +35,7 @@ verifyProperty(C, "m", {
   enumerable: false,
   configurable: true,
   writable: true,
-});
+}, {restore: true});
 
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
 assert.sameValue(Object.hasOwnProperty.call(c, "a"), false);
@@ -75,12 +75,13 @@ assert.sameValue(Object.hasOwnProperty.call(C.prototype, "not initialized"), fal
 assert.sameValue(Object.hasOwnProperty.call(C, "not initialized"), false);
 
 verifyProperty(c, "not initialized", {
-  value: "meep",
+  value: undefined,
   enumerable: true,
   writable: true,
   configurable: true
 });
 
 C.m().next().then(function(v) {
-  assert.sameValue(v, 42);
+  assert.sameValue(v.value, 42);
+  assert.sameValue(v.done, true);
 }, $DONE).then($DONE, $DONE);

@@ -34,7 +34,7 @@ verifyProperty(C, "m", {
   enumerable: false,
   configurable: true,
   writable: true,
-});
+}, {restore: true});
 
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
 

@@ -57,7 +57,7 @@ assert.sameValue(Object.hasOwnProperty.call(C.prototype, "foo"), false);
 
 verifyProperty(c, "foo", {
   value: "foobar",
-  enumerable: false,
+  enumerable: true,
   configurable: true,
   writable: true,
 });
@@ -68,7 +68,7 @@ assert.sameValue(Object.hasOwnProperty.call(C.prototype, "bar"), false);
 
 verifyProperty(c, "bar", {
   value: "barbaz",
-  enumerable: false,
+  enumerable: true,
   configurable: true,
   writable: true,
 });
