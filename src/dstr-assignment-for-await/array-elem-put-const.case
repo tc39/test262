@@ -15,3 +15,8 @@ const c = null;
 [ c ]
 //- vals
 [1]
+//- teardown
+promise.then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(iterCount, 0);
+  assert.sameValue(constructor, TypeError);
+}).then($DONE, $DONE);
