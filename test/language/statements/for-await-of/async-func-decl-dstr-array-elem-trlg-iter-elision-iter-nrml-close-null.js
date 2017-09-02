@@ -76,3 +76,9 @@ async function fn() {
 }
 
 let promise = fn();
+
+promise.then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(iterCount, 0);
+  assert.sameValue(nextCount, 2);
+  assert.sameValue(constructor, TypeError);
+}).then($DONE, $DONE);

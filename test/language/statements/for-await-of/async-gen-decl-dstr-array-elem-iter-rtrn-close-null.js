@@ -24,6 +24,12 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 
+    AssignmentElement : DestructuringAssignmentTarget Initializer
+    1. If DestructuringAssignmentTarget is neither an ObjectLiteral nor an ArrayLiteral, then
+      a. Let lref be the result of evaluating DestructuringAssignmentTarget.
+      b. ReturnIfAbrupt(lref).
+    [...]
+
     ArrayAssignmentPattern : [ AssignmentElementList ]
 
     [...]
@@ -61,7 +67,12 @@ async function * fn() {
 
 let iter = fn();
 
-iter.next().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
-  assert.sameValue(unreachable, 0);
-  assert.sameValue(constructor, TypeError);
-}).then($DONE, $DONE);
+iter.next().then(result => {
+  assert.sameValue(result.value, undefined);
+  assert.sameValue(result.done, false);
+
+  iter.return().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+    assert.sameValue(unreachable, 0);
+    assert.sameValue(constructor, TypeError);
+  }).then($DONE, $DONE);
+}, $DONE).catch($DONE);
