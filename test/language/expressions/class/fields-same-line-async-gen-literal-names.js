@@ -36,7 +36,7 @@ verifyProperty(C.prototype, "m", {
   enumerable: false,
   configurable: true,
   writable: true,
-});
+}, {restore: true});
 
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
 assert.sameValue(Object.hasOwnProperty.call(C, "a"), false);
@@ -70,5 +70,6 @@ verifyProperty(c, "c", {
 
 
 c.m().next().then(function(v) {
-  assert.sameValue(v, 42);
+  assert.sameValue(v.value, 42);
+  assert.sameValue(v.done, true);
 }, $DONE).then($DONE, $DONE);

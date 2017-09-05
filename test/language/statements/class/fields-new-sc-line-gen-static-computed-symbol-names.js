@@ -30,7 +30,7 @@ class C {
 
 var c = new C();
 
-assert.sameValue(c.g().next().value, 42);
+assert.sameValue(c.m().next().value, 42);
 assert.sameValue(c.m, C.prototype.m);
 assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
 
