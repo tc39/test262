@@ -31,6 +31,6 @@ assert.sameValue(0 > 1n, false);
 assert.sameValue(0 > 0n, false);
 assert.sameValue(0n > 0, false);
 assert.sameValue(1n > Number.MAX_VALUE, false);
-assert.sameValue(Number.MIN_VALUE > 0n, false);
-assert.sameValue(-10n > Number.MIN_VALUE, true);
+assert.sameValue(Number.MIN_VALUE > 0n, true);
+assert.sameValue(-10n > Number.MIN_VALUE, false);
 assert.sameValue(Number.MAX_VALUE > 10000000000n, true);
