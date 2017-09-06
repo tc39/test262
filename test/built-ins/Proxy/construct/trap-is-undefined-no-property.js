@@ -4,7 +4,7 @@
 es6id: 9.5.14
 esid: sec-proxy-object-internal-methods-and-internal-slots-construct-argumentslist-newtarget
 description: >
-    If trap is null or undefined, propagate the construct to the target object.
+    If the construct trap is not set, propagate the construct to the target object.
 info: >
     [[Construct]] (argumentsList, newTarget)
 
@@ -13,12 +13,16 @@ info: >
 features: [Reflect.construct]
 ---*/
 
+var calls = 0;
+
 function NewTarget() {}
 function Target(a, b) {
     assert.sameValue(new.target, NewTarget);
+    calls += 1;
     return {sum: a + b};
 }
 
 var P = new Proxy(Target, {});
 var obj = Reflect.construct(P, [1, 2], NewTarget);
 assert.sameValue(obj.sum, 3, "`construct` trap is missing");
+assert.sameValue(calls, 1, "target is called once");
