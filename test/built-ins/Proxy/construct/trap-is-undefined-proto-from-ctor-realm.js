@@ -25,10 +25,9 @@ features: [Reflect.construct]
 
 var other = $262.createRealm().global;
 var C = new other.Function();
-C.prototype = null;
 
 var P = new Proxy(function() {}, {});
 
 var p = Reflect.construct(P, [], C);
 
-assert.sameValue(Object.getPrototypeOf(p), other.Object.prototype);
+assert.sameValue(Object.getPrototypeOf(Object.getPrototypeOf(p)), other.Object.prototype);
