@@ -38,10 +38,12 @@ let arrow;
 let iterCount = 0;
 async function * fn() {
   for await ({ x: arrow = () => {} } of [{}]) {
-    assert.sameValue(arrow.name, 'arrow');
-    verifyNotEnumerable(arrow, 'name');
-    verifyNotWritable(arrow, 'name');
-    verifyConfigurable(arrow, 'name');
+    verifyProperty(arrow, 'name', {
+      enumerable: false,
+      writable: false,
+      configurable: true,
+      value: 'arrow'
+    });
     iterCount += 1;
   }
 }
