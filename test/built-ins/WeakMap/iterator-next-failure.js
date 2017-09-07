@@ -13,6 +13,7 @@ info: >
     a. Let next be IteratorStep(iter).
     b. ReturnIfAbrupt(next).
     ...
+features: [Symbol.iterator]
 ---*/
 
 var iterable = {};

@@ -6,7 +6,7 @@ description: >
     The [[DefineOwnProperty]] internal method returns `true` if no change is
     requested, and `false` otherwise.
 flags: [module]
-features: [Reflect, Symbol, Symbol.toStringTag]
+features: [Symbol.iterator, Reflect, Symbol, Symbol.toStringTag]
 ---*/
 
 import * as ns from './define-own-property.js';

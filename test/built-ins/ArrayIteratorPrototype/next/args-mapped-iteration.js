@@ -7,6 +7,7 @@ description: >
     Mapped arguments exotic objects should implement the Array iterator
     protocol.
 flags: [noStrict]
+features: [Symbol.iterator]
 ---*/
 
 (function(a, b, c) {

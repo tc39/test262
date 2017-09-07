@@ -7,6 +7,7 @@ description: >
     Once exhausted, iterators for mapped arguments exotic objects should not
     emit new values added to the object.
 flags: [noStrict]
+features: [Symbol.iterator]
 ---*/
 
 (function(a, b, c) {

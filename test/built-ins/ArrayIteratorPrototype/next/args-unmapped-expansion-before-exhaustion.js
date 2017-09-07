@@ -7,6 +7,7 @@ description: >
     Prior to being exhausted, iterators for unmapped arguments exotic objects
     should honor the insertion of additional argument values.
 flags: [noStrict]
+features: [Symbol.iterator]
 ---*/
 
 (function(a, b, c) {
