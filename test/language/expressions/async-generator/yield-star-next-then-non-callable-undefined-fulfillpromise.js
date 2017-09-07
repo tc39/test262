@@ -4,7 +4,7 @@
 /*---
 description: FulfillPromise if next().then is not-callable (undefined) (Unnamed async generator expression)
 esid: prod-AsyncGeneratorExpression
-features: [Symbol.asyncIterator, async-iteration]
+features: [Symbol.iterator, Symbol.asyncIterator, async-iteration]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions

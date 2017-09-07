@@ -4,7 +4,7 @@
 /*---
 description: Return abrupt after calling next().then (Async Generator method as a ClassDeclaration element)
 esid: prod-AsyncGeneratorMethod
-features: [Symbol.asyncIterator, async-iteration]
+features: [Symbol.iterator, Symbol.asyncIterator, async-iteration]
 flags: [generated, async]
 info: |
     ClassElement :

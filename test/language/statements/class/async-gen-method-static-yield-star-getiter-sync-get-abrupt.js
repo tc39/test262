@@ -4,7 +4,7 @@
 /*---
 description: Abrupt completion while getting [Symbol.iterator] (Static async generator method as a ClassDeclaration element)
 esid: prod-AsyncGeneratorMethod
-features: [Symbol.asyncIterator, async-iteration]
+features: [Symbol.iterator, Symbol.asyncIterator, async-iteration]
 flags: [generated, async]
 info: |
     ClassElement :

@@ -4,7 +4,7 @@
 /*---
 description: Non object returned by [Symbol.iterator]() - boolean (Async generator method as a ClassExpression element)
 esid: prod-AsyncGeneratorMethod
-features: [async-iteration]
+features: [Symbol.iterator, async-iteration]
 flags: [generated, async]
 info: |
     ClassElement :

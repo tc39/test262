@@ -4,7 +4,7 @@
 /*---
 description: If next() value is not-object, do not access respective then property (Unnamed async generator expression)
 esid: prod-AsyncGeneratorExpression
-features: [Symbol.asyncIterator, async-iteration]
+features: [Symbol.iterator, Symbol.asyncIterator, async-iteration]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions

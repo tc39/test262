@@ -4,7 +4,7 @@
 /*---
 description: Execution order for yield* with async iterator and next() (Unnamed async generator expression)
 esid: prod-AsyncGeneratorExpression
-features: [async-iteration, Symbol.asyncIterator]
+features: [Symbol.iterator, async-iteration, Symbol.asyncIterator]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions
