@@ -46,7 +46,9 @@ Object.defineProperty(fnGlobalObject(), 'f', {
   'var global = fnGlobalObject();\
   assert.sameValue(f, undefined, "binding is initialized to `undefined`");\
   \
-  verifyEnumerable(global, "f");\
-  verifyWritable(global, "f");\
-  verifyNotConfigurable(global, "f");if (true) function f() {  } else ;'
+  verifyProperty(global, "f", {\
+    enumerable: true,\
+    writable: true,\
+    configurable: false\
+  });if (true) function f() {  } else ;'
 );

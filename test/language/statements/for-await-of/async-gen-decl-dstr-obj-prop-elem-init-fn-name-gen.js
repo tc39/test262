@@ -40,10 +40,12 @@ async function * fn() {
   for await ({ x: xGen = function* x() {}, x: gen = function*() {} } of [{}]) {
     assert.notSameValue(xGen.name, 'xGen');
 
-    assert.sameValue(gen.name, 'gen');
-    verifyNotEnumerable(gen, 'name');
-    verifyNotWritable(gen, 'name');
-    verifyConfigurable(gen, 'name');
+    verifyProperty(gen, 'name', {
+      enumerable: false,
+      writable: false,
+      configurable: true,
+      value: 'gen'
+    });
 
     iterCount += 1;
   }
