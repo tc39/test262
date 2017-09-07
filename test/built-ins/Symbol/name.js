@@ -7,6 +7,7 @@ description: >
   Symbol ( [ description ] )
 
 includes: [propertyHelper.js]
+features: [Symbol]
 ---*/
 
 assert.sameValue(Symbol.name, "Symbol", "The value of `Symbol.name` is `'Symbol'`");
