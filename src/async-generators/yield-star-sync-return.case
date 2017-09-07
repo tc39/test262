@@ -45,7 +45,7 @@ info: |
     ...
 
 flags: [async]
-features: [async-iteration, Symbol.asyncIterator]
+features: [Symbol.iterator, async-iteration, Symbol.asyncIterator]
 ---*/
 
 //- setup

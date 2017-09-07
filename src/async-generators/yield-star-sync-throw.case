@@ -43,7 +43,7 @@ info: |
     ...
 
 flags: [async]
-features: [async-iteration]
+features: [Symbol.iterator, async-iteration]
 ---*/
 
 //- setup

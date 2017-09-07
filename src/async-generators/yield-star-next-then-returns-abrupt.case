@@ -32,7 +32,7 @@ info: |
     12. Perform EnqueueJob("PromiseJobs", PromiseResolveThenableJob, « promise,
         resolution, thenAction »).
     ...
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

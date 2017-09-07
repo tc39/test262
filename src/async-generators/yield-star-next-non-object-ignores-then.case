@@ -30,7 +30,7 @@ info: |
       a. Return FulfillPromise(promise, resolution).
     8. Let then be Get(resolution, "then").
     ...
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

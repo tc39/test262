@@ -33,7 +33,7 @@ info: |
     11. If IsCallable(thenAction) is false, then
       a. Return FulfillPromise(promise, resolution).
     ...
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

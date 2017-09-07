@@ -59,7 +59,7 @@ info: |
     1. Return ! CreateIterResultObject(value, F.[[Done]]).
 
 flags: [async]
-features: [async-iteration, Symbol.asyncIterator]
+features: [Symbol.iterator, async-iteration, Symbol.asyncIterator]
 ---*/
 
 //- setup
