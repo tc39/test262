@@ -4,7 +4,7 @@
 /*---
 description: Mixed use of object spread and yield as a valid identifier in a function body inside a generator body in non strict mode (Generator expression - valid for non-strict only cases)
 esid: prod-GeneratorExpression
-features: [object-spread]
+features: [Symbol, object-spread]
 flags: [generated, noStrict]
 info: |
     14.4 Generator Function Definitions
