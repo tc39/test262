@@ -13,6 +13,7 @@ info: >
   slot.
   5. If Type(key) is not Object, return undefined.
   ...
+features: [Symbol]
 ---*/
 
 var map = new WeakMap();

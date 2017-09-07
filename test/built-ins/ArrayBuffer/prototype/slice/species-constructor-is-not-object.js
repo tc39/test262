@@ -21,6 +21,7 @@ info: >
     4. If C is undefined, return defaultConstructor.
     5. If Type(C) is not Object, throw a TypeError exception.
     ...
+features: [Symbol]
 ---*/
 
 var arrayBuffer = new ArrayBuffer(8);

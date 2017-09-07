@@ -17,7 +17,7 @@ info: >
     a. Let newLength be ? ToLength(length).
   ...
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [Symbol, SharedArrayBuffer]
 ---*/
 
 var buffer = new SharedArrayBuffer(8);
