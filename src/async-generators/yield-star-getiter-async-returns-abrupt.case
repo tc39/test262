@@ -22,7 +22,7 @@ info: |
     6. Let iterator be ? Call(method, obj).
     ...
 
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

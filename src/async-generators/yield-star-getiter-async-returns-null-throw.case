@@ -23,7 +23,7 @@ info: |
     7. If Type(iterator) is not Object, throw a TypeError exception.
     ...
 
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

@@ -22,7 +22,7 @@ info: |
         ii. Let syncIterator be ? Call(syncMethod, obj).
     ...
 
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

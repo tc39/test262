@@ -29,6 +29,7 @@ info: |
     ...
 
 flags: [async]
+features: [Symbol.iterator]
 ---*/
 
 //- setup

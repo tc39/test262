@@ -28,7 +28,7 @@ info: |
     4. If IsCallable(func) is false, throw a TypeError exception.
     ...
 
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 
