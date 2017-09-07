@@ -91,5 +91,5 @@ assert.throws.early = function(err, code) {
   let wrappedCode = `function wrapperFn() { ${code} }`;
   let ieval = eval;
 
-  assert.throws(err, () => { Function(wrappedCode); }, `Function: ${code}`);
+  assert.throws(err, function() { Function(wrappedCode); }, `Function: ${code}`);
 };
