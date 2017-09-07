@@ -14,6 +14,7 @@ info: >
     d. Let nextItem be IteratorValue(next).
     e. ReturnIfAbrupt(nextItem).
     ...
+features: [Symbol.iterator]
 ---*/
 
 var iterable = {};
