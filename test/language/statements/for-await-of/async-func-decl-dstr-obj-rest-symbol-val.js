@@ -4,7 +4,7 @@
 /*---
 description: RestBindingInitialization creates a new object if lhs is a Symbol (for-await-of statement in an async function declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [object-rest, destructuring-binding, async-iteration]
+features: [object-rest, Symbol, destructuring-binding, async-iteration]
 flags: [generated, async]
 info: |
     IterationStatement :
