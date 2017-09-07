@@ -27,10 +27,12 @@ let xCover, cover;
 //- body
 assert.notSameValue(xCover.name, 'xCover');
 
-assert.sameValue(cover.name, 'cover');
-verifyNotEnumerable(cover, 'name');
-verifyNotWritable(cover, 'name');
-verifyConfigurable(cover, 'name');
+verifyProperty(cover, 'name', {
+  enumerable: false,
+  writable: false,
+  configurable: true,
+  value: 'cover'
+});
 //- teardown
 promise
   .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
