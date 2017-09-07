@@ -4,7 +4,7 @@
 /*---
 description: Error forwarding when IteratorValue returns an abrupt completion (async generator function expression)
 esid: sec-asyncgenerator-definitions-evaluation
-features: [async-iteration]
+features: [Symbol.iterator, async-iteration]
 flags: [generated]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * ( FormalParameters ) {
@@ -30,6 +30,7 @@ info: |
           ii. If v is an abrupt completion, set iteratorRecord.[[done]] to
               true.
           iii. ReturnIfAbrupt(v).
+
 ---*/
 var poisonedValue = Object.defineProperty({}, 'value', {
   get: function() {

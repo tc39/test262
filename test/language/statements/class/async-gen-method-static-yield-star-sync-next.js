@@ -4,7 +4,7 @@
 /*---
 description: execution order for yield* with sync iterator and next() (Static async generator method as a ClassDeclaration element)
 esid: prod-AsyncGeneratorMethod
-features: [async-iteration, Symbol.asyncIterator]
+features: [Symbol.iterator, async-iteration, Symbol.asyncIterator]
 flags: [generated, async]
 info: |
     ClassElement :

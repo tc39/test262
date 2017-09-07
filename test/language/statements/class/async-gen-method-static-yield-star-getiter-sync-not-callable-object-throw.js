@@ -4,7 +4,7 @@
 /*---
 description: Throws a TypeError on a non-callable [Symbol.iterator] (object) (Static async generator method as a ClassDeclaration element)
 esid: prod-AsyncGeneratorMethod
-features: [async-iteration]
+features: [Symbol.iterator, async-iteration]
 flags: [generated, async]
 info: |
     ClassElement :

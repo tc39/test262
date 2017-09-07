@@ -4,7 +4,7 @@
 /*---
 description: Error forwarding when IteratorStep returns an abrupt completion (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [destructuring-binding, async-iteration]
+features: [Symbol.iterator, destructuring-binding, async-iteration]
 flags: [generated, async]
 info: |
     IterationStatement :
@@ -44,6 +44,7 @@ info: |
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).
        b. If next is an abrupt completion, set iteratorRecord.[[done]] to true.
        c. ReturnIfAbrupt(next).
+
 ---*/
 var g = {};
 g[Symbol.iterator] = function() {
