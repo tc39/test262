@@ -12,7 +12,7 @@ info: |
   PropertyDefinition[Yield]:
     (...)
     ...AssignmentExpression[In, ?Yield]
-features: [object-spread]
+features: [Symbol, object-spread]
 flags: [noStrict]
 ---*/
 
