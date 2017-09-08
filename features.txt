@@ -51,6 +51,7 @@ regexp-unicode-property-escapes
 
 # Shared Memory and atomics
 # https://github.com/tc39/ecmascript_sharedmem
+Atomics
 SharedArrayBuffer
 
 # Standard language features
@@ -80,6 +81,7 @@ DataView.prototype.setUint8
 default-arg
 default-parameters
 destructuring-binding
+for-of
 Float64Array
 generators
 Int8Array
