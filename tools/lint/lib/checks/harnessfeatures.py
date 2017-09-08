@@ -14,12 +14,14 @@ class CheckHarnessFeatures(Check):
     def comparison_result_lists(self, meta):
 
         result = {'features': set(), 'missing': set()}
+
+        if not meta or 'includes' not in meta:
+            return result
+
         meta_features = meta['features'] if 'features' in meta else []
         meta_includes = meta['includes']
         features = []
 
-        if not meta or 'includes' not in meta:
-            return result
 
         if len(meta_includes) == 0:
             return result
