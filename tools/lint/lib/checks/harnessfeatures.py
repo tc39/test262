@@ -59,3 +59,5 @@ class CheckHarnessFeatures(Check):
                 return 'Missing: `features: [%s]`' % ', '.join(list(result['missing']))
             else:
                 return 'Missing from `features`: %s' % ', '.join(list(result['missing']))
+        else:
+            return
