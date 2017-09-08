@@ -20,7 +20,7 @@ function verifyProperty(obj, name, desc, options) {
     assert.sameValue(
       originalDesc,
       undefined,
-      `obj['${nameStr}'] descriptor should be undefined`
+      "obj['" + nameStr + "'] descriptor should be undefined"
     );
 
     // desc and originalDesc are both undefined, problem solved;
@@ -29,47 +29,47 @@ function verifyProperty(obj, name, desc, options) {
 
   assert(
     Object.prototype.hasOwnProperty.call(obj, name),
-    `obj should have an own property ${nameStr}`
+    "obj should have an own property " + nameStr
   );
 
   assert.notSameValue(
     desc,
     null,
-    `The desc argument should be an object or undefined, null`
+    "The desc argument should be an object or undefined, null"
   );
 
   assert.sameValue(
     typeof desc,
     "object",
-    `The desc argument should be an object or undefined, ${String(desc)}`
+    "The desc argument should be an object or undefined, " + String(desc)
   );
 
   var failures = [];
 
   if (Object.prototype.hasOwnProperty.call(desc, 'value')) {
     if (desc.value !== originalDesc.value) {
-      failures.push(`descriptor value should be ${desc.value}`);
+      failures.push("descriptor value should be " + desc.value);
     }
   }
 
   if (Object.prototype.hasOwnProperty.call(desc, 'enumerable')) {
     if (desc.enumerable !== originalDesc.enumerable ||
         desc.enumerable !== isEnumerable(obj, name)) {
-      failures.push(`descriptor should ${desc.enumerable ? '' : 'not '}be enumerable`);
+      failures.push('descriptor should ' + (desc.enumerable ? '' : 'not ') + 'be enumerable');
     }
   }
 
   if (Object.prototype.hasOwnProperty.call(desc, 'writable')) {
     if (desc.writable !== originalDesc.writable ||
         desc.writable !== isWritable(obj, name)) {
-      failures.push(`descriptor should ${desc.writable ? '' : 'not '}be writable`);
+      failures.push('descriptor should ' + (desc.writable ? '' : 'not ') + 'be writable');
     }
   }
 
   if (Object.prototype.hasOwnProperty.call(desc, 'configurable')) {
     if (desc.configurable !== originalDesc.configurable ||
         desc.configurable !== isConfigurable(obj, name)) {
-      failures.push(`descriptor should ${desc.configurable ? '' : 'not '}be configurable`);
+      failures.push('descriptor should ' + (desc.configurable ? '' : 'not ') + 'be configurable');
     }
   }
 
