@@ -32,7 +32,7 @@ info: >
   ...
   12. Return A.
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer, Reflect]
+features: [SharedArrayBuffer, Reflect, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(8);

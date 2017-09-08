@@ -9,6 +9,7 @@ info: >
   3. Let searchStr be ? ToString(searchString).
 
 includes: [typeCoercion.js]
+features: [Symbol.toPrimitive, BigInt]
 ---*/
 
 testCoercibleToString(function(value, expectedString) {

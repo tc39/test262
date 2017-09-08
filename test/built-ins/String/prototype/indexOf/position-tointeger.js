@@ -9,6 +9,7 @@ info: >
   4. Let pos be ? ToInteger(position).
 
 includes: [typeCoercion.js]
+features: [BigInt, Symbol.toPrimitive]
 ---*/
 
 testCoercibleToIntegerZero(function(zero) {

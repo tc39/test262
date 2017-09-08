@@ -27,7 +27,7 @@ info: >
   11. Set the [[Extensible]] internal slot of A to true.
   ...
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

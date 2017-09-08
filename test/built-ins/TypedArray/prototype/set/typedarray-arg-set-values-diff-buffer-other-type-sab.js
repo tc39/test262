@@ -8,7 +8,7 @@ description: >
   Set values from different instances using the different buffer and different
   type.
 includes: [testTypedArray.js, compareArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 var int_views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];

@@ -6,6 +6,7 @@ esid: sec-atomics.load
 description: >
   Test Atomics.load on view values other than TypedArrays
 includes: [testAtomics.js]
+features: [SharedArrayBuffer, ArrayBuffer, DataView, Atomics, arrow-function, let, for-of]
 ---*/
 
 testWithAtomicsNonViewValues(function(view) {

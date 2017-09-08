@@ -13,7 +13,7 @@ info: >
   object has an [[ArrayBufferData]] internal slot.
 
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(16);

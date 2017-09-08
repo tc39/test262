@@ -24,7 +24,7 @@ info: |
        b. Let proto be realm's intrinsic object named intrinsicDefaultProto.
     5. Return proto.
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer, Reflect]
+features: [SharedArrayBuffer, Reflect, TypedArray]
 ---*/
 
 var other = $262.createRealm().global;

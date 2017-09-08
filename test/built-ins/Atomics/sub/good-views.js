@@ -5,6 +5,7 @@
 esid: sec-atomics.sub
 description: Test Atomics.sub on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
+features: [SharedArrayBuffer, ArrayBuffer, DataView, Atomics, arrow-function, let, TypedArray, for-of]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);
