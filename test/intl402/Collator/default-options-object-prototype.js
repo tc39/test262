@@ -13,8 +13,8 @@ info: >
       1. Let _options_ be ObjectCreate(*null*).
 ---*/
 
-if (new Intl.Collator("en").resolvedOptions().locale === "en") {
-  Object.prototype.sensitivity = "base";
-  let collator = new Intl.Collator("en");
-  assert.sameValue(collator.resolvedOptions().caseFirst, "variant");
-}
+let defaultSensitivity = new Intl.Collator("en").resolvedOptions().sensitivity;
+
+Object.prototype.sensitivity = "base";
+let collator = new Intl.Collator("en");
+assert.sameValue(collator.resolvedOptions().sensitivity, defaultSensitivity);

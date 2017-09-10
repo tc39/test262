@@ -13,8 +13,10 @@ info: >
       1. Let _options_ be ObjectCreate(*null*).
 ---*/
 
-if (new Intl.NumberFormat("en").resolvedOptions().locale === "en") {
-  Object.prototype.maximumFractionDigits = 1;
-  let formatter = new Intl.NumberFormat("en");
-  assert.sameValue(formatter.resolvedOptions().maximumFractionDigits, 3);
-}
+let defaultMaximumFractionDigits =
+    new Intl.NumberFormat("en").resolvedOptions().maximumFractionDigits;
+
+Object.prototype.maximumFractionDigits = 1;
+let formatter = new Intl.NumberFormat("en");
+assert.sameValue(formatter.resolvedOptions().maximumFractionDigits,
+                 defaultMaximumFractionDigits);
