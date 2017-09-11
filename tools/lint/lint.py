@@ -8,6 +8,7 @@ import sys
 from lib.collect_files import collect_files
 from lib.checks.features import CheckFeatures
 from lib.checks.frontmatter import CheckFrontmatter
+from lib.checks.harnessfeatures import CheckHarnessFeatures
 from lib.checks.license import CheckLicense
 from lib.checks.negative import CheckNegative
 from lib.eprint import eprint
@@ -23,7 +24,10 @@ parser.add_argument('path',
         help='file name or directory of files to lint')
 
 checks = [
-        CheckFrontmatter(), CheckFeatures('features.txt'), CheckLicense(),
+        CheckFrontmatter(),
+        CheckFeatures('features.txt'),
+        CheckHarnessFeatures(),
+        CheckLicense(),
         CheckNegative()
     ]
 

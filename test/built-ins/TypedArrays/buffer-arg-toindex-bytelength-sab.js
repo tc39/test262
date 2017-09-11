@@ -19,7 +19,7 @@ info: |
     a. Let newLength be ? ToIndex(length).
   ...
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(16);

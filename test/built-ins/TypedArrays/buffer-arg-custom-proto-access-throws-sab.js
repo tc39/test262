@@ -28,8 +28,8 @@ info: >
   ...
   3. Let proto be ? Get(constructor, "prototype").
   ...
-features: [Reflect, SharedArrayBuffer]
 includes: [testTypedArray.js]
+features: [Reflect, SharedArrayBuffer, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(8);

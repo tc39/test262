@@ -6,6 +6,7 @@ esid: sec-atomics.wait
 description: >
   Test range checking of Atomics.wait on arrays that allow atomic operations
 includes: [testAtomics.js]
+features: [SharedArrayBuffer, ArrayBuffer, DataView, Atomics, arrow-function, let, for-of]
 ---*/
 
 var sab = new SharedArrayBuffer(4);

@@ -17,7 +17,7 @@ info: |
   8. If offset modulo elementSize ≠ 0, throw a RangeError exception.
   ...
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(16);

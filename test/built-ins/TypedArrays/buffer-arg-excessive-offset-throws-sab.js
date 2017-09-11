@@ -19,7 +19,7 @@ info: >
     c. If newByteLength < 0, throw a RangeError exception.
   ...
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

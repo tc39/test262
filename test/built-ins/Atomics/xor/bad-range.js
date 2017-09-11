@@ -6,6 +6,7 @@ esid: sec-atomics.xor
 description: >
   Test range checking of Atomics.xor on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
+features: [SharedArrayBuffer, ArrayBuffer, DataView, Atomics, arrow-function, let, TypedArray, for-of]
 ---*/
 
 var sab = new SharedArrayBuffer(4);

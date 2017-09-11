@@ -6,6 +6,7 @@ esid: sec-atomics.compareexchange
 description: >
   Test Atomics.compareExchange on shared non-integer TypedArrays
 includes: [testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);

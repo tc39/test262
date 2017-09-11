@@ -6,6 +6,7 @@ esid: sec-atomics.wait
 description: >
   Test Atomics.wait on shared non-integer TypedArrays
 includes: [testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);

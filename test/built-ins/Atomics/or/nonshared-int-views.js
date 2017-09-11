@@ -6,6 +6,7 @@ esid: sec-atomics.or
 description: >
   Test Atomics.or on non-shared integer TypedArrays
 includes: [testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 var ab = new ArrayBuffer(16);

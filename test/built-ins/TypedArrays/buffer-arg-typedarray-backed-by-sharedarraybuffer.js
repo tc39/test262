@@ -7,7 +7,7 @@ description: >
   Passing a SharedArrayBuffer-backed TypedArray to a TypedArray constructor
   produces an ArrayBuffer-backed TypedArray.
 includes: [testTypedArray.js]
-features: [SharedArrayBuffer]
+features: [SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(4);
