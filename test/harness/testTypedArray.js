@@ -11,6 +11,7 @@ description: >
         testTypedArrayConversions()
 
 includes: [testTypedArray.js,arrayContains.js]
+features: [TypedArray]
 ---*/
 var TAConstructors = [
   Float64Array,
