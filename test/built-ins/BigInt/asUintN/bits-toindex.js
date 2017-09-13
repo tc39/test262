@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: BigInt.asIntN type coercion for bits parameter
+description: BigInt.asUintN type coercion for bits parameter
 info: >
-  BigInt.asIntN ( bits, bigint )
+  BigInt.asUintN ( bits, bigint )
 
   1. Let bits be ? ToIndex(bits).
 
@@ -13,17 +13,17 @@ includes: [typeCoercion.js]
 ---*/
 
 testCoercibleToIndexZero(function(zero) {
-  assert.sameValue(BigInt.asIntN(zero, 1n), 0n);
+  assert.sameValue(BigInt.asUintN(zero, 1n), 0n);
 });
 
 testCoercibleToIndexOne(function(one) {
-  assert.sameValue(BigInt.asIntN(one, 1n), -1n);
+  assert.sameValue(BigInt.asUintN(one, 1n), 0n);
 });
 
 testCoercibleToIndexFromIndex(3, function(three) {
-  assert.sameValue(BigInt.asIntN(three, 10n), 2n);
+  assert.sameValue(BigInt.asUintN(three, 10n), 2n);
 });
 
 testNotCoercibleToIndex(function(error, value) {
-  assert.throws(error, function() { BigInt.asIntN(value, 0n); });
+  assert.throws(error, function() { BigInt.asUintN(value, 0n); });
 });
