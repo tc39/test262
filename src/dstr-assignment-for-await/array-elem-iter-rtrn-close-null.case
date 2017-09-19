@@ -4,12 +4,6 @@
 desc: >
     IteratorClose throws a TypeError when `return` returns a non-Object value
 info: |
-    AssignmentElement : DestructuringAssignmentTarget Initializer
-    1. If DestructuringAssignmentTarget is neither an ObjectLiteral nor an ArrayLiteral, then
-      a. Let lref be the result of evaluating DestructuringAssignmentTarget.
-      b. ReturnIfAbrupt(lref).
-    [...]
-
     ArrayAssignmentPattern : [ AssignmentElementList ]
 
     [...]
@@ -32,8 +26,15 @@ esid: sec-runtime-semantics-destructuringassignmentevaluation
 
 //- setup
 let unreachable = 0;
+let nextCount = 0;
+let returnCount = 0;
 let iterator = {
+  next() {
+    nextCount += 1;
+    return {done: false, value: undefined};
+  },
   return() {
+    returnCount += 1;
     return null;
   }
 };
@@ -43,17 +44,21 @@ let iterable = {
   }
 };
 //- elems
-[ {}[yield] ]
+[ {} = yield ]
 //- vals
 iterable
 //- body
 unreachable += 1;
 //- teardown
 iter.next().then(result => {
+  assert.sameValue(nextCount, 1);
+  assert.sameValue(returnCount, 0);
   assert.sameValue(result.value, undefined);
   assert.sameValue(result.done, false);
 
   iter.return().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+    assert.sameValue(nextCount, 1);
+    assert.sameValue(returnCount, 1);
     assert.sameValue(unreachable, 0);
     assert.sameValue(constructor, TypeError);
   }).then($DONE, $DONE);
