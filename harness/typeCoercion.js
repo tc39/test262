@@ -407,3 +407,19 @@ function testNotCoercibleToBigInt(test) {
   testStringValue("0xg");
   testStringValue("1n");
 }
+
+function testCoercibleToBigIntThisValue(value, test) {
+  test(value);
+  test(Object(value));
+}
+
+function testNotCoercibleToBigIntThisValue(test) {
+  test(undefined);
+  test(null);
+  test(true);
+  test(false);
+  test("");
+  test(Symbol(""));
+  test(0);
+  test({});
+}
