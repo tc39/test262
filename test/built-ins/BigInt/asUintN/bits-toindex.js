@@ -17,7 +17,7 @@ testCoercibleToIndexZero(function(zero) {
 });
 
 testCoercibleToIndexOne(function(one) {
-  assert.sameValue(BigInt.asUintN(one, 1n), 0n);
+  assert.sameValue(BigInt.asUintN(one, 1n), 1n);
 });
 
 testCoercibleToIndexFromIndex(3, function(three) {
