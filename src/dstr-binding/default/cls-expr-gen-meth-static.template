@@ -5,7 +5,7 @@ path: language/expressions/class/dstr-gen-meth-static-
 name: static class expression generator method
 esid: sec-class-definitions-runtime-semantics-evaluation
 es6id: 14.5.16
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
 

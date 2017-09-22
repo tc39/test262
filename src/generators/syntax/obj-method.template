@@ -9,6 +9,7 @@ info: |
 
   GeneratorMethod[Yield, Await]:
     * PropertyName[?Yield, ?Await] ( UniqueFormalParameters[+Yield, ~Await] ) { GeneratorBody }
+features: [generators]
 ---*/
 
 var obj = {

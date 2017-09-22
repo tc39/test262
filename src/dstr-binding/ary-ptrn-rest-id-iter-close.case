@@ -5,6 +5,7 @@
 template: iter-close
 desc: >
   The iterator is properly consumed by the destructuring pattern
+features: [generators]
 ---*/
 
 //- setup
