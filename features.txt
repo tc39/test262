@@ -69,6 +69,7 @@ caller
 class
 computed-property-names
 const
+cross-realm
 DataView
 DataView.prototype.getFloat32
 DataView.prototype.getFloat64
