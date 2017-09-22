@@ -4,6 +4,7 @@
 /*---
 description: redeclaration with let-LexicalDeclaration (GeneratorDeclaration in SwitchStatement)
 esid: sec-switch-statement-static-semantics-early-errors
+features: [generators]
 flags: [generated]
 negative:
   phase: early

@@ -4,7 +4,7 @@
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
-features: [default-parameters]
+features: [default-parameters, generators]
 flags: [generated]
 negative:
   phase: early
@@ -44,6 +44,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 
     14.1.2 Static Semantics: Early Errors
 

@@ -4,7 +4,7 @@
 /*---
 description: RestParameter does not support an initializer (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-features: [default-parameters]
+features: [default-parameters, generators]
 flags: [generated]
 negative:
   phase: early
@@ -39,6 +39,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 
     14.1 Function Definitions
 

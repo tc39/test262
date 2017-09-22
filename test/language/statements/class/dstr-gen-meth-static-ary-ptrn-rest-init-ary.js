@@ -5,7 +5,7 @@
 description: Reset element (nested array pattern) does not support initializer (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 es6id: 14.5.15
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 flags: [generated]
 negative:
   phase: early
