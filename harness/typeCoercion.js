@@ -291,13 +291,10 @@ function testCoercibleToString(test) {
   testPrimitiveValue(-0, "0");
   testPrimitiveValue(Infinity, "Infinity");
   testPrimitiveValue(-Infinity, "-Infinity");
-  testPrimitiveValue(123.456, "123.456");
-  testPrimitiveValue(-123.456, "-123.456");
   testPrimitiveValue("", "");
   testPrimitiveValue("foo", "foo");
 
   if (typeof BigInt !== "undefined") {
-    // BigInt -> TypeError
     testPrimitiveValue(BigInt(0), "0");
   }
 
@@ -406,4 +403,6 @@ function testNotCoercibleToBigInt(test) {
   testStringValue("0o8");
   testStringValue("0xg");
   testStringValue("1n");
+
+  testNotCoercibleToPrimitive("number", test);
 }
