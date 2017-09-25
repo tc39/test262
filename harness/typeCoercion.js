@@ -231,10 +231,8 @@ function testNotCoercibleToNumber(test) {
   // ToNumber: Symbol -> TypeError
   testPrimitiveValue(Symbol("1"));
 
-  if (typeof BigInt !== "undefined") {
-    // ToNumber: BigInt -> TypeError
-    testPrimitiveValue(BigInt(0));
-  }
+  // ToNumber: BigInt -> TypeError
+  testPrimitiveValue(0n);
 
   // ToPrimitive
   testNotCoercibleToPrimitive("number", test);
@@ -293,10 +291,7 @@ function testCoercibleToString(test) {
   testPrimitiveValue(-Infinity, "-Infinity");
   testPrimitiveValue("", "");
   testPrimitiveValue("foo", "foo");
-
-  if (typeof BigInt !== "undefined") {
-    testPrimitiveValue(BigInt(0), "0");
-  }
+  testPrimitiveValue(0n, "0");
 
   // toString of a few objects
   test([], "");
