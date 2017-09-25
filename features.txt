@@ -113,6 +113,7 @@ Symbol.unscopables
 tail-call-optimization
 template
 TypedArray
+u180e
 Uint8Array
 WeakMap
 WeakSet
