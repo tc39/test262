@@ -112,6 +112,46 @@ function testCoercibleToIntegerFromInteger(nominalInteger, test) {
   }
 }
 
+function testCoercibleToBooleanFalse(test) {
+  test(undefined);
+  test(null);
+  test(false);
+  test(0);
+  test(-0);
+  test(NaN);
+  test(0n);
+  test("");
+}
+
+function testCoercibleToBooleanTrue(test) {
+  test(true);
+  test(1);
+  test(-1);
+  test(Infinity);
+  test(-Infinity);
+  test(1n);
+  test("a");
+  test("true");
+  test("false");
+  test("0");
+  test(Symbol("1"));
+  test({});
+  test([]);
+
+  // ToBoolean does not call ToPrimitive.
+  // In all of these cases, it's just an object, which is truthy.
+  testPrimitiveWrappers(false, "number", test);
+  testPrimitiveWrappers(true, "number", test);
+  testPrimitiveWrappers(false, "string", test);
+  testPrimitiveWrappers(true, "string", test);
+
+  function notReallyAnError(error, value) {
+    test(value);
+  }
+  testNotCoercibleToPrimitive("number", notReallyAnError);
+  testNotCoercibleToPrimitive("string", notReallyAnError);
+}
+
 function testPrimitiveWrappers(primitiveValue, hint, test) {
   if (primitiveValue != null) {
     // null and undefined result in {} rather than a proper wrapper,
