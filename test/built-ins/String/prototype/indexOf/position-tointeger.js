@@ -12,18 +12,30 @@ includes: [typeCoercion.js]
 features: [BigInt, Symbol.toPrimitive]
 ---*/
 
-testCoercibleToIntegerZero(function(zero) {
-  assert.sameValue("aaaa".indexOf("aa", zero), 0);
-});
+assert.continueOnFailure(function() {
 
-testCoercibleToIntegerOne(function(one) {
-  assert.sameValue("aaaa".indexOf("aa", one), 1);
-});
+  testCoercibleToIntegerZero(function(zero) {
+    assert.notThrows(function() {
+      assert.sameValue("aaaa".indexOf("aa", zero), 0);
+    });
+  });
 
-testCoercibleToIntegerFromInteger(2, function(two) {
-  assert.sameValue("aaaa".indexOf("aa", two), 2);
-});
+  testCoercibleToIntegerOne(function(one) {
+    assert.notThrows(function() {
+      assert.sameValue("aaaa".indexOf("aa", one), 1);
+    });
+  });
 
-testNotCoercibleToInteger(function(error, value) {
-  assert.throws(error, function() { "".indexOf("", value); });
+  testCoercibleToIntegerFromInteger(2, function(two) {
+    assert.notThrows(function() {
+      assert.sameValue("aaaa".indexOf("aa", two), 2);
+    });
+  });
+
+  testNotCoercibleToInteger(function(error, value) {
+    assert.throws(error, function() {
+      "".indexOf("", value);
+    });
+  });
+
 });

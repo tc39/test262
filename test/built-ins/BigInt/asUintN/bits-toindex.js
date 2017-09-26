@@ -12,18 +12,30 @@ features: [BigInt, Symbol, Symbol.toPrimitive]
 includes: [typeCoercion.js]
 ---*/
 
-testCoercibleToIndexZero(function(zero) {
-  assert.sameValue(BigInt.asUintN(zero, 1n), 0n);
-});
+assert.continueOnFailure(function() {
 
-testCoercibleToIndexOne(function(one) {
-  assert.sameValue(BigInt.asUintN(one, 1n), 1n);
-});
+  testCoercibleToIndexZero(function(zero) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asUintN(zero, 1n), 0n);
+    });
+  });
 
-testCoercibleToIndexFromIndex(3, function(three) {
-  assert.sameValue(BigInt.asUintN(three, 10n), 2n);
-});
+  testCoercibleToIndexOne(function(one) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asUintN(one, 1n), 1n);
+    });
+  });
 
-testNotCoercibleToIndex(function(error, value) {
-  assert.throws(error, function() { BigInt.asUintN(value, 0n); });
+  testCoercibleToIndexFromIndex(3, function(three) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asUintN(three, 10n), 2n);
+    });
+  });
+
+  testNotCoercibleToIndex(function(error, value) {
+    assert.throws(error, function() {
+      BigInt.asUintN(value, 0n);
+    });
+  });
+
 });
