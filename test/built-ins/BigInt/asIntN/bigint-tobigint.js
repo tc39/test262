@@ -12,22 +12,36 @@ features: [BigInt, Symbol, Symbol.toPrimitive]
 includes: [typeCoercion.js]
 ---*/
 
-testCoercibleToBigIntZero(function(zero) {
-  assert.sameValue(BigInt.asIntN(2, zero), 0n);
-});
+assert.continueOnFailure(function() {
 
-testCoercibleToBigIntOne(function(one) {
-  assert.sameValue(BigInt.asIntN(2, one), 1n);
-});
+  testCoercibleToBigIntZero(function(zero) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asIntN(2, zero), 0n);
+    });
+  });
 
-testCoercibleToBigIntFromBigInt(10n, function(ten) {
-  assert.sameValue(BigInt.asIntN(3, ten), 2n);
-});
+  testCoercibleToBigIntOne(function(one) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asIntN(2, one), 1n);
+    });
+  });
 
-testCoercibleToBigIntFromBigInt(12345678901234567890003n, function(value) {
-  assert.sameValue(BigInt.asIntN(4, value), 3n);
-});
+  testCoercibleToBigIntFromBigInt(10n, function(ten) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asIntN(3, ten), 2n);
+    });
+  });
 
-testNotCoercibleToBigInt(function(error, value) {
-  assert.throws(error, function() { BigInt.asIntN(0, value); });
+  testCoercibleToBigIntFromBigInt(12345678901234567890003n, function(value) {
+    assert.notThrows(function() {
+      assert.sameValue(BigInt.asIntN(4, value), 3n);
+    });
+  });
+
+  testNotCoercibleToBigInt(function(error, value) {
+    assert.throws(error, function() {
+      BigInt.asIntN(0, value);
+    });
+  });
+
 });
