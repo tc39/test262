@@ -259,7 +259,7 @@ function testNotCoercibleToInteger(test) {
   testNotCoercibleToNumber(test);
 }
 
-function testNotCoercibleToNumber(test) {
+function testNotCoercibleToNumber(test, skipBigInt) {
   function testPrimitiveValue(value) {
     test(TypeError, value);
     // ToPrimitive
@@ -271,8 +271,10 @@ function testNotCoercibleToNumber(test) {
   // ToNumber: Symbol -> TypeError
   testPrimitiveValue(Symbol("1"));
 
-  // ToNumber: BigInt -> TypeError
-  testPrimitiveValue(0n);
+  if (skipBigInt !== true) {
+    // ToNumber: BigInt -> TypeError
+    testPrimitiveValue(0n);
+  }
 
   // ToPrimitive
   testNotCoercibleToPrimitive("number", test);
@@ -440,4 +442,24 @@ function testNotCoercibleToBigInt(test) {
   testStringValue("1n");
 
   testNotCoercibleToPrimitive("number", test);
+}
+
+function testCoercibleToNumericNumberZero(test) {
+  // ToNumeric doesn't introduce any cases of 0 except through ToNumber.
+  testCoercibleToNumberZero(test);
+}
+
+function testCoercibleToNumericNumberOne(test) {
+  // ToNumeric doesn't introduce any cases of 1 except through ToNumber.
+  testCoercibleToNumberOne(test);
+}
+
+function testCoercibleToNumericFromBigInt(nominalBigInt, test) {
+  // ToNumeric only returns a BigInt if the result of ToPrimitive is a BigInt.
+  test(nominalBigInt);
+  testPrimitiveWrappers(nominalBigInt, "number", test);
+}
+
+function testNotCoercibleToNumeric(test) {
+  testNotCoercibleToNumber(test, true);
 }
