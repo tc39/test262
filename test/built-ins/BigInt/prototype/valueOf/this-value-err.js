@@ -9,7 +9,7 @@ info: >
 
   Return ? thisBigIntValue(this value).
 includes: [typeCoercion.js]
-features: [BigInt, arrow-function]
+features: [BigInt, arrow-function, Symbol, Symbol.toPrimitive]
 ---*/
 
 testNotCoercibleToBigIntThisValue(
