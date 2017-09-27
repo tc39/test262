@@ -95,8 +95,8 @@ Reflect.construct
 Reflect.set
 Reflect.setPrototypeOf
 Set
-String#endsWith
-String#includes
+String.prototype.endsWith
+String.prototype.includes
 super
 Symbol
 Symbol.hasInstance
