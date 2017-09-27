@@ -112,6 +112,46 @@ function testCoercibleToIntegerFromInteger(nominalInteger, test) {
   }
 }
 
+function testCoercibleToBooleanFalse(test) {
+  test(undefined);
+  test(null);
+  test(false);
+  test(0);
+  test(-0);
+  test(NaN);
+  test(0n);
+  test("");
+}
+
+function testCoercibleToBooleanTrue(test) {
+  test(true);
+  test(1);
+  test(-1);
+  test(Infinity);
+  test(-Infinity);
+  test(1n);
+  test("a");
+  test("true");
+  test("false");
+  test("0");
+  test(Symbol("1"));
+  test({});
+  test([]);
+
+  // ToBoolean does not call ToPrimitive.
+  // In all of these cases, it's just an object, which is truthy.
+  testPrimitiveWrappers(false, "number", test);
+  testPrimitiveWrappers(true, "number", test);
+  testPrimitiveWrappers(false, "string", test);
+  testPrimitiveWrappers(true, "string", test);
+
+  function notReallyAnError(error, value) {
+    test(value);
+  }
+  testNotCoercibleToPrimitive("number", notReallyAnError);
+  testNotCoercibleToPrimitive("string", notReallyAnError);
+}
+
 function testPrimitiveWrappers(primitiveValue, hint, test) {
   if (primitiveValue != null) {
     // null and undefined result in {} rather than a proper wrapper,
@@ -219,7 +259,7 @@ function testNotCoercibleToInteger(test) {
   testNotCoercibleToNumber(test);
 }
 
-function testNotCoercibleToNumber(test) {
+function testNotCoercibleToNumber(test, skipBigInt) {
   function testPrimitiveValue(value) {
     test(TypeError, value);
     // ToPrimitive
@@ -231,9 +271,9 @@ function testNotCoercibleToNumber(test) {
   // ToNumber: Symbol -> TypeError
   testPrimitiveValue(Symbol("1"));
 
-  if (typeof BigInt !== "undefined") {
+  if (skipBigInt !== true) {
     // ToNumber: BigInt -> TypeError
-    testPrimitiveValue(BigInt(0));
+    testPrimitiveValue(0n);
   }
 
   // ToPrimitive
@@ -291,15 +331,9 @@ function testCoercibleToString(test) {
   testPrimitiveValue(-0, "0");
   testPrimitiveValue(Infinity, "Infinity");
   testPrimitiveValue(-Infinity, "-Infinity");
-  testPrimitiveValue(123.456, "123.456");
-  testPrimitiveValue(-123.456, "-123.456");
   testPrimitiveValue("", "");
   testPrimitiveValue("foo", "foo");
-
-  if (typeof BigInt !== "undefined") {
-    // BigInt -> TypeError
-    testPrimitiveValue(BigInt(0), "0");
-  }
+  testPrimitiveValue(0n, "0");
 
   // toString of a few objects
   test([], "");
@@ -406,4 +440,26 @@ function testNotCoercibleToBigInt(test) {
   testStringValue("0o8");
   testStringValue("0xg");
   testStringValue("1n");
+
+  testNotCoercibleToPrimitive("number", test);
+}
+
+function testCoercibleToNumericNumberZero(test) {
+  // ToNumeric doesn't introduce any cases of 0 except through ToNumber.
+  testCoercibleToNumberZero(test);
+}
+
+function testCoercibleToNumericNumberOne(test) {
+  // ToNumeric doesn't introduce any cases of 1 except through ToNumber.
+  testCoercibleToNumberOne(test);
+}
+
+function testCoercibleToNumericFromBigInt(nominalBigInt, test) {
+  // ToNumeric only returns a BigInt if the result of ToPrimitive is a BigInt.
+  test(nominalBigInt);
+  testPrimitiveWrappers(nominalBigInt, "number", test);
+}
+
+function testNotCoercibleToNumeric(test) {
+  testNotCoercibleToNumber(test, true);
 }
