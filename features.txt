@@ -68,6 +68,10 @@ string-trimming
 String.prototype.trimEnd
 String.prototype.trimStart
 
+# Numeric Separator Literal
+# https://github.com/tc39/proposal-numeric-separator
+numeric-separator-literal
+
 # Standard language features
 #
 # Language features that have been included in a published version of the

@@ -6,7 +6,7 @@ esid: sec-tonumber-applied-to-the-string-type
 description: NonZeroDigit NumericLiteralSeparator DecimalDigit
 info: |
 
-  StrStrUnsignedDecimalLiteral :::
+  StrUnsignedDecimalLiteral :::
     StrUnsignedDecimalLiteral
 
   NonZeroDigit ::: one of

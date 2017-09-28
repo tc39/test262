@@ -21,6 +21,7 @@ info: |
   OctalDigit :: one of
     0 1 2 3 4 5 6 7
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(0o0_1, 0o01);

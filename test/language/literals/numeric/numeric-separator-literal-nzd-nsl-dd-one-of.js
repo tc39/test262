@@ -22,6 +22,7 @@ info: |
   DecimalDigit :: one of
     0 1 2 3 4 5 6 7 8 9
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(1_0, 10);
