@@ -1,4 +1,4 @@
-// Copyright (C) 2017 Robin Templeton. All rights reserved.
+// Copyright (C) 2017 Josh Wolfe. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -20,21 +20,13 @@ info: |
 features: [BigInt]
 ---*/
 
-assert.sameValue(0n >= 0, true);
-assert.sameValue(0 >= 0n, true);
-assert.sameValue(0n >= 0.000000000001, false);
-assert.sameValue(0.000000000001 >= 0n, true);
-assert.sameValue(0n >= 1, false);
-assert.sameValue(1 >= 0n, true);
-assert.sameValue(1n >= 0, true);
-assert.sameValue(0 >= 1n, false);
-assert.sameValue(1n >= 0.999999999999, true);
-assert.sameValue(0.999999999999 >= 1n, false);
-assert.sameValue(1n >= 1, true);
-assert.sameValue(1 >= 1n, true);
-assert.sameValue(0n >= Number.MIN_VALUE, false);
-assert.sameValue(Number.MIN_VALUE >= 0n, true);
-assert.sameValue(0n >= -Number.MIN_VALUE, true);
-assert.sameValue(-Number.MIN_VALUE >= 0n, false);
-assert.sameValue(-10n >= Number.MIN_VALUE, false);
-assert.sameValue(Number.MIN_VALUE >= -10n, true);
+assert.sameValue(1n > Infinity, false);
+assert.sameValue(Infinity > 1n, true);
+assert.sameValue(-1n > Infinity, false);
+assert.sameValue(Infinity > -1n, true);
+assert.sameValue(1n > -Infinity, true);
+assert.sameValue(-Infinity > 1n, false);
+assert.sameValue(-1n > -Infinity, true);
+assert.sameValue(-Infinity > -1n, false);
+assert.sameValue(0n > NaN, false);
+assert.sameValue(NaN > 0n, false);
