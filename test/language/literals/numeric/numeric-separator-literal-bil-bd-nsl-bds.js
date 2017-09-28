@@ -21,6 +21,7 @@ info: |
   BinaryDigit :: one of
     0 1
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(0b0_10, 0b010);

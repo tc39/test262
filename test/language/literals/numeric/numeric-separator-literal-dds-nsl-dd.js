@@ -12,6 +12,7 @@ info: |
     ...
     DecimalDigits NumericLiteralSeparator DecimalDigit
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(123456789_0, 1234567890);

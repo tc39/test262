@@ -20,6 +20,7 @@ info: |
   ExponentIndicator :: one of
     e E
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(.1_01e2, .101e2);

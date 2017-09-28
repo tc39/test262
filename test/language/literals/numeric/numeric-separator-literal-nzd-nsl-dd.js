@@ -20,6 +20,7 @@ info: |
     DecimalDigits DecimalDigit
     ...
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(1_1, 11);

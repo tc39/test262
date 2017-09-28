@@ -22,6 +22,8 @@ info: |
 negative:
   phase: early
   type: SyntaxError
+
+features: [numeric-separator-literal]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

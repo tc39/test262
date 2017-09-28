@@ -21,6 +21,7 @@ info: |
     - DecimalDigits
     ...
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(1.0e-10_0, 1.0e-100);
