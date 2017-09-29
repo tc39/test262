@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-string.prototype.trimEnd
 description: >
   String.prototype.trimEnd.length is 0.
 info: >
@@ -20,10 +20,12 @@ info: >
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [string-trimming]
 ---*/
 
-assert.sameValue(String.prototype.trimEnd.length, 0);
-
-verifyNotEnumerable(String.prototype.trimEnd, "length");
-verifyNotWritable(String.prototype.trimEnd, "length");
-verifyConfigurable(String.prototype.trimEnd, "length");
+verifyProperty(String.prototype.trimEnd, "length", {
+  value: 0,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
