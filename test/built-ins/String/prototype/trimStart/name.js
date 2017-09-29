@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-string.prototype.trimStart
 description: >
   String.prototype.trimStart.name is "trimStart".
 info: >
@@ -17,10 +17,12 @@ info: >
     object, if it exists, has the attributes { [[Writable]]: false,
     [[Enumerable]]: false, [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [string-trimming]
 ---*/
 
-assert.sameValue(String.prototype.trimStart.name, "valueOf");
-
-verifyNotEnumerable(String.prototype.trimStart, "name");
-verifyNotWritable(String.prototype.trimStart, "name");
-verifyConfigurable(String.prototype.trimStart, "name");
+verifyProperty(String.prototype.trimStart, "name", {
+  value: "trimStart",
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
