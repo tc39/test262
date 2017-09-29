@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-string.prototype.trimStart
 description: Type error when "this" value is a Symbol
 info: |
   TrimString
@@ -11,11 +11,14 @@ info: |
   ToString
   Argument Type: Symbol
   Result: Throw a TypeError exception
+features: [string-trimming]
 ---*/
 
 var trimStart = String.prototype.trimStart;
-var symbol = Symbol()
+var symbol = Symbol();
 
-assert.throws(TypeError, function() {
-  trimStart.call(symbol);
-}, 'Symbol()');
+assert.throws(
+  TypeError,
+  function() { trimStart.call(symbol); },
+  'String.prototype.trimStart.call(Symbol())'
+);
