@@ -330,8 +330,8 @@ function testCoercibleToBigIntZero(test) {
     testPrimitiveWrappers(value, "number", test);
   }
 
-  testCoercibleToBigIntFromBigInt(0n, test);
-  testPrimitiveValue(-0n);
+  testCoercibleToBigIntFromBigInt(BigInt(0), test);
+  testPrimitiveValue(-BigInt(0));
   testPrimitiveValue("-0");
   testPrimitiveValue(false);
   testPrimitiveValue("");
@@ -351,7 +351,7 @@ function testCoercibleToBigIntOne(test) {
     testPrimitiveWrappers(value, "number", test);
   }
 
-  testCoercibleToBigIntFromBigInt(1n, test);
+  testCoercibleToBigIntFromBigInt(BigInt(1), test);
   testPrimitiveValue(true);
 
   // toString() returns "1"
