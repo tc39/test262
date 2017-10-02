@@ -4,6 +4,11 @@ All tests are declared as text files located within this project's `test`
 directory. In order to execute Test262 tests, runtimes must observe the
 following semantics.
 
+**Note** When these instructions change in any substantive way, the `version`
+property of the JSON-formatted `package.json` file will be incremented. In this
+way, consumers who are transitioning between revisions of Test262 can more
+easily determine the cause of new test failures.
+
 ## Test Execution
 
 Test262 tests are only valid under the runtime environment conditions described
