@@ -3,16 +3,17 @@
 
 /*---
 esid: sec-bigint.prototype.valueof
-description: BigInt.prototype.valueOf this value coercion
-info: >
+description: >
+  BigInt.prototype.valueOf returns the primitive BigInt value.
+info: |
   BigInt.prototype.valueOf ( )
 
   Return ? thisBigIntValue(this value). 
 includes: [typeCoercion.js]
-features: [BigInt, arrow-function, Symbol, Symbol.toPrimitive]
+features: [BigInt]
 ---*/
 
-testCoercibleToBigIntThisValue(
-  0n,
-  (x) => assert.sameValue(0n, BigInt.prototype.valueOf.call(x))
-);
+var valueOf = BigInt.prototype.valueOf;
+
+assert.sameValue(valueOf.call(0n), 0n, "0n");
+assert.sameValue(valueOf.call(Object(0n)), 0n, "Object(0n)");
