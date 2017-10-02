@@ -13,10 +13,10 @@ info: |
     b. Let ny be ? ToNumeric(py).
     c. If Type(nx) is Type(ny), return ? Type(nx)::lessThan(nx, ny).
 
-sec-numeric-types-bigint-lessThan
-BigInt::lessThan (x, y)
+  sec-numeric-types-bigint-lessThan
+  BigInt::lessThan (x, y)
 
-  The abstract operation BigInt::lessThan with two arguments x and y of BigInt type returns true if x is less than y and false otherwise.
+    The abstract operation BigInt::lessThan with two arguments x and y of BigInt type returns true if x is less than y and false otherwise.
 
 features: [BigInt]
 ---*/
