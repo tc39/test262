@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Comparisons of BigInt and Number values
+description: Comparisons of BigInt and non-finite Number values
 esid: sec-abstract-relational-comparison
 info: |
   ...
@@ -16,7 +16,6 @@ info: |
     e. If x or y are any of NaN, return undefined.
     f. If x is -∞, or y is +∞, return true.
     g. If x is +∞, or y is -∞, return false.
-    h. If the mathematical value of nx is less than the mathematical value of ny, return true, otherwise return false.
 features: [BigInt]
 ---*/
 

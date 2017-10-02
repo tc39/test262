@@ -22,6 +22,8 @@ features: [BigInt]
 
 assert.sameValue(0n < 0, false);
 assert.sameValue(0 < 0n, false);
+assert.sameValue(0n < -0, false);
+assert.sameValue(-0 < 0n, false);
 assert.sameValue(0n < 0.000000000001, true);
 assert.sameValue(0.000000000001 < 0n, false);
 assert.sameValue(0n < 1, true);
