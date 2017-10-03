@@ -7,7 +7,7 @@ description: >
     within generator bodies.
 es6id: 14.1
 flags: [noStrict]
- features: [generators]
+features: [generators]
 ---*/
 
 var result;

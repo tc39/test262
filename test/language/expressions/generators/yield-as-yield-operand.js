@@ -6,7 +6,7 @@ description: >
     `yield` expressions may be used as the right-hand-side of other `yield`
     expressions.
 es6id: 14.4
- features: [generators]
+features: [generators]
 ---*/
 
 var iter, result;

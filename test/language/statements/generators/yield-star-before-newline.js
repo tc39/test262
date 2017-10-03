@@ -5,7 +5,7 @@
 description: >
     The right-hand side of a `yield *` expression may appear on a new line.
 es6id: 14.4
- features: [generators]
+features: [generators]
 ---*/
 
 var result;

@@ -9,7 +9,7 @@ es6id: 12.1.1
 negative:
   phase: early
   type: SyntaxError
- features: [generators]
+features: [generators]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

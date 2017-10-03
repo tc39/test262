@@ -5,7 +5,7 @@
 description: >
     `yield` is a valid statement within generator function bodies.
 es6id: 14.4
- features: [generators]
+features: [generators]
 ---*/
 
 var iter, result;

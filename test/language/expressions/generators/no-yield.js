@@ -6,7 +6,7 @@ description: >
     Generators declared with GeneratorExpression syntax do not require a
     `yield` expression.
 es6id: 14.4
- features: [generators]
+features: [generators]
 ---*/
 
 var result;
