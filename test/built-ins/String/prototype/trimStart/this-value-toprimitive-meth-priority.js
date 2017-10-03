@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-String.prototype.trimStart
+esid: sec-string.prototype.trimStart
 description: >
     ToString perfers Symbol.toPrimitive to toString to valueOf
 info: |
@@ -29,11 +29,11 @@ info: |
     g. Return ? OrdinaryToPrimitive(input, hint).
    ...
 
-   OrdinaryToPrimitive( O, hint )
-    ...
-     3. If hint is "string", then
-       a. Let methodNames be « "toString", "valueOf" ».
-    ...
+  OrdinaryToPrimitive( O, hint )
+   ...
+    3. If hint is "string", then
+      a. Let methodNames be « "toString", "valueOf" ».
+   ...
 features: [string-trimming, Symbol.toPrimitive]
 ---*/
 
