@@ -16,7 +16,6 @@ info: |
   2. If Type(value) is Object and value has a [[BigIntData]] internal slot, then
     ...
   3. Throw a TypeError exception.
-includes: [typeCoercion.js]
 features: [BigInt, Symbol]
 ---*/
 

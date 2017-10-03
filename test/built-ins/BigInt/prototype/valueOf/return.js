@@ -9,7 +9,6 @@ info: |
   BigInt.prototype.valueOf ( )
 
   Return ? thisBigIntValue(this value). 
-includes: [typeCoercion.js]
 features: [BigInt]
 ---*/
 
