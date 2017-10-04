@@ -91,19 +91,19 @@ while [[ $# -gt 0 ]]; do
             ;;
         --head)
             # Add test files changed since the last commit
-            files+=( "$( git diff HEAD --name-only | grep "^test/" )" )
+            files+=( "$( git diff HEAD --name-only --diff-filter=d | grep "^test/" )" )
             shift
             ;;
         -s|--diff|--since)
             # Add test files changed in the last N commits (N is following
             # positional parameter)
-            files+=( "$( git diff HEAD~$2 --name-only | grep "^test/" )" )
+            files+=( "$( git diff HEAD~$2 --name-only --diff-filter=d | grep "^test/" )" )
             shift
             shift
             ;;
         -s=*|--diff=*|--since=*)
             # Add test files changed in the last N commits (N follows `=` sign)
-            files+=( "$( git diff HEAD~${i#*=} --name-only | grep "^test/" )" )
+            files+=( "$( git diff HEAD~${i#*=} --name-only --diff-filter=d | grep "^test/" )" )
             shift
             ;;
         -h|--help)
