@@ -10,15 +10,15 @@ info: |
 features: [BigInt, Symbol]
 ---*/
 
-assert.sameValue(0n !== undefined, true);
-assert.sameValue(undefined !== 0n, true);
-assert.sameValue(1n !== undefined, true);
-assert.sameValue(undefined !== 1n, true);
-assert.sameValue(0n !== null, true);
-assert.sameValue(null !== 0n, true);
-assert.sameValue(1n !== null, true);
-assert.sameValue(null !== 1n, true);
-assert.sameValue(0n !== Symbol("1"), true);
-assert.sameValue(Symbol("1") !== 0n, true);
-assert.sameValue(1n !== Symbol("1"), true);
-assert.sameValue(Symbol("1") !== 1n, true);
+assert.sameValue(0n !== undefined, true, "0n !== undefined");
+assert.sameValue(undefined !== 0n, true, "undefined !== 0n");
+assert.sameValue(1n !== undefined, true, "1n !== undefined");
+assert.sameValue(undefined !== 1n, true, "undefined !== 1n");
+assert.sameValue(0n !== null, true, "0n !== null");
+assert.sameValue(null !== 0n, true, "null !== 0n");
+assert.sameValue(1n !== null, true, "1n !== null");
+assert.sameValue(null !== 1n, true, "null !== 1n");
+assert.sameValue(0n !== Symbol("1"), true, "0n !== Symbol(\"1\")");
+assert.sameValue(Symbol("1") !== 0n, true, "Symbol(\"1\") !== 0n");
+assert.sameValue(1n !== Symbol("1"), true, "1n !== Symbol(\"1\")");
+assert.sameValue(Symbol("1") !== 1n, true, "Symbol(\"1\") !== 1n");
