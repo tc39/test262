@@ -4,6 +4,7 @@
 /*---
 description: redeclaration with GeneratorDeclaration (LexicalDeclaration (const) in BlockStatement)
 esid: sec-block-static-semantics-early-errors
+features: [generators]
 flags: [generated]
 negative:
   phase: early

@@ -4,6 +4,7 @@
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
+features: [generators]
 flags: [generated]
 negative:
   phase: early
@@ -59,6 +60,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 
     Trailing comma in the parameters list
 

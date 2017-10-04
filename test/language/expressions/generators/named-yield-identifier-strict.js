@@ -4,6 +4,7 @@
 /*---
 description: It's an early error if the generator body has another function body with yield as an identifier in strict mode. (Named generator expression)
 esid: prod-GeneratorExpression
+features: [generators]
 flags: [generated, onlyStrict]
 negative:
   phase: early
@@ -13,6 +14,7 @@ info: |
 
     GeneratorExpression:
       function * BindingIdentifier opt ( FormalParameters ) { GeneratorBody }
+
 ---*/
 throw "Test262: This statement should not be evaluated.";
 

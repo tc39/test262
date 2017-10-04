@@ -4,6 +4,7 @@
 /*---
 description: yield is a reserved keyword within generator function bodies and may not be used as an identifier reference. (Static generator method as a ClassExpression element)
 esid: prod-GeneratorMethod
+features: [generators]
 flags: [generated]
 negative:
   phase: early
@@ -19,6 +20,7 @@ info: |
 
     GeneratorMethod :
       * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+
 
     IdentifierReference : Identifier
 

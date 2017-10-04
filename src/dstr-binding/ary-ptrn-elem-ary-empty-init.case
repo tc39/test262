@@ -15,6 +15,7 @@ info: |
        b. Let v be ? GetValue(defaultValue).
     4. Return the result of performing BindingInitialization of BindingPattern
        with v and environment as the arguments.
+features: [generators]
 ---*/
 
 //- setup

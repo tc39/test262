@@ -16,6 +16,7 @@ info: |
           [...]
     6. If environment is undefined, return PutValue(lhs, v).
     7. Return InitializeReferencedBinding(lhs, v).
+features: [generators]
 ---*/
 
 //- elems

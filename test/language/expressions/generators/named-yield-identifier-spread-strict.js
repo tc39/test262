@@ -4,7 +4,7 @@
 /*---
 description: It's an early error if the AssignmentExpression is a function body with yield as an identifier in strict mode. (Named generator expression)
 esid: prod-GeneratorExpression
-features: [object-spread]
+features: [object-spread, generators]
 flags: [generated, onlyStrict]
 negative:
   phase: early
@@ -14,6 +14,7 @@ info: |
 
     GeneratorExpression:
       function * BindingIdentifier opt ( FormalParameters ) { GeneratorBody }
+
 
     Spread Properties
 

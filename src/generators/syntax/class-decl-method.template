@@ -15,6 +15,7 @@ info: |
 
   GeneratorMethod :
     * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+features: [generators]
 ---*/
 
 class C { *gen() {

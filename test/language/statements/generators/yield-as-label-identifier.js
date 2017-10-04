@@ -4,6 +4,7 @@
 /*---
 description: yield is a reserved keyword within generator function bodies and may not be used as a label identifier. (Generator Function declaration)
 esid: prod-GeneratorDeclaration
+features: [generators]
 flags: [generated]
 negative:
   phase: early
@@ -13,6 +14,7 @@ info: |
 
     GeneratorDeclaration :
       function * BindingIdentifier ( FormalParameters ) { GeneratorBody }
+
 
     LabelIdentifier : Identifier
 

@@ -9,6 +9,7 @@ info: |
 
   GeneratorDeclaration[Yield, Await, Default]:
     function * BindingIdentifier[?Yield, ?Await] ( FormalParameters[+Yield, ~Await] ) { GeneratorBody }
+features: [generators]
 ---*/
 
 var callCount = 0;

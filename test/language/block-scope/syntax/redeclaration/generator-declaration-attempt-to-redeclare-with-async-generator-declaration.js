@@ -4,7 +4,7 @@
 /*---
 description: redeclaration with AsyncGeneratorDeclaration (GeneratorDeclaration in BlockStatement)
 esid: sec-block-static-semantics-early-errors
-features: [async-iteration]
+features: [async-iteration, generators]
 flags: [generated]
 negative:
   phase: early

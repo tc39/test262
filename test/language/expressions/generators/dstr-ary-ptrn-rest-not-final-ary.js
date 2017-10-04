@@ -5,7 +5,7 @@
 description: Rest element (array binding pattern) may not be followed by any element (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
 es6id: 14.4.14
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 flags: [generated]
 negative:
   phase: early
