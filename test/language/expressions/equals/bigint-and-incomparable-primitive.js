@@ -3,12 +3,13 @@
 
 /*---
 description: Non-strict equality comparison of BigInt and miscellaneous primitive values
-esid: sec-abstract-equality-comparison
+esid: sec-equality-operators-runtime-semantics-evaluation
 info: |
-  ...
-  13. Return false.
+  EqualityExpression : EqualityExpression == RelationalExpression
+    ...
+    5. Return the result of performing Abstract Equality Comparison rval == lval.
 
-features: [BigInt]
+features: [BigInt, Symbol]
 ---*/
 
 assert.sameValue(0n == undefined, false);

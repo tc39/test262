@@ -10,6 +10,20 @@ info: |
 features: [BigInt]
 ---*/
 
+assert.sameValue(0n !== Object(0n), true);
+assert.sameValue(Object(0n) !== 0n, true);
+assert.sameValue(0n !== Object(1n), true);
+assert.sameValue(Object(1n) !== 0n, true);
+assert.sameValue(1n !== Object(0n), true);
+assert.sameValue(Object(0n) !== 1n, true);
+assert.sameValue(1n !== Object(1n), true);
+assert.sameValue(Object(1n) !== 1n, true);
+assert.sameValue(2n !== Object(0n), true);
+assert.sameValue(Object(0n) !== 2n, true);
+assert.sameValue(2n !== Object(1n), true);
+assert.sameValue(Object(1n) !== 2n, true);
+assert.sameValue(2n !== Object(2n), true);
+assert.sameValue(Object(2n) !== 2n, true);
 assert.sameValue(0n !== {}, true);
 assert.sameValue({} !== 0n, true);
 assert.sameValue(0n !== {valueOf: function() { return 0n; }}, true);

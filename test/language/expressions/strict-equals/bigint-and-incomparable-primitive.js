@@ -7,7 +7,7 @@ esid: sec-strict-equality-comparison
 info: |
   1. If Type(x) is different from Type(y), return false.
 
-features: [BigInt]
+features: [BigInt, Symbol]
 ---*/
 
 assert.sameValue(0n === undefined, false);
