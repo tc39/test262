@@ -30,7 +30,7 @@ A test file has three sections: Copyright, Frontmatter, and Body.  A test looks 
  description: brief description
  info: >
    verbose test description, multiple lines OK.
-   (this is rarely necessary, usually description is enough)
+   (info typically contains relevant, direct quote from ECMAScript)
 ---*/
 
 [Test Code]
@@ -70,10 +70,25 @@ Eg: Insert &lt;LS&gt; between chunks of one string
 #### info
 **info**: [multiline string]
 
-This allows a long, free-form comment.
+This allows a long, free-form comment. The comment is almost always a direct
+quote from ECMAScript. It is used to indicate the observable being tested
+within the file.
 
-Eg: Object.prototype.toString - '[object Null]' will be returned when
-'this' value is null
+For example:
+
+/*---
+esid: sec-weakset.prototype.has
+description: Throws TypeError if `this` is not Object.
+info: >
+  WeakSet.prototype.has ( value )
+
+  1. Let S be the this value.
+  2. If Type(S) is not Object, throw a TypeError exception.
+---*/
+
+Note: Adding more context than the direct quote from ECMAScript should rarely
+be necessary. If you must add context to the quote, use the JavaScript
+single line comment syntax.
 
 #### negative
 **negative**: [dictionary containing **phase** and **type**]
