@@ -15,49 +15,49 @@ features: [BigInt]
 ---*/
 
 var x = 0n;
-assert.sameValue(x++, 0n);
-assert.sameValue(x, 1n);
+assert.sameValue(x++, 0n, "var x = 0n; x++ === 0n");
+assert.sameValue(x, 1n, "var x = 0n; x++; x === 1n");
 
 var x = -1n;
-assert.sameValue(x++, -1n);
-assert.sameValue(x, 0n);
+assert.sameValue(x++, -1n, "var x = -1n; x++ === -1n");
+assert.sameValue(x, 0n, "var x = -1n; x++; x === 0n");
 
 var x = 123456n;
-assert.sameValue(x++, 123456n);
-assert.sameValue(x, 123457n);
+assert.sameValue(x++, 123456n, "var x = 123456n; x++ === 123456n");
+assert.sameValue(x, 123457n, "var x = 123456n; x++; x === 123457n");
 
 var x = -123457n;
-assert.sameValue(x++, -123457n);
-assert.sameValue(x, -123456n);
+assert.sameValue(x++, -123457n, "var x = -123457n; x++ === -123457n");
+assert.sameValue(x, -123456n, "var x = -123457n; x++; x === -123456n");
 
 var x = 0x1fffffffffffff00n;
-assert.sameValue(x++, 0x1fffffffffffff00n);
-assert.sameValue(x, 0x1fffffffffffff01n);
+assert.sameValue(x++, 0x1fffffffffffff00n, "var x = 0x1fffffffffffff00n; x++ === 0x1fffffffffffff00n");
+assert.sameValue(x, 0x1fffffffffffff01n, "var x = 0x1fffffffffffff00n; x++; x === 0x1fffffffffffff01n");
 
 var x = -0x1fffffffffffff01n;
-assert.sameValue(x++, -0x1fffffffffffff01n);
-assert.sameValue(x, -0x1fffffffffffff00n);
+assert.sameValue(x++, -0x1fffffffffffff01n, "var x = -0x1fffffffffffff01n; x++ === -0x1fffffffffffff01n");
+assert.sameValue(x, -0x1fffffffffffff00n, "var x = -0x1fffffffffffff01n; x++; x === -0x1fffffffffffff00n");
 
 var x = {y:0n};
-assert.sameValue(x.y++, 0n);
-assert.sameValue(x.y, 1n);
+assert.sameValue(x.y++, 0n, "var x = {y:0n}; x.y++ === 0n");
+assert.sameValue(x.y, 1n, "var x = {y:0n}; x.y++; x.y === 1n");
 
 var x = {y:{z:0n}};
-assert.sameValue(x.y.z++, 0n);
-assert.sameValue(x.y.z, 1n);
+assert.sameValue(x.y.z++, 0n, "var x = {y:{z:0n}}; x.y.z++ === 0n");
+assert.sameValue(x.y.z, 1n, "var x = {y:{z:0n}}; x.y.z++; x.y.z === 1n");
 
 var x = [0n];
-assert.sameValue(x[0]++, 0n);
-assert.sameValue(x[0], 1n);
+assert.sameValue(x[0]++, 0n, "var x = [0n]; x[0]++ === 0n");
+assert.sameValue(x[0], 1n, "var x = [0n]; x[0]++; x[0] === 1n");
 
 var x = [null, [null, null, 0n]];
-assert.sameValue(x[1][2]++, 0n);
-assert.sameValue(x[1][2], 1n);
+assert.sameValue(x[1][2]++, 0n, "var x = [null, [null, null, 0n]]; x[1][2]++ === 0n");
+assert.sameValue(x[1][2], 1n, "var x = [null, [null, null, 0n]]; x[1][2]++; x[1][2] === 1n");
 
 var x = {y:[0n]};
-assert.sameValue(x.y[0]++, 0n);
-assert.sameValue(x.y[0], 1n);
+assert.sameValue(x.y[0]++, 0n, "var x = {y:[0n]}; x.y[0]++ === 0n");
+assert.sameValue(x.y[0], 1n, "var x = {y:[0n]}; x.y[0]++; x.y[0] === 1n");
 
 var x = [{z:0n}];
-assert.sameValue(x[0].z++, 0n);
-assert.sameValue(x[0].z, 1n);
+assert.sameValue(x[0].z++, 0n, "var x = [{z:0n}]; x[0].z++ === 0n");
+assert.sameValue(x[0].z, 1n, "var x = [{z:0n}]; x[0].z++; x[0].z === 1n");
