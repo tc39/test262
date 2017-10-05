@@ -4,10 +4,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 6.2.3
-description: Tests that language tags are canonicalized in return values.
-author: Norbert Lindenberg
-includes: [testIntl.js]
+esid: intl.getcanonicallocales
+description: Tests the getCanonicalLocales for locale tags.
+info: >
+  Intl.getCanonicalLocales (locales)
+  1. Let ll be ? CanonicalizeLocaleList(locales).
+  2. Return CreateArrayFromList(ll).
 ---*/
 
 var canonicalizedTags = {
@@ -19,7 +21,6 @@ var canonicalizedTags = {
     "cmn-hans-cn": ["cmn-Hans-CN", "cmn-Hans", "cmn"],
     "es-419": ["es-419", "es"],
     "es-419-u-nu-latn": ["es-419-u-nu-latn", "es-419", "es", "es-u-nu-latn"],
-    // -u-ca is incomplete, so it will not show up in resolvedOptions().locale
     "cmn-hans-cn-u-ca-t-ca-x-t-u": ["cmn-Hans-CN-t-ca-u-ca-x-t-u", "cmn-Hans-CN-t-ca-x-t-u", "cmn-Hans-CN-t-ca-x-t", "cmn-Hans-CN-t-ca", "cmn-Hans-CN", "cmn-Hans", "cmn"],
     "de-gregory-u-ca-gregory": ["de-gregory-u-ca-gregory", "de-gregory", "de-u-ca-gregory", "de"],
     "no-nyn": ["nn"],
@@ -33,10 +34,11 @@ var canonicalizedTags = {
     "x-foo": ["x-foo"]
 };
 
-Object.getOwnPropertyNames(canonicalizedTags).forEach(function (tag) {
+Object.keys(canonicalizedTags).forEach(function (tag) {
     let locale = Intl.getCanonicalLocales(tag);
-    if (!canonicalizedTags[tag].includes(locale[0])) {
-        $ERROR("For " + tag + " got " + locale + "; expected one of " +
-            canonicalizedTags[tag].join(", ") + ".");
-    }
+    let expected = canonicalizedTags[tag];
+    assert(
+        expected.includes(locale[0]),
+        `For ${tag} got ${locale}; expected one of ${expected.join(", ")}`,
+    );
 });
