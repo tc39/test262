@@ -5,10 +5,10 @@
 esid: sec-string.prototype.trimEnd
 description: Type error when "this" value is a Symbol
 info: |
-  TrimString
+  Runtime Semantics: TrimString ( string, where )
   2. Let S be ? ToString(str).
 
-  ToString
+  ToString ( argument )
   Argument Type: Symbol
   Result: Throw a TypeError exception
 features: [string-trimming]

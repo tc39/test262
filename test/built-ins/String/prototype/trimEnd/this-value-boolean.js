@@ -5,10 +5,10 @@
 esid: sec-string.prototype.trimEnd
 description: Behavior when "this" value is a boolean.
 info: |
-  TrimString
+  Runtime Semantics: TrimString ( string, where )
   2. Let S be ? ToString(str).
 
-  ToString
+  ToString ( argument )
   Argument Type: Boolean
   Result:
     If argument is true, return "true".

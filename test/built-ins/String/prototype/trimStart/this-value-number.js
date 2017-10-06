@@ -5,10 +5,10 @@
 esid: sec-string.prototype.trimStart
 description: Behavoir when "this" value is a number.
 info: |
-  TrimString
+  Runtime Semantics: TrimString ( string, where )
   2. Let S be ? ToString(str).
 
-  ToString
+  ToString ( argument )
   Argument Type: Number
   Result: NumberToString(argument)
 features: [string-trimming]
