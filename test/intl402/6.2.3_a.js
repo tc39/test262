@@ -47,7 +47,7 @@ testWithIntlConstructors(function (Constructor) {
 
         // Variant 1: construct an object and see whether its locale is canonicalized.
         // In this variant, shortened forms or the default locale may be returned
-        var object = new Constructor([tag], {localeMatcher: "lookup"});
+        var object = new Constructor([tag], { localeMatcher: "lookup" });
         var locale = object.resolvedOptions().locale;
         assert(canonicalizedTags[tag].indexOf(locale) !== -1 || locale === defaultLocale, "For " + tag + " got " + locale + "; expected one of " + canonicalizedTags[tag].join(", ") + ".");
         
