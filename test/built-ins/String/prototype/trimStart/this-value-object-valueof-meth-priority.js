@@ -57,7 +57,7 @@ var thisVal = {
   },
   get valueOf() {
     valueOfAccessed += 1;
-    return function() { return ' 42' };
+    return function() { return ' 42'; };
   },
 };
 
@@ -84,7 +84,6 @@ assert.sameValue(
   1,
   'thisVal[Symbol.toPrimitive should have been accessed.'
 );
-
 assert.sameValue(
   toStringAccessed,
   1,

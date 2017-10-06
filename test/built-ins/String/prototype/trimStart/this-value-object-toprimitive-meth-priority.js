@@ -37,11 +37,11 @@ var thisVal = {
   },
   get toString() {
     toStringAccessed += 1;
-    return function() {return ''; }
+    return function() { return ''; };
   },
   get valueOf() {
     valueOfAccessed += 1;
-    return function() {return ''; }
+    return function() { return ''; };
   },
 };
 
