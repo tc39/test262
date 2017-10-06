@@ -10,11 +10,17 @@
 
 Test cases should be created in files that are named to identify the feature or API that's being tested.
 
-Take a look at these examples:
+There is no strict naming convention. The file names should be human readable, helpful and, ideally, consistent within a single directory. For examples:
 
 - `Math.fround` handling of `Infinity`: `test/built-ins/Math/fround/Math.fround_Infinity.js`
-- `Array.prototype.find` use with `Proxy`: `test/Array/prototype/find/Array.prototype.find_callable-Proxy-1.js`
+- `Array.prototype.find` use with `Proxy`: `test/built-ins/Array/prototype/find/Array.prototype.find_callable-Proxy-1.js`
 - `arguments` implements an `iterator` interface: `test/language/arguments-object/iterator-interface.js`
+
+See the following directory trees for further recommended examples:
+
+- [test/built-ins/Math/fround](./test/built-ins/Math/fround/)
+- [test/built-ins/WeakMap](./test/built-ins/WeakMap/)
+- [test/language/arguments-object](./test/language/arguments-object/)
 
 **Note** The project is currently transitioning from a naming system based on specification section numbers. There remains a substantial number of tests that conform to this outdated convention; contributors should ignore that approach when introducing new tests and instead encode this information using the [id](#id) frontmatter tag.
 
@@ -49,8 +55,6 @@ Test262 supports the following tags:
  - [**description**](#description) (required)
  - [**info**](#info)
  - [**negative**](#negative)
- - [**es5id**](#es5id)
- - [**es6id**](#es6id)
  - [**esid**](#esid) (required for new tests)
  - [**includes**](#includes)
  - [**timeout**](#timeout)
@@ -58,12 +62,15 @@ Test262 supports the following tags:
  - [**flags**](#flags)
  - [**features**](#features)
 
+The following tags are deprecated, but exist in old tests:
+
+ - [**es5id**](#es5id) (deprecated)
+ - [**es6id**](#es6id) (deprecated)
+
 #### description
 **description**: [string]
 
-This is one of two required frontmatter tags. It should be a short, one-line
-description of the purpose of this testcase.  This is the string displayed by
-the browser runnner.
+This is one of two required frontmatter tags. The description should be a short, one-line description of the purpose of this testcase. We suggested that the description be kept to less than 100 characters, but clarity is preferred over brevity.
 
 Eg: Insert &lt;LS&gt; between chunks of one string
 
@@ -105,18 +112,6 @@ For example:
     negative:
       phase: early
       type: ReferenceError
-
-#### es5id
-**es5id**: [es5-test-id]
-
-This tag identifies the section number from the portion of the ECMAScript 5.1 standard that is tested by this test.  It was automatically generated for tests that were originally written for the ES5 version of the test suite and are now part of the ES6 version.
-
-When writing a new test for ES6, it is only necessary to include this tag when the test covers a part of the ES5 spec that is incorporated into ES6. All other tests should specify the `es6id` (see below) instead.
-
-#### es6id
-**es6id**: [es6-test-id]
-
-This tag identifies the section number from the portion of the ECMAScript 6 standard that is tested by this test.
 
 #### esid
 **esid**: [spec-id]
@@ -168,6 +163,24 @@ This tag is for boolean properties associated with the test.
 
 Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this tag. See the `features.txt` file for a complete list of available values.
 
+#### es5id
+**es5id**: [es5-test-id]
+
+**Deprecated.**
+
+This tag identifies the section number from the portion of the ECMAScript 5.1 or ECMAScript 3 standard that is tested by this test. It was automatically generated for tests that were originally written for the ES5 (or earlier) version of the test suite and are now part of the ES6 version. You can use the es5id to discover the relevant portion of the ECMAScript standard by looking up the section number in [previous publications of the specification](https://www.ecma-international.org/publications/standards/Ecma-262-arch.htm). Unfortunately, there is no way to identify which version of ECMAScript (specifically, 3 or 5.1) without looking up the section number and deciding whether it covers the observable in the test.
+
+Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids] for reasoning behind deprecation.
+
+#### es6id
+**es6id**: [es6-test-id]
+
+**Deprecated.**
+
+This tag identifies the section number from the portion of the ES6 standard that is tested by this test _at the time the test was written_. The es6ids might not correspond to the correction section numbers in the ES6 (or later) specifcation because routine edits to the specification will change section numbering. For this reason, only the esid is required for new tests.
+
+Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids] for reasoning behind deprecation.
+
 ## Test Environment
 
 Each test case is run in a fresh JavaScript environment; in a browser, this will be a new `IFRAME`; for a console runner, this will be a new process.  The test harness code is loaded before the test is run.  The test harness defines the following helper functions:
@@ -175,27 +188,17 @@ Each test case is run in a fresh JavaScript environment; in a browser, this will
 Function | Purpose
 ---------|--------
 Test262Error(message) | constructor for an error object that indicates a test failure
-$ERROR(message) | construct a Test262Error object and throw it
 $DONE(arg) | see Writing Asynchronous Tests, below
 assert(value, message) | throw a new Test262Error instance if the specified value is not strictly equal to the JavaScript `true` value; accepts an optional string message for use in creating the error
 assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.throws(expectedErrorConstructor, fn, message) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
 assert.throws.early(expectedErrorConstructor, code) | throw a new Test262Error instance if the provided code does not throw an early error, or if the constructor of the value thrown does not match the provided constructor. This assertion catches only errors that will be parsed through `Function(code)`.
+$ERROR(message) | construct a Test262Error object and throw it <br>**DEPRECATED** -- Do not use in new tests. Use `assert`, `assert.*`, or `throw new Test252Error` instead.
 
 ```
 /// error class
 function Test262Error(message) {
-//[omitted body]
-}
-
-/// helper function that throws
-function $ERROR(message) {
-  throw new Test262Error(message);
-}
-
-/// helper function for asynchronous tests
-function $DONE(arg) {
 //[omitted body]
 }
 ```
@@ -239,7 +242,7 @@ var p = new Promise(function () { /* some test code */ });
 
 p.then(function checkAssertions(arg) {
   if (!expected_condition) {
-    $ERROR("failure message");
+    throw new Test262Error("failure message");
   }
 
 }).then($DONE, $DONE);
@@ -247,7 +250,7 @@ p.then(function checkAssertions(arg) {
 
 Function `checkAssertions` implicitly returns `undefined` if the expected condition is observed.  The return value of function `checkAssertions` is then used to asynchronously invoke the first function of the final `then` call, resulting in a call to `$DONE(undefined)`, which signals a passing test.
 
-If the expected condition is not observed, function `checkAssertions` throws a `Test262Error` via function $ERROR.  This is caught by the Promise and then used to asynchronously invoke the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals a failing test.
+If the expected condition is not observed, function `checkAssertions` throws a `Test262Error`.  This is caught by the Promise and then used to asynchronously invoke the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals a failing test.
 
 ### Checking Exception Type and Message in Asynchronous Tests
 
@@ -260,11 +263,11 @@ p.then(function () {
   return "Expected exception to be thrown";
 }).then($DONE, function (e) {
  if (!(e instanceof TypeError)) {
-  $ERROR("Expected TypeError but got " + e);
+  throw new Test262Error("Expected TypeError but got " + e);
  }
 
  if (!/expected message/.test(e.message)) {
-  $ERROR("Expected message to contain 'expected message' but found " + e.message);
+  throw new Test262Error("Expected message to contain 'expected message' but found " + e.message);
  }
 
 }).then($DONE, $DONE);
