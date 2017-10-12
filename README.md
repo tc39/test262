@@ -1,4 +1,4 @@
-## Test262: ECMAScript Test Suite ([ECMA TR/104]((http://ecma-international.org/publications/techreports/E-TR-104.htm)))
+## Test262: ECMAScript Test Suite ([ECMA TR/104](http://ecma-international.org/publications/techreports/E-TR-104.htm))
 
 
 Test262 is the implementation conformance test suite for the latest drafts (or most recent published edition) of the following Ecma specifications: 
