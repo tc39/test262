@@ -1,0 +1,15 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/statements/class/fields-arrow-fnc-
+name: arrow function expression
+features: [arrow-function]
+---*/
+
+throw "Test262: This statement should not be evaluated.";
+
+class C {
+  x = () => /*{ initializer }*/;
+}
