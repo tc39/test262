@@ -9,6 +9,18 @@ Test262 is the implementation conformance test suite for the latest drafts (or m
 
 Test262 itself is described in [ECMA TR/104]((http://ecma-international.org/publications/techreports/E-TR-104.htm)) and is included in [ECMA-414](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf) (pdf).
 
+### State of Test262
+
+(fixme)
+
+In this location, we should describe the present state and ideal state of Test262:
+(1) goal state: every "observable" behavior identified in ECMAScript ?
+(2) current state: can you summarize how comprehensive Test262 presently is ? Perhaps breakdown by each of the stanards (262, 402 and 404)
+
+We welcome any contributions to Test262 that help make test coverage of existing features more comprehensive.
+
+### ECMAScript feature proposals
+
 As defined in the [TC39 Process](https://tc39.github.io/process-document/), Stage 4 Entrance Criteria requires tests for new feature proposals to advance. Tests may be written by proposal champions, implementers, or any interested community member. 
 
 A **proposal champion** is someone that worked on the feature proposal and specification directly.
