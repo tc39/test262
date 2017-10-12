@@ -14,10 +14,10 @@ info: >
      with values 10 through 35. The precise algorithm is
      implementation-dependent, however the algorithm should be a
      generalization of that specified in 3.1.4.1.
+features: [BigInt]
 ---*/
 
 for (let r = 2; r <= 36; r++) {
-  assert.throws(TypeError, () => BigInt.prototype.toString(r));
   assert.sameValue((0n).toString(r), "0", "0, radix " + r);
   assert.sameValue((-1n).toString(r), "-1", "-1, radix " + r);
   assert.sameValue((1n).toString(r), "1", "1, radix " + r);

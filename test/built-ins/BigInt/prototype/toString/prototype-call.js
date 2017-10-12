@@ -13,8 +13,9 @@ info: >
 
   The BigInt prototype is not a BigInt object; it does not have a
   [[BigIntData]] internal slot.
+features: [BigInt]
 ---*/
 
-assert.throws(TypeError, () => BigInt.prototype.toString());
-assert.throws(TypeError, () => BigInt.prototype.toString(10));
-assert.throws(TypeError, () => BigInt.prototype.toString(undefined));
+assert.throws(TypeError, function() {
+  BigInt.prototype.toString(1);
+});
