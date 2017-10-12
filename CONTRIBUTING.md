@@ -298,14 +298,13 @@ Test cases and test templates specify meta-data using the same YAML frontmatter 
 - test cases (`*.case`)
   - `template` - name of the sub-directory to locate templates for this test
   - `description` (see above)
+    // looks like this is actually "desc" !!! add how its made description with the appending of "name" in parens from the test template
   - `info` (see above)
   - `features` (see above; merged with value defined by test template)
 - test templates (`*.template`)
   - `path` - location within the published test hierarchy to output files created from this template
   - `name` - human-readable name of the syntactic form described by this template (used to generate the test file's `description` field)
   - `esid` (see above)
-  - `es5id` (see above)
-  - `es6id` (see above)
   - `info` (see above)
   - `features` (see above; merged with value defined by test case)
 
