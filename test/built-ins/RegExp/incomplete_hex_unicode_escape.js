@@ -1,3 +1,4 @@
+// Copyright (C) 2015 Zirak. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -5,6 +6,7 @@ description: An incomplete HexEscape or UnicodeEscape should be treated as an Id
 info: >
     An incomplete HexEscape (e.g. /\x/) or UnicodeEscape (/\u/) should fall
     through to IdentityEscape
+esid: prod-AtomEscape
 ---*/
 
 // Hex escape
