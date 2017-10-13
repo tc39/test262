@@ -2,17 +2,22 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: prod-RegularExpressionChar
+esid: prod-RegularExpressionBackslashSequence
 info: |
-  RegularExpressionChar ::
-    RegularExpressionNonTerminator but not one of \ or / or [
+  RegularExpressionBackslashSequence ::
+    \ RegularExpressionNonTerminator
 
   RegularExpressionNonTerminator ::
     SourceCharacter but not LineTerminator
 
-description: >
-  A regular express may not contain a "\" as a SourceCharacter
+  LineTerminator ::
+    <LF>
+    <CR>
+    <LS>
+    <PS>
 
+description: >
+  A regular expression may not contain a <LS> as a SourceCharacter
 negative:
   phase: early
   type: SyntaxError
@@ -20,4 +25,8 @@ negative:
 
 throw "Test262: This statement should not be evaluated.";
 
-/a\/
+/a\\ /
+
+/*
+There is a <LS> between "a\\ " and "/"
+*/
