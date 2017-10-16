@@ -9,15 +9,10 @@ Test262 is the implementation conformance test suite for the latest drafts (or m
 
 Test262 itself is described in [ECMA TR/104]((http://ecma-international.org/publications/techreports/E-TR-104.htm)) and is included in [ECMA-414](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf) (pdf).
 
-### State of Test262
+### Goals & State of Test262
 
-(fixme)
+The goal of Test262 is to provide test material that covers every observable behavior specified in the [ECMA-414 Standards Suite](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf). Development of Test262 is an on-going process. As of October 2017, Test262 consisted of over 29272 individual test files covering the majority of the pseudo-code algorithms and grammar productions defined in the [ECMA-414 Standards Suite](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf). Each of these files contains one or more distinct test cases. This marks the most comprehensive ECMAScript test suite to date. While test coverage is broad, TC39 does not consider coverage to be complete and as with any software project there exists the possibility of omissions and errors. This project welcomes any contributions to Test262 that help make test coverage of existing features more comprehensive.
 
-In this location, we should describe the present state and ideal state of Test262:
-(1) goal state: every "observable" behavior identified in ECMAScript ?
-(2) current state: can you summarize how comprehensive Test262 presently is ? Perhaps breakdown by each of the stanards (262, 402 and 404)
-
-We welcome any contributions to Test262 that help make test coverage of existing features more comprehensive.
 
 ### ECMAScript feature proposals
 
