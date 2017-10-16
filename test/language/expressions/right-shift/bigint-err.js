@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-multiplicative-operators-runtime-semantics-evaluation
-description: BigInt multiplication type errors
+esid: sec-signed-right-shift-operator-runtime-semantics-evaluation
+description: BigInt right shift type errors
 info: >
-  Multiplicative Operators
+  The Signed Right Shift Operator ( >> )
 
   Runtime Semantics: Evaluation
 
@@ -21,7 +21,7 @@ features: [BigInt, Symbol, Symbol.toPrimitive, arrow-function]
 
 testNotCoercibleToBigIntOperand(function (error, value1) {
   testCoercibleToBigIntOperand(0n, function (value2) {
-    assert.throws(error, () => value1 * value2);
-    assert.throws(error, () => value2 * value1);
+    assert.throws(error, () => value1 >> value2);
+    assert.throws(error, () => value2 >> value1);
   });
 });

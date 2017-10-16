@@ -409,8 +409,6 @@ function testNotCoercibleToBigInt(test) {
 }
 
 function testNotCoercibleToBigIntAdditionOperand(test) {
-  testNotCoercibleToPrimitive("number", test);
-
   function testPrimitiveValue(error, value) {
     test(error, value);
     testPrimitiveWrappers(value, "number", function (value) {
@@ -428,8 +426,6 @@ function testNotCoercibleToBigIntAdditionOperand(test) {
 }
 
 function testNotCoercibleToBigIntOperand(test) {
-  testNotCoercibleToPrimitive("number", test);
-
   function testPrimitiveValue(error, value) {
     test(error, value);
     testPrimitiveWrappers(value, "number", function (value) {
