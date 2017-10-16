@@ -407,3 +407,49 @@ function testNotCoercibleToBigInt(test) {
   testStringValue("0xg");
   testStringValue("1n");
 }
+
+function testNotCoercibleToBigIntAdditionOperand(test) {
+  testNotCoercibleToPrimitive("number", test);
+
+  function testPrimitiveValue(error, value) {
+    test(error, value);
+    testPrimitiveWrappers(value, "number", function (value) {
+      test(error, value);
+    });
+  }
+
+  // Undefined, Null, Number, Symbol -> TypeError
+  testPrimitiveValue(TypeError, undefined);
+  testPrimitiveValue(TypeError, null);
+  testPrimitiveValue(TypeError, 0);
+  testPrimitiveValue(TypeError, NaN);
+  testPrimitiveValue(TypeError, Infinity);
+  testPrimitiveValue(TypeError, Symbol("1"));
+}
+
+function testNotCoercibleToBigIntOperand(test) {
+  testNotCoercibleToPrimitive("number", test);
+
+  function testPrimitiveValue(error, value) {
+    test(error, value);
+    testPrimitiveWrappers(value, "number", function (value) {
+      test(error, value);
+    });
+  }
+
+  // Non-BigInt primitive -> TypeError
+  testPrimitiveValue(TypeError, undefined);
+  testPrimitiveValue(TypeError, null);
+  testPrimitiveValue(TypeError, 0);
+  testPrimitiveValue(TypeError, NaN);
+  testPrimitiveValue(TypeError, Infinity);
+  testPrimitiveValue(TypeError, "");
+  testPrimitiveValue(TypeError, "1");
+  testPrimitiveValue(TypeError, Symbol("1"));
+}
+
+function testCoercibleToBigIntOperand(value, test) {
+  test(value);
+  // ToPrimitive
+  testPrimitiveWrappers(value, "number", test);
+}
