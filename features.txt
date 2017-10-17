@@ -117,3 +117,11 @@ u180e
 Uint8Array
 WeakMap
 WeakSet
+
+# Test-harness features requiring host environment/test runner support
+#
+# The rare cases where testing language functionality requires non-standard
+# language features, exposed through global-environment functions on the $262
+# object, go here.
+
+uncallableAndIsHTMLDDA
