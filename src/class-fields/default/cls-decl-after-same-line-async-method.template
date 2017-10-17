@@ -6,6 +6,7 @@ path: language/statements/class/fields-same-line-async-method-
 name: field definitions after an async method in the same line
 features: [class-fields, async-functions]
 flags: [async]
+esid: prod-FieldDefinition
 ---*/
 
 class C {

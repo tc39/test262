@@ -5,6 +5,7 @@
 path: language/expressions/class/fields-wrapped-in-sc-
 name: fields definition wrapped in semicolons
 features: [class-fields]
+esid: prod-FieldDefinition
 ---*/
 
 var C = class {

@@ -6,6 +6,7 @@ path: language/expressions/class/fields-after-same-line-static-async-method-
 name: field definitions after a static async method in the same line
 features: [class-fields, async-functions]
 flags: [async]
+esid: prod-FieldDefinition
 ---*/
 
 var C = class {

@@ -5,6 +5,7 @@
 path: language/expressions/class/fields-multiple-stacked-definitions-
 name: multiple stacked fields definitions through ASI
 features: [class-fields]
+esid: prod-FieldDefinition
 ---*/
 
 var C = class {
