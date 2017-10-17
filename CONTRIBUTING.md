@@ -60,7 +60,7 @@ Test262 supports the following tags:
  - [**timeout**](#timeout)
  - [**author**](#author)
  - [**flags**](#flags)
- - [**features**](#features)
+ - [**features**](#features) (required for new tests written for new features)
 
 The following tags are deprecated, but exist in old tests:
 
@@ -161,7 +161,7 @@ This tag is for boolean properties associated with the test.
 #### features
 **features**: [list]
 
-Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this tag. See the `features.txt` file for a complete list of available values.
+Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this tag. See the `features.txt` file for a complete list of available values. This tag is required for new tests written for new features, but contributions will not be "blocked" if the tag is missing from frontmatter. The committing maintainer is required to ensure that the tag is present and contains the correct feature names; this can be done in an follow up commit. 
 
 #### es5id
 **es5id**: [es5-test-id]
