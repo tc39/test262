@@ -5,6 +5,7 @@
 path: language/statements/class/fields-new-sc-line-gen-
 name: field definitions followed by a method in a new line with a semicolon
 features: [class-fields, generators]
+esid: prod-FieldDefinition
 ---*/
 
 class C {

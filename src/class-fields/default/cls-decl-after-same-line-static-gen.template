@@ -5,6 +5,7 @@
 path: language/statements/class/fields-after-same-line-static-gen-
 name: field definitions after a static generator in the same line
 features: [class-fields]
+esid: prod-FieldDefinition
 ---*/
 
 class C {

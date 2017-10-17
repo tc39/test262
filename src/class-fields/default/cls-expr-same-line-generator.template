@@ -5,6 +5,7 @@
 path: language/expressions/class/fields-same-line-gen-
 name: field definitions followed by a generator method in the same line
 features: [class-fields, generators]
+esid: prod-FieldDefinition
 ---*/
 
 var C = class {

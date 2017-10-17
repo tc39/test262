@@ -5,6 +5,7 @@
 path: language/statements/class/fields-regular-definitions-
 name: regular fields defintion
 features: [class-fields]
+esid: prod-FieldDefinition
 ---*/
 
 class C {

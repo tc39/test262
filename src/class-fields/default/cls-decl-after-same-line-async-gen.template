@@ -6,6 +6,7 @@ path: language/statements/class/fields-same-line-async-gen-
 name: field definitions after an async generator in the same line
 features: [class-fields, async-iteration]
 flags: [async]
+esid: prod-FieldDefinition
 ---*/
 
 class C {

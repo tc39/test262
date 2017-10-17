@@ -5,6 +5,7 @@
 path: language/expressions/class/fields-new-sc-line-method-
 name: field definitions followed by a method in a new line with a semicolon
 features: [class-fields]
+esid: prod-FieldDefinition
 ---*/
 
 var C = class {
