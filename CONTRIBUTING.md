@@ -295,18 +295,23 @@ Some language features are expressed through a number of distinct syntactic form
 
 Test cases and test templates specify meta-data using the same YAML frontmatter pattern as so-called "static" (i.e. non-generated) tests. The expected attributes differ between test cases and test templates:
 
-- test cases (`*.case`)
-  - `template` - name of the sub-directory to locate templates for this test
-  - `description` (see above)
-    // looks like this is actually "desc" !!! add how its made description with the appending of "name" in parens from the test template
-  - `info` (see above)
-  - `features` (see above; merged with value defined by test template)
-- test templates (`*.template`)
-  - `path` - location within the published test hierarchy to output files created from this template
-  - `name` - human-readable name of the syntactic form described by this template (used to generate the test file's `description` field)
-  - `esid` (see above)
-  - `info` (see above)
-  - `features` (see above; merged with value defined by test case)
+### test cases (`*.case`)
+Field | Description
+------|-------------
+`template` | name of the sub-directory to locate templates for this test
+`desc` | see the frontmatter definition of the "desc" field. The generated test will have a have final "desc" value which is this text appended with the test template's "name" field in parentheses.
+`info` | see the frontmatter definition of the "info" field. The generated test will have a have final "info" value which is this text appended with the test template's "info" text.
+`features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the template's feature field.
+
+### test templates (`*.template`)
+Field | Description
+------|-------------
+`path` | location within the published test hierarchy to output files created from this template. This path will be ended with the name of the test case file. If path is "/test/language/template1-" and the test case is "cast1.js", the final location of the file will be "/test/language/template1-case1.js"
+`name` | human-readable name of the syntactic form described by this template. This text will be appended, in parentheses, to the end of the test cases `desc` field.
+`esid` | see the frontmatter definition of the "info" tag.
+`info` | see the frontmatter definition of the "info" tag. The generated test will have a have final "info" value which is this text concatenated at the end of the test case's "info" text.
+`features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the test case's feature field.
+any other valid frontmatter field | see the frontmatter definitions.
 
 Generated files are managed using the `make.py` Python script located in the root of this repository.
 
