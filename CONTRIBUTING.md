@@ -105,7 +105,7 @@ This means the test is expected to throw an error of the given type.  If no erro
 - **type**- If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
 - **phase** - Negative tests whose **phase** value is "early" must produce the specified error prior to executing code. The value "runtime" dictates that the error is expected to be produced as a result of executing the test code.
 
-For best practices on how to use the negative tag please see Handling Errors and Negative Test Cases, below.
+For best practices on how to use the negative tag please see [Handling Errors and Negative Test Cases](#handling-errors-and-negative-test-cases), below.
 
 For example:
 
