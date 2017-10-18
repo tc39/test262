@@ -7,3 +7,6 @@ script:
   - ./tools/scripts/ci_lint.sh
 after_success:
   - ./tools/scripts/deploy.sh
+notifications:
+  email:
+    on_failure: always
