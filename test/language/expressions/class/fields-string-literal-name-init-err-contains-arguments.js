@@ -1,5 +1,5 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
+// - src/class-fields/init-err-contains-arguments.case
 // - src/class-fields/initializer-error/cls-expr-fields-string-literal-name.template
 /*---
 description: Syntax error if `arguments` used in class field (string literal ClassElementName)

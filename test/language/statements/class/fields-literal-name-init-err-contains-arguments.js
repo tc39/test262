@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-expr-fields-literal-name.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-decl-fields-literal-name.template
 /*---
 description: Syntax error if `arguments` used in class field (literal ClassElementName)
 esid: sec-class-definitions-static-semantics-early-errors
@@ -29,6 +29,6 @@ info: |
 
 throw "Test262: This statement should not be evaluated.";
 
-var C = class {
+class C {
   x = arguments;
 }

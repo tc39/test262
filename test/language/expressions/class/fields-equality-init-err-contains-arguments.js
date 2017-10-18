@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-expr-fields-typeof.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-expr-fields-equality.template
 /*---
-description: Syntax error if `arguments` used in class field (typeof expression)
+description: Syntax error if `arguments` used in class field (equality expression)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]
@@ -30,5 +30,5 @@ info: |
 throw "Test262: This statement should not be evaluated.";
 
 var C = class {
-  x = typeof arguments;
+  x = {} == arguments;
 }
