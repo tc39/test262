@@ -22,3 +22,8 @@ template: initializer-eval-super-call
 
 //- initializer
 super()['x']
+
+//- earlyerror
+SyntaxError
+//- executionerror
+SyntaxError

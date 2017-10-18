@@ -22,3 +22,7 @@ template: initializer-eval-super-call
 
 //- initializer
 super()
+//- earlyerror
+SyntaxError
+//- executionerror
+SyntaxError
