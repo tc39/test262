@@ -28,7 +28,7 @@ async function f() {
 f().then($DONE,
          function (e) {
            assert.sameValue(e.constructor, TypeError,
-                            "expeted TypeError from calling " +
-                            "uncallableAndIsHTMLDDA() value");
+                            "expected TypeError from calling " +
+                            "uncallableAndIsHTMLDDA() value: " + e);
          })
    .then($DONE, $DONE);
