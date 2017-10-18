@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-expr-fields-static-string-literal-name.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-decl-fields-arrow-fnc.template
 /*---
-description: Syntax error if `arguments` used in class field (static string literal ClassElementName)
+description: Syntax error if `arguments` used in class field (arrow function expression)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class-fields, arrow-function]
 flags: [generated]
 negative:
   phase: early
@@ -29,6 +29,6 @@ info: |
 
 throw "Test262: This statement should not be evaluated.";
 
-var C = class {
-  static 'x' = arguments;
+class C {
+  x = () => arguments;
 }

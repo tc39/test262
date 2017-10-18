@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-decl-fields-static-comp-name.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-decl-fields-comp-name.template
 /*---
-description: Syntax error if `arguments` used in class field (static computed ClassElementName)
+description: Syntax error if `arguments` used in class field (computed ClassElementName)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]

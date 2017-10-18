@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-decl-fields-equality.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-expr-fields-private-arrow-fnc.template
 /*---
-description: Syntax error if `arguments` used in class field (equality expression)
+description: Syntax error if `arguments` used in class field (private field, arrow function expression)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class-fields, arrow-function]
 flags: [generated]
 negative:
   phase: early
@@ -29,6 +29,6 @@ info: |
 
 throw "Test262: This statement should not be evaluated.";
 
-class C {
-  x = {} == arguments;
+var C = class {
+  #x = () => arguments;
 }

@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-decl-fields-arrow-fnc.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-expr-fields-ternary.template
 /*---
-description: Syntax error if `arguments` used in class field (arrow function expression)
+description: Syntax error if `arguments` used in class field (ternary expression)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields, arrow-function]
+features: [class-fields]
 flags: [generated]
 negative:
   phase: early
@@ -29,6 +29,6 @@ info: |
 
 throw "Test262: This statement should not be evaluated.";
 
-class C {
-  x = () => arguments;
+var C = class {
+  x = true ? {} : arguments;
 }

@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-boolean.case
-// - src/class-fields/initializer-error/cls-decl-fields-ternary.template
+// - src/class-fields/init-err-contains-arguments.case
+// - src/class-fields/initializer-error/cls-expr-fields-comp-name.template
 /*---
-description: Syntax error if `arguments` used in class field (ternary expression)
+description: Syntax error if `arguments` used in class field (computed ClassElementName)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]
@@ -29,6 +29,7 @@ info: |
 
 throw "Test262: This statement should not be evaluated.";
 
-class C {
-  x = false ? {} : arguments;
+var x = "string";
+var C = class {
+  [x] = arguments;
 }
