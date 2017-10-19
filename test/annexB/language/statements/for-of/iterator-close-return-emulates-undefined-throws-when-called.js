@@ -2,26 +2,24 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: sec-iteratorclose
+esid: sec-iteratorclose
 description: >
     If <iterator>.return is an object emulating `undefined` (e.g. `document.all`
     in browsers), it shouldn't be treated as if it were actually `undefined`.
-features: [generators, uncallableAndIsHTMLDDA]
+features: [generators, IsHTMLDDA]
 ---*/
 
+var IsHTMLDDA = $262.IsHTMLDDA;
 var iter = {
   [Symbol.iterator]() { return this; },
   next() { return {}; },
-  return: $262.uncallableAndIsHTMLDDA(),
+  return: IsHTMLDDA,
 };
 
 assert.throws(TypeError, function() {
-  // This code is expected to throw a TypeError because `iter.return` throws a
-  // TypeError when invoked with `iter` as `this` and no arguments provided.
-  // It's irrelevant that in hosts that support the [[IsHTMLDDA]] internal slot,
-  // this object has that slot: `<iterator>.return` behavior is skipped only if
-  // that property is exactly the value `undefined`, not a value loosely equal
-  // to it.
+  // `IsHTMLDDA` is called here with `iter` as `this` and no arguments, and it's
+  // specified to return `null` under these conditions.  Then the iteration
+  // protocol throws a `TypeError` because `null` isn't an object.
   for (var x of iter)
     break;
 });

@@ -64,16 +64,16 @@ properties of the global scope prior to test execution.
         6. Return Completion(status).
 
   - **`global`** - a reference to the global object on which `$262` was initially defined
-  - **`uncallableAndIsHTMLDDA`** - a function that returns an object *`obj`* for
-    which [Call](https://tc39.github.io/ecma262/#sec-call)(*`obj`*, *any value*, «»)
-    throws a `TypeError`.  (The value of [IsCallable]()(*`obj`*) is unspecified:
-    a callable *`obj`* that throws a `TypeError` or an uncallable *`obj`* works
-    equally well.)  In hosts supporting the
-    [IsHTMLDDA](https://tc39.github.io/ecma262/#sec-IsHTMLDDA-internal-slot)
-    internal slot, *`obj`* must also have such a slot.  (These highly specific
-    behaviors are entirely motivated by the very few tests that use this.  Read
-    them for an explanation.)  Tests that use this function should be marked as
-    using the `uncallableAndIsHTMLDDA` feature.
+  - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
+    object that 1) has an [[IsHTMLDDA]] internal slot, and 2) when called with
+    no arguments or with the single argument `""` returns `null`.  Use this
+    property to test that ECMAScript algorithms aren't mis-implemented to treat
+    `document.all` as being `undefined` or of type Undefined (instead of
+    Object).  (The peculiar second requirement permits testing algorithms when
+    they also call `document.all` with such arguments, so that testing for
+    correct behavior requires knowing how the call behaves.  This is rarely
+    necessary.)  Tests using this function must be tagged with the `IsHTMLDDA`
+    feature so that only hosts supporting this property will run them.
   - **`agent`** - an ordinary object with the following properties:
     - **`start`** - a function that takes a script source string and runs
       the script in a concurrent agent.  Will block until that agent is
