@@ -124,4 +124,4 @@ WeakSet
 # language features, exposed through global-environment functions on the $262
 # object, go here.
 
-uncallableAndIsHTMLDDA
+IsHTMLDDA
