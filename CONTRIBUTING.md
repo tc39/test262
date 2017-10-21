@@ -300,7 +300,7 @@ Field | Description
 ------|-------------
 `template` | name of the sub-directory to locate templates for this test
 `desc` | see the frontmatter definition of the "desc" field. The generated test will have a have final "desc" value which is this text appended with the test template's "name" field in parentheses.
-`info` | see the frontmatter definition of the "info" field. The generated test will have a have final "info" value which is this text appended with the test template's "info" text.
+`info` | see the frontmatter definition of the "info" field. The generated test will have a have final "info" value which is this text concatenated at the end of the test templates's "info" text.
 `features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the template's feature field.
 
 ### test templates (`*.template`)
@@ -309,7 +309,7 @@ Field | Description
 `path` | location within the published test hierarchy to output files created from this template. This path will be ended with the name of the test case file. If path is "/test/language/template1-" and the test case is "cast1.js", the final location of the file will be "/test/language/template1-case1.js"
 `name` | human-readable name of the syntactic form described by this template. This text will be appended, in parentheses, to the end of the test cases `desc` field.
 `esid` | see the frontmatter definition of the "info" tag.
-`info` | see the frontmatter definition of the "info" tag. The generated test will have a have final "info" value which is this text concatenated at the end of the test case's "info" text.
+`info` | see the frontmatter definition of the "info" tag. The generated test will have a have final "info" value which is this text appended with the test cases's "info" text.
 `features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the test case's feature field.
 any other valid frontmatter field | see the frontmatter definitions.
 
