@@ -2,34 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-dataview.prototype.getbigint64
+esid: sec-dataview.prototype.getbiguint64
 description: >
   Return value from Buffer using a clean ArrayBuffer
-info: |
-  DataView.prototype.getBigInt64 ( byteOffset [ , littleEndian ] )
-
-  1. Let v be the this value.
-  2. If littleEndian is not present, let littleEndian be undefined.
-  3. Return ? GetViewValue(v, byteOffset, littleEndian, "Int64").
-
-  24.3.1.1 GetViewValue ( view, requestIndex, isLittleEndian, type )
-
-  ...
-  12. Let bufferIndex be getIndex + viewOffset.
-  13. Return GetValueFromBuffer(buffer, bufferIndex, type, false,
-     "Unordered", isLittleEndian).
-
-  24.1.1.6 GetValueFromBuffer ( arrayBuffer, byteIndex, type,
-  isTypedArray, order [ , isLittleEndian ] )
-
-  ...
-  9. Return RawBytesToNumber(type, rawValue, isLittleEndian).
-
-  24.1.1.5 RawBytesToNumber( type, rawBytes, isLittleEndian )
-
-  ...
-  2. If isLittleEndian is false, reverse the order of the elements of rawBytes.
-  ...
 features: [DataView, ArrayBuffer, BigInt]
 ---*/
 
