@@ -19,29 +19,29 @@ var obj = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([40, 41, 42, 43]));
 
-  assert(compareArray(sample.slice(false), [40, 41, 42, 43]), "false");
-  assert(compareArray(sample.slice(true), [41, 42, 43]), "true");
+  assert(compareArray(sample.slice(false), N([40, 41, 42, 43])), "false");
+  assert(compareArray(sample.slice(true), N([41, 42, 43])), "true");
 
-  assert(compareArray(sample.slice(NaN), [40, 41, 42, 43]), "NaN");
-  assert(compareArray(sample.slice(null), [40, 41, 42, 43]), "null");
-  assert(compareArray(sample.slice(undefined), [40, 41, 42, 43]), "undefined");
+  assert(compareArray(sample.slice(NaN), N([40, 41, 42, 43])), "NaN");
+  assert(compareArray(sample.slice(null), N([40, 41, 42, 43])), "null");
+  assert(compareArray(sample.slice(undefined), N([40, 41, 42, 43])), "undefined");
 
-  assert(compareArray(sample.slice(1.1), [41, 42, 43]), "1.1");
-  assert(compareArray(sample.slice(1.5), [41, 42, 43]), "1.5");
-  assert(compareArray(sample.slice(0.6), [40, 41, 42, 43]), "0.6");
+  assert(compareArray(sample.slice(1.1), N([41, 42, 43])), "1.1");
+  assert(compareArray(sample.slice(1.5), N([41, 42, 43])), "1.5");
+  assert(compareArray(sample.slice(0.6), N([40, 41, 42, 43])), "0.6");
 
-  assert(compareArray(sample.slice(-1.5), [43]), "-1.5");
-  assert(compareArray(sample.slice(-1.1), [43]), "-1.1");
-  assert(compareArray(sample.slice(-0.6), [40, 41, 42, 43]), "-0.6");
+  assert(compareArray(sample.slice(-1.5), N([43])), "-1.5");
+  assert(compareArray(sample.slice(-1.1), N([43])), "-1.1");
+  assert(compareArray(sample.slice(-0.6), N([40, 41, 42, 43])), "-0.6");
 
-  assert(compareArray(sample.slice("3"), [43]), "string");
+  assert(compareArray(sample.slice("3"), N([43])), "string");
   assert(
     compareArray(
       sample.slice(obj),
-      [42, 43]
+      N([42, 43])
     ),
     "object"
   );

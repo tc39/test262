@@ -26,8 +26,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43, 44]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43, 44]));
 
   var results = [];
 
@@ -40,19 +40,19 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.sameValue(results[0].length, 4, "results[0].length");
   assert.sameValue(results[0][0], 7, "results[0][0] - accumulator");
-  assert.sameValue(results[0][1], 42, "results[0][1] - kValue");
+  assert.sameValue(results[0][1], N(42), "results[0][1] - kValue");
   assert.sameValue(results[0][2], 0, "results[0][2] - k");
   assert.sameValue(results[0][3], sample, "results[0][3] - this");
 
   assert.sameValue(results[1].length, 4, "results[1].length");
   assert.sameValue(results[1][0], 8, "results[1][0] - accumulator");
-  assert.sameValue(results[1][1], 43, "results[1][1] - kValue");
+  assert.sameValue(results[1][1], N(43), "results[1][1] - kValue");
   assert.sameValue(results[1][2], 1, "results[1][2] - k");
   assert.sameValue(results[1][3], sample, "results[1][3] - this");
 
   assert.sameValue(results[2].length, 4, "results[2].length");
   assert.sameValue(results[2][0], 9, "results[2][0] - accumulator");
-  assert.sameValue(results[2][1], 44, "results[2][1] - kValue");
+  assert.sameValue(results[2][1], N(44), "results[2][1] - kValue");
   assert.sameValue(results[2][2], 2, "results[2][2] - k");
   assert.sameValue(results[2][3], sample, "results[2][3] - this");
 });

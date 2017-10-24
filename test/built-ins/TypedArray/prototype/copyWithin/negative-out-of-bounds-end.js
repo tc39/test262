@@ -28,83 +28,83 @@ info: |
 includes: [compareArray.js, testTypedArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, 1, -10),
-      [0, 1, 2, 3]
+      new TA(N([0, 1, 2, 3])).copyWithin(0, 1, -10),
+      N([0, 1, 2, 3])
     ),
     '[0, 1, 2, 3].copyWithin(0, 1, -10) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([1, 2, 3, 4, 5]).copyWithin(0, 1, -Infinity),
-      [1, 2, 3, 4, 5]
+      new TA(N([1, 2, 3, 4, 5])).copyWithin(0, 1, -Infinity),
+      N([1, 2, 3, 4, 5])
     ),
     '[1, 2, 3, 4, 5].copyWithin(0, 1, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, -2, -10),
-      [0, 1, 2, 3]
+      new TA(N([0, 1, 2, 3])).copyWithin(0, -2, -10),
+      N([0, 1, 2, 3])
     ),
     '[0, 1, 2, 3].copyWithin(0, -2, -10) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([1, 2, 3, 4, 5]).copyWithin(0, -2, -Infinity),
-      [1, 2, 3, 4, 5]
+      new TA(N([1, 2, 3, 4, 5])).copyWithin(0, -2, -Infinity),
+      N([1, 2, 3, 4, 5])
     ),
     '[1, 2, 3, 4, 5].copyWithin(0, -2, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, -9, -10),
-      [0, 1, 2, 3]
+      new TA(N([0, 1, 2, 3])).copyWithin(0, -9, -10),
+      N([0, 1, 2, 3])
     ),
     '[0, 1, 2, 3].copyWithin(0, -9, -10) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([1, 2, 3, 4, 5]).copyWithin(0, -9, -Infinity),
-      [1, 2, 3, 4, 5]
+      new TA(N([1, 2, 3, 4, 5])).copyWithin(0, -9, -Infinity),
+      N([1, 2, 3, 4, 5])
     ),
     '[1, 2, 3, 4, 5].copyWithin(0, -9, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(-3, -2, -10),
-      [0, 1, 2, 3]
+      new TA(N([0, 1, 2, 3])).copyWithin(-3, -2, -10),
+      N([0, 1, 2, 3])
     ),
     '[0, 1, 2, 3].copyWithin(-3, -2, -10) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([1, 2, 3, 4, 5]).copyWithin(-3, -2, -Infinity),
-      [1, 2, 3, 4, 5]
+      new TA(N([1, 2, 3, 4, 5])).copyWithin(-3, -2, -Infinity),
+      N([1, 2, 3, 4, 5])
     ),
     '[1, 2, 3, 4, 5].copyWithin(-3, -2, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(-7, -8, -9),
-      [0, 1, 2, 3]
+      new TA(N([0, 1, 2, 3])).copyWithin(-7, -8, -9),
+      N([0, 1, 2, 3])
     ),
     '[0, 1, 2, 3].copyWithin(-7, -8, -9) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([1, 2, 3, 4, 5]).copyWithin(-7, -8, -Infinity),
-      [1, 2, 3, 4, 5]
+      new TA(N([1, 2, 3, 4, 5])).copyWithin(-7, -8, -Infinity),
+      N([1, 2, 3, 4, 5])
     ),
     '[1, 2, 3, 4, 5].copyWithin(-7, -8, -Infinity) -> [1, 2, 3, 4, 5]'
   );

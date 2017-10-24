@@ -14,7 +14,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample1 = new TA(42);
   var loop = 0;
 
@@ -22,6 +22,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample1.map(function() {
     loop++;
+    return N(0);
   });
   assert.sameValue(loop, 42, "data descriptor");
 
@@ -37,6 +38,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample2.map(function() {
     loop++;
+    return N(0);
   });
   assert.sameValue(loop, 4, "accessor descriptor");
 });

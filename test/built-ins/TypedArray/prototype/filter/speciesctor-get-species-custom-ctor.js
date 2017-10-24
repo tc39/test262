@@ -36,8 +36,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [Symbol.species, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([40, 41, 42]));
   var calls = 0;
   var other, result;
 
@@ -52,5 +52,5 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.sameValue(calls, 1, "ctor called once");
   assert.sameValue(result, other, "return is instance of custom constructor");
-  assert(compareArray(result, [40, 41, 42]), "values are set on the new obj");
+  assert(compareArray(result, N([40, 41, 42])), "values are set on the new obj");
 });

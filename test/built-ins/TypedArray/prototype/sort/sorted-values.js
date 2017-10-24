@@ -14,20 +14,20 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample;
 
-  sample = new TA([4, 3, 2, 1]).sort();
-  assert(compareArray(sample, [1, 2, 3, 4]), "descending values");
+  sample = new TA(N([4, 3, 2, 1])).sort();
+  assert(compareArray(sample, N([1, 2, 3, 4])), "descending values");
 
-  sample = new TA([3, 4, 1, 2]).sort();
-  assert(compareArray(sample, [1, 2, 3, 4]), "mixed numbers");
+  sample = new TA(N([3, 4, 1, 2])).sort();
+  assert(compareArray(sample, N([1, 2, 3, 4])), "mixed numbers");
 
-  sample = new TA([3, 4, 3, 1, 0, 1, 2]).sort();
-  assert(compareArray(sample, [0, 1, 1, 2, 3, 3, 4]), "repeating numbers");
+  sample = new TA(N([3, 4, 3, 1, 0, 1, 2])).sort();
+  assert(compareArray(sample, N([0, 1, 1, 2, 3, 3, 4])), "repeating numbers");
 
-  sample = new TA([1, 0, -0, 2]).sort();
-  assert(compareArray(sample, [0, 0, 1, 2]), "0s");
+  sample = new TA(N([1, 0, -0, 2])).sort();
+  assert(compareArray(sample, N([0, 0, 1, 2])), "0s");
 });
 
 testWithTypedArrayConstructors(function(TA) {

@@ -7,11 +7,11 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([40, 41, 42, 43]));
 
   assert(
-    compareArray(sample.slice(-Infinity), [40, 41, 42, 43]),
+    compareArray(sample.slice(-Infinity), N([40, 41, 42, 43])),
     "start == -Infinity"
   );
   assert(
@@ -23,7 +23,7 @@ testWithTypedArrayConstructors(function(TA) {
     "end == -Infinity"
   );
   assert(
-    compareArray(sample.slice(0, Infinity), [40, 41, 42, 43]),
+    compareArray(sample.slice(0, Infinity), N([40, 41, 42, 43])),
     "end == Infinity"
   );
 });

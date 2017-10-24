@@ -31,7 +31,9 @@ var obj = {
   length: 4
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
+  obj[0] = N(0);
+  obj[1] = N(0);
   assert.throws(Test262Error, function() {
     new TA(obj);
   });

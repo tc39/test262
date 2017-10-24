@@ -20,10 +20,21 @@ var typedArrayConstructors = [
   Uint8ClampedArray
 ];
 
+var numericTypedArrayConstructors = typedArrayConstructors.slice();
+
+if (typeof BigInt !== "undefined") {
+  typedArrayConstructors.push(BigInt64Array);
+  typedArrayConstructors.push(BigUint64Array);
+}
+
 /**
  * The %TypedArray% intrinsic constructor function.
  */
 var TypedArray = Object.getPrototypeOf(Int8Array);
+
+function convertToBigInt(x) {
+  return (x instanceof Array) ? x.map(convertToBigInt) : BigInt(x);
+}
 
 /**
  * Callback for testing a typed array constructor.
@@ -41,9 +52,14 @@ var TypedArray = Object.getPrototypeOf(Int8Array);
 function testWithTypedArrayConstructors(f, selected) {
   var constructors = selected || typedArrayConstructors;
   for (var i = 0; i < constructors.length; ++i) {
+    var N = function(x) { return x; };
     var constructor = constructors[i];
+    if (constructor.name == "BigInt64Array" ||
+        constructor.name == "BigUint64Array") {
+      N = convertToBigInt;
+    }
     try {
-      f(constructor);
+      f(constructor, N);
     } catch (e) {
       e.message += " (Testing with " + constructor.name + ".)";
       throw e;
@@ -75,5 +91,5 @@ function testTypedArrayConversions(byteConversionValues, fn) {
       }
       fn(TA, value, exp, initial);
     });
-  });
+  }, numericTypedArrayConstructors);
 }

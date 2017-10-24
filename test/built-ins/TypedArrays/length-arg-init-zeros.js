@@ -40,16 +40,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var subject = new TA(9);
 
-  assert.sameValue(subject[0], 0, 'index 0');
-  assert.sameValue(subject[1], 0, 'index 1');
-  assert.sameValue(subject[2], 0, 'index 2');
-  assert.sameValue(subject[3], 0, 'index 3');
-  assert.sameValue(subject[4], 0, 'index 4');
-  assert.sameValue(subject[5], 0, 'index 5');
-  assert.sameValue(subject[6], 0, 'index 6');
-  assert.sameValue(subject[7], 0, 'index 7');
-  assert.sameValue(subject[8], 0, 'index 8');
+  assert.sameValue(subject[0], N(0), 'index 0');
+  assert.sameValue(subject[1], N(0), 'index 1');
+  assert.sameValue(subject[2], N(0), 'index 2');
+  assert.sameValue(subject[3], N(0), 'index 3');
+  assert.sameValue(subject[4], N(0), 'index 4');
+  assert.sameValue(subject[5], N(0), 'index 5');
+  assert.sameValue(subject[6], N(0), 'index 6');
+  assert.sameValue(subject[7], N(0), 'index 7');
+  assert.sameValue(subject[8], N(0), 'index 8');
 });

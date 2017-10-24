@@ -12,8 +12,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([40, 41, 42, 43]));
   var buffer = sample.buffer;
   var result = sample.subarray(1);
 
@@ -21,15 +21,15 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result.buffer, sample.buffer, "shared buffer");
   assert.sameValue(sample.buffer, buffer, "original buffer is preserved");
 
-  sample[1] = 100;
+  sample[1] = N(100);
   assert(
-    compareArray(result, [100, 42, 43]),
+    compareArray(result, N([100, 42, 43])),
     "changes on the original sample values affect the new instance"
   );
 
-  result[1] = 111;
+  result[1] = N(111);
   assert(
-    compareArray(sample, [40, 100, 111, 43]),
+    compareArray(sample, N([40, 100, 111, 43])),
     "changes on the new instance values affect the original sample"
   );
 });

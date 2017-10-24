@@ -24,10 +24,10 @@ features: [Symbol, TypedArray]
 
 var fromIndex = Symbol("1");
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([7]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([7]));
 
   assert.throws(TypeError, function() {
-    sample.includes(7, fromIndex);
+    sample.includes(N(7), fromIndex);
   });
 });

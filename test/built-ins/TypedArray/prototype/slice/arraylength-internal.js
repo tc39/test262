@@ -23,8 +23,8 @@ var desc = {
 
 Object.defineProperty(TypedArray.prototype, "length", desc);
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43]));
 
   Object.defineProperty(TA.prototype, "length", desc);
   Object.defineProperty(sample, "length", desc);
@@ -32,7 +32,7 @@ testWithTypedArrayConstructors(function(TA) {
   var result = sample.slice();
 
   assert.sameValue(getCalls, 0, "ignores length properties");
-  assert.sameValue(result[0], 42);
-  assert.sameValue(result[1], 43);
+  assert.sameValue(result[0], N(42));
+  assert.sameValue(result[1], N(43));
   assert.sameValue(result.hasOwnProperty(2), false);
 });

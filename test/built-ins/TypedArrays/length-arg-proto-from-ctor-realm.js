@@ -29,8 +29,8 @@ var other = $262.createRealm().global;
 var C = new other.Function();
 C.prototype = null;
 
-testWithTypedArrayConstructors(function(TA) {
-  var ta = Reflect.construct(TA, [0], C);
+testWithTypedArrayConstructors(function(TA, N) {
+  var ta = Reflect.construct(TA, N([0]), C);
 
   assert.sameValue(Object.getPrototypeOf(ta), other[TA.name].prototype);
 });

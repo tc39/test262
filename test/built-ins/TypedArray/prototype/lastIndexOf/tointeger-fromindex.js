@@ -27,31 +27,31 @@ var obj = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample;
 
-  sample = new TA([42, 43]);
-  assert.sameValue(sample.lastIndexOf(42, "1"), 0, "string [0]");
-  assert.sameValue(sample.lastIndexOf(43, "1"), 1, "string [1]");
+  sample = new TA(N([42, 43]));
+  assert.sameValue(sample.lastIndexOf(N(42), "1"), 0, "string [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), "1"), 1, "string [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, true), 0, "true [0]");
-  assert.sameValue(sample.lastIndexOf(43, true), 1, "true [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), true), 0, "true [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), true), 1, "true [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, false), 0, "false [0]");
-  assert.sameValue(sample.lastIndexOf(43, false), -1, "false [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), false), 0, "false [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), false), -1, "false [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, NaN), 0, "NaN [0]");
-  assert.sameValue(sample.lastIndexOf(43, NaN), -1, "NaN [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), NaN), 0, "NaN [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), NaN), -1, "NaN [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, null), 0, "null [0]");
-  assert.sameValue(sample.lastIndexOf(43, null), -1, "null [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), null), 0, "null [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), null), -1, "null [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, undefined), 0, "undefined [0]");
-  assert.sameValue(sample.lastIndexOf(43, undefined), -1, "undefined [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), undefined), 0, "undefined [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), undefined), -1, "undefined [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, null), 0, "null [0]");
-  assert.sameValue(sample.lastIndexOf(43, null), -1, "null [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), null), 0, "null [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), null), -1, "null [1]");
 
-  assert.sameValue(sample.lastIndexOf(42, obj), 0, "object [0]");
-  assert.sameValue(sample.lastIndexOf(43, obj), 1, "object [1]");
+  assert.sameValue(sample.lastIndexOf(N(42), obj), 0, "object [0]");
+  assert.sameValue(sample.lastIndexOf(N(43), obj), 1, "object [1]");
 });

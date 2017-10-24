@@ -26,51 +26,51 @@ info: |
 includes: [compareArray.js, testTypedArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, -1),
-      [3, 1, 2, 3]
+      new TA(N([0, 1, 2, 3])).copyWithin(0, -1),
+      N([3, 1, 2, 3])
     ),
     '[0, 1, 2, 3].copyWithin(0, -1) -> [3, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3, 4]).copyWithin(2, -2),
-      [0, 1, 3, 4, 4]
+      new TA(N([0, 1, 2, 3, 4])).copyWithin(2, -2),
+      N([0, 1, 3, 4, 4])
     ),
     '[0, 1, 2, 3, 4].copyWithin(2, -2) -> [0, 1, 3, 4, 4]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3, 4]).copyWithin(1, -2),
-      [0, 3, 4, 3, 4]
+      new TA(N([0, 1, 2, 3, 4])).copyWithin(1, -2),
+      N([0, 3, 4, 3, 4])
     ),
     '[0, 1, 2, 3, 4].copyWithin(1, -2) -> [0, 3, 4, 3, 4]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(-1, -2),
-      [0, 1, 2, 2]
+      new TA(N([0, 1, 2, 3])).copyWithin(-1, -2),
+      N([0, 1, 2, 2])
     ),
     '[0, 1, 2, 3].copyWithin(-1, -2) -> [ 0, 1, 2, 2 ]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3, 4]).copyWithin(-2, -3),
-      [0, 1, 2, 2, 3]
+      new TA(N([0, 1, 2, 3, 4])).copyWithin(-2, -3),
+      N([0, 1, 2, 2, 3])
     ),
     '[0, 1, 2, 3, 4].copyWithin(-2, -3) -> [0, 1, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3, 4]).copyWithin(-5, -2),
-      [3, 4, 2, 3, 4]
+      new TA(N([0, 1, 2, 3, 4])).copyWithin(-5, -2),
+      N([3, 4, 2, 3, 4])
     ),
     '[0, 1, 2, 3, 4].copyWithin(-5, -2) -> [3, 4, 2, 3, 4]'
   );
