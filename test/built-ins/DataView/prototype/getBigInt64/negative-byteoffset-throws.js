@@ -23,7 +23,8 @@ features: [DataView, ArrayBuffer, BigInt, arrow-function]
 var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
-assert.throws(RangeError, () => sample.getBigInt64(-1), "-1");
+assert.throws(RangeError, () => sample.getBigInt64(-1),
+              "DataView access at index -1 should throw");
 
 assert.throws(RangeError, () => sample.getBigInt64(-Infinity),
-              "-Infinity");
+              "DataView access at index -Infinity should throw");

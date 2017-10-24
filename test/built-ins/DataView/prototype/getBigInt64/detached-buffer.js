@@ -26,4 +26,5 @@ var buffer = new ArrayBuffer(1);
 var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
-assert.throws(TypeError, () => sample.getBigInt64(0), "0");
+assert.throws(TypeError, () => sample.getBigInt64(0),
+              "detached DataView access should throw");

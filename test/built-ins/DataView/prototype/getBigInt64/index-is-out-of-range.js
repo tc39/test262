@@ -30,7 +30,7 @@ var buffer = new ArrayBuffer(12);
 sample = new DataView(buffer, 0);
 
 assert.throws(RangeError, () => sample.getBigInt64(Infinity),
-              "Infinity");
+              "DataView access at index Infinity should throw");
 
 assert.throws(RangeError, () => sample.getBigInt64(13), "13 + 8 > 12");
 
