@@ -39,15 +39,15 @@ features: [DataView, ArrayBuffer, DataView.prototype.setUint8, BigInt, Symbol, S
 var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
-sample.setUint8(7, 255);
+sample.setUint8(7, 0xff);
 
 // False
-assert.sameValue(sample.getBigInt64(0), 255n, "no argument");
+assert.sameValue(sample.getBigInt64(0), 0xffn, "no argument");
 testCoercibleToBooleanFalse(function (x) {
-  assert.sameValue(sample.getBigInt64(0, x), 255n);
+  assert.sameValue(sample.getBigInt64(0, x), 0xffn);
 });
 
 // True
 testCoercibleToBooleanTrue(function (x) {
-  assert.sameValue(sample.getBigInt64(0, x), -72057594037927936n);
+  assert.sameValue(sample.getBigInt64(0, x), -0x100000000000000n);
 });

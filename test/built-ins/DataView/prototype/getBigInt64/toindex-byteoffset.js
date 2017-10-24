@@ -24,31 +24,31 @@ features: [DataView, ArrayBuffer, DataView.prototype.setUint8, BigInt, Symbol, S
 var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
-sample.setUint8(0, 39);
-sample.setUint8(1, 2);
-sample.setUint8(2, 6);
-sample.setUint8(3, 2);
-sample.setUint8(4, 128);
-sample.setUint8(5, 0);
-sample.setUint8(6, 128);
-sample.setUint8(7, 1);
-sample.setUint8(8, 127);
-sample.setUint8(9, 0);
-sample.setUint8(10, 1);
-sample.setUint8(11, 2);
+sample.setUint8(0, 0x27);
+sample.setUint8(1, 0x02);
+sample.setUint8(2, 0x06);
+sample.setUint8(3, 0x02);
+sample.setUint8(4, 0x80);
+sample.setUint8(5, 0x00);
+sample.setUint8(6, 0x80);
+sample.setUint8(7, 0x01);
+sample.setUint8(8, 0x7f);
+sample.setUint8(9, 0x00);
+sample.setUint8(10, 0x01);
+sample.setUint8(11, 0x02);
 
 testCoercibleToIndexZero(function (x) {
-  assert.sameValue(sample.getBigInt64(x), 2810815725239828481n);
+  assert.sameValue(sample.getBigInt64(x), 0x2702060280008001n);
 });
 
 testCoercibleToIndexOne(function (x) {
-  assert.sameValue(sample.getBigInt64(x), 145806786723578239n);
+  assert.sameValue(sample.getBigInt64(x), 0x20602800080017fn);
 });
 
 testCoercibleToIndexFromIndex(2, function (x) {
-  assert.sameValue(sample.getBigInt64(x), 433049253816925952n);
+  assert.sameValue(sample.getBigInt64(x), 0x602800080017F00n);
 });
 
 testCoercibleToIndexFromIndex(3, function (x) {
-  assert.sameValue(sample.getBigInt64(x), 180144534875734017n);
+  assert.sameValue(sample.getBigInt64(x), 0x2800080017F0001n);
 });
