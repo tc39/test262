@@ -16,29 +16,29 @@ info: |
 features: [BigInt]
 ---*/
 
-assert.sameValue(Object(5n) ^ 3n, 6n, "Object(5n) ^ 3n === 6n");
-assert.sameValue(3n ^ Object(5n), 6n, "3n ^ Object(5n) === 6n");
-assert.sameValue(Object(5n) ^ Object(3n), 6n, "Object(5n) ^ Object(3n) === 6n");
+assert.sameValue(Object(0b101n) ^ 0b011n, 0b110n, "Object(0b101n) ^ 0b011n === 0b110n");
+assert.sameValue(0b011n ^ Object(0b101n), 0b110n, "0b011n ^ Object(0b101n) === 0b110n");
+assert.sameValue(Object(0b101n) ^ Object(0b011n), 0b110n, "Object(0b101n) ^ Object(0b011n) === 0b110n");
 
 function err() {
   throw new Test262Error();
 }
 
 assert.sameValue(
-  {[Symbol.toPrimitive]: function() { return 5n; }, valueOf: err, toString: err} ^ 3n, 6n,
+  {[Symbol.toPrimitive]: function() { return 0b101n; }, valueOf: err, toString: err} ^ 0b011n, 0b110n,
   "primitive from @@toPrimitive");
 assert.sameValue(
-  3n ^ {[Symbol.toPrimitive]: function() { return 5n; }, valueOf: err, toString: err}, 6n,
+  0b011n ^ {[Symbol.toPrimitive]: function() { return 0b101n; }, valueOf: err, toString: err}, 0b110n,
   "primitive from @@toPrimitive");
 assert.sameValue(
-  {valueOf: function() { return 5n; }, toString: err} ^ 3n, 6n,
+  {valueOf: function() { return 0b101n; }, toString: err} ^ 0b011n, 0b110n,
   "primitive from {}.valueOf");
 assert.sameValue(
-  3n ^ {valueOf: function() { return 5n; }, toString: err}, 6n,
+  0b011n ^ {valueOf: function() { return 0b101n; }, toString: err}, 0b110n,
   "primitive from {}.valueOf");
 assert.sameValue(
-  {toString: function() { return 5n; }} ^ 3n, 6n,
+  {toString: function() { return 0b101n; }} ^ 0b011n, 0b110n,
   "primitive from {}.toString");
 assert.sameValue(
-  3n ^ {toString: function() { return 5n; }}, 6n,
+  0b011n ^ {toString: function() { return 0b101n; }}, 0b110n,
   "primitive from {}.toString");

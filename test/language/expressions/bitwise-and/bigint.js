@@ -23,21 +23,21 @@ info: |
 features: [BigInt]
 ---*/
 
-assert.sameValue(0n & 0n, 0n, "0n & 0n === 0n");
-assert.sameValue(0n & 1n, 0n, "0n & 1n === 0n");
-assert.sameValue(1n & 0n, 0n, "1n & 0n === 0n");
-assert.sameValue(0n & 2n, 0n, "0n & 2n === 0n");
-assert.sameValue(2n & 0n, 0n, "2n & 0n === 0n");
-assert.sameValue(0n & 3n, 0n, "0n & 3n === 0n");
-assert.sameValue(3n & 0n, 0n, "3n & 0n === 0n");
-assert.sameValue(1n & 1n, 1n, "1n & 1n === 1n");
-assert.sameValue(1n & 2n, 0n, "1n & 2n === 0n");
-assert.sameValue(2n & 1n, 0n, "2n & 1n === 0n");
-assert.sameValue(1n & 3n, 1n, "1n & 3n === 1n");
-assert.sameValue(3n & 1n, 1n, "3n & 1n === 1n");
-assert.sameValue(2n & 2n, 2n, "2n & 2n === 2n");
-assert.sameValue(2n & 3n, 2n, "2n & 3n === 2n");
-assert.sameValue(3n & 2n, 2n, "3n & 2n === 2n");
+assert.sameValue(0b00n & 0b00n, 0b00n, "0b00n & 0b00n === 0b00n");
+assert.sameValue(0b00n & 0b01n, 0b00n, "0b00n & 0b01n === 0b00n");
+assert.sameValue(0b01n & 0b00n, 0b00n, "0b01n & 0b00n === 0b00n");
+assert.sameValue(0b00n & 0b10n, 0b00n, "0b00n & 0b10n === 0b00n");
+assert.sameValue(0b10n & 0b00n, 0b00n, "0b10n & 0b00n === 0b00n");
+assert.sameValue(0b00n & 0b11n, 0b00n, "0b00n & 0b11n === 0b00n");
+assert.sameValue(0b11n & 0b00n, 0b00n, "0b11n & 0b00n === 0b00n");
+assert.sameValue(0b01n & 0b01n, 0b01n, "0b01n & 0b01n === 0b01n");
+assert.sameValue(0b01n & 0b10n, 0b00n, "0b01n & 0b10n === 0b00n");
+assert.sameValue(0b10n & 0b01n, 0b00n, "0b10n & 0b01n === 0b00n");
+assert.sameValue(0b01n & 0b11n, 0b01n, "0b01n & 0b11n === 0b01n");
+assert.sameValue(0b11n & 0b01n, 0b01n, "0b11n & 0b01n === 0b01n");
+assert.sameValue(0b10n & 0b10n, 0b10n, "0b10n & 0b10n === 0b10n");
+assert.sameValue(0b10n & 0b11n, 0b10n, "0b10n & 0b11n === 0b10n");
+assert.sameValue(0b11n & 0b10n, 0b10n, "0b11n & 0b10n === 0b10n");
 assert.sameValue(0xffffffffn & 0n, 0n, "0xffffffffn & 0n === 0n");
 assert.sameValue(0n & 0xffffffffn, 0n, "0n & 0xffffffffn === 0n");
 assert.sameValue(0xffffffffn & 0xffffffffn, 0xffffffffn, "0xffffffffn & 0xffffffffn === 0xffffffffn");
