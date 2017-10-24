@@ -22,24 +22,30 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-var obj1 = {
-  valueOf: function() {
-    return 42;
+testWithTypedArrayConstructors(function(TA, N) {
+  var obj1 = {
+      valueOf: function() {
+        return N(42);
+      }
+  };
+
+  var obj2 = {
+      toString: function() {
+        return "42";
+      }
+  };
+
+  // undefined and NaN covered on typedArrayConversions
+  var nullish;
+  try {
+    nullish = N(null);
+  } catch (e) {
+    nullish = 0n;
   }
-};
+  var arr = ["1", "", false, true, nullish, obj1, obj2, [], [1]];
 
-var obj2 = {
-  toString: function() {
-    return 42;
-  }
-};
-
-// undefined and NaN covered on typedArrayConversions
-var arr = ["1", "", false, true, null, obj1, obj2, [], [1]];
-
-testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(arr.length);
-  var expected = new TA([1, 0, 0, 1, 0, 42, 42, 0, 1]);
+  var expected = new TA(N([1, 0, 0, 1, 0, 42, 42, 0, 1]));
 
   sample.set(arr);
 

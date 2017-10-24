@@ -18,11 +18,11 @@ features: [TypedArray]
 
 var obj = [7, 42];
 
-testWithTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(obj);
+testWithTypedArrayConstructors(function(TA, N) {
+  var typedArray = new TA(N(obj));
   assert.sameValue(typedArray.length, 2);
-  assert.sameValue(typedArray[0], 7);
-  assert.sameValue(typedArray[1], 42);
+  assert.sameValue(typedArray[0], N(7));
+  assert.sameValue(typedArray[1], N(42));
   assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 });

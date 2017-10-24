@@ -9,13 +9,13 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample1 = new TA();
-  var result1 = sample1.fill(1);
+  var result1 = sample1.fill(N(1));
 
   assert.sameValue(result1, sample1);
 
   var sample2 = new TA(42);
-  var result2 = sample2.fill(7);
+  var result2 = sample2.fill(N(7));
   assert.sameValue(result2, sample2);
 });

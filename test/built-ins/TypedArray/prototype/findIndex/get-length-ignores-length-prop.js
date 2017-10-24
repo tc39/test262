@@ -30,14 +30,14 @@ Object.defineProperty(TypedArray.prototype, "length", {
   }
 });
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   Object.defineProperty(TA.prototype, "length", {
     get: function() {
       throw new Test262Error();
     }
   });
 
-  var sample = new TA([42]);
+  var sample = new TA(N([42]));
 
   Object.defineProperty(sample, "length", {
     get: function() {

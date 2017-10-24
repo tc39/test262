@@ -17,15 +17,15 @@ includes: [testTypedArray.js]
 features: [Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([7, 8]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([7, 8]));
   var bar = Symbol("1");
 
   sample.foo = 42;
   sample[bar] = 1;
 
   var result = sample.map(function() {
-    return 0;
+    return N(0);
   });
 
   assert.sameValue(result.length, 2, "result.length");

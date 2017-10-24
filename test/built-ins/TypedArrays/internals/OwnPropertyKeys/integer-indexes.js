@@ -17,8 +17,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample1 = new TA([42, 42, 42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample1 = new TA(N([42, 42, 42]));
   var result1 = Reflect.ownKeys(sample1);
   assert(compareArray(result1, ["0", "1", "2"]), "result1");
 

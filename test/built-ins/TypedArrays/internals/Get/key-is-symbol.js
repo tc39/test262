@@ -18,8 +18,8 @@ features: [Symbol, TypedArray]
 var parentKey = Symbol("2");
 TypedArray.prototype[parentKey] = "test262";
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42]));
 
   var s1 = Symbol("1");
 

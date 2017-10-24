@@ -28,8 +28,8 @@ includes: [testTypedArray.js]
 features: [Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([39, 3, 9]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([39, 3, 9]));
   var called = 0;
 
   var result = sample.findIndex(function() {
@@ -43,7 +43,7 @@ testWithTypedArrayConstructors(function(TA) {
   called = 0;
   result = sample.findIndex(function(val) {
     called++;
-    return val === 9;
+    return val === N(9);
   });
 
   assert.sameValue(called, 3, "predicate was called three times");

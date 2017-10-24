@@ -22,42 +22,42 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var src = [42, 43];
+testWithTypedArrayConstructors(function(TA, N) {
+  var src = N([42, 43]);
   var srcObj = {
     length: 2,
-    '0': 7,
-    '1': 17
+    '0': N(7),
+    '1': N(17)
   };
   var sample, result;
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(src, 0);
-  assert(compareArray(sample, [42, 43, 3, 4]), "offset: 0, result: " + sample);
+  assert(compareArray(sample, N([42, 43, 3, 4])), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(src, 1);
-  assert(compareArray(sample, [1, 42, 43, 4]), "offset: 1, result: " + sample);
+  assert(compareArray(sample, N([1, 42, 43, 4])), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(src, 2);
-  assert(compareArray(sample, [1, 2, 42, 43]), "offset: 2, result: " + sample);
+  assert(compareArray(sample, N([1, 2, 42, 43])), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(srcObj, 0);
-  assert(compareArray(sample, [7, 17, 3, 4]), "offset: 0, result: " + sample);
+  assert(compareArray(sample, N([7, 17, 3, 4])), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(srcObj, 1);
-  assert(compareArray(sample, [1, 7, 17, 4]), "offset: 1, result: " + sample);
+  assert(compareArray(sample, N([1, 7, 17, 4])), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(srcObj, 2);
-  assert(compareArray(sample, [1, 2, 7, 17]), "offset: 2, result: " + sample);
+  assert(compareArray(sample, N([1, 2, 7, 17])), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 });

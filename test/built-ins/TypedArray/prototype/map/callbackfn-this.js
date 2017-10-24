@@ -21,14 +21,14 @@ features: [TypedArray]
 var expected = (function() { return this; })();
 var thisArg = {};
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample = new TA(3);
 
   var results1 = [];
 
   sample.map(function() {
     results1.push(this);
-    return 0;
+    return N(0);
   });
 
   assert.sameValue(results1.length, 3, "results1");
@@ -40,7 +40,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.map(function() {
     results2.push(this);
-    return 0;
+    return N(0);
   }, thisArg);
 
   assert.sameValue(results2.length, 3, "results2");

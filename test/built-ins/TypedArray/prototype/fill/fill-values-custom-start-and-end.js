@@ -33,10 +33,10 @@ info: |
 includes: [compareArray.js, testTypedArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  assert(compareArray(new TA([0, 0, 0]).fill(8, 1, 2), [0, 8, 0]));
-  assert(compareArray(new TA([0, 0, 0, 0, 0]).fill(8, -3, 4), [0, 0, 8, 8, 0]));
-  assert(compareArray(new TA([0, 0, 0, 0, 0]).fill(8, -2, -1), [0, 0, 0, 8, 0]));
-  assert(compareArray(new TA([0, 0, 0, 0, 0]).fill(8, -1, -3), [0, 0, 0, 0, 0]));
-  assert(compareArray(new TA([0, 0, 0, 0, 0]).fill(8, 1, 3), [0, 8, 8, 0, 0]));
+testWithTypedArrayConstructors(function(TA, N) {
+  assert(compareArray(new TA(N([0, 0, 0])).fill(N(8), 1, 2), N([0, 8, 0])));
+  assert(compareArray(new TA(N([0, 0, 0, 0, 0])).fill(N(8), -3, 4), N([0, 0, 8, 8, 0])));
+  assert(compareArray(new TA(N([0, 0, 0, 0, 0])).fill(N(8), -2, -1), N([0, 0, 0, 8, 0])));
+  assert(compareArray(new TA(N([0, 0, 0, 0, 0])).fill(N(8), -1, -3), N([0, 0, 0, 0, 0])));
+  assert(compareArray(new TA(N([0, 0, 0, 0, 0])).fill(N(8), 1, 3), N([0, 8, 8, 0, 0])));
 });

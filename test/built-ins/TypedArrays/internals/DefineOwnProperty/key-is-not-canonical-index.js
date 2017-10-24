@@ -24,12 +24,6 @@ var keys = [
   "0.0000001"
 ];
 
-var dataDesc = {
-  value: 42,
-  writable: true,
-  configurable: true
-};
-
 var fnset = function() {};
 var fnget = function() {};
 
@@ -40,8 +34,14 @@ var acDesc = {
   configurable: false
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   keys.forEach(function(key) {
+    var dataDesc = {
+      value: N(42),
+      writable: true,
+      configurable: true
+    };
+
     var sample1 = new TA();
 
     assert.sameValue(
@@ -50,7 +50,7 @@ testWithTypedArrayConstructors(function(TA) {
       "return true after defining data property [" + key + "]"
     );
 
-    assert.sameValue(sample1[key], 42, "value is set to [" + key + "]");
+    assert.sameValue(sample1[key], N(42), "value is set to [" + key + "]");
     verifyNotEnumerable(sample1, key);
     verifyWritable(sample1, key);
     verifyConfigurable(sample1, key);

@@ -56,4 +56,4 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert(compareArray(sample, expected[TA.name]), sample);
   assert.sameValue(result, undefined, "returns undefined");
-});
+}, numericTypedArrayConstructors);

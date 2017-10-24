@@ -24,13 +24,13 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample1 = new TA();
   var result1 = sample1.copyWithin(0, 0);
 
   assert.sameValue(result1, sample1);
 
-  var sample2 = new TA([1, 2, 3]);
+  var sample2 = new TA(N([1, 2, 3]));
   var result2 = sample2.copyWithin(1, 0);
 
   assert.sameValue(result2, sample2);

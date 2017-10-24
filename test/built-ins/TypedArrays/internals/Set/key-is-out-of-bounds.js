@@ -24,8 +24,8 @@ includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42]));
 
   assert.sameValue(Reflect.set(sample, "-1", 1), false, "-1");
   assert.sameValue(Reflect.set(sample, "1", 1), false, "1");

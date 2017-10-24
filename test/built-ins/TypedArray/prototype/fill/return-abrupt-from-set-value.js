@@ -37,8 +37,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42]));
   var obj = {
     valueOf: function() {
       throw new Test262Error();

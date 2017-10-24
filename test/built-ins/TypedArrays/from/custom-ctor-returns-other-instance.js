@@ -23,12 +23,14 @@ includes: [testTypedArray.js]
 features: [Symbol.iterator, TypedArray]
 ---*/
 
-var sourceItor = [1, 2];
-var sourceObj = {
-  length: 2
-};
+testWithTypedArrayConstructors(function(TA, N) {
+  var sourceItor = N([1, 2]);
+  var sourceObj = {
+    0: N(0),
+    1: N(0),
+    length: 2
+  };
 
-testWithTypedArrayConstructors(function(TA) {
   var result;
   var custom = new TA(2);
   var ctor = function() {

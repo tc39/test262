@@ -25,8 +25,8 @@ info: |
 includes: [compareArray.js, testTypedArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var arr = [10, 20, 30];
+testWithTypedArrayConstructors(function(TA, N) {
+  var arr = N([10, 20, 30]);
   var sample;
   var result;
 
@@ -34,34 +34,34 @@ testWithTypedArrayConstructors(function(TA) {
   sample.findIndex(function(val, i) {
     sample[i] = arr[i];
 
-    assert.sameValue(val, 0, "value is not mapped to instance");
+    assert.sameValue(val, N(0), "value is not mapped to instance");
   });
   assert(compareArray(sample, arr), "values set during each predicate call");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
     if ( i === 0 ) {
-      sample[2] = 7;
+      sample[2] = N(7);
     }
-    return val === 7;
+    return val === N(7);
   });
   assert.sameValue(result, 2, "value found");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
     if ( i === 0 ) {
-      sample[2] = 7;
+      sample[2] = N(7);
     }
-    return val === 30;
+    return val === N(30);
   });
   assert.sameValue(result, -1, "value not found");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
     if ( i > 0 ) {
-      sample[0] = 7;
+      sample[0] = N(7);
     }
-    return val === 7;
+    return val === N(7);
   });
   assert.sameValue(result, -1, "value not found - changed after call");
 });

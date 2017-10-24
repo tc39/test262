@@ -10,7 +10,7 @@ features: [TypedArray]
 
 var source = [42, 43, 42];
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var called = 0;
 
   var ctor = function(len) {
@@ -19,11 +19,11 @@ testWithTypedArrayConstructors(function(TA) {
     return new TA(len);
   };
 
-  var result = TA.from.call(ctor, source);
+  var result = TA.from.call(ctor, N(source));
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], 42);
-  assert.sameValue(result[1], 43);
-  assert.sameValue(result[2], 42);
+  assert.sameValue(result[0], N(42));
+  assert.sameValue(result[1], N(43));
+  assert.sameValue(result[2], N(42));
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
   assert.sameValue(called, 1);

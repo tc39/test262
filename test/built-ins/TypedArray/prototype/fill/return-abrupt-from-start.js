@@ -34,9 +34,9 @@ var start = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample = new TA();
   assert.throws(Test262Error, function() {
-    sample.fill(1, start);
+    sample.fill(N(1), start);
   });
 });

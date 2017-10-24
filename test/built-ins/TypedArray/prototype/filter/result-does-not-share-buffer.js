@@ -15,8 +15,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([40, 41, 42]));
   var result;
 
   result = sample.filter(function() { return true; });

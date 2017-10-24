@@ -8,16 +8,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample1 = new TA(3);
 
-  sample1[1] = 1;
+  sample1[1] = N(1);
 
   sample1.filter(function() {
     return 42;
   });
 
-  assert.sameValue(sample1[0], 0, "[0] == 0");
-  assert.sameValue(sample1[1], 1, "[1] == 1");
-  assert.sameValue(sample1[2], 0, "[2] == 0");
+  assert.sameValue(sample1[0], N(0), "[0] == 0");
+  assert.sameValue(sample1[1], N(1), "[1] == 1");
+  assert.sameValue(sample1[2], N(0), "[2] == 0");
 });

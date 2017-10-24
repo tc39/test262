@@ -29,14 +29,14 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-var obj = {
-  "0": 0,
-  "1": 1,
-  "2": 2,
-  length: 3
-};
+testWithTypedArrayConstructors(function(TA, N) {
+  var obj = {
+    "0": N(0),
+    "1": N(1),
+    "2": N(2),
+    length: 3
+  };
 
-testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(obj);
 
   assert(Object.isExtensible(sample));

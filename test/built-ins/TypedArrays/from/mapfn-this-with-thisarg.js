@@ -22,10 +22,11 @@ features: [TypedArray]
 var source = [42, 43];
 var thisArg = {};
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var results = [];
   var mapfn = function() {
     results.push(this);
+    return N(0);
   };
 
   TA.from(source, mapfn, thisArg);

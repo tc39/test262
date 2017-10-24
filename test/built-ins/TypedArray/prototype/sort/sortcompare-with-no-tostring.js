@@ -20,8 +20,8 @@ features: [TypedArray]
 
 var origToString = Number.prototype.toString;
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([20, 100, 3]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([20, 100, 3]));
   var result = sample.sort();
-  assert(compareArray(result, [3, 20, 100]));
+  assert(compareArray(result, N([3, 20, 100])));
 });

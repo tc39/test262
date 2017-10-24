@@ -17,8 +17,8 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43]));
   sample.foo = "test262";
 
   $DETACHBUFFER(sample.buffer);
