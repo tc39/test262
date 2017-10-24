@@ -10,7 +10,6 @@ info: >
   [...] A TypedArray prototype object is an ordinary object. It does not
   have a [[ViewedArrayBuffer]] or any other of the internal slots that
   are specific to TypedArray instance objects.
-includes: [testTypedArray.js]
 features: [BigInt]
 ---*/
 
