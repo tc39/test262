@@ -13,32 +13,13 @@ info: |
     Set val to ? GetValue(val).
     ...
 
+  GetValue ( V ):
+
+    ...
+    If IsUnresolvableReference(V) is true, throw a ReferenceError exception.
+
 ---*/
 
-var count = 0;
-
-Object.defineProperties(this, {
-  x: {
-    value: 1
-  },
-  y: {
-    get() {
-      count++;
-      return 1;
-    }
-  }
+assert.throws(ReferenceError, function() {
+  typeof x.x;
 });
-
-assert.sameValue(
-  typeof x,
-   "number",
-  'typeof x === "number"'
-);
-
-assert.sameValue(
-  typeof y,
-   "number",
-  'typeof y === "number"'
-);
-
-assert.sameValue(count, 1);

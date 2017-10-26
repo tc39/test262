@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-typeof-operator-runtime-semantics-evaluation
-description: typeof Object (implements [[Call]]) === "function"
+description: typeof Object (ordinary and does not implement [[Call]]) === "object"
 info: |
   The typeof Operator
 
@@ -14,18 +14,18 @@ info: |
 
   #table-35
 
-  Null "object"
+  Object (ordinary and does not implement [[Call]]) "object"
 
 ---*/
 
 assert.sameValue(
-  typeof null,
+  typeof Math,
    "object",
-  'typeof null === "object"'
+  'typeof Math === "object"'
 );
 
 assert.sameValue(
-  typeof RegExp("0").exec("1"),
+  typeof Reflect,
    "object",
-  'typeof RegExp("0").exec("1") === "object"'
+  'typeof Reflect === "object"'
 );
