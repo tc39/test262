@@ -4,7 +4,7 @@
 /*---
 description: RestParameter does not support an initializer (async method)
 esid: sec-async-function-definitions
-features: [default-parameters]
+features: [default-parameters, async-iteration]
 flags: [generated]
 negative:
   phase: early
@@ -14,6 +14,7 @@ info: |
 
     AsyncMethod :
      async PropertyName ( UniqueFormalParameters ) { AsyncFunctionBody }
+
 
     14.1 Function Definitions
 
