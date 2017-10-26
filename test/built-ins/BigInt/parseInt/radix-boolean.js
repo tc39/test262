@@ -34,6 +34,6 @@ features: [BigInt, arrow-function]
 ---*/
 
 assert.sameValue(BigInt.parseInt("11", false), 11n);
-assert.throws(SyntaxError, () => BigInt.parseInt("11", true));
+assert.throws(RangeError, () => BigInt.parseInt("11", true));
 assert.sameValue(BigInt.parseInt("11", new Boolean(false)), 11n);
-assert.throws(SyntaxError, () => BigInt.parseInt("11", new Boolean(true)));
+assert.throws(RangeError, () => BigInt.parseInt("11", new Boolean(true)));

@@ -28,41 +28,41 @@ info: >
   number begins with the code unit pairs 0x or 0X, in which case a
   radix of 16 is assumed. If radix is 16, the number may also
   optionally begin with the code unit pairs 0x or 0X.
-features: [BigInt]
+features: [BigInt, arrow-function]
 ---*/
 
-assert.sameValue(BigInt.parseInt("0x0", 0), 0x0n);
+assert.throws(RangeError, () => BigInt.parseInt("0x0", 0));
 
-assert.sameValue(BigInt.parseInt("0x1", 0), 0x1n);
+assert.throws(RangeError, () => BigInt.parseInt("0x1", 0));
 
-assert.sameValue(BigInt.parseInt("0x2", 0), 0x2n);
+assert.throws(RangeError, () => BigInt.parseInt("0x2", 0));
 
-assert.sameValue(BigInt.parseInt("0x3", 0), 0x3n);
+assert.throws(RangeError, () => BigInt.parseInt("0x3", 0));
 
-assert.sameValue(BigInt.parseInt("0x4", 0), 0x4n);
+assert.throws(RangeError, () => BigInt.parseInt("0x4", 0));
 
-assert.sameValue(BigInt.parseInt("0x5", 0), 0x5n);
+assert.throws(RangeError, () => BigInt.parseInt("0x5", 0));
 
-assert.sameValue(BigInt.parseInt("0x6", 0), 0x6n);
+assert.throws(RangeError, () => BigInt.parseInt("0x6", 0));
 
-assert.sameValue(BigInt.parseInt("0x7", 0), 0x7n);
+assert.throws(RangeError, () => BigInt.parseInt("0x7", 0));
 
-assert.sameValue(BigInt.parseInt("0x8", 0), 0x8n);
+assert.throws(RangeError, () => BigInt.parseInt("0x8", 0));
 
-assert.sameValue(BigInt.parseInt("0x9", 0), 0x9n);
+assert.throws(RangeError, () => BigInt.parseInt("0x9", 0));
 
-assert.sameValue(BigInt.parseInt("0xA", 0), 0xAn);
+assert.throws(RangeError, () => BigInt.parseInt("0xA", 0));
 
-assert.sameValue(BigInt.parseInt("0xB", 0), 0xBn);
+assert.throws(RangeError, () => BigInt.parseInt("0xB", 0));
 
-assert.sameValue(BigInt.parseInt("0xC", 0), 0xCn);
+assert.throws(RangeError, () => BigInt.parseInt("0xC", 0));
 
-assert.sameValue(BigInt.parseInt("0xD", 0), 0xDn);
+assert.throws(RangeError, () => BigInt.parseInt("0xD", 0));
 
-assert.sameValue(BigInt.parseInt("0xE", 0), 0xEn);
+assert.throws(RangeError, () => BigInt.parseInt("0xE", 0));
 
-assert.sameValue(BigInt.parseInt("0xF", 0), 0xFn);
+assert.throws(RangeError, () => BigInt.parseInt("0xF", 0));
 
-assert.sameValue(BigInt.parseInt("0xE", 0), 0xEn);
+assert.throws(RangeError, () => BigInt.parseInt("0xE", 0));
 
-assert.sameValue(BigInt.parseInt("0xABCDEF", 0), 0xABCDEFn);
+assert.throws(RangeError, () => BigInt.parseInt("0xABCDEF", 0));
