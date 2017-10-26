@@ -4,6 +4,23 @@
 
 import argparse
 import sys
+import pip
+import pip.req
+
+
+try:
+    __import__('yaml')
+except ImportError:
+    for item in pip.req.parse_requirements("./tools/lint/requirements.txt", session="test262"):
+        if isinstance(item, pip.req.InstallRequirement):
+            requirement = item.name
+
+            if len(str(item.req.specifier)) > 0:
+                requirement = "{}{}".format(requirement, item.req.specifier)
+
+            # print(requirement)
+            pip.main(['install', requirement])
+
 
 from lib.collect_files import collect_files
 from lib.checks.features import CheckFeatures
