@@ -23,11 +23,11 @@ info: |
 ---*/
 
 
-A = class {}
+var A = class {}
 
 var executed = false;
-C = class extends A {
-  x = (0, eval)('executed = true; super().x;';
+var C = class extends A {
+  x = (0, eval)('executed = true; super().x;');
 }
 
 assert.throws(SyntaxError, function() {

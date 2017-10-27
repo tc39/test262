@@ -27,7 +27,7 @@ class A = {}
 
 var executed = false;
 class C extends A = {
-  x = eval('executed = true; super();';
+  x = eval('executed = true; super();');
 }
 
 assert.throws(SyntaxError, function() {
