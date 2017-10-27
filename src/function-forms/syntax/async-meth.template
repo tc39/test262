@@ -10,6 +10,7 @@ info: |
 
   AsyncMethod :
    async PropertyName ( UniqueFormalParameters ) { AsyncFunctionBody }
+features: [async-iteration]
 ---*/
 
 ({

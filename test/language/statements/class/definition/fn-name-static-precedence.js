@@ -14,6 +14,7 @@ info: >
     6. If hasNameProperty is false, then perform SetFunctionName(value,
        className).
 includes: [propertyHelper.js]
+features: [generators]
 ---*/
 
 class A {
