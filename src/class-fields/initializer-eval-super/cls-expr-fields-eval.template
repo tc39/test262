@@ -7,11 +7,11 @@ path: language/expressions/class/fields-derived-cls-direct-
 name: direct eval
 ---*/
 
-A = class {}
+var A = class {}
 
 var executed = false;
-C = class extends A {
-  x = eval('executed = true; /*{ initializer }*/;';
+var C = class extends A {
+  x = eval('executed = true; /*{ initializer }*/;');
 }
 
 assert.throws(/*{ earlyerror }*/, function() {

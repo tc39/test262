@@ -11,7 +11,7 @@ class A = {}
 
 var executed = false;
 class C extends A = {
-  x = eval('executed = true; /*{ initializer }*/;';
+  x = eval('executed = true; /*{ initializer }*/;');
 }
 
 assert.throws(/*{ earlyerror }*/, function() {
