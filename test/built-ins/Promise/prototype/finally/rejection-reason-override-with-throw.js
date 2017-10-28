@@ -8,16 +8,22 @@ features: [Promise.prototype.finally]
 flags: [async]
 ---*/
 
+var callbackCount = 0;
 var original = {};
 var thrown = {};
 
 var p = Promise.reject(original);
 
 p.finally(function () {
+  callbackCount++;
   assert.sameValue(arguments.length, 0, 'onFinally receives zero args');
   throw thrown;
 }).then(function () {
   $ERROR('promise is rejected; onFulfill should not be called');
 }).catch(function (reason) {
+  callbackCount++;
   assert.sameValue(reason, thrown, 'onFinally can override the rejection reason by throwing');
-}).then($DONE).catch($ERROR);
+}).then(function() {
+  assert.sameValue(callbackCount, 2, "both callbacks were called");
+  $DONE();
+}).catch($ERROR);

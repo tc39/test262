@@ -9,6 +9,7 @@ flags: [async]
 ---*/
 
 var initialThenCount = 0;
+var callbackCount = 0;
 var yesValue = {};
 var yes = Promise.resolve(yesValue);
 yes.then = function () {
@@ -28,15 +29,19 @@ var finallyCalled = false;
 var catchCalled = false;
 
 yes.then(function (x) {
+  callbackCount++;
   assert.sameValue(x, yesValue);
   return x;
 }).finally(function () {
+  callbackCount++;
   finallyCalled = true;
   return no;
 }).catch(function (e) {
+  callbackCount++;
   catchCalled = true;
   assert.sameValue(e, noReason);
 }).then(function () {
+  assert.sameValue(callbackCount, 3, "all three callbacks were called");
   assert.sameValue(finallyCalled, true, 'initial finally was called');
   assert.sameValue(initialThenCount, 1, 'initial finally invokes .then once');
 
