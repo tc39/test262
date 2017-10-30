@@ -12,6 +12,7 @@ class C {
   ;;;;
   ;;;;;;/*{ fields }*/;;;;;;;
   ;;;;
+/*{ privateinspectionfunctions }*/
 }
 
 var c = new C();

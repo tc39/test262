@@ -10,6 +10,7 @@ esid: prod-FieldDefinition
 
 var C = class {
   static m() { return 42; } /*{ fields }*/;
+/*{ privateinspectionfunctions }*/
 }
 
 var c = new C();

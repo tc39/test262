@@ -11,6 +11,7 @@ esid: prod-FieldDefinition
 
 class C {
   async *m() { return 42; } /*{ fields }*/;
+/*{ privateinspectionfunctions }*/
 }
 
 var c = new C();
