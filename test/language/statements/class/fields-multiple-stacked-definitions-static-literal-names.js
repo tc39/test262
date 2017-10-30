@@ -28,6 +28,7 @@ class C {
   static c = fn
   foo = "foobar"
   bar = "barbaz";
+
 }
 
 var c = new C();

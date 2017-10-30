@@ -26,6 +26,7 @@ const fn = function() {}
 var C = class {
   static a; b = 42;
   static c = fn; *m() { return 42; }
+
 }
 
 var c = new C();
