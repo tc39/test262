@@ -23,10 +23,10 @@ info: |
 ---*/
 
 
-class A = {}
+class A {}
 
 var executed = false;
-class C extends A = {
+class C extends A {
   x = eval('executed = true; super.x;');
 }
 
