@@ -25,7 +25,7 @@ info: |
 
 
 var executed = false;
-class C = {
+class C {
   x = (0, eval)('executed = true; arguments;');
 }
 

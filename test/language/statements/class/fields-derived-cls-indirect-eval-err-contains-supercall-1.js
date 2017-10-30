@@ -26,7 +26,7 @@ info: |
 class A = {}
 
 var executed = false;
-class C extends A = {
+class C extends A {
   x = (0, eval)('executed = true; super();';
 }
 

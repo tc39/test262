@@ -24,7 +24,7 @@ info: |
 
 
 var executed = false;
-C = class {
+var C = class {
   x = eval('executed = true; new.call;');
 }
 
