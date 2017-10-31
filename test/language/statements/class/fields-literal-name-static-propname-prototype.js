@@ -2,7 +2,7 @@
 // - src/class-fields/static-propname-prototype.case
 // - src/class-fields/propname-error/cls-decl-literal-name.template
 /*---
-description: Static class fields cannot have PropName 'prototype' (literal name)
+description: static class fields forbid PropName 'prototype' (early error -- PropName of IdentifierName is forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]

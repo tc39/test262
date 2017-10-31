@@ -1,18 +1,16 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-propname-constructor.case
-// - src/class-fields/propname-error/cls-expr-literal-name.template
+// - src/class-fields/static-propname-prototype.case
+// - src/class-fields/propname-error/cls-expr-variable-name.template
 /*---
-description: static class field forbid PropName 'constructor' (early error -- PropName of IdentifierName is forbidden)
+description: static class fields forbid PropName 'prototype' (no early error -- PropName of ComputedPropertyName not forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]
-negative:
-  phase: early
-  type: SyntaxError
 info: |
     Static Semantics: PropName
-    LiteralPropertyName : IdentifierName
-      Return StringValue of IdentifierName.
+    ...
+    ComputedPropertyName : [ AssignmentExpression ]
+      Return empty.
 
     
     // This test file tests the following early error:
@@ -24,8 +22,11 @@ info: |
 ---*/
 
 
-throw "Test262: This statement should not be evaluated.";
-
+var prototype = 'foo';
 var C = class {
-  static constructor;
+  static [prototype];
 }
+
+var c = new C();
+
+assert.sameValue(c.hasOwnProperty("foo"), true);

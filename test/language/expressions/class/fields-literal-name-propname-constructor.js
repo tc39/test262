@@ -2,7 +2,7 @@
 // - src/class-fields/propname-constructor.case
 // - src/class-fields/propname-error/cls-expr-literal-name.template
 /*---
-description: Static class fields cannot have PropName 'constructor' (literal name)
+description: class fields forbid PropName 'constructor' (early error -- PropName of IdentifierName is forbidden)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]

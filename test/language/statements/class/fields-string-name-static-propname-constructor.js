@@ -2,7 +2,7 @@
 // - src/class-fields/static-propname-constructor.case
 // - src/class-fields/propname-error/cls-decl-string-name.template
 /*---
-description: Static class field cannot have PropName 'constructor' (string name)
+description: static class field forbid PropName 'constructor' (early error -- PropName of StringLiteral is forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]
@@ -12,7 +12,7 @@ negative:
 info: |
     Static Semantics: PropName
     ...
-    LiteralPropertyName:StringLiteral
+    LiteralPropertyName : StringLiteral
       Return the String value whose code units are the SV of the StringLiteral.
 
     

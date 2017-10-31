@@ -2,7 +2,7 @@
 // - src/class-fields/static-propname-constructor.case
 // - src/class-fields/propname-error/cls-decl-computed-name.template
 /*---
-description: Static class field cannot have PropName 'constructor' (computed)
+description: static class field forbid PropName 'constructor' (no early error -- PropName of ComputedPropertyName not forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]

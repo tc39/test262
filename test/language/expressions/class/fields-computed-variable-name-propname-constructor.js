@@ -1,19 +1,16 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/propname-constructor.case
-// - src/class-fields/propname-error/cls-expr-string-name.template
+// - src/class-fields/propname-error/cls-expr-variable-name.template
 /*---
-description: class fields forbid PropName 'constructor' (early error -- PropName of StringLiteral is forbidden)
+description: class fields forbid PropName 'constructor' (no early error -- PropName of ComputedPropertyName not forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]
-negative:
-  phase: early
-  type: SyntaxError
 info: |
     Static Semantics: PropName
     ...
-    LiteralPropertyName : StringLiteral
-      Return the String value whose code units are the SV of the StringLiteral.
+    ComputedPropertyName : [ AssignmentExpression ]
+      Return empty.
 
     
     // This test file tests the following early error:
@@ -25,8 +22,11 @@ info: |
 ---*/
 
 
-throw "Test262: This statement should not be evaluated.";
-
+var constructor = 'foo';
 var C = class {
-   'constructor';
+   [constructor];
 }
+
+var c = new C();
+
+assert.sameValue(c.hasOwnProperty("foo"), true);

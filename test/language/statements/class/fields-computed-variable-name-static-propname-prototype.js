@@ -1,19 +1,16 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-propname-prototype.case
-// - src/class-fields/propname-error/cls-decl-string-name.template
+// - src/class-fields/propname-error/cls-decl-variable-name.template
 /*---
-description: static class fields forbid PropName 'prototype' (early error -- PropName of StringLiteral is forbidden value)
+description: static class fields forbid PropName 'prototype' (no early error -- PropName of ComputedPropertyName not forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
 flags: [generated]
-negative:
-  phase: early
-  type: SyntaxError
 info: |
     Static Semantics: PropName
     ...
-    LiteralPropertyName : StringLiteral
-      Return the String value whose code units are the SV of the StringLiteral.
+    ComputedPropertyName : [ AssignmentExpression ]
+      Return empty.
 
     
     // This test file tests the following early error:
@@ -25,8 +22,11 @@ info: |
 ---*/
 
 
-throw "Test262: This statement should not be evaluated.";
-
+var prototype = 'foo';
 class C {
-  static 'prototype';
+  static [prototype];
 }
+
+var c = new C();
+
+assert.sameValue(c.hasOwnProperty("foo"), true);
