@@ -4,7 +4,7 @@
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
 path: language/statements/class/fields-literal-name-
-name: literal name
+name: early error -- PropName of IdentifierName is forbidden value
 negative:
   type: SyntaxError
   phase: early

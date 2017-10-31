@@ -4,7 +4,7 @@
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
 path: language/expressions/class/fields-computed-name-
-name: computed
+name: no early error -- PropName of ComputedPropertyName not forbidden value
 info: |
   Static Semantics: PropName
   ...

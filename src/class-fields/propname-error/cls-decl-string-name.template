@@ -4,14 +4,14 @@
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
 path: language/statements/class/fields-string-name-
-name: string name
+name: early error -- PropName of StringLiteral is forbidden value
 negative:
   type: SyntaxError
   phase: early
 info: |
   Static Semantics: PropName
   ...
-  LiteralPropertyName:StringLiteral
+  LiteralPropertyName : StringLiteral
     Return the String value whose code units are the SV of the StringLiteral.
 ---*/
 

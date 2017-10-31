@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Static class fields cannot have PropName 'constructor'
+desc: class fields forbid PropName 'constructor'
 info: |
 
   // This test file tests the following early error:
