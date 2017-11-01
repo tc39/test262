@@ -5,7 +5,6 @@
 esid: sec-tostring-applied-to-the-bigint-type
 description: BigInt .toString() returns only decimal digits, does not include BigIntLiteralSuffix
 info: |
-
   ToString Applied to the BigInt Type
 
     The abstract operation ToString converts a BigInt i to String format as follows:

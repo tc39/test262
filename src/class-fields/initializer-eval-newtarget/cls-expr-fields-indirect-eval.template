@@ -3,16 +3,16 @@
 
 /*---
 esid: sec-performeval-rules-in-initializer
-path: language/statements/class/fields-direct-
-name: direct eval
+path: language/expressions/class/fields-indirect-
+name: indirect eval
 ---*/
 
 var executed = false;
-class C = {
-  x = eval('executed = true; /*{ initializer }*/;');
+var C = class {
+  x = (0, eval)('executed = true; /*{ initializer }*/;');
 }
 
-assert.throws(/*{ earlyerror }*/, function() {
+assert.throws(SyntaxError, function() {
   new C();
 });
 

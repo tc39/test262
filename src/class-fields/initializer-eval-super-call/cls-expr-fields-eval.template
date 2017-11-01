@@ -3,19 +3,19 @@
 
 /*---
 esid: sec-performeval-rules-in-initializer
-path: language/expressions/class/fields-derived-cls-indirect-
-name: indirect eval
+path: language/expressions/class/fields-derived-cls-direct-
+name: direct eval
 ---*/
 
 var A = class {}
 
 var executed = false;
 var C = class extends A {
-  x = (0, eval)('executed = true; /*{ initializer }*/;');
+  x = eval('executed = true; /*{ initializer }*/;');
 }
 
-assert.throws(/*{ executionerror }*/, function() {
+assert.throws(SyntaxError, function() {
   new C();
 });
 
-assert.sameValue(executed, true);
+assert.sameValue(executed, false);

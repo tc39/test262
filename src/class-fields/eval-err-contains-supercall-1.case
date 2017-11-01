@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: error if `super()` in StatementList of eval
+desc: error if `super()['x']` in StatementList of eval
 info: |
   Additional Early Error Rules for Eval Inside Initializer
   These static semantics are applied by PerformEval when a direct eval call occurs inside a class field initializer.
@@ -17,12 +17,8 @@ info: |
 
     It is a Syntax Error if StatementList Contains SuperCall.
 features: [class-fields]
-template: initializer-eval-super
+template: initializer-eval-super-call
 ---*/
 
 //- initializer
-super()
-//- earlyerror
-SyntaxError
-//- executionerror
-SyntaxError
+super()['x']

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/eval-err-contains-supercall.case
-// - src/class-fields/initializer-eval-super/cls-expr-fields-eval.template
+// - src/class-fields/initializer-eval-super-call/cls-expr-fields-eval.template
 /*---
 description: error if `super()` in StatementList of eval (direct eval)
 esid: sec-performeval-rules-in-initializer

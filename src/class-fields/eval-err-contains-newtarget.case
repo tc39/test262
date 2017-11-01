@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: error if `new.call` in StatementList of eval
+desc: error if `new.target` in StatementList of eval
 info: |
   Additional Early Error Rules for Eval Inside Initializer
   These static semantics are applied by PerformEval when a direct eval call occurs inside a class field initializer.
@@ -17,12 +17,8 @@ info: |
 
     It is a Syntax Error if StatementList Contains NewTarget.
 features: [class-fields]
-template: initializer-eval
+template: initializer-eval-newtarget
 ---*/
 
 //- initializer
-new.call
-//- earlyerror
-SyntaxError
-//- executionerror
-SyntaxError
+new.target

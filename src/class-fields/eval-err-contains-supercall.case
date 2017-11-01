@@ -17,12 +17,8 @@ info: |
 
     It is a Syntax Error if StatementList Contains SuperCall.
 features: [class-fields]
-template: initializer-eval-super
+template: initializer-eval-super-call
 ---*/
 
 //- initializer
 super()
-//- earlyerror
-SyntaxError
-//- executionerror
-SyntaxError
