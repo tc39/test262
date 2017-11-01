@@ -18,7 +18,7 @@ Object.defineProperty(arrObj, "length", {
 });
 verifyEqualTo(arrObj, "length", 0);
 
-verifyNotWritable(arrObj, "length");
+verifyNotWritable(arrObj, "length", undefined, 0);
 
 verifyNotEnumerable(arrObj, "length");
 
