@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/eval-err-contains-newcall.case
-// - src/class-fields/initializer-eval/cls-decl-fields-eval.template
+// - src/class-fields/eval-err-contains-newtarget.case
+// - src/class-fields/initializer-eval-newtarget/cls-decl-fields-indirect-eval.template
 /*---
-description: error if `new.call` in StatementList of eval (direct eval)
+description: error if `new.target` in StatementList of eval (indirect eval)
 esid: sec-performeval-rules-in-initializer
 features: [class-fields]
 flags: [generated]
@@ -24,8 +24,8 @@ info: |
 
 
 var executed = false;
-class C = {
-  x = eval('executed = true; new.call;');
+class C {
+  x = (0, eval)('executed = true; new.target;');
 }
 
 assert.throws(SyntaxError, function() {
