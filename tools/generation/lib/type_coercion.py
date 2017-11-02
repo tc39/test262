@@ -1,4 +1,6 @@
 
+import yaml
+
 def int2str(n, base=10):
     "This function strips the 'L' suffix that shows up sometimes"
     if base == 2:
@@ -15,11 +17,28 @@ def int2str(n, base=10):
         s = s[:-1]
     return s
 
+allowed_frontmatter_fields = frozenset([
+    "description", "esid", "info", "features", "includes"
+])
+frontmatter_field_order = [
+    "description", "esid", "info", "flags", "includes", "features"
+]
+assert all(_k in frontmatter_field_order for _k in allowed_frontmatter_fields)
+
 class Generator:
-    def __init__(self, file_path):
-        self.file_path = file_path
+    def __init__(self, path_prefix, **kwargs):
+        self.path_prefix = path_prefix
         self.declarations = []
         self.test_lines = []
+        self.features = set()
+        assert all(k in allowed_frontmatter_fields for k in kwargs)
+        assert "description" in kwargs
+        if "features" in kwargs:
+            assert type(kwargs["features"]) == list
+            for feature in kwargs["features"]:
+                self.features.add(feature)
+            del kwargs["features"]
+        self.frontmatter_args = kwargs
 
     def __enter__(self):
         return self
@@ -29,20 +48,79 @@ class Generator:
             return
         self.write()
         # make this object unusable after being disposed
-        del self.file_path
         del self.declarations
         del self.test_lines
 
+    def get_frontmatter_str(self):
+        frontmatter = {}
+        for k, v in self.frontmatter_args.items():
+            frontmatter[k] = v
+        frontmatter["flags"] = ["generated"]
+        if len(self.features) > 0:
+            frontmatter["features"] = sorted(self.features)
+
+        result_lines = []
+        for field_name in frontmatter_field_order:
+            try: field_value = frontmatter[field_name]
+            except KeyError: continue
+            if type(field_value) == list:
+                # a list of scalars
+                if len(field_value) == 0:
+                    # don't emit empty lists
+                    del frontmatter[field_name]
+                else:
+                    # single-line [a, b, c] format
+                    result_lines.append(field_name + ": [" + ", ".join(field_value) + "]")
+                continue
+            # scalar (i.e. string) value
+            field_value = field_value.rstrip().replace("\r\n", "\n").replace("\r", "\n")
+            if "\n" in field_value:
+                # emit multiline strings in | format
+                field_lines = field_value.split("\n")
+                while len(field_lines[0]) == 0:
+                    del field_lines[0]
+                first_line = field_lines[0]
+                assert len(first_line.strip()) > 0, "first line of info must not be blank"
+                result_lines.append(field_name + ": |")
+                indentation = first_line[:len(first_line) - len(first_line.lstrip())]
+                canonical_lines = []
+                for field_line in field_lines:
+                    if len(field_line.strip()) > 0:
+                        assert field_line.startswith(indentation), "info has inconsistent indentation"
+                        canonical_line = field_line[len(indentation):].rstrip()
+                        canonical_lines.append(canonical_line)
+                        result_lines.append("  " + canonical_line)
+                    else:
+                        canonical_lines.append("")
+                        result_lines.append("")
+                field_value = "\n".join(canonical_lines) + "\n"
+                frontmatter[field_name] = field_value
+            else:
+                # simple string
+                result_lines.append(field_name + ": " + field_value)
+        frontmatter_str = "\n".join(result_lines)
+
+        # this might throw
+        reparsed_frontmatter = yaml.safe_load(frontmatter_str)
+        assert reparsed_frontmatter == frontmatter, "something caused malformed frontmatter"
+
+        return frontmatter_str
+
     def get_contents(self):
         return (
-            "\n".join(self.declarations) +
-            "\n" +
-            "\n" +
-            "\n".join(self.test_lines)
+            '// This file was procedurally generated.\n' +
+            '/*---\n' +
+            self.get_frontmatter_str() + '\n' +
+            '---*/\n' +
+            '\n' +
+            '\n'.join(self.declarations) + '\n' +
+            '\n' +
+            '\n'.join(self.test_lines) + '\n'
         )
     def write(self):
-        with open(self.file_path, "w") as f:
-            f.write(self.get_contents())
+        contents = self.get_contents()
+        with open("test/" + self.path_prefix + ".js", "w") as f:
+            f.write(contents)
 
     def generate_ToIndex_zero(self, template):
         self.generate_ToInteger_zero(template)
@@ -67,9 +145,8 @@ class Generator:
         self.append(template, value='[]')
 
     def generate_ToInteger_one(self, template):
-        self.generate_ToNumber_one(template)
-
         self.generate_ToInteger_from_int(1, template)
+        self.generate_ToNumber_one(template)
 
         # When toString() returns "1"
         self.append(template, value='[1]')
@@ -81,9 +158,9 @@ class Generator:
             # ToPrimitive
             self.testPrimitiveWrappers(value_str, "number", template)
 
+        generate_from_primitive('0')
         generate_from_primitive('null')
         generate_from_primitive('false')
-        generate_from_primitive('0')
         generate_from_primitive('"0"')
 
     def generate_ToNumber_NaN(self, template):
@@ -92,8 +169,8 @@ class Generator:
             # ToPrimitive
             self.testPrimitiveWrappers(value_str, "number", template)
 
-        generate_from_primitive('undefined')
         generate_from_primitive('NaN')
+        generate_from_primitive('undefined')
         generate_from_primitive('""')
         generate_from_primitive('"foo"')
         generate_from_primitive('"true"')
@@ -104,8 +181,8 @@ class Generator:
             # ToPrimitive
             self.testPrimitiveWrappers(value_str, "number", template)
 
-        generate_from_primitive('true')
         generate_from_primitive('1')
+        generate_from_primitive('true')
         generate_from_primitive('"1"')
 
     def generate_ToInteger_from_int(self, nominal_int, template):
@@ -149,6 +226,12 @@ class Generator:
         else:
             assert False
 
+        try:
+            features = kwargs["features"]
+            del kwargs["features"]
+        except KeyError:
+            features = []
+
         template_args = {
             "method": method_str,
             "err_fn": self.generate_err_fn(),
@@ -159,10 +242,12 @@ class Generator:
         # precedence order
         self.append(template, value=
             '{[Symbol.toPrimitive]: %(method)s, %(method_name_0)s: %(err_fn)s, %(method_name_1)s: %(err_fn)s}' % template_args,
+            features=features + ["computed-property-names", "Symbol.toPrimitive"],
             **kwargs
         )
         self.append(template, value=
             '{%(method_name_0)s: %(method)s, %(method_name_1)s: %(err_fn)s}' % template_args,
+            features=features,
             **kwargs
         )
         if hint == "number":
@@ -171,40 +256,48 @@ class Generator:
             # Therefore this test only works for valueOf falling back to toString.
             self.append(template, value=
                 '{toString: %(method)s}' % template_args,
+                features=features,
                 **kwargs
             )
 
         # GetMethod: if func is undefined or null, return undefined.
         self.append(template, value=
             '{[Symbol.toPrimitive]: undefined, %(method_name_0)s: %(method)s}' % template_args,
+            features=features + ["computed-property-names", "Symbol.toPrimitive"],
             **kwargs
         )
         self.append(template, value=
             '{[Symbol.toPrimitive]: null, %(method_name_0)s: %(method)s}' % template_args,
+            features=features + ["computed-property-names", "Symbol.toPrimitive"],
             **kwargs
         )
 
         # if methodNames[0] is not callable, fallback to methodNames[1]
         self.append(template, value=
             '{%(method_name_0)s: null, %(method_name_1)s: %(method)s}' % template_args,
+            features=features,
             **kwargs
         )
         self.append(template, value=
             '{%(method_name_0)s: 1, %(method_name_1)s: %(method)s}' % template_args,
+            features=features,
             **kwargs
         )
         self.append(template, value=
             '{%(method_name_0)s: {}, %(method_name_1)s: %(method)s}' % template_args,
+            features=features,
             **kwargs
         )
 
         # if methodNames[0] returns an object, fallback to methodNames[1]
         self.append(template, value=
             '{%(method_name_0)s: function() { return {}; }, %(method_name_1)s: %(method)s}' % template_args,
+            features=features,
             **kwargs
         )
         self.append(template, value=
             '{%(method_name_0)s: function() { return Object(1); }, %(method_name_1)s: %(method)s}' % template_args,
+            features=features,
             **kwargs
         )
 
@@ -233,16 +326,16 @@ class Generator:
         self.generate_ToNumber_errors(template)
 
     def generate_ToNumber_errors(self, template):
-        def generate_from_primitive(value_str):
-            self.append(template, error='TypeError', value=value_str)
+        def generate_from_primitive(value_str, **kwargs):
+            self.append(template, error='TypeError', value=value_str, **kwargs)
             # ToPrimitive
-            self.testPrimitiveWrappers(value_str, "number", template, error='TypeError')
+            self.testPrimitiveWrappers(value_str, "number", template, error='TypeError', **kwargs)
 
         # ToNumber: Symbol -> TypeError
-        generate_from_primitive('Symbol("1")')
+        generate_from_primitive('Symbol("1")', features=["Symbol"])
 
         # ToNumber: BigInt -> TypeError
-        generate_from_primitive('0n')
+        generate_from_primitive('0n', features=["BigInt"])
 
         # ToPrimitive
         self.generate_ToPrimitive_errors("number", template)
@@ -296,10 +389,10 @@ class Generator:
         self.append(template, value='[]', expected_string_contents='')
 
     def generate_ToString_non_empty(self, template):
-        def generate_from_primitive(value_str, expected_contents):
-            self.append(template, value=value_str, expected_string_contents=expected_contents)
+        def generate_from_primitive(value_str, expected_contents, **kwargs):
+            self.append(template, value=value_str, expected_string_contents=expected_contents, **kwargs)
             # ToPrimitive
-            self.testPrimitiveWrappers(value_str, "string", template, expected_string_contents=expected_contents)
+            self.testPrimitiveWrappers(value_str, "string", template, expected_string_contents=expected_contents, **kwargs)
 
         generate_from_primitive('undefined', 'undefined')
         generate_from_primitive('null', 'null')
@@ -314,20 +407,20 @@ class Generator:
         generate_from_primitive('"foo"', 'foo')
 
         # BigInt -> TypeError
-        generate_from_primitive('0n', '0')
+        generate_from_primitive('0n', '0', features=["BigInt"])
 
         # toString of a few objects
         self.append(template, value='["foo", "bar"]', expected_string_contents='foo,bar')
         self.append(template, value='{}', expected_string_contents='[object Object]')
 
     def generate_ToString_errors(self, template):
-        def generate_from_primitive(value_str):
-            self.append(template, error='TypeError', value=value_str)
+        def generate_from_primitive(value_str, **kwargs):
+            self.append(template, error='TypeError', value=value_str, **kwargs)
             # ToPrimitive
-            self.testPrimitiveWrappers(value_str, "string", template, error='TypeError')
+            self.testPrimitiveWrappers(value_str, "string", template, error='TypeError', **kwargs)
 
         # Symbol -> TypeError
-        generate_from_primitive('Symbol("1")')
+        generate_from_primitive('Symbol("1")', features=["Symbol"])
 
         # ToPrimitive
         self.generate_ToPrimitive_errors("string", template)
@@ -336,7 +429,7 @@ class Generator:
         self.append(template, value='true')
         self.append(template, value='1')
         self.append(template, value='"string"')
-        self.append(template, value='Symbol("1")')
+        self.append(template, value='Symbol("1")', features=["Symbol"])
         self.append(template, value='{}')
 
     def generate_ToBoolean_false(self, template):
@@ -397,10 +490,10 @@ class Generator:
         self.append(template, value='["{}"]'.format(int2str(nominal_int)))
 
     def generate_ToBigInt_errors(self, template):
-        def generate_from_primitive(error, value_str):
-            self.append(template, error=error, value=value_str)
+        def generate_from_primitive(error, value_str, **kwargs):
+            self.append(template, error=error, value=value_str, **kwargs)
             # ToPrimitive
-            self.testPrimitiveWrappers(value_str, "number", template, error=error)
+            self.testPrimitiveWrappers(value_str, "number", template, error=error, **kwargs)
 
         # Undefined, Null, Number, Symbol -> TypeError
         generate_from_primitive('TypeError', 'undefined')
@@ -408,7 +501,7 @@ class Generator:
         generate_from_primitive('TypeError', '0')
         generate_from_primitive('TypeError', 'NaN')
         generate_from_primitive('TypeError', 'Infinity')
-        generate_from_primitive('TypeError', 'Symbol("1")')
+        generate_from_primitive('TypeError', 'Symbol("1")', features=["Symbol"])
 
         # when a String parses to NaN -> SyntaxError
         def testStringValue(string_contents):
@@ -441,5 +534,10 @@ class Generator:
             # some chars are guaranteed to never appear in expected strings
             for c in '\\_"':
                 assert c not in kwargs["expected_string_contents"]
+        if "features" in kwargs:
+            assert type(kwargs["features"]) == list
+            for feature in kwargs["features"]:
+                self.features.add(feature)
+            del kwargs["features"]
         self.test_lines.append(template % kwargs)
 
