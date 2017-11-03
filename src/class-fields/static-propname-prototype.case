@@ -1,0 +1,20 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: static class fields forbid PropName 'prototype'
+info: |
+
+  // This test file tests the following early error:
+  Static Semantics: Early Errors
+
+    ClassElement : staticFieldDefinition;
+      It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
+features: [class-fields]
+template: propname-error
+---*/
+
+//- static
+static
+//- propname
+prototype
