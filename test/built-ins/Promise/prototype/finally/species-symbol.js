@@ -16,5 +16,5 @@ var p = Promise
     .resolve()
     .finally(() => MyPromise.resolve());
 
-assert.sameValue(true, p instanceof Promise);
-assert.sameValue(false, p instanceof MyPromise);
+assert.sameValue(p instanceof Promise, true);
+assert.sameValue(p instanceof MyPromise, false);
