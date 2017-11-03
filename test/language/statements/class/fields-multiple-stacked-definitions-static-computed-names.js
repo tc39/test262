@@ -26,6 +26,7 @@ class C {
   static ["a"] = 42; ["a"] = 39
   foo = "foobar"
   bar = "barbaz";
+
 }
 
 var c = new C();

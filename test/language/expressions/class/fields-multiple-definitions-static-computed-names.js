@@ -28,6 +28,7 @@ var C = class {
   static ["a"] = 42; ["a"] = 39
   m2() { return 39 }
   bar = "barbaz";
+
 }
 
 var c = new C();

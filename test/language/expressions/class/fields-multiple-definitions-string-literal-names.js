@@ -28,6 +28,7 @@ var C = class {
   "d" = 42
   m2() { return 39 }
   bar = "barbaz";
+
 }
 
 var c = new C();

@@ -24,6 +24,7 @@ info: |
 
 var C = class {
   static ["a"] = 42; ["a"] = 39
+
 }
 
 var c = new C();

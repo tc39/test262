@@ -14,6 +14,7 @@ var C = class {
   /*{ fields }*/
   m2() { return 39 }
   bar = "barbaz";
+/*{ privateinspectionfunctions }*/
 }
 
 var c = new C();

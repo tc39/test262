@@ -28,6 +28,7 @@ var C = class {
   c = fn
   foo = "foobar"
   bar = "barbaz";
+
 }
 
 var c = new C();

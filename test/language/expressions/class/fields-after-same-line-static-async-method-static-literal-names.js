@@ -26,6 +26,7 @@ const fn = function() {}
 var C = class {
   static async m() { return 42; } static a; b = 42;
   static c = fn;
+
 }
 
 var c = new C();
