@@ -23,12 +23,12 @@ def main():
             """,
         },
         templates={
-            '0': 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 0);',
-            '1': 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 1);',
-            "throws": 'assert.throws(%(error)s, function() { "".indexOf("", %(value)s); });',
+            '0': 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 0, %(message)s);',
+            '1': 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 1, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { "".indexOf("", %(value)s); }, %(message)s);',
         },
         nominal_value_cases=[
-            (2, 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 2);'),
+            (2, 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 2, %(message)s);'),
         ],
     )
 
@@ -45,9 +45,9 @@ def main():
             """,
         },
         templates={
-            '': 'assert.sameValue("foo".indexOf(%(value)s), 0);',
-            str: 'assert.sameValue("__%(expected_string_contents)s__".indexOf(%(value)s), 2);',
-            "throws": 'assert.throws(%(error)s, function() { "".indexOf(%(value)s); });',
+            '': 'assert.sameValue("foo".indexOf(%(value)s), 0, %(message)s);',
+            str: 'assert.sameValue("__%(expected_string_contents)s__".indexOf(%(value)s), 2, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { "".indexOf(%(value)s); }, %(message)s);',
         },
     )
 
@@ -66,12 +66,12 @@ def main():
             "features": ["BigInt"],
         },
         templates={
-            '0': 'assert.sameValue(BigInt.asIntN(%(value)s, 1n), 0n);',
-            '1': 'assert.sameValue(BigInt.asIntN(%(value)s, 1n), -1n);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asIntN(%(value)s, 0n); });',
+            '0': 'assert.sameValue(BigInt.asIntN(%(value)s, 1n), 0n, %(message)s);',
+            '1': 'assert.sameValue(BigInt.asIntN(%(value)s, 1n), -1n, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { BigInt.asIntN(%(value)s, 0n); }, %(message)s);',
         },
         nominal_value_cases=[
-            (3, 'assert.sameValue(BigInt.asIntN(%(value)s, 10n), 2n);'),
+            (3, 'assert.sameValue(BigInt.asIntN(%(value)s, 10n), 2n, %(message)s);'),
         ],
     )
 
@@ -90,12 +90,12 @@ def main():
             "features": ["BigInt"],
         },
         templates={
-            '0': 'assert.sameValue(BigInt.asUintN(%(value)s, 1n), 0n);',
-            '1': 'assert.sameValue(BigInt.asUintN(%(value)s, 1n), 1n);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asUintN(%(value)s, 0n); });',
+            '0': 'assert.sameValue(BigInt.asUintN(%(value)s, 1n), 0n, %(message)s);',
+            '1': 'assert.sameValue(BigInt.asUintN(%(value)s, 1n), 1n, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { BigInt.asUintN(%(value)s, 0n); }, %(message)s);',
         },
         nominal_value_cases=[
-            (3, 'assert.sameValue(BigInt.asUintN(%(value)s, 10n), 2n);'),
+            (3, 'assert.sameValue(BigInt.asUintN(%(value)s, 10n), 2n, %(message)s);'),
         ],
     )
 
@@ -114,13 +114,13 @@ def main():
             "features": ["BigInt"],
         },
         templates={
-            '0n': 'assert.sameValue(BigInt.asIntN(2, %(value)s), 0n);',
-            '1n': 'assert.sameValue(BigInt.asIntN(2, %(value)s), 1n);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asIntN(0, %(value)s); });',
+            '0n': 'assert.sameValue(BigInt.asIntN(2, %(value)s), 0n, %(message)s);',
+            '1n': 'assert.sameValue(BigInt.asIntN(2, %(value)s), 1n, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { BigInt.asIntN(0, %(value)s); }, %(message)s);',
         },
         nominal_value_cases=[
-            (10, 'assert.sameValue(BigInt.asIntN(3, %(value)s), 2n);'),
-            (12345678901234567890003, 'assert.sameValue(BigInt.asIntN(4, %(value)s), 3n);'),
+            (10, 'assert.sameValue(BigInt.asIntN(3, %(value)s), 2n, %(message)s);'),
+            (12345678901234567890003, 'assert.sameValue(BigInt.asIntN(4, %(value)s), 3n, %(message)s);'),
         ],
     )
 
@@ -139,13 +139,13 @@ def main():
             "features": ["BigInt"],
         },
         templates={
-            '0n': 'assert.sameValue(BigInt.asUintN(2, %(value)s), 0n);',
-            '1n': 'assert.sameValue(BigInt.asUintN(2, %(value)s), 1n);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asUintN(0, %(value)s); });',
+            '0n': 'assert.sameValue(BigInt.asUintN(2, %(value)s), 0n, %(message)s);',
+            '1n': 'assert.sameValue(BigInt.asUintN(2, %(value)s), 1n, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { BigInt.asUintN(0, %(value)s); }, %(message)s);',
         },
         nominal_value_cases=[
-            (10, 'assert.sameValue(BigInt.asUintN(3, %(value)s), 2n);'),
-            (12345678901234567890003, 'assert.sameValue(BigInt.asUintN(4, %(value)s), 3n);'),
+            (10, 'assert.sameValue(BigInt.asUintN(3, %(value)s), 2n, %(message)s);'),
+            (12345678901234567890003, 'assert.sameValue(BigInt.asUintN(4, %(value)s), 3n, %(message)s);'),
         ],
     )
 
@@ -194,8 +194,8 @@ def main():
             '\n'
         ),
         templates={
-            'false': 'assert.sameValue(sample.getBigInt64(0, %(value)s), 0xffn);',
-            'true': 'assert.sameValue(sample.getBigInt64(0, %(value)s), -0x100000000000000n);',
+            'false': 'assert.sameValue(sample.getBigInt64(0, %(value)s), 0xffn, %(message)s);',
+            'true': 'assert.sameValue(sample.getBigInt64(0, %(value)s), -0x100000000000000n, %(message)s);',
         },
     )
 
@@ -239,13 +239,13 @@ def main():
             '\n'
         ),
         templates={
-            '0': 'assert.sameValue(sample.getBigInt64(%(value)s), 0x2702060280008001n);',
-            '1': 'assert.sameValue(sample.getBigInt64(%(value)s), 0x20602800080017fn);',
-            "throws": 'assert.throws(%(error)s, function() { sample.getBigInt64(%(value)s); });',
+            '0': 'assert.sameValue(sample.getBigInt64(%(value)s), 0x2702060280008001n, %(message)s);',
+            '1': 'assert.sameValue(sample.getBigInt64(%(value)s), 0x20602800080017fn, %(message)s);',
+            "throws": 'assert.throws(%(error)s, function() { sample.getBigInt64(%(value)s); }, %(message)s);',
         },
         nominal_value_cases=[
-            (2, 'assert.sameValue(sample.getBigInt64(%(value)s), 0x602800080017F00n);'),
-            (3, 'assert.sameValue(sample.getBigInt64(%(value)s), 0x2800080017F0001n);'),
+            (2, 'assert.sameValue(sample.getBigInt64(%(value)s), 0x602800080017F00n, %(message)s);'),
+            (3, 'assert.sameValue(sample.getBigInt64(%(value)s), 0x2800080017F0001n, %(message)s);'),
         ],
     )
 
