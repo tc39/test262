@@ -6,6 +6,7 @@ path: language/statements/class/fields-multiple-definitions-
 name: multiple fields definitions
 features: [class-fields]
 esid: prod-FieldDefinition
+includes: [propertyHelper.js]
 ---*/
 
 class C {

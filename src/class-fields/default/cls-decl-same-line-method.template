@@ -6,6 +6,7 @@ path: language/statements/class/fields-same-line-method-
 name: field definitions followed by a method in the same line
 features: [class-fields]
 esid: prod-FieldDefinition
+includes: [propertyHelper.js]
 ---*/
 
 class C {

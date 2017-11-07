@@ -6,6 +6,7 @@ path: language/statements/class/fields-after-same-line-static-gen-
 name: field definitions after a static generator in the same line
 features: [generators, class-fields]
 esid: prod-FieldDefinition
+includes: [propertyHelper.js]
 ---*/
 
 class C {
