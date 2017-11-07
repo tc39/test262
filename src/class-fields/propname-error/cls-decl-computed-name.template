@@ -14,9 +14,10 @@ info: |
 
 var x = "/*{ propname }*/";
 class C {
-  /*{ static }*/ [x];
+  [x];
 }
 
 var c = new C();
 
 assert.sameValue(c.hasOwnProperty("/*{ propname }*/"), true);
+assert.sameValue(C.hasOwnProperty("/*{ propname }*/"), false);

@@ -3,8 +3,8 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields-literal-name-
-name: early error -- PropName of IdentifierName is forbidden
+path: language/statements/class/fields-literal-name-
+name: early error -- PropName of IdentifierName is forbidden value
 negative:
   type: SyntaxError
   phase: early
@@ -16,6 +16,6 @@ info: |
 
 throw "Test262: This statement should not be evaluated.";
 
-var C = class {
-  /*{ propname }*/;
-};
+class C {
+  static /*{ propname }*/;
+}

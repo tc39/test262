@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields-computed-variable-name-
+path: language/expressions/class/fields-computed-name-
 name: no early error -- PropName of ComputedPropertyName not forbidden value
 info: |
   Static Semantics: PropName
@@ -12,12 +12,12 @@ info: |
     Return empty.
 ---*/
 
-var /*{ propname }*/ = 'foo';
+var x = "/*{ propname }*/";
 var C = class {
-  [/*{ propname }*/];
+  static [x];
 };
 
-var c = new C();
-assert.sameValue(c.hasOwnProperty("foo"), true);
+assert.sameValue(C.hasOwnProperty("/*{ propname }*/"), true);
 
-assert.sameValue(C.hasOwnProperty("foo"), false);
+var c = new C();
+assert.sameValue(c.hasOwnProperty("/*{ propname }*/"), false);
