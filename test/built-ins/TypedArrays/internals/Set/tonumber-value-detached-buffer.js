@@ -40,5 +40,7 @@ testWithTypedArrayConstructors(function(TA) {
   "detaching a ArrayBuffer during setting an element of a typed array " +
   "viewing it should throw");
 
-  assert.sameValue(ta[0], 17, "typed array element shouldn't be set");
+  assert.throws(TypeError, function() {
+    ta[0];
+  });
 });
