@@ -6,6 +6,7 @@ description: literal private names (field definitions followed by a method in a 
 esid: prod-FieldDefinition
 features: [class-fields]
 flags: [generated]
+includes: [propertyHelper.js]
 info: |
     ClassElement:
       ...

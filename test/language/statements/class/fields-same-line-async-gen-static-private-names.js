@@ -6,6 +6,7 @@ description: literal private names (field definitions after an async generator i
 esid: prod-FieldDefinition
 features: [class-fields, async-iteration]
 flags: [generated, async]
+includes: [propertyHelper.js]
 info: |
     ClassElement:
       ...

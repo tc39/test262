@@ -6,6 +6,7 @@ description: static literal private names (field definitions after a static meth
 esid: prod-FieldDefinition
 features: [class-fields]
 flags: [generated]
+includes: [propertyHelper.js]
 info: |
     ClassElement:
       ...

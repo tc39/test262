@@ -6,6 +6,7 @@ description: static literal private names (field definitions after a static asyn
 esid: prod-FieldDefinition
 features: [class-fields, async-iteration]
 flags: [generated, async]
+includes: [propertyHelper.js]
 info: |
     ClassElement:
       ...
