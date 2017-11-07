@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-propname-constructor.case
-// - src/class-fields/propname-error/cls-decl-string-name.template
+// - src/class-fields/propname-error-static/cls-decl-static-string-name.template
 /*---
 description: static class field forbid PropName 'constructor' (early error -- PropName of StringLiteral is forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors

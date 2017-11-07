@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-propname-constructor.case
-// - src/class-fields/propname-error/cls-decl-computed-name.template
+// - src/class-fields/propname-error-static/cls-decl-static-computed-name.template
 /*---
 description: static class field forbid PropName 'constructor' (no early error -- PropName of ComputedPropertyName not forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
@@ -27,6 +27,7 @@ class C {
   static [x];
 }
 
-var c = new C();
+assert.sameValue(C.hasOwnProperty("constructor"), true);
 
-assert.sameValue(c.hasOwnProperty("constructor"), true);
+var c = new C();
+assert.sameValue(c.hasOwnProperty("constructor"), false);

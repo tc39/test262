@@ -24,9 +24,10 @@ info: |
 
 var x = "constructor";
 var C = class {
-   [x];
-}
+  [x];
+};
 
 var c = new C();
-
 assert.sameValue(c.hasOwnProperty("constructor"), true);
+
+assert.sameValue(C.hasOwnProperty("constructor"), false);
