@@ -43,8 +43,8 @@ function classfactory() {
 var C1 = classfactory();
 var C2 = classfactory();
 
-c1 = new C1();
-c2 = new C2();
+var c1 = new C1();
+var c2 = new C2();
 
 assert.throws(TypeError, function() {
   // when f() is called in class C1, the Private Name binding for #x in C1 will
