@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: TypeError when setting private field not in `this`'s [[PrivateFieldValues]]
+description: >
+  Referenced lexically scoped private field found in `this`'s [[PrivateFieldValues]]
 esid: sec-putvalue
 info: |
   PutValue ( V, W )
@@ -44,12 +45,18 @@ class Outer {
       }
     }
   }
+
+  value() {
+    return this.#x;
+  }
 }
 
-var Inner = new Outer().innerclass();
+var outer = new Outer();
+var Inner = outer.innerclass();
 var i = new Inner();
 
-assert.throws(TypeError, function() {
-  // when f() is called, the private field will not be found in Inner's `this`
-  i.f();
-})
+assert.sameValue(outer.value(), 42);
+
+i.f();
+
+assert.sameValue(outer.value(), 1, "value is set from inner class instance");
