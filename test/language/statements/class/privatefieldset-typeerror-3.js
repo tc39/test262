@@ -56,7 +56,9 @@ var Inner = outer.innerclass();
 var i = new Inner();
 
 assert.sameValue(outer.value(), 42);
+assert.sameValue(i.value(), 42);
 
 i.f();
 
-assert.sameValue(outer.value(), 1, "value is set from inner class instance");
+assert.sameValue(outer.value(), 42, "value is set on inner class instance only");
+assert.sameValue(i.value(), 1, "value is set from inner class instance");
