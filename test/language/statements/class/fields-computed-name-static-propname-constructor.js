@@ -13,11 +13,13 @@ info: |
   ComputedPropertyName : [ AssignmentExpression ]
     Return empty.
   
-  // This test file tests the following early error:
+  // This test file also tests the ComputedPropertyName won't trigger the
+  // following early error:
   Static Semantics: Early Errors
 
     ClassElement : staticFieldDefinition;
-      It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
+      It is a Syntax Error if PropName of FieldDefinition is "prototype" or
+      "constructor".
 ---*/
 
 class C {
