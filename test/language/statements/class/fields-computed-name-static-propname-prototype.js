@@ -1,33 +1,29 @@
-// This file was procedurally generated from the following sources:
-// - src/class-fields/static-propname-prototype.case
-// - src/class-fields/propname-error-static/cls-decl-static-computed-name.template
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-description: static class fields forbid PropName 'prototype' (no early error -- PropName of ComputedPropertyName not forbidden value)
+description: >
+  static class fields forbid PropName 'prototype' (no early error for
+  ComputedPropertyName)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
-flags: [generated]
 info: |
-    Static Semantics: PropName
-    ...
-    ComputedPropertyName : [ AssignmentExpression ]
-      Return empty.
+  Static Semantics: PropName
+  ...
+  ComputedPropertyName : [ AssignmentExpression ]
+    Return empty.
+  
+  // This test file tests the following early error:
+  Static Semantics: Early Errors
 
-    
-    // This test file tests the following early error:
-    Static Semantics: Early Errors
-
-      ClassElement : staticFieldDefinition;
-        It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
-
+    ClassElement : staticFieldDefinition;
+      It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
 ---*/
 
-
-var x = "prototype";
 class C {
-  static [x];
+  static ["prototype"];
 }
 
-assert.sameValue(C.hasOwnProperty("prototype"), true);
-
-var c = new C();
-assert.sameValue(c.hasOwnProperty("prototype"), false);
+assert.throws(TypeError, function() {
+  new C();
+}, "Cannot redefine a non-configurable, non-writable prototype property");
