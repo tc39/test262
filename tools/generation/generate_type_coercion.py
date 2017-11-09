@@ -2,252 +2,110 @@
 # Copyright (C) 2017 Josh Wolfe. All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.
 
+from __future__ import print_function
+
+import argparse
+import os
+import sys
+
 from lib.type_coercion import generate_tests
 
-def main():
-    import argparse
-    parser = argparse.ArgumentParser(description="Test262 tool for generating type coercion tests")
+canonical_self_path = os.path.join("tools", "generation", "generate_type_coercion.py")
+default_src = "src/type-coercion"
+default_out = "test"
+
+def cli():
+    running_from_root = os.path.relpath(__file__, ".") == canonical_self_path
+
+    description = "Test262 tool for generating type coercion tests"
+    if running_from_root:
+        default_src_path = "src"
+        default_out_path = "test"
+        description += " (running in project root)"
+    else:
+        description += " (NOT running in project root)"
+        default_src_path = None
+        default_out_path = None
+
+    parser = argparse.ArgumentParser(description=description)
+    src_kwargs = {
+        "nargs": "*",
+        "default": [default_src],
+        "help": "input file or directory (searched recursively for *.py). "
+                "When this script is run from the project root, the default is "
+                + repr(default_src) + ".",
+    }
+    if not running_from_root:
+        src_kwargs["nargs"] = "+"
+        del src_kwargs["default"]
+    parser.add_argument("src", **src_kwargs)
+
+    out_kwargs = {
+        "default": default_out,
+        "help": "directory to write output files. "
+                "When this script is run from the project root, the default is "
+                + repr(default_out) + ".",
+    }
+    if not running_from_root:
+        del out_kwargs["default"]
+        out_kwargs["required"] = True
+    parser.add_argument("-o", "--output", **out_kwargs)
+
+    parser.add_argument("-v", "--verbose", action="store_true", default=False,
+        help="print progress to stdout")
+
     args = parser.parse_args()
+    main(args.src, args.output, args.verbose)
 
+def main(src_paths, output_path, verbose):
+    def print_verbose(*args):
+        if not verbose: return
+        print(*args)
 
-    generate_tests(
-        "built-ins/String/prototype/indexOf/position-tointeger",
-        conversion="ToInteger",
-        frontmatter={
-            "esid": "sec-string.prototype.indexof",
-            "description": "String.prototype.indexOf type coercion for position parameter",
-            "info": """
-                String.prototype.indexOf ( searchString [ , position ] )
+    input_paths = find_input_paths(src_paths)
+    print_verbose("found {} input paths".format(len(input_paths)))
 
-                4. Let pos be ? ToInteger(position).
-            """,
-        },
-        templates={
-            '0': 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 0, %(message)s);',
-            '1': 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 1, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { "".indexOf("", %(value)s); }, %(message)s);',
-        },
-        nominal_value_cases=[
-            (2, 'assert.sameValue("aaaa".indexOf("aa", %(value)s), 2, %(message)s);'),
-        ],
-    )
+    input_modules = [import_module(input_path) for input_path in input_paths]
 
-    generate_tests(
-        "built-ins/String/prototype/indexOf/searchstring-tostring",
-        conversion="ToString",
-        frontmatter={
-            "esid": "sec-string.prototype.indexof",
-            "description": "String.prototype.indexOf type coercion for searchString parameter",
-            "info": """
-                String.prototype.indexOf ( searchString [ , position ] )
+    for i, input_module in enumerate(input_modules):
+        print_verbose("[{}/{}] {}".format(i + 1, len(input_paths), input_paths[i]))
+        def generate_tests_proxy(*args, **kwargs):
+            return generate_tests(*args, input_path=input_paths[i], output_root=output_path, **kwargs)
+        input_module.generate_type_coercion(generate_tests_proxy)
 
-                3. Let searchStr be ? ToString(searchString).
-            """,
-        },
-        templates={
-            '': 'assert.sameValue("foo".indexOf(%(value)s), 0, %(message)s);',
-            str: 'assert.sameValue("__%(expected_string_contents)s__".indexOf(%(value)s), 2, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { "".indexOf(%(value)s); }, %(message)s);',
-        },
-    )
+def find_input_paths(paths):
+    results = []
+    already_found_abs_paths = set()
+    def recurse(path, tolerate_bad_path):
+        if path.endswith(".py"):
+            abs_path = os.path.abspath(path)
+            if abs_path not in already_found_abs_paths:
+                already_found_abs_paths.add(abs_path)
+                results.append(path)
+        else:
+            if tolerate_bad_path:
+                try: children = os.listdir(path)
+                except OSError: return
+            else:
+                children = os.listdir(path)
+            for child in children:
+                recurse(os.path.join(path, child), True)
 
+    for path in paths:
+        recurse(path, False)
+    if len(results) == 0:
+        raise OSError("no tests found")
+    return results
 
-    generate_tests(
-        "built-ins/BigInt/asIntN/bits-toindex",
-        conversion="ToIndex",
-        frontmatter={
-            "esid": "pending",
-            "description": "BigInt.asIntN type coercion for bits parameter",
-            "info": """
-                BigInt.asIntN ( bits, bigint )
+def import_module(module_path):
+    import imp
+    old_value = sys.dont_write_bytecode
+    try:
+        sys.dont_write_bytecode = True
 
-                1. Let bits be ? ToIndex(bits).
-            """,
-            "features": ["BigInt"],
-        },
-        templates={
-            '0': 'assert.sameValue(BigInt.asIntN(%(value)s, 1n), 0n, %(message)s);',
-            '1': 'assert.sameValue(BigInt.asIntN(%(value)s, 1n), -1n, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asIntN(%(value)s, 0n); }, %(message)s);',
-        },
-        nominal_value_cases=[
-            (3, 'assert.sameValue(BigInt.asIntN(%(value)s, 10n), 2n, %(message)s);'),
-        ],
-    )
-
-
-    generate_tests(
-        "built-ins/BigInt/asUintN/bits-toindex",
-        conversion="ToIndex",
-        frontmatter={
-            "esid": "pending",
-            "description": "BigInt.asUintN type coercion for bits parameter",
-            "info": """
-                BigInt.asUintN ( bits, bigint )
-
-                1. Let bits be ? ToIndex(bits).
-            """,
-            "features": ["BigInt"],
-        },
-        templates={
-            '0': 'assert.sameValue(BigInt.asUintN(%(value)s, 1n), 0n, %(message)s);',
-            '1': 'assert.sameValue(BigInt.asUintN(%(value)s, 1n), 1n, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asUintN(%(value)s, 0n); }, %(message)s);',
-        },
-        nominal_value_cases=[
-            (3, 'assert.sameValue(BigInt.asUintN(%(value)s, 10n), 2n, %(message)s);'),
-        ],
-    )
-
-
-    generate_tests(
-        "built-ins/BigInt/asIntN/bigint-tobigint",
-        conversion="ToBigInt",
-        frontmatter={
-            "esid": "pending",
-            "description": "BigInt.asIntN type coercion for bigint parameter",
-            "info": """
-                BigInt.asIntN ( bits, bigint )
-
-                2. Let bigint ? ToBigInt(bigint).
-            """,
-            "features": ["BigInt"],
-        },
-        templates={
-            '0n': 'assert.sameValue(BigInt.asIntN(2, %(value)s), 0n, %(message)s);',
-            '1n': 'assert.sameValue(BigInt.asIntN(2, %(value)s), 1n, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asIntN(0, %(value)s); }, %(message)s);',
-        },
-        nominal_value_cases=[
-            (10, 'assert.sameValue(BigInt.asIntN(3, %(value)s), 2n, %(message)s);'),
-            (12345678901234567890003, 'assert.sameValue(BigInt.asIntN(4, %(value)s), 3n, %(message)s);'),
-        ],
-    )
-
-
-    generate_tests(
-        "built-ins/BigInt/asUintN/bigint-tobigint",
-        conversion="ToBigInt",
-        frontmatter={
-            "esid": "pending",
-            "description": "BigInt.asUintN type coercion for bigint parameter",
-            "info": """
-                BigInt.asUintN ( bits, bigint )
-
-                2. Let bigint ? ToBigInt(bigint).
-            """,
-            "features": ["BigInt"],
-        },
-        templates={
-            '0n': 'assert.sameValue(BigInt.asUintN(2, %(value)s), 0n, %(message)s);',
-            '1n': 'assert.sameValue(BigInt.asUintN(2, %(value)s), 1n, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { BigInt.asUintN(0, %(value)s); }, %(message)s);',
-        },
-        nominal_value_cases=[
-            (10, 'assert.sameValue(BigInt.asUintN(3, %(value)s), 2n, %(message)s);'),
-            (12345678901234567890003, 'assert.sameValue(BigInt.asUintN(4, %(value)s), 3n, %(message)s);'),
-        ],
-    )
-
-
-    generate_tests(
-        "built-ins/DataView/prototype/getBigInt64/to-boolean-littleendian",
-        conversion="ToBoolean",
-        frontmatter={
-            "esid": "sec-dataview.prototype.getbigint64",
-            "description": "Boolean littleEndian argument coerced in ToBoolean",
-            "info": """
-                DataView.prototype.getBigInt64 ( byteOffset [ , littleEndian ] )
-
-                1. Let v be the this value.
-                2. If littleEndian is not present, let littleEndian be undefined.
-                3. Return ? GetViewValue(v, byteOffset, littleEndian, "Int64").
-
-                24.3.1.1 GetViewValue ( view, requestIndex, isLittleEndian, type )
-
-                ...
-                5. Set isLittleEndian to ToBoolean(isLittleEndian).
-                ...
-                12. Let bufferIndex be getIndex + viewOffset.
-                13. Return GetValueFromBuffer(buffer, bufferIndex, type, false,
-                "Unordered", isLittleEndian).
-
-                24.1.1.6 GetValueFromBuffer ( arrayBuffer, byteIndex, type,
-                isTypedArray, order [ , isLittleEndian ] )
-
-                ...
-                9. Return RawBytesToNumber(type, rawValue, isLittleEndian).
-
-                24.1.1.5 RawBytesToNumber( type, rawBytes, isLittleEndian )
-
-                ...
-                2. If isLittleEndian is false, reverse the order of the elements of rawBytes.
-                ...
-            """,
-            "features": ["DataView", "ArrayBuffer", "DataView.prototype.setUint8", "BigInt"],
-        },
-        preamble=(
-            'var buffer = new ArrayBuffer(8);\n'
-            'var sample = new DataView(buffer, 0);\n'
-            'sample.setUint8(7, 0xff);\n'
-            'assert.sameValue(sample.getBigInt64(0), 0xffn, "no argument");\n'
-            '\n'
-        ),
-        templates={
-            'false': 'assert.sameValue(sample.getBigInt64(0, %(value)s), 0xffn, %(message)s);',
-            'true': 'assert.sameValue(sample.getBigInt64(0, %(value)s), -0x100000000000000n, %(message)s);',
-        },
-    )
-
-
-    generate_tests(
-        "built-ins/DataView/prototype/getBigInt64/toindex-byteoffset",
-        conversion="ToIndex",
-        frontmatter={
-            "esid": "sec-dataview.prototype.getbigint64",
-            "description": "ToIndex conversions on byteOffset",
-            "info": """
-                DataView.prototype.getBigInt64 ( byteOffset [ , littleEndian ] )
-
-                1. Let v be the this value.
-                2. If littleEndian is not present, let littleEndian be undefined.
-                3. Return ? GetViewValue(v, byteOffset, littleEndian, "Int64").
-
-                24.3.1.1 GetViewValue ( view, requestIndex, isLittleEndian, type )
-
-                ...
-                4. Let getIndex be ? ToIndex(requestIndex).
-                ...
-            """,
-            "features": ["DataView", "ArrayBuffer", "DataView.prototype.setUint8", "BigInt"],
-        },
-        preamble=(
-            'var buffer = new ArrayBuffer(12);\n'
-            'var sample = new DataView(buffer, 0);\n'
-            'sample.setUint8(0, 0x27);\n'
-            'sample.setUint8(1, 0x02);\n'
-            'sample.setUint8(2, 0x06);\n'
-            'sample.setUint8(3, 0x02);\n'
-            'sample.setUint8(4, 0x80);\n'
-            'sample.setUint8(5, 0x00);\n'
-            'sample.setUint8(6, 0x80);\n'
-            'sample.setUint8(7, 0x01);\n'
-            'sample.setUint8(8, 0x7f);\n'
-            'sample.setUint8(9, 0x00);\n'
-            'sample.setUint8(10, 0x01);\n'
-            'sample.setUint8(11, 0x02);\n'
-            '\n'
-        ),
-        templates={
-            '0': 'assert.sameValue(sample.getBigInt64(%(value)s), 0x2702060280008001n, %(message)s);',
-            '1': 'assert.sameValue(sample.getBigInt64(%(value)s), 0x20602800080017fn, %(message)s);',
-            "throws": 'assert.throws(%(error)s, function() { sample.getBigInt64(%(value)s); }, %(message)s);',
-        },
-        nominal_value_cases=[
-            (2, 'assert.sameValue(sample.getBigInt64(%(value)s), 0x602800080017F00n, %(message)s);'),
-            (3, 'assert.sameValue(sample.getBigInt64(%(value)s), 0x2800080017F0001n, %(message)s);'),
-        ],
-    )
+        return imp.load_source(module_path, module_path)
+    finally:
+        sys.dont_write_bytecode = old_value
 
 if __name__ == "__main__":
-    main()
+    cli()
