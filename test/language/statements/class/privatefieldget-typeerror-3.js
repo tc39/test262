@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: TypeError when referenced private field cannot be found in `this`'s [[PrivateFieldValues]]
+description: >
+  Referenced lexically scoped private field found in `this`'s [[PrivateFieldValues]]
 esid: sec-getvalue
 info: |
   GetValue ( V )
@@ -40,7 +41,7 @@ class Outer {
     // private field `#x` is resolvable.
     return class extends Outer {
       f() {
-	return this.#x;
+        return this.#x;
       }
     }
   }
@@ -49,7 +50,4 @@ class Outer {
 var Inner = new Outer().innerclass();
 var i = new Inner();
 
-assert.throws(TypeError, function() {
-  // when f() is called, the private field will not be found in Inner's `this`
-  i.f();
-})
+assert.sameValue(i.f(), 42);

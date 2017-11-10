@@ -7,9 +7,9 @@ esid: sec-automatic-semicolon-insertion
 features: [class-fields]
 ---*/
 
-var x = 1
-var y = 2
-var z = [42]
+var x = 0;
+var y = 1;
+var z = [42];
 
 var C = class {
   a = x
@@ -22,7 +22,7 @@ var C = class {
 
 var c = new C();
 
-assert.sameValue(c.a, true, 'a = x in z')
-assert.sameValue(c.a, false, 'a = y in z')
-assert.sameValue(Object.hasOwnProperty.call(c, "in"), false, "'in' interpreted as index");
-assert.sameValue(Object.hasOwnProperty.call(c, "z"), false, "'z' interpreted as variable");
+assert.sameValue(c.a, true, 'a = x in z');
+assert.sameValue(c.b, false, 'b = y in z');
+assert.sameValue(Object.hasOwnProperty.call(c, "in"), false, "'in'");
+assert.sameValue(Object.hasOwnProperty.call(c, "z"), false, "'z'");

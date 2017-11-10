@@ -6,6 +6,7 @@ description: static literal private names (multiple stacked fields definitions t
 esid: prod-FieldDefinition
 features: [class-fields]
 flags: [generated]
+includes: [propertyHelper.js]
 info: |
     ClassElement:
       ...

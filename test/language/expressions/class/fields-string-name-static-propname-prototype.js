@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-propname-prototype.case
-// - src/class-fields/propname-error/cls-expr-string-name.template
+// - src/class-fields/propname-error-static/cls-expr-static-string-name.template
 /*---
 description: static class fields forbid PropName 'prototype' (early error -- PropName of StringLiteral is forbidden)
 esid: sec-class-definitions-static-semantics-early-errors
@@ -29,4 +29,4 @@ throw "Test262: This statement should not be evaluated.";
 
 var C = class {
   static 'prototype';
-}
+};

@@ -37,4 +37,4 @@ var c1 = new C();
 var c2 = new C();
 var value = c2.f.call(c1);
 
-assert.sameValue(value, 'Avalue');
+assert.sameValue(value, 42);

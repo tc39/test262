@@ -24,9 +24,10 @@ info: |
 
 var constructor = 'foo';
 class C {
-   [constructor];
+  [constructor];
 }
 
 var c = new C();
 
 assert.sameValue(c.hasOwnProperty("foo"), true);
+assert.sameValue(C.hasOwnProperty("foo"), false);

@@ -7,6 +7,7 @@ name: field definitions after an async method in the same line
 features: [class-fields, async-functions]
 flags: [async]
 esid: prod-FieldDefinition
+includes: [propertyHelper.js]
 ---*/
 
 class C {

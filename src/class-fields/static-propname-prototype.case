@@ -11,10 +11,8 @@ info: |
     ClassElement : staticFieldDefinition;
       It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
 features: [class-fields]
-template: propname-error
+template: propname-error-static
 ---*/
 
-//- static
-static
 //- propname
 prototype

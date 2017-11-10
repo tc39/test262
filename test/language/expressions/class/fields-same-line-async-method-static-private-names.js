@@ -6,6 +6,7 @@ description: literal private names (field definitions after an async method in t
 esid: prod-FieldDefinition
 features: [class-fields, async-functions]
 flags: [generated, async]
+includes: [propertyHelper.js]
 info: |
     ClassElement:
       ...

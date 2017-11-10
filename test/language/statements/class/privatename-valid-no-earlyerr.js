@@ -46,4 +46,4 @@ class outer {
 var innerclass = new outer().f();
 var test = new innerclass().g();
 
-assert.equal(test, 42);
+assert.sameValue(test, 42);

@@ -1,32 +1,32 @@
-// This file was procedurally generated from the following sources:
-// - src/class-fields/static-propname-constructor.case
-// - src/class-fields/propname-error/cls-decl-computed-name.template
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-description: static class field forbid PropName 'constructor' (no early error -- PropName of ComputedPropertyName not forbidden value)
+description: >
+  static class fields forbid PropName 'constructor' (no early error for
+  ComputedPropertyName)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-fields]
-flags: [generated]
 info: |
-    Static Semantics: PropName
-    ...
-    ComputedPropertyName : [ AssignmentExpression ]
-      Return empty.
+  Static Semantics: PropName
+  ...
+  ComputedPropertyName : [ AssignmentExpression ]
+    Return empty.
+  
+  // This test file also tests the ComputedPropertyName won't trigger the
+  // following early error:
+  Static Semantics: Early Errors
 
-    
-    // This test file tests the following early error:
-    Static Semantics: Early Errors
-
-      ClassElement : staticFieldDefinition;
-        It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
-
+    ClassElement : staticFieldDefinition;
+      It is a Syntax Error if PropName of FieldDefinition is "prototype" or
+      "constructor".
 ---*/
 
-
-var x = "constructor";
 class C {
-  static [x];
+  static ["constructor"];
 }
 
-var c = new C();
+assert.sameValue(C.hasOwnProperty("constructor"), true);
 
-assert.sameValue(c.hasOwnProperty("constructor"), true);
+var c = new C();
+assert.sameValue(c.hasOwnProperty("constructor"), false);
