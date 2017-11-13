@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/literal-names.case
-// - src/class-fields/default/cls-expr-after-same-line-static-async-method.template
+// - src/class-fields/productions/cls-expr-after-same-line-static-async-method.template
 /*---
 description: Literal property names (field definitions after a static async method in the same line)
 esid: prod-FieldDefinition

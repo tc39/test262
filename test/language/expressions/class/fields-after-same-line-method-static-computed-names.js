@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-computed-names.case
-// - src/class-fields/default/cls-expr-after-same-line-method.template
+// - src/class-fields/productions/cls-expr-after-same-line-method.template
 /*---
 description: Static Computed property names (field definitions after a method in the same line)
 esid: prod-FieldDefinition

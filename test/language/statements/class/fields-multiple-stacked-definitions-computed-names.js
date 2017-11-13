@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/computed-names.case
-// - src/class-fields/default/cls-decl-multiple-stacked-definitions.template
+// - src/class-fields/productions/cls-decl-multiple-stacked-definitions.template
 /*---
 description: Computed property names (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

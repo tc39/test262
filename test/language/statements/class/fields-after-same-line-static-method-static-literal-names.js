@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-literal-names.case
-// - src/class-fields/default/cls-decl-after-same-line-static-method.template
+// - src/class-fields/productions/cls-decl-after-same-line-static-method.template
 /*---
 description: Static literal property names (field definitions after a static method in the same line)
 esid: prod-FieldDefinition

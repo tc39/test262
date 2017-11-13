@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/literal-names.case
-// - src/class-fields/default/cls-decl-same-line-generator.template
+// - src/class-fields/productions/cls-decl-same-line-generator.template
 /*---
 description: Literal property names (field definitions followed by a generator method in the same line)
 esid: prod-FieldDefinition

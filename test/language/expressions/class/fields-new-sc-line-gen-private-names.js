@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/private-names.case
-// - src/class-fields/default/cls-expr-new-sc-line-generator.template
+// - src/class-fields/productions/cls-expr-new-sc-line-generator.template
 /*---
 description: static literal private names (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition

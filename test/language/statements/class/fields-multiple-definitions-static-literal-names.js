@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-literal-names.case
-// - src/class-fields/default/cls-decl-multiple-definitions.template
+// - src/class-fields/productions/cls-decl-multiple-definitions.template
 /*---
 description: Static literal property names (multiple fields definitions)
 esid: prod-FieldDefinition
