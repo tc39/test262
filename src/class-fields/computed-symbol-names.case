@@ -13,7 +13,7 @@ info: |
 
   ClassElementName:
     PropertyName
-template: default
+template: productions
 includes: [propertyHelper.js]
 features: [Symbol, computed-property-names]
 ---*/

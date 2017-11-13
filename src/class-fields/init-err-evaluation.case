@@ -1,0 +1,32 @@
+// Copyright (C) 2017 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Return abrupt completion evaluating the field initializer
+info: |
+  [[Construct]] ( argumentsList, newTarget)
+
+  8. If kind is "base", then
+    a. Perform OrdinaryCallBindThis(F, calleeContext, thisArgument).
+    b. Let result be InitializeInstanceFields(thisArgument, F).
+    ...
+  ...
+  11. Let result be OrdinaryCallEvaluateBody(F, argumentsList).
+  ...
+template: default
+---*/
+
+//- setup
+var x = 0;
+function fn1() { x += 1; }
+function fn2() { throw new Test262Error(); }
+//- fields
+x = fn1();
+y = fn2();
+z = fn1();
+//- assertions
+assert.throws(Test262Error, function() {
+  new C();
+});
+
+assert.sameValue(x, 1);
