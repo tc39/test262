@@ -1,4 +1,4 @@
-def generate_type_coercion(generate_tests, **kwargs):
+def generate_type_coercion(generate_tests):
     generate_tests(
         path_prefix="built-ins/DataView/prototype/getBigInt64/to-boolean-littleendian",
         conversion="ToBoolean",
