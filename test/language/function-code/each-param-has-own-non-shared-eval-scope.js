@@ -3,7 +3,9 @@
 
 /*---
 esid: sec-function-definitions-runtime-semantics-iteratorbindinginitialization
-description: A new declarative environment is created, from the originalEnv, for each parameter.
+description: >
+  A new declarative environment is created, from the originalEnv, for each
+  parameter, and paramVarEnv is not shared.
 info: |
   Runtime Semantics: IteratorBindingInitialization
 
@@ -17,7 +19,7 @@ features: [arrow-function, default-parameters]
 ---*/
 
 var y;
-function f(a = eval("var x = 1; y = 42; x"), b = x) {}
+function f(a = eval("var x = 1; y = 42; x"), b = eval("x")) {}
 
 assert.throws(ReferenceError, () => {
   f();
