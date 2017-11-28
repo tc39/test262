@@ -5,7 +5,7 @@
 description: >
   Cannot redefine a non-configurable, non-writable "prototype" property
 esid: runtime-semantics-class-definition-evaluation
-features: [class-fields]
+features: [class, class-fields-public]
 info: |
   // This test file also tests the ComputedPropertyName won't trigger the
   // following early error:

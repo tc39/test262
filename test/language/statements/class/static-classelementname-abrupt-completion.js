@@ -28,7 +28,7 @@ info: |
       1. Let fieldName be the result of evaluating ClassElementName.
       2. ReturnIfAbrupt(fieldName).
 
-features: [class-fields]
+features: [class, class-fields-public]
 ---*/
 
 function f() {

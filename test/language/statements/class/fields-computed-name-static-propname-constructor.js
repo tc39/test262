@@ -6,7 +6,7 @@ description: >
   static class fields forbid PropName 'constructor' (no early error for
   ComputedPropertyName)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-public]
 info: |
   Static Semantics: PropName
   ...

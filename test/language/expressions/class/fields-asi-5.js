@@ -4,7 +4,7 @@
 /*---
 description: ASI test in field declarations -- field with PropertyName "in" interpreted as index
 esid: sec-automatic-semicolon-insertion
-features: [class-fields]
+features: [class, class-fields-public]
 ---*/
 
 var x = 0;
