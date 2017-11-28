@@ -4,7 +4,7 @@
 /*---
 description: String literal names (field definitions after a generator in the same line)
 esid: prod-FieldDefinition
-features: [generators, class-fields]
+features: [generators, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

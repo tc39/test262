@@ -4,7 +4,7 @@
 /*---
 description: static class fields forbid PropName 'prototype' (early error -- PropName of StringLiteral is forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-public]
 flags: [generated]
 negative:
   phase: early

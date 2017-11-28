@@ -4,7 +4,7 @@
 /*---
 description: Computed property symbol names (fields definition wrapped in semicolons)
 esid: prod-FieldDefinition
-features: [Symbol, computed-property-names, class-fields]
+features: [Symbol, computed-property-names, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

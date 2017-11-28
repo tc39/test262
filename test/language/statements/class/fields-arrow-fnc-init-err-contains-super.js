@@ -4,7 +4,7 @@
 /*---
 description: Syntax error if `super()` used in class field (arrow function expression)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields, arrow-function]
+features: [class, class-fields-public, arrow-function]
 flags: [generated]
 negative:
   phase: early

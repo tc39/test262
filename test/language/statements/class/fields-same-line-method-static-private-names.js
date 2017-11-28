@@ -4,7 +4,7 @@
 /*---
 description: literal private names (field definitions followed by a method in the same line)
 esid: prod-FieldDefinition
-features: [class-fields]
+features: [class-fields-private, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

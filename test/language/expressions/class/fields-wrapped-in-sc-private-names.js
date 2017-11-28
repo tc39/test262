@@ -4,7 +4,7 @@
 /*---
 description: static literal private names (fields definition wrapped in semicolons)
 esid: prod-FieldDefinition
-features: [class-fields]
+features: [class-fields-private, class, class-fields-public]
 flags: [generated]
 info: |
     ClassElement:
