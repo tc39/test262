@@ -5,6 +5,7 @@
 esid: sec-class-definitions-static-semantics-early-errors
 path: language/expressions/class/fields-static-private-
 name: static PrivateName
+features: [class, class-fields-private]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

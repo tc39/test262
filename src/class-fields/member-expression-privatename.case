@@ -4,6 +4,7 @@
 /*---
 desc: Syntax error if you call delete on member expressions . privatename
 template: delete-error
+features: [class-fields-private]
 ---*/
 
 //- expression

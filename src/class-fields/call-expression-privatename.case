@@ -4,6 +4,7 @@
 /*---
 desc: Syntax error if you call delete on call expressions . privatename
 template: delete-error
+features: [class, class-fields-private, class-fields-public]
 ---*/
 
 //- infieldsetup
