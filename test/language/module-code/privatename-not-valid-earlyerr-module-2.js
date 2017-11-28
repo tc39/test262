@@ -7,7 +7,7 @@ info: |
   Static Semantics: Early Errors
   Module : ModuleBody
     It is a Syntax Error if AllPrivateNamesValid of ModuleBody with an empty List as an argument is false.
-features: [class-fields]
+features: [class, class-fields-private]
 flags: [module]
 negative:
   phase: early

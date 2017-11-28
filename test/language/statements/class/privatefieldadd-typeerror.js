@@ -33,7 +33,7 @@ info: |
     3. Let entry be PrivateFieldFind(P, O).
     4. If entry is not empty, throw a TypeError exception.
 
-features: [class-fields]
+features: [class, class-fields-private]
 ---*/
 
 

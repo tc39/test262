@@ -28,7 +28,7 @@ info: |
       a. If entry.[[PrivateName]] is P, return entry.
     4. Return empty.
 
-features: [class-fields]
+features: [class, class-fields-private]
 ---*/
 
 

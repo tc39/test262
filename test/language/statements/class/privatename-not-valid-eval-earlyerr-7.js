@@ -8,7 +8,7 @@ info: |
     1. Let names be an empty List.
       ...
     3. If AllPrivateNamesValid of ScriptBody with the argument names is false, throw a SyntaxError exception.
-features: [class-fields]
+features: [class-fields-private]
 ---*/
 
 var executed = false;
