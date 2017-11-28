@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-computed-symbol-names.case
-// - src/class-fields/default/cls-expr-new-sc-line-method.template
+// - src/class-fields/productions/cls-expr-new-sc-line-method.template
 /*---
 description: Static computed property symbol names (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition
@@ -25,7 +25,7 @@ var y = Symbol();
 
 
 var C = class {
-  [x]; [y] = 42;
+  static [x]; static [y] = 42;
   m() { return 42; }
 
 }
@@ -43,9 +43,9 @@ verifyProperty(C.prototype, "m", {
 });
 
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, x), false);
-assert.sameValue(Object.hasOwnProperty.call(C, x), false);
+assert.sameValue(Object.hasOwnProperty.call(c, x), false);
 
-verifyProperty(c, x, {
+verifyProperty(C, x, {
   value: undefined,
   enumerable: true,
   writable: true,
@@ -53,9 +53,9 @@ verifyProperty(c, x, {
 });
 
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, y), false);
-assert.sameValue(Object.hasOwnProperty.call(C, y), false);
+assert.sameValue(Object.hasOwnProperty.call(c, y), false);
 
-verifyProperty(c, y, {
+verifyProperty(C, y, {
   value: 42,
   enumerable: true,
   writable: true,

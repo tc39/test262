@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/computed-symbol-names.case
-// - src/class-fields/default/cls-decl-after-same-line-async-method.template
+// - src/class-fields/productions/cls-decl-after-same-line-async-method.template
 /*---
 description: Computed property symbol names (field definitions after an async method in the same line)
 esid: prod-FieldDefinition

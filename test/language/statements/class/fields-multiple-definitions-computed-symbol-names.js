@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/computed-symbol-names.case
-// - src/class-fields/default/cls-decl-multiple-definitions.template
+// - src/class-fields/productions/cls-decl-multiple-definitions.template
 /*---
 description: Computed property symbol names (multiple fields definitions)
 esid: prod-FieldDefinition

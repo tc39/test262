@@ -16,7 +16,7 @@ info: |
 
   PrivateName:
     #IdentifierName
-template: default
+template: productions
 ---*/
 
 //- fields

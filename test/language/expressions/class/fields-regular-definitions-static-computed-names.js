@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-computed-names.case
-// - src/class-fields/default/cls-expr-regular-definitions.template
+// - src/class-fields/productions/cls-expr-regular-definitions.template
 /*---
 description: Static Computed property names (regular fields defintion)
 esid: prod-FieldDefinition

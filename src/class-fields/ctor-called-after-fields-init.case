@@ -1,0 +1,29 @@
+// Copyright (C) 2017 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: The constructor method is called after the fields are initalized
+info: |
+  [[Construct]] ( argumentsList, newTarget)
+
+  8. If kind is "base", then
+    a. Perform OrdinaryCallBindThis(F, calleeContext, thisArgument).
+    b. Let result be InitializeInstanceFields(thisArgument, F).
+    ...
+  ...
+  11. Let result be OrdinaryCallEvaluateBody(F, argumentsList).
+  ...
+template: default
+---*/
+
+//- setup
+var ctor;
+//- fields
+constructor() {
+  ctor = this.foo;
+}
+foo = 42;
+//- assertions
+var c = new C();
+
+assert.sameValue(ctor, 42);
