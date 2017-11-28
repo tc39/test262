@@ -4,7 +4,7 @@
 /*---
 description: Computed property symbol names (field definitions after a static async method in the same line)
 esid: prod-FieldDefinition
-features: [Symbol, computed-property-names, class-fields, async-functions]
+features: [Symbol, computed-property-names, class, class-fields-public, async-functions]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

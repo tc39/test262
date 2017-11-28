@@ -4,7 +4,7 @@
 /*---
 description: Static Computed property names (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition
-features: [computed-property-names, class-fields]
+features: [computed-property-names, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

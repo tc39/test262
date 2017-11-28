@@ -27,7 +27,7 @@ info: |
 
     For all other grammatical productions, recurse on subexpressions/substatements, passing in the names of the caller. If all pieces return true, then return true. If any returns false, return false.
 
-features: [class-fields]
+features: [class, class-fields-private]
 ---*/
 
 class outer {

@@ -4,7 +4,7 @@
 /*---
 description: Syntax error if `super()` used in class field (private field, ternary expression)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-public, class-fields-private]
 flags: [generated]
 negative:
   phase: early

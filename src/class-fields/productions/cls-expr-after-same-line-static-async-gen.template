@@ -4,7 +4,7 @@
 /*---
 path: language/expressions/class/fields-after-same-line-static-async-gen-
 name: field definitions after a static async generator in the same line
-features: [class-fields, async-iteration]
+features: [class, class-fields-public, async-iteration]
 flags: [async]
 esid: prod-FieldDefinition
 includes: [propertyHelper.js]

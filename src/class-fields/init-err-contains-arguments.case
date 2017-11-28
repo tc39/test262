@@ -17,7 +17,7 @@ info: |
     1. If the StringValue of Identifier is "arguments", return true.
     ...
     For all other grammatical productions, recurse on all nonterminals. If any piece returns true, then return true. Otherwise return false.
-features: [class-fields]
+features: [class, class-fields-public]
 negative:
   type: SyntaxError
   phase: early

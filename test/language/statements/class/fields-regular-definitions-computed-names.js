@@ -4,7 +4,7 @@
 /*---
 description: Computed property names (regular fields defintion)
 esid: prod-FieldDefinition
-features: [computed-property-names, class-fields]
+features: [computed-property-names, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

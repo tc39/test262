@@ -4,7 +4,7 @@
 /*---
 description: Syntax error if `arguments` used in class field (typeof expression)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-public]
 flags: [generated]
 negative:
   phase: early

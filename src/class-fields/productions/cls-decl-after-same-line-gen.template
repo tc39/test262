@@ -4,7 +4,7 @@
 /*---
 path: language/statements/class/fields-after-same-line-gen-
 name: field definitions after a generator in the same line
-features: [generators, class-fields]
+features: [generators, class, class-fields-public]
 esid: prod-FieldDefinition
 includes: [propertyHelper.js]
 ---*/

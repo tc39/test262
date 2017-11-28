@@ -5,7 +5,7 @@
 esid: sec-class-definitions-static-semantics-early-errors
 path: language/expressions/class/fields-private-arrow-fnc-
 name: private field, arrow function expression
-features: [arrow-function]
+features: [class, arrow-function, class-fields-private]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

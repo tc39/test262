@@ -16,7 +16,7 @@ info: |
   ScriptBody:StatementList
 
     It is a Syntax Error if StatementList Contains SuperProperty.
-features: [class-fields]
+features: [class, class-fields-public]
 template: initializer-eval-super-property
 ---*/
 

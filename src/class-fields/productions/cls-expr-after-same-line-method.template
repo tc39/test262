@@ -4,7 +4,7 @@
 /*---
 path: language/expressions/class/fields-after-same-line-method-
 name: field definitions after a method in the same line
-features: [class-fields]
+features: [class, class-fields-public]
 esid: prod-FieldDefinition
 includes: [propertyHelper.js]
 ---*/

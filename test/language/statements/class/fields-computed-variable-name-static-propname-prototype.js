@@ -4,7 +4,7 @@
 /*---
 description: static class fields forbid PropName 'prototype' (no early error -- PropName of ComputedPropertyName not forbidden value)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-public]
 flags: [generated]
 info: |
     Static Semantics: PropName

@@ -4,7 +4,7 @@
 /*---
 description: Syntax error if you call delete on call expressions . privatename (in field)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-private, class-fields-public]
 flags: [generated]
 negative:
   phase: early

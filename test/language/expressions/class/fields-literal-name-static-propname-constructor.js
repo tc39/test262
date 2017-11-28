@@ -4,7 +4,7 @@
 /*---
 description: static class field forbid PropName 'constructor' (early error -- PropName of IdentifierName is forbidden)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields]
+features: [class, class-fields-public]
 flags: [generated]
 negative:
   phase: early

@@ -14,7 +14,7 @@ info: |
                 1. If names does not contain N, append N to names.
             ii. Let env be env's outer environment reference.
     3. If AllPrivateNamesValid of ScriptBody with the argument names is false, throw a SyntaxError exception.
-features: [class-fields]
+features: [class, class-fields-private, class-fields-public]
 ---*/
 
 var executed = false;

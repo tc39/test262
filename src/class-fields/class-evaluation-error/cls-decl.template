@@ -4,7 +4,7 @@
 /*---
 path: language/statements/class/fields-evaluation-error-
 name: field definitions in a class declaration
-features: [class-fields]
+features: [class, class-fields-public]
 esid: sec-runtime-semantics-classdefinitionevaluation
 ---*/
 

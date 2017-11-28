@@ -10,7 +10,7 @@ info: |
       PropertyNameInitializeropt
 
     - It is a Syntax Error if Initializer is present and Initializer Contains SuperCall is true.
-features: [class-fields]
+features: [class, class-fields-public]
 negative:
   type: SyntaxError
   phase: early

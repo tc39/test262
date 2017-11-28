@@ -30,7 +30,7 @@ info: |
     5. If initializer is not empty, then
         a.Let initValue be ? Call(initializer, receiver).
 
-features: [class-fields]
+features: [class, class-fields-public]
 ---*/
 
 function f() {

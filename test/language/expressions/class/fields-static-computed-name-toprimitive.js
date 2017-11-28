@@ -4,7 +4,7 @@
 /*---
 description: ToPrimitive evaluation in the ComputedPropertyName (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [computed-property-names, Symbol.toPrimitive, class-fields]
+features: [computed-property-names, Symbol.toPrimitive, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

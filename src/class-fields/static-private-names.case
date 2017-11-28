@@ -17,6 +17,7 @@ info: |
   PrivateName:
     #IdentifierName
 template: productions
+features: [class-fields-private]
 ---*/
 
 //- fields

@@ -4,7 +4,7 @@
 /*---
 description: Return abrupt completion evaluating the field initializer (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [class-fields]
+features: [class, class-fields-public]
 flags: [generated]
 info: |
     [[Construct]] ( argumentsList, newTarget)

@@ -4,7 +4,7 @@
 /*---
 description: ASI test in field declarations -- computed name interpreted as string index
 esid: sec-automatic-semicolon-insertion
-features: [class-fields]
+features: [class, class-fields-public]
 ---*/
 
 class C {
