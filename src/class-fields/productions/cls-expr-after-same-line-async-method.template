@@ -4,7 +4,7 @@
 /*---
 path: language/expressions/class/fields-same-line-async-method-
 name: field definitions after an async method in the same line
-features: [class-fields, async-functions]
+features: [class, class-fields-public, async-functions]
 flags: [async]
 esid: prod-FieldDefinition
 includes: [propertyHelper.js]

@@ -10,7 +10,7 @@ info: |
 
     ClassElement : staticFieldDefinition;
       It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
-features: [class-fields]
+features: [class, class-fields-public]
 template: propname-error-static
 ---*/
 

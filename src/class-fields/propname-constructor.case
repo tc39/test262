@@ -10,7 +10,7 @@ info: |
 
     ClassElement : FieldDefinition;
       It is a Syntax Error if PropName of FieldDefinition is "constructor".
-features: [class-fields]
+features: [class, class-fields-public]
 template: propname-error
 ---*/
 

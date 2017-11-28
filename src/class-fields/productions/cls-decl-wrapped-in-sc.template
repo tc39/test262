@@ -4,7 +4,7 @@
 /*---
 path: language/statements/class/fields-wrapped-in-sc-
 name: fields definition wrapped in semicolons
-features: [class-fields]
+features: [class, class-fields-public]
 esid: prod-FieldDefinition
 ---*/
 

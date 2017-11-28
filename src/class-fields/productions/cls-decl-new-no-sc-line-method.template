@@ -4,7 +4,7 @@
 /*---
 path: language/statements/class/fields-new-no-sc-line-method-
 name: field definitions followed by a method in a new line without a semicolon
-features: [class-fields]
+features: [class, class-fields-public]
 esid: prod-FieldDefinition
 includes: [propertyHelper.js]
 ---*/
