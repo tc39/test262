@@ -13,7 +13,8 @@ BigInt
 
 # Class Fields
 # https://github.com/tc39/proposal-class-fields
-class-fields
+class-fields-public
+class-fields-private
 
 # Promise.prototype.finally
 # https://github.com/tc39/proposal-promise-finally
