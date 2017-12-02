@@ -43,6 +43,7 @@ def build():
           'create',
           '--out', OUT_DIR,
           SRC_DIR)
+    shell(sys.executable, 'tools/generation/generate_type_coercion.py')
 
 @target()
 def clean():
