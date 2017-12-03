@@ -162,8 +162,9 @@ attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
   expected to be produced; either "parse" (meaning, "while parsing the source
-  text"), "early" (meaning, "prior to evaluation") or "runtime" (meaning,
-  "during evaluation")
+  text"), "early" (meaning, "prior to evaluation"), "resolution" (meaining,
+  "during ES2015 module resolution"),  or "runtime" (meaning, "during
+  evaluation")
 - `type` - the name of the constructor of the expected error
 
 If a test configured with the `negative` attribute completes without throwing
