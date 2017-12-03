@@ -278,7 +278,11 @@ As above, exceptions that are thrown from a `then` clause are passed to a later 
 
 ## Linting
 
-Some of the expectations documented here are enforced via a "linting" script. This script is used to validate patches automatically at submission time, but it may also be invoked locally via the following command:
+Some of the expectations documented here are enforced via a "linting" script. This script is used to validate patches automatically at submission time, but it may also be invoked locally. To do so, first install the required Python packages via the following command:
+
+    pip install --requirement tools/lint/requirements.txt
+
+Then invoke the following command:
 
     python tools/lint/lint.py --whitelist lint.whitelist [paths to tests]
 
@@ -313,9 +317,11 @@ Field | Description
 `features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the test case's feature field.
 any other valid frontmatter field | see the frontmatter definitions.
 
-Generated files are managed using the `make.py` Python script located in the root of this repository.
+Generated files are managed using the `make.py` Python script located in the root of this repository. To use it, first install the required Python packages via the following command:
 
-To create files:
+    pip install --requirement tools/generation/requirements.txt
+
+And then issue the following command to create files:
 
     make.py
 
