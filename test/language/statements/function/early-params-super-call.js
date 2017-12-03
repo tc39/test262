@@ -7,7 +7,7 @@ description: Parameters may not contain a "super" call
 info: |
   It is a Syntax Error if FormalParameters Contains SuperProperty is true.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

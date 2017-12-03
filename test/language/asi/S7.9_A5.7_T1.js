@@ -12,7 +12,7 @@ info: |
 es5id: 7.9_A5.7_T1
 description: Try use Variable1 \n ++ \n ++ \n Variable2 construction
 negative:
-  phase: early
+  phase: parse
   type: ReferenceError
 ---*/
 

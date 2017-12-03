@@ -9,7 +9,7 @@ info: |
 es5id: 12.7_A5_T2
 description: Identifier is a function name
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

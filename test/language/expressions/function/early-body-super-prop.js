@@ -7,7 +7,7 @@ description: Body may not contain a "super" property reference
 info: |
   It is a Syntax Error if FunctionBody Contains SuperProperty is true.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

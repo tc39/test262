@@ -15,7 +15,7 @@ info: |
     HTMLCloseComment ::
       WhiteSpaceSequence[opt] SingleLineDelimitedCommentSequence[opt] --> SingleLineCommentChars[opt]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

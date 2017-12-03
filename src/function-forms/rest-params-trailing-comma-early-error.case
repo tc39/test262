@@ -5,7 +5,7 @@
 desc: It's a syntax error if a FunctionRestParameter is followed by a trailing comma
 template: syntax
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     Trailing comma in the parameters list

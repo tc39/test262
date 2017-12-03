@@ -14,7 +14,7 @@ info: |
   from the Basic Latin range, as opposed to any similar-looking code points from
   other Unicode ranges.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 flags: [module]
 ---*/

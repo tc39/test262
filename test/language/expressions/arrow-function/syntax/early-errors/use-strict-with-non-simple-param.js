@@ -10,7 +10,7 @@ info: |
 
   It is a Syntax Error if ContainsUseStrict of ConciseBody is true and IsSimpleParameterList of ArrowParameters is false.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

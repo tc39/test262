@@ -12,7 +12,7 @@ info: |
   It is a Syntax Error if this production has a [Await] parameter and
   StringValue of Identifier is "await".
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 template: syntax
 ---*/

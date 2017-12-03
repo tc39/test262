@@ -8,7 +8,7 @@ info: |
 es5id: 7.3_A6_T4
 description: Insert PARAGRAPH SEPARATOR (U+2029) in var x
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

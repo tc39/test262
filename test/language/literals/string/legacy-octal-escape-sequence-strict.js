@@ -29,7 +29,7 @@ info: |
     parsing TemplateCharacter.
 flags: [onlyStrict]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

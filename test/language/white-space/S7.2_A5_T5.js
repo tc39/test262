@@ -8,7 +8,7 @@ info: |
 es5id: 7.2_A5_T5
 description: Use NO-BREAK SPACE (U+00A0)
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

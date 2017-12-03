@@ -8,7 +8,7 @@ info: |
 es5id: 7.8.4_A7.1_T4
 description: "UnicodeEscapeSequence :: u000G is incorrect"
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

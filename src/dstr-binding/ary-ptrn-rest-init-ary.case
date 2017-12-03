@@ -4,7 +4,7 @@
 template: default
 desc: Reset element (nested array pattern) does not support initializer
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: >
     13.3.3 Destructuring Binding Patterns

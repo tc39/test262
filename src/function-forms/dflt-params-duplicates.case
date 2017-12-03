@@ -6,7 +6,7 @@ desc: >
   elements.
 template: syntax
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
   14.1.2 Static Semantics: Early Errors

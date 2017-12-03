@@ -10,7 +10,7 @@ description: >
     Catch and Finally are placed into the Block of "try" (whitle
     expected outside)
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

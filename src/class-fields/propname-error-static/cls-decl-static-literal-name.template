@@ -2,11 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/fields-prop-name-
-name: early error -- static ClassElementName
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/statements/class/fields-literal-name-
+name: early error -- PropName of IdentifierName is forbidden value
 negative:
   type: SyntaxError
-  phase: early
+  phase: parse
+info: |
+  Static Semantics: PropName
+  LiteralPropertyName : IdentifierName
+    Return StringValue of IdentifierName.
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

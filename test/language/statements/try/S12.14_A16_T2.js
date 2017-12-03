@@ -8,7 +8,7 @@ info: |
 es5id: 12.14_A16_T2
 description: Checking if execution of "catch" with no "try" fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

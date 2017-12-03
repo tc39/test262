@@ -9,7 +9,7 @@ info: |
 es5id: 12.7_A5_T3
 description: Identifier is within loop label
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

@@ -11,7 +11,7 @@ info: |
     Term[U] ::
          [~U] QuantifiableAssertion Quantifier
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

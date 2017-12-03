@@ -10,7 +10,7 @@ description: >
     Block: "{ StatementList }". Catch: "catch (Identifier ) Block".
     Checking if execution of "try{} catch(){finally{}" fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

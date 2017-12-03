@@ -10,7 +10,7 @@ description: >
     Catch: "catch (Identifier ) Block". Checking if execution of
     "catch" with no Block fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

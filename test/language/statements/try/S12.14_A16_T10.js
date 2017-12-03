@@ -8,7 +8,7 @@ info: |
 es5id: 12.14_A16_T10
 description: "Catch: \"catch (Identifier ) Block\""
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

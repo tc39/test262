@@ -7,7 +7,7 @@ esid: 12.1.1
 description: >
   `yield` is not a valid BindingIdentifier for AsyncGeneratorExpressions.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [async-iteration]
 ---*/

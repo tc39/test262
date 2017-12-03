@@ -9,7 +9,7 @@ template: syntax
 es6id: 12.14.5
 flags: [onlyStrict]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

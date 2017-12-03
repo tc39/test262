@@ -8,7 +8,7 @@ info: |
 es6id: 12.14.1
 description: Compound multiplication assignment with non-simple target
 negative:
-  phase: early
+  phase: parse
   type: ReferenceError
 ---*/
 

@@ -12,7 +12,7 @@ info: |
   between `let` (where a LexicalDeclaration is permitted) and `yield`,
   so a subsequent `0` where `=` was expected is a syntax error.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [generators]
 ---*/

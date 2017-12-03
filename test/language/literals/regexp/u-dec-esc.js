@@ -8,7 +8,7 @@ info: |
     B extensions--see ES6 section B.1.4).
 es6id: 21.2.1
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

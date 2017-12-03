@@ -5,7 +5,7 @@ description: AnnexB extension not honored in strict mode (IfStatement with a dec
 es6id: B.3.4
 flags: [onlyStrict]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     The following rules for IfStatement augment those in 13.6:

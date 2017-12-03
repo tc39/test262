@@ -23,7 +23,7 @@ info: |
   just chosen, per 5.3, are validated to recognize the Script as invalid.  Thus
   the eval script can't be evaluated, and a SyntaxError is thrown.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

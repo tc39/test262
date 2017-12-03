@@ -10,7 +10,7 @@ description: >
     Finally: "finally Block". Checking if passing argument to "try"
     statement fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

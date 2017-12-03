@@ -21,7 +21,7 @@ info: |
 
   General Category of U+180E is “Cf” (Format).
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [u180e]
 ---*/

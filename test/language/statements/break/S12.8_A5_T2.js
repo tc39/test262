@@ -10,7 +10,7 @@ description: >
     Checking if using function name as an Identifier appears to be
     invalid
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

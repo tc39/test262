@@ -12,7 +12,7 @@ info: |
     statement. Bindings from the ForBinding of a for-in statement are
     restricted regardless of the application of Annex B.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 
