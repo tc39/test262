@@ -10,7 +10,7 @@ info: >
 
    It is a Syntax Error if ContainsUseStrict of FunctionBody is true and IsSimpleParameterList of StrictFormalParameters is false.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

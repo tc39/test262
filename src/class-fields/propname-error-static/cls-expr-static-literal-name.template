@@ -7,7 +7,7 @@ path: language/expressions/class/fields-literal-name-
 name: early error -- PropName of IdentifierName is forbidden
 negative:
   type: SyntaxError
-  phase: early
+  phase: parse
 info: |
   Static Semantics: PropName
   LiteralPropertyName : IdentifierName

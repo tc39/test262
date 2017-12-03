@@ -11,7 +11,7 @@ info: |
     3. If AllPrivateNamesValid of ScriptBody with the argument names is false, throw a SyntaxError exception.
 features: [class, class-fields-private, class-fields-public]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

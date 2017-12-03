@@ -8,7 +8,7 @@ info: >
 es5id: 7.2_A5_T3
 description: Use FORM FEED (U+000C)
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

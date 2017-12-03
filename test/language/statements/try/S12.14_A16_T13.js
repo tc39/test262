@@ -10,7 +10,7 @@ description: >
     Catch: "catch (Identifier ) Block". Checking if execution of "22"
     passes at the place of Identifier of "catch"
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

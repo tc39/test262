@@ -20,7 +20,7 @@ info: |
 description: >
   The first character of a regular expression may not be a <LS>
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

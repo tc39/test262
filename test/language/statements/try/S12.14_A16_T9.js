@@ -8,7 +8,7 @@ info: >
 es5id: 12.14_A16_T9
 description: Checking if execution of "catch(){} finally{}" fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

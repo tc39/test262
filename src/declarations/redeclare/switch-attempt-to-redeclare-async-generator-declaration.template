@@ -11,7 +11,7 @@ info: |
   It is a Syntax Error if the LexicallyDeclaredNames of CaseBlock contains any
   duplicate entries.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [async-iteration]
 ---*/

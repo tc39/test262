@@ -8,7 +8,7 @@ info: >
 es5id: 7.3_A6_T2
 description: Insert CARRIAGE RETURN (U+000D) in var x
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

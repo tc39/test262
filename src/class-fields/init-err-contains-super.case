@@ -13,7 +13,7 @@ info: |
 features: [class, class-fields-public]
 negative:
   type: SyntaxError
-  phase: early
+  phase: parse
 template: initializer-error
 ---*/
 

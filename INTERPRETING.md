@@ -161,8 +161,9 @@ These tests are expected to generate an uncaught exception. The value of this
 attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
-  expected to be produced; either "early" (meaning, "prior to evaluation") or
-  "runtime" (meaning, "during evaluation")
+  expected to be produced; either "parse" (meaning, "while parsing the source
+  text"), "early" (meaning, "prior to evaluation") or "runtime" (meaning,
+  "during evaluation")
 - `type` - the name of the constructor of the expected error
 
 If a test configured with the `negative` attribute completes without throwing

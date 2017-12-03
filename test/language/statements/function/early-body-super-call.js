@@ -7,7 +7,7 @@ description: Body may not contain a "super" call
 info: >
   It is a Syntax Error if FunctionBody Contains SuperCall is true.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

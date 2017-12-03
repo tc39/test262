@@ -7,7 +7,7 @@ path: language/statements/class/fields-string-name-
 name: early error -- PropName of StringLiteral is forbidden value
 negative:
   type: SyntaxError
-  phase: early
+  phase: parse
 info: |
   Static Semantics: PropName
   ...

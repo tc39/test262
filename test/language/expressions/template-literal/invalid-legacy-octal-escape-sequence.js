@@ -7,7 +7,7 @@ info: >
     TemplateCharacter (11.8.6) must not be extended to include
     LegacyOctalEscapeSequence as defined in B.1.2.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

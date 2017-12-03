@@ -8,7 +8,7 @@ info: >
 es5id: 11.2.4_A1.3_T1
 description: incorrect syntax
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 
