@@ -5,7 +5,6 @@
 description: Bitwise AND for BigInt non-primitive values
 esid: sec-binary-bitwise-operators-runtime-semantics-evaluation
 info: |
-
   5. Let lnum be ? ToNumeric(lval).
   6. Let rnum be ? ToNumeric(rval).
   ...
