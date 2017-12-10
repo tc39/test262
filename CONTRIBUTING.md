@@ -22,7 +22,7 @@ See the following directory trees for further recommended examples:
 - [test/built-ins/WeakMap](./test/built-ins/WeakMap/)
 - [test/language/arguments-object](./test/language/arguments-object/)
 
-**Note** The project is currently transitioning from a naming system based on specification section numbers. There remains a substantial number of tests that conform to this outdated convention; contributors should ignore that approach when introducing new tests and instead encode this information using the [id](#id) frontmatter tag.
+**Note** The project is currently transitioning from a naming system based on specification section numbers. There remains a substantial number of tests that conform to this outdated convention; contributors should ignore that approach when introducing new tests and instead encode this information using [the `esid` frontmatter tag](#esid).
 
 ## Test Case Style
 
