@@ -16,7 +16,7 @@ info: |
     MultiLineComment ::
       /* FirstCommentLine[opt] LineTerminator MultiLineCommentChars[opt] * / HTMLCloseComment[opt]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

@@ -23,7 +23,7 @@ info: >
        8 9
 flags: [onlyStrict]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

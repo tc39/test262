@@ -8,7 +8,7 @@ info: >
 es5id: 7.7_A2_T1
 description: Try to use {} as a Unicode \u007B\u007D
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

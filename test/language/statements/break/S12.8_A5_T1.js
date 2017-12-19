@@ -8,7 +8,7 @@ info: >
 es5id: 12.8_A5_T1
 description: Checking if breaking another labeled loop fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

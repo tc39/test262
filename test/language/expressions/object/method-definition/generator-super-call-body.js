@@ -10,7 +10,7 @@ es6id: 14.4.1
 author: Sam Mikes
 description: GeneratorMethod error if HasDirectSuper in body
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

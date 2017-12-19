@@ -9,7 +9,7 @@ info: >
 es5id: 12.7_A5_T1
 description: Trying to continue another labeled loop
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

@@ -4,11 +4,12 @@
 /*---
 esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
+flags: [module]
 negative:
   type: SyntaxError
-  phase: early
+  phase: resolution
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
 
-!!!
+import 'non-existent-module.js';

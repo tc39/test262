@@ -9,7 +9,7 @@ info: >
 es5id: 12.6.3_A12.1_T3
 description: Trying to break non-existent label
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

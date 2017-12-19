@@ -13,7 +13,7 @@ info: |
 description: >
   A RegularExpressionBackslashSequence may not contain a <CR>
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

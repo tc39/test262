@@ -23,5 +23,5 @@ class CheckNegative(Check):
         if not 'phase' in negative:
             return '"negative" must specify a "phase" field'
 
-        if negative["phase"] == "early" and not _THROW_STMT.search(source):
+        if negative["phase"] in ["parse", "resolution"] and not _THROW_STMT.search(source):
             return 'Negative tests of type "early" must include a `throw` statement'

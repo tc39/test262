@@ -17,7 +17,7 @@ info: >
        LegacyOctalIntegerLiteral OctalDigit
 flags: [onlyStrict]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

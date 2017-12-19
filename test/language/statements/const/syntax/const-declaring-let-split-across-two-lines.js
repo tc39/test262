@@ -9,7 +9,7 @@ description: >
 info: >
   Lexical declarations may not declare a binding named "let".
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

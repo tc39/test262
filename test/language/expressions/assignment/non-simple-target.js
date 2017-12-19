@@ -9,7 +9,7 @@ info: >
 es6id: 12.14.1
 description: Assignment with non-simple target
 negative:
-  phase: early
+  phase: parse
   type: ReferenceError
 ---*/
 

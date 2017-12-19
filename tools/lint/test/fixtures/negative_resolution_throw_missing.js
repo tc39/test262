@@ -5,9 +5,10 @@ NEGATIVE
 /*---
 esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
+flags: [module]
 negative:
   type: SyntaxError
-  phase: early
+  phase: resolution
 ---*/
 
-!!!
+import 'non-existent-module.js';

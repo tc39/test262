@@ -7,7 +7,7 @@ esid: 14.4
 description: >
   A newline may not precede the `*` token in a `yield` expression.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [async-iteration]
 ---*/

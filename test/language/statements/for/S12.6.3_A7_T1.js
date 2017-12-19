@@ -10,7 +10,7 @@ description: >
     Checking if execution of "for(index=0; index<10; index++;
     index--)" fails
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

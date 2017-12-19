@@ -7,7 +7,7 @@ esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
 negative:
   type: SyntaxError
-  phase: early
+  phase: parse
 ---*/
 
 throw "Test262: This statement should not be evaluated!";

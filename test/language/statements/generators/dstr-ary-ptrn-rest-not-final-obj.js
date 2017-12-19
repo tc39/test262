@@ -8,7 +8,7 @@ es6id: 14.4.12
 features: [generators, destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     GeneratorDeclaration : function * ( FormalParameters ) { GeneratorBody }

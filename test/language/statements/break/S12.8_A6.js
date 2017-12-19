@@ -10,7 +10,7 @@ description: >
     Checking if using "break Identifier" within a function body
     appears to be invalid
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

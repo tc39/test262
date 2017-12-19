@@ -9,7 +9,7 @@ info: >
 es5id: 7.9_A6.2_T7
 description: For header is (false \n semicolon \n)
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

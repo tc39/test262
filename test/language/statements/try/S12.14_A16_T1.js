@@ -8,7 +8,7 @@ info: >
 es5id: 12.14_A16_T1
 description: Checking if pure "try" syntax construction passes
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

@@ -10,7 +10,7 @@ description: >
     Checking if using internal loop label as an Identifier appears to
     be invalid
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

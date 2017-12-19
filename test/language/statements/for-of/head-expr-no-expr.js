@@ -8,7 +8,7 @@ info: >
         for ( LeftHandSideExpression of AssignmentExpression ) Statement
 es6id: 13.7
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 
