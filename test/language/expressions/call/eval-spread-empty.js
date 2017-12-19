@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-function-calls-runtime-semantics-evaluation
-info: >
+esid: sec-function-calls-runtime-semantics-evaluation
+description: >
   Direct eval call with empty spread.
-description: |
+info: |
   12.3.4.1 Runtime Semantics: Evaluation
     ...
     3. If Type(ref) is Reference and IsPropertyReference(ref) is false and GetReferencedName(ref) is "eval", then

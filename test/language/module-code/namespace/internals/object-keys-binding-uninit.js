@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.keys
-info: >
+esid: sec-object.keys
+description: >
   Test Object.keys() with uninitialized binding.
-description: |
+info: |
   19.1.2.16 Object.keys ( O )
     ...
     2. Let nameList be ? EnumerableOwnProperties(obj, "key").

@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.prototype.hasownproperty
-info: >
+esid: sec-object.prototype.hasownproperty
+description: >
   Test Object.prototype.hasOwnProperty() with uninitialized binding.
-description: |
+info: |
   19.1.3.2 Object.prototype.hasOwnProperty ( V )
     ...
     3. Return ? HasOwnProperty(O, P).

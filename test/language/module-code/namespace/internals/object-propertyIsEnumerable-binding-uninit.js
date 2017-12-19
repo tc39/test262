@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.prototype.propertyisenumerable
-info: >
+esid: sec-object.prototype.propertyisenumerable
+description: >
   Test Object.prototype.propertyIsEnumerable() with uninitialized binding.
-description: |
+info: |
   19.1.3.4 Object.prototype.propertyIsEnumerable ( V )
     ...
     3. Let desc be ? O.[[GetOwnProperty]](P).

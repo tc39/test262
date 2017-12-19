@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-names-and-keywords
-info: Test grandfathered characters of ID_Start.
-description: >
+esid: sec-names-and-keywords
+description: Test grandfathered characters of ID_Start.
+info: |
   Grandfathered characters (Other_ID_Start)
 ---*/
 

@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-integerindexedelementget
-info: >
+esid: sec-integerindexedelementget
+description: >
   "Infinity" is a canonical numeric string, test with access on detached buffer.
-description: |
+info: |
   9.4.5.4 [[Get]] ( P, Receiver )
   ...
   2. If Type(P) is String, then
@@ -27,6 +27,7 @@ description: |
     ...
 
 includes: [testTypedArray.js, detachArrayBuffer.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

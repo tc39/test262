@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-integer-indexed-exotic-objects-getownproperty-p
-info: Test for-in enumeration with detached buffer.
-description: |
+esid: sec-integer-indexed-exotic-objects-getownproperty-p
+description: Test for-in enumeration with detached buffer.
+info: |
   9.4.5.1 [[GetOwnProperty]] ( P )
     ...
     3. If Type(P) is String, then
@@ -27,6 +27,7 @@ description: |
     calling its [[GetOwnProperty]] internal method.
 
 includes: [testTypedArray.js, detachArrayBuffer.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

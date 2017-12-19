@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-integer-indexed-exotic-objects-hasproperty-p
-info: >
+esid: sec-integer-indexed-exotic-objects-hasproperty-p
+description: >
   "Infinity" is a canonical numeric string, test with access on detached buffer.
-description: |
+info: |
   9.4.5.2 [[HasProperty]]( P )
   ...
   3. If Type(P) is String, then
@@ -23,6 +23,7 @@ description: |
 
 flags: [noStrict]
 includes: [testTypedArray.js, detachArrayBuffer.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

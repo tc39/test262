@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-function-calls-runtime-semantics-evaluation
-info: >
+esid: sec-function-calls-runtime-semantics-evaluation
+description: >
   Check TypeError is thrown from correct realm with tco-call to class constructor from derived
   class [[Construct]] invocation.
-description: |
+info: |
   12.3.4.3 Runtime Semantics: EvaluateDirectCall( func, thisValue, arguments, tailPosition )
     ...
     4. If tailPosition is true, perform PrepareForTailCall().

@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-enumerate-object-properties
-info: >
+esid: sec-enumerate-object-properties
+description: >
   Test for-in enumeration with uninitialized binding.
-description: |
+info: |
   13.7.5.15 EnumerateObjectProperties (O)
     ...
     EnumerateObjectProperties must obtain the own property keys of the
