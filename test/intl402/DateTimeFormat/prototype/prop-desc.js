@@ -7,10 +7,11 @@ description: >
     Tests that Intl.DateTimeFormat.prototype has the required
     attributes.
 author: Norbert Lindenberg
+includes: [propertyHelper.js]
 ---*/
 
-var desc = Object.getOwnPropertyDescriptor(Intl.DateTimeFormat, "prototype");
-assert.notSameValue(desc, undefined, "Intl.DateTimeFormat.prototype is not defined.");
-assert.sameValue(desc.writable, false, "Intl.DateTimeFormat.prototype must not be writable.");
-assert.sameValue(desc.enumerable, false, "Intl.DateTimeFormat.prototype must not be enumerable.");
-assert.sameValue(desc.configurable, false, "Intl.DateTimeFormat.prototype must not be configurable.");
+verifyProperty(Intl.DateTimeFormat, "prototype", {
+    writable: false,
+    enumerable: false,
+    configurable: false,
+});
