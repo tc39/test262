@@ -11,5 +11,5 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(this.Intl, false, false);
-testBuiltInObject(Intl, false, false);
+testBuiltInObject(this.Intl, false);
+testBuiltInObject(Intl, false);

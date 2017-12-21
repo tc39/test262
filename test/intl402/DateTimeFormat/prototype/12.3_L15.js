@@ -8,7 +8,13 @@ description: >
     for built-in objects defined by the introduction of chapter 17 of
     the ECMAScript Language Specification.
 author: Norbert Lindenberg
-includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.DateTimeFormat.prototype, false, false);
+assert.sameValue(Object.prototype.toString.call(Intl.DateTimeFormat.prototype), "[object Object]",
+                 "The [[Class]] internal property of a built-in non-function object must be " +
+                 "\"Object\".");
+
+assert(Object.isExtensible(Intl.DateTimeFormat.prototype), "Built-in objects must be extensible.");
+
+assert.sameValue(Object.getPrototypeOf(Intl.DateTimeFormat.prototype), Object.prototype,
+                 "Built-in prototype objects must have Object.prototype as their prototype.");
