@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.DateTimeFormat, true, true, ["supportedLocalesOf"], 0);
+testBuiltInObject(Intl.DateTimeFormat, true, true, ["supportedLocalesOf"]);
