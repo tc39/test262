@@ -9,8 +9,8 @@ features: [BigInt]
 
 assert.throws(SyntaxError, () => BigInt.parseInt(""));
 assert.throws(SyntaxError, () => BigInt.parseInt("@"));
-assert.throws(SyntaxError, () => BigInt.parseInt("1", 1));
-assert.throws(SyntaxError, () => BigInt.parseInt("1", 37));
+assert.throws(RangeError, () => BigInt.parseInt("1", 1));
+assert.throws(RangeError, () => BigInt.parseInt("1", 37));
 assert.sameValue(BigInt.parseInt("0xf", 0), 0xfn);
 assert.sameValue(BigInt.parseInt("-0"), 0n);
 assert.sameValue(BigInt.parseInt(" 0@"), 0n);
