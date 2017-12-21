@@ -15,13 +15,16 @@ var actual = new Intl.Collator().resolvedOptions();
 var actual2 = new Intl.Collator().resolvedOptions();
 assert.notSameValue(actual2, actual, "resolvedOptions returned the same object twice.");
 
-// source: CLDR file common/bcp47/collation.xml; version CLDR 21.
+// source: CLDR file common/bcp47/collation.xml; version CLDR 32.
 var collations = [
     "default", // added
-    "big5han", 
+    "big5han",
+    "compat",
     "dict",
     "direct",
     "ducet",
+    "emoji",
+    "eor",
     "gb2312",
     "phonebk",
     "phonetic",
@@ -32,7 +35,8 @@ var collations = [
     // "standard", // excluded
     "stroke",
     "trad",
-    "unihan"
+    "unihan",
+    "zhuyin",
 ];
 
 // this assumes the default values where the specification provides them
