@@ -11,9 +11,10 @@ includes: [testIntl.js]
 ---*/
 
 testWithIntlConstructors(function (Constructor) {
+    var info = getLocaleSupportInfo(Constructor);
+
     // this test should work equally for both matching algorithms
     ["lookup", "best fit"].forEach(function (matcher) {
-        var info = getLocaleSupportInfo(Constructor);
         var allLocales = info.supported.concat(info.byFallback, info.unsupported);
         allLocales.forEach(function (locale) {
             var validExtension = "-u-co-phonebk-nu-latn";

@@ -34,26 +34,6 @@ function testWithIntlConstructors(f) {
 
 
 /**
- * Returns the name of the given constructor object, which must be one of
- * Intl.Collator, Intl.NumberFormat, or Intl.DateTimeFormat.
- * @param {object} Constructor a constructor
- * @return {string} the name of the constructor
- */
-function getConstructorName(Constructor) {
-  switch (Constructor) {
-    case Intl.Collator:
-      return "Collator";
-    case Intl.NumberFormat:
-      return "NumberFormat";
-    case Intl.DateTimeFormat:
-      return "DateTimeFormat";
-    default:
-      $ERROR("test internal error: unknown Constructor");
-  }
-}
-
-
-/**
  * Taints a named data property of the given object by installing
  * a setter that throws an exception.
  * @param {object} obj the object whose data property to taint
@@ -121,7 +101,6 @@ function taintArray() {
 var languages = ["zh", "es", "en", "hi", "ur", "ar", "ja", "pa"];
 var scripts = ["Latn", "Hans", "Deva", "Arab", "Jpan", "Hant"];
 var countries = ["CN", "IN", "US", "PK", "JP", "TW", "HK", "SG"];
-var localeSupportInfo = {};
 
 
 /**
@@ -134,11 +113,6 @@ var localeSupportInfo = {};
  *   unsupported: array of unsupported language tags
  */
 function getLocaleSupportInfo(Constructor) {
-  var constructorName = getConstructorName(Constructor);
-  if (localeSupportInfo[constructorName] !== undefined) {
-    return localeSupportInfo[constructorName];
-  }
-
   var allTags = [];
   var i, j, k;
   var language, script, country;
@@ -174,13 +148,11 @@ function getLocaleSupportInfo(Constructor) {
     }
   }
 
-  localeSupportInfo[constructorName] = {
+  return {
     supported: supported,
     byFallback: byFallback,
     unsupported: unsupported
   };
-
-  return localeSupportInfo[constructorName];
 }
 
 
