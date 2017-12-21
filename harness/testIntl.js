@@ -97,12 +97,6 @@ function taintArray() {
 }
 
 
-// auxiliary data for getLocaleSupportInfo
-var languages = ["zh", "es", "en", "hi", "ur", "ar", "ja", "pa"];
-var scripts = ["Latn", "Hans", "Deva", "Arab", "Jpan", "Hant"];
-var countries = ["CN", "IN", "US", "PK", "JP", "TW", "HK", "SG"];
-
-
 /**
  * Gets locale support info for the given constructor object, which must be one
  * of Intl.Collator, Intl.NumberFormat, Intl.DateTimeFormat.
@@ -113,6 +107,10 @@ var countries = ["CN", "IN", "US", "PK", "JP", "TW", "HK", "SG"];
  *   unsupported: array of unsupported language tags
  */
 function getLocaleSupportInfo(Constructor) {
+  var languages = ["zh", "es", "en", "hi", "ur", "ar", "ja", "pa"];
+  var scripts = ["Latn", "Hans", "Deva", "Arab", "Jpan", "Hant"];
+  var countries = ["CN", "IN", "US", "PK", "JP", "TW", "HK", "SG"];
+
   var allTags = [];
   var i, j, k;
   var language, script, country;
@@ -139,7 +137,7 @@ function getLocaleSupportInfo(Constructor) {
   for (i = 0; i < allTags.length; i++) {
     var request = allTags[i];
     var result = new Constructor([request], {localeMatcher: "lookup"}).resolvedOptions().locale;
-     if (request === result) {
+    if (request === result) {
       supported.push(request);
     } else if (request.indexOf(result) === 0) {
       byFallback.push(request);
