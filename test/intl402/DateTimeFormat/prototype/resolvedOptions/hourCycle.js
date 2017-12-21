@@ -9,7 +9,7 @@ description: >
 info: >
   12.4.5 Intl.DateTimeFormat.prototype.resolvedOptions()
 
-includes: [testIntl.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 /* Values passed via unicode extension key work */

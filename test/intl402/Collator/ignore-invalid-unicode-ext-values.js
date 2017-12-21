@@ -7,7 +7,7 @@ description: >
     Tests that Intl.Collator does not accept Unicode locale  extension
     keys and values that are not allowed.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 var testArray = [

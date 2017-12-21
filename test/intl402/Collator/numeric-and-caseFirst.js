@@ -7,7 +7,6 @@ description: >
     Tests that the options numeric and caseFirst can be  set through
     either the locale or the options.
 author: Norbert Lindenberg
-includes: [testIntl.js]
 ---*/
 
 var options = [

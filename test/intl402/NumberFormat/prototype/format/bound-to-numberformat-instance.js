@@ -5,7 +5,6 @@
 es5id: 11.3.2_1_c
 description: Tests that format function is bound to its Intl.NumberFormat.
 author: Norbert Lindenberg
-includes: [testIntl.js]
 ---*/
 
 var numbers = [0, -0, 1, -1, 5.5, 123, -123, -123.45, 123.44501, 0.001234,

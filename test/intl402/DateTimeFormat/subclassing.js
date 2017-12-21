@@ -6,7 +6,7 @@
 es5id: 12.1.2
 description: Tests that Intl.DateTimeFormat can be subclassed.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 // get a date-time format and have it format an array of dates for comparison with the subclass
