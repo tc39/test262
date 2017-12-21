@@ -829,51 +829,6 @@ function testOption(Constructor, property, type, values, fallback, testOptions) 
 
 
 /**
- * Tests whether the named property of the given object has a valid value
- * and the default attributes of the properties of an object literal.
- * @param {Object} obj the object to be tested.
- * @param {string} property the name of the property
- * @param {Function|Array} valid either a function that tests value for validity and returns a boolean,
- *   an array of valid values.
- * @exception if the property has an invalid value.
- */
-function testProperty(obj, property, valid) {
-  var desc = Object.getOwnPropertyDescriptor(obj, property);
-  if (!desc.writable) {
-    $ERROR("Property " + property + " must be writable.");
-  }
-  if (!desc.enumerable) {
-    $ERROR("Property " + property + " must be enumerable.");
-  }
-  if (!desc.configurable) {
-    $ERROR("Property " + property + " must be configurable.");
-  }
-  var value = desc.value;
-  var isValid = (typeof valid === "function") ? valid(value) : (valid.indexOf(value) !== -1);
-  if (!isValid) {
-    $ERROR("Property value " + value + " is not allowed for property " + property + ".");
-  }
-}
-
-
-/**
- * Tests whether the given object has the named property with a valid value
- * and the default attributes of the properties of an object literal.
- * @param {Object} obj the object to be tested.
- * @param {string} property the name of the property
- * @param {Function|Array} valid either a function that tests value for validity and returns a boolean,
- *   an array of valid values.
- * @exception if the property is missing or has an invalid value.
- */
-function mustHaveProperty(obj, property, valid) {
-  if (!obj.hasOwnProperty(property)) {
-    $ERROR("Object is missing property " + property + ".");
-  }
-  testProperty(obj, property, valid);
-}
-
-
-/**
  * Properties of the RegExp constructor that may be affected by use of regular
  * expressions, and the default values of these properties. Properties are from
  * https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Deprecated_and_obsolete_features#RegExp_Properties

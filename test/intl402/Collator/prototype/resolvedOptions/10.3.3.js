@@ -36,20 +36,29 @@ var collations = [
 ];
 
 // this assumes the default values where the specification provides them
-mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
-mustHaveProperty(actual, "usage", ["sort"]);
-mustHaveProperty(actual, "sensitivity", ["variant"]);
-mustHaveProperty(actual, "ignorePunctuation", [false]);
-mustHaveProperty(actual, "collation", collations);
+assert(isCanonicalizedStructurallyValidLanguageTag(actual.locale),
+       "Invalid locale: " + actual.locale);
+assert.sameValue(actual.usage, "sort");
+assert.sameValue(actual.sensitivity, "variant");
+assert.sameValue(actual.ignorePunctuation, false);
+assert.notSameValue(collations.indexOf(actual.collation), -1,
+                    "Invalid collation: " + actual.collation);
+
+var dataPropertyDesc = { writable: true, enumerable: true, configurable: true };
+verifyProperty(actual, "locale", dataPropertyDesc);
+verifyProperty(actual, "usage", dataPropertyDesc);
+verifyProperty(actual, "sensitivity", dataPropertyDesc);
+verifyProperty(actual, "ignorePunctuation", dataPropertyDesc);
+verifyProperty(actual, "collation", dataPropertyDesc);
 
 // "numeric" is an optional property.
 if (actual.hasOwnProperty("numeric")) {
     assert.notSameValue([true, false].indexOf(actual.numeric), -1);
-    verifyProperty(actual, "numeric", {writable: true, enumerable: true, configurable: true});
+    verifyProperty(actual, "numeric", dataPropertyDesc);
 }
 
 // "caseFirst" is an optional property.
 if (actual.hasOwnProperty("caseFirst")) {
     assert.notSameValue(["upper", "lower", "false"].indexOf(actual.caseFirst), -1);
-    verifyProperty(actual, "caseFirst", {writable: true, enumerable: true, configurable: true});
+    verifyProperty(actual, "caseFirst", dataPropertyDesc);
 }

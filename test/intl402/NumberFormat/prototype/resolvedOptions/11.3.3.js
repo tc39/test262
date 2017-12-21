@@ -17,14 +17,25 @@ var actual2 = new Intl.NumberFormat().resolvedOptions();
 assert.notSameValue(actual2, actual, "resolvedOptions returned the same object twice.");
 
 // this assumes the default values where the specification provides them
-mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
-mustHaveProperty(actual, "numberingSystem", isValidNumberingSystem);
-mustHaveProperty(actual, "style", ["decimal"]);
+assert(isCanonicalizedStructurallyValidLanguageTag(actual.locale),
+       "Invalid locale: " + actual.locale);
+assert(isValidNumberingSystem(actual.numberingSystem),
+       "Invalid numbering system: " + actual.numberingSystem);
+assert.sameValue(actual.style, "decimal");
+assert.sameValue(actual.minimumIntegerDigits, 1);
+assert.sameValue(actual.minimumFractionDigits, 0);
+assert.sameValue(actual.maximumFractionDigits, 3);
+assert.sameValue(actual.useGrouping, true);
+
+var dataPropertyDesc = { writable: true, enumerable: true, configurable: true };
+verifyProperty(actual, "locale", dataPropertyDesc);
+verifyProperty(actual, "numberingSystem", dataPropertyDesc);
+verifyProperty(actual, "style", dataPropertyDesc);
 verifyProperty(actual, "currency", undefined);
 verifyProperty(actual, "currencyDisplay", undefined);
-mustHaveProperty(actual, "minimumIntegerDigits", [1]);
-mustHaveProperty(actual, "minimumFractionDigits", [0]);
-mustHaveProperty(actual, "maximumFractionDigits", [3]);
+verifyProperty(actual, "minimumIntegerDigits", dataPropertyDesc);
+verifyProperty(actual, "minimumFractionDigits", dataPropertyDesc);
+verifyProperty(actual, "maximumFractionDigits", dataPropertyDesc);
 verifyProperty(actual, "minimumSignificantDigits", undefined);
 verifyProperty(actual, "maximumSignificantDigits", undefined);
-mustHaveProperty(actual, "useGrouping", [true]);
+verifyProperty(actual, "useGrouping", dataPropertyDesc);
