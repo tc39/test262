@@ -8,7 +8,7 @@ description: >
     Intl.PluralRules.prototype.resolvedOptions  has the right
     properties.
 author: Zibi Braniecki
-includes: [testIntl.js]
+includes: [testIntl.js, propertyHelper.js]
 ---*/
 
 var actual = new Intl.PluralRules().resolvedOptions();
@@ -19,10 +19,10 @@ assert.notSameValue(actual2, actual, "resolvedOptions returned the same object t
 // this assumes the default values where the specification provides them
 mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
 mustHaveProperty(actual, "type", ["cardinal"]);
-mustNotHaveProperty(actual, "currency");
-mustNotHaveProperty(actual, "currencyDisplay");
+verifyProperty(actual, "currency", undefined);
+verifyProperty(actual, "currencyDisplay", undefined);
 mustHaveProperty(actual, "minimumIntegerDigits", [1]);
 mustHaveProperty(actual, "minimumFractionDigits", [0]);
 mustHaveProperty(actual, "maximumFractionDigits", [3]);
-mustNotHaveProperty(actual, "minimumSignificantDigits");
-mustNotHaveProperty(actual, "maximumSignificantDigits");
+verifyProperty(actual, "minimumSignificantDigits", undefined);
+verifyProperty(actual, "maximumSignificantDigits", undefined);
