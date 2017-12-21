@@ -12,4 +12,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(new Intl.Collator().compare, true);
+testBuiltInObject(new Intl.Collator().compare);

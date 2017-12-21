@@ -12,4 +12,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Object.getOwnPropertyDescriptor(Intl.DateTimeFormat.prototype, "format").get , true);
+testBuiltInObject(Object.getOwnPropertyDescriptor(Intl.DateTimeFormat.prototype, "format").get);

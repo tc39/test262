@@ -11,4 +11,4 @@ author: Zibi Braniecki
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.PluralRules.prototype.resolvedOptions, true);
+testBuiltInObject(Intl.PluralRules.prototype.resolvedOptions);

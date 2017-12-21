@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Number.prototype.toLocaleString, true);
+testBuiltInObject(Number.prototype.toLocaleString);
