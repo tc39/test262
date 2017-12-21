@@ -35,15 +35,31 @@ var calendars = [
 ];
 
 // this assumes the default values where the specification provides them
-mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
-mustHaveProperty(actual, "calendar", calendars);
-mustHaveProperty(actual, "numberingSystem", isValidNumberingSystem);
-mustHaveProperty(actual, "timeZone", isCanonicalizedStructurallyValidTimeZoneName);
+assert(isCanonicalizedStructurallyValidLanguageTag(actual.locale),
+       "Invalid locale: " + actual.locale);
+assert.notSameValue(calendars.indexOf(actual.calendar), -1,
+                    "Invalid calendar: " + actual.calendar);
+assert(isValidNumberingSystem(actual.numberingSystem),
+       "Invalid numbering system: " + actual.numberingSystem);
+assert(isCanonicalizedStructurallyValidTimeZoneName(actual.timeZone),
+       "Invalid time zone: " + actual.timeZone);
+assert.notSameValue(["2-digit", "numeric"].indexOf(actual.year), -1,
+                    "Invalid year: " + actual.year);
+assert.notSameValue(["2-digit", "numeric", "narrow", "short", "long"].indexOf(actual.month), -1,
+                    "Invalid month: " + actual.month);
+assert.notSameValue(["2-digit", "numeric"].indexOf(actual.day), -1,
+                    "Invalid day: " + actual.day);
+
+var dataPropertyDesc = { writable: true, enumerable: true, configurable: true };
+verifyProperty(actual, "locale", dataPropertyDesc);
+verifyProperty(actual, "calendar", dataPropertyDesc);
+verifyProperty(actual, "numberingSystem", dataPropertyDesc);
+verifyProperty(actual, "timeZone", dataPropertyDesc);
 verifyProperty(actual, "weekday", undefined);
 verifyProperty(actual, "era", undefined);
-mustHaveProperty(actual, "year", ["2-digit", "numeric"]);
-mustHaveProperty(actual, "month", ["2-digit", "numeric", "narrow", "short", "long"]);
-mustHaveProperty(actual, "day", ["2-digit", "numeric"]);
+verifyProperty(actual, "year", dataPropertyDesc);
+verifyProperty(actual, "month", dataPropertyDesc);
+verifyProperty(actual, "day", dataPropertyDesc);
 verifyProperty(actual, "hour", undefined);
 verifyProperty(actual, "minute", undefined);
 verifyProperty(actual, "second", undefined);
