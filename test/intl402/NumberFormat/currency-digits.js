@@ -10,7 +10,7 @@ description: >
 author: Norbert Lindenberg
 ---*/
 
-// data from http://www.currency-iso.org/dam/downloads/table_a1.xml, 2015-03-23
+// data from https://www.currency-iso.org/dam/downloads/lists/list_one.xml, 2017-09-22
 var currencyDigits = {
     AED: 2,
     AFN: 2,
@@ -36,6 +36,7 @@ var currencyDigits = {
     BSD: 2,
     BTN: 2,
     BWP: 2,
+    BYN: 2,
     BZD: 2,
     CAD: 2,
     CDF: 2,
@@ -175,7 +176,7 @@ var currencyDigits = {
     YER: 2,
     ZAR: 2,
     ZMW: 2,
-    ZWL: 2
+    ZWL: 2,
 };
 
 Object.getOwnPropertyNames(currencyDigits).forEach(function (currency) {
