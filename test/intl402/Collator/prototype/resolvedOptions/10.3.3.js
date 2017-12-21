@@ -7,7 +7,7 @@ description: >
     Tests that the object returned by
     Intl.Collator.prototype.resolvedOptions  has the right properties.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, propertyHelper.js]
 ---*/
 
 var actual = new Intl.Collator().resolvedOptions();
@@ -41,5 +41,15 @@ mustHaveProperty(actual, "usage", ["sort"]);
 mustHaveProperty(actual, "sensitivity", ["variant"]);
 mustHaveProperty(actual, "ignorePunctuation", [false]);
 mustHaveProperty(actual, "collation", collations);
-mayHaveProperty(actual, "numeric", [true, false]);
-mayHaveProperty(actual, "caseFirst", ["upper", "lower", "false"]);
+
+// "numeric" is an optional property.
+if (actual.hasOwnProperty("numeric")) {
+    assert.notSameValue([true, false].indexOf(actual.numeric), -1);
+    verifyProperty(actual, "numeric", {writable: true, enumerable: true, configurable: true});
+}
+
+// "caseFirst" is an optional property.
+if (actual.hasOwnProperty("caseFirst")) {
+    assert.notSameValue(["upper", "lower", "false"].indexOf(actual.caseFirst), -1);
+    verifyProperty(actual, "caseFirst", {writable: true, enumerable: true, configurable: true});
+}

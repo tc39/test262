@@ -857,22 +857,6 @@ function testProperty(obj, property, valid) {
 
 
 /**
- * Tests whether the named property of the given object, if present at all, has a valid value
- * and the default attributes of the properties of an object literal.
- * @param {Object} obj the object to be tested.
- * @param {string} property the name of the property
- * @param {Function|Array} valid either a function that tests value for validity and returns a boolean,
- *   an array of valid values.
- * @exception if the property is present and has an invalid value.
- */
-function mayHaveProperty(obj, property, valid) {
-  if (obj.hasOwnProperty(property)) {
-    testProperty(obj, property, valid);
-  }
-}
-
-
-/**
  * Tests whether the given object has the named property with a valid value
  * and the default attributes of the properties of an object literal.
  * @param {Object} obj the object to be tested.
