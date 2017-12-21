@@ -638,7 +638,6 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
  *   @param {boolean} noReturn whether the resulting value of the property is not returned.
  *   @param {boolean} isILD whether the resulting value of the property is implementation and locale dependent.
  *   @param {object} extra additional option to pass along, properties are value -> {option: value}.
- * @return {boolean} whether the test succeeded.
  */
 function testOption(Constructor, property, type, values, fallback, testOptions) {
   var isOptional = testOptions !== undefined && testOptions.isOptional === true;
@@ -750,8 +749,6 @@ function testOption(Constructor, property, type, values, fallback, testOptions) 
       }
     }
   }
-
-  return true;
 }
 
 
