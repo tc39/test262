@@ -191,9 +191,14 @@ directory of the Test262 project.
 
 ```js
 /*---
-includes: [testBuildInObject.js]
+includes: [propertyHelper.js]
 ---*/
-testBuiltInObject(Number.prototype.toLocaleString, true, false, [], 0);
+verifyProperty(this, "Object", {
+  value: Object,
+  writable: true,
+  enumerable: false,
+  configurable: true,
+});
 ```
 
 ### `flags`
