@@ -7,7 +7,7 @@ description: >
     Tests that Number.prototype.toLocaleString produces the same
     results as Intl.NumberFormat.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 var numbers = [0, -0, 1, -1, 5.5, 123, -123, -123.45, 123.44501, 0.001234,
@@ -29,14 +29,10 @@ locales.forEach(function (locales) {
     options.forEach(function (options) {
         var referenceNumberFormat = new Intl.NumberFormat(locales, options);
         var referenceFormatted = numbers.map(referenceNumberFormat.format);
-        
+
         var formatted = numbers.map(function (a) { return a.toLocaleString(locales, options); });
-        try {
-            testArraysAreSame(referenceFormatted, formatted);
-        } catch (e) {
-            e.message += " (Testing with locales " + locales + "; options " +
-            (options ? JSON.stringify(options) : options) + ".)";
-            throw e;
-        }
+        assert.compareArray(formatted, referenceFormatted,
+                            "(Testing with locales " + locales + "; options " +
+                            (options ? JSON.stringify(options) : options) + ".)");
     });
 });

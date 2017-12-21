@@ -7,7 +7,7 @@ description: >
     Tests that localeCompare produces the same results as
     Intl.Collator.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 var strings = ["d", "O", "od", "oe", "of", "ö", "o\u0308", "X", "y", "Z", "Z.", "𠮷野家", "吉野家", "!A", "A", "b", "C"];
@@ -22,13 +22,9 @@ locales.forEach(function (locales) {
     options.forEach(function (options) {
         var referenceCollator = new Intl.Collator(locales, options);
         var referenceSorted = strings.slice().sort(referenceCollator.compare);
-        
+
         strings.sort(function (a, b) { return a.localeCompare(b, locales, options); });
-        try {
-            testArraysAreSame(referenceSorted, strings);
-        } catch (e) {
-            e.message += " (Testing with locales " + locales + "; options " + JSON.stringify(options) + ".)";
-            throw e;
-        }
+        assert.compareArray(strings, referenceSorted,
+                            "(Testing with locales " + locales + "; options " + JSON.stringify(options) + ".)");
     });
 });

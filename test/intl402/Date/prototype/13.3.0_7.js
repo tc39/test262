@@ -7,7 +7,7 @@ description: >
     Tests that Date.prototype.toLocaleString & Co. produces the same
     results as Intl.DateTimeFormat.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 var functions = {
@@ -45,15 +45,11 @@ Object.getOwnPropertyNames(functions).forEach(function (p) {
             }
             var referenceDateTimeFormat = new Intl.DateTimeFormat(locales, constructorOptions);
             var referenceFormatted = dates.map(referenceDateTimeFormat.format);
-            
+
             var formatted = dates.map(function (a) { return f.call(a, locales, options); });
-            try {
-                testArraysAreSame(referenceFormatted, formatted);
-            } catch (e) {
-                e.message += " (Testing with locales " + locales + "; options " +
-                    (options ? JSON.stringify(options) : options) + ".)";
-                throw e;
-            }
+            assert.compareArray(formatted, referenceFormatted,
+                                "(Testing with locales " + locales + "; options " +
+                                (options ? JSON.stringify(options) : options) + ".)");
         });
     });
 });
