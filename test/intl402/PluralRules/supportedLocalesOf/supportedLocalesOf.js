@@ -11,4 +11,4 @@ author: Zibi Braniecki
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.PluralRules.supportedLocalesOf, true, false, []);
+testBuiltInObject(Intl.PluralRules.supportedLocalesOf, true, false);

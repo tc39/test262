@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.Collator, true, true, ["supportedLocalesOf"]);
+testBuiltInObject(Intl.Collator, true, true);

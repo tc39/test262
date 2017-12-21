@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.NumberFormat.prototype, false, false, ["constructor", "format", "resolvedOptions"]);
+testBuiltInObject(Intl.NumberFormat.prototype, false, false);
