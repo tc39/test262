@@ -22,6 +22,13 @@ testWithIntlConstructors(function (Constructor) {
     assert.notSameValue(obj, newObj, "DateTimeFormat object created with \"new\" was not ignored as this-value.");
 
     // variant 2: use constructor as a function
+    if (Constructor !== Intl.Collator &&
+        Constructor !== Intl.NumberFormat &&
+        Constructor !== Intl.DateTimeFormat)
+    {
+        // Newer Intl constructors are not callable as a function.
+        return;
+    }
     obj = Constructor();
     newObj = Intl.DateTimeFormat.call(obj);
     assert.notSameValue(obj, newObj, "DateTimeFormat object created with constructor as function was not ignored as this-value.");

@@ -21,6 +21,14 @@ author: Norbert Lindenberg
  */
 function testWithIntlConstructors(f) {
   var constructors = ["Collator", "NumberFormat", "DateTimeFormat"];
+
+  // Optionally supported Intl constructors.
+  ["PluralRules"].forEach(function(constructor) {
+    if (typeof Intl[constructor] === "function") {
+      constructors[constructors.length] = constructor;
+    }
+  });
+
   constructors.forEach(function (constructor) {
     var Constructor = Intl[constructor];
     try {
@@ -99,7 +107,7 @@ function taintArray() {
 
 /**
  * Gets locale support info for the given constructor object, which must be one
- * of Intl.Collator, Intl.NumberFormat, Intl.DateTimeFormat.
+ * of Intl constructors.
  * @param {object} Constructor the constructor for which to get locale support info
  * @return {object} locale support info with the following properties:
  *   supported: array of fully supported language tags
