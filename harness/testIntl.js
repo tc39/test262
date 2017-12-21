@@ -1169,7 +1169,7 @@ function isCanonicalizedStructurallyValidTimeZoneName(timeZone) {
   var fileName = fileNameComponent + "(?:/" + fileNameComponent + ")*";
   var etcName = "(?:Etc/)?GMT[+-]\\d{1,2}";
   var systemVName = "SystemV/[A-Z]{3}\\d{1,2}(?:[A-Z]{3})?";
-  var legacyName = etcName + "|" + systemVName + "|CST6CDT|EST5EDT|MST7MDT|PST8PDT|NZ|Canada/East-Saskatchewan";
+  var legacyName = etcName + "|" + systemVName + "|CST6CDT|EST5EDT|MST7MDT|PST8PDT|NZ";
   var zoneNamePattern = new RegExp("^(?:" + fileName + "|" + legacyName + ")$");
 
   if (typeof timeZone !== "string") {
