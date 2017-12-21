@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.DateTimeFormat.prototype.resolvedOptions, true, false, [], 0);
+testBuiltInObject(Intl.DateTimeFormat.prototype.resolvedOptions, true, false, []);

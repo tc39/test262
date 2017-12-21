@@ -13,12 +13,10 @@ description: |
  * @param {boolean} isConstructor whether the specification describes obj as a constructor.
  * @param {String[]} properties an array with the names of the built-in properties of obj,
  *   excluding length, prototype, or properties with non-default attributes.
- * @param {number} length for functions only: the length specified for the function
- *   or derived from the argument list.
  * @author Norbert Lindenberg
  */
 
-function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
+function testBuiltInObject(obj, isFunction, isConstructor, properties) {
 
   if (obj === undefined) {
     $ERROR("Object being tested is undefined.");
@@ -54,29 +52,6 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
 
   // verification of the absence of the prototype property has
   // been moved to the end of the test
-
-  if (isFunction) {
-
-    if (typeof obj.length !== "number" || obj.length !== Math.floor(obj.length)) {
-      $ERROR("Built-in functions must have a length property with an integer value.");
-    }
-
-    if (obj.length !== length) {
-      $ERROR("Function's length property doesn't have specified value; expected " +
-        length + ", got " + obj.length + ".");
-    }
-
-    var desc = Object.getOwnPropertyDescriptor(obj, "length");
-    if (desc.writable) {
-      $ERROR("The length property of a built-in function must not be writable.");
-    }
-    if (desc.enumerable) {
-      $ERROR("The length property of a built-in function must not be enumerable.");
-    }
-    if (!desc.configurable) {
-      $ERROR("The length property of a built-in function must be configurable.");
-    }
-  }
 
   properties.forEach(function(prop) {
     var desc = Object.getOwnPropertyDescriptor(obj, prop);

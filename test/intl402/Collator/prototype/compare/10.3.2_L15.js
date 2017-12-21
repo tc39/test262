@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Object.getOwnPropertyDescriptor(Intl.Collator.prototype, "compare").get , true, false, [], 0);
+testBuiltInObject(Object.getOwnPropertyDescriptor(Intl.Collator.prototype, "compare").get , true, false, []);

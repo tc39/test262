@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(String.prototype.localeCompare, true, false, [], 1);
+testBuiltInObject(String.prototype.localeCompare, true, false, []);
