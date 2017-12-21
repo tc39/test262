@@ -5,7 +5,7 @@
 es5id: 10.3.2_1_c
 description: Tests that compare function is bound to its Intl.Collator.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 var strings = ["d", "O", "od", "oe", "of", "ö", "o\u0308", "X", "y", "Z", "Z.", "𠮷野家", "吉野家", "!A", "A", "b", "C"];
@@ -24,12 +24,8 @@ locales.forEach(function (locales) {
         referenceSorted.sort(function (a, b) { return collatorObj.compare(a, b); });
         var sorted = strings;
         sorted.sort(compareFunc);
-        try {
-            testArraysAreSame(referenceSorted, sorted);
-        } catch (e) {
-            e.message += " (Testing with locales " + locales + "; options " +
-                (options ? JSON.stringify(options) : options) + ".)";
-            throw e;
-        }
+        assert.compareArray(sorted, referenceSorted,
+                            "(Testing with locales " + locales + "; options " +
+                            (options ? JSON.stringify(options) : options) + ".)");
     });
 });

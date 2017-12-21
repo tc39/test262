@@ -6,7 +6,7 @@
 es5id: 10.1.2_a
 description: Tests that Intl.Collator can be subclassed.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 // get a collator and have it sort an array for comparison with the subclass
@@ -25,4 +25,4 @@ class MyCollator extends Intl.Collator {
 
 var collator = new MyCollator(locales);
 a.sort(collator.compare);
-testArraysAreSame(referenceSorted, a);
+assert.compareArray(a, referenceSorted);

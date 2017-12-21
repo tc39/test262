@@ -6,7 +6,7 @@
 es5id: 11.1.2
 description: Tests that Intl.NumberFormat can be subclassed.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 // get a number format and have it format an array of numbers for comparison with the subclass
@@ -25,4 +25,4 @@ class MyNumberFormat extends Intl.NumberFormat {
 
 var format = new MyNumberFormat(locales);
 var actual = a.map(format.format);
-testArraysAreSame(referenceFormatted, actual);
+assert.compareArray(actual, referenceFormatted);

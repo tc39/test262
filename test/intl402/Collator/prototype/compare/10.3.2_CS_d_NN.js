@@ -8,7 +8,7 @@ description: >
     Tests that the compare function supports different sensitivity
     settings.  This test is not normative.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, compareArray.js]
 ---*/
 
 // this test should be valid at least for the following locales
@@ -29,6 +29,6 @@ locales.forEach(function (locale) {
         var matches = input.filter(function (v) {
             return collator.compare(v, target) === 0;
         });
-        testArraysAreSame(expected[sensitivity], matches);
+        assert.compareArray(matches, expected[sensitivity]);
     });
 });

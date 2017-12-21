@@ -1181,23 +1181,3 @@ function isCanonicalizedStructurallyValidTimeZoneName(timeZone) {
   }
   return zoneNamePattern.test(timeZone);
 }
-
-
-/**
- * Verifies that the actual array matches the expected one in length, elements,
- * and element order.
- * @param {Array} expected the expected array.
- * @param {Array} actual the actual array.
- * @return {boolean} true if the test succeeds.
- * @exception if the test fails.
- */
-function testArraysAreSame(expected, actual) {
-  var i;
-  for (i = 0; i < Math.max(actual.length, expected.length); i++) {
-    if (actual[i] !== expected[i]) {
-      $ERROR("Result array element at index " + i + " should be \"" +
-        expected[i] + "\" but is \"" + actual[i] + "\".");
-    }
-  }
-  return true;
-}
