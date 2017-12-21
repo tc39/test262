@@ -8,7 +8,20 @@ description: >
     requirements for built-in objects defined by the introduction of
     chapter 17 of the ECMAScript Language Specification.
 author: Norbert Lindenberg
-includes: [testBuiltInObject.js]
+includes: [isConstructor.js]
 ---*/
 
-testBuiltInObject(Date.prototype.toLocaleDateString);
+assert.sameValue(Object.prototype.toString.call(Date.prototype.toLocaleDateString), "[object Function]",
+                 "The [[Class]] internal property of a built-in function must be " +
+                 "\"Function\".");
+
+assert(Object.isExtensible(Date.prototype.toLocaleDateString),
+       "Built-in objects must be extensible.");
+
+assert.sameValue(Object.getPrototypeOf(Date.prototype.toLocaleDateString), Function.prototype);
+
+assert.sameValue(Date.prototype.toLocaleDateString.hasOwnProperty("prototype"), false,
+                 "Built-in functions that aren't constructors must not have a prototype property.");
+
+assert.sameValue(isConstructor(Date.prototype.toLocaleDateString), false,
+                 "Built-in functions don't implement [[Construct]] unless explicitly specified.");
