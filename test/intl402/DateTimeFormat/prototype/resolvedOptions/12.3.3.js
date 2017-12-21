@@ -16,22 +16,28 @@ var actual = new Intl.DateTimeFormat().resolvedOptions();
 var actual2 = new Intl.DateTimeFormat().resolvedOptions();
 assert.notSameValue(actual2, actual, "resolvedOptions returned the same object twice.");
 
-// source: CLDR file common/bcp47/calendar.xml; version CLDR 21.
+// source: CLDR file common/bcp47/calendar.xml; version CLDR 32.
 var calendars = [
     "buddhist",
     "chinese",
     "coptic",
+    "dangi",
     "ethioaa",
+    "ethiopic-amete-alem",
     "ethiopic",
     "gregory",
     "hebrew",
     "indian",
     "islamic",
-    "islamicc",
+    "islamic-umalqura",
+    "islamic-tbla",
+    "islamic-civil",
+    "islamic-rgsa",
     "iso8601",
     "japanese",
     "persian",
-    "roc"
+    "roc",
+    "islamicc",
 ];
 
 // this assumes the default values where the specification provides them
