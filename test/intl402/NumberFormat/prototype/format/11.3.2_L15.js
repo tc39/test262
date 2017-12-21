@@ -12,4 +12,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Object.getOwnPropertyDescriptor(Intl.NumberFormat.prototype, "format").get , true, false, []);
+testBuiltInObject(Object.getOwnPropertyDescriptor(Intl.NumberFormat.prototype, "format").get , true, false);

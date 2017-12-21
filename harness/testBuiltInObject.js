@@ -11,12 +11,10 @@ description: |
  * @param {Object} obj the object to be tested.
  * @param {boolean} isFunction whether the specification describes obj as a function.
  * @param {boolean} isConstructor whether the specification describes obj as a constructor.
- * @param {String[]} properties an array with the names of the built-in properties of obj,
- *   excluding length, prototype, or properties with non-default attributes.
  * @author Norbert Lindenberg
  */
 
-function testBuiltInObject(obj, isFunction, isConstructor, properties) {
+function testBuiltInObject(obj, isFunction, isConstructor) {
 
   if (obj === undefined) {
     $ERROR("Object being tested is undefined.");
@@ -46,34 +44,6 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties) {
   if (isConstructor && Object.getPrototypeOf(obj.prototype) !== Object.prototype) {
     $ERROR("Built-in prototype objects must have Object.prototype as their prototype.");
   }
-
-  // verification of the absence of the [[Construct]] internal property has
-  // been moved to the end of the test
-
-  // verification of the absence of the prototype property has
-  // been moved to the end of the test
-
-  properties.forEach(function(prop) {
-    var desc = Object.getOwnPropertyDescriptor(obj, prop);
-    if (desc === undefined) {
-      $ERROR("Missing property " + prop + ".");
-    }
-    // accessor properties don't have writable attribute
-    if (desc.hasOwnProperty("writable") && !desc.writable) {
-      $ERROR("The " + prop + " property of this built-in object must be writable.");
-    }
-    if (desc.enumerable) {
-      $ERROR("The " + prop + " property of this built-in object must not be enumerable.");
-    }
-    if (!desc.configurable) {
-      $ERROR("The " + prop + " property of this built-in object must be configurable.");
-    }
-  });
-
-  // The remaining sections have been moved to the end of the test because
-  // unbound non-constructor functions written in JavaScript cannot possibly
-  // pass them, and we still want to test JavaScript implementations as much
-  // as possible.
 
   var exception;
   if (isFunction && !isConstructor) {

@@ -11,5 +11,5 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(this.Intl, false, false, []);
-testBuiltInObject(Intl, false, false, ["Collator", "NumberFormat", "DateTimeFormat"]);
+testBuiltInObject(this.Intl, false, false);
+testBuiltInObject(Intl, false, false);
