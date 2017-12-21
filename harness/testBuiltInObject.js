@@ -10,11 +10,10 @@ description: |
  *   defined by the introduction of chapter 15 of the ECMAScript Language Specification.
  * @param {Object} obj the object to be tested.
  * @param {boolean} isFunction whether the specification describes obj as a function.
- * @param {boolean} isConstructor whether the specification describes obj as a constructor.
  * @author Norbert Lindenberg
  */
 
-function testBuiltInObject(obj, isFunction, isConstructor) {
+function testBuiltInObject(obj, isFunction) {
 
   if (obj === undefined) {
     $ERROR("Object being tested is undefined.");
@@ -41,12 +40,8 @@ function testBuiltInObject(obj, isFunction, isConstructor) {
     $ERROR("Built-in functions must have Function.prototype as their prototype.");
   }
 
-  if (isConstructor && Object.getPrototypeOf(obj.prototype) !== Object.prototype) {
-    $ERROR("Built-in prototype objects must have Object.prototype as their prototype.");
-  }
-
   var exception;
-  if (isFunction && !isConstructor) {
+  if (isFunction) {
     // this is not a complete test for the presence of [[Construct]]:
     // if it's absent, the exception must be thrown, but it may also
     // be thrown if it's present and just has preconditions related to
@@ -63,7 +58,7 @@ function testBuiltInObject(obj, isFunction, isConstructor) {
     }
   }
 
-  if (isFunction && !isConstructor && obj.hasOwnProperty("prototype")) {
+  if (isFunction && obj.hasOwnProperty("prototype")) {
     $ERROR("Built-in functions that aren't constructors must not have a prototype property.");
   }
 

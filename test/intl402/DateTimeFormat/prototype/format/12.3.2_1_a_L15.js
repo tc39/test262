@@ -12,4 +12,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(new Intl.DateTimeFormat().format, true, false);
+testBuiltInObject(new Intl.DateTimeFormat().format, true);
