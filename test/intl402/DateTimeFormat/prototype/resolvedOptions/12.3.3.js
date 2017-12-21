@@ -8,7 +8,7 @@ description: >
     Intl.DateTimeFormat.prototype.resolvedOptions  has the right
     properties.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, propertyHelper.js]
 ---*/
 
 var actual = new Intl.DateTimeFormat().resolvedOptions();
@@ -39,13 +39,13 @@ mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
 mustHaveProperty(actual, "calendar", calendars);
 mustHaveProperty(actual, "numberingSystem", isValidNumberingSystem);
 mustHaveProperty(actual, "timeZone", isCanonicalizedStructurallyValidTimeZoneName);
-mustNotHaveProperty(actual, "weekday");
-mustNotHaveProperty(actual, "era");
+verifyProperty(actual, "weekday", undefined);
+verifyProperty(actual, "era", undefined);
 mustHaveProperty(actual, "year", ["2-digit", "numeric"]);
 mustHaveProperty(actual, "month", ["2-digit", "numeric", "narrow", "short", "long"]);
 mustHaveProperty(actual, "day", ["2-digit", "numeric"]);
-mustNotHaveProperty(actual, "hour");
-mustNotHaveProperty(actual, "minute");
-mustNotHaveProperty(actual, "second");
-mustNotHaveProperty(actual, "timeZoneName");
-mustNotHaveProperty(actual, "hour12");
+verifyProperty(actual, "hour", undefined);
+verifyProperty(actual, "minute", undefined);
+verifyProperty(actual, "second", undefined);
+verifyProperty(actual, "timeZoneName", undefined);
+verifyProperty(actual, "hour12", undefined);

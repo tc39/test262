@@ -874,19 +874,6 @@ function mustHaveProperty(obj, property, valid) {
 
 
 /**
- * Tests whether the given object does not have the named property.
- * @param {Object} obj the object to be tested.
- * @param {string} property the name of the property
- * @exception if the property is present.
- */
-function mustNotHaveProperty(obj, property) {
-  if (obj.hasOwnProperty(property)) {
-    $ERROR("Object has property it mustn't have: " + property + ".");
-  }
-}
-
-
-/**
  * Properties of the RegExp constructor that may be affected by use of regular
  * expressions, and the default values of these properties. Properties are from
  * https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Deprecated_and_obsolete_features#RegExp_Properties

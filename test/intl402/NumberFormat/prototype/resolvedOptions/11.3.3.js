@@ -8,7 +8,7 @@ description: >
     Intl.NumberFormat.prototype.resolvedOptions  has the right
     properties.
 author: Norbert Lindenberg
-includes: [testIntl.js]
+includes: [testIntl.js, propertyHelper.js]
 ---*/
 
 var actual = new Intl.NumberFormat().resolvedOptions();
@@ -20,11 +20,11 @@ assert.notSameValue(actual2, actual, "resolvedOptions returned the same object t
 mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
 mustHaveProperty(actual, "numberingSystem", isValidNumberingSystem);
 mustHaveProperty(actual, "style", ["decimal"]);
-mustNotHaveProperty(actual, "currency");
-mustNotHaveProperty(actual, "currencyDisplay");
+verifyProperty(actual, "currency", undefined);
+verifyProperty(actual, "currencyDisplay", undefined);
 mustHaveProperty(actual, "minimumIntegerDigits", [1]);
 mustHaveProperty(actual, "minimumFractionDigits", [0]);
 mustHaveProperty(actual, "maximumFractionDigits", [3]);
-mustNotHaveProperty(actual, "minimumSignificantDigits");
-mustNotHaveProperty(actual, "maximumSignificantDigits");
+verifyProperty(actual, "minimumSignificantDigits", undefined);
+verifyProperty(actual, "maximumSignificantDigits", undefined);
 mustHaveProperty(actual, "useGrouping", [true]);
