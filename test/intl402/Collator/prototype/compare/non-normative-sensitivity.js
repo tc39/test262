@@ -8,7 +8,7 @@ description: >
     Tests that the compare function supports different sensitivity
     settings.  This test is not normative.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 // this test should be valid at least for the following locales

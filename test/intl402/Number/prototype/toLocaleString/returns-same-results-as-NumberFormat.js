@@ -7,7 +7,7 @@ description: >
     Tests that Number.prototype.toLocaleString produces the same
     results as Intl.NumberFormat.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 var numbers = [0, -0, 1, -1, 5.5, 123, -123, -123.45, 123.44501, 0.001234,

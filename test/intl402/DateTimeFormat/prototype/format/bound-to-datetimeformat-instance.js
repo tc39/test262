@@ -5,7 +5,6 @@
 es5id: 12.3.2_1_c
 description: Tests that format function is bound to its Intl.DateTimeFormat.
 author: Norbert Lindenberg
-includes: [testIntl.js]
 ---*/
 
 var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z"))];

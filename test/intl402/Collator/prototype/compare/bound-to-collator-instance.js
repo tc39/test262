@@ -5,7 +5,7 @@
 es5id: 10.3.2_1_c
 description: Tests that compare function is bound to its Intl.Collator.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 var strings = ["d", "O", "od", "oe", "of", "ö", "o\u0308", "X", "y", "Z", "Z.", "𠮷野家", "吉野家", "!A", "A", "b", "C"];

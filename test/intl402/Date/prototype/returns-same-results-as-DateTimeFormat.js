@@ -7,7 +7,7 @@ description: >
     Tests that Date.prototype.toLocaleString & Co. produces the same
     results as Intl.DateTimeFormat.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 var functions = {

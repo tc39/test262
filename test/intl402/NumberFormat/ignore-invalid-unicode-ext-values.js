@@ -7,7 +7,6 @@ description: >
     Tests that Intl.NumberFormat does not accept Unicode locale
     extension keys and values that are not allowed.
 author: Norbert Lindenberg
-includes: [testIntl.js]
 ---*/
 
 var locales = ["ja-JP", "zh-Hans-CN", "zh-Hant-TW"];

@@ -8,7 +8,7 @@ description: >
     Tests that the compare function supports phonebook sorting if it
     says it does.  This test is not normative.
 author: Norbert Lindenberg
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 ---*/
 
 // this test should be valid at least for the following locales
