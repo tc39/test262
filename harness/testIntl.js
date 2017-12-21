@@ -223,10 +223,10 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
   var __tagMappings = {
     // property names must be in lower case; values in canonical form
 
-    // grandfathered tags from IANA language subtag registry, file date 2011-08-25
+    // grandfathered tags from IANA language subtag registry, file date 2017-12-14
     "art-lojban": "jbo",
     "cel-gaulish": "cel-gaulish",
-    "en-gb-oed": "en-GB-oed",
+    "en-gb-oed": "en-GB-oxendict",
     "i-ami": "ami",
     "i-bnn": "bnn",
     "i-default": "i-default",
@@ -250,7 +250,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "zh-min": "zh-min",
     "zh-min-nan": "nan",
     "zh-xiang": "hsn",
-    // deprecated redundant tags from IANA language subtag registry, file date 2011-08-25
+    // deprecated redundant tags from IANA language subtag registry, file date 2017-12-14
     "sgn-br": "bzs",
     "sgn-co": "csn",
     "sgn-de": "gsg",
@@ -276,7 +276,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "zh-gan": "gan",
     "zh-wuu": "wuu",
     "zh-yue": "yue",
-    // deprecated variant with prefix from IANA language subtag registry, file date 2011-08-25
+    // deprecated variant with prefix from IANA language subtag registry, file date 2017-12-14
     "ja-latn-hepburn-heploc": "ja-Latn-alalc97"
   };
 
@@ -288,24 +288,85 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
    */
   var __subtagMappings = {
     // property names and values must be in canonical case
-    // language subtags with Preferred-Value mappings from IANA language subtag registry, file date 2011-08-25
+    // language subtags with Preferred-Value mappings from IANA language subtag registry, file date 2017-12-14
     "in": "id",
     "iw": "he",
     "ji": "yi",
     "jw": "jv",
     "mo": "ro",
+    "aam": "aas",
+    "adp": "dz",
+    "aue": "ktz",
     "ayx": "nun",
+    "bgm": "bcg",
+    "bjd": "drl",
+    "ccq": "rki",
     "cjr": "mom",
+    "cka": "cmr",
     "cmk": "xch",
+    "coy": "pij",
+    "cqu": "quh",
     "drh": "khk",
     "drw": "prs",
     "gav": "dev",
+    "gfx": "vaj",
+    "ggn": "gvr",
+    "gti": "nyc",
+    "guv": "duz",
+    "hrr": "jal",
+    "ibi": "opa",
+    "ilw": "gal",
+    "jeg": "oyb",
+    "kgc": "tdf",
+    "kgh": "kml",
+    "koj": "kwv",
+    "krm": "bmf",
+    "ktr": "dtp",
+    "kvs": "gdj",
+    "kwq": "yam",
+    "kxe": "tvd",
+    "kzj": "dtp",
+    "kzt": "dtp",
+    "lii": "raq",
+    "lmm": "rmx",
+    "meg": "cir",
     "mst": "mry",
+    "mwj": "vaj",
     "myt": "mry",
+    "nad": "xny",
+    "nnx": "ngv",
+    "nts": "pij",
+    "oun": "vaj",
+    "pcr": "adx",
+    "pmc": "huw",
+    "pmu": "phr",
+    "ppa": "bfy",
+    "ppr": "lcq",
+    "pry": "prt",
+    "puz": "pub",
+    "sca": "hle",
+    "skk": "oyb",
+    "tdu": "dtp",
+    "thc": "tpo",
+    "thx": "oyb",
     "tie": "ras",
     "tkk": "twm",
+    "tlw": "weo",
+    "tmp": "tyj",
+    "tne": "kak",
     "tnf": "prs",
-    // region subtags with Preferred-Value mappings from IANA language subtag registry, file date 2011-08-25
+    "tsf": "taj",
+    "uok": "ema",
+    "xba": "cax",
+    "xia": "acn",
+    "xkh": "waw",
+    "xsj": "suj",
+    "ybd": "rki",
+    "yma": "lrr",
+    "ymt": "mtm",
+    "yos": "zom",
+    "yuu": "yug",
+    // region subtags with Preferred-Value mappings from IANA language subtag registry, file date 2017-12-14
     "BU": "MM",
     "DD": "DE",
     "FX": "FR",
@@ -321,7 +382,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
    * Spec: IANA Language Subtag Registry.
    */
   var __extlangMappings = {
-    // extlang subtags with Preferred-Value mappings from IANA language subtag registry, file date 2011-08-25
+    // extlang subtags with Preferred-Value mappings from IANA language subtag registry, file date 2017-12-14
     // values are arrays with [0] the replacement value, [1] (if present) the prefix to be removed
     "aao": ["aao", "ar"],
     "abh": ["abh", "ar"],
@@ -401,6 +462,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "fsl": ["fsl", "sgn"],
     "fss": ["fss", "sgn"],
     "gan": ["gan", "zh"],
+    "gds": ["gds", "sgn"],
     "gom": ["gom", "kok"],
     "gse": ["gse", "sgn"],
     "gsg": ["gsg", "sgn"],
@@ -419,6 +481,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "hsl": ["hsl", "sgn"],
     "hsn": ["hsn", "zh"],
     "icl": ["icl", "sgn"],
+    "iks": ["iks", "sgn"],
     "ils": ["ils", "sgn"],
     "inl": ["inl", "sgn"],
     "ins": ["ins", "sgn"],
@@ -483,6 +546,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "ors": ["ors", "ms"],
     "pel": ["pel", "ms"],
     "pga": ["pga", "ar"],
+    "pgz": ["pgz", "sgn"],
     "pks": ["pks", "sgn"],
     "prl": ["prl", "sgn"],
     "prz": ["prz", "sgn"],
@@ -496,8 +560,8 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "psr": ["psr", "sgn"],
     "pys": ["pys", "sgn"],
     "rms": ["rms", "sgn"],
-    "rsi": ["rsi", "sgn"],
     "rsl": ["rsl", "sgn"],
+    "rsm": ["rsm", "sgn"],
     "sdl": ["sdl", "sgn"],
     "sfb": ["sfb", "sgn"],
     "sfs": ["sfs", "sgn"],
@@ -506,6 +570,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "shu": ["shu", "ar"],
     "slf": ["slf", "sgn"],
     "sls": ["sls", "sgn"],
+    "sqk": ["sqk", "sgn"],
     "sqs": ["sqs", "sgn"],
     "ssh": ["ssh", "ar"],
     "ssp": ["ssp", "sgn"],
@@ -515,6 +580,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "swh": ["swh", "sw"],
     "swl": ["swl", "sgn"],
     "syy": ["syy", "sgn"],
+    "szs": ["szs", "sgn"],
     "tmw": ["tmw", "ms"],
     "tse": ["tse", "sgn"],
     "tsm": ["tsm", "sgn"],
@@ -535,19 +601,21 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "vsi": ["vsi", "sgn"],
     "vsl": ["vsl", "sgn"],
     "vsv": ["vsv", "sgn"],
+    "wbs": ["wbs", "sgn"],
     "wuu": ["wuu", "zh"],
     "xki": ["xki", "sgn"],
     "xml": ["xml", "sgn"],
     "xmm": ["xmm", "ms"],
     "xms": ["xms", "sgn"],
-    "yds": ["yds", "sgn"],
+    "ygs": ["ygs", "sgn"],
+    "yhs": ["yhs", "sgn"],
     "ysl": ["ysl", "sgn"],
     "yue": ["yue", "zh"],
     "zib": ["zib", "sgn"],
     "zlm": ["zlm", "ms"],
     "zmi": ["zmi", "ms"],
     "zsl": ["zsl", "sgn"],
-    "zsm": ["zsm", "ms"]
+    "zsm": ["zsm", "ms"],
   };
 
 
