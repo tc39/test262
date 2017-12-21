@@ -1098,22 +1098,6 @@ function getDateTimeComponentValues(component) {
 
 
 /**
- * Tests that the given value is valid for the given date-time component.
- * @param {string} component a date-time component.
- * @param {string} value the value to be tested.
- * @return {boolean} true if the test succeeds.
- * @exception if the test fails.
- */
-
-function testValidDateTimeComponentValue(component, value) {
-  if (getDateTimeComponentValues(component).indexOf(value) === -1) {
-    $ERROR("Invalid value " + value + " for date-time component " + component + ".");
-  }
-  return true;
-}
-
-
-/**
  * @description Tests whether timeZone is a String value representing a
  * structurally valid and canonicalized time zone name, as defined in
  * sections 6.4.1 and 6.4.2 of the ECMAScript Internationalization API

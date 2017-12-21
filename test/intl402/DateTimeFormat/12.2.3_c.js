@@ -32,13 +32,9 @@ locales.forEach(function (locale) {
                         "Unrequested component " + component +
                         " added to requested subset " + JSON.stringify(subset) +
                         "; locale " + locale + ".");
-                try {
-                    testValidDateTimeComponentValue(component, actual[component]);
-                } catch (e) {
-                    e.message += " (Testing locale " + locale + "; subset " +
-                        JSON.stringify(subset) + ")";
-                    throw e;
-                }
+                assert.notSameValue(getDateTimeComponentValues(component).indexOf(actual[component]), -1,
+                      "Invalid value " + actual[component] + " for date-time component " + component + "." +
+                      " (Testing locale " + locale + "; subset " + JSON.stringify(subset) + ")");
             } else {
                 assert.sameValue(subset.hasOwnProperty(component), false,
                         "Missing component " + component +
