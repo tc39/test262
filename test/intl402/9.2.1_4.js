@@ -28,6 +28,4 @@ testWithIntlConstructors(function (Constructor) {
     assert.sameValue(supportedForNumber.length, supportedForEmptyList.length, "Supported locales differ between numeric and empty list input.");
     var supportedForBoolean = Constructor.supportedLocalesOf(true);
     assert.sameValue(supportedForBoolean.length, supportedForEmptyList.length, "Supported locales differ between boolean and empty list input.");
-    
-    return true;
 });

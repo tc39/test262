@@ -32,6 +32,4 @@ testWithIntlConstructors(function (Constructor) {
     var supported = Constructor.supportedLocalesOf(unsupportedByConstructor,
             {localeMatcher: "lookup"});
     assert.sameValue(supported.length > 0, false, "Locale " + supported[0] + " is returned by supportedLocalesOf but not by resolvedOptions.");
-
-    return true;
 });

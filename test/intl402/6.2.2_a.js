@@ -34,5 +34,4 @@ testWithIntlConstructors(function (Constructor) {
         // this must not throw an exception for a valid language tag
         var obj = new Constructor([tag]);
     });
-    return true;
 });

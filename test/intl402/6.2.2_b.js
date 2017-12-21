@@ -30,5 +30,4 @@ testWithIntlConstructors(function (Constructor) {
             var obj = new Constructor([tag]);
         }, "Invalid language tag " + tag + " was not rejected.");
     });
-    return true;
 });

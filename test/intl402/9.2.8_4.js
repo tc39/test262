@@ -24,6 +24,4 @@ testWithIntlConstructors(function (Constructor) {
         testFrozenProperty(supported, i);
     }
     testFrozenProperty(supported, "length");
-
-    return true;
 });

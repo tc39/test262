@@ -22,6 +22,4 @@ testWithIntlConstructors(function (Constructor) {
             var supported = Constructor.supportedLocalesOf([defaultLocale], {localeMatcher: value});
         }, "Invalid localeMatcher value " + value + " was not rejected.");
     });
-    
-    return true;
 });

@@ -21,6 +21,4 @@ testWithIntlConstructors(function (Constructor) {
         assert.sameValue(supported.indexOf(noLinguisticContent), -1, "SupportedLocales returned the \"no linguistic content\" locale with matcher " + matcher + ".");
         assert.sameValue(supported.length > 1, false, "SupportedLocales returned stray locales: " + supported.join(", ") + " with matcher " + matcher + ".");
     });
-
-    return true;
 });

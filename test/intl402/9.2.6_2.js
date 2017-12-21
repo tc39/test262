@@ -20,6 +20,4 @@ testWithIntlConstructors(function (Constructor) {
             {localeMatcher: matcher});
         assert.sameValue(canonicalized.length > 1, false, "Canonicalization with matcher " + matcher + " didn't remove duplicate language tags from locale list.");
     });
-
-    return true;
 });
