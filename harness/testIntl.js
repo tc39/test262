@@ -986,6 +986,7 @@ function isValidNumberingSystem(name) {
 var numberingSystemDigits = {
   arab: "٠١٢٣٤٥٦٧٨٩",
   arabext: "۰۱۲۳۴۵۶۷۸۹",
+  bali: "\u1B50\u1B51\u1B52\u1B53\u1B54\u1B55\u1B56\u1B57\u1B58\u1B59",
   beng: "০১২৩৪৫৬৭৮৯",
   deva: "०१२३४५६७८९",
   fullwide: "０１２３４５６７８９",
@@ -996,6 +997,7 @@ var numberingSystemDigits = {
   knda: "೦೧೨೩೪೫೬೭೮೯",
   laoo: "໐໑໒໓໔໕໖໗໘໙",
   latn: "0123456789",
+  limb: "\u1946\u1947\u1948\u1949\u194A\u194B\u194C\u194D\u194E\u194F",
   mlym: "൦൧൨൩൪൫൬൭൮൯",
   mong: "᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙",
   mymr: "၀၁၂၃၄၅၆၇၈၉",
