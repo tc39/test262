@@ -14,25 +14,21 @@ author: Norbert Lindenberg
 
 /**
  * @description Calls the provided function for every service constructor in
- * the Intl object, until f returns a falsy value. It returns the result of the
- * last call to f, mapped to a boolean.
+ * the Intl object.
  * @param {Function} f the function to call for each service constructor in
  *   the Intl object.
  *   @param {Function} Constructor the constructor object to test with.
- * @result {Boolean} whether the test succeeded.
  */
 function testWithIntlConstructors(f) {
   var constructors = ["Collator", "NumberFormat", "DateTimeFormat"];
-  return constructors.every(function (constructor) {
+  constructors.forEach(function (constructor) {
     var Constructor = Intl[constructor];
-    var result;
     try {
-      result = f(Constructor);
+      f(Constructor);
     } catch (e) {
       e.message += " (Testing with " + constructor + ".)";
       throw e;
     }
-    return result;
   });
 }
 

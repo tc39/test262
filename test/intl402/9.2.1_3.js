@@ -68,6 +68,4 @@ testWithIntlConstructors(function (Constructor) {
             assert.sameValue(error1.name, error2.name, "Single locale string " + locale + " results in error " + error1.name + ", but locale list [" + locale + "] results in error " + error2.name + ".");
         }
     });
-    
-    return true;
 });

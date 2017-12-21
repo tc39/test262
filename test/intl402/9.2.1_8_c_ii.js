@@ -16,6 +16,4 @@ testWithIntlConstructors(function (Constructor) {
             var supported = Constructor.supportedLocalesOf([value]);
         }, "" + value + " as locale was not rejected.");
     });
-    
-    return true;
 });

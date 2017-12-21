@@ -35,6 +35,4 @@ testWithIntlConstructors(function (Constructor) {
             }
         });
     });
-
-    return true;
 });

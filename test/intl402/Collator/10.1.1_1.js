@@ -20,6 +20,4 @@ testWithIntlConstructors(function (Constructor) {
     obj = Constructor();
     newObj = Intl.Collator.call(obj);
     assert.notSameValue(obj, newObj, "Collator object created with constructor as function was not ignored as this-value.");
-
-    return true;
 });

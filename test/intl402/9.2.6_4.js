@@ -16,6 +16,4 @@ testWithIntlConstructors(function (Constructor) {
         var supported = Constructor.supportedLocalesOf([], {localeMatcher: matcher});
         assert.sameValue(supported.length, 0, "SupportedLocales with matcher " + matcher + " returned a non-empty list for an empty list.");
     });
-
-    return true;
 });

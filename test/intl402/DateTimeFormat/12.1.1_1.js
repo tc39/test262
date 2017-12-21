@@ -12,7 +12,7 @@ includes: [testIntl.js]
 
 testWithIntlConstructors(function (Constructor) {
     if (Constructor === Intl.DateTimeFormat)
-        return true;
+        return;
 
     var obj, newObj;
 
@@ -25,6 +25,4 @@ testWithIntlConstructors(function (Constructor) {
     obj = Constructor();
     newObj = Intl.DateTimeFormat.call(obj);
     assert.notSameValue(obj, newObj, "DateTimeFormat object created with constructor as function was not ignored as this-value.");
-
-    return true;
 });

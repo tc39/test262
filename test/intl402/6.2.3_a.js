@@ -55,5 +55,4 @@ testWithIntlConstructors(function (Constructor) {
         var supported = Constructor.supportedLocalesOf([tag]);
         assert(supported.length === 0 || supported[0] === canonicalizedTags[tag][0], "For " + tag + " got " + supported[0] + "; expected " + canonicalizedTags[tag][0] + ".");
     });
-    return true;
 });
