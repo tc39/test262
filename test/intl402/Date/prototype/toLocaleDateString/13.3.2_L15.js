@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Date.prototype.toLocaleDateString, true);
+testBuiltInObject(Date.prototype.toLocaleDateString);

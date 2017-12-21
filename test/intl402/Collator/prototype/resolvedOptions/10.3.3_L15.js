@@ -11,4 +11,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(Intl.Collator.prototype.resolvedOptions, true);
+testBuiltInObject(Intl.Collator.prototype.resolvedOptions);

@@ -12,4 +12,4 @@ author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(new Intl.NumberFormat().format, true);
+testBuiltInObject(new Intl.NumberFormat().format);
