@@ -10,6 +10,7 @@ description: >
     ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 var formatFn = new Intl.NumberFormat().format;

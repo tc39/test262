@@ -10,6 +10,7 @@ description: >
     Specification.
 author: Norbert Lindenberg
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 var formatFn = Object.getOwnPropertyDescriptor(Intl.NumberFormat.prototype, "format").get;

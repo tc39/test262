@@ -8,6 +8,7 @@ description: >
       isConstructor
 
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 assert.sameValue(typeof isConstructor, "function");

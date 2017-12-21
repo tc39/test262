@@ -9,6 +9,7 @@ description: >
     chapter 17 of the ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 assert.sameValue(Object.prototype.toString.call(Intl.DateTimeFormat.supportedLocalesOf), "[object Function]",

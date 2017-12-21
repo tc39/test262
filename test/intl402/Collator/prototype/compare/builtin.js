@@ -9,6 +9,7 @@ description: >
     of chapter 17 of the ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 var compareFn = Object.getOwnPropertyDescriptor(Intl.Collator.prototype, "compare").get;

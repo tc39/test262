@@ -9,6 +9,7 @@ description: >
     the ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 assert.sameValue(Object.prototype.toString.call(String.prototype.localeCompare), "[object Function]",

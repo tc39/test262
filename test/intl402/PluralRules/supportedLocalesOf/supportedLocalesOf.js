@@ -9,6 +9,7 @@ description: >
     ECMAScript Language Specification.
 author: Zibi Braniecki
 includes: [isConstructor.js]
+features: [Reflect.construct]
 ---*/
 
 assert.sameValue(Object.prototype.toString.call(Intl.PluralRules.supportedLocalesOf), "[object Function]",
