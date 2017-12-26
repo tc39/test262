@@ -18,3 +18,9 @@ info: |
 assert.sameValue(Number('0o8'), NaN, 'invalid digit');
 assert.sameValue(Number('00o0'), NaN, 'leading zero');
 assert.sameValue(Number('0o'), NaN, 'omitted digits');
+assert.sameValue(Number('+0o10'), NaN, 'plus sign');
+assert.sameValue(Number('-0o10'), NaN, 'minus sign');
+assert.sameValue(Number('0o10.01'), NaN, 'fractional part');
+assert.sameValue(Number('0o1e10'), NaN, 'exponent part');
+assert.sameValue(Number('0o1e-10'), NaN, 'exponent part with a minus sign');
+assert.sameValue(Number('0o1e+10'), NaN, 'exponent part with a plus sign');
