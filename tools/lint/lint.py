@@ -23,6 +23,7 @@ except ImportError:
 
 
 from lib.collect_files import collect_files
+from lib.checks.esid import CheckEsid
 from lib.checks.features import CheckFeatures
 from lib.checks.frontmatter import CheckFrontmatter
 from lib.checks.harnessfeatures import CheckHarnessFeatures
@@ -41,6 +42,7 @@ parser.add_argument('path',
         help='file name or directory of files to lint')
 
 checks = [
+        CheckEsid(),
         CheckFrontmatter(),
         CheckFeatures('features.txt'),
         CheckHarnessFeatures(),
