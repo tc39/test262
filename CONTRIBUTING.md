@@ -177,7 +177,7 @@ Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wi
 
 **Deprecated.**
 
-This tag identifies the section number from the portion of the ES6 standard that is tested by this test _at the time the test was written_. The es6ids might not correspond to the correction section numbers in the ES6 (or later) specifcation because routine edits to the specification will change section numbering. For this reason, only the esid is required for new tests.
+This tag identifies the section number from the portion of the ES6 standard that is tested by this test _at the time the test was written_. The es6ids might not correspond to the correction section numbers in the ES6 (or later) specification because routine edits to the specification will change section numbering. For this reason, only the esid is required for new tests.
 
 Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids] for reasoning behind deprecation.
 
