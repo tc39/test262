@@ -3,11 +3,9 @@
 /*---
 esid: sec-array.prototype.flatMap
 description: >
-    Behavior when array is depth more than 1
+    Behavior when given a bound function
 includes: [compareArray.js]
 ---*/
 
-var a = [void 0,[void 0]];
-var flattenMap = [].flatMap.bind(a, function() {});
-
-assert.compareArray(a.flatMap(flattenMap), [undefined, undefined, undefined, undefined]);
+var a = [0, 0];
+assert.compareArray(a.flatMap(function(){ return this; }.bind([1, 2])), [1, 2, 1, 2]);

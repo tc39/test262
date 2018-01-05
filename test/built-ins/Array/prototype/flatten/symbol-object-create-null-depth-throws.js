@@ -6,16 +6,11 @@ description: >
     if the argument is a Symbol or Object null, it throws exception
 ---*/
 
-var a = [];
-var depthNum = Symbol();
-
 assert.throws(TypeError, function() {
-  a.flatten(depthNum);
+  [].flatten(Symbol());
 }, 'symbol value');
 
-depthNum = Object.create(null);
-
 assert.throws(TypeError, function() {
-  a.flatten(depthNum);
+  [].flatten(Object.create(null));
 }, 'object create null');
 

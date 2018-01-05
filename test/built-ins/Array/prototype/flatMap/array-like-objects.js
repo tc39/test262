@@ -7,27 +7,28 @@ description: >
 includes: [compareArray.js]
 ---*/
 
-function takesTwoParams(a, b) {
-  return Array.prototype.flatMap.call(arguments, function(ele) { return ele * 2});
+function getArgumentsObject() {
+  return arguments;
 }
 
-var actual = takesTwoParams(1,[2]);
-var expected = [2, 4];
+function double(e) {
+  return [e * 2];
+}
 
-assert(compareArray(actual, expected), 'arguments array like object');
-
-var a = {
-  "length": 1,
-  "0": 1
-};
-
-actual = Array.prototype.flatMap.call(a, function(ele) { return ele * 2});
-assert.sameValue(JSON.stringify(actual), JSON.stringify(['2']), 'array like objects');
+var a = getArgumentsObject(1, 2);
+var actual = [].flatMap.call(a, double);
+assert.compareArray(actual, [2, 4], 'arguments objects');
 
 var a = {
-  "length": undefined,
-  "0": 1
+  length: 1,
+  0: 1,
 };
+var actual = [].flatMap.call(a, double);
+assert.compareArray(actual, [2], 'array-like objects');
 
-actual = Array.prototype.flatMap.call(a, function(ele) { return ele * 2});
-assert.sameValue(JSON.stringify(actual), JSON.stringify([]), 'array like objects');
+var a = {
+  length: void 0,
+  0: 1,
+};
+var actual = [].flatMap.call(a, double);
+assert.compareArray(actual, [], 'array-like objects; undefined length');

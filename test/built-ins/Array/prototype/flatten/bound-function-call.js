@@ -7,7 +7,7 @@ description: >
 includes: [compareArray.js]
 ---*/
 
-var a = [1,[1]];
-var flattenIt = [].flatten.bind(a);
+var a = [[0],[1]];
+var actual = [].flatten.bind(a)();
 
-assert(compareArray(flattenIt(), [1, 1]), 'bound functions');
+assert.compareArray(actual, [0, 1], 'bound flatten');

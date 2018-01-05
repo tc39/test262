@@ -8,25 +8,24 @@ description: >
 ---*/
 
 var a = [];
-
 a.constructor = null;
 assert.throws(TypeError, function() {
   a.flatten();
 }, 'null value');
 
-a = [];
+var a = [];
 a.constructor = 1;
 assert.throws(TypeError, function() {
   a.flatten();
 }, 'number value');
 
-a = [];
+var a = [];
 a.constructor = 'string';
 assert.throws(TypeError, function() {
   a.flatten();
 }, 'string value');
 
-a = [];
+var a = [];
 a.constructor = true;
 assert.throws(TypeError, function() {
   a.flatten();

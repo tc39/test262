@@ -6,7 +6,9 @@ description: >
     arrays with empty object elements
 ---*/
 
-assert.sameValue(JSON.stringify(Array.prototype.flatten.call([{}])), JSON.stringify([{}]));
-assert.sameValue(JSON.stringify(Array.prototype.flatten.call([{}, [{}]])), JSON.stringify([{}, {}]));
-assert.sameValue(JSON.stringify(Array.prototype.flatten.call([[{null: {}}], [{}]])), JSON.stringify([{null: {}}, {}]));
-assert.sameValue(JSON.stringify(Array.prototype.flatten.call([[{null: null}], [{}]])), JSON.stringify([{null: null}, {}]));
+var a = {}, b = {};
+
+assert.compareArrays([a].flatten(), [a]);
+assert.compareArrays([a, [b]].flatten(), [a, b]);
+assert.compareArrays([[a], b].flatten(), [a, b]);
+assert.compareArrays([[a], [b]].flatten(), [a, b]);
