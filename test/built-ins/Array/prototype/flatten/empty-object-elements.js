@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatten
 description: >
     arrays with empty object elements
 includes: [compareArray.js]
+features: [Array.prototype.flatten]
 ---*/
 
 var a = {}, b = {};

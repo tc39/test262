@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatten
 description: >
     if the argument is a string or object, the depthNum is 0
 includes: [compareArray.js]
+features: [Array.prototype.flatten]
 ---*/
 
 var a = [1, [2]];

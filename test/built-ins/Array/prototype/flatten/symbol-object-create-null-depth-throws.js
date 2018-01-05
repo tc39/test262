@@ -4,6 +4,7 @@
 esid: sec-array.prototype.flatten
 description: >
     if the argument is a Symbol or Object null, it throws exception
+features: [Array.prototype.flatten]
 ---*/
 
 assert.throws(TypeError, function() {

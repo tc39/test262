@@ -7,6 +7,7 @@ description: >
     Array.prototype.flatMap ( mapperFunction [ , thisArg ] )
 includes: [compareArray.js]
 flags: [onlyStrict]
+features: [Array.prototype.flatMap]
 ---*/
 
 var a = {};

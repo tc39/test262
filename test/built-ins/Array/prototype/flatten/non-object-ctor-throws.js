@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatten
 description: >
     Behavior when `constructor` property is neither an Object nor undefined
     - if IsConstructor(C) is false, throw a TypeError exception.
+features: [Array.prototype.flatten]
 ---*/
 
 var a = [];

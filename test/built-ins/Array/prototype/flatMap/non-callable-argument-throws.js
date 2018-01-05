@@ -4,6 +4,7 @@
 esid: sec-array.prototype.flatMap
 description: >
     non callable argument should throw TypeError Exception
+features: [Array.prototype.flatMap]
 ---*/
 
 assert.throws(TypeError, function () {

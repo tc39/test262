@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatten
 description: >
     if the argument is a positive infinity, the depthNum is max depth of the array
 includes: [compareArray.js]
+features: [Array.prototype.flatten]
 ---*/
 
 var a = [1, [2, [3, [4]]]]

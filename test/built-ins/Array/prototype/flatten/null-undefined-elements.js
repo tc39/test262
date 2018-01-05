@@ -5,7 +5,9 @@ esid: sec-array.prototype.flatten
 description: >
     arrays with null, and undefined
 includes: [compareArray.js]
+features: [Array.prototype.flatten]
 ---*/
+
 var a = [void 0];
 
 assert(compareArray([1, null, void 0].flatten(), [1, null, undefined]));
