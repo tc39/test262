@@ -4,11 +4,12 @@
 esid: sec-array.prototype.flatten
 description: >
     arrays with empty object elements
+includes: [compareArray.js]
 ---*/
 
 var a = {}, b = {};
 
-assert.compareArrays([a].flatten(), [a]);
-assert.compareArrays([a, [b]].flatten(), [a, b]);
-assert.compareArrays([[a], b].flatten(), [a, b]);
-assert.compareArrays([[a], [b]].flatten(), [a, b]);
+assert.compareArray([a].flatten(), [a]);
+assert.compareArray([a, [b]].flatten(), [a, b]);
+assert.compareArray([[a], b].flatten(), [a, b]);
+assert.compareArray([[a], [b]].flatten(), [a, b]);
