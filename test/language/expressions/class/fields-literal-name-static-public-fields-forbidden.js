@@ -2,11 +2,12 @@
 // - src/class-fields/static-public-fields-forbidden.case
 // - src/class-fields/propname-error-static/cls-expr-static-literal-name.template
 /*---
-description: static public class fields forbidden (early error -- static ClassElementName)
+description: static public class fields forbidden (early error -- PropName of IdentifierName is forbidden)
+esid: sec-class-definitions-static-semantics-early-errors
 features: [class, class-fields-public]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

@@ -6,7 +6,7 @@ description: static public class fields forbidden (early error -- static ClassEl
 features: [class, class-fields-public]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

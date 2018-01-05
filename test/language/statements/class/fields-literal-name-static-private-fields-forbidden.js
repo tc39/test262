@@ -2,11 +2,12 @@
 // - src/class-fields/static-private-fields-forbidden.case
 // - src/class-fields/propname-error-static/cls-decl-static-literal-name.template
 /*---
-description: static private class fields forbidden (early error -- static ClassElementName)
+description: static private class fields forbidden (early error -- PropName of IdentifierName is forbidden value)
+esid: sec-class-definitions-static-semantics-early-errors
 features: [class, class-fields-private]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

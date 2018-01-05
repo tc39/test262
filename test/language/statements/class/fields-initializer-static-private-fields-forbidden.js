@@ -6,7 +6,7 @@ description: static private class fields forbidden (early error -- static ClassE
 features: [class, class-fields-private]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 
