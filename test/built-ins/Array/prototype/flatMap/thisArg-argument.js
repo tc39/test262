@@ -6,9 +6,8 @@ description: >
     Behavior when thisArg is provided
     Array.prototype.flatMap ( mapperFunction [ , thisArg ] )
 includes: [compareArray.js]
+flags: [onlyStrict]
 ---*/
-
-"use strict";
 
 var a = {};
 
