@@ -6,7 +6,7 @@ path: language/expressions/class/fields-initializer-
 name: early error -- static ClassElementName Initializer
 negative:
   type: SyntaxError
-  phase: early
+  phase: parse
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

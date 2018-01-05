@@ -8,10 +8,6 @@ name: early error -- PropName of IdentifierName is forbidden value
 negative:
   type: SyntaxError
   phase: parse
-info: |
-  Static Semantics: PropName
-  LiteralPropertyName : IdentifierName
-    Return StringValue of IdentifierName.
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
