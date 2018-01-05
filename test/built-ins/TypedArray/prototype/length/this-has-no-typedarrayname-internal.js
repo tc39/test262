@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-get-%typedarray%.prototype.length
-description: |
+description: >
   Throws a TypeError exception when `this` does not have a [[TypedArrayName]]
   internal slot
 info: |

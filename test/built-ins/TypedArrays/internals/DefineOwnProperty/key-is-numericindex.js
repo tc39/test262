@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-integer-indexed-exotic-objects-defineownproperty-p-desc
-description: |
+description: >
   Returns true after setting a valid numeric index key
 info: |
   9.4.5.3 [[DefineOwnProperty]] ( P, Desc)

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 22.2.3.2
-description: |
+description: >
   Return value from [[ByteLength]] internal slot
 info: |
   22.2.3.2 get %TypedArray%.prototype.byteLength

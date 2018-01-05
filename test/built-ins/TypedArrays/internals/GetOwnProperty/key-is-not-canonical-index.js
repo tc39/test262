@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-integer-indexed-exotic-objects-getownproperty-p
-description: |
+description: >
   Returns an ordinary property value if numeric key is not a
   CanonicalNumericIndex
 info: |

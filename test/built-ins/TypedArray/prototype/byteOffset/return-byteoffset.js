@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 22.2.3.3
-description: |
+description: >
   Return value from [[ByteOffset]] internal slot
 info: |
   22.2.3.3 get %TypedArray%.prototype.byteOffset

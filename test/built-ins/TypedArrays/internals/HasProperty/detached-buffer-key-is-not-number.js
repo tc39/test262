@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-integer-indexed-exotic-objects-getproperty-p
-description: |
+description: >
   Does not throw on an instance with a detached buffer if key is not a
   CanonicalNumericIndexString
 info: |

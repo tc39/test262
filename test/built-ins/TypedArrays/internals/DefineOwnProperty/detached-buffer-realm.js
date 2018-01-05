@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-integer-indexed-exotic-objects-defineownproperty-p-desc
-description: |
+description: >
   Throws a TypeError if object has valid numeric index and a detached buffer
   (honoring the Realm of the current execution context)
 info: |

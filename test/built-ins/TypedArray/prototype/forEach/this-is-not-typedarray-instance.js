@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.foreach
-description: |
+description: >
   Throws a TypeError exception when `this` is not a TypedArray instance
 info: |
   22.2.3.12 %TypedArray%.prototype.forEach ( callbackfn [ , thisArg ] )
