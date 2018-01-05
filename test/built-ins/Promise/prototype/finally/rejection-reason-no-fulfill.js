@@ -10,14 +10,20 @@ flags: [async]
 
 var original = {};
 var replacement = {};
+var callbackCount = 0;
 
 var p = Promise.reject(original);
 
 p.finally(function () {
+  callbackCount++;
   assert.sameValue(arguments.length, 0, 'onFinally receives zero args');
   return replacement;
 }).then(function () {
   $ERROR('promise is rejected pre-finally; onFulfill should not be called');
 }).catch(function (reason) {
+  callbackCount++;
   assert.sameValue(reason, original, 'onFinally can not override the rejection value by returning');
-}).then($DONE).catch($ERROR);
+}).then(function() {
+  assert.sameValue(callbackCount, 2, "both callbacks were called");
+  $DONE();
+}).catch($ERROR);

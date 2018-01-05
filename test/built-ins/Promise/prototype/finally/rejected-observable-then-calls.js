@@ -8,6 +8,7 @@ features: [Promise.prototype.finally]
 flags: [async]
 ---*/
 
+var callbackCount = 0;
 var initialThenCount = 0;
 var noReason = {};
 var no = Promise.reject(noReason);
@@ -28,15 +29,19 @@ var finallyCalled = false;
 var catchCalled = false;
 
 no.catch(function (e) {
+  callbackCount++;
   assert.sameValue(e, noReason);
   throw e;
 }).finally(function () {
+  callbackCount++;
   finallyCalled = true;
   return yes;
 }).catch(function (e) {
+  callbackCount++;
   catchCalled = true;
   assert.sameValue(e, noReason);
 }).then(function () {
+  assert.sameValue(callbackCount, 3, 'all three callbacks were called');
   assert.sameValue(finallyCalled, true, 'initial finally was called');
   assert.sameValue(initialThenCount, 1, 'initial finally invokes .then once');
 

@@ -8,13 +8,19 @@ features: [Promise.prototype.finally]
 flags: [async]
 ---*/
 
+var callbackCount = 0;
 var obj = {};
 
 var p = Promise.resolve(obj);
 
 p.finally(function () {
+  callbackCount++;
   assert.sameValue(arguments.length, 0, 'onFinally receives zero args');
   return {};
 }).then(function (x) {
+  callbackCount++;
   assert.sameValue(x, obj, 'onFinally can not override the resolution value');
-}).then($DONE).catch($ERROR);
+}).then(function() {
+  assert.sameValue(callbackCount, 2, "both callbacks were called");
+  $DONE();
+}).catch($ERROR);
