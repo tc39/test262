@@ -6,10 +6,10 @@ description: >
     arrays with null, and undefined
 includes: [compareArray.js]
 ---*/
-var a;
+var a = [void 0];
 
-assert(compareArray(Array.prototype.flatten.call([1, null, void 0]), [1, null, undefined]));
-assert(compareArray(Array.prototype.flatten.call([1,[null, void 0]]), [1, null, undefined]));
-assert(compareArray(Array.prototype.flatten.call([[null, void 0], [null, void 0]]), [null, undefined, null, undefined]));
-assert(compareArray(Array.prototype.flatten.call([1,[null, a = [void 0]]], 1), [1, null, a]));
-assert(compareArray(Array.prototype.flatten.call([1,[null, [void 0]]], 2), [1, null, undefined]));
+assert(compareArray([1, null, void 0].flatten(), [1, null, undefined]));
+assert(compareArray([1,[null, void 0]].flatten(), [1, null, undefined]));
+assert(compareArray([[null, void 0], [null, void 0]].flatten(), [null, undefined, null, undefined]));
+assert(compareArray([1,[null, a]].flatten(1), [1, null, a]));
+assert(compareArray([1,[null, a]].flatten(2), [1, null, undefined]));

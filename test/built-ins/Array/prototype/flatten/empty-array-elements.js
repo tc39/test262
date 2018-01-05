@@ -7,9 +7,8 @@ description: >
 includes: [compareArray.js]
 ---*/
 
-var a;
-assert(compareArray([].flatten([[]]), []));
-assert(compareArray(Array.prototype.flatten.call([[], []]), []));
-assert(compareArray(Array.prototype.flatten.call([[], [1]]), [1]));
-assert(compareArray(Array.prototype.flatten.call([[], [1, a = []]]), [1, a]));
-assert.sameValue(JSON.stringify(Array.prototype.flatten.call([{}, []])), JSON.stringify([{}]));
+var a = {};
+assert.compareArray([].flatten(), []);
+assert.compareArray([[], []].flatten(), []);
+assert.compareArray([[], [1]].flatten(), [1]);
+assert.compareArray([[], [1, a]].flatten(), [1, a]);

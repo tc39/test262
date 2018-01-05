@@ -7,25 +7,24 @@ description: >
 includes: [compareArray.js]
 ---*/
 
-function takesTwoParams(a, b) {
-  return Array.prototype.flatten.call(arguments);
+function getArgumentsObject() {
+  return arguments;
 }
 
-var actual = takesTwoParams(1,[2]);
-var expected = [1, 2];
-
-assert(compareArray(actual, expected), 'arguments array like object');
+var a = getArgumentsObject([1], [2]);
+var actual = [].flatten.call(a);
+assert.compareArray(actual, [1, 2], 'arguments objects');
 
 var a = {
-  "length": 1,
-  "0": 'a'
+  length: 1,
+  0: [1],
 };
+var actual = [].flatten.call(a);
+assert.compareArray(actual, [1], 'array-like objects');
 
-actual = Array.prototype.flatten.call(a);
-assert.sameValue(JSON.stringify(actual), JSON.stringify(['a']), 'array like objects');
-
-a = {
-  "length": undefined,
-  "0": 'a'
+var a = {
+  length: undefined,
+  0: [1],
 };
-assert.sameValue(JSON.stringify(actual), JSON.stringify([]), 'array like objects undefined length');
+var actual = [].flatten.call(a);
+assert.compareArray(actual, [], 'array-like objects; undefined length');
