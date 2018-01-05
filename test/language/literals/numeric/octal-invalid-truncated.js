@@ -4,7 +4,7 @@
 /*---
 es6id: 11.8.3
 description: Octal-integer-literal-like sequence without any digits
-info: >
+info: |
     OctalIntegerLiteral ::
       0o OctalDigits
       0O OctalDigits

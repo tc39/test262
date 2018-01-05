@@ -5,7 +5,7 @@
 esid: sec-white-space
 description: >
   Mongolian Vowel Separator is not recognized as white space.
-info: >
+info: |
   11.2 White Space
 
   WhiteSpace ::

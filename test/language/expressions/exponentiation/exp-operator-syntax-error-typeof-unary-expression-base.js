@@ -5,7 +5,7 @@
 author: Rick Waldron
 esid: sec-unary-operators
 description: Exponentiation Expression syntax error, `typeof` UnaryExpression
-info: >
+info: |
   ExponentiationExpression :
     UnaryExpression
     ...

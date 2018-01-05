@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     "in"-expression is not allowed as a ExpressionNoIn in "for
     (ExpressionNoIn; FirstExpression; SecondExpression) Statement"
     IterationStatement

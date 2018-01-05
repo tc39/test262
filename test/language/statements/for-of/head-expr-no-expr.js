@@ -3,7 +3,7 @@
 
 /*---
 description: Expression not allowed in head's AssignmentExpression position
-info: >
+info: |
     IterationStatement :
         for ( LeftHandSideExpression of AssignmentExpression ) Statement
 es6id: 13.7

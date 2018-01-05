@@ -4,7 +4,7 @@
 /*---
 es6id: 20.1.1.1
 description: Invalid binary literals yield NaN
-info: >
+info: |
     BinaryIntegerLiteral ::
       0b BinaryDigits
       0B BinaryDigits

@@ -4,7 +4,7 @@
 /*---
 esid: sec-typedarray-objects
 description: BigInt64Array property descriptor
-info: >
+info: |
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
 features: [BigInt]

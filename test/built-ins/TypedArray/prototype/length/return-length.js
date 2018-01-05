@@ -4,7 +4,7 @@
 esid: sec-get-%typedarray%.prototype.length
 description: |
   Return value from the [[ArrayLength]] internal slot
-info: >
+info: |
   22.2.3.18 get %TypedArray%.prototype.length
 
   ...

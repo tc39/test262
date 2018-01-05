@@ -4,7 +4,7 @@
 /*---
 es6id: 11.8.3
 description: Binary-integer-literal-like sequence with a leading 0
-info: >
+info: |
     BinaryIntegerLiteral ::
       0b BinaryDigits
       0B BinaryDigits

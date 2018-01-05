@@ -4,7 +4,7 @@
 /*---
 esid: sec-bigint-constructor-number-value
 description: BigInt.name property descriptor
-info: >
+info: |
   BigInt ( value )
 
   17 ECMAScript Standard Built-in Objects

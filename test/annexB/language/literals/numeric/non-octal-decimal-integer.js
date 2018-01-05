@@ -4,7 +4,7 @@
 esid: sec-additional-syntax-numeric-literals
 es6id: B1.1
 description: Mathematical value for NonOctalDecimalIntegerLiteral
-info: >
+info: |
      DecimalIntegerLiteral ::
        0
        NonZeroDigit DecimalDigits[opt]

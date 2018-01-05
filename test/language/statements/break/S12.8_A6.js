@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     Appearing of "break" within a function call that is nested in a
     IterationStatement yields SyntaxError
 es5id: 12.8_A6

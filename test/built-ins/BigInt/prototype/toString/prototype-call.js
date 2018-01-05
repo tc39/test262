@@ -4,7 +4,7 @@
 /*---
 esid: sec-bigint.prototype.tostring
 description: Direct toString on BigInt prototype
-info: >
+info: |
   BigInt.prototype.toString ( [ radix ] )
 
   Let x be ? thisBigIntValue(this value).

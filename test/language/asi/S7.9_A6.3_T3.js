@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     Check For Statement for automatic semicolon insertion.
     If automatic insertion semicolon would become one of the two semicolons in the header of a For Statement.
     Don`t use semicolons

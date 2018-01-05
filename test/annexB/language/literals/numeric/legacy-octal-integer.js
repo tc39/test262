@@ -4,7 +4,7 @@
 esid: sec-additional-syntax-numeric-literals
 es6id: B1.1
 description: Mathematical value for LegacyOctalIntegerLiteral
-info: >
+info: |
     NumericLiteral ::
       DecimalLiteral
       BinaryIntegerLiteral

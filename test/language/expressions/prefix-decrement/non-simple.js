@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     It is an early Reference Error if IsValidSimpleAssignmentTarget of
     UnaryExpression is false.
 es5id: 12.5.1

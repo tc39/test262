@@ -7,7 +7,7 @@ flags: [onlyStrict]
 negative:
   phase: early
   type: SyntaxError
-info: >
+info: |
     The following rules for IfStatement augment those in 13.6:
     
     IfStatement[Yield, Return]:

@@ -4,7 +4,7 @@
 /*---
 esid: sec-names-and-keywords
 description: Test grandfathered characters of ID_Start.
-info: >
+info: |
   Grandfathered characters (Other_ID_Start)
 ---*/
 

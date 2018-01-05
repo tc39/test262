@@ -6,7 +6,7 @@ es6id: B1.2
 description: >
     LegacyOctalEscapeSequence is not enabled in strict mode code (regardless of
     the presence of Annex B)
-info: >
+info: |
     EscapeSequence ::
       CharacterEscapeSequence
       LegacyOctalEscapeSequence

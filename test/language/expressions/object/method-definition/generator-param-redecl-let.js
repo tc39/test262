@@ -2,7 +2,7 @@
 // See LICENSE for details.
 
 /*---
-info: >
+info: |
  GeneratorMethod early SyntaxError when lexical declaration
  inside generator shadows parameter name 
 features: [generators]

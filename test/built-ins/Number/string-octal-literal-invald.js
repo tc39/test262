@@ -4,7 +4,7 @@
 /*---
 es6id: 20.1.1.1
 description: Invalid octal literals yield NaN
-info: >
+info: |
     OctalIntegerLiteral ::
       0o OctalDigits
       0O OctalDigits

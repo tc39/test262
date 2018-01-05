@@ -4,7 +4,7 @@
 esid: sec-additional-syntax-string-literals
 es6id: B1.2
 description: String value for LegacyOctalEscapeSequence
-info: >
+info: |
     EscapeSequence ::
       CharacterEscapeSequence
       LegacyOctalEscapeSequence

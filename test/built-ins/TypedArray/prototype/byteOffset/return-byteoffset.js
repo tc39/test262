@@ -4,7 +4,7 @@
 es6id: 22.2.3.3
 description: |
   Return value from [[ByteOffset]] internal slot
-info: >
+info: |
   22.2.3.3 get %TypedArray%.prototype.byteOffset
 
   ...

@@ -4,7 +4,7 @@
 es6id: 22.2.3.1
 description: |
   Return buffer from [[ViewedArrayBuffer]] internal slot
-info: >
+info: |
   22.2.3.1 get %TypedArray%.prototype.buffer
 
   ...

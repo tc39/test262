@@ -4,7 +4,7 @@
 esid: sec-additional-syntax-numeric-literals
 es6id: B1.1
 description: NonOctalDecimalIntegerLiteral is not enabled in strict mode code
-info: >
+info: |
      DecimalIntegerLiteral ::
        0
        NonZeroDigit DecimalDigits[opt]

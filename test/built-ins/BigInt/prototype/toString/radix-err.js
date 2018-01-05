@@ -4,7 +4,7 @@
 /*---
 esid: sec-bigint.prototype.tostring
 description: toString with invalid radix
-info: >
+info: |
   BigInt.prototype.toString ( [ radix ] )
 
   [...]

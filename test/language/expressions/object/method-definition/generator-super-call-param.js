@@ -2,7 +2,7 @@
 // See LICENSE for details.
 
 /*---
-info: >
+info: |
  GeneratorMethod early SyntaxError when super is called 
  directly inside generator args
 features: [generators]

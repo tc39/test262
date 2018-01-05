@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.reduce
 description: |
   Throws a TypeError exception when `this` is not a TypedArray instance
-info: >
+info: |
   22.2.3.20 %TypedArray%.prototype.reduce ( callbackfn [ , initialValue ] )
 
   This function is not generic. ValidateTypedArray is applied to the this value

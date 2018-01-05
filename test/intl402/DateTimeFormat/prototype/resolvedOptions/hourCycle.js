@@ -6,7 +6,7 @@ esid: sec-Intl.DateTimeFormat.prototype.resolvedOptions
 description: >
   Intl.DateTimeFormat.prototype.resolvedOptions properly
   reflect hourCycle settings.
-info: >
+info: |
   12.4.5 Intl.DateTimeFormat.prototype.resolvedOptions()
 
 includes: [propertyHelper.js]

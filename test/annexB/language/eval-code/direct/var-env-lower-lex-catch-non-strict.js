@@ -4,7 +4,7 @@
 esid: sec-variablestatements-in-catch-blocks
 es6id: B3.5
 description: Re-declaration of catch parameter
-info: >
+info: |
     [...]
 
     This modified behaviour also applies to var and function declarations

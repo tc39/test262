@@ -4,7 +4,7 @@
 /*---
 esid: sec-bigint.prototype.tostring
 description: toString with radix between 2 and 36
-info: >
+info: |
   BigInt.prototype.toString ( [ radix ] )
 
   [...]

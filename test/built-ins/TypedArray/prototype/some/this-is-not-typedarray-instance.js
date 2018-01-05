@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.some
 description: |
   Throws a TypeError exception when `this` is not a TypedArray instance
-info: >
+info: |
   22.2.3.25 %TypedArray%.prototype.some ( callbackfn [ , thisArg ] )
 
   This function is not generic. ValidateTypedArray is applied to the this value

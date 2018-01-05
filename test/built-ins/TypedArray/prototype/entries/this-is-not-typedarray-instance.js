@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.entries
 description: |
   Throws a TypeError exception when `this` is not a TypedArray instance
-info: >
+info: |
   22.2.3.6 %TypedArray%.prototype.entries ( )
 
   The following steps are taken:

@@ -4,7 +4,7 @@
 /*---
 esid: sec-bigint.prototype.tostring
 description: Throws a TypeError if the this value is not a BigInt
-info: >
+info: |
   BigInt.prototype.toString ( [ radix ] )
 
   1. Let x be ? thisBigIntValue(this value).

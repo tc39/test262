@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.reverse
 description: |
   Throws a TypeError exception when `this` is not a TypedArray instance
-info: >
+info: |
   22.2.3.22 %TypedArray%.prototype.reverse ( )
 
   This function is not generic. ValidateTypedArray is applied to the this value

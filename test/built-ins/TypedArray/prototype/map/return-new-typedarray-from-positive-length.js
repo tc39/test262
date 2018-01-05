@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.map
 description: |
   Returns a new typedArray instance from the same constructor with the same
   length and a new buffer object - testing on an instance with length > 0
-info: >
+info: |
   22.2.3.19 %TypedArray%.prototype.map ( callbackfn [ , thisArg ] )
 
   ...

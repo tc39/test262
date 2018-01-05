@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     It is an early Reference Error if LeftHandSideExpression is neither an
     ObjectLiteral nor an ArrayLiteral and IsValidSimpleAssignmentTarget of
     LeftHandSideExpression is false.

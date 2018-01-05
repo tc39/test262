@@ -5,7 +5,7 @@ esid: sec-get-%typedarray%.prototype.length
 description: |
   Throws a TypeError exception when `this` does not have a [[TypedArrayName]]
   internal slot
-info: >
+info: |
   22.2.3.18 get %TypedArray%.prototype.length
 
   1. Let O be the this value.

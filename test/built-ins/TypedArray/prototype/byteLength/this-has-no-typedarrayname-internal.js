@@ -6,7 +6,7 @@ es6id: 22.2.3.2
 description: |
   Throws a TypeError exception when `this` does not have a [[TypedArrayName]]
   internal slot
-info: >
+info: |
   22.2.3.2 get %TypedArray%.prototype.byteLength
 
   1. Let O be the this value.

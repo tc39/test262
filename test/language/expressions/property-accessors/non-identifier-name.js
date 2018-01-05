@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-left-hand-side-expressions
-info: >
+info: |
   Token following DOT must be a valid identifier-name, test with string literal.
 description: |
   12.3 Left-Hand-Side Expressions

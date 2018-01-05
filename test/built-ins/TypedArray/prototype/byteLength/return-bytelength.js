@@ -4,7 +4,7 @@
 es6id: 22.2.3.2
 description: |
   Return value from [[ByteLength]] internal slot
-info: >
+info: |
   22.2.3.2 get %TypedArray%.prototype.byteLength
 
   ...

@@ -4,7 +4,7 @@
 esid: sec-get-%typedarray%.prototype-@@tostringtag
 description: |
   Return value from the [[TypedArrayName]] internal slot
-info: >
+info: |
   22.2.3.32 get %TypedArray%.prototype [ @@toStringTag ]
 
   ...

@@ -6,7 +6,7 @@ description: Properties of the groups object are created with CreateDataProperty
 includes: [propertyHelper.js]
 esid: sec-regexpbuiltinexec
 features: [regexp-named-groups]
-info: >
+info: |
   Runtime Semantics: RegExpBuiltinExec ( R, S )
     24. If _R_ contains any |GroupName|, then
       a. Let _groups_ be ObjectCreate(*null*).

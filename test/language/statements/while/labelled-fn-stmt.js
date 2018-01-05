@@ -7,7 +7,7 @@ negative:
   type: SyntaxError
 esid: sec-semantics-static-semantics-early-errors
 es6id: 13.7.1.1
-info: >
+info: |
     Although Annex B describes an extension which permits labelled function
     declarations outside of strict mode, this early error is applied regardless
     of the language mode.
