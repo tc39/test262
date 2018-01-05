@@ -4,7 +4,7 @@
 /*---
 esid: sec-number-constructor-number-value
 description: Invalid hex literals yield NaN
-info: >
+info: |
     HexIntegerLiteral ::
       0x HexDigits
       0X HexDigits
