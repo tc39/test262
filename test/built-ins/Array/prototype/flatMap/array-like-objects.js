@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatMap
 description: >
     array-like objects can be flattened
 includes: [compareArray.js]
+features: [Array.prototype.flatMap]
 ---*/
 
 function getArgumentsObject() {

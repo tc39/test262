@@ -6,6 +6,7 @@ description: Array.prototype.flatmap name value and descriptor.
 info: >
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
+features: [Array.prototype.flatMap]
 ---*/
 
 assert.sameValue(

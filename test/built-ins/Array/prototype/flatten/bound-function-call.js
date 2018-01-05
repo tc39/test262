@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatten
 description: >
     using bound functions
 includes: [compareArray.js]
+features: [Array.prototype.flatten]
 ---*/
 
 var a = [[0],[1]];

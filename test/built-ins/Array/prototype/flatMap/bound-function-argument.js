@@ -5,6 +5,7 @@ esid: sec-array.prototype.flatMap
 description: >
     Behavior when given a bound function
 includes: [compareArray.js]
+features: [Array.prototype.flatMap]
 ---*/
 
 var a = [0, 0];

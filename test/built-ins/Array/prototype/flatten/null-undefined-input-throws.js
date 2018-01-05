@@ -4,6 +4,7 @@
 esid: sec-array.prototype.flatten
 description: >
     null or undefined should throw TypeError Exception
+features: [Array.prototype.flatten]
 ---*/
 
 assert.throws(TypeError, function() {

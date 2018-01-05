@@ -55,6 +55,11 @@ regexp-unicode-property-escapes
 Atomics
 SharedArrayBuffer
 
+# Array.prototype.flatten and Array.prototype.flatMap
+# https://github.com/tc39/proposal-flatMap
+Array.prototype.flatten
+Array.prototype.flatMap
+
 # Standard language features
 #
 # Language features that have been included in a published version of the
