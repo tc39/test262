@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-additional-syntax-string-literals
-es6id: B1.2
+es6id: B.1.2
 description: String value for LegacyOctalEscapeSequence
 info: |
     EscapeSequence ::

@@ -3,7 +3,7 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: 12.1.1
+esid: pending
 description: >
   `yield` is not a valid BindingIdentifier for AsyncGeneratorExpressions.
 negative:

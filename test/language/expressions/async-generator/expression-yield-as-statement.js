@@ -3,7 +3,8 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: sec-generator-function-definitionsdescription: >
+esid: sec-generator-function-definitions
+description: >
   `yield` is a valid statement within async generator function bodies.
 flags: [async]
 features: [async-iteration]

@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Shilpi Jain and Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: sec-array.prototype.flatmap
+esid: sec-array.prototype.flatmap
 description: Array.prototype.flatmap name value and descriptor.
 info: >
   17 ECMAScript Standard Built-in Objects

@@ -3,7 +3,8 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: sec-generator-function-definitionsdescription: >
+esid: sec-generator-function-definitions
+description: >
   AwaitExpressions are valid operands to yield expressions.
 flags: [async]
 features: [async-iteration]

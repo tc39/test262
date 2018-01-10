@@ -3,7 +3,7 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: 12.1.1
+esid: pending
 description: >
   `await` is not a valid BindingIdentifier for AsyncGeneratorExpressions.
 negative:

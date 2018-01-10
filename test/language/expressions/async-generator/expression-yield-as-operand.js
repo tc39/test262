@@ -3,7 +3,8 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: sec-generator-function-definitionsdescription: >
+esid: sec-generator-function-definitions
+description: >
   `yield` expressions may be used as the right-hand-side of other `yield`
   expressions.
 flags: [async]
