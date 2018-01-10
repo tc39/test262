@@ -14,6 +14,9 @@ class CheckEsid(Check):
         if not meta:
             return
 
+        if 'es6id' not in meta and 'esid' not in meta:
+            return
+
         # es5ids are a mess
         #if 'es5id' in meta:
         #  es5id = str(meta['es5id'])
@@ -21,11 +24,13 @@ class CheckEsid(Check):
         #      return 'The `es5id` tag has the wrong format: %s' % es5id
 
         if 'es6id' in meta:
-          es6id = str(meta['es6id'])
-          if self.es6idRegex.match(es6id) == None:
-              return 'The `es6id` tag has the wrong format: %s' % es6id
+            es6id = str(meta['es6id'])
+            if self.es6idRegex.match(es6id) == None:
+                return 'The `es6id` tag has the wrong format: %s' % es6id
 
         if 'esid' in meta:
-          esid = str(meta['esid'])
-          if self.esidRegex.match(esid) == None:
-              return 'The `esid` tag has the wrong format: %s' % esid
+            esid = str(meta['esid'])
+            if self.esidRegex.match(esid) == None:
+                return 'The `esid` tag has the wrong format: %s' % esid
+
+
