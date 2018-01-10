@@ -3,8 +3,7 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: 14.4
-description: >
+esid: sec-generator-function-definitionsdescription: >
   The right-hand side of a `yield *` expression may appear on a new line.
 flags: [async]
 features: [async-iteration]

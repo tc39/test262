@@ -3,8 +3,7 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: 14.4
-description: >
+esid: sec-generator-function-definitionsdescription: >
   A newline may not precede the `*` token in a `yield` expression.
 negative:
   phase: parse
