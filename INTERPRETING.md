@@ -161,10 +161,11 @@ These tests are expected to generate an uncaught exception. The value of this
 attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
-  expected to be produced; either "parse" (meaning, "while parsing the source
-  text"), "early" (meaning, "prior to evaluation"), "resolution" (meaning,
-  "during ES2015 module resolution"),  or "runtime" (meaning, "during
-  evaluation")
+  expected to be produced; valid phases are: 
+    - `parse`: occurs while parsing the source text.
+    - `early`: occurs prior to evaluation.
+    - `resolution`: occurs during module resolution.
+    - `runtime`: occurs during evaluation.
 - `type` - the name of the constructor of the expected error
 
 If a test configured with the `negative` attribute completes without throwing
@@ -172,7 +173,7 @@ an exception, or if the name of the thrown exception's constructor does not
 match the specified constructor name, or if the error occurs at a phase that
 differs from the indicated phase, the test must be interpreted as "failing."
 
-*Example:*
+*Examples:*
 
 ```js
 /*---
@@ -182,6 +183,42 @@ negative:
 ---*/
 unresolvable;
 ```
+
+```js
+/*---
+negative:
+  phase: parse
+  type: ReferenceError
+---*/
+throw "Test262: This statement should not be evaluated.";
+'litera'=1;
+```
+
+```js
+/*---
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+throw "Test262: This statement should not be evaluated.";
+var a\u2E2F;
+```
+
+
+```js
+/*---
+negative:
+  phase: resolution
+  type: ReferenceError
+flags: [module]
+---*/
+throw "Test262: This statement should not be evaluated.";
+export {} from './instn-resolve-empty-export_FIXTURE.js';
+// instn-resolve-empty-export_FIXTURE.js contains only:
+// 0++;
+```
+
+
 
 ### `includes`
 
