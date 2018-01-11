@@ -87,6 +87,7 @@ DataView.prototype.getUint32
 DataView.prototype.setUint8
 default-arg
 default-parameters
+destructuring-assignment
 destructuring-binding
 for-of
 Float64Array
