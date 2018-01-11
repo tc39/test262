@@ -95,6 +95,7 @@ Int8Array
 let
 Map
 new.target
+Object.is
 Proxy
 Reflect
 Reflect.construct
