@@ -3,10 +3,13 @@
 # This code is governed by the BSD license found in the LICENSE file.
 
 import argparse
-import sys
+import inflect
+import os
 import pip
 import pip.req
+import sys
 
+ie = inflect.engine()
 
 try:
     __import__('yaml')
@@ -42,13 +45,13 @@ parser.add_argument('path',
         help='file name or directory of files to lint')
 
 checks = [
-        CheckEsid(),
-        CheckFrontmatter(),
-        CheckFeatures('features.txt'),
-        CheckHarnessFeatures(),
-        CheckLicense(),
-        CheckNegative()
-    ]
+    CheckEsid(),
+    CheckFrontmatter(),
+    CheckFeatures('features.txt'),
+    CheckHarnessFeatures(),
+    CheckLicense(),
+    CheckNegative()
+]
 
 def lint(file_names):
     errors = dict()
@@ -76,7 +79,7 @@ if __name__ == '__main__':
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
-    print 'Linting %s file%s.' % (file_count, 's' if file_count != 1 else '')
+    print 'Linting %s %s' % (file_count, ie.plural('file', file_count))
 
     all_errors = lint(files)
     unexpected_errors = dict(all_errors)
@@ -88,15 +91,13 @@ if __name__ == '__main__':
             del unexpected_errors[file_name]
 
     error_count = len(unexpected_errors)
-    s = 's' if error_count != 1 else ''
-
-    print 'Linting complete. %s error%s found.' % (error_count, s)
+    print 'Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count))
 
     if error_count == 0:
         sys.exit(0)
 
-    for file_name, failures in unexpected_errors.iteritems():
+    for file_name, failures in iter(sorted(unexpected_errors.iteritems())):
         for ID, message in failures.iteritems():
-            eprint('%s: %s - %s' % (file_name, ID, message))
+            eprint('%s: %s - %s' % (os.path.abspath(file_name), ID, message))
 
     sys.exit(1)
