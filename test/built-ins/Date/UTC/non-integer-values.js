@@ -2,12 +2,27 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-date.utc
-es6id: 20.3.3.4
 description: non-integer values are converted to integers using `ToInteger`
 info: |
   [...]
-  9. Return TimeClip(MakeDate(MakeDay(yr, m, dt), MakeTime(h, min, s, milli))).
-  MakeDay (year, month, date)
+  Return TimeClip(MakeDate(MakeDay(yr, m, dt), MakeTime(h, min, s, milli))).
+
+  #sec-timeclip
+
+  Let clippedTime be ! ToInteger(time).
+
+  #sec-makeday
+
+  Let y be ! ToInteger(year).
+  Let m be ! ToInteger(month).
+  Let dt be ! ToInteger(date).
+
+  #sec-maketime
+
+  Let h be ! ToInteger(hour).
+  Let m be ! ToInteger(min).
+  Let s be ! ToInteger(sec).
+  Let milli be ! ToInteger(ms).
 ---*/
 
 assert.sameValue(Date.UTC(1970.9, 0.9, 1.9, 0.9, 0.9, 0.9, 0.9), 0, 'positive non-integer values');
