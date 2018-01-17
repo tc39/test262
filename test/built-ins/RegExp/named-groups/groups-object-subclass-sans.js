@@ -4,7 +4,6 @@
 /*---
 description: >
   Test the groups object on RegExp subclass results that do not have their own.
-includes: [propertyHelper.js]
 esid: sec-regexpbuiltinexec
 features: [regexp-named-groups]
 info: |
