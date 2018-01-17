@@ -4,7 +4,6 @@
 /*---
 description: >
   Test the groups object with matched and unmatched named captures.
-includes: [propertyHelper.js]
 esid: sec-regexpbuiltinexec
 features: [regexp-named-groups]
 info: |
