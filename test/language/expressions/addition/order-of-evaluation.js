@@ -35,7 +35,7 @@ assert.throws(MyError, function() {
   (function() {
     trace += "1";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "3";
         throw new Test262Error("should not be evaluated");
       }
@@ -53,7 +53,7 @@ assert.throws(MyError, function() {
   (function() {
     trace += "1";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "3";
         throw new MyError();
       }
@@ -61,7 +61,7 @@ assert.throws(MyError, function() {
   })() + (function() {
     trace += "2";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "4";
         throw new Test262Error("should not be evaluated");
       }
@@ -76,7 +76,7 @@ assert.throws(MyError, function() {
   (function() {
     trace += "1";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "3";
         return 1;
       }
@@ -84,7 +84,7 @@ assert.throws(MyError, function() {
   })() + (function() {
     trace += "2";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "4";
         throw new MyError();
       }
@@ -99,7 +99,7 @@ assert.throws(MyError, function() {
   (function() {
     trace += "1";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "3";
         return Symbol("1");
       }
@@ -107,7 +107,7 @@ assert.throws(MyError, function() {
   })() + (function() {
     trace += "2";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "4";
         throw new MyError();
       }
@@ -122,7 +122,7 @@ assert.throws(TypeError, function() {
   (function() {
     trace += "1";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "3";
         return 1;
       }
@@ -130,7 +130,7 @@ assert.throws(TypeError, function() {
   })() + (function() {
     trace += "2";
     return {
-      valueOf() {
+      valueOf: function() {
         trace += "4";
         return Symbol("1");
       }
