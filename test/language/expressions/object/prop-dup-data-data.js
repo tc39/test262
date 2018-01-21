@@ -14,4 +14,7 @@ description: >
     strict mode
 ---*/
 
-  eval("({foo:0,foo:1});");
+void {
+  foo: 0,
+  foo: 1
+};

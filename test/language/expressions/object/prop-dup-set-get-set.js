@@ -8,4 +8,8 @@ description: >
     (set,get,set)
 ---*/
 
-  eval("({set foo(arg){}, get foo(){}, set foo(arg1){}});");
+void {
+  set foo(arg) {},
+  get foo() {},
+  set foo(arg1) {}
+};
