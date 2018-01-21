@@ -8,4 +8,7 @@ description: >
     followed by set accessor definition with the same name
 ---*/
 
-  eval("({foo : 1, set foo(x){}});");
+void {
+  foo: 1,
+  set foo(x) {}
+};
