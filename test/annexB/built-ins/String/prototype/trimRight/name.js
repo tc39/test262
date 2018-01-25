@@ -4,24 +4,17 @@
 /*---
 esid: sec-string.prototype.trimRight
 description: >
-  String.prototype.trimRight.name is "trimRight".
+  String.prototype.trimRight.name is "trimEnd".
 info: >
-  String.prototype.trimRight ( )
+  String.prototype.trimRight ( )#
 
-  17 ECMAScript Standard Built-in Objects:
-    Every built-in Function object, including constructors, that is not
-    identified as an anonymous function has a name property whose value
-    is a String.
-
-    Unless otherwise specified, the name property of a built-in Function
-    object, if it exists, has the attributes { [[Writable]]: false,
-    [[Enumerable]]: false, [[Configurable]]: true }.
+  The function object that is the initial value of  String.prototype.trimRight is the same function object that is the initial value of  String.prototype.trimEnd.
 includes: [propertyHelper.js]
-features: [string-trimming]
+features: [string-trimming,String.prototype.trimEnd]
 ---*/
 
 verifyProperty(String.prototype.trimRight, "name", {
-  value: "trimRight",
+  value: "trimEnd",
   enumerable: false,
   writable: false,
   configurable: true,

@@ -4,24 +4,18 @@
 /*---
 esid: sec-string.prototype.trimLeft
 description: >
-  String.prototype.trimLeft.name is "trimLeft".
+  String.prototype.trimLeft.name is "trimStart".
 info: >
   String.prototype.trimLeft ( )
 
-  17 ECMAScript Standard Built-in Objects:
-    Every built-in Function object, including constructors, that is not
-    identified as an anonymous function has a name property whose value
-    is a String.
+  The function object that is the initial value of  String.prototype.trimLeft is the same function object that is the initial value of  String.prototype.trimStart.
 
-    Unless otherwise specified, the name property of a built-in Function
-    object, if it exists, has the attributes { [[Writable]]: false,
-    [[Enumerable]]: false, [[Configurable]]: true }.
 includes: [propertyHelper.js]
-features: [string-trimming]
+features: [string-trimming,String.prototype.trimStart]
 ---*/
 
 verifyProperty(String.prototype.trimLeft, "name", {
-  value: "trimLeft",
+  value: "trimStart",
   enumerable: false,
   writable: false,
   configurable: true,
