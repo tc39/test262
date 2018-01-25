@@ -1,0 +1,11 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: static private class fields forbidden
+features: [class, class-fields-private]
+template: propname-error-static
+---*/
+
+//- propname
+#field

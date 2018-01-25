@@ -1,0 +1,30 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/statements/class/err-field-delete-twice-covered-
+name: in field, recursively covered
+info: |
+  Static Semantics: Early Errors
+
+    UnaryExpression : delete UnaryExpression
+
+    It is a Syntax Error if the UnaryExpression is contained in strict mode code and the derived UnaryExpression is PrimaryExpression : IdentifierReference , MemberExpression : MemberExpression.PrivateName , or CallExpression : CallExpression.PrivateName .
+
+    It is a Syntax Error if the derived UnaryExpression is PrimaryExpression : CoverParenthesizedExpressionAndArrowParameterList and CoverParenthesizedExpressionAndArrowParameterList ultimately derives a phrase that, if used in place of UnaryExpression, would produce a Syntax Error according to these rules. This rule is recursively applied.
+features: [class, class-fields-private, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
+---*/
+
+throw "Test262: This statement should not be evaluated.";
+
+class C {
+  #x;
+  /*{ infieldsetup }*/
+  x = delete ((/*{ expression }*/));
+
+  /*{ functiondeclaration }*/
+}

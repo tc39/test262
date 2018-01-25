@@ -1,0 +1,30 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/fields-new-sc-line-method-
+name: field definitions followed by a method in a new line with a semicolon
+features: [class, class-fields-public]
+esid: prod-FieldDefinition
+includes: [propertyHelper.js]
+---*/
+
+class C {
+  /*{ fields }*/;
+  m() { return 42; }
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+assert.sameValue(c.m(), 42);
+assert.sameValue(c.m, C.prototype.m);
+assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
+
+verifyProperty(C.prototype, "m", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+});
+
+/*{ assertions }*/

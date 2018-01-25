@@ -1,0 +1,19 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Syntax error if you call delete on call expressions . privatename
+template: delete-error
+features: [class, class-fields-private, class-fields-public]
+---*/
+
+//- infieldsetup
+g = this.f;
+//- infunctionsetup
+var g = this.f;
+//- expression
+g().#x
+//- functiondeclaration
+  f() {
+  return this;
+}

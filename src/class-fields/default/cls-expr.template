@@ -1,0 +1,15 @@
+// Copyright (C) 2017 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/fields-
+name: field definitions in a class expression
+features: [class, class-fields-public]
+esid: prod-FieldDefinition
+---*/
+
+var C = class {
+  /*{ fields }*/
+}
+
+/*{ assertions }*/

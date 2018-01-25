@@ -1,0 +1,29 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/fields-after-same-line-static-gen-
+name: field definitions after a static generator in the same line
+features: [generators, class, class-fields-public]
+esid: prod-FieldDefinition
+includes: [propertyHelper.js]
+---*/
+
+class C {
+  static *m() { return 42; } /*{ fields }*/;
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+assert.sameValue(C.m().next().value, 42);
+assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "m"), false);
+
+verifyProperty(C, "m", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+});
+
+/*{ assertions }*/

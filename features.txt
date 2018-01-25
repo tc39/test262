@@ -13,7 +13,8 @@ BigInt
 
 # Class Fields
 # https://github.com/tc39/proposal-class-fields
-class-fields
+class-fields-public
+class-fields-private
 
 # Promise.prototype.finally
 # https://github.com/tc39/proposal-promise-finally
@@ -60,6 +61,12 @@ SharedArrayBuffer
 # String.prototype.{trimStart, trimEnd, trimLeft, trimRight }
 string-trimming
 
+# Array.prototype.flatten and Array.prototype.flatMap
+# https://github.com/tc39/proposal-flatMap
+Array.prototype.flatten
+Array.prototype.flatMap
+
+
 # Standard language features
 #
 # Language features that have been included in a published version of the
@@ -87,6 +94,7 @@ DataView.prototype.getUint32
 DataView.prototype.setUint8
 default-arg
 default-parameters
+destructuring-assignment
 destructuring-binding
 for-of
 Float64Array
@@ -95,6 +103,7 @@ Int8Array
 let
 Map
 new.target
+Object.is
 Proxy
 Reflect
 Reflect.construct
@@ -121,5 +130,14 @@ template
 TypedArray
 u180e
 Uint8Array
+Uint16Array
 WeakMap
 WeakSet
+
+# Test-harness features requiring host environment/test runner support
+#
+# The rare cases where testing language functionality requires non-standard
+# language features, exposed through global-environment functions on the $262
+# object, go here.
+
+IsHTMLDDA

@@ -1,0 +1,16 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/fields-initializer-
+name: early error -- static ClassElementName Initializer
+negative:
+  type: SyntaxError
+  phase: parse
+---*/
+
+throw "Test262: This statement should not be evaluated.";
+
+class C {
+  static /*{ propname }*/ = 0;
+}

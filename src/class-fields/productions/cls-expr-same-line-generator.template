@@ -1,0 +1,29 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/fields-same-line-gen-
+name: field definitions followed by a generator method in the same line
+features: [class, class-fields-public, generators]
+esid: prod-FieldDefinition
+includes: [propertyHelper.js]
+---*/
+
+var C = class {
+  /*{ fields }*/; *m() { return 42; }
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+assert.sameValue(c.m().next().value, 42);
+assert.sameValue(c.m, C.prototype.m);
+assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
+
+verifyProperty(C.prototype, "m", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+});
+
+/*{ assertions }*/

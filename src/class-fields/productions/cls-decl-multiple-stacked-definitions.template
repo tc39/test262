@@ -1,0 +1,43 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/fields-multiple-stacked-definitions-
+name: multiple stacked fields definitions through ASI
+features: [class, class-fields-public]
+esid: prod-FieldDefinition
+includes: [propertyHelper.js]
+---*/
+
+class C {
+  /*{ fields }*/
+  foo = "foobar"
+  bar = "barbaz";
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+assert.sameValue(c.foo, "foobar");
+assert.sameValue(Object.hasOwnProperty.call(C, "foo"), false);
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "foo"), false);
+
+verifyProperty(c, "foo", {
+  value: "foobar",
+  enumerable: true,
+  configurable: true,
+  writable: true,
+});
+
+assert.sameValue(c.bar, "barbaz");
+assert.sameValue(Object.hasOwnProperty.call(C, "bar"), false);
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "bar"), false);
+
+verifyProperty(c, "bar", {
+  value: "barbaz",
+  enumerable: true,
+  configurable: true,
+  writable: true,
+});
+
+/*{ assertions }*/

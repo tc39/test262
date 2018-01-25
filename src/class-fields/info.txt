@@ -2,7 +2,6 @@
     MethodDefinition
     static MethodDefinition
     FieldDefinition ;
-    static FieldDefinition ;
     ;
 
   FieldDefinition:

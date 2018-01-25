@@ -1,0 +1,51 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: static literal private names
+info: |
+  ClassElement:
+    ...
+    FieldDefinition ;
+
+  FieldDefinition:
+    ClassElementName Initializer_opt
+
+  ClassElementName:
+    PrivateName
+
+  PrivateName:
+    #IdentifierName
+template: productions
+features: [class-fields-private]
+---*/
+
+//- fields
+#x; #y
+//- privateinspectionfunctions
+  x() {
+    this.#x = 42;
+    return this.#x;
+  }
+  y() {
+    this.#y = 43;
+    return this.#y;
+  }
+//- assertions
+
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#x"), false, "test 1");
+assert.sameValue(Object.hasOwnProperty.call(C, "#x"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(c, "#x"), false, "test 3");
+
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#y"), false, "test 4");
+assert.sameValue(Object.hasOwnProperty.call(C, "#y"), false, "test 5");
+assert.sameValue(Object.hasOwnProperty.call(c, "#y"), false, "test 6");
+
+// Test if private fields can be sucessfully accessed and set to value
+assert.sameValue(c.x(), 42, "test 7");
+assert.sameValue(c.y(), 43, "test 8");
+
+// Test the private fields do not appear as properties before after set to value
+assert.sameValue(Object.hasOwnProperty.call(c, "#x"), false, "test 9");
+assert.sameValue(Object.hasOwnProperty.call(c, "#y"), false, "test 10");

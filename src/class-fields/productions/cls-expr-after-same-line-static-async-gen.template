@@ -1,0 +1,34 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/fields-after-same-line-static-async-gen-
+name: field definitions after a static async generator in the same line
+features: [class, class-fields-public, async-iteration]
+flags: [async]
+esid: prod-FieldDefinition
+includes: [propertyHelper.js]
+---*/
+
+var C = class {
+  static async *m() { return 42; } /*{ fields }*/;
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "m"), false);
+
+verifyProperty(C, "m", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+}, {restore: true});
+
+/*{ assertions }*/
+
+C.m().next().then(function(v) {
+  assert.sameValue(v.value, 42);
+  assert.sameValue(v.done, true);
+}, $DONE).then($DONE, $DONE);

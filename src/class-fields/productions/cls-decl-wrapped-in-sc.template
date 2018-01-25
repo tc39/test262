@@ -1,0 +1,20 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/fields-wrapped-in-sc-
+name: fields definition wrapped in semicolons
+features: [class, class-fields-public]
+esid: prod-FieldDefinition
+---*/
+
+class C {
+  ;;;;
+  ;;;;;;/*{ fields }*/;;;;;;;
+  ;;;;
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+/*{ assertions }*/

@@ -8,7 +8,7 @@ description: >
     if(a>b) \n else c=d is not a valid sentence in the ECMAScript
     grammar
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

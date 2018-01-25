@@ -1,0 +1,21 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Syntax error if `super()` used in class field
+info: |
+  Static Semantics: Early Errors
+
+    FieldDefinition:
+      PropertyNameInitializeropt
+
+    - It is a Syntax Error if Initializer is present and Initializer Contains SuperCall is true.
+features: [class, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
+template: initializer-error
+---*/
+
+//- initializer
+super()

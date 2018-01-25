@@ -1,0 +1,65 @@
+// Copyright (C) 2017 the V8 project authors, 2017 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/fields-multiple-definitions-
+name: multiple fields definitions
+features: [class, class-fields-public]
+esid: prod-FieldDefinition
+includes: [propertyHelper.js]
+---*/
+
+var C = class {
+  foo = "foobar";
+  m() { return 42 }
+  /*{ fields }*/
+  m2() { return 39 }
+  bar = "barbaz";
+/*{ privateinspectionfunctions }*/
+}
+
+var c = new C();
+
+assert.sameValue(c.m(), 42);
+assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
+assert.sameValue(c.m, C.prototype.m);
+
+verifyProperty(C.prototype, "m", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+});
+
+assert.sameValue(c.m2(), 39);
+assert.sameValue(Object.hasOwnProperty.call(c, "m2"), false);
+assert.sameValue(c.m2, C.prototype.m2);
+
+verifyProperty(C.prototype, "m2", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+});
+
+assert.sameValue(c.foo, "foobar");
+assert.sameValue(Object.hasOwnProperty.call(C, "foo"), false);
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "foo"), false);
+
+verifyProperty(c, "foo", {
+  value: "foobar",
+  enumerable: true,
+  configurable: true,
+  writable: true,
+});
+
+assert.sameValue(c.bar, "barbaz");
+assert.sameValue(Object.hasOwnProperty.call(C, "bar"), false);
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "bar"), false);
+
+verifyProperty(c, "bar", {
+  value: "barbaz",
+  enumerable: true,
+  configurable: true,
+  writable: true,
+});
+
+/*{ assertions }*/

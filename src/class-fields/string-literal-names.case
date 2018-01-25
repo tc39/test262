@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: prod-FieldDefinition
 desc: String literal names
 info: |
   ClassElement:
@@ -14,7 +13,7 @@ info: |
 
   ClassElementName:
     PropertyName
-template: default
+template: productions
 includes: [propertyHelper.js]
 ---*/
 

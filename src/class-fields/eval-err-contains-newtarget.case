@@ -1,0 +1,24 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: error if `new.target` in StatementList of eval
+info: |
+  Additional Early Error Rules for Eval Inside Initializer
+  These static semantics are applied by PerformEval when a direct eval call occurs inside a class field initializer.
+  ScriptBody : StatementList
+
+    ...
+    The remaining eval rules apply as outside a constructor, inside a method, and inside a function.
+
+  Additional Early Error Rules for Eval Outside Functions
+  These static semantics are applied by PerformEval when a direct eval call occurs outside of any function.
+  ScriptBody:StatementList
+
+    It is a Syntax Error if StatementList Contains NewTarget.
+features: [class, class-fields-public]
+template: initializer-eval-newtarget
+---*/
+
+//- initializer
+new.target
