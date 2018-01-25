@@ -55,10 +55,17 @@ regexp-unicode-property-escapes
 Atomics
 SharedArrayBuffer
 
+# String Trimming
+# https://github.com/tc39/proposal-string-left-right-trim
+# Includes all tests for:
+# String.prototype.{trimStart, trimEnd, trimLeft, trimRight }
+string-trimming
+
 # Array.prototype.flatten and Array.prototype.flatMap
 # https://github.com/tc39/proposal-flatMap
 Array.prototype.flatten
 Array.prototype.flatMap
+
 
 # Standard language features
 #
