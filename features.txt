@@ -65,6 +65,8 @@ Array.prototype.flatMap
 # Includes all tests for:
 # String.prototype.{trimStart, trimEnd, trimLeft, trimRight }
 string-trimming
+String.prototype.trimEnd
+String.prototype.trimStart
 
 # Standard language features
 #
