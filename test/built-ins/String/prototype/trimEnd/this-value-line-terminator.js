@@ -13,7 +13,7 @@ info: |
 
   The definition of white space is the union of WhiteSpace and LineTerminator.
 
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimEnd]
 ---*/
 
 var trimEnd = String.prototype.trimEnd;

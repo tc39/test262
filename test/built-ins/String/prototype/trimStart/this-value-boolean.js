@@ -13,7 +13,7 @@ info: |
   Result:
     If argument is true, return "true".
     If argument is false, return "false".
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimStart]
 ---*/
 
 var trimStart = String.prototype.trimStart

@@ -11,7 +11,7 @@ info: |
   ToString ( argument )
   Argument Type: Number
   Result: NumberToString(argument)
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimStart]
 ---*/
 
 var trimStart = String.prototype.trimStart

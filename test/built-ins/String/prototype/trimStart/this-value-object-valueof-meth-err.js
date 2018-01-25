@@ -38,7 +38,7 @@ info: |
       a. Let method be ? Get(O, name).
       b. If IsCallable(method) is true, then
         i. Let result be ? Call(method, O).
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimStart, Symbol.toPrimitive]
 ---*/
 
 var thisVal = {

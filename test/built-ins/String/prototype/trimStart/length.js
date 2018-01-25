@@ -20,7 +20,7 @@ info: >
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimStart]
 ---*/
 
 verifyProperty(String.prototype.trimStart, "length", {

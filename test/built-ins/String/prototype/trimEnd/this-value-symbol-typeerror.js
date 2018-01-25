@@ -11,7 +11,7 @@ info: |
   ToString ( argument )
   Argument Type: Symbol
   Result: Throw a TypeError exception
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimEnd]
 ---*/
 
 var trimEnd = String.prototype.trimEnd;

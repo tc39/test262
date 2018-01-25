@@ -6,7 +6,7 @@ esid: sec-string.prototype.trimStart
 description: The "this" value must be object-coercible
 info: |
   1. Let O be ? RequireObjectCoercible(this value).
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimStart]
 ---*/
 
 var trimStart = String.prototype.trimStart;

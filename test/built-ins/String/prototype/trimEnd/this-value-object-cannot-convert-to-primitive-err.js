@@ -40,7 +40,7 @@ info: |
         i. Let result be ? Call(method, O).
         ii. If Type(result) is not Object, return result.
     6. Throw a TypeError exception.
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimEnd, Symbol.toPrimitive]
 ---*/
 
 var thisVal = {

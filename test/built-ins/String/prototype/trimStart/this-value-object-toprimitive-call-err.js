@@ -20,7 +20,7 @@ info: |
    ...
     d. Let exoticToPrim be ? GetMethod(input, @@toPrimitive).
    ...
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimStart, Symbol.toPrimitive]
 ---*/
 
 var thisVal = {

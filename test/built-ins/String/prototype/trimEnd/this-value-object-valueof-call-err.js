@@ -36,7 +36,7 @@ info: |
    ...
     5. For each name in methodNames in List order, do
       a. Let method be ? Get(O, name).
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimEnd, Symbol.toPrimitive]
 ---*/
 
 var thisVal = {

@@ -16,7 +16,7 @@ info: |
   “Zs”, code unit sequences are interpreted as UTF-16 encoded code point
   sequences as specified in 6.1.4.
 
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimStart]
 ---*/
 
 var trimStart = String.prototype.trimStart;

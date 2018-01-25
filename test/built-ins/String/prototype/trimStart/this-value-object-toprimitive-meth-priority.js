@@ -23,7 +23,7 @@ info: |
       i. Let result be ? Call(exoticToPrim, input, « hint »).
       ii. If Type(result) is not Object, return result.
    ...
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimStart, Symbol.toPrimitive]
 ---*/
 
 

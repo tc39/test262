@@ -12,7 +12,7 @@ info: >
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
-features: [string-trimming]
+features: [string-trimming, String.prototype.trimEnd]
 ---*/
 
 verifyProperty(String.prototype, "trimEnd", {

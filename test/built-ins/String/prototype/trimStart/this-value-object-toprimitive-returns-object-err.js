@@ -24,7 +24,7 @@ info: |
       ii. If Type(result) is not Object, return result.
       iii. Throw a TypeError exception.
    ...
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimStart, Symbol.toPrimitive]
 ---*/
 
 var thisVal = {

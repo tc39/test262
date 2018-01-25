@@ -22,7 +22,7 @@ info: |
     e. If exoticToPrim is not undefined, then
       i. Let result be ? Call(exoticToPrim, input, « hint »).
    ...
-features: [string-trimming, Symbol.toPrimitive]
+features: [string-trimming, String.prototype.trimStart, Symbol.toPrimitive]
 ---*/
 
 var thisVal = {
