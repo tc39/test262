@@ -3,8 +3,10 @@
 
 /*---
 esid: prod-NumericLiteralSeparator
-description: NonZeroDigit NumericLiteralSeparator DecimalDigits
+description: NumericLiteralSeparator is not valid on string conversions for ToNumber operations
 info: |
+  NonZeroDigit NumericLiteralSeparator DecimalDigits
+
   NumericLiteralSeparator ::
     _
 
@@ -20,6 +22,7 @@ info: |
     DecimalDigits DecimalDigit
     ...
 
+features: [numeric-separator-literal]
 ---*/
 
-assert.sameValue(Number("1_0123456789"), 10123456789);
+assert.sameValue(Number("1_0123456789"), NaN, "1_0123456789");

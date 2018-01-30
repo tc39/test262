@@ -3,8 +3,10 @@
 
 /*---
 esid: prod-NumericLiteralSeparator
-description: DecimalDigits NumericLiteralSeparator DecimalDigit
+description: NumericLiteralSeparator is not valid on string conversions for ToNumber operations
 info: |
+  DecimalDigits NumericLiteralSeparator DecimalDigit
+  
   NumericLiteralSeparator ::
     _
 
@@ -12,16 +14,16 @@ info: |
     ...
     + DecimalDigits
     ...
-
+features: [numeric-separator-literal]
 ---*/
 
-assert.sameValue(Number("+123456789_0"), 1234567890);
-assert.sameValue(Number("+123456789_1"), 1234567891);
-assert.sameValue(Number("+123456789_2"), 1234567892);
-assert.sameValue(Number("+123456789_3"), 1234567893);
-assert.sameValue(Number("+123456789_4"), 1234567894);
-assert.sameValue(Number("+123456789_5"), 1234567895);
-assert.sameValue(Number("+123456789_6"), 1234567896);
-assert.sameValue(Number("+123456789_7"), 1234567897);
-assert.sameValue(Number("+123456789_8"), 1234567898);
-assert.sameValue(Number("+123456789_9"), 1234567899);
+assert.sameValue(Number("+123456789_0"), NaN, "+123456789_0");
+assert.sameValue(Number("+123456789_1"), NaN, "+123456789_1");
+assert.sameValue(Number("+123456789_2"), NaN, "+123456789_2");
+assert.sameValue(Number("+123456789_3"), NaN, "+123456789_3");
+assert.sameValue(Number("+123456789_4"), NaN, "+123456789_4");
+assert.sameValue(Number("+123456789_5"), NaN, "+123456789_5");
+assert.sameValue(Number("+123456789_6"), NaN, "+123456789_6");
+assert.sameValue(Number("+123456789_7"), NaN, "+123456789_7");
+assert.sameValue(Number("+123456789_8"), NaN, "+123456789_8");
+assert.sameValue(Number("+123456789_9"), NaN, "+123456789_9");

@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-tonumber-applied-to-the-string-type
-description: . StrDecimalDigits StrExponentPart
+description: >
+  The NSL does not affect strings parsed by parseFloat - . StrDecimalDigits StrExponentPart
 info: |
 
   StrUnsignedDecimalLiteral :::
@@ -14,6 +15,7 @@ info: |
     ...
     StrDecimalDigits DecimalDigit
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(parseFloat(".0_1e2"), .0);

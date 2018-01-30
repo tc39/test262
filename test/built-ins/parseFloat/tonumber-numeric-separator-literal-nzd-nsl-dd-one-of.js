@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-tonumber-applied-to-the-string-type
-description: NonZeroDigit NumericLiteralSeparator DecimalDigit
+description: >
+  The NSL does not affect strings parsed by parseFloat - NonZeroDigit NumericLiteralSeparator DecimalDigit
 info: |
 
   StrUnsignedDecimalLiteral :::
@@ -19,6 +20,7 @@ info: |
   DecimalDigit ::: one of
     0 1 2 3 4 5 6 7 8 9
 
+features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(parseFloat("1_0"), 1);
