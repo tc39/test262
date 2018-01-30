@@ -3,9 +3,10 @@
 
 /*---
 esid: prod-NumericLiteralSeparator
-description: >
-  `0o` | `0O` OctalDigit NumericLiteralSeparator OctalDigit
+description: NumericLiteralSeparator is not valid on string conversions for ToNumber operations
 info: |
+  `0o` | `0O` OctalDigit NumericLiteralSeparator OctalDigit
+
   NumericLiteralSeparator ::
     _
 
@@ -21,7 +22,8 @@ info: |
   OctalDigit :: one of
     0 1 2 3 4 5 6 7
 
+features: [numeric-separator-literal]
 ---*/
 
-assert.sameValue(Number("0o0_10"), 0o010);
-assert.sameValue(Number("0O0_10"), 0O010);
+assert.sameValue(Number("0o0_10"), NaN, "0o0_10");
+assert.sameValue(Number("0O0_10"), NaN, "0O0_10");

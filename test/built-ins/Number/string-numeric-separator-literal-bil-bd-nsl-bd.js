@@ -3,9 +3,10 @@
 
 /*---
 esid: prod-NumericLiteralSeparator
-description: >
-  `0b` | `0B` BinaryDigit NumericLiteralSeparator BinaryDigit
+description: NumericLiteralSeparator is not valid on string conversions for ToNumber operations
 info: |
+  `0b` | `0B` BinaryDigit NumericLiteralSeparator BinaryDigit
+
   NumericLiteralSeparator ::
     _
 
@@ -21,7 +22,8 @@ info: |
   BinaryDigit :: one of
     0 1
 
+features: [numeric-separator-literal]
 ---*/
 
-assert.sameValue(Number("0b0_1"), 0b01);
-assert.sameValue(Number("0B0_1"), 0B01);
+assert.sameValue(Number("0b0_1"), NaN, "0b0_1");
+assert.sameValue(Number("0B0_1"), NaN, "0B0_1");

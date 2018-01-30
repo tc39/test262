@@ -3,10 +3,11 @@
 
 /*---
 esid: prod-NumericLiteralSeparator
-description: >
+description: NumericLiteralSeparator is not valid on string conversions for ToNumber operations
+info: |
   DecimalDigits `.` DecimalDigits NumericLiteralSeparator DecimalDigits
   ExponentPart SignedInteger
-info: |
+
   NumericLiteralSeparator ::
     _
 
@@ -20,6 +21,7 @@ info: |
   ExponentIndicator :: one of
     e E
 
+features: [numeric-separator-literal]
 ---*/
 
-assert.sameValue(Number("10.00_01e2"), 10.0001e2);
+assert.sameValue(Number("10.00_01e2"), NaN, "10.00_01e2");
