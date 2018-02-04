@@ -37,4 +37,12 @@ z
 
 z();
 
-eval("function\u0009\u2029w(\u000C)\u00A0{\u000D}; w()");
+// The following function expression is expressed with literal unicode
+// characters so that parsers may benefit from this test. The included code
+// points are as follows:
+//
+// "function\u0009\u2029w(\u000C)\u00A0{\u000D}"
+
+function	 w() {}
+
+w();

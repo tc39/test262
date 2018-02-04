@@ -11,10 +11,12 @@ description: >
     Strict Mode - SyntaxError is thrown if the identifier 'arguments'
     appears within a FormalParameterList of a strict mode
     FunctionDeclaration
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-            eval("function _13_1_3_fun(arguments) { }");
-});
+function _13_1_3_fun(arguments) { }

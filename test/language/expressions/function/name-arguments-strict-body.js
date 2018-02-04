@@ -7,10 +7,12 @@ description: >
     StrictMode - SyntaxError is thrown if 'arguments' occurs as the
     Identifier of a FunctionExpression whose FunctionBody is contained
     in strict code
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [noStrict]
 ---*/
 
-        var _13_1_42_s = {};
-assert.throws(SyntaxError, function() {
-            eval("_13_1_42_s.x = function arguments() {'use strict';};");
-});
+throw "Test262: This statement should not be evaluated.";
+
+(function arguments() {'use strict';});

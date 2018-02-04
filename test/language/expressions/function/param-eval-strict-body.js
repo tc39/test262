@@ -11,10 +11,12 @@ description: >
     StrictMode - SyntaxError is thrown if the identifier 'eval'
     appears within a FormalParameterList of a strict mode
     FunctionExpression when FuctionBody is strict code
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [noStrict]
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-            eval("var _13_1_18_fun = function (eval) { 'use strict'; }");
-});
+(function (eval) { 'use strict'; });

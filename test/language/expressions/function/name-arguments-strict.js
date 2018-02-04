@@ -6,10 +6,12 @@ es5id: 13.1-14-s
 description: >
     StrictMode - SyntaxError is thrown if 'arguments' occurs as the
     Identifier of a FunctionExpression in strict mode
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-        var _13_1_14_s = {};
-assert.throws(SyntaxError, function() {
-            eval("_13_1_14_s.x = function arguments() {};");
-});
+throw "Test262: This statement should not be evaluated.";
+
+(function arguments() {});

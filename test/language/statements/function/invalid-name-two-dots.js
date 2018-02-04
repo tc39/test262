@@ -6,10 +6,11 @@ es5id: 13.0-4
 description: >
     13.0 - multiple names in one function declaration is not allowed,
     add a new property into a property which is a object
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-        var obj = {};
-        obj.tt = { len: 10 };
-assert.throws(SyntaxError, function() {
-            eval("function obj.tt.ss() {};");
-});
+throw "Test262: This statement should not be evaluated.";
+
+function obj.tt.ss() {}

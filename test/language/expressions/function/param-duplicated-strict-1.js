@@ -11,10 +11,12 @@ description: >
     Strict Mode - SyntaxError is thrown if a function is created in
     'strict mode' using a FunctionExpression and the function has two
     identical parameters
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-            eval("var _13_1_8_fun = function (param, param) { };");
-});
+(function (param, param) { });

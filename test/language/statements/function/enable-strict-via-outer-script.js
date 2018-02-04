@@ -10,13 +10,16 @@ description: >
     Strict Mode - SourceElements is evaluated as strict mode code when
     a FunctionDeclaration that is contained in strict mode code has an
     inner function
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-        var _13_0_9_fun = function () {
-            function _13_0_9_inner() { eval("eval = 42;"); }
-            _13_0_9_inner();
-        };
-assert.throws(SyntaxError, function() {
-            _13_0_9_fun();
-});
+throw "Test262: This statement should not be evaluated.";
+
+var _13_0_9_fun = function () {
+    function _13_0_9_inner() {
+        eval = 42;
+    }
+};

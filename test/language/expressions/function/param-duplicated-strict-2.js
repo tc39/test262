@@ -12,10 +12,12 @@ description: >
     'strict mode' using a FunctionExpression and the function has two
     identical parameters, which are separated by a unique parameter
     name
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-            eval("var _13_1_9_fun = function (param1, param2, param1) { };");
-});
+(function (param1, param2, param1) { });

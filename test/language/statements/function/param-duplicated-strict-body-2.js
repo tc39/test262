@@ -12,10 +12,12 @@ description: >
     a FunctionDeclaration whose FunctionBody is contained in strict
     code and the function has two identical parameters which are
     separated by a unique parameter name
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [noStrict]
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-            eval("function _13_1_26_fun(param1, param2, param1) { 'use strict'; }");
-});
+function _13_1_26_fun(param1, param2, param1) { 'use strict'; }

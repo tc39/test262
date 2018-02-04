@@ -9,4 +9,4 @@ description: >
 flags: [noStrict]
 ---*/
 
-    eval("(function arguments (){});");
+(function arguments (){});

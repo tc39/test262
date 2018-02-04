@@ -6,9 +6,11 @@ es5id: 13.0-2
 description: >
     13.0 - multiple names in one function declaration is not allowed,
     three function names
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-            eval("function x,y,z(){}");
-});
+function x,y,z(){}
