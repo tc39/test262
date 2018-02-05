@@ -28,7 +28,7 @@ Object.defineProperty(TypedArray.prototype, "byteOffset", desc);
 testWithTypedArrayConstructors(function(TA, N) {
   var sample = new TA(2);
   var src = new TA(N([42, 43]));
-  var differentTA = TA === Uint8Array ? Int8Array : 
+  var differentTA = TA === Uint8Array ? Int8Array :
                     TA === BigInt64Array ? BigUint64Array :
                     TA === BigUint64Array ? BigInt64Array : Uint8Array;
   var src2 = new differentTA(N([42, 43]));

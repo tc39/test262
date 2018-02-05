@@ -27,7 +27,7 @@ features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA, N) {
-  var other = TA === Float32Array ? Float64Array : 
+  var other = TA === Float32Array ? Float64Array :
               TA === BigInt64Array ? BigUint64Array :
               TA === BigUint64Array ? BigInt64Array : Float32Array;
   var src = new other(N([42, 43]));

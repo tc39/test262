@@ -34,7 +34,7 @@ testWithTypedArrayConstructors(function(TA, N) {
       },
       "3": N(44)
   };
-  
+
   var sample = new TA(N([1, 2, 3, 4]));
 
   assert.throws(Test262Error, function() {

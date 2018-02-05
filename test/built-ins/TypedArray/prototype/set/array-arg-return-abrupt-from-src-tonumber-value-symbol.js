@@ -30,7 +30,7 @@ testWithTypedArrayConstructors(function(TA, N) {
       "2": Symbol("1"),
       "3": N(44)
   };
-  
+
   var sample = new TA(N([1, 2, 3, 4]));
 
   assert.throws(TypeError, function() {
