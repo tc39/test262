@@ -31,6 +31,9 @@ features: [TypedArray]
 var arr = [-2, Infinity, NaN, -Infinity, 0.6, 9007199254740992];
 
 testWithTypedArrayConstructors(function(TA) {
+  // Cannot construct Big*64Arrays from non-safe integers.
+  if (TA === BigInt64Array || TA === BigUint64Array) return;
+  
   var sample = new TA(arr);
 
   // Use converted values using Array methods as helpers

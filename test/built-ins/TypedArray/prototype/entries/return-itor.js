@@ -13,10 +13,10 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-var sample = new Int8Array([0, 42, 64]);
+var sample = [0, 42, 64];
 
 testWithTypedArrayConstructors(function(TA, N) {
-  var typedArray = new TA(sample);
+  var typedArray = new TA(N(sample));
   var itor = typedArray.entries();
 
   var next = itor.next();

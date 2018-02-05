@@ -34,7 +34,7 @@ features: [TypedArray]
 
 var calls = 0;
 
-Number.prototype.toLocaleString = function() {
+Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
   return {
     toString: function() {
       calls++;
@@ -47,8 +47,8 @@ Number.prototype.toLocaleString = function() {
 
 var arr = [42, 0];
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(arr);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N(arr));
   calls = 0;
   assert.throws(Test262Error, function() {
     sample.toLocaleString();

@@ -35,7 +35,7 @@ features: [TypedArray]
 var separator = ["", ""].toLocaleString();
 var calls;
 
-Number.prototype.toLocaleString = function() {
+Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
   return {
     toString: undefined,
     valueOf: function() {
@@ -48,8 +48,8 @@ Number.prototype.toLocaleString = function() {
 var arr = [42, 0];
 var expected = ["hacks1", "hacks2"].join(separator);
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(arr);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N(arr));
   calls = 0;
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert.sameValue(calls, 2, "valueOf called once for each item");

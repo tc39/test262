@@ -50,7 +50,7 @@ testWithTypedArrayConstructors(function(TA, N) {
       "return true after defining data property [" + key + "]"
     );
 
-    assert.sameValue(sample1[key], 42, "value is set to [" + key + "]");
+    assert.sameValue(sample1[key], N(42), "value is set to [" + key + "]");
     verifyNotEnumerable(sample1, key);
     verifyWritable(sample1, key);
     verifyConfigurable(sample1, key);

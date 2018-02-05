@@ -16,7 +16,7 @@ includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample = new TA(2);
 
   assert.sameValue(
@@ -29,7 +29,7 @@ testWithTypedArrayConstructors(function(TA) {
     false,
     "0.1"
   );
-  assert.sameValue(sample[0], 0, "'0.1' - does not change the value for [0]");
+  assert.sameValue(sample[0], N(0), "'0.1' - does not change the value for [0]");
   assert.sameValue(
     sample["0.1"],
     undefined,
@@ -47,7 +47,7 @@ testWithTypedArrayConstructors(function(TA) {
     "0.000001"
   );
   assert.sameValue(
-    sample[0], 0,
+    sample[0], N(0),
     "'0.000001' - does not change the value for [0]"
   );
   assert.sameValue(
@@ -66,7 +66,7 @@ testWithTypedArrayConstructors(function(TA) {
     false,
     "1.1"
   );
-  assert.sameValue(sample[1], 0, "'1.1' - does not change the value for [1]");
+  assert.sameValue(sample[1], N(0), "'1.1' - does not change the value for [1]");
   assert.sameValue(
     sample["1.1"],
     undefined,
@@ -84,11 +84,11 @@ testWithTypedArrayConstructors(function(TA) {
     "Infinity"
   );
   assert.sameValue(
-    sample[0], 0,
+    sample[0], N(0),
     "'Infinity' - does not change the value for [0]"
   );
   assert.sameValue(
-    sample[1], 0,
+    sample[1], N(0),
     "'Infinity' - does not change the value for [1]"
   );
   assert.sameValue(
@@ -108,11 +108,11 @@ testWithTypedArrayConstructors(function(TA) {
     "-Infinity"
   );
   assert.sameValue(
-    sample[0], 0,
+    sample[0], N(0),
     "'-Infinity' - does not change the value for [0]"
   );
   assert.sameValue(
-    sample[1], 0,
+    sample[1], N(0),
     "'-Infinity' - does not change the value for [1]"
   );
   assert.sameValue(

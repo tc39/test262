@@ -30,24 +30,24 @@ info: |
 includes: [compareArray.js, testTypedArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   assert(
-    compareArray(new TA([0, 0, 0]).fill(8, 0, 1), [8, 0, 0]),
+    compareArray(new TA(N([0, 0, 0])).fill(N(8), 0, 1), N([8, 0, 0])),
     "Fill elements from custom end position"
   );
 
   assert(
-    compareArray(new TA([0, 0, 0]).fill(8, 0, -1), [8, 8, 0]),
+    compareArray(new TA(N([0, 0, 0])).fill(N(8), 0, -1), N([8, 8, 0])),
     "negative end sets final position to max((length + relativeEnd), 0)"
   );
 
   assert(
-    compareArray(new TA([0, 0, 0]).fill(8, 0, 5), [8, 8, 8]),
+    compareArray(new TA(N([0, 0, 0])).fill(N(8), 0, 5), N([8, 8, 8])),
     "end position is never higher than of length"
   );
 
   assert(
-    compareArray(new TA([0, 0, 0]).fill(8, 0, -4), [0, 0, 0]),
+    compareArray(new TA(N([0, 0, 0])).fill(N(8), 0, -4), N([0, 0, 0])),
     "end position is 0 when (len + relativeEnd) < 0"
   );
 });

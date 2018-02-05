@@ -27,7 +27,7 @@ features: [TypedArray]
 
 var calls = 0;
 
-Number.prototype.toLocaleString = function() {
+Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
   calls++;
   if (calls > 1) {
     throw new Test262Error();
@@ -36,9 +36,9 @@ Number.prototype.toLocaleString = function() {
 
 var arr = [42, 0];
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   calls = 0;
-  var sample = new TA(arr);
+  var sample = new TA(N(arr));
   assert.throws(Test262Error, function() {
     sample.toLocaleString();
   });

@@ -37,41 +37,43 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample;
 
-  sample = new TA([42]);
-  sample.fill(null);
-  assert.sameValue(sample[0], 0, "null => 0");
+  if (TA !== BigInt64Array && TA !== BigUint64Array) {
+    sample = new TA(N([42]));
+    sample.fill(null);
+    assert.sameValue(sample[0], 0, "null => 0");
+  }
 
-  sample = new TA([42]);
+  sample = new TA(N([42]));
   sample.fill(false);
-  assert.sameValue(sample[0], 0, "false => 0");
+  assert.sameValue(sample[0], N(0), "false => 0");
 
-  sample = new TA([42]);
+  sample = new TA(N([42]));
   sample.fill(true);
-  assert.sameValue(sample[0], 1, "true => 1");
+  assert.sameValue(sample[0], N(1), "true => 1");
 
-  sample = new TA([42]);
+  sample = new TA(N([42]));
   sample.fill("7");
-  assert.sameValue(sample[0], 7, "string conversion");
+  assert.sameValue(sample[0], N(7), "string conversion");
 
-  sample = new TA([42]);
+  sample = new TA(N([42]));
   sample.fill({
     toString: function() {
-      return 1;
+      return "1";
     },
     valueOf: function() {
-      return 7; 
+      return N(7); 
     }
   });
-  assert.sameValue(sample[0], 7, "object valueOf conversion before toString");
+  assert.sameValue(sample[0], N(7), "object valueOf conversion before toString");
 
-  sample = new TA([42]);
+  sample = new TA(N([42]));
   sample.fill({
     toString: function() {
-      return 7;
+      return "7";
     }
   });
-  assert.sameValue(sample[0], 7, "object toString when valueOf is absent");
+  assert.sameValue(sample[0], N(7), "object toString when valueOf is absent");
 });

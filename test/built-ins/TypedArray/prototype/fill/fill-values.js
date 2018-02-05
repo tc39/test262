@@ -28,17 +28,17 @@ info: |
 includes: [compareArray.js, testTypedArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   assert(
     compareArray(
-      new TA().fill(8),
+      new TA().fill(N(8)),
       []
     ),
     "does not fill an empty instance"
   );
 
   assert(
-    compareArray(new TA([0, 0, 0]).fill(8), [8, 8, 8]),
+    compareArray(new TA(N([0, 0, 0])).fill(N(8)), N([8, 8, 8])),
     "Default start and end indexes are 0 and this.length"
   );
 });
