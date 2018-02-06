@@ -38,4 +38,6 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(sample.lastIndexOf(null), -1, "null");
   assert.sameValue(sample.lastIndexOf(undefined), -1, "undefined");
   assert.sameValue(sample.lastIndexOf(""), -1, "empty string");
-});
+},
+  // Cannot create Big*64Arrays from non-safe integers.
+  numericTypedArrayConstructors);

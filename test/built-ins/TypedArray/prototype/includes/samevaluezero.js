@@ -36,7 +36,9 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(sample.includes(false), false, "false");
   assert.sameValue(sample.includes(null), false, "null");
   assert.sameValue(sample.includes(""), false, "empty string");
-});
+},
+  // ToBigInt(undefined) throws a TypeError exception.
+  numericTypedArrayConstructors);
 
 testWithTypedArrayConstructors(function(FloatArray) {
   var sample = new FloatArray([42, 0, 1, undefined, NaN]);

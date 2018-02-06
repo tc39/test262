@@ -40,7 +40,7 @@ features: [TypedArray]
 testWithTypedArrayConstructors(function(TA, N) {
   var sample;
 
-  if (TA !== BigInt64Array && TA !== BigUint64Array) {
+  if (numericTypedArrayConstructors.includes(TA)) {
     sample = new TA(N([42]));
     sample.fill(null);
     assert.sameValue(sample[0], 0, "null => 0");
