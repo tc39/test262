@@ -33,7 +33,7 @@ if (typeof BigInt !== "undefined") {
 var TypedArray = Object.getPrototypeOf(Int8Array);
 
 function convertToBigInt(x) {
-  return (x instanceof Array) ? x.map(convertToBigInt) : BigInt(x);
+  return (Array.isArray(x)) ? x.map(convertToBigInt) : BigInt(x);
 }
 
 /**
