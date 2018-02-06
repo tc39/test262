@@ -34,9 +34,10 @@ var arr = [42, 43, 44];
 
 testWithTypedArrayConstructors(function(TA, N) {
   var sample = new TA(N(arr));
-  var other = TA === Int8Array ? Uint8Array :
-              TA === BigInt64Array ? BigUint64Array :
-              TA === BigUint64Array ? BigInt64Array : Int8Array;
+  var other = TA === Int8Array ? Uint8Array : Int8Array;
+  if (typeof BigInt !== "undefined") {
+    other = TA === BigInt64Array ? BigUint64Array :
+            TA === BigUint64Array ? BigInt64Array : other;
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = other;
