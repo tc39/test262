@@ -24,6 +24,12 @@ var TAConstructors = [
   Uint8Array,
   Uint8ClampedArray
 ];
+
+if (typeof BigInt !== "undefined") {
+  TAConstructors.push(BigInt64Array);
+  TAConstructors.push(BigUint64Array);
+}
+
 var length = TAConstructors.length;
 
 assert(
