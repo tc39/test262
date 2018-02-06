@@ -27,12 +27,16 @@ features: [TypedArray]
 
 var calls = 0;
 
-Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
+Number.prototype.toLocaleString = function() {
   calls++;
   if (calls > 1) {
     throw new Test262Error();
   }
 };
+
+if (typeof BigInt !== "undefined") {
+  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
+}
 
 var arr = [42, 0];
 

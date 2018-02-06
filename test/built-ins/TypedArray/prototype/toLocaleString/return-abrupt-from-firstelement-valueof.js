@@ -34,7 +34,7 @@ features: [TypedArray]
 
 var calls = 0;
 
-Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
+Number.prototype.toLocaleString = function() {
   return {
     toString: undefined,
     valueOf: function() {
@@ -43,6 +43,10 @@ Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
     }
   };
 };
+
+if (typeof BigInt !== "undefined") {
+  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
+}
 
 var arr = [42, 0];
 

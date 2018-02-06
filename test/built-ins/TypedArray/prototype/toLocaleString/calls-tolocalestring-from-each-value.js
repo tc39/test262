@@ -34,10 +34,14 @@ features: [TypedArray]
 var separator = ["", ""].toLocaleString();
 var calls;
 
-Number.prototype.toLocaleString = BigInt.prototype.toLocaleString = function() {
+Number.prototype.toLocaleString = function() {
   calls.push(this);
   return "hacks" + calls.length;
 };
+
+if (typeof BigInt !== "undefined") {
+  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
+}
 
 var arr = [42, 0];
 var expected = ["hacks1", "hacks2"].join(separator);
