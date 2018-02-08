@@ -70,8 +70,8 @@ function getReport() {
 function waitUntil(ia, k, value) {
     var i = 0;
     while (Atomics.load(ia, k) !== value && i < 15) {
-	$262.agent.sleep(100);
-	i++;
+        $262.agent.sleep(100);
+        i++;
     }
     assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
 }
