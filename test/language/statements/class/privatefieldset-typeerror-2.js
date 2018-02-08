@@ -40,7 +40,7 @@ class Outer {
     // private field `#x` is resolvable.
     return class {
       f() {
-	this.#x = 1;
+        this.#x = 1;
       }
     }
   }
