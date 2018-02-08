@@ -29,13 +29,17 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([0, 0]);
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "0", {value: 1}),
+    Reflect.defineProperty(sample, "0", {
+      value: 1
+    }),
     true,
     "set value for sample[0] returns true"
   );
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "1", {value: 2}),
+    Reflect.defineProperty(sample, "1", {
+      value: 2
+    }),
     true,
     "set value for sample[1] returns true"
   );

@@ -8,9 +8,15 @@ features: [async-iteration]
 ---*/
 
 let x = "h";
-class F { /* before */async /* a */ * /* b */ f /* c */ ( /* d */ ) /* e */ { /* f */ }/* after */ }
-class G { /* before */async /* a */ * /* b */ [ /* c */ "g" /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ }/* after */ }
-class H { /* before */async /* a */ * /* b */ [ /* c */ x /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ }/* after */ }
+class F { /* before */
+  async /* a */ * /* b */ f /* c */ ( /* d */ ) /* e */ { /* f */ } /* after */
+}
+class G { /* before */
+  async /* a */ * /* b */ [ /* c */ "g" /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ } /* after */
+}
+class H { /* before */
+  async /* a */ * /* b */ [ /* c */ x /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ } /* after */
+}
 
 let f = F.prototype.f;
 let g = G.prototype.g;

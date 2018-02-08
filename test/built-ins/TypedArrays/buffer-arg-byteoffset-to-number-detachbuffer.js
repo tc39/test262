@@ -16,6 +16,11 @@ features: [TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var offset = TA.BYTES_PER_ELEMENT;
   var buffer = new ArrayBuffer(3 * offset);
-  var byteOffset = { valueOf() { $DETACHBUFFER(buffer); return offset; } };
+  var byteOffset = {
+    valueOf() {
+      $DETACHBUFFER(buffer);
+      return offset;
+    }
+  };
   assert.throws(TypeError, () => new TA(buffer, byteOffset));
 });

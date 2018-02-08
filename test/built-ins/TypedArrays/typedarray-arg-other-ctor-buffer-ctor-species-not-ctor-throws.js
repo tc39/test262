@@ -33,7 +33,9 @@ var sample2 = new Int16Array();
 var ctor = function() {
   throw new Test262Error();
 };
-var m = { m() {} }.m;
+var m = {
+  m() {}
+}.m;
 ctor[Symbol.species] = m;
 
 testWithTypedArrayConstructors(function(TA) {

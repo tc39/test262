@@ -24,6 +24,6 @@ var replacer = function() {
   thisVal = this;
 };
 
-/./[Symbol.replace]('x', replacer);
+/./ [Symbol.replace]('x', replacer);
 
 assert.sameValue(thisVal, undefined);

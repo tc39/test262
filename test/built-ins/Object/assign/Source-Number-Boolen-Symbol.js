@@ -9,6 +9,6 @@ features: [Symbol]
 ---*/
 
 var target = new Object();
-var result = Object.assign(target,123,true,Symbol('foo'));
+var result = Object.assign(target, 123, true, Symbol('foo'));
 
 assert.sameValue(result, target, "Numbers, booleans, and symbols cannot have wrappers with own enumerable properties.");

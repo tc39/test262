@@ -55,7 +55,9 @@ function body(FloatArray) {
     someNaN = distinctNaNs[idx];
     control = new FloatArray([someNaN]);
 
-    Object.defineProperty(sample, '0', { value: someNaN });
+    Object.defineProperty(sample, '0', {
+      value: someNaN
+    });
 
     sampleBytes = new Uint8Array(sample.buffer);
     controlBytes = new Uint8Array(control.buffer);

@@ -29,4 +29,3 @@ for (let flags of ["", "u"]) {
   assert.sameValue("$<fth>cd", "abcd".replace(re, "$<fth>"));
   assert.sameValue("$<a>cd", "abcd".replace(re, "$<$1>"));
 }
-

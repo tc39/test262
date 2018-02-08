@@ -29,15 +29,15 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/./[Symbol.replace]('abc', '$$'), '$bc', '"escaped" version');
+assert.sameValue(/./ [Symbol.replace]('abc', '$$'), '$bc', '"escaped" version');
 assert.sameValue(
-  /./[Symbol.replace]('abc', '$'), '$bc', '"unescaped" version'
+  /./ [Symbol.replace]('abc', '$'), '$bc', '"unescaped" version'
 );
 assert.sameValue(
-  /./[Symbol.replace]('abc', '\\$'), '\\$bc', 'backslash-prefixed'
+  /./ [Symbol.replace]('abc', '\\$'), '\\$bc', 'backslash-prefixed'
 );
 assert.sameValue(
-  /./[Symbol.replace]('abc', '$$$'),
+  /./ [Symbol.replace]('abc', '$$$'),
   '$$bc',
   '"escaped" followed by "unuescaped"'
 );

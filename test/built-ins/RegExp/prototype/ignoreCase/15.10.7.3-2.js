@@ -8,8 +8,8 @@ description: >
     accessor function is undefined
 ---*/
 
-  var d = Object.getOwnPropertyDescriptor(RegExp.prototype, 'ignoreCase');
-  
+var d = Object.getOwnPropertyDescriptor(RegExp.prototype, 'ignoreCase');
+
 
 assert.sameValue(typeof d.get, 'function', 'typeof d.get');
 assert.sameValue(d.set, undefined, 'd.set');

@@ -48,7 +48,9 @@ testWithTypedArrayConstructors(function(TA) {
     return other;
   };
 
-  result = sample.filter(function() { return true; });
+  result = sample.filter(function() {
+    return true;
+  });
 
   assert.sameValue(calls, 1, "ctor called once");
   assert.sameValue(result, other, "return is instance of custom constructor");

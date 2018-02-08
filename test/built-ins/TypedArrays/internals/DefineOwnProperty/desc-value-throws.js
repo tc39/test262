@@ -35,6 +35,8 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42]);
 
   assert.throws(Test262Error, function() {
-    Object.defineProperty(sample, "0", {value: obj});
+    Object.defineProperty(sample, "0", {
+      value: obj
+    });
   });
 });

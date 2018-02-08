@@ -36,4 +36,4 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/a/yg[Symbol.replace]('aaba', 'x'), 'xxba');
+assert.sameValue(/a/yg [Symbol.replace]('aaba', 'x'), 'xxba');

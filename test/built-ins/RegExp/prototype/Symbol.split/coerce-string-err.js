@@ -18,9 +18,9 @@ var uncoercibleObj = {
 };
 
 assert.throws(Test262Error, function() {
-  /./[Symbol.split](uncoercibleObj);
+  /./ [Symbol.split](uncoercibleObj);
 });
 
 assert.throws(TypeError, function() {
-  /./[Symbol.split](Symbol.split);
+  /./ [Symbol.split](Symbol.split);
 });

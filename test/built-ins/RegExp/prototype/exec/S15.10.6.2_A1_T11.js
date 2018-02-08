@@ -12,12 +12,12 @@ description: String is new Number(1.012) and RegExp is /2|12/
 var __executed = /2|12/.exec(new Number(1.012));
 
 var __expected = ["12"];
-__expected.index=3;
-__expected.input="1.012";
+__expected.index = 3;
+__expected.input = "1.012";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-	$ERROR('#0: __executed = /2|12/.exec(new Number(1.012)); (__executed instanceof Array) === true');
+  $ERROR('#0: __executed = /2|12/.exec(new Number(1.012)); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -36,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for(var index=0; index<__expected.length; index++) {
+for (var index = 0; index < __expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /2|12/.exec(new Number(1.012)); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

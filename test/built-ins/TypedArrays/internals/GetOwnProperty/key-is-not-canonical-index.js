@@ -38,7 +38,9 @@ testWithTypedArrayConstructors(function(TA) {
 
     // Tests for the property descriptor are defined on the tests for
     // [[DefineOwnProperty]] calls
-    Object.defineProperty(sample, key, {value: "bar"});
+    Object.defineProperty(sample, key, {
+      value: "bar"
+    });
     assert.sameValue(
       Object.getOwnPropertyDescriptor(sample, key).value,
       "bar",

@@ -16,7 +16,7 @@ assert.sameValue(BigInt.asUintN(-0.9, 1n), 0n, "ToIndex: truncate towards 0");
 assert.sameValue(BigInt.asUintN(0.9, 1n), 0n, "ToIndex: truncate towards 0");
 assert.sameValue(BigInt.asUintN(NaN, 1n), 0n, "ToIndex: NaN => 0");
 assert.sameValue(BigInt.asUintN(undefined, 1n), 0n, "ToIndex: undefined => NaN => 0");
-assert.sameValue(BigInt.asUintN(null, 1n), 0n, "ToIndex: null => 0");
+assert.sameValue(BigInt.asUintN(null, 1n), 0n, "ToIndex:null => 0");
 assert.sameValue(BigInt.asUintN(false, 1n), 0n, "ToIndex: false => 0");
 assert.sameValue(BigInt.asUintN(true, 1n), 1n, "ToIndex: true => 1");
 assert.sameValue(BigInt.asUintN("0", 1n), 0n, "ToIndex: parse Number");

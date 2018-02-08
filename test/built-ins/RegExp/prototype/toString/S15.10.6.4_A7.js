@@ -10,8 +10,8 @@ description: Checking if creating the RegExp.prototype.toString object fails
 var __FACTORY = RegExp.prototype.toString;
 
 try {
-	var __instance = new __FACTORY;
-	$ERROR('#1.1: __FACTORY = RegExp.prototype.toString throw TypeError. Actual: ' + (__instance));
+  var __instance = new __FACTORY;
+  $ERROR('#1.1: __FACTORY = RegExp.prototype.toString throw TypeError. Actual: ' + (__instance));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.2: __FACTORY = RegExp.prototype.toString throw TypeError. Actual: ' + (e));

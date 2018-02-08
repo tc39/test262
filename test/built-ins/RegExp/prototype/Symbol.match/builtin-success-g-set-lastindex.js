@@ -32,7 +32,9 @@ features: [Symbol.match]
 // The conflicting values for the "global" flag are necessary to observe the
 // final modification of `lastIndex` in RegExpBuiltinExec
 var r = /b/g;
-Object.defineProperty(r, 'global', { value: false });
+Object.defineProperty(r, 'global', {
+  value: false
+});
 
 r[Symbol.match]('abc');
 

@@ -16,7 +16,9 @@ var speciesConstructor = {};
 var arrayBuffer = new SharedArrayBuffer(8);
 arrayBuffer.constructor = speciesConstructor;
 
-function callSlice() { arrayBuffer.slice(); }
+function callSlice() {
+  arrayBuffer.slice();
+}
 
 speciesConstructor[Symbol.species] = true;
 assert.throws(TypeError, callSlice, "`constructor[Symbol.species]` value is Boolean");

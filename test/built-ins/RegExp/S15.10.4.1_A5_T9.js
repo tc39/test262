@@ -13,9 +13,11 @@ description: >
 
 //CHECK#1
 try {
-	$ERROR('#1.1: new RegExp("$sup",{toString:function(){}}) throw SyntaxError. Actual: ' + (new RegExp("$sup",{toString:function(){}})));
+  $ERROR('#1.1: new RegExp("$sup",{toString:function(){}}) throw SyntaxError. Actual: ' + (new RegExp("$sup", {
+    toString: function() {}
+  })));
 } catch (e) {
-	if ((e instanceof SyntaxError) !== true) {
-		$ERROR('#1.2: new RegExp("$sup",{toString:function(){}}) throw SyntaxError. Actual: ' + (e));
-	}
+  if ((e instanceof SyntaxError) !== true) {
+    $ERROR('#1.2: new RegExp("$sup",{toString:function(){}}) throw SyntaxError. Actual: ' + (e));
+  }
 }

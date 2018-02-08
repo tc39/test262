@@ -22,7 +22,7 @@ features: [TypedArray]
 ---*/
 
 var some = TypedArray.prototype.some;
-var callbackfn = function () {};
+var callbackfn = function() {};
 
 assert.throws(TypeError, function() {
   some.call({}, callbackfn);

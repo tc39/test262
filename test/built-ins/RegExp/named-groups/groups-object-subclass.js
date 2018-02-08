@@ -19,7 +19,9 @@ class FakeRegExp extends RegExp {
   exec(subject) {
     const fakeResult = ["ab", "a"];
     fakeResult.index = 0;
-    fakeResult.groups = { a: "b" };
+    fakeResult.groups = {
+      a: "b"
+    };
     Object.getPrototypeOf(fakeResult.groups).b = "c";
     return fakeResult;
   }

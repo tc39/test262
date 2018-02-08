@@ -14,7 +14,7 @@ info: |
 features: [Symbol.iterator]
 ---*/
 
-var iterator = ''[Symbol.iterator]();
+var iterator = '' [Symbol.iterator]();
 var object = Object.create(iterator);
 
 assert.throws(TypeError, function() {

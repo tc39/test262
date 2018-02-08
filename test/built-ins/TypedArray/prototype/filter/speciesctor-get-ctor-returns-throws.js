@@ -28,7 +28,9 @@ includes: [testTypedArray.js]
 features: [Symbol, TypedArray]
 ---*/
 
-var callbackfn = function() { return true; };
+var callbackfn = function() {
+  return true;
+};
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);

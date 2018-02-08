@@ -14,11 +14,13 @@ features: [BigInt]
 
 function replacer(k, v)
 {
-    if (typeof v === "bigint")
-        return "bigint";
-    else
-        return v;
+  if (typeof v === "bigint")
+    return "bigint";
+  else
+    return v;
 }
 
 assert.sameValue(JSON.stringify(0n, replacer), '"bigint"');
-assert.sameValue(JSON.stringify({x: 0n}, replacer), '{"x":"bigint"}');
+assert.sameValue(JSON.stringify({
+  x: 0n
+}, replacer), '{"x":"bigint"}');

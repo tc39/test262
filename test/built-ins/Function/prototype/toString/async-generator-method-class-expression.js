@@ -8,9 +8,15 @@ features: [async-iteration]
 ---*/
 
 let x = "h";
-let f = class { /* before */async /* a */ * /* b */ f /* c */ ( /* d */ ) /* e */ { /* f */ }/* after */ }.prototype.f;
-let g = class { /* before */async /* a */ * /* b */ [ /* c */ "g" /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ }/* after */ }.prototype.g;
-let h = class { /* before */async /* a */ * /* b */ [ /* c */ x /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ }/* after */ }.prototype.h;
+let f = class { /* before */
+  async /* a */ * /* b */ f /* c */ ( /* d */ ) /* e */ { /* f */ } /* after */
+}.prototype.f;
+let g = class { /* before */
+  async /* a */ * /* b */ [ /* c */ "g" /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ } /* after */
+}.prototype.g;
+let h = class { /* before */
+  async /* a */ * /* b */ [ /* c */ x /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ } /* after */
+}.prototype.h;
 
 assert.sameValue(f.toString(), "async /* a */ * /* b */ f /* c */ ( /* d */ ) /* e */ { /* f */ }");
 assert.sameValue(g.toString(), "async /* a */ * /* b */ [ /* c */ \"g\" /* d */ ] /* e */ ( /* f */ ) /* g */ { /* h */ }");

@@ -18,10 +18,13 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
 
   var n = 1;
-  sample.fill({ valueOf() { return n++; } });
+  sample.fill({
+    valueOf() {
+      return n++;
+    }
+  });
 
   assert.sameValue(n, 2, "additional unexpected ToNumber() calls");
   assert.sameValue(sample[0], 1, "incorrect ToNumber result in index 0");
   assert.sameValue(sample[1], 1, "incorrect ToNumber result in index 1");
 });
-

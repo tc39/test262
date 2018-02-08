@@ -11,9 +11,14 @@ description: >
 
 //CHECK#1
 try {
-	$ERROR('#1.1: new RegExp({toString:void 0, valueOf:function(){throw "invalof";}}) throw "invalof". Actual: ' + (new RegExp({toString:void 0, valueOf:function(){throw "invalof";}})));
+  $ERROR('#1.1: new RegExp({toString:void 0, valueOf:function(){throw "invalof";}}) throw "invalof". Actual: ' + (new RegExp({
+    toString: void 0,
+    valueOf: function() {
+      throw "invalof";
+    }
+  })));
 } catch (e) {
-	if (e !== "invalof" ) {
-		$ERROR('#1.2: new RegExp({toString:void 0, valueOf:function(){throw "invalof";}}) throw "invalof". Actual: ' + (e));
-	}
+  if (e !== "invalof") {
+    $ERROR('#1.2: new RegExp({toString:void 0, valueOf:function(){throw "invalof";}}) throw "invalof". Actual: ' + (e));
+  }
 }

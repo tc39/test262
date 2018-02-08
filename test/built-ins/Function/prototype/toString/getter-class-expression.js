@@ -7,9 +7,15 @@ description: Function.prototype.toString on a getter (class)
 ---*/
 
 let x = "h";
-let f = Object.getOwnPropertyDescriptor(class { /* before */get /* a */ f /* b */ ( /* c */ ) /* d */ { /* e */ }/* after */ }.prototype, "f").get;
-let g = Object.getOwnPropertyDescriptor(class { /* before */get /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }.prototype, "g").get;
-let h = Object.getOwnPropertyDescriptor(class { /* before */get /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }.prototype, "h").get;
+let f = Object.getOwnPropertyDescriptor(class { /* before */
+  get /* a */ f /* b */ ( /* c */ ) /* d */ { /* e */ } /* after */
+}.prototype, "f").get;
+let g = Object.getOwnPropertyDescriptor(class { /* before */
+  get /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
+}.prototype, "g").get;
+let h = Object.getOwnPropertyDescriptor(class { /* before */
+  get /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
+}.prototype, "h").get;
 
 assert.sameValue(f.toString(), "get /* a */ f /* b */ ( /* c */ ) /* d */ { /* e */ }");
 assert.sameValue(g.toString(), "get /* a */ [ /* b */ \"g\" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }");

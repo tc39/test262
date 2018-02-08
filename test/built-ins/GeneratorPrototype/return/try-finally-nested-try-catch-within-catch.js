@@ -13,6 +13,7 @@ features: [generators]
 var inCatch = 0;
 var inFinally = 0;
 var unreachable = 0;
+
 function* g() {
   try {
     try {

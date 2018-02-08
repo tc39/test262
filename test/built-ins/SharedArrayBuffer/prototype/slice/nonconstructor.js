@@ -17,4 +17,6 @@ info: |
 assert.sameValue(Object.prototype.hasOwnProperty.call(SharedArrayBuffer.prototype.slice, "prototype"), false);
 
 var arrayBuffer = new SharedArrayBuffer(8);
-assert.throws(TypeError, function() { new arrayBuffer.slice(); });
+assert.throws(TypeError, function() {
+  new arrayBuffer.slice();
+});

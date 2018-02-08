@@ -12,28 +12,28 @@ description: "Execute /.+: gr(a|e)y/.exec(\"color: grey\") and check results"
 
 var __executed = /.+: gr(a|e)y/.exec("color: grey");
 
-var __expected = ["color: grey","e"];
+var __expected = ["color: grey", "e"];
 __expected.index = 0;
 __expected.input = "color: grey";
 
 //CHECK#1
 if (__executed.length !== __expected.length) {
-	$ERROR('#1: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
+  $ERROR('#1: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
 }
 
 //CHECK#2
 if (__executed.index !== __expected.index) {
-	$ERROR('#2: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
+  $ERROR('#2: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
 }
 
 //CHECK#3
 if (__executed.input !== __expected.input) {
-	$ERROR('#3: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
+  $ERROR('#3: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
 }
 
 //CHECK#4
-for(var index=0; index<__expected.length; index++) {
-	if (__executed[index] !== __expected[index]) {
-		$ERROR('#4: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
-	}
+for (var index = 0; index < __expected.length; index++) {
+  if (__executed[index] !== __expected[index]) {
+    $ERROR('#4: __executed = /.+: gr(a|e)y/.exec("color: grey"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
+  }
 }

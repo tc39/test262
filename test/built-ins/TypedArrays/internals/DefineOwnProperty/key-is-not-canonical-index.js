@@ -72,7 +72,7 @@ testWithTypedArrayConstructors(function(TA) {
     assert.sameValue(desc.set, fnset, "accessor's set [" + key + "]");
     verifyNotConfigurable(sample2, key);
 
-    assert.sameValue(sample2[0], undefined,"no value is set on sample2[0]");
+    assert.sameValue(sample2[0], undefined, "no value is set on sample2[0]");
     assert.sameValue(sample2.length, 0, "length is still 0");
 
     var sample3 = new TA();

@@ -10,6 +10,7 @@ flags: [onlyStrict]
 ---*/
 
 "use strict";
+
 function _15_3_5_1_gs() {}
 
 assert.throws(TypeError, function() {

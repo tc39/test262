@@ -12,7 +12,7 @@ description: non-w
 //CHECK#1
 var non_w = "\f\n\r\t\v~`!@#$%^&*()-+={[}]|\\:;'<,>./? " + '"';
 if (/\w/.exec(non_w) !== null) {
-   $ERROR('#1: non-w');
+  $ERROR('#1: non-w');
 }
 
 //CHECK#2
@@ -20,9 +20,9 @@ var non_W = "_0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var regexp_w = /\w/g;
 var k = 0;
 while (regexp_w.exec(non_W) !== null) {
-   k++;
+  k++;
 }
 
 if (non_W.length !== k) {
-   $ERROR('#2: non-W');
+  $ERROR('#2: non-W');
 }

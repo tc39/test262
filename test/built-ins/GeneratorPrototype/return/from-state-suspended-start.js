@@ -10,6 +10,7 @@ features: [generators]
 ---*/
 
 var bodyCount = 0;
+
 function* G() {
   bodyCount += 1;
 }

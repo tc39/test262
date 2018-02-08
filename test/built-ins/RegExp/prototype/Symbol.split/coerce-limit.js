@@ -14,15 +14,15 @@ features: [Symbol.split]
 var result;
 
 // ToUint32(-23) = 4294967273
-result = /./[Symbol.split]('abc', -23);
+result = /./ [Symbol.split]('abc', -23);
 assert(Array.isArray(result));
 assert.sameValue(result.length, 4);
 
-result = /./[Symbol.split]('abc', 1.9);
+result = /./ [Symbol.split]('abc', 1.9);
 assert(Array.isArray(result));
 assert.sameValue(result.length, 1);
 assert.sameValue(result[0], '');
 
-result = /./[Symbol.split]('abc', NaN);
+result = /./ [Symbol.split]('abc', NaN);
 assert(Array.isArray(result));
 assert.sameValue(result.length, 0);

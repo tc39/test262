@@ -7,9 +7,15 @@ description: Function.prototype.toString on a setter (class)
 ---*/
 
 let x = "h";
-let f = Object.getOwnPropertyDescriptor(class { /* before */set /* a */ f /* b */ ( /* c */ a /* d */ ) /* e */ { /* f */ }/* after */ }.prototype, "f").set;
-let g = Object.getOwnPropertyDescriptor(class { /* before */set /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ }/* after */ }.prototype, "g").set;
-let h = Object.getOwnPropertyDescriptor(class { /* before */set /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ }/* after */ }.prototype, "h").set;
+let f = Object.getOwnPropertyDescriptor(class { /* before */
+  set /* a */ f /* b */ ( /* c */ a /* d */ ) /* e */ { /* f */ } /* after */
+}.prototype, "f").set;
+let g = Object.getOwnPropertyDescriptor(class { /* before */
+  set /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ } /* after */
+}.prototype, "g").set;
+let h = Object.getOwnPropertyDescriptor(class { /* before */
+  set /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ } /* after */
+}.prototype, "h").set;
 
 assert.sameValue(f.toString(), "set /* a */ f /* b */ ( /* c */ a /* d */ ) /* e */ { /* f */ }");
 assert.sameValue(g.toString(), "set /* a */ [ /* b */ \"g\" /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ }");

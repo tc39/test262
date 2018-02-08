@@ -35,7 +35,9 @@ var obj2 = {
 };
 
 // undefined and NaN covered on typedArrayConversions
-var arr = ["1", "", false, true, null, obj1, obj2, [], [1]];
+var arr = ["1", "", false, true, null, obj1, obj2, [],
+  [1]
+];
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(arr.length);

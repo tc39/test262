@@ -7,9 +7,15 @@ description: Function.prototype.toString on a getter (class; static)
 ---*/
 
 let x = "h";
-class F { static /* before */get /* a */ f /* b */ ( /* c */ ) /* d */ { /* e */ }/* after */ }
-class G { static /* before */get /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }
-class H { static /* before */get /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }
+class F {
+  static /* before */ get /* a */ f /* b */ ( /* c */ ) /* d */ { /* e */ } /* after */
+}
+class G {
+  static /* before */ get /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
+}
+class H {
+  static /* before */ get /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
+}
 
 let f = Object.getOwnPropertyDescriptor(F, "f").get;
 let g = Object.getOwnPropertyDescriptor(G, "g").get;

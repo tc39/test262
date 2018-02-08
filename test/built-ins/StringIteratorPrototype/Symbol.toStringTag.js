@@ -14,7 +14,7 @@ features: [Symbol.iterator, Symbol.toStringTag]
 includes: [propertyHelper.js]
 ---*/
 
-var StringIteratorProto = Object.getPrototypeOf(''[Symbol.iterator]());
+var StringIteratorProto = Object.getPrototypeOf('' [Symbol.iterator]());
 
 assert.sameValue(StringIteratorProto[Symbol.toStringTag], 'String Iterator');
 

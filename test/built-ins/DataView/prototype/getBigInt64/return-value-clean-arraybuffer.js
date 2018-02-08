@@ -36,13 +36,13 @@ features: [DataView, ArrayBuffer, BigInt]
 var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
-assert.sameValue(sample.getBigInt64(0, true), 0n, "sample.getBigInt64(0, true)");
-assert.sameValue(sample.getBigInt64(1, true), 0n, "sample.getBigInt64(1, true)");
-assert.sameValue(sample.getBigInt64(2, true), 0n, "sample.getBigInt64(2, true)");
-assert.sameValue(sample.getBigInt64(3, true), 0n, "sample.getBigInt64(3, true)");
-assert.sameValue(sample.getBigInt64(4, true), 0n, "sample.getBigInt64(4, true)");
-assert.sameValue(sample.getBigInt64(0, false), 0n, "sample.getBigInt64(0, false)");
-assert.sameValue(sample.getBigInt64(1, false), 0n, "sample.getBigInt64(1, false)");
-assert.sameValue(sample.getBigInt64(2, false), 0n, "sample.getBigInt64(2, false)");
-assert.sameValue(sample.getBigInt64(3, false), 0n, "sample.getBigInt64(3, false)");
-assert.sameValue(sample.getBigInt64(4, false), 0n, "sample.getBigInt64(4, false)");
+assert.sameValue(sample.getBigInt64(0, true), 0 n, "sample.getBigInt64(0, true)");
+assert.sameValue(sample.getBigInt64(1, true), 0 n, "sample.getBigInt64(1, true)");
+assert.sameValue(sample.getBigInt64(2, true), 0 n, "sample.getBigInt64(2, true)");
+assert.sameValue(sample.getBigInt64(3, true), 0 n, "sample.getBigInt64(3, true)");
+assert.sameValue(sample.getBigInt64(4, true), 0 n, "sample.getBigInt64(4, true)");
+assert.sameValue(sample.getBigInt64(0, false), 0 n, "sample.getBigInt64(0, false)");
+assert.sameValue(sample.getBigInt64(1, false), 0 n, "sample.getBigInt64(1, false)");
+assert.sameValue(sample.getBigInt64(2, false), 0 n, "sample.getBigInt64(2, false)");
+assert.sameValue(sample.getBigInt64(3, false), 0 n, "sample.getBigInt64(3, false)");
+assert.sameValue(sample.getBigInt64(4, false), 0 n, "sample.getBigInt64(4, false)");

@@ -13,5 +13,5 @@ var __executed = /^..^e/.test("ab\ncde");
 
 //CHECK#1
 if (__executed) {
-	$ERROR('#1: /^..^e/.test("ab\\ncde") === false');
+  $ERROR('#1: /^..^e/.test("ab\\ncde") === false');
 }

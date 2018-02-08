@@ -13,9 +13,9 @@ var exec = RegExp.prototype.exec;
 
 //CHECK#1
 try {
-	$ERROR('#1.1: exec = RegExp.prototype.exec; exec("message to investigate"). Actual: ' + (exec("message to investigate")));
+  $ERROR('#1.1: exec = RegExp.prototype.exec; exec("message to investigate"). Actual: ' + (exec("message to investigate")));
 } catch (e) {
-	if ((e instanceof TypeError) !== true) {
-		$ERROR('#1.2: exec = RegExp.prototype.exec; exec("message to investigate"). Actual: ' + (e));
-	}
+  if ((e instanceof TypeError) !== true) {
+    $ERROR('#1.2: exec = RegExp.prototype.exec; exec("message to investigate"). Actual: ' + (e));
+  }
 }

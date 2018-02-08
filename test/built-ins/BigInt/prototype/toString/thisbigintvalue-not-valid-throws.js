@@ -22,17 +22,25 @@ features: [BigInt, Symbol.toPrimitive]
 var toString = BigInt.prototype.toString;
 
 assert.throws(TypeError, function() {
-  toString.call({x: 1n});
+  toString.call({
+    x: 1 n
+  });
 }, '{x: 1n}');
 
 assert.throws(TypeError, function() {
-  toString.call([1n]);
+  toString.call([1 n]);
 }, '[1n]');
 
 var obj = {
-  valueOf: function() { throw new Test262Error('no [[BigIntData]]') },
-  toString: function() { throw new Test262Error('no [[BigIntData]]') },
-  [Symbol.toPrimitive]: function() { throw new Test262Error('no [[BigIntData]]') }
+  valueOf: function() {
+    throw new Test262Error('no [[BigIntData]]')
+  },
+  toString: function() {
+    throw new Test262Error('no [[BigIntData]]')
+  },
+  [Symbol.toPrimitive]: function() {
+    throw new Test262Error('no [[BigIntData]]')
+  }
 };
 assert.throws(TypeError, function() {
   toString.call(obj);

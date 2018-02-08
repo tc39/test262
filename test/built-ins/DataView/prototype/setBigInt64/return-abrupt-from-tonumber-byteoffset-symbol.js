@@ -14,5 +14,5 @@ var sample = new DataView(buffer, 0);
 var s = Symbol("1");
 
 assert.throws(TypeError, function() {
-  sample.setBigInt64(s, 1n);
+  sample.setBigInt64(s, 1 n);
 });

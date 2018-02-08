@@ -26,4 +26,3 @@ for (let flags of ["", "u"]) {
   let re = new RegExp(source, flags);
   assert.sameValue("bacd", "abcd".replace(re, "$2$1"));
 }
-

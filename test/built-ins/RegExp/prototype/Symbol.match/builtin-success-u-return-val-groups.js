@@ -40,7 +40,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var result = /b(.).(.)./u[Symbol.match]('ab\ud834\udf06defg');
+var result = /b(.).(.)./u [Symbol.match]('ab\ud834\udf06defg');
 
 assert(Array.isArray(result));
 assert.sameValue(result.index, 1);

@@ -14,5 +14,5 @@ var __executed = /ab[erst]de/.test("abcde");
 
 //CHECK#1
 if (__executed) {
-	$ERROR('#1: /ab[erst]de/.test("abcde") === false');
+  $ERROR('#1: /ab[erst]de/.test("abcde") === false');
 }

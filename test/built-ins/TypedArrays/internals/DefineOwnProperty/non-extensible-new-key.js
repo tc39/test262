@@ -22,7 +22,9 @@ testWithTypedArrayConstructors(function(TA) {
   Object.preventExtensions(sample);
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "foo", {value:42}),
+    Reflect.defineProperty(sample, "foo", {
+      value: 42
+    }),
     false,
     "return false on a non-extensible object - data descriptor"
   );

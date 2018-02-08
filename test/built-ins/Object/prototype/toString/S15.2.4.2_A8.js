@@ -21,8 +21,8 @@ if (Object.prototype.toString.propertyIsEnumerable('length')) {
 }
 
 // CHECK#2
-for (var p in Object.prototype.toString){
-  if (p==="length")
-        $ERROR('#2: the Object.prototype.toString.length property has the attributes DontEnum');
+for (var p in Object.prototype.toString) {
+  if (p === "length")
+    $ERROR('#2: the Object.prototype.toString.length property has the attributes DontEnum');
 }
 //

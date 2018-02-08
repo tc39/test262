@@ -7,5 +7,5 @@ description: A JSONString must both begin and end with double quotes
 ---*/
 
 assert.throws(SyntaxError, function() {
-  JSON.parse('"ab'+"c'");
+  JSON.parse('"ab' + "c'");
 });

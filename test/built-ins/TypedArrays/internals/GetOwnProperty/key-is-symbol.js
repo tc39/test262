@@ -22,7 +22,9 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
 
   var s = Symbol("foo");
-  Object.defineProperty(sample, s, { value: "baz" });
+  Object.defineProperty(sample, s, {
+    value: "baz"
+  });
   assert.sameValue(
     Object.getOwnPropertyDescriptor(sample, s).value,
     "baz",

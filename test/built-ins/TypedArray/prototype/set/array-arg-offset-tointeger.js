@@ -86,10 +86,18 @@ testWithTypedArrayConstructors(function(TA) {
   assert(compareArray(sample, [1, 42]), "[1]");
 
   sample = new TA([1, 2]);
-  sample.set([42], { valueOf: function() {return 1;} });
+  sample.set([42], {
+    valueOf: function() {
+      return 1;
+    }
+  });
   assert(compareArray(sample, [1, 42]), "valueOf");
 
   sample = new TA([1, 2]);
-  sample.set([42], { toString: function() {return 1;} });
+  sample.set([42], {
+    toString: function() {
+      return 1;
+    }
+  });
   assert(compareArray(sample, [1, 42]), "toString");
 });

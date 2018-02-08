@@ -28,6 +28,8 @@ verifyProperty(result, "groups", {
   configurable: true,
 });
 
-Array.prototype.groups = { a: "b" };
+Array.prototype.groups = {
+  a: "b"
+};
 assert.sameValue("$<a>", "a".replace(re, "$<a>"));
 Array.prototype.groups = undefined;

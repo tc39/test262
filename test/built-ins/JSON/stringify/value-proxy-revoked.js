@@ -38,5 +38,9 @@ assert.throws(TypeError, function() {
 }, 'top-level value');
 
 assert.throws(TypeError, function() {
-  JSON.stringify([[[handle.proxy]]]);
+  JSON.stringify([
+    [
+      [handle.proxy]
+    ]
+  ]);
 }, 'nested value');

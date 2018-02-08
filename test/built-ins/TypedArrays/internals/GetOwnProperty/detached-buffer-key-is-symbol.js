@@ -22,7 +22,9 @@ testWithTypedArrayConstructors(function(TA) {
   $DETACHBUFFER(sample.buffer);
 
   var s = Symbol("foo");
-  Object.defineProperty(sample, s, { value: "baz" });
+  Object.defineProperty(sample, s, {
+    value: "baz"
+  });
   assert.sameValue(
     Object.getOwnPropertyDescriptor(sample, s).value,
     "baz",

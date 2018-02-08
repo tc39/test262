@@ -40,6 +40,8 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.throws(Test262Error, function() {
-    sample.filter(function() { return true; });
+    sample.filter(function() {
+      return true;
+    });
   });
 });

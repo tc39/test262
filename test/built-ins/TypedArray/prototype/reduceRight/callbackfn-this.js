@@ -27,7 +27,9 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-var expected = (function() { return this; })();
+var expected = (function() {
+  return this;
+})();
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(3);

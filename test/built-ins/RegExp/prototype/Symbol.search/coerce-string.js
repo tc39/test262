@@ -17,4 +17,4 @@ var obj = {
   }
 };
 
-assert.sameValue(/ring/[Symbol.search](obj), 4);
+assert.sameValue(/ring/ [Symbol.search](obj), 4);

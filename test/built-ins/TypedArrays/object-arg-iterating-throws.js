@@ -20,7 +20,7 @@ features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var obj = (function *() {
+  var obj = (function*() {
     yield 0;
     throw new Test262Error();
   })();
