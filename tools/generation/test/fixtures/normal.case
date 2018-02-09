@@ -22,7 +22,7 @@ First value
 //- second
 Second value
 //- third
-Third value
+Third value (Special characters like `≠` should be tolerated.)
 //- fourth
 Quote characters: " ' `
 //- teardown
