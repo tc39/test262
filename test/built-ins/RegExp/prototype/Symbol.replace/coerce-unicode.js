@@ -15,7 +15,9 @@ features: [Symbol.replace]
 ---*/
 
 var r = /^|\udf06/g;
-Object.defineProperty(r, 'unicode', { writable: true });
+Object.defineProperty(r, 'unicode', {
+  writable: true
+});
 
 r.unicode = undefined;
 assert.sameValue(r[Symbol.replace]('\ud834\udf06', 'XXX'), 'XXX\ud834XXX');

@@ -25,5 +25,5 @@ var replacer = function() {
 };
 
 assert.throws(Test262Error, function() {
-  /./[Symbol.replace]('a', replacer);
+  /./ [Symbol.replace]('a', replacer);
 });

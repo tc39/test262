@@ -29,4 +29,4 @@ info: |
     k. Let nextIndex be nextIndex + 1.
 ---*/
 
-assert.sameValue(String.raw`1${2}3${4}5`, '12345');
+assert.sameValue(String.raw `1${2}3${4}5`, '12345');

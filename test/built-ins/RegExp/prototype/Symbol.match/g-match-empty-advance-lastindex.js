@@ -26,7 +26,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var result = /(?:)/g[Symbol.match]('abc');
+var result = /(?:)/g [Symbol.match]('abc');
 
 assert.notSameValue(result, null);
 assert.sameValue(result.length, 4);

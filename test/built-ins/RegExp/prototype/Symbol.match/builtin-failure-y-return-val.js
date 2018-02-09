@@ -32,4 +32,4 @@ info: |
 features: [Symbol.match]
 ---*/
 
-assert.sameValue(/a/y[Symbol.match]('ba'), null);
+assert.sameValue(/a/y [Symbol.match]('ba'), null);

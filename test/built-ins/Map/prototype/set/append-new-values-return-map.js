@@ -20,7 +20,7 @@ var result = map.set(1, 1);
 
 assert.sameValue(result, map);
 
-result = map.set(1,1).set(2,2).set(3,3);
+result = map.set(1, 1).set(2, 2).set(3, 3);
 
 assert.sameValue(result, map, 'Map.prototype.set is chainable');
 

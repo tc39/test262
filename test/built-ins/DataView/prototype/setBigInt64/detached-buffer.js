@@ -14,5 +14,5 @@ var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
 assert.throws(TypeError, function() {
-  sample.setBigInt64(0, 0n);
+  sample.setBigInt64(0, 0 n);
 });

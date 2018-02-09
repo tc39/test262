@@ -23,6 +23,6 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /\udf06/u[Symbol.split]('\ud834\udf06');
+var result = /\udf06/u [Symbol.split]('\ud834\udf06');
 
 assert.sameValue(result.length, 1);

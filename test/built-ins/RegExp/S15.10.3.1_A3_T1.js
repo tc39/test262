@@ -14,10 +14,10 @@ var __instance = RegExp(__re, "i");
 
 //CHECK#1
 if (__instance.constructor !== RegExp) {
-	$ERROR('#1: __re = "d+"; __instance = RegExp(__re, "i"); __instance.constructor === RegExp. Actual: ' + (__instance.constructor));
+  $ERROR('#1: __re = "d+"; __instance = RegExp(__re, "i"); __instance.constructor === RegExp. Actual: ' + (__instance.constructor));
 }
 
 //CHECK#2
 if (__instance.source !== __re) {
-	$ERROR('#2: __re = "d+"; __instance = RegExp(__re, "i"); __instance.source === __re. Actual: '+ (__instance.source));
+  $ERROR('#2: __re = "d+"; __instance = RegExp(__re, "i"); __instance.source === __re. Actual: ' + (__instance.source));
 }

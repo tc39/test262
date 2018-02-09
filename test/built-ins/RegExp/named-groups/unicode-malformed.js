@@ -26,4 +26,3 @@ assert.throws(SyntaxError, () => eval("/(?<a>a)\\k<ab>/u"), "Invalid reference")
 assert.throws(SyntaxError, () => eval("/(?<ab>a)\\k<a>/u"), "Invalid reference");
 assert.throws(SyntaxError, () => eval("/\\k<a>(?<ab>a)/u"), "Invalid reference");
 assert.throws(SyntaxError, () => eval("/(?<a>\\a)/u"), "Identity escape in capture");
-

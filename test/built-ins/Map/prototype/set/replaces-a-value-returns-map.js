@@ -17,7 +17,9 @@ info: |
   ...
 ---*/
 
-var map = new Map([['item', 0]]);
+var map = new Map([
+  ['item', 0]
+]);
 var map2 = new Map();
 
 var x = map.set('item', 42);

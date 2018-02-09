@@ -39,13 +39,13 @@ function reset(value) {
   lastIndexReads = 0;
 }
 
-reset(42);  // lastIndex beyond end of string.
+reset(42); // lastIndex beyond end of string.
 result = r.exec('abc');
 assert.sameValue(result, null);
 assert.sameValue(r.lastIndex, 0);
 assert.sameValue(lastIndexReads, 1);
 
-reset(-1);  // No match.
+reset(-1); // No match.
 result = r.exec('nbc');
 assert.sameValue(result, null);
 assert.sameValue(r.lastIndex, 0);

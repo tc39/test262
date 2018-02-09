@@ -10,11 +10,11 @@ description: Pattern is /./i and RegExp is new RegExp(pattern)
 ---*/
 
 var __pattern = /./i;
-var __re = new RegExp(__pattern); 
+var __re = new RegExp(__pattern);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {
-  $ERROR('#1: __pattern = /./i; __re = new RegExp(__pattern); __re.source === __pattern.source. Actual: '+ (__re.source));
+  $ERROR('#1: __pattern = /./i; __re = new RegExp(__pattern); __re.source === __pattern.source. Actual: ' + (__re.source));
 }
 
 //CHECK#2

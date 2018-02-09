@@ -22,7 +22,7 @@ var replacer = function() {
   args = arguments;
 };
 
-/b(.).(.)/[Symbol.replace]('abcdef', replacer);
+/b(.).(.)/ [Symbol.replace]('abcdef', replacer);
 
 assert.notSameValue(args, undefined);
 assert.sameValue(args.length, 5);

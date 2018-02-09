@@ -19,7 +19,9 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-var r = { global: true };
+var r = {
+  global: true
+};
 Object.defineProperty(r, 'exec', {
   get: function() {
     throw new Test262Error();

@@ -91,14 +91,23 @@ testWithTypedArrayConstructors(function(TA) {
   result = sample.join(separator);
   assert.sameValue(result, expected, "using: " + separator);
 
-  separator = { toString: function() { return "foo"; }};
+  separator = {
+    toString: function() {
+      return "foo";
+    }
+  };
   expected = arr.map(function(_, i) {
     return sample[i].toString();
   }).join(separator);
   result = sample.join(separator);
   assert.sameValue(result, expected, "using: " + separator);
 
-  separator = { toString: undefined, valueOf: function() { return "bar"; }};
+  separator = {
+    toString: undefined,
+    valueOf: function() {
+      return "bar";
+    }
+  };
   expected = arr.map(function(_, i) {
     return sample[i].toString();
   }).join(separator);

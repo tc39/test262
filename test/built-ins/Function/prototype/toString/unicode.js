@@ -9,6 +9,13 @@ info: |
   any potential Unicode escape sequence substitution in identifiers
 ---*/
 
-function \u0061(\u{62}, \u0063) { \u0062 = \u{00063}; return b; }
+function\ u0061(\u {
+  62
+}, \u0063) {\
+  u0062 = \u {
+    00063
+  };
+  return b;
+}
 
 assert.sameValue(a.toString(), "function \\u0061(\\u{62}, \\u0063) { \\u0062 = \\u{00063}; return b; }");

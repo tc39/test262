@@ -15,7 +15,9 @@ features: [Symbol.match]
 ---*/
 
 var r = /./g;
-Object.defineProperty(r, 'lastIndex', { writable: false });
+Object.defineProperty(r, 'lastIndex', {
+  writable: false
+});
 
 assert.throws(TypeError, function() {
   r[Symbol.match]('');

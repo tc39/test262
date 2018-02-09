@@ -516,7 +516,9 @@ if (i62.replace(/\S+/g, "") !== o62) {
 
 var i63 = "";
 for (var j = 0xFC00; j < 0x10000; j++) {
-  if (j === 0xFEFF) { continue; } //Ignore BOM
+  if (j === 0xFEFF) {
+    continue;
+  } //Ignore BOM
   i63 += String.fromCharCode(j);
 }
 var o63 = "";

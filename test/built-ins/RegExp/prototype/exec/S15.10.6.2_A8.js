@@ -14,16 +14,16 @@ if (RegExp.prototype.exec.hasOwnProperty('length') !== true) {
   $ERROR('#0: RegExp.prototype.exec.hasOwnProperty(\'length\') === true');
 }
 
- //CHECK#1
+//CHECK#1
 if (RegExp.prototype.exec.propertyIsEnumerable('length') !== false) {
   $ERROR('#1: RegExp.prototype.exec.propertyIsEnumerable(\'length\') === true');
 }
 
- //CHECK#2
-var count=0;
+//CHECK#2
+var count = 0;
 
-for (var p in RegExp.prototype.exec){
-  if (p==="length") count++;
+for (var p in RegExp.prototype.exec) {
+  if (p === "length") count++;
 }
 
 if (count !== 0) {

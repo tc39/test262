@@ -12,12 +12,12 @@ description: String is void 0 and RegExp is /e{1}/
 var __executed = /e{1}/.exec(void 0);
 
 var __expected = ["e"];
-__expected.index=3;
-__expected.input="undefined";
+__expected.index = 3;
+__expected.input = "undefined";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-	$ERROR('#0: __executed = /e{1}/.exec(void 0); (__executed instanceof Array) === true');
+  $ERROR('#0: __executed = /e{1}/.exec(void 0); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -36,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for(var index=0; index<__expected.length; index++) {
+for (var index = 0; index < __expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /e{1}/.exec(void 0); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

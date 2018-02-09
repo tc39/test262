@@ -19,9 +19,13 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42]);
   var result;
 
-  result = sample.filter(function() { return true; });
+  result = sample.filter(function() {
+    return true;
+  });
   assert.notSameValue(result.buffer, sample.buffer);
 
-  result = sample.filter(function() { return false; });
+  result = sample.filter(function() {
+    return false;
+  });
   assert.notSameValue(result.buffer, sample.buffer);
 });

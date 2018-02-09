@@ -43,7 +43,9 @@ testWithTypedArrayConstructors(function(TA) {
 
     delete TypedArray.prototype[key];
 
-    Object.defineProperty(sample, key, {value: 42});
+    Object.defineProperty(sample, key, {
+      value: 42
+    });
 
     assert.sameValue(
       Reflect.has(sample, key), true,

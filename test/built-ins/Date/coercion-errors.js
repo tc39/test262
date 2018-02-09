@@ -21,8 +21,16 @@ info: |
     l. Return O.
 ---*/
 
-var thrower = { toString: function() { throw new Test262Error(); } };
-var counter = { toString: function() { callCount += 1; } };
+var thrower = {
+  toString: function() {
+    throw new Test262Error();
+  }
+};
+var counter = {
+  toString: function() {
+    callCount += 1;
+  }
+};
 var callCount = 0;
 
 assert.throws(Test262Error, function() {

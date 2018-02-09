@@ -11,28 +11,28 @@ description: "Set lastIndex to -1 and call /(?:ab|cd)\\d?/g.exec(\"aacd22 \")"
 ---*/
 
 var __re = /(?:ab|cd)\d?/g;
-__re.lastIndex=-1;
+__re.lastIndex = -1;
 var __executed = __re.exec("aacd22 ");
 
 //CHECK#1
 if (__executed[0] !== "cd2") {
-	$ERROR('#1: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __executed[0] === "cd2"');
+  $ERROR('#1: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __executed[0] === "cd2"');
 }
 
 //CHECK#2
 if (__re.lastIndex !== 5) {
-	$ERROR('#2: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __re.lastIndex === 5. Actual: ' + (__re.lastIndex));
+  $ERROR('#2: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __re.lastIndex === 5. Actual: ' + (__re.lastIndex));
 }
 
-__re.lastIndex=-100;
+__re.lastIndex = -100;
 __executed = __re.exec("aacd22 ");
 
 //CHECK#3
 if (__executed[0] !== "cd2") {
-	$ERROR('#3: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __re.lastIndex=-100; __executed = __re.exec("aacd22 "); __executed[0] === "cd2"');
+  $ERROR('#3: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __re.lastIndex=-100; __executed = __re.exec("aacd22 "); __executed[0] === "cd2"');
 }
 
 //CHECK#4
 if (__re.lastIndex !== 5) {
-	$ERROR('#4: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __re.lastIndex=-100; __executed = __re.exec("aacd22 "); __re.lastIndex === 5. Actual: ' + (__re.lastIndex));
+  $ERROR('#4: __re = /(?:ab|cd)\\d?/g; __re.lastIndex=-1; __executed = __re.exec("aacd22 "); __re.lastIndex=-100; __executed = __re.exec("aacd22 "); __re.lastIndex === 5. Actual: ' + (__re.lastIndex));
 }

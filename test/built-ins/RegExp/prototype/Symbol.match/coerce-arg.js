@@ -22,4 +22,4 @@ var obj = {
   }
 };
 
-assert.notSameValue(/toString value/[Symbol.match](obj), null);
+assert.notSameValue(/toString value/ [Symbol.match](obj), null);

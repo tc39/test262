@@ -11,29 +11,29 @@ features: [BigInt, Symbol.toPrimitive, computed-property-names]
 ---*/
 
 assert.throws(TypeError, function() {
-  "".indexOf("", 0n);
+  "".indexOf("", 0 n);
 }, "ToInteger: BigInt => TypeError");
 assert.throws(TypeError, function() {
-  "".indexOf("", Object(0n));
+  "".indexOf("", Object(0 n));
 }, "ToInteger: unbox object with internal slot => BigInt => TypeError");
 assert.throws(TypeError, function() {
   "".indexOf("", {
     [Symbol.toPrimitive]: function() {
-      return 0n;
+      return 0 n;
     }
   });
 }, "ToInteger: @@toPrimitive => BigInt => TypeError");
 assert.throws(TypeError, function() {
   "".indexOf("", {
     valueOf: function() {
-      return 0n;
+      return 0 n;
     }
   });
 }, "ToInteger: valueOf => BigInt => TypeError");
 assert.throws(TypeError, function() {
   "".indexOf("", {
     toString: function() {
-      return 0n;
+      return 0 n;
     }
   });
 }, "ToInteger: toString => BigInt => TypeError");

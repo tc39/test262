@@ -12,12 +12,12 @@ description: String is true and RegExp is /t[a-b|q-s]/
 var __executed = /t[a-b|q-s]/.exec(true);
 
 var __expected = ["tr"];
-__expected.index=0;
-__expected.input="true";
+__expected.index = 0;
+__expected.input = "true";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-	$ERROR('#0: __executed = /t[a-b|q-s]/.exec(true); (__executed instanceof Array) === true');
+  $ERROR('#0: __executed = /t[a-b|q-s]/.exec(true); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -36,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for(var index=0; index<__expected.length; index++) {
+for (var index = 0; index < __expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /t[a-b|q-s]/.exec(true); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

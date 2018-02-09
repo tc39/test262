@@ -13,6 +13,6 @@ info: |
 features: [BigInt]
 ---*/
 
-assert.throws(TypeError, function () {
+assert.throws(TypeError, function() {
   BigInt64Array.prototype.buffer;
 });

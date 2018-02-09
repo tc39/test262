@@ -20,7 +20,7 @@ description: >
 try {
   $ERROR('#1.1: /[\\u0061d-G]/.exec("a") throw SyntaxError. Actual: ' + (new RegExp("[\\u0061d-G]").exec("a")));
 } catch (e) {
-  if((e instanceof SyntaxError) !== true){
+  if ((e instanceof SyntaxError) !== true) {
     $ERROR('#1.2: /[\\u0061d-G]/.exec("a") throw SyntaxError. Actual: ' + (e));
   }
 }

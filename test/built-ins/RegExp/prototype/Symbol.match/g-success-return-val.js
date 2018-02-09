@@ -21,7 +21,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var result = /.(.)./g[Symbol.match]('abcdefghi');
+var result = /.(.)./g [Symbol.match]('abcdefghi');
 
 assert(Array.isArray(result));
 

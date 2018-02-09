@@ -10,4 +10,4 @@ info: |
 features: [Symbol.search]
 ---*/
 
-assert.sameValue(/z/[Symbol.search]('a'), -1);
+assert.sameValue(/z/ [Symbol.search]('a'), -1);

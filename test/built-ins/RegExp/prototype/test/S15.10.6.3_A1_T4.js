@@ -9,10 +9,14 @@ description: >
     {toString:function(){return "abcdefghi";}}
 ---*/
 
-var __string = {toString:function(){return "abcdefghi";}};
+var __string = {
+  toString: function() {
+    return "abcdefghi";
+  }
+};
 var __re = /a[a-z]{2,4}?/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {
-	$ERROR('#0: var __string = {toString:function(){return "abcdefghi";}}; __re = /a[a-z]{2,4}?/; __re.test(__string) === (__re.exec(__string) !== null)');
+  $ERROR('#0: var __string = {toString:function(){return "abcdefghi";}}; __re = /a[a-z]{2,4}?/; __re.test(__string) === (__re.exec(__string) !== null)');
 }

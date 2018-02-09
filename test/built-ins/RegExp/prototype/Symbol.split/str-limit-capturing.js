@@ -21,7 +21,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /c(d)(e)/[Symbol.split]('abcdefg', 2);
+var result = /c(d)(e)/ [Symbol.split]('abcdefg', 2);
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 2);

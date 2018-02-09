@@ -9,5 +9,5 @@ description: >
 ---*/
 
 assert.throws(SyntaxError, function() {
-    JSON.parse('"\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"'); // invalid string characters should produce a syntax error
+  JSON.parse('"\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"'); // invalid string characters should produce a syntax error
 });

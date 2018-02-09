@@ -129,6 +129,8 @@ testWithTypedArrayConstructors(function(TA) {
   );
 
   assert.throws(Test262Error, function() {
-    Reflect.defineProperty(sample, "7", {value: obj});
+    Reflect.defineProperty(sample, "7", {
+      value: obj
+    });
   }, "Return Abrupt before Detached Buffer check from ToNumber(desc.value)");
 });

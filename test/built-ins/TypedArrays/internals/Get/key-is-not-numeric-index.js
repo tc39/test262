@@ -31,7 +31,9 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(sample.foo, "bar", "return value");
 
   Object.defineProperty(sample, "bar", {
-    get: function() { return "baz"; }
+    get: function() {
+      return "baz";
+    }
   });
   assert.sameValue(sample.bar, "baz", "return value from get accessor");
 

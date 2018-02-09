@@ -17,7 +17,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /./[Symbol.split]('');
+var result = /./ [Symbol.split]('');
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 1);

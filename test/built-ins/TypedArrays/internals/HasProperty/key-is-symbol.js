@@ -22,7 +22,9 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.sameValue(Reflect.has(sample, s), false);
 
-  Object.defineProperty(sample, s, { value: 42 });
+  Object.defineProperty(sample, s, {
+    value: 42
+  });
 
   assert.sameValue(Reflect.has(sample, s), true);
 });

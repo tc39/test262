@@ -7,9 +7,15 @@ description: Function.prototype.toString on a setter (class)
 ---*/
 
 let x = "h";
-class F { /* before */set /* a */ f /* b */ ( /* c */ a /* d */ ) /* e */ { /* f */ }/* after */ }
-class G { /* before */set /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ }/* after */ }
-class H { /* before */set /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ }/* after */ }
+class F { /* before */
+  set /* a */ f /* b */ ( /* c */ a /* d */ ) /* e */ { /* f */ } /* after */
+}
+class G { /* before */
+  set /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ } /* after */
+}
+class H { /* before */
+  set /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ a /* f */ ) /* g */ { /* h */ } /* after */
+}
 
 let f = Object.getOwnPropertyDescriptor(F.prototype, "f").set;
 let g = Object.getOwnPropertyDescriptor(G.prototype, "g").set;

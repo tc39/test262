@@ -11,6 +11,7 @@ features: [generators]
 
 var inCatch = 0;
 var unreachable = 0;
+
 function* g() {
   try {
     throw new Error();

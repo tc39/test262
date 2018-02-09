@@ -12,7 +12,7 @@ var hex = ["\\x41", "\\x42", "\\x43", "\\x44", "\\x45", "\\x46", "\\x47", "\\x48
 var character = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var result = true;
 for (var index = 0; index < hex.length; index++) {
-  var arr = (new RegExp(hex[index])).exec(character[index]); 
+  var arr = (new RegExp(hex[index])).exec(character[index]);
   if ((arr === null) || (arr[0] !== character[index])) {
     result = false;
   }
@@ -20,14 +20,14 @@ for (var index = 0; index < hex.length; index++) {
 
 if (result !== true) {
   $ERROR('#1: ENGLISH CAPITAL ALPHABET');
-}  
+}
 
 //CHECK#61-7A
 hex = ["\\x61", "\\x62", "\\x63", "\\x64", "\\x65", "\\x66", "\\x67", "\\x68", "\\x69", "\\x6A", "\\x6B", "\\x6C", "\\x6D", "\\x6E", "\\x6F", "\\x70", "\\x71", "\\x72", "\\x73", "\\x74", "\\x75", "\\x76", "\\x77", "\\x78", "\\x79", "\\x7A"];
 character = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var result = true;
 for (index = 0; index < hex.length; index++) {
-  arr = (new RegExp(hex[index])).exec(character[index]); 
+  arr = (new RegExp(hex[index])).exec(character[index]);
   if ((arr === null) || (arr[0] !== character[index])) {
     result = false;
   }

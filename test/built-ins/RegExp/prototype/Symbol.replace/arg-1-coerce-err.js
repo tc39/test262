@@ -20,5 +20,5 @@ var arg = {
 };
 
 assert.throws(Test262Error, function() {
-  /./[Symbol.replace](arg);
+  /./ [Symbol.replace](arg);
 });

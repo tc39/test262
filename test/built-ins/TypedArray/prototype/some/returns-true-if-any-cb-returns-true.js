@@ -36,12 +36,9 @@ testWithTypedArrayConstructors(function(TA) {
     "test262",
     s,
     {},
-    [],
-    -1,
-    Infinity,
-    -Infinity,
-    0.1,
-    -0.1
+    [], -1,
+    Infinity, -Infinity,
+    0.1, -0.1
   ].forEach(function(val) {
     var called = 0;
     var result = sample.some(function() {

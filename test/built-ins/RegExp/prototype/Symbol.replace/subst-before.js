@@ -28,5 +28,5 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/a/[Symbol.replace]('abc', '[$`]'), '[]bc');
-assert.sameValue(/b/[Symbol.replace]('abc', '[$`]'), 'a[a]c');
+assert.sameValue(/a/ [Symbol.replace]('abc', '[$`]'), '[]bc');
+assert.sameValue(/b/ [Symbol.replace]('abc', '[$`]'), 'a[a]c');

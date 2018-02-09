@@ -36,10 +36,14 @@ var arrayProxyProxy = new Proxy(arrayProxy, {});
 assert.sameValue(JSON.stringify(objectProxy), '{}');
 assert.sameValue(JSON.stringify(arrayProxy), '[]', 'proxy for an array');
 assert.sameValue(
-  JSON.stringify([[arrayProxy]]), '[[[]]]', 'proxy for an array (nested)'
+  JSON.stringify([
+    [arrayProxy]
+  ]), '[[[]]]', 'proxy for an array (nested)'
 );
 assert.sameValue(
-  JSON.stringify([[arrayProxyProxy]]),
+  JSON.stringify([
+    [arrayProxyProxy]
+  ]),
   '[[[]]]',
   'proxy for a proxy for an array (nested)'
 );

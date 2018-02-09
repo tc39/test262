@@ -14,7 +14,7 @@ var __re = new RegExp(__pattern, undefined);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {
-  $ERROR('#1: __pattern = new RegExp; __re = new RegExp(__pattern, undefined); __re.source === __pattern.source. Actual: '+ (__re.source));
+  $ERROR('#1: __pattern = new RegExp; __re = new RegExp(__pattern, undefined); __re.source === __pattern.source. Actual: ' + (__re.source));
 }
 
 //CHECK#2

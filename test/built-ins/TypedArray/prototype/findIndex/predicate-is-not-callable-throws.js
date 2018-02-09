@@ -62,4 +62,3 @@ testWithTypedArrayConstructors(function(TA) {
     sample.findIndex(/./);
   }, "/./");
 });
-

@@ -14,4 +14,4 @@ features: [BigInt, TypedArray]
 ---*/
 
 assert.sameValue(Object.getPrototypeOf(BigUint64Array.prototype),
-                 TypedArray.prototype);
+  TypedArray.prototype);

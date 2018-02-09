@@ -49,7 +49,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.buffer.constructor = ctor;
 
-  ctor[Symbol.species] = function(){}.bind(null);
+  ctor[Symbol.species] = function() {}.bind(null);
   Object.defineProperty(ctor[Symbol.species], "prototype", {
     get() {
       throw new Test262Error();

@@ -20,7 +20,7 @@ description: >
 try {
   $ERROR('#1.1: /[d-G\\x0061]/.exec("1") throw SyntaxError. Actual: ' + (new RegExp("[d-G\\x0061]").exec("1")));
 } catch (e) {
-  if((e instanceof SyntaxError) !== true){
+  if ((e instanceof SyntaxError) !== true) {
     $ERROR('#1.2: /[d-G\\x0061]/.exec("1") throw SyntaxError. Actual: ' + (e));
   }
 }

@@ -44,7 +44,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample = new TA(arr);
   result = sample.find(function(val, i) {
-    if ( i === 0 ) {
+    if (i === 0) {
       sample[2] = 7;
     }
     return val === 7;
@@ -53,7 +53,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample = new TA(arr);
   result = sample.find(function(val, i) {
-    if ( i === 0 ) {
+    if (i === 0) {
       sample[2] = 7;
     }
     return val === 3;
@@ -62,7 +62,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample = new TA(arr);
   result = sample.find(function(val, i) {
-    if ( i > 0 ) {
+    if (i > 0) {
       sample[0] = 7;
     }
     return val === 7;

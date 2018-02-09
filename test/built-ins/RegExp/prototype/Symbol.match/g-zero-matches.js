@@ -18,4 +18,4 @@ info: |
 features: [Symbol.match]
 ---*/
 
-assert.sameValue(/a/g[Symbol.match]('b'), null);
+assert.sameValue(/a/g [Symbol.match]('b'), null);

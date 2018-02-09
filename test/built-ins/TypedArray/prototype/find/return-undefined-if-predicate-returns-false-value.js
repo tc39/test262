@@ -41,21 +41,33 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(called, 3, "predicate was called three times");
   assert.sameValue(result, undefined);
 
-  result = sample.find(function() { return ""; });
+  result = sample.find(function() {
+    return "";
+  });
   assert.sameValue(result, undefined, "ToBoolean(empty string)");
 
-  result = sample.find(function() { return undefined; });
+  result = sample.find(function() {
+    return undefined;
+  });
   assert.sameValue(result, undefined, "ToBoolean(undefined)");
 
-  result = sample.find(function() { return null; });
+  result = sample.find(function() {
+    return null;
+  });
   assert.sameValue(result, undefined, "ToBoolean(null)");
 
-  result = sample.find(function() { return 0; });
+  result = sample.find(function() {
+    return 0;
+  });
   assert.sameValue(result, undefined, "ToBoolean(0)");
 
-  result = sample.find(function() { return -0; });
+  result = sample.find(function() {
+    return -0;
+  });
   assert.sameValue(result, undefined, "ToBoolean(-0)");
 
-  result = sample.find(function() { return NaN; });
+  result = sample.find(function() {
+    return NaN;
+  });
   assert.sameValue(result, undefined, "ToBoolean(NaN)");
 });

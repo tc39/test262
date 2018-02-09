@@ -11,6 +11,7 @@ features: [generators]
 ---*/
 
 var unreachable = 0;
+
 function* g() {
   try {
     yield 1;

@@ -27,16 +27,19 @@ let step;
 function replacer(x, k, v)
 {
   assert.sameValue(step++, 1);
-  assert.sameValue(v, 1n);
+  assert.sameValue(v, 1 n);
   return x;
 }
 
-BigInt.prototype.toJSON = function () { assert.sameValue(step++, 0); return 1n; };
+BigInt.prototype.toJSON = function() {
+  assert.sameValue(step++, 0);
+  return 1 n;
+};
 
 step = 0;
-assert.throws(TypeError, () => JSON.stringify(0n, (k, v) => replacer(2n, k, v)));
+assert.throws(TypeError, () => JSON.stringify(0 n, (k, v) => replacer(2 n, k, v)));
 assert.sameValue(step, 2);
 
 step = 0;
-assert.throws(TypeError, () => JSON.stringify(0n, (k, v) => replacer(Object(2n), k, v)));
+assert.throws(TypeError, () => JSON.stringify(0 n, (k, v) => replacer(Object(2 n), k, v)));
 assert.sameValue(step, 2);

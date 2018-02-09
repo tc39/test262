@@ -7,12 +7,12 @@ es5id: 10.2.3_A2.3_T4
 description: Global execution context - Other Properties
 ---*/
 
-var evalStr = 
-'//CHECK#1\n'+
-'for (var x in this) {\n'+
-'  if ( x === \'Math\' ) {\n'+
-'    $ERROR("#1: \'Math\' have attribute DontEnum");\n'+
-'  }\n'+
-'}\n';
+var evalStr =
+  '//CHECK#1\n' +
+  'for (var x in this) {\n' +
+  '  if ( x === \'Math\' ) {\n' +
+  '    $ERROR("#1: \'Math\' have attribute DontEnum");\n' +
+  '  }\n' +
+  '}\n';
 
 eval(evalStr);

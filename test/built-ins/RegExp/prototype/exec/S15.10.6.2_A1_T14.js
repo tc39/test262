@@ -12,12 +12,12 @@ description: String is new Boolean and RegExp is /AL|se/
 var __executed = /AL|se/.exec(new Boolean);
 
 var __expected = ["se"];
-__expected.index=3;
-__expected.input="false";
+__expected.index = 3;
+__expected.input = "false";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-	$ERROR('#0: __executed = /AL|se/.exec(new Boolean); (__executed instanceof Array) === true');
+  $ERROR('#0: __executed = /AL|se/.exec(new Boolean); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -36,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for(var index=0; index<__expected.length; index++) {
+for (var index = 0; index < __expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /AL|se/.exec(new Boolean); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

@@ -21,7 +21,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /x/[Symbol.split]('axbxcxdxe', 3);
+var result = /x/ [Symbol.split]('axbxcxdxe', 3);
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 3);

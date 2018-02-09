@@ -20,7 +20,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /(?:)/[Symbol.split]('abc');
+var result = /(?:)/ [Symbol.split]('abc');
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 3);

@@ -17,6 +17,5 @@ features: [TypedArray]
 
 var of = TypedArray.of;
 
-assert.throws(TypeError, function() {
-  of();
+assert.throws(TypeError, function() { of ();
 });

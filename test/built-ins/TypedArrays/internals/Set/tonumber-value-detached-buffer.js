@@ -30,15 +30,15 @@ testWithTypedArrayConstructors(function(TA) {
   var ta = new TA([17]);
 
   assert.throws(TypeError, function() {
-    Reflect.set(ta, 0, {
-      valueOf: function() {
-        $262.detachArrayBuffer(ta.buffer);
-        return 42;
-      }
-    });
-  },
-  "detaching a ArrayBuffer during setting an element of a typed array " +
-  "viewing it should throw");
+      Reflect.set(ta, 0, {
+        valueOf: function() {
+          $262.detachArrayBuffer(ta.buffer);
+          return 42;
+        }
+      });
+    },
+    "detaching a ArrayBuffer during setting an element of a typed array " +
+    "viewing it should throw");
 
   assert.throws(TypeError, function() {
     ta[0];

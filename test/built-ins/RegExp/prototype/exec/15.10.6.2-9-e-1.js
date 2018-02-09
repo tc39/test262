@@ -8,9 +8,9 @@ description: >
     current algorithm
 ---*/
 
-        var str = "Hello World!";
-        var regObj = new RegExp("World");
-        var result = false;
-        result = regObj.exec(str).toString() === "World";
+var str = "Hello World!";
+var regObj = new RegExp("World");
+var result = false;
+result = regObj.exec(str).toString() === "World";
 
 assert(result, 'result !== true');

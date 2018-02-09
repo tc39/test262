@@ -20,7 +20,7 @@ description: >
 try {
   $ERROR('#1.1: /[\\db-G]/.exec("a") throw SyntaxError. Actual: ' + (new RegExp("[\\db-G]").exec("a")));
 } catch (e) {
-  if((e instanceof SyntaxError) !== true){
+  if ((e instanceof SyntaxError) !== true) {
     $ERROR('#1.2: /[\\db-G]/.exec("a") throw SyntaxError. Actual: ' + (e));
   }
 }

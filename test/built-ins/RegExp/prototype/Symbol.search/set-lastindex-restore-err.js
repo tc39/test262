@@ -15,7 +15,9 @@ features: [Symbol.search]
 
 var callCount;
 var poisonedLastIndex = {
-  get lastIndex() { return this.lastIndex_; },
+  get lastIndex() {
+    return this.lastIndex_;
+  },
   set lastIndex(_) {
     if (callCount === 1) {
       throw new Test262Error();
@@ -30,7 +32,9 @@ var poisonedLastIndex = {
 var nonWritableLastIndex = {
   exec: function() {
     Object.defineProperty(
-      nonWritableLastIndex, 'lastIndex', { writable: false }
+      nonWritableLastIndex, 'lastIndex', {
+        writable: false
+      }
     );
     callCount += 1;
     return null;

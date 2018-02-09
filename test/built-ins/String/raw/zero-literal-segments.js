@@ -6,4 +6,4 @@ description: >
     If literalSegments ≤ 0, return the empty string.
 ---*/
 
-assert.sameValue(String.raw``, '');
+assert.sameValue(String.raw ``, '');

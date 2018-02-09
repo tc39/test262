@@ -19,7 +19,6 @@ features: [TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var of = TA.of;
 
-  assert.throws(TypeError, function() {
-    of();
+  assert.throws(TypeError, function() { of ();
   });
 });

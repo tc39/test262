@@ -32,24 +32,22 @@ features: [Reflect, TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var ta = new TA([17]);
 
-  var desc =
-    {
-      value: {
-        valueOf: function() {
-          $262.detachArrayBuffer(ta.buffer);
-          return 42;
-        }
+  var desc = {
+    value: {
+      valueOf: function() {
+        $262.detachArrayBuffer(ta.buffer);
+        return 42;
       }
-    };
+    }
+  };
 
   assert.throws(TypeError, function() {
-    Reflect.defineProperty(ta, 0, desc);
-  },
-  "detaching a ArrayBuffer during defining an element of a typed array " +
-  "viewing it should throw");
+      Reflect.defineProperty(ta, 0, desc);
+    },
+    "detaching a ArrayBuffer during defining an element of a typed array " +
+    "viewing it should throw");
 
   assert.throws(TypeError, function() {
     ta[0];
   });
 });
-

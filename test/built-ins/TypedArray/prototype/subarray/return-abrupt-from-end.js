@@ -28,11 +28,11 @@ var o2 = {
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA();
-  
+
   assert.throws(Test262Error, function() {
     sample.subarray(0, o1);
   });
-  
+
   assert.throws(Test262Error, function() {
     sample.subarray(0, o2);
   });

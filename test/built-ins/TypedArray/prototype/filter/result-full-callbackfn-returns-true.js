@@ -25,14 +25,13 @@ testWithTypedArrayConstructors(function(TA) {
     "test262",
     Symbol("1"),
     {},
-    [],
-    -1,
-    Infinity,
-    -Infinity,
-    0.1,
-    -0.1
+    [], -1,
+    Infinity, -Infinity,
+    0.1, -0.1
   ].forEach(function(val) {
-    var result = sample.filter(function() { return val; });
+    var result = sample.filter(function() {
+      return val;
+    });
     assert(compareArray(result, sample), val);
   });
 });

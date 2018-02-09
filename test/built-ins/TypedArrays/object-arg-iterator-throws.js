@@ -19,7 +19,7 @@ includes: [testTypedArray.js]
 features: [Symbol.iterator, TypedArray]
 ---*/
 
-var obj = function () {};
+var obj = function() {};
 
 Object.defineProperty(obj, Symbol.iterator, {
   get() {

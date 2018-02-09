@@ -11,9 +11,13 @@ description: >
 
 //CHECK#1
 try {
-	$ERROR('#1.1: new RegExp({toString:function(){throw "intostr";}}, "error") throw "intostr". Actual: ' + (new RegExp({toString:function(){throw "intostr";}}, "error")));
+  $ERROR('#1.1: new RegExp({toString:function(){throw "intostr";}}, "error") throw "intostr". Actual: ' + (new RegExp({
+    toString: function() {
+      throw "intostr";
+    }
+  }, "error")));
 } catch (e) {
-	if (e !== "intostr" ) {
-		$ERROR('#1.2: new RegExp({toString:function(){throw "intostr";}}, "error") throw "intostr". Actual: ' + (e));
-	}
+  if (e !== "intostr") {
+    $ERROR('#1.2: new RegExp({toString:function(){throw "intostr";}}, "error") throw "intostr". Actual: ' + (e));
+  }
 }

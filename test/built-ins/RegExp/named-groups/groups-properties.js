@@ -16,12 +16,16 @@ info: |
 
 // Properties created on result.groups in textual order.
 assert(compareArray(["fst", "snd"],
-             Object.getOwnPropertyNames(
-                 /(?<fst>.)|(?<snd>.)/u.exec("abcd").groups)));
+  Object.getOwnPropertyNames(
+    /(?<fst>.)|(?<snd>.)/u.exec("abcd").groups)));
 
 // Properties are created with Define, not Set
 let counter = 0;
-Object.defineProperty(Object.prototype, 'x', {set() { counter++; }});
+Object.defineProperty(Object.prototype, 'x', {
+  set() {
+    counter++;
+  }
+});
 let match = /(?<x>.)/.exec('a');
 let groups = match.groups;
 assert.sameValue(counter, 0);

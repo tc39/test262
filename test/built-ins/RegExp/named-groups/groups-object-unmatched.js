@@ -28,7 +28,11 @@ assert.sameValue(undefined, result.groups.x);
 
 // `a` is a matched named capture, `b` is an unmatched named capture, and `z`
 // is not a named capture.
-Array.prototype.groups = { a: "b", x: "y", z: "z" };
+Array.prototype.groups = {
+  a: "b",
+  x: "y",
+  z: "z"
+};
 assert.sameValue("a", "ab".replace(re, "$<a>"));
 assert.sameValue("", "ab".replace(re, "$<x>"));
 assert.sameValue("", "ab".replace(re, "$<z>"));

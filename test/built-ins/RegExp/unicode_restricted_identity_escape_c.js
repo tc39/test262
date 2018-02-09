@@ -19,7 +19,9 @@ function isAlpha(c) {
 //
 // AtomEscape[U] :: CharacterEscape[?U]
 // CharacterEscape[U] :: c ControlLetter
-assert.throws(SyntaxError, function() { RegExp("\\c", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("\\c", "u");
+});
 for (var cu = 0x00; cu <= 0x7f; ++cu) {
   var s = String.fromCharCode(cu);
   if (!isAlpha(s)) {
@@ -34,7 +36,9 @@ for (var cu = 0x00; cu <= 0x7f; ++cu) {
 //
 // ClassEscape[U] :: CharacterEscape[?U]
 // CharacterEscape[U] :: c ControlLetter
-assert.throws(SyntaxError, function() { RegExp("[\\c]", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("[\\c]", "u");
+});
 for (var cu = 0x00; cu <= 0x7f; ++cu) {
   var s = String.fromCharCode(cu);
   if (!isAlpha(s)) {

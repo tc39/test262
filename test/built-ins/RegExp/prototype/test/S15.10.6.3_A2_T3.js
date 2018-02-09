@@ -21,4 +21,4 @@ try {
   }
 }
 
-function __instance(){};
+function __instance() {};

@@ -32,7 +32,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.reduceRight(function(a, v, i) {
     if (i > 0) {
-      sample[i-1] = 42;
+      sample[i - 1] = 42;
     }
 
     assert.sameValue(

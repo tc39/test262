@@ -16,7 +16,7 @@ var __re = new RegExp(__pattern, x);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {
-  $ERROR('#1: __pattern = /\\t/m; _re = new RegExp(__pattern, x); var x; __re.source === __pattern.source. Actual: '+ (__re.source));
+  $ERROR('#1: __pattern = /\\t/m; _re = new RegExp(__pattern, x); var x; __re.source === __pattern.source. Actual: ' + (__re.source));
 }
 
 //CHECK#2

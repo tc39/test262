@@ -26,5 +26,5 @@ testTypedArrayConversions(byteConversionValues, function(TA, value, expected, in
 
   sample.set([value]);
 
-  assert.sameValue(sample[0], expected, "["+value+"] => ["+expected +"]");
+  assert.sameValue(sample[0], expected, "[" + value + "] => [" + expected + "]");
 });

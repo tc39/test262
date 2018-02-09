@@ -16,43 +16,43 @@ var __openParen = '(';
 var __closeParen = ')';
 var __pattern = '';
 var numParens = 200;
-  
-for (var i=0; i<numParens; i++)
-    __pattern += __openParen;
-    
+
+for (var i = 0; i < numParens; i++)
+  __pattern += __openParen;
+
 __pattern += __strOriginal;
 
-for (i=0; i<numParens; i++) 
-    __pattern += __closeParen;
-    
+for (i = 0; i < numParens; i++)
+  __pattern += __closeParen;
+
 var __re = new RegExp(__pattern);
 
 var __executed = __re.exec(__strOriginal);
 
 var __expected = [];
-for (var i=0; i<=numParens; i++)
-    __expected.push(__strOriginal);
+for (var i = 0; i <= numParens; i++)
+  __expected.push(__strOriginal);
 __expected.index = 0;
 __expected.input = __strOriginal;
 
 //CHECK#1
 if (__executed.length !== __expected.length) {
-	$ERROR('#1: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
+  $ERROR('#1: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
 }
 
 //CHECK#2
 if (__executed.index !== __expected.index) {
-	$ERROR('#2: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
+  $ERROR('#2: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
 }
 
 //CHECK#3
 if (__executed.input !== __expected.input) {
-	$ERROR('#3: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
+  $ERROR('#3: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
 }
 
 //CHECK#4
-for(var index=0; index<__expected.length; index++) {
-	if (__executed[index] !== __expected[index]) {
-		$ERROR('#4: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
-	}
+for (var index = 0; index < __expected.length; index++) {
+  if (__executed[index] !== __expected[index]) {
+    $ERROR('#4: __re = new RegExp(__pattern); __executed = __re.exec(__strOriginal); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
+  }
 }

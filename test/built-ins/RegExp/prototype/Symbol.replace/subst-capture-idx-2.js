@@ -33,9 +33,9 @@ features: [Symbol.replace]
 ---*/
 
 assert.sameValue(
-  /b(c)(z)?(.)/[Symbol.replace]('abcde', '[$01$02$03]'), 'a[cd]e'
+  /b(c)(z)?(.)/ [Symbol.replace]('abcde', '[$01$02$03]'), 'a[cd]e'
 );
 
 assert.sameValue(
-  /b(c)(z)?(.)/[Symbol.replace]('abcde', '[$01$02$03$04$00]'), 'a[cd$04$00]e'
+  /b(c)(z)?(.)/ [Symbol.replace]('abcde', '[$01$02$03$04$00]'), 'a[cd$04$00]e'
 );

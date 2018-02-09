@@ -13,7 +13,7 @@ description: >
 
 Function.prototype.indicator = 1;
 
- //CHECK#1
+//CHECK#1
 if (RegExp.indicator !== 1) {
-	$ERROR('#1: Function.prototype.indicator = 1; RegExp.indicator === 1. Actual: ' + (RegExp.indicator));
+  $ERROR('#1: Function.prototype.indicator = 1; RegExp.indicator === 1. Actual: ' + (RegExp.indicator));
 }

@@ -17,8 +17,9 @@ features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var obj = (function *() {
-    yield 7; yield 42;
+  var obj = (function*() {
+    yield 7;
+    yield 42;
   })();
 
   var typedArray = new TA(obj);

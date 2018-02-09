@@ -13,5 +13,5 @@ var __executed = /s$/.test("pairs\nmakes\tdouble");
 
 //CHECK#1
 if (__executed) {
-	$ERROR('#1: /s$/.test("pairs\\nmakes\\tdouble") === false');
+  $ERROR('#1: /s$/.test("pairs\\nmakes\\tdouble") === false');
 }

@@ -14,6 +14,7 @@ features: [new.target]
 ---*/
 
 var newTarget;
+
 function A() {
   newTarget = new.target;
 }
