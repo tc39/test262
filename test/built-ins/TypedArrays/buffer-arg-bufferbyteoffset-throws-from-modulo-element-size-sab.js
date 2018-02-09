@@ -1,38 +1,25 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
 // Copyright (C) 2017 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-esid: sec-typedarray-buffer-byteoffset-length
+esid: sec-typedarray-typedarray
 description: >
-  Throws a RangeError if bufferByteLength modulo elementSize ≠ 0
-info: |
-  22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
-
-  This description applies only if the TypedArray function is called with at
-  least one argument and the Type of the first argument is Object and that
-  object has an [[ArrayBufferData]] internal slot.
-
-  ...
-  13. If length is undefined, then
-    a. If bufferByteLength modulo elementSize ≠ 0, throw a RangeError exception.
-  ...
-includes: [testTypedArray.js]
+  Passing a SharedArrayBuffer-backed TypedArray to a TypedArray constructor
+  produces an ArrayBuffer-backed TypedArray.
 features: [SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(1);
+var sab = new SharedArrayBuffer(4);
+var int_views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];
 
-testWithTypedArrayConstructors(function(TA) {
-  if (TA.BYTES_PER_ELEMENT === 1) {
-    // Impossible to trigger this step here.
-    return;
-  }
-
-  assert.throws(RangeError, function() {
-    new TA(buffer);
-  });
-
-  assert.throws(RangeError, function() {
-    new TA(buffer, 0, undefined);
+int_views.forEach(function(View1) {
+  var ta1 = new View1(sab);
+  int_views.forEach(function(View2) {
+    var ta2 = new View2(ta1);
+    assert.sameValue(
+      ta2.buffer.constructor,
+      ArrayBuffer,
+      "TypedArray of SharedArrayBuffer-backed TypedArray is ArrayBuffer-backed"
+    );
   });
 });
