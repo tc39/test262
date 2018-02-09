@@ -1,0 +1,21 @@
+// Copyright (C) 2015 André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: built-ins/TypedArray/ctors/buffer-arg/byteoffset-is-negative-zero-sab-
+esid: pending
+name: >
+  TypedArray's [[ByteOffset]] internal slot is always a positive number, test with negative zero.
+info: |
+  %TypedArray% ( buffer [ , byteOffset [ , length ] ] )
+
+  ...
+  6. Let offset be ? ToInteger(byteOffset).
+  7. If offset < 0, throw a RangeError exception.
+  8. If offset is -0, let offset be +0.
+  ...
+features: [SharedArrayBuffer, TypedArray]
+---*/
+
+var typedArray = new /*{ ctor }*/(new SharedArrayBuffer(8), -0);
+assert.sameValue(typedArray.byteOffset, +0);

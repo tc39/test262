@@ -1,0 +1,10 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Uint16Array Constructor
+template: ctors
+---*/
+
+//- ctor
+Uint16Array
