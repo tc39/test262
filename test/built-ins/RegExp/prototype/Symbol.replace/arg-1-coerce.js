@@ -22,4 +22,4 @@ var arg = {
   }
 };
 
-assert.sameValue(/./ [Symbol.replace](arg, 'x'), 'xoString value');
+assert.sameValue(/./[Symbol.replace](arg, 'x'), 'xoString value');

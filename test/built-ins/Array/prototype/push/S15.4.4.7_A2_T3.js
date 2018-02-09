@@ -16,39 +16,21 @@ var obj = {};
 obj.push = Array.prototype.push;
 
 //CHECK#1
-obj.length = {
-  valueOf: function() {
-    return 3
-  }
-};
+obj.length = {valueOf: function() {return 3}};
 var push = obj.push();
 if (push !== 3) {
   $ERROR('#1:  obj.length = {valueOf: function() {return 3}}  obj.push() === 3. Actual: ' + (push));
 }
 
 //CHECK#2
-obj.length = {
-  valueOf: function() {
-    return 3
-  },
-  toString: function() {
-    return 1
-  }
-};
+obj.length = {valueOf: function() {return 3}, toString: function() {return 1}};
 var push = obj.push();
 if (push !== 3) {
   $ERROR('#0:  obj.length = {valueOf: function() {return 3}, toString: function() {return 1}}  obj.push() === 3. Actual: ' + (push));
 }
 
 //CHECK#3
-obj.length = {
-  valueOf: function() {
-    return 3
-  },
-  toString: function() {
-    return {}
-  }
-};
+obj.length = {valueOf: function() {return 3}, toString: function() {return {}}};
 var push = obj.push();
 if (push !== 3) {
   $ERROR('#1:  obj.length = {valueOf: function() {return 3}, toString: function() {return {}}}  obj.push() === 3. Actual: ' + (push));
@@ -57,16 +39,9 @@ if (push !== 3) {
 //CHECK#4
 try {
 
-  obj.length = {
-    valueOf: function() {
-      return 3
-    },
-    toString: function() {
-      throw "error"
-    }
-  };
+  obj.length = {valueOf: function() {return 3}, toString: function() {throw "error"}};
   var push = obj.push();
-  if (push !== 3) {
+if (push !== 3) {
     $ERROR('#4.1:  obj.length = {valueOf: function() {return 3}, toString: function() {throw "error"}}; obj.push() === ",". Actual: ' + (push));
   }
 }
@@ -79,25 +54,14 @@ catch (e) {
 }
 
 //CHECK#5
-obj.length = {
-  toString: function() {
-    return 1
-  }
-};
+obj.length = {toString: function() {return 1}};
 var push = obj.push();
 if (push !== 1) {
   $ERROR('#5:  obj.length = {toString: function() {return 1}}  obj.push() === 1. Actual: ' + (push));
 }
 
 //CHECK#6
-obj.length = {
-  valueOf: function() {
-    return {}
-  },
-  toString: function() {
-    return 1
-  }
-}
+obj.length = {valueOf: function() {return {}}, toString: function() {return 1}}
 var push = obj.push();
 if (push !== 1) {
   $ERROR('#6:  obj.length = {valueOf: function() {return {}}, toString: function() {return 1}}  obj.push() === 1. Actual: ' + (push));
@@ -106,14 +70,7 @@ if (push !== 1) {
 //CHECK#7
 try {
 
-  obj.length = {
-    valueOf: function() {
-      throw "error"
-    },
-    toString: function() {
-      return 1
-    }
-  };
+  obj.length = {valueOf: function() {throw "error"}, toString: function() {return 1}};
   var push = obj.push();
   $ERROR('#7.1:  obj.length = {valueOf: function() {throw "error"}, toString: function() {return 1}}; obj.push() throw "error". Actual: ' + (push));
 }
@@ -126,14 +83,7 @@ catch (e) {
 //CHECK#8
 try {
 
-  obj.length = {
-    valueOf: function() {
-      return {}
-    },
-    toString: function() {
-      return {}
-    }
-  };
+  obj.length = {valueOf: function() {return {}}, toString: function() {return {}}};
   var push = obj.push();
   $ERROR('#8.1:  obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.push() throw TypeError. Actual: ' + (push));
 }

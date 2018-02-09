@@ -19,9 +19,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var obj = {
-  flags: ''
-};
+var obj = { flags: '' };
 
 // Avoid false positives from unrelated TypeErrors
 RegExp.prototype[Symbol.split].call(obj);

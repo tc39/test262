@@ -7,15 +7,14 @@ es5id: 15.4.4.18-1-5
 description: Array.prototype.forEach applied to number primitive
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = obj instanceof Number;
+        }
 
-function callbackfn(val, idx, obj) {
-  result = obj instanceof Number;
-}
+            Number.prototype[0] = 1;
+            Number.prototype.length = 1;
 
-Number.prototype[0] = 1;
-Number.prototype.length = 1;
-
-Array.prototype.forEach.call(2.5, callbackfn);
+            Array.prototype.forEach.call(2.5, callbackfn);
 
 assert(result, 'result !== true');

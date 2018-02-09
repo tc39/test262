@@ -14,6 +14,4 @@ assert.sameValue(["0"].indexOf(0), -1, '["0"].indexOf(0)');
 assert.sameValue([false].indexOf(0), -1, '[false].indexOf(0)');
 assert.sameValue([undefined].indexOf(0), -1, '[undefined].indexOf(0)');
 assert.sameValue([null].indexOf(0), -1, '[null].indexOf(0)');
-assert.sameValue([
-  []
-].indexOf(0), -1, '[[]].indexOf(0)');
+assert.sameValue([[]].indexOf(0), -1, '[[]].indexOf(0)');

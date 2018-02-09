@@ -13,11 +13,12 @@ includes: [propertyHelper.js]
 var obj = [];
 
 Object.defineProperty(obj, "prop", {
-  value: 2010,
-  writable: false,
-  enumerable: true,
-  configurable: true
+    value: 2010,
+    writable: false,
+    enumerable: true,
+    configurable: true
 });
 
 assert.sameValue(obj.prop, 2010);
 verifyNotWritable(obj, "prop");
+

@@ -30,13 +30,9 @@ features: [Symbol.match]
 var r;
 
 r = /\udf06/;
-Object.defineProperty(r, 'unicode', {
-  value: true
-});
+Object.defineProperty(r, 'unicode', { value: true });
 assert.notSameValue(r[Symbol.match]('\ud834\udf06'), null);
 
 r = /\udf06/u;
-Object.defineProperty(r, 'unicode', {
-  value: false
-});
+Object.defineProperty(r, 'unicode', { value: false });
 assert.sameValue(r[Symbol.match]('\ud834\udf06'), null);

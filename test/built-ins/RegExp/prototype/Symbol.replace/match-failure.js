@@ -24,4 +24,4 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/x/ [Symbol.replace]('abc', 'X'), 'abc');
+assert.sameValue(/x/[Symbol.replace]('abc', 'X'), 'abc');

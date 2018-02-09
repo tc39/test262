@@ -27,7 +27,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /./u [Symbol.split]('\ud834\udf06');
+var result = /./u[Symbol.split]('\ud834\udf06');
 
 assert.sameValue(result.length, 2);
 assert.sameValue(result[0], '');

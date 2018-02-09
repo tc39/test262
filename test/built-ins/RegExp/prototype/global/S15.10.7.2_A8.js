@@ -16,15 +16,15 @@ if (__re.hasOwnProperty('global') !== true) {
   $ERROR('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
 }
 
-//CHECK#1
+ //CHECK#1
 if (__re.propertyIsEnumerable('global') !== false) {
   $ERROR('#1: __re = RegExp.prototype; __re.propertyIsEnumerable(\'global\') === false');
 }
 
-//CHECK#2
+ //CHECK#2
 var count = 0
-for (var p in __re) {
-  if (p === "global") count++
+for (var p in __re){
+  if (p==="global") count++   
 }
 
 if (count !== 0) {

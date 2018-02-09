@@ -28,9 +28,7 @@ info: |
 features: [Proxy]
 ---*/
 
-var badDelete = new Proxy({
-  a: 1
-}, {
+var badDelete = new Proxy({ a: 1 }, {
   deleteProperty: function() {
     throw new Test262Error();
   }

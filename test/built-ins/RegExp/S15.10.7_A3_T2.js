@@ -13,15 +13,15 @@ var __re = new RegExp;
 
 //CHECK#1
 if (typeof __re !== "object") {
-  $ERROR('#1: __re = new RegExp; typeof __re === "object". Actual: ' + (typeof __re));
+	$ERROR('#1: __re = new RegExp; typeof __re === "object". Actual: ' + (typeof __re));
 }
 
 //CHECK#1
 if (__re.constructor !== RegExp) {
-  $ERROR('#2: __re = new RegExp; __re.constructor === RegExp. Actual: ' + (__re.constructor));
+	$ERROR('#2: __re = new RegExp; __re.constructor === RegExp. Actual: ' + (__re.constructor));
 }
 
 //CHECK#3
 if ((__re instanceof RegExp) !== true) {
-  $ERROR('#3: __re = new RegExp; (__re instanceof RegExp) === true');
+	$ERROR('#3: __re = new RegExp; (__re instanceof RegExp) === true');
 }

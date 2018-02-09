@@ -14,7 +14,5 @@ assert.sameValue(Atomics.wake(view, 0, -3), 0);
 assert.sameValue(Atomics.wake(view, 0, Number.POSITIVE_INFINITY), 0);
 assert.sameValue(Atomics.wake(view, 0, undefined), 0);
 assert.sameValue(Atomics.wake(view, 0, "33"), 0);
-assert.sameValue(Atomics.wake(view, 0, {
-  valueOf: 8
-}), 0);
+assert.sameValue(Atomics.wake(view, 0, { valueOf: 8 }), 0);
 assert.sameValue(Atomics.wake(view, 0), 0);

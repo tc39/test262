@@ -13,9 +13,7 @@ features: [Symbol]
 
 var arrayBuffer = new SharedArrayBuffer(8);
 
-function callSlice() {
-  arrayBuffer.slice();
-}
+function callSlice() { arrayBuffer.slice(); }
 
 arrayBuffer.constructor = null;
 assert.throws(TypeError, callSlice, "`constructor` value is null");

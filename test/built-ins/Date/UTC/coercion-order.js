@@ -18,49 +18,14 @@ info: |
 ---*/
 
 var log = '';
-var year = {
-  toString: function() {
-    log += 'year';
-    return 0;
-  }
-};
-var month = {
-  toString: function() {
-    log += 'month';
-    return 0;
-  }
-};
-var date = {
-  toString: function() {
-    log += 'date';
-    return 1;
-  }
-};
-var hours = {
-  toString: function() {
-    log += 'hours';
-    return 0;
-  }
-};
-var minutes = {
-  toString: function() {
-    log += 'minutes';
-    return 0;
-  }
-};
-var seconds = {
-  toString: function() {
-    log += 'seconds';
-    return 0;
-  }
-};
-var ms = {
-  toString: function() {
-    log += 'ms';
-    return 0;
-  }
-};
+var year = { toString: function() { log += 'year'; return 0; } };
+var month = { toString: function() { log += 'month'; return 0; } };
+var date = { toString: function() { log += 'date'; return 1; } };
+var hours = { toString: function() { log += 'hours'; return 0; } };
+var minutes = { toString: function() { log += 'minutes'; return 0; } };
+var seconds = { toString: function() { log += 'seconds'; return 0; } };
+var ms = { toString: function() { log += 'ms'; return 0; } };
 
-Date.UTC(year, month, date, hours, minutes, seconds, ms);
+Date.UTC(year, month, date, hours,minutes, seconds, ms);
 
 assert.sameValue(log, 'yearmonthdatehoursminutessecondsms');

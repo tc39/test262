@@ -21,5 +21,5 @@ var str = {
 };
 
 assert.throws(Test262Error, function() {
-  /./ [Symbol.match](str);
+  /./[Symbol.match](str);
 });

@@ -8,8 +8,4 @@ description: >
     can return undefined.
 ---*/
 
-assert.sameValue(JSON.stringify({
-  prop: 1
-}, function(k, v) {
-  return undefined
-}), undefined, 'JSON.stringify({prop:1}, function(k, v) { return undefined })');
+assert.sameValue(JSON.stringify({prop:1}, function(k, v) { return undefined }), undefined, 'JSON.stringify({prop:1}, function(k, v) { return undefined })');

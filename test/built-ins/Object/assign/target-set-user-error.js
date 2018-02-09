@@ -23,7 +23,5 @@ Object.defineProperty(target, 'attr', {
 });
 
 assert.throws(Test262Error, function() {
-  Object.assign(target, {
-    attr: 1
-  });
+  Object.assign(target, { attr: 1 });
 });

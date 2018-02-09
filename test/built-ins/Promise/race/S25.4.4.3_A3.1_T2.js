@@ -11,9 +11,7 @@ author: Sam Mikes
 description: Promise.race throws TypeError, even on empty array, when 'this' does not conform to Promise constructor
 ---*/
 
-function BadPromiseConstructor(f) {
-  f(undefined, undefined);
-}
+function BadPromiseConstructor(f) { f(undefined, undefined); }
 
 assert.throws(TypeError, function() {
   Promise.race.call(BadPromiseConstructor, []);

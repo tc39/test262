@@ -7,16 +7,15 @@ es5id: 15.4.4.22-10-8
 description: Array.prototype.reduceRight doesn't visit expandos
 ---*/
 
-var callCnt = 0;
+  var callCnt = 0;
+  function callbackfn(prevVal, curVal,  idx, obj)
+  {
+    callCnt++;
+  }
+  var srcArr = ['1','2','3','4','5'];
+  srcArr["i"] = 10;
+  srcArr[true] = 11;
 
-function callbackfn(prevVal, curVal, idx, obj)
-{
-  callCnt++;
-}
-var srcArr = ['1', '2', '3', '4', '5'];
-srcArr["i"] = 10;
-srcArr[true] = 11;
-
-srcArr.reduceRight(callbackfn);
+  srcArr.reduceRight(callbackfn);
 
 assert.sameValue(callCnt, 4, 'callCnt');

@@ -25,9 +25,7 @@ features: [Symbol.search]
 
 var fakeRe = {
   exec: function() {
-    return {
-      index: 86
-    };
+    return { index: 86 };
   }
 };
 

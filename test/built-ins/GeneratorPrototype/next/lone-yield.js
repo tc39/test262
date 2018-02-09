@@ -8,9 +8,7 @@ description: >
 features: [generators]
 ---*/
 
-function* g() {
-  yield 1;
-}
+function* g() { yield 1; }
 var iter = g();
 var result;
 

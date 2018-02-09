@@ -10,20 +10,15 @@ description: >
     Array-like object
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 0) {
+                result = (arguments[0] === 1);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 0) {
-    result = (arguments[0] === 1);
-  }
-}
+        var obj = { 0: 11, 1: 9, length: 2 };
 
-var obj = {
-  0: 11,
-  1: 9,
-  length: 2
-};
-
-Array.prototype.reduce.call(obj, callbackfn, 1);
+        Array.prototype.reduce.call(obj, callbackfn, 1);
 
 assert(result, 'result !== true');

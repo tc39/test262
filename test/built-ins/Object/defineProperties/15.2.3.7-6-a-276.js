@@ -15,29 +15,29 @@ includes: [propertyHelper.js]
 var arr = [];
 
 function set_fun(value) {
-  arr.setVerifyHelpProp = value;
+    arr.setVerifyHelpProp = value;
 }
 Object.defineProperty(arr, "property", {
-  set: set_fun,
-  enumerable: false
+    set: set_fun,
+    enumerable: false
 });
 
 try {
-  Object.defineProperties(arr, {
-    "property": {
-      enumerable: true
-    }
-  });
-  $ERROR("Expected an exception.");
+    Object.defineProperties(arr, {
+        "property": {
+            enumerable: true
+        }
+    });
+    $ERROR("Expected an exception.");
 } catch (e) {
-  verifyWritable(arr, "property", "setVerifyHelpProp");
+    verifyWritable(arr, "property", "setVerifyHelpProp");
 
-  verifyNotEnumerable(arr, "property");
+    verifyNotEnumerable(arr, "property");
 
-  verifyNotConfigurable(arr, "property");
+    verifyNotConfigurable(arr, "property");
 
-  if (!(e instanceof TypeError)) {
-    $ERROR("Expected TypeError, got " + e);
-  }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
 
 }

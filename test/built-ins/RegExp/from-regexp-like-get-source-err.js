@@ -15,7 +15,6 @@ features: [Symbol, Symbol.match]
 ---*/
 
 var obj = {};
-
 function CustomError() {}
 Object.defineProperty(obj, 'source', {
   get: function() {

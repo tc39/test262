@@ -17,3 +17,4 @@ description: >
 
 assert.sameValue(Object.is(null), false, "`Object.is(null)` returns `false`");
 assert.sameValue(Object.is(null, undefined), false, "`Object.is(null, undefined)` returns `false`");
+

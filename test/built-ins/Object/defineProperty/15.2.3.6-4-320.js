@@ -11,29 +11,29 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-(function() {
-  Object.defineProperty(arguments, "genericProperty", {
-    configurable: false
-  });
-  try {
+(function () {
     Object.defineProperty(arguments, "genericProperty", {
-      configurable: true
+        configurable: false
     });
-    $ERROR("Expected an exception.");
-  } catch (e) {
-    verifyEqualTo(arguments, "genericProperty", undefined);
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            configurable: true
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        verifyEqualTo(arguments, "genericProperty", undefined);
 
-    verifyNotWritable(arguments, "genericProperty");
+        verifyNotWritable(arguments, "genericProperty");
 
-    verifyNotEnumerable(arguments, "genericProperty");
+        verifyNotEnumerable(arguments, "genericProperty");
 
-    verifyNotConfigurable(arguments, "genericProperty");
+        verifyNotConfigurable(arguments, "genericProperty");
 
 
-    if (!(e instanceof TypeError)) {
-      $ERROR("Expected TypeError, got " + e);
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-
-  }
 
 }(1, 2, 3));

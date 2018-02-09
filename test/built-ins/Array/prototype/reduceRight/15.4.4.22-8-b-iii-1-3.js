@@ -10,28 +10,22 @@ description: >
     Array-like object
 ---*/
 
-var testResult = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (prevVal === "20");
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (prevVal === "20");
-  }
-}
+        var proto = { 0: 0, 1: 1, 2: 2, length: 2 };
+        var Con = function () { };
+        Con.prototype = proto;
 
-var proto = {
-  0: 0,
-  1: 1,
-  2: 2,
-  length: 2
-};
-var Con = function() {};
-Con.prototype = proto;
+        var child = new Con();
+        child[1] = "10";
+        child[2] = "20";
+        child.length = 3;
 
-var child = new Con();
-child[1] = "10";
-child[2] = "20";
-child.length = 3;
-
-Array.prototype.reduceRight.call(child, callbackfn);
+        Array.prototype.reduceRight.call(child, callbackfn);
 
 assert(testResult, 'testResult !== true');

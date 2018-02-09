@@ -8,13 +8,12 @@ description: >
 ---*/
 
 assert.sameValue(
-  String.raw `\u0065\`\r\r\n\n${'test'}check`,
+  String.raw`\u0065\`\r\r\n\n${'test'}check`,
   '\\u0065\\`\\r\\r\\n\\ntestcheck',
   'Unicode escape sequences'
 );
 assert.sameValue(
-  String.raw `\
-\
+  String.raw`\\
 \
 `,
   '\\\n\\\n\\\n',

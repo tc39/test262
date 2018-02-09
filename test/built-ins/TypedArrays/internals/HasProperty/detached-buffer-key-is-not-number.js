@@ -20,9 +20,7 @@ features: [Reflect, TypedArray]
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
-  Object.defineProperty(sample, "bar", {
-    value: 42
-  });
+  Object.defineProperty(sample, "bar", { value: 42 });
 
   $DETACHBUFFER(sample.buffer);
 

@@ -19,7 +19,7 @@ if (typeof BigInt !== "undefined") {
 }
 
 testWithTypedArrayConstructors(function(View) {
-  var view = new View(ab);
+    var view = new View(ab);
 
-  assert.throws(TypeError, (() => Atomics.wake(view, 0, 0))); // Should fail even if waking zero waiters
+    assert.throws(TypeError, (() => Atomics.wake(view, 0, 0))); // Should fail even if waking zero waiters
 }, int_views);

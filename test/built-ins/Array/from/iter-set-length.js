@@ -29,19 +29,13 @@ items[Symbol.iterator] = function() {
   };
 };
 
-nextIterResult = lastIterResult = {
-  done: true
-};
+nextIterResult = lastIterResult = { done: true };
 result = Array.from(items);
 
 assert.sameValue(result.length, 0);
 
-nextIterResult = {
-  done: false
-};
-lastIterResult = {
-  done: true
-};
+nextIterResult = { done: false };
+lastIterResult = { done: true };
 result = Array.from(items);
 
 assert.sameValue(result.length, 1);

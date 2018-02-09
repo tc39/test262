@@ -7,17 +7,16 @@ es5id: 15.4.4.18-5-2
 description: Array.prototype.forEach - thisArg is Object
 ---*/
 
-var res = false;
-var o = new Object();
-o.res = true;
-var result;
+  var res = false;
+  var o = new Object();
+  o.res = true;
+  var result;
+  function callbackfn(val, idx, obj)
+  {
+    result = this.res;
+  }
 
-function callbackfn(val, idx, obj)
-{
-  result = this.res;
-}
-
-var arr = [1];
-arr.forEach(callbackfn, o)
+  var arr = [1];
+  arr.forEach(callbackfn,o)
 
 assert.sameValue(result, true, 'result');

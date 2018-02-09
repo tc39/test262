@@ -42,5 +42,5 @@ assert(compareArray(["f", undefined], "abcdef".match(/(?<a>(?<!\D{3}))f|f/)));
 
 // Even within a lookbehind, properties are created in left to right order
 assert(compareArray(["fst", "snd"],
-  Object.getOwnPropertyNames(
-    /(?<=(?<fst>.)|(?<snd>.))/u.exec("abcd").groups)));
+             Object.getOwnPropertyNames(
+                 /(?<=(?<fst>.)|(?<snd>.))/u.exec("abcd").groups)));

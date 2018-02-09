@@ -17,9 +17,7 @@ info: |
     7. ReturnIfAbrupt(promise).
 ---*/
 
-var expectedThis = (function() {
-  return this;
-})();
+var expectedThis = (function() { return this; })();
 var resolveCount = 0;
 var thisValue, args;
 var P = function(executor) {

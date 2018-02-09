@@ -23,3 +23,4 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   obj[symB] = 1;
 });
+

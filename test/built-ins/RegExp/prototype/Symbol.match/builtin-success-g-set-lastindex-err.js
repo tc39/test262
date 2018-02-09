@@ -43,9 +43,7 @@ var callCount = 0;
 // completion originates  from the second property modification.
 Object.defineProperty(r, 'exec', {
   get: function() {
-    Object.defineProperty(r, 'lastIndex', {
-      writable: false
-    });
+    Object.defineProperty(r, 'lastIndex', { writable: false });
   }
 });
 

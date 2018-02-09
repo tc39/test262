@@ -8,9 +8,7 @@ description: >
     number
 ---*/
 
-var obj = {
-  "123": 100
-};
-var obj1 = Object.defineProperties(obj, -12);
+        var obj = { "123": 100 };
+        var obj1 = Object.defineProperties(obj, -12);
 
 assert.sameValue(obj, obj1, 'obj');

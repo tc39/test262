@@ -37,14 +37,10 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
   customCount = 2;
-  result = sample.filter(function() {
-    return true;
-  });
+  result = sample.filter(function() { return true; });
   assert.sameValue(result.length, customCount, "length == count");
 
   customCount = 5;
-  result = sample.filter(function() {
-    return true;
-  });
+  result = sample.filter(function() { return true; });
   assert.sameValue(result.length, customCount, "length > count");
 });

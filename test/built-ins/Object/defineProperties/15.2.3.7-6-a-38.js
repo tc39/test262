@@ -14,9 +14,7 @@ includes: [propertyHelper.js]
 var obj = {};
 obj.foo = 100; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-Object.defineProperties(obj, {
-  foo: {}
-});
+Object.defineProperties(obj, { foo: {} });
 verifyEqualTo(obj, "foo", 100);
 
 verifyWritable(obj, "foo");

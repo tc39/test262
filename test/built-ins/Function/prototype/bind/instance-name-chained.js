@@ -13,9 +13,7 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-var target = Object.defineProperty(function() {}, 'name', {
-  value: 'target'
-});
+var target = Object.defineProperty(function() {}, 'name', { value: 'target' });
 
 assert.sameValue(target.bind().bind().name, 'bound bound target');
 verifyNotEnumerable(target.bind().bind(), 'name');

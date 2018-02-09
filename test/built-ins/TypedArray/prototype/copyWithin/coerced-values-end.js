@@ -29,42 +29,48 @@ includes: [compareArray.js, testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, null), [0, 1, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, null),
+      [0, 1, 2, 3]
     ),
     'null value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, NaN), [0, 1, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, NaN),
+      [0, 1, 2, 3]
     ),
     'NaN value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, false), [0, 1, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, false),
+      [0, 1, 2, 3]
     ),
     'false value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, true), [0, 0, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, true),
+      [0, 0, 2, 3]
     ),
     'true value coerced to 1'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, '-2'), [0, 0, 1, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, '-2'),
+      [0, 0, 1, 3]
     ),
     'string "-2" value coerced to integer -2'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, -2.5), [0, 0, 1, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, -2.5),
+      [0, 0, 1, 3]
     ),
     'float -2.5 value coerced to integer -2'
   );

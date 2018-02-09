@@ -37,9 +37,7 @@ testWithTypedArrayConstructors(function(TA) {
     }
   });
 
-  result = sample.filter(function() {
-    return true;
-  });
+  result = sample.filter(function() { return true; });
 
   assert.sameValue(calls, 1, "called custom ctor get accessor once");
 

@@ -10,17 +10,16 @@ description: >
     undefined when 'initialValue' is not present on an Array
 ---*/
 
-var called = 0;
-var result = false;
+        var called = 0;
+        var result = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            called++;
+            if (idx === 1) {
+                result = (prevVal === 11) && curVal === 9;
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  called++;
-  if (idx === 1) {
-    result = (prevVal === 11) && curVal === 9;
-  }
-}
-
-[11, 9].reduce(callbackfn);
+        [11, 9].reduce(callbackfn);
 
 assert(result, 'result !== true');
 assert.sameValue(called, 1, 'called');

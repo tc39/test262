@@ -15,7 +15,7 @@ description: >
 //CHECK#1
 var non_s = "0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"';
 if (/\s/.exec(non_s) !== null) {
-  $ERROR('#1: non-s');
+   $ERROR('#1: non-s');
 }
 
 //CHECK#2
@@ -23,9 +23,9 @@ var non_S = '\f\n\r\t\v ';
 var regexp_s = /\s/g;
 var k = 0;
 while (regexp_s.exec(non_S) !== null) {
-  k++;
+   k++;
 }
 
 if (non_S.length !== k) {
-  $ERROR('#2: non-S');
+   $ERROR('#2: non-S');
 }

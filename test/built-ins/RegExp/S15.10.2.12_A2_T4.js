@@ -13,10 +13,10 @@ description: RUSSIAN ALPHABET
 var regexp_S = /\S/;
 
 //CHECK#0410-042F 
-var result = true;
+var result = true; 
 for (var alpha = 0x0410; alpha <= 0x042F; alpha++) {
   var str = String.fromCharCode(alpha);
-  var arr = regexp_S.exec(str);
+  var arr = regexp_S.exec(str); 
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }
@@ -27,10 +27,10 @@ if (result !== true) {
 }
 
 //CHECK#0430-044F
-var result = true;
+var result = true; 
 for (alpha = 0x0430; alpha <= 0x044F; alpha++) {
   str = String.fromCharCode(alpha);
-  arr = regexp_S.exec(str);
+  arr = regexp_S.exec(str); 
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }

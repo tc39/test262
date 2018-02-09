@@ -18,9 +18,7 @@ info: |
 // `groups` is created with Define, not Set.
 let counter = 0;
 Object.defineProperty(Array.prototype, "groups", {
-  set() {
-    counter++;
-  }
+  set() { counter++; }
 });
 
 let match = /(?<x>.)/.exec("a");
@@ -36,8 +34,6 @@ verifyProperty(match, "groups", {
 
 // The `__proto__` property on the groups object is not special,
 // and does not affect the [[Prototype]] of the resulting groups object.
-let {
-  groups
-} = /(?<__proto__>.)/.exec("a");
+let {groups} = /(?<__proto__>.)/.exec("a");
 assert.sameValue("a", groups.__proto__);
 assert.sameValue(null, Object.getPrototypeOf(groups));

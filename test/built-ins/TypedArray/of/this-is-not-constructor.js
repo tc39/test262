@@ -15,9 +15,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-var m = {
-  m() {}
-}.m;
+var m = { m() {} }.m;
 
 assert.throws(TypeError, function() {
   TypedArray.of.call(m, []);

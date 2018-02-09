@@ -17,6 +17,4 @@ new Promise(function(resolve, reject) {
 });
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(resolveFunction, "prototype"), false);
-assert.throws(TypeError, function() {
-  new resolveFunction();
-});
+assert.throws(TypeError, function() { new resolveFunction(); });

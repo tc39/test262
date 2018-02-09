@@ -19,3 +19,4 @@ features: [numeric-separator-literal]
 ---*/
 
 assert.sameValue(parseFloat("1.0e+10_0"), 1.0e+10);
+

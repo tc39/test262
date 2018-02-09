@@ -16,8 +16,6 @@ assert.throws(TypeError, function() {
 
 assert.throws(TypeError, function() {
   new BigInt({
-    valueOf: function() {
-      throw new Test262Error("unreachable");
-    }
+    valueOf: function() { throw new Test262Error("unreachable"); }
   });
 });

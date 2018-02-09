@@ -23,4 +23,4 @@ info: |
       ...
 ---*/
 
-assert.sameValue(String.raw `123\u0065`, '123\\u0065');
+assert.sameValue(String.raw`123\u0065`, '123\\u0065');

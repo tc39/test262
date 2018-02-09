@@ -8,6 +8,4 @@ description: >
     can return an Array.
 ---*/
 
-assert.sameValue(JSON.stringify(42, function(k, v) {
-  return v == 42 ? [4, 2] : v
-}), '[4,2]', 'JSON.stringify(42, function(k, v) { return v==42 ?[4,2]:v })');
+assert.sameValue(JSON.stringify(42, function(k, v) { return v==42 ?[4,2]:v }), '[4,2]', 'JSON.stringify(42, function(k, v) { return v==42 ?[4,2]:v })');

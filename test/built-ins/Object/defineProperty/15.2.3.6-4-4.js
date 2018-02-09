@@ -12,14 +12,14 @@ description: >
     desc(8.12.9 step 4.a.i)
 ---*/
 
-var o = {};
+  var o = {};
+  
+  var desc = {};
+  Object.defineProperty(o, "foo", desc);
 
-var desc = {};
-Object.defineProperty(o, "foo", desc);
+  var propDesc = Object.getOwnPropertyDescriptor(o, "foo");
 
-var propDesc = Object.getOwnPropertyDescriptor(o, "foo");
-
-assert.sameValue(propDesc.value, undefined, 'propDesc.value'); // undefined by default
-assert.sameValue(propDesc.writable, false, 'propDesc.writable'); // false by default
-assert.sameValue(propDesc.enumerable, false, 'propDesc.enumerable'); // false by default
-assert.sameValue(propDesc.configurable, false, 'propDesc.configurable'); // false by default
+assert.sameValue(propDesc.value, undefined, 'propDesc.value');            // undefined by default
+assert.sameValue(propDesc.writable, false, 'propDesc.writable');          // false by default
+assert.sameValue(propDesc.enumerable, false, 'propDesc.enumerable');      // false by default
+assert.sameValue(propDesc.configurable, false, 'propDesc.configurable');  // false by default

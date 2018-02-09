@@ -10,15 +10,6 @@ features: [Array.prototype.flatten]
 
 var a = {};
 assert.compareArray([].flatten(), []);
-assert.compareArray([
-  [],
-  []
-].flatten(), []);
-assert.compareArray([
-  [],
-  [1]
-].flatten(), [1]);
-assert.compareArray([
-  [],
-  [1, a]
-].flatten(), [1, a]);
+assert.compareArray([[], []].flatten(), []);
+assert.compareArray([[], [1]].flatten(), [1]);
+assert.compareArray([[], [1, a]].flatten(), [1, a]);

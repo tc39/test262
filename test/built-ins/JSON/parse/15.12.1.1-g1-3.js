@@ -9,5 +9,5 @@ description: The JSON lexical grammar treats <LF> as a whitespace character
 assert.sameValue(JSON.parse('\n1234'), 1234, '<LF> should be ignored');
 
 assert.throws(SyntaxError, function() {
-  JSON.parse('12\n34');
+    JSON.parse('12\n34');
 }, '<LF> should produce a syntax error as whitespace results in two tokens');

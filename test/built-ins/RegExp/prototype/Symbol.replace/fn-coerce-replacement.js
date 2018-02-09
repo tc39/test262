@@ -26,4 +26,4 @@ var replacer = function() {
   };
 };
 
-assert.sameValue(/x/ [Symbol.replace]('[x]', replacer), '[toString value]');
+assert.sameValue(/x/[Symbol.replace]('[x]', replacer), '[toString value]');

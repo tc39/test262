@@ -15,9 +15,9 @@ includes: [propertyHelper.js]
 var arr = [12];
 
 Object.defineProperties(arr, {
-  "0": {
-    value: 36
-  }
+    "0": {
+        value: 36
+    }
 });
 verifyEqualTo(arr, "0", 36);
 
@@ -26,3 +26,4 @@ verifyWritable(arr, "0");
 verifyEnumerable(arr, "0");
 
 verifyConfigurable(arr, "0");
+

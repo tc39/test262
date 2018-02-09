@@ -13,5 +13,5 @@ var __executed = /o+/.test("abcdefg");
 
 //CHECK#1
 if (__executed) {
-  $ERROR('#1: /o+/.test("abcdefg") === false');
+	$ERROR('#1: /o+/.test("abcdefg") === false');
 }

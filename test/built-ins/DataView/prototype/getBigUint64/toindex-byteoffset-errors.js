@@ -40,29 +40,29 @@ assert.throws(RangeError, function() {
   sample.getBigUint64(Infinity);
 }, "ToIndex: throw when integerIndex > 2**53-1");
 assert.throws(TypeError, function() {
-  sample.getBigUint64(0 n);
+  sample.getBigUint64(0n);
 }, "ToIndex: BigInt => TypeError");
 assert.throws(TypeError, function() {
-  sample.getBigUint64(Object(0 n));
+  sample.getBigUint64(Object(0n));
 }, "ToIndex: unbox object with internal slot => BigInt => TypeError");
 assert.throws(TypeError, function() {
   sample.getBigUint64({
     [Symbol.toPrimitive]: function() {
-      return 0 n;
+      return 0n;
     }
   });
 }, "ToIndex: @@toPrimitive => BigInt => TypeError");
 assert.throws(TypeError, function() {
   sample.getBigUint64({
     valueOf: function() {
-      return 0 n;
+      return 0n;
     }
   });
 }, "ToIndex: valueOf => BigInt => TypeError");
 assert.throws(TypeError, function() {
   sample.getBigUint64({
     toString: function() {
-      return 0 n;
+      return 0n;
     }
   });
 }, "ToIndex: toString => BigInt => TypeError");

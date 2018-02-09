@@ -9,26 +9,25 @@ description: >
     on an Array
 ---*/
 
-var accessed = false;
-var testResult = false;
+        var accessed = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx >= 1) {
+                accessed = true;
+                testResult = (prevVal === 0);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx >= 1) {
-    accessed = true;
-    testResult = (prevVal === 0);
-  }
-}
+        var arr = [, 1, 2];
 
-var arr = [, 1, 2];
-
-Object.defineProperty(arr, "0", {
-  get: function() {
-    throw new RangeError("unhandle exception happened in getter");
-  },
-  configurable: true
-});
+        Object.defineProperty(arr, "0", {
+            get: function () {
+                throw new RangeError("unhandle exception happened in getter");
+            },
+            configurable: true
+        });
 assert.throws(RangeError, function() {
-  arr.reduce(callbackfn);
+            arr.reduce(callbackfn);
 });
 assert.sameValue(accessed, false, 'accessed');
 assert.sameValue(testResult, false, 'testResult');

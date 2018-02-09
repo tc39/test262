@@ -31,7 +31,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.every(function(v, i) {
     if (i < sample.length - 1) {
-      sample[i + 1] = 42;
+      sample[i+1] = 42;
     }
 
     assert.sameValue(

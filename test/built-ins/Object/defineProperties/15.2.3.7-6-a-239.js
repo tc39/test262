@@ -16,28 +16,28 @@ includes: [propertyHelper.js]
 var arr = [];
 
 Object.defineProperty(arr, "1", {
-  value: true
+    value: true
 });
 
 try {
-  Object.defineProperties(arr, {
-    "1": {
-      value: false
-    }
-  });
+    Object.defineProperties(arr, {
+        "1": {
+            value: false
+        }
+    });
 
-  $ERROR("Expected an exception.");
+    $ERROR("Expected an exception.");
 } catch (e) {
-  verifyEqualTo(arr, "1", true);
+    verifyEqualTo(arr, "1", true);
 
-  verifyNotWritable(arr, "1");
+    verifyNotWritable(arr, "1");
 
-  verifyNotEnumerable(arr, "1");
+    verifyNotEnumerable(arr, "1");
 
-  verifyNotConfigurable(arr, "1");
+    verifyNotConfigurable(arr, "1");
 
-  if (!(e instanceof TypeError)) {
-    $ERROR("Expected TypeError, got " + e);
-  }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
 
 }

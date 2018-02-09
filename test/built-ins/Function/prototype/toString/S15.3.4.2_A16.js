@@ -12,9 +12,7 @@ description: >
     bound to that object.
 ---*/
 
-var obj = {
-  toString: Function.prototype.toString
-};
+var obj = {toString: Function.prototype.toString};
 
 assert.throws(TypeError, function() {
   String(obj);

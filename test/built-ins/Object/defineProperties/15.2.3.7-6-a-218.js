@@ -13,17 +13,15 @@ includes: [propertyHelper.js]
 
 var arr = [];
 
-var obj1 = {
-  length: 10
-};
+var obj1 = { length: 10 };
 Object.defineProperty(arr, "0", {
-  value: obj1
+    value: obj1
 });
 
 var properties = {
-  "0": {
-    value: obj1
-  }
+    "0": {
+        value: obj1
+    }
 };
 
 Object.defineProperties(arr, properties);
@@ -34,3 +32,4 @@ verifyNotWritable(arr, "0");
 verifyNotEnumerable(arr, "0");
 
 verifyNotConfigurable(arr, "0");
+

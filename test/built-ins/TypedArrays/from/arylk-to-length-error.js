@@ -13,9 +13,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-var arrayLike = {
-  length: {}
-};
+var arrayLike = { length: {} };
 
 arrayLike.length = {
   valueOf: function() {

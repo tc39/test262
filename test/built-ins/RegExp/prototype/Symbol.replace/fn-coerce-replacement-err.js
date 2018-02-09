@@ -30,5 +30,5 @@ var replacer = function() {
 };
 
 assert.throws(Test262Error, function() {
-  /x/ [Symbol.replace]('[x]', replacer);
+  /x/[Symbol.replace]('[x]', replacer);
 });

@@ -11,11 +11,7 @@ description: If Type(value) is Object, evaluate ToPrimitive(value, String)
 
 //CHECK#1
 var x = [];
-var object = {
-  valueOf: function() {
-    return 1
-  }
-};
+var object = {valueOf: function() {return 1}};
 x[object] = 0;
 if (x["[object Object]"] !== 0) {
   $ERROR('#1: x = []; var object = {valueOf: function() {return 1}}; x[object] = 0; x["[object Object]"] === 0. Actual: ' + (x["[object Object]"]));
@@ -23,29 +19,15 @@ if (x["[object Object]"] !== 0) {
 
 //CHECK#2
 x = [];
-var object = {
-  valueOf: function() {
-    return 1
-  },
-  toString: function() {
-    return 0
-  }
-};
+var object = {valueOf: function() {return 1}, toString: function() {return 0}};
 x[object] = 0;
 if (x[0] !== 0) {
   $ERROR('#2: x = []; var object = {valueOf: function() {return 1}, toString: function() {return 0}}; x[object] = 0; x[0] === 0. Actual: ' + (x[0]));
-}
+} 
 
 //CHECK#3
 x = [];
-var object = {
-  valueOf: function() {
-    return 1
-  },
-  toString: function() {
-    return {}
-  }
-};
+var object = {valueOf: function() {return 1}, toString: function() {return {}}};
 x[object] = 0;
 if (x[1] !== 0) {
   $ERROR('#3: x = []; var object = {valueOf: function() {return 1}, toString: function() {return {}}}; x[object] = 0; x[1] === 0. Actual: ' + (x[1]));
@@ -53,15 +35,8 @@ if (x[1] !== 0) {
 
 //CHECK#4
 try {
-  x = [];
-  var object = {
-    valueOf: function() {
-      throw "error"
-    },
-    toString: function() {
-      return 1
-    }
-  };
+  x = [];  
+  var object = {valueOf: function() {throw "error"}, toString: function() {return 1}};
   x[object] = 0;
   if (x[1] !== 0) {
     $ERROR('#4.1: x = []; var object = {valueOf: function() {throw "error"}, toString: function() {return 1}}; x[object] = 0; x[1] === 1. Actual: ' + (x[1]));
@@ -77,11 +52,7 @@ catch (e) {
 
 //CHECK#5
 x = [];
-var object = {
-  toString: function() {
-    return 1
-  }
-};
+var object = {toString: function() {return 1}};
 x[object] = 0;
 if (x[1] !== 0) {
   $ERROR('#5: x = []; var object = {toString: function() {return 1}}; x[object] = 0; x[1] === 0. Actual: ' + (x[1]));
@@ -89,14 +60,7 @@ if (x[1] !== 0) {
 
 //CHECK#6
 x = [];
-var object = {
-  valueOf: function() {
-    return {}
-  },
-  toString: function() {
-    return 1
-  }
-}
+var object = {valueOf: function() {return {}}, toString: function() {return 1}}
 x[object] = 0;
 if (x[1] !== 0) {
   $ERROR('#6: x = []; var object = {valueOf: function() {return {}}, toString: function() {return 1}}; x[object] = 0; x[1] === 0. Actual: ' + (x[1]));
@@ -105,39 +69,25 @@ if (x[1] !== 0) {
 //CHECK#7
 try {
   x = [];
-  var object = {
-    valueOf: function() {
-      return 1
-    },
-    toString: function() {
-      throw "error"
-    }
-  };
-  x[object];
+  var object = {valueOf: function() {return 1}, toString: function() {throw "error"}};
+  x[object];  
   $ERROR('#7.1: x = []; var object = {valueOf: function() {return 1}, toString: function() {throw "error"}}; x[object] throw "error". Actual: ' + (x[object]));
-}
+}  
 catch (e) {
   if (e !== "error") {
     $ERROR('#7.2: x = []; var object = {valueOf: function() {return 1}, toString: function() {throw "error"}}; x[object] throw "error". Actual: ' + (e));
-  }
+  } 
 }
 
 //CHECK#8
 try {
   x = [];
-  var object = {
-    valueOf: function() {
-      return {}
-    },
-    toString: function() {
-      return {}
-    }
-  };
+  var object = {valueOf: function() {return {}}, toString: function() {return {}}};
   x[object];
   $ERROR('#8.1: x = []; var object = {valueOf: function() {return {}}, toString: function() {return {}}}; x[object] throw TypeError. Actual: ' + (x[object]));
-}
+}  
 catch (e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#8.2: x = []; var object = {valueOf: function() {return {}}, toString: function() {return {}}}; x[object] throw TypeError. Actual: ' + (e));
-  }
+  } 
 }

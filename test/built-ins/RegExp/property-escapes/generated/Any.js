@@ -28,6 +28,7 @@ testPropertyEscapes(
   "\\p{Any}"
 );
 
-assert(!/\P{Any}/u.test(""),
+assert(
+  !/\P{Any}/u.test(""),
   "`\\P{Any}` should match nothing (not even the empty string)"
 );

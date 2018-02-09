@@ -12,9 +12,10 @@ includes: [propertyHelper.js]
 var obj = {};
 
 Object.defineProperties(obj, {
-  property: {
-    value: "abc"
-  }
+    property: {
+        value: "abc"
+    }
 });
 
 verifyNotWritable(obj, "property");
+

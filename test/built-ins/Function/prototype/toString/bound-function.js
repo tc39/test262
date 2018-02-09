@@ -7,6 +7,6 @@ description: Function.prototype.toString on bound function exotic objects
 includes: [nativeFunctionMatcher.js]
 ---*/
 
-let f = function() {}.bind(null);
+let f = function(){}.bind(null);
 
 assert(NATIVE_FUNCTION_RE.test("" + f), "looks pretty much like a NativeFunction");

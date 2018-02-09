@@ -9,25 +9,22 @@ description: >
     overrides an inherited data property on an Array-like object
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = (obj.length === 2);
+        }
 
-function callbackfn(val, idx, obj) {
-  result = (obj.length === 2);
-}
+        var proto = { length: 3 };
 
-var proto = {
-  length: 3
-};
+        var Con = function () { };
+        Con.prototype = proto;
 
-var Con = function() {};
-Con.prototype = proto;
+        var child = new Con();
+        child.length = 2;
+        child[0] = 12;
+        child[1] = 11;
+        child[2] = 9;
 
-var child = new Con();
-child.length = 2;
-child[0] = 12;
-child[1] = 11;
-child[2] = 9;
-
-Array.prototype.forEach.call(child, callbackfn);
+        Array.prototype.forEach.call(child, callbackfn);
 
 assert(result, 'result !== true');

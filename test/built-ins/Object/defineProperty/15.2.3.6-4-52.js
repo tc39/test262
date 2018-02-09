@@ -21,3 +21,4 @@ verifyNotWritable(obj, "property");
 verifyNotEnumerable(obj, "property");
 
 verifyNotConfigurable(obj, "property");
+

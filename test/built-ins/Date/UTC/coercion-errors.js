@@ -17,16 +17,8 @@ info: |
   9. Return TimeClip(MakeDate(MakeDay(yr, m, dt), MakeTime(h, min, s, milli))). 
 ---*/
 
-var thrower = {
-  toString: function() {
-    throw new Test262Error();
-  }
-};
-var counter = {
-  toString: function() {
-    callCount += 1;
-  }
-};
+var thrower = { toString: function() { throw new Test262Error(); } };
+var counter = { toString: function() { callCount += 1; } };
 var callCount = 0;
 
 assert.throws(Test262Error, function() {

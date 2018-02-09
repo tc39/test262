@@ -22,9 +22,7 @@ var s2 = Symbol("bar");
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
-  Object.defineProperty(sample, s1, {
-    value: "baz"
-  });
+  Object.defineProperty(sample, s1, { value: "baz" });
 
   $DETACHBUFFER(sample.buffer);
 

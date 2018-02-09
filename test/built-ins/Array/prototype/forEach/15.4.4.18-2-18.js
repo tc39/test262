@@ -9,14 +9,13 @@ description: >
     its own property get method
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = (obj.length === 3);
+        }
 
-function callbackfn(val, idx, obj) {
-  result = (obj.length === 3);
-}
+        var str = new String("012");
 
-var str = new String("012");
-
-Array.prototype.forEach.call(str, callbackfn);
+        Array.prototype.forEach.call(str, callbackfn);
 
 assert(result, 'result !== true');

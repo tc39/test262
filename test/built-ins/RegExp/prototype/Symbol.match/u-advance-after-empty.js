@@ -23,7 +23,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var match = /^|\udf06/ug [Symbol.match]('\ud834\udf06');
+var match = /^|\udf06/ug[Symbol.match]('\ud834\udf06');
 
 assert(match !== null);
 assert.sameValue(match.length, 1);

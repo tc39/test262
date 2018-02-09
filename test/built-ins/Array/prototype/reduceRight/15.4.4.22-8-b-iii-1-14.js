@@ -10,30 +10,29 @@ description: >
     an Array
 ---*/
 
-var testResult = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (prevVal === "20");
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (prevVal === "20");
-  }
-}
+            Object.defineProperty(Array.prototype, "2", {
+                get: function () {
+                    return 2;
+                },
+                configurable: true
+            });
 
-Object.defineProperty(Array.prototype, "2", {
-  get: function() {
-    return 2;
-  },
-  configurable: true
-});
+            var arr = [0, 1, , ];
 
-var arr = [0, 1, , ];
+            Object.defineProperty(arr, "2", {
+                get: function () {
+                    return "20";
+                },
+                configurable: true
+            });
 
-Object.defineProperty(arr, "2", {
-  get: function() {
-    return "20";
-  },
-  configurable: true
-});
-
-arr.reduceRight(callbackfn);
+            arr.reduceRight(callbackfn);
 
 assert(testResult, 'testResult !== true');

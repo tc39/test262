@@ -11,21 +11,13 @@ features: [DataView, ArrayBuffer, BigInt]
 var buffer = new ArrayBuffer(1);
 var sample = new DataView(buffer, 0);
 
-var bo1 = {
-  valueOf() {
-    throw new Test262Error();
-  }
-};
-var bo2 = {
-  toString() {
-    throw new Test262Error();
-  }
-};
+var bo1 = { valueOf() { throw new Test262Error(); } };
+var bo2 = { toString() { throw new Test262Error(); } };
 
 assert.throws(Test262Error, function() {
-  sample.setBigInt64(bo1, 1 n);
+  sample.setBigInt64(bo1, 1n);
 }, "valueOf");
 
 assert.throws(Test262Error, function() {
-  sample.setBigInt64(bo2, 1 n);
+  sample.setBigInt64(bo2, 1n);
 }, "toString");

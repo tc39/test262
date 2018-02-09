@@ -9,19 +9,18 @@ description: >
     implements its own property get method
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = (obj.length === 2);
+        }
 
-function callbackfn(val, idx, obj) {
-  result = (obj.length === 2);
-}
+        var fun = function (a, b) {
+            return a + b;
+        };
+        fun[0] = 12;
+        fun[1] = 11;
+        fun[2] = 9;
 
-var fun = function(a, b) {
-  return a + b;
-};
-fun[0] = 12;
-fun[1] = 11;
-fun[2] = 9;
-
-Array.prototype.forEach.call(fun, callbackfn);
+        Array.prototype.forEach.call(fun, callbackfn);
 
 assert(result, 'result !== true');

@@ -16,3 +16,4 @@ description: >
 ---*/
 
 assert.sameValue(Object.is(null, null), true, "`Object.is(null, null)` returns `true`");
+

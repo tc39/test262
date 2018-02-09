@@ -8,11 +8,9 @@ description: >
     toJSON call to literal strings.
 ---*/
 
-var obj = {
-  prop: 42,
-  toJSON: function() {
-    return 'fortytwo objects'
-  }
-};
+  var obj = {
+    prop:42,
+    toJSON: function () {return 'fortytwo objects'}
+    };
 
 assert.sameValue(JSON.stringify([obj]), '["fortytwo objects"]', 'JSON.stringify([obj])');

@@ -15,14 +15,12 @@ description: >
 ---*/
 
 //since ToString(null) evaluates to "null" split(null) evaluates to split("null",0)
-var __split = function() {
-  return "gnulluna"
-}().split(null);
+var __split = function(){return "gnulluna"}().split(null);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (typeof __split !== "object") {
-  $ERROR('#1: __split = function(){return "gnulluna"}().split(null); typeof __split === "object". Actual: ' + typeof __split);
+  $ERROR('#1: __split = function(){return "gnulluna"}().split(null); typeof __split === "object". Actual: '+typeof __split );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -30,7 +28,7 @@ if (typeof __split !== "object") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.constructor !== Array) {
-  $ERROR('#2: __split = function(){return "gnulluna"}().split(null); __split.constructor === Array. Actual: ' + __split.constructor);
+  $ERROR('#2: __split = function(){return "gnulluna"}().split(null); __split.constructor === Array. Actual: '+__split.constructor );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -38,7 +36,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 if (__split.length !== 2) {
-  $ERROR('#3: __split = function(){return "gnulluna"}().split(null); __split.length === 2. Actual: ' + __split.length);
+  $ERROR('#3: __split = function(){return "gnulluna"}().split(null); __split.length === 2. Actual: '+__split.length );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -46,7 +44,7 @@ if (__split.length !== 2) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
 if (__split[0] !== "g") {
-  $ERROR('#4: __split = function(){return "gnulluna"}().split(null); __split[0] === "g". Actual: ' + __split[0]);
+  $ERROR('#4: __split = function(){return "gnulluna"}().split(null); __split[0] === "g". Actual: '+__split[0] );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -54,7 +52,7 @@ if (__split[0] !== "g") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5
 if (__split[1] !== "una") {
-  $ERROR('#5: __split = function(){return "gnulluna"}().split(null); __split[1] === "una". Actual: ' + __split[1]);
+  $ERROR('#5: __split = function(){return "gnulluna"}().split(null); __split[1] === "una". Actual: '+__split[1] );
 }
 //
 //////////////////////////////////////////////////////////////////////////////

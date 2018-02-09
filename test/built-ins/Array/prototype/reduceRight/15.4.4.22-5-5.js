@@ -10,13 +10,12 @@ description: >
     initVal
 ---*/
 
-foo.prototype = new Array(1, 2, 3);
+  foo.prototype = new Array(1, 2, 3);
+  function foo() {}
+  var f = new foo();
+  f.length = '0';
 
-function foo() {}
-var f = new foo();
-f.length = '0';
-
-function cb() {}
+  function cb(){}
 assert.throws(TypeError, function() {
-  f.reduceRight(cb);
+    f.reduceRight(cb);
 });

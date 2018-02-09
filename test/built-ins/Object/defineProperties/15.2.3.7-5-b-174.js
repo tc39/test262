@@ -12,10 +12,11 @@ includes: [propertyHelper.js]
 var obj = {};
 
 Object.defineProperties(obj, {
-  property: {
-    writable: ""
-  }
+    property: {
+        writable: ""
+    }
 });
 
 assert(obj.hasOwnProperty("property"));
 verifyNotWritable(obj, "property");
+

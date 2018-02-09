@@ -22,21 +22,24 @@ includes: [compareArray.js, testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, 0, 0), [0, 1, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(0, 0, 0),
+      [0, 1, 2, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, 0, 0) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, 0, 2), [0, 1, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(0, 0, 2),
+      [0, 1, 2, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, 0, 2) -> [0, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, 1, 2), [1, 1, 2, 3]
+      new TA([0, 1, 2, 3]).copyWithin(0, 1, 2),
+      [1, 1, 2, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, 1, 2) -> [1, 1, 2, 3]'
   );
@@ -54,14 +57,16 @@ testWithTypedArrayConstructors(function(TA) {
    */
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(1, 0, 2), [0, 0, 1, 3]
+      new TA([0, 1, 2, 3]).copyWithin(1, 0, 2),
+      [0, 0, 1, 3]
     ),
     '[0, 1, 2, 3].copyWithin(1, 0, 2) -> [0, 0, 1, 3]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3, 4, 5]).copyWithin(1, 3, 5), [0, 3, 4, 3, 4, 5]
+      new TA([0, 1, 2, 3, 4, 5]).copyWithin(1, 3, 5),
+      [0, 3, 4, 3, 4, 5]
     ),
     '[0, 1, 2, 3, 4, 5].copyWithin(1, 3, 5) -> [0, 3, 4, 3, 4, 5]'
   );

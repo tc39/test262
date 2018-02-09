@@ -31,7 +31,8 @@ includes: [compareArray.js, testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA().fill(8), []
+      new TA().fill(8),
+      []
     ),
     "does not fill an empty instance"
   );

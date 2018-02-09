@@ -9,18 +9,17 @@ description: >
     property on an Array
 ---*/
 
-var testResult = false;
-var initialValue = 0;
+        var testResult = false;
+        var initialValue = 0;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (curVal === 1);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (curVal === 1);
-  }
-}
-
-Array.prototype[0] = 0;
-Array.prototype[1] = 1;
-Array.prototype[2] = 2;
-[, , , ].reduce(callbackfn, initialValue);
+            Array.prototype[0] = 0;
+            Array.prototype[1] = 1;
+            Array.prototype[2] = 2;
+            [, , , ].reduce(callbackfn, initialValue);
 
 assert(testResult, 'testResult !== true');

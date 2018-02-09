@@ -8,18 +8,18 @@ description: >
     object
 ---*/
 
-var obj = {};
-var props = function() {};
-var result = false;
+        var obj = {};
+        var props = function () { };
+        var result = false;
+      
+        Object.defineProperty(props, "prop", {
+            get: function () {
+                result = this instanceof Function;
+                return {};
+            },
+            enumerable: true
+        });
 
-Object.defineProperty(props, "prop", {
-  get: function() {
-    result = this instanceof Function;
-    return {};
-  },
-  enumerable: true
-});
-
-Object.defineProperties(obj, props);
+        Object.defineProperties(obj, props);
 
 assert(result, 'result !== true');

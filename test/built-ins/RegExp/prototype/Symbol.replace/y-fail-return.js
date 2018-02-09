@@ -28,4 +28,4 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/b/y [Symbol.replace]('ab', 'x'), 'ab');
+assert.sameValue(/b/y[Symbol.replace]('ab', 'x'), 'ab');

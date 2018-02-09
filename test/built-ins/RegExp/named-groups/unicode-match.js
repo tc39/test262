@@ -19,11 +19,7 @@ assert(compareArray(["bab", "ab"], "bab".match(/.(?<a>\w\w)/u)));
 assert(compareArray(["bab", "bab"], "bab".match(/(?<a>\w\w\w)/u)));
 assert(compareArray(["bab", "ba", "b"], "bab".match(/(?<a>\w\w)(?<b>\w)/u)));
 
-let {
-  a,
-  b,
-  c
-} = /(?<a>.)(?<b>.)(?<c>.)\k<c>\k<b>\k<a>/u.exec("abccba").groups;
+let {a, b, c} = /(?<a>.)(?<b>.)(?<c>.)\k<c>\k<b>\k<a>/u.exec("abccba").groups;
 assert.sameValue(a, "a");
 assert.sameValue(b, "b");
 assert.sameValue(c, "c");
@@ -42,15 +38,11 @@ assert(compareArray("bab".match(/(\w\w)(\w)/u), "bab".match(/(?<a>\w\w)(?<b>\w)/
 assert(compareArray(["bab", "b"], "bab".match(/(?<b>b).\1/u)));
 assert(compareArray(["baba", "b", "a"], "baba".match(/(.)(?<a>a)\1\2/u)));
 assert(compareArray(["baba", "b", "a", "b", "a"],
-  "baba".match(/(.)(?<a>a)(?<b>\1)(\2)/u)));
+    "baba".match(/(.)(?<a>a)(?<b>\1)(\2)/u)));
 assert(compareArray(["<a", "<"], "<a".match(/(?<lt><)a/u)));
 assert(compareArray([">a", ">"], ">a".match(/(?<gt>>)a/u)));
 
 // Nested groups.
 assert(compareArray(["bab", "bab", "ab", "b"], "bab".match(/(?<a>.(?<b>.(?<c>.)))/u)));
-assert(compareArray({
-    a: "bab",
-    b: "ab",
-    c: "b"
-  },
-  "bab".match(/(?<a>.(?<b>.(?<c>.)))/u).groups));
+assert(compareArray({a: "bab", b: "ab", c: "b"},
+             "bab".match(/(?<a>.(?<b>.(?<c>.)))/u).groups));

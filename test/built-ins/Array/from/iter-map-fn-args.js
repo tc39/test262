@@ -26,14 +26,8 @@ features: [Symbol.iterator]
 ---*/
 
 var args = [];
-var firstResult = {
-  done: false,
-  value: {}
-};
-var secondResult = {
-  done: false,
-  value: {}
-};
+var firstResult = { done: false, value: {} };
+var secondResult = { done: false, value: {} };
 var mapFn = function(value, idx) {
   args.push(arguments);
 };
@@ -46,9 +40,7 @@ items[Symbol.iterator] = function() {
     next: function() {
       var result = nextResult;
       nextResult = nextNextResult;
-      nextNextResult = {
-        done: true
-      };
+      nextNextResult = { done: true };
 
       return result;
     }

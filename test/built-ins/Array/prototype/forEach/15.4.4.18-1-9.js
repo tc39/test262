@@ -7,18 +7,17 @@ es5id: 15.4.4.18-1-9
 description: Array.prototype.forEach applied to Function object
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = obj instanceof Function;
+        }
 
-function callbackfn(val, idx, obj) {
-  result = obj instanceof Function;
-}
+        var obj = function (a, b) {
+            return a + b;
+        };
+        obj[0] = 11;
+        obj[1] = 9;
 
-var obj = function(a, b) {
-  return a + b;
-};
-obj[0] = 11;
-obj[1] = 9;
-
-Array.prototype.forEach.call(obj, callbackfn);
+        Array.prototype.forEach.call(obj, callbackfn);
 
 assert(result, 'result !== true');

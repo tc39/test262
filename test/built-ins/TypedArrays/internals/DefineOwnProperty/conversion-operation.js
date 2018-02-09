@@ -47,9 +47,7 @@ includes: [byteConversionValues.js, testTypedArray.js]
 testTypedArrayConversions(byteConversionValues, function(TA, value, expected, initial) {
   var sample = new TA([initial]);
 
-  Object.defineProperty(sample, "0", {
-    value: value
-  });
+  Object.defineProperty(sample, "0", {value: value});
 
   assert.sameValue(sample[0], expected, value + " converts to " + expected);
 });

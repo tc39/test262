@@ -12,7 +12,7 @@ includes: [propertyHelper.js]
 var obj = {};
 
 var attr = {
-  writable: false
+    writable: false
 };
 
 Object.defineProperty(obj, "property", attr);
@@ -20,3 +20,4 @@ Object.defineProperty(obj, "property", attr);
 assert(obj.hasOwnProperty("property"));
 verifyNotWritable(obj, "property");
 verifyNotConfigurable(obj, "property");
+

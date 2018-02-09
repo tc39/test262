@@ -10,5 +10,6 @@ description: Promise.prototype.constructor is the Promise constructor
 ---*/
 
 if (Promise.prototype.constructor !== Promise) {
-  $ERROR("Expected Promise.prototype.constructor to be Promise");
+    $ERROR("Expected Promise.prototype.constructor to be Promise");
 }
+

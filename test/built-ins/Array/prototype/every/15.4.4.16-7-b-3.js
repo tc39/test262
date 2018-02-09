@@ -9,24 +9,20 @@ description: >
     here
 ---*/
 
-var accessed = false;
+        var accessed = false;
+        function callbackfn(val, idx, obj) {
+            accessed = true;
+            return idx !== 2;
+        }
+        var arr = { 2: 6.99, 8: 19};
 
-function callbackfn(val, idx, obj) {
-  accessed = true;
-  return idx !== 2;
-}
-var arr = {
-  2: 6.99,
-  8: 19
-};
-
-Object.defineProperty(arr, "length", {
-  get: function() {
-    delete arr[2];
-    return 10;
-  },
-  configurable: true
-});
+        Object.defineProperty(arr, "length", {
+            get: function () {
+                delete arr[2];
+                return 10;
+            },
+            configurable: true
+        });
 
 assert(Array.prototype.every.call(arr, callbackfn), 'Array.prototype.every.call(arr, callbackfn) !== true');
 assert(accessed, 'accessed !== true');

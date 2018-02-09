@@ -38,7 +38,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var result = /b(.).(.)./ [Symbol.match]('abcdefg');
+var result = /b(.).(.)./[Symbol.match]('abcdefg');
 
 assert(Array.isArray(result));
 assert.sameValue(result.index, 1);

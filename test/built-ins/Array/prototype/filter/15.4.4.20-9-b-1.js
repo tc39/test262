@@ -9,17 +9,16 @@ description: >
     been assigned values
 ---*/
 
-var callCnt = 0;
+  var callCnt = 0;
+  function callbackfn(val, idx, obj)
+  {
+    callCnt++;
+    return false;
+  }
 
-function callbackfn(val, idx, obj)
-{
-  callCnt++;
-  return false;
-}
-
-var srcArr = new Array(10);
-srcArr[1] = undefined; //explicitly assigning a value
-var resArr = srcArr.filter(callbackfn);
+  var srcArr = new Array(10);
+  srcArr[1] = undefined; //explicitly assigning a value
+  var resArr = srcArr.filter(callbackfn);
 
 assert.sameValue(resArr.length, 0, 'resArr.length');
 assert.sameValue(callCnt, 1, 'callCnt');

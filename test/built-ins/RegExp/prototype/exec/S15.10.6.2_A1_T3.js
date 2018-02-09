@@ -12,12 +12,12 @@ description: String is new Object("abcdefghi") and RegExp is /a[a-z]{2,4}/
 var __executed = /a[a-z]{2,4}/.exec(new Object("abcdefghi"));
 
 var __expected = ["abcde"];
-__expected.index = 0;
-__expected.input = "abcdefghi";
+__expected.index=0;
+__expected.input="abcdefghi";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-  $ERROR('#0: __executed = /a[a-z]{2,4}/.exec(new Object("abcdefghi")); (__executed instanceof Array) === true');
+	$ERROR('#0: __executed = /a[a-z]{2,4}/.exec(new Object("abcdefghi")); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -36,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
+for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /a[a-z]{2,4}/.exec(new Object("abcdefghi")); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

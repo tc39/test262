@@ -12,5 +12,5 @@ features: [async-iteration]
 async function* f() {}
 var AsyncGenerator = f.constructor;
 
-var g = /* before */ AsyncGenerator("a", " /* a */ b, c /* b */ //", "/* c */ ; /* d */ //") /* after */ ;
+var g = /* before */AsyncGenerator("a", " /* a */ b, c /* b */ //", "/* c */ ; /* d */ //")/* after */;
 assert.sameValue(g.toString(), "async function* anonymous(a, /* a */ b, c /* b */ //\n) {\n/* c */ ; /* d */ //\n}");

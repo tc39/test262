@@ -26,7 +26,8 @@ testWithTypedArrayConstructors(function(TA) {
   [
     false,
     "",
-    0, -0,
+    0,
+    -0,
     NaN,
     undefined,
     null

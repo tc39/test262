@@ -9,15 +9,14 @@ flags: [noStrict]
 ---*/
 
 (function() {
-  this._15_4_4_18_5_1 = false;
-  var _15_4_4_18_5_1 = true;
-  var result;
+        this._15_4_4_18_5_1 = false;
+        var _15_4_4_18_5_1 = true;
+        var result;
+        function callbackfn(val, idx, obj) {
+            result = this._15_4_4_18_5_1;
+        }
+        var arr = [1];
+        arr.forEach(callbackfn)
 
-  function callbackfn(val, idx, obj) {
-    result = this._15_4_4_18_5_1;
-  }
-  var arr = [1];
-  arr.forEach(callbackfn)
-
-  assert.sameValue(result, false, 'result');
+assert.sameValue(result, false, 'result');
 })();

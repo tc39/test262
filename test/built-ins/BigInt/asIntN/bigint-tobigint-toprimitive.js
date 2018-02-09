@@ -22,48 +22,48 @@ assert.sameValue(BigInt.asIntN(2, {
   },
   valueOf: err,
   toString: err
-}), 1 n, "ToPrimitive: @@toPrimitive takes precedence");
+}), 1n, "ToPrimitive: @@toPrimitive takes precedence");
 assert.sameValue(BigInt.asIntN(2, {
   valueOf: function() {
     return "1";
   },
   toString: err
-}), 1 n, "ToPrimitive: valueOf takes precedence over toString");
+}), 1n, "ToPrimitive: valueOf takes precedence over toString");
 assert.sameValue(BigInt.asIntN(2, {
   toString: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: toString with no valueOf");
+}), 1n, "ToPrimitive: toString with no valueOf");
 assert.sameValue(BigInt.asIntN(2, {
   [Symbol.toPrimitive]: undefined,
   valueOf: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip @@toPrimitive when it's undefined");
+}), 1n, "ToPrimitive: skip @@toPrimitive when it's undefined");
 assert.sameValue(BigInt.asIntN(2, {
   [Symbol.toPrimitive]: null,
   valueOf: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip @@toPrimitive when it's null");
+}), 1n, "ToPrimitive: skip @@toPrimitive when it's null");
 assert.sameValue(BigInt.asIntN(2, {
   valueOf: null,
   toString: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip valueOf when it's not callable");
+}), 1n, "ToPrimitive: skip valueOf when it's not callable");
 assert.sameValue(BigInt.asIntN(2, {
   valueOf: 1,
   toString: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip valueOf when it's not callable");
+}), 1n, "ToPrimitive: skip valueOf when it's not callable");
 assert.sameValue(BigInt.asIntN(2, {
   valueOf: {},
   toString: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip valueOf when it's not callable");
+}), 1n, "ToPrimitive: skip valueOf when it's not callable");
 assert.sameValue(BigInt.asIntN(2, {
   valueOf: function() {
     return {};
@@ -71,7 +71,7 @@ assert.sameValue(BigInt.asIntN(2, {
   toString: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip valueOf when it returns an object");
+}), 1n, "ToPrimitive: skip valueOf when it returns an object");
 assert.sameValue(BigInt.asIntN(2, {
   valueOf: function() {
     return Object(12345);
@@ -79,7 +79,7 @@ assert.sameValue(BigInt.asIntN(2, {
   toString: function() {
     return "1";
   }
-}), 1 n, "ToPrimitive: skip valueOf when it returns an object");
+}), 1n, "ToPrimitive: skip valueOf when it returns an object");
 assert.throws(TypeError, function() {
   BigInt.asIntN(0, {
     [Symbol.toPrimitive]: 1

@@ -9,7 +9,7 @@ description: Checking if call of RegExp("a|b","g")() fails
 
 //CHECK#1
 try {
-  $ERROR('#1.1: RegExp("a|b","g")() throw TypeError. Actual: ' + (RegExp("a|b", "g")()));
+  $ERROR('#1.1: RegExp("a|b","g")() throw TypeError. Actual: ' + (RegExp("a|b","g")()));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.2: RegExp("a|b","g")() throw TypeError. Actual: ' + (e));

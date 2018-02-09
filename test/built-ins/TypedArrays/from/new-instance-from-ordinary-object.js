@@ -24,7 +24,8 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result[3], NaN);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
-}, [
+},
+[
   Float32Array,
   Float64Array
 ]);
@@ -39,7 +40,8 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result[3], 0);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
-}, [
+},
+[
   Int8Array,
   Int32Array,
   Int16Array,

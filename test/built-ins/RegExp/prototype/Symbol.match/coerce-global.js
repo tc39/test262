@@ -28,9 +28,7 @@ var r, result, execCount;
 
 r = /a/g;
 r.exec = exec;
-Object.defineProperty(r, 'global', {
-  writable: true
-});
+Object.defineProperty(r, 'global', { writable: true });
 
 execCount = 0;
 r.global = undefined;
@@ -64,9 +62,7 @@ assert.sameValue(execCount, 1, 'value: ""');
 
 r = /a/;
 r.exec = exec;
-Object.defineProperty(r, 'global', {
-  writable: true
-});
+Object.defineProperty(r, 'global', { writable: true });
 
 r.global = true;
 execCount = 0;

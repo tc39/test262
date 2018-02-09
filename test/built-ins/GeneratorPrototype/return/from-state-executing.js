@@ -37,7 +37,6 @@ features: [generators]
 ---*/
 
 var iter, result;
-
 function* g() {
   iter.return(42);
 }

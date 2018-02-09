@@ -32,6 +32,6 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/b(c)(z)?(.)/ [Symbol.replace]('abcde', '[$1$2$3]'), 'a[cd]e');
+assert.sameValue(/b(c)(z)?(.)/[Symbol.replace]('abcde', '[$1$2$3]'), 'a[cd]e');
 
-assert.sameValue(/b(c)(z)?(.)/ [Symbol.replace]('abcde', '[$1$2$3$4$0]'), 'a[cd$4$0]e');
+assert.sameValue(/b(c)(z)?(.)/[Symbol.replace]('abcde', '[$1$2$3$4$0]'), 'a[cd$4$0]e');

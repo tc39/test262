@@ -19,3 +19,4 @@ var result = s.delete(undefined);
 
 assert.sameValue(s.has(undefined), false, "`s.has(undefined)` returns `false`");
 assert.sameValue(result, true, "The result of `s.delete(undefined)` is `true`");
+

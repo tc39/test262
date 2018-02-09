@@ -11,17 +11,15 @@ description: >
     /(z)((a+)?(b+)?(c))* /
 ---*/
 
-var __executed = /(z)((a+)?(b+)?(c))*/.exec((function() {
-  return "zaacbbbcac"
-})());
+var __executed = /(z)((a+)?(b+)?(c))*/.exec((function(){return "zaacbbbcac"})());
 
 var __expected = ["zaacbbbcac", "z", "ac", "a", undefined, "c"];
-__expected.index = 0;
-__expected.input = "zaacbbbcac";
+__expected.index=0;
+__expected.input="zaacbbbcac";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-  $ERROR('#0: __executed = /(z)((a+)?(b+)?(c))*/.exec((function(){return "zaacbbbcac"})()); (__executed instanceof Array) === true');
+	$ERROR('#0: __executed = /(z)((a+)?(b+)?(c))*/.exec((function(){return "zaacbbbcac"})()); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -40,7 +38,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
+for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /(z)((a+)?(b+)?(c))*/.exec((function(){return "zaacbbbcac"})()); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

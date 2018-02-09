@@ -16,9 +16,7 @@ features: [Symbol.hasInstance]
 ---*/
 
 // Create a callable object without a `prototype` property
-var f = Object.getOwnPropertyDescriptor({
-  get f() {}
-}, 'f').get;
+var f = Object.getOwnPropertyDescriptor({ get f() {} }, 'f').get;
 
 Object.defineProperty(f, 'prototype', {
   get: function() {

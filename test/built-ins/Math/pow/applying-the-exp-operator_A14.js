@@ -18,8 +18,8 @@ var exponentnum = 5;
 
 for (var i = 0; i < exponentnum; i++)
 {
-  if (Math.pow(base, exponent[i]) !== +Infinity)
-  {
-    $ERROR("#1: Math.pow(" + base + ", " + exponent[i] + ") !== +Infinity");
-  }
+	if (Math.pow(base,exponent[i]) !== +Infinity)
+	{
+		$ERROR("#1: Math.pow(" + base + ", " + exponent[i] + ") !== +Infinity");
+	}
 }

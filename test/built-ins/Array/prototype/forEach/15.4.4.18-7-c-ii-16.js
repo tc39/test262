@@ -9,17 +9,13 @@ description: >
     object when T is not an object (T is a boolean)
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = (this.valueOf() !== false);
+        }
 
-function callbackfn(val, idx, obj) {
-  result = (this.valueOf() !== false);
-}
+        var obj = { 0: 11, length: 2 };
 
-var obj = {
-  0: 11,
-  length: 2
-};
-
-Array.prototype.forEach.call(obj, callbackfn, false);
+        Array.prototype.forEach.call(obj, callbackfn, false);
 
 assert.sameValue(result, false, 'result');

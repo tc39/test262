@@ -9,9 +9,7 @@ includes: [propertyHelper.js]
 ---*/
 
 var obj = Object.prototype;
-verifyNotWritable(Object, "prototype", null, function() {
-  return "shifted";
-});
+verifyNotWritable(Object, "prototype", null, function(){return "shifted";});
 
 //CHECK#1
 if (Object.prototype !== obj) {

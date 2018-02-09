@@ -16,9 +16,7 @@ info: |
 ---*/
 
 var getMinutes = Date.prototype.getMinutes;
-var args = (function() {
-  return arguments;
-}());
+var args = (function() { return arguments; }());
 
 assert.sameValue(typeof getMinutes, 'function');
 

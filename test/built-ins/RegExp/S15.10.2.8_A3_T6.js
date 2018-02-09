@@ -13,28 +13,28 @@ description: Execute /(.{3})(.{4})/.exec("abcdefgh") and check results
 
 var __executed = /(.{3})(.{4})/.exec("abcdefgh");
 
-var __expected = ["abcdefg", "abc", "defg"];
+var __expected = ["abcdefg","abc","defg"];
 __expected.index = 0;
 __expected.input = "abcdefgh";
 
 //CHECK#1
 if (__executed.length !== __expected.length) {
-  $ERROR('#1: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
+	$ERROR('#1: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
 }
 
 //CHECK#2
 if (__executed.index !== __expected.index) {
-  $ERROR('#2: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
+	$ERROR('#2: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
 }
 
 //CHECK#3
 if (__executed.input !== __expected.input) {
-  $ERROR('#3: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
+	$ERROR('#3: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
-  if (__executed[index] !== __expected[index]) {
-    $ERROR('#4: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
-  }
+for(var index=0; index<__expected.length; index++) {
+	if (__executed[index] !== __expected[index]) {
+		$ERROR('#4: __executed = /(.{3})(.{4})/.exec("abcdefgh"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
+	}
 }

@@ -22,22 +22,22 @@ for (let flags of ["", "u"]) {
   let i = 0;
   let re = new RegExp(source, flags);
   let result = "abcd".replace(re,
-    (match, fst, snd, offset, str, groups) => {
-      assert.sameValue(i++, 0);
-      assert.sameValue("ab", match);
-      assert.sameValue("a", groups.fst);
-      assert.sameValue("b", groups.snd);
-      assert.sameValue("a", fst);
-      assert.sameValue("b", snd);
-      assert.sameValue(0, offset);
-      assert.sameValue("abcd", str);
-      return `${groups.snd}${groups.fst}`;
-    });
+      (match, fst, snd, offset, str, groups) => {
+    assert.sameValue(i++, 0);
+    assert.sameValue("ab", match);
+    assert.sameValue("a", groups.fst);
+    assert.sameValue("b", groups.snd);
+    assert.sameValue("a", fst);
+    assert.sameValue("b", snd);
+    assert.sameValue(0, offset);
+    assert.sameValue("abcd", str);
+    return `${groups.snd}${groups.fst}`;
+  });
   assert.sameValue("bacd", result);
   assert.sameValue(i, 1);
 
   let re2 = new RegExp(alternateSource, flags);
   assert.sameValue("undefinedbcd",
-    "abcd".replace(re2,
-      (match, fst, snd, offset, str, groups) => groups.snd));
+      "abcd".replace(re2,
+            (match, fst, snd, offset, str, groups) => groups.snd));
 }

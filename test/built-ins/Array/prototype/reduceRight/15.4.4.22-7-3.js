@@ -10,11 +10,10 @@ description: >
     to false (type conversion))
 ---*/
 
-foo.prototype = new Array(1, 2, 3);
+  foo.prototype = new Array(1, 2, 3);
+  function foo() {}
+  var f = new foo();
+  f.length = false;
 
-function foo() {}
-var f = new foo();
-f.length = false;
-
-function cb() {}
-assert.sameValue(f.reduceRight(cb, 1), 1, 'f.reduceRight(cb,1)');
+  function cb(){}
+assert.sameValue(f.reduceRight(cb,1), 1, 'f.reduceRight(cb,1)');

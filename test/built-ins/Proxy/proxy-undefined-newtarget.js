@@ -16,3 +16,4 @@ description: >
 assert.throws(TypeError, function() {
   Proxy({}, {});
 });
+

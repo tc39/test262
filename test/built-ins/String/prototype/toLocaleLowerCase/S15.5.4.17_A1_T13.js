@@ -9,20 +9,13 @@ description: >
     toLocaleLowerCase() function for this object
 ---*/
 
-var __obj = {
-  toString: function() {
-    return {};
-  },
-  valueOf: function() {
-    return 1;
-  }
-}
+var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}
 __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__obj.toLocaleLowerCase() !== "1") {
-  $ERROR('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase() ==="1". Actual: ' + __obj.toLocaleLowerCase());
+if (__obj.toLocaleLowerCase() !=="1") {
+  $ERROR('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase() ==="1". Actual: '+__obj.toLocaleLowerCase() );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -30,7 +23,7 @@ if (__obj.toLocaleLowerCase() !== "1") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__obj.toLocaleLowerCase().length !== 1) {
-  $ERROR('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase().length === 1. Actual: ' + __obj.toLocaleLowerCase().length);
+  $ERROR('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase().length === 1. Actual: '+__obj.toLocaleLowerCase().length );
 }
 //
 //////////////////////////////////////////////////////////////////////////////

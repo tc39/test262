@@ -7,7 +7,7 @@ description: Function.prototype.toString on a generator function created with th
 features: [generators]
 ---*/
 
-let GeneratorFunction = Object.getPrototypeOf(function*() {}).constructor;
-let g = /* before */ GeneratorFunction("a", " /* a */ b, c /* b */ //", "/* c */ yield yield; /* d */ //") /* after */ ;
+let GeneratorFunction = Object.getPrototypeOf(function*(){}).constructor;
+let g = /* before */GeneratorFunction("a", " /* a */ b, c /* b */ //", "/* c */ yield yield; /* d */ //")/* after */;
 
 assert.sameValue(g.toString(), "function* anonymous(a, /* a */ b, c /* b */ //\n) {\n/* c */ yield yield; /* d */ //\n}");

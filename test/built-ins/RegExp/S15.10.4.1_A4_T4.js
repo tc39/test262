@@ -11,7 +11,7 @@ var __re = new RegExp(null, void 0);
 
 //CHECK#1
 if (__re.source !== "null") {
-  $ERROR('#1: __re = new RegExp(null, void 0); __re.source === "null". Actual: ' + (__re.source));
+  $ERROR('#1: __re = new RegExp(null, void 0); __re.source === "null". Actual: '+ (__re.source));
 }
 
 //CHECK#2

@@ -16,15 +16,15 @@ if (__re.hasOwnProperty('ignoreCase') !== true) {
   $ERROR('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'ignoreCase\') === true');
 }
 
-//CHECK#1
+ //CHECK#1
 if (__re.propertyIsEnumerable('ignoreCase') !== false) {
   $ERROR('#1: __re = RegExp.prototype; __re.propertyIsEnumerable(\'ignoreCase\') === false');
 }
 
-//CHECK#2
+ //CHECK#2
 var count = 0
-for (var p in __re) {
-  if (p === "ignoreCase") count++
+for (var p in __re){
+  if (p==="ignoreCase") count++   
 }
 
 if (count !== 0) {

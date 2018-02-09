@@ -11,19 +11,15 @@ description: >
     /\.14/
 ---*/
 
-var __executed = /\.14/.exec({
-  toString: function() {
-    return Math.PI
-  }
-});
+var __executed = /\.14/.exec({toString:function(){return Math.PI}});
 
 var __expected = [".14"];
-__expected.index = 1;
-__expected.input = String(Math.PI);
+__expected.index=1;
+__expected.input=String(Math.PI);
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-  $ERROR('#0: __executed = /\\.14/.exec({toString:function(){return Math.PI}}); (__executed instanceof Array) === true');
+	$ERROR('#0: __executed = /\\.14/.exec({toString:function(){return Math.PI}}); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -42,7 +38,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
+for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /\\.14/.exec({toString:function(){return Math.PI}}); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

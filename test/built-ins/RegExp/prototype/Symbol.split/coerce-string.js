@@ -18,7 +18,7 @@ var obj = {
 };
 var result;
 
-result = / / [Symbol.split](obj);
+result = / /[Symbol.split](obj);
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 2);

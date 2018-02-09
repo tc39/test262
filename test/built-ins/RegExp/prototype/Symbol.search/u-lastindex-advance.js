@@ -20,4 +20,4 @@ info: |
 features: [Symbol.search]
 ---*/
 
-assert.sameValue(/\udf06/u [Symbol.search]('\ud834\udf06'), -1);
+assert.sameValue(/\udf06/u[Symbol.search]('\ud834\udf06'), -1);

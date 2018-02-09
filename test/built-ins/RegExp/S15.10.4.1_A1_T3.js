@@ -14,7 +14,7 @@ var __re = new RegExp(__pattern, void 0);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {
-  $ERROR('#1: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.source === __pattern.source. Actual: ' + (__re.source));
+  $ERROR('#1: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.source === __pattern.source. Actual: '+ (__re.source));
 }
 
 //CHECK#2

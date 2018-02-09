@@ -31,6 +31,6 @@ testWithTypedArrayConstructors(function(TA) {
   $DETACHBUFFER(sample.buffer);
 
   assert.throws(TypeError, function() {
-    with(sample) Infinity;
+    with (sample) Infinity;
   });
 });

@@ -16,23 +16,23 @@ var __matched = [];
 
 var __expected = ["ab", "cd2", "ab3", "cd"];
 
-do {
-  var __executed = __re.exec("ab  cd2  ab34  cd");
-  if (__executed !== null) {
-    __matched.push(__executed[0]);
-  } else {
-    break;
-  }
-} while (true);
+do{
+    var __executed = __re.exec("ab  cd2  ab34  cd");
+    if (__executed !== null) {
+      __matched.push(__executed[0]);
+    } else {
+      break;
+    }
+}while(true);
 
 //CHECK#1
 if (__expected.length !== __matched.length) {
-  $ERROR('#1: __executed = /(?:ab|cd)\\d?/g.exec("ab  cd2  ab34  cd"); __matched.length === ' + (__expected.length) + '.Actual: ' + (__matched.length));
+	$ERROR('#1: __executed = /(?:ab|cd)\\d?/g.exec("ab  cd2  ab34  cd"); __matched.length === ' + (__expected.length) + '.Actual: ' + (__matched.length));
 }
 
 //CHECK#2
-for (var index = 0; index < __expected.length; index++) {
-  if (__expected[index] !== __matched[index]) {
-    $ERROR('#2: __executed = /(?:ab|cd)\\d?/g.exec("ab  cd2  ab34  cd"); __matched[' + index + '] === ' + __expected[index] + '. Actual: ' + __matched[index]);
-  }
+for(var index=0; index<__expected.length; index++) {
+	if (__expected[index] !== __matched[index]) {
+		$ERROR('#2: __executed = /(?:ab|cd)\\d?/g.exec("ab  cd2  ab34  cd"); __matched[' + index + '] === ' + __expected[index] + '. Actual: ' + __matched[index]);
+	}
 }

@@ -21,19 +21,13 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-Object.defineProperty(TypedArray.prototype, "length", {
-  value: 0
-});
+Object.defineProperty(TypedArray.prototype, "length", {value: 0});
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([7]);
 
-  Object.defineProperty(TA.prototype, "length", {
-    value: 0
-  });
-  Object.defineProperty(sample, "length", {
-    value: 0
-  });
+  Object.defineProperty(TA.prototype, "length", {value: 0});
+  Object.defineProperty(sample, "length", {value: 0});
 
   assert.sameValue(sample.includes(7), true);
 });

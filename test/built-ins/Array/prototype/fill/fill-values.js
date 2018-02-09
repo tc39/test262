@@ -28,7 +28,8 @@ includes: [compareArray.js]
 assert(compareArray([].fill(8), []));
 
 assert(compareArray(
-  [0, 0].fill(), [undefined, undefined]
+  [0, 0].fill(),
+  [undefined, undefined]
 ));
 
 assert(

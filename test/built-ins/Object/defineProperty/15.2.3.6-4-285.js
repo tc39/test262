@@ -15,34 +15,33 @@ includes: [propertyHelper.js]
 var arrObj = [];
 
 function getFunc() {
-  return 12;
+    return 12;
 }
-
 function setFunc(value) {
-  arrObj.setVerifyHelpProp = value;
+    arrObj.setVerifyHelpProp = value;
 }
 Object.defineProperty(arrObj, "property", {
-  get: getFunc,
-  set: setFunc
+    get: getFunc,
+    set: setFunc
 });
 try {
-  Object.defineProperty(arrObj, "property", {
-    get: function() {
-      return 36;
-    }
-  });
-  $ERROR("Expected an exception.");
+    Object.defineProperty(arrObj, "property", {
+        get: function () {
+            return 36;
+        }
+    });
+    $ERROR("Expected an exception.");
 } catch (e) {
-  verifyEqualTo(arrObj, "property", getFunc());
+    verifyEqualTo(arrObj, "property", getFunc());
 
-  verifyWritable(arrObj, "property", "setVerifyHelpProp");
+    verifyWritable(arrObj, "property", "setVerifyHelpProp");
 
-  verifyNotEnumerable(arrObj, "property");
+    verifyNotEnumerable(arrObj, "property");
 
-  verifyNotConfigurable(arrObj, "property");
+    verifyNotConfigurable(arrObj, "property");
 
-  if (!(e instanceof TypeError)) {
-    $ERROR("Expected TypeError, got " + e);
-  }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
 
 }

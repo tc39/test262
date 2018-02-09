@@ -7,16 +7,15 @@ es5id: 15.4.4.16-5-5
 description: Array.prototype.every - thisArg is object from object template
 ---*/
 
-var res = false;
+  var res = false;
+  function callbackfn(val, idx, obj)
+  {
+    return this.res;
+  }
 
-function callbackfn(val, idx, obj)
-{
-  return this.res;
-}
+  function foo(){}
+  var f = new foo();
+  f.res = true;
+  var arr = [1];
 
-function foo() {}
-var f = new foo();
-f.res = true;
-var arr = [1];
-
-assert.sameValue(arr.every(callbackfn, f), true, 'arr.every(callbackfn,f)');
+assert.sameValue(arr.every(callbackfn,f), true, 'arr.every(callbackfn,f)');

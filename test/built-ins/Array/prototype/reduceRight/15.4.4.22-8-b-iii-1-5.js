@@ -10,35 +10,34 @@ description: >
     Array-like object
 ---*/
 
-var testResult = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (prevVal === "20");
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (prevVal === "20");
-  }
-}
+        var proto = {};
 
-var proto = {};
+        Object.defineProperty(proto, "2", {
+            get: function () {
+                return 11;
+            },
+            configurable: true
+        });
 
-Object.defineProperty(proto, "2", {
-  get: function() {
-    return 11;
-  },
-  configurable: true
-});
+        var Con = function () { };
+        Con.prototype = proto;
 
-var Con = function() {};
-Con.prototype = proto;
+        var child = new Con();
+        child.length = 3;
+        child[0] = "0";
+        child[1] = "1";
+        Object.defineProperty(proto, "2", {
+            value: "20",
+            configurable: true
+        });
 
-var child = new Con();
-child.length = 3;
-child[0] = "0";
-child[1] = "1";
-Object.defineProperty(proto, "2", {
-  value: "20",
-  configurable: true
-});
-
-Array.prototype.reduceRight.call(child, callbackfn);
+        Array.prototype.reduceRight.call(child, callbackfn);
 
 assert(testResult, 'testResult !== true');

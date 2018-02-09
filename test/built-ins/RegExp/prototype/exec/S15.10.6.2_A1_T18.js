@@ -12,12 +12,12 @@ description: String is undefined and RegExp is /nd|ne/
 var __executed = /nd|ne/.exec(undefined);
 
 var __expected = ["nd"];
-__expected.index = 1;
-__expected.input = "undefined";
+__expected.index=1;
+__expected.input="undefined";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-  $ERROR('#0: __executed = /nd|ne/.exec(undefined); (__executed instanceof Array) === true');
+	$ERROR('#0: __executed = /nd|ne/.exec(undefined); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -36,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
+for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /nd|ne/.exec(undefined); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

@@ -12,29 +12,29 @@ includes: [propertyHelper.js]
 var str = new String();
 
 Object.defineProperty(str, "prop", {
-  value: 11,
-  configurable: false
+    value: 11,
+    configurable: false
 });
 
 try {
-  Object.defineProperties(str, {
-    prop: {
-      value: 12,
-      configurable: true
-    }
-  });
-  $ERROR("Expected an exception.");
+    Object.defineProperties(str, {
+        prop: {
+            value: 12,
+            configurable: true
+        }
+    });
+    $ERROR("Expected an exception.");
 } catch (e) {
-  verifyEqualTo(str, "prop", 11);
+    verifyEqualTo(str, "prop", 11);
 
-  verifyNotWritable(str, "prop");
+    verifyNotWritable(str, "prop");
 
-  verifyNotEnumerable(str, "prop");
+    verifyNotEnumerable(str, "prop");
 
-  verifyNotConfigurable(str, "prop");
+    verifyNotConfigurable(str, "prop");
 
-  if (!(e instanceof TypeError)) {
-    $ERROR("Expected TypeError, got " + e);
-  }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
 
 }

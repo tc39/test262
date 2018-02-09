@@ -10,7 +10,7 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/abcd/ [Symbol.replace]('abcd', 'X'), 'X');
-assert.sameValue(/bcd/ [Symbol.replace]('abcd', 'X'), 'aX');
-assert.sameValue(/cd/ [Symbol.replace]('abcd', 'X'), 'abX');
-assert.sameValue(/d/ [Symbol.replace]('abcd', 'X'), 'abcX');
+assert.sameValue(/abcd/[Symbol.replace]('abcd', 'X'), 'X');
+assert.sameValue(/bcd/[Symbol.replace]('abcd', 'X'), 'aX');
+assert.sameValue(/cd/[Symbol.replace]('abcd', 'X'), 'abX');
+assert.sameValue(/d/[Symbol.replace]('abcd', 'X'), 'abcX');

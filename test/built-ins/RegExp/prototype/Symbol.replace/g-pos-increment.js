@@ -29,17 +29,9 @@ r.exec = function() {
   callCount += 1;
 
   if (callCount === 1) {
-    return {
-      index: 1,
-      length: 1,
-      0: 0
-    };
+    return { index: 1, length: 1, 0: 0 };
   } else if (callCount === 2) {
-    return {
-      index: 3,
-      length: 1,
-      0: 0
-    };
+    return { index: 3, length: 1, 0: 0 };
   }
 
   return null;

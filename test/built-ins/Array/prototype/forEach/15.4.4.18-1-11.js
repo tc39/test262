@@ -7,16 +7,15 @@ es5id: 15.4.4.18-1-11
 description: Array.prototype.forEach applied to Date object
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = obj instanceof Date;
+        }
 
-function callbackfn(val, idx, obj) {
-  result = obj instanceof Date;
-}
+        var obj = new Date();
+        obj.length = 1;
+        obj[0] = 1;
 
-var obj = new Date();
-obj.length = 1;
-obj[0] = 1;
-
-Array.prototype.forEach.call(obj, callbackfn);
+        Array.prototype.forEach.call(obj, callbackfn);
 
 assert(result, 'result !== true');

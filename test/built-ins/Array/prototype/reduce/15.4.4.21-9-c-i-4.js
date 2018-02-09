@@ -9,16 +9,15 @@ description: >
     property that overrides an inherited data property on an Array
 ---*/
 
-var testResult = false;
-var initialValue = 0;
+        var testResult = false;
+        var initialValue = 0;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (curVal === 1);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (curVal === 1);
-  }
-}
-
-Array.prototype[1] = "3";
-[0, 1, 2].reduce(callbackfn, initialValue);
+            Array.prototype[1] = "3";
+            [0, 1, 2].reduce(callbackfn, initialValue);
 
 assert(testResult, 'testResult !== true');

@@ -13,7 +13,6 @@ features: [generators]
 var inCatch = 0;
 var inFinally = 0;
 var unreachable = 0;
-
 function* g() {
   try {
     try {
@@ -30,7 +29,7 @@ function* g() {
 var iter = g();
 var result;
 
-iter.next();
+ iter.next();
 
 assert.sameValue(inCatch, 1, '`catch` code path executed');
 assert.sameValue(inFinally, 1, '`finally` code path executed');

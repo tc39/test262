@@ -9,13 +9,10 @@ description: >
     initialvalue provided
 ---*/
 
-foo.prototype = [1];
+  foo.prototype = [1];
+  function foo() {}
+  var f = new foo();
 
-function foo() {}
-var f = new foo();
+  function cb(prevVal, curVal, idx, obj){return prevVal + curVal;}
 
-function cb(prevVal, curVal, idx, obj) {
-  return prevVal + curVal;
-}
-
-assert.sameValue(f.reduce(cb, -1), 0, 'f.reduce(cb,-1)');
+assert.sameValue(f.reduce(cb,-1), 0, 'f.reduce(cb,-1)');

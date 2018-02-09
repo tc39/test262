@@ -9,5 +9,5 @@ description: The JSON lexical grammar treats <SP> as a whitespace character
 assert.sameValue(JSON.parse(' 1234'), 1234, '<SP> should be ignored');
 
 assert.throws(SyntaxError, function() {
-  JSON.parse('12 34');
+    JSON.parse('12 34');
 }, '<SP> should produce a syntax error as whitespace results in two tokens');

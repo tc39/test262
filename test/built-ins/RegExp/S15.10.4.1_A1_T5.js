@@ -11,12 +11,12 @@ description: >
     RegExp(pattern,(function(){})())
 ---*/
 
-var __pattern = RegExp("1?", "mig");
-var __re = new RegExp(__pattern, (function() {})());
+var __pattern = RegExp("1?","mig");
+var __re = new RegExp(__pattern, (function(){})());
 
 //CHECK#1
 if (__re.source !== __pattern.source) {
-  $ERROR('#1: __pattern = RegExp("1?","mig"); __re = new RegExp(__pattern, (function(){})()); __re.source === __pattern.source. Actual: ' + (__re.source));
+  $ERROR('#1: __pattern = RegExp("1?","mig"); __re = new RegExp(__pattern, (function(){})()); __re.source === __pattern.source. Actual: '+ (__re.source));
 }
 
 //CHECK#2
