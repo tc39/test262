@@ -12,11 +12,13 @@ info: |
     case info
 ---*/
 
-before-First value-between-Third value-after
+before-First value-between-Third value (Special characters like `≠` should be tolerated.)-after
 
 before*Second value*between*First value*after
 
-before/* " */Third valueafter
+before/* " */Third value (Special characters like `≠` should be tolerated.)after
+
+// Special characters like `≠` should be tolerated.
 
 The following should not be expanded:
 

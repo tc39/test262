@@ -1,6 +1,7 @@
 # Copyright (C) 2016 the V8 project authors. All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.
 
+import codecs
 import re
 
 from util.find_comments import find_comments
@@ -9,10 +10,10 @@ from util.parse_yaml import parse_yaml
 regionStartPattern = re.compile(r'-\s+(\S+)')
 
 class Case:
-    def __init__(self, file_name):
+    def __init__(self, file_name, encoding):
         self.attribs = dict(meta=None, regions=dict())
 
-        with open(file_name) as handle:
+        with codecs.open(file_name, 'r', encoding) as handle:
             self.attribs = self._parse(handle.read())
 
     def _parse(self, source):

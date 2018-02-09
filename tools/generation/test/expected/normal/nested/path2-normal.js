@@ -12,7 +12,7 @@ info: |
     case info
 ---*/
 
-before-Third valueSecond value-after
+before-Third value (Special characters like `≠` should be tolerated.)Second value-after
 
 /* Improperly-terminated comments should not break the tokenizer *
 

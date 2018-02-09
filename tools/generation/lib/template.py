@@ -50,10 +50,10 @@ def indent(text, prefix = '    ', js_value = False):
     return '\n'.join(indented)
 
 class Template:
-    def __init__(self, filename):
+    def __init__(self, filename, encoding):
         self.filename = filename
 
-        with open(filename) as template_file:
+        with codecs.open(filename, 'r', encoding) as template_file:
             self.source = template_file.read()
 
         self.attribs = dict()
@@ -203,5 +203,6 @@ class Template:
         frontmatter = self._frontmatter(case_filename, case_values)
         body = self.expand_regions(self.source, case_values)
 
+        assert encoding == 'utf-8'
         return Test(self.attribs['meta']['path'] + case_name + '.js',
             source=codecs.encode(frontmatter + '\n' + body, encoding))
