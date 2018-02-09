@@ -26,9 +26,9 @@ var keys = [
   "0.0000001"
 ];
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   keys.forEach(function(key) {
-    var sample = new TA(N([42, 43]));
+    var sample = new TA([42, 43]);
 
     assert.sameValue(
       Object.getOwnPropertyDescriptor(sample, key),

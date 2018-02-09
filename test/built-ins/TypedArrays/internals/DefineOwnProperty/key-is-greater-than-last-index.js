@@ -20,8 +20,8 @@ includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 43]);
 
   assert.sameValue(
     Reflect.defineProperty(sample, "2", {

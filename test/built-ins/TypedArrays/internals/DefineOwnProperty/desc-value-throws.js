@@ -31,8 +31,8 @@ var obj = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42]);
 
   assert.throws(Test262Error, function() {
     Object.defineProperty(sample, "0", {value: obj});

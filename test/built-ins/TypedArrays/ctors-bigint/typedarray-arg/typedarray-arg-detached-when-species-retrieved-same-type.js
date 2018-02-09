@@ -30,8 +30,8 @@ info: |
     1. Let obj be ? OrdinaryCreateFromConstructor(constructor, "%ArrayBufferPrototype%",
        « [[ArrayBufferData]], [[ArrayBufferByteLength]] »).
     ...
-includes: [testTypedArray.js, detachArrayBuffer.js]
-features: [TypedArray, Symbol.species]
+includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+features: [BigInt, TypedArray, Symbol.species]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

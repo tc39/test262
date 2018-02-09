@@ -10,12 +10,12 @@ features: [TypedArray]
 
 var source = [42, 43, 42];
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var result = TA.from(N(source));
+testWithTypedArrayConstructors(function(TA) {
+  var result = TA.from(source);
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], N(42));
-  assert.sameValue(result[1], N(43));
-  assert.sameValue(result[2], N(42));
+  assert.sameValue(result[0], 42);
+  assert.sameValue(result[1], 43);
+  assert.sameValue(result[2], 42);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 });

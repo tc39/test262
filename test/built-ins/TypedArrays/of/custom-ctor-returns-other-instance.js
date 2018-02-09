@@ -18,16 +18,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var result;
   var custom = new TA(3);
   var ctor = function() {
     return custom;
   };
 
-  result = TypedArray.of.call(ctor, N(1), N(2), N(3));
+  result = TypedArray.of.call(ctor, 1, 2, 3);
   assert.sameValue(result, custom, "using iterator, same length");
 
-  result = TypedArray.of.call(ctor, N(1), N(2));
+  result = TypedArray.of.call(ctor, 1, 2);
   assert.sameValue(result, custom, "using iterator, higher length");
 });

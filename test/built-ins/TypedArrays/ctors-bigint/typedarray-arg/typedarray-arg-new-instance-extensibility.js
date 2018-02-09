@@ -25,8 +25,8 @@ info: |
   ...
   11. Set the [[Extensible]] internal slot of A to true.
   ...
-includes: [testTypedArray.js]
-features: [TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 var typedArraySample1 = new Int8Array();

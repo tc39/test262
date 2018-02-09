@@ -45,8 +45,8 @@ info: |
      a. Let realm be ? GetFunctionRealm(constructor).
      b. Let proto be realm's intrinsic object named intrinsicDefaultProto.
   ...
-includes: [testTypedArray.js]
-features: [cross-realm, Symbol.species, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, cross-realm, Symbol.species, TypedArray]
 ---*/
 
 var other = $262.createRealm().global;

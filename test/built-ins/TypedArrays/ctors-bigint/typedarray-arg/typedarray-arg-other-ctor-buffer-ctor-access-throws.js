@@ -21,8 +21,8 @@ info: |
   ...
   2. Let C be ? Get(O, "constructor").
   ...
-includes: [testTypedArray.js]
-features: [TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

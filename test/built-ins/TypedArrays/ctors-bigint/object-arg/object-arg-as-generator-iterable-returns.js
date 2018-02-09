@@ -12,19 +12,19 @@ info: |
   object does not have either a [[TypedArrayName]] or an [[ArrayBufferData]]
   internal slot.
 
-includes: [testTypedArray.js]
-features: [TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var obj = (function *() {
-    yield N(7); yield N(42);
+    yield convertToBigInt(7); yield convertToBigInt(42);
   })();
 
   var typedArray = new TA(obj);
   assert.sameValue(typedArray.length, 2);
-  assert.sameValue(typedArray[0], N(7));
-  assert.sameValue(typedArray[1], N(42));
+  assert.sameValue(typedArray[0], convertToBigInt(7));
+  assert.sameValue(typedArray[1], convertToBigInt(42));
   assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 });

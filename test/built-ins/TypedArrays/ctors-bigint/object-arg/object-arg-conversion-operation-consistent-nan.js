@@ -45,7 +45,7 @@ info: |
         encoding. An implementation must always choose the same encoding for
         each implementation distinguishable NaN value.
   ...
-includes: [nans.js, testTypedArray.js, compareArray.js]
+includes: [nans.js, testBigIntTypedArray.js, compareArray.js]
 ---*/
 
 function body(FloatArray) {

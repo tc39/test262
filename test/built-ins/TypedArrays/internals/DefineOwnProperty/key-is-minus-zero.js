@@ -18,7 +18,7 @@ includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
 
   assert.sameValue(
@@ -31,6 +31,6 @@ testWithTypedArrayConstructors(function(TA, N) {
     false,
     "defineProperty returns false"
   );
-  assert.sameValue(sample[0], N(0), "does not change the value for [0]");
+  assert.sameValue(sample[0], 0, "does not change the value for [0]");
   assert.sameValue(sample["-0"], undefined, "does define a value for ['-0']");
 });

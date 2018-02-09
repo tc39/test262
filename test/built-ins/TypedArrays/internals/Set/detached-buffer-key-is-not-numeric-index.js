@@ -17,8 +17,8 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 43]);
   $DETACHBUFFER(sample.buffer);
 
   assert.sameValue(Reflect.set(sample, "foo", "test262"), true);

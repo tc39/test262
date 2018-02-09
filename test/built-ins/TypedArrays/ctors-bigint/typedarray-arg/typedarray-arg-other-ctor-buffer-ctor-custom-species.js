@@ -25,8 +25,8 @@ info: |
   7. If IsConstructor(S) is true, return S.
   ...
 
-includes: [testTypedArray.js]
-features: [Symbol.species, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 var sample1 = new Int8Array();

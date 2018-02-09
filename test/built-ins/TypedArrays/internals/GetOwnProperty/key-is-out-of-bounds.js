@@ -24,8 +24,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42]);
 
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "-1"), undefined);
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "-42"), undefined);

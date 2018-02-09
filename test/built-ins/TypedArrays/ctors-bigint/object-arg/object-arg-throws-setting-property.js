@@ -18,8 +18,8 @@ info: |
     b. Let kValue be ? Get(arrayLike, Pk).
     c. Perform ? Set(O, Pk, kValue, true).
   ...
-includes: [testTypedArray.js]
-features: [TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 var obj = {
@@ -31,9 +31,9 @@ var obj = {
   length: 4
 };
 
-testWithTypedArrayConstructors(function(TA, N) {
-  obj[0] = N(0);
-  obj[1] = N(0);
+testWithTypedArrayConstructors(function(TA) {
+  obj[0] = convertToBigInt(0);
+  obj[1] = convertToBigInt(0);
   assert.throws(Test262Error, function() {
     new TA(obj);
   });

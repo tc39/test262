@@ -18,12 +18,12 @@ includes: [testTypedArray.js, propertyHelper.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 42]);
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0", {
-      value: N(8),
+      value: 8,
       configurable: false,
       enumerable: true,
       writable: true
@@ -31,10 +31,10 @@ testWithTypedArrayConstructors(function(TA, N) {
     true
   );
 
-  assert.sameValue(sample[0], N(8), "property value was set");
+  assert.sameValue(sample[0], 8, "property value was set");
   var desc = Object.getOwnPropertyDescriptor(sample, "0");
 
-  assert.sameValue(desc.value, N(8), "desc.value");
+  assert.sameValue(desc.value, 8, "desc.value");
   assert.sameValue(desc.writable, true, "property is writable");
 
   verifyEnumerable(sample, "0");

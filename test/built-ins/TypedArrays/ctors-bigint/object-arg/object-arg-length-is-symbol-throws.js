@@ -15,8 +15,8 @@ info: |
   ...
   5. Let len be ? ToLength(? Get(arrayLike, "length")).
   ...
-includes: [testTypedArray.js]
-features: [Symbol, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Symbol, TypedArray]
 ---*/
 
 var obj = {

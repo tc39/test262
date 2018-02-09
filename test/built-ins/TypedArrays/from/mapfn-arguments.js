@@ -19,7 +19,7 @@ features: [TypedArray]
 
 var source = [42, 43, 44];
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var results = [];
   var mapfn = function(kValue, k) {
     results.push({
@@ -27,7 +27,6 @@ testWithTypedArrayConstructors(function(TA, N) {
       k: k,
       argsLength: arguments.length
     });
-    return N(0);
   };
 
   TA.from(source, mapfn);

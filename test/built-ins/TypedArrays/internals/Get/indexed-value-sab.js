@@ -18,11 +18,11 @@ var throwDesc = {
 Object.defineProperty(proto, "0", throwDesc);
 Object.defineProperty(proto, "1", throwDesc);
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sab = new SharedArrayBuffer(TA.BYTES_PER_ELEMENT * 2);
   var sample = new TA(sab);
-  sample.set([N(42), N(1)]);
+  sample.set([42, 1]);
 
-  assert.sameValue(sample["0"], N(42));
-  assert.sameValue(sample["1"], N(1));
+  assert.sameValue(sample["0"], 42);
+  assert.sameValue(sample["1"], 1);
 });

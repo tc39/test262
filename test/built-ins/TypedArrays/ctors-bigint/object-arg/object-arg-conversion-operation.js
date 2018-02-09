@@ -42,7 +42,7 @@ info: |
       ...
     e. Else,
       ...
-includes: [byteConversionValues.js, testTypedArray.js]
+includes: [byteConversionValues.js, testBigIntTypedArray.js]
 ---*/
 
 testTypedArrayConversions(byteConversionValues, function(TA, value, expected) {

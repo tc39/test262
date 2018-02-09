@@ -23,8 +23,8 @@ info: |
   6. If S is either undefined or null, return defaultConstructor.
   7. If IsConstructor(S) is true, return S.
   8. Throw a TypeError exception.
-includes: [testTypedArray.js]
-features: [Symbol.species, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 var sample1 = new Int8Array();

@@ -132,6 +132,4 @@ testWithTypedArrayConstructors(function(TA) {
   }).join(separator);
   result = sample.join(separator);
   assert.sameValue(result, expected, "using: " + separator);
-},
-  // Cannot create Big*64Arrays from non-safe integers.
-  numericTypedArrayConstructors);
+});

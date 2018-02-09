@@ -10,16 +10,16 @@ features: [TypedArray]
 
 var source = [42, 43, 42];
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var mapfn = function(kValue) {
-    return N(kValue * 2);
+    return kValue * 2;
   };
 
   var result = TA.from(source, mapfn);
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], N(84));
-  assert.sameValue(result[1], N(86));
-  assert.sameValue(result[2], N(84));
+  assert.sameValue(result[0], 84);
+  assert.sameValue(result[1], 86);
+  assert.sameValue(result[2], 84);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 });

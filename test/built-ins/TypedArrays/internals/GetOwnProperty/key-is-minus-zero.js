@@ -29,8 +29,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42]);
 
   // -0 as a number value is converted to "0" before calling [[GetOwnProperty]]
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "-0"), undefined);

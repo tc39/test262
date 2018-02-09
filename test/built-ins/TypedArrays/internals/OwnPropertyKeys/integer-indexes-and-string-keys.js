@@ -20,8 +20,8 @@ features: [Reflect, TypedArray]
 TypedArray.prototype[3] = 42;
 TypedArray.prototype.bar = 42;
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample1 = new TA(N([42, 42, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample1 = new TA([42, 42, 42]);
   sample1.test262 = 42;
   sample1.ecma262 = 42;
   var result1 = Reflect.ownKeys(sample1);

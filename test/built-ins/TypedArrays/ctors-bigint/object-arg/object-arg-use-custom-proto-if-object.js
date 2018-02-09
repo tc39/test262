@@ -31,8 +31,8 @@ info: |
   10. Set the [[Prototype]] internal slot of A to prototype.
   ...
   12. Return A.
-includes: [testTypedArray.js]
-features: [Reflect, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Reflect, TypedArray]
 ---*/
 
 function newTarget() {}

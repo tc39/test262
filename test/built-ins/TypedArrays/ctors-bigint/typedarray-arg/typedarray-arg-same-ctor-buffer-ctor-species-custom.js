@@ -36,8 +36,8 @@ info: |
   ...
   8. Let targetBuffer be ? AllocateArrayBuffer(cloneConstructor, cloneLength).
   ...
-includes: [testTypedArray.js]
-features: [Symbol.species, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

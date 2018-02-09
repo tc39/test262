@@ -21,8 +21,8 @@ info: |
   ...
   5. Let S be ? Get(C, @@species).
   ...
-includes: [testTypedArray.js]
-features: [Symbol.species, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 var sample1 = new Int8Array();

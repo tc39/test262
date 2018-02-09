@@ -23,14 +23,13 @@ features: [TypedArray]
 var source = [42, 43];
 var global = this;
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var results = [];
-  var mapfn = function(x) {
+  var mapfn = function() {
     results.push(this);
-    return N(x);
   };
 
-  TA.from(N(source), mapfn);
+  TA.from(source, mapfn);
 
   assert.sameValue(results.length, 2);
   assert.sameValue(results[0], global);

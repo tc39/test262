@@ -10,8 +10,8 @@ info: |
   This description applies only if the TypedArray function is called with at
   least one argument and the Type of the first argument is Object and that
   object has a [[TypedArrayName]] internal slot.
-includes: [testTypedArray.js]
-features: [TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 var sample1 = new Int8Array(7);

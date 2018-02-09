@@ -18,8 +18,8 @@ info: |
     b. Let kValue be ? Get(arrayLike, Pk).
     c. Perform ? Set(O, Pk, kValue, true).
   ...
-includes: [testTypedArray.js]
-features: [Symbol, TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, Symbol, TypedArray]
 ---*/
 
 var obj = {

@@ -23,8 +23,8 @@ var s2 = Symbol("2");
 TypedArray.prototype[3] = 42;
 TypedArray.prototype.bar = 42;
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample1 = new TA(N([42, 42, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample1 = new TA([42, 42, 42]);
   sample1[s1] = 42;
   sample1[s2] = 42;
   sample1.test262 = 42;

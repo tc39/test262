@@ -23,8 +23,8 @@ includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42]);
 
   assert.sameValue(Reflect.set(sample, "1.1", 1), false, "1.1");
   assert.sameValue(Reflect.set(sample, "0.0001", 1), false, "0.0001");

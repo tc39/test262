@@ -25,8 +25,9 @@ var obj = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var source = [N(42), obj, N(1)];
+var source = [42, obj, 1];
+
+testWithTypedArrayConstructors(function(TA) {
   var lastValue;
   var mapfn = function(kValue) {
     lastValue = kValue;

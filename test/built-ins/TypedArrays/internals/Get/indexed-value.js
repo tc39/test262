@@ -26,9 +26,9 @@ var throwDesc = {
 Object.defineProperty(proto, "0", throwDesc);
 Object.defineProperty(proto, "1", throwDesc);
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 1]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 1]);
 
-  assert.sameValue(sample["0"], N(42));
-  assert.sameValue(sample["1"], N(1));
+  assert.sameValue(sample["0"], 42);
+  assert.sameValue(sample["1"], 1);
 });

@@ -19,8 +19,8 @@ features: [TypedArray]
 
 TypedArray.prototype.baz = "test262";
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 43]);
 
   assert.sameValue(
     sample.foo, undefined,
