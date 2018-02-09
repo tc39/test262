@@ -20,7 +20,7 @@ var map = new Map();
 
 assert.sameValue(
   map.get('item'), undefined,
-  'returns undefined if key is not on the map'
+ 'returns undefined if key is not on the map'
 );
 
 map.set('item', 1);

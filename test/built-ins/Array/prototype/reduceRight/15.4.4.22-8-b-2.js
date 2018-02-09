@@ -9,23 +9,22 @@ description: >
     number of iterations in step 9
 ---*/
 
-var called = 0;
+        var called = 0;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            called++;
+            return prevVal + curVal;
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  called++;
-  return prevVal + curVal;
-}
+        var arr = [0, 1, 2, 3];
+        Object.defineProperty(arr, "4", {
+            get: function () {
+                arr.length = 2;
+                return 10;
+            },
+            configurable: true
+        });
 
-var arr = [0, 1, 2, 3];
-Object.defineProperty(arr, "4", {
-  get: function() {
-    arr.length = 2;
-    return 10;
-  },
-  configurable: true
-});
-
-var preVal = arr.reduceRight(callbackfn);
+        var preVal = arr.reduceRight(callbackfn);
 
 assert.sameValue(preVal, 11, 'preVal');
 assert.sameValue(called, 2, 'called');

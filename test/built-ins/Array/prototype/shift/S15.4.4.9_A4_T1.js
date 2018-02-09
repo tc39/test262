@@ -33,9 +33,7 @@ if (x[1] !== 1) {
 Object.prototype[1] = 1;
 Object.prototype.length = 2;
 Object.prototype.shift = Array.prototype.shift;
-x = {
-  0: 0
-};
+x = {0:0};
 
 //CHECK#4
 var shift = x.shift();

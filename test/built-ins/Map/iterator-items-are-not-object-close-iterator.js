@@ -27,10 +27,7 @@ var iterable = {};
 iterable[Symbol.iterator] = function() {
   return {
     next: function() {
-      return {
-        value: nextItem,
-        done: false
-      };
+      return { value: nextItem, done: false };
     },
     return: function() {
       count += 1;

@@ -16,9 +16,9 @@ __instance.exec = RegExp.prototype.exec;
 //CHECK#1
 try {
   __instance.exec("message to investigate");
-  $ERROR('#1.1: __instance = Math; __instance.exec = RegExp.prototype.exec;  __instance.exec("message to investigate")');
+	$ERROR('#1.1: __instance = Math; __instance.exec = RegExp.prototype.exec;  __instance.exec("message to investigate")');
 } catch (e) {
-  if ((e instanceof TypeError) !== true) {
-    $ERROR('#1.2: __instance = Math; __instance.exec = RegExp.prototype.exec;  __instance.exec("message to investigate"). Actual: ' + (e));
-  }
+	if ((e instanceof TypeError) !== true) {
+		$ERROR('#1.2: __instance = Math; __instance.exec = RegExp.prototype.exec;  __instance.exec("message to investigate"). Actual: ' + (e));
+	}
 }

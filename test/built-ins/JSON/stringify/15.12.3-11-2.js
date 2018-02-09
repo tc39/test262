@@ -8,6 +8,4 @@ description: >
     undefined value.
 ---*/
 
-assert.sameValue(JSON.stringify(undefined, function(k, v) {
-  return "replacement"
-}), '"replacement"', 'JSON.stringify(undefined, function(k, v) { return "replacement" })');
+assert.sameValue(JSON.stringify(undefined, function(k, v) { return "replacement" }), '"replacement"', 'JSON.stringify(undefined, function(k, v) { return "replacement" })');

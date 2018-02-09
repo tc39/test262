@@ -12,22 +12,15 @@ description: >
     /(aa|aabaac|ba|b|c)* /
 ---*/
 
-var __executed = /(aa|aabaac|ba|b|c)*/.exec({
-  toString: function() {
-    return {};
-  },
-  valueOf: function() {
-    return "aabaac";
-  }
-});
+var __executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}});
 
 var __expected = ["aaba", "ba"];
-__expected.index = 0;
-__expected.input = "aabaac";
+__expected.index=0;
+__expected.input="aabaac";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-  $ERROR('#0: __executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}}); (__executed instanceof Array) === true');
+	$ERROR('#0: __executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}}); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -46,7 +39,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
+for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}}); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

@@ -20,10 +20,7 @@ assert.sameValue("b", "bab".match(/(?<a>\k<a>\w)../).groups.a);
 assert(compareArray(["bab", "b"], "bab".match(/\k<a>(?<a>b)\w\k<a>/)));
 assert.sameValue("b", "bab".match(/\k<a>(?<a>b)\w\k<a>/).groups.a);
 assert(compareArray(["bab", "b", "a"], "bab".match(/(?<b>b)\k<a>(?<a>a)\k<b>/)));
-let {
-  a,
-  b
-} = "bab".match(/(?<b>b)\k<a>(?<a>a)\k<b>/).groups;
+let {a, b} = "bab".match(/(?<b>b)\k<a>(?<a>a)\k<b>/).groups;
 assert.sameValue(a, "a");
 assert.sameValue(b, "b");
 

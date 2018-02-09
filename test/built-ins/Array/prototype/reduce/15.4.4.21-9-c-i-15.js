@@ -9,33 +9,29 @@ description: >
     accessor property on an Array-like object
 ---*/
 
-var testResult = false;
-var initialValue = 0;
+        var testResult = false;
+        var initialValue = 0;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (curVal === 1);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (curVal === 1);
-  }
-}
+        var proto = { 0: 0, 2: 2 };
 
-var proto = {
-  0: 0,
-  2: 2
-};
+        Object.defineProperty(proto, "1", {
+            get: function () {
+                return 1;
+            },
+            configurable: true
+        });
 
-Object.defineProperty(proto, "1", {
-  get: function() {
-    return 1;
-  },
-  configurable: true
-});
+        var Con = function () { };
+        Con.prototype = proto;
 
-var Con = function() {};
-Con.prototype = proto;
+        var child = new Con();
+        child.length = 3;
 
-var child = new Con();
-child.length = 3;
-
-Array.prototype.reduce.call(child, callbackfn, initialValue);
+        Array.prototype.reduce.call(child, callbackfn, initialValue);
 
 assert(testResult, 'testResult !== true');

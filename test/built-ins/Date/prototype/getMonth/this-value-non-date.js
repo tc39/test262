@@ -16,9 +16,7 @@ info: |
 ---*/
 
 var getMonth = Date.prototype.getMonth;
-var args = (function() {
-  return arguments;
-}());
+var args = (function() { return arguments; }());
 
 assert.sameValue(typeof getMonth, 'function');
 

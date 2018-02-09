@@ -9,7 +9,8 @@ description: this must conform to Promise constructor in Promise.all
 author: Sam Mikes
 ---*/
 
-function ZeroArgConstructor() {}
+function ZeroArgConstructor() {
+}
 
 assert.throws(TypeError, function() {
   Promise.all.call(ZeroArgConstructor, []);

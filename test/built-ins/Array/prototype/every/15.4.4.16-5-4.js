@@ -9,16 +9,15 @@ description: >
     template(prototype)
 ---*/
 
-var res = false;
+  var res = false;
+  function callbackfn(val, idx, obj)
+  {
+    return this.res;
+  }
 
-function callbackfn(val, idx, obj)
-{
-  return this.res;
-}
+  function foo(){}
+  foo.prototype.res = true;
+  var f = new foo();
+  var arr = [1];
 
-function foo() {}
-foo.prototype.res = true;
-var f = new foo();
-var arr = [1];
-
-assert.sameValue(arr.every(callbackfn, f), true, 'arr.every(callbackfn,f)');
+assert.sameValue(arr.every(callbackfn,f), true, 'arr.every(callbackfn,f)');

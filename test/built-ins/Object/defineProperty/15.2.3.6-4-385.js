@@ -8,16 +8,14 @@ description: >
     object
 ---*/
 
-var obj = {};
-var tempObj = {
-  testproperty: 100
-};
+        var obj = {};
+        var tempObj = { testproperty: 100 };
 
-Object.defineProperty(obj, "prop", {
-  value: tempObj
-});
+        Object.defineProperty(obj, "prop", {
+            value: tempObj
+        });
 
-var desc = Object.getOwnPropertyDescriptor(obj, "prop");
+        var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
 assert.sameValue(obj.prop, tempObj, 'obj.prop');
 assert.sameValue(desc.value, tempObj, 'desc.value');

@@ -13,5 +13,5 @@ var __executed = /^xxx/.test("yyyyy");
 
 //CHECK#1
 if (__executed) {
-  $ERROR('#1: /^xxx/.test("yyyyy") === false');
+	$ERROR('#1: /^xxx/.test("yyyyy") === false');
 }

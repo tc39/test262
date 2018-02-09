@@ -11,21 +11,21 @@ description: >
 
 //CHECK#0
 if (RegExp.prototype.toString.hasOwnProperty('length') !== true) {
-  $ERROR('#0: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
+	$ERROR('#0: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
 }
 
-//CHECK#1
+ //CHECK#1
 if (RegExp.prototype.toString.propertyIsEnumerable('length') !== false) {
-  $ERROR('#1: RegExp.prototype.toString.propertyIsEnumerable(\'length\') === true');
+	$ERROR('#1: RegExp.prototype.toString.propertyIsEnumerable(\'length\') === true');
 }
 
-//CHECK#2
-var count = 0;
+ //CHECK#2
+var count=0;
 
-for (var p in RegExp.prototype.toString) {
-  if (p === "length") count++;
+for (var p in RegExp.prototype.toString){
+	if (p==="length") count++;
 }
 
 if (count !== 0) {
-  $ERROR('#2: count = 0; for (p in RegExp.prototype.toString){ if (p==="length") count++; } count === 0. Actual: ' + (count));
+	$ERROR('#2: count = 0; for (p in RegExp.prototype.toString){ if (p==="length") count++; } count === 0. Actual: ' + (count));
 }

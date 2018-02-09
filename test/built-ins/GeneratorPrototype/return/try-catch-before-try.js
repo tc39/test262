@@ -10,7 +10,6 @@ features: [generators]
 ---*/
 
 var unreachable = 0;
-
 function* g() {
   yield;
   try {

@@ -14,7 +14,7 @@ var sab = new SharedArrayBuffer(1024);
 var other_views = [Uint8ClampedArray, Float32Array, Float64Array];
 
 testWithTypedArrayConstructors(function(View) {
-  var view = new View(sab);
+    var view = new View(sab);
 
-  assert.throws(TypeError, (() => Atomics.compareExchange(view, 0, 0, 0)));
+    assert.throws(TypeError, (() => Atomics.compareExchange(view, 0, 0, 0)));
 }, other_views);

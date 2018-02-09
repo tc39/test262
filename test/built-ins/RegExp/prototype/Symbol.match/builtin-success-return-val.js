@@ -31,7 +31,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var result = /b./ [Symbol.match]('abcd');
+var result = /b./[Symbol.match]('abcd');
 
 assert(Array.isArray(result));
 assert.sameValue(result.index, 1);

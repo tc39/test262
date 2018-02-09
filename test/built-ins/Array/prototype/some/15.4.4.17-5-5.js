@@ -7,16 +7,15 @@ es5id: 15.4.4.17-5-5
 description: Array.prototype.some - thisArg is object from object template
 ---*/
 
-var res = false;
+  var res = false;
+  function callbackfn(val, idx, obj)
+  {
+    return this.res;
+  }
 
-function callbackfn(val, idx, obj)
-{
-  return this.res;
-}
+  function foo(){}
+  var f = new foo();
+  f.res = true;
+  var arr = [1];
 
-function foo() {}
-var f = new foo();
-f.res = true;
-var arr = [1];
-
-assert.sameValue(arr.some(callbackfn, f), true, 'arr.some(callbackfn,f)');
+assert.sameValue(arr.some(callbackfn,f), true, 'arr.some(callbackfn,f)');

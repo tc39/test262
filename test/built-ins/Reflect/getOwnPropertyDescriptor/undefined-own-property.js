@@ -17,9 +17,7 @@ info: |
   1. If Desc is undefined, return undefined.
 ---*/
 
-var o = Object.create({
-  p: 1
-});
+var o = Object.create({p: 1});
 
 var result = Reflect.getOwnPropertyDescriptor(o, 'p');
 assert.sameValue(result, undefined);

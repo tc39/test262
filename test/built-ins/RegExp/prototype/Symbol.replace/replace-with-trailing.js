@@ -14,11 +14,11 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/abc/ [Symbol.replace]('abcd', 'X'), 'Xd');
-assert.sameValue(/bc/ [Symbol.replace]('abcd', 'X'), 'aXd');
-assert.sameValue(/c/ [Symbol.replace]('abcd', 'X'), 'abXd');
+assert.sameValue(/abc/[Symbol.replace]('abcd', 'X'), 'Xd');
+assert.sameValue(/bc/[Symbol.replace]('abcd', 'X'), 'aXd');
+assert.sameValue(/c/[Symbol.replace]('abcd', 'X'), 'abXd');
 
-assert.sameValue(/ab/ [Symbol.replace]('abcd', 'X'), 'Xcd');
-assert.sameValue(/b/ [Symbol.replace]('abcd', 'X'), 'aXcd');
+assert.sameValue(/ab/[Symbol.replace]('abcd', 'X'), 'Xcd');
+assert.sameValue(/b/[Symbol.replace]('abcd', 'X'), 'aXcd');
 
-assert.sameValue(/a/ [Symbol.replace]('abcd', 'X'), 'Xbcd');
+assert.sameValue(/a/[Symbol.replace]('abcd', 'X'), 'Xbcd');

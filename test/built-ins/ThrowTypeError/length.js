@@ -13,10 +13,7 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-var ThrowTypeError = Object.getOwnPropertyDescriptor(function() {
-  "use strict";
-  return arguments;
-}(), "callee").get;
+var ThrowTypeError = Object.getOwnPropertyDescriptor(function(){ "use strict"; return arguments; }(), "callee").get;
 
 assert.sameValue(ThrowTypeError.length, 0);
 

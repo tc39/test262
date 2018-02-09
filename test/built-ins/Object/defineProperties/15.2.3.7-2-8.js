@@ -8,18 +8,18 @@ description: >
     whose primitive value is any interesting string
 ---*/
 
-var obj = {};
-var props = new String();
-var result = false;
+        var obj = {};
+        var props = new String();
+        var result = false;
+   
+        Object.defineProperty(props, "prop", {
+            get: function () {
+                result = this instanceof String;
+                return {};
+            },
+            enumerable: true
+        });
 
-Object.defineProperty(props, "prop", {
-  get: function() {
-    result = this instanceof String;
-    return {};
-  },
-  enumerable: true
-});
-
-Object.defineProperties(obj, props);
+        Object.defineProperties(obj, props);
 
 assert(result, 'result !== true');

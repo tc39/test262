@@ -31,31 +31,31 @@ features: [TypedArray, Symbol.species]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var speciesCallCount = 0;
-  var bufferConstructor = Object.defineProperty({}, Symbol.species, {
-    get: function() {
-      speciesCallCount += 1;
-      $DETACHBUFFER(ta.buffer);
-      return speciesConstructor;
-    }
-  });
+    var speciesCallCount = 0;
+    var bufferConstructor = Object.defineProperty({}, Symbol.species, {
+        get: function() {
+            speciesCallCount += 1;
+            $DETACHBUFFER(ta.buffer);
+            return speciesConstructor;
+        }
+    });
 
-  var prototypeCallCount = 0;
-  var speciesConstructor = Object.defineProperty(function() {}.bind(), "prototype", {
-    get: function() {
-      prototypeCallCount += 1;
-      return null;
-    }
-  });
+    var prototypeCallCount = 0;
+    var speciesConstructor = Object.defineProperty(function(){}.bind(), "prototype", {
+        get: function() {
+            prototypeCallCount += 1;
+            return null;
+        }
+    });
 
-  var ta = new TA(0);
-  ta.buffer.constructor = bufferConstructor;
+    var ta = new TA(0);
+    ta.buffer.constructor = bufferConstructor;
 
-  assert.throws(TypeError, function() {
-    var targetType = TA !== Int32Array ? Int32Array : Uint32Array;
-    new targetType(ta);
-  }, "TypeError thrown for detached source buffer");
+    assert.throws(TypeError, function() {
+        var targetType = TA !== Int32Array ? Int32Array : Uint32Array;
+        new targetType(ta);
+    }, "TypeError thrown for detached source buffer");
 
-  assert.sameValue(speciesCallCount, 1, "@@species getter called once");
-  assert.sameValue(prototypeCallCount, 1, "prototype getter called once");
+    assert.sameValue(speciesCallCount, 1, "@@species getter called once");
+    assert.sameValue(prototypeCallCount, 1, "prototype getter called once");
 });

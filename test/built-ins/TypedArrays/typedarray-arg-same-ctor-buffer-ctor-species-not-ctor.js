@@ -37,9 +37,7 @@ features: [Symbol.species, TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA();
   var ctor = {};
-  var m = {
-    m() {}
-  };
+  var m = { m() {} };
 
   sample.buffer.constructor = ctor;
 

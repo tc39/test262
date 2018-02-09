@@ -26,5 +26,5 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-var str = /^|\udf06/ug [Symbol.replace]('\ud834\udf06', 'XXX');
+var str = /^|\udf06/ug[Symbol.replace]('\ud834\udf06', 'XXX');
 assert.sameValue(str, 'XXX\ud834\udf06');

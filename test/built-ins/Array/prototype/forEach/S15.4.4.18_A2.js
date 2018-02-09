@@ -9,8 +9,6 @@ description: Freezes array.forEach during a forEach to see if it works
 ---*/
 
 function foo() {
-  ['z'].forEach(function() {
-    Object.freeze(Array.prototype.forEach);
-  });
+  ['z'].forEach(function(){ Object.freeze(Array.prototype.forEach); });
 }
 foo();

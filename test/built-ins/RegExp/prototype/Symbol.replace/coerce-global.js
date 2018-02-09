@@ -15,9 +15,7 @@ features: [Symbol.replace]
 
 Array.print = print;
 var r = /a/g;
-Object.defineProperty(r, 'global', {
-  writable: true
-});
+Object.defineProperty(r, 'global', { writable: true });
 
 r.lastIndex = 0;
 r.global = undefined;
@@ -45,9 +43,7 @@ assert.sameValue(r[Symbol.replace]('aa', 'b'), 'ba', 'value: ""');
 
 var execCount = 0;
 r = /a/;
-Object.defineProperty(r, 'global', {
-  writable: true
-});
+Object.defineProperty(r, 'global', { writable: true });
 r.exec = function() {
   execCount += 1;
   if (execCount === 1) {

@@ -53,7 +53,5 @@ var thisVal = {
 // nor valueOf defined, then a TypeError exception should be thrown.
 assert.throws(
   TypeError,
-  function() {
-    String.prototype.trimStart.call(thisVal);
-  },
+  function() { String.prototype.trimStart.call(thisVal); },
 );

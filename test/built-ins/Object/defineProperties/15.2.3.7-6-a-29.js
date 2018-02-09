@@ -9,16 +9,14 @@ description: >
     descriptor 'desc' (8.12.9 step 4.a.i)
 ---*/
 
-var obj = {};
+        var obj = {};
 
-Object.defineProperties(obj, {
-  prop: {
-    value: 1001
-  }
-});
+        Object.defineProperties(obj, {
+            prop: { value: 1001}
+        });
 
-for (var prop in obj) {
-  if (obj.hasOwnProperty(prop)) {
-    assert.notSameValue(prop, "prop", 'prop');
-  }
-}
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                assert.notSameValue(prop, "prop", 'prop');
+            }
+        }

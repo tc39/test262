@@ -11,7 +11,6 @@ features: [generators]
 
 var inTry = 0;
 var unreachable = 0;
-
 function* g() {
   try {
     inTry += 1;

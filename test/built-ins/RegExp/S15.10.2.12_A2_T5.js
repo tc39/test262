@@ -18,15 +18,15 @@ var non_s = "0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@
 var regexp_S = /\S/g;
 var k = 0;
 while (regexp_S.exec(non_s) !== null) {
-  k++;
+   k++;
 }
 
 if (non_s.length !== k) {
-  $ERROR('#1: non-s');
-}
+   $ERROR('#1: non-s');
+}  
 
 //CHECK#2
 var non_S = '\f\n\r\t\v ';
 if (/\S/.exec(non_S) !== null) {
-  $ERROR('#2: non-S');
+   $ERROR('#2: non-S');
 }

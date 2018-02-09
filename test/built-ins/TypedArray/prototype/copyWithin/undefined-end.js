@@ -29,14 +29,16 @@ includes: [compareArray.js, testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, 1, undefined), [1, 2, 3, 3]
+      new TA([0, 1, 2, 3]).copyWithin(0, 1, undefined),
+      [1, 2, 3, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, 1, undefined) -> [1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA([0, 1, 2, 3]).copyWithin(0, 1), [1, 2, 3, 3]
+      new TA([0, 1, 2, 3]).copyWithin(0, 1),
+      [1, 2, 3, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, 1) -> [1, 2, 3, 3]'
   );

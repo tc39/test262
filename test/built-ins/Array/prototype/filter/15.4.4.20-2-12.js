@@ -9,30 +9,26 @@ description: >
     a get function that overrides an inherited accessor property
 ---*/
 
-var accessed = false;
+        var accessed = false;
+        function callbackfn(val, idx, obj) {
+            accessed = true;
+            return true;
+        }
 
-function callbackfn(val, idx, obj) {
-  accessed = true;
-  return true;
-}
+            Object.defineProperty(Object.prototype, "length", {
+                get: function () {
+                    return 2;
+                },
+                configurable: true
+            });
 
-Object.defineProperty(Object.prototype, "length", {
-  get: function() {
-    return 2;
-  },
-  configurable: true
-});
+            var obj = { 0: 12, 1: 11 };
+            Object.defineProperty(obj, "length", {
+                set: function () { },
+                configurable: true
+            });
 
-var obj = {
-  0: 12,
-  1: 11
-};
-Object.defineProperty(obj, "length", {
-  set: function() {},
-  configurable: true
-});
-
-var newArr = Array.prototype.filter.call(obj, callbackfn);
+            var newArr = Array.prototype.filter.call(obj, callbackfn);
 
 assert.sameValue(newArr.length, 0, 'newArr.length');
 assert.sameValue(accessed, false, 'accessed');

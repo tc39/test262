@@ -13,7 +13,7 @@ description: RUSSIAN ALPHABET
 var regexp_d = /\d/;
 
 //CHECK#0410-042F
-var result = true;
+var result = true;  
 for (var alpha = 0x0410; alpha <= 0x042F; alpha++) {
   if (regexp_d.exec(String.fromCharCode(alpha)) !== null) {
     result = false;
@@ -25,7 +25,7 @@ if (result !== true) {
 }
 
 //CHECK#0430-044F
-var result = true;
+var result = true; 
 for (alpha = 0x0430; alpha <= 0x044F; alpha++) {
   if (regexp_d.exec(String.fromCharCode(alpha)) !== null) {
     result = false;

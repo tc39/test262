@@ -9,12 +9,10 @@ es5id: 15.5.4.5_A4
 description: Change toString function, it trow exception, and call charCodeAt()
 ---*/
 
-var __obj = {
-  valueOf: 1,
-  toString: function() {
-    throw 'intostring'
-  },
-  charCodeAt: String.prototype.charCodeAt
+var __obj={
+    valueOf:1,
+    toString:function(){throw 'intostring'},
+    charCodeAt:String.prototype.charCodeAt
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -24,7 +22,7 @@ try {
   $ERROR('#1:  "var x = __obj.charCodeAt()" lead to throwing exception');
 } catch (e) {
   if (e !== 'intostring') {
-    $ERROR('#1.1: Exception === \'intostring\'. Actual: exception ===' + e);
+    $ERROR('#1.1: Exception === \'intostring\'. Actual: exception ==='+e ); 
   }
 }
 //

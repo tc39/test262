@@ -13,10 +13,11 @@ var obj = {};
 
 var attr = {};
 Object.defineProperty(attr, "writable", {
-  set: function() {}
+    set: function () { }
 });
 
 Object.defineProperty(obj, "property", attr);
 
 assert(obj.hasOwnProperty("property"));
 verifyNotWritable(obj, "property");
+

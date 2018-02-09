@@ -31,3 +31,4 @@ a.constructor = true;
 assert.throws(TypeError, function() {
   a.flatMap();
 }, 'boolean value');
+

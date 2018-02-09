@@ -28,9 +28,12 @@ testWithTypedArrayConstructors(function(TA) {
     "test262",
     Symbol("1"),
     {},
-    [], -1,
-    Infinity, -Infinity,
-    0.1, -0.1
+    [],
+    -1,
+    Infinity,
+    -Infinity,
+    0.1,
+    -0.1
   ];
   var sample = new TA(values.length);
   var result = sample.every(function() {

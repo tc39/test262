@@ -45,3 +45,4 @@ assert.sameValue(
   '-1',
   'String.prototype.trimStart.call(-1)'
 );
+

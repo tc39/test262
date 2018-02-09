@@ -18,3 +18,4 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   [].flatten.call(void 0);
 }, 'undefined');
+

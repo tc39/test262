@@ -9,22 +9,21 @@ description: >
     implements its own property get method
 ---*/
 
-var testResult = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (prevVal === 2);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (prevVal === 2);
-  }
-}
+        var obj = function (a, b, c) {
+            return a + b + c;
+        };
 
-var obj = function(a, b, c) {
-  return a + b + c;
-};
+        obj[0] = 0;
+        obj[1] = 1;
+        obj[2] = 2;
 
-obj[0] = 0;
-obj[1] = 1;
-obj[2] = 2;
-
-Array.prototype.reduceRight.call(obj, callbackfn);
+        Array.prototype.reduceRight.call(obj, callbackfn);
 
 assert(testResult, 'testResult !== true');

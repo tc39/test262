@@ -17,10 +17,7 @@ features:
   - Symbol.iterator
 ---*/
 
-var map = new Map([
-  [1, 11],
-  [2, 22]
-]);
+var map = new Map([[1, 11], [2, 22]]);
 var iterator = map.values();
 
 assert.throws(TypeError, function() {

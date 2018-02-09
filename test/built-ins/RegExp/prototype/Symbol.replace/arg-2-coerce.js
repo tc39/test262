@@ -24,4 +24,4 @@ var arg = {
   }
 };
 
-assert.sameValue(/./ [Symbol.replace]('string', arg), 'toString valuetring');
+assert.sameValue(/./[Symbol.replace]('string', arg), 'toString valuetring');

@@ -62,7 +62,7 @@ testWithTypedArrayConstructors(function(TA) {
       return 1;
     },
     valueOf: function() {
-      return 7;
+      return 7; 
     }
   });
   assert.sameValue(sample[0], 7, "object valueOf conversion before toString");

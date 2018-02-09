@@ -40,9 +40,7 @@ assert.throws(TypeError, function() {
   new Date(faultyToPrimitive);
 }, 'Array exotic object');
 
-returnValue = (function() {
-  return arguments;
-}());
+returnValue = (function() { return arguments; }());
 assert.throws(TypeError, function() {
   new Date(faultyToPrimitive);
 }, 'arguments exotic object');

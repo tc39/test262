@@ -12,34 +12,34 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-(function(a, b, c) {
-  function setFunc(value) {
-    this.genericPropertyString = value;
-  }
-  Object.defineProperty(arguments, "genericProperty", {
-    set: setFunc,
-    enumerable: true,
-    configurable: false
-  });
-  try {
+(function (a, b, c) {
+    function setFunc(value) {
+        this.genericPropertyString = value;
+    }
     Object.defineProperty(arguments, "genericProperty", {
-      enumerable: false
+        set: setFunc,
+        enumerable: true,
+        configurable: false
     });
-    $ERROR("Expected an exception.");
-  } catch (e) {
-    if (c !== 3) {
-      $ERROR('Expected c === 3, actually ' + c);
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            enumerable: false
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        if (c !== 3) {
+            $ERROR('Expected c === 3, actually ' + c);
+        }
+        verifyWritable(arguments, "genericProperty", "genericPropertyString");
+
+        verifyEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-    verifyWritable(arguments, "genericProperty", "genericPropertyString");
-
-    verifyEnumerable(arguments, "genericProperty");
-
-    verifyNotConfigurable(arguments, "genericProperty");
-
-    if (!(e instanceof TypeError)) {
-      $ERROR("Expected TypeError, got " + e);
-    }
-
-  }
 
 }(1, 2, 3));

@@ -8,8 +8,8 @@ description: >
     function is undefined
 ---*/
 
-var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, 'global');
-
+  var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, 'global');
+  
 
 assert.sameValue(typeof desc.get, 'function', 'typeof desc.get');
 assert.sameValue(desc.set, undefined, 'desc.set');

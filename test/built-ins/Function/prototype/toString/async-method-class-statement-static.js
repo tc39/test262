@@ -8,15 +8,9 @@ features: [async-functions]
 ---*/
 
 let x = "h";
-class F {
-  static /* before */ async f /* a */ ( /* b */ ) /* c */ { /* d */ } /* after */
-}
-class G {
-  static /* before */ async /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
-}
-class H {
-  static /* before */ async /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
-}
+class F { static /* before */async f /* a */ ( /* b */ ) /* c */ { /* d */ }/* after */ }
+class G { static /* before */async /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }
+class H { static /* before */async /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }
 
 let f = F.f;
 let g = G.g;

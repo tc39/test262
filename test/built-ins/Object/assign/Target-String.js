@@ -7,8 +7,6 @@ description: Test the first argument(target) of Object.Assign(target,...sources)
 es6id:  19.1.2.1.1
 ---*/
 
-var result = Object.assign("test", {
-  a: 1
-});
+var result = Object.assign("test",{a:1});
 assert.sameValue(typeof result, "object", "Return value should be an object.");
 assert.sameValue(result.valueOf(), "test", "Return value should be 'test'.");

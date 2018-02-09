@@ -9,7 +9,7 @@ description: Checking if creating new RegExp instance fails
 
 //CHECK#1
 try {
-  $ERROR('#1.1: new /z/() throw TypeError. Actual: ' + (new / z / ()));
+  $ERROR('#1.1: new /z/() throw TypeError. Actual: ' + (new /z/()));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.2: new /z/() throw TypeError. Actual: ' + (e));

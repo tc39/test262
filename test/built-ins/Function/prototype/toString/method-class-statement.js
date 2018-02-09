@@ -7,15 +7,9 @@ description: Function.prototype.toString on a method (class)
 ---*/
 
 let x = "h";
-class F { /* before */
-  f /* a */ ( /* b */ ) /* c */ { /* d */ } /* after */
-}
-class G { /* before */
-  [ /* a */ "g" /* b */ ] /* c */ ( /* d */ ) /* e */ { /* f */ } /* after */
-}
-class H { /* before */
-  [ /* a */ x /* b */ ] /* c */ ( /* d */ ) /* e */ { /* f */ } /* after */
-}
+class F { /* before */f /* a */ ( /* b */ ) /* c */ { /* d */ }/* after */ }
+class G { /* before */[ /* a */ "g" /* b */ ] /* c */ ( /* d */ ) /* e */ { /* f */ }/* after */ }
+class H { /* before */[ /* a */ x /* b */ ] /* c */ ( /* d */ ) /* e */ { /* f */ }/* after */ }
 
 let f = F.prototype.f;
 let g = G.prototype.g;

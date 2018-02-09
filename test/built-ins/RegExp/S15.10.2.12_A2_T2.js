@@ -20,13 +20,13 @@ if (arr !== null) {
 var arr = /\S/.exec("\u000D");
 if (arr !== null) {
   $ERROR('#2: var arr = /\\S/.exec("\\u000D"); arr[0] === "\\u000D". Actual. ' + (arr && arr[0]));
-}
+}  
 
 //CHECK#3
 var arr = /\S/.exec("\u2028");
 if (arr !== null) {
   $ERROR('#3: var arr = /\\S/.exec("\\u2028"); arr[0] === "\\u2028". Actual. ' + (arr && arr[0]));
-}
+}    
 
 //CHECK#4
 var arr = /\S/.exec("\u2029");

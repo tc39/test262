@@ -9,16 +9,15 @@ description: >
     implements its own property get method
 ---*/
 
-var testResult = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (prevVal === "2");
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (prevVal === "2");
-  }
-}
+        var str = new String("012");
 
-var str = new String("012");
-
-Array.prototype.reduceRight.call(str, callbackfn);
+        Array.prototype.reduceRight.call(str, callbackfn);
 
 assert(testResult, 'testResult !== true');

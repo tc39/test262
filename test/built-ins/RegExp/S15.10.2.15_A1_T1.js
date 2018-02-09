@@ -20,7 +20,7 @@ description: >
 try {
   $ERROR('#1.1: /[b-ac-e]/.exec("a") throw SyntaxError. Actual: ' + (new RegExp("[b-ac-e]").exec("a")));
 } catch (e) {
-  if ((e instanceof SyntaxError) !== true) {
+  if((e instanceof SyntaxError) !== true){
     $ERROR('#1.2: /[b-ac-e]/.exec("a") throw SyntaxError. Actual: ' + (e));
   }
 }

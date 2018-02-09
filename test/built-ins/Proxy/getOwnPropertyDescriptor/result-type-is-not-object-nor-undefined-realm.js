@@ -16,9 +16,7 @@ features: [cross-realm]
 var OProxy = $262.createRealm().global.Proxy;
 
 var p = new OProxy({}, {
-  getOwnPropertyDescriptor: function() {
-    return null;
-  }
+  getOwnPropertyDescriptor: function() { return null; }
 });
 
 assert.throws(TypeError, function() {

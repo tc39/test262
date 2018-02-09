@@ -10,17 +10,12 @@ description: >
     obj with valueOf)
 ---*/
 
-foo.prototype = new Array(1, 2, 3);
+  foo.prototype = new Array(1, 2, 3);
+  function foo() {}
+  var f = new foo();
 
-function foo() {}
-var f = new foo();
+  var o = { valueOf: function () { return 0;}};
+  f.length = o;
 
-var o = {
-  valueOf: function() {
-    return 0;
-  }
-};
-f.length = o;
-
-function cb() {}
-assert.sameValue(f.reduce(cb, 1), 1, 'f.reduce(cb,1)');
+  function cb(){}
+assert.sameValue(f.reduce(cb,1), 1, 'f.reduce(cb,1)');

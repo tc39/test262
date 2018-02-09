@@ -13,9 +13,7 @@ var obj = {};
 
 obj.foo = 100; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-Object.defineProperty(obj, "foo", {
-  value: undefined
-});
+Object.defineProperty(obj, "foo", { value: undefined });
 verifyEqualTo(obj, "foo", undefined);
 
 verifyWritable(obj, "foo");
@@ -23,3 +21,4 @@ verifyWritable(obj, "foo");
 verifyEnumerable(obj, "foo");
 
 verifyConfigurable(obj, "foo");
+

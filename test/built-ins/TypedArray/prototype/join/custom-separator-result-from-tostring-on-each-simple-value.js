@@ -61,19 +61,10 @@ testWithTypedArrayConstructors(function(TA) {
   result = sample.join(true);
   assert.sameValue(result, "1true0true2true3true42true127");
 
-  result = sample.join({
-    toString: function() {
-      return "foo";
-    }
-  });
+  result = sample.join({ toString: function() { return "foo"; }});
   assert.sameValue(result, "1foo0foo2foo3foo42foo127");
 
-  result = sample.join({
-    toString: undefined,
-    valueOf: function() {
-      return "bar";
-    }
-  });
+  result = sample.join({ toString: undefined, valueOf: function() { return "bar"; }});
   assert.sameValue(result, "1bar0bar2bar3bar42bar127");
 
   result = sample.join(false);

@@ -10,13 +10,8 @@ description: >
 
 var base = {};
 var derived = Object.create(base);
-
-function getter() {
-  return 'gotten';
-}
-Object.defineProperty(base, 'foo', {
-  get: getter
-});
+function getter() { return 'gotten'; }
+Object.defineProperty(base, 'foo', {get: getter});
 if (derived.hasOwnProperty('foo')) {
   $ERROR('Accessor properties inherit as own properties');
 }

@@ -22,14 +22,10 @@ testWithTypedArrayConstructors(function(TA) {
 
   Object.preventExtensions(sample);
 
-  assert.sameValue(Reflect.defineProperty(sample, "foo", {
-    value: 42
-  }), false);
+  assert.sameValue(Reflect.defineProperty(sample, "foo", {value:42}), false);
   assert.sameValue(Reflect.getOwnPropertyDescriptor(sample, "foo"), undefined);
 
   var s = Symbol("1");
-  assert.sameValue(Reflect.defineProperty(sample, s, {
-    value: 42
-  }), false);
+  assert.sameValue(Reflect.defineProperty(sample, s, {value:42}), false);
   assert.sameValue(Reflect.getOwnPropertyDescriptor(sample, s), undefined);
 });

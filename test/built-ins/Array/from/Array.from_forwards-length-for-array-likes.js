@@ -28,9 +28,7 @@ function MyCollection() {
   this.args = arguments;
 }
 
-result = Array.from.call(MyCollection, {
-  length: 42
-});
+result = Array.from.call(MyCollection, {length: 42});
 
 assert.sameValue(result.args.length, 1);
 assert.sameValue(result.args[0], 42);

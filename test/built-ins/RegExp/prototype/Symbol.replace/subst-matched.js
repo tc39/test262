@@ -23,4 +23,4 @@ info: |
 features: [Symbol.replace]
 ---*/
 
-assert.sameValue(/.4?./ [Symbol.replace]('abc', '[$&]'), '[ab]c');
+assert.sameValue(/.4?./[Symbol.replace]('abc', '[$&]'), '[ab]c');

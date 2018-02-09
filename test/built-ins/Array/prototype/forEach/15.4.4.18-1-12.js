@@ -7,16 +7,15 @@ es5id: 15.4.4.18-1-12
 description: Array.prototype.forEach applied to RegExp object
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = obj instanceof RegExp;
+        }
 
-function callbackfn(val, idx, obj) {
-  result = obj instanceof RegExp;
-}
+        var obj = new RegExp();
+        obj.length = 1;
+        obj[0] = 1;
 
-var obj = new RegExp();
-obj.length = 1;
-obj[0] = 1;
-
-Array.prototype.forEach.call(obj, callbackfn);
+        Array.prototype.forEach.call(obj, callbackfn);
 
 assert(result, 'result !== true');

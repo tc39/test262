@@ -18,15 +18,15 @@ function isValidAlphaEscapeInAtom(s) {
   switch (s) {
     // Assertion [U] :: \b
     case "b":
-      // Assertion [U] :: \B
+    // Assertion [U] :: \B
     case "B":
-      // ControlEscape :: one of f n r t v
+    // ControlEscape :: one of f n r t v
     case "f":
     case "n":
     case "r":
     case "t":
     case "v":
-      // CharacterClassEscape :: one of d D s S w W
+    // CharacterClassEscape :: one of d D s S w W
     case "d":
     case "D":
     case "s":
@@ -43,13 +43,13 @@ function isValidAlphaEscapeInClass(s) {
   switch (s) {
     // ClassEscape[U] :: b
     case "b":
-      // ControlEscape :: one of f n r t v
+    // ControlEscape :: one of f n r t v
     case "f":
     case "n":
     case "r":
     case "t":
     case "v":
-      // CharacterClassEscape :: one of d D s S w W
+    // CharacterClassEscape :: one of d D s S w W
     case "d":
     case "D":
     case "s":
@@ -63,7 +63,7 @@ function isValidAlphaEscapeInClass(s) {
 }
 
 // IdentityEscape in AtomEscape
-for (var cu = 0x41 /* A */ ; cu <= 0x5a /* Z */ ; ++cu) {
+for (var cu = 0x41 /* A */; cu <= 0x5a /* Z */; ++cu) {
   var s = String.fromCharCode(cu);
   if (!isValidAlphaEscapeInAtom(s)) {
     assert.throws(SyntaxError, function() {
@@ -71,7 +71,7 @@ for (var cu = 0x41 /* A */ ; cu <= 0x5a /* Z */ ; ++cu) {
     }, "IdentityEscape in AtomEscape: '" + s + "'");
   }
 }
-for (var cu = 0x61 /* a */ ; cu <= 0x7a /* z */ ; ++cu) {
+for (var cu = 0x61 /* a */; cu <= 0x7a /* z */; ++cu) {
   var s = String.fromCharCode(cu);
   if (!isValidAlphaEscapeInAtom(s)) {
     assert.throws(SyntaxError, function() {
@@ -82,7 +82,7 @@ for (var cu = 0x61 /* a */ ; cu <= 0x7a /* z */ ; ++cu) {
 
 
 // IdentityEscape in ClassEscape
-for (var cu = 0x41 /* A */ ; cu <= 0x5a /* Z */ ; ++cu) {
+for (var cu = 0x41 /* A */; cu <= 0x5a /* Z */; ++cu) {
   var s = String.fromCharCode(cu);
   if (!isValidAlphaEscapeInClass(s)) {
     assert.throws(SyntaxError, function() {
@@ -90,7 +90,7 @@ for (var cu = 0x41 /* A */ ; cu <= 0x5a /* Z */ ; ++cu) {
     }, "IdentityEscape in ClassEscape: '" + s + "'");
   }
 }
-for (var cu = 0x61 /* a */ ; cu <= 0x7a /* z */ ; ++cu) {
+for (var cu = 0x61 /* a */; cu <= 0x7a /* z */; ++cu) {
   var s = String.fromCharCode(cu);
   if (!isValidAlphaEscapeInClass(s)) {
     assert.throws(SyntaxError, function() {

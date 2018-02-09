@@ -27,4 +27,4 @@ info: |
 features: [Symbol.search]
 ---*/
 
-assert.sameValue(/a/y [Symbol.search]('ba'), -1);
+assert.sameValue(/a/y[Symbol.search]('ba'), -1);

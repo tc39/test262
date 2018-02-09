@@ -11,38 +11,37 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-(function() {
-  function getFunc() {
-    return "genericPropertyString";
-  }
-
-  function setFunc(value) {
-    this.helpVerifyGet = value;
-  }
-  Object.defineProperty(arguments, "genericProperty", {
-    get: getFunc,
-    set: setFunc,
-    configurable: false
-  });
-  try {
-    Object.defineProperty(arguments, "genericProperty", {
-      get: function() {
-        return "overideGenericPropertyString";
-      }
-    });
-    $ERROR("Expected an exception.");
-  } catch (e) {
-    verifyEqualTo(arguments, "genericProperty", getFunc());
-
-    verifyWritable(arguments, "genericProperty", "helpVerifyGet");
-
-    verifyNotEnumerable(arguments, "genericProperty");
-
-    verifyNotConfigurable(arguments, "genericProperty");
-
-    if (!(e instanceof TypeError)) {
-      $ERROR("Expected TypeError, got " + e);
+(function () {
+    function getFunc() {
+        return "genericPropertyString";
     }
+    function setFunc(value) {
+        this.helpVerifyGet = value;
+    }
+    Object.defineProperty(arguments, "genericProperty", {
+        get: getFunc,
+        set: setFunc,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            get: function () {
+                return "overideGenericPropertyString";
+            }
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        verifyEqualTo(arguments, "genericProperty", getFunc());
 
-  }
+        verifyWritable(arguments, "genericProperty", "helpVerifyGet");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
 }(1, 2, 3));

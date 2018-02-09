@@ -14,9 +14,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-var m = {
-  m() {}
-}.m;
+var m = { m() {} }.m;
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {

@@ -22,3 +22,4 @@ verifyWritable(obj, "foo");
 verifyEnumerable(obj, "foo");
 
 verifyConfigurable(obj, "foo");
+

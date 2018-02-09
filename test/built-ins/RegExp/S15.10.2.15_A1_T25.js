@@ -20,7 +20,7 @@ description: >
 try {
   $ERROR('#1.1: /[b-G\\s]/.exec("a") throw SyntaxError. Actual: ' + (new RegExp("[b-G\\s]").exec("a")));
 } catch (e) {
-  if ((e instanceof SyntaxError) !== true) {
+  if((e instanceof SyntaxError) !== true){
     $ERROR('#1.2: /[b-G\\s]/.exec("a") throw SyntaxError. Actual: ' + (e));
   }
 }

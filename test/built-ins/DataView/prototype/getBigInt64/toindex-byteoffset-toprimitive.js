@@ -45,48 +45,48 @@ assert.sameValue(sample.getBigInt64({
   },
   valueOf: err,
   toString: err
-}), 0x20602800080017f n, "ToPrimitive: @@toPrimitive takes precedence");
+}), 0x20602800080017fn, "ToPrimitive: @@toPrimitive takes precedence");
 assert.sameValue(sample.getBigInt64({
   valueOf: function() {
     return 1;
   },
   toString: err
-}), 0x20602800080017f n, "ToPrimitive: valueOf takes precedence over toString");
+}), 0x20602800080017fn, "ToPrimitive: valueOf takes precedence over toString");
 assert.sameValue(sample.getBigInt64({
   toString: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: toString with no valueOf");
+}), 0x20602800080017fn, "ToPrimitive: toString with no valueOf");
 assert.sameValue(sample.getBigInt64({
   [Symbol.toPrimitive]: undefined,
   valueOf: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip @@toPrimitive when it's undefined");
+}), 0x20602800080017fn, "ToPrimitive: skip @@toPrimitive when it's undefined");
 assert.sameValue(sample.getBigInt64({
   [Symbol.toPrimitive]: null,
   valueOf: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip @@toPrimitive when it's null");
+}), 0x20602800080017fn, "ToPrimitive: skip @@toPrimitive when it's null");
 assert.sameValue(sample.getBigInt64({
   valueOf: null,
   toString: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip valueOf when it's not callable");
+}), 0x20602800080017fn, "ToPrimitive: skip valueOf when it's not callable");
 assert.sameValue(sample.getBigInt64({
   valueOf: 1,
   toString: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip valueOf when it's not callable");
+}), 0x20602800080017fn, "ToPrimitive: skip valueOf when it's not callable");
 assert.sameValue(sample.getBigInt64({
   valueOf: {},
   toString: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip valueOf when it's not callable");
+}), 0x20602800080017fn, "ToPrimitive: skip valueOf when it's not callable");
 assert.sameValue(sample.getBigInt64({
   valueOf: function() {
     return {};
@@ -94,7 +94,7 @@ assert.sameValue(sample.getBigInt64({
   toString: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip valueOf when it returns an object");
+}), 0x20602800080017fn, "ToPrimitive: skip valueOf when it returns an object");
 assert.sameValue(sample.getBigInt64({
   valueOf: function() {
     return Object(12345);
@@ -102,7 +102,7 @@ assert.sameValue(sample.getBigInt64({
   toString: function() {
     return 1;
   }
-}), 0x20602800080017f n, "ToPrimitive: skip valueOf when it returns an object");
+}), 0x20602800080017fn, "ToPrimitive: skip valueOf when it returns an object");
 assert.throws(TypeError, function() {
   sample.getBigInt64({
     [Symbol.toPrimitive]: 1

@@ -18,7 +18,7 @@ features: [Symbol]
 var map = new Map();
 
 assert.sameValue(map.has('str'), false);
-assert.sameValue(map.has(1), false);
+assert.sameValue(map.has(1),  false);
 assert.sameValue(map.has(NaN), false);
 assert.sameValue(map.has(true), false);
 assert.sameValue(map.has(false), false);

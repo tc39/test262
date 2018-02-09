@@ -25,3 +25,4 @@ assert.sameValue(Date.UTC(0, -Infinity), NaN, 'month: -Infinity');
 
 assert.sameValue(Date.UTC(0, 0, Infinity), NaN, 'date: Infinity');
 assert.sameValue(Date.UTC(0, 0, -Infinity), NaN, 'date: -Infinity');
+

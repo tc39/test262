@@ -13,7 +13,7 @@ description: non-d
 //CHECK#1
 var non_d = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\f\n\r\t\v~`!@#$%^&*()-+={[}]|\\:;'<,>./? " + '"';
 if (/\d/.exec(non_d) !== null) {
-  $ERROR('#1: non-d');
+   $ERROR('#1: non-d');
 }
 
 //CHECK#2
@@ -21,9 +21,9 @@ var non_D = '0123456789';
 var regexp_d = /\d/g;
 var k = 0;
 while (regexp_d.exec(non_D) !== null) {
-  k++;
+   k++;
 }
 
 if (non_D.length !== k) {
-  $ERROR('#2: non-D');
+   $ERROR('#2: non-D');
 }

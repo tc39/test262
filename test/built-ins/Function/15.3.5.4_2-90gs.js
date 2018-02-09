@@ -11,15 +11,10 @@ flags: [noStrict]
 features: [caller]
 ---*/
 
-function f() {
-  return gNonStrict();
-};
-(function() {
-  "use strict";
-  f.bind(null)();
-})();
+function f() { return gNonStrict();};
+(function () {"use strict"; f.bind(null)(); })();
 
 
 function gNonStrict() {
-  return gNonStrict.caller;
+    return gNonStrict.caller;
 }

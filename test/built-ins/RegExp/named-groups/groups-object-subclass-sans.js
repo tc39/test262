@@ -29,9 +29,7 @@ const result = re.exec("ab");
 assert.sameValue(Object.getPrototypeOf(result), Array.prototype);
 assert.sameValue(false, result.hasOwnProperty("groups"));
 
-Array.prototype.groups = {
-  a: "b"
-};
+Array.prototype.groups = { a: "b" };
 Object.getPrototypeOf(Array.prototype.groups).b = "c";
 assert.sameValue("b", "ab".replace(re, "$<a>"));
 assert.sameValue("c", "ab".replace(re, "$<b>"));

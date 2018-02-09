@@ -15,12 +15,12 @@ includes: [propertyHelper.js]
 var arr = [];
 
 Object.defineProperties(arr, {
-  "property": {
-    value: 12,
-    writable: true,
-    enumerable: true,
-    configurable: true
-  }
+    "property": {
+        value: 12,
+        writable: true,
+        enumerable: true,
+        configurable: true
+    }
 });
 verifyEqualTo(arr, "property", 12);
 
@@ -31,5 +31,6 @@ verifyEnumerable(arr, "property");
 verifyConfigurable(arr, "property");
 
 if (arr.length !== 0) {
-  $ERROR('Expected arr.length === 0, actually ' + arr.length);
+    $ERROR('Expected arr.length === 0, actually ' + arr.length);
 }
+

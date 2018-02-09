@@ -31,7 +31,5 @@ Object.defineProperty(poisonedSpecies, Symbol.species, {
 });
 
 assert.throws(Test262Error, function() {
-  RegExp.prototype[Symbol.split].call({
-    constructor: poisonedSpecies
-  });
+  RegExp.prototype[Symbol.split].call({ constructor: poisonedSpecies });
 });

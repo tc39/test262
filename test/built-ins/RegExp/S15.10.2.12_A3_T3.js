@@ -12,10 +12,10 @@ description: 0 - 9, _
 var regexp_w = /\w/;
 
 //CHECK#0030-0039
-var result = true;
+var result = true; 
 for (var alpha = 0x0030; alpha <= 0x0039; alpha++) {
   var str = String.fromCharCode(alpha);
-  var arr = regexp_w.exec(str);
+  var arr = regexp_w.exec(str); 
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }
@@ -26,7 +26,7 @@ if (result !== true) {
 }
 
 //CHECK#005F
-var arr = regexp_w.exec("_");
+var arr = regexp_w.exec("_"); 
 if ((arr === null) || (arr[0] !== "\u005F")) {
   $ERROR('#2: _');
 }

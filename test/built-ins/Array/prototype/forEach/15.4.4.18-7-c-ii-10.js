@@ -9,12 +9,11 @@ description: >
     parameter
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val) {
+            result = (val > 10);
+        }
 
-function callbackfn(val) {
-  result = (val > 10);
-}
-
-[11].forEach(callbackfn);
+        [11].forEach(callbackfn);
 
 assert(result, 'result !== true');

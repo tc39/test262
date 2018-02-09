@@ -22,9 +22,7 @@ var r = /./g;
 // Avoid false positives from unrelated TypeErrors
 r[Symbol.replace]('x', 'x');
 
-Object.defineProperty(r, 'lastIndex', {
-  writable: false
-});
+Object.defineProperty(r, 'lastIndex', { writable: false });
 
 assert.throws(TypeError, function() {
   r[Symbol.replace]('x', 'x');

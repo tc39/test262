@@ -15,9 +15,7 @@ features: [TypedArray]
 ---*/
 
 var from = TypedArray.from;
-var m = {
-  m() {}
-}.m;
+var m = { m() {} }.m;
 
 assert.throws(TypeError, function() {
   from.call(m, []);

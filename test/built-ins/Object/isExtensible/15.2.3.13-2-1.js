@@ -9,3 +9,4 @@ description: Object.isExtensible returns true for all built-in objects (Global)
 var global = this;
 
 assert(Object.isExtensible(global));
+

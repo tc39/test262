@@ -36,8 +36,6 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(TypeError, function() {
-    sample.filter(function() {
-      return true;
-    });
+    sample.filter(function() { return true; });
   });
 });

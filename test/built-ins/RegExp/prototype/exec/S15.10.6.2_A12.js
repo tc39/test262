@@ -8,7 +8,7 @@ description: Checking RegExp.prototype.exec
 ---*/
 
 (/foo/).test('xfoox');
-var match = new RegExp('(.|\r|\n)*', '').exec()[0];
+var match = new RegExp('(.|\r|\n)*','').exec()[0];
 if (match === 'xfoox') {
   $ERROR('#1: regExp.exec() leaks match globally');
 }

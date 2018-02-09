@@ -9,20 +9,14 @@ description: >
     property on an Array-like object
 ---*/
 
-var testResult = false;
+        var testResult = false;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 0) {
+                testResult = (curVal === 0);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 0) {
-    testResult = (curVal === 0);
-  }
-}
-
-var obj = {
-  0: 0,
-  1: 1,
-  2: 2,
-  length: 2
-};
-Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
+        var obj = { 0: 0, 1: 1, 2: 2, length: 2 };
+        Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
 
 assert(testResult, 'testResult !== true');

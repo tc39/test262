@@ -12,13 +12,10 @@ description: >
     negative, use 0
 ---*/
 
-var obj = {
-  0: 0,
-  1: 1
-};
+var obj = {0:0,1:1};
 obj.length = 2;
 obj.splice = Array.prototype.splice;
-var arr = obj.splice(0, -1, 2, 3);
+var arr = obj.splice(0,-1,2,3);
 
 //CHECK#0
 arr.getClass = Object.prototype.toString;

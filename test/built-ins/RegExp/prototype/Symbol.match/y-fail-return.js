@@ -30,4 +30,4 @@ info: |
 features: [Symbol.match]
 ---*/
 
-assert.sameValue(/b/y [Symbol.match]('ab'), null);
+assert.sameValue(/b/y[Symbol.match]('ab'), null);

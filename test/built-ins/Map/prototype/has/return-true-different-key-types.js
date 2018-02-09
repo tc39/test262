@@ -33,7 +33,7 @@ map.set(null, undefined);
 map.set(undefined, undefined);
 
 assert.sameValue(map.has('str'), true);
-assert.sameValue(map.has(1), true);
+assert.sameValue(map.has(1),  true);
 assert.sameValue(map.has(NaN), true);
 assert.sameValue(map.has(true), true);
 assert.sameValue(map.has(false), true);

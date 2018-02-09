@@ -9,17 +9,13 @@ description: >
     object when T is not an object (T is a string)
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = ('hello' === this.valueOf());
+        }
 
-function callbackfn(val, idx, obj) {
-  result = ('hello' === this.valueOf());
-}
+        var obj = { 0: 11, length: 2 };
 
-var obj = {
-  0: 11,
-  length: 2
-};
-
-Array.prototype.forEach.call(obj, callbackfn, "hello");
+        Array.prototype.forEach.call(obj, callbackfn, "hello");
 
 assert(result, 'result !== true');

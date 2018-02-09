@@ -39,7 +39,7 @@ info: |
 features: [Symbol.match]
 ---*/
 
-var result = /a/yg [Symbol.match]('aaba');
+var result = /a/yg[Symbol.match]('aaba');
 
 assert.notSameValue(result, null);
 assert.sameValue(result.length, 2);

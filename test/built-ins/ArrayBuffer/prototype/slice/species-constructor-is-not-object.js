@@ -26,9 +26,7 @@ features: [Symbol]
 
 var arrayBuffer = new ArrayBuffer(8);
 
-function callSlice() {
-  arrayBuffer.slice();
-}
+function callSlice() { arrayBuffer.slice(); }
 
 arrayBuffer.constructor = null;
 assert.throws(TypeError, callSlice, "`constructor` value is null");

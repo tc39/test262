@@ -53,9 +53,7 @@ testWithTypedArrayConstructors(function(TA) {
     Reflect.has(sample, "foo");
   }, "Return abrupt from parent's [[HasProperty]] 'foo'");
 
-  Object.defineProperty(sample, "foo", {
-    value: 42
-  });
+  Object.defineProperty(sample, "foo", { value: 42 });
 
   assert.sameValue(
     Reflect.has(sample, "foo"),

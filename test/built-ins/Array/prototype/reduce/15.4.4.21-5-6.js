@@ -10,19 +10,14 @@ description: >
     initVal
 ---*/
 
-foo.prototype = new Array(1, 2, 3);
+  foo.prototype = new Array(1, 2, 3);
+  function foo() {}
+  var f = new foo();
 
-function foo() {}
-var f = new foo();
+  var o = { valueOf: function () { return 0;}};
+  f.length = o;
 
-var o = {
-  valueOf: function() {
-    return 0;
-  }
-};
-f.length = o;
-
-function cb() {}
+  function cb(){}
 assert.throws(TypeError, function() {
-  f.reduce(cb);
+    f.reduce(cb);
 });

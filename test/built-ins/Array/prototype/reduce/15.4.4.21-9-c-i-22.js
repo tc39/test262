@@ -9,22 +9,21 @@ description: >
     accessor property without a get function on an Array
 ---*/
 
-var testResult = false;
-var initialValue = 0;
+        var testResult = false;
+        var initialValue = 0;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (curVal === undefined);
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (curVal === undefined);
-  }
-}
+            Object.defineProperty(Array.prototype, "1", {
+                set: function () { },
+                configurable: true
+            });
 
-Object.defineProperty(Array.prototype, "1", {
-  set: function() {},
-  configurable: true
-});
+            var arr = [0, , 2];
 
-var arr = [0, , 2];
-
-arr.reduce(callbackfn, initialValue);
+            arr.reduce(callbackfn, initialValue);
 
 assert(testResult, 'testResult !== true');

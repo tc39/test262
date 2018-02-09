@@ -18,3 +18,4 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   [].flatMap.call(void 0);
 }, 'undefined');
+

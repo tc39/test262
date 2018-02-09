@@ -9,19 +9,15 @@ description: >
     'length property doesn't exist
 ---*/
 
-var accessed = false;
+        var accessed = false;
+        function callbackfn(val, idx, obj) {
+            accessed = true;
+            return true;
+        }
 
-function callbackfn(val, idx, obj) {
-  accessed = true;
-  return true;
-}
+        var obj = { 0: 11, 1: 12 };
 
-var obj = {
-  0: 11,
-  1: 12
-};
-
-var newArr = Array.prototype.filter.call(obj, callbackfn);
+        var newArr = Array.prototype.filter.call(obj, callbackfn);
 
 assert.sameValue(newArr.length, 0, 'newArr.length');
 assert.sameValue(accessed, false, 'accessed');

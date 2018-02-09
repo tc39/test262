@@ -49,28 +49,18 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(called, 3, "predicate was called three times");
   assert.sameValue(result, 62, "returned true on sample[3]");
 
-  result = sample.find(function() {
-    return "string";
-  });
+  result = sample.find(function() { return "string"; });
   assert.sameValue(result, 39, "ToBoolean(string)");
 
-  result = sample.find(function() {
-    return {};
-  });
+  result = sample.find(function() { return {}; });
   assert.sameValue(result, 39, "ToBoolean(object)");
 
-  result = sample.find(function() {
-    return Symbol("");
-  });
+  result = sample.find(function() { return Symbol(""); });
   assert.sameValue(result, 39, "ToBoolean(symbol)");
 
-  result = sample.find(function() {
-    return 1;
-  });
+  result = sample.find(function() { return 1; });
   assert.sameValue(result, 39, "ToBoolean(number)");
 
-  result = sample.find(function() {
-    return -1;
-  });
+  result = sample.find(function() { return -1; });
   assert.sameValue(result, 39, "ToBoolean(negative number)");
 });

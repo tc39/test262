@@ -8,7 +8,7 @@ includes: [testTypedArray.js]
 features: [Array.prototype.values, TypedArray]
 ---*/
 
-var source = [, , 42, , 44, , ];
+var source = [,,42,,44,,];
 
 testWithTypedArrayConstructors(function(TA) {
   var result = TA.from(source);
@@ -22,7 +22,8 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result[5], NaN);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
-}, [
+},
+[
   Float32Array,
   Float64Array
 ]);
@@ -39,7 +40,8 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result[5], 0);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
-}, [
+},
+[
   Int8Array,
   Int32Array,
   Int16Array,

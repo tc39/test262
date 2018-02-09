@@ -10,56 +10,56 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-var obj = (function() {
-  return arguments;
+var obj = (function () {
+    return arguments;
 }());
 
 obj.verifySetFunc = "data";
-var getFunc = function() {
-  return obj.verifySetFunc;
+var getFunc = function () {
+    return obj.verifySetFunc;
 };
 
-var setFunc = function(value) {
-  obj.verifySetFunc = value;
+var setFunc = function (value) {
+    obj.verifySetFunc = value;
 };
 
 Object.defineProperty(obj, "prop", {
-  get: getFunc,
-  set: setFunc,
-  enumerable: true,
-  configurable: false
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: false
 });
 var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
 try {
-  Object.defineProperty(obj, "prop", {
-    value: 1001
-  });
+    Object.defineProperty(obj, "prop", {
+        value: 1001
+    });
 
-  $ERROR("Expected an exception.");
+    $ERROR("Expected an exception.");
 } catch (e) {
-  var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-  if (!desc1.hasOwnProperty("get")) {
-    $ERROR('Expected desc1.hasOwnProperty("get") to be true, actually ' + desc1.hasOwnProperty("get"));
-  }
+    if (!desc1.hasOwnProperty("get")) {
+        $ERROR('Expected desc1.hasOwnProperty("get") to be true, actually ' + desc1.hasOwnProperty("get"));
+        }
+    
+    if (desc2.hasOwnProperty("value")) {
+        $ERROR('Expected !desc2.hasOwnProperty("value") to be true, actually ' + !desc2.hasOwnProperty("value"));
+    }
+    
 
-  if (desc2.hasOwnProperty("value")) {
-    $ERROR('Expected !desc2.hasOwnProperty("value") to be true, actually ' + !desc2.hasOwnProperty("value"));
-  }
+    verifyEqualTo(obj, "prop", getFunc());
 
+    verifyWritable(obj, "prop", "verifySetFunc");
 
-  verifyEqualTo(obj, "prop", getFunc());
+    verifyEnumerable(obj, "prop");
 
-  verifyWritable(obj, "prop", "verifySetFunc");
+    verifyNotConfigurable(obj, "prop");
+    
 
-  verifyEnumerable(obj, "prop");
-
-  verifyNotConfigurable(obj, "prop");
-
-
-  if (!(e instanceof TypeError)) {
-    $ERROR("Expected TypeError, got " + e);
-  }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
 
 }

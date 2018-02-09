@@ -13,3 +13,4 @@ info: |
 ---*/
 
 assert.sameValue(new Date(NaN).toUTCString(), "Invalid Date");
+

@@ -7,12 +7,11 @@ es5id: 15.4.4.18-5-24
 description: Array.prototype.forEach - string primitive can be used as thisArg
 ---*/
 
-var result = false;
+        var result = false;
+        function callbackfn(val, idx, obj) {
+            result = (this.valueOf() === "abc");
+        }
 
-function callbackfn(val, idx, obj) {
-  result = (this.valueOf() === "abc");
-}
-
-[11].forEach(callbackfn, "abc");
+        [11].forEach(callbackfn, "abc");
 
 assert(result, 'result !== true');

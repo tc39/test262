@@ -15,9 +15,7 @@ if (RegExp.prototype.exec.hasOwnProperty('length') !== true) {
 
 var __obj = RegExp.prototype.exec.length;
 
-verifyNotWritable(RegExp.prototype.exec, "length", null, function() {
-  return "shifted";
-});
+verifyNotWritable(RegExp.prototype.exec, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (RegExp.prototype.exec.length !== __obj) {

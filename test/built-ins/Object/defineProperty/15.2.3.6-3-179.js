@@ -9,11 +9,9 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-var obj = {};
+var obj = { };
 
-Object.defineProperty(obj, "property", {
-  writable: null
-});
+Object.defineProperty(obj, "property", { writable: null });
 
 assert(obj.hasOwnProperty("property"));
 verifyNotWritable(obj, "property");

@@ -48,9 +48,7 @@ testWithTypedArrayConstructors(function(TA) {
     );
 
     Object.defineProperty(sample, key, {
-      get: function() {
-        return "baz";
-      }
+      get: function() { return "baz"; }
     });
 
     assert.sameValue(

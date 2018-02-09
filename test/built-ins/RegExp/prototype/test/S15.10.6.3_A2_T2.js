@@ -14,7 +14,7 @@ var __instance = Math;
 __instance.test = RegExp.prototype.test;
 
 //CHECK#1
-try {
+try { 
   __instance.test("message to investigate");
   $ERROR('#1.1: __instance = Math; __instance.test = RegExp.prototype.test;  __instance.test("message to investigate")');
 } catch (e) {

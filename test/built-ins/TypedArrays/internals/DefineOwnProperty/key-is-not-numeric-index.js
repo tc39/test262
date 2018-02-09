@@ -21,9 +21,7 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "foo", {
-      value: 42
-    }),
+    Reflect.defineProperty(sample, "foo", {value:42}),
     true,
     "return true after defining property"
   );

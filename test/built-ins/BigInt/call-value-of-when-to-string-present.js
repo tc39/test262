@@ -22,3 +22,4 @@ let o = {
 }
 
 assert.sameValue(BigInt(o), 44n);
+

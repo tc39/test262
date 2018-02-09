@@ -9,9 +9,7 @@ description: >
     overridden to false (type conversion))
 ---*/
 
-var i = Array.prototype.lastIndexOf.call({
-  length: false
-}, 1);
+ var i = Array.prototype.lastIndexOf.call({length: false}, 1);
 
 
 assert.sameValue(i, -1, 'i');

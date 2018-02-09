@@ -13,13 +13,9 @@ includes: [propertyHelper.js]
 
 var obj = {};
 
-Object.defineProperty(obj, "foo", {
-  value: "abcd"
-});
+Object.defineProperty(obj, "foo", { value: "abcd" });
 
-Object.defineProperty(obj, "foo", {
-  value: "abcd"
-});
+Object.defineProperty(obj, "foo", { value: "abcd" });
 verifyEqualTo(obj, "foo", "abcd");
 
 verifyNotWritable(obj, "foo");
@@ -27,3 +23,4 @@ verifyNotWritable(obj, "foo");
 verifyNotEnumerable(obj, "foo");
 
 verifyNotConfigurable(obj, "foo");
+

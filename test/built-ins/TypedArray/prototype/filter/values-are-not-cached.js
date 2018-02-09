@@ -21,7 +21,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.filter(function(v, i) {
     if (i < sample.length - 1) {
-      sample[i + 1] = 42;
+      sample[i+1] = 42;
     }
 
     assert.sameValue(

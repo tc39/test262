@@ -17,28 +17,28 @@ var __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs";
 
 var __executed = /(A)?(A.*)/.exec(__string);
 
-var __expected = ["AaaAAaaaf;lrlrzs", undefined, "AaaAAaaaf;lrlrzs"];
+var __expected = ["AaaAAaaaf;lrlrzs",undefined,"AaaAAaaaf;lrlrzs"];
 __expected.index = 13;
 __expected.input = __string;
 
 //CHECK#1
 if (__executed.length !== __expected.length) {
-  $ERROR('#1: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
+	$ERROR('#1: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
 }
 
 //CHECK#2
 if (__executed.index !== __expected.index) {
-  $ERROR('#2: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
+	$ERROR('#2: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
 }
 
 //CHECK#3
 if (__executed.input !== __expected.input) {
-  $ERROR('#3: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
+	$ERROR('#3: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
-  if (__executed[index] !== __expected[index]) {
-    $ERROR('#4: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
-  }
+for(var index=0; index<__expected.length; index++) {
+	if (__executed[index] !== __expected[index]) {
+		$ERROR('#4: __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs"; __executed = /(A)?(A.*)/.exec(__string); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
+	}
 }

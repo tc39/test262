@@ -47,9 +47,7 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.sameValue(
-    sample.findIndex(function() {
-      return true;
-    }),
+    sample.findIndex(function() { return true; }),
     0
   );
 });

@@ -9,14 +9,10 @@ description: >
     false;}}
 ---*/
 
-var __string = {
-  toString: function() {
-    return false;
-  }
-};
+var __string = {toString:function(){return false;}};
 var __re = /LS/i;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {
-  $ERROR('#0: var __string = {toString:function(){return false;}}; __re = /LS/i; __re.test(__string) === (__re.exec(__string) !== null)');
+	$ERROR('#0: var __string = {toString:function(){return false;}}; __re = /LS/i; __re.test(__string) === (__re.exec(__string) !== null)');
 }

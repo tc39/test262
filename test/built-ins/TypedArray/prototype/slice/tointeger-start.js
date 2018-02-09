@@ -40,7 +40,8 @@ testWithTypedArrayConstructors(function(TA) {
   assert(compareArray(sample.slice("3"), [43]), "string");
   assert(
     compareArray(
-      sample.slice(obj), [42, 43]
+      sample.slice(obj),
+      [42, 43]
     ),
     "object"
   );

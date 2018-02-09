@@ -18,6 +18,6 @@ testWithTypedArrayConstructors(function(View1) {
   testWithTypedArrayConstructors(function(View2) {
     var ta2 = new View2(ta1);
     assert.sameValue(ta2.buffer.constructor, ArrayBuffer,
-      "TypedArray of SharedArrayBuffer-backed TypedArray is ArrayBuffer-backed");
+                     "TypedArray of SharedArrayBuffer-backed TypedArray is ArrayBuffer-backed");
   }, int_views);
 }, int_views);

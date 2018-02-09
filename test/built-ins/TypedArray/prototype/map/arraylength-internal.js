@@ -18,9 +18,7 @@ testWithTypedArrayConstructors(function(TA) {
   var sample1 = new TA(42);
   var loop = 0;
 
-  Object.defineProperty(sample1, "length", {
-    value: 1
-  });
+  Object.defineProperty(sample1, "length", {value: 1});
 
   sample1.map(function() {
     loop++;
@@ -42,3 +40,4 @@ testWithTypedArrayConstructors(function(TA) {
   });
   assert.sameValue(loop, 4, "accessor descriptor");
 });
+

@@ -9,25 +9,24 @@ description: >
     property that overrides an inherited data property on an Array
 ---*/
 
-var testResult = false;
-var initialValue = 0;
+        var testResult = false;
+        var initialValue = 0;
+        function callbackfn(prevVal, curVal, idx, obj) {
+            if (idx === 1) {
+                testResult = (curVal === "11");
+            }
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  if (idx === 1) {
-    testResult = (curVal === "11");
-  }
-}
+            Array.prototype[1] = 1;
+            var arr = [0, ,2];
 
-Array.prototype[1] = 1;
-var arr = [0, , 2];
+            Object.defineProperty(arr, "1", {
+                get: function () {
+                    return "11";
+                },
+                configurable: true
+            });
 
-Object.defineProperty(arr, "1", {
-  get: function() {
-    return "11";
-  },
-  configurable: true
-});
-
-arr.reduce(callbackfn, initialValue);
+            arr.reduce(callbackfn, initialValue);
 
 assert(testResult, 'testResult !== true');

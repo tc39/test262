@@ -9,18 +9,14 @@ description: >
     accumulator
 ---*/
 
-var accessed = false;
-var objError = new RangeError();
+        var accessed = false;
+        var objError = new RangeError();
+        function callbackfn(prevVal, curVal, idx, obj) {
+            accessed = true;
+            return prevVal === objError;
+        }
 
-function callbackfn(prevVal, curVal, idx, obj) {
-  accessed = true;
-  return prevVal === objError;
-}
-
-var obj = {
-  0: 11,
-  length: 1
-};
+        var obj = { 0: 11, length: 1 };
 
 
 assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, objError), true, 'Array.prototype.reduceRight.call(obj, callbackfn, objError)');

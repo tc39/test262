@@ -20,8 +20,6 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.sameValue(sample, result, "without comparefn");
 
-  result = sample.sort(function() {
-    return 0;
-  });
+  result = sample.sort(function() { return 0; });
   assert.sameValue(sample, result, "with comparefn");
 });

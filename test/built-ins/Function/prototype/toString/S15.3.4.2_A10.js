@@ -17,9 +17,7 @@ if (!(Function.prototype.toString.hasOwnProperty('length'))) {
 
 var obj = Function.prototype.toString.length;
 
-verifyNotWritable(Function.prototype.toString, "length", null, function() {
-  return "shifted";
-});
+verifyNotWritable(Function.prototype.toString, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (Function.prototype.toString.length !== obj) {

@@ -8,10 +8,7 @@ description: >
     enumerable own value property)
 ---*/
 
-var o = {};
-Object.defineProperty(o, "foo", {
-  value: 42,
-  enumerable: true
-});
+    var o = {};
+    Object.defineProperty(o, "foo", {value: 42, enumerable:true});
 
 assert(o.hasOwnProperty("foo"), 'o.hasOwnProperty("foo") !== true');

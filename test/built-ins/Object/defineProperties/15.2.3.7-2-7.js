@@ -8,9 +8,7 @@ description: >
     value is any interesting string
 ---*/
 
-var obj = {
-  "123": 100
-};
-var obj1 = Object.defineProperties(obj, "");
+        var obj = { "123": 100 };
+        var obj1 = Object.defineProperties(obj, "");
 
 assert.sameValue(obj, obj1, 'obj');

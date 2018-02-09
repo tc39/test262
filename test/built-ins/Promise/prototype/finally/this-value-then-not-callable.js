@@ -11,11 +11,9 @@ features: [Symbol, Promise.prototype.finally]
 
 var symbol = Symbol();
 
-var thrower = function() {
-  throw new Test262Error('this should never happen');
-};
+var thrower = function () { throw new Test262Error('this should never happen'); };
 
-var p = new Promise(function() {});
+var p = new Promise(function () {});
 
 p.then = undefined;
 assert.throws(TypeError, function() {

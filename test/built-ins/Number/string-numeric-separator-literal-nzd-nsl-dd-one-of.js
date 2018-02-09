@@ -37,3 +37,5 @@ assert.sameValue(Number("6_6"), NaN, "6_6");
 assert.sameValue(Number("7_7"), NaN, "7_7");
 assert.sameValue(Number("8_8"), NaN, "8_8");
 assert.sameValue(Number("9_9"), NaN, "9_9");
+
+

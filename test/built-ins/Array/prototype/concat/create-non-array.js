@@ -15,9 +15,7 @@ info: |
     4. If isArray is false, return ? ArrayCreate(length).
 ---*/
 
-var obj = {
-  length: 0
-};
+var obj = { length: 0 };
 var callCount = 0;
 var result;
 Object.defineProperty(obj, 'constructor', {

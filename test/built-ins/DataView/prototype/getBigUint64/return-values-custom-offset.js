@@ -30,14 +30,14 @@ sample.setUint8(15, 0x80);
 
 sample = new DataView(buffer, 4);
 
-assert.sameValue(sample.getBigUint64(0, false), 0x800080017f000102 n, "0, false");
-assert.sameValue(sample.getBigUint64(1, false), 0x80017f00010280 n, "1, false");
-assert.sameValue(sample.getBigUint64(2, false), 0x80017f000102807f n, "2, false");
-assert.sameValue(sample.getBigUint64(3, false), 0x17f000102807fff n, "3, false");
-assert.sameValue(sample.getBigUint64(4, false), 0x7f000102807fff80 n, "4, false");
+assert.sameValue(sample.getBigUint64(0, false), 0x800080017f000102n, "0, false");
+assert.sameValue(sample.getBigUint64(1, false), 0x80017f00010280n, "1, false");
+assert.sameValue(sample.getBigUint64(2, false), 0x80017f000102807fn, "2, false");
+assert.sameValue(sample.getBigUint64(3, false), 0x17f000102807fffn, "3, false");
+assert.sameValue(sample.getBigUint64(4, false), 0x7f000102807fff80n, "4, false");
 
-assert.sameValue(sample.getBigUint64(0, true), 0x201007f01800080 n, "0, true");
-assert.sameValue(sample.getBigUint64(1, true), 0x800201007f018000 n, "1, true");
-assert.sameValue(sample.getBigUint64(2, true), 0x7f800201007f0180 n, "2, true");
-assert.sameValue(sample.getBigUint64(3, true), 0xff7f800201007f01 n, "3, true");
-assert.sameValue(sample.getBigUint64(4, true), 0x80ff7f800201007f n, "4, true");
+assert.sameValue(sample.getBigUint64(0, true), 0x201007f01800080n, "0, true");
+assert.sameValue(sample.getBigUint64(1, true), 0x800201007f018000n, "1, true");
+assert.sameValue(sample.getBigUint64(2, true), 0x7f800201007f0180n, "2, true");
+assert.sameValue(sample.getBigUint64(3, true), 0xff7f800201007f01n, "3, true");
+assert.sameValue(sample.getBigUint64(4, true), 0x80ff7f800201007fn, "4, true");

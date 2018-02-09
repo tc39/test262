@@ -16,7 +16,6 @@ features: [Reflect, new.target]
 ---*/
 
 var newTarget;
-
 function A() {
   newTarget = new.target;
 }

@@ -40,3 +40,4 @@ assert.sameValue("aabb".match(/(..)(?<=\1\1\1)/), null, "#15");
 assert.sameValue("abab".match(/(..)(?<=\1\1\1)/), null, "#16");
 assert.sameValue("fabxbab".match(/(..)(?<=\1\1\1)/), null, "#17");
 assert.sameValue("faxabab".match(/(..)(?<=\1\1\1)/), null, "#18");
+

@@ -30,9 +30,7 @@ var exec = function() {
   nextMatch = null;
   return {
     get 0() {
-      Object.defineProperty(r, 'lastIndex', {
-        writable: false
-      });
+      Object.defineProperty(r, 'lastIndex', { writable: false });
       return thisMatch;
     }
   };

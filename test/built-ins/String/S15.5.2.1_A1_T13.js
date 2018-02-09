@@ -12,17 +12,9 @@ description: >
     exception throw
 ---*/
 
-var __obj = {
-  toString: function() {
-    return f;
+var __obj = {toString:function(){return f; function f(){}}};
 
-    function f() {}
-  }
-};
-
-__obj.valueOf = function() {
-  throw "invalueof"
-};
+__obj.valueOf=function(){throw "invalueof"};
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -30,8 +22,8 @@ try {
   var __str = new String(__obj);
   $ERROR('#1: __obj.valueOf=function(){throw "invalueof"}; __str = new String(__obj) lead throwing exception');
 } catch (e) {
-  if (e !== "invalueof") {
-    $ERROR('#1.1: e==="invalueof". Actual: e===' + e);
+  if (e!=="invalueof") {
+    $ERROR('#1.1: e==="invalueof". Actual: e==='+e); 
   }
 }
 //

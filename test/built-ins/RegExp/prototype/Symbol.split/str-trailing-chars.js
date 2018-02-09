@@ -14,7 +14,7 @@ info: |
 features: [Symbol.split]
 ---*/
 
-var result = /d/ [Symbol.split]('abcdefg');
+var result = /d/[Symbol.split]('abcdefg');
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 2);

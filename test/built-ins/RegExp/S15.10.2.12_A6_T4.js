@@ -14,15 +14,15 @@ var non_d = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\f\n\r\t\v~`!@
 var regexp_D = /\D/g;
 var k = 0;
 while (regexp_D.exec(non_d) !== null) {
-  k++;
+   k++;
 }
 
 if (non_d.length !== k) {
-  $ERROR('#1: non-d');
+   $ERROR('#1: non-d');
 }
 
 //CHECK#2
 var non_d = '0123456789';
 if (/\D/.exec(non_d) !== null) {
-  $ERROR('#2: non-d');
+   $ERROR('#2: non-d');
 }

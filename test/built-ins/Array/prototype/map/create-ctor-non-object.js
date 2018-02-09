@@ -20,9 +20,7 @@ info: |
 
 var a = [];
 var callCount = 0;
-var cb = function() {
-  callCount += 0;
-};
+var cb = function() { callCount += 0; };
 
 a.constructor = null;
 assert.throws(TypeError, function() {

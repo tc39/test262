@@ -9,19 +9,15 @@ es5id: 15.10.6.2_A1_T15
 description: "String is {toString:function(){return false;}} and RegExp is /LS/i"
 ---*/
 
-var __executed = /LS/i.exec({
-  toString: function() {
-    return false
-  }
-});
+var __executed = /LS/i.exec({toString:function(){return false}});
 
 var __expected = ["ls"];
-__expected.index = 2;
-__expected.input = "false";
+__expected.index=2;
+__expected.input="false";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-  $ERROR('#0: __executed = /LS/i.exec({toString:function(){return false}}); (__executed instanceof Array) === true');
+	$ERROR('#0: __executed = /LS/i.exec({toString:function(){return false}}); (__executed instanceof Array) === true');
 }
 
 //CHECK#1
@@ -40,7 +36,7 @@ if (__executed.input !== __expected.input) {
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
+for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
     $ERROR('#4: __executed = /LS/i.exec({toString:function(){return false}}); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }

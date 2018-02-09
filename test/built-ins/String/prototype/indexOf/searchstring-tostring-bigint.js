@@ -10,22 +10,22 @@ info: |
 features: [BigInt, Symbol.toPrimitive, computed-property-names]
 ---*/
 
-assert.sameValue("__0__".indexOf(0 n), 2, "ToString: BigInt to String");
-assert.sameValue("__0__".indexOf(Object(0 n)), 2,
+assert.sameValue("__0__".indexOf(0n), 2, "ToString: BigInt to String");
+assert.sameValue("__0__".indexOf(Object(0n)), 2,
   "ToString: unbox object with internal slot => BigInt to String");
 assert.sameValue("__0__".indexOf({
   [Symbol.toPrimitive]: function() {
-    return 0 n;
+    return 0n;
   }
 }), 2, "ToString: @@toPrimitive => BigInt to String");
 assert.sameValue("__0__".indexOf({
   valueOf: function() {
-    return 0 n;
+    return 0n;
   },
   toString: null
 }), 2, "ToString: valueOf => BigInt to String");
 assert.sameValue("__0__".indexOf({
   toString: function() {
-    return 0 n;
+    return 0n;
   }
 }), 2, "ToString: toString => BigInt to String");

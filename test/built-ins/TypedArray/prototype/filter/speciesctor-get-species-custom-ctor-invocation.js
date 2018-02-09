@@ -47,9 +47,7 @@ testWithTypedArrayConstructors(function(TA) {
     return new TA(count);
   };
 
-  sample.filter(function(v) {
-    return v === 42;
-  });
+  sample.filter(function(v) { return v === 42; });
 
   assert.sameValue(result.length, 1, "called with 1 argument");
   assert.sameValue(result[0], 2, "[0] is the new captured length");

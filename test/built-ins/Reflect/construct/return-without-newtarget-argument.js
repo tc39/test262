@@ -14,7 +14,6 @@ info: |
 ---*/
 
 var o = {};
-
 function fn() {
   this.o = o;
 }

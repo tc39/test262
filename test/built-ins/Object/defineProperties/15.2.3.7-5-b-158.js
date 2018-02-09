@@ -17,8 +17,9 @@ var descObj = new RegExp();
 descObj.writable = false;
 
 Object.defineProperties(obj, {
-  property: descObj
+    property: descObj
 });
 
 assert(obj.hasOwnProperty("property"));
 verifyNotWritable(obj, "property");
+

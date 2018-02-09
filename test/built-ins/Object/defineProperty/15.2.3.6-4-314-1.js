@@ -11,25 +11,24 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-(function(a, b, c) {
-  function getFunc() {
-    return "getFunctionString";
-  }
+(function (a, b, c) {
+    function getFunc() {
+        return "getFunctionString";
+    }
+    function setFunc(value) {
+        this.testgetFunction = value;
+    }
+    Object.defineProperty(arguments, "genericProperty", {
+        get: getFunc,
+        set: setFunc,
+        enumerable: true,
+        configurable: true
+    });
+    verifyEqualTo(arguments, "genericProperty", getFunc());
 
-  function setFunc(value) {
-    this.testgetFunction = value;
-  }
-  Object.defineProperty(arguments, "genericProperty", {
-    get: getFunc,
-    set: setFunc,
-    enumerable: true,
-    configurable: true
-  });
-  verifyEqualTo(arguments, "genericProperty", getFunc());
+    verifyWritable(arguments, "genericProperty", "testgetFunction");
 
-  verifyWritable(arguments, "genericProperty", "testgetFunction");
+    verifyEnumerable(arguments, "genericProperty");
 
-  verifyEnumerable(arguments, "genericProperty");
-
-  verifyConfigurable(arguments, "genericProperty");
+    verifyConfigurable(arguments, "genericProperty");
 }(1, 2, 3));

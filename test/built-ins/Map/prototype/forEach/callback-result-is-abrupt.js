@@ -19,9 +19,7 @@ info: |
 flags: [noStrict]
 ---*/
 
-var map = new Map([
-  [0, 0]
-]);
+var map = new Map([[0, 0]]);
 
 assert.throws(Test262Error, function() {
   map.forEach(function() {

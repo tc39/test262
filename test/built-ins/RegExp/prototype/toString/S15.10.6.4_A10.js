@@ -12,16 +12,14 @@ includes: [propertyHelper.js]
 
 //CHECK#1
 if (RegExp.prototype.toString.hasOwnProperty('length') !== true) {
-  $ERROR('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
+	$ERROR('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
 }
 
 var __obj = RegExp.prototype.toString.length;
 
-verifyNotWritable(RegExp.prototype.toString, "length", null, function() {
-  return "shifted";
-});
+verifyNotWritable(RegExp.prototype.toString, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (RegExp.prototype.toString.length !== __obj) {
-  $ERROR('#2: __obj = RegExp.prototype.toString.length; RegExp.prototype.toString.length = function(){return "shifted";}; RegExp.prototype.toString.length === __obj. Actual: ' + (RegExp.prototype.toString.length));
+	$ERROR('#2: __obj = RegExp.prototype.toString.length; RegExp.prototype.toString.length = function(){return "shifted";}; RegExp.prototype.toString.length === __obj. Actual: ' + (RegExp.prototype.toString.length));
 }

@@ -8,15 +8,9 @@ features: [async-functions]
 ---*/
 
 let x = "h";
-let f = class { /* before */
-  async f /* a */ ( /* b */ ) /* c */ { /* d */ } /* after */
-}.prototype.f;
-let g = class { /* before */
-  async /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
-}.prototype.g;
-let h = class { /* before */
-  async /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ } /* after */
-}.prototype.h;
+let f = class { /* before */async f /* a */ ( /* b */ ) /* c */ { /* d */ }/* after */ }.prototype.f;
+let g = class { /* before */async /* a */ [ /* b */ "g" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }.prototype.g;
+let h = class { /* before */async /* a */ [ /* b */ x /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }/* after */ }.prototype.h;
 
 assert.sameValue(f.toString(), "async f /* a */ ( /* b */ ) /* c */ { /* d */ }");
 assert.sameValue(g.toString(), "async /* a */ [ /* b */ \"g\" /* c */ ] /* d */ ( /* e */ ) /* f */ { /* g */ }");

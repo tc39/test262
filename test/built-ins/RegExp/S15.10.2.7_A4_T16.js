@@ -11,28 +11,28 @@ description: Execute /(x+)(x*)/.exec('xxxxxxx') and check results
 
 var __executed = /(x+)(x*)/.exec('xxxxxxx');
 
-var __expected = ["xxxxxxx", "xxxxxxx", ""];
+var __expected = ["xxxxxxx","xxxxxxx",""];
 __expected.index = 0;
 __expected.input = 'xxxxxxx';
 
 //CHECK#1
 if (__executed.length !== __expected.length) {
-  $ERROR('#1: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
+	$ERROR('#1: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
 }
 
 //CHECK#2
 if (__executed.index !== __expected.index) {
-  $ERROR('#2: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
+	$ERROR('#2: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
 }
 
 //CHECK#3
 if (__executed.input !== __expected.input) {
-  $ERROR('#3: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
+	$ERROR('#3: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
 }
 
 //CHECK#4
-for (var index = 0; index < __expected.length; index++) {
-  if (__executed[index] !== __expected[index]) {
-    $ERROR('#4: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
-  }
+for(var index=0; index<__expected.length; index++) {
+	if (__executed[index] !== __expected[index]) {
+		$ERROR('#4: __executed = /(x+)(x*)/.exec(\'xxxxxxx\'); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
+	}
 }

@@ -14,15 +14,15 @@ var non_w = "\f\n\r\t\v~`!@#$%^&*()-+={[}]|\\:;'<,>./? " + '"';
 var regexp_W = /\W/g;
 var k = 0;
 while (regexp_W.exec(non_w) !== null) {
-  k++;
+   k++;
 }
 
 if (non_w.length !== k) {
-  $ERROR('#1: non-w');
+   $ERROR('#1: non-w');
 }
 
 //CHECK#2
 var non_W = "_0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 if (/\W/.exec(non_W) !== null) {
-  $ERROR('#2: non-W');
+   $ERROR('#2: non-W');
 }

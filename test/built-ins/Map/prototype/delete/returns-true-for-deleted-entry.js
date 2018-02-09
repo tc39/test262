@@ -16,10 +16,7 @@ info: |
   ...
 ---*/
 
-var m = new Map([
-  ['a', 1],
-  ['b', 2]
-]);
+var m = new Map([['a',1], ['b', 2]]);
 
 var result = m.delete('a');
 

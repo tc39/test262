@@ -11,9 +11,9 @@ description: Checking by using eval, try to use eval("\"migr\"") as F
 
 //CHECK#1
 try {
-  $ERROR('#1.1: new RegExp("",eval("\\"migr\\"")) throw SyntaxError. Actual: ' + (new RegExp("", eval("\"migr\""))));
+	$ERROR('#1.1: new RegExp("",eval("\\"migr\\"")) throw SyntaxError. Actual: ' + (new RegExp("",eval("\"migr\""))));
 } catch (e) {
-  if ((e instanceof SyntaxError) !== true) {
-    $ERROR('#1.2: new RegExp("",eval("\\"migr\\"")) throw SyntaxError. Actual: ' + (e));
-  }
+	if ((e instanceof SyntaxError) !== true) {
+		$ERROR('#1.2: new RegExp("",eval("\\"migr\\"")) throw SyntaxError. Actual: ' + (e));
+	}
 }
