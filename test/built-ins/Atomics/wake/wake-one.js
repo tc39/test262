@@ -9,15 +9,15 @@ description: >
 
 var NUMAGENT = 3;
 
-var WAKEUP = 0;                 // Agents wait here
-var RUNNING = 1;                // Accounting of live agents here
+var WAKEUP = 0; // Agents wait here
+var RUNNING = 1; // Accounting of live agents here
 var NUMELEM = 2;
 
 var WAKECOUNT = 1;
 
-for ( var i=0 ; i < NUMAGENT ; i++ ) {
-$262.agent.start(
-`
+for (var i = 0; i < NUMAGENT; i++) {
+  $262.agent.start(
+    `
 $262.agent.receiveBroadcast(function (sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, ${RUNNING}, 1);
@@ -45,27 +45,27 @@ assert.sameValue(Atomics.wake(ia, 0, WAKECOUNT), WAKECOUNT);
 
 // Collect and check results
 var rs = [];
-for ( var i=0; i < NUMAGENT; i++ )
-    rs.push(getReport());
+for (var i = 0; i < NUMAGENT; i++)
+  rs.push(getReport());
 rs.sort();
 
-for ( var i=0; i < WAKECOUNT; i++ )
-    assert.sameValue(rs[i], "ok");
-for ( var i=WAKECOUNT; i < NUMAGENT; i++ )
-    assert.sameValue(rs[i], "timed-out");
+for (var i = 0; i < WAKECOUNT; i++)
+  assert.sameValue(rs[i], "ok");
+for (var i = WAKECOUNT; i < NUMAGENT; i++)
+  assert.sameValue(rs[i], "timed-out");
 
 function getReport() {
-    var r;
-    while ((r = $262.agent.getReport()) == null)
-        $262.agent.sleep(100);
-    return r;
+  var r;
+  while ((r = $262.agent.getReport()) == null)
+    $262.agent.sleep(100);
+  return r;
 }
 
 function waitUntil(ia, k, value) {
-    var i = 0;
-    while (Atomics.load(ia, k) !== value && i < 15) {
-        $262.agent.sleep(100);
-        i++;
-    }
-    assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
+  var i = 0;
+  while (Atomics.load(ia, k) !== value && i < 15) {
+    $262.agent.sleep(100);
+    i++;
+  }
+  assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
 }
