@@ -9,7 +9,9 @@ features: [Symbol]
 ---*/
 
 var target = Symbol('foo');
-var result = Object.assign(target,{a:1});
+var result = Object.assign(target, {
+  a: 1
+});
 
 assert.sameValue(typeof result, "object", "Return value should be a symbol object.");
 assert.sameValue(result.toString(), "Symbol(foo)", "Return value should be 'Symbol(foo)'.");
