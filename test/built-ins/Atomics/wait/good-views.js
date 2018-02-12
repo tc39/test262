@@ -47,11 +47,11 @@ assert.sameValue(getReport(), "A timed-out");
 assert.sameValue(getReport(), "B not-equal"); // Even with zero timeout
 var r;
 while ((r = getReport()) != "done")
-    assert.sameValue(r, "C not-equal");
+  assert.sameValue(r, "C not-equal");
 
 function getReport() {
-    var r;
-    while ((r = $262.agent.getReport()) == null)
-        $262.agent.sleep(100);
-    return r;
+  var r;
+  while ((r = $262.agent.getReport()) == null)
+    $262.agent.sleep(100);
+  return r;
 }
