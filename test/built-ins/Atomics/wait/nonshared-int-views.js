@@ -19,7 +19,7 @@ if (typeof BigInt !== "undefined") {
 }
 
 testWithTypedArrayConstructors(function(View) {
-    var view = new View(ab);
+  var view = new View(ab);
 
-    assert.throws(TypeError, (() => Atomics.wait(view, 0, 0, 0))); // Should fail even if waiting 0ms
+  assert.throws(TypeError, (() => Atomics.wait(view, 0, 0, 0))); // Should fail even if waiting 0ms
 }, int_views);
