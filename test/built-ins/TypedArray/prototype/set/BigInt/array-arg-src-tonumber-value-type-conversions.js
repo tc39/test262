@@ -35,11 +35,10 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       }
   };
 
-  // undefined and NaN covered on typedArrayConversions
-  var arr = ["1", "", false, true, nullish, obj1, obj2, [], [1]];
+  var arr = [false, true, obj1, [], [1]];
 
   var sample = new TA(arr.length);
-  var expected = new TA(convertToBigInt([1, 0, 0, 1, 42, 42, 0, 1]));
+  var expected = new TA([0n, 1n, 42n, 0n, 1n]);
 
   sample.set(arr);
 

@@ -12,10 +12,8 @@ includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var sample = [0, 42, 64];
-
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(convertToBigInt(sample));
+  var typedArray = new TA([0n, 42n, 64n]);
   var itor = typedArray.entries();
 
   var next = itor.next();

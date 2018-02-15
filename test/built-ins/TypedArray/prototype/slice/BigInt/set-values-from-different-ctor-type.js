@@ -30,10 +30,10 @@ includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-var arr = [42, 43, 44];
+var arr = [42n 43n, 44n];
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt(arr));
+  var sample = new TA(arr);
   var other = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
 
   sample.constructor = {};
@@ -41,7 +41,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   var result = sample.slice();
 
-  assert(compareArray(result, convertToBigInt(arr)), "values are set");
+  assert(compareArray(result, arr), "values are set");
   assert.notSameValue(result.buffer, sample.buffer, "creates a new buffer");
   assert.sameValue(result.constructor, other, "used the custom ctor");
 });

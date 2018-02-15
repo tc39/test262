@@ -27,12 +27,12 @@ features: [BigInt, Reflect.set, TypedArray]
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n, 43n, 44n]);
-  var newVal = 0;
+  var newVal = 0n;
 
   sample.some(function(val, i) {
     if (i > 0) {
       assert.sameValue(
-        sample[i - 1], convertToBigInt(newVal - 1),
+        sample[i - 1], newVal - 1n,
         "get the changed value during the loop"
       );
       assert.sameValue(
@@ -42,7 +42,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       );
     }
     assert.sameValue(
-      Reflect.set(sample, i, convertToBigInt(newVal)),
+      Reflect.set(sample, i, newVal),
       true,
       "set value during iteration"
     );

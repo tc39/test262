@@ -13,10 +13,10 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var sample = [0, 42, 64];
+var sample = [0n, 42n, 64n];
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(convertToBigInt(sample));
+  var typedArray = new TA(sample);
   var itor = typedArray.keys();
 
   var next = itor.next();

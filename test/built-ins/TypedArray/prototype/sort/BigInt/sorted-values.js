@@ -26,7 +26,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample = new TA([3n, 4n, 3n, 1n, 0n, 1n, 2n]).sort();
   assert(compareArray(sample, [0n, 1n, 1n, 2n, 3n, 3n, 4n]), "repeating numbers");
 
-  sample = new TA(convertToBigInt([1, 0, -0, 2])).sort();
+  sample = new TA([1n, 0n, -0n, 2n]).sort();
   assert(compareArray(sample, [0n, 0n, 1n, 2n]), "0s");
 });
 

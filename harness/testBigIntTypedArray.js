@@ -18,10 +18,6 @@ var BigIntTypedArrayConstructors = [
  */
 var TypedArray = Object.getPrototypeOf(Int8Array);
 
-function convertToBigInt(x) {
-  return (Array.isArray(x)) ? x.map(convertToBigInt) : BigInt(x);
-}
-
 /**
  * Callback for testing a typed array constructor.
  *

@@ -8,14 +8,12 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var source = [42, 43, 42];
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var mapfn = function(kValue) {
-    return convertToBigInt(kValue * 2);
+    return kValue * 2n;
   };
 
-  var result = TA.from(source, mapfn);
+  var result = TA.from([42n, 43n, 42n], mapfn);
   assert.sameValue(result.length, 3);
   assert.sameValue(result[0], 84n);
   assert.sameValue(result[1], 86n);

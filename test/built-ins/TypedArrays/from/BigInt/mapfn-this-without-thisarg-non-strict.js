@@ -20,17 +20,16 @@ flags: [noStrict]
 features: [BigInt, TypedArray]
 ---*/
 
-var source = [42, 43];
 var global = this;
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var results = [];
   var mapfn = function(x) {
     results.push(this);
-    return convertToBigInt(x);
+    return x;
   };
 
-  TA.from(convertToBigInt(source), mapfn);
+  TA.from([42n, 43n], mapfn);
 
   assert.sameValue(results.length, 2);
   assert.sameValue(results[0], global);

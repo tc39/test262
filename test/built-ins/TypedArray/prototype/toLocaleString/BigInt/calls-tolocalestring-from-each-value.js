@@ -39,15 +39,14 @@ BigInt.prototype.toLocaleString = function() {
   return "hacks" + calls.length;
 };
 
-var arr = [42, 0];
 var expected = ["hacks1", "hacks2"].join(separator);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt(arr));
+  var sample = new TA([42n, 0n]);
   calls = [];
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert(
-    compareArray(new TA(convertToBigInt(calls)), sample),
+    compareArray(new TA(calls), sample),
     "toLocaleString called for each item"
   );
 });

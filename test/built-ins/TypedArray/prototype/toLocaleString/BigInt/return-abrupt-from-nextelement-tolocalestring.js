@@ -34,11 +34,9 @@ BigInt.prototype.toLocaleString = function() {
   }
 };
 
-var arr = [42, 0];
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   calls = 0;
-  var sample = new TA(convertToBigInt(arr));
+  var sample = new TA([42n, 0n]);
   assert.throws(Test262Error, function() {
     sample.toLocaleString();
   });
