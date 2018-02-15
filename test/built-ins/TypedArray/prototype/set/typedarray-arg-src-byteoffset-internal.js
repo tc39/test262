@@ -29,9 +29,6 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
   var src = new TA([42, 43]);
   var differentTA = TA === Uint8Array ? Int8Array : Uint8Array;
-  if (typeof BigInt !== "undefined")
-    differentTA = TA === BigInt64Array ? BigUint64Array :
-                  TA === BigUint64Array ? BigInt64Array : differentTA;
   var src2 = new differentTA([42, 43]);
   var src3 = new differentTA(sample.buffer, 0, 2);
 

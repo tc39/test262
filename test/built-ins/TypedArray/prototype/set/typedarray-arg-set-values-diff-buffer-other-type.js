@@ -28,9 +28,6 @@ features: [TypedArray]
 
 testWithTypedArrayConstructors(function(TA) {
   var other = TA === Float32Array ? Float64Array : Float32Array;
-  if (typeof BigInt !== "undefined")
-    other = TA === BigInt64Array ? BigUint64Array :
-            TA === BigUint64Array ? BigInt64Array : other;
   var src = new other([42, 43]);
   var sample, result;
 

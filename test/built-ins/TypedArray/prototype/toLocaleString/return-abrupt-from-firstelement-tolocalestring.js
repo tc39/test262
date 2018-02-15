@@ -31,10 +31,6 @@ Number.prototype.toLocaleString = function() {
   throw new Test262Error();
 };
 
-if (typeof BigInt !== "undefined") {
-  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
-}
-
 var arr = [42, 0];
 
 testWithTypedArrayConstructors(function(TA, N) {

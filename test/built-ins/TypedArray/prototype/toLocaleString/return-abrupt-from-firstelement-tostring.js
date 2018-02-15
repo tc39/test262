@@ -43,10 +43,6 @@ Number.prototype.toLocaleString = function() {
   };
 };
 
-if (typeof BigInt !== "undefined") {
-  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
-}
-
 var arr = [42, 0];
 
 testWithTypedArrayConstructors(function(TA, N) {
