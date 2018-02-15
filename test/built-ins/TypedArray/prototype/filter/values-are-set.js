@@ -16,15 +16,15 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([41, 1, 42, 7]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([41, 1, 42, 7]);
   var result;
 
   result = sample.filter(function() { return true; });
-  assert(compareArray(result, N([41, 1, 42, 7])), "values are set #1");
+  assert(compareArray(result, [41, 1, 42, 7]), "values are set #1");
 
   result = sample.filter(function(v) {
-    return v > N(40);
+    return v > 40;
   });
-  assert(compareArray(result, N([41, 42])), "values are set #2");
+  assert(compareArray(result, [41, 42]), "values are set #2");
 });

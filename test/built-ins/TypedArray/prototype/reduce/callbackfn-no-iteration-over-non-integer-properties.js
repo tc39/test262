@@ -26,8 +26,8 @@ includes: [testTypedArray.js]
 features: [Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([7, 8]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([7, 8]);
 
   var results = [];
 
@@ -43,6 +43,6 @@ testWithTypedArrayConstructors(function(TA, N) {
   assert.sameValue(results[0][2], 0, "results[0][2] - k");
   assert.sameValue(results[1][2], 1, "results[1][2] - k");
 
-  assert.sameValue(results[0][1], N(7), "results[0][1] - kValue");
-  assert.sameValue(results[1][1], N(8), "results[1][1] - kValue");
+  assert.sameValue(results[0][1], 7, "results[0][1] - kValue");
+  assert.sameValue(results[1][1], 8, "results[1][1] - kValue");
 });

@@ -22,10 +22,10 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var obj1 = {
       valueOf: function() {
-        return N(42);
+        return 42;
       }
   };
 
@@ -38,14 +38,14 @@ testWithTypedArrayConstructors(function(TA, N) {
   // undefined and NaN covered on typedArrayConversions
   var nullish;
   try {
-    nullish = N(null);
+    nullish = null;
   } catch (e) {
     nullish = 0n;
   }
   var arr = ["1", "", false, true, nullish, obj1, obj2, [], [1]];
 
   var sample = new TA(arr.length);
-  var expected = new TA(N([1, 0, 0, 1, 0, 42, 42, 0, 1]));
+  var expected = new TA([1, 0, 0, 1, 0, 42, 42, 0, 1]);
 
   sample.set(arr);
 

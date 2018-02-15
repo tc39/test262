@@ -35,8 +35,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [Symbol.species, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42]);
   var calls = 0;
   var result;
 
@@ -49,5 +49,5 @@ testWithTypedArrayConstructors(function(TA, N) {
   result = sample.subarray(1);
 
   assert.sameValue(calls, 1, "ctor called once");
-  assert(compareArray(result, N([41, 42])), "expected subarray");
+  assert(compareArray(result, [41, 42]), "expected subarray");
 });

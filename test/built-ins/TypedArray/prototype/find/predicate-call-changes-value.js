@@ -29,8 +29,8 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var arr = N([1, 2, 3]);
+testWithTypedArrayConstructors(function(TA) {
+  var arr = [1, 2, 3];
   var sample;
   var result;
 
@@ -38,41 +38,41 @@ testWithTypedArrayConstructors(function(TA, N) {
   sample.find(function(val, i) {
     sample[i] = arr[i];
 
-    assert.sameValue(val, N(0), "value is not mapped to instance");
+    assert.sameValue(val, 0, "value is not mapped to instance");
   });
   assert(compareArray(sample, arr), "values set during each predicate call");
 
   sample = new TA(arr);
   result = sample.find(function(val, i) {
     if ( i === 0 ) {
-      sample[2] = N(7);
+      sample[2] = 7;
     }
-    return val === N(7);
+    return val === 7;
   });
-  assert.sameValue(result, N(7), "value found");
+  assert.sameValue(result, 7, "value found");
 
   sample = new TA(arr);
   result = sample.find(function(val, i) {
     if ( i === 0 ) {
-      sample[2] = N(7);
+      sample[2] = 7;
     }
-    return val === N(3);
+    return val === 3;
   });
   assert.sameValue(result, undefined, "value not found");
 
   sample = new TA(arr);
   result = sample.find(function(val, i) {
     if ( i > 0 ) {
-      sample[0] = N(7);
+      sample[0] = 7;
     }
-    return val === N(7);
+    return val === 7;
   });
   assert.sameValue(result, undefined, "value not found - changed after call");
 
   sample = new TA(arr);
   result = sample.find(function() {
-    sample[0] = N(7);
+    sample[0] = 7;
     return true;
   });
-  assert.sameValue(result, N(1), "find() returns previous found value");
+  assert.sameValue(result, 1, "find() returns previous found value");
 });

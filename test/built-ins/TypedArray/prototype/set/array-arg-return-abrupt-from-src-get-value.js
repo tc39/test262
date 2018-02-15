@@ -22,12 +22,12 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var obj = {
       length: 4,
-      "0": N(42),
-      "1": N(43),
-      "3": N(44)
+      "0": 42,
+      "1": 43,
+      "3": 44
     };
     Object.defineProperty(obj, "2", {
       get: function() {
@@ -35,14 +35,14 @@ testWithTypedArrayConstructors(function(TA, N) {
       }
     });
 
-  var sample = new TA(N([1, 2, 3, 4]));
+  var sample = new TA([1, 2, 3, 4]);
 
   assert.throws(Test262Error, function() {
     sample.set(obj);
   });
 
   assert(
-    compareArray(sample, N([42, 43, 3, 4])),
+    compareArray(sample, [42, 43, 3, 4]),
     "values are set until exception"
   );
 });

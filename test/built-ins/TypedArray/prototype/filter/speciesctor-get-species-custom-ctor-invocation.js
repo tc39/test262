@@ -36,8 +36,8 @@ includes: [testTypedArray.js]
 features: [Symbol.species, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 42, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 42, 42]);
   var result, ctorThis;
 
   sample.constructor = {};
@@ -47,7 +47,7 @@ testWithTypedArrayConstructors(function(TA, N) {
     return new TA(count);
   };
 
-  sample.filter(function(v) { return v === N(42); });
+  sample.filter(function(v) { return v === 42; });
 
   assert.sameValue(result.length, 1, "called with 1 argument");
   assert.sameValue(result[0], 2, "[0] is the new captured length");

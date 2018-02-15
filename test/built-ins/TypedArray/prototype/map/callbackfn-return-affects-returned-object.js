@@ -19,13 +19,13 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([1, 2, 4]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([1, 2, 4]);
   var result = sample.map(function(v) {
-    return v * N(3);
+    return v * 3;
   });
 
-  assert.sameValue(result[0], N(3), "result[0] == 3");
-  assert.sameValue(result[1], N(6), "result[1] == 6");
-  assert.sameValue(result[2], N(12), "result[2] == 12");
+  assert.sameValue(result[0], 3, "result[0] == 3");
+  assert.sameValue(result[1], 6, "result[1] == 6");
+  assert.sameValue(result[2], 12, "result[2] == 12");
 });

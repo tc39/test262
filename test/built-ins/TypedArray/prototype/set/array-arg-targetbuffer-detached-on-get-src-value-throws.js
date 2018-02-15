@@ -22,11 +22,11 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([1, 2, 3]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([1, 2, 3]);
   var obj = {
     length: 3,
-    "0": N(42)
+    "0": 42
   };
   Object.defineProperty(obj, 1, {
     get: function() {

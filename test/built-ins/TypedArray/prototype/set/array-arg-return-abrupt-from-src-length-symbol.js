@@ -21,8 +21,8 @@ var obj = {
   length: Symbol("1")
 };
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([1, 2, 3]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([1, 2, 3]);
 
   assert.throws(TypeError, function() {
     sample.set(obj);

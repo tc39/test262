@@ -9,11 +9,11 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42, 43]);
 
   assert(
-    compareArray(sample.subarray(-Infinity), N([40, 41, 42, 43])),
+    compareArray(sample.subarray(-Infinity), [40, 41, 42, 43]),
     "begin == -Infinity"
   );
   assert(
@@ -25,7 +25,7 @@ testWithTypedArrayConstructors(function(TA, N) {
     "end == -Infinity"
   );
   assert(
-    compareArray(sample.subarray(0, Infinity), N([40, 41, 42, 43])),
+    compareArray(sample.subarray(0, Infinity), [40, 41, 42, 43]),
     "end == Infinity"
   );
 });

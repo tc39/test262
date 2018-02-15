@@ -29,22 +29,22 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample, result;
-  var src = new TA(N([42, 43]));
+  var src = new TA([42, 43]);
 
-  sample = new TA(N([1, 2, 3, 4]));
+  sample = new TA([1, 2, 3, 4]);
   result = sample.set(src, 1);
-  assert(compareArray(sample, N([1, 42, 43, 4])), "offset: 1, result: " + sample);
+  assert(compareArray(sample, [1, 42, 43, 4]), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(N([1, 2, 3, 4]));
+  sample = new TA([1, 2, 3, 4]);
   result = sample.set(src, 0);
-  assert(compareArray(sample, N([42, 43, 3, 4])), "offset: 0, result: " + sample);
+  assert(compareArray(sample, [42, 43, 3, 4]), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(N([1, 2, 3, 4]));
+  sample = new TA([1, 2, 3, 4]);
   result = sample.set(src, 2);
-  assert(compareArray(sample, N([1, 2, 42, 43])), "offset: 2, result: " + sample);
+  assert(compareArray(sample, [1, 2, 42, 43]), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 });

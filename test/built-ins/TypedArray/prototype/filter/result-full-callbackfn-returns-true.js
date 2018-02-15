@@ -16,8 +16,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42]);
 
   [
     true,

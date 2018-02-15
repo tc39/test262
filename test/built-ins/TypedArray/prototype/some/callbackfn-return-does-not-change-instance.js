@@ -25,14 +25,14 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42]);
 
   sample.some(function() {
     return 0;
   });
 
-  assert.sameValue(sample[0], N(40), "[0] == 40");
-  assert.sameValue(sample[1], N(41), "[1] == 41");
-  assert.sameValue(sample[2], N(42), "[2] == 42");
+  assert.sameValue(sample[0], 40, "[0] == 40");
+  assert.sameValue(sample[1], 41, "[1] == 41");
+  assert.sameValue(sample[2], 42, "[2] == 42");
 });

@@ -42,7 +42,7 @@ var arr = [42, 0];
 
 testWithTypedArrayConstructors(function(TA, N) {
   calls = 0;
-  var sample = new TA(N(arr));
+  var sample = new TA(arr);
   assert.throws(Test262Error, function() {
     sample.toLocaleString();
   });

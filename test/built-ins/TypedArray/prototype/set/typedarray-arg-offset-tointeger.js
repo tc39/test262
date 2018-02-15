@@ -15,79 +15,79 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample;
-  var src = new TA(N([42]));
+  var src = new TA([42]);
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, "");
-  assert(compareArray(sample, N([42, 2])), "the empty string");
+  assert(compareArray(sample, [42, 2]), "the empty string");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, "0");
-  assert(compareArray(sample, N([42, 2])), "'0'");
+  assert(compareArray(sample, [42, 2]), "'0'");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, false);
-  assert(compareArray(sample, N([42, 2])), "false");
+  assert(compareArray(sample, [42, 2]), "false");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, 0.1);
-  assert(compareArray(sample, N([42, 2])), "0.1");
+  assert(compareArray(sample, [42, 2]), "0.1");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, 0.9);
-  assert(compareArray(sample, N([42, 2])), "0.9");
+  assert(compareArray(sample, [42, 2]), "0.9");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, -0.5);
-  assert(compareArray(sample, N([42, 2])), "-0.5");
+  assert(compareArray(sample, [42, 2]), "-0.5");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, 1.1);
-  assert(compareArray(sample, N([1, 42])), "1.1");
+  assert(compareArray(sample, [1, 42]), "1.1");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, NaN);
-  assert(compareArray(sample, N([42, 2])), "NaN");
+  assert(compareArray(sample, [42, 2]), "NaN");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, null);
-  assert(compareArray(sample, N([42, 2])), "null");
+  assert(compareArray(sample, [42, 2]), "null");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, undefined);
-  assert(compareArray(sample, N([42, 2])), "undefined");
+  assert(compareArray(sample, [42, 2]), "undefined");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, {});
-  assert(compareArray(sample, N([42, 2])), "{}");
+  assert(compareArray(sample, [42, 2]), "{}");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, []);
-  assert(compareArray(sample, N([42, 2])), "[]");
+  assert(compareArray(sample, [42, 2]), "[]");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, [0]);
-  assert(compareArray(sample, N([42, 2])), "[0]");
+  assert(compareArray(sample, [42, 2]), "[0]");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, true);
-  assert(compareArray(sample, N([1, 42])), "true");
+  assert(compareArray(sample, [1, 42]), "true");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, "1");
-  assert(compareArray(sample, N([1, 42])), "'1'");
+  assert(compareArray(sample, [1, 42]), "'1'");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, [1]);
-  assert(compareArray(sample, N([1, 42])), "[1]");
+  assert(compareArray(sample, [1, 42]), "[1]");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, { valueOf: function() {return 1;} });
-  assert(compareArray(sample, N([1, 42])), "valueOf");
+  assert(compareArray(sample, [1, 42]), "valueOf");
 
-  sample = new TA(N([1, 2]));
+  sample = new TA([1, 2]);
   sample.set(src, { toString: function() {return 1;} });
-  assert(compareArray(sample, N([1, 42])), "toString");
+  assert(compareArray(sample, [1, 42]), "toString");
 });

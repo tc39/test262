@@ -41,11 +41,9 @@ var TypedArray = Object.getPrototypeOf(Int8Array);
 function testWithTypedArrayConstructors(f, selected) {
   var constructors = selected || typedArrayConstructors;
   for (var i = 0; i < constructors.length; ++i) {
-    // TODO: Remove this
-    var N = function(x) { return x; };
     var constructor = constructors[i];
     try {
-      f(constructor, N);
+      f(constructor);
     } catch (e) {
       e.message += " (Testing with " + constructor.name + ".)";
       throw e;
@@ -77,5 +75,5 @@ function testTypedArrayConversions(byteConversionValues, fn) {
       }
       fn(TA, value, exp, initial);
     });
-  }, numericTypedArrayConstructors);
+  });
 }

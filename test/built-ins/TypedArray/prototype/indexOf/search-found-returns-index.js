@@ -31,16 +31,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 43, 42, 41]));
-  assert.sameValue(sample.indexOf(N(42)), 0, "indexOf(42)");
-  assert.sameValue(sample.indexOf(N(43)), 1, "indexOf(43)");
-  assert.sameValue(sample.indexOf(N(43), 1), 1, "indexOf(43, 1)");
-  assert.sameValue(sample.indexOf(N(42), 1), 2, "indexOf(42, 1)");
-  assert.sameValue(sample.indexOf(N(42), 2), 2, "indexOf(42, 2)");
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 43, 42, 41]);
+  assert.sameValue(sample.indexOf(42), 0, "indexOf(42)");
+  assert.sameValue(sample.indexOf(43), 1, "indexOf(43)");
+  assert.sameValue(sample.indexOf(43, 1), 1, "indexOf(43, 1)");
+  assert.sameValue(sample.indexOf(42, 1), 2, "indexOf(42, 1)");
+  assert.sameValue(sample.indexOf(42, 2), 2, "indexOf(42, 2)");
 
-  assert.sameValue(sample.indexOf(N(42), -4), 0, "indexOf(42, -4)");
-  assert.sameValue(sample.indexOf(N(42), -3), 2, "indexOf(42, -3)");
-  assert.sameValue(sample.indexOf(N(42), -2), 2, "indexOf(42, -2)");
-  assert.sameValue(sample.indexOf(N(42), -5), 0, "indexOf(42, -5)");
+  assert.sameValue(sample.indexOf(42, -4), 0, "indexOf(42, -4)");
+  assert.sameValue(sample.indexOf(42, -3), 2, "indexOf(42, -3)");
+  assert.sameValue(sample.indexOf(42, -2), 2, "indexOf(42, -2)");
+  assert.sameValue(sample.indexOf(42, -5), 0, "indexOf(42, -5)");
 });

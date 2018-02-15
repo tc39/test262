@@ -25,8 +25,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 43, 44, 45, 46]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 43, 44, 45, 46]);
   var calls = 0;
 
   var comparefn = function() {

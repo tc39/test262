@@ -46,12 +46,12 @@ if (typeof BigInt !== "undefined") {
 var arr = [42, 0];
 var expected = ["hacks1", "hacks2"].join(separator);
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N(arr));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA(arr);
   calls = [];
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert(
-    compareArray(new TA(N(calls)), sample),
+    compareArray(new TA(calls), sample),
     "toLocaleString called for each item"
   );
 });

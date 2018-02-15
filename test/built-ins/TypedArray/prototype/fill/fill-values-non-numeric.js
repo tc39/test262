@@ -36,41 +36,41 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(N([42]));
+  sample = new TA([42]);
   sample.fill(null);
   assert.sameValue(sample[0], 0, "null => 0");
 
-  sample = new TA(N([42]));
+  sample = new TA([42]);
   sample.fill(false);
-  assert.sameValue(sample[0], N(0), "false => 0");
+  assert.sameValue(sample[0], 0, "false => 0");
 
-  sample = new TA(N([42]));
+  sample = new TA([42]);
   sample.fill(true);
-  assert.sameValue(sample[0], N(1), "true => 1");
+  assert.sameValue(sample[0], 1, "true => 1");
 
-  sample = new TA(N([42]));
+  sample = new TA([42]);
   sample.fill("7");
-  assert.sameValue(sample[0], N(7), "string conversion");
+  assert.sameValue(sample[0], 7, "string conversion");
 
-  sample = new TA(N([42]));
+  sample = new TA([42]);
   sample.fill({
     toString: function() {
       return "1";
     },
     valueOf: function() {
-      return N(7);
+      return 7;
     }
   });
-  assert.sameValue(sample[0], N(7), "object valueOf conversion before toString");
+  assert.sameValue(sample[0], 7, "object valueOf conversion before toString");
 
-  sample = new TA(N([42]));
+  sample = new TA([42]);
   sample.fill({
     toString: function() {
       return "7";
     }
   });
-  assert.sameValue(sample[0], N(7), "object toString when valueOf is absent");
+  assert.sameValue(sample[0], 7, "object toString when valueOf is absent");
 });

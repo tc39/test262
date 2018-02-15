@@ -29,13 +29,13 @@ var desc = {
 
 Object.defineProperty(TypedArray.prototype, "length", desc);
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
 
   Object.defineProperty(TA.prototype, "length", desc);
   Object.defineProperty(sample, "length", desc);
 
-  sample.set(N([42, 43]));
+  sample.set([42, 43]);
 
   assert.sameValue(getCalls, 0, "ignores length properties");
 });

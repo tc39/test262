@@ -28,10 +28,10 @@ var fromIndex = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([7]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([7]);
 
   assert.throws(Test262Error, function() {
-    sample.includes(N(7), fromIndex);
+    sample.includes(7, fromIndex);
   });
 });

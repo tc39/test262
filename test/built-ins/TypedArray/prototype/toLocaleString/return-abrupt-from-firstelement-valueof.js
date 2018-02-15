@@ -51,7 +51,7 @@ if (typeof BigInt !== "undefined") {
 var arr = [42, 0];
 
 testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N(arr));
+  var sample = new TA(arr);
   calls = 0;
   assert.throws(Test262Error, function() {
     sample.toLocaleString();

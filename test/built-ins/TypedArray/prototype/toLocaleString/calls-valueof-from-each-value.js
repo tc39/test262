@@ -53,7 +53,7 @@ var arr = [42, 0];
 var expected = ["hacks1", "hacks2"].join(separator);
 
 testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N(arr));
+  var sample = new TA(arr);
   calls = 0;
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert.sameValue(calls, 2, "valueOf called once for each item");

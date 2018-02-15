@@ -22,8 +22,8 @@ var expectedThis = (function() {
   return this;
 })();
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 42, 42, 42, 42]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 42, 42, 42, 42]);
   var calls = [];
 
   var comparefn = function() {
@@ -36,7 +36,7 @@ testWithTypedArrayConstructors(function(TA, N) {
   calls.forEach(function(args) {
     assert.sameValue(args[0], expectedThis, "comparefn is called no specific this");
     assert.sameValue(args[1].length, 2, "comparefn is always called with 2 args");
-    assert.sameValue(args[1][0], N(42), "x is a listed value");
-    assert.sameValue(args[1][0], N(42), "y is a listed value");
+    assert.sameValue(args[1][0], 42, "x is a listed value");
+    assert.sameValue(args[1][0], 42, "y is a listed value");
   });
 });

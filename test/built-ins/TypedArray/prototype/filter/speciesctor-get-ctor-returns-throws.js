@@ -30,8 +30,8 @@ features: [Symbol, TypedArray]
 
 var callbackfn = function() { return true; };
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42, 43]);
 
   sample.constructor = 42;
   assert.throws(TypeError, function() {

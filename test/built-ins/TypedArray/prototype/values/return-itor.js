@@ -15,20 +15,20 @@ features: [TypedArray]
 
 var sample = [0, 42, 64];
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var typedArray = new TA(N(sample));
+testWithTypedArrayConstructors(function(TA) {
+  var typedArray = new TA(sample);
   var itor = typedArray.values();
 
   var next = itor.next();
-  assert.sameValue(next.value, N(0));
+  assert.sameValue(next.value, 0);
   assert.sameValue(next.done, false);
 
   next = itor.next();
-  assert.sameValue(next.value, N(42));
+  assert.sameValue(next.value, 42);
   assert.sameValue(next.done, false);
 
   next = itor.next();
-  assert.sameValue(next.value, N(64));
+  assert.sameValue(next.value, 64);
   assert.sameValue(next.done, false);
 
   next = itor.next();

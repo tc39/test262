@@ -29,16 +29,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([42, 43, 43, 41]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([42, 43, 43, 41]);
 
   assert.sameValue(
-    sample.includes(N(43), Infinity),
+    sample.includes(43, Infinity),
     false,
     "includes(43, Infinity)"
   );
   assert.sameValue(
-    sample.includes(N(43), -Infinity),
+    sample.includes(43, -Infinity),
     true,
     "includes(43, -Infinity)");
 });

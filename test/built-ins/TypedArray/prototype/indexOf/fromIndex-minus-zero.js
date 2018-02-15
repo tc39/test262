@@ -21,10 +21,10 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(N([42, 43]));
-  assert.sameValue(sample.indexOf(N(42), -0), 0, "-0 [0]");
-  assert.sameValue(sample.indexOf(N(43), -0), 1, "-0 [1]");
+  sample = new TA([42, 43]);
+  assert.sameValue(sample.indexOf(42, -0), 0, "-0 [0]");
+  assert.sameValue(sample.indexOf(43, -0), 1, "-0 [1]");
 });

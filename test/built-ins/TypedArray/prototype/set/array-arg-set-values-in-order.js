@@ -22,7 +22,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(5);
   var calls = [];
   var obj = {
@@ -32,7 +32,7 @@ testWithTypedArrayConstructors(function(TA, N) {
     get: function() {
       calls.push(0);
       calls.push(sample.join());
-      return N(42);
+      return 42;
     }
   });
 
@@ -40,7 +40,7 @@ testWithTypedArrayConstructors(function(TA, N) {
     get: function() {
       calls.push(1);
       calls.push(sample.join());
-      return N(43);
+      return 43;
     }
   });
 
@@ -48,7 +48,7 @@ testWithTypedArrayConstructors(function(TA, N) {
     get: function() {
       calls.push(2);
       calls.push(sample.join());
-      return N(44);
+      return 44;
     }
   });
 
@@ -61,7 +61,7 @@ testWithTypedArrayConstructors(function(TA, N) {
   sample.set(obj, 1);
 
   assert(
-    compareArray(sample, N([0, 42, 43, 44, 0])),
+    compareArray(sample, [0, 42, 43, 44, 0]),
     "values are set for src length"
   );
 

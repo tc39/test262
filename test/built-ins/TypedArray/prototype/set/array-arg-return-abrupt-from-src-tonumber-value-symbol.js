@@ -22,23 +22,23 @@ includes: [testTypedArray.js, compareArray.js]
 features: [Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var obj = {
       length: 4,
-      "0": N(42),
-      "1": N(43),
+      "0": 42,
+      "1": 43,
       "2": Symbol("1"),
-      "3": N(44)
+      "3": 44
   };
 
-  var sample = new TA(N([1, 2, 3, 4]));
+  var sample = new TA([1, 2, 3, 4]);
 
   assert.throws(TypeError, function() {
     sample.set(obj);
   });
 
   assert(
-    compareArray(sample, N([42, 43, 3, 4])),
+    compareArray(sample, [42, 43, 3, 4]),
     "values are set until exception"
   );
 });

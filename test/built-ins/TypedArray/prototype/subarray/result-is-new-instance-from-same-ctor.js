@@ -12,8 +12,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42, 43]);
   var result = sample.subarray(1);
 
   assert.sameValue(
@@ -25,7 +25,7 @@ testWithTypedArrayConstructors(function(TA, N) {
   assert(result instanceof TA, "instanceof");
 
   assert(
-    compareArray(sample, N([40, 41, 42, 43])),
+    compareArray(sample, [40, 41, 42, 43]),
     "original sample remains the same"
   );
 });

@@ -28,7 +28,7 @@ testWithTypedArrayConstructors(function(TA) {
       }
       $DETACHBUFFER(sample.buffer);
       loops++;
-      return N(0);
+      return 0;
     });
   });
 

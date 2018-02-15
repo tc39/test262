@@ -28,67 +28,67 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3])).copyWithin(0, 1, -1),
-      N([1, 2, 2, 3])
+      new TA([0, 1, 2, 3]).copyWithin(0, 1, -1),
+      [1, 2, 2, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, 1, -1) -> [1, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3, 4])).copyWithin(2, 0, -1),
-      N([0, 1, 0, 1, 2])
+      new TA([0, 1, 2, 3, 4]).copyWithin(2, 0, -1),
+      [0, 1, 0, 1, 2]
     ),
     '[0, 1, 2, 3, 4].copyWithin(2, 0, -1) -> [0, 1, 0, 1, 2]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3, 4])).copyWithin(1, 2, -2),
-      N([0, 2, 2, 3, 4])
+      new TA([0, 1, 2, 3, 4]).copyWithin(1, 2, -2),
+      [0, 2, 2, 3, 4]
     ),
     '[0, 1, 2, 3, 4].copyWithin(1, 2, -2) -> [0, 2, 2, 3, 4]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3])).copyWithin(0, -2, -1),
-      N([2, 1, 2, 3])
+      new TA([0, 1, 2, 3]).copyWithin(0, -2, -1),
+      [2, 1, 2, 3]
     ),
     '[0, 1, 2, 3].copyWithin(0, -2, -1) -> [2, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3, 4])).copyWithin(2, -2, -1),
-      N([0, 1, 3, 3, 4])
+      new TA([0, 1, 2, 3, 4]).copyWithin(2, -2, -1),
+      [0, 1, 3, 3, 4]
     ),
     '[0, 1, 2, 3, 4].copyWithin(2, -2, 1) -> [0, 1, 3, 3, 4]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3])).copyWithin(-3, -2, -1),
-      N([0, 2, 2, 3])
+      new TA([0, 1, 2, 3]).copyWithin(-3, -2, -1),
+      [0, 2, 2, 3]
     ),
     '[0, 1, 2, 3].copyWithin(-3, -2, -1) -> [0, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3, 4])).copyWithin(-2, -3, -1),
-      N([0, 1, 2, 2, 3])
+      new TA([0, 1, 2, 3, 4]).copyWithin(-2, -3, -1),
+      [0, 1, 2, 2, 3]
     ),
     '[0, 1, 2, 3, 4].copyWithin(-2, -3, -1) -> [0, 1, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3, 4])).copyWithin(-5, -2, -1),
-      N([3, 1, 2, 3, 4])
+      new TA([0, 1, 2, 3, 4]).copyWithin(-5, -2, -1),
+      [3, 1, 2, 3, 4]
     ),
     '[0, 1, 2, 3, 4].copyWithin(-5, -2, -1) -> [3, 1, 2, 3, 4]'
   );

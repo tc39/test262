@@ -31,14 +31,14 @@ Object.defineProperty(TypedArray.prototype, "length", {
   }
 });
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   Object.defineProperty(TA.prototype, "length", {
     get: function() {
       throw new Test262Error();
     }
   });
 
-  var sample = new TA(N([42]));
+  var sample = new TA([42]);
 
   Object.defineProperty(sample, "length", {
     get: function() {
@@ -49,6 +49,6 @@ testWithTypedArrayConstructors(function(TA, N) {
 
   assert.sameValue(
     sample.find(function() { return true; }),
-    N(42)
+    42
   );
 });

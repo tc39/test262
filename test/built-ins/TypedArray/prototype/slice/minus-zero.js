@@ -9,15 +9,15 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(N([40, 41, 42, 43]));
+testWithTypedArrayConstructors(function(TA) {
+  var sample = new TA([40, 41, 42, 43]);
 
   assert(
-    compareArray(sample.slice(-0), N([40, 41, 42, 43])),
+    compareArray(sample.slice(-0), [40, 41, 42, 43]),
     "start == -0"
   );
   assert(
-    compareArray(sample.slice(-0, 4), N([40, 41, 42, 43])),
+    compareArray(sample.slice(-0, 4), [40, 41, 42, 43]),
     "start == -0, end == length"
   );
   assert(

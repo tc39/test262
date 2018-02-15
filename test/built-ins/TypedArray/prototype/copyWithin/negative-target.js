@@ -26,27 +26,27 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3])).copyWithin(-1, 0),
-      N([0, 1, 2, 0])
+      new TA([0, 1, 2, 3]).copyWithin(-1, 0),
+      [0, 1, 2, 0]
     ),
     '[0, 1, 2, 3].copyWithin(-1, 0) -> [0, 1, 2, 0]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3, 4])).copyWithin(-2, 2),
-      N([0, 1, 2, 2, 3])
+      new TA([0, 1, 2, 3, 4]).copyWithin(-2, 2),
+      [0, 1, 2, 2, 3]
     ),
     '[0, 1, 2, 3, 4].copyWithin(-2, 2) -> [0, 1, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(N([0, 1, 2, 3])).copyWithin(-1, 2),
-      N([0, 1, 2, 2])
+      new TA([0, 1, 2, 3]).copyWithin(-1, 2),
+      [0, 1, 2, 2]
     ),
     '[0, 1, 2, 3].copyWithin(-1, 2) -> [0, 1, 2, 2]'
   );
