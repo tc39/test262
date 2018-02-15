@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.13
+esid: sec-%typedarray%.prototype.indexof
 description: >
   %TypedArray%.prototype.indexOf.length is 1.
 info: |

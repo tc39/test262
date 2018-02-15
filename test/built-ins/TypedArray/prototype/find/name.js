@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.10
+esid: sec-%typedarray%.prototype.find
 description: >
   %TypedArray%.prototype.find.name is "find".
 info: |

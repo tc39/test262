@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.11
+esid: sec-%typedarray%.prototype.findindex
 description: >
   %TypedArray%.prototype.findIndex.name is "findIndex".
 info: |

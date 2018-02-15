@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.9
+esid: sec-%typedarray%.prototype.filter
 description: >
   %TypedArray%.prototype.filter.name is "filter".
 info: |

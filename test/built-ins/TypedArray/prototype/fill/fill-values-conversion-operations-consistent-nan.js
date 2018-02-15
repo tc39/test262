@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.fill
-es6id: 22.2.3.8
 description: Consistent canonicalization of NaN values
 info: |
   22.2.3.8 %TypedArray%.prototype.fill (value [ , start [ , end ] ] )

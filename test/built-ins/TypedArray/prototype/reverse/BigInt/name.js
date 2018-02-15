@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.21
+esid: sec-%typedarray%.prototype.reverse
 description: >
   %TypedArray%.prototype.reverse.name is "reverse".
 info: |

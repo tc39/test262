@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.19
+esid: sec-%typedarray%.prototype.reduce
 description: >
   %TypedArray%.prototype.reduce.name is "reduce".
 info: |

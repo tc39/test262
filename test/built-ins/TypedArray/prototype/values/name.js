@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.29
+esid: sec-%typedarray%.prototype.values
 description: >
   %TypedArray%.prototype.values.name is "values".
 info: |

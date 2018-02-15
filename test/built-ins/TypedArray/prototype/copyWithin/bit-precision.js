@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-%typedarray%.prototype.copywithin
-es6id: 22.2.3.5
 description: Preservation of bit-level encoding
 info: |
   Array.prototype.copyWithin (target, start [ , end ] )

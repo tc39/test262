@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.5
+esid: sec-%typedarray%.prototype.copywithin
 description: >
   %TypedArray%.prototype.copyWithin.name is "copyWithin".
 info: |

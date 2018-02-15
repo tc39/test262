@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.25
+esid: sec-%typedarray%.prototype.sort
 description: >
   %TypedArray%.prototype.sort.name is "sort".
 info: |

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.2
+esid: sec-get-%typedarray%.prototype.bytelength
 description: >
   get %TypedArray%.prototype.byteLength.name is "get byteLength".
 info: |
