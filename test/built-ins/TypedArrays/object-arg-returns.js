@@ -42,4 +42,6 @@ testWithTypedArrayConstructors(function(TA) {
     assert.sameValue(typedArray[1], 0);
     assert.sameValue(typedArray[4], 0);
   }
-});
+},
+  // Cannot create Big*64Arrays from non-safe integers.
+  numericTypedArrayConstructors);

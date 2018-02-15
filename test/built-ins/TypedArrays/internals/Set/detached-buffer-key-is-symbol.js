@@ -17,8 +17,8 @@ features: [Symbol, Reflect, TypedArray]
 
 var s = Symbol("1");
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43]));
   $DETACHBUFFER(sample.buffer);
 
   assert.sameValue(Reflect.set(sample, s, "test262"), true);

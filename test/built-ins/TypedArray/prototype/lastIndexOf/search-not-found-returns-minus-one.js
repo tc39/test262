@@ -25,18 +25,18 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample;
 
-  sample = new TA([42, 43, 42, 41]);
-  assert.sameValue(sample.lastIndexOf(44), -1, "lastIndexOf(44)");
-  assert.sameValue(sample.lastIndexOf(44, -4), -1, "lastIndexOf(44, -4)");
-  assert.sameValue(sample.lastIndexOf(44, -5), -1, "lastIndexOf(44, -5)");
-  assert.sameValue(sample.lastIndexOf(42, -5), -1, "lastIndexOf(42, -5)");
-  assert.sameValue(sample.lastIndexOf(43, -4), -1, "lastIndexOf(43, -4)");
-  assert.sameValue(sample.lastIndexOf(43, -5), -1, "lastIndexOf(43, -5)");
-  assert.sameValue(sample.lastIndexOf(41, 0), -1, "lastIndexOf(41, 0)");
-  assert.sameValue(sample.lastIndexOf(41, 1), -1, "lastIndexOf(41, 1)");
-  assert.sameValue(sample.lastIndexOf(41, 2), -1, "lastIndexOf(41, 2)");
-  assert.sameValue(sample.lastIndexOf(43, 0), -1, "lastIndexOf(43, 0)");
+  sample = new TA(N([42, 43, 42, 41]));
+  assert.sameValue(sample.lastIndexOf(N(44)), -1, "lastIndexOf(44)");
+  assert.sameValue(sample.lastIndexOf(N(44), -4), -1, "lastIndexOf(44, -4)");
+  assert.sameValue(sample.lastIndexOf(N(44), -5), -1, "lastIndexOf(44, -5)");
+  assert.sameValue(sample.lastIndexOf(N(42), -5), -1, "lastIndexOf(42, -5)");
+  assert.sameValue(sample.lastIndexOf(N(43), -4), -1, "lastIndexOf(43, -4)");
+  assert.sameValue(sample.lastIndexOf(N(43), -5), -1, "lastIndexOf(43, -5)");
+  assert.sameValue(sample.lastIndexOf(N(41), 0), -1, "lastIndexOf(41, 0)");
+  assert.sameValue(sample.lastIndexOf(N(41), 1), -1, "lastIndexOf(41, 1)");
+  assert.sameValue(sample.lastIndexOf(N(41), 2), -1, "lastIndexOf(41, 2)");
+  assert.sameValue(sample.lastIndexOf(N(43), 0), -1, "lastIndexOf(43, 0)");
 });

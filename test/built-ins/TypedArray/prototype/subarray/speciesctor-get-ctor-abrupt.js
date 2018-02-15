@@ -25,8 +25,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([40, 41, 42, 43]));
 
   Object.defineProperty(sample, "constructor", {
     get: function() {

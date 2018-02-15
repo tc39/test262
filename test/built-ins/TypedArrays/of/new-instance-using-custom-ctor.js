@@ -8,7 +8,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var called = 0;
 
   var ctor = function(len) {
@@ -18,11 +18,11 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
 
-  var result = TA.of.call(ctor, 42, 43, 42);
+  var result = TA.of.call(ctor, N(42), N(43), N(42));
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], 42);
-  assert.sameValue(result[1], 43);
-  assert.sameValue(result[2], 42);
+  assert.sameValue(result[0], N(42));
+  assert.sameValue(result[1], N(43));
+  assert.sameValue(result[2], N(42));
   assert.sameValue(result.constructor, TA);
   assert.sameValue(called, 1);
 });

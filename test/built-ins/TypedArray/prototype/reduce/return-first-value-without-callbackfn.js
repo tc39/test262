@@ -31,12 +31,12 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var called = false;
-  var result = new TA([42]).reduce(function() {
+  var result = new TA(N([42])).reduce(function() {
     called = true;
   });
 
-  assert.sameValue(result, 42);
+  assert.sameValue(result, N(42));
   assert.sameValue(called, false);
 });

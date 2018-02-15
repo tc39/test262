@@ -27,16 +27,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([44, 43, 42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([44, 43, 42]));
 
   sample.reduceRight(function(a, v, i) {
     if (i > 0) {
-      sample[i-1] = 42;
+      sample[i-1] = N(42);
     }
 
     assert.sameValue(
-      v, 42, "method does not cache values before callbackfn calls"
+      v, N(42), "method does not cache values before callbackfn calls"
     );
   }, 0);
 });

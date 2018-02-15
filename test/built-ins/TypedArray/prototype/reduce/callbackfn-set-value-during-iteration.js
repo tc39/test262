@@ -18,24 +18,24 @@ includes: [testTypedArray.js]
 features: [Reflect.set, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43, 44]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43, 44]));
   var newVal = 0;
 
   sample.reduce(function(acc, val, i) {
     if (i > 0) {
       assert.sameValue(
-        sample[i - 1], newVal - 1,
+        sample[i - 1], N(newVal - 1),
         "get the changed value during the loop"
       );
       assert.sameValue(
-        Reflect.set(sample, 0, 7),
+        Reflect.set(sample, 0, N(7)),
         true,
         "re-set a value for sample[0]"
       );
     }
     assert.sameValue(
-      Reflect.set(sample, i, newVal),
+      Reflect.set(sample, i, N(newVal)),
       true,
       "set value during iteration"
     );
@@ -43,7 +43,7 @@ testWithTypedArrayConstructors(function(TA) {
     newVal++;
   }, 0);
 
-  assert.sameValue(sample[0], 7, "changed values after iteration [0] == 7");
-  assert.sameValue(sample[1], 1, "changed values after iteration [1] == 1");
-  assert.sameValue(sample[2], 2, "changed values after iteration [2] == 2");
+  assert.sameValue(sample[0], N(7), "changed values after iteration [0] == 7");
+  assert.sameValue(sample[1], N(1), "changed values after iteration [1] == 1");
+  assert.sameValue(sample[2], N(2), "changed values after iteration [2] == 2");
 });

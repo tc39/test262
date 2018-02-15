@@ -32,16 +32,19 @@ features: [Symbol.species, TypedArray]
 
 var arr = [42, 43, 44];
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(arr);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N(arr));
   var other = TA === Int8Array ? Uint8Array : Int8Array;
+  if (typeof BigInt !== "undefined") {
+    other = TA === BigInt64Array ? BigUint64Array :
+            TA === BigUint64Array ? BigInt64Array : other;
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = other;
 
   var result = sample.slice();
 
-  assert(compareArray(result, arr), "values are set");
+  assert(compareArray(result, N(arr)), "values are set");
   assert.notSameValue(result.buffer, sample.buffer, "creates a new buffer");
   assert.sameValue(result.constructor, other, "used the custom ctor");
 });

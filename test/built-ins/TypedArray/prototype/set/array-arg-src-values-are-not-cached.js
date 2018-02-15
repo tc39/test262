@@ -22,26 +22,26 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var sample = new TA(5);
   var obj = {
     length: 5,
-    '1': 7,
-    '2': 7,
-    '3': 7,
-    '4': 7
+    '1': N(7),
+    '2': N(7),
+    '3': N(7),
+    '4': N(7)
   };
   Object.defineProperty(obj, 0, {
     get: function() {
-      obj[1] = 43;
-      obj[2] = 44;
-      obj[3] = 45;
-      obj[4] = 46;
-      return 42;
+      obj[1] = N(43);
+      obj[2] = N(44);
+      obj[3] = N(45);
+      obj[4] = N(46);
+      return N(42);
     }
   });
 
   sample.set(obj);
 
-  assert(compareArray(sample, [42, 43, 44, 45, 46]));
+  assert(compareArray(sample, N([42, 43, 44, 45, 46])));
 });

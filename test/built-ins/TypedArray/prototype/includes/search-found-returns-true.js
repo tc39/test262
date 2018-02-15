@@ -29,16 +29,16 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43, 42, 41]);
-  assert.sameValue(sample.includes(42), true, "includes(42)");
-  assert.sameValue(sample.includes(43), true, "includes(43)");
-  assert.sameValue(sample.includes(43, 1), true, "includes(43, 1)");
-  assert.sameValue(sample.includes(42, 1), true, "includes(42, 1)");
-  assert.sameValue(sample.includes(42, 2), true, "includes(42, 2)");
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43, 42, 41]));
+  assert.sameValue(sample.includes(N(42)), true, "includes(42)");
+  assert.sameValue(sample.includes(N(43)), true, "includes(43)");
+  assert.sameValue(sample.includes(N(43), 1), true, "includes(43, 1)");
+  assert.sameValue(sample.includes(N(42), 1), true, "includes(42, 1)");
+  assert.sameValue(sample.includes(N(42), 2), true, "includes(42, 2)");
 
-  assert.sameValue(sample.includes(42, -4), true, "includes(42, -4)");
-  assert.sameValue(sample.includes(42, -3), true, "includes(42, -3)");
-  assert.sameValue(sample.includes(42, -2), true, "includes(42, -2)");
-  assert.sameValue(sample.includes(42, -5), true, "includes(42, -5)");
+  assert.sameValue(sample.includes(N(42), -4), true, "includes(42, -4)");
+  assert.sameValue(sample.includes(N(42), -3), true, "includes(42, -3)");
+  assert.sameValue(sample.includes(N(42), -2), true, "includes(42, -2)");
+  assert.sameValue(sample.includes(N(42), -5), true, "includes(42, -5)");
 });

@@ -25,21 +25,21 @@ includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([0, 0]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([0, 0]));
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "0", {value: 1}),
+    Reflect.defineProperty(sample, "0", {value: N(1)}),
     true,
     "set value for sample[0] returns true"
   );
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "1", {value: 2}),
+    Reflect.defineProperty(sample, "1", {value: N(2)}),
     true,
     "set value for sample[1] returns true"
   );
 
-  assert.sameValue(sample[0], 1, "sample[0]");
-  assert.sameValue(sample[1], 2, "sample[1]");
+  assert.sameValue(sample[0], N(1), "sample[0]");
+  assert.sameValue(sample[1], N(2), "sample[1]");
 });

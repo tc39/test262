@@ -30,28 +30,28 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43, 42, 41]);
-  assert.sameValue(sample.lastIndexOf(42), 2, "lastIndexOf(42)");
-  assert.sameValue(sample.lastIndexOf(43), 1, "lastIndexOf(43)");
-  assert.sameValue(sample.lastIndexOf(41), 3, "lastIndexOf(41)");
-  assert.sameValue(sample.lastIndexOf(41, 3), 3, "lastIndexOf(41, 3)");
-  assert.sameValue(sample.lastIndexOf(41, 4), 3, "lastIndexOf(41, 4)");
-  assert.sameValue(sample.lastIndexOf(43, 1), 1, "lastIndexOf(43, 1)");
-  assert.sameValue(sample.lastIndexOf(43, 2), 1, "lastIndexOf(43, 2)");
-  assert.sameValue(sample.lastIndexOf(43, 3), 1, "lastIndexOf(43, 3)");
-  assert.sameValue(sample.lastIndexOf(43, 4), 1, "lastIndexOf(43, 4)");
-  assert.sameValue(sample.lastIndexOf(42, 0), 0, "lastIndexOf(42, 0)");
-  assert.sameValue(sample.lastIndexOf(42, 1), 0, "lastIndexOf(42, 1)");
-  assert.sameValue(sample.lastIndexOf(42, 2), 2, "lastIndexOf(42, 2)");
-  assert.sameValue(sample.lastIndexOf(42, 3), 2, "lastIndexOf(42, 3)");
-  assert.sameValue(sample.lastIndexOf(42, 4), 2, "lastIndexOf(42, 4)");
-  assert.sameValue(sample.lastIndexOf(42, -4), 0, "lastIndexOf(42, -4)");
-  assert.sameValue(sample.lastIndexOf(42, -3), 0, "lastIndexOf(42, -3)");
-  assert.sameValue(sample.lastIndexOf(42, -2), 2, "lastIndexOf(42, -2)");
-  assert.sameValue(sample.lastIndexOf(42, -1), 2, "lastIndexOf(42, -1)");
-  assert.sameValue(sample.lastIndexOf(43, -3), 1, "lastIndexOf(43, -3)");
-  assert.sameValue(sample.lastIndexOf(43, -2), 1, "lastIndexOf(43, -2)");
-  assert.sameValue(sample.lastIndexOf(43, -1), 1, "lastIndexOf(43, -1)");
-  assert.sameValue(sample.lastIndexOf(41, -1), 3, "lastIndexOf(41, -1)");
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43, 42, 41]));
+  assert.sameValue(sample.lastIndexOf(N(42)), 2, "lastIndexOf(42)");
+  assert.sameValue(sample.lastIndexOf(N(43)), 1, "lastIndexOf(43)");
+  assert.sameValue(sample.lastIndexOf(N(41)), 3, "lastIndexOf(41)");
+  assert.sameValue(sample.lastIndexOf(N(41), 3), 3, "lastIndexOf(41, 3)");
+  assert.sameValue(sample.lastIndexOf(N(41), 4), 3, "lastIndexOf(41, 4)");
+  assert.sameValue(sample.lastIndexOf(N(43), 1), 1, "lastIndexOf(43, 1)");
+  assert.sameValue(sample.lastIndexOf(N(43), 2), 1, "lastIndexOf(43, 2)");
+  assert.sameValue(sample.lastIndexOf(N(43), 3), 1, "lastIndexOf(43, 3)");
+  assert.sameValue(sample.lastIndexOf(N(43), 4), 1, "lastIndexOf(43, 4)");
+  assert.sameValue(sample.lastIndexOf(N(42), 0), 0, "lastIndexOf(42, 0)");
+  assert.sameValue(sample.lastIndexOf(N(42), 1), 0, "lastIndexOf(42, 1)");
+  assert.sameValue(sample.lastIndexOf(N(42), 2), 2, "lastIndexOf(42, 2)");
+  assert.sameValue(sample.lastIndexOf(N(42), 3), 2, "lastIndexOf(42, 3)");
+  assert.sameValue(sample.lastIndexOf(N(42), 4), 2, "lastIndexOf(42, 4)");
+  assert.sameValue(sample.lastIndexOf(N(42), -4), 0, "lastIndexOf(42, -4)");
+  assert.sameValue(sample.lastIndexOf(N(42), -3), 0, "lastIndexOf(42, -3)");
+  assert.sameValue(sample.lastIndexOf(N(42), -2), 2, "lastIndexOf(42, -2)");
+  assert.sameValue(sample.lastIndexOf(N(42), -1), 2, "lastIndexOf(42, -1)");
+  assert.sameValue(sample.lastIndexOf(N(43), -3), 1, "lastIndexOf(43, -3)");
+  assert.sameValue(sample.lastIndexOf(N(43), -2), 1, "lastIndexOf(43, -2)");
+  assert.sameValue(sample.lastIndexOf(N(43), -1), 1, "lastIndexOf(43, -1)");
+  assert.sameValue(sample.lastIndexOf(N(41), -1), 3, "lastIndexOf(41, -1)");
 });

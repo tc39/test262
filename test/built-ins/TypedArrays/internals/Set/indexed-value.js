@@ -32,12 +32,12 @@ var throwDesc = {
 Object.defineProperty(proto, "0", throwDesc);
 Object.defineProperty(proto, "1", throwDesc);
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43]));
 
-  assert.sameValue(Reflect.set(sample, "0", 1), true, "sample[0]");
-  assert.sameValue(sample[0], 1, "sample[0] value is set");
+  assert.sameValue(Reflect.set(sample, "0", N(1)), true, "sample[0]");
+  assert.sameValue(sample[0], N(1), "sample[0] value is set");
 
-  assert.sameValue(Reflect.set(sample, "1", 42), true, "sample[1]");
-  assert.sameValue(sample[1], 42, "sample[1] value is set");
+  assert.sameValue(Reflect.set(sample, "1", N(42)), true, "sample[1]");
+  assert.sameValue(sample[1], N(42), "sample[1] value is set");
 });

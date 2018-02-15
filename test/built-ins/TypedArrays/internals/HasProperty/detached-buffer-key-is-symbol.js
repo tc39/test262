@@ -20,8 +20,8 @@ features: [Reflect, Symbol, TypedArray]
 var s1 = Symbol("foo");
 var s2 = Symbol("bar");
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43]));
   Object.defineProperty(sample, s1, { value: "baz" });
 
   $DETACHBUFFER(sample.buffer);

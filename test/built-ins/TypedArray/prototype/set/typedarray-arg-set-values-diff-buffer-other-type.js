@@ -26,23 +26,26 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var other = TA === Float32Array ? Float64Array : Float32Array;
-  var src = new other([42, 43]);
+  if (typeof BigInt !== "undefined")
+    other = TA === BigInt64Array ? BigUint64Array :
+            TA === BigUint64Array ? BigInt64Array : other;
+  var src = new other(N([42, 43]));
   var sample, result;
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(src, 0);
-  assert(compareArray(sample, [42, 43, 3, 4]), "offset: 0, result: " + sample);
+  assert(compareArray(sample, N([42, 43, 3, 4])), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(src, 1);
-  assert(compareArray(sample, [1, 42, 43, 4]), "offset: 1, result: " + sample);
+  assert(compareArray(sample, N([1, 42, 43, 4])), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA([1, 2, 3, 4]);
+  sample = new TA(N([1, 2, 3, 4]));
   result = sample.set(src, 2);
-  assert(compareArray(sample, [1, 2, 42, 43]), "offset: 2, result: " + sample);
+  assert(compareArray(sample, N([1, 2, 42, 43])), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 });

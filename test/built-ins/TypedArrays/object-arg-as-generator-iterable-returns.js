@@ -16,15 +16,15 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   var obj = (function *() {
-    yield 7; yield 42;
+    yield N(7); yield N(42);
   })();
 
   var typedArray = new TA(obj);
   assert.sameValue(typedArray.length, 2);
-  assert.sameValue(typedArray[0], 7);
-  assert.sameValue(typedArray[1], 42);
+  assert.sameValue(typedArray[0], N(7));
+  assert.sameValue(typedArray[1], N(42));
   assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 });

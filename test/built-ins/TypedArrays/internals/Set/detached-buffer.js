@@ -25,32 +25,32 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42]));
   $DETACHBUFFER(sample.buffer);
 
   assert.throws(TypeError, function() {
-    sample[0] = 1;
+    sample[0] = N(1);
   }, "valid numeric index");
 
   assert.throws(TypeError, function() {
-    sample["1.1"] = 1;
+    sample["1.1"] = N(1);
   }, "detach buffer runs before checking for 1.1");
 
   assert.throws(TypeError, function() {
-    sample["-0"] = 1;
+    sample["-0"] = N(1);
   }, "detach buffer runs before checking for -0");
 
   assert.throws(TypeError, function() {
-    sample["-1"] = 1;
+    sample["-1"] = N(1);
   }, "detach buffer runs before checking for -1");
 
   assert.throws(TypeError, function() {
-    sample["1"] = 1;
+    sample["1"] = N(1);
   }, "detach buffer runs before checking for key == length");
 
   assert.throws(TypeError, function() {
-    sample["2"] = 1;
+    sample["2"] = N(1);
   }, "detach buffer runs before checking for key > length");
 
   var obj = {

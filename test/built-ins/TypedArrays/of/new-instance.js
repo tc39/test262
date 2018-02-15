@@ -23,12 +23,12 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var result = TA.of(42, 43, null);
+testWithTypedArrayConstructors(function(TA, N) {
+  var result = TA.of(N(42), N(43), N(false));
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], 42);
-  assert.sameValue(result[1], 43);
-  assert.sameValue(result[2], 0);
+  assert.sameValue(result[0], N(42));
+  assert.sameValue(result[1], N(43));
+  assert.sameValue(result[2], N(0));
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 });

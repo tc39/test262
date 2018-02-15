@@ -34,11 +34,15 @@ Number.prototype.toLocaleString = function() {
   }
 };
 
+if (typeof BigInt !== "undefined") {
+  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
+}
+
 var arr = [42, 0];
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, N) {
   calls = 0;
-  var sample = new TA(arr);
+  var sample = new TA(N(arr));
   assert.throws(Test262Error, function() {
     sample.toLocaleString();
   });

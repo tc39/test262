@@ -13,22 +13,22 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-var sample = new Int8Array([0, 42, 64]);
+var sample = [0, 42, 64];
 
-testWithTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(sample);
+testWithTypedArrayConstructors(function(TA, N) {
+  var typedArray = new TA(N(sample));
   var itor = typedArray.entries();
 
   var next = itor.next();
-  assert(compareArray(next.value, [0, 0]));
+  assert(compareArray(next.value, [0, N(0)]));
   assert.sameValue(next.done, false);
 
   next = itor.next();
-  assert(compareArray(next.value, [1, 42]));
+  assert(compareArray(next.value, [1, N(42)]));
   assert.sameValue(next.done, false);
 
   next = itor.next();
-  assert(compareArray(next.value, [2, 64]));
+  assert(compareArray(next.value, [2, N(64)]));
   assert.sameValue(next.done, false);
 
   next = itor.next();

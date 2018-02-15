@@ -15,8 +15,8 @@ includes: [testTypedArray.js, propertyHelper.js]
 features: [Reflect, Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43]);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N([42, 43]));
 
   var s1 = Symbol("foo");
   assert.sameValue(

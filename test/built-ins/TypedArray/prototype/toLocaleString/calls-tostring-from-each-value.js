@@ -47,11 +47,15 @@ Number.prototype.toLocaleString = function() {
   };
 };
 
+if (typeof BigInt !== "undefined") {
+  BigInt.prototype.toLocaleString = Number.prototype.toLocaleString;
+}
+
 var arr = [42, 0];
 var expected = ["hacks1", "hacks2"].join(separator);
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(arr);
+testWithTypedArrayConstructors(function(TA, N) {
+  var sample = new TA(N(arr));
   calls = 0;
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert.sameValue(calls, 2, "toString called once for each item");

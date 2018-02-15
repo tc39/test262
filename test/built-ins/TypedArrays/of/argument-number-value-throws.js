@@ -16,23 +16,21 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-var lastValue;
+testWithTypedArrayConstructors(function(TA, N) {
+  var lastValue = false;
 
-var obj1 = {
-  valueOf() {
-    lastValue = "obj1";
-    return 42;
-  }
-};
-var obj2 = {
-  valueOf() {
-    lastValue = "obj2";
-    throw new Test262Error();
-  }
-};
-
-testWithTypedArrayConstructors(function(TA) {
-  lastValue = false;
+  var obj1 = {
+    valueOf() {
+      lastValue = "obj1";
+      return N(42);
+    }
+  };
+  var obj2 = {
+    valueOf() {
+      lastValue = "obj2";
+      throw new Test262Error();
+    }
+  };
 
   assert.throws(Test262Error, function() {
     TA.of(obj1, obj2, obj1);
