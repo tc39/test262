@@ -4,10 +4,10 @@
 esid: sec-get-%typedarray%.prototype.byteoffset
 description: >
   _TypedArray_.prototype has no own property "byteOffset"
-includes: [testTypedArray.js]
-features: [TypedArray]
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(TA.prototype.hasOwnProperty("byteOffset"), false);
 });
