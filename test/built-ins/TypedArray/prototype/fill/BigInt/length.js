@@ -20,6 +20,7 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 assert.sameValue(TypedArray.prototype.fill.length, 1);

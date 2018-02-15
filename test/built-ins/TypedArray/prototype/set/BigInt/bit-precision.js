@@ -16,6 +16,7 @@ info: |
          iii. Set srcByteIndex to srcByteIndex + 1.
          iv. Set targetByteIndex to targetByteIndex + 1.
 includes: [nans.js, compareArray.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 function body(FloatArray) {

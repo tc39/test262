@@ -30,6 +30,7 @@ info: |
   final be min(relativeEnd, len).
   ...
 includes: [compareArray.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

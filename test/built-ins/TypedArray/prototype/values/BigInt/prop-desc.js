@@ -9,6 +9,7 @@ info: |
   26 and in Annex B.2 has the attributes { [[Writable]]: true,
   [[Enumerable]]: false, [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 var TypedArrayPrototype = TypedArray.prototype;

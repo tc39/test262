@@ -25,6 +25,7 @@ info: |
     a. Let Pk be ! ToString(k).
     b. Perform ? Set(O, Pk, value, true).
 includes: [compareArray.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

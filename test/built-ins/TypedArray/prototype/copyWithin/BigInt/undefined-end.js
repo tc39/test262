@@ -23,6 +23,7 @@ info: |
   ToInteger(end).
   ...
 includes: [compareArray.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

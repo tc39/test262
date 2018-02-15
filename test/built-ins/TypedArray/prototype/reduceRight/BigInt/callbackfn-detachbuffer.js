@@ -23,6 +23,7 @@ info: |
       k, O »).
   ...
 includes: [detachArrayBuffer.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

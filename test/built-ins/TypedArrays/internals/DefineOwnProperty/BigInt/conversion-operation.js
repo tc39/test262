@@ -42,6 +42,7 @@ info: |
     e. Else,
       ...
 includes: [byteConversionValues.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testTypedArrayConversions(byteConversionValues, function(TA, value, expected, initial) {

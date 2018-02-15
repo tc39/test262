@@ -22,6 +22,7 @@ info: |
       ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
   ...
 includes: [detachArrayBuffer.js, testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
