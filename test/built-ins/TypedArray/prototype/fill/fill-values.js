@@ -25,6 +25,7 @@ info: |
     a. Let Pk be ! ToString(k).
     b. Perform ? Set(O, Pk, value, true).
 includes: [compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA, N) {

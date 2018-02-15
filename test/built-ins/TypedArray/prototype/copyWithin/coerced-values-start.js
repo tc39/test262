@@ -22,6 +22,7 @@ info: |
   5. Let relativeStart be ? ToInteger(start).
   ...
 includes: [compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA, N) {

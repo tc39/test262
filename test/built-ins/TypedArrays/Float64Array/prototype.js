@@ -11,6 +11,7 @@ info: |
 
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
 includes: [propertyHelper.js]
+features: [TypedArray]
 ---*/
 
 assert.sameValue(Float64Array.prototype, Object.getPrototypeOf(new Float64Array(0)));

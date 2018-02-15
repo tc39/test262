@@ -25,6 +25,7 @@ info: |
   min(relativeStart, len).
   ...
 includes: [compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA, N) {

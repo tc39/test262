@@ -15,6 +15,7 @@ info: |
     the attributes { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true }
     unless otherwise specified.
 includes: [propertyHelper.js]
+features: [TypedArray]
 ---*/
 
 assert.sameValue(Int16Array.prototype.constructor, Int16Array);

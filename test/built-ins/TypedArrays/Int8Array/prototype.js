@@ -11,6 +11,7 @@ info: |
 
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
 includes: [propertyHelper.js]
+features: [TypedArray]
 ---*/
 
 assert.sameValue(Int8Array.prototype, Object.getPrototypeOf(new Int8Array(0)));

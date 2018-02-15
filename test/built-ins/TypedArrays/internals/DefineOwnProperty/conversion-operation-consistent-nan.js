@@ -45,6 +45,7 @@ info: |
         each implementation distinguishable NaN value.
   ...
 includes: [nans.js, testTypedArray.js, compareArray.js]
+features: [TypedArray]
 ---*/
 
 function body(FloatArray) {

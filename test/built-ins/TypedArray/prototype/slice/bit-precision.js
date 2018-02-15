@@ -21,6 +21,7 @@ info: |
          iii. Increase srcByteIndex by 1.
          iv. Increase targetByteIndex by 1.
 includes: [nans.js, compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 function body(FloatArray) {

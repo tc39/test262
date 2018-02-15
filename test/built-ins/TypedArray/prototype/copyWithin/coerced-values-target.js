@@ -22,6 +22,7 @@ info: |
   3. Let relativeTarget be ? ToInteger(target).
   ...
 includes: [compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA, N) {

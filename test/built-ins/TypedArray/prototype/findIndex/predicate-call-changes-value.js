@@ -22,6 +22,7 @@ info: |
     c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
   ...
 includes: [compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA, N) {

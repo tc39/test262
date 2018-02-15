@@ -15,6 +15,7 @@ info: |
     the attributes { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true }
     unless otherwise specified.
 includes: [propertyHelper.js]
+features: [TypedArray]
 ---*/
 
 assert.sameValue(Float32Array.prototype.constructor, Float32Array);
