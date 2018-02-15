@@ -17,7 +17,7 @@ var BigIntTypedArrayConstructors = [
  * The %TypedArray% intrinsic constructor function.
  */
 var TypedArray = Object.getPrototypeOf(Int8Array);
-  
+
 function convertToBigInt(x) {
   return (Array.isArray(x)) ? x.map(convertToBigInt) : BigInt(x);
 }
@@ -74,4 +74,3 @@ function testBigIntTypedArrayConversions(byteConversionValues, fn) {
     });
   });
 }
-  
