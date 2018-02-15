@@ -19,11 +19,11 @@ if (typeof Object.prototype.toString !== "function") {
 }
 
 //CHECK#2
-if (Object.prototype.toString() !=="[object "+"Object"+"]") {
+if (Object.prototype.toString() !== "[object " + "Object" + "]") {
   $ERROR('#2: return a string value by concatenating the three strings "[object ", the [[Class]] property of this object, and "]"');
 }
 
 //CHECK#3
-if ({}.toString()!=="[object "+"Object"+"]") {
+if ({}.toString() !== "[object " + "Object" + "]") {
   $ERROR('#3: return a string value by concatenating the three strings "[object ", the [[Class]] property of this object, and "]"');
 }
