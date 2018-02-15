@@ -18,7 +18,8 @@ var xnum = 3;
 for (var i = 0; i < xnum; i++)
 {
   assert.sameValue(
-    Math.atan2(y, x[i]), -0,
+    Math.atan2(y, x[i]),
+    -0,
     "(-0, " + x[i] + ")"
   );
 }
