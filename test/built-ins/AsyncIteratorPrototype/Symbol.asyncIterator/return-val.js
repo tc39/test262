@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Valerie Young. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: sec-asynciteratorprototype-asynciterator
+esid: sec-asynciteratorprototype-asynciterator
 description: Return value of @@asyncIterator
 info: |
   %AsyncIteratorPrototype% [ @@asyncIterator ] ( )
