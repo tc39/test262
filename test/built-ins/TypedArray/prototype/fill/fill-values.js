@@ -38,7 +38,7 @@ testWithTypedArrayConstructors(function(TA) {
   );
 
   assert(
-    compareArray(new TA([0, 0, 0])).fill(8), [8, 8, 8],
+    compareArray(new TA([0, 0, 0]).fill(8), [8, 8, 8]),
     "Default start and end indexes are 0 and this.length"
   );
 });
