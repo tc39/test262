@@ -30,7 +30,7 @@ includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-var arr = [42n 43n, 44n];
+var arr = [42n, 43n, 44n];
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(arr);
