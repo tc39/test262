@@ -15,6 +15,7 @@ info: |
     the attributes { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true }
     unless otherwise specified.
 includes: [propertyHelper.js]
+features: [TypedArray]
 ---*/
 
 assert.sameValue(Int8Array.prototype.constructor, Int8Array);

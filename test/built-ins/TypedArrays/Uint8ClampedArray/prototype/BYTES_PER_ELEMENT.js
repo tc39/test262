@@ -12,6 +12,7 @@ info: |
 
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
 includes: [propertyHelper.js]
+features: [TypedArray]
 ---*/
 
 assert.sameValue(Uint8ClampedArray.prototype.BYTES_PER_ELEMENT, 1);

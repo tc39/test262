@@ -1,0 +1,27 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-%typedarray%.prototype.fill
+description: >
+  Fills all the elements with non numeric values values.
+info: |
+  22.2.3.8 %TypedArray%.prototype.fill (value [ , start [ , end ] ] )
+
+  ...
+  3. Let _value_ be ? ToNumber(_value_).
+  ...
+includes: [testBigIntTypedArray.js]
+features: [BigInt, TypedArray]
+---*/
+
+testWithBigIntTypedArrayConstructors(function(TA) {
+  var sample = new TA(2);
+
+  var n = 1n;
+  sample.fill({ valueOf() { return n++; } });
+
+  assert.sameValue(n, 2n, "additional unexpected ToNumber() calls");
+  assert.sameValue(sample[0], 1n, "incorrect ToNumber result in index 0");
+  assert.sameValue(sample[1], 1n, "incorrect ToNumber result in index 1");
+});
+

@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-%typedarray%.prototype.copywithin
-es6id: 22.2.3.5
 description: Preservation of bit-level encoding
 info: |
   Array.prototype.copyWithin (target, start [ , end ] )
@@ -14,6 +13,7 @@ info: |
       i. Let fromVal be ? Get(O, fromKey).
       ii. Perform ? Set(O, toKey, fromVal, true).
 includes: [nans.js, compareArray.js, testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 function body(FloatArray) {
