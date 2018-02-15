@@ -21,8 +21,8 @@ var obj = [7, 42];
 testWithTypedArrayConstructors(function(TA) {
   var typedArray = new TA(convertToBigInt(obj));
   assert.sameValue(typedArray.length, 2);
-  assert.sameValue(typedArray[0], convertToBigInt(7));
-  assert.sameValue(typedArray[1], convertToBigInt(42));
+  assert.sameValue(typedArray[0], 7n);
+  assert.sameValue(typedArray[1], 42n);
   assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 });

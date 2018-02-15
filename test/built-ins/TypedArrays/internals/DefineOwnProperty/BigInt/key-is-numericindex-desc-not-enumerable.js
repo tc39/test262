@@ -31,5 +31,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     false,
     "defineProperty's result"
   );
-  assert.sameValue(sample[0], convertToBigInt(0), "side effect check");
+  assert.sameValue(sample[0], 0n, "side effect check");
 });

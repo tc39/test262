@@ -19,7 +19,7 @@ features: [BigInt, Reflect.set, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 44]));
+  var sample = new TA([42n, 43n, 44n]);
   var newVal = 0;
 
   sample.reduceRight(function(acc, val, i) {
@@ -29,7 +29,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
         "get the changed value during the loop"
       );
       assert.sameValue(
-        Reflect.set(sample, 2, convertToBigInt(7)),
+        Reflect.set(sample, 2, 7n),
         true,
         "re-set a value for sample[2]"
       );
@@ -43,7 +43,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     newVal++;
   }, 0);
 
-  assert.sameValue(sample[0], convertToBigInt(2), "changed values after iteration [0] == 2");
-  assert.sameValue(sample[1], convertToBigInt(1), "changed values after iteration [1] == 1");
-  assert.sameValue(sample[2], convertToBigInt(7), "changed values after iteration [2] == 7");
+  assert.sameValue(sample[0], 2n, "changed values after iteration [0] == 2");
+  assert.sameValue(sample[1], 1n, "changed values after iteration [1] == 1");
+  assert.sameValue(sample[2], 7n, "changed values after iteration [2] == 7");
 });

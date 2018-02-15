@@ -28,7 +28,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       }
       $DETACHBUFFER(sample.buffer);
       loops++;
-      return convertToBigInt(0);
+      return 0n;
     });
   });
 

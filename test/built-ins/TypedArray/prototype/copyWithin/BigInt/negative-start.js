@@ -29,48 +29,48 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(0, -1),
-      convertToBigInt([3, 1, 2, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, -1),
+      [3n, 1n, 2n, 3n]
     ),
     '[0, 1, 2, 3].copyWithin(0, -1) -> [3, 1, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3, 4])).copyWithin(2, -2),
-      convertToBigInt([0, 1, 3, 4, 4])
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, -2),
+      [0n, 1n, 3n, 4n, 4n]
     ),
     '[0, 1, 2, 3, 4].copyWithin(2, -2) -> [0, 1, 3, 4, 4]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3, 4])).copyWithin(1, -2),
-      convertToBigInt([0, 3, 4, 3, 4])
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(1, -2),
+      [0n, 3n, 4n, 3n, 4n]
     ),
     '[0, 1, 2, 3, 4].copyWithin(1, -2) -> [0, 3, 4, 3, 4]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(-1, -2),
-      convertToBigInt([0, 1, 2, 2])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-1, -2),
+      [0n, 1n, 2n, 2n]
     ),
     '[0, 1, 2, 3].copyWithin(-1, -2) -> [ 0, 1, 2, 2 ]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3, 4])).copyWithin(-2, -3),
-      convertToBigInt([0, 1, 2, 2, 3])
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-2, -3),
+      [0n, 1n, 2n, 2n, 3n]
     ),
     '[0, 1, 2, 3, 4].copyWithin(-2, -3) -> [0, 1, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3, 4])).copyWithin(-5, -2),
-      convertToBigInt([3, 4, 2, 3, 4])
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-5, -2),
+      [3n, 4n, 2n, 3n, 4n]
     ),
     '[0, 1, 2, 3, 4].copyWithin(-5, -2) -> [3, 4, 2, 3, 4]'
   );

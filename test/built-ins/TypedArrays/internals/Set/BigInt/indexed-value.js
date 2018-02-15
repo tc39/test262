@@ -33,11 +33,11 @@ Object.defineProperty(proto, "0", throwDesc);
 Object.defineProperty(proto, "1", throwDesc);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43]));
+  var sample = new TA([42n, 43n]);
 
-  assert.sameValue(Reflect.set(sample, "0", convertToBigInt(1)), true, "sample[0]");
-  assert.sameValue(sample[0], convertToBigInt(1), "sample[0] value is set");
+  assert.sameValue(Reflect.set(sample, "0", 1n), true, "sample[0]");
+  assert.sameValue(sample[0], 1n, "sample[0] value is set");
 
-  assert.sameValue(Reflect.set(sample, "1", convertToBigInt(42)), true, "sample[1]");
-  assert.sameValue(sample[1], convertToBigInt(42), "sample[1] value is set");
+  assert.sameValue(Reflect.set(sample, "1", 42n), true, "sample[1]");
+  assert.sameValue(sample[1], 42n, "sample[1] value is set");
 });

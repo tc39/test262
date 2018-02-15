@@ -25,8 +25,8 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 43, 41]));
+  var sample = new TA([42n, 43n, 43n, 41n]);
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), Infinity), 2, "lastIndexOf(43, Infinity)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), -Infinity), -1, "lastIndexOf(43, -Infinity)");
+  assert.sameValue(sample.lastIndexOf(43n, Infinity), 2, "lastIndexOf(43, Infinity)");
+  assert.sameValue(sample.lastIndexOf(43n, -Infinity), -1, "lastIndexOf(43, -Infinity)");
 });

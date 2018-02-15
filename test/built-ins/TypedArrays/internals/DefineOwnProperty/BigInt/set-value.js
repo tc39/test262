@@ -26,20 +26,20 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([0, 0]));
+  var sample = new TA([0n, 0n]);
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "0", {value: convertToBigInt(1)}),
+    Reflect.defineProperty(sample, "0", {value: 1n}),
     true,
     "set value for sample[0] returns true"
   );
 
   assert.sameValue(
-    Reflect.defineProperty(sample, "1", {value: convertToBigInt(2)}),
+    Reflect.defineProperty(sample, "1", {value: 2n}),
     true,
     "set value for sample[1] returns true"
   );
 
-  assert.sameValue(sample[0], convertToBigInt(1), "sample[0]");
-  assert.sameValue(sample[1], convertToBigInt(2), "sample[1]");
+  assert.sameValue(sample[0], 1n, "sample[0]");
+  assert.sameValue(sample[1], 2n, "sample[1]");
 });

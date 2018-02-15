@@ -23,7 +23,7 @@ var expectedThis = (function() {
 })();
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 42, 42, 42, 42]));
+  var sample = new TA([42n, 42n, 42n, 42n, 42n]);
   var calls = [];
 
   var comparefn = function() {
@@ -36,7 +36,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   calls.forEach(function(args) {
     assert.sameValue(args[0], expectedThis, "comparefn is called no specific this");
     assert.sameValue(args[1].length, 2, "comparefn is always called with 2 args");
-    assert.sameValue(args[1][0], convertToBigInt(42), "x is a listed value");
-    assert.sameValue(args[1][0], convertToBigInt(42), "y is a listed value");
+    assert.sameValue(args[1][0], 42n, "x is a listed value");
+    assert.sameValue(args[1][0], 42n, "y is a listed value");
   });
 });

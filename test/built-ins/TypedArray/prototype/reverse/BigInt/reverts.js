@@ -25,33 +25,33 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(buffer, 0, 4);
   var other = new TA(buffer, 0, 5);
 
-  sample[0] = convertToBigInt(42);
-  sample[1] = convertToBigInt(43);
-  sample[2] = convertToBigInt(2);
-  sample[3] = convertToBigInt(1);
-  other[4] = convertToBigInt(7);
+  sample[0] = 42n;
+  sample[1] = 43n;
+  sample[2] = 2n;
+  sample[3] = 1n;
+  other[4] = 7n;
 
   sample.reverse();
   assert(
-    compareArray(sample, convertToBigInt([1, 2, 43, 42]))
+    compareArray(sample, [1n, 2n, 43n, 42n])
   );
 
   assert(
-    compareArray(other, convertToBigInt([1, 2, 43, 42, 7]))
+    compareArray(other, [1n, 2n, 43n, 42n, 7n])
   );
 
-  sample[0] = convertToBigInt(7);
-  sample[1] = convertToBigInt(17);
-  sample[2] = convertToBigInt(1);
-  sample[3] = convertToBigInt(0);
-  other[4] = convertToBigInt(42);
+  sample[0] = 7n;
+  sample[1] = 17n;
+  sample[2] = 1n;
+  sample[3] = 0n;
+  other[4] = 42n;
 
   other.reverse();
   assert(
-    compareArray(other, convertToBigInt([42, 0, 1, 17, 7]))
+    compareArray(other, [42n, 0n, 1n, 17n, 7n])
   );
 
   assert(
-    compareArray(sample, convertToBigInt([42, 0, 1, 17]))
+    compareArray(sample, [42n, 0n, 1n, 17n])
   );
 });

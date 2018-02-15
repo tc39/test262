@@ -27,8 +27,8 @@ Object.defineProperty(proto, "0", throwDesc);
 Object.defineProperty(proto, "1", throwDesc);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 1]));
+  var sample = new TA([42n, 1n]);
 
-  assert.sameValue(sample["0"], convertToBigInt(42));
-  assert.sameValue(sample["1"], convertToBigInt(1));
+  assert.sameValue(sample["0"], 42n);
+  assert.sameValue(sample["1"], 1n);
 });

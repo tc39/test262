@@ -32,15 +32,15 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 42, 41]));
-  assert.sameValue(sample.indexOf(convertToBigInt(42)), 0, "indexOf(42)");
-  assert.sameValue(sample.indexOf(convertToBigInt(43)), 1, "indexOf(43)");
-  assert.sameValue(sample.indexOf(convertToBigInt(43), 1), 1, "indexOf(43, 1)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), 1), 2, "indexOf(42, 1)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), 2), 2, "indexOf(42, 2)");
+  var sample = new TA([42n, 43n, 42n, 41n]);
+  assert.sameValue(sample.indexOf(42n), 0, "indexOf(42)");
+  assert.sameValue(sample.indexOf(43n), 1, "indexOf(43)");
+  assert.sameValue(sample.indexOf(43n, 1), 1, "indexOf(43, 1)");
+  assert.sameValue(sample.indexOf(42n, 1), 2, "indexOf(42, 1)");
+  assert.sameValue(sample.indexOf(42n, 2), 2, "indexOf(42, 2)");
 
-  assert.sameValue(sample.indexOf(convertToBigInt(42), -4), 0, "indexOf(42, -4)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), -3), 2, "indexOf(42, -3)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), -2), 2, "indexOf(42, -2)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), -5), 0, "indexOf(42, -5)");
+  assert.sameValue(sample.indexOf(42n, -4), 0, "indexOf(42, -4)");
+  assert.sameValue(sample.indexOf(42n, -3), 2, "indexOf(42, -3)");
+  assert.sameValue(sample.indexOf(42n, -2), 2, "indexOf(42, -2)");
+  assert.sameValue(sample.indexOf(42n, -5), 0, "indexOf(42, -5)");
 });

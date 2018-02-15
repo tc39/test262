@@ -19,7 +19,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43]));
+  var sample = new TA([42n, 43n]);
   Object.defineProperty(sample, "bar", { value: 42 });
 
   $DETACHBUFFER(sample.buffer);

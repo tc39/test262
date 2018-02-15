@@ -24,7 +24,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43]));
+  var sample = new TA([42n, 43n]);
 
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "1.1"), undefined);
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "0.1"), undefined);

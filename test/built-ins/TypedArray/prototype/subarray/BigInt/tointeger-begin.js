@@ -20,28 +20,28 @@ var obj = {
 };
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
-  assert(compareArray(sample.subarray(false), convertToBigInt([40, 41, 42, 43])), "false");
-  assert(compareArray(sample.subarray(true), convertToBigInt([41, 42, 43])), "true");
+  assert(compareArray(sample.subarray(false), [40n, 41n, 42n, 43n]), "false");
+  assert(compareArray(sample.subarray(true), [41n, 42n, 43n]), "true");
 
-  assert(compareArray(sample.subarray(NaN), convertToBigInt([40, 41, 42, 43])), "NaN");
-  assert(compareArray(sample.subarray(null), convertToBigInt([40, 41, 42, 43])), "null");
-  assert(compareArray(sample.subarray(undefined), convertToBigInt([40, 41, 42, 43])), "undefined");
+  assert(compareArray(sample.subarray(NaN), [40n, 41n, 42n, 43n]), "NaN");
+  assert(compareArray(sample.subarray(null), [40n, 41n, 42n, 43n]), "null");
+  assert(compareArray(sample.subarray(undefined), [40n, 41n, 42n, 43n]), "undefined");
 
-  assert(compareArray(sample.subarray(1.1), convertToBigInt([41, 42, 43])), "1.1");
-  assert(compareArray(sample.subarray(1.5), convertToBigInt([41, 42, 43])), "1.5");
-  assert(compareArray(sample.subarray(0.6), convertToBigInt([40, 41, 42, 43])), "0.6");
+  assert(compareArray(sample.subarray(1.1), [41n, 42n, 43n]), "1.1");
+  assert(compareArray(sample.subarray(1.5), [41n, 42n, 43n]), "1.5");
+  assert(compareArray(sample.subarray(0.6), [40n, 41n, 42n, 43n]), "0.6");
 
-  assert(compareArray(sample.subarray(-1.5), convertToBigInt([43])), "-1.5");
-  assert(compareArray(sample.subarray(-1.1), convertToBigInt([43])), "-1.1");
-  assert(compareArray(sample.subarray(-0.6), convertToBigInt([40, 41, 42, 43])), "-0.6");
+  assert(compareArray(sample.subarray(-1.5), [43n]), "-1.5");
+  assert(compareArray(sample.subarray(-1.1), [43n]), "-1.1");
+  assert(compareArray(sample.subarray(-0.6), [40n, 41n, 42n, 43n]), "-0.6");
 
-  assert(compareArray(sample.subarray("3"), convertToBigInt([43])), "string");
+  assert(compareArray(sample.subarray("3"), [43n]), "string");
   assert(
     compareArray(
       sample.subarray(obj),
-      convertToBigInt([42, 43])
+      [42n, 43n]
     ),
     "object"
   );

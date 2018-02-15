@@ -25,20 +25,20 @@ features: [BigInt, Symbol, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var obj = {
       length: 4,
-      "0": convertToBigInt(42),
-      "1": convertToBigInt(43),
+      "0": 42n,
+      "1": 43n,
       "2": Symbol("1"),
-      "3": convertToBigInt(44)
+      "3": 44n
   };
 
-  var sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  var sample = new TA([1n, 2n, 3n, 4n]);
 
   assert.throws(TypeError, function() {
     sample.set(obj);
   });
 
   assert(
-    compareArray(sample, convertToBigInt([42, 43, 3, 4])),
+    compareArray(sample, [42n, 43n, 3n, 4n]),
     "values are set until exception"
   );
 });

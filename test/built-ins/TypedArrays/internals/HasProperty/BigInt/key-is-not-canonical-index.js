@@ -43,7 +43,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
     delete TypedArray.prototype[key];
 
-    Object.defineProperty(sample, key, {value: convertToBigInt(42)});
+    Object.defineProperty(sample, key, {value: 42n});
 
     assert.sameValue(
       Reflect.has(sample, key), true,

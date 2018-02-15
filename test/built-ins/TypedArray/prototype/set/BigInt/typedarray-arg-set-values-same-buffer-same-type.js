@@ -33,21 +33,21 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample, src, result;
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   src = new TA(sample.buffer, 0, 2);
   result = sample.set(src, 0);
-  assert(compareArray(sample, convertToBigInt([1, 2, 3, 4])), "offset: 0, result: " + sample);
+  assert(compareArray(sample, [1n, 2n, 3n, 4n]), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   src = new TA(sample.buffer, 0, 2);
   result = sample.set(src, 1);
-  assert(compareArray(sample, convertToBigInt([1, 1, 2, 4])), "offset: 1, result: " + sample);
+  assert(compareArray(sample, [1n, 1n, 2n, 4n]), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   src = new TA(sample.buffer, 0, 2);
   result = sample.set(src, 2);
-  assert(compareArray(sample, convertToBigInt([1, 2, 1, 2])), "offset: 2, result: " + sample);
+  assert(compareArray(sample, [1n, 2n, 1n, 2n]), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 });

@@ -29,24 +29,24 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(-1, 0),
-      convertToBigInt([0, 1, 2, 0])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-1, 0),
+      [0n, 1n, 2n, 0n]
     ),
     '[0, 1, 2, 3].copyWithin(-1, 0) -> [0, 1, 2, 0]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3, 4])).copyWithin(-2, 2),
-      convertToBigInt([0, 1, 2, 2, 3])
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-2, 2),
+      [0n, 1n, 2n, 2n, 3n]
     ),
     '[0, 1, 2, 3, 4].copyWithin(-2, 2) -> [0, 1, 2, 2, 3]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(-1, 2),
-      convertToBigInt([0, 1, 2, 2])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-1, 2),
+      [0n, 1n, 2n, 2n]
     ),
     '[0, 1, 2, 3].copyWithin(-1, 2) -> [0, 1, 2, 2]'
   );

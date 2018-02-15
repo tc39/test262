@@ -19,7 +19,7 @@ var s1 = Symbol("1");
 var s2 = Symbol("2");
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   assert.sameValue(
     Reflect.set(sample, s1, "ecma262"),

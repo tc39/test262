@@ -10,10 +10,10 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
   assert(
-    compareArray(sample.subarray(-Infinity), convertToBigInt([40, 41, 42, 43])),
+    compareArray(sample.subarray(-Infinity), [40n, 41n, 42n, 43n]),
     "begin == -Infinity"
   );
   assert(
@@ -25,7 +25,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     "end == -Infinity"
   );
   assert(
-    compareArray(sample.subarray(0, Infinity), convertToBigInt([40, 41, 42, 43])),
+    compareArray(sample.subarray(0, Infinity), [40n, 41n, 42n, 43n]),
     "end == Infinity"
   );
 });

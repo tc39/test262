@@ -19,11 +19,11 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 42]));
+  var sample = new TA([42n, 42n]);
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0", {
-      value: convertToBigInt(8),
+      value: 8n,
       configurable: false,
       enumerable: true,
       writable: true
@@ -31,10 +31,10 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     true
   );
 
-  assert.sameValue(sample[0], convertToBigInt(8), "property value was set");
+  assert.sameValue(sample[0], 8n, "property value was set");
   var desc = Object.getOwnPropertyDescriptor(sample, "0");
 
-  assert.sameValue(desc.value, convertToBigInt(8), "desc.value");
+  assert.sameValue(desc.value, 8n, "desc.value");
   assert.sameValue(desc.writable, true, "property is writable");
 
   verifyEnumerable(sample, "0");

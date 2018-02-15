@@ -29,48 +29,48 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1, 0, null),
-      convertToBigInt([0, 1, 2, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, null),
+      [0n, 1n, 2n, 3n]
     ),
     'null value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1, 0, NaN),
-      convertToBigInt([0, 1, 2, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, NaN),
+      [0n, 1n, 2n, 3n]
     ),
     'NaN value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1, 0, false),
-      convertToBigInt([0, 1, 2, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, false),
+      [0n, 1n, 2n, 3n]
     ),
     'false value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1, 0, true),
-      convertToBigInt([0, 0, 2, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, true),
+      [0n, 0n, 2n, 3n]
     ),
     'true value coerced to 1'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1, 0, '-2'),
-      convertToBigInt([0, 0, 1, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, '-2'),
+      [0n, 0n, 1n, 3n]
     ),
     'string "-2" value coerced to integer -2'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1, 0, -2.5),
-      convertToBigInt([0, 0, 1, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, -2.5),
+      [0n, 0n, 1n, 3n]
     ),
     'float -2.5 value coerced to integer -2'
   );

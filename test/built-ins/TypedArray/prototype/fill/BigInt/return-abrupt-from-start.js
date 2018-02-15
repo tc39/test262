@@ -36,6 +36,6 @@ var start = {
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
   assert.throws(Test262Error, function() {
-    sample.fill(convertToBigInt(1), start);
+    sample.fill(1n, start);
   });
 });

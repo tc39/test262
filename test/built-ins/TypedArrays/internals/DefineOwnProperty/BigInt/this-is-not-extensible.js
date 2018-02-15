@@ -18,7 +18,7 @@ features: [BigInt, Reflect, Symbol, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43]));
+  var sample = new TA([42n, 43n]);
 
   Object.preventExtensions(sample);
 

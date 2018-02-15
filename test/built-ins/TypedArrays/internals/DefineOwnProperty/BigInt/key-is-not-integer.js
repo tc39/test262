@@ -29,7 +29,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     false,
     "0.1"
   );
-  assert.sameValue(sample[0], convertToBigInt(0), "'0.1' - does not change the value for [0]");
+  assert.sameValue(sample[0], 0n, "'0.1' - does not change the value for [0]");
   assert.sameValue(
     sample["0.1"],
     undefined,
@@ -47,7 +47,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     "0.000001"
   );
   assert.sameValue(
-    sample[0], convertToBigInt(0),
+    sample[0], 0n,
     "'0.000001' - does not change the value for [0]"
   );
   assert.sameValue(
@@ -66,7 +66,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     false,
     "1.1"
   );
-  assert.sameValue(sample[1], convertToBigInt(0), "'1.1' - does not change the value for [1]");
+  assert.sameValue(sample[1], 0n, "'1.1' - does not change the value for [1]");
   assert.sameValue(
     sample["1.1"],
     undefined,
@@ -84,11 +84,11 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     "Infinity"
   );
   assert.sameValue(
-    sample[0], convertToBigInt(0),
+    sample[0], 0n,
     "'Infinity' - does not change the value for [0]"
   );
   assert.sameValue(
-    sample[1], convertToBigInt(0),
+    sample[1], 0n,
     "'Infinity' - does not change the value for [1]"
   );
   assert.sameValue(
@@ -108,11 +108,11 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     "-Infinity"
   );
   assert.sameValue(
-    sample[0], convertToBigInt(0),
+    sample[0], 0n,
     "'-Infinity' - does not change the value for [0]"
   );
   assert.sameValue(
-    sample[1], convertToBigInt(0),
+    sample[1], 0n,
     "'-Infinity' - does not change the value for [1]"
   );
   assert.sameValue(

@@ -13,7 +13,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
   function testRes(result, msg) {
     assert.sameValue(result.length, 0, msg);

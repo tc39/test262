@@ -24,10 +24,10 @@ features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sourceItor = convertToBigInt([1, 2]);
+  var sourceItor = [1n, 2n];
   var sourceObj = {
-    0: convertToBigInt(0),
-    1: convertToBigInt(0),
+    0: 0n,
+    1: 0n,
     length: 2
   };
 

@@ -40,7 +40,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var calls, result;
 
   calls = 0;
-  result = new TA(convertToBigInt([1, 2, 3])).reduceRight(function() {
+  result = new TA([1n, 2n, 3n]).reduceRight(function() {
     calls++;
 
     if (calls == 2) {
@@ -50,7 +50,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(result, 42, "using default accumulator");
 
   calls = 0;
-  result = new TA(convertToBigInt([1, 2, 3])).reduceRight(function() {
+  result = new TA([1n, 2n, 3n]).reduceRight(function() {
     calls++;
 
     if (calls == 3) {

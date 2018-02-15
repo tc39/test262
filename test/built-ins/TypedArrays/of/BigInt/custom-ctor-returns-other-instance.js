@@ -25,9 +25,9 @@ testWithTypedArrayConstructors(function(TA) {
     return custom;
   };
 
-  result = TypedArray.of.call(ctor, convertToBigInt(1), convertToBigInt(2), convertToBigInt(3));
+  result = TypedArray.of.call(ctor, 1n, 2n, 3n);
   assert.sameValue(result, custom, "using iterator, same length");
 
-  result = TypedArray.of.call(ctor, convertToBigInt(1), convertToBigInt(2));
+  result = TypedArray.of.call(ctor, 1n, 2n);
   assert.sameValue(result, custom, "using iterator, higher length");
 });

@@ -37,7 +37,7 @@ features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40]));
+  var sample = new TA([40n]);
   var other = new Int8Array([1, 0, 1]);
   var result;
 

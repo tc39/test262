@@ -18,7 +18,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample1 = new TA(convertToBigInt([42, 42, 42]));
+  var sample1 = new TA([42n, 42n, 42n]);
   var result1 = Reflect.ownKeys(sample1);
   assert(compareArray(result1, ["0", "1", "2"]), "result1");
 

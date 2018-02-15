@@ -29,7 +29,7 @@ features: [BigInt, Symbol, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([39, 2, 62]));
+  var sample = new TA([39n, 2n, 62n]);
   var called, result;
 
   called = 0;
@@ -37,29 +37,29 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     called++;
     return true;
   });
-  assert.sameValue(result, convertToBigInt(39), "returned true on sample[0]");
+  assert.sameValue(result, 39n, "returned true on sample[0]");
   assert.sameValue(called, 1, "predicate was called once");
 
   called = 0;
   result = sample.find(function(val) {
     called++;
-    return val === convertToBigInt(62);
+    return val === 62n;
   });
   assert.sameValue(called, 3, "predicate was called three times");
-  assert.sameValue(result, convertToBigInt(62), "returned true on sample[3]");
+  assert.sameValue(result, 62n, "returned true on sample[3]");
 
   result = sample.find(function() { return "string"; });
-  assert.sameValue(result, convertToBigInt(39), "ToBoolean(string)");
+  assert.sameValue(result, 39n, "ToBoolean(string)");
 
   result = sample.find(function() { return {}; });
-  assert.sameValue(result, convertToBigInt(39), "ToBoolean(object)");
+  assert.sameValue(result, 39n, "ToBoolean(object)");
 
   result = sample.find(function() { return Symbol(""); });
-  assert.sameValue(result, convertToBigInt(39), "ToBoolean(symbol)");
+  assert.sameValue(result, 39n, "ToBoolean(symbol)");
 
   result = sample.find(function() { return 1; });
-  assert.sameValue(result, convertToBigInt(39), "ToBoolean(number)");
+  assert.sameValue(result, 39n, "ToBoolean(number)");
 
   result = sample.find(function() { return -1; });
-  assert.sameValue(result, convertToBigInt(39), "ToBoolean(negative number)");
+  assert.sameValue(result, 39n, "ToBoolean(negative number)");
 });

@@ -34,10 +34,10 @@ features: [BigInt, TypedArray]
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var called = false;
-  var result = new TA(convertToBigInt([42])).reduceRight(function() {
+  var result = new TA([42n]).reduceRight(function() {
     called = true;
   });
 
-  assert.sameValue(result, convertToBigInt(42));
+  assert.sameValue(result, 42n);
   assert.sameValue(called, false);
 });

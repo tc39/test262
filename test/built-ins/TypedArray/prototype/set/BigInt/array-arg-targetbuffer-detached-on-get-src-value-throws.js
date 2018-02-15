@@ -23,10 +23,10 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([1, 2, 3]));
+  var sample = new TA([1n, 2n, 3n]);
   var obj = {
     length: 3,
-    "0": convertToBigInt(42)
+    "0": 42n
   };
   Object.defineProperty(obj, 1, {
     get: function() {

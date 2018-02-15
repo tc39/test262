@@ -21,7 +21,7 @@ features: [BigInt, TypedArray]
 var origToString = Number.prototype.toString;
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([20, 100, 3]));
+  var sample = new TA([20n, 100n, 3n]);
   var result = sample.sort();
-  assert(compareArray(result, convertToBigInt([3, 20, 100])));
+  assert(compareArray(result, [3n, 20n, 100n]));
 });

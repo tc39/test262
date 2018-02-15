@@ -34,9 +34,9 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert(compareArray(new TA(convertToBigInt([0, 0, 0])).fill(convertToBigInt(8), 1, 2), convertToBigInt([0, 8, 0])));
-  assert(compareArray(new TA(convertToBigInt([0, 0, 0, 0, 0])).fill(convertToBigInt(8), -3, 4), convertToBigInt([0, 0, 8, 8, 0])));
-  assert(compareArray(new TA(convertToBigInt([0, 0, 0, 0, 0])).fill(convertToBigInt(8), -2, -1), convertToBigInt([0, 0, 0, 8, 0])));
-  assert(compareArray(new TA(convertToBigInt([0, 0, 0, 0, 0])).fill(convertToBigInt(8), -1, -3), convertToBigInt([0, 0, 0, 0, 0])));
-  assert(compareArray(new TA(convertToBigInt([0, 0, 0, 0, 0])).fill(convertToBigInt(8), 1, 3), convertToBigInt([0, 8, 8, 0, 0])));
+  assert(compareArray(new TA([0n, 0n, 0n]).fill(8n, 1, 2), [0n, 8n, 0n]));
+  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, -3, 4), [0n, 0n, 8n, 8n, 0n]));
+  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, -2, -1), [0n, 0n, 0n, 8n, 0n]));
+  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, -1, -3), [0n, 0n, 0n, 0n, 0n]));
+  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, 1, 3), [0n, 8n, 8n, 0n, 0n]));
 });

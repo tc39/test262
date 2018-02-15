@@ -32,7 +32,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     get: function() {
       calls.push(0);
       calls.push(sample.join());
-      return convertToBigInt(42);
+      return 42n;
     }
   });
 
@@ -40,7 +40,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     get: function() {
       calls.push(1);
       calls.push(sample.join());
-      return convertToBigInt(43);
+      return 43n;
     }
   });
 
@@ -48,7 +48,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     get: function() {
       calls.push(2);
       calls.push(sample.join());
-      return convertToBigInt(44);
+      return 44n;
     }
   });
 
@@ -61,7 +61,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample.set(obj, 1);
 
   assert(
-    compareArray(sample, convertToBigInt([0, 42, 43, 44, 0])),
+    compareArray(sample, [0n, 42n, 43n, 44n, 0n]),
     "values are set for src length"
   );
 

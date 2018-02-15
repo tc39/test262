@@ -31,9 +31,9 @@ features: [BigInt, TypedArray]
 
 testWithTypedArrayConstructors(function(TA) {
   var obj = {
-    "0": convertToBigInt(0),
-    "1": convertToBigInt(1),
-    "2": convertToBigInt(2),
+    "0": 0n,
+    "1": 1n,
+    "2": 2n,
     length: 3
   };
 

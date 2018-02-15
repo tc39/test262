@@ -37,7 +37,7 @@ features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42]));
+  var sample = new TA([40n, 41n, 42n]);
   var calls = 0;
   var other, result;
 
@@ -52,5 +52,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(calls, 1, "ctor called once");
   assert.sameValue(result, other, "return is instance of custom constructor");
-  assert(compareArray(result, convertToBigInt([40, 41, 42])), "values are set on the new obj");
+  assert(compareArray(result, [40n, 41n, 42n]), "values are set on the new obj");
 });

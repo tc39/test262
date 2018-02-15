@@ -30,22 +30,22 @@ features: [BigInt, TypedArray]
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
-    compareArray(new TA(convertToBigInt([0, 0, 0])).fill(convertToBigInt(8), 1), convertToBigInt([0, 8, 8])),
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, 1), [0n, 8n, 8n]),
     "Fill elements from custom start position"
   );
 
   assert(
-    compareArray(new TA(convertToBigInt([0, 0, 0])).fill(convertToBigInt(8), 4), convertToBigInt([0, 0, 0])),
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, 4), [0n, 0n, 0n]),
     "start position is never higher than length"
   );
 
   assert(
-    compareArray(new TA(convertToBigInt([0, 0, 0])).fill(convertToBigInt(8), -1), convertToBigInt([0, 0, 8])),
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, -1), [0n, 0n, 8n]),
     "start < 0 sets initial position to max((len + relativeStart), 0)"
   );
 
   assert(
-    compareArray(new TA(convertToBigInt([0, 0, 0])).fill(convertToBigInt(8), -5), convertToBigInt([8, 8, 8])),
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, -5), [8n, 8n, 8n]),
     "start position is 0 when (len + relativeStart) < 0"
   );
 });

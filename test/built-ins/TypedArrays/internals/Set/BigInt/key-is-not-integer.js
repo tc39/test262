@@ -24,7 +24,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   assert.sameValue(Reflect.set(sample, "1.1", 1), false, "1.1");
   assert.sameValue(Reflect.set(sample, "0.0001", 1), false, "0.0001");

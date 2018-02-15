@@ -22,32 +22,32 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(0, 1, 6),
-      convertToBigInt([1, 2, 3, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, 6),
+      [1n, 2n, 3n, 3n]
     ),
     '[0, 1, 2, 3].copyWithin(0, 1, 6) -> [1, 2, 3, 3]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([1, 2, 3, 4, 5])).copyWithin(0, 1, Infinity),
-      convertToBigInt([2, 3, 4, 5, 5])
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, 1, Infinity),
+      [2n, 3n, 4n, 5n, 5n]
     ),
     '[1, 2, 3, 4, 5].copyWithin(0, 1, Infinity) -> [2, 3, 4, 5, 5]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3, 4, 5])).copyWithin(1, 3, 6),
-      convertToBigInt([0, 3, 4, 5, 4, 5])
+      new TA([0n, 1n, 2n, 3n, 4n, 5n]).copyWithin(1, 3, 6),
+      [0n, 3n, 4n, 5n, 4n, 5n]
     ),
     '[0, 1, 2, 3, 4, 5].copyWithin(1, 3, 6) -> [0, 3, 4, 5, 4, 5]'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([1, 2, 3, 4, 5])).copyWithin(1, 3, Infinity),
-      convertToBigInt([1, 4, 5, 4, 5])
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(1, 3, Infinity),
+      [1n, 4n, 5n, 4n, 5n]
     ),
     '[1, 2, 3, 4, 5].copyWithin(1, 3, Infinity) -> [1, 4, 5, 4, 5]'
   );

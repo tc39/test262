@@ -24,7 +24,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   assert.sameValue(Reflect.set(sample, "-0", 1), false, "-0");
   assert.sameValue(sample.hasOwnProperty("-0"), false, "has no property [-0]");

@@ -21,7 +21,7 @@ TypedArray.prototype[3] = 42;
 TypedArray.prototype.bar = 42;
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample1 = new TA(convertToBigInt([42, 42, 42]));
+  var sample1 = new TA([42n, 42n, 42n]);
   sample1.test262 = 42;
   sample1.ecma262 = 42;
   var result1 = Reflect.ownKeys(sample1);

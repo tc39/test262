@@ -17,9 +17,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   var result = TA.from(source, mapfn);
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], convertToBigInt(84));
-  assert.sameValue(result[1], convertToBigInt(86));
-  assert.sameValue(result[2], convertToBigInt(84));
+  assert.sameValue(result[0], 84n);
+  assert.sameValue(result[1], 86n);
+  assert.sameValue(result[2], 84n);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 });

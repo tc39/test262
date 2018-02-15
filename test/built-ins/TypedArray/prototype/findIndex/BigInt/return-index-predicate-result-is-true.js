@@ -28,7 +28,7 @@ features: [BigInt, Symbol, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([39, 3, 9]));
+  var sample = new TA([39n, 3n, 9n]);
   var called = 0;
 
   var result = sample.findIndex(function() {
@@ -42,7 +42,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   called = 0;
   result = sample.findIndex(function(val) {
     called++;
-    return val === convertToBigInt(9);
+    return val === 9n;
   });
 
   assert.sameValue(called, 3, "predicate was called three times");

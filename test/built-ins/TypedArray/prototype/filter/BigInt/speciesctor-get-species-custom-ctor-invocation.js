@@ -37,7 +37,7 @@ features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 42, 42]));
+  var sample = new TA([40n, 42n, 42n]);
   var result, ctorThis;
 
   sample.constructor = {};
@@ -47,7 +47,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     return new TA(count);
   };
 
-  sample.filter(function(v) { return v === convertToBigInt(42); });
+  sample.filter(function(v) { return v === 42n; });
 
   assert.sameValue(result.length, 1, "called with 1 argument");
   assert.sameValue(result[0], 2, "[0] is the new captured length");

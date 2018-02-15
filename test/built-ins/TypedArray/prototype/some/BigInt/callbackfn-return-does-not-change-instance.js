@@ -26,13 +26,13 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42]));
+  var sample = new TA([40n, 41n, 42n]);
 
   sample.some(function() {
     return 0;
   });
 
-  assert.sameValue(sample[0], convertToBigInt(40), "[0] == 40");
-  assert.sameValue(sample[1], convertToBigInt(41), "[1] == 41");
-  assert.sameValue(sample[2], convertToBigInt(42), "[2] == 42");
+  assert.sameValue(sample[0], 40n, "[0] == 40");
+  assert.sameValue(sample[1], 41n, "[1] == 41");
+  assert.sameValue(sample[2], 42n, "[2] == 42");
 });

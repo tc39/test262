@@ -20,12 +20,12 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([1, 2, 4]));
+  var sample = new TA([1n, 2n, 4n]);
   var result = sample.map(function(v) {
-    return v * convertToBigInt(3);
+    return v * 3n;
   });
 
-  assert.sameValue(result[0], convertToBigInt(3), "result[0] == 3");
-  assert.sameValue(result[1], convertToBigInt(6), "result[1] == 6");
-  assert.sameValue(result[2], convertToBigInt(12), "result[2] == 12");
+  assert.sameValue(result[0], 3n, "result[0] == 3");
+  assert.sameValue(result[1], 6n, "result[1] == 6");
+  assert.sameValue(result[2], 12n, "result[2] == 12");
 });

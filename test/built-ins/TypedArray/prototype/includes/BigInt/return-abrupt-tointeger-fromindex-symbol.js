@@ -25,9 +25,9 @@ features: [BigInt, Symbol, TypedArray]
 var fromIndex = Symbol("1");
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([7]));
+  var sample = new TA([7n]);
 
   assert.throws(TypeError, function() {
-    sample.includes(convertToBigInt(7), fromIndex);
+    sample.includes(7n, fromIndex);
   });
 });

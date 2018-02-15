@@ -26,22 +26,22 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(5);
   var obj = {
     length: 5,
-    '1': convertToBigInt(7),
-    '2': convertToBigInt(7),
-    '3': convertToBigInt(7),
-    '4': convertToBigInt(7)
+    '1': 7n,
+    '2': 7n,
+    '3': 7n,
+    '4': 7n
   };
   Object.defineProperty(obj, 0, {
     get: function() {
-      obj[1] = convertToBigInt(43);
-      obj[2] = convertToBigInt(44);
-      obj[3] = convertToBigInt(45);
-      obj[4] = convertToBigInt(46);
-      return convertToBigInt(42);
+      obj[1] = 43n;
+      obj[2] = 44n;
+      obj[3] = 45n;
+      obj[4] = 46n;
+      return 42n;
     }
   });
 
   sample.set(obj);
 
-  assert(compareArray(sample, convertToBigInt([42, 43, 44, 45, 46])));
+  assert(compareArray(sample, [42n, 43n, 44n, 45n, 46n]));
 });

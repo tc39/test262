@@ -32,8 +32,8 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 43, 41]));
+  var sample = new TA([42n, 43n, 43n, 41n]);
 
-  assert.sameValue(sample.indexOf(convertToBigInt(43), Infinity), -1, "indexOf(43, Infinity)");
-  assert.sameValue(sample.indexOf(convertToBigInt(43), -Infinity), 1, "indexOf(43, -Infinity)");
+  assert.sameValue(sample.indexOf(43n, Infinity), -1, "indexOf(43, Infinity)");
+  assert.sameValue(sample.indexOf(43n, -Infinity), 1, "indexOf(43, -Infinity)");
 });

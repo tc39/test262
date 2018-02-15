@@ -26,7 +26,7 @@ var obj = {
 };
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var source = [convertToBigInt(42), obj, convertToBigInt(1)];
+  var source = [42n, obj, 1n];
   var lastValue;
   var mapfn = function(kValue) {
     lastValue = kValue;

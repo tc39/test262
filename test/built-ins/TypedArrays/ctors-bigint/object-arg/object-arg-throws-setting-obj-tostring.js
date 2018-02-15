@@ -80,7 +80,7 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(Test262Error, function() {
-    new TA([convertToBigInt(8), sample]);
+    new TA([8n, sample]);
   }, "abrupt completion from ToNumber(sample)");
 
   assert.sameValue(valueOf, 1, "valueOf called once");

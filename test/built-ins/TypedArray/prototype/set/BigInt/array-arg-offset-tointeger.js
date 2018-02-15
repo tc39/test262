@@ -21,75 +21,75 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], "");
-  assert(compareArray(sample, convertToBigInt([42, 2])), "the empty string");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], "");
+  assert(compareArray(sample, [42n, 2n]), "the empty string");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], "0");
-  assert(compareArray(sample, convertToBigInt([42, 2])), "'0'");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], "0");
+  assert(compareArray(sample, [42n, 2n]), "'0'");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], false);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "false");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], false);
+  assert(compareArray(sample, [42n, 2n]), "false");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], 0.1);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "0.1");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], 0.1);
+  assert(compareArray(sample, [42n, 2n]), "0.1");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], 0.9);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "0.9");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], 0.9);
+  assert(compareArray(sample, [42n, 2n]), "0.9");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], -0.5);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "-0.5");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], -0.5);
+  assert(compareArray(sample, [42n, 2n]), "-0.5");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], 1.1);
-  assert(compareArray(sample, convertToBigInt([1, 42])), "1.1");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], 1.1);
+  assert(compareArray(sample, [1n, 42n]), "1.1");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], NaN);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "NaN");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], NaN);
+  assert(compareArray(sample, [42n, 2n]), "NaN");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], null);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "null");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], null);
+  assert(compareArray(sample, [42n, 2n]), "null");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], undefined);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "undefined");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], undefined);
+  assert(compareArray(sample, [42n, 2n]), "undefined");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], {});
-  assert(compareArray(sample, convertToBigInt([42, 2])), "{}");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], {});
+  assert(compareArray(sample, [42n, 2n]), "{}");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], []);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "[]");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], []);
+  assert(compareArray(sample, [42n, 2n]), "[]");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], [0]);
-  assert(compareArray(sample, convertToBigInt([42, 2])), "[0]");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], [0]);
+  assert(compareArray(sample, [42n, 2n]), "[0]");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], true);
-  assert(compareArray(sample, convertToBigInt([1, 42])), "true");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], true);
+  assert(compareArray(sample, [1n, 42n]), "true");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], "1");
-  assert(compareArray(sample, convertToBigInt([1, 42])), "'1'");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], "1");
+  assert(compareArray(sample, [1n, 42n]), "'1'");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], [1]);
-  assert(compareArray(sample, convertToBigInt([1, 42])), "[1]");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], [1]);
+  assert(compareArray(sample, [1n, 42n]), "[1]");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], { valueOf: function() {return 1;} });
-  assert(compareArray(sample, convertToBigInt([1, 42])), "valueOf");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], { valueOf: function() {return 1;} });
+  assert(compareArray(sample, [1n, 42n]), "valueOf");
 
-  sample = new TA(convertToBigInt([1, 2]));
-  sample.set([convertToBigInt(42)], { toString: function() {return 1;} });
-  assert(compareArray(sample, convertToBigInt([1, 42])), "toString");
+  sample = new TA([1n, 2n]);
+  sample.set([42n], { toString: function() {return 1;} });
+  assert(compareArray(sample, [1n, 42n]), "toString");
 });

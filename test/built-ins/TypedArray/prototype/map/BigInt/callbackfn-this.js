@@ -28,7 +28,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   sample.map(function() {
     results1.push(this);
-    return convertToBigInt(0);
+    return 0n;
   });
 
   assert.sameValue(results1.length, 3, "results1");
@@ -40,7 +40,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   sample.map(function() {
     results2.push(this);
-    return convertToBigInt(0);
+    return 0n;
   }, thisArg);
 
   assert.sameValue(results2.length, 3, "results2");

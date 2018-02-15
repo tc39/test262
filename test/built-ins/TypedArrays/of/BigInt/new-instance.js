@@ -24,11 +24,11 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var result = TA.of(convertToBigInt(42), convertToBigInt(43), convertToBigInt(false));
+  var result = TA.of(42n, 43n, convertToBigInt(false));
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], convertToBigInt(42));
-  assert.sameValue(result[1], convertToBigInt(43));
-  assert.sameValue(result[2], convertToBigInt(0));
+  assert.sameValue(result[0], 42n);
+  assert.sameValue(result[1], 43n);
+  assert.sameValue(result[2], 0n);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 });

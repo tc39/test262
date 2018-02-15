@@ -13,14 +13,14 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
   function testRes(result, msg) {
     assert.sameValue(result.length, 4, msg);
-    assert.sameValue(result[0], convertToBigInt(40), msg + " & result[0] === 40");
-    assert.sameValue(result[1], convertToBigInt(41), msg + " & result[1] === 41");
-    assert.sameValue(result[2], convertToBigInt(42), msg + " & result[2] === 42");
-    assert.sameValue(result[3], convertToBigInt(43), msg + " & result[3] === 43");
+    assert.sameValue(result[0], 40n, msg + " & result[0] === 40");
+    assert.sameValue(result[1], 41n, msg + " & result[1] === 41");
+    assert.sameValue(result[2], 42n, msg + " & result[2] === 42");
+    assert.sameValue(result[3], 43n, msg + " & result[3] === 43");
   }
 
   testRes(sample.subarray(0), "begin == 0");

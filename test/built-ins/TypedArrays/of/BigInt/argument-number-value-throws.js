@@ -22,7 +22,7 @@ testWithTypedArrayConstructors(function(TA) {
   var obj1 = {
     valueOf() {
       lastValue = "obj1";
-      return convertToBigInt(42);
+      return 42n;
     }
   };
   var obj2 = {

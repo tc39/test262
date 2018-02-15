@@ -26,7 +26,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
   Object.defineProperty(sample, "constructor", {
     get: function() {

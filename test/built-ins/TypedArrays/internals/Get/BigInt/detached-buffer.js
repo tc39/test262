@@ -18,7 +18,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
   $DETACHBUFFER(sample.buffer);
 
   assert.throws(TypeError, function() {

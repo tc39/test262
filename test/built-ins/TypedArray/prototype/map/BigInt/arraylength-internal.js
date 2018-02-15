@@ -22,7 +22,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   sample1.map(function() {
     loop++;
-    return convertToBigInt(0);
+    return 0n;
   });
   assert.sameValue(loop, 42, "data descriptor");
 
@@ -38,7 +38,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   sample2.map(function() {
     loop++;
-    return convertToBigInt(0);
+    return 0n;
   });
   assert.sameValue(loop, 4, "accessor descriptor");
 });

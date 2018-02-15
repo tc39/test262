@@ -31,7 +31,7 @@ var desc = {
 Object.defineProperty(TypedArray.prototype, "length", desc);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43]));
+  var sample = new TA([42n, 43n]);
   var calls = 0;
 
   Object.defineProperty(TA.prototype, "length", desc);

@@ -26,31 +26,31 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
   $DETACHBUFFER(sample.buffer);
 
   assert.throws(TypeError, function() {
-    sample[0] = convertToBigInt(1);
+    sample[0] = 1n;
   }, "valid numeric index");
 
   assert.throws(TypeError, function() {
-    sample["1.1"] = convertToBigInt(1);
+    sample["1.1"] = 1n;
   }, "detach buffer runs before checking for 1.1");
 
   assert.throws(TypeError, function() {
-    sample["-0"] = convertToBigInt(1);
+    sample["-0"] = 1n;
   }, "detach buffer runs before checking for -0");
 
   assert.throws(TypeError, function() {
-    sample["-1"] = convertToBigInt(1);
+    sample["-1"] = 1n;
   }, "detach buffer runs before checking for -1");
 
   assert.throws(TypeError, function() {
-    sample["1"] = convertToBigInt(1);
+    sample["1"] = 1n;
   }, "detach buffer runs before checking for key == length");
 
   assert.throws(TypeError, function() {
-    sample["2"] = convertToBigInt(1);
+    sample["2"] = 1n;
   }, "detach buffer runs before checking for key > length");
 
   var obj = {

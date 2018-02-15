@@ -25,9 +25,9 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var obj = {
       length: 4,
-      "0": convertToBigInt(42),
-      "1": convertToBigInt(43),
-      "3": convertToBigInt(44)
+      "0": 42n,
+      "1": 43n,
+      "3": 44n
     };
     Object.defineProperty(obj, "2", {
       get: function() {
@@ -35,14 +35,14 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       }
     });
 
-  var sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  var sample = new TA([1n, 2n, 3n, 4n]);
 
   assert.throws(Test262Error, function() {
     sample.set(obj);
   });
 
   assert(
-    compareArray(sample, convertToBigInt([42, 43, 3, 4])),
+    compareArray(sample, [42n, 43n, 3n, 4n]),
     "values are set until exception"
   );
 });

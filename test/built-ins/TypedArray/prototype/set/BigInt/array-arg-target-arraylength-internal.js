@@ -35,7 +35,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   Object.defineProperty(TA.prototype, "length", desc);
   Object.defineProperty(sample, "length", desc);
 
-  sample.set(convertToBigInt([42, 43]));
+  sample.set([42n, 43n]);
 
   assert.sameValue(getCalls, 0, "ignores length properties");
 });

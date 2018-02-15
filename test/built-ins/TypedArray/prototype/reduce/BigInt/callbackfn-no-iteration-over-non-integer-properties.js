@@ -27,7 +27,7 @@ features: [BigInt, Symbol, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([7, 8]));
+  var sample = new TA([7n, 8n]);
 
   var results = [];
 
@@ -43,6 +43,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(results[0][2], 0, "results[0][2] - k");
   assert.sameValue(results[1][2], 1, "results[1][2] - k");
 
-  assert.sameValue(results[0][1], convertToBigInt(7), "results[0][1] - kValue");
-  assert.sameValue(results[1][1], convertToBigInt(8), "results[1][1] - kValue");
+  assert.sameValue(results[0][1], 7n, "results[0][1] - kValue");
+  assert.sameValue(results[1][1], 8n, "results[1][1] - kValue");
 });

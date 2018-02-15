@@ -69,7 +69,7 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(TypeError, function() {
-    new TA([convertToBigInt(8), sample]);
+    new TA([8n, sample]);
   }, "abrupt completion from sample @@toPrimitive");
 
   assert.sameValue(toPrimitive, 1, "toPrimitive was called once");

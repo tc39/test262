@@ -26,7 +26,7 @@ var keys = [
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   keys.forEach(function(key) {
-    var sample = new TA(convertToBigInt([42]));
+    var sample = new TA([42n]);
 
     assert.sameValue(
       Reflect.set(sample, key, "ecma262"),

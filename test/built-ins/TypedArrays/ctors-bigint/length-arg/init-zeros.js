@@ -43,13 +43,13 @@ features: [BigInt, TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var subject = new TA(9);
 
-  assert.sameValue(subject[0], convertToBigInt(0), 'index 0');
-  assert.sameValue(subject[1], convertToBigInt(0), 'index 1');
-  assert.sameValue(subject[2], convertToBigInt(0), 'index 2');
-  assert.sameValue(subject[3], convertToBigInt(0), 'index 3');
-  assert.sameValue(subject[4], convertToBigInt(0), 'index 4');
-  assert.sameValue(subject[5], convertToBigInt(0), 'index 5');
-  assert.sameValue(subject[6], convertToBigInt(0), 'index 6');
-  assert.sameValue(subject[7], convertToBigInt(0), 'index 7');
-  assert.sameValue(subject[8], convertToBigInt(0), 'index 8');
+  assert.sameValue(subject[0], 0n, 'index 0');
+  assert.sameValue(subject[1], 0n, 'index 1');
+  assert.sameValue(subject[2], 0n, 'index 2');
+  assert.sameValue(subject[3], 0n, 'index 3');
+  assert.sameValue(subject[4], 0n, 'index 4');
+  assert.sameValue(subject[5], 0n, 'index 5');
+  assert.sameValue(subject[6], 0n, 'index 6');
+  assert.sameValue(subject[7], 0n, 'index 7');
+  assert.sameValue(subject[8], 0n, 'index 8');
 });

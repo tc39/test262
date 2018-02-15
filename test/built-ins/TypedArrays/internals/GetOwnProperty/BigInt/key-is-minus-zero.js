@@ -30,7 +30,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   // -0 as a number value is converted to "0" before calling [[GetOwnProperty]]
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "-0"), undefined);

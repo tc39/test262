@@ -30,15 +30,15 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 42, 41]));
-  assert.sameValue(sample.includes(convertToBigInt(42)), true, "includes(42)");
-  assert.sameValue(sample.includes(convertToBigInt(43)), true, "includes(43)");
-  assert.sameValue(sample.includes(convertToBigInt(43), 1), true, "includes(43, 1)");
-  assert.sameValue(sample.includes(convertToBigInt(42), 1), true, "includes(42, 1)");
-  assert.sameValue(sample.includes(convertToBigInt(42), 2), true, "includes(42, 2)");
+  var sample = new TA([42n, 43n, 42n, 41n]);
+  assert.sameValue(sample.includes(42n), true, "includes(42)");
+  assert.sameValue(sample.includes(43n), true, "includes(43)");
+  assert.sameValue(sample.includes(43n, 1), true, "includes(43, 1)");
+  assert.sameValue(sample.includes(42n, 1), true, "includes(42, 1)");
+  assert.sameValue(sample.includes(42n, 2), true, "includes(42, 2)");
 
-  assert.sameValue(sample.includes(convertToBigInt(42), -4), true, "includes(42, -4)");
-  assert.sameValue(sample.includes(convertToBigInt(42), -3), true, "includes(42, -3)");
-  assert.sameValue(sample.includes(convertToBigInt(42), -2), true, "includes(42, -2)");
-  assert.sameValue(sample.includes(convertToBigInt(42), -5), true, "includes(42, -5)");
+  assert.sameValue(sample.includes(42n, -4), true, "includes(42, -4)");
+  assert.sameValue(sample.includes(42n, -3), true, "includes(42, -3)");
+  assert.sameValue(sample.includes(42n, -2), true, "includes(42, -2)");
+  assert.sameValue(sample.includes(42n, -5), true, "includes(42, -5)");
 });

@@ -10,11 +10,11 @@ features: [BigInt, TypedArray]
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample1 = new TA();
-  var result1 = sample1.fill(convertToBigInt(1));
+  var result1 = sample1.fill(1n);
 
   assert.sameValue(result1, sample1);
 
   var sample2 = new TA(42);
-  var result2 = sample2.fill(convertToBigInt(7));
+  var result2 = sample2.fill(7n);
   assert.sameValue(result2, sample2);
 });

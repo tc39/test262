@@ -28,64 +28,64 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(undefined, 1),
-      convertToBigInt([1, 2, 3, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(undefined, 1),
+      [1n, 2n, 3n, 3n]
     ),
     'undefined value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(false, 1),
-      convertToBigInt([1, 2, 3, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(false, 1),
+      [1n, 2n, 3n, 3n]
     ),
     'false value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(NaN, 1),
-      convertToBigInt([1, 2, 3, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(NaN, 1),
+      [1n, 2n, 3n, 3n]
     ),
     'NaN value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(null, 1),
-      convertToBigInt([1, 2, 3, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(null, 1),
+      [1n, 2n, 3n, 3n]
     ),
     'null value coerced to 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(true, 0),
-      convertToBigInt([0, 0, 1, 2])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(true, 0),
+      [0n, 0n, 1n, 2n]
     ),
     'true value coerced to 1'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin('1', 0),
-      convertToBigInt([0, 0, 1, 2])
+      new TA([0n, 1n, 2n, 3n]).copyWithin('1', 0),
+      [0n, 0n, 1n, 2n]
     ),
     'string "1" value coerced to 1'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(0.5, 1),
-      convertToBigInt([1, 2, 3, 3])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0.5, 1),
+      [1n, 2n, 3n, 3n]
     ),
     '0.5 float value coerced to integer 0'
   );
 
   assert(
     compareArray(
-      new TA(convertToBigInt([0, 1, 2, 3])).copyWithin(1.5, 0),
-      convertToBigInt([0, 0, 1, 2])
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1.5, 0),
+      [0n, 0n, 1n, 2n]
     ),
     '1.5 float value coerced to integer 1'
   );

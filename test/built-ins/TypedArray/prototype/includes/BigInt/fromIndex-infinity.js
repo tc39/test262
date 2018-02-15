@@ -30,15 +30,15 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 43, 41]));
+  var sample = new TA([42n, 43n, 43n, 41n]);
 
   assert.sameValue(
-    sample.includes(convertToBigInt(43), Infinity),
+    sample.includes(43n, Infinity),
     false,
     "includes(43, Infinity)"
   );
   assert.sameValue(
-    sample.includes(convertToBigInt(43), -Infinity),
+    sample.includes(43n, -Infinity),
     true,
     "includes(43, -Infinity)");
 });

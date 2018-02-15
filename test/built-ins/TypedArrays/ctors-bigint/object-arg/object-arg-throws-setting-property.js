@@ -32,8 +32,8 @@ var obj = {
 };
 
 testWithTypedArrayConstructors(function(TA) {
-  obj[0] = convertToBigInt(0);
-  obj[1] = convertToBigInt(0);
+  obj[0] = 0n;
+  obj[1] = 0n;
   assert.throws(Test262Error, function() {
     new TA(obj);
   });

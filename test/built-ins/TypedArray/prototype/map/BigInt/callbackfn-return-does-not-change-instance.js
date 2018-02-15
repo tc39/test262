@@ -13,13 +13,13 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample1 = new TA(3);
 
-  sample1[1] = convertToBigInt(1);
+  sample1[1] = 1n;
 
   sample1.map(function() {
-    return convertToBigInt(42);
+    return 42n;
   });
 
-  assert.sameValue(sample1[0], convertToBigInt(0), "[0] == 0");
-  assert.sameValue(sample1[1], convertToBigInt(1), "[1] == 1");
-  assert.sameValue(sample1[2], convertToBigInt(0), "[2] == 0");
+  assert.sameValue(sample1[0], 0n, "[0] == 0");
+  assert.sameValue(sample1[1], 1n, "[1] == 1");
+  assert.sameValue(sample1[2], 0n, "[2] == 0");
 });

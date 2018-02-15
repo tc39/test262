@@ -18,11 +18,11 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
 
-  var result = TA.of.call(ctor, convertToBigInt(42), convertToBigInt(43), convertToBigInt(42));
+  var result = TA.of.call(ctor, 42n, 43n, 42n);
   assert.sameValue(result.length, 3);
-  assert.sameValue(result[0], convertToBigInt(42));
-  assert.sameValue(result[1], convertToBigInt(43));
-  assert.sameValue(result[2], convertToBigInt(42));
+  assert.sameValue(result[0], 42n);
+  assert.sameValue(result[1], 43n);
+  assert.sameValue(result[2], 42n);
   assert.sameValue(result.constructor, TA);
   assert.sameValue(called, 1);
 });

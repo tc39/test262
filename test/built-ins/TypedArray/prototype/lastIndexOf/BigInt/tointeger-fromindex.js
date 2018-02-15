@@ -30,28 +30,28 @@ var obj = {
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([42, 43]));
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), "1"), 0, "string [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), "1"), 1, "string [1]");
+  sample = new TA([42n, 43n]);
+  assert.sameValue(sample.lastIndexOf(42n, "1"), 0, "string [0]");
+  assert.sameValue(sample.lastIndexOf(43n, "1"), 1, "string [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), true), 0, "true [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), true), 1, "true [1]");
+  assert.sameValue(sample.lastIndexOf(42n, true), 0, "true [0]");
+  assert.sameValue(sample.lastIndexOf(43n, true), 1, "true [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), false), 0, "false [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), false), -1, "false [1]");
+  assert.sameValue(sample.lastIndexOf(42n, false), 0, "false [0]");
+  assert.sameValue(sample.lastIndexOf(43n, false), -1, "false [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), NaN), 0, "NaN [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), NaN), -1, "NaN [1]");
+  assert.sameValue(sample.lastIndexOf(42n, NaN), 0, "NaN [0]");
+  assert.sameValue(sample.lastIndexOf(43n, NaN), -1, "NaN [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), null), 0, "null [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), null), -1, "null [1]");
+  assert.sameValue(sample.lastIndexOf(42n, null), 0, "null [0]");
+  assert.sameValue(sample.lastIndexOf(43n, null), -1, "null [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), undefined), 0, "undefined [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), undefined), -1, "undefined [1]");
+  assert.sameValue(sample.lastIndexOf(42n, undefined), 0, "undefined [0]");
+  assert.sameValue(sample.lastIndexOf(43n, undefined), -1, "undefined [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), null), 0, "null [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), null), -1, "null [1]");
+  assert.sameValue(sample.lastIndexOf(42n, null), 0, "null [0]");
+  assert.sameValue(sample.lastIndexOf(43n, null), -1, "null [1]");
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), obj), 0, "object [0]");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), obj), 1, "object [1]");
+  assert.sameValue(sample.lastIndexOf(42n, obj), 0, "object [0]");
+  assert.sameValue(sample.lastIndexOf(43n, obj), 1, "object [1]");
 });

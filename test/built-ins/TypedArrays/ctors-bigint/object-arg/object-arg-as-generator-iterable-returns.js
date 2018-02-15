@@ -18,13 +18,13 @@ features: [BigInt, TypedArray]
 
 testWithTypedArrayConstructors(function(TA) {
   var obj = (function *() {
-    yield convertToBigInt(7); yield convertToBigInt(42);
+    yield 7n; yield 42n;
   })();
 
   var typedArray = new TA(obj);
   assert.sameValue(typedArray.length, 2);
-  assert.sameValue(typedArray[0], convertToBigInt(7));
-  assert.sameValue(typedArray[1], convertToBigInt(42));
+  assert.sameValue(typedArray[0], 7n);
+  assert.sameValue(typedArray[1], 42n);
   assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 });

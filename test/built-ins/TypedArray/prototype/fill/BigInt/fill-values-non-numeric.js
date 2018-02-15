@@ -39,34 +39,34 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([42]));
+  sample = new TA([42n]);
   sample.fill(false);
-  assert.sameValue(sample[0], convertToBigInt(0), "false => 0");
+  assert.sameValue(sample[0], 0n, "false => 0");
 
-  sample = new TA(convertToBigInt([42]));
+  sample = new TA([42n]);
   sample.fill(true);
-  assert.sameValue(sample[0], convertToBigInt(1), "true => 1");
+  assert.sameValue(sample[0], 1n, "true => 1");
 
-  sample = new TA(convertToBigInt([42]));
+  sample = new TA([42n]);
   sample.fill("7");
-  assert.sameValue(sample[0], convertToBigInt(7), "string conversion");
+  assert.sameValue(sample[0], 7n, "string conversion");
 
-  sample = new TA(convertToBigInt([42]));
+  sample = new TA([42n]);
   sample.fill({
     toString: function() {
       return "1";
     },
     valueOf: function() {
-      return convertToBigInt(7);
+      return 7n;
     }
   });
-  assert.sameValue(sample[0], convertToBigInt(7), "object valueOf conversion before toString");
+  assert.sameValue(sample[0], 7n, "object valueOf conversion before toString");
 
-  sample = new TA(convertToBigInt([42]));
+  sample = new TA([42n]);
   sample.fill({
     toString: function() {
       return "7";
     }
   });
-  assert.sameValue(sample[0], convertToBigInt(7), "object toString when valueOf is absent");
+  assert.sameValue(sample[0], 7n, "object toString when valueOf is absent");
 });

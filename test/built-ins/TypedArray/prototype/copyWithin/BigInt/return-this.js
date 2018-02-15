@@ -29,7 +29,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(result1, sample1);
 
-  var sample2 = new TA(convertToBigInt([1, 2, 3]));
+  var sample2 = new TA([1n, 2n, 3n]);
   var result2 = sample2.copyWithin(1, 0);
 
   assert.sameValue(result2, sample2);

@@ -15,7 +15,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([2, 1]));
+  var sample = new TA([2n, 1n]);
   var result = sample.sort();
 
   assert.sameValue(sample, result, "without comparefn");

@@ -27,9 +27,9 @@ Object.defineProperty(TypedArray.prototype, "byteOffset", desc);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
-  var src = new TA(convertToBigInt([42, 43]));
+  var src = new TA([42n, 43n]);
   var other = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
-  var src2 = new other(convertToBigInt([42, 43]));
+  var src2 = new other([42n, 43n]);
   var src3 = new other(sample.buffer, 0, 2);
 
   Object.defineProperty(TA.prototype, "byteOffset", desc);

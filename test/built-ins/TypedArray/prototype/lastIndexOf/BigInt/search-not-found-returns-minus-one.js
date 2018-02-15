@@ -28,15 +28,15 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([42, 43, 42, 41]));
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(44)), -1, "lastIndexOf(44)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(44), -4), -1, "lastIndexOf(44, -4)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(44), -5), -1, "lastIndexOf(44, -5)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(42), -5), -1, "lastIndexOf(42, -5)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), -4), -1, "lastIndexOf(43, -4)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), -5), -1, "lastIndexOf(43, -5)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(41), 0), -1, "lastIndexOf(41, 0)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(41), 1), -1, "lastIndexOf(41, 1)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(41), 2), -1, "lastIndexOf(41, 2)");
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(43), 0), -1, "lastIndexOf(43, 0)");
+  sample = new TA([42n, 43n, 42n, 41n]);
+  assert.sameValue(sample.lastIndexOf(44n), -1, "lastIndexOf(44)");
+  assert.sameValue(sample.lastIndexOf(44n, -4), -1, "lastIndexOf(44, -4)");
+  assert.sameValue(sample.lastIndexOf(44n, -5), -1, "lastIndexOf(44, -5)");
+  assert.sameValue(sample.lastIndexOf(42n, -5), -1, "lastIndexOf(42, -5)");
+  assert.sameValue(sample.lastIndexOf(43n, -4), -1, "lastIndexOf(43, -4)");
+  assert.sameValue(sample.lastIndexOf(43n, -5), -1, "lastIndexOf(43, -5)");
+  assert.sameValue(sample.lastIndexOf(41n, 0), -1, "lastIndexOf(41, 0)");
+  assert.sameValue(sample.lastIndexOf(41n, 1), -1, "lastIndexOf(41, 1)");
+  assert.sameValue(sample.lastIndexOf(41n, 2), -1, "lastIndexOf(41, 2)");
+  assert.sameValue(sample.lastIndexOf(43n, 0), -1, "lastIndexOf(43, 0)");
 });

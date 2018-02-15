@@ -8,46 +8,46 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
   function testRes(result, expected, msg) {
     assert(compareArray(result, expected), msg + ", result: [" + result + "]");
   }
 
-  testRes(sample.slice(1), convertToBigInt([41, 42, 43]), "begin == 1");
-  testRes(sample.slice(2), convertToBigInt([42, 43]), "begin == 2");
-  testRes(sample.slice(3), convertToBigInt([43]), "begin == 3");
+  testRes(sample.slice(1), [41n, 42n, 43n], "begin == 1");
+  testRes(sample.slice(2), [42n, 43n], "begin == 2");
+  testRes(sample.slice(3), [43n], "begin == 3");
 
-  testRes(sample.slice(1, 4), convertToBigInt([41, 42, 43]), "begin == 1, end == length");
-  testRes(sample.slice(2, 4), convertToBigInt([42, 43]), "begin == 2, end == length");
-  testRes(sample.slice(3, 4), convertToBigInt([43]), "begin == 3, end == length");
+  testRes(sample.slice(1, 4), [41n, 42n, 43n], "begin == 1, end == length");
+  testRes(sample.slice(2, 4), [42n, 43n], "begin == 2, end == length");
+  testRes(sample.slice(3, 4), [43n], "begin == 3, end == length");
 
-  testRes(sample.slice(0, 1), convertToBigInt([40]), "begin == 0, end == 1");
-  testRes(sample.slice(0, 2), convertToBigInt([40, 41]), "begin == 0, end == 2");
-  testRes(sample.slice(0, 3), convertToBigInt([40, 41, 42]), "begin == 0, end == 3");
+  testRes(sample.slice(0, 1), [40n], "begin == 0, end == 1");
+  testRes(sample.slice(0, 2), [40n, 41n], "begin == 0, end == 2");
+  testRes(sample.slice(0, 3), [40n, 41n, 42n], "begin == 0, end == 3");
 
-  testRes(sample.slice(-1), convertToBigInt([43]), "begin == -1");
-  testRes(sample.slice(-2), convertToBigInt([42, 43]), "begin == -2");
-  testRes(sample.slice(-3), convertToBigInt([41, 42, 43]), "begin == -3");
+  testRes(sample.slice(-1), [43n], "begin == -1");
+  testRes(sample.slice(-2), [42n, 43n], "begin == -2");
+  testRes(sample.slice(-3), [41n, 42n, 43n], "begin == -3");
 
-  testRes(sample.slice(-1, 4), convertToBigInt([43]), "begin == -1, end == length");
-  testRes(sample.slice(-2, 4), convertToBigInt([42, 43]), "begin == -2, end == length");
-  testRes(sample.slice(-3, 4), convertToBigInt([41, 42, 43]), "begin == -3, end == length");
+  testRes(sample.slice(-1, 4), [43n], "begin == -1, end == length");
+  testRes(sample.slice(-2, 4), [42n, 43n], "begin == -2, end == length");
+  testRes(sample.slice(-3, 4), [41n, 42n, 43n], "begin == -3, end == length");
 
-  testRes(sample.slice(0, -1), convertToBigInt([40, 41, 42]), "begin == 0, end == -1");
-  testRes(sample.slice(0, -2), convertToBigInt([40, 41]), "begin == 0, end == -2");
-  testRes(sample.slice(0, -3), convertToBigInt([40]), "begin == 0, end == -3");
+  testRes(sample.slice(0, -1), [40n, 41n, 42n], "begin == 0, end == -1");
+  testRes(sample.slice(0, -2), [40n, 41n], "begin == 0, end == -2");
+  testRes(sample.slice(0, -3), [40n], "begin == 0, end == -3");
 
-  testRes(sample.slice(-0, -1), convertToBigInt([40, 41, 42]), "begin == -0, end == -1");
-  testRes(sample.slice(-0, -2), convertToBigInt([40, 41]), "begin == -0, end == -2");
-  testRes(sample.slice(-0, -3), convertToBigInt([40]), "begin == -0, end == -3");
+  testRes(sample.slice(-0, -1), [40n, 41n, 42n], "begin == -0, end == -1");
+  testRes(sample.slice(-0, -2), [40n, 41n], "begin == -0, end == -2");
+  testRes(sample.slice(-0, -3), [40n], "begin == -0, end == -3");
 
-  testRes(sample.slice(-2, -1), convertToBigInt([42]), "length == 4, begin == -2, end == -1");
-  testRes(sample.slice(1, -1), convertToBigInt([41, 42]), "length == 4, begin == 1, end == -1");
-  testRes(sample.slice(1, -2), convertToBigInt([41]), "length == 4, begin == 1, end == -2");
-  testRes(sample.slice(2, -1), convertToBigInt([42]), "length == 4, begin == 2, end == -1");
+  testRes(sample.slice(-2, -1), [42n], "length == 4, begin == -2, end == -1");
+  testRes(sample.slice(1, -1), [41n, 42n], "length == 4, begin == 1, end == -1");
+  testRes(sample.slice(1, -2), [41n], "length == 4, begin == 1, end == -2");
+  testRes(sample.slice(2, -1), [42n], "length == 4, begin == 2, end == -1");
 
-  testRes(sample.slice(-1, 5), convertToBigInt([43]), "begin == -1, end > length");
-  testRes(sample.slice(-2, 4), convertToBigInt([42, 43]), "begin == -2, end > length");
-  testRes(sample.slice(-3, 4), convertToBigInt([41, 42, 43]), "begin == -3, end > length");
+  testRes(sample.slice(-1, 5), [43n], "begin == -1, end > length");
+  testRes(sample.slice(-2, 4), [42n, 43n], "begin == -2, end > length");
+  testRes(sample.slice(-3, 4), [41n, 42n, 43n], "begin == -3, end > length");
 });

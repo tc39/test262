@@ -17,17 +17,17 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([4, 3, 2, 1])).sort();
-  assert(compareArray(sample, convertToBigInt([1, 2, 3, 4])), "descending values");
+  sample = new TA([4n, 3n, 2n, 1n]).sort();
+  assert(compareArray(sample, [1n, 2n, 3n, 4n]), "descending values");
 
-  sample = new TA(convertToBigInt([3, 4, 1, 2])).sort();
-  assert(compareArray(sample, convertToBigInt([1, 2, 3, 4])), "mixed numbers");
+  sample = new TA([3n, 4n, 1n, 2n]).sort();
+  assert(compareArray(sample, [1n, 2n, 3n, 4n]), "mixed numbers");
 
-  sample = new TA(convertToBigInt([3, 4, 3, 1, 0, 1, 2])).sort();
-  assert(compareArray(sample, convertToBigInt([0, 1, 1, 2, 3, 3, 4])), "repeating numbers");
+  sample = new TA([3n, 4n, 3n, 1n, 0n, 1n, 2n]).sort();
+  assert(compareArray(sample, [0n, 1n, 1n, 2n, 3n, 3n, 4n]), "repeating numbers");
 
   sample = new TA(convertToBigInt([1, 0, -0, 2])).sort();
-  assert(compareArray(sample, convertToBigInt([0, 0, 1, 2])), "0s");
+  assert(compareArray(sample, [0n, 0n, 1n, 2n]), "0s");
 });
 
 testWithBigIntTypedArrayConstructors(function(TA) {

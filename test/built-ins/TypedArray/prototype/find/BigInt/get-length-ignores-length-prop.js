@@ -38,7 +38,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     }
   });
 
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   Object.defineProperty(sample, "length", {
     get: function() {
@@ -49,6 +49,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     sample.find(function() { return true; }),
-    convertToBigInt(42)
+    42n
   );
 });

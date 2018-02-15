@@ -25,7 +25,7 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var obj1 = {
       valueOf: function() {
-        return convertToBigInt(42);
+        return 42n;
       }
   };
 

@@ -20,15 +20,15 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var itor = typedArray.values();
 
   var next = itor.next();
-  assert.sameValue(next.value, convertToBigInt(0));
+  assert.sameValue(next.value, 0n);
   assert.sameValue(next.done, false);
 
   next = itor.next();
-  assert.sameValue(next.value, convertToBigInt(42));
+  assert.sameValue(next.value, 42n);
   assert.sameValue(next.done, false);
 
   next = itor.next();
-  assert.sameValue(next.value, convertToBigInt(64));
+  assert.sameValue(next.value, 64n);
   assert.sameValue(next.done, false);
 
   next = itor.next();

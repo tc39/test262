@@ -26,7 +26,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var arr = convertToBigInt([10, 20, 30]);
+  var arr = [10n, 20n, 30n];
   var sample;
   var result;
 
@@ -34,34 +34,34 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample.findIndex(function(val, i) {
     sample[i] = arr[i];
 
-    assert.sameValue(val, convertToBigInt(0), "value is not mapped to instance");
+    assert.sameValue(val, 0n, "value is not mapped to instance");
   });
   assert(compareArray(sample, arr), "values set during each predicate call");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
     if ( i === 0 ) {
-      sample[2] = convertToBigInt(7);
+      sample[2] = 7n;
     }
-    return val === convertToBigInt(7);
+    return val === 7n;
   });
   assert.sameValue(result, 2, "value found");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
     if ( i === 0 ) {
-      sample[2] = convertToBigInt(7);
+      sample[2] = 7n;
     }
-    return val === convertToBigInt(30);
+    return val === 30n;
   });
   assert.sameValue(result, -1, "value not found");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
     if ( i > 0 ) {
-      sample[0] = convertToBigInt(7);
+      sample[0] = 7n;
     }
-    return val === convertToBigInt(7);
+    return val === 7n;
   });
   assert.sameValue(result, -1, "value not found - changed after call");
 });

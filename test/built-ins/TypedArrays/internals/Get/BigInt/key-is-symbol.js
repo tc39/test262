@@ -19,7 +19,7 @@ var parentKey = Symbol("2");
 TypedArray.prototype[parentKey] = "test262";
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   var s1 = Symbol("1");
 

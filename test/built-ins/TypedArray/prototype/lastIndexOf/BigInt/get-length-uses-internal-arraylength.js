@@ -23,10 +23,10 @@ features: [BigInt, TypedArray]
 Object.defineProperty(TypedArray.prototype, "length", {value: 0});
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([7]));
+  var sample = new TA([7n]);
 
   Object.defineProperty(TA.prototype, "length", {value: 0});
   Object.defineProperty(sample, "length", {value: 0});
 
-  assert.sameValue(sample.lastIndexOf(convertToBigInt(7)), 0);
+  assert.sameValue(sample.lastIndexOf(7n), 0);
 });

@@ -28,7 +28,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 44]));
+  var sample = new TA([42n, 43n, 44n]);
 
   var results = [];
 
@@ -41,19 +41,19 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(results[0].length, 4, "results[0].length");
   assert.sameValue(results[0][0], 7, "results[0][0] - accumulator");
-  assert.sameValue(results[0][1], convertToBigInt(44), "results[0][1] - kValue");
+  assert.sameValue(results[0][1], 44n, "results[0][1] - kValue");
   assert.sameValue(results[0][2], 2, "results[0][2] - k");
   assert.sameValue(results[0][3], sample, "results[0][3] - this");
 
   assert.sameValue(results[1].length, 4, "results[1].length");
   assert.sameValue(results[1][0], 8, "results[1][0] - accumulator");
-  assert.sameValue(results[1][1], convertToBigInt(43), "results[1][1] - kValue");
+  assert.sameValue(results[1][1], 43n, "results[1][1] - kValue");
   assert.sameValue(results[1][2], 1, "results[1][2] - k");
   assert.sameValue(results[1][3], sample, "results[1][3] - this");
 
   assert.sameValue(results[2].length, 4, "results[2].length");
   assert.sameValue(results[2][0], 9, "results[2][0] - accumulator");
-  assert.sameValue(results[2][1], convertToBigInt(42), "results[2][1] - kValue");
+  assert.sameValue(results[2][1], 42n, "results[2][1] - kValue");
   assert.sameValue(results[2][2], 0, "results[2][2] - k");
   assert.sameValue(results[2][3], sample, "results[2][3] - this");
 });

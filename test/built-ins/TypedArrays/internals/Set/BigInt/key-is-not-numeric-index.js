@@ -18,7 +18,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42]));
+  var sample = new TA([42n]);
 
   assert.sameValue(
     Reflect.set(sample, "test262", "ecma262"),

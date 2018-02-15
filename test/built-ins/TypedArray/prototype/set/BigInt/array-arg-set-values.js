@@ -23,41 +23,41 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var src = convertToBigInt([42, 43]);
+  var src = [42n, 43n];
   var srcObj = {
     length: 2,
-    '0': convertToBigInt(7),
-    '1': convertToBigInt(17)
+    '0': 7n,
+    '1': 17n
   };
   var sample, result;
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 0);
-  assert(compareArray(sample, convertToBigInt([42, 43, 3, 4])), "offset: 0, result: " + sample);
+  assert(compareArray(sample, [42n, 43n, 3n, 4n]), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 1);
-  assert(compareArray(sample, convertToBigInt([1, 42, 43, 4])), "offset: 1, result: " + sample);
+  assert(compareArray(sample, [1n, 42n, 43n, 4n]), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 2);
-  assert(compareArray(sample, convertToBigInt([1, 2, 42, 43])), "offset: 2, result: " + sample);
+  assert(compareArray(sample, [1n, 2n, 42n, 43n]), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(srcObj, 0);
-  assert(compareArray(sample, convertToBigInt([7, 17, 3, 4])), "offset: 0, result: " + sample);
+  assert(compareArray(sample, [7n, 17n, 3n, 4n]), "offset: 0, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(srcObj, 1);
-  assert(compareArray(sample, convertToBigInt([1, 7, 17, 4])), "offset: 1, result: " + sample);
+  assert(compareArray(sample, [1n, 7n, 17n, 4n]), "offset: 1, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  sample = new TA(convertToBigInt([1, 2, 3, 4]));
+  sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(srcObj, 2);
-  assert(compareArray(sample, convertToBigInt([1, 2, 7, 17])), "offset: 2, result: " + sample);
+  assert(compareArray(sample, [1n, 2n, 7n, 17n]), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 });

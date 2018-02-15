@@ -47,5 +47,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     }
   });
 
-  assert.sameValue(sample.fill(convertToBigInt(1), 0), sample);
+  assert.sameValue(sample.fill(1n, 0), sample);
 });

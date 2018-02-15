@@ -36,7 +36,7 @@ features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42]));
+  var sample = new TA([40n, 41n, 42n]);
   var calls = 0;
   var result;
 
@@ -49,5 +49,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   result = sample.subarray(1);
 
   assert.sameValue(calls, 1, "ctor called once");
-  assert(compareArray(result, convertToBigInt([41, 42])), "expected subarray");
+  assert(compareArray(result, [41n, 42n]), "expected subarray");
 });

@@ -37,7 +37,7 @@ var acDesc = {
 testWithBigIntTypedArrayConstructors(function(TA) {
   keys.forEach(function(key) {
     var dataDesc = {
-      value: convertToBigInt(42),
+      value: 42n,
       writable: true,
       configurable: true
     };
@@ -50,7 +50,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       "return true after defining data property [" + key + "]"
     );
 
-    assert.sameValue(sample1[key], convertToBigInt(42), "value is set to [" + key + "]");
+    assert.sameValue(sample1[key], 42n, "value is set to [" + key + "]");
     verifyNotEnumerable(sample1, key);
     verifyWritable(sample1, key);
     verifyConfigurable(sample1, key);

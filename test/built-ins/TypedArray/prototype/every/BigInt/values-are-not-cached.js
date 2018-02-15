@@ -27,15 +27,15 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([42, 43, 44]));
+  var sample = new TA([42n, 43n, 44n]);
 
   sample.every(function(v, i) {
     if (i < sample.length - 1) {
-      sample[i+1] = convertToBigInt(42);
+      sample[i+1] = 42n;
     }
 
     assert.sameValue(
-      v, convertToBigInt(42), "method does not cache values before callbackfn calls"
+      v, 42n, "method does not cache values before callbackfn calls"
     );
     return true;
   });

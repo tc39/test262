@@ -21,7 +21,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample.fill({ valueOf() { return convertToBigInt(n++); } });
 
   assert.sameValue(n, 2, "additional unexpected ToNumber() calls");
-  assert.sameValue(sample[0], convertToBigInt(1), "incorrect ToNumber result in index 0");
-  assert.sameValue(sample[1], convertToBigInt(1), "incorrect ToNumber result in index 1");
+  assert.sameValue(sample[0], 1n, "incorrect ToNumber result in index 0");
+  assert.sameValue(sample[1], 1n, "incorrect ToNumber result in index 1");
 });
 

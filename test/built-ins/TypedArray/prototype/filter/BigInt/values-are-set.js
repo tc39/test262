@@ -17,14 +17,14 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([41, 1, 42, 7]));
+  var sample = new TA([41n, 1n, 42n, 7n]);
   var result;
 
   result = sample.filter(function() { return true; });
-  assert(compareArray(result, convertToBigInt([41, 1, 42, 7])), "values are set #1");
+  assert(compareArray(result, [41n, 1n, 42n, 7n]), "values are set #1");
 
   result = sample.filter(function(v) {
-    return v > convertToBigInt(40);
+    return v > 40n;
   });
-  assert(compareArray(result, convertToBigInt([41, 42])), "values are set #2");
+  assert(compareArray(result, [41n, 42n]), "values are set #2");
 });

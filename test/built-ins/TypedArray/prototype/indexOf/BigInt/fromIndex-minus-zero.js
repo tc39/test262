@@ -24,7 +24,7 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([42, 43]));
-  assert.sameValue(sample.indexOf(convertToBigInt(42), -0), 0, "-0 [0]");
-  assert.sameValue(sample.indexOf(convertToBigInt(43), -0), 1, "-0 [1]");
+  sample = new TA([42n, 43n]);
+  assert.sameValue(sample.indexOf(42n, -0), 0, "-0 [0]");
+  assert.sameValue(sample.indexOf(43n, -0), 1, "-0 [1]");
 });

@@ -31,7 +31,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     false,
     "get accessor"
   );
-  assert.sameValue(sample[0], convertToBigInt(0), "get accessor - side effect check");
+  assert.sameValue(sample[0], 0n, "get accessor - side effect check");
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0", {
@@ -41,7 +41,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     false,
     "set accessor"
   );
-  assert.sameValue(sample[0], convertToBigInt(0), "set accessor - side effect check");
+  assert.sameValue(sample[0], 0n, "set accessor - side effect check");
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0", {
@@ -54,5 +54,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     false,
     "get and set accessors"
   );
-  assert.sameValue(sample[0], convertToBigInt(0), "get and set accessors - side effect check");
+  assert.sameValue(sample[0], 0n, "get and set accessors - side effect check");
 });

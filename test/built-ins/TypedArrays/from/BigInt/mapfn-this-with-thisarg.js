@@ -26,7 +26,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var results = [];
   var mapfn = function() {
     results.push(this);
-    return convertToBigInt(0);
+    return 0n;
   };
 
   TA.from(source, mapfn, thisArg);

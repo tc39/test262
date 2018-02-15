@@ -32,11 +32,11 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([42, 43, 42, 41]));
-  assert.sameValue(sample.includes(convertToBigInt(44)), false, "includes(44)");
-  assert.sameValue(sample.includes(convertToBigInt(43), 2), false, "includes(43, 2)");
-  assert.sameValue(sample.includes(convertToBigInt(42), 3), false, "includes(42, 3)");
-  assert.sameValue(sample.includes(convertToBigInt(44), -4), false, "includes(44, -4)");
-  assert.sameValue(sample.includes(convertToBigInt(44), -5), false, "includes(44, -5)");
-  assert.sameValue(sample.includes(convertToBigInt(42), -1), false, "includes(42, -1)");
+  sample = new TA([42n, 43n, 42n, 41n]);
+  assert.sameValue(sample.includes(44n), false, "includes(44)");
+  assert.sameValue(sample.includes(43n, 2), false, "includes(43, 2)");
+  assert.sameValue(sample.includes(42n, 3), false, "includes(42, 3)");
+  assert.sameValue(sample.includes(44n, -4), false, "includes(44, -4)");
+  assert.sameValue(sample.includes(44n, -5), false, "includes(44, -5)");
+  assert.sameValue(sample.includes(42n, -1), false, "includes(42, -1)");
 });

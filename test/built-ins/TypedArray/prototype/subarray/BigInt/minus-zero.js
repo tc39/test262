@@ -10,14 +10,14 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([40, 41, 42, 43]));
+  var sample = new TA([40n, 41n, 42n, 43n]);
 
   assert(
-    compareArray(sample.subarray(-0), convertToBigInt([40, 41, 42, 43])),
+    compareArray(sample.subarray(-0), [40n, 41n, 42n, 43n]),
     "begin == -0"
   );
   assert(
-    compareArray(sample.subarray(-0, 4), convertToBigInt([40, 41, 42, 43])),
+    compareArray(sample.subarray(-0, 4), [40n, 41n, 42n, 43n]),
     "being == -0, end == length"
   );
   assert(

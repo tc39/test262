@@ -28,11 +28,11 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
-  sample = new TA(convertToBigInt([42, 43, 42, 41]));
-  assert.sameValue(sample.indexOf(convertToBigInt(44)), -1, "indexOf(44)");
-  assert.sameValue(sample.indexOf(convertToBigInt(43), 2), -1, "indexOf(43, 2)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), 3), -1, "indexOf(42, 3)");
-  assert.sameValue(sample.indexOf(convertToBigInt(44), -4), -1, "indexOf(44, -4)");
-  assert.sameValue(sample.indexOf(convertToBigInt(44), -5), -1, "indexOf(44, -5)");
-  assert.sameValue(sample.indexOf(convertToBigInt(42), -1), -1, "indexOf(42, -1)");
+  sample = new TA([42n, 43n, 42n, 41n]);
+  assert.sameValue(sample.indexOf(44n), -1, "indexOf(44)");
+  assert.sameValue(sample.indexOf(43n, 2), -1, "indexOf(43, 2)");
+  assert.sameValue(sample.indexOf(42n, 3), -1, "indexOf(42, 3)");
+  assert.sameValue(sample.indexOf(44n, -4), -1, "indexOf(44, -4)");
+  assert.sameValue(sample.indexOf(44n, -5), -1, "indexOf(44, -5)");
+  assert.sameValue(sample.indexOf(42n, -1), -1, "indexOf(42, -1)");
 });

@@ -18,14 +18,14 @@ features: [BigInt, Symbol, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(convertToBigInt([7, 8]));
+  var sample = new TA([7n, 8n]);
   var bar = Symbol("1");
 
   sample.foo = 42;
   sample[bar] = 1;
 
   var result = sample.map(function() {
-    return convertToBigInt(0);
+    return 0n;
   });
 
   assert.sameValue(result.length, 2, "result.length");
