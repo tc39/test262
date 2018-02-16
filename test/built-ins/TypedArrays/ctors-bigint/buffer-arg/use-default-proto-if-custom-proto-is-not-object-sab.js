@@ -40,7 +40,7 @@ var buffer = new SharedArrayBuffer(8);
 function newTarget() {}
 newTarget.prototype = null;
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [buffer], newTarget);
 
   assert.sameValue(ta.constructor, TA);

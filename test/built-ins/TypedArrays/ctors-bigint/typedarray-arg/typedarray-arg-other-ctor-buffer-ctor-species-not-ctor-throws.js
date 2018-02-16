@@ -36,7 +36,7 @@ var ctor = function() {
 var m = { m() {} }.m;
 ctor[Symbol.species] = m;
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = TA === Int8Array ? sample2 : sample1;
 
   sample.buffer.constructor = ctor;

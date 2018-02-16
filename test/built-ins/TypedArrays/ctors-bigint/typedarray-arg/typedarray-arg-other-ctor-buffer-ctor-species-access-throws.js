@@ -28,7 +28,7 @@ features: [BigInt, Symbol.species, TypedArray]
 var sample1 = new Int8Array();
 var sample2 = new Int16Array();
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = TA === Int8Array ? sample2 : sample1;
   var ctor = {};
 

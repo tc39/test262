@@ -35,7 +35,7 @@ var items = [
   [-0.99999, 0, "-0.99999"]
 ];
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   items.forEach(function(item) {
     var len = item[0];
     var expected = item[1];

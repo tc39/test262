@@ -40,7 +40,7 @@ Object.defineProperty(newTarget, "prototype", {
   }
 });
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     Reflect.construct(TA, [buffer], newTarget);
   });

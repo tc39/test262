@@ -19,7 +19,7 @@ var sample2 = new Int16Array(7);
 var sample3 = new BigInt64Array(7);
 var sample4 = new BigUint64Array(7);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = TA === Int8Array ? sample2 :
                TA === BigInt64Array ? sample4 :
                TA === BigUint64Array ? sample3 : sample1;

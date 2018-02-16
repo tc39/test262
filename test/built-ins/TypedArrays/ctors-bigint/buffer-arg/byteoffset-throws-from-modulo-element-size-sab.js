@@ -21,7 +21,7 @@ features: [BigInt, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(8);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   if (TA.BYTES_PER_ELEMENT === 1) {
     // Impossible to trigger this step here.
     return;

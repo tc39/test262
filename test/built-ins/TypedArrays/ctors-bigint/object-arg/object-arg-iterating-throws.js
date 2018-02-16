@@ -19,7 +19,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var obj = (function *() {
     yield 0;
     throw new Test262Error();

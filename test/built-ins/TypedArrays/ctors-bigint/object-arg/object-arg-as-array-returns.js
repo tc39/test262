@@ -16,7 +16,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var typedArray = new TA([7n, 42n]);
   assert.sameValue(typedArray.length, 2);
   assert.sameValue(typedArray[0], 7n);

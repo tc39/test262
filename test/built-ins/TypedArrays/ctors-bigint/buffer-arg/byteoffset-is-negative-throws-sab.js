@@ -22,7 +22,7 @@ features: [BigInt, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(8);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, -1);
   });

@@ -21,7 +21,7 @@ features: [BigInt, Symbol, TypedArray]
 var byteOffset = Symbol("1");
 var buffer = new ArrayBuffer(8);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     new TA(buffer, byteOffset);
   });

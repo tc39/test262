@@ -25,7 +25,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var OtherCtor = TA === Int8Array ? Int16Array : Int8Array;
   var sample = new OtherCtor();
 

@@ -35,7 +35,7 @@ features: [BigInt, TypedArray]
 function newTarget() {}
 newTarget.prototype = null;
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [1], newTarget);
 
   assert.sameValue(ta.constructor, TA);

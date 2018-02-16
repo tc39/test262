@@ -23,7 +23,7 @@ var obj = {
   length: Math.pow(2, 53)
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(obj);
   });

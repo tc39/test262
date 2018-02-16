@@ -31,7 +31,7 @@ var obj = {
   length: 4
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   obj[0] = 0n;
   obj[1] = 0n;
   assert.throws(Test262Error, function() {

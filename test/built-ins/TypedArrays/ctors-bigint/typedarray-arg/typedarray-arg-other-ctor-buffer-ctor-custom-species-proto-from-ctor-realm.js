@@ -44,7 +44,7 @@ var C = new other.Function();
 C.prototype = null;
 
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = TA === Int8Array ? sample2 : sample1;
   var ctor = {};
 

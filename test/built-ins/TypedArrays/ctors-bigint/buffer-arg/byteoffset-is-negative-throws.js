@@ -21,7 +21,7 @@ features: [BigInt, TypedArray]
 
 var buffer = new ArrayBuffer(8);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, -1);
   });

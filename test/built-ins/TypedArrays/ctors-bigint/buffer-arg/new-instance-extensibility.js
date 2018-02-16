@@ -29,7 +29,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var buffer = new ArrayBuffer(8);
   var sample = new TA(buffer);
 

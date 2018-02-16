@@ -21,7 +21,7 @@ features: [BigInt, Symbol.iterator, TypedArray]
 
 var obj = function () {};
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   obj[Symbol.iterator] = {};
   assert.throws(TypeError, function() {
     new TA(obj);

@@ -40,7 +40,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var subject = new TA(9);
 
   assert.sameValue(subject[0], 0n, 'index 0');

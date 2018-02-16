@@ -30,7 +30,7 @@ includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray, Symbol.species]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
     var speciesCallCount = 0;
     var bufferConstructor = Object.defineProperty({}, Symbol.species, {
         get: function() {

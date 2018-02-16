@@ -27,7 +27,7 @@ Object.defineProperty(obj, "length", {
   }
 });
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     new TA(obj);
   });

@@ -40,7 +40,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
   var ctor = {};
   var called = 0;

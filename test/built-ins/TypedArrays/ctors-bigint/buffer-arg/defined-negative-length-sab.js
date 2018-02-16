@@ -18,7 +18,7 @@ features: [BigInt, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(16);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, 0, -1);
   });
