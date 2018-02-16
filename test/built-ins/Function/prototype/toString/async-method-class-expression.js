@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-function.prototype.tostring
 description: Function.prototype.toString on an async method
 features: [async-functions]
 ---*/
