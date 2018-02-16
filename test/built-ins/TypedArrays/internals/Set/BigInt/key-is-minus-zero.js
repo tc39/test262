@@ -5,7 +5,7 @@ esid: sec-integer-indexed-exotic-objects-set-p-v-receiver
 description: >
   Returns false if index is -0
 info: |
-  9.4.5.5 [[Set]] ( P, V, Receiver)
+  [[Set]] ( P, V, Receiver)
 
   ...
   2. If Type(P) is String, then
@@ -14,11 +14,11 @@ info: |
       i. Return ? IntegerIndexedElementSet(O, numericIndex, V).
   ...
 
-  9.4.5.9 IntegerIndexedElementSet ( O, index, value )
+  IntegerIndexedElementSet ( O, index, value )
 
+  5. If arrayTypeName is "BigUint64Array" or "BigInt64Array", let numValue be ? ToBigInt(value).
   ...
-  7. If index = -0, return false.
-  ...
+  10. If index = -0, return false.
 includes: [testBigIntTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
@@ -26,6 +26,6 @@ features: [BigInt, Reflect, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n]);
 
-  assert.sameValue(Reflect.set(sample, "-0", 1), false, "-0");
+  assert.sameValue(Reflect.set(sample, "-0", 1n), false, "-0");
   assert.sameValue(sample.hasOwnProperty("-0"), false, "has no property [-0]");
 });
