@@ -3,10 +3,21 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: pending
+esid: sec-asyncgenerator-prototype-throw
 description: >
   Generator is not resumed after a throw completion with an error object
 info: |
+  AsyncGenerator.prototype.throw ( exception )
+  1. Let generator be the this value.
+  2. Let completion be Completion{[[Type]]: throw, [[Value]]: exception, [[Target]]: empty}.
+  3. Return ! AsyncGeneratorEnqueue(generator, completion).
+
+  AsyncGeneratorEnqueue ( generator, completion )
+  ...
+  8. If state is not "executing", then
+    a. Perform ! AsyncGeneratorResumeNext(generator).
+  ...
+
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is throw, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", generator is resumed and immediately and
