@@ -17,7 +17,7 @@ features: [BigInt, TypedArray]
 
 var m = { m() {} }.m;
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     TA.of.call(m, []);
   });

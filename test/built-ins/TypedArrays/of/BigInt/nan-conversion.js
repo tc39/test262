@@ -17,7 +17,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var result = TA.of(NaN, undefined);
   assert.sameValue(result.length, 2);
   assert.sameValue(result[0], NaN);
@@ -30,7 +30,7 @@ testWithTypedArrayConstructors(function(TA) {
   Float64Array
 ]);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var result = TA.of(NaN, undefined);
   assert.sameValue(result.length, 2);
   assert.sameValue(result[0], 0);

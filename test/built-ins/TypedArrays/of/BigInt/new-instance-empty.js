@@ -8,7 +8,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var result = TA.of();
   assert.sameValue(result.length, 0);
   assert.sameValue(result.constructor, TA);

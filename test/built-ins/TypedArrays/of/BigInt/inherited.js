@@ -13,7 +13,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(
     TA.of, TypedArray.of,
     "method is inherited %TypedArray%.of"
