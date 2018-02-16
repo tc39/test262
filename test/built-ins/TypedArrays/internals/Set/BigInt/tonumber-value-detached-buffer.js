@@ -33,7 +33,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     Reflect.set(ta, 0, {
       valueOf: function() {
         $262.detachArrayBuffer(ta.buffer);
-        return 42;
+        return 42n;
       }
     });
   },
