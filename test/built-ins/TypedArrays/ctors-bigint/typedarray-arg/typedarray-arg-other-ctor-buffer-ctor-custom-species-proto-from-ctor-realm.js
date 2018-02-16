@@ -37,15 +37,14 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, cross-realm, Symbol.species, TypedArray]
 ---*/
 
-var sample1 = new Int8Array();
-var sample2 = new Int16Array();
+var sample1 = new BigInt64Array();
+var sample2 = new BigUint64Array();
 var other = $262.createRealm().global;
 var C = new other.Function();
 C.prototype = null;
 
-
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = TA === Int8Array ? sample2 : sample1;
+  var sample = TA === BigInt64Array ? sample2 : sample1;
   var ctor = {};
 
   sample.buffer.constructor = ctor;

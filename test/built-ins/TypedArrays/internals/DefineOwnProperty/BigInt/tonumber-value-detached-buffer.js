@@ -30,14 +30,14 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var ta = new TA([17]);
+  var ta = new TA([17n]);
 
   var desc =
     {
       value: {
         valueOf: function() {
           $262.detachArrayBuffer(ta.buffer);
-          return 42;
+          return 42n;
         }
       }
     };

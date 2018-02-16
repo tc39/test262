@@ -28,7 +28,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(Test262Error, function() {
-    TA.of.call(ctor, 42);
+    TA.of.call(ctor, 42n);
   });
 
   assert.sameValue(called, 1);

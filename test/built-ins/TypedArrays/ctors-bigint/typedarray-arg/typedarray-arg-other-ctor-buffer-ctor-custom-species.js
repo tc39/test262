@@ -29,11 +29,11 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-var sample1 = new Int8Array();
-var sample2 = new Int16Array();
+var sample1 = new BigInt64Array();
+var sample2 = new BigUint64Array();
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = TA === Int8Array ? sample2 : sample1;
+  var sample = TA === BigInt64Array ? sample2 : sample1;
   var ctor = {};
   var called = 0;
   var custom = {};

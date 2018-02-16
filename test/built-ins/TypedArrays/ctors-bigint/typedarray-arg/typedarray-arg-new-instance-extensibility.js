@@ -29,8 +29,8 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var typedArraySample1 = new Int8Array();
-var typedArraySample2 = new Int8Array();
+var typedArraySample1 = new BigInt64Array();
+var typedArraySample2 = new BigInt64Array();
 Object.preventExtensions(typedArraySample2);
 
 testWithBigIntTypedArrayConstructors(function(TA) {

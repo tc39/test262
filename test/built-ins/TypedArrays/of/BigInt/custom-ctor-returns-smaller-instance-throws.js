@@ -23,6 +23,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(TypeError, function() {
-    TypedArray.of.call(ctor, 1, 2);
+    TypedArray.of.call(ctor, 1n, 2n);
   });
 });
