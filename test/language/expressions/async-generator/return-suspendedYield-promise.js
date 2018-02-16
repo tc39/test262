@@ -3,11 +3,22 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: pending
+esid: sec-asyncgenerator-prototype-return
 description: >
   Generator is not resumed after a return type completion.
   Returning promise
 info: |
+  AsyncGenerator.prototype.return ( value )
+  1. Let generator be the this value.
+  2. Let completion be Completion{[[Type]]: return, [[Value]]: value, [[Target]]: empty}.
+  3. Return ! AsyncGeneratorEnqueue(generator, completion).
+
+  AsyncGeneratorEnqueue ( generator, completion )
+  ...
+  8. If state is not "executing", then
+    a. Perform ! AsyncGeneratorResumeNext(generator).
+  ...
+
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is return, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", generator is resumed and immediately closes the generator

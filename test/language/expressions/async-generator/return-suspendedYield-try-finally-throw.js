@@ -3,12 +3,23 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: pending
+esid: sec-asyncgenerator-prototype-return
 description: >
   Returned generator suspended in a yield position resumes execution
   within an associated finally, capturing a new abrupt completion and
   does not resume again within that finally block.
 info: |
+  AsyncGenerator.prototype.return ( value )
+  1. Let generator be the this value.
+  2. Let completion be Completion{[[Type]]: return, [[Value]]: value, [[Target]]: empty}.
+  3. Return ! AsyncGeneratorEnqueue(generator, completion).
+
+  AsyncGeneratorEnqueue ( generator, completion )
+  ...
+  8. If state is not "executing", then
+    a. Perform ! AsyncGeneratorResumeNext(generator).
+  ...
+
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is return, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", and generator is resumed within a try-block with an

@@ -3,11 +3,22 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: pending
+esid: sec-asyncgenerator-prototype-throw
 description: >
   Thrown generator suspended in a yield position resumes execution within
   the associated finally block, returns and suspends execution again.
 info: |
+  AsyncGenerator.prototype.throw ( exception )
+  1. Let generator be the this value.
+  2. Let completion be Completion{[[Type]]: throw, [[Value]]: exception, [[Target]]: empty}.
+  3. Return ! AsyncGeneratorEnqueue(generator, completion).
+
+  AsyncGeneratorEnqueue ( generator, completion )
+  ...
+  8. If state is not "executing", then
+    a. Perform ! AsyncGeneratorResumeNext(generator).
+  ...
+
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is throw, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", and generator is resumed within a try-block with an
