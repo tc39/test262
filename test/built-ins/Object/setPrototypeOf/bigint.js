@@ -13,4 +13,4 @@ try {
   $ERROR('Expected RequireObjectCoercible to succeed for BigInt values');
 }
 
-assert.sameValue(Object.setPrototypeOf(0n, null), 0 n);
+assert.sameValue(Object.setPrototypeOf(0n, null), 0n);
