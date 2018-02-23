@@ -3,51 +3,15 @@
 /*---
 esid: sec-%typedarray%.from
 description: >
-  Return a new TypedArray from a sparse array
+  Throws a TypeError casting undefined value from sparse array to BigInt
 includes: [testBigIntTypedArray.js]
-features: [BigInt, Array.prototype.values, TypedArray]
+features: [BigInt, TypedArray]
 ---*/
 
-var source = [,,42,,44,,];
+var source = [,42n];
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var result = TA.from(source);
-
-  assert.sameValue(result.length, 6);
-  assert.sameValue(result[0], NaN);
-  assert.sameValue(result[1], NaN);
-  assert.sameValue(result[2], 42);
-  assert.sameValue(result[3], NaN);
-  assert.sameValue(result[4], 44);
-  assert.sameValue(result[5], NaN);
-  assert.sameValue(result.constructor, TA);
-  assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
-},
-[
-  Float32Array,
-  Float64Array
-]);
-
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var result = TA.from(source);
-
-  assert.sameValue(result.length, 6);
-  assert.sameValue(result[0], 0);
-  assert.sameValue(result[1], 0);
-  assert.sameValue(result[2], 42);
-  assert.sameValue(result[3], 0);
-  assert.sameValue(result[4], 44);
-  assert.sameValue(result[5], 0);
-  assert.sameValue(result.constructor, TA);
-  assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
-},
-[
-  Int8Array,
-  Int32Array,
-  Int16Array,
-  Int8Array,
-  Uint32Array,
-  Uint16Array,
-  Uint8Array,
-  Uint8ClampedArray
-]);
+  assert.throws(TypeError, function() {
+    TA.from(source);
+  });
+});

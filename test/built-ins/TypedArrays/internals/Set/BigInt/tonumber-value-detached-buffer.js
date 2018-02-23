@@ -27,7 +27,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var ta = new TA([17]);
+  var ta = new TA([17n]);
 
   assert.throws(TypeError, function() {
     Reflect.set(ta, 0, {

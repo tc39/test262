@@ -39,7 +39,7 @@ features: [BigInt, Symbol.species, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n]);
   var otherTA = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
-  var other = new otherTA([1, 0, 1]);
+  var other = new otherTA([1n, 0n, 1n]);
   var result;
 
   sample.constructor = {};
@@ -50,5 +50,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   result = sample.filter(function() {});
 
   assert.sameValue(result, other, "returned another typedarray");
-  assert(compareArray(result, [1, 0, 1]), "the returned object is preserved");
+  assert(compareArray(result, [1n, 0n, 1n]), "the returned object is preserved");
 });
