@@ -35,14 +35,7 @@ testWithTypedArrayConstructors(function(TA) {
       }
   };
 
-  // undefined and NaN covered on typedArrayConversions
-  var nullish;
-  try {
-    nullish = null;
-  } catch (e) {
-    nullish = 0n;
-  }
-  var arr = ["1", "", false, true, nullish, obj1, obj2, [], [1]];
+  var arr = ["1", "", false, true, null, obj1, obj2, [], [1]];
 
   var sample = new TA(arr.length);
   var expected = new TA([1, 0, 0, 1, 0, 42, 42, 0, 1]);
