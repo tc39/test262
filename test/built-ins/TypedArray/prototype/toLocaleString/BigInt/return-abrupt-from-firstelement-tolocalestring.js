@@ -10,9 +10,9 @@ info: |
   the same algorithm as Array.prototype.toLocaleString as defined in 22.1.3.27
   except that the this object's [[ArrayLength]] internal slot is accessed in
   place of performing a [[Get]] of "length".
-  
+
   22.1.3.27 Array.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
-  
+
   ...
   4. If len is zero, return the empty String.
   5. Let firstElement be ? Get(array, "0").

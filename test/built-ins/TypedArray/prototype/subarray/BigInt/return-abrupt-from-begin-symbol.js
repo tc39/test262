@@ -17,7 +17,7 @@ var s = Symbol("1");
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
-  
+
   assert.throws(TypeError, function() {
     sample.subarray(s);
   });
