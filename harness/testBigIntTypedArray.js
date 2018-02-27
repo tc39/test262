@@ -8,13 +8,12 @@ description: |
 /**
  * The %TypedArray% intrinsic constructor function.
  */
-var TypedArray = Object.getPrototypeOf(Int8Array);
+var TypedArray = Object.getPrototypeOf(BigInt64Array);
 
 /**
  * Calls the provided function for every typed array constructor.
  *
  * @param {typedArrayConstructorCallback} f - the function to call for each typed array constructor.
- * @param {Array} selected - An optional Array with filtered typed arrays
  */
 function testWithBigIntTypedArrayConstructors(f) {
   /**
