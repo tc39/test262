@@ -23,7 +23,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var result = TA.of(42n, 43n, 0n);
   assert.sameValue(result.length, 3);
   assert.sameValue(result[0], 42n);

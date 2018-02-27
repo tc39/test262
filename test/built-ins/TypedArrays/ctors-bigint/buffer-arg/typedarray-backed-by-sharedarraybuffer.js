@@ -10,14 +10,16 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(4);
-var int_views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];
+var sab = new SharedArrayBuffer(8);
 
-testWithTypedArrayConstructors(function(View1) {
+testWithBigIntTypedArrayConstructors(function(View1) {
   var ta1 = new View1(sab);
-  testWithTypedArrayConstructors(function(View2) {
+  testWithBigIntTypedArrayConstructors(function(View2) {
     var ta2 = new View2(ta1);
-    assert.sameValue(ta2.buffer.constructor, ArrayBuffer,
-                     "TypedArray of SharedArrayBuffer-backed TypedArray is ArrayBuffer-backed");
-  }, int_views);
-}, int_views);
+    assert.sameValue(
+      ta2.buffer.constructor,
+      ArrayBuffer,
+      "TypedArray of SharedArrayBuffer-backed TypedArray is ArrayBuffer-backed"
+    );
+  });
+});

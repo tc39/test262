@@ -20,7 +20,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var called = 0;
   var ctor = function() {
     called++;
@@ -28,7 +28,7 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(Test262Error, function() {
-    TA.of.call(ctor, 42);
+    TA.of.call(ctor, 42n);
   });
 
   assert.sameValue(called, 1);

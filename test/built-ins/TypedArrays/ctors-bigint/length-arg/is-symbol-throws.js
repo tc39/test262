@@ -19,7 +19,7 @@ features: [BigInt, Symbol, TypedArray]
 
 var s = Symbol('1');
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     new TA(s);
   });

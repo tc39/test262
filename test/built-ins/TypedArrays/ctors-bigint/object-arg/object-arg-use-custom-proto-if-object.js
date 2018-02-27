@@ -39,7 +39,7 @@ function newTarget() {}
 var proto = {};
 newTarget.prototype = proto;
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [], newTarget);
 
   assert.sameValue(ta.constructor, Object);

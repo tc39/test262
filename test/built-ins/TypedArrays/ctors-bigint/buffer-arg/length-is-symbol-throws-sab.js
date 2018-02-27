@@ -23,7 +23,7 @@ features: [BigInt, Symbol, SharedArrayBuffer, TypedArray]
 var buffer = new SharedArrayBuffer(8);
 var s = Symbol("1");
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     new TA(buffer, 0, s);
   });

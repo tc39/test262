@@ -27,7 +27,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample, result, other;
   var ctor = {};
   ctor[Symbol.species] = function(count) {
-    other = TA === Int8Array ? Int16Array : Int8Array;
+    other = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
     $DETACHBUFFER(sample.buffer);
     return new other(count);
   };

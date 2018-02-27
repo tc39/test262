@@ -27,9 +27,9 @@ features: [BigInt, Reflect, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n]);
 
-  assert.sameValue(Reflect.set(sample, "-1", 1), false, "-1");
-  assert.sameValue(Reflect.set(sample, "1", 1), false, "1");
-  assert.sameValue(Reflect.set(sample, "2", 1), false, "2");
+  assert.sameValue(Reflect.set(sample, "-1", 1n), false, "-1");
+  assert.sameValue(Reflect.set(sample, "1", 1n), false, "1");
+  assert.sameValue(Reflect.set(sample, "2", 1n), false, "2");
 
   assert.sameValue(sample.hasOwnProperty("-1"), false, "has no property [-1]");
   assert.sameValue(sample.hasOwnProperty("1"), false, "has no property [1]");

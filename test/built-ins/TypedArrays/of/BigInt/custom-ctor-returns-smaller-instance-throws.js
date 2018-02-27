@@ -17,12 +17,12 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var ctor = function() {
     return new TA(1);
   };
 
   assert.throws(TypeError, function() {
-    TypedArray.of.call(ctor, 1, 2);
+    TypedArray.of.call(ctor, 1n, 2n);
   });
 });

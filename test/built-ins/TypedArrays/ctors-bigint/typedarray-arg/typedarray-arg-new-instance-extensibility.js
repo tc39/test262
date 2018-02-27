@@ -29,11 +29,11 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var typedArraySample1 = new Int8Array();
-var typedArraySample2 = new Int8Array();
+var typedArraySample1 = new BigInt64Array();
+var typedArraySample2 = new BigInt64Array();
 Object.preventExtensions(typedArraySample2);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample1 = new TA(typedArraySample1);
 
   assert(Object.isExtensible(sample1), "new instance is extensible");

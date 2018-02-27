@@ -17,7 +17,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TAConstructor) {
+testWithBigIntTypedArrayConstructors(function(TAConstructor) {
   var typedArray = new TAConstructor(new SharedArrayBuffer(8), -0);
   assert.sameValue(typedArray.byteOffset, +0);
 });

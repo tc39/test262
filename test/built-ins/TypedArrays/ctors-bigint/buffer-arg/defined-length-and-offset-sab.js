@@ -15,7 +15,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var offset = TA.BYTES_PER_ELEMENT;
   var buffer = new SharedArrayBuffer(3 * offset);
 

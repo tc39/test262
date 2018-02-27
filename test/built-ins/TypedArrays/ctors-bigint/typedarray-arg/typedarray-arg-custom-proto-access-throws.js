@@ -40,7 +40,7 @@ Object.defineProperty(newTarget, "prototype", {
 
 var sample = new Int8Array();
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     Reflect.construct(TA, [sample], newTarget);
   });

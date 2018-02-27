@@ -34,7 +34,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
 
   sample.buffer.constructor = 1;

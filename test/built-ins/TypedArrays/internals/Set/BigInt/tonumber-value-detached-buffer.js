@@ -27,13 +27,13 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var ta = new TA([17]);
+  var ta = new TA([17n]);
 
   assert.throws(TypeError, function() {
     Reflect.set(ta, 0, {
       valueOf: function() {
         $262.detachArrayBuffer(ta.buffer);
-        return 42;
+        return 42n;
       }
     });
   },

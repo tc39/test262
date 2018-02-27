@@ -54,7 +54,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, Symbol.toPrimitive, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new Int8Array(1);
   var toPrimitive = 0;
   var valueOf = 0;

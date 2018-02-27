@@ -19,7 +19,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA) {
   var buffer = new SharedArrayBuffer(4);
   assert.throws(TypeError, function() {
     TA(buffer);
