@@ -27,11 +27,11 @@ var o2 = {
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
-  
+
   assert.throws(Test262Error, function() {
     sample.subarray(o1);
   });
-  
+
   assert.throws(Test262Error, function() {
     sample.subarray(o2);
   });

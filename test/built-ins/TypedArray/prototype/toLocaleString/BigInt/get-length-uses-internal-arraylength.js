@@ -10,9 +10,9 @@ info: |
   the same algorithm as Array.prototype.toLocaleString as defined in 22.1.3.27
   except that the this object's [[ArrayLength]] internal slot is accessed in
   place of performing a [[Get]] of "length".
-  
+
   22.1.3.27 Array.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
-  
+
   1. Let array be ? ToObject(this value).
   2.Let len be ? ToLength(? Get(array, "length")).
   ...

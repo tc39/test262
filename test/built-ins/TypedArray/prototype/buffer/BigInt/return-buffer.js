@@ -19,4 +19,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var ta = new TA(buffer);
 
   assert.sameValue(ta.buffer, buffer);
-}, [BigInt64Array, BigUint64Array]);
+});
