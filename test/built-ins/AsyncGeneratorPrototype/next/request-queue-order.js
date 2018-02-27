@@ -42,22 +42,27 @@ var item1 = iter.next();
 var item2 = iter.next();
 var item3 = iter.next();
 
-var resolveorder = 0;
+var resolvedorder = 0;
 
-item3.then(function(result) {
-  resolvedorder++;
-  assert.sameValue(resolvedorder, 3);
-  assert.sameValue(result.value, undefined);
-})
+Promise.all([
 
-item2.then(function(result) {
-  resolvedorder++;
-  assert.sameValue(resolvedorder, 2);
-  assert.sameValue(result.value, "second");
-})
+  item3.then(function(result) {
+    resolvedorder++;
+    assert.sameValue(resolvedorder, 3);
+    assert.sameValue(result.value, undefined);
+  }),
 
-item1.then(function(result) {
-  resolvedorder++;
-  assert.sameValue(resolvedorder, 1);
-  assert.sameValue(result.value, "first");
-})
+  item2.then(function(result) {
+    resolvedorder++;
+    assert.sameValue(resolvedorder, 2);
+    assert.sameValue(result.value, "second");
+  }),
+
+  item1.then(function(result) {
+    resolvedorder++;
+    assert.sameValue(resolvedorder, 1);
+    assert.sameValue(result.value, "first");
+  })
+
+]).then(function() { $DONE(); }, $DONE);
+

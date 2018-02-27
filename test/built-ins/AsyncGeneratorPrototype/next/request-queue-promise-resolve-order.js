@@ -51,25 +51,29 @@ var item3 = iter.next();
 
 var resolvedorder = 0;
 
-item3.then(function(result) {
-  resolvedorder++;
-  assert.sameValue(resolvedorder, 3);
-  assert.sameValue(result.value, undefined);
-})
+Promise.all([
 
-item2.then(function(result) {
-  resolvedorder++;
-  assert.sameValue(resolvedorder, 2);
-  assert.sameValue(result.value, 2);
-})
+  item3.then(function(result) {
+    resolvedorder++;
+    assert.sameValue(resolvedorder, 3);
+    assert.sameValue(result.value, undefined);
+  }),
 
-item1.then(function(result) {
-  resolvedorder++;
-  assert.sameValue(resolvedorder, 1);
+  item2.then(function(result) {
+    resolvedorder++;
+    assert.sameValue(resolvedorder, 2);
+    assert.sameValue(result.value, 2);
+  }),
+
+  item1.then(function(result) {
+    resolvedorder++;
+    assert.sameValue(resolvedorder, 1);
   assert.sameValue(result.value, 1);
-})
+  })
+
+]).then(function() { $DONE(); }, $DONE);
 
 // At this point:
 //   yieldorder == 0
 //   item1 is an unresolved promise
-resolveLatePromise(++yieldorder)
+resolveLatePromise(++yieldorder);

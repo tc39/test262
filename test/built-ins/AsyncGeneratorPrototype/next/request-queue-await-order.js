@@ -55,9 +55,9 @@ async function awaitnexts() {
   assert.sameValue((await item1).value, 1)
 }
 
-awaitnexts().then($DONE, $DONE)
+awaitnexts().then($DONE, $DONE);
 
 // At this point:
 //   yieldorder == 0
 //   item1 is an unresolved promise
-resolveLatePromise(++yieldorder)
+resolveLatePromise(++yieldorder);
