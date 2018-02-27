@@ -27,8 +27,8 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-var sample1 = new Int8Array();
-var sample2 = new Int16Array();
+var sample1 = new BigInt64Array();
+var sample2 = new BigUint64Array();
 
 var ctor = function() {
   throw new Test262Error();
@@ -37,7 +37,7 @@ var m = { m() {} }.m;
 ctor[Symbol.species] = m;
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = TA === Int8Array ? sample2 : sample1;
+  var sample = TA === BigInt64Array ? sample2 : sample1;
 
   sample.buffer.constructor = ctor;
 
