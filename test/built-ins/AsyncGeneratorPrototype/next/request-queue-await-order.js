@@ -45,12 +45,15 @@ async function* g() {
 
 var iter = g();
 
+assert.sameValue(yieldorder, 0);
+
 var item1 = iter.next();
 var item2 = iter.next();
 var item3 = iter.next();
 
 async function awaitnexts() {
   assert.sameValue((await item3).value, undefined)
+  assert.sameValue(yieldorder, 2, "All next requests have been proccessed.")
   assert.sameValue((await item2).value, 2)
   assert.sameValue((await item1).value, 1)
 }

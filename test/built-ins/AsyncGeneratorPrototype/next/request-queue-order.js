@@ -50,18 +50,21 @@ Promise.all([
     resolvedorder++;
     assert.sameValue(resolvedorder, 3);
     assert.sameValue(result.value, undefined);
+    assert.sameValue(result.done, true);
   }),
 
   item2.then(function(result) {
     resolvedorder++;
     assert.sameValue(resolvedorder, 2);
     assert.sameValue(result.value, "second");
+    assert.sameValue(result.done, false);
   }),
 
   item1.then(function(result) {
     resolvedorder++;
     assert.sameValue(resolvedorder, 1);
     assert.sameValue(result.value, "first");
+    assert.sameValue(result.done, false);
   })
 
 ]).then(function() { $DONE(); }, $DONE);
