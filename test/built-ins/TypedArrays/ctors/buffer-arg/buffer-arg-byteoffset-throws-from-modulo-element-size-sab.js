@@ -12,9 +12,15 @@ info: |
   least one argument and the Type of the first argument is Object and that
   object has an [[ArrayBufferData]] internal slot.
 
+
+  Let elementSize be the Number value of the Element Size value in Table 56 for constructorName.*
+
   ...
-  10. If offset modulo elementSize ≠ 0, throw a RangeError exception.
+  If offset modulo elementSize ≠ 0, throw a RangeError exception.
   ...
+
+  * Int8Array, Uint8Array, Uint8ClampedArray all have element size 1, so will never fail.
+
 includes: [testTypedArray.js]
 features: [SharedArrayBuffer, TypedArray]
 ---*/
@@ -25,4 +31,5 @@ testWithTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, 7);
   });
-});
+}, [ Float64Array, Float32Array, Int32Array, Int16Array, Uint32Array, Uint16Array ]);
+
