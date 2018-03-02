@@ -31,15 +31,15 @@ info: |
   9.4.5.9 IntegerIndexedElementSet ( O, index, value )
 
   ...
-  3. Let numValue be ? ToNumber(value).
+  5. If arrayTypeName is "BigUint64Array" or "BigInt64Array",
+     let numValue be ? ToBigInt(value).
   ...
 
-  7.1.3 ToNumber ( argument )
+  ToBigInt ( argument )
 
   Object, Apply the following steps:
-
-    1. Let primValue be ? ToPrimitive(argument, hint Number).
-    2. Return ? ToNumber(primValue).
+    1. Let prim be ? ToPrimitive(argument, hint Number).
+    2. Return the value that prim corresponds to in Table 10.
 
   7.1.1 ToPrimitive ( input [ , PreferredType ] )
 
@@ -81,7 +81,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(Test262Error, function() {
     new TA([8n, sample]);
-  }, "abrupt completion from ToNumber(sample)");
+  }, "abrupt completion from ToBigInt(sample)");
 
   assert.sameValue(valueOf, 1, "valueOf called once");
   assert.sameValue(toString, 1, "toString called once");
