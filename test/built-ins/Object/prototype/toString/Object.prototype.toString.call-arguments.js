@@ -7,5 +7,6 @@ description: has a [[ParameterMap]] internal slot, let builtinTag be "Arguments"
 ---*/
 assert.sameValue(
   Object.prototype.toString.call(function() { return arguments; }()),
-  "[object Arguments]"
+  "[object Arguments]",
+  "Object.prototype.toString.call(function() { return arguments; }()) returns [object Arguments]"
 );

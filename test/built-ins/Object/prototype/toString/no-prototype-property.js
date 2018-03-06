@@ -8,5 +8,6 @@ description: Object.prototype.toString has no prototype property
 
 assert.sameValue(
   Object.prototype.toString.hasOwnProperty("prototype"),
-  false
+  false,
+  "Object.prototype.toString.hasOwnProperty(\"prototype\") returns false"
 );
