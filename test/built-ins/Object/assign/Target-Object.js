@@ -2,8 +2,9 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
-description: Test the first argument(target) of Object.Assign(target,...sources),
-             if target is Object,its properties will be the properties of new object.
+description: >
+  Test the first argument(target) of Object.Assign(target,...sources),
+  if target is Object,its properties will be the properties of new object.
 es6id:  19.1.2.1.1
 ---*/
 
