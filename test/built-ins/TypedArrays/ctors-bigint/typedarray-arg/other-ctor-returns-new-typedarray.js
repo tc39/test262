@@ -2,20 +2,20 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-typedarray-typedarray
-description: >
-  Return abrupt from getting typedArray argument's buffer.constructor.@@species
+description: Instantiate a new TypedArray with an existing TypedArray
 info: |
   22.2.4.3 TypedArray ( typedArray )
 
   This description applies only if the TypedArray function is called with at
   least one argument and the Type of the first argument is Object and that
   object has a [[TypedArrayName]] internal slot.
+
 includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var sample1 = new BigInt64Array();
-var sample2 = new BigUint64Array();
+var sample1 = new BigInt64Array(7);
+var sample2 = new BigUint64Array(7);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = TA === BigInt64Array ? sample2 : sample1;
