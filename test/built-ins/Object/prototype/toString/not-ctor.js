@@ -5,7 +5,9 @@
 esid: sec-ecmascript-standard-built-in-objects
 description: Object.prototype.toString is not a constructor
 info: |
-  Built-in function objects that are not identified as constructors do not implement the [[Construct]] internal method unless otherwise specified in the description of a particular function
+  Built-in function objects that are not identified as constructors do
+  not implement the [[Construct]] internal method unless otherwise specified
+  in the description of a particular function
 ---*/
 
 assert.throws(TypeError, function() {
