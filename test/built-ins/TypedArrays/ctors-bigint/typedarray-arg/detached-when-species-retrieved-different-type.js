@@ -52,7 +52,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     ta.buffer.constructor = bufferConstructor;
 
     assert.throws(TypeError, function() {
-        var targetType = TA !== Int32Array ? Int32Array : Uint32Array;
+        var targetType = TA !== BigInt64Array ? BigInt64Array : BigUint64Array;
         new targetType(ta);
     }, "TypeError thrown for detached source buffer");
 

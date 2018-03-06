@@ -38,7 +38,7 @@ Object.defineProperty(newTarget, "prototype", {
   }
 });
 
-var sample = new Int8Array();
+var sample = new BigInt64Array();
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {

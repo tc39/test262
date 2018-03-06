@@ -19,7 +19,7 @@ verifyProperty(BigInt.prototype, Symbol.toStringTag, {
   writable: false,
   enumerable: false,
   configurable: true
-});
+}, {restore: true});
 
 assert.sameValue(Object.prototype.toString.call(3n), "[object BigInt]");
 assert.sameValue(Object.prototype.toString.call(Object(3n)), "[object BigInt]");

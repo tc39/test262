@@ -14,8 +14,8 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var sample1 = new BigInt64Array();
-var sample2 = new BigUint64Array();
+var sample1 = new BigInt64Array(7);
+var sample2 = new BigUint64Array(7);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = TA === BigInt64Array ? sample2 : sample1;
