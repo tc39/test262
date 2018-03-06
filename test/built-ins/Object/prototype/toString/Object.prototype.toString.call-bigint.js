@@ -6,12 +6,6 @@ esid: sec-object.prototype.tostring
 info: |
     Let tag be ? Get(O, @@toStringTag).
 
-    The initial value of the @@toStringTag property is the String value
-    "BigInt".
-
-    This property has the attributes { [[Writable]]: false, [[Enumerable]]:
-    false, [[Configurable]]: true }.
-
 features: [BigInt]
 ---*/
 assert.sameValue(Object.prototype.toString.call(3n), "[object BigInt]");
