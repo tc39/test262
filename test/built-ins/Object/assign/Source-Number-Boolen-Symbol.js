@@ -2,8 +2,9 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
-description: Number,Boolean,Symbol cannot have own enumerable properties,
-             So cannot be Assigned.Here result should be original object.
+description: >
+  Number,Boolean,Symbol cannot have own enumerable properties,
+  So cannot be Assigned.Here result should be original object.
 esid: sec-object.assign
 features: [Symbol]
 ---*/

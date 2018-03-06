@@ -2,8 +2,9 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
-description: Object properties are assigned to target in ascending index order,
-             i.e. a later assignment to the same property overrides an earlier assignment.
+description: >
+  Object properties are assigned to target in ascending index order,
+  i.e. a later assignment to the same property overrides an earlier assignment.
 es6id:  19.1.2.1
 ---*/
 

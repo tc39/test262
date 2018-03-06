@@ -2,8 +2,9 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
-description: Test override of Object.Assign(target,...sources),
-             Every string from sources will be wrapped to objects, and override from the first letter(result[0]) all the time
+description: >
+  Test override of Object.Assign(target,...sources),
+  Every string from sources will be wrapped to objects, and override from the first letter(result[0]) all the time
 es6id:  19.1.2.1
 ---*/
 
