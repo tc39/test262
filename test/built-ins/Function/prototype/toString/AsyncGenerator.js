@@ -7,10 +7,11 @@ description: >
   Function.prototype.toString on an async generator created with the
   AsyncGenerator constructor.
 features: [async-iteration]
+includes: [nativeFunctionMatcher.js]
 ---*/
 
 async function* f() {}
 var AsyncGenerator = f.constructor;
 
 var g = /* before */AsyncGenerator("a", " /* a */ b, c /* b */ //", "/* c */ ; /* d */ //")/* after */;
-assert.sameValue(g.toString(), "async function* anonymous(a, /* a */ b, c /* b */ //\n) {\n/* c */ ; /* d */ //\n}");
+assertToStringOrNativeFunction(g, "async function* anonymous(a, /* a */ b, c /* b */ //\n) {\n/* c */ ; /* d */ //\n}");
