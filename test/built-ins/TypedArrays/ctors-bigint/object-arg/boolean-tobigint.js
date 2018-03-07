@@ -3,7 +3,7 @@
 /*---
 esid: sec-typedarray-object
 description: >
-  Behavoir for input array of Booleans
+  Behavior for input array of Booleans
 info: |
   TypedArray ( object )
   This description applies only if the TypedArray function is called with at

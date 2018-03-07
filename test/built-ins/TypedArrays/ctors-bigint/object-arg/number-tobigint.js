@@ -53,10 +53,30 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     new TA([1]);
-  }, "abrupt completion from number");
+  }, "abrupt completion from Number: 1");
 
   assert.throws(TypeError, function() {
     new TA([Math.pow(2, 63)]);
-  }, "abrupt completion from very big number");
+  }, "abrupt completion from Number: 2**63");
+
+  assert.throws(TypeError, function() {
+    new TA([+0]);
+  }, "abrupt completion from Number: +0");
+
+  assert.throws(TypeError, function() {
+    new TA([-0]);
+  }, "abrupt completion from Number: -0");
+
+  assert.throws(TypeError, function() {
+    new TA([Infinity]);
+  }, "abrupt completion from Number: Infinity");
+
+  assert.throws(TypeError, function() {
+    new TA([-Infinity]);
+  }, "abrupt completion from Number: -Infinity");
+
+  assert.throws(TypeError, function() {
+    new TA([NaN]);
+  }, "abrupt completion from Number: NaN");
 
 });

@@ -3,7 +3,7 @@
 /*---
 esid: sec-typedarray-object
 description: >
-  Behavoir for input array of Booleans
+  Behavior for input array of BigInts
 info: |
   TypedArray ( object )
   This description applies only if the TypedArray function is called with at
@@ -64,34 +64,35 @@ features: [BigInt, TypedArray]
 ---*/
 
 var vals = [
-  Math.pow(2n, 64n) + 2n,
-  Math.pow(2n, 63n) + 2n,
+  18446744073709551618n, // 2n ** 64n + 2n
+  9223372036854775810n, // 2n ** 63n + 2n
   2n,
   0n,
   -2n,
-  - (Math.pow(2n, 63n) + 2n),
-  - (Math.pow(2n, 64n) + 2n)
-]
+  -9223372036854775810n, // -(2n ** 63n) - 2n
+  -18446744073709551618n, // -(2n ** 64n) - 2n
+];
 
-var typedArray = new BitInt64Array(vals);
+var typedArray = new BigInt64Array(vals);
 
 assert.sameValue(typedArray[0], 2n,
-                 "Wrapping of postive value greater than 2^64");
+                 "ToBigInt64(2n ** 64n + 2n) => 2n");
 
-assert.sameValue(typedArray[1], 2n - Math.pow(2n, 63n),
-                 "Wrapping of postive value greater than 2^63, less than 2^64");
+assert.sameValue(typedArray[1], -9223372036854775806n, // 2n - 2n ** 63n
+                 "ToBigInt64(2n ** 63n + 2n) => -9223372036854775806n");
 
 assert.sameValue(typedArray[2], 2n,
-                 "Wrapping of postive value greater than 0, less than 2^63");
+                 "ToBigInt64(2n) => 2n");
 
 assert.sameValue(typedArray[3], 0n,
-                 "Wrapping of value 0");
+                 "ToBigInt64(0n) => 0n");
 
 assert.sameValue(typedArray[4], -2n,
-                 "Wrapping of postive value greater than -2^63, less than 0");
+                 "ToBigInt64( -2n) => -2n");
 
-assert.sameValue(typedArray[5], Math.pow(2n, 63n) - 2n,
-                 "Wrapping of postive value greater than -2^64, less than -2^63");
+assert.sameValue(typedArray[5], 9223372036854775806n, // 2n ** 63n - 2
+                 "ToBigInt64( -(2n ** 64n) - 2n) => 9223372036854775806n");
 
 assert.sameValue(typedArray[6], -2n,
-                 "Wrapping of postive value less than -2^64");
+                 "ToBigInt64( -(2n ** 64n) - 2n) => -2n");
+

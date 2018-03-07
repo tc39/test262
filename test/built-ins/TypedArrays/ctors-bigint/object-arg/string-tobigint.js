@@ -3,7 +3,7 @@
 /*---
 esid: sec-typedarray-object
 description: >
-  Behavoir for input array of Strings, successful conversion
+  Behavior for input array of Strings, successful conversion
 info: |
   22.2.4.4 TypedArray ( object )
 
@@ -53,8 +53,25 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(['', '1n']);
+  var typedArray = new TA(['', '1']);
 
   assert.sameValue(typedArray[0], 0n);
   assert.sameValue(typedArray[1], 1n);
+
+  assert.throws(TypeError, function() {
+    new TA(["1n"]);
+  }, "A StringNumericLiteral may not include a BigIntLiteralSuffix.");
+
+  assert.throws(TypeError, function() {
+    new TA(["Infinity"]);
+  }, "Replace the StrUnsignedDecimalLiteral production with DecimalDigits to not allow Infinity..");
+
+  assert.throws(TypeError, function() {
+    new TA(["1.1"]);
+  }, "Replace the StrUnsignedDecimalLiteral production with DecimalDigits to not allow... decimal points...");
+
+  assert.throws(TypeError, function() {
+    new TA(["1e7"]);
+  }, "Replace the StrUnsignedDecimalLiteral production with DecimalDigits to not allow... exponents...");
+
 });
