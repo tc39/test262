@@ -6,8 +6,9 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: sec-function.prototype.tostring
 description: Function.prototype.toString on an async function declaration
 features: [async-functions]
+includes: [nativeFunctionMatcher.js]
 ---*/
 
 /* before */async function /* a */ f /* b */ ( /* c */ x /* d */ , /* e */ y /* f */ ) /* g */ { /* h */ ; /* i */ ; /* j */ }/* after */
 
-assert.sameValue(f.toString(), "async function /* a */ f /* b */ ( /* c */ x /* d */ , /* e */ y /* f */ ) /* g */ { /* h */ ; /* i */ ; /* j */ }");
+assertToStringOrNativeFunction(f, "async function /* a */ f /* b */ ( /* c */ x /* d */ , /* e */ y /* f */ ) /* g */ { /* h */ ; /* i */ ; /* j */ }");
