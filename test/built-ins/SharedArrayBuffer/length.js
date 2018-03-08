@@ -1,12 +1,12 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-dataview-constructor
+esid: sec-sharedarraybuffer-constructor
 description: >
-  The length property of DataView has the default value of 1
+  SharedArrayBuffer.length is 1.
 info: |
-  DataView ( buffer [ , byteOffset [ , byteLength ] ] )
+  SharedArrayBuffer( length )
 
   ECMAScript Standard Built-in Objects:
 
@@ -22,12 +22,12 @@ info: |
   object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
   [[Configurable]]: true }.
 includes: [propertyHelper.js]
-features: [DataView]
+features: [SharedArrayBuffer]
 ---*/
 
-verifyProperty(DataView, "length", {
-    value: 1,
-    enumerable: false,
-    writable: false,
-    configurable: true,
+verifyProperty(SharedArrayBuffer, "length", {
+  value: 1,
+  enumerable: false,
+  writable: false,
+  configurable: true,
 });
