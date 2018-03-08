@@ -21,6 +21,12 @@ features: [TypedArray]
 var buffer = new ArrayBuffer(8);
 
 testWithTypedArrayConstructors(function(TA) {
+
+  // Exclude 8 bit buffers from this tests, as their elementSize = 1
+  if ( TA.name.indexOf("8") > -1 ) {
+    return;
+  }
+
   assert.throws(RangeError, function() {
     new TA(buffer, 7);
   });

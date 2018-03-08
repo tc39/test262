@@ -12,7 +12,6 @@ info: |
   ...
   18. Return promiseCapability.[[Promise]].
 
-flags: [async]
 features: [async-iteration]
 ---*/
 
