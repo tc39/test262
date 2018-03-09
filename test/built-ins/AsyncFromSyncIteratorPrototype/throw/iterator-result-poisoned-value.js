@@ -30,15 +30,15 @@ var obj = {
   [Symbol.iterator]() {
     return {
       next() {
-	return { value: 1, done: false };
+        return { value: 1, done: false };
       },
       throw() {
-	return {
-	  get value() {
-	    throw thrownError;
-	  },
-	  done: false
-	}
+        return {
+          get value() {
+            throw thrownError;
+          },
+          done: false
+        };
       }
     }
   }
@@ -60,8 +60,8 @@ iter.next().then(function(result) {
       assert.sameValue(err, thrownError, "Promise should be rejected with thrown error");
 
       iter.next().then(({ done, value }) => {
-	assert.sameValue(done, true, 'the iterator is completed');
-	assert.sameValue(value, undefined, 'value is undefined');
+        assert.sameValue(done, true, 'the iterator is completed');
+        assert.sameValue(value, undefined, 'value is undefined');
       }).then($DONE, $DONE);
     }
   ).catch($DONE);

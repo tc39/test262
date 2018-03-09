@@ -22,12 +22,6 @@ features: [TypedArray]
 var buffer = new ArrayBuffer(1);
 
 testWithTypedArrayConstructors(function(TA) {
-
-  // Exclude 8 bit buffers from this tests, as their elementSize = 1
-  if ( TA.name.indexOf("8") > -1 ) {
-    return;
-  }
-
   assert.throws(RangeError, function() {
     new TA(buffer);
   });
@@ -35,4 +29,4 @@ testWithTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, 0, undefined);
   });
-});
+}, [ Float64Array, Float32Array, Int32Array, Int16Array, Uint32Array, Uint16Array ]);
