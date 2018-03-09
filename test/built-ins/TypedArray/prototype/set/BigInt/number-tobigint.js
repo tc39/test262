@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.set-array-offset
 description: >
   Return abrupt on Number
-info:
+info: |
   %TypedArray%.prototype.set ( array [ , offset ] )
   Sets multiple values in this TypedArray, reading the values from the object
   array. The optional offset value indicates the first element index in this

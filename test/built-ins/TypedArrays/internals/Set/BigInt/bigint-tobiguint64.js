@@ -86,7 +86,7 @@ assert.sameValue(typedArray[0], 2n,
                  "ToBigUint64(2n ** 64n + 2n) => 2n");
 
 typedArray[0] = vals[1];
-assert.sameValue(typedArray[0], 9223372036854775810, // 2n ** 63n + 2n
+assert.sameValue(typedArray[0], 9223372036854775810n, // 2n ** 63n + 2n
                  "ToBigUint64(2n ** 63n + 2n) => 9223372036854775810");
 
 typedArray[0] = vals[2];

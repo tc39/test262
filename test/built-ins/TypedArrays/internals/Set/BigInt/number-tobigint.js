@@ -4,7 +4,7 @@
 esid:  sec-assignment-operators-runtime-semantics-evaluation
 description: >
   Return abrupt on Number
-info:
+info: |
   Runtime Semantics: Evaluation
   AssignmentExpression : LeftHandSideExpression = AssignmentExpression
   1. If LeftHandSideExpression is neither an ObjectLiteral nor an ArrayLiteral, then
