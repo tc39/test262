@@ -50,8 +50,8 @@ features: [TypedArray]
 ---*/
 
 function body(FloatArray) {
-  var first = new FloatArray(distinctNaNs);
-  var second = new FloatArray(distinctNaNs);
+  var first = new FloatArray(NaNs.map(n => n()));
+  var second = new FloatArray(NaNs.map(n => n()));
   var firstBytes = new Uint8Array(first.buffer);
   var secondBytes = new Uint8Array(second.buffer);
 
