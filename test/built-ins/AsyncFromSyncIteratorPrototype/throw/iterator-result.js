@@ -50,8 +50,8 @@ iter.next().then(function(result) {
       assert.sameValue(err, thrownError, "promise should be reject with custom error, got: " + err)
 
       iter.next().then(({ done, value }) => {
-	assert.sameValue(done, true, 'the iterator is completed');
-	assert.sameValue(value, undefined, 'value is undefined');
+        assert.sameValue(done, true, 'the iterator is completed');
+        assert.sameValue(value, undefined, 'value is undefined');
       }).then($DONE, $DONE);
     }
   ).catch($DONE);

@@ -60,4 +60,5 @@ iter.next().then(function (result) {
       }).then($DONE, $DONE);
     }
   ).catch($DONE);
-}).then($DONE, $DONE);
+
+}).catch($DONE);
