@@ -17,14 +17,14 @@ features: [TypedArray]
 ---*/
 
 function body(FloatArray) {
-  var subject = new FloatArray(distinctNaNs.length * 2);
+  var subject = new FloatArray(NaNs.length * 2);
 
-  distinctNaNs.forEach(function(v, i) {
-    subject[i] = v;
+  NaNs.forEach(function(v, i) {
+    subject[i] = v();
   });
 
   var originalBytes, copiedBytes;
-  var length = distinctNaNs.length * FloatArray.BYTES_PER_ELEMENT;
+  var length = NaNs.length * FloatArray.BYTES_PER_ELEMENT;
 
   originalBytes = new Uint8Array(
     subject.buffer,
@@ -32,7 +32,7 @@ function body(FloatArray) {
     length
   );
 
-  subject.copyWithin(distinctNaNs.length, 0);
+  subject.copyWithin(NaNs.length, 0);
   copiedBytes = new Uint8Array(
     subject.buffer,
     length

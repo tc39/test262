@@ -19,5 +19,3 @@ var NaNs = [
   () => -Math.pow(-1, 0.5),
   () => Number("Not-a-Number"),
 ];
-
-var distinctNaNs = NaNs.map(n => n());

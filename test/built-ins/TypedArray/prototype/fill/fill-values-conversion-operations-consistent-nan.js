@@ -77,8 +77,8 @@ testWithTypedArrayConstructors(function(FA) {
   var samples = new FA(3);
   var controls, idx, aNaN;
 
-  for (idx = 0; idx < distinctNaNs.length; ++idx) {
-    aNaN = distinctNaNs[idx];
+  for (idx = 0; idx < NaNs.length; ++idx) {
+    aNaN = NaNs[idx]();
     controls = new Float32Array([aNaN, aNaN, aNaN]);
 
     samples.fill(aNaN);

@@ -51,7 +51,7 @@ info: |
 includes: [nans.js]
 ---*/
 
-var len = distinctNaNs.length;
+var len = NaNs.length;
 
 for (var idx = 0; idx < len; ++idx) {
   for (var jdx = 0; jdx < len; ++jdx) {
@@ -59,12 +59,12 @@ for (var idx = 0; idx < len; ++idx) {
     var b = {};
 
     Object.defineProperty(a, "prop", {
-      value: distinctNaNs[idx],
+      value: NaNs[idx](),
       configurable: true,
     });
 
     Object.defineProperty(a, "prop", {
-      value: distinctNaNs[jdx],
+      value: NaNs[jdx](),
     });
 
     assert(

@@ -19,9 +19,9 @@ includes: [nans.js, compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-function body(FloatArray) {
-  var source = new FloatArray(distinctNaNs);
-  var target = new FloatArray(distinctNaNs.length);
+function body(FA) {
+  var source = new FA(NaNs.map(n => n()));
+  var target = new FA(NaNs.length);
   var sourceBytes, targetBytes;
 
   target.set(source);

@@ -51,14 +51,14 @@ info: |
 includes: [nans.js]
 ---*/
 
-var len = distinctNaNs.length;
+var len = NaNs.length;
 
 for (var idx = 0; idx < len; ++idx) {
   for (var jdx = 0; jdx < len; ++jdx) {
     var a = {};
 
-    a.prop = distinctNaNs[idx];
-    a.prop = distinctNaNs[jdx];
+    a.prop = NaNs[idx]();
+    a.prop = NaNs[jdx]();
 
     assert(
       a.prop !== a.prop,
