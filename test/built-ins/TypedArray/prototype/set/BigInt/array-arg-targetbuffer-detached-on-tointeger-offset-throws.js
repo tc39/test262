@@ -32,7 +32,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   };
 
   assert.throws(TypeError, function() {
-    sample.set([1], obj);
+    sample.set([1n], obj);
   });
 
   assert.sameValue(calledOffset, 1);

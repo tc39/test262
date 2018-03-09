@@ -22,14 +22,14 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(4);
 
   assert.throws(RangeError, function() {
-    sample.set([1], -1);
+    sample.set([1n], -1);
   }, "-1");
 
   assert.throws(RangeError, function() {
-    sample.set([1], -1.00001);
+    sample.set([1n], -1.00001);
   }, "-1.00001");
 
   assert.throws(RangeError, function() {
-    sample.set([1], -Infinity);
+    sample.set([1n], -Infinity);
   }, "-Infinity");
 });
