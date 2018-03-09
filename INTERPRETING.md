@@ -13,7 +13,7 @@ easily determine the cause of new test failures.
 
 Test262 tests are only valid under the runtime environment conditions described
 here. Test environments may be further modified according to the metadata
-contained with each test--refer to the "Metadata" section for more details.
+contained with each test--refer to the [Metadata](#metadata) section for more details.
 
 ### Realm Isolation
 
