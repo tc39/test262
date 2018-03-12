@@ -7,6 +7,10 @@
 #
 # https://github.com/tc39/process-document
 
+# Catch initializer
+# https://github.com/tc39/ecma262/pull/1126
+catch-initializer
+
 # Missing checks in Proxy internal methods
 # https://github.com/tc39/ecma262/pull/666
 proxy-missing-checks
