@@ -72,6 +72,10 @@ String.prototype.trimStart
 # https://github.com/tc39/proposal-numeric-separator
 numeric-separator-literal
 
+# Catch initializer
+# https://github.com/tc39/ecma262/pull/1126
+catch-initializer
+
 # Standard language features
 #
 # Language features that have been included in a published version of the
