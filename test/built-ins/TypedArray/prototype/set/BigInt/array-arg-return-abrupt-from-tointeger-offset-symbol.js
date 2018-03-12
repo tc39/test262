@@ -22,6 +22,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
 
   assert.throws(TypeError, function() {
-    sample.set([1], s);
+    sample.set([1n], s);
   });
 });

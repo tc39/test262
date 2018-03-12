@@ -41,34 +41,17 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
   sample = new TA([42n]);
-  sample.fill(false);
-  assert.sameValue(sample[0], 0n, "false => 0");
 
-  sample = new TA([42n]);
-  sample.fill(true);
-  assert.sameValue(sample[0], 1n, "true => 1");
+  assert.throws(TypeError, function() {
+    sample.fill(undefined);
+  }, "abrupt completion from undefined");
 
-  sample = new TA([42n]);
-  sample.fill("7");
-  assert.sameValue(sample[0], 7n, "string conversion");
+  assert.throws(TypeError, function() {
+    sample.fill(null);
+  }, "abrupt completion from null");
 
-  sample = new TA([42n]);
-  sample.fill({
-    toString: function() {
-      return "1";
-    },
-    valueOf: function() {
-      return 7n;
-    }
-  });
-  assert.sameValue(sample[0], 7n, "object valueOf conversion before toString");
-
-  sample = new TA([42n]);
-  sample.fill({
-    toString: function() {
-      return "7";
-    }
-  });
-  assert.sameValue(sample[0], 7n, "object toString when valueOf is absent");
+  assert.throws(SyntaxError, function() {
+    sample.fill("nonsense");
+  }, "abrupt completion from string");
 
 });
