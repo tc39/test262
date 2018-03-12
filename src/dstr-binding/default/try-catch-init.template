@@ -1,0 +1,26 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/try/dstr-catch-init-
+name: try catch with initializer statement
+esid: sec-runtime-semantics-catchclauseevaluation
+features: [destructuring-binding, catch-initializer]
+info: |
+  https://github.com/tc39/ecma262/pull/1126
+
+  Catch : catch ( CatchParameter ) Block
+
+  CatchParameter[Yield, Await] :
+    FormalParameter[?Yield, ?Await]
+---*/
+
+var ranCatch = false;
+
+try {
+  throw undefined;
+} catch (/*{ elems }*/ = /*{ vals }*/) {
+  /*{ body }*/
+  ranCatch = true;
+}
+
+assert(ranCatch, 'executed `catch` block');
