@@ -58,19 +58,19 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(typedArray[0], 0n);
   assert.sameValue(typedArray[1], 1n);
 
-  assert.throws(TypeError, function() {
+  assert.throws(SyntaxError, function() {
     new TA(["1n"]);
   }, "A StringNumericLiteral may not include a BigIntLiteralSuffix.");
 
-  assert.throws(TypeError, function() {
+  assert.throws(SyntaxError, function() {
     new TA(["Infinity"]);
   }, "Replace the StrUnsignedDecimalLiteral production with DecimalDigits to not allow Infinity..");
 
-  assert.throws(TypeError, function() {
+  assert.throws(SyntaxError, function() {
     new TA(["1.1"]);
   }, "Replace the StrUnsignedDecimalLiteral production with DecimalDigits to not allow... decimal points...");
 
-  assert.throws(TypeError, function() {
+  assert.throws(SyntaxError, function() {
     new TA(["1e7"]);
   }, "Replace the StrUnsignedDecimalLiteral production with DecimalDigits to not allow... exponents...");
 
