@@ -61,4 +61,3 @@ testWithTypedArrayConstructors(function(TA) {
     });
   });
 
-});
