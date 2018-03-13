@@ -22,7 +22,7 @@ includes: [testBigIntTypedArray.js]
 features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 
-var sourceItor = [1, 2];
+var sourceItor = [1n, 2n];
 var sourceObj = {
   length: 2
 };
