@@ -13,7 +13,8 @@ features: [BigInt, SharedArrayBuffer, TypedArray]
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sab = new SharedArrayBuffer(2 * BigInt64Array.BYTES_PER_ELEMENT);
-  var src = new BigInt64Array(sab);
+  var otherCtor = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
+  var src = new otherCtor(sab);
   src[0] = 42n;
   src[1] = 43n;
   var sample, result;
