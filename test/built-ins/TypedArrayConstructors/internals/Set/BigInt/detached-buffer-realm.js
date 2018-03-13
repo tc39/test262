@@ -35,6 +35,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   $DETACHBUFFER(sample.buffer);
 
   assert.throws(TypeError, function() {
-    sample[0] = 0;
+    sample[0] = 0n;
   });
 });

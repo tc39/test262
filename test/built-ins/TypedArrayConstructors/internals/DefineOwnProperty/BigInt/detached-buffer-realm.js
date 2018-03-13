@@ -29,7 +29,7 @@ features: [BigInt, cross-realm, Reflect, TypedArray]
 
 var other = $262.createRealm().global;
 var desc = {
-  value: 0,
+  value: 0n,
   configurable: false,
   enumerable: true,
   writable: true

@@ -27,7 +27,7 @@ features: [BigInt, Reflect, TypedArray]
 ---*/
 
 var desc = {
-  value: 0,
+  value: 0n,
   configurable: false,
   enumerable: true,
   writable: true
