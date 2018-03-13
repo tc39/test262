@@ -20,7 +20,7 @@ features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var buffer = new SharedArrayBuffer(4);
+  var buffer = new SharedArrayBuffer(TA.BYTES_PER_ELEMENT);
   assert.throws(TypeError, function() {
     TA(buffer);
   });
