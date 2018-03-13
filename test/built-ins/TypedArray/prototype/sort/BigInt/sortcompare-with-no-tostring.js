@@ -18,10 +18,14 @@ includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-var origToString = Number.prototype.toString;
+var toStringCalled = false;
+BigInt.prototype.toString = function() {
+  toStringCalled = true;
+}
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([20n, 100n, 3n]);
   var result = sample.sort();
+  assert.sameValue(toStringCalled, false, "BigInt.prototype.toString will not be called");
   assert(compareArray(result, [3n, 20n, 100n]));
 });

@@ -23,7 +23,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "-1", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true

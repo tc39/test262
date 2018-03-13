@@ -25,7 +25,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "2", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true
@@ -36,7 +36,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "3", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true

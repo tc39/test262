@@ -31,6 +31,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(1);
 
   assert.throws(Test262Error, function() {
-    sample.indexOf(7, fromIndex);
+    sample.indexOf(7n, fromIndex);
   });
 });

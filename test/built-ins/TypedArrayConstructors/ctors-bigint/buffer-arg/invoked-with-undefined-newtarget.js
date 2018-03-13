@@ -19,7 +19,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var buffer = new ArrayBuffer(4);
+  var buffer = new ArrayBuffer(TA.BYTES_PER_ELEMENT);
   assert.throws(TypeError, function() {
     TA(buffer);
   });

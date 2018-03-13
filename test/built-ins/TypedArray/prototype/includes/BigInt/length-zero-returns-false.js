@@ -33,7 +33,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(sample.includes(0), false, "returns false");
   assert.sameValue(sample.includes(), false, "returns false - no arg");
   assert.sameValue(
-    sample.includes(0, fromIndex), false,
+    sample.includes(0n, fromIndex), false,
     "length is checked before ToInteger(fromIndex)"
   );
 });

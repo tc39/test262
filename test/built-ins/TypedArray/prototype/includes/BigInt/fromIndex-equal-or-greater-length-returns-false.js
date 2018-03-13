@@ -31,6 +31,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
 
   sample = new TA(42);
-  assert.sameValue(sample.includes(0, 42), false);
-  assert.sameValue(sample.includes(0, 43), false);
+  assert.sameValue(sample.includes(0n, 42), false);
+  assert.sameValue(sample.includes(0n, 43), false);
 });
