@@ -18,7 +18,7 @@ features: [BigInt, TypedArray]
 ---*/
 
 var source = {
-  "0": 42,
+  "0": 42n,
   length: 2
 };
 var mapfn = function() {
