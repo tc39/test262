@@ -33,6 +33,6 @@ var end = Symbol(1);
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
   assert.throws(TypeError, function() {
-    sample.fill(1, 0, end);
+    sample.fill(1n, 0, end);
   });
 });

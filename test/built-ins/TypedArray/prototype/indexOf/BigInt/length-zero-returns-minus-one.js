@@ -29,9 +29,9 @@ var fromIndex = {
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
-  assert.sameValue(sample.indexOf(0), -1, "returns -1");
+  assert.sameValue(sample.indexOf(0n), -1, "returns -1");
   assert.sameValue(
-    sample.indexOf(0, fromIndex), -1,
+    sample.indexOf(0n, fromIndex), -1,
     "length is checked before ToInteger(fromIndex)"
   );
 });
