@@ -21,7 +21,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0.1", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true
@@ -38,7 +38,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0.000001", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true
@@ -58,7 +58,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "1.1", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true
@@ -75,7 +75,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "Infinity", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true
@@ -99,7 +99,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(
     Reflect.defineProperty(sample, "-Infinity", {
-      value: 42,
+      value: 42n,
       configurable: false,
       enumerable: true,
       writable: true
