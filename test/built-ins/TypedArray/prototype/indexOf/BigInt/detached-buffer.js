@@ -23,6 +23,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(1);
   $DETACHBUFFER(sample.buffer);
   assert.throws(TypeError, function() {
-    sample.indexOf(0);
+    sample.indexOf(0n);
   });
 });
