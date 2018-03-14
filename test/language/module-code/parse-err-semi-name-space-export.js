@@ -1,8 +1,9 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2018 Valerie Young. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-    "export *" declarations require a trailing semicolon or LineTerminator
+    "export NameSpaceExport FromClause" declarations require a trailing semicolon
+    or LineTerminator
 esid: sec-exports
 info: |
     ExportDeclaration:
@@ -23,4 +24,4 @@ flags: [module]
 
 throw "Test262: This statement should not be evaluated.";
 
-export * from './parse-err-semi-export-star.js' null;
+export * as namespace from './parse-err-semi-name-space-export.js' null;
