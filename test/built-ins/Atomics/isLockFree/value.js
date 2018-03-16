@@ -5,6 +5,7 @@
 esid: sec-atomics.islockfree
 description: >
   Test isLockFree on nonnegative integer arguments
+features: [Atomics]
 ---*/
 
 var sizes   = [    1,     2,     3,     4,     5,     6,     7,  8,

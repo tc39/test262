@@ -6,6 +6,7 @@ esid: sec-atomics.wait
 description: >
   Test Atomics.wait on arrays that allow atomic operations,
   in an Agent that is allowed to wait.
+features: [Atomics]
 ---*/
 
 // Let's assume 'wait' is not allowed on the main thread,
