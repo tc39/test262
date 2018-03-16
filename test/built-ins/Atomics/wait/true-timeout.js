@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wait
 description: >
-  False timeout arg should result in a timeout value of 1
+  True timeout arg should result in a timeout value of 1
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 

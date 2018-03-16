@@ -1,17 +1,19 @@
-// Copyright (C) 2018 Amal Hussein. All rights reserved.
+// Copyright (C) 2018 Amal Hussein.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-atomics.wait
 description: >
-  Symbol for timeout arg throws a TypeError
+  Null timeout arg should result in an +0 timeout
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   4.Let q be ? ToNumber(timeout).
     ...
-    Symbol	Throw a TypeError exception.
+    Null  Return +0.
+    Boolean	If argument is true, return 1. If argument is false, return +0.
 features: [ Atomics ]
+includes: [ atomicsHelper.js ]
 ---*/
 
 function getReport() {
@@ -21,20 +23,13 @@ function getReport() {
   return r;
 }
 
-var sab = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(sab);
-
 $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  
-  try {
-    Atomics.wait(int32Array, 0, 0, Symbol('foo'));
-  } catch (e) {
-    $262.agent.report(e.name);
-  }
-  
+  var start = Date.now();
+  $262.agent.report(Atomics.wait(int32Array, 0, 0, null));  // null => +0
+  $262.agent.report(Date.now() - start);
   $262.agent.leaving();
 })
 `);
@@ -45,6 +40,13 @@ $262.agent.broadcast(int32Array.buffer);
 
 $262.agent.sleep(150);
 
-assert.sameValue(getReport(), 'TypeError');
+var atomicsReport = getReport();
+var timeDiffReport = getReport();
+
+assert.sameValue(atomicsReport, 'timed-out');
+
+assert(timeDiffReport >= 0, 'timeout should be a min of 0ms');
+
+assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
 
 assert.sameValue(Atomics.wake(int32Array, 0), 0);

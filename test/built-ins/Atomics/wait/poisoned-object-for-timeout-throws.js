@@ -1,16 +1,22 @@
-// Copyright (C) 2018 Amal Hussein. All rights reserved.
+// Copyright (C) 2018 Amal Hussein.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-atomics.wait
 description: >
-  Symbol for timeout arg throws a TypeError
+  Passing an object with no callable methods for the timeout param throws
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   4.Let q be ? ToNumber(timeout).
     ...
-    Symbol	Throw a TypeError exception.
+    Object
+      Apply the following steps:
+      Let primValue be ? ToPrimitive(argument, hint Number).
+        ...
+          g. Return ? OrdinaryToPrimitive(input, hint).
+            ...
+            6.Throw a TypeError exception.
 features: [ Atomics ]
 ---*/
 
@@ -29,8 +35,13 @@ $262.agent.start(
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
   
+  var poisoned = {
+    valueOf: false,
+    toString: false
+  };
+  
   try {
-    Atomics.wait(int32Array, 0, 0, Symbol('foo'));
+    Atomics.wait(int32Array, 0, 0, poisoned) 
   } catch (e) {
     $262.agent.report(e.name);
   }

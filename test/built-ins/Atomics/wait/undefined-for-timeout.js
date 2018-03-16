@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wait
 description: >
-  Undefined or NaN timeout arg should result in an infinite timeout
+  Undefined timeout arg should result in an infinite timeout
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
@@ -30,7 +30,7 @@ $262.agent.start(
 `
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  $262.agent.report("A " + Atomics.wait(int32Array, 0, 0, NaN));  // NaN => +Infinity
+  $262.agent.report("A " + Atomics.wait(int32Array, 0, 0, undefined));  // undefined => NaN => +Infinity
   $262.agent.leaving();
 })
 `);
@@ -39,7 +39,7 @@ $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  $262.agent.report("B " + Atomics.wait(int32Array, 0, 0));  // undefined => NaN => +Infinity
+  $262.agent.report("B " + Atomics.wait(int32Array, 0, 0));  // undefined timeout arg => NaN => +Infinity
   $262.agent.leaving();
 })
 `);
