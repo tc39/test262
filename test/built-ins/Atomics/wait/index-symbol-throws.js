@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atomics.wait
-description:
+description: >
   Throws a TypeError if index arg can not be converted to an Integer
 info: |
   Atomics.wait( typedArray, index, value, timeout )
