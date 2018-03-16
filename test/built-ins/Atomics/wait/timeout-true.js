@@ -1,17 +1,18 @@
-// Copyright (C) 2018 Amal Hussein. All rights reserved.
+// Copyright (C) 2018 Amal Hussein.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-atomics.wait
 description: >
-  Symbol for timeout arg throws a TypeError
+  True timeout arg should result in a timeout value of 1
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   4.Let q be ? ToNumber(timeout).
     ...
-    Symbol	Throw a TypeError exception.
+    Boolean	If argument is true, return 1. If argument is false, return +0.
 features: [ Atomics ]
+includes: [atomicsHelper.js]
 ---*/
 
 function getReport() {
@@ -21,20 +22,14 @@ function getReport() {
   return r;
 }
 
-var sab = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(sab);
 
 $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  
-  try {
-    Atomics.wait(int32Array, 0, 0, Symbol('foo'));
-  } catch (e) {
-    $262.agent.report(e.name);
-  }
-  
+  var start = Date.now();
+  $262.agent.report(Atomics.wait(int32Array, 0, 0, true));  // true => 1
+  $262.agent.report(Date.now() - start);
   $262.agent.leaving();
 })
 `);
@@ -43,8 +38,8 @@ var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEME
 
 $262.agent.broadcast(int32Array.buffer);
 
-$262.agent.sleep(150);
+$262.agent.sleep(2);
 
-assert.sameValue(getReport(), 'TypeError');
+var r1 = getReport();
 
-assert.sameValue(Atomics.wake(int32Array, 0), 0);
+assert.sameValue(r1, "timed-out");

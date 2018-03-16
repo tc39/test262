@@ -4,20 +4,12 @@
 /*---
 esid: sec-atomics.wait
 description: >
-  Passing an object with no callable methods for the timeout param throws
+  Throws a TypeError if timeout arg is a Symbol
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   4.Let q be ? ToNumber(timeout).
-    ...
-    Object
-      Apply the following steps:
-      Let primValue be ? ToPrimitive(argument, hint Number).
-        ...
-          g. Return ? OrdinaryToPrimitive(input, hint).
-            ...
-            6.Throw a TypeError exception.
-features: [ Atomics ]
+features: [Atomics, Symbol]
 ---*/
 
 var sab = new SharedArrayBuffer(4);
@@ -34,15 +26,11 @@ function getReport() {
 $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) {
-  var poisoned = {
-    valueOf: false,
-    toString: false
-  };
-
   var err;
+  var s = Symbol();
   
   try {
-    Atomics.wait(int32Array, 0, 0, poisoned);
+    Atomics.wait(int32Array, 0, 0, s);
   } catch(e) {
     err = e.constructor;
   }
@@ -55,7 +43,5 @@ $262.agent.receiveBroadcast(function (sab) {
 var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
 $262.agent.broadcast(int32Array.buffer);
-
-$262.agent.sleep(150);
 
 assert.sameValue(getReport(), TypeError);
