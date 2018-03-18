@@ -1,14 +1,16 @@
 // Copyright (C) 2018 Jordan Harband. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
+esid: pending
 description: Invocation of @@matchAll property of user-supplied RegExp objects
 info: |
+  String.prototype.matchAll ( regexp )
     [...]
-    4. Let matcher be ? GetMethod(R, @@matchAll).
-    5. If matcher is not undefined, then
-      a. Return ? Call(matcher, R, « O »).
-features: [Symbol.match, Symbol.matchAll]
+    2. If regexp is neither undefined nor null, then
+      a. Let matcher be ? GetMethod(regexp, @@matchAll).
+      b. If matcher is not undefined, then
+        i. Return ? Call(matcher, regexp, « O »).
+features: [Symbol.matchAll, String.prototype.matchAll]
 ---*/
 
 var obj = {};
@@ -16,9 +18,8 @@ var returnVal = {};
 var callCount = 0;
 var thisVal, args;
 
-obj[Symbol.match] = true; // https://tc39.github.io/ecma262/#sec-isregexp steps 1-3
 obj[Symbol.matchAll] = function () {
-  callCount += 1;
+  callCount++;
   thisVal = this;
   args = arguments;
   return returnVal;
