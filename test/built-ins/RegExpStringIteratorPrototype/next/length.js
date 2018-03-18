@@ -1,8 +1,9 @@
-// Copyright (C) 2018 Jordan Harband. All rights reserved.
+// Copyright (C) 2018 Peter Wong. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: String.prototype.matchAll `length` property
+description: |
+  %RegExpStringIteratorPrototype%.next `length` property
 info: |
   17 ECMAScript Standard Built-in Objects:
 
@@ -20,11 +21,13 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
-features: [String.prototype.matchAll]
+features: [Symbol.matchAll]
 ---*/
 
-assert.sameValue(String.prototype.matchAll.length, 1);
+var RegExpStringIteratorProto = Object.getPrototypeOf(/./[Symbol.matchAll](''));
 
-verifyNotEnumerable(String.prototype.matchAll, 'length');
-verifyNotWritable(String.prototype.matchAll, 'length');
-verifyConfigurable(String.prototype.matchAll, 'length');
+assert.sameValue(RegExpStringIteratorProto.next.length, 0);
+
+verifyNotEnumerable(RegExpStringIteratorProto.next, 'length');
+verifyNotWritable(RegExpStringIteratorProto.next, 'length');
+verifyConfigurable(RegExpStringIteratorProto.next, 'length');

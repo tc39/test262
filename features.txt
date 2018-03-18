@@ -72,6 +72,11 @@ String.prototype.trimStart
 # https://github.com/tc39/proposal-numeric-separator
 numeric-separator-literal
 
+# String.prototype.matchAll
+# https://github.com/tc39/proposal-string-matchall
+String.prototype.matchAll
+Symbol.matchAll
+
 # Catch initializer
 # https://github.com/tc39/ecma262/pull/1126
 catch-initializer
@@ -150,3 +155,4 @@ WeakSet
 # object, go here.
 
 IsHTMLDDA
+CannotSuspendMainAgent

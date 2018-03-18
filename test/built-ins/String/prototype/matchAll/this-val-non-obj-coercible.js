@@ -1,12 +1,12 @@
 // Copyright (C) 2018 Jordan Harband. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+esid: pending
 description: The `this` value cannot be coerced into an object
 info: |
+  String.prototype.matchAll ( regexp )
     1. Let O be RequireObjectCoercible(this value).
-    2. Let S be ToString(O).
-    3. ReturnIfAbrupt(S).
-features: [Symbol.iterator]
+features: [String.prototype.matchAll]
 ---*/
 
 var matchAll = String.prototype.matchAll;

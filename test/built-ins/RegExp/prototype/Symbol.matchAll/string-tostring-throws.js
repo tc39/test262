@@ -1,27 +1,27 @@
 // Copyright (C) 2018 Jordan Harband. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
+esid: pending
 description: String coercion of string parameter
 info: |
-    RegExp.prototype [ @@matchAll ] ( string )
+  RegExp.prototype [ @@matchAll ] ( string )
+    [...]
+    3. Return ? MatchAllIterator(R, string).
 
-    [...]
-    2. Let S be ? ToString(O).
-    [...]
-features: [Symbol.match, Symbol.matchAll]
+  MatchAllIterator ( R, O )
+    1. Let S be ? ToString(O).
+features: [Symbol.matchAll]
 ---*/
 
 var obj = {
-  valueOf: function() {
+  valueOf() {
     $ERROR('This method should not be invoked.');
   },
-  toString: function() {
+  toString() {
     throw new Test262Error('toString invoked');
   }
 };
-obj[Symbol.match] = true;
 
-assert.throws(Test262Error, function () {
+assert.throws(Test262Error, function() {
   /toString value/[Symbol.matchAll](obj);
 });
