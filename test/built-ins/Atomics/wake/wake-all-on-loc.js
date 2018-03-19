@@ -6,6 +6,7 @@ esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes all waiters on a location, but does not
   wake waiters on other locations.
+features: [Atomics]
 ---*/
 
 var WAKEUP = 0;                 // Waiters on this will be woken

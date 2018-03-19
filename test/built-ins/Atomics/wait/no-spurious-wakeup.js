@@ -7,6 +7,7 @@ description: >
   Test that Atomics.wait actually waits and does not spuriously wake
   up when the memory value is changed.
 includes: [atomicsHelper.js]
+features: [Atomics]
 ---*/
 
 $262.agent.start(

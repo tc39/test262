@@ -6,7 +6,7 @@ esid: sec-atomics.exchange
 description: >
   Test Atomics.exchange on non-shared integer TypedArrays
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [Atomics, TypedArray]
 ---*/
 
 var ab = new ArrayBuffer(16);

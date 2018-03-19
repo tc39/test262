@@ -6,7 +6,7 @@ esid: sec-atomics.wake
 description: >
   Test Atomics.wake on shared non-integer TypedArrays
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [Atomics, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);

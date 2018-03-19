@@ -5,6 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes zero waiters if the count is negative
+features: [Atomics]
 ---*/
 
 $262.agent.start(
