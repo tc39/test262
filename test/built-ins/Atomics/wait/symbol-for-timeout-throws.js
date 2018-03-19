@@ -27,15 +27,13 @@ $262.agent.start(
 $262.agent.receiveBroadcast(function (sab) {  
 
   var int32Array = new Int32Array(sab);
-  var err;
   
   try {
     Atomics.wait(int32Array, 0, 0, Symbol('foo'));
   } catch(e) {
-    err = e.name;
+   $262.agent.report(e.name);
   }
   
-  $262.agent.report(err);
   $262.agent.leaving();
 })
 `);
@@ -45,4 +43,8 @@ var int32Array = new Int32Array(sab);
 
 $262.agent.broadcast(int32Array.buffer);
 
+$262.agent.sleep(150);
+
 assert.sameValue(getReport(), 'TypeError');
+
+assert.sameValue(Atomics.wake(int32Array, 0), 0);
