@@ -24,10 +24,13 @@ $262.agent.receiveBroadcast(function (sab, id) {
 var ia = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
 $262.agent.broadcast(ia.buffer);
-
 assert.sameValue(getReport(), "timed-out");
 assert.sameValue((getReport() | 0) >= 500 - $ATOMICS_MAX_TIME_EPSILON, true);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fixup from pr feedback
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null)
