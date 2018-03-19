@@ -7,6 +7,7 @@ description: >
   Test that Atomics.wait returns the right result when it timed out and that
   the time to time out is reasonable.
 includes: [atomicsHelper.js]
+features: [Atomics]
 ---*/
 
 $262.agent.start(

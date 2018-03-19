@@ -5,6 +5,7 @@
 esid: sec-atomics.wait
 description: >
   Test that Atomics.wait times out with a negative timeout
+features: [Atomics]
 ---*/
 
 $262.agent.start(

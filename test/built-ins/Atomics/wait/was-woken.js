@@ -5,6 +5,7 @@
 esid: sec-atomics.wait
 description: >
   Test that Atomics.wait returns the right result when it was awoken.
+features: [Atomics]
 ---*/
 
 $262.agent.start(

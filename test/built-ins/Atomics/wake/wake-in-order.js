@@ -5,6 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes agents in the order they are waiting.
+features: [Atomics]
 ---*/
 
 var NUMAGENT = 3;

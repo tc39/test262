@@ -5,6 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes zero waiters if that's what the count is.
+features: [Atomics]
 ---*/
 
 
