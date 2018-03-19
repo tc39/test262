@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atomics.wait
-description:
+description: >
   Throws a TypeError if typedArray arg is not an Object
 info: |
   Atomics.wait( typedArray, index, value, timeout )
