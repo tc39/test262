@@ -9,11 +9,10 @@ info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   4.Let q be ? ToNumber(timeout).
-features: [Atomics, Symbol]
+    ...
+      Symbol Throw a TypeError exception.
+features: [Atomics, SharedArrayBuffer, TypedArray, Symbol]
 ---*/
-
-var sab = new SharedArrayBuffer(4);
-var int32Array = new Int32Array(sab);
 
 function getReport() {
   var r;
@@ -25,23 +24,27 @@ function getReport() {
 
 $262.agent.start(
   `
-$262.agent.receiveBroadcast(function (sab) {
-  var err;
-  var s = Symbol();
+$262.agent.receiveBroadcast(function (sab) {  
+
+  var int32Array = new Int32Array(sab);
   
   try {
-    Atomics.wait(int32Array, 0, 0, s);
+    Atomics.wait(int32Array, 0, 0, Symbol('foo'));
   } catch(e) {
-    err = e.constructor;
+   $262.agent.report(e.name);
   }
-
-  $262.agent.report(err);
+  
   $262.agent.leaving();
 })
 `);
 
-var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+var sab = new SharedArrayBuffer(4);
+var int32Array = new Int32Array(sab);
 
 $262.agent.broadcast(int32Array.buffer);
 
-assert.sameValue(getReport(), TypeError);
+$262.agent.sleep(150);
+
+assert.sameValue(getReport(), 'TypeError');
+
+assert.sameValue(Atomics.wake(int32Array, 0), 0);

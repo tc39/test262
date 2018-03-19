@@ -28,3 +28,5 @@ function getReport() {
     $262.agent.sleep(100);
   return r;
 }
+
+assert.sameValue(Atomics.wake(ia, 0), 0);

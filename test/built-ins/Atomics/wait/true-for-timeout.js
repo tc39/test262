@@ -11,7 +11,7 @@ info: |
   4.Let q be ? ToNumber(timeout).
     ...
     Boolean	If argument is true, return 1. If argument is false, return +0.
-features: [ Atomics ]
+features: [ Atomics, SharedArrayBuffer, TypedArray ]
 includes: [atomicsHelper.js]
 ---*/
 
@@ -38,8 +38,11 @@ var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEME
 
 $262.agent.broadcast(int32Array.buffer);
 
-$262.agent.sleep(2);
+$262.agent.sleep(150);
 
 var r1 = getReport();
+var r2 = getReport();
 
 assert.sameValue(r1, "timed-out");
+assert(r2 >= 1, "timeout should be a min of 1ms");
+assert(r2 <= $ATOMICS_MAX_TIME_EPSILON + 1, "timeout should be a max of $ATOMICS_MAX_TIME_EPSILON + 1ms");

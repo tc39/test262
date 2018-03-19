@@ -33,7 +33,8 @@ var sab = new SharedArrayBuffer(1024);
 var int32Array = new Int32Array(sab);
 
 $262.agent.broadcast(int32Array.buffer);
-$262.agent.sleep(5);
+
+$262.agent.sleep(150);
 
 assert.sameValue(Atomics.wake(int32Array, 0), 1); // wake at index 0
 assert.sameValue(Atomics.wake(int32Array, 0), 0); // wake again at index 0, and 0 agents should be woken
