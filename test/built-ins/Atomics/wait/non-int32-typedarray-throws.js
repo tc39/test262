@@ -29,16 +29,13 @@ assert.throws(TypeError, function() {
   Atomics.wait(new Float32Array(), poisoned, poisoned, poisoned);
 }, 'Float32Array');
 
-
 assert.throws(TypeError, function() {
   Atomics.wait(new Int16Array(), poisoned, poisoned, poisoned);
 }, 'Int16Array');
 
-
 assert.throws(TypeError, function() {
   Atomics.wait(new Int8Array(), poisoned, poisoned, poisoned);
 }, 'Int8Array');
-
 
 assert.throws(TypeError, function() {
   Atomics.wait(new Uint32Array(),  poisoned, poisoned, poisoned);
@@ -47,7 +44,6 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   Atomics.wait(new Uint16Array(), poisoned, poisoned, poisoned);
 }, 'Uint16Array');
-
 
 assert.throws(TypeError, function() {
   Atomics.wait(new Uint8Array(), poisoned, poisoned, poisoned);
