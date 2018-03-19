@@ -38,7 +38,7 @@ var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEME
 
 $262.agent.broadcast(int32Array.buffer);
 
-$262.agent.sleep(150);
+$262.agent.sleep(2);
 
 var r1 = getReport();
 var r2 = getReport();
