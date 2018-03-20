@@ -12,7 +12,7 @@ info: |
     ...
     Null  Return +0.
     Boolean	If argument is true, return 1. If argument is false, return +0.
-features: [ Atomics ]
+features: [ Atomics, SharedArrayBuffer, TypedArray ]
 includes: [ atomicsHelper.js ]
 ---*/
 
