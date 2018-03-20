@@ -1,5 +1,6 @@
 // Copyright (C) 2018 Amal Hussein. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
 esid: sec-atomics.wait
 description: >

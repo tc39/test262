@@ -27,6 +27,7 @@ $262.agent.broadcast(ia.buffer);
 assert.sameValue(getReport(), "timed-out");
 assert.sameValue((getReport() | 0) >= 500 - $ATOMICS_MAX_TIME_EPSILON, true);
 
+
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null)
