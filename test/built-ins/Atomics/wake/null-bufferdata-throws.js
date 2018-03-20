@@ -1,17 +1,18 @@
 // Copyright (C) 2018 Amal Hussein. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-atomics.wait
-description: >
-  Throws a TypeError if typedArray.buffer is not a SharedArrayBuffer
+esid: sec-atomics.wake
+description:
+  A null value for bufferData throws a TypeError
 info: |
-  Atomics.wait( typedArray, index, value, timeout )
+  Atomics.wake( typedArray, index, count )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
     ...
       9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
         ...
-          4.If bufferData is a Data Block, return false.
+          3.If bufferData is null, return false.
+includes: [detachArrayBuffer.js]
 features: [ Atomics, ArrayBuffer, TypedArray ]
 ---*/
 
@@ -22,5 +23,6 @@ var poisoned = {
   }
 };
 
-assert.throws(TypeError, () => Atomics.wait(int32Array, 0, 0, 0));
-assert.throws(TypeError, () => Atomics.wait(int32Array, poisoned, poisoned, poisoned));
+$DETACHBUFFER(int32Array.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+
+assert.throws(TypeError, () => Atomics.wake(int32Array, poisoned, poisoned));
