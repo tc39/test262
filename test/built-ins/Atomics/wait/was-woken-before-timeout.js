@@ -42,7 +42,7 @@ $262.agent.start(
   assert.sameValue(Atomics.wake(int32Array, 0), 1);
   
   assert.sameValue(getReport(), "ok");
-  assert.sameValue(sleeping < timeout, "this test assumes it won't last for more than 20 seconds");
+  assert(sleeping < timeout, "this test assumes it won't last for more than 20 seconds");
   
   function getReport() {
     var r;
@@ -52,4 +52,3 @@ $262.agent.start(
     }
     return r;
   }
-  

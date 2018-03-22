@@ -8,7 +8,7 @@ description: |
 /**
  * The %TypedArray% intrinsic constructor function.
  */
-var TypedArray = Object.getPrototypeOf(BigInt64Array);
+var TypedArray = Object.getPrototypeOf(Int8Array);
 
 /**
  * Calls the provided function for every typed array constructor.

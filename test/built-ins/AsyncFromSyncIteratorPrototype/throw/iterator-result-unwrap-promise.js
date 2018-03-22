@@ -46,7 +46,7 @@ var obj = {
 };
 
 async function* asyncg() {
-  yield* obj;
+  return yield* obj;
 }
 
 let iter = asyncg();

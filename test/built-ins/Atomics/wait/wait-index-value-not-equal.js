@@ -28,11 +28,9 @@ $262.agent.start(
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
     
-  $262.agent.report(Atomics.wait(int32Array, 0, 44, 100));
+  $262.agent.report(Atomics.wait(int32Array, 0, 44, 1000));
   
   $262.agent.report(Atomics.wait(int32Array, 0, 251.4, 1000));
-    
-  $262.agent.report(Atomics.wait(int32Array, 0, Infinity, 1000));
 
   $262.agent.leaving();
 })
@@ -45,7 +43,6 @@ $262.agent.broadcast(int32Array.buffer);
 $262.agent.sleep(200);
 
 
-assert.sameValue(getReport(), "not-equal");
 assert.sameValue(getReport(), "not-equal");
 assert.sameValue(getReport(), "not-equal");
 

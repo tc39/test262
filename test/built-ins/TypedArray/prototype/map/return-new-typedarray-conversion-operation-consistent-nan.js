@@ -50,7 +50,7 @@ function body(FloatArray) {
   var i = 0;
 
   var result = sample.map(function() {
-    return NaNs[i++];
+    return NaNs[i++]();
   });
 
   sampleBytes = new Uint8Array(sample.buffer);

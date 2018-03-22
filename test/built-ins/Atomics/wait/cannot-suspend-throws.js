@@ -14,7 +14,7 @@ info: |
   6. Let B be AgentCanSuspend().
   7. If B is false, throw a TypeError exception.
   ...
-features: [Atomics, SharedArrayBuffer, TypedArray]
+features: [Atomics, SharedArrayBuffer, TypedArray, CannotSuspendMainAgent]
 ---*/
 
 var sab = new SharedArrayBuffer(4);
