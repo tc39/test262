@@ -24,7 +24,7 @@ $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) { 
   var int32Array = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(int32Array, undefined, 0, 10)); // undefined index => 0
+  $262.agent.report(Atomics.wait(int32Array, undefined, 0, 1000)); // undefined index => 0
   $262.agent.leaving();
 })
 `);

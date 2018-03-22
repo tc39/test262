@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-atomics.wait
-description:
+description: >
   Throws a TypeError if typedArray arg is not an Int32Array
 info: |
   Atomics.wait( typedArray, index, value, timeout )

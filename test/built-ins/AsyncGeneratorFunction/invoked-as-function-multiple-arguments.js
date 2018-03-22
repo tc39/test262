@@ -8,6 +8,7 @@ description: >
     last argument evaluated as source code and whose formal parameters are
     defined by the preceeding arguments.
 features: [async-iteration]
+flags: [async]
 ---*/
 
 var AsyncGeneratorFunction = Object.getPrototypeOf(async function* () {}).constructor;
