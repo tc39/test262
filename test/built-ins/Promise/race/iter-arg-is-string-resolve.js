@@ -4,7 +4,7 @@
 /*---
 esid: sec-promise.race
 description: >
-  Reject when argument is a string
+  Resolve when argument is a string
 info: |
     ...
     Let iteratorRecord be GetIterator(iterable).
@@ -23,11 +23,11 @@ flags: [async]
 ---*/
 
 try {
-  Promise.race("").then(function() {
-    $DONE();
+  Promise.race("a").then(function(v) {
+    assert.sameValue(v, "a");
   }, function() {
     $DONE('The promise should be resolved, but was rejected');
   }).then($DONE, $DONE);
 } catch (error) {
-  $DONE(`The promise should be rejected, but threw an exception: ${error.message}`);
+  $DONE(`The promise should be resolved, but threw an exception: ${error.message}`);
 }

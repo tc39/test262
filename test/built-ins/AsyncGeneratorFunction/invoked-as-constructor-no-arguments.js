@@ -6,6 +6,7 @@ description: >
     When invoked via the constructor invocation pattern without arguments, the
     GeneratorFunction intrinsic returns a valid async generator with an empty body.
 features: [async-iteration]
+flags: [async]
 ---*/
 
 var AsyncGeneratorFunction = Object.getPrototypeOf(async function* () {}).constructor;
