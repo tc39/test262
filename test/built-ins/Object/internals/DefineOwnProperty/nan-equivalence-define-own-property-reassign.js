@@ -57,12 +57,12 @@ for (var idx = 0; idx < len; ++idx) {
   for (var jdx = 0; jdx < len; ++jdx) {
     var a = {};
 
-    a.prop = NaNs[idx]();
-    a.prop = NaNs[jdx]();
+    a.prop = NaNs[idx];
+    a.prop = NaNs[jdx];
 
     assert(
       a.prop !== a.prop,
-      `Object property value reassigned to NaN produced by (${NaNs[idx].toString()}) results in a valid NaN`
+      `Object property value reassigned to NaN produced by (index=${idx}) results in a valid NaN`
     );
   }
 }

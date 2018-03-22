@@ -74,7 +74,7 @@ testWithTypedArrayConstructors(function(FA) {
   var controls, idx, aNaN;
 
   for (idx = 0; idx < NaNs.length; ++idx) {
-    aNaN = NaNs[idx]();
+    aNaN = NaNs[idx];
     controls = new FA([aNaN, aNaN, aNaN]);
 
     Object.defineProperty(samples, "0", { value: aNaN });
@@ -85,12 +85,12 @@ testWithTypedArrayConstructors(function(FA) {
 
       assert(
         samples[i] !== samples[i],
-        `samples (${NaNs[idx].toString()}) produces a valid NaN (${precision} precision)`
+        `samples (index=${idx}) produces a valid NaN (${precision} precision)`
       );
 
       assert(
         controls[i] !== controls[i],
-        `controls (${NaNs[idx].toString()}) produces a valid NaN (${precision} precision)`
+        `controls (index=${idx}) produces a valid NaN (${precision} precision)`
       );
     }
   }
