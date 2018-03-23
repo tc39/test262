@@ -59,17 +59,17 @@ for (var idx = 0; idx < len; ++idx) {
     var b = {};
 
     Object.defineProperty(a, "prop", {
-      value: NaNs[idx](),
+      value: NaNs[idx],
       configurable: true,
     });
 
     Object.defineProperty(a, "prop", {
-      value: NaNs[jdx](),
+      value: NaNs[jdx],
     });
 
     assert(
       a.prop !== a.prop,
-      `Object property value reconfigured to NaN produced by (${NaNs[idx].toString()}) results in a valid NaN`
+      `Object property value reconfigured to NaN produced by (index=${idx}) results in a valid NaN`
     );
   }
 }

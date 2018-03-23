@@ -20,7 +20,7 @@ function body(FloatArray) {
   var subject = new FloatArray(NaNs.length * 2);
 
   NaNs.forEach(function(v, i) {
-    subject[i] = v();
+    subject[i] = v;
   });
 
   var originalBytes, copiedBytes;
