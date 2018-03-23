@@ -45,12 +45,12 @@ features: [TypedArray]
 ---*/
 
 function body(FloatArray) {
-  var sample = new FloatArray(NaNs.map(n => n()));
+  var sample = new FloatArray(NaNs);
   var sampleBytes, resultBytes;
   var i = 0;
 
   var result = sample.map(function() {
-    return NaNs[i++]();
+    return NaNs[i++];
   });
 
   sampleBytes = new Uint8Array(sample.buffer);

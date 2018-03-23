@@ -25,7 +25,7 @@ features: [TypedArray]
 ---*/
 
 function body(FloatArray) {
-  var subject = new FloatArray(NaNs.map(n => n()));
+  var subject = new FloatArray(NaNs);
   var sliced, subjectBytes, slicedBytes;
 
   sliced = subject.slice();

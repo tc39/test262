@@ -20,7 +20,7 @@ features: [TypedArray]
 ---*/
 
 function body(FA) {
-  var source = new FA(NaNs.map(n => n()));
+  var source = new FA(NaNs);
   var target = new FA(NaNs.length);
   var sourceBytes, targetBytes;
 
