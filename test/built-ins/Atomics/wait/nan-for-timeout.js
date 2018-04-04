@@ -10,7 +10,7 @@ info: |
 
   4.Let q be ? ToNumber(timeout).
     ...
-    Undefined	Return NaN.
+    Undefined    Return NaN.
   5.If q is NaN, let t be +∞, else let t be max(q, 0)
 features: [ Atomics, SharedArrayBuffer, TypedArray ]
 ---*/

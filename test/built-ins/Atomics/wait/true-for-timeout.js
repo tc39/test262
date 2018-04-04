@@ -10,7 +10,7 @@ info: |
 
   4.Let q be ? ToNumber(timeout).
     ...
-    Boolean	If argument is true, return 1. If argument is false, return +0.
+    Boolean    If argument is true, return 1. If argument is false, return +0.
 features: [ Atomics, SharedArrayBuffer, TypedArray ]
 includes: [atomicsHelper.js]
 ---*/
