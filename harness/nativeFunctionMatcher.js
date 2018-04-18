@@ -28,5 +28,3 @@ const assertNativeFunction = function(fn, special) {
     "Conforms to NativeFunction Syntax: '" + actual + "'." + (special ? "(" + special + ")" : "")
   );
 };
-
-
