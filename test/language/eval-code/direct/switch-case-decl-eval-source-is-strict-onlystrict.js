@@ -1,20 +1,28 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: AnnexB extension not honored in strict mode
-es6id: B.3.3.2
-flags: [onlyStrict]
+esid: sec-web-compat-evaldeclarationinstantiation
+description: >
+    AnnexB extension not honored in strict mode, Function declaration
+    in the `case` clause of a `switch` statement in eval code
 info: |
-    Block statement in eval code containing a function declaration
-
     B.3.3.3 Changes to EvalDeclarationInstantiation
 
     1. If strict is false, then
+      ...
+
+flags: [onlyStrict]
 ---*/
 
 var err;
 
-eval('{ function f() {} }');
+eval('\
+  "use strict";\
+  switch (1) {\
+    case 1:\
+      function f() {  }\
+  }\
+');
 
 try {
   f;
