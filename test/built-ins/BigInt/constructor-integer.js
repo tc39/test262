@@ -3,7 +3,7 @@
 
 /*---
 description: BigInt constructor called with integer argument
-esid: sec-bigint-constructor
+esid: sec-bigint-constructor-number-value
 info: |
   BigInt ( value )
 
@@ -17,15 +17,20 @@ info: |
 features: [BigInt]
 ---*/
 
-assert.sameValue(BigInt(Number.MAX_SAFE_INTEGER), 9007199254740991n);
+assert.sameValue(
+  BigInt(Number.MAX_SAFE_INTEGER), 9007199254740991n,
+  "BigInt(Number.MAX_SAFE_INTEGER) === 9007199254740991n"
+);
 
-assert.sameValue(BigInt(-Number.MAX_SAFE_INTEGER), -9007199254740991n);
+assert.sameValue(
+  BigInt(-Number.MAX_SAFE_INTEGER), -9007199254740991n,
+  "BigInt(-Number.MAX_SAFE_INTEGER) === -9007199254740991n"
+);
 
-var pos = Math.pow(2, 53);
-var neg = -pos;
+assert.throws(RangeError, function() {
+  BigInt(Number.MAX_SAFE_INTEGER + 1);
+}, "BigInt(Number.MAX_SAFE_INTEGER + 1) throws RangeError");
 
-assert.sameValue(BigInt(pos), 9007199254740992n,
-                 "BigInt(2**53) === 9007199254740992n");
-
-assert.sameValue(BigInt(neg), -9007199254740992n,
-                 "BigInt(2**53) === -9007199254740992n");
+assert.throws(RangeError, function() {
+  BigInt(-Number.MAX_SAFE_INTEGER - 1);
+}, "BigInt(-Number.MAX_SAFE_INTEGER - 1) throws RangeError");
