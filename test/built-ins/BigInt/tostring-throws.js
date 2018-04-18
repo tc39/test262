@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Throws exception in BigIntConstructor if valueOf/toString does that
+description: Throws exception in BigIntConstructor if toString throws
 esid: sec-bigint-constructor-number-value
 info: |
   1. If NewTarget is not undefined, throw a TypeError exception.
@@ -11,14 +11,6 @@ info: |
   4. Otherwise, return ? ToBigInt(value).
 features: [BigInt]
 ---*/
-
-assert.throws(Test262Error, function() {
-  BigInt({
-    valueOf: function() {
-      throw new Test262Error();
-    }
-  });
-});
 
 assert.throws(Test262Error, function() {
   BigInt({
