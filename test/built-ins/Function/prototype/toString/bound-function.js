@@ -4,7 +4,7 @@
 /*---
 esid: sec-function.prototype.tostring
 description: >
-  toString of Proxy for function target does not throw (bound Function Expression)
+  toString bound function does not throw (bound Function Expression)
 info: |
   ...
   If func is a Bound Function exotic object or a built-in Function object,

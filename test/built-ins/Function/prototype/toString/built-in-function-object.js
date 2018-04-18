@@ -19,7 +19,7 @@ includes: [fnGlobalObject.js, nativeFunctionMatcher.js, wellKnownIntrinsicObject
 var visited = [];
 var verified = [];
 
-function visit(object, assertion) {
+function visit(object) {
   if (visited.includes(object)) {
     return;
   }
@@ -27,21 +27,21 @@ function visit(object, assertion) {
   visited.push(object);
 
   if (typeof object === "function") {
-    assertion(object);
+    assertNativeFunction(object);
     verified.push(object.name);
   }
 
   for (var property of Object.getOwnPropertyNames(object)) {
-    try {
-      if (typeof object[property] === "function" ||
-          typeof object[property] === "object") {
-        visit(object[property], assertion);
+    if (typeof object[property] === "function" ||
+        typeof object[property] === "object") {
+      try {
+        visit(object[property], assertNativeFunction);
+      } catch(error) {
+        /* we don't actually want to do anything about failures here */
       }
-    } catch(error) {
-      /* we don't actually want to do anything about failures here */
     }
   }
 }
 
-visit(WellKnownIntrinsicObjects, assertNativeFunction);
+visit(WellKnownIntrinsicObjects);
 assert.notSameValue(verified.length, 0);
