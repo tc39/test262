@@ -2,18 +2,18 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics-object
+esid: sec-json-object
 description: >
-  Property descriptor of Atomics
+  Property descriptor of JSON
 info: |
-  The Atomics Object
+  The JSON Object
 
   ...
-  The Atomics object does not have a [[Construct]] internal method;
-  it is not possible to use the Atomics object as a constructor with the new operator.
+  The JSON object does not have a [[Construct]] internal method;
+  it is not possible to use the JSON object as a constructor with the new operator.
 
-  The Atomics object does not have a [[Call]] internal method;
-  it is not possible to invoke the Atomics object as a function.
+  The JSON object does not have a [[Call]] internal method;
+  it is not possible to invoke the JSON object as a function.
 
   17 ECMAScript Standard Built-in Objects:
 
@@ -21,20 +21,19 @@ info: |
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
-features: [Atomics]
 ---*/
 
-assert.sameValue(typeof Atomics, "object");
+assert.sameValue(typeof JSON, "object");
 
 assert.throws(TypeError, function() {
-  Atomics();
+  JSON();
 }, "no [[Call]]");
 
 assert.throws(TypeError, function() {
-  new Atomics();
+  new JSON();
 }, "no [[Construct]]");
 
-verifyProperty(this, "Atomics", {
+verifyProperty(this, "JSON", {
   enumerable: false,
   writable: true,
   configurable: true
