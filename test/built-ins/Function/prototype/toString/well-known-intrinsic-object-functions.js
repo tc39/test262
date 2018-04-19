@@ -13,10 +13,11 @@ info: |
     function IdentifierName_opt ( FormalParameters ) { [ native code ] }
 
 includes: [nativeFunctionMatcher.js, wellKnownIntrinsicObjects.js]
+features: [destructuring-binding, template]
 ---*/
 
 
-WellKnownIntrinsicObjects.forEach(({intrinsicName, reference}, index) => {
+WellKnownIntrinsicObjects.forEach(({intrinsicName, reference}) => {
   if (typeof reference === "function") {
     assert.sameValue(
       ("" + reference).includes(reference.name), true,
