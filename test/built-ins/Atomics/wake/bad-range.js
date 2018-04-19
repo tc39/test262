@@ -6,7 +6,7 @@ esid: sec-atomics.wake
 description: >
   Test range checking of Atomics.wake on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
-features: [SharedArrayBuffer, ArrayBuffer, DataView, Atomics, TypedArray, arrow-function, let, for-of]
+features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(8);
@@ -16,8 +16,8 @@ if (typeof BigInt !== "undefined") {
   views.push(BigInt64Array);
 }
 
-testWithTypedArrayConstructors(function(View) {
-  let view = new View(sab);
+testWithTypedArrayConstructors(function(TA) {
+  let view = new TA(sab);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     let Idx = IdxGen(view);
     assert.throws(RangeError, () => Atomics.wake(view, Idx, 0)); // Even with waking zero

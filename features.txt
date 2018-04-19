@@ -107,9 +107,11 @@ default-parameters
 destructuring-assignment
 destructuring-binding
 for-of
+Float32Array
 Float64Array
 generators
 Int8Array
+Int32Array
 let
 Map
 new.target
@@ -141,6 +143,7 @@ TypedArray
 u180e
 Uint8Array
 Uint16Array
+Uint8ClampedArray
 WeakMap
 WeakSet
 
