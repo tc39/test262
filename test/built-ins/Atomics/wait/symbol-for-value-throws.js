@@ -8,41 +8,45 @@ description: >
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
-  3.Let v be ? ToInt32(value).
-    ...
-    1.Let number be ? ToNumber(argument).
-      ...
-      Symbol Throw a TypeError exception.
-features: [Atomics, SharedArrayBuffer, TypedArray, Symbol]
+  3. Let v be ? ToInt32(value).
+
+  ToInt32(value)
+
+  1.Let number be ? ToNumber(argument).
+
+    Symbol --> Throw a TypeError exception.
+
+features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(sab);
+var buffer = new SharedArrayBuffer(1024);
+var int32Array = new Int32Array(buffer);
 
-var poisoned = {
+var poisonedValueOf = {
   valueOf: function() {
     throw new Test262Error("should not evaluate this code");
   }
 };
 
-var poisonedWithString = {
-  get valueOf() { throw "should not evaluate this code"; }
-};
-
 var poisonedToPrimitive = {
-  get [Symbol.ToPrimitive]() {
-    throw new Test262Error('passing a poisoned object using @@ToPrimitive');
+  [Symbol.toPrimitive]: function() {
+    throw new Test262Error("passing a poisoned object using @@ToPrimitive");
   }
 };
 
+assert.throws(Test262Error, function() {
+  Atomics.wait(int32Array, 0, poisonedValueOf, poisonedValueOf);
+});
+
+assert.throws(Test262Error, function() {
+  Atomics.wait(int32Array, 0, poisonedToPrimitive, poisonedToPrimitive);
+});
+
 assert.throws(TypeError, function() {
-  Atomics.wait(int32Array, 0, Symbol('foo'), poisonedWithString)
-}, 'Symbol');
+  Atomics.wait(int32Array, 0, Symbol("foo"), poisonedValueOf);
+});
 
-assert.throws(Test262Error, function() {
-  Atomics.wait(int32Array, 0, poisoned, poisonedWithString)
-}, 'passing a poisoned object using valueOf');
+assert.throws(TypeError, function() {
+  Atomics.wait(int32Array, 0, Symbol("foo"), poisonedToPrimitive);
+});
 
-assert.throws(Test262Error, function() {
-  Atomics.wait(int32Array, 0, poisoned, poisonedToPrimitive);
-}, 'passing a poisoned object using @@ToPrimitive');

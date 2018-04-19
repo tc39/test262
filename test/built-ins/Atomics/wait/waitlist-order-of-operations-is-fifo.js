@@ -12,7 +12,7 @@ info: |
     ...
     3.Add W to the end of the list of waiters in WL.
 
-features: [ Atomics, SharedArrayBuffer, TypedArray ]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 function getReport() {
@@ -28,14 +28,14 @@ var agent2 = '2';
 var agent3 = '3';
 
 $262.agent.start(
-  `
+`
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
- 
-  $262.agent.report(${agent1});  
+
+  $262.agent.report(${agent1});
   Atomics.wait(int32Array, 0, 0);
-  $262.agent.report(${agent1});  
-  
+  $262.agent.report(${agent1});
+
   $262.agent.leaving();
 })
 `);
@@ -44,12 +44,12 @@ $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-    
+
   $262.agent.report(${agent2});
 
   Atomics.wait(int32Array, 0, 0);
   $262.agent.report(${agent2});
-  
+
   $262.agent.leaving();
 })
 `);
@@ -58,12 +58,12 @@ $262.agent.start(
   `
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  
+
   $262.agent.report(${agent3});
-  
+
   Atomics.wait(int32Array, 0, 0);
   $262.agent.report(${agent3});
-  
+
   $262.agent.leaving();
 })
 `);

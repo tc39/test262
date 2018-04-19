@@ -12,7 +12,7 @@ info: |
       9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
         ...
           4.If bufferData is a Data Block, return false.
-features: [ Atomics, ArrayBuffer, TypedArray ]
+features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
 var int32Array = new Int32Array(new ArrayBuffer(4));

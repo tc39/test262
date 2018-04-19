@@ -11,7 +11,7 @@ info: |
     ...
       3.If typedArray does not have a [[TypedArrayName]] internal slot, throw a TypeError exception.
 
-features: [ Atomics ]
+features: [Atomics]
 ---*/
 
 var poisoned = {
@@ -21,9 +21,9 @@ var poisoned = {
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wait({}, 0, 0, 0)
+  Atomics.wait({}, 0, 0, 0);
 });
 
 assert.throws(TypeError, function () {
-  Atomics.wait({}, poisoned, poisoned, poisoned)
+  Atomics.wait({}, poisoned, poisoned, poisoned);
 });

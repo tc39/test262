@@ -5,7 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Allowed boundary cases of the third 'count' argument to Atomics.wake
-features: [Atomics]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(4);

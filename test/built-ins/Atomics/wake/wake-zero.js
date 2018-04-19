@@ -5,12 +5,10 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes zero waiters if that's what the count is.
-features: [Atomics]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-
 var NUMAGENT = 3;
-
 var WAKEUP = 0;                 // Agents wait here
 var RUNNING = 1;                // Accounting of live agents here
 var NUMELEM = 2;
@@ -47,14 +45,17 @@ assert.sameValue(Atomics.wake(ia, 0, WAKECOUNT), WAKECOUNT);
 
 // Collect and check results
 var rs = [];
-for (var i = 0; i < NUMAGENT; i++)
+for (var i = 0; i < NUMAGENT; i++) {
   rs.push(getReport());
+}
 rs.sort();
 
-for (var i = 0; i < WAKECOUNT; i++)
-  assert.sameValue(rs[i], "ok");
-for (var i = WAKECOUNT; i < NUMAGENT; i++)
-  assert.sameValue(rs[i], "timed-out");
+for (var i = 0; i < WAKECOUNT; i++) {
+  assert.sameValue(rs[i], "ok", "The value of rs[i] is ok");
+}
+for (var i = WAKECOUNT; i < NUMAGENT; i++) {
+  assert.sameValue(rs[i], "timed-out", "The value of rs[i] is timed-out");
+}
 
 function getReport() {
   var r;
@@ -69,5 +70,5 @@ function waitUntil(ia, k, value) {
     $262.agent.sleep(100);
     i++;
   }
-  assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
+  assert.sameValue(Atomics.load(ia, k), value, "Atomics.load(ia, k) returns value (All agents are running)");
 }

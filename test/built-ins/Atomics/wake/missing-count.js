@@ -10,7 +10,7 @@ info: |
 
   3.If count is undefined, let c be +∞.
 
-features: [ Atomics, SharedArrayBuffer, TypedArray ]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var NUMAGENT = 4; // Total number of agents started

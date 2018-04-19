@@ -13,7 +13,7 @@ info: |
       2.Let accessIndex be ? ToIndex(requestIndex).
         ...
         2.b If integerIndex < 0, throw a RangeError exception
-features: [ Atomics , SharedArrayBuffer, TypedArray ]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);

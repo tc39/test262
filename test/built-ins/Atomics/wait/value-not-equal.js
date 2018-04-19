@@ -14,28 +14,29 @@ info: |
     a.Perform LeaveCriticalSection(WL).
     b. Return the String "not-equal".
 
-features: [ Atomics, SharedArrayBuffer, TypedArray ]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 includes: [atomicsHelper.js]
 ---*/
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
+  while ((r = $262.agent.getReport()) == null) {
     $262.agent.sleep(100);
+  }
   return r;
 }
 
 var value = 42;
 
 $262.agent.start(
-  `
+`
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  
+
   $262.agent.report(Atomics.store(int32Array, 0, ${value}));
-  
+
   $262.agent.report(Atomics.wait(int32Array, 0, 0));
-  
+
   $262.agent.leaving();
 })
 `);
