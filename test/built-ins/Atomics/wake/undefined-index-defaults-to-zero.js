@@ -18,7 +18,7 @@ info: |
 
           If value is undefined, then
           Let index be 0.
-features: [ Atomics, SharedArrayBuffer, TypedArray ]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 $262.agent.start(

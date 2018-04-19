@@ -17,12 +17,12 @@ info: |
 
           If value is undefined, then
           Let index be 0.
-features: [ Atomics, SharedArrayBuffer, TypedArray ]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 $262.agent.start(
-  `
-$262.agent.receiveBroadcast(function (sab) { 
+`
+$262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report(Atomics.wait(int32Array, undefined, 0, 1000)); // undefined index => 0
   $262.agent.leaving();
@@ -43,7 +43,8 @@ assert.sameValue(getReport(), "ok");
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
+  while ((r = $262.agent.getReport()) == null) {
     $262.agent.sleep(100);
+  }
   return r;
 }

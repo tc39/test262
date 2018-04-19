@@ -5,7 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes agents in the order they are waiting.
-features: [Atomics]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var NUMAGENT = 3;
@@ -57,8 +57,9 @@ for (var i = 0; i < NUMAGENT; i++) {
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
+  while ((r = $262.agent.getReport()) == null) {
     $262.agent.sleep(100);
+  }
   return r;
 }
 

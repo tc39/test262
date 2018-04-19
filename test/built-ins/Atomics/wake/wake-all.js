@@ -5,7 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes all waiters if that's what the count is.
-features: [Atomics]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var WAKEUP = 0;                 // Waiters on this will be woken
@@ -52,18 +52,21 @@ $262.agent.sleep(500);
 assert.sameValue(Atomics.wake(ia, WAKEUP), NUMAGENT);
 
 var rs = [];
-for (var i = 0; i < NUMAGENT + 1; i++)
+for (var i = 0; i < NUMAGENT + 1; i++) {
   rs.push(getReport());
+}
 rs.sort();
 
-for (var i = 0; i < NUMAGENT; i++)
+for (var i = 0; i < NUMAGENT; i++) {
   assert.sameValue(rs[i], "A ok");
+}
 assert.sameValue(rs[NUMAGENT], "B timed-out");
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
+  while ((r = $262.agent.getReport()) == null) {
     $262.agent.sleep(100);
+  }
   return r;
 }
 
