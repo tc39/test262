@@ -16,7 +16,7 @@ includes: [nativeFunctionMatcher.js, wellKnownIntrinsicObjects.js]
 ---*/
 
 
-WellKnownIntrinsicObjects.forEach(({globalNameOrSource, intrinsicName, reference}, index) => {
+WellKnownIntrinsicObjects.forEach(({intrinsicName, reference}, index) => {
   if (typeof reference === "function") {
     assert.sameValue(
       ("" + reference).includes(reference.name), true,

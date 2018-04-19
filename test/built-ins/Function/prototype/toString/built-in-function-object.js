@@ -14,6 +14,7 @@ info: |
     function IdentifierName_opt ( FormalParameters ) { [ native code ] }
 
 includes: [fnGlobalObject.js, nativeFunctionMatcher.js, wellKnownIntrinsicObjects.js]
+features: [arrow-function]
 ---*/
 
 var visited = [];
@@ -43,5 +44,5 @@ function visit(object) {
   }
 }
 
-visit(WellKnownIntrinsicObjects);
+visit(WellKnownIntrinsicObjects.map(wkio => wkio.reference));
 assert.notSameValue(verified.length, 0);
