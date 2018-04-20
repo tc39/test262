@@ -102,7 +102,6 @@ DataView.prototype.getInt8
 DataView.prototype.getUint16
 DataView.prototype.getUint32
 DataView.prototype.setUint8
-default-arg
 default-parameters
 destructuring-assignment
 destructuring-binding
