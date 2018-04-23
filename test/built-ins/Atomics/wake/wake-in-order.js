@@ -41,12 +41,12 @@ waitUntil(ia, RUNNING, NUMAGENT);
 
 // Then wait some more to give the agents a fair chance to wait.  If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
-$262.agent.sleep(500);
+$262.agent.sleep(50);
 
 // Make them sleep in order 0 1 2 on ia[0]
 for (var i = 0; i < NUMAGENT; i++) {
   Atomics.store(ia, SPIN + i, 1);
-  $262.agent.sleep(500);
+  $262.agent.sleep(50);
 }
 
 // Wake them up one at a time and check the order is 0 1 2
@@ -58,7 +58,7 @@ for (var i = 0; i < NUMAGENT; i++) {
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }
@@ -66,7 +66,7 @@ function getReport() {
 function waitUntil(ia, k, value) {
   var i = 0;
   while (Atomics.load(ia, k) !== value && i < 15) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
     i++;
   }
   assert.sameValue(Atomics.load(ia, k), value, "All agents are running");

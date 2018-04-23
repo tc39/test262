@@ -18,8 +18,9 @@ var WAKEUP = 0; // Index all agents are waiting on
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
+  while ((r = $262.agent.getReport()) == null) {
     $262.agent.sleep(100);
+  }
   return r;
 }
 
@@ -69,7 +70,7 @@ $262.agent.sleep(200); // half of timeout
 
 assert.sameValue($262.agent.getReport(), null);
 
-assert.sameValue(Atomics.wake(int32Array, WAKEUP), NUMAGENT);
+assert.sameValue(Atomics.wake(int32Array, WAKEUP /*, count missing */), NUMAGENT);
 
 var sortedReports = [];
 for (var i = 0; i < NUMAGENT; i++) {
