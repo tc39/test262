@@ -81,7 +81,7 @@ def yamlAttrParser(testRecord, attrs, name):
     parsed = yamlLoad(body)
 
     if (parsed is None):
-        print "Failed to parse yaml in name %s"%(name)
+        print("Failed to parse yaml in name %s"%(name))
         return
 
     for key in parsed:
