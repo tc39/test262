@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wake
 description: >
-  Throws a TypeError if index arg can not be converted to an Integer
+  Return abrupt when ToInteger throws for 'index' argument to Atomics.wake
 info: |
   Atomics.wake( typedArray, index, value, timeout )
 

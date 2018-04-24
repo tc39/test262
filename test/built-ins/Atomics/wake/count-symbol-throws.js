@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wake
 description: >
-  Allowed boundary cases of the third 'count' argument to Atomics.wake
+  Return abrupt when symbol passed for 'count' argument to Atomics.wake
 info: |
   Atomics.wake( typedArray, index, count )
 
