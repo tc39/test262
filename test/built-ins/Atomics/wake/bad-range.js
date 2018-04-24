@@ -10,16 +10,16 @@ features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, 
 ---*/
 
 var sab = new SharedArrayBuffer(8);
-var views = [Int32Array];
+var views = intArrayConstructors.slice();
 
 if (typeof BigInt !== "undefined") {
   views.push(BigInt64Array);
+  views.push(BigUint64Array);
 }
 
 testWithTypedArrayConstructors(function(TA) {
   let view = new TA(sab);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-    let Idx = IdxGen(view);
-    assert.throws(RangeError, () => Atomics.wake(view, Idx, 0)); // Even with waking zero
+    assert.throws(RangeError, () => Atomics.wake(view, IdxGen(view), 0)); // Even with waking zero
   });
 }, views);

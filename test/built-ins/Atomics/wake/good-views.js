@@ -11,7 +11,6 @@ features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedAr
 ---*/
 
 var sab = new SharedArrayBuffer(1024);
-var ab = new ArrayBuffer(16);
 var view = new Int32Array(sab, 32, 20);
 
 view[0] = 0;
