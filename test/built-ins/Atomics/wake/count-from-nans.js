@@ -4,7 +4,22 @@
 /*---
 esid: sec-atomics.wake
 description: >
-  Allowed boundary cases of the third 'count' argument to Atomics.wake
+  NaNs are converted to 0 for 'count' argument to Atomics.wake
+info: |
+  Atomics.wake( typedArray, index, count )
+
+  ...
+  3. If count is undefined, let c be +∞.
+  4. Else,
+    a. Let intCount be ? ToInteger(count).
+  ...
+
+  ToInteger ( argument )
+
+  ...
+  2. If number is NaN, return +0.
+  ...
+
 features: [Atomics, SharedArrayBuffer, TypedArray]
 includes: [nans.js]
 ---*/

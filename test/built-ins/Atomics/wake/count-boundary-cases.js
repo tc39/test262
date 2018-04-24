@@ -4,7 +4,24 @@
 /*---
 esid: sec-atomics.wake
 description: >
-  Allowed boundary cases of the third 'count' argument to Atomics.wake
+  Allowed boundary cases for 'count' argument to Atomics.wake
+info: |
+  Atomics.wake( typedArray, index, count )
+
+  ...
+  3. If count is undefined, let c be +∞.
+  4. Else,
+    a. Let intCount be ? ToInteger(count).
+  ...
+
+  ToInteger ( argument )
+
+  1. Let number be ? ToNumber(argument).
+  2. If number is NaN, return +0.
+  3. If number is +0, -0, +∞, or -∞, return number.
+  4. Return the number value that is the same sign as number
+      and whose magnitude is floor(abs(number)).
+
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
