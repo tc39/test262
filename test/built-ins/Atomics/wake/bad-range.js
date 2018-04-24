@@ -5,12 +5,18 @@
 esid: sec-atomics.wake
 description: >
   Test range checking of Atomics.wake on arrays that allow atomic operations
+info: |
+  Atomics.wake( typedArray, index, count )
+
+  1. Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
+  ..
+
 includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(8);
-var views = intArrayConstructors.slice();
+var views = [Int32Array];
 
 if (typeof BigInt !== "undefined") {
   views.push(BigInt64Array);
