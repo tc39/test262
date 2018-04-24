@@ -71,7 +71,7 @@ def myMultilineList(lines, value):
         leading = myLeadingSpaces(line)
         if myIsAllSpaces(line):
             pass
-        elif leading < indent:
+        elif indent is not None and leading < indent:
             lines.insert(0, line)
             break;
         else:
