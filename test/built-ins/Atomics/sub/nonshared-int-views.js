@@ -18,5 +18,5 @@ if (typeof BigInt !== "undefined") {
 }
 
 testWithTypedArrayConstructors(function(TA) {
-  assert.throws(TypeError, (() => Atomics.sub(new TA(ab), 0, 0)));
+  assert.throws(TypeError, (() => Atomics.sub(new TA(buffer), 0, 0)));
 }, views);

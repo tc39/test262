@@ -27,10 +27,32 @@ assert.sameValue(
   "BigInt(-Number.MAX_SAFE_INTEGER) === -9007199254740991n"
 );
 
-assert.throws(RangeError, function() {
-  BigInt(Number.MAX_SAFE_INTEGER + 1);
-}, "BigInt(Number.MAX_SAFE_INTEGER + 1) throws RangeError");
+assert.sameValue(
+  BigInt(Number.MAX_SAFE_INTEGER + 1), 9007199254740992n,
+  "BigInt(Number.MAX_SAFE_INTEGER + 1) === 9007199254740992n"
+);
 
-assert.throws(RangeError, function() {
-  BigInt(-Number.MAX_SAFE_INTEGER - 1);
-}, "BigInt(-Number.MAX_SAFE_INTEGER - 1) throws RangeError");
+assert.sameValue(
+  BigInt(-Number.MAX_SAFE_INTEGER - 1), -9007199254740992n,
+  "BigInt(-Number.MAX_SAFE_INTEGER - 1) === -9007199254740992n"
+);
+
+assert.sameValue(
+  BigInt(Number.MAX_SAFE_INTEGER + 2), 9007199254740992n,
+  "BigInt(Number.MAX_SAFE_INTEGER + 2) === 9007199254740992n"
+);
+
+assert.sameValue(
+  BigInt(-Number.MAX_SAFE_INTEGER - 2), -9007199254740992n,
+  "BigInt(-Number.MAX_SAFE_INTEGER - 2) === -9007199254740992n"
+);
+
+assert.sameValue(
+  BigInt(Number.MAX_SAFE_INTEGER + 3), 9007199254740994n,
+  "BigInt(Number.MAX_SAFE_INTEGER + 3) === 9007199254740994n"
+);
+
+assert.sameValue(
+  BigInt(-Number.MAX_SAFE_INTEGER - 3), -9007199254740994n,
+  "BigInt(-Number.MAX_SAFE_INTEGER - 3) === -9007199254740994n"
+);

@@ -38,5 +38,5 @@ var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEME
 $262.agent.broadcast(int32Array.buffer);
 $262.agent.sleep(500); // Ample time
 
-assert.sameValue(getReport(), null);
 assert.sameValue(Atomics.wake(int32Array, 0), 1);
+assert.sameValue(getReport(), "ok");

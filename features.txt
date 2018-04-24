@@ -158,4 +158,3 @@ WeakSet
 # object, go here.
 
 IsHTMLDDA
-CannotSuspendMainAgent
