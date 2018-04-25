@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atomics.wake
-description:
+description: >
   A null value for bufferData throws a TypeError
 info: |
   Atomics.wake( typedArray, index, count )

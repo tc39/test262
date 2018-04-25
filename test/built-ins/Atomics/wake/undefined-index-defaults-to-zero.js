@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-atomics.wake
-description:
+description: >
   An undefined index arg should translate to 0
 info: |
   Atomics.wake( typedArray, index, count )
