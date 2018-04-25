@@ -19,55 +19,49 @@ var WAKEUP = 0; // Index all agents are waiting on
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null)
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   return r;
 }
 
-$262.agent.start(
-  `
+$262.agent.start(`
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  $262.agent.report("A " + Atomics.wait(int32Array, ${WAKEUP}, 0, 500));
+  $262.agent.report("A " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
-})
+});
 `);
 
-$262.agent.start(
-  `
+$262.agent.start(`
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  $262.agent.report("B " + Atomics.wait(int32Array, ${WAKEUP}, 0, 500));
+  $262.agent.report("B " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
-})
-`);
-
-
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function (sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report("C " + Atomics.wait(int32Array, ${WAKEUP}, 0, 500));
-  $262.agent.leaving();
-})
+});
 `);
 
 
-$262.agent.start(
-  `
+$262.agent.start(`
 $262.agent.receiveBroadcast(function (sab) {
   var int32Array = new Int32Array(sab);
-  $262.agent.report("D " + Atomics.wait(int32Array, ${WAKEUP}, 0, 500));
+  $262.agent.report("C " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
-})
+});
+`);
+
+
+$262.agent.start(`
+$262.agent.receiveBroadcast(function (sab) {
+  var int32Array = new Int32Array(sab);
+  $262.agent.report("D " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
+  $262.agent.leaving();
+});
 `);
 
 var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
 $262.agent.broadcast(int32Array.buffer);
 
-$262.agent.sleep(200); // half of timeout
-
-assert.sameValue($262.agent.getReport(), null);
+$262.agent.sleep(20); // half of timeout
 
 assert.sameValue(Atomics.wake(int32Array, WAKEUP, undefined), NUMAGENT);
 

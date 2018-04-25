@@ -87,4 +87,4 @@ assert.sameValue(Atomics.wake(int32Array, 0, 1), 1);
 
 orderAgentsWereWoken += getReport();
 
-assert.sameValue(orderWhichAgentsWereStarted ,orderAgentsWereWoken);  // agents should wake in the same order as they were started FIFO
+assert.sameValue(orderWhichAgentsWereStarted, orderAgentsWereWoken);  // agents should wake in the same order as they were started FIFO
