@@ -18,13 +18,14 @@ var WAKEUP = 0; // Index all agents are waiting on
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
+  while ((r = $262.agent.getReport()) == null) {
     $262.agent.sleep(10);
+  }
   return r;
 }
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("A " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
@@ -32,7 +33,7 @@ $262.agent.receiveBroadcast(function (sab) {
 `);
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("B " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
@@ -41,7 +42,7 @@ $262.agent.receiveBroadcast(function (sab) {
 
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("C " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
@@ -50,7 +51,7 @@ $262.agent.receiveBroadcast(function (sab) {
 
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("D " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();

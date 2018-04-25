@@ -1,0 +1,19 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-atomics.load
+description: >
+  Test Atomics.load on non-shared integer TypedArrays
+includes: [testBigIntTypedArray.js]
+features: [ArrayBuffer, arrow-function, Atomics, BigInt, TypedArray]
+---*/
+
+var ab = new ArrayBuffer(16);
+
+
+testWithBigIntTypedArrayConstructors(function(TA) {
+  var view = new TA(ab);
+
+  assert.throws(TypeError, (() => Atomics.load(view, 0)));
+});

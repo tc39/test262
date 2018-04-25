@@ -16,9 +16,8 @@ var NUMELEM = 3;
 var NUMAGENT = 3;
 
 for (var i=0; i < NUMAGENT; i++) {
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, ${RUNNING}, 1);
   $262.agent.report("A " + Atomics.wait(ia, ${WAKEUP}, 0));
@@ -27,9 +26,8 @@ $262.agent.receiveBroadcast(function (sab) {
 `);
 }
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, ${RUNNING}, 1);
   // This will always time out.

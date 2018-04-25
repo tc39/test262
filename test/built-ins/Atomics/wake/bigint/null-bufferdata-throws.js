@@ -1,0 +1,31 @@
+// Copyright (C) 2018 Amal Hussein. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-atomics.wake
+description: >
+  A null value for bufferData throws a TypeError
+info: |
+  Atomics.wake( typedArray, index, count )
+
+  1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
+    ...
+      9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
+        ...
+          3.If bufferData is null, return false.
+includes: [detachArrayBuffer.js]
+features: [ArrayBuffer, BigInt, Atomics, TypedArray]
+---*/
+
+var i64a = new BigInt64Array(new ArrayBuffer(1024));
+var poisoned = {
+  valueOf: function() {
+    throw new Test262Error("should not evaluate this code");
+  }
+};
+
+// Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+$DETACHBUFFER(i64a.buffer);
+
+assert.throws(TypeError, function() {
+  Atomics.wake(i64a, poisoned, poisoned);
+});

@@ -17,7 +17,7 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(sab);
+var i32a = new Int32Array(sab);
 var poisoned = {
   valueOf: function() {
     throw new Test262Error("should not evaluate this code");
@@ -25,14 +25,14 @@ var poisoned = {
 };
 
 assert.throws(RangeError, function() {
-  Atomics.wait(int32Array, -Infinity, poisoned, poisoned);
+  Atomics.wait(i32a, -Infinity, poisoned, poisoned);
 });
 assert.throws(RangeError, function() {
-  Atomics.wait(int32Array, -7.999, poisoned, poisoned);
+  Atomics.wait(i32a, -7.999, poisoned, poisoned);
 });
 assert.throws(RangeError, function() {
-  Atomics.wait(int32Array, -1, poisoned, poisoned);
+  Atomics.wait(i32a, -1, poisoned, poisoned);
 });
 assert.throws(RangeError, function() {
-  Atomics.wait(int32Array, -300, poisoned, poisoned);
+  Atomics.wait(i32a, -300, poisoned, poisoned);
 });

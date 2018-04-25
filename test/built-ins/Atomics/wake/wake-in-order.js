@@ -20,9 +20,8 @@ var NUMELEM = RUNNING + 1;
 // one by one and observe the wakeup order.
 
 for ( var i=0 ; i < NUMAGENT ; i++ ) {
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, ${RUNNING}, 1);
   while (Atomics.load(ia, ${SPIN + i}) === 0)

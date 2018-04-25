@@ -12,8 +12,7 @@ features: [Atomics]
 // Let's assume 'wait' is not allowed on the main thread,
 // even in the shell.
 
-$262.agent.start(
-`
+$262.agent.start(`
 var sab = new SharedArrayBuffer(1024);
 var ab = new ArrayBuffer(16);
 
@@ -54,7 +53,7 @@ while ((r = getReport()) != "done") {
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }

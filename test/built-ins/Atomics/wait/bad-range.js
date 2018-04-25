@@ -11,16 +11,13 @@ info: |
   1. Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
   ...
 
-includes: [testAtomics.js, testTypedArray.js]
+includes: [testAtomics.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(8);
-var views = [Int32Array];
+let i32a = new Int32Array(sab);
 
-testWithTypedArrayConstructors(function(TA) {
-  let view = new TA(sab);
-  testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-    assert.throws(RangeError, () => Atomics.wake(view, IdxGen(view), 0)); // Even with waking zero
-  });
-}, views);
+testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
+  assert.throws(RangeError, () => Atomics.wait(i32a, IdxGen(i32a), 0, 0));
+});

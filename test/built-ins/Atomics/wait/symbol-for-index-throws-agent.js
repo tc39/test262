@@ -32,7 +32,7 @@ includes: [ atomicsHelper.js ]
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }
@@ -51,16 +51,16 @@ var poisonedToPrimitive = {
   }
 };
 
-$262.agent.receiveBroadcast(function (sab) {
-  var int32Array = new Int32Array(sab);
+$262.agent.receiveBroadcast(function(sab) {
+  var i32a = new Int32Array(sab);
   var start = Date.now();
   try {
-    Atomics.wait(int32Array, Symbol("1"), poisonedValueOf, poisonedValueOf);
+    Atomics.wait(i32a, Symbol("1"), poisonedValueOf, poisonedValueOf);
   } catch (error) {
     $262.agent.report('Symbol("1")');
   }
   try {
-    Atomics.wait(int32Array, Symbol("2"), poisonedToPrimitive, poisonedToPrimitive);
+    Atomics.wait(i32a, Symbol("2"), poisonedToPrimitive, poisonedToPrimitive);
   } catch (error) {
     $262.agent.report('Symbol("2")');
   }
@@ -69,9 +69,9 @@ $262.agent.receiveBroadcast(function (sab) {
 });
 `);
 
-var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(150);
 
 assert.sameValue(getReport(), 'Symbol("1")');
@@ -82,5 +82,5 @@ var timeDiffReport = getReport();
 assert(timeDiffReport >= 0, "timeout should be a min of 0ms");
 assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, "timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON");
 
-assert.sameValue(Atomics.wake(int32Array, 0), 0);
+assert.sameValue(Atomics.wake(i32a, 0), 0);
 

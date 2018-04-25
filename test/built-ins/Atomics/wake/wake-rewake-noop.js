@@ -25,8 +25,7 @@ function waitUntil(ia, k, value) {
   assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
 }
 
-$262.agent.start(
-`
+$262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, 1, 1);
