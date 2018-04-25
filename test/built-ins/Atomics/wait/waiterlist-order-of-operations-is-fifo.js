@@ -18,7 +18,7 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }
@@ -27,9 +27,8 @@ var agent1 = '1';
 var agent2 = '2';
 var agent3 = '3';
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
 
   $262.agent.report(${agent1});
@@ -37,12 +36,11 @@ $262.agent.receiveBroadcast(function (sab) {
   $262.agent.report(${agent1});
 
   $262.agent.leaving();
-})
+});
 `);
 
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
 
   $262.agent.report(${agent2});
@@ -51,12 +49,11 @@ $262.agent.receiveBroadcast(function (sab) {
   $262.agent.report(${agent2});
 
   $262.agent.leaving();
-})
+});
 `);
 
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
 
   $262.agent.report(${agent3});
@@ -65,7 +62,7 @@ $262.agent.receiveBroadcast(function (sab) {
   $262.agent.report(${agent3});
 
   $262.agent.leaving();
-})
+});
 `);
 
 

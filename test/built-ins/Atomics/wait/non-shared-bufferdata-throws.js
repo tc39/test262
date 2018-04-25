@@ -15,7 +15,7 @@ info: |
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-var int32Array = new Int32Array(new ArrayBuffer(4));
+var i32a = new Int32Array(new ArrayBuffer(4));
 var poisoned = {
   valueOf: function() {
     throw new Test262Error("should not evaluate this code");
@@ -23,9 +23,9 @@ var poisoned = {
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wait(int32Array, 0, 0, 0);
+  Atomics.wait(i32a, 0, 0, 0);
 });
 
 assert.throws(TypeError, function() {
-  Atomics.wait(int32Array, poisoned, poisoned, poisoned);
+  Atomics.wait(i32a, poisoned, poisoned, poisoned);
 });

@@ -11,13 +11,12 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }
 
-$262.agent.start(
-`
+$262.agent.start(`
 $262.agent.receiveBroadcast(function(sab, id) {
   var ia = new Int32Array(sab);
   $262.agent.report(Atomics.wait(ia, 0, 0, -5)); // -5 => 0
@@ -26,8 +25,8 @@ $262.agent.receiveBroadcast(function(sab, id) {
 `);
 
 var buffer = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(buffer);
+var i32a = new Int32Array(buffer);
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 assert.sameValue(getReport(), "timed-out");
-assert.sameValue(Atomics.wake(int32Array, 0), 0);
+assert.sameValue(Atomics.wake(i32a, 0), 0);

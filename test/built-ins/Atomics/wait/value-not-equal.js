@@ -21,29 +21,26 @@ includes: [atomicsHelper.js]
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }
 
 var value = 42;
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
-  var int32Array = new Int32Array(sab);
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
+  var i32a = new Int32Array(sab);
 
-  $262.agent.report(Atomics.store(int32Array, 0, ${value}));
-
-  $262.agent.report(Atomics.wait(int32Array, 0, 0));
-
+  $262.agent.report(Atomics.store(i32a, 0, ${value}));
+  $262.agent.report(Atomics.wait(i32a, 0, 0));
   $262.agent.leaving();
-})
+});
 `);
 
-var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 
 assert.sameValue(getReport(), value.toString());
 assert.sameValue(getReport(), "not-equal");

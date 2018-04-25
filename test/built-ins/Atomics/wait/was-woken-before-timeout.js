@@ -33,8 +33,7 @@ function getReport() {
   return r;
 }
 
-$262.agent.start(
-`
+$262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report(Atomics.wait(int32Array, 0, 0, ${timeout}));

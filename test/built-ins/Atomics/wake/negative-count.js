@@ -8,9 +8,8 @@ description: >
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   $262.agent.report(Atomics.wait(ia, 0, 0, 1000)); // We will timeout eventually
   $262.agent.leaving();
@@ -26,7 +25,8 @@ assert.sameValue(getReport(), "timed-out");
 
 function getReport() {
   var r;
-  while ((r = $262.agent.getReport()) == null)
-    $262.agent.sleep(100);
+  while ((r = $262.agent.getReport()) == null) {
+    $262.agent.sleep(10);
+  }
   return r;
 }

@@ -10,6 +10,6 @@ flags: [CanBlockIsFalse]
 ---*/
 
 var buffer = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(buffer);
+var i32a = new Int32Array(buffer);
 
-assert.sameValue(Atomics.wait(int32Array, 0, 0, -1), "timed-out");
+assert.sameValue(Atomics.wait(i32a, 0, 0, -1), "timed-out");

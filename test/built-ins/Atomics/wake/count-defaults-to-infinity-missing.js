@@ -27,7 +27,7 @@ function getReport() {
 }
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("A " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
@@ -35,7 +35,7 @@ $262.agent.receiveBroadcast(function (sab) {
 `);
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("B " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
@@ -43,7 +43,7 @@ $262.agent.receiveBroadcast(function (sab) {
 `);
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("C " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
@@ -51,7 +51,7 @@ $262.agent.receiveBroadcast(function (sab) {
 `);
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.receiveBroadcast(function(sab) {
   var int32Array = new Int32Array(sab);
   $262.agent.report("D " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
   $262.agent.leaving();

@@ -10,9 +10,8 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, 1, 1);
   $262.agent.leaving();

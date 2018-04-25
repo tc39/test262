@@ -16,15 +16,15 @@ includes: [detachArrayBuffer.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-var int32Array = new Int32Array(new ArrayBuffer(1024));
+var i32a = new Int32Array(new ArrayBuffer(1024));
 var poisoned = {
   valueOf: function() {
     throw new Test262Error("should not evaluate this code");
   }
 };
 
-$DETACHBUFFER(int32Array.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+$DETACHBUFFER(i32a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
 
 assert.throws(TypeError, function() {
-  Atomics.wait(int32Array, poisoned, poisoned, poisoned);
+  Atomics.wait(i32a, poisoned, poisoned, poisoned);
 });

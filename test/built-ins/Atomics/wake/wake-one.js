@@ -17,9 +17,8 @@ var NUMELEM = 2;
 var WAKECOUNT = 1;
 
 for ( var i=0 ; i < NUMAGENT ; i++ ) {
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
   var ia = new Int32Array(sab);
   Atomics.add(ia, ${RUNNING}, 1);
   // Waiters that are not woken will time out eventually.

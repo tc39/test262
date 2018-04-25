@@ -20,31 +20,30 @@ info: |
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(int32Array, undefined, 0, 1000)); // undefined index => 0
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
+  var i32a = new Int32Array(sab);
+  $262.agent.report(Atomics.wait(i32a, undefined, 0, 1000)); // undefined index => 0
   $262.agent.leaving();
 })
 `);
 
 var sab = new SharedArrayBuffer(4);
-var int32Array = new Int32Array(sab);
+var i32a = new Int32Array(sab);
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 
 $262.agent.sleep(150);
 
-assert.sameValue(Atomics.wake(int32Array, 0), 1); // wake at index 0
-assert.sameValue(Atomics.wake(int32Array, 0), 0); // wake again at index 0, and 0 agents should be woken
+assert.sameValue(Atomics.wake(i32a, 0), 1); // wake at index 0
+assert.sameValue(Atomics.wake(i32a, 0), 0); // wake again at index 0, and 0 agents should be woken
 
 assert.sameValue(getReport(), "ok");
 
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }

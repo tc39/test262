@@ -1,4 +1,4 @@
-// Copyright (C) 2017 Mozilla Corporation.  All rights reserved.
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -10,10 +10,9 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab, id) {
-  var ia = new Int32Array(sab);
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab, id) {
+  var ia = new BigInt64Array(sab);
   var then = Date.now();
   Atomics.wait(ia, 0, 0);
   var diff = Date.now() - then;        // Should be about 1000 ms but can be more
@@ -22,7 +21,7 @@ $262.agent.receiveBroadcast(function (sab, id) {
 })
 `);
 
-var ia = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+var ia = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT));
 
 $262.agent.broadcast(ia.buffer);
 $262.agent.sleep(500); // Give the agent a chance to wait
@@ -34,7 +33,7 @@ assert.sameValue((getReport() | 0) >= 1000 - $ATOMICS_MAX_TIME_EPSILON, true);
 function getReport() {
   var r;
   while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
+    $262.agent.sleep(10);
   }
   return r;
 }
