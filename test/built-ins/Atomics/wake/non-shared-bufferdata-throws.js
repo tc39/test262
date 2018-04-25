@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atomics.wake
-description:
+description: >
   Throws a TypeError if typedArray.buffer is not a SharedArrayBuffer
 info: |
   Atomics.wake( typedArray, index, count )

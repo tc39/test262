@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-atomics.wake
-description:
+description: >
   Throws a RangeError is index < 0
 info: |
   Atomics.wake( typedArray, index, count )

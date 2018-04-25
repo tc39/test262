@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-atomics.wake
-description:
+description: >
   Throws a TypeError if typedArray arg is not an Int32Array
 info: |
   Atomics.wake( typedArray, index, count )
