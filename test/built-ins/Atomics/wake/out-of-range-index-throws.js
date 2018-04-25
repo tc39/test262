@@ -5,7 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Throws a RangeError if value of index arg is out of range
-info: |
+  info: |
   Atomics.wake( typedArray, index, count )
 
   2.Let i be ? ValidateAtomicAccess(typedArray, index).
