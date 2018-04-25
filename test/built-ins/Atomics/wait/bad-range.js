@@ -12,16 +12,11 @@ info: |
   ...
 
 includes: [testAtomics.js, testTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(8);
 var views = [Int32Array];
-
-if (typeof BigInt !== "undefined") {
-  views.push(BigInt64Array);
-  views.push(BigUint64Array);
-}
 
 testWithTypedArrayConstructors(function(TA) {
   let view = new TA(sab);
