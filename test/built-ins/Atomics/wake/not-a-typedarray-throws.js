@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atomics.wake
-description:
+description: >
   Throws a TypeError if the typedArray arg is not a TypedArray object
 info: |
   Atomics.wake( typedArray, index, count )
