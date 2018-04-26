@@ -29,7 +29,7 @@ features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(buffer);
+var i32a = new Int32Array(buffer);
 
 var poisonedValueOf = {
   valueOf: function() {
@@ -44,17 +44,17 @@ var poisonedToPrimitive = {
 };
 
 assert.throws(Test262Error, function() {
-  Atomics.wake(int32Array, poisonedValueOf, poisonedValueOf);
+  Atomics.wake(i32a, poisonedValueOf, poisonedValueOf);
 });
 
 assert.throws(Test262Error, function() {
-  Atomics.wake(int32Array, poisonedToPrimitive, poisonedToPrimitive);
+  Atomics.wake(i32a, poisonedToPrimitive, poisonedToPrimitive);
 });
 
 assert.throws(TypeError, function() {
-  Atomics.wake(int32Array, Symbol("foo"), poisonedValueOf);
+  Atomics.wake(i32a, Symbol("foo"), poisonedValueOf);
 });
 
 assert.throws(TypeError, function() {
-  Atomics.wake(int32Array, Symbol("foo"), poisonedToPrimitive);
+  Atomics.wake(i32a, Symbol("foo"), poisonedToPrimitive);
 });

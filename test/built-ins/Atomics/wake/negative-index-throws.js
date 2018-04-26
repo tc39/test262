@@ -17,14 +17,14 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);
-var int32Array = new Int32Array(sab);
+var i32a = new Int32Array(sab);
 var poisoned = {
   valueOf: function() {
     throw new Test262Error("should not evaluate this code");
   }
 };
 
-assert.throws(RangeError, () => Atomics.wake(int32Array, -Infinity, poisoned));
-assert.throws(RangeError, () => Atomics.wake(int32Array, -7.999, poisoned));
-assert.throws(RangeError, () => Atomics.wake(int32Array, -1, poisoned));
-assert.throws(RangeError, () => Atomics.wake(int32Array, -300, poisoned));
+assert.throws(RangeError, () => Atomics.wake(i32a, -Infinity, poisoned));
+assert.throws(RangeError, () => Atomics.wake(i32a, -7.999, poisoned));
+assert.throws(RangeError, () => Atomics.wake(i32a, -1, poisoned));
+assert.throws(RangeError, () => Atomics.wake(i32a, -300, poisoned));

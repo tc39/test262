@@ -26,25 +26,16 @@ function getReport() {
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report("A " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
+  var i32a = new Int32Array(sab);
+  $262.agent.report("A " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
 });
 `);
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report("B " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
-  $262.agent.leaving();
-});
-`);
-
-
-$262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report("C " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
+  var i32a = new Int32Array(sab);
+  $262.agent.report("B " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
 });
 `);
@@ -52,19 +43,28 @@ $262.agent.receiveBroadcast(function(sab) {
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report("D " + Atomics.wait(int32Array, ${WAKEUP}, 0, 50));
+  var i32a = new Int32Array(sab);
+  $262.agent.report("C " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
   $262.agent.leaving();
 });
 `);
 
-var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.start(`
+$262.agent.receiveBroadcast(function(sab) {
+  var i32a = new Int32Array(sab);
+  $262.agent.report("D " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
+  $262.agent.leaving();
+});
+`);
+
+var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+
+$262.agent.broadcast(i32a.buffer);
 
 $262.agent.sleep(20); // half of timeout
 
-assert.sameValue(Atomics.wake(int32Array, WAKEUP, undefined), NUMAGENT);
+assert.sameValue(Atomics.wake(i32a, WAKEUP, undefined), NUMAGENT);
 
 var sortedReports = [];
 for (var i = 0; i < NUMAGENT; i++) {

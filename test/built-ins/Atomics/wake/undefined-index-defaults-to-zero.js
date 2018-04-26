@@ -24,8 +24,8 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 $262.agent.start(
   `
 $262.agent.receiveBroadcast(function(sab) { 
-  var int32Array = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, 200));
+  var i32a = new Int32Array(sab);
+  $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
   $262.agent.leaving();
 })
 
@@ -35,23 +35,23 @@ $262.agent.receiveBroadcast(function(sab) {
 ;$262.agent.start(
   `
 $262.agent.receiveBroadcast(function(sab) { 
-  var int32Array = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, 200));
+  var i32a = new Int32Array(sab);
+  $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
   $262.agent.leaving();
 })
 `);
 
 var sab = new SharedArrayBuffer(4);
-var int32Array = new Int32Array(sab);
+var i32a = new Int32Array(sab);
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 
 $262.agent.sleep(100); // halfway through timeout
 
-assert.sameValue(Atomics.wake(int32Array, undefined, 1), 1); // wake at index 0
+assert.sameValue(Atomics.wake(i32a, undefined, 1), 1); // wake at index 0
 assert.sameValue(getReport(), "ok");
 
-assert.sameValue(Atomics.wake(int32Array), 1); // wake again at index 0
+assert.sameValue(Atomics.wake(i32a), 1); // wake again at index 0
 assert.sameValue(getReport(), "ok");
 
 function getReport() {
