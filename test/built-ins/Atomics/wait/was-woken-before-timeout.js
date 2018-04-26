@@ -35,20 +35,20 @@ function getReport() {
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, ${timeout}));
+  var i32a = new Int32Array(sab);
+  $262.agent.report(Atomics.wait(i32a, 0, 0, ${timeout}));
   $262.agent.leaving();
 });
 `);
 
 var sab = new SharedArrayBuffer(4);
-var int32Array = new Int32Array(sab);
+var i32a = new Int32Array(sab);
 
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(sleeping);
 
-assert.sameValue(Atomics.wake(int32Array, 0), 1);
+assert.sameValue(Atomics.wake(i32a, 0), 1);
 
 assert.sameValue(getReport(), "ok");
 assert(sleeping < timeout, "this test assumes it won't last for more than 20 seconds");

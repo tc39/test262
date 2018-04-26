@@ -29,10 +29,10 @@ var agent3 = '3';
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
+  var i32a = new Int32Array(sab);
 
   $262.agent.report(${agent1});
-  Atomics.wait(int32Array, 0, 0);
+  Atomics.wait(i32a, 0, 0);
   $262.agent.report(${agent1});
 
   $262.agent.leaving();
@@ -41,11 +41,11 @@ $262.agent.receiveBroadcast(function(sab) {
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
+  var i32a = new Int32Array(sab);
 
   $262.agent.report(${agent2});
 
-  Atomics.wait(int32Array, 0, 0);
+  Atomics.wait(i32a, 0, 0);
   $262.agent.report(${agent2});
 
   $262.agent.leaving();
@@ -54,11 +54,11 @@ $262.agent.receiveBroadcast(function(sab) {
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
+  var i32a = new Int32Array(sab);
 
   $262.agent.report(${agent3});
 
-  Atomics.wait(int32Array, 0, 0);
+  Atomics.wait(i32a, 0, 0);
   $262.agent.report(${agent3});
 
   $262.agent.leaving();
@@ -66,21 +66,21 @@ $262.agent.receiveBroadcast(function(sab) {
 `);
 
 
-var int32Array = new Int32Array(new SharedArrayBuffer(4));
+var i32a = new Int32Array(new SharedArrayBuffer(4));
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 
 var orderWhichAgentsWereStarted = getReport() + getReport() + getReport(); // can be started in any order
 
-assert.sameValue(Atomics.wake(int32Array, 0, 1), 1);
+assert.sameValue(Atomics.wake(i32a, 0, 1), 1);
 
 var orderAgentsWereWoken = getReport();
 
-assert.sameValue(Atomics.wake(int32Array, 0, 1), 1);
+assert.sameValue(Atomics.wake(i32a, 0, 1), 1);
 
 orderAgentsWereWoken += getReport();
 
-assert.sameValue(Atomics.wake(int32Array, 0, 1), 1);
+assert.sameValue(Atomics.wake(i32a, 0, 1), 1);
 
 orderAgentsWereWoken += getReport();
 
