@@ -14,8 +14,7 @@ info: |
     a.Perform LeaveCriticalSection(WL).
     b. Return the String "not-equal".
 
-features: [Atomics, SharedArrayBuffer, TypedArray]
-includes: [atomicsHelper.js, testBigIntTypedArray.js]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
 function getReport() {
