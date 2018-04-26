@@ -12,7 +12,7 @@ info: |
       9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
         ...
           4.If bufferData is a Data Block, return false.
-features: [ArrayBuffer, BigInt, Atomics, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
 var i64a = new BigInt64Array(new ArrayBuffer(4));

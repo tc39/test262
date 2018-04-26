@@ -12,8 +12,7 @@ info: |
       9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
         ...
           4.If bufferData is a Data Block, return false.
-features: [ArrayBuffer, Atomics, TypedArray]
-includes: [testAtomics.js, testBigIntTypedArray.js]
+features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
 var i64a = new BigInt64Array(new ArrayBuffer(4));

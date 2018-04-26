@@ -13,7 +13,7 @@ info: |
         ...
           3.If bufferData is null, return false.
 includes: [detachArrayBuffer.js]
-features: [ArrayBuffer, BigInt, Atomics, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
 var i64a = new BigInt64Array(new ArrayBuffer(1024));

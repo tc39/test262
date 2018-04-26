@@ -5,8 +5,7 @@
 esid: sec-atomics.wait
 description: >
   Test that Atomics.wait returns the right result when it was awoken.
-features: [Atomics, SharedArrayBuffer, TypedArray]
-includes: [testAtomics.js, testBigIntTypedArray.js]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
 function getReport() {

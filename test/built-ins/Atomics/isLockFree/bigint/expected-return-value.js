@@ -18,7 +18,7 @@ info: |
   6. If n equals 8, return AR.[[IsLockFree8]].
   7. Return false.
 
-features: [Atomics, SharedArrayBuffer, TypedArray]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 includes: [testBigIntTypedArray.js]
 ---*/
 

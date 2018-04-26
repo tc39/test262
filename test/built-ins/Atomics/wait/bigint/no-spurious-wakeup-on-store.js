@@ -5,7 +5,7 @@
 esid: sec-atomics.wait
 description: >
   Demonstrates that Atomics.store(...) is causing a waiting
-features: [Atomics, computed-property-names, SharedArrayBuffer, TypedArray]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 function getReport() {
   var r;
