@@ -5,7 +5,7 @@
 esid: sec-atomics.exchange
 description: Test Atomics.exchange on arrays that allow atomic operations.
 includes: [testAtomics.js, testBigIntTypedArray.js]
-features: [ArrayBuffer, Atomics, BigInt, computed-property-names, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);
