@@ -35,7 +35,7 @@ $262.agent.broadcast(i32a.buffer);
 
 assert.sameValue(getReport(), "ready");
 
-Atomics.add(i32a, 0, 1);
+Atomics.and(i32a, 0, 1);
 
 // We should expect that the waiting agents will continue to
 // wait until they both timeout. If either of them reports
