@@ -77,6 +77,10 @@ numeric-separator-literal
 String.prototype.matchAll
 Symbol.matchAll
 
+# Intl.Locale
+# https://github.com/tc39/proposal-intl-locale
+Intl.Locale
+
 # Catch initializer
 # https://github.com/tc39/ecma262/pull/1126
 catch-initializer
