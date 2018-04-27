@@ -77,6 +77,10 @@ numeric-separator-literal
 String.prototype.matchAll
 Symbol.matchAll
 
+# Intl.Locale
+# https://github.com/tc39/proposal-intl-locale
+Intl.Locale
+
 # Standard language features
 #
 # Language features that have been included in a published version of the
