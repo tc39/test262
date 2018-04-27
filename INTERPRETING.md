@@ -93,6 +93,7 @@ properties of the global scope prior to test execution.
         sleeps the agent for approximately that duration.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
+      - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
     - **`broadcast`** - a function that takes a SharedArrayBuffer and an Int32
         and broadcasts the two values to all concurrent agents.  The function
         blocks until all agents have retrieved the message.  Note, this assumes
@@ -101,6 +102,19 @@ properties of the global scope prior to test execution.
       and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
+    - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**. 
+
+
+#### Normative references
+
+[`DOMHighResTimeStamp`][], **[Monotonic Clock][]**<br>
+Ilya Grigorik, James Simonsen, Jatinder Mann.<br>
+[High Resolution Time Level 2](https://www.w3.org/TR/hr-time-2/) March 2018. W3C. URL: [https://www.w3.org/TR/hr-time-2/](https://www.w3.org/TR/hr-time-2/)
+
+
+[`DOMHighResTimeStamp`]: https://www.w3.org/TR/hr-time-2/#sec-domhighrestimestamp        "**DOMHighResTimeStamp**"
+[Monotonic Clock]:  https://www.w3.org/TR/hr-time-2/#sec-monotonic-clock  "**Monotonic Clock**"
+
 
 ### Strict Mode
 
