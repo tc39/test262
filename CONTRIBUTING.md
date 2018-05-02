@@ -10,7 +10,7 @@
 
 Test cases should be created in files that are named to identify the feature or API that's being tested.
 
-There is no strict naming convention. The file names should be human readable, helpful and, ideally, consistent within a single directory. For examples:
+The names should use alphanumeric characters and `.`, `-`, `_`. Otherwise, there is no strict naming convention, but the file names should be human readable, helpful and, ideally, consistent within a single directory. For examples:
 
 - `Math.fround` handling of `Infinity`: `test/built-ins/Math/fround/Math.fround_Infinity.js`
 - `Array.prototype.find` use with `Proxy`: `test/built-ins/Array/prototype/find/Array.prototype.find_callable-Proxy-1.js`

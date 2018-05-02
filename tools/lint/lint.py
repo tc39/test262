@@ -32,6 +32,7 @@ from lib.checks.frontmatter import CheckFrontmatter
 from lib.checks.harnessfeatures import CheckHarnessFeatures
 from lib.checks.license import CheckLicense
 from lib.checks.negative import CheckNegative
+from lib.checks.filename import CheckFileName
 from lib.eprint import eprint
 import lib.frontmatter
 import lib.whitelist
@@ -46,6 +47,7 @@ parser.add_argument('path',
 
 checks = [
     CheckEsid(),
+    CheckFileName(),
     CheckFrontmatter(),
     CheckFeatures('features.txt'),
     CheckHarnessFeatures(),
