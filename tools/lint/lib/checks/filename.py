@@ -11,5 +11,3 @@ class CheckFileName(Check):
     def run(self, name, meta, source):
         if _DISALLOWED_PATTERN.search(name):
             return "Contains non-alphanumeric or `-`, `_`, '.' characters."
-        else:
-            return

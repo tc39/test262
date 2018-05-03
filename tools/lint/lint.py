@@ -47,12 +47,12 @@ parser.add_argument('path',
 
 checks = [
     CheckEsid(),
+    CheckFileName(),
     CheckFrontmatter(),
     CheckFeatures('features.txt'),
     CheckHarnessFeatures(),
     CheckLicense(),
-    CheckNegative(),
-    CheckFileName()
+    CheckNegative()
 ]
 
 def lint(file_names):
