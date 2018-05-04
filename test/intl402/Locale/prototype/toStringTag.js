@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-intl.locale.prototype-@@tostringtag
 description: >
     Checks the @@toStringTag property of the Locale prototype object.
 info: |
@@ -11,11 +11,13 @@ info: |
     The initial value of the @@toStringTag property is the string value "Intl.Locale".
 
     This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: true }.
+includes: [propertyHelper.js]
 features: [Intl.Locale, Symbol.toStringTag]
 ---*/
 
-const propdesc = Object.getOwnPropertyDescriptor(Intl.Locale.prototype, Symbol.toStringTag);
-assert.sameValue(propdesc.writable, false);
-assert.sameValue(propdesc.enumerable, false);
-assert.sameValue(propdesc.configurable, true);
-assert.sameValue(propdesc.value, "Intl.Locale");
+verifyProperty(Intl.Locale.prototype, Symbol.toStringTag, {
+  value: 'Intl.Locale',
+  writable: false,
+  enumerable: false,
+  configurable: true
+});

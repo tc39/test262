@@ -2,19 +2,29 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-intl.locale
 description: >
     Verifies the type check on the tag argument to Intl.Locale.
 info: |
     Intl.Locale( tag [, options] )
+
     7. If Type(tag) is not String or Object, throw a TypeError exception.
 features: [Intl.Locale]
 ---*/
 
-const invalid_type_values = [
-  0, 1.5, Infinity, -Infinity, NaN,
-];
+assert.throws(TypeError, function() {
+  new Intl.Locale(0);
+}, "0 is an invalid tag value");
 
-for (const invalid_type_value of invalid_type_values) {
-  assert.throws(TypeError, () => new Intl.Locale(invalid_type_value));
-}
+assert.throws(TypeError, function() {
+  new Intl.Locale(1);
+}, "1 is an invalid tag value");
+
+assert.throws(TypeError, function() {
+  new Intl.Locale(Infinity);
+}, "Infinity is an invalid tag value");
+
+assert.throws(TypeError, function() {
+  new Intl.Locale(NaN);
+}, "NaN is an invalid tag value");
+

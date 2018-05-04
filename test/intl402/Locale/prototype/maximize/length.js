@@ -1,10 +1,10 @@
-// Copyright 2018 Igalia, S.L. All rights reserved.
+// Copyright 2018 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-intl.locale
+esid: sec-intl.locale.prototype.maximize
 description: >
-    Checks the "length" property of the Locale constructor.
+    Checks the "length" property of Intl.Locale.prototype.maximize().
 info: |
     Unless specified otherwise in this document, the objects, functions, and constructors described in this standard are subject to the generic requirements and restrictions specified for standard built-in ECMAScript objects in the ECMAScript 2019 Language Specification, 10th edition, clause 17, or successor.
     The Locale constructor is a standard built-in property of the Intl object.
@@ -14,7 +14,7 @@ includes: [propertyHelper.js]
 features: [Intl.Locale]
 ---*/
 
-verifyProperty(Intl.Locale, "length", {
+verifyProperty(Intl.Locale.prototype.maximize, 'length', {
   value: 1,
   writable: false,
   enumerable: false,

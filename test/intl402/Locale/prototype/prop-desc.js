@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-intl.locale.prototype
 description: >
     Checks the "prototype" property of the Locale constructor.
 info: |
@@ -11,12 +11,12 @@ info: |
     The value of Intl.Locale.prototype is %LocalePrototype%.
 
     This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
+includes: [propertyHelper.js]
 features: [Intl.Locale]
 ---*/
 
-const propdesc = Object.getOwnPropertyDescriptor(Intl.Locale, "prototype");
-assert.sameValue(propdesc.writable, false);
-assert.sameValue(propdesc.enumerable, false);
-assert.sameValue(propdesc.configurable, false);
-assert.sameValue(typeof propdesc.value, "object");
-assert.notSameValue(propdesc.value, null);
+verifyProperty(Intl.Locale, 'prototype', {
+  writable: false,
+  enumerable: false,
+  configurable: false,
+});
