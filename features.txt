@@ -77,6 +77,10 @@ numeric-separator-literal
 String.prototype.matchAll
 Symbol.matchAll
 
+# ECMAScript ⊃ JSON
+# https://github.com/tc39/proposal-json-superset
+json-superset
+
 # Intl.Locale
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
