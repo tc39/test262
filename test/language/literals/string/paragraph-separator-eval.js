@@ -11,6 +11,7 @@ info: |
   All code points may appear literally in a string literal except for the
   closing quote code points, U+005C (REVERSE SOLIDUS), U+000D (CARRIAGE RETURN),
   and U+000A (LINE FEED).
+features: [json-superset]
 ---*/
 
 assert.sameValue(eval("'\u2029'"), "\u2029");
