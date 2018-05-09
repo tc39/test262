@@ -11,9 +11,9 @@ function MyError() {}
 
 assert.throws(TypeError, function() {
   3n < Symbol("2");
-}, "ToNumeric(rhs) throws.");
+}, "ToNumeric(Symbol) on RHS throws.");
 
 assert.throws(TypeError, function() {
   Symbol("2") < 3n;
-}, "ToNumeric(rhs) throws.");
+}, "ToNumeric(Symbol) on LHS throws.");
 
