@@ -17,16 +17,19 @@ info: |
     ...
     7. Let region be ? GetOption(options, "region", "string", undefined, undefined).
     ...
-    9. If tag matches the langtag production, then
+    9. If tag matches neither the privateuse nor the grandfathered production, then
       ...
-      c. If region is not undefined, then
+      d. If region is not undefined, then
         i. If tag does not contain a region production, then
           1. Set tag to the concatenation of the language production of tag, the substring corresponding to the "-" script production if present, "-", region, and the rest of tag.
+        ii. Else,
+          1. Set tag to tag with the substring corresponding to the region production replaced by the string region.
 
 features: [Intl.Locale]
 ---*/
 
 const validRegionOptions = [
+  [undefined, undefined],
   ["FR", "en-FR"],
   ["554", "en-554"],
   [554, "en-554"],
@@ -35,12 +38,25 @@ for (const [region, expected] of validRegionOptions) {
   let options = { region };
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    expected,
+    expected || "en",
     `new Intl.Locale('en', options).toString() equals the value of ${expected}`
   );
+
   assert.sameValue(
     new Intl.Locale('en-US', options).toString(),
-    expected,
+    expected || "en-US",
     `new Intl.Locale('en-US', options).toString() equals the value of ${expected}`
+  );
+
+  assert.sameValue(
+    new Intl.Locale('en-u-ca-gregory', options).toString(),
+    (expected || "en") + "-u-ca-gregory",
+    `new Intl.Locale('en-u-ca-gregory', options).toString() equals the value of ${expected}`
+  );
+
+  assert.sameValue(
+    new Intl.Locale('en-US-u-ca-gregory', options).toString(),
+    (expected || "en-US") + "-u-ca-gregory",
+    `new Intl.Locale('en-US-u-ca-gregory', options).toString() equals the value of ${expected}`
   );
 }

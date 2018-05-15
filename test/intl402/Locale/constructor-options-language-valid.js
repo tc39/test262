@@ -15,15 +15,15 @@ info: |
 
     ApplyOptionsToTag( tag, options )
     ...
-    9. If tag matches the langtag production, then
-        a. If language is not undefined, then
+    9. If tag matches neither the privateuse nor the grandfathered production, then
+        b. If language is not undefined, then
             i. Set tag to tag with the substring corresponding to the language production replaced by the string language.
 
 features: [Intl.Locale]
 ---*/
 
 const validLanguageOptions = [
-  [undefined, "en"],
+  [undefined, undefined],
   [null, "null"],
   ["zh-cmn", "cmn"],
   ["ZH-CMN", "cmn"],
@@ -38,7 +38,19 @@ for (const [language, expected] of validLanguageOptions) {
   let options = { language };
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    expected,
+    expected || 'en',
     `new Intl.Locale('en', options).toString() equals the value of ${expected}`
+  );
+
+  assert.sameValue(
+    new Intl.Locale('en-US', options).toString(),
+    (expected || "en") + "-US",
+    `new Intl.Locale('en-US', options).toString() equals the value of ${expected}-US`
+  );
+
+  assert.sameValue(
+    new Intl.Locale('en-els', options).toString(),
+    expected || "en-els",
+    `new Intl.Locale('en-els', options).toString() equals the value of ${expected}`
   );
 }
