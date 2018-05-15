@@ -17,9 +17,9 @@ info: |
     ...
     5. Let script be ? GetOption(options, "script", "string", undefined, undefined).
     ...
-    9. If tag matches the langtag production, then
+    9. If tag matches neither the privateuse nor the grandfathered production, then
       ...
-      b. If script is not undefined, then
+      c. If script is not undefined, then
         i. If tag does not contain a script production, then
           1. Set tag to the concatenation of the language production of tag, "-", script, and the rest of tag.
         ii. Else,
@@ -30,22 +30,30 @@ features: [Intl.Locale]
 ---*/
 
 const validScriptOptions = [
-  [null, "en-Null"],
-  ["bali", "en-Bali"],
-  ["Bali", "en-Bali"],
-  ["bALI", "en-BALI"], // TODO REVIEW: is this the correct case regularization?
-  [{ toString() { return "Brai" } }, "en-Brai"],
+  [undefined, undefined],
+  [null, "Null"],
+  ["bali", "Bali"],
+  ["Bali", "Bali"],
+  ["bALI", "BALI"], // TODO REVIEW: is this the correct case regularization?
+  [{ toString() { return "Brai" } }, "Brai"],
 ];
 for (const [script, expected] of validScriptOptions) {
   let options = { script };
   assert.sameValue(
     new Intl.Locale("en", options).toString(),
-    expected,
+    expected ? ("en-" + expected) : "en",
     `new Intl.Locale("en", options).toString() equals the value of ${expected}`
   );
+
+  assert.sameValue(
+    new Intl.Locale("en-DK", options).toString(),
+    (expected ? ("en-" + expected) : "en") + "-DK",
+    `new Intl.Locale("en", options).toString() equals the value of ${expected}`
+  );
+
   assert.sameValue(
     new Intl.Locale("en-Cyrl", options).toString(),
-    expected,
+    expected ? ("en-" + expected) : "en-Cyrl",
     `new Intl.Locale("en-Cyrl", options).toString() equals the value of ${expected}`
   );
 }
