@@ -17,11 +17,11 @@ features: [Intl.Locale]
 
 assert.sameValue(
   typeof Intl.Locale.prototype.minimize,
-  "function",
-  "typeof Intl.Locale.prototype.minimize is function"
+  'function',
+  'typeof Intl.Locale.prototype.minimize is function'
 );
 
-verifyProperty(Intl.Locale.prototype, "minimize", {
+verifyProperty(Intl.Locale.prototype, 'minimize', {
   writable: true,
   enumerable: false,
   configurable: true,
