@@ -36,32 +36,38 @@ features: [Intl.Locale]
 ---*/
 
 const validHourCycleOptions = [
-  "h11",
-  "h12",
-  "h23",
-  "h24",
-  { toString() { return "h24"; } },
+  'h11',
+  'h12',
+  'h23',
+  'h24',
+  { toString() { return 'h24'; } },
 ];
 for (const hourCycle of validHourCycleOptions) {
   const options = { hourCycle };
   const expected = String(hourCycle);
+  let expect = 'en-u-hc-' + expected;
+
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    "en-u-hc-" + expected,
+    expect,
+    `new Intl.Locale('en', options).toString() equals the value of ${expect}`
   );
 
   assert.sameValue(
     new Intl.Locale('en-u-hc-h00', options).toString(),
-    "en-u-hc-" + expected,
+    expect,
+    `new Intl.Locale('en-u-hc-h00', options).toString() equals the value of ${expect}`
   );
 
   assert.sameValue(
     new Intl.Locale('en-u-hc-h12', options).toString(),
-    "en-u-hc-" + expected,
+    expect,
+    `new Intl.Locale('en-u-hc-h12', options).toString() equals the value of ${expect}`
   );
 
   assert.sameValue(
     new Intl.Locale('en-u-hc-h00', options).hourCycle,
     expected,
+    `new Intl.Locale('en-u-hc-h00', options).hourCycle equals the value of ${expect}`
   );
 }

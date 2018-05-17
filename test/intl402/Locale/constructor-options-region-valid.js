@@ -30,33 +30,38 @@ features: [Intl.Locale]
 
 const validRegionOptions = [
   [undefined, undefined],
-  ["FR", "en-FR"],
-  ["554", "en-554"],
-  [554, "en-554"],
+  ['FR', 'en-FR'],
+  ['554', 'en-554'],
+  [554, 'en-554'],
 ];
 for (const [region, expected] of validRegionOptions) {
   let options = { region };
+  let expect = expected || 'en';
+
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    expected || "en",
-    `new Intl.Locale('en', options).toString() equals the value of ${expected}`
+    expect,
+    `new Intl.Locale('en', options).toString() equals the value of ${expect}`
   );
 
+  expect = expected || 'en-US';
   assert.sameValue(
     new Intl.Locale('en-US', options).toString(),
-    expected || "en-US",
-    `new Intl.Locale('en-US', options).toString() equals the value of ${expected}`
+    expect,
+    `new Intl.Locale('en-US', options).toString() equals the value of ${expect}`
   );
 
+  expect = (expected || 'en') + '-u-ca-gregory';
   assert.sameValue(
     new Intl.Locale('en-u-ca-gregory', options).toString(),
-    (expected || "en") + "-u-ca-gregory",
-    `new Intl.Locale('en-u-ca-gregory', options).toString() equals the value of ${expected}`
+    expect,
+    `new Intl.Locale('en-u-ca-gregory', options).toString() equals the value of ${expect}`
   );
 
+  expect = (expected || 'en-US') + '-u-ca-gregory';
   assert.sameValue(
     new Intl.Locale('en-US-u-ca-gregory', options).toString(),
-    (expected || "en-US") + "-u-ca-gregory",
-    `new Intl.Locale('en-US-u-ca-gregory', options).toString() equals the value of ${expected}`
+    expect,
+    `new Intl.Locale('en-US-u-ca-gregory', options).toString() equals the value of ${expect}`
   );
 }
