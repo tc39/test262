@@ -24,33 +24,37 @@ features: [Intl.Locale]
 
 const validLanguageOptions = [
   [undefined, undefined],
-  [null, "null"],
-  ["zh-cmn", "cmn"],
-  ["ZH-CMN", "cmn"],
-  ["abcd", "abcd"],
-  ["abcde", "abcde"],
-  ["abcdef", "abcdef"],
-  ["abcdefg", "abcdefg"],
-  ["abcdefgh", "abcdefgh"],
-  [{ toString() { return "de" } }, "de"],
+  [null, 'null'],
+  ['zh-cmn', 'cmn'],
+  ['ZH-CMN', 'cmn'],
+  ['abcd', 'abcd'],
+  ['abcde', 'abcde'],
+  ['abcdef', 'abcdef'],
+  ['abcdefg', 'abcdefg'],
+  ['abcdefgh', 'abcdefgh'],
+  [{ toString() { return 'de' } }, 'de'],
 ];
 for (const [language, expected] of validLanguageOptions) {
   let options = { language };
+  let expect = expected || 'en';
+
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    expected || 'en',
-    `new Intl.Locale('en', options).toString() equals the value of ${expected}`
+    expect,
+    `new Intl.Locale('en', options).toString() equals the value of ${expect}`
   );
 
+  expect = (expected || 'en') + '-US';
   assert.sameValue(
     new Intl.Locale('en-US', options).toString(),
-    (expected || "en") + "-US",
-    `new Intl.Locale('en-US', options).toString() equals the value of ${expected}-US`
+    expected,
+    `new Intl.Locale('en-US', options).toString() equals the value of ${expect}`
   );
 
+  expect = expected || 'en-els';
   assert.sameValue(
     new Intl.Locale('en-els', options).toString(),
-    expected || "en-els",
-    `new Intl.Locale('en-els', options).toString() equals the value of ${expected}`
+    expect,
+    `new Intl.Locale('en-els', options).toString() equals the value of ${expect}`
   );
 }
