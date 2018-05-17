@@ -30,11 +30,11 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
 var i32a = new Int32Array(buffer);
-var value = 0b00000001000000001000000010000001;
+var update = 0b00000001000000001000000010000001;
 
 assert.sameValue(Atomics.load(i32a, 0), 0);
 
-i32a[0] = value;
+i32a[0] = update;
 
-assert.sameValue(Atomics.load(i32a, 0), value);
+assert.sameValue(Atomics.load(i32a, 0), update);
 

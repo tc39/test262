@@ -23,10 +23,10 @@ const i32a = new Int32Array(
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     var i32a = new Int32Array(sab);
-    var before = Date.now();
+    var before = $262.agent.monotonicNow();
     $262.agent.report("ready");
     Atomics.wait(i32a, 0, 0, ${TWO_SECOND_TIMEOUT});
-    $262.agent.report(Date.now() - before);
+    $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.leaving();
   });
 `);

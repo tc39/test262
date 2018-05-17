@@ -20,33 +20,41 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   view[8] = 0x33333333;
   control[0] = 0x33333333;
   assert.sameValue(Atomics.and(view, 8, 0x55555555), control[0],
-    "Result is subject to chopping");
+    'Atomics.and(view, 8, 0x55555555) equals the value of control[0] (0x33333333)');
 
   control[0] = 0x11111111;
-  assert.sameValue(view[8], control[0]);
+  assert.sameValue(
+    view[8],
+    control[0],
+    'The value of view[8] equals the value of control[0] (0x11111111)'
+  );
   assert.sameValue(Atomics.and(view, 8, 0xF0F0F0F0), control[0],
-    "Result is subject to chopping");
+    'Atomics.and(view, 8, 0xF0F0F0F0) equals the value of control[0] (0x11111111)');
 
   control[0] = 0x10101010;
-  assert.sameValue(view[8], control[0]);
+  assert.sameValue(
+    view[8],
+    control[0],
+    'The value of view[8] equals the value of control[0] (0x10101010)'
+  );
 
   view[3] = -5;
   control[0] = -5;
   assert.sameValue(Atomics.and(view, 3, 0), control[0],
-    "Result is negative and subject to coercion");
-  assert.sameValue(view[3], 0);
+    'Atomics.and(view, 3, 0) equals the value of control[0] (-5)');
+  assert.sameValue(view[3], 0, 'The value of view[3] is 0');
 
   control[0] = 12345;
   view[3] = 12345;
   assert.sameValue(Atomics.and(view, 3, 0), control[0],
-    "Result is subjective to chopping");
-  assert.sameValue(view[3], 0);
+    'Atomics.and(view, 3, 0) equals the value of control[0] (12345)');
+  assert.sameValue(view[3], 0, 'The value of view[3] is 0');
 
   control[0] = 123456789;
   view[3] = 123456789;
   assert.sameValue(Atomics.and(view, 3, 0), control[0],
-    "Result is subjective to chopping");
-  assert.sameValue(view[3], 0);
+    'Atomics.and(view, 3, 0) equals the value of control[0] (123456789)');
+  assert.sameValue(view[3], 0, 'The value of view[3] is 0');
 
   // In-bounds boundary cases for indexing
   testWithAtomicsInBoundsIndices(function(IdxGen) {
@@ -55,6 +63,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     // Atomics.store() computes an index from Idx in the same way as other
     // Atomics operations, not quite like view[Idx].
     Atomics.store(view, Idx, 37);
-    assert.sameValue(Atomics.and(view, Idx, 0), 37);
+    assert.sameValue(Atomics.and(view, Idx, 0), 37, 'Atomics.and(view, Idx, 0) returns 37');
   });
 });

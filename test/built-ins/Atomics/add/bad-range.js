@@ -15,6 +15,10 @@ var views = intArrayConstructors.slice();
 testWithTypedArrayConstructors(function(TA) {
   let view = new TA(buffer);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-    assert.throws(RangeError, () => Atomics.add(view, IdxGen(view), 10));
+    assert.throws(
+      RangeError,
+      () => Atomics.add(view, IdxGen(view), 10),
+      'Atomics.add(view, IdxGen(view), 10) throws RangeError'
+    );
   });
 }, views);

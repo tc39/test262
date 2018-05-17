@@ -40,11 +40,11 @@ var toPrimitive = {
 
 $262.agent.receiveBroadcast(function(sab) {
   var i32a = new Int32Array(sab);
-  var start = Date.now();
+  var before = $262.agent.monotonicNow();
   $262.agent.report(Atomics.wait(i32a, 0, 0, null));
   $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
   $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
-  $262.agent.report(Date.now() - start);
+  $262.agent.report($262.agent.monotonicNow() - before);
   $262.agent.leaving();
 })
 `);

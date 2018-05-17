@@ -29,7 +29,7 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
 var i32a = new Int32Array(buffer);
-var value = 0b00000001000000001000000010000001;
+var newValue = 0b00000001000000001000000010000001;
 
-assert.sameValue(Atomics.add(i32a, 0, value), 0);
-assert.sameValue(i32a[0], value);
+assert.sameValue(Atomics.add(i32a, 0, newValue), 0, 'Atomics.add(i32a, 0, newValue) returns 0');
+assert.sameValue(i32a[0], newValue, 'The value of i32a[0] equals the value of newValue (0b00000001000000001000000010000001)');

@@ -12,5 +12,9 @@ features: [ArrayBuffer, arrow-function, Atomics, BigInt, TypedArray]
 var ab = new ArrayBuffer(16);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.throws(TypeError, () => Atomics.add(new TA(ab), 0, 0));
+  assert.throws(
+    TypeError,
+    () => Atomics.add(new TA(ab), 0, 0),
+    'Atomics.add(new TA(ab), 0, 0) throws TypeError'
+  );
 });

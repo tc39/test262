@@ -8,6 +8,8 @@ includes: [propertyHelper.js]
 features: [Atomics]
 ---*/
 
-verifyWritable(Atomics, "sub");
-verifyNotEnumerable(Atomics, "sub");
-verifyConfigurable(Atomics, "sub");
+verifyProperty(Atomics, 'sub', {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});

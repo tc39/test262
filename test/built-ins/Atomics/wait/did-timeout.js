@@ -27,9 +27,9 @@ function getReport() {
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab, id) {
   var i32a = new Int32Array(sab);
-  var then = Date.now();
+  var before = $262.agent.monotonicNow();
   $262.agent.report(Atomics.wait(i32a, 0, 0, 500)); // Timeout 500ms
-  $262.agent.report(Date.now() - then);           // Actual time can be more than 500ms
+  $262.agent.report($262.agent.monotonicNow() - before); // Actual time can be more than 500ms
   $262.agent.leaving();
 })
 `);

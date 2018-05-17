@@ -18,9 +18,9 @@ var NUMAGENT = 3;
 for (var i=0; i < NUMAGENT; i++) {
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var ia = new Int32Array(sab);
-  Atomics.add(ia, ${RUNNING}, 1);
-  $262.agent.report("A " + Atomics.wait(ia, ${WAKEUP}, 0));
+  var i32a = new Int32Array(sab);
+  Atomics.add(i32a, ${RUNNING}, 1);
+  $262.agent.report("A " + Atomics.wait(i32a, ${WAKEUP}, 0));
   $262.agent.leaving();
 })
 `);
@@ -28,26 +28,26 @@ $262.agent.receiveBroadcast(function(sab) {
 
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
-  var ia = new Int32Array(sab);
-  Atomics.add(ia, ${RUNNING}, 1);
+  var i32a = new Int32Array(sab);
+  Atomics.add(i32a, ${RUNNING}, 1);
   // This will always time out.
-  $262.agent.report("B " + Atomics.wait(ia, ${DUMMY}, 0, 10));
+  $262.agent.report("B " + Atomics.wait(i32a, ${DUMMY}, 0, 10));
   $262.agent.leaving();
 })
 `);
 
-var ia = new Int32Array(new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT));
-$262.agent.broadcast(ia.buffer);
+var i32a = new Int32Array(new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT));
+$262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-waitUntil(ia, RUNNING, NUMAGENT + 1);
+waitUntil(i32a, RUNNING, NUMAGENT + 1);
 
 // Then wait some more to give the agents a fair chance to wait.  If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
 $262.agent.sleep(50);
 
 // Wake all waiting on WAKEUP, should be 3 always, they won't time out.
-assert.sameValue(Atomics.wake(ia, WAKEUP), NUMAGENT);
+assert.sameValue(Atomics.wake(i32a, WAKEUP), NUMAGENT);
 
 var rs = [];
 for (var i = 0; i < NUMAGENT + 1; i++) {
@@ -68,11 +68,11 @@ function getReport() {
   return r;
 }
 
-function waitUntil(ia, k, value) {
+function waitUntil(i32a, k, value) {
   var i = 0;
-  while (Atomics.load(ia, k) !== value && i < 15) {
+  while (Atomics.load(i32a, k) !== value && i < 15) {
     $262.agent.sleep(10);
     i++;
   }
-  assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
+  assert.sameValue(Atomics.load(i32a, k), value, "All agents are running");
 }

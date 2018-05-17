@@ -8,6 +8,9 @@ includes: [propertyHelper.js]
 features: [Atomics]
 ---*/
 
-verifyWritable(Atomics, "wait");
-verifyNotEnumerable(Atomics, "wait");
-verifyConfigurable(Atomics, "wait");
+verifyProperty(Atomics, 'wait', {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});
+

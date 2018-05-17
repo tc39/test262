@@ -23,7 +23,13 @@ includes: [testBigIntTypedArray.js]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.sameValue(Atomics.isLockFree(TA.BYTES_PER_ELEMENT), true);
+  var observed = Atomics.isLockFree(TA.BYTES_PER_ELEMENT);
+
+  assert.sameValue(
+    Atomics.isLockFree(TA.BYTES_PER_ELEMENT),
+    observed,
+    'Atomics.isLockFree(TA.BYTES_PER_ELEMENT) equals the value of `observed` (Atomics.isLockFree(TA.BYTES_PER_ELEMENT))'
+  );
 });
 
 

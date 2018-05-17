@@ -29,10 +29,10 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
 var i32a = new Int32Array(buffer);
-var value = 0b00000001000000001000000010000001;
-var other = 0b00000001111111111000000011111111;
+var initial = 0b00000001000000001000000010000001;
+var update = 0b00000001111111111000000011111111;
 
-i32a[0] = value;
+i32a[0] = initial;
 
-assert.sameValue(Atomics.xor(i32a, 0, other), value);
-assert.sameValue(i32a[0], value ^ other);
+assert.sameValue(Atomics.xor(i32a, 0, update), initial);
+assert.sameValue(i32a[0], initial ^ update);

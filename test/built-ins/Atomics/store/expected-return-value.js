@@ -20,7 +20,7 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 
 var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
 var i32a = new Int32Array(buffer);
-var expect = 0b00000001000000001000000010000001;
+var update = 0b00000001000000001000000010000001;
 
-assert.sameValue(Atomics.store(i32a, 0, expect), expect);
-assert.sameValue(i32a[0], expect);
+assert.sameValue(Atomics.store(i32a, 0, update), update);
+assert.sameValue(i32a[0], update);
