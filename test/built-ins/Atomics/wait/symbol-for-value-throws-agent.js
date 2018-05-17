@@ -43,7 +43,7 @@ var poisonedToPrimitive = {
 
 $262.agent.receiveBroadcast(function(sab) {
   var i32a = new Int32Array(sab);
-  var start = Date.now();
+  var start = $262.agent.monotonicNow();
   try {
     Atomics.wait(i32a, 0, Symbol("1"), poisonedValueOf);
   } catch (error) {
@@ -54,7 +54,7 @@ $262.agent.receiveBroadcast(function(sab) {
   } catch (error) {
     $262.agent.report('Symbol("2")');
   }
-  $262.agent.report(Date.now() - start);
+  $262.agent.report($262.agent.monotonicNow() - start);
   $262.agent.leaving();
 });
 `);

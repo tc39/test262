@@ -7,7 +7,8 @@ description: Testing descriptor property of Atomics.store
 includes: [propertyHelper.js]
 features: [Atomics]
 ---*/
-
-verifyWritable(Atomics, "store");
-verifyNotEnumerable(Atomics, "store");
-verifyConfigurable(Atomics, "store");
+verifyProperty(Atomics, 'store', {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});

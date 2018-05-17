@@ -70,7 +70,7 @@ var i32a = new Int32Array(new SharedArrayBuffer(4));
 
 $262.agent.broadcast(i32a.buffer);
 
-var orderWhichAgentsWereStarted = getReport() + getReport() + getReport(); // can be started in any order
+var orderAgentsStarted = getReport() + getReport() + getReport(); // can be started in any order
 
 assert.sameValue(Atomics.wake(i32a, 0, 1), 1);
 
@@ -84,4 +84,4 @@ assert.sameValue(Atomics.wake(i32a, 0, 1), 1);
 
 orderAgentsWereWoken += getReport();
 
-assert.sameValue(orderWhichAgentsWereStarted, orderAgentsWereWoken);  // agents should wake in the same order as they were started FIFO
+assert.sameValue(orderAgentsStarted, orderAgentsWereWoken);  // agents should wake in the same order as they were started FIFO

@@ -19,28 +19,28 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   view[8] = 0;
   assert.sameValue(Atomics.exchange(view, 8, 10), 0,
-    "Exchange returns the value previously in the array");
-  assert.sameValue(view[8], 10);
+    'Atomics.exchange(view, 8, 10) returns 0');
+  assert.sameValue(view[8], 10, 'The value of view[8] is 10');
 
   assert.sameValue(Atomics.exchange(view, 8, -5), 10,
-    "Exchange returns the value previously in the array");
+    'Atomics.exchange(view, 8, -5) returns 10');
   control[0] = -5;
-  assert.sameValue(view[8], control[0]);
+  assert.sameValue(view[8], control[0], 'The value of view[8] equals the value of control[0] (-5)');
 
   view[3] = -5;
   control[0] = -5;
   assert.sameValue(Atomics.exchange(view, 3, 0), control[0],
-    "Result is subject to coercion");
+    'Atomics.exchange(view, 3, 0) equals the value of control[0] (-5)');
 
   control[0] = 12345;
   view[3] = 12345;
   assert.sameValue(Atomics.exchange(view, 3, 0), control[0],
-    "Result is subject to chopping");
+    'Atomics.exchange(view, 3, 0) equals the value of control[0] (12345)');
 
   control[0] = 123456789;
   view[3] = 123456789;
   assert.sameValue(Atomics.exchange(view, 3, 0), control[0],
-    "Result is subject to chopping");
+    'Atomics.exchange(view, 3, 0) equals the value of control[0] (123456789)');
 
   // In-bounds boundary cases for indexing
   testWithAtomicsInBoundsIndices(function(IdxGen) {
@@ -49,6 +49,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     // Atomics.store() computes an index from Idx in the same way as other
     // Atomics operations, not quite like view[Idx].
     Atomics.store(view, Idx, 37);
-    assert.sameValue(Atomics.exchange(view, Idx, 0), 37);
+    assert.sameValue(Atomics.exchange(view, Idx, 0), 37, 'Atomics.exchange(view, Idx, 0) returns 37');
   });
 });

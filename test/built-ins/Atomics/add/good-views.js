@@ -20,27 +20,27 @@ testWithTypedArrayConstructors(function(TA) {
 
   // Add positive number
   view[8] = 0;
-  assert.sameValue(Atomics.add(view, 8, 10), 0);
-  assert.sameValue(view[8], 10);
+  assert.sameValue(Atomics.add(view, 8, 10), 0, 'Atomics.add(view, 8, 10) returns 0');
+  assert.sameValue(view[8], 10, 'The value of view[8] is 10');
 
   // Add negative number
-  assert.sameValue(Atomics.add(view, 8, -5), 10);
-  assert.sameValue(view[8], 5);
+  assert.sameValue(Atomics.add(view, 8, -5), 10, 'Atomics.add(view, 8, -5) returns 10');
+  assert.sameValue(view[8], 5, 'The value of view[8] is 5');
 
   view[3] = -5;
   control[0] = -5;
   assert.sameValue(Atomics.add(view, 3, 0), control[0],
-    "Result is negative and subject to coercion");
+    'Atomics.add(view, 3, 0) equals the value of control[0] (-5)');
 
   control[0] = 12345;
   view[3] = 12345;
   assert.sameValue(Atomics.add(view, 3, 0), control[0],
-    "Result is subject to chopping");
+    'Atomics.add(view, 3, 0) equals the value of control[0] (12345)');
 
   control[0] = 123456789;
   view[3] = 123456789;
   assert.sameValue(Atomics.add(view, 3, 0), control[0],
-    "Result is subject to chopping");
+    'Atomics.add(view, 3, 0) equals the value of control[0] (123456789)');
 
   // In-bounds boundary cases for indexing
   testWithAtomicsInBoundsIndices(function(IdxGen) {
@@ -49,6 +49,6 @@ testWithTypedArrayConstructors(function(TA) {
     // Atomics.store() computes an index from Idx in the same way as other
     // Atomics operations, not quite like view[Idx].
     Atomics.store(view, Idx, 37);
-    assert.sameValue(Atomics.add(view, Idx, 0), 37);
+    assert.sameValue(Atomics.add(view, Idx, 0), 37, 'Atomics.add(view, Idx, 0) returns 37');
   });
 }, views);

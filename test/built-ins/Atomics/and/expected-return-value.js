@@ -34,5 +34,9 @@ var other = 0b00000001111111111000000011111111;
 
 i32a[0] = value;
 
-assert.sameValue(Atomics.and(i32a, 0, value), value);
-assert.sameValue(i32a[0], value & other);
+assert.sameValue(
+  Atomics.and(i32a, 0, value),
+  value,
+  'Atomics.and(i32a, 0, value) equals the value of value (0b00000001000000001000000010000001)'
+);
+assert.sameValue(i32a[0], value & other, 'The value of i32a[0] is value & other');

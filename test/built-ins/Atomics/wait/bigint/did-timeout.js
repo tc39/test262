@@ -26,9 +26,9 @@ function getReport() {
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab, id) {
   var ia = new BigInt64Array(sab);
-  var then = Date.now();
+  var then = $262.agent.monotonicNow();
   $262.agent.report(Atomics.wait(ia, 0, 0, 500)); // Timeout 500ms
-  $262.agent.report(Date.now() - then);           // Actual time can be more than 500ms
+  $262.agent.report($262.agent.monotonicNow() - then);           // Actual time can be more than 500ms
   $262.agent.leaving();
 });
 `);

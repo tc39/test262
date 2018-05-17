@@ -13,9 +13,9 @@ features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 $262.agent.start(`
 $262.agent.receiveBroadcast(function(sab, id) {
   var ia = new BigInt64Array(sab);
-  var then = Date.now();
+  var then = $262.agent.monotonicNow();
   Atomics.wait(ia, 0, 0);
-  var diff = Date.now() - then;        // Should be about 1000 ms but can be more
+  var diff = $262.agent.monotonicNow() - then;        // Should be about 1000 ms but can be more
   $262.agent.report(diff);
   $262.agent.leaving();
 })
