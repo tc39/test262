@@ -14,6 +14,8 @@ var buffer = new SharedArrayBuffer(8);
 testWithBigIntTypedArrayConstructors(function(TA) {
   let view = new TA(buffer);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-    assert.throws(RangeError, () => Atomics.load(view, IdxGen(view)));
+    assert.throws(RangeError, function() {
+      Atomics.load(view, IdxGen(view));
+    }, 'Atomics.load(view, IdxGen(view)) throws RangeError');
   });
 });

@@ -21,6 +21,8 @@ var views = [Int32Array];
 testWithTypedArrayConstructors(function(TA) {
   let view = new TA(sab);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-    assert.throws(RangeError, () => Atomics.wake(view, IdxGen(view), 0)); // Even with waking zero
+    assert.throws(RangeError, function() {
+      Atomics.wake(view, IdxGen(view), 0);
+    }, 'Atomics.wake(view, IdxGen(view), 0) throws RangeError'); // Even with waking zero
   });
 }, views);

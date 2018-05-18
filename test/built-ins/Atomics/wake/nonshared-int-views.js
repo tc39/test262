@@ -14,5 +14,7 @@ var views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
   // Should fail even if waking zero waiters
-  assert.throws(TypeError, (() => Atomics.wake(new TA(buffer), 0, 0)));
+  assert.throws(TypeError, function() {
+    Atomics.wake(new TA(buffer), 0, 0);
+  }, 'Atomics.wake(new TA(buffer), 0, 0) throws TypeError');
 }, views);

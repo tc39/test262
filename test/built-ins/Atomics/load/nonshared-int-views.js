@@ -16,5 +16,7 @@ var views = intArrayConstructors.slice();
 testWithTypedArrayConstructors(function(TA) {
   var view = new TA(ab);
 
-  assert.throws(TypeError, (() => Atomics.load(view, 0)));
+  assert.throws(TypeError, function() {
+    Atomics.load(view, 0);
+  }, 'Atomics.load(view, 0) throws TypeError');
 }, views);

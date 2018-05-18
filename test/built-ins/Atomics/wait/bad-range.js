@@ -19,5 +19,7 @@ var sab = new SharedArrayBuffer(8);
 let i32a = new Int32Array(sab);
 
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-  assert.throws(RangeError, () => Atomics.wait(i32a, IdxGen(i32a), 0, 0));
+  assert.throws(RangeError, function() {
+    Atomics.wait(i32a, IdxGen(i32a), 0, 0);
+  }, 'Atomics.wait(i32a, IdxGen(i32a), 0, 0) throws RangeError');
 });
