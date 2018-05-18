@@ -13,9 +13,7 @@ var buffer = new ArrayBuffer(16);
 var views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
-  assert.throws(
-    TypeError,
-    () => Atomics.exchange(new TA(buffer), 0, 0),
-    'Atomics.exchange(new TA(buffer), 0, 0) throws TypeError'
-  );
+  assert.throws(TypeError, function() {
+    Atomics.exchange(new TA(buffer), 0, 0);
+  }, 'Atomics.exchange(new TA(buffer), 0, 0) throws TypeError');
 }, views);

@@ -10,9 +10,7 @@ features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedAr
 ---*/
 
 testWithAtomicsNonViewValues(function(view) {
-  assert.throws(
-    TypeError,
-    () => Atomics.and(view, 0, 0),
-    'Atomics.and(view, 0, 0) throws TypeError'
-  );
+  assert.throws(TypeError, function() {
+    Atomics.and(view, 0, 0);
+  }, 'Atomics.and(view, 0, 0) throws TypeError');
 });

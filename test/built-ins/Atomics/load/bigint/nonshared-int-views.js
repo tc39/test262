@@ -15,5 +15,7 @@ var ab = new ArrayBuffer(16);
 testWithBigIntTypedArrayConstructors(function(TA) {
   var view = new TA(ab);
 
-  assert.throws(TypeError, (() => Atomics.load(view, 0)));
+  assert.throws(TypeError, function() {
+    Atomics.load(view, 0);
+  }, 'Atomics.load(view, 0) throws TypeError');
 });

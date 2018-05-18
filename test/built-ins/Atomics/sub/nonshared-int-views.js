@@ -13,5 +13,7 @@ var buffer = new ArrayBuffer(16);
 var views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
-  assert.throws(TypeError, (() => Atomics.sub(new TA(buffer), 0, 0)));
+  assert.throws(TypeError, function() {
+    Atomics.sub(new TA(buffer), 0, 0);
+  }, 'Atomics.sub(new TA(buffer), 0, 0) throws TypeError');
 }, views);
