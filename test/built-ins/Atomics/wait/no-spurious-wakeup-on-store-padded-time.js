@@ -18,7 +18,7 @@ $262.agent.receiveBroadcast(function(sab, id) {
   var diff = $262.agent.monotonicNow() - then;        // Should be about 1000 ms but can be more
   $262.agent.report(diff);
   $262.agent.leaving();
-})
+});
 `);
 
 var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
