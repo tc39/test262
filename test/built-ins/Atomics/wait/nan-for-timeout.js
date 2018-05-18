@@ -24,13 +24,12 @@ function getReport() {
   return r;
 }
 
-$262.agent.start(
-  `
+$262.agent.start(`
 $262.agent.receiveBroadcast(function(sab) {
   var i32a = new Int32Array(sab);
   $262.agent.report(Atomics.wait(i32a, 0, 0, NaN));  // NaN => +Infinity
   $262.agent.leaving();
-})
+});
 `);
 
 var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
