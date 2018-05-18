@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-intl.numberformat-intro
+esid: sec-Intl.PluralRules
 description: >
-  "NumberFormat" property of Intl.
+  "PluralRules" property of Intl.
 info: |
-  Intl.NumberFormat (...)
+  Intl.PluralRules (...)
 
   7 Requirements for Standard Built-in ECMAScript Objects
 
@@ -24,7 +24,7 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(Intl, 'NumberFormat', {
+verifyProperty(Intl, 'PluralRules', {
   writable: true,
   enumerable: false,
   configurable: true
