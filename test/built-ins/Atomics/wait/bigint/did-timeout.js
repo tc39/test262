@@ -24,18 +24,21 @@ function getReport() {
 }
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab, id) {
-  var ia = new BigInt64Array(sab);
-  var then = $262.agent.monotonicNow();
-  $262.agent.report(Atomics.wait(ia, 0, 0, 500)); // Timeout 500ms
-  $262.agent.report($262.agent.monotonicNow() - then);           // Actual time can be more than 500ms
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab, id) {
+    const i64a = new BigInt64Array(sab);
+    const then = $262.agent.monotonicNow();
+    $262.agent.report(Atomics.wait(i64a, 0, 0, 500)); // Timeout 500ms
+    $262.agent.report($262.agent.monotonicNow() - then); // Actual time can be more than 500ms
+    $262.agent.leaving();
+  });
 `);
 
-var ia = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT));
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
-$262.agent.broadcast(ia.buffer);
+$262.agent.broadcast(i64a.buffer);
+$262.agent.sleep(100);
 assert.sameValue(getReport(), "timed-out");
 assert.sameValue((getReport() | 0) >= 500 - $ATOMICS_MAX_TIME_EPSILON, true);
 

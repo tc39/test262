@@ -18,7 +18,7 @@ features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 flags: [CanBlockIsFalse]
 ---*/
 
-var buffer = new SharedArrayBuffer(4);
+var buffer = new SharedArrayBuffer(8);
 var i64a = new BigInt64Array(buffer);
 
 assert.throws(TypeError, function() {
