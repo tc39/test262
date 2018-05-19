@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wait
 description: >
-  Demonstrates that Atomics.store(...) is causing a waiting
+  Waiter does not spuriously wake on index which is subject to compareExchange operation
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 function getReport() {
@@ -15,38 +15,31 @@ function getReport() {
   return r;
 }
 
-const TWO_SECOND_TIMEOUT = 2000;
+const TIMEOUT = 2000;
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
 );
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
-    var before = $262.agent.monotonicNow();
-    $262.agent.report("ready");
-    Atomics.wait(i32a, 0, 0, ${TWO_SECOND_TIMEOUT});
+    const i32a = new Int32Array(sab);
+    const before = $262.agent.monotonicNow();
+    const unpark = Atomics.wait(i32a, 0, 0, ${TIMEOUT});
     $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.report(unpark);
     $262.agent.leaving();
   });
 `);
 
 $262.agent.broadcast(i32a.buffer);
-
-assert.sameValue(getReport(), "ready");
+$262.agent.sleep(100);
 
 Atomics.compareExchange(i32a, 0, 0, 1);
 
-// We should expect that the waiting agents will continue to
-// wait until they both timeout. If either of them reports
-// a value that is less than the timeout value, it may mean that
-// calling Atomics.store(...) is causing the agents to wake.
-//
-var lapse = getReport();
-
+const lapse = getReport();
 assert(
-  lapse >= TWO_SECOND_TIMEOUT,
-  `${lapse} should be at least ${TWO_SECOND_TIMEOUT}`
+  lapse >= TIMEOUT,
+  `${lapse} should be at least ${TIMEOUT}`
 );
-
-
+assert.sameValue(getReport(), 'timed-out');
+assert.sameValue(Atomics.wake(i32a, 0), 0);

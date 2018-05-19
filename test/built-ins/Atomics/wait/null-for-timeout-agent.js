@@ -46,7 +46,7 @@ $262.agent.receiveBroadcast(function(sab) {
   $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
   $262.agent.report($262.agent.monotonicNow() - before);
   $262.agent.leaving();
-})
+});
 `);
 
 var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
@@ -62,7 +62,7 @@ var timeDiffReport = getReport();
 
 assert(timeDiffReport >= 0, 'timeout should be a min of 0ms');
 
-assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
+assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $ATOMICS_MAX_TIME_EPSILON');
 
 assert.sameValue(Atomics.wake(i32a, 0), 0);
 

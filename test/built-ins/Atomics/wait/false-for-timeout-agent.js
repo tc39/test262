@@ -46,7 +46,7 @@ $262.agent.receiveBroadcast(function(sab) {
   $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
   $262.agent.report($262.agent.monotonicNow() - before);
   $262.agent.leaving();
-})
+});
 `);
 
 var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));

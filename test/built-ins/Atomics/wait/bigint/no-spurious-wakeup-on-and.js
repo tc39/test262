@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wait
 description: >
-  Waiter does not spuriously wake on index which is subject to Or operation
+  Waiter does not spuriously wake on index which is subject to And operation
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 function getReport() {
@@ -16,25 +16,25 @@ function getReport() {
 }
 
 const TIMEOUT = 2000;
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
 );
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
+    const i64a = new BigInt64Array(sab);
     const before = $262.agent.monotonicNow();
-    const unpark = Atomics.wait(i32a, 0, 0, ${TIMEOUT});
+    const unpark = Atomics.wait(i64a, 0, 0, ${TIMEOUT});
     $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.report(unpark);
     $262.agent.leaving();
   });
 `);
 
-$262.agent.broadcast(i32a.buffer);
+$262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
 
-Atomics.or(i32a, 0, 1);
+Atomics.and(i64a, 0, 1);
 
 const lapse = getReport();
 assert(
@@ -42,6 +42,6 @@ assert(
   `${lapse} should be at least ${TIMEOUT}`
 );
 assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(Atomics.wake(i32a, 0), 0);
+assert.sameValue(Atomics.wake(i64a, 0), 0);
 
 

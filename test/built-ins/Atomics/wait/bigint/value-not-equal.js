@@ -8,7 +8,7 @@ description: >
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
-  3.Let v be ? ToInt32(value).
+  3.Let v be ? ToBigInt64(value).
     ...
   14.If v is not equal to w, then
     a.Perform LeaveCriticalSection(WL).
