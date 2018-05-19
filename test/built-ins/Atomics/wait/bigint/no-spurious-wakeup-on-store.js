@@ -15,36 +15,32 @@ function getReport() {
   return r;
 }
 
-const TWO_SECOND_TIMEOUT = 2000;
+const TIMEOUT = 2000;
 const i64a = new BigInt64Array(
   new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
 );
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i64a = new BigInt64Array(sab);
-    var before = $262.agent.monotonicNow();
-    $262.agent.report("ready");
-    Atomics.wait(i64a, 0, 0, ${TWO_SECOND_TIMEOUT});
+    const i64a = new BigInt64Array(sab);
+    const before = $262.agent.monotonicNow();
+    const unpark = Atomics.wait(i64a, 0, 0, ${TIMEOUT});
     $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.report(unpark);
     $262.agent.leaving();
   });
 `);
 
 $262.agent.broadcast(i64a.buffer);
-
-assert.sameValue(getReport(), "ready");
+$262.agent.sleep(100);
 
 Atomics.store(i64a, 0, 0x111111);
 
-// We should expect that the waiting agents will continue to
-// wait until they both timeout. If either of them reports
-// a value that is less than the timeout value, it may mean that
-// calling Atomics.store(...) is causing the agents to wake.
-//
-var lapse = getReport();
-
+const lapse = getReport();
 assert(
-  lapse >= TWO_SECOND_TIMEOUT,
-  `${lapse} should be at least ${TWO_SECOND_TIMEOUT}`
+  lapse >= TIMEOUT,
+  `${lapse} should be at least ${TIMEOUT}`
 );
+assert.sameValue(getReport(), 'timed-out');
+assert.sameValue(Atomics.wake(i64a, 0), 0);
+
