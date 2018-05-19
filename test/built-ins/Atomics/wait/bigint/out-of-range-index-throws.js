@@ -16,9 +16,11 @@ info: |
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-var i64a = new BigInt64Array(new SharedArrayBuffer(4));
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
-var poisoned = {
+const poisoned = {
   valueOf: function() {
     throw new Test262Error("should not evaluate this code");
   }

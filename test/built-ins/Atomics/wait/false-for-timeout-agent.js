@@ -24,8 +24,7 @@ function getReport() {
   return r;
 }
 
-$262.agent.start(
-  `
+$262.agent.start(`
 var valueOf = {
   valueOf: function() {
     return false;
@@ -49,20 +48,22 @@ $262.agent.receiveBroadcast(function(sab) {
 });
 `);
 
-var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(150);
+$262.agent.sleep(100);
 
 assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(getReport(), 'timed-out');
 
-var timeDiffReport = getReport();
+var lapse = getReport();
 
-assert(timeDiffReport >= 0, 'timeout should be a min of 0ms');
+assert(lapse >= 0, 'timeout should be a min of 0ms');
 
-assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
+assert(lapse <= $ATOMICS_MAX_TIME_EPSILON, `timeout should be a max of ${$ATOMICS_MAX_TIME_EPSILON}`);
 
 assert.sameValue(Atomics.wake(i32a, 0), 0);
 

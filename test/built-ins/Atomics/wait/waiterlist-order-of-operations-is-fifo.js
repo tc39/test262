@@ -23,46 +23,41 @@ function getReport() {
   return r;
 }
 
-var agent1 = '1';
-var agent2 = '2';
-var agent3 = '3';
+const agent1 = '1';
+const agent2 = '2';
+const agent3 = '3';
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var i32a = new Int32Array(sab);
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
 
-  $262.agent.report(${agent1});
-  Atomics.wait(i32a, 0, 0);
-  $262.agent.report(${agent1});
-
-  $262.agent.leaving();
-});
+    $262.agent.report(${agent1});
+    Atomics.wait(i32a, 0, 0);
+    $262.agent.report(${agent1});
+    $262.agent.leaving();
+  });
 `);
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var i32a = new Int32Array(sab);
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
 
-  $262.agent.report(${agent2});
-
-  Atomics.wait(i32a, 0, 0);
-  $262.agent.report(${agent2});
-
-  $262.agent.leaving();
-});
+    $262.agent.report(${agent2});
+    Atomics.wait(i32a, 0, 0);
+    $262.agent.report(${agent2});
+    $262.agent.leaving();
+  });
 `);
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var i32a = new Int32Array(sab);
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
 
-  $262.agent.report(${agent3});
-
-  Atomics.wait(i32a, 0, 0);
-  $262.agent.report(${agent3});
-
-  $262.agent.leaving();
-});
+    $262.agent.report(${agent3});
+    Atomics.wait(i32a, 0, 0);
+    $262.agent.report(${agent3});
+    $262.agent.leaving();
+  });
 `);
 
 

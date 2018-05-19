@@ -17,15 +17,16 @@ function getReport() {
 }
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab, id) {
-  var ia = new BigInt64Array(sab);
-  $262.agent.report(Atomics.wait(ia, 0, 0, -5)); // -5 => 0
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab, id) {
+    var ia = new BigInt64Array(sab);
+    $262.agent.report(Atomics.wait(ia, 0, 0, -5)); // -5 => 0
+    $262.agent.leaving();
+  });
 `);
 
-var buffer = new SharedArrayBuffer(1024);
-var i64a = new BigInt64Array(buffer);
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i64a.buffer);
 assert.sameValue(getReport(), "timed-out");

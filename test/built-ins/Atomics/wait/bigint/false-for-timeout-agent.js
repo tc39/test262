@@ -24,43 +24,45 @@ function getReport() {
 }
 
 $262.agent.start(`
-var valueOf = {
-  valueOf: function() {
-    return false;
-  }
-};
+  var valueOf = {
+    valueOf: function() {
+      return false;
+    }
+  };
 
-var toPrimitive = {
-  [Symbol.toPrimitive]: function() {
-    return false;
-  }
-};
+  var toPrimitive = {
+    [Symbol.toPrimitive]: function() {
+      return false;
+    }
+  };
 
-$262.agent.receiveBroadcast(function(sab) {
-  var i64a = new BigInt64Array(sab);
-  var start = $262.agent.monotonicNow();
-  $262.agent.report(Atomics.wait(i64a, 0, 0, false));
-  $262.agent.report(Atomics.wait(i64a, 0, 0, valueOf));
-  $262.agent.report(Atomics.wait(i64a, 0, 0, toPrimitive));
-  $262.agent.report($262.agent.monotonicNow() - start);
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab) {
+    var i64a = new BigInt64Array(sab);
+    var start = $262.agent.monotonicNow();
+    $262.agent.report(Atomics.wait(i64a, 0, 0, false));
+    $262.agent.report(Atomics.wait(i64a, 0, 0, valueOf));
+    $262.agent.report(Atomics.wait(i64a, 0, 0, toPrimitive));
+    $262.agent.report($262.agent.monotonicNow() - start);
+    $262.agent.leaving();
+  });
 `);
 
-var i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT));
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(150);
+$262.agent.sleep(100);
 
 assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(getReport(), 'timed-out');
 
-var timeDiffReport = getReport();
+var lapse = getReport();
 
-assert(timeDiffReport >= 0, 'timeout should be a min of 0ms');
+assert(lapse >= 0, 'timeout should be a min of 0ms');
 
-assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
+assert(lapse <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
 
 assert.sameValue(Atomics.wake(i64a, 0), 0);
 

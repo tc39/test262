@@ -24,19 +24,19 @@ function getReport() {
   return r;
 }
 
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function(sab) {
-  var i64a = new BigInt64Array(sab);
-  $262.agent.report(Atomics.wait(i64a, 0, 0, NaN));  // NaN => +Infinity
-  $262.agent.leaving();
-});
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    var i64a = new BigInt64Array(sab);
+    $262.agent.report(Atomics.wait(i64a, 0, 0, NaN));  // NaN => +Infinity
+    $262.agent.leaving();
+  });
 `);
 
-var i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT));
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(500); // Ample time
-
+$262.agent.sleep(100);
 assert.sameValue(Atomics.wake(i64a, 0), 1);
 assert.sameValue(getReport(), "ok");
