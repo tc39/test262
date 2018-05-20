@@ -330,8 +330,9 @@ following strings:
   considered complete until the implementation-defined `print` function has
   been invoked or some length of time has passed without any such invocation.
   In the event of a passing test run, this function will be invoked with the
-  string `'Test262:AsyncTestComplete'`. If invoked with any other value, the
-  test must be interpreted as failed. The implementation is free to select an
+  string `'Test262:AsyncTestComplete'`. If invoked with a string that is
+  prefixed with the character sequence `Test262:AsyncTestFailure:`, the test
+  must be interpreted as failed. The implementation is free to select an
   appropriate length of time to wait before considering the test "timed out"
   and failing.
 
@@ -345,7 +346,7 @@ following strings:
     .then(function() {
         print('Test262:AsyncTestComplete');
       }, function(reason) {
-        print('Error: ' + reason);
+        print('Test262:AsyncTestFailure: ' + reason);
       });
   ```
 
