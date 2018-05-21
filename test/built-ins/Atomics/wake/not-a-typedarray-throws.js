@@ -14,7 +14,7 @@ info: |
 features: [Atomics]
 ---*/
 
-var poisoned = {
+const poisoned = {
   valueOf: function() {
     throw new Test262Error('should not evaluate this code');
   }

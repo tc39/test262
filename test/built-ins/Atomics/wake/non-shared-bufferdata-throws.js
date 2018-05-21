@@ -15,8 +15,11 @@ info: |
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-var i32a = new Int32Array(new ArrayBuffer(4));
-var poisoned = {
+const i32a = new Int32Array(
+  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
+
+const poisoned = {
   valueOf: function() {
     throw new Test262Error('should not evaluate this code');
   }

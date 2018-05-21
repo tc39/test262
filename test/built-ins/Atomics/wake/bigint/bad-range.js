@@ -15,11 +15,12 @@ includes: [testAtomics.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(8);
-let i64a = new BigInt64Array(sab);
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
   assert.throws(RangeError, function() {
-    Atomics.wake(view, IdxGen(i64a), 0);
-  }, '`Atomics.wake(view, IdxGen(i64a), 0)` throws RangeError');
+    Atomics.wake(i64a, IdxGen(i64a), 0);
+  }, '`Atomics.wake(i64a, IdxGen(i64a), 0)` throws RangeError');
 });

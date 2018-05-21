@@ -15,10 +15,10 @@ const RUNNING = 2;                // Accounting of live agents
 const NUMELEM = 3;
 const NUMAGENT = 3;
 
-for (var i=0; i < NUMAGENT; i++) {
+for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
-      var i32a = new Int32Array(sab);
+      const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
       $262.agent.report("A " + Atomics.wait(i32a, ${WAKEUP}, 0));
       $262.agent.leaving();
@@ -28,7 +28,7 @@ for (var i=0; i < NUMAGENT; i++) {
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
+    const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
     // This will always time out.
     $262.agent.report("B " + Atomics.wait(i32a, ${DUMMY}, 0, 10));
@@ -36,7 +36,10 @@ $262.agent.start(`
   });
 `);
 
-var i32a = new Int32Array(new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT));
+const i32a = new Int32Array(
+  new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT)
+);
+
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
@@ -60,6 +63,6 @@ for (var i = 0; i < NUMAGENT + 1; i++) {
 rs.sort();
 
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue(rs[i], "A ok", 'The value of rs[i] is "A ok"');
+  assert.sameValue(rs[i], 'A ok', 'The value of rs[i] is "A ok"');
 }
-assert.sameValue(rs[NUMAGENT], "B timed-out", 'The value of rs[NUMAGENT] is "B timed-out"');
+assert.sameValue(rs[NUMAGENT], 'B timed-out', 'The value of rs[NUMAGENT] is "B timed-out"');

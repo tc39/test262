@@ -16,16 +16,21 @@ includes: [detachArrayBuffer.js]
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
-var i64a = new BigInt64Array(new ArrayBuffer(1024));
-var poisoned = {
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
+const poisoned = {
   valueOf: function() {
     throw new Test262Error('should not evaluate this code');
   }
 };
 
-// Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
-$DETACHBUFFER(i64a.buffer);
+try {
+  $DETACHBUFFER(i64a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+} catch (error) {
+  $ERROR(`An unexpected error occurred when detaching ArrayBuffer: ${error.message}`);
+}
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, poisoned, poisoned);
-}, '`Atomics.wake(i64a, poisoned, poisoned)` throws TypeError');
+}, 'Atomics.wake(i64a, poisoned, poisoned) on detached buffer throwes TypeError');

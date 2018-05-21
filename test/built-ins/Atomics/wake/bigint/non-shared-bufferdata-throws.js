@@ -14,9 +14,11 @@ info: |
           4.If bufferData is a Data Block, return false.
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
+const i64a = new BigInt64Array(
+  new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
-var i64a = new BigInt64Array(new ArrayBuffer(4));
-var poisoned = {
+const poisoned = {
   valueOf: function() {
     throw new Test262Error('should not evaluate this code');
   }
@@ -24,8 +26,8 @@ var poisoned = {
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, 0, 0);
-}, '`Atomics.wake(i64a, 0, 0)` throws TypeError');
+}, 'Atomics.wake(i64a, 0, 0) on ArrayBuffer throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, poisoned, poisoned);
-}, '`Atomics.wake(i64a, poisoned, poisoned)` throws TypeError');
+}, 'Atomics.wake(i64a, poisoned, poisoned) on ArrayBuffer throws TypeError');

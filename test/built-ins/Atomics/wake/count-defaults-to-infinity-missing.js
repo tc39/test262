@@ -16,16 +16,8 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var NUMAGENT = 4; // Total number of agents started
-var WAKEUP = 0; // Index all agents are waiting on
-
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
+const NUMAGENT = 4; // Total number of agents started
+const WAKEUP = 0; // Index all agents are waiting on
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
@@ -64,7 +56,7 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(20);
+$262.agent.sleep(100);
 
 assert.sameValue(
   Atomics.wake(i32a, WAKEUP /*, count missing */),
@@ -72,13 +64,13 @@ assert.sameValue(
   'Atomics.wake(i32a, WAKEUP /*, count missing */) equals the value of `NUMAGENT` (4)'
 );
 
-var sortedReports = [];
+const sortedReports = [];
 for (var i = 0; i < NUMAGENT; i++) {
   sortedReports.push(getReport());
 }
 sortedReports.sort();
 
-assert.sameValue(sortedReports[0], "A ok", 'The value of sortedReports[0] is "A ok"');
-assert.sameValue(sortedReports[1], "B ok", 'The value of sortedReports[1] is "B ok"');
-assert.sameValue(sortedReports[2], "C ok", 'The value of sortedReports[2] is "C ok"');
-assert.sameValue(sortedReports[3], "D ok", 'The value of sortedReports[3] is "D ok"');
+assert.sameValue(sortedReports[0], 'A ok', 'The value of sortedReports[0] is "A ok"');
+assert.sameValue(sortedReports[1], 'B ok', 'The value of sortedReports[1] is "B ok"');
+assert.sameValue(sortedReports[2], 'C ok', 'The value of sortedReports[2] is "C ok"');
+assert.sameValue(sortedReports[3], 'D ok', 'The value of sortedReports[3] is "D ok"');

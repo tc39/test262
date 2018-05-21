@@ -11,7 +11,7 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
+    const i32a = new Int32Array(sab);
     $262.agent.report(Atomics.wait(i32a, 0, 0, 1000)); // Timeout after 1 second
     $262.agent.leaving();
   });

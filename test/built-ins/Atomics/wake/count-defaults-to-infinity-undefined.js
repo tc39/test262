@@ -33,7 +33,6 @@ $262.agent.start(`
   });
 `);
 
-
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
@@ -41,7 +40,6 @@ $262.agent.start(`
     $262.agent.leaving();
   });
 `);
-
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
@@ -65,13 +63,13 @@ assert.sameValue(
   'Atomics.wake(i32a, WAKEUP, undefined) equals the value of `NUMAGENT` (4)'
 );
 
-var sortedReports = [];
+const sortedReports = [];
 for (var i = 0; i < NUMAGENT; i++) {
   sortedReports.push(getReport());
 }
 sortedReports.sort();
 
-assert.sameValue(sortedReports[0], "A ok", 'The value of sortedReports[0] is "A ok"');
-assert.sameValue(sortedReports[1], "B ok", 'The value of sortedReports[1] is "B ok"');
-assert.sameValue(sortedReports[2], "C ok", 'The value of sortedReports[2] is "C ok"');
-assert.sameValue(sortedReports[3], "D ok", 'The value of sortedReports[3] is "D ok"');
+assert.sameValue(sortedReports[0], 'A ok', 'The value of sortedReports[0] is "A ok"');
+assert.sameValue(sortedReports[1], 'B ok', 'The value of sortedReports[1] is "B ok"');
+assert.sameValue(sortedReports[2], 'C ok', 'The value of sortedReports[2] is "C ok"');
+assert.sameValue(sortedReports[3], 'D ok', 'The value of sortedReports[3] is "D ok"');
