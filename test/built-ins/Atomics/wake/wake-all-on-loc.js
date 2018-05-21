@@ -20,7 +20,7 @@ const NUMAGENT = 3;
 for (var i=0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
-      var i32a = new Int32Array(sab);
+      const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
       $262.agent.report("A " + Atomics.wait(i32a, ${WAKEUP}, 0));
       $262.agent.leaving();
@@ -30,7 +30,7 @@ for (var i=0; i < NUMAGENT; i++) {
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
+    const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
     // This will always time out.
     $262.agent.report("B " + Atomics.wait(i32a, ${DUMMY}, 0, 10));

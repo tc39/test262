@@ -15,14 +15,12 @@ includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(8);
-var views = [Int32Array];
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
-testWithTypedArrayConstructors(function(TA) {
-  let view = new TA(sab);
-  testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-    assert.throws(RangeError, function() {
-      Atomics.wake(view, IdxGen(view), 0);
-    }, '`Atomics.wake(view, IdxGen(view), 0)` throws RangeError'); // Even with waking zero
-  });
-}, views);
+testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
+  assert.throws(RangeError, function() {
+    Atomics.wake(i32a, IdxGen(i32a), 0);
+  }, 'Atomics.wake(i32a, IdxGen(i32a), 0) throws RangeError');
+});

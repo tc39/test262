@@ -25,24 +25,37 @@ info: |
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(4);
-var view = new Int32Array(sab);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
-assert.sameValue(Atomics.wake(view, 0, -3), 0, 'Atomics.wake(view, 0, -3) returns 0');
 assert.sameValue(
-  Atomics.wake(view, 0, Number.POSITIVE_INFINITY),
+  Atomics.wake(i32a, 0, -3),
   0,
-  'Atomics.wake(view, 0, Number.POSITIVE_INFINITY) returns 0'
+  'Atomics.wake(i32a, 0, -3) returns 0'
 );
 assert.sameValue(
-  Atomics.wake(view, 0, undefined),
+  Atomics.wake(i32a, 0, Number.POSITIVE_INFINITY),
   0,
-  'Atomics.wake(view, 0, undefined) returns 0'
+  'Atomics.wake(i32a, 0, Number.POSITIVE_INFINITY) returns 0'
 );
-assert.sameValue(Atomics.wake(view, 0, "33"), 0, 'Atomics.wake(view, 0, "33") returns 0');
 assert.sameValue(
-  Atomics.wake(view, 0, { valueOf: 8 }),
+  Atomics.wake(i32a, 0, undefined),
   0,
-  'Atomics.wake(view, 0, {valueOf: 8}) returns 0'
+  'Atomics.wake(i32a, 0, undefined) returns 0'
 );
-assert.sameValue(Atomics.wake(view, 0), 0, 'Atomics.wake(view, 0) returns 0');
+assert.sameValue(
+  Atomics.wake(i32a, 0, '33'),
+  0,
+  'Atomics.wake(i32a, 0, "33") returns 0'
+);
+assert.sameValue(
+  Atomics.wake(i32a, 0, { valueOf: 8 }),
+  0,
+  'Atomics.wake(i32a, 0, {valueOf: 8}) returns 0'
+);
+assert.sameValue(
+  Atomics.wake(i32a, 0),
+  0,
+  'Atomics.wake(i32a, 0) returns 0'
+);

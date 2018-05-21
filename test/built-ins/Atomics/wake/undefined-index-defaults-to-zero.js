@@ -39,7 +39,7 @@ $262.agent.start(`
 `);
 
 const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
 );
 
 $262.agent.broadcast(i32a.buffer);
@@ -51,7 +51,7 @@ assert.sameValue(
   1,
   'Atomics.wake(i32a, undefined, 1) returns 1'
 );
-assert.sameValue(getReport(), "ok", 'getReport() returns "ok"');
+assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
 
 
 // wake again at index 0
@@ -60,4 +60,4 @@ assert.sameValue(
   1,
   'Atomics.wake(i32a) returns 1'
 );
-assert.sameValue(getReport(), "ok", 'getReport() returns "ok"');
+assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');

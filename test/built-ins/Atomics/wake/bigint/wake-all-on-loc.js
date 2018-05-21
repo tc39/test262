@@ -28,13 +28,13 @@ for (var i = 0; i < NUMAGENT; i++) {
 }
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  const i64a = new BigInt64Array(sab);
-  Atomics.add(i64a, ${RUNNING}, 1);
-  // This will always time out.
-  $262.agent.report("B " + Atomics.wait(i64a, ${DUMMY}, 0, 10));
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab) {
+    const i64a = new BigInt64Array(sab);
+    Atomics.add(i64a, ${RUNNING}, 1);
+    // This will always time out.
+    $262.agent.report("B " + Atomics.wait(i64a, ${DUMMY}, 0, 10));
+    $262.agent.leaving();
+  });
 `);
 
 const i64a = new BigInt64Array(
@@ -63,7 +63,7 @@ for (var i = 0; i < NUMAGENT + 1; i++) {
 rs.sort();
 
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue(rs[i], "A ok", 'The value of rs[i] is "A ok"');
+  assert.sameValue(rs[i], 'A ok', 'The value of rs[i] is "A ok"');
 }
-assert.sameValue(rs[NUMAGENT], "B timed-out", 'The value of rs[NUMAGENT] is "B timed-out"');
+assert.sameValue(rs[NUMAGENT], 'B timed-out', 'The value of rs[NUMAGENT] is "B timed-out"');
 

@@ -15,12 +15,20 @@ info: |
 features: [Atomics, BigInt, TypedArray]
 ---*/
 
-var poisoned = {
+const i64a = new BigUint64Array(
+  new SharedArrayBuffer(BigUint64Array.BYTES_PER_ELEMENT)
+);
+
+const poisoned = {
   valueOf: function() {
     throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new BigUint64Array(), poisoned, poisoned);
-}, '`Atomics.wake(new BigUint64Array(), poisoned, poisoned)` throws TypeError');
+  Atomics.wait(i64a, 0, 0);
+}, 'BigUint64Array');
+
+assert.throws(TypeError, function() {
+  Atomics.wait(i64a, poisoned, poisoned);
+}, 'BigUint64Array');

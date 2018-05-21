@@ -11,15 +11,15 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
+    const i32a = new Int32Array(sab);
     Atomics.add(i32a, 1, 1);
     $262.agent.report(Atomics.wait(i32a, 0, 0, 2000));
     $262.agent.leaving();
   });
 `);
 
-var i32a = new Int32Array(
-  new SharedArrayBuffer(2 * Int32Array.BYTES_PER_ELEMENT)
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
 );
 
 $262.agent.broadcast(i32a.buffer);

@@ -22,7 +22,7 @@ const NUMELEM = RUNNING + 1;
 for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
-      var i32a = new Int32Array(sab);
+      const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
       while (Atomics.load(i32a, ${SPIN + i}) === 0)
           /* nothing */ ;
@@ -35,6 +35,7 @@ for (var i = 0; i < NUMAGENT; i++) {
 const i32a = new Int32Array(
   new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT)
 );
+
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
@@ -53,5 +54,5 @@ for (var i = 0; i < NUMAGENT; i++) {
 // Wake them up one at a time and check the order is 0 1 2
 for (var i = 0; i < NUMAGENT; i++) {
   assert.sameValue(Atomics.wake(i32a, WAKEUP, 1), 1, 'Atomics.wake(i32a, WAKEUP, 1) returns 1');
-  assert.sameValue(getReport(), i + "ok", 'getReport() returns i + "ok"');
+  assert.sameValue(getReport(), i + 'ok', 'getReport() returns i + "ok"');
 }

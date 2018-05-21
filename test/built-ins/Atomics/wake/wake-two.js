@@ -16,10 +16,10 @@ var RUNNING = 1;                // Accounting of live agents here
 var NUMELEM = 2;
 var WAKECOUNT = 2;
 
-for ( var i=0 ; i < NUMAGENT ; i++ ) {
+for (var i = 0; i < NUMAGENT; i++ ) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
-      var i32a = new Int32Array(sab);
+      const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
       // Waiters that are not woken will time out eventually.
       $262.agent.report(Atomics.wait(i32a, ${WAKEUP}, 0, 2000));
@@ -28,9 +28,10 @@ for ( var i=0 ; i < NUMAGENT ; i++ ) {
   `);
 }
 
-var i32a = new Int32Array(
-  new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT)
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
 );
+
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
