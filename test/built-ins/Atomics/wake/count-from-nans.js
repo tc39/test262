@@ -28,5 +28,5 @@ var sab = new SharedArrayBuffer(4);
 var view = new Int32Array(sab);
 
 NaNs.forEach(nan => {
-  assert.sameValue(Atomics.wake(view, 0, nan), 0);
+  assert.sameValue(Atomics.wake(view, 0, nan), 0, 'Atomics.wake(view, 0, nan) returns 0');
 });

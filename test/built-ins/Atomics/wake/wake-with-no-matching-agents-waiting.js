@@ -6,31 +6,33 @@ esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes zero waiters if there are no agents that match
   its arguments waiting.
+includes: [testAtomics.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var ia = new Int32Array(sab);
-  Atomics.add(ia, 1, 1);
-  $262.agent.leaving();
-})
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    Atomics.add(i32a, 1, 1);
+    $262.agent.leaving();
+  });
 `);
 
-var ia = new Int32Array(new SharedArrayBuffer(2 * Int32Array.BYTES_PER_ELEMENT));
-$262.agent.broadcast(ia.buffer);
+var i32a = new Int32Array(new SharedArrayBuffer(2 * Int32Array.BYTES_PER_ELEMENT));
+$262.agent.broadcast(i32a.buffer);
 
-waitUntil(ia, 1);
+waitUntil(i32a, 1, 1);
 
 // There are ZERO matching agents...
-assert.sameValue(Atomics.wake(ia, 1, 1), 0);
+assert.sameValue(Atomics.wake(i32a, 1, 1), 0, 'Atomics.wake(i32a, 1, 1) returns 0');
 
-function waitUntil(ia, k) {
+function waitUntil(i32a, index, numberOfAgentsExpected) {
   var i = 0;
-  while (Atomics.load(ia, k) !== 1 && i < 15) {
-    $262.agent.sleep(100);
+  while (Atomics.load(i32a, index) !== numberOfAgentsExpected && i < 15) {
+    $262.agent.sleep(10);
     i++;
   }
-  assert.sameValue(Atomics.load(ia, k), 1, "All agents are running");
+  const numberOfAgentsReady = Atomics.load(i32a, index);
+  assert.sameValue(numberOfAgentsReady, numberOfAgentsExpected, `'numberOfAgentsReady' equals the value of numberOfAgentsExpected (${numberOfAgentsExpected})`);
 }

@@ -12,51 +12,42 @@ info: |
 
     Null -> Return +0.
 
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
-includes: [ atomicsHelper.js ]
 ---*/
+$262.agent.start(`
+  const valueOf = {
+    valueOf: function() {
+      return 0;
+    }
+  };
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
+  const toString = {
+    toString: function() {
+      return "0";
+    }
+  };
 
-$262.agent.start(
-  `
-var valueOf = {
-  valueOf: function() {
-    return 0;
-  }
-};
+  const toPrimitive = {
+    [Symbol.toPrimitive]: function() {
+      return 0;
+    }
+  };
 
-var toString = {
-  toString: function() {
-    return "0";
-  }
-};
-
-var toPrimitive = {
-  [Symbol.toPrimitive]: function() {
-    return 0;
-  }
-};
-
-
-$262.agent.receiveBroadcast(function(sab) {
-  var i32a = new Int32Array(sab);
-  var start = $262.agent.monotonicNow();
-  $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
-  $262.agent.report(Atomics.wait(i32a, 0, 0, toString));
-  $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
-  $262.agent.report($262.agent.monotonicNow() - start);
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    const before = $262.agent.monotonicNow();
+    $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
+    $262.agent.report(Atomics.wait(i32a, 0, 0, toString));
+    $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
+    $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.leaving();
+  });
 `);
 
-var i32a = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(150);
@@ -65,11 +56,11 @@ assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(getReport(), 'timed-out');
 
-var timeDiffReport = getReport();
+var lapse = getReport();
 
-assert(timeDiffReport >= 0, 'timeout should be a min of 0ms');
+assert(lapse >= 0, 'timeout should be a min of 0ms');
 
-assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
+assert(lapse <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
 
 assert.sameValue(Atomics.wake(i32a, 0), 0);
 

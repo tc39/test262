@@ -8,23 +8,38 @@ info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
-    ...
-      9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
-        ...
-          3.If bufferData is null, return false.
+  ...
+
+  ValidateSharedIntegerTypedArray(typedArray [ , onlyInt32 ] )
+
+  ...
+  9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
+
+
+  IsSharedArrayBuffer( obj )
+
+  ...
+  3.If bufferData is null, return false.
+
 includes: [detachArrayBuffer.js]
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
-var i64a = new BigInt64Array(new ArrayBuffer(1024));
-var poisoned = {
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
+const poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
-$DETACHBUFFER(i64a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+try {
+  $DETACHBUFFER(i64a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+} catch (error) {
+  $ERROR(`An unexpected error occurred when detaching ArrayBuffer: ${error.message}`);
+}
 
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, poisoned, poisoned, poisoned);
-});
+}, 'Atomics.wait(i64a, poisoned, poisoned, poisoned) on detached buffer throwes TypeError');

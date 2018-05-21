@@ -19,7 +19,7 @@ features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 var i64a = new BigInt64Array(new ArrayBuffer(1024));
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
@@ -28,4 +28,4 @@ $DETACHBUFFER(i64a.buffer);
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, poisoned, poisoned);
-});
+}, '`Atomics.wake(i64a, poisoned, poisoned)` throws TypeError');

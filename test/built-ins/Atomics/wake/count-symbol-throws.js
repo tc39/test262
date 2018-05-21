@@ -22,4 +22,4 @@ var view = new Int32Array(sab);
 
 assert.throws(TypeError, function() {
   Atomics.wake(view, 0, Symbol());
-});
+}, '`Atomics.wake(view, 0, Symbol())` throws TypeError');

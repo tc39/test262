@@ -5,21 +5,14 @@
 esid: sec-atomics.wait
 description: >
   Test that Atomics.wait times out with a negative timeout
+includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab, id) {
-    var ia = new BigInt64Array(sab);
-    $262.agent.report(Atomics.wait(ia, 0, 0, -5)); // -5 => 0
+    const i64a = new BigInt64Array(sab);
+    $262.agent.report(Atomics.wait(i64a, 0, 0, -5)); // -5 => 0
     $262.agent.leaving();
   });
 `);
@@ -29,5 +22,6 @@ const i64a = new BigInt64Array(
 );
 
 $262.agent.broadcast(i64a.buffer);
-assert.sameValue(getReport(), "timed-out");
+$262.agent.sleep(10);
+assert.sameValue(getReport(), 'timed-out');
 assert.sameValue(Atomics.wake(i64a, 0), 0);

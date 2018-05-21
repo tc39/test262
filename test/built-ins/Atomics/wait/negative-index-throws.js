@@ -13,14 +13,18 @@ info: |
       2.Let accessIndex be ? ToIndex(requestIndex).
         ...
         2.b If integerIndex < 0, throw a RangeError exception
+
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(1024);
-var i32a = new Int32Array(sab);
-var poisoned = {
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
+
+const poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 

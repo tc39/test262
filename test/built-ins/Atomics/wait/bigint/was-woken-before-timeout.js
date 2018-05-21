@@ -18,38 +18,39 @@ info: |
 
           If value is undefined, then
           Let index be 0.
+includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
 var sleeping = 10;
 var timeout = 20000;
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    sleeping += 10;
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var i64a = new BigInt64Array(sab);
-  $262.agent.report(Atomics.wait(i64a, 0, 0, ${timeout}));
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab) {
+    const i64a = new BigInt64Array(sab);
+    const before = $262.agent.monotonicNow();
+    const unpark = Atomics.wait(i64a, 0, 0, ${timeout});
+    $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.report(unpark);
+    $262.agent.leaving();
+  });
 `);
 
-var sab = new SharedArrayBuffer(4);
-var i64a = new BigInt64Array(sab);
-
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(sleeping);
 
 assert.sameValue(Atomics.wake(i64a, 0), 1);
 
-assert.sameValue(getReport(), "ok");
-assert(sleeping < timeout, "this test assumes it won't last for more than 20 seconds");
+const lapse = getReport();
+
+assert(
+  sleeping + lapse < timeout,
+  `${sleeping + lapse} should be less than ${timeout}`
+);
+assert.sameValue(getReport(), 'ok');
+
 

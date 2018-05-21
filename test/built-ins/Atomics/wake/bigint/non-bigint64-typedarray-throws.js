@@ -17,10 +17,10 @@ features: [Atomics, BigInt, TypedArray]
 
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
   Atomics.wake(new BigUint64Array(), poisoned, poisoned);
-}, 'BigUint64Array');
+}, '`Atomics.wake(new BigUint64Array(), poisoned, poisoned)` throws TypeError');

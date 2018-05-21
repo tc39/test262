@@ -5,15 +5,9 @@
 esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to Add operation
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
 
 const TIMEOUT = 2000;
 const i32a = new Int32Array(
@@ -22,9 +16,9 @@ const i32a = new Int32Array(
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
-    var before = $262.agent.monotonicNow();
-    var unpark = Atomics.wait(i32a, 0, 0, ${TIMEOUT});
+    const i32a = new Int32Array(sab);
+    const before = $262.agent.monotonicNow();
+    const unpark = Atomics.wait(i32a, 0, 0, ${TIMEOUT});
     $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.report(unpark);
     $262.agent.leaving();

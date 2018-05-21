@@ -28,18 +28,19 @@ info: |
 features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(1024);
-var i32a = new Int32Array(buffer);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
-var poisonedValueOf = {
+const poisonedValueOf = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
-var poisonedToPrimitive = {
+const poisonedToPrimitive = {
   [Symbol.toPrimitive]: function() {
-    throw new Test262Error("passing a poisoned object using @@ToPrimitive");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
@@ -52,9 +53,9 @@ assert.throws(Test262Error, function() {
 });
 
 assert.throws(TypeError, function() {
-  Atomics.wait(i32a, Symbol("foo"), poisonedValueOf, poisonedValueOf);
+  Atomics.wait(i32a, Symbol('foo'), poisonedValueOf, poisonedValueOf);
 });
 
 assert.throws(TypeError, function() {
-  Atomics.wait(i32a, Symbol("foo"), poisonedToPrimitive, poisonedToPrimitive);
+  Atomics.wait(i32a, Symbol('foo'), poisonedToPrimitive, poisonedToPrimitive);
 });

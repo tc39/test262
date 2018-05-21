@@ -19,7 +19,7 @@ features: [ArrayBuffer, Atomics, TypedArray]
 var i32a = new Int32Array(new ArrayBuffer(1024));
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
@@ -27,4 +27,4 @@ $DETACHBUFFER(i32a.buffer); // Detaching a non-shared ArrayBuffer sets the [[Arr
 
 assert.throws(TypeError, function() {
   Atomics.wake(i32a, poisoned, poisoned);
-});
+}, '`Atomics.wake(i32a, poisoned, poisoned)` throws TypeError');

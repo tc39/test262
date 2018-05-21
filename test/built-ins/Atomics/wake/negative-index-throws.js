@@ -20,19 +20,19 @@ var sab = new SharedArrayBuffer(1024);
 var i32a = new Int32Array(sab);
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, -Infinity, poisoned);
-}, 'Atomics.wake(i32a, -Infinity, poisoned) throws RangeError');
+}, '`Atomics.wake(i32a, -Infinity, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, -7.999, poisoned);
-}, 'Atomics.wake(i32a, -7.999, poisoned) throws RangeError');
+}, '`Atomics.wake(i32a, -7.999, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, -1, poisoned);
-}, 'Atomics.wake(i32a, -1, poisoned) throws RangeError');
+}, '`Atomics.wake(i32a, -1, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, -300, poisoned);
-}, 'Atomics.wake(i32a, -300, poisoned) throws RangeError');
+}, '`Atomics.wake(i32a, -300, poisoned)` throws RangeError');

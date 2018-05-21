@@ -21,7 +21,7 @@ const i64a = new BigInt64Array(
 );
 const poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 

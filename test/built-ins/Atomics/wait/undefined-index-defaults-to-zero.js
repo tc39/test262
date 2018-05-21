@@ -17,33 +17,26 @@ info: |
 
           If value is undefined, then
           Let index be 0.
+
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var i32a = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(i32a, undefined, 0, 1000)); // undefined index => 0
-  $262.agent.leaving();
-})
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    $262.agent.report(Atomics.wait(i32a, undefined, 0, 1000)); // undefined index => 0
+    $262.agent.leaving();
+  });
 `);
 
-var sab = new SharedArrayBuffer(4);
-var i32a = new Int32Array(sab);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i32a.buffer);
-
 $262.agent.sleep(150);
 
 assert.sameValue(Atomics.wake(i32a, 0), 1); // wake at index 0
 assert.sameValue(Atomics.wake(i32a, 0), 0); // wake again at index 0, and 0 agents should be woken
-
-assert.sameValue(getReport(), "ok");
-
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
+assert.sameValue(getReport(), 'ok');
