@@ -33,7 +33,7 @@ var i32a = new Int32Array(buffer);
 
 var poisonedValueOf = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
@@ -45,16 +45,16 @@ var poisonedToPrimitive = {
 
 assert.throws(Test262Error, function() {
   Atomics.wake(i32a, poisonedValueOf, poisonedValueOf);
-});
+}, '`Atomics.wake(i32a, poisonedValueOf, poisonedValueOf)` throws Test262Error');
 
 assert.throws(Test262Error, function() {
   Atomics.wake(i32a, poisonedToPrimitive, poisonedToPrimitive);
-});
+}, '`Atomics.wake(i32a, poisonedToPrimitive, poisonedToPrimitive)` throws Test262Error');
 
 assert.throws(TypeError, function() {
   Atomics.wake(i32a, Symbol("foo"), poisonedValueOf);
-});
+}, '`Atomics.wake(i32a, Symbol("foo"), poisonedValueOf)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(i32a, Symbol("foo"), poisonedToPrimitive);
-});
+}, '`Atomics.wake(i32a, Symbol("foo"), poisonedToPrimitive)` throws TypeError');

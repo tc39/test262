@@ -28,9 +28,21 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 var sab = new SharedArrayBuffer(4);
 var view = new Int32Array(sab);
 
-assert.sameValue(Atomics.wake(view, 0, -3), 0);
-assert.sameValue(Atomics.wake(view, 0, Number.POSITIVE_INFINITY), 0);
-assert.sameValue(Atomics.wake(view, 0, undefined), 0);
-assert.sameValue(Atomics.wake(view, 0, "33"), 0);
-assert.sameValue(Atomics.wake(view, 0, { valueOf: 8 }), 0);
-assert.sameValue(Atomics.wake(view, 0), 0);
+assert.sameValue(Atomics.wake(view, 0, -3), 0, 'Atomics.wake(view, 0, -3) returns 0');
+assert.sameValue(
+  Atomics.wake(view, 0, Number.POSITIVE_INFINITY),
+  0,
+  'Atomics.wake(view, 0, Number.POSITIVE_INFINITY) returns 0'
+);
+assert.sameValue(
+  Atomics.wake(view, 0, undefined),
+  0,
+  'Atomics.wake(view, 0, undefined) returns 0'
+);
+assert.sameValue(Atomics.wake(view, 0, "33"), 0, 'Atomics.wake(view, 0, "33") returns 0');
+assert.sameValue(
+  Atomics.wake(view, 0, { valueOf: 8 }),
+  0,
+  'Atomics.wake(view, 0, {valueOf: 8}) returns 0'
+);
+assert.sameValue(Atomics.wake(view, 0), 0, 'Atomics.wake(view, 0) returns 0');

@@ -12,40 +12,32 @@ info: |
 
     Boolean -> If argument is true, return 1. If argument is false, return +0.
 
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
-includes: [ atomicsHelper.js ]
 ---*/
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
 $262.agent.start(`
-var valueOf = {
-  valueOf: function() {
-    return false;
-  }
-};
+  const valueOf = {
+    valueOf: function() {
+      return false;
+    }
+  };
 
-var toPrimitive = {
-  [Symbol.toPrimitive]: function() {
-    return false;
-  }
-};
+  const toPrimitive = {
+    [Symbol.toPrimitive]: function() {
+      return false;
+    }
+  };
 
-$262.agent.receiveBroadcast(function(sab) {
-  var i32a = new Int32Array(sab);
-  var before = $262.agent.monotonicNow();
-  $262.agent.report(Atomics.wait(i32a, 0, 0, false));
-  $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
-  $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
-  $262.agent.report($262.agent.monotonicNow() - before);
-  $262.agent.leaving();
-});
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    const before = $262.agent.monotonicNow();
+    $262.agent.report(Atomics.wait(i32a, 0, 0, false));
+    $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
+    $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
+    $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.leaving();
+  });
 `);
 
 const i32a = new Int32Array(

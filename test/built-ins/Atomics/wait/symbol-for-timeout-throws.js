@@ -20,13 +20,13 @@ var i32a = new Int32Array(buffer);
 
 var poisonedValueOf = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 var poisonedToPrimitive = {
   [Symbol.toPrimitive]: function() {
-    throw new Test262Error("passing a poisoned object using @@ToPrimitive");
+    throw new Test262Error('passing a poisoned object using @@ToPrimitive');
   }
 };
 

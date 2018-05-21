@@ -23,6 +23,6 @@ testWithTypedArrayConstructors(function(TA) {
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     assert.throws(RangeError, function() {
       Atomics.wake(view, IdxGen(view), 0);
-    }, 'Atomics.wake(view, IdxGen(view), 0) throws RangeError'); // Even with waking zero
+    }, '`Atomics.wake(view, IdxGen(view), 0)` throws RangeError'); // Even with waking zero
   });
 }, views);

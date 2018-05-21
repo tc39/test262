@@ -19,16 +19,16 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 var i32a = new Int32Array(new SharedArrayBuffer(4));
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, Infinity, poisoned);
-});
+}, '`Atomics.wake(i32a, Infinity, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, 2, poisoned);
-});
+}, '`Atomics.wake(i32a, 2, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, 200, poisoned);
-});
+}, '`Atomics.wake(i32a, 200, poisoned)` throws RangeError');

@@ -9,7 +9,8 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 flags: [CanBlockIsFalse]
 ---*/
 
-var buffer = new SharedArrayBuffer(1024);
-var i32a = new Int32Array(buffer);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
 assert.sameValue(Atomics.wait(i32a, 0, 0, -1), "timed-out");

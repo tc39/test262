@@ -18,14 +18,14 @@ features: [ArrayBuffer, Atomics, TypedArray]
 var i32a = new Int32Array(new ArrayBuffer(4));
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
   Atomics.wake(i32a, 0, 0);
-});
+}, '`Atomics.wake(i32a, 0, 0)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(i32a, poisoned, poisoned);
-});
+}, '`Atomics.wake(i32a, poisoned, poisoned)` throws TypeError');

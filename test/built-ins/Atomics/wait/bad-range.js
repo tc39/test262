@@ -15,8 +15,9 @@ includes: [testAtomics.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(8);
-let i32a = new Int32Array(sab);
+var i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
   assert.throws(RangeError, function() {

@@ -14,22 +14,15 @@ info: |
     a.Perform LeaveCriticalSection(WL).
     b. Return the String "not-equal".
 
+includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
-
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
 
 var value = 42;
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i64a = new BigInt64Array(sab);
+    const i64a = new BigInt64Array(sab);
 
     $262.agent.report(Atomics.store(i64a, 0, ${value}));
     $262.agent.report(Atomics.wait(i64a, 0, 0));

@@ -5,15 +5,9 @@
 esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to And operation
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
 
 const TIMEOUT = 2000;
 const i32a = new Int32Array(

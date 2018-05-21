@@ -2,27 +2,42 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.wait
+esid: sec-validatesharedintegertypedarray
 description: >
-  Throws a TypeError if typedArray arg is not an BigInt64Array
+  Throws a TypeError if typedArray arg is not a BigInt64Array
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
-    ...
-      5.If onlyBigInt64 is true, then
-        If typeName is not "BigInt64Array" or "BigInt64Array", throw a TypeError exception.
-features: [Atomics, Float32Array, Float64Array, Int8Array, TypedArray, Uint16Array, Uint8Array, Uint8ClampedArray]
+  ...
+
+
+  ValidateSharedIntegerTypedArray(typedArray [ , waitable ] )
+
+  ...
+  5. If waitable is true, then
+      a. If typeName is not "Int32Array" or "BigInt64Array",
+      throw a TypeError exception.
+
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 includes: [testAtomics.js, testBigIntTypedArray.js]
 ---*/
 
-var poisoned = {
+const i64a = new BigUint64Array(
+  new SharedArrayBuffer(BigUint64Array.BYTES_PER_ELEMENT)
+);
+
+const poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wait(new BigUint64Array(), poisoned, poisoned, poisoned);
+  Atomics.wait(i64a, 0, 0, 0);
+}, 'BigUint64Array');
+
+assert.throws(TypeError, function() {
+  Atomics.wait(i64a, poisoned, poisoned, poisoned);
 }, 'BigUint64Array');
 

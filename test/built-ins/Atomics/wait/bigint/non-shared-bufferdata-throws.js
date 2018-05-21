@@ -15,17 +15,20 @@ info: |
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
-var i64a = new BigInt64Array(new ArrayBuffer(4));
-var poisoned = {
+const i64a = new BigInt64Array(
+  new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+);
+
+const poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, 0, 0, 0);
-});
+}, 'Atomics.wait(i64a, 0, 0, 0) on ArrayBuffer throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, poisoned, poisoned, poisoned);
-});
+}, 'Atomics.wait(i64a, poisoned, poisoned, poisoned) on ArrayBuffer throws TypeError');

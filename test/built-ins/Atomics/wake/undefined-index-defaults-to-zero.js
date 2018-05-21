@@ -18,46 +18,46 @@ info: |
 
           If value is undefined, then
           Let index be 0.
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function(sab) { 
-  var i32a = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
-  $262.agent.leaving();
-})
-
-
-`)
-
-;$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function(sab) { 
-  var i32a = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
-  $262.agent.leaving();
-})
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
+    $262.agent.leaving();
+  });
 `);
 
-var sab = new SharedArrayBuffer(4);
-var i32a = new Int32Array(sab);
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
+    $262.agent.leaving();
+  });
+`);
+
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
+);
 
 $262.agent.broadcast(i32a.buffer);
-
 $262.agent.sleep(100); // halfway through timeout
 
-assert.sameValue(Atomics.wake(i32a, undefined, 1), 1); // wake at index 0
-assert.sameValue(getReport(), "ok");
+// wake at index 0
+assert.sameValue(
+  Atomics.wake(i32a, undefined, 1),
+  1,
+  'Atomics.wake(i32a, undefined, 1) returns 1'
+);
+assert.sameValue(getReport(), "ok", 'getReport() returns "ok"');
 
-assert.sameValue(Atomics.wake(i32a), 1); // wake again at index 0
-assert.sameValue(getReport(), "ok");
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
+// wake again at index 0
+assert.sameValue(
+  Atomics.wake(i32a /* default values used */),
+  1,
+  'Atomics.wake(i32a) returns 1'
+);
+assert.sameValue(getReport(), "ok", 'getReport() returns "ok"');

@@ -12,78 +12,66 @@ info: |
     ...
     3.Add W to the end of the list of waiters in WL.
 
+includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
-
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
-var agent1 = '1';
-var agent2 = '2';
-var agent3 = '3';
+const agent1 = '1';
+const agent2 = '2';
+const agent3 = '3';
 
 $262.agent.start(`
-$262.agent.receiveBroadcast(function(sab) {
-  var i64a = new BigInt64Array(sab);
+  $262.agent.receiveBroadcast(function(sab) {
+    const i64a = new BigInt64Array(sab);
 
-  $262.agent.report(${agent1});
-  Atomics.wait(i64a, 0, 0);
-  $262.agent.report(${agent1});
-
-  $262.agent.leaving();
-})
+    $262.agent.report(${agent1});
+    $262.agent.report(Atomics.wait(i64a, 1, 0));
+    $262.agent.report(${agent1});
+    $262.agent.leaving();
+  });
 `);
 
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function(sab) {
-  var i64a = new BigInt64Array(sab);
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i64a = new BigInt64Array(sab);
 
-  $262.agent.report(${agent2});
-
-  Atomics.wait(i64a, 0, 0);
-  $262.agent.report(${agent2});
-
-  $262.agent.leaving();
-})
+    $262.agent.report(${agent2});
+    $262.agent.report(Atomics.wait(i64a, 2, 0));
+    $262.agent.report(${agent2});
+    $262.agent.leaving();
+  });
 `);
 
-$262.agent.start(
-  `
-$262.agent.receiveBroadcast(function(sab) {
-  var i64a = new BigInt64Array(sab);
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i64a = new BigInt64Array(sab);
 
-  $262.agent.report(${agent3});
-
-  Atomics.wait(i64a, 0, 0);
-  $262.agent.report(${agent3});
-
-  $262.agent.leaving();
-})
+    $262.agent.report(${agent3});
+    $262.agent.report(Atomics.wait(i64a, 3, 0));
+    $262.agent.report(${agent3});
+    $262.agent.leaving();
+  });
 `);
 
 
-var i64a = new BigInt64Array(new SharedArrayBuffer(4));
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(4 * BigInt64Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i64a.buffer);
+$262.agent.sleep(500);
 
-var orderWhichAgentsWereStarted = getReport() + getReport() + getReport(); // can be started in any order
+// Agents may be started in any order...
+const started = [getReport(), getReport(), getReport()];
 
-assert.sameValue(Atomics.wake(i64a, 0, 1), 1);
+// Agents must wake in the order they waited
+assert.sameValue(Atomics.wake(i64a, 1, 1), 1);
+assert.sameValue(getReport(), 'ok');
+assert.sameValue(getReport(), started[0]);
 
-var orderAgentsWereWoken = getReport();
+assert.sameValue(Atomics.wake(i64a, 2, 1), 1);
+assert.sameValue(getReport(), 'ok');
+assert.sameValue(getReport(), started[1]);
 
-assert.sameValue(Atomics.wake(i64a, 0, 1), 1);
-
-orderAgentsWereWoken += getReport();
-
-assert.sameValue(Atomics.wake(i64a, 0, 1), 1);
-
-orderAgentsWereWoken += getReport();
-
-assert.sameValue(orderWhichAgentsWereStarted, orderAgentsWereWoken);  // agents should wake in the same order as they were started FIFO
+assert.sameValue(Atomics.wake(i64a, 3, 1), 1);
+assert.sameValue(getReport(), 'ok');
+assert.sameValue(getReport(), started[2]);

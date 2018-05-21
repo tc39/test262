@@ -21,5 +21,5 @@ let i64a = new BigInt64Array(sab);
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
   assert.throws(RangeError, function() {
     Atomics.wake(view, IdxGen(i64a), 0);
-  }, 'Atomics.wake(view, IdxGen(i64a), 0) throws RangeError');
+  }, '`Atomics.wake(view, IdxGen(i64a), 0)` throws RangeError');
 });

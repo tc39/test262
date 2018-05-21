@@ -5,16 +5,9 @@
 esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to xor operation
-features: [Atomics, SharedArrayBuffer, TypedArray]
+includes: [testAtomics.js]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
 const TIMEOUT = 2000;
 const i64a = new BigInt64Array(
   new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)

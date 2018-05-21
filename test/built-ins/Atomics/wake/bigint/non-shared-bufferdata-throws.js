@@ -18,14 +18,14 @@ features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 var i64a = new BigInt64Array(new ArrayBuffer(4));
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, 0, 0);
-});
+}, '`Atomics.wake(i64a, 0, 0)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, poisoned, poisoned);
-});
+}, '`Atomics.wake(i64a, poisoned, poisoned)` throws TypeError');

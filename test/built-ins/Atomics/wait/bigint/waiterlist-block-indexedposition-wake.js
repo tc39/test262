@@ -18,19 +18,13 @@ info: |
   ...
   4. Return the WaiterList that is referenced by the pair (block, i).
 
+includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i64a = new BigInt64Array(sab);
+    const i64a = new BigInt64Array(sab);
 
     // Wait on index 0
     Atomics.wait(i64a, 0, 0, 200);
@@ -41,7 +35,7 @@ $262.agent.start(`
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i64a = new BigInt64Array(sab);
+    const i64a = new BigInt64Array(sab);
 
     // Wait on index 2
     Atomics.wait(i64a, 2, 0, 200);
@@ -59,9 +53,9 @@ $262.agent.sleep(10);
 
 // Wake index 2
 Atomics.wake(i64a, 2, 1);
-assert.sameValue(getReport(), "2");
+assert.sameValue(getReport(), '2');
 
 // Wake index 0
-Atomics.wake(i64a, 2, 1);
-assert.sameValue(getReport(), "0");
+Atomics.wake(i64a, 0, 1);
+assert.sameValue(getReport(), '0');
 

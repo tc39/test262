@@ -18,19 +18,13 @@ info: |
   ...
   4. Return the WaiterList that is referenced by the pair (block, i).
 
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
+    const i32a = new Int32Array(sab);
 
     // Wait on index 0
     Atomics.wait(i32a, 0, 0, 200);
@@ -41,17 +35,18 @@ $262.agent.start(`
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
-    var i32a = new Int32Array(sab);
+    const i32a = new Int32Array(sab);
 
     // Wait on index 2
     Atomics.wait(i32a, 2, 0, 200);
-    $262.agent.report(0);
+    $262.agent.report(2);
     $262.agent.leaving();
   });
 `);
 
-var length = 4 * Int32Array.BYTES_PER_ELEMENT;
-var i32a = new Int32Array(new SharedArrayBuffer(length));
+const i32a = new Int32Array(
+  new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT)
+);
 
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(10);
@@ -61,5 +56,5 @@ Atomics.wake(i32a, 2, 1);
 assert.sameValue(getReport(), '2');
 
 // Wake index 0
-Atomics.wake(i32a, 2, 1);
+Atomics.wake(i32a, 0, 1);
 assert.sameValue(getReport(), '0');

@@ -17,7 +17,7 @@ function testWithAtomicsOutOfBoundsIndices(f) {
   var bad_indices = [
     (view) => -1,
     (view) => view.length,
-    (view) => view.length*2,
+    (view) => view.length * 2,
     (view) => Number.POSITIVE_INFINITY,
     (view) => Number.NEGATIVE_INFINITY,
     (view) => ({ valueOf: () => 125 }),
@@ -28,7 +28,7 @@ function testWithAtomicsOutOfBoundsIndices(f) {
     try {
       f(IdxGen);
     } catch (e) {
-      e.message += " (Testing with index gen " + IdxGen + ".)";
+      e.message += ' (Testing with index gen ' + IdxGen + '.)';
       throw e;
     }
   }
@@ -52,7 +52,7 @@ function testWithAtomicsInBoundsIndices(f) {
     (view) => 0.5,
     (view) => '0.5',
     (view) => -0.9,
-    (view) => ({ password: "qumquat" }),
+    (view) => ({ password: 'qumquat' }),
     (view) => view.length - 1,
     (view) => ({ valueOf: () => 0 }),
     (view) => ({ toString: () => '0', valueOf: false }) // non-callable valueOf triggers invocation of toString
@@ -62,7 +62,7 @@ function testWithAtomicsInBoundsIndices(f) {
     try {
       f(IdxGen);
     } catch (e) {
-      e.message += " (Testing with index gen " + IdxGen + ".)";
+      e.message += ' (Testing with index gen ' + IdxGen + '.)';
       throw e;
     }
   }
@@ -85,21 +85,21 @@ function testWithAtomicsNonViewValues(f) {
     10,
     3.14,
     new Number(4),
-    "Hi there",
+    'Hi there',
     new Date,
     /a*utomaton/g,
-    { password: "qumquat" },
+    { password: 'qumquat' },
     new DataView(new ArrayBuffer(10)),
     new ArrayBuffer(128),
     new SharedArrayBuffer(128),
-    new Error("Ouch"),
+    new Error('Ouch'),
     [1,1,2,3,5,8],
     ((x) => -x),
     new Map(),
     new Set(),
     new WeakMap(),
     new WeakSet(),
-    Symbol("halleluja"),
+    Symbol('halleluja'),
     // TODO: Proxy?
     Object,
     Int32Array,
@@ -112,8 +112,9 @@ function testWithAtomicsNonViewValues(f) {
     try {
       f(nonView);
     } catch (e) {
-      e.message += " (Testing with non-view value " + nonView + ".)";
+      e.message += ' (Testing with non-view value ' + nonView + '.)';
       throw e;
     }
   }
 }
+

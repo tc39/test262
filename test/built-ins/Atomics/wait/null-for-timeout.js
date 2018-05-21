@@ -16,16 +16,17 @@ features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
 flags: [CanBlockIsFalse]
 ---*/
 
-var buffer = new SharedArrayBuffer(1024);
-var i32a = new Int32Array(buffer);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+);
 
-var valueOf = {
+const valueOf = {
   valueOf: function() {
     return null;
   }
 };
 
-var toPrimitive = {
+const toPrimitive = {
   [Symbol.toPrimitive]: function() {
     return null;
   }

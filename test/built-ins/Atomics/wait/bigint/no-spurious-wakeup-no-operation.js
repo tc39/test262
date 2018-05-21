@@ -1,4 +1,4 @@
-// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2017 Mozilla Corporation.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -12,23 +12,18 @@ description: >
       a. Assert: W is not on the list of waiters in WL.
     19. Else,
       a.Perform RemoveWaiter(WL, W).
+includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
+const TIMEOUT = 500;
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab, id) {
     const i64a = new BigInt64Array(sab);
-    const then = $262.agent.monotonicNow();
-    $262.agent.report(Atomics.wait(i64a, 0, 0, 500)); // Timeout 500ms
-    $262.agent.report($262.agent.monotonicNow() - then); // Actual time can be more than 500ms
+    const before = $262.agent.monotonicNow();
+    const unpark = Atomics.wait(i64a, 0, 0, ${TIMEOUT});
+    $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.report(unpark);
     $262.agent.leaving();
   });
 `);
@@ -39,6 +34,13 @@ const i64a = new BigInt64Array(
 
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
-assert.sameValue(getReport(), "timed-out");
-assert.sameValue((getReport() | 0) >= 500 - $ATOMICS_MAX_TIME_EPSILON, true);
 
+// NO OPERATION OCCURS HERE!
+
+const lapse = getReport();
+assert(
+  lapse >= TIMEOUT,
+  `${lapse} should be at least ${TIMEOUT}`
+);
+assert.sameValue(getReport(), 'timed-out');
+assert.sameValue(Atomics.wake(i64a, 0), 0);

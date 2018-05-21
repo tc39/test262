@@ -15,7 +15,7 @@ features: [Atomics, Symbol]
 
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
@@ -41,7 +41,7 @@ assert.throws(TypeError, function() {
 
 assert.throws(TypeError, function() {
   Atomics.wait(Number.NEGATIVE_INFINITY, poisoned, poisoned, poisoned);
-}, '-Infinity');
+}, 'Number.NEGATIVE_INFINITY');
 
 assert.throws(TypeError, function() {
   Atomics.wait(Symbol('***symbol***'), poisoned, poisoned, poisoned);

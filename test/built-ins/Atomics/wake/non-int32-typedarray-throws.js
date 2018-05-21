@@ -17,38 +17,38 @@ features: [Atomics, Float32Array, Float64Array, Int8Array, TypedArray, Uint16Arr
 
 var poisoned = {
   valueOf: function() {
-    throw new Test262Error("should not evaluate this code");
+    throw new Test262Error('should not evaluate this code');
   }
 };
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Float64Array(), poisoned, poisoned);
-}, 'Float64Array');
+}, '`Atomics.wake(new Float64Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Float32Array(), poisoned, poisoned);
-}, 'Float32Array');
+}, '`Atomics.wake(new Float32Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Int16Array(), poisoned, poisoned);
-}, 'Int16Array');
+}, '`Atomics.wake(new Int16Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Int8Array(), poisoned, poisoned);
-}, 'Int8Array');
+}, '`Atomics.wake(new Int8Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint32Array(),  poisoned, poisoned);
-}, 'Uint32Array');
+}, '`Atomics.wake(new Uint32Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint16Array(), poisoned, poisoned);
-}, 'Uint16Array');
+}, '`Atomics.wake(new Uint16Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wait(new Uint8Array(), poisoned, poisoned);
-}, 'Uint8Array');
+}, '`Atomics.wait(new Uint8Array(), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint8ClampedArray(), poisoned, poisoned);
-}, 'Uint8ClampedArray');
+}, '`Atomics.wake(new Uint8ClampedArray(), poisoned, poisoned)` throws TypeError');
