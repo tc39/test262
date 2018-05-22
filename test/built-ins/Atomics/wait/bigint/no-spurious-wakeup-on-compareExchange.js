@@ -6,7 +6,7 @@ esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to compareExchange operation
 includes: [testAtomics.js]
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of]
 ---*/
 const TIMEOUT = 2000;
 const i64a = new BigInt64Array(

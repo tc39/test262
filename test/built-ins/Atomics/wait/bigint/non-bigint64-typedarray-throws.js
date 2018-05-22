@@ -19,7 +19,7 @@ info: |
       a. If typeName is not "Int32Array" or "BigInt64Array",
       throw a TypeError exception.
 
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
 includes: [testAtomics.js, testBigIntTypedArray.js]
 ---*/
 

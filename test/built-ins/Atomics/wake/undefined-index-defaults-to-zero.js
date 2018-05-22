@@ -45,7 +45,7 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(100); // halfway through timeout
 
-// wake at index 0
+// wake at index 0, undefined => 0
 assert.sameValue(
   Atomics.wake(i32a, undefined, 1),
   1,
@@ -54,10 +54,10 @@ assert.sameValue(
 assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
 
 
-// wake again at index 0
+// wake again at index 0, default => 0
 assert.sameValue(
-  Atomics.wake(i32a /* default values used */),
+  Atomics.wake(i32a /*, default values used */),
   1,
-  'Atomics.wake(i32a) returns 1'
+  'Atomics.wake(i32a /*, default values used */) returns 1'
 );
 assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');

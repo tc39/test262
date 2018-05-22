@@ -6,7 +6,7 @@ esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to Add operation
 includes: [atomicsHelper.js]
-features: [Atomics, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
 const TIMEOUT = 2000;

@@ -6,7 +6,7 @@ esid: sec-atomics.wait
 description: >
   Demonstrates that Atomics.store(...) is causing a waiting
 includes: [testAtomics.js]
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 const TIMEOUT = 2000;
 const i64a = new BigInt64Array(
