@@ -55,9 +55,9 @@ regexp-unicode-property-escapes
 Atomics
 SharedArrayBuffer
 
-# Array.prototype.flatten and Array.prototype.flatMap
+# Array.prototype.flat and Array.prototype.flatMap
 # https://github.com/tc39/proposal-flatMap
-Array.prototype.flatten
+Array.prototype.flat
 Array.prototype.flatMap
 
 # String Trimming
