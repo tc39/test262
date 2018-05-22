@@ -6,7 +6,7 @@ esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to And operation
 includes: [testAtomics.js]
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 const TIMEOUT = 2000;
 const i64a = new BigInt64Array(

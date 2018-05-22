@@ -5,7 +5,7 @@
 esid: sec-atomics.islockfree
 description: >
   Test isLockFree on various non-intuitive arguments
-features: [arrow-function, Atomics]
+features: [arrow-function, Atomics, SharedArrayBuffer, ArrayBuffer, DataView, BigInt, let, TypedArray, for-of]
 includes: [testAtomics.js, testBigIntTypedArray.js]
 ---*/
 
