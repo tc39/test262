@@ -288,7 +288,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
   var __tagMappings = {
     // property names must be in lower case; values in canonical form
 
-    // grandfathered tags from IANA language subtag registry, file date 2017-12-14
+    // grandfathered tags from IANA language subtag registry, file date 2018-04-23
     "art-lojban": "jbo",
     "cel-gaulish": "cel-gaulish",
     "en-gb-oed": "en-GB-oxendict",
@@ -315,7 +315,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "zh-min": "zh-min",
     "zh-min-nan": "nan",
     "zh-xiang": "hsn",
-    // deprecated redundant tags from IANA language subtag registry, file date 2017-12-14
+    // deprecated redundant tags from IANA language subtag registry, file date 2018-04-23
     "sgn-br": "bzs",
     "sgn-co": "csn",
     "sgn-de": "gsg",
@@ -341,7 +341,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "zh-gan": "gan",
     "zh-wuu": "wuu",
     "zh-yue": "yue",
-    // deprecated variant with prefix from IANA language subtag registry, file date 2017-12-14
+    // deprecated variant with prefix from IANA language subtag registry, file date 2018-04-23
     "ja-latn-hepburn-heploc": "ja-Latn-alalc97"
   };
 
@@ -353,7 +353,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
    */
   var __subtagMappings = {
     // property names and values must be in canonical case
-    // language subtags with Preferred-Value mappings from IANA language subtag registry, file date 2017-12-14
+    // language subtags with Preferred-Value mappings from IANA language subtag registry, file date 2018-04-23
     "in": "id",
     "iw": "he",
     "ji": "yi",
@@ -399,6 +399,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "mwj": "vaj",
     "myt": "mry",
     "nad": "xny",
+    "ncp": "kdz",
     "nnx": "ngv",
     "nts": "pij",
     "oun": "vaj",
@@ -431,7 +432,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "ymt": "mtm",
     "yos": "zom",
     "yuu": "yug",
-    // region subtags with Preferred-Value mappings from IANA language subtag registry, file date 2017-12-14
+    // region subtags with Preferred-Value mappings from IANA language subtag registry, file date 2018-04-23
     "BU": "MM",
     "DD": "DE",
     "FX": "FR",
@@ -447,7 +448,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
    * Spec: IANA Language Subtag Registry.
    */
   var __extlangMappings = {
-    // extlang subtags with Preferred-Value mappings from IANA language subtag registry, file date 2017-12-14
+    // extlang subtags with Preferred-Value mappings from IANA language subtag registry, file date 2018-04-23
     // values are arrays with [0] the replacement value, [1] (if present) the prefix to be removed
     "aao": ["aao", "ar"],
     "abh": ["abh", "ar"],
@@ -580,6 +581,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "lsy": ["lsy", "sgn"],
     "ltg": ["ltg", "lv"],
     "lvs": ["lvs", "lv"],
+    "lws": ["lws", "sgn"],
     "lzh": ["lzh", "zh"],
     "max": ["max", "ms"],
     "mdl": ["mdl", "sgn"],
@@ -625,6 +627,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "psr": ["psr", "sgn"],
     "pys": ["pys", "sgn"],
     "rms": ["rms", "sgn"],
+    "rsi": ["rsi", "sgn"],
     "rsl": ["rsl", "sgn"],
     "rsm": ["rsm", "sgn"],
     "sdl": ["sdl", "sgn"],
@@ -672,6 +675,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "xml": ["xml", "sgn"],
     "xmm": ["xmm", "ms"],
     "xms": ["xms", "sgn"],
+    "yds": ["yds", "sgn"],
     "ygs": ["ygs", "sgn"],
     "yhs": ["yhs", "sgn"],
     "ysl": ["ysl", "sgn"],
