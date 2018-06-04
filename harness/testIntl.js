@@ -183,6 +183,11 @@ function getInvalidLanguageTags() {
     "中文", // non-ASCII letters
     "en-ß", // non-ASCII letters
     "ıd", // non-ASCII letters
+    "es-Latn-latn", // two scripts
+    "pl-PL-pl", // two regions
+    "u-ca-gregory", // extension in first place
+    "de-1996-1996", // duplicate numeric variant
+    "pt-u-ca-gregory-u-nu-latn", // duplicate singleton subtag
 
     // underscores in different parts of the language tag
     "de_DE",
