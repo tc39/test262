@@ -3,14 +3,15 @@
 /*---
 esid: sec-makesuperpropertyreference
 description: >
-  SuperProperty evaluation order: super() thisBinding initialization occurs first.
+  SuperProperty evaluation order: super() thisBinding initialization must occur first.
 ---*/
 class Derived extends Object {
   constructor() {
     super[super()];
+    throw new Test262Error();
   }
 }
 
-var derived = new Derived();
-assert.sameValue(derived instanceof Derived, true);
-assert.sameValue(derived instanceof Object, true);
+assert.throws(ReferenceError, function() {
+  new Derived();
+}, '`super[super()]` via `new Derived()` throws a ReferenceError');
