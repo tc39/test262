@@ -8,12 +8,18 @@ description: >
 info: |
     `Symbol.prototype.description` is an accessor property whose
     set accessor function is undefined.
+includes: [propertyHelper.js]
 features: [Symbol.prototype.description]
 ---*/
 
-const desc = Object.getOwnPropertyDescriptor(Symbol.prototype, 'description');
-assert.sameValue(typeof desc.get, 'function');
+
+var desc = Object.getOwnPropertyDescriptor(Symbol.prototype, 'description');
+
 assert.sameValue(desc.set, undefined);
 assert.sameValue(desc.writable, undefined);
-assert.sameValue(desc.enumerable, false);
-assert.sameValue(desc.configurable, true);
+assert.sameValue(typeof desc.get, 'function');
+
+verifyProperty(Symbol.prototype, 'description', {
+  enumerable: false,
+  configurable: true,
+});

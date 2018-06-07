@@ -19,3 +19,11 @@ assert.sameValue(symbol.hasOwnProperty('description'), false);
 const empty = Symbol();
 assert.sameValue(empty.description, undefined);
 assert.sameValue(empty.hasOwnProperty('description'), false);
+
+const undef = Symbol(undefined);
+assert.sameValue(undef.description, undefined);
+assert.sameValue(undef.hasOwnProperty('description'), false);
+
+const emptyStr = Symbol('');
+assert.sameValue(emptyStr.description, '');
+assert.sameValue(emptyStr.hasOwnProperty('description'), false);
