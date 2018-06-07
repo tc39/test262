@@ -40,7 +40,7 @@ info: |
   c. For each element n of starNames, do
   i. If SameValue(n, "default") is false, then
   [...]
-flags: [module]
+flags: [module, export-star-as-namespace-from-module]
   ---*/
 
 import named from './instn-star-props-dflt-skip-star-as-named_FIXTURE.js';

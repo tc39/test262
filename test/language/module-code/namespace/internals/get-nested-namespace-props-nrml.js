@@ -24,7 +24,7 @@ info: |
           iii. If resolution is not "ambiguous", append name to
                unambiguousNames.
        d. Let namespace be ModuleNamespaceCreate(module, unambiguousNames).
-flags: [module]
+flags: [module, export-star-as-namespace-from-module]
 ---*/
 
 import * as ns from './get-nested-namespace-props-nrml-1_FIXTURE.js';

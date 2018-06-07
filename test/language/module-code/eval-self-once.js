@@ -21,7 +21,7 @@ info: |
        c. Set index to ? InnerModuleEvaluation(requiredModule, stack, index).
     [...]
 includes: [fnGlobalObject.js]
-flags: [module]
+flags: [module, export-star-as-namespace-from-module]
 ---*/
 
 import {} from './eval-self-once.js';

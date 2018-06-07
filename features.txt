@@ -97,6 +97,10 @@ Intl.RelativeTimeFormat
 # https://github.com/tc39/proposal-global
 global
 
+# `export * as namespace from module` consensus PR
+# https://github.com/tc39/ecma262/pull/1174
+export-star-as-namespace-from-module
+
 # Standard language features
 #
 # Language features that have been included in a published version of the

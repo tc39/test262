@@ -15,7 +15,7 @@ info: |
     16. Let result be the result of evaluating module.[[ECMAScriptCode]].
     [...]
 includes: [fnGlobalObject.js]
-flags: [module]
+flags: [module, export-star-as-namespace-from-module]
 ---*/
 
 assert.sameValue(fnGlobalObject().test262, '123456789');

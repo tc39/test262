@@ -12,7 +12,7 @@ info: |
        b. Perform ? requiredModule.ModuleEvaluation().
     [...]
 includes: [fnGlobalObject.js]
-flags: [module]
+flags: [module, export-star-as-namespace-from-module]
 ---*/
 
 import {} from './eval-rqstd-once_FIXTURE.js';
