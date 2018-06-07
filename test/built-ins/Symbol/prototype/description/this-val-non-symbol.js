@@ -13,30 +13,34 @@ info: |
 features: [Symbol.prototype.description]
 ---*/
 
+const getter = Object.getOwnPropertyDescriptor(
+  Symbol.prototype, 'description'
+).get;
+
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call(null);
+  getter.call(null);
 });
 
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call(123);
+  getter.call(123);
 });
 
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call('test');
+  getter.call('test');
 });
 
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call(true);
+  getter.call(true);
 });
 
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call(undefined);
+  getter.call(undefined);
 });
 
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call(new Proxy({}, {}));
+  getter.call(new Proxy({}, {}));
 });
 
 assert.throws(TypeError, function() {
-  Symbol.prototype.description.call({});
+  getter.call({});
 });
