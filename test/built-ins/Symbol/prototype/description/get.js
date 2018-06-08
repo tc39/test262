@@ -13,17 +13,29 @@ features: [Symbol.prototype.description]
 ---*/
 
 const symbol = Symbol('test');
-assert.sameValue(symbol.description, 'test');
-assert.sameValue(symbol.hasOwnProperty('description'), false);
+assert.sameValue(
+  symbol.description,
+  'test',
+  'The value of symbol.description is "test"'
+);
 
 const empty = Symbol();
-assert.sameValue(empty.description, undefined);
-assert.sameValue(empty.hasOwnProperty('description'), false);
+assert.sameValue(
+  empty.description,
+  undefined,
+  'The value of empty.description is `undefined`'
+);
 
 const undef = Symbol(undefined);
-assert.sameValue(undef.description, undefined);
-assert.sameValue(undef.hasOwnProperty('description'), false);
+assert.sameValue(
+  undef.description,
+  undefined,
+  'The value of undef.description is `undefined`'
+);
 
 const emptyStr = Symbol('');
-assert.sameValue(emptyStr.description, '');
-assert.sameValue(emptyStr.hasOwnProperty('description'), false);
+assert.sameValue(
+  emptyStr.description,
+  '',
+  'The value of emptyStr.description is ""'
+);
