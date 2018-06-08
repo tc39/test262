@@ -1,18 +1,14 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 12.3.7
+esid: sec-gettemplateobject
 description: Properties of the template object
 info: |
     The first argument to a tagged template should be a template object as
     defined by the GetTemplateObject abstract operation.
 includes: [propertyHelper.js]
 ---*/
-var templateObject, sameObject;
-
-function sameSite() {
-  tag`${Math.random()}`;
-}
+var templateObject
 
 function tag(parameter) {
   templateObject = parameter;
@@ -44,13 +40,3 @@ verifyNotConfigurable(templateObject.raw, '0');
 verifyNotEnumerable(templateObject.raw, 'length');
 verifyNotWritable(templateObject.raw, 'length')
 verifyNotConfigurable(templateObject.raw, 'length');
-
-sameSite();
-sameObject = templateObject;
-sameSite();
-
-assert(
-  templateObject === sameObject,
-  'Normative: Cache templates per site, rather than by contents'
-  // https://github.com/tc39/ecma262/pull/890
-);
