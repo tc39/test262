@@ -8,11 +8,17 @@ info: |
     defined by the GetTemplateObject abstract operation.
 includes: [propertyHelper.js]
 ---*/
-var templateObject;
+var templateObject, sameObject;
 
-(function(parameter) {
+function sameSite() {
+  tag`${Math.random()}`;
+}
+
+function tag(parameter) {
   templateObject = parameter;
-})`${1}`;
+}
+
+tag`${1}`;
 
 assert(Array.isArray(templateObject.raw), 'The template object is an array');
 
@@ -38,3 +44,13 @@ verifyNotConfigurable(templateObject.raw, '0');
 verifyNotEnumerable(templateObject.raw, 'length');
 verifyNotWritable(templateObject.raw, 'length')
 verifyNotConfigurable(templateObject.raw, 'length');
+
+sameSite();
+sameObject = templateObject;
+sameSite();
+
+assert(
+  templateObject === sameObject,
+  'Normative: Cache templates per site, rather than by contents'
+  // https://github.com/tc39/ecma262/pull/890
+);
