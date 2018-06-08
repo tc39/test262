@@ -17,17 +17,49 @@ const getter = Object.getOwnPropertyDescriptor(
 ).get;
 
 const symbol = Symbol('test');
-assert.sameValue(getter.call(symbol), 'test');
-assert.sameValue(getter.call(Object(symbol)), 'test');
+assert.sameValue(
+  getter.call(symbol),
+  'test',
+  'getter.call(symbol) returns "test"'
+);
+assert.sameValue(
+  getter.call(Object(symbol)),
+  'test',
+  'getter.call(Object(symbol)) returns "test"'
+);
 
 const empty = Symbol();
-assert.sameValue(getter.call(empty), undefined);
-assert.sameValue(getter.call(Object(empty)), undefined);
+assert.sameValue(
+  getter.call(empty),
+  undefined,
+  'getter.call(empty) returns `undefined`'
+);
+assert.sameValue(
+  getter.call(Object(empty)),
+  undefined,
+  'getter.call(Object(empty)) returns `undefined`'
+);
 
 const undef = Symbol(undefined);
-assert.sameValue(getter.call(undef), undefined);
-assert.sameValue(getter.call(Object(undef)), undefined);
+assert.sameValue(
+  getter.call(undef),
+  undefined,
+  'getter.call(undef) returns `undefined`'
+);
+assert.sameValue(
+  getter.call(Object(undef)),
+  undefined,
+  'getter.call(Object(undef)) returns `undefined`'
+);
 
 const emptyStr = Symbol('');
-assert.sameValue(getter.call(emptyStr), '');
-assert.sameValue(getter.call(Object(emptyStr)), '');
+assert.sameValue(
+  getter.call(emptyStr),
+  '',
+  'getter.call(emptyStr) returns ""'
+);
+assert.sameValue(
+  getter.call(Object(emptyStr)),
+  '',
+  'getter.call(Object(emptyStr)) returns ""'
+);

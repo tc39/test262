@@ -15,9 +15,23 @@ features: [Symbol.prototype.description]
 
 var desc = Object.getOwnPropertyDescriptor(Symbol.prototype, 'description');
 
-assert.sameValue(desc.set, undefined);
-assert.sameValue(desc.writable, undefined);
-assert.sameValue(typeof desc.get, 'function');
+assert.sameValue(
+  desc.set,
+  undefined,
+  'The value of desc.set is `undefined`'
+);
+
+assert.sameValue(
+  desc.writable,
+  undefined,
+  'The value of desc.writable is `undefined`'
+);
+
+assert.sameValue(
+  typeof desc.get,
+  'function',
+  'The value of `typeof desc.get` is "function"'
+);
 
 verifyProperty(Symbol.prototype, 'description', {
   enumerable: false,
