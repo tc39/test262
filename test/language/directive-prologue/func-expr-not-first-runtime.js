@@ -10,7 +10,7 @@ flags: [noStrict]
 ---*/
 
         (function () {
-            eval("var public = 1;");
-            assert.sameValue(public, 1);
+            test262unresolvable = null;
+            assert.sameValue(test262unresolvable, null);
             "use strict";
         }) ();

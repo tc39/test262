@@ -13,11 +13,11 @@ flags: [noStrict]
         var obj = {};
         Object.defineProperty(obj, "accProperty", {
             get: function () {
-                eval("public = 1;");
+                test262unresolvable = null;
                 "use strict";
                 return 11;
             }
         });
 
 assert.sameValue(obj.accProperty, 11, 'obj.accProperty');
-assert.sameValue(public, 1, 'public');
+assert.sameValue(test262unresolvable, null);

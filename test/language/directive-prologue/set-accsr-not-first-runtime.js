@@ -12,12 +12,12 @@ flags: [noStrict]
 
 var data = "data";
 
-assert.throws(SyntaxError, function() {
+assert.throws(ReferenceError, function() {
             var obj = {};
             Object.defineProperty(obj, "accProperty", {
                 set: function (value) {
                     "use strict";
-                    eval("var public = 1;");
+                    test262unresolvable = null;
                     data = value;
                 }
             });

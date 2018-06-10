@@ -9,8 +9,8 @@ description: >
 flags: [noStrict]
 ---*/
 
-assert.throws(SyntaxError, function () {
+assert.throws(ReferenceError, function () {
             "use strict";
 
-                eval("var public = 1;");
+            test262unresolvable = null;
 });
