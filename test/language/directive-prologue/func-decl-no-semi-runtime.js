@@ -12,9 +12,9 @@ flags: [noStrict]
 
 function fun() {
   "use strict"
-  eval("var public = 1;");
+  test262unresolvable = null;
 }
 
-assert.throws(SyntaxError, function() {
+assert.throws(ReferenceError, function() {
   fun();
 });
