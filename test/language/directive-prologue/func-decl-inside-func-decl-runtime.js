@@ -13,10 +13,10 @@ flags: [noStrict]
 function testcase() {
         "use strict";
         function fun() {
-            eval("var public = 1;");
+            test262unresolvable = null;
         }
 
-        assert.throws(SyntaxError, function() {
+        assert.throws(ReferenceError, function() {
             fun();
         });
     }

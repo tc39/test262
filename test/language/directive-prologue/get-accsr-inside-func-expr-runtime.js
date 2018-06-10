@@ -10,12 +10,12 @@ description: >
 flags: [noStrict]
 ---*/
 
-assert.throws(SyntaxError, function() {
+assert.throws(ReferenceError, function() {
         "use strict";
             var obj = {};
             Object.defineProperty(obj, "accProperty", {
                 get: function () {
-                    eval("public = 1;");
+                    test262unresolvable = null;
                     return 11;
                 }
             });
