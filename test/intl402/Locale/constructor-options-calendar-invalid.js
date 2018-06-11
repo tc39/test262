@@ -20,10 +20,9 @@ features: [Intl.Locale]
 
 /*
  alphanum = (ALPHA / DIGIT)     ; letters and numbers
- calendar = (3*8alphanum) *("-" (3*8alphanum))
+ calendar = [(3*8alphanum) *("-" (3*8alphanum))]
 */
 const invalidCalendarOptions = [
-  "",
   "a",
   "ab",
   "abcdefghi",
