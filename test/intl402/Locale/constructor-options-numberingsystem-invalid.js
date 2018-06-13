@@ -18,9 +18,10 @@ features: [Intl.Locale]
 
 /*
  alphanum = (ALPHA / DIGIT)     ; letters and numbers
- numberingSystem = [(3*8alphanum) *("-" (3*8alphanum))]
+ numberingSystem = (3*8alphanum) *("-" (3*8alphanum))
 */
 const invalidNumberingSystemOptions = [
+  "",
   "a",
   "ab",
   "abcdefghi",
