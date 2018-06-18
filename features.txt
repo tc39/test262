@@ -89,6 +89,10 @@ json-superset
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
 
+# Global
+# https://github.com/tc39/proposal-global
+global
+
 # Catch initializer
 # https://github.com/tc39/ecma262/pull/1126
 catch-initializer
