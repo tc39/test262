@@ -6,8 +6,11 @@ esid: sec-other-properties-of-the-global-object-global
 description: "'global' should be writable, non-enumerable, and configurable"
 author: Jordan Harband
 includes: [propertyHelper.js]
+features: [global]
 ---*/
 
-verifyNotEnumerable(this, 'global');
-verifyWritable(this, 'global');
-verifyConfigurable(this, 'global');
+verifyProperty(this, "global", {
+    enumerable: false,
+    writable: true,
+    configurable: true,
+});

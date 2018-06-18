@@ -89,6 +89,10 @@ json-superset
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
 
+# Global
+# https://github.com/tc39/proposal-global
+global
+
 # Standard language features
 #
 # Language features that have been included in a published version of the
