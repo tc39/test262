@@ -7,7 +7,6 @@ class CheckHarness(Check):
     ID = 'HARNESS'
 
     def run(self, name, meta, source):
-        print(source)
         if 'verifyConfigurable(' in source and 'verifyProperty(' in source:
             return 'verifyConfigurable & verifyProperty may not be used in the same file'
         else:
