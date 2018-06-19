@@ -353,3 +353,27 @@ following strings:
 - **`generated`** The test file was created procedurally using the project's
   test generation tool. This flag is specified for informational purposes only
   and has no bearing on how the test should be interpreted.
+
+### `locale`
+
+The `locale` attribute allows tests to declare explicit information regarding locale specificity. Its value is an array of one or more valid language tags or subtags.
+
+  *Example*
+
+  ```js
+  /*---
+  locale: [en, en-US, ar]
+  ---*/
+  
+  var en = new Intl.PluralRules('en');
+  assert.sameValue(en.select(1), 'one', 'en.select(1) returns "one"');
+  assert.sameValue(en.select(2), 'other', 'en.select(2) returns "other"');  
+
+  var enUS = new Intl.PluralRules('en-US');
+  assert.sameValue(enUS.select(1), 'one', 'enUS.select(1) returns "one"');
+  assert.sameValue(enUS.select(2), 'other', 'enUS.select(2) returns "other"');
+
+  var ar = new Intl.PluralRules('ar');
+  assert.sameValue(ar.select(1), 'one', 'ar.select(1) returns "one"');
+  assert.sameValue(ar.select(2), 'other', 'ar.select(2) returns "two"');
+  ```
