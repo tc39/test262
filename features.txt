@@ -137,6 +137,7 @@ Reflect.construct
 Reflect.set
 Reflect.setPrototypeOf
 Set
+String.fromCodePoint
 String.prototype.endsWith
 String.prototype.includes
 super
