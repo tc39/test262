@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-characterclassescape
-description: Detect non WhiteSpace for U+180E
+description: Detect non WhiteSpace using the unicode flag for U+180E
 info: |
     The production CharacterClassEscape :: S evaluates by returning
     the set of all characters not included in the set returned by
@@ -16,7 +16,7 @@ features: [u180e]
 
 var str = "\u180E";
 assert.sameValue(
-  str.replace(/\S/, "test262"),
+  str.replace(/\S/u, "test262"),
   "test262",
   "Non WhiteSpace character: \\u180E"
 );
