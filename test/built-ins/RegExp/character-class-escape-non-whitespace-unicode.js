@@ -44,7 +44,7 @@ var whitespaceChars = [
     0xFEFF, // ZERO WIDTH NO-BREAK SPACE
 ];
 
-for (j = 0x0000; j < 0x10FFFF; j++) {
+for (j = 0x0000; j <= 0x10FFFF; j++) {
   if (j === 0x180E) { continue; } // Skip 0x180E, current test in a separate file
   str = String.fromCodePoint(j);
   res = str.replace(/\S/u, "test262");
