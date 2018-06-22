@@ -5,7 +5,7 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes zero waiters if the count is NaN
-includes: [testAtomics.js]
+includes: [atomicsHelper.js,testAtomics.js]
 features: [ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

@@ -19,7 +19,7 @@ $262.agent.start(`
 `);
 
 const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2)
 );
 
 $262.agent.broadcast(i32a.buffer);
@@ -28,12 +28,7 @@ waitUntil(i32a, 1, 1);
 
 assert.sameValue(Atomics.wake(i32a, 0, 1), 1, 'Atomics.wake(i32a, 0, 1) returns 1');
 
-$262.agent.sleep(10);
-
-// Collect and check results
-var report = getReport();
-
-assert.sameValue(report, 'ok', 'The value of `report` is "ok"');
+assert.sameValue(getReport(), 'ok', 'The value of `report` is "ok"');
 
 // Already awake, this should be a noop
 assert.sameValue(Atomics.wake(i32a, 0, 1), 0, 'Atomics.wake(i32a, 0, 1) returns 0');

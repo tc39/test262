@@ -27,7 +27,7 @@ const poisoned = {
 };
 
 try {
-  $DETACHBUFFER(i64a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+  $DETACHBUFFER(i32a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
 } catch (error) {
   $ERROR(`An unexpected error occurred when detaching ArrayBuffer: ${error.message}`);
 }
