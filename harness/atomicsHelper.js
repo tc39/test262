@@ -35,7 +35,7 @@ function getReport() {
  * @param {Number} index    The index of which all agents will report.
  * @param {Number} expected The number of agents that are expected to report as active.
  */
-function waitUntil(i32a, index, expected ) {
+function waitUntil(i32a, index, expected) {
   var i = 0;
   while (Atomics.load(i32a, index) !== expected  && i < 15) {
     $262.agent.sleep(10);

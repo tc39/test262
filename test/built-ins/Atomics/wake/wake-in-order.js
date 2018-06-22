@@ -41,7 +41,7 @@ $262.agent.broadcast(i32a.buffer);
 // Wait for agents to be running.
 waitUntil(i32a, RUNNING, NUMAGENT);
 
-// Then wait some more to give the agents a fair chance to wait.  If we don't,
+// Sleep to allow the agents a fair chance to wait. If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
 $262.agent.sleep(50);
 
