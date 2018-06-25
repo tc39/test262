@@ -8,9 +8,9 @@ description: >
 includes: [testAtomics.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
-const TIMEOUT = 2000;
+const TIMEOUT = 200;
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
 );
 
 $262.agent.start(`
@@ -25,7 +25,7 @@ $262.agent.start(`
 `);
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(100);
+$262.agent.sleep(10);
 
 Atomics.sub(i64a, 0, 1);
 

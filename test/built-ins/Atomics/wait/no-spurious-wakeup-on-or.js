@@ -9,9 +9,9 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-const TIMEOUT = 2000;
+const TIMEOUT = 200;
 const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
 $262.agent.start(`
@@ -26,7 +26,7 @@ $262.agent.start(`
 `);
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(100);
+$262.agent.sleep(10);
 
 Atomics.or(i32a, 0, 1);
 

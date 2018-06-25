@@ -54,7 +54,7 @@ $262.agent.start(`
 
 
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(4 * BigInt64Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
 );
 
 $262.agent.broadcast(i64a.buffer);
