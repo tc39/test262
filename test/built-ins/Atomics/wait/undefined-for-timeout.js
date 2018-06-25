@@ -29,8 +29,7 @@ $262.agent.start(`
   });
 `);
 
-$262.agent.start(
-  `
+$262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     var i32a = new Int32Array(sab);
     $262.agent.report("B " + Atomics.wait(i32a, 0, 0));  // undefined timeout arg => NaN => +Infinity
@@ -39,7 +38,7 @@ $262.agent.start(
 `);
 
 const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
 $262.agent.broadcast(i32a.buffer);

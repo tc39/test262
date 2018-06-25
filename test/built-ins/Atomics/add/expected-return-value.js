@@ -27,7 +27,7 @@ info: |
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
+var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
 var i32a = new Int32Array(buffer);
 var newValue = 0b00000001000000001000000010000001;
 

@@ -29,11 +29,11 @@ $262.agent.start(`
 `);
 
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
 );
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(100);
+$262.agent.sleep(10);
 
 // NO OPERATION OCCURS HERE!
 
