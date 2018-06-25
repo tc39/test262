@@ -58,7 +58,7 @@ const i64a = new BigInt64Array(
 );
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(500);
+$262.agent.sleep(100);
 
 // Agents may be started in any order...
 const started = [getReport(), getReport(), getReport()];
