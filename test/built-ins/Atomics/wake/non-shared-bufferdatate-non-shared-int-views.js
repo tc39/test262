@@ -9,7 +9,7 @@ includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-const nonsab = new ArrayBuffer(16);
+const nonsab = new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
 
 const poisoned = {
   valueOf: function() {

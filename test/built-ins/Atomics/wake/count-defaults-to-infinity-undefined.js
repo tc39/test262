@@ -14,13 +14,16 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
+const RUNNING = 0
+const WAIT_INDEX = 1; // Index all agents are waiting on
 const NUMAGENT = 4; // Total number of agents started
-const WAKEUP = 0; // Index all agents are waiting on
+const BUFFER_SIZE = 5; // Index all agents are waiting on
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
-    $262.agent.report("A " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
+    Atomics.add(i32a, ${RUNNING}, 1);
+    $262.agent.report("A " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
     $262.agent.leaving();
   });
 `);
@@ -28,7 +31,8 @@ $262.agent.start(`
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
-    $262.agent.report("B " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
+    Atomics.add(i32a, ${RUNNING}, 1);
+    $262.agent.report("B " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
     $262.agent.leaving();
   });
 `);
@@ -36,7 +40,8 @@ $262.agent.start(`
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
-    $262.agent.report("C " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
+    Atomics.add(i32a, ${RUNNING}, 1);
+    $262.agent.report("C " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
     $262.agent.leaving();
   });
 `);
@@ -44,23 +49,25 @@ $262.agent.start(`
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
-    $262.agent.report("D " + Atomics.wait(i32a, ${WAKEUP}, 0, 50));
+    Atomics.add(i32a, ${RUNNING}, 1);
+    $262.agent.report("D " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
     $262.agent.leaving();
   });
 `);
 
 const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
 );
 
 $262.agent.broadcast(i32a.buffer);
 
-$262.agent.sleep(20); // half of timeout
+// Wait for agents to be running.
+waitUntil(i32a, RUNNING, NUMAGENT);
 
 assert.sameValue(
-  Atomics.wake(i32a, WAKEUP, undefined),
+  Atomics.wake(i32a, WAIT_INDEX, undefined),
   NUMAGENT,
-  'Atomics.wake(i32a, WAKEUP, undefined) equals the value of `NUMAGENT` (4)'
+  'Atomics.wake(i32a, WAIT_INDEX, undefined) equals the value of `NUMAGENT` (4)'
 );
 
 const sortedReports = [];

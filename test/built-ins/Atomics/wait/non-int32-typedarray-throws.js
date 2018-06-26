@@ -23,21 +23,21 @@ const poisoned = {
 
 assert.throws(TypeError, function() {
   const view = new Float64Array(
-    new SharedArrayBuffer(Float64Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Float64Array.BYTES_PER_ELEMENT * 8)
   );
   Atomics.wait(view, poisoned, poisoned, poisoned);
 }, 'Float64Array');
 
 assert.throws(TypeError, function() {
   const view = new Float32Array(
-    new SharedArrayBuffer(Float32Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Float32Array.BYTES_PER_ELEMENT * 4)
   );
   Atomics.wait(view, poisoned, poisoned, poisoned);
 }, 'Float32Array');
 
 assert.throws(TypeError, function() {
   const view = new Int16Array(
-    new SharedArrayBuffer(Int16Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Int16Array.BYTES_PER_ELEMENT * 2)
   );
   Atomics.wait(view, poisoned, poisoned, poisoned);
 }, 'Int16Array');
@@ -51,14 +51,14 @@ assert.throws(TypeError, function() {
 
 assert.throws(TypeError, function() {
   const view = new Uint32Array(
-    new SharedArrayBuffer(Uint32Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Uint32Array.BYTES_PER_ELEMENT * 4)
   );
   Atomics.wait(view, poisoned, poisoned, poisoned);
 }, 'Uint32Array');
 
 assert.throws(TypeError, function() {
   const view = new Uint16Array(
-    new SharedArrayBuffer(Uint16Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Uint16Array.BYTES_PER_ELEMENT * 2)
   );
   Atomics.wait(view, poisoned, poisoned, poisoned);
 }, 'Uint16Array');
