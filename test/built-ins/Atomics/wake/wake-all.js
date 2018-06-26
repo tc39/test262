@@ -9,18 +9,18 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-const WAKEUP = 0;                 // Waiters on this will be woken
-const DUMMY = 1;                  // Waiters on this will not be woken
+const WAIT_INDEX = 0;             // Waiters on this will be woken
+const WAIT_FAKE = 1;              // Waiters on this will not be woken
 const RUNNING = 2;                // Accounting of live agents
-const NUMELEM = 3;
 const NUMAGENT = 3;
+const BUFFER_SIZE = 4;
 
 for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
       const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
-      $262.agent.report("A " + Atomics.wait(i32a, ${WAKEUP}, 0));
+      $262.agent.report("A " + Atomics.wait(i32a, ${WAIT_INDEX}, 0));
       $262.agent.leaving();
     });
   `);
@@ -31,13 +31,13 @@ $262.agent.start(`
     const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
     // This will always time out.
-    $262.agent.report("B " + Atomics.wait(i32a, ${DUMMY}, 0, 10));
+    $262.agent.report("B " + Atomics.wait(i32a, ${WAIT_FAKE}, 0, 10));
     $262.agent.leaving();
   });
 `);
 
 const i32a = new Int32Array(
-  new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT)
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
 );
 
 $262.agent.broadcast(i32a.buffer);
@@ -49,11 +49,11 @@ waitUntil(i32a, RUNNING, NUMAGENT + 1);
 // we risk sending the wakeup before agents are sleeping, and we hang.
 $262.agent.sleep(50);
 
-// Wake all waiting on WAKEUP, should be 3 always, they won't time out.
+// Wake all waiting on WAIT_INDEX, should be 3 always, they won't time out.
 assert.sameValue(
-  Atomics.wake(i32a, WAKEUP),
+  Atomics.wake(i32a, WAIT_INDEX),
   NUMAGENT,
-  'Atomics.wake(i32a, WAKEUP) equals the value of `NUMAGENT` (3)'
+  'Atomics.wake(i32a, WAIT_INDEX) equals the value of `NUMAGENT` (3)'
 );
 
 const rs = [];

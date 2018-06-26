@@ -10,10 +10,10 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 const NUMAGENT = 3;
-const WAKEUP = 0;                 // Waiters on this will be woken
+const WAIT_INDEX = 0;             // Waiters on this will be woken
 const SPIN = 1;                   // Worker i (zero-based) spins on location SPIN+i
 const RUNNING = SPIN + NUMAGENT;  // Accounting of live agents
-const NUMELEM = RUNNING + 1;
+const BUFFER_SIZE = RUNNING + 1;
 
 // Create workers and start them all spinning.  We set atomic slots to make
 // them go into a wait, thus controlling the waiting order.  Then we wake them
@@ -29,7 +29,7 @@ for (var attempt = 0; attempt < 10; attempt++) {
           /* nothing */
         }
         $262.agent.report(${i});
-        Atomics.wait(i32a, ${WAKEUP}, 0);
+        Atomics.wait(i32a, ${WAIT_INDEX}, 0);
         $262.agent.report(${i});
         $262.agent.leaving();
       });
@@ -37,7 +37,7 @@ for (var attempt = 0; attempt < 10; attempt++) {
   }
 
   const i32a = new Int32Array(
-    new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
   );
 
   $262.agent.broadcast(i32a.buffer);
@@ -60,13 +60,25 @@ for (var attempt = 0; attempt < 10; attempt++) {
   waiterlist.push(getReport());
 
   var notified = [];
-  assert.sameValue(Atomics.wake(i32a, WAKEUP, 1), 1);
+  assert.sameValue(
+    Atomics.wake(i32a, WAIT_INDEX, 1),
+    1,
+    `Attempt #${attempt}, Notification #0: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
+  );
   notified.push(getReport());
 
-  assert.sameValue(Atomics.wake(i32a, WAKEUP, 1), 1);
+  assert.sameValue(
+    Atomics.wake(i32a, WAIT_INDEX, 1),
+    1,
+    `Attempt #${attempt}, Notification #1: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
+  );
   notified.push(getReport());
 
-  assert.sameValue(Atomics.wake(i32a, WAKEUP, 1), 1);
+  assert.sameValue(
+    Atomics.wake(i32a, WAIT_INDEX, 1),
+    1,
+    `Attempt #${attempt}, Notification #2: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
+  );
   notified.push(getReport());
 
   assert.sameValue(
