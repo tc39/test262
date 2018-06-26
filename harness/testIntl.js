@@ -822,12 +822,11 @@ function getInvalidLocaleArguments() {
     "ıd" // non-ASCII letters
   ];
 
-  return [
-    ...topLevelErrors,
-    ...invalidLanguageTags.map(tag => [tag, RangeError]),
-    ...invalidLanguageTags.map(tag => [[tag], RangeError]),
-    ...invalidLanguageTags.map(tag => [["en", tag], RangeError]),
-  ]
+  return topLevelErrors.concat(
+    invalidLanguageTags.map(tag => [tag, RangeError]),
+    invalidLanguageTags.map(tag => [[tag], RangeError]),
+    invalidLanguageTags.map(tag => [["en", tag], RangeError]),
+  )
 }
 
 /**

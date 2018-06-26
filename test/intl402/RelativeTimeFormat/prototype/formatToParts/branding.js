@@ -12,18 +12,13 @@ features: [Intl.RelativeTimeFormat]
 ---*/
 
 const fn = Intl.RelativeTimeFormat.prototype.formatToParts;
-const invalidValues = [
-  undefined,
-  null,
-  true,
-  "",
-  Symbol(),
-  1,
-  {},
-  Intl.RelativeTimeFormat,
-  Intl.RelativeTimeFormat.prototype,
-];
 
-for (const invalidValue of invalidValues) {
-  assert.throws(TypeError, () => fn.call(invalidValue));
-}
+assert.throws(TypeError, () => fn.call(undefined), "undefined");
+assert.throws(TypeError, () => fn.call(null), "null");
+assert.throws(TypeError, () => fn.call(true), "true");
+assert.throws(TypeError, () => fn.call(""), "empty string");
+assert.throws(TypeError, () => fn.call(Symbol()), "symbol");
+assert.throws(TypeError, () => fn.call(1), "1");
+assert.throws(TypeError, () => fn.call({}), "plain object");
+assert.throws(TypeError, () => fn.call(Intl.RelativeTimeFormat), "Intl.RelativeTimeFormat");
+assert.throws(TypeError, () => fn.call(Intl.RelativeTimeFormat.prototype), "Intl.RelativeTimeFormat.prototype");

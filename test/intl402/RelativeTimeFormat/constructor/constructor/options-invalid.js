@@ -8,7 +8,6 @@ info: |
     InitializeRelativeTimeFormat (relativeTimeFormat, locales, options)
     5. Else
         a. Let options be ? ToObject(options).
-includes: [testIntl.js, compareArray.js]
 features: [Intl.RelativeTimeFormat]
 ---*/
 

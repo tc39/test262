@@ -19,3 +19,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   Intl.RelativeTimeFormat("en");
 });
+
+assert.throws(TypeError, function() {
+  Intl.RelativeTimeFormat("not-valid-tag");
+});

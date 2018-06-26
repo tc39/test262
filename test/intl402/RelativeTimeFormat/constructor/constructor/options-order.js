@@ -9,7 +9,7 @@ info: |
     7. Let matcher be ? GetOption(options, "localeMatcher", "string", «"lookup", "best fit"», "best fit").
     14. Let s be ? GetOption(options, "style", "string", «"long", "short", "narrow"», "long").
     16. Let numeric be ? GetOption(options, "numeric", "string", «"always", "auto"», "always").
-includes: [testIntl.js, compareArray.js]
+includes: [compareArray.js]
 features: [Intl.RelativeTimeFormat]
 ---*/
 
