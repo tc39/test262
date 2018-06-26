@@ -89,6 +89,10 @@ json-superset
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
 
+# Intl.RelativeTimeFormat
+# https://github.com/tc39/proposal-intl-relative-time
+Intl.RelativeTimeFormat
+
 # Global
 # https://github.com/tc39/proposal-global
 global
