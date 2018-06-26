@@ -9,12 +9,13 @@ includes: [testAtomics.js, testBigIntTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
-);
+var buffer = new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);
 
-testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-  assert.throws(RangeError, function() {
-    Atomics.xor(i64a, IdxGen(i64a), 0);
-  }, 'Atomics.xor(i64a, IdxGen(i64a), 0) throws RangeError');
+testWithBigIntTypedArrayConstructors(function(TA) {
+  let view = new TA(buffer);
+  testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
+    assert.throws(RangeError, function() {
+      Atomics.xor(view, IdxGen(view), 10);
+    }, 'Atomics.xor(view, IdxGen(view), 10) throws RangeError');
+  });
 });
