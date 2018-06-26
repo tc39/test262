@@ -15,7 +15,7 @@ info: |
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 const i64a = new BigInt64Array(
-  new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT)
+  new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
 );
 
 const poisoned = {

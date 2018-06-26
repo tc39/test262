@@ -23,21 +23,21 @@ const poisoned = {
 
 assert.throws(TypeError, function() {
   const view = new Float64Array(
-    new SharedArrayBuffer(Float64Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Float64Array.BYTES_PER_ELEMENT * 8)
   );
   Atomics.wake(view, poisoned, poisoned);
 }, '`Atomics.wake(view), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   const view = new Float32Array(
-    new SharedArrayBuffer(Float32Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Float32Array.BYTES_PER_ELEMENT * 4)
   );
   Atomics.wake(view, poisoned, poisoned);
 }, '`Atomics.wake(view), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   const view = new Int16Array(
-    new SharedArrayBuffer(Int16Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Int16Array.BYTES_PER_ELEMENT * 2)
   );
   Atomics.wake(view, poisoned, poisoned);
 }, '`Atomics.wake(view), poisoned, poisoned)` throws TypeError');
@@ -51,14 +51,14 @@ assert.throws(TypeError, function() {
 
 assert.throws(TypeError, function() {
   const view = new Uint32Array(
-    new SharedArrayBuffer(Uint32Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Uint32Array.BYTES_PER_ELEMENT * 4)
   );
   Atomics.wake(new Uint32Array(),  poisoned, poisoned);
 }, '`Atomics.wake(view), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   const view = new Uint16Array(
-    new SharedArrayBuffer(Uint16Array.BYTES_PER_ELEMENT)
+    new SharedArrayBuffer(Uint16Array.BYTES_PER_ELEMENT * 2)
   );
   Atomics.wake(view, poisoned, poisoned);
 }, '`Atomics.wake(view), poisoned, poisoned)` throws TypeError');
