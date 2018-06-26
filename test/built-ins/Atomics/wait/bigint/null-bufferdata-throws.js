@@ -42,4 +42,4 @@ try {
 
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, poisoned, poisoned, poisoned);
-}, 'Atomics.wait(i64a, poisoned, poisoned, poisoned) on detached buffer throwes TypeError');
+}, 'Atomics.wait(i64a, poisoned, poisoned, poisoned) on detached buffer throws TypeError');
