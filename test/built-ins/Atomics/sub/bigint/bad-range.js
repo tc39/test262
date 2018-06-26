@@ -9,7 +9,7 @@ includes: [testAtomics.js, testBigIntTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(8);
+var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   let view = new TA(buffer);
