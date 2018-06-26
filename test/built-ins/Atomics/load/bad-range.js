@@ -9,7 +9,7 @@ includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(8);
+var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);
 var views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
