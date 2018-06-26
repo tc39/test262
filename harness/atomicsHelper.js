@@ -16,7 +16,7 @@ var $ATOMICS_MAX_TIME_EPSILON = 100;
 
 /**
  *
- * @return {[type]} [description]
+ * @return {String} A report sent from an agent.
  */
 function getReport() {
   var r;
