@@ -10,11 +10,11 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 
-var NUMAGENT = 3;
-var WAKEUP = 0;                 // Agents wait here
-var RUNNING = 1;                // Accounting of live agents here
-var NUMELEM = 2;
-var WAKECOUNT = 2;
+const WAIT_INDEX = 0;             // Agents wait here
+const RUNNING = 1;                // Accounting of live agents here
+const WAKECOUNT = 2;
+const NUMAGENT = 3;
+const BUFFER_SIZE = 4;
 
 for (var i = 0; i < NUMAGENT; i++ ) {
   $262.agent.start(`
@@ -22,14 +22,14 @@ for (var i = 0; i < NUMAGENT; i++ ) {
       const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
       // Waiters that are not woken will time out eventually.
-      $262.agent.report(Atomics.wait(i32a, ${WAKEUP}, 0, 2000));
+      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, 200));
       $262.agent.leaving();
     })
   `);
 }
 
 const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
 );
 
 $262.agent.broadcast(i32a.buffer);
@@ -39,7 +39,7 @@ waitUntil(i32a, RUNNING, NUMAGENT);
 
 // Then wait some more to give the agents a fair chance to wait.  If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
-$262.agent.sleep(500);
+$262.agent.sleep(10);
 
 // There's a slight risk we'll fail to wake the desired count, if the preceding
 // sleep() took much longer than anticipated and workers have started timing
@@ -49,6 +49,9 @@ assert.sameValue(
   WAKECOUNT,
   'Atomics.wake(i32a, 0, WAKECOUNT) equals the value of `WAKECOUNT` (2)'
 );
+
+// Sleep past the timeout
+$262.agent.sleep(300);
 
 // Collect and check results
 var rs = [];

@@ -12,7 +12,7 @@ features: [ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
-    $262.agent.report(Atomics.wait(i32a, 0, 0, 1000)); // We will timeout eventually
+    $262.agent.report(Atomics.wait(i32a, 0, 0, 200)); // We will timeout eventually
     $262.agent.leaving();
   });
 `);
@@ -22,6 +22,9 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(500); // Give the agent a chance to wait
-assert.sameValue(Atomics.wake(i32a, 0, NaN), 0, 'Atomics.wake(i32a, 0, NaN) returns 0'); // Don't actually wake it
+$262.agent.sleep(10); // Give the agent a chance to wait
+assert.sameValue(Atomics.wake(i32a, 0, NaN), 0, 'Atomics.wake(i32a, 0, NaN) returns 0, and will not actually notify any waiters.');
+
+// Sleep past the timeout
+$262.agent.sleep(300);
 assert.sameValue(getReport(), 'timed-out', 'getReport() returns "timed-out"');
