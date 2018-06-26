@@ -4,7 +4,7 @@
 /*---
 esid: prod-CharacterClassEscape
 description: >
-    Compare range (Non whitespace class escape)
+    Compare range for Non whitespace class escape, \\S+ with flags 
 info: |
     This is a generated test, please checkout https://github.com/bocoup/test262-regexp-generator
     for any changes.
@@ -41,6 +41,7 @@ var msg = '"\\u{REPLACE}" should be in range for \\S+ with flags ';
 var i;
 var fromEscape, fromRange, str;
 for (i = 0; i < 0xFFFF; i++) {
+    if (i === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
     str = String.fromCharCode(i);
     fromEscape = !str.replace(re, 'test262');
     fromRange = !str.replace(re, 'test262');

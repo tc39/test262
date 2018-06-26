@@ -4,7 +4,7 @@
 /*---
 esid: prod-CharacterClassEscape
 description: >
-    Compare range (Non Digit class escape)
+    Compare range for Non Digit class escape, \\D+ with flags u
 info: |
     This is a generated test, please checkout https://github.com/bocoup/test262-regexp-generator
     for any changes.
@@ -42,6 +42,7 @@ var msg = '"\\u{REPLACE}" should be in range for \\D+ with flags u';
 var i;
 var fromEscape, fromRange, str;
 for (i = 0; i < 0x10FFFF; i++) {
+
     str = String.fromCodePoint(i);
     fromEscape = !str.replace(re, 'test262');
     fromRange = !str.replace(re, 'test262');

@@ -4,7 +4,7 @@
 /*---
 esid: prod-CharacterClassEscape
 description: >
-    Compare range (Non Word class escape)
+    Compare range for Non Word class escape, \\W+ with flags g
 info: |
     This is a generated test, please checkout https://github.com/bocoup/test262-regexp-generator
     for any changes.
@@ -41,6 +41,7 @@ var msg = '"\\u{REPLACE}" should be in range for \\W+ with flags g';
 var i;
 var fromEscape, fromRange, str;
 for (i = 0; i < 0xFFFF; i++) {
+
     str = String.fromCharCode(i);
     fromEscape = !str.replace(re, 'test262');
     fromRange = !str.replace(re, 'test262');
