@@ -32,7 +32,19 @@ const toPrimitive = {
   }
 };
 
-assert.sameValue(Atomics.wait(i32a, 0, 0, true), 'timed-out');
-assert.sameValue(Atomics.wait(i32a, 0, 0, valueOf), 'timed-out');
-assert.sameValue(Atomics.wait(i32a, 0, 0, toPrimitive), 'timed-out');
+assert.sameValue(
+  Atomics.wait(i32a, 0, 0, true),
+  'timed-out',
+  'Atomics.wait(i32a, 0, 0, true) returns "timed-out"'
+);
+assert.sameValue(
+  Atomics.wait(i32a, 0, 0, valueOf),
+  'timed-out',
+  'Atomics.wait(i32a, 0, 0, valueOf) returns "timed-out"'
+);
+assert.sameValue(
+  Atomics.wait(i32a, 0, 0, toPrimitive),
+  'timed-out',
+  'Atomics.wait(i32a, 0, 0, toPrimitive) returns "timed-out"'
+);
 

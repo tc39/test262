@@ -28,7 +28,7 @@ $262.agent.waitUntil(i32a, 1, 1);
 
 assert.sameValue(Atomics.wake(i32a, 0, 1), 1, 'Atomics.wake(i32a, 0, 1) returns 1');
 
-assert.sameValue($262.agent.getReport(), 'ok', 'The value of `report` is "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 // Already awake, this should be a noop
 assert.sameValue(Atomics.wake(i32a, 0, 1), 0, 'Atomics.wake(i32a, 0, 1) returns 0');

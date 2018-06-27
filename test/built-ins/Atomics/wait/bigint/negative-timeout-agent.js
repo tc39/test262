@@ -23,5 +23,9 @@ const i64a = new BigInt64Array(
 
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(10);
-assert.sameValue($262.agent.getReport(), 'timed-out');
-assert.sameValue(Atomics.wake(i64a, 0), 0);
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
+assert.sameValue(Atomics.wake(i64a, 0), 0, 'Atomics.wake(i64a, 0) returns 0');

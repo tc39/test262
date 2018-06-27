@@ -18,9 +18,18 @@ info: |
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
-var i32a = new Int32Array(buffer);
-var update = 0b00000001000000001000000010000001;
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
+const update = 0b00000001000000001000000010000001;
 
-assert.sameValue(Atomics.store(i32a, 0, update), update);
-assert.sameValue(i32a[0], update);
+assert.sameValue(
+  Atomics.store(i32a, 0, update),
+  update,
+  'Atomics.store(i32a, 0, update) returns the value of `update` (0b00000001000000001000000010000001)'
+);
+assert.sameValue(
+  i32a[0],
+  update,
+  'The value of i32a[0] equals the value of `update` (0b00000001000000001000000010000001)'
+);

@@ -15,5 +15,5 @@ var views = intArrayConstructors.slice();
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     Atomics.xor(new TA(buffer), 0, 0);
-  }, 'Atomics.xor(new TA(buffer), 0, 0) throws TypeError');
+  }, '`Atomics.xor(new TA(buffer), 0, 0)` throws TypeError');
 }, views);

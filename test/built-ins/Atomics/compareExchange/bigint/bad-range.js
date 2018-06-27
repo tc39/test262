@@ -1,6 +1,5 @@
 // Copyright (C) 2018 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.compareexchange
 description: >
@@ -8,14 +7,14 @@ description: >
 includes: [testAtomics.js, testBigIntTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
-
-var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);
+const buffer = new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  let view = new TA(buffer);
+  const view = new TA(buffer);
+
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     assert.throws(RangeError, function() {
-      Atomics.compareExchange(view, IdxGen(view), 10, 0);
-    }, 'Atomics.compareExchange(view, IdxGen(view), 10, 0) throws RangeError');
+      Atomics.compareExchange(view, IdxGen(view), 10, 0n);
+    }, '`Atomics.compareExchange(view, IdxGen(view), 10, 0n)` throws RangeError');
   });
 });

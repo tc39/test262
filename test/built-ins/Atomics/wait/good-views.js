@@ -44,6 +44,18 @@ $262.agent.start(`
   $262.agent.leaving();
 `);
 
-assert.sameValue($262.agent.getReport(), 'A timed-out');
-assert.sameValue($262.agent.getReport(), 'B not-equal');
-assert.sameValue($262.agent.getReport(), 'C not-equal');
+assert.sameValue(
+  $262.agent.getReport(),
+  'A timed-out',
+  '$262.agent.getReport() returns "A timed-out"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'B not-equal',
+  '$262.agent.getReport() returns "B not-equal"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'C not-equal',
+  '$262.agent.getReport() returns "C not-equal"'
+);

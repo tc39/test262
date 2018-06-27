@@ -50,40 +50,52 @@ for (var attempt = 0; attempt < 10; attempt++) {
   $262.agent.sleep(50);
 
   var waiterlist = [];
-  assert.sameValue(Atomics.store(i32a, SPIN + 0, 1), 1);
+  assert.sameValue(
+    Atomics.store(i32a, SPIN + 0, 1),
+    1,
+    'Atomics.store(i32a, SPIN + 0, 1) returns 1'
+  );
   waiterlist.push($262.agent.getReport());
 
-  assert.sameValue(Atomics.store(i32a, SPIN + 1, 1), 1);
+  assert.sameValue(
+    Atomics.store(i32a, SPIN + 1, 1),
+    1,
+    'Atomics.store(i32a, SPIN + 1, 1) returns 1'
+  );
   waiterlist.push($262.agent.getReport());
 
-  assert.sameValue(Atomics.store(i32a, SPIN + 2, 1), 1);
+  assert.sameValue(
+    Atomics.store(i32a, SPIN + 2, 1),
+    1,
+    'Atomics.store(i32a, SPIN + 2, 1) returns 1'
+  );
   waiterlist.push($262.agent.getReport());
 
   var notified = [];
   assert.sameValue(
     Atomics.wake(i32a, WAIT_INDEX, 1),
     1,
-    `Attempt #${attempt}, Notification #0: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
+    'Atomics.wake(i32a, WAIT_INDEX, 1) returns 1'
   );
   notified.push($262.agent.getReport());
 
   assert.sameValue(
     Atomics.wake(i32a, WAIT_INDEX, 1),
     1,
-    `Attempt #${attempt}, Notification #1: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
+    'Atomics.wake(i32a, WAIT_INDEX, 1) returns 1'
   );
   notified.push($262.agent.getReport());
 
   assert.sameValue(
     Atomics.wake(i32a, WAIT_INDEX, 1),
     1,
-    `Attempt #${attempt}, Notification #2: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
+    'Atomics.wake(i32a, WAIT_INDEX, 1) returns 1'
   );
   notified.push($262.agent.getReport());
 
   assert.sameValue(
     notified.join(''),
     waiterlist.join(''),
-    `Attempt #${attempt}: notified and waiterlist order do not match.`
+    'notified.join(\'\') returns waiterlist.join(\'\')'
   );
 }

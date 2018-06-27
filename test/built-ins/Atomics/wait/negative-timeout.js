@@ -13,4 +13,8 @@ const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
-assert.sameValue(Atomics.wait(i32a, 0, 0, -1), "timed-out");
+assert.sameValue(
+  Atomics.wait(i32a, 0, 0, -1),
+  "timed-out",
+  'Atomics.wait(i32a, 0, 0, -1) returns "timed-out"'
+);

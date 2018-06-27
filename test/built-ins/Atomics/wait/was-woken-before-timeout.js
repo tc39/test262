@@ -43,14 +43,14 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(sleeping);
 
-assert.sameValue(Atomics.wake(i32a, 0), 1);
+assert.sameValue(Atomics.wake(i32a, 0), 1, 'Atomics.wake(i32a, 0) returns 1');
 
 const lapse = $262.agent.getReport();
 
 assert(
   sleeping + lapse < timeout,
-  `${sleeping + lapse} should be less than ${timeout}`
+  'The result of `(sleeping + lapse < timeout)` is true'
 );
-assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 

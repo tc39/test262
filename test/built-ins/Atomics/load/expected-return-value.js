@@ -28,13 +28,18 @@ info: |
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
-var i32a = new Int32Array(buffer);
-var update = 0b00000001000000001000000010000001;
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
+const update = 0b00000001000000001000000010000001;
 
-assert.sameValue(Atomics.load(i32a, 0), 0);
+assert.sameValue(Atomics.load(i32a, 0), 0, 'Atomics.load(i32a, 0) returns 0');
 
 i32a[0] = update;
 
-assert.sameValue(Atomics.load(i32a, 0), update);
+assert.sameValue(
+  Atomics.load(i32a, 0),
+  update,
+  'Atomics.load(i32a, 0) returns the value of `update` (0b00000001000000001000000010000001)'
+);
 

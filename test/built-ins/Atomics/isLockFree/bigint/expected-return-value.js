@@ -28,7 +28,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(
     Atomics.isLockFree(TA.BYTES_PER_ELEMENT),
     observed,
-    'Atomics.isLockFree(TA.BYTES_PER_ELEMENT) equals the value of `observed` (Atomics.isLockFree(TA.BYTES_PER_ELEMENT))'
+    'Atomics.isLockFree(TA.BYTES_PER_ELEMENT) returns the value of `observed` (Atomics.isLockFree(TA.BYTES_PER_ELEMENT))'
   );
 });
 

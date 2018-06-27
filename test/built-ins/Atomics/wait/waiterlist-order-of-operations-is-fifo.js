@@ -65,14 +65,26 @@ $262.agent.sleep(100);
 const started = [$262.agent.getReport(), $262.agent.getReport(), $262.agent.getReport()];
 
 // Agents must wake in the order they waited
-assert.sameValue(Atomics.wake(i32a, 1, 1), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
-assert.sameValue($262.agent.getReport(), started[0]);
+assert.sameValue(Atomics.wake(i32a, 1, 1), 1, 'Atomics.wake(i32a, 1, 1) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+assert.sameValue(
+  $262.agent.getReport(),
+  started[0],
+  '$262.agent.getReport() returns the value of `started[0]` (undefined)'
+);
 
-assert.sameValue(Atomics.wake(i32a, 2, 1), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
-assert.sameValue($262.agent.getReport(), started[1]);
+assert.sameValue(Atomics.wake(i32a, 2, 1), 1, 'Atomics.wake(i32a, 2, 1) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+assert.sameValue(
+  $262.agent.getReport(),
+  started[1],
+  '$262.agent.getReport() returns the value of `started[1]` (undefined)'
+);
 
-assert.sameValue(Atomics.wake(i32a, 3, 1), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
-assert.sameValue($262.agent.getReport(), started[2]);
+assert.sameValue(Atomics.wake(i32a, 3, 1), 1, 'Atomics.wake(i32a, 3, 1) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+assert.sameValue(
+  $262.agent.getReport(),
+  started[2],
+  '$262.agent.getReport() returns the value of `started[2]` (undefined)'
+);

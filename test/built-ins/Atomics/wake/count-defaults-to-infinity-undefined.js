@@ -67,7 +67,7 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, undefined),
   NUMAGENT,
-  'Atomics.wake(i32a, WAIT_INDEX, undefined) equals the value of `NUMAGENT` (4)'
+  'Atomics.wake(i32a, WAIT_INDEX, undefined) returns the value of `NUMAGENT` (4)'
 );
 
 const reports = [];

@@ -32,9 +32,9 @@ $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
     const before = $262.agent.monotonicNow();
-    $262.agent.report(Atomics.wait(i64a, 0, 0, false));
-    $262.agent.report(Atomics.wait(i64a, 0, 0, valueOf));
-    $262.agent.report(Atomics.wait(i64a, 0, 0, toPrimitive));
+    $262.agent.report(Atomics.wait(i64a, 0, 0n, false));
+    $262.agent.report(Atomics.wait(i64a, 0, 0n, valueOf));
+    $262.agent.report(Atomics.wait(i64a, 0, 0n, toPrimitive));
     $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.leaving();
   });
@@ -47,18 +47,30 @@ const i64a = new BigInt64Array(
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
 
-assert.sameValue($262.agent.getReport(), 'timed-out');
-assert.sameValue($262.agent.getReport(), 'timed-out');
-assert.sameValue($262.agent.getReport(), 'timed-out');
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
 
 const lapse = $262.agent.getReport();
 assert(
   lapse >= 0,
-  `${lapse} should be greater than, or equal to 0`
+  'The result of `(lapse >= 0)` is true'
 );
 assert(
   lapse <= $262.agent.MAX_TIME_EPSILON,
-  `${lapse} should be less than ${$262.agent.MAX_TIME_EPSILON}`
+  'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true'
 );
-assert.sameValue(Atomics.wake(i64a, 0), 0);
+assert.sameValue(Atomics.wake(i64a, 0), 0, 'Atomics.wake(i64a, 0) returns 0');
 

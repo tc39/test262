@@ -37,6 +37,6 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(150);
 
-assert.sameValue(Atomics.wake(i32a, 0), 1); // wake at index 0
-assert.sameValue(Atomics.wake(i32a, 0), 0); // wake again at index 0, and 0 agents should be woken
-assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue(Atomics.wake(i32a, 0), 1, 'Atomics.wake(i32a, 0) returns 1'); // wake at index 0
+assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0'); // wake again at index 0, and 0 agents should be woken
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

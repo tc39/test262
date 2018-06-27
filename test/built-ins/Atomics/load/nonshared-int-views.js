@@ -9,14 +9,13 @@ includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-var ab = new ArrayBuffer(16);
-
-var views = intArrayConstructors.slice();
+const buffer = new ArrayBuffer(16);
+const views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
-  var view = new TA(ab);
+  const view = new TA(buffer);
 
   assert.throws(TypeError, function() {
     Atomics.load(view, 0);
-  }, 'Atomics.load(view, 0) throws TypeError');
+  }, '`Atomics.load(view, 0)` throws TypeError');
 }, views);

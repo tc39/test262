@@ -32,7 +32,7 @@ var isLockFree8;
   assert.sameValue(
     Atomics.isLockFree(1),
     isLockFree1,
-    'Atomics.isLockFree(1) equals the value of `isLockFree1` (1)'
+    'Atomics.isLockFree(1) returns the value of `isLockFree1` (Atomics.isLockFree(1))'
   );
 };
 {
@@ -47,7 +47,7 @@ var isLockFree8;
   assert.sameValue(
     Atomics.isLockFree(2),
     isLockFree2,
-    'Atomics.isLockFree(2) equals the value of `isLockFree2` (2)'
+    'Atomics.isLockFree(2) returns the value of `isLockFree2` (Atomics.isLockFree(2))'
   );
 };
 {
@@ -55,8 +55,8 @@ var isLockFree8;
   //
   // If n equals 4, return true.
   //
-  assert.sameValue(typeof isLockFree4, 'boolean', 'The value of `typeof isLockFree` is "boolean"');
-  assert.sameValue(isLockFree4, true, 'The value of `isLockFree` is true');
+  assert.sameValue(typeof isLockFree4, 'boolean', 'The value of `typeof isLockFree4` is "boolean"');
+  assert.sameValue(isLockFree4, true, 'The value of `isLockFree4` is true');
 };
 
 {
@@ -71,14 +71,14 @@ var isLockFree8;
   assert.sameValue(
     Atomics.isLockFree(8),
     isLockFree8,
-    'Atomics.isLockFree(8) equals the value of `isLockFree8` (8)'
+    'Atomics.isLockFree(8) returns the value of `isLockFree8` (Atomics.isLockFree(8))'
   );
 };
 
 {
   for (let i = 0; i < 12; i++) {
     if (![1, 2, 4, 8].includes(i)) {
-      assert.sameValue(Atomics.isLockFree(i), false);
+      assert.sameValue(Atomics.isLockFree(i), false, 'Atomics.isLockFree(i) returns false');
     }
   }
 };
@@ -86,17 +86,17 @@ var isLockFree8;
 assert.sameValue(
   Atomics.isLockFree(1),
   isLockFree1,
-  'Later call to Atomics.isLockFree(1) equals the value of `isLockFree1` (1)'
+  'Atomics.isLockFree(1) returns the value of `isLockFree1` (Atomics.isLockFree(1))'
 );
 assert.sameValue(
   Atomics.isLockFree(2),
   isLockFree2,
-  'Later call to Atomics.isLockFree(2) equals the value of `isLockFree2` (2)'
+  'Atomics.isLockFree(2) returns the value of `isLockFree2` (Atomics.isLockFree(2))'
 );
 assert.sameValue(
   Atomics.isLockFree(8),
   isLockFree8,
-  'Later call to Atomics.isLockFree(8) equals the value of `isLockFree8` (8)'
+  'Atomics.isLockFree(8) returns the value of `isLockFree8` (Atomics.isLockFree(8))'
 );
 
 // Duplicates behavior created by loop from above

@@ -12,5 +12,5 @@ features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedAr
 testWithAtomicsNonViewValues(function(view) {
   assert.throws(TypeError, function() {
     Atomics.sub(view, 0, 0);
-  }, 'Atomics.sub(view, 0, 0) throws TypeError');
+  }, '`Atomics.sub(view, 0, 0)` throws TypeError');
 });

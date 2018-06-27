@@ -49,7 +49,11 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-assert.sameValue(Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT), WAKECOUNT);
+assert.sameValue(
+  Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT),
+  WAKECOUNT,
+  'Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT) returns the value of `WAKECOUNT` (2)'
+);
 
 const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {
@@ -57,5 +61,5 @@ for (var i = 0; i < NUMAGENT; i++) {
 }
 reports.sort();
 
-assert.sameValue(reports[0], 'A ok');
-assert.sameValue(reports[1], 'B ok');
+assert.sameValue(reports[0], 'A ok', 'The value of reports[0] is "A ok"');
+assert.sameValue(reports[1], 'B ok', 'The value of reports[1] is "B ok"');

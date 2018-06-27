@@ -26,8 +26,8 @@ const poisoned = {
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, 0, 0);
-}, 'Atomics.wake(i64a, 0, 0) on ArrayBuffer throws TypeError');
+}, '`Atomics.wake(i64a, 0, 0)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(i64a, poisoned, poisoned);
-}, 'Atomics.wake(i64a, poisoned, poisoned) on ArrayBuffer throws TypeError');
+}, '`Atomics.wake(i64a, poisoned, poisoned)` throws TypeError');

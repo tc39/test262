@@ -1,68 +1,83 @@
 // Copyright (C) 2018 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.and
 description: Test Atomics.and on arrays that allow atomic operations
 includes: [testAtomics.js, testBigIntTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
-
-var sab = new SharedArrayBuffer(1024);
-var ab = new ArrayBuffer(16);
+const sab = new SharedArrayBuffer(1024);
+const ab = new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  // Make it interesting - use non-zero byteOffsets and non-zero indexes.
+  const view = new TA(sab, 32, 20);
+  const control = new TA(ab, 0, 2);
+  view[8] = 0x33333333n;
+  control[0] = 0x33333333n;
 
-  var view = new TA(sab, 32, 20);
-  var control = new TA(ab, 0, 2);
+  assert.sameValue(
+    Atomics.and(view, 8, 0x55555555n),
+    control[0],
+    'Atomics.and(view, 8, 0x55555555n) returns the value of `control[0]` (0x33333333n)'
+  );
 
-  view[8] = 0x33333333;
-  control[0] = 0x33333333;
-  assert.sameValue(Atomics.and(view, 8, 0x55555555), control[0],
-    'Atomics.and(view, 8, 0x55555555) equals the value of control[0] (0x33333333)');
+  control[0] = 0x11111111n;
 
-  control[0] = 0x11111111;
   assert.sameValue(
     view[8],
     control[0],
-    'The value of view[8] equals the value of control[0] (0x11111111)'
+    'The value of view[8] equals the value of `control[0]` (0x11111111n)'
   );
-  assert.sameValue(Atomics.and(view, 8, 0xF0F0F0F0), control[0],
-    'Atomics.and(view, 8, 0xF0F0F0F0) equals the value of control[0] (0x11111111)');
 
-  control[0] = 0x10101010;
+  assert.sameValue(
+    Atomics.and(view, 8, 0xF0F0F0F0n),
+    control[0],
+    'Atomics.and(view, 8, 0xF0F0F0F0n) returns the value of `control[0]` (0x11111111n)'
+  );
+
+  control[0] = 0x10101010n;
+
   assert.sameValue(
     view[8],
     control[0],
-    'The value of view[8] equals the value of control[0] (0x10101010)'
+    'The value of view[8] equals the value of `control[0]` (0x10101010n)'
   );
 
-  view[3] = -5;
-  control[0] = -5;
-  assert.sameValue(Atomics.and(view, 3, 0), control[0],
-    'Atomics.and(view, 3, 0) equals the value of control[0] (-5)');
-  assert.sameValue(view[3], 0, 'The value of view[3] is 0');
+  view[3] = -5n;
+  control[0] = -5n;
 
-  control[0] = 12345;
-  view[3] = 12345;
-  assert.sameValue(Atomics.and(view, 3, 0), control[0],
-    'Atomics.and(view, 3, 0) equals the value of control[0] (12345)');
-  assert.sameValue(view[3], 0, 'The value of view[3] is 0');
+  assert.sameValue(
+    Atomics.and(view, 3, 0n),
+    control[0],
+    'Atomics.and(view, 3, 0n) returns the value of `control[0]` (-5n)'
+  );
 
-  control[0] = 123456789;
-  view[3] = 123456789;
-  assert.sameValue(Atomics.and(view, 3, 0), control[0],
-    'Atomics.and(view, 3, 0) equals the value of control[0] (123456789)');
-  assert.sameValue(view[3], 0, 'The value of view[3] is 0');
+  assert.sameValue(view[3], 0n, 'The value of view[3] is 0n');
+  control[0] = 12345n;
+  view[3] = 12345n;
 
-  // In-bounds boundary cases for indexing
+  assert.sameValue(
+    Atomics.and(view, 3, 0n),
+    control[0],
+    'Atomics.and(view, 3, 0n) returns the value of `control[0]` (12345n)'
+  );
+
+  assert.sameValue(view[3], 0n, 'The value of view[3] is 0n');
+  control[0] = 123456789n;
+  view[3] = 123456789n;
+
+  assert.sameValue(
+    Atomics.and(view, 3, 0n),
+    control[0],
+    'Atomics.and(view, 3, 0n) returns the value of `control[0]` (123456789n)'
+  );
+
+  assert.sameValue(view[3], 0n, 'The value of view[3] is 0n');
+
   testWithAtomicsInBoundsIndices(function(IdxGen) {
     let Idx = IdxGen(view);
-    view.fill(0);
-    // Atomics.store() computes an index from Idx in the same way as other
-    // Atomics operations, not quite like view[Idx].
-    Atomics.store(view, Idx, 37);
-    assert.sameValue(Atomics.and(view, Idx, 0), 37, 'Atomics.and(view, Idx, 0) returns 37');
+    view.fill(0n);
+    Atomics.store(view, Idx, 37n);
+    assert.sameValue(Atomics.and(view, Idx, 0n), 37n, 'Atomics.and(view, Idx, 0n) returns 37n');
   });
 });
