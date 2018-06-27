@@ -5,76 +5,64 @@
 esid: sec-atomics.wake
 description: >
   Test that Atomics.wake wakes all waiters if that's what the count is.
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var WAKEUP = 0;                 // Waiters on this will be woken
-var DUMMY = 1;                  // Waiters on this will not be woken
-var RUNNING = 2;                // Accounting of live agents
-var NUMELEM = 3;
+const WAIT_INDEX = 0;             // Waiters on this will be woken
+const WAIT_FAKE = 1;              // Waiters on this will not be woken
+const RUNNING = 2;                // Accounting of live agents
+const NUMAGENT = 3;
+const BUFFER_SIZE = 4;
 
-var NUMAGENT = 3;
-
-for (var i=0; i < NUMAGENT; i++) {
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
-  var ia = new Int32Array(sab);
-  Atomics.add(ia, ${RUNNING}, 1);
-  $262.agent.report("A " + Atomics.wait(ia, ${WAKEUP}, 0));
-  $262.agent.leaving();
-})
-`);
+for (var i = 0; i < NUMAGENT; i++) {
+  $262.agent.start(`
+    $262.agent.receiveBroadcast(function(sab) {
+      const i32a = new Int32Array(sab);
+      Atomics.add(i32a, ${RUNNING}, 1);
+      $262.agent.report("A " + Atomics.wait(i32a, ${WAIT_INDEX}, 0));
+      $262.agent.leaving();
+    });
+  `);
 }
 
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
-  var ia = new Int32Array(sab);
-  Atomics.add(ia, ${RUNNING}, 1);
-  // This will always time out.
-  $262.agent.report("B " + Atomics.wait(ia, ${DUMMY}, 0, 10));
-  $262.agent.leaving();
-})
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    Atomics.add(i32a, ${RUNNING}, 1);
+    // This will always time out.
+    $262.agent.report("B " + Atomics.wait(i32a, ${WAIT_FAKE}, 0, 10));
+    $262.agent.leaving();
+  });
 `);
 
-var ia = new Int32Array(new SharedArrayBuffer(NUMELEM * Int32Array.BYTES_PER_ELEMENT));
-$262.agent.broadcast(ia.buffer);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
+);
+
+$262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-waitUntil(ia, RUNNING, NUMAGENT + 1);
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT + 1);
 
 // Then wait some more to give the agents a fair chance to wait.  If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
 $262.agent.sleep(50);
 
-// Wake all waiting on WAKEUP, should be 3 always, they won't time out.
-assert.sameValue(Atomics.wake(ia, WAKEUP), NUMAGENT);
+// Wake all waiting on WAIT_INDEX, should be 3 always, they won't time out.
+assert.sameValue(
+  Atomics.wake(i32a, WAIT_INDEX),
+  NUMAGENT,
+  'Atomics.wake(i32a, WAIT_INDEX) returns the value of `NUMAGENT` (3)'
+);
 
-var rs = [];
+const reports = [];
 for (var i = 0; i < NUMAGENT + 1; i++) {
-  rs.push(getReport());
+  reports.push($262.agent.getReport());
 }
-rs.sort();
+reports.sort();
 
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue(rs[i], "A ok");
+  assert.sameValue(reports[i], 'A ok', 'The value of reports[i] is "A ok"');
 }
-assert.sameValue(rs[NUMAGENT], "B timed-out");
-
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(10);
-  }
-  return r;
-}
-
-function waitUntil(ia, k, value) {
-  var i = 0;
-  while (Atomics.load(ia, k) !== value && i < 15) {
-    $262.agent.sleep(10);
-    i++;
-  }
-  assert.sameValue(Atomics.load(ia, k), value, "All agents are running");
-}
+assert.sameValue(reports[NUMAGENT], 'B timed-out', 'The value of reports[NUMAGENT] is "B timed-out"');

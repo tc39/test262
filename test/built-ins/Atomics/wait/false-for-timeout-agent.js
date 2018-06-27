@@ -12,57 +12,62 @@ info: |
 
     Boolean -> If argument is true, return 1. If argument is false, return +0.
 
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
-includes: [ atomicsHelper.js ]
 ---*/
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
-  }
-  return r;
-}
+$262.agent.start(`
+  const valueOf = {
+    valueOf: function() {
+      return false;
+    }
+  };
 
-$262.agent.start(
-  `
-var valueOf = {
-  valueOf: function() {
-    return false;
-  }
-};
+  const toPrimitive = {
+    [Symbol.toPrimitive]: function() {
+      return false;
+    }
+  };
 
-var toPrimitive = {
-  [Symbol.toPrimitive]: function() {
-    return false;
-  }
-};
-
-$262.agent.receiveBroadcast(function (sab) {
-  var int32Array = new Int32Array(sab);
-  var start = Date.now();
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, false));
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, valueOf));
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, toPrimitive));
-  $262.agent.report(Date.now() - start);
-  $262.agent.leaving();
-})
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    const before = $262.agent.monotonicNow();
+    $262.agent.report(Atomics.wait(i32a, 0, 0, false));
+    $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
+    $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
+    $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.leaving();
+  });
 `);
 
-var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
 
-$262.agent.broadcast(int32Array.buffer);
-$262.agent.sleep(150);
+$262.agent.broadcast(i32a.buffer);
+$262.agent.sleep(100);
 
-assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(getReport(), 'timed-out');
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
 
-var timeDiffReport = getReport();
+var lapse = $262.agent.getReport();
 
-assert(timeDiffReport >= 0, 'timeout should be a min of 0ms');
+assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (The result of `(lapse >= 0)` is true (timeout should be a min of 0ms))');
 
-assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, 'timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON');
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true)');
 
-assert.sameValue(Atomics.wake(int32Array, 0), 0);
+assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0');
 

@@ -18,39 +18,39 @@ info: |
 
           If value is undefined, then
           Let index be 0.
-features: [Atomics, SharedArrayBuffer, TypedArray]
+includes: [atomicsHelper.js]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sleeping = 100;
+var sleeping = 10;
 var timeout = 20000;
 
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    sleeping += 100;
-    $262.agent.sleep(100);
-  }
-  return r;
-}
-
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function(sab) {
-  var int32Array = new Int32Array(sab);
-  $262.agent.report(Atomics.wait(int32Array, 0, 0, ${timeout}));
-  $262.agent.leaving();
-});
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    const before = $262.agent.monotonicNow();
+    const unpark = Atomics.wait(i32a, 0, 0, ${timeout});
+    $262.agent.report($262.agent.monotonicNow() - before);
+    $262.agent.report(unpark);
+    $262.agent.leaving();
+  });
 `);
 
-var sab = new SharedArrayBuffer(4);
-var int32Array = new Int32Array(sab);
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
 
-
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(sleeping);
 
-assert.sameValue(Atomics.wake(int32Array, 0), 1);
+assert.sameValue(Atomics.wake(i32a, 0), 1, 'Atomics.wake(i32a, 0) returns 1');
 
-assert.sameValue(getReport(), "ok");
-assert(sleeping < timeout, "this test assumes it won't last for more than 20 seconds");
+const lapse = $262.agent.getReport();
+
+assert(
+  sleeping + lapse < timeout,
+  'The result of `(sleeping + lapse < timeout)` is true'
+);
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+
 

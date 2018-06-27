@@ -12,48 +12,49 @@ info: |
 
     Symbol --> Throw a TypeError exception.
 
+includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
-includes: [ atomicsHelper.js ]
 ---*/
-function getReport() {
-  var r;
-  while ((r = $262.agent.getReport()) == null) {
-    $262.agent.sleep(100);
-  }
-  return r;
-}
-
-$262.agent.start(
-`
-$262.agent.receiveBroadcast(function (sab) {
-  var int32Array = new Int32Array(sab);
-  var start = Date.now();
-  try {
-    Atomics.wait(int32Array, 0, 0, Symbol("1"));
-  } catch (error) {
-    $262.agent.report('Symbol("1")');
-  }
-  try {
-    Atomics.wait(int32Array, 0, 0, Symbol("2"));
-  } catch (error) {
-    $262.agent.report('Symbol("2")');
-  }
-  $262.agent.report(Date.now() - start);
-  $262.agent.leaving();
-});
+$262.agent.start(`
+  $262.agent.receiveBroadcast(function(sab) {
+    const i32a = new Int32Array(sab);
+    const start = $262.agent.monotonicNow();
+    try {
+      Atomics.wait(i32a, 0, 0, Symbol("1"));
+    } catch (error) {
+      $262.agent.report('Symbol("1")');
+    }
+    try {
+      Atomics.wait(i32a, 0, 0, Symbol("2"));
+    } catch (error) {
+      $262.agent.report('Symbol("2")');
+    }
+    $262.agent.report($262.agent.monotonicNow() - start);
+    $262.agent.leaving();
+  });
 `);
 
-var int32Array = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
 
-$262.agent.broadcast(int32Array.buffer);
+$262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(150);
 
-assert.sameValue(getReport(), 'Symbol("1")');
-assert.sameValue(getReport(), 'Symbol("2")');
+assert.sameValue(
+  $262.agent.getReport(),
+  'Symbol("1")',
+  '$262.agent.getReport() returns "Symbol("1")"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'Symbol("2")',
+  '$262.agent.getReport() returns "Symbol("2")"'
+);
 
-var timeDiffReport = getReport();
+const lapse = $262.agent.getReport();
 
-assert(timeDiffReport >= 0, "timeout should be a min of 0ms");
-assert(timeDiffReport <= $ATOMICS_MAX_TIME_EPSILON, "timeout should be a max of $$ATOMICS_MAX_TIME_EPSILON");
+assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (The result of `(lapse >= 0)` is true (timeout should be a min of 0ms))');
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (timeout should be a max of $$262.agent.MAX_TIME_EPSILON))');
 
-assert.sameValue(Atomics.wake(int32Array, 0), 0);
+assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0');

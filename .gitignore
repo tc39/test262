@@ -11,3 +11,7 @@ node_modules
 package-lock.json
 yarn.lock
 npm-shrinkwrap.json
+
+# Created by test262-harness
+*.fail
+*.pass

@@ -9,6 +9,8 @@ includes: [testAtomics.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer]
 ---*/
 
-testWithAtomicsNonViewValues(function(view) {
-  assert.throws(TypeError, (() => Atomics.wake(view, 0, 0))); // Even with count == 0
+testWithAtomicsNonViewValues(function(nonView) {
+  assert.throws(TypeError, function() {
+    Atomics.wake(nonView, 0, 0);
+  }, '`Atomics.wake(nonView, 0, 0)` throws TypeError'); // Even with count == 0
 });
