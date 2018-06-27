@@ -32,4 +32,4 @@ const i64a = new BigInt64Array(
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
 assert.sameValue(Atomics.wake(i64a, 0), 1);
-assert.sameValue(getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), 'ok');

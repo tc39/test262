@@ -45,12 +45,12 @@ $262.agent.sleep(sleeping);
 
 assert.sameValue(Atomics.wake(i32a, 0), 1);
 
-const lapse = getReport();
+const lapse = $262.agent.getReport();
 
 assert(
   sleeping + lapse < timeout,
   `${sleeping + lapse} should be less than ${timeout}`
 );
-assert.sameValue(getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), 'ok');
 
 

@@ -36,6 +36,6 @@ const i32a = new Int32Array(
 
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(100);
-assert.sameValue(getReport(), value.toString());
-assert.sameValue(getReport(), 'not-equal');
+assert.sameValue($262.agent.getReport(), value.toString());
+assert.sameValue($262.agent.getReport(), 'not-equal');
 

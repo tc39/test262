@@ -17,14 +17,17 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-const NUMAGENT = 2; // Total number of agents started
-const WAKEUP = 0; // Index all agents are waiting on
-const WAKECOUNT = 2; // Total number of agents to wake up
+const WAIT_INDEX = 0; // Index all agents are waiting on
+const RUNNING = 1;
+const NUMAGENT = 2;   // Total number of agents started
+const WAKECOUNT = 2;  // Total number of agents to wake up
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     var i32a = new Int32Array(sab);
-    $262.agent.report("A " + Atomics.wait(i32a, 0, 0, undefined));  // undefined => NaN => +Infinity
+    // undefined => NaN => +Infinity
+    Atomics.add(i32a, ${RUNNING}, 1);
+    $262.agent.report("A " + Atomics.wait(i32a, 0, 0, undefined));
     $262.agent.leaving();
   });
 `);
@@ -32,7 +35,9 @@ $262.agent.start(`
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     var i32a = new Int32Array(sab);
-    $262.agent.report("B " + Atomics.wait(i32a, 0, 0));  // undefined timeout arg => NaN => +Infinity
+    // undefined timeout arg => NaN => +Infinity
+    Atomics.add(i32a, ${RUNNING}, 1);
+    $262.agent.report("B " + Atomics.wait(i32a, 0, 0));
     $262.agent.leaving();
   });
 `);
@@ -42,18 +47,15 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(500); // Ample time
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-// No Reports made before wait
-assert.sameValue(getReport(), null);
+assert.sameValue(Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT), WAKECOUNT);
 
-assert.sameValue(Atomics.wake(i32a, WAKEUP, WAKECOUNT), WAKECOUNT);
-
-const sortedReports = [];
+const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {
-  sortedReports.push(getReport());
+  reports.push($262.agent.getReport());
 }
-sortedReports.sort();
+reports.sort();
 
-assert.sameValue(sortedReports[0], 'A ok');
-assert.sameValue(sortedReports[1], 'B ok');
+assert.sameValue(reports[0], 'A ok');
+assert.sameValue(reports[1], 'B ok');

@@ -37,10 +37,10 @@ $262.agent.sleep(10);
 
 // NO OPERATION OCCURS HERE!
 
-const lapse = getReport();
+const lapse = $262.agent.getReport();
 assert(
   lapse >= TIMEOUT,
   `${lapse} should be at least ${TIMEOUT}`
 );
-assert.sameValue(getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
 assert.sameValue(Atomics.wake(i64a, 0), 0);

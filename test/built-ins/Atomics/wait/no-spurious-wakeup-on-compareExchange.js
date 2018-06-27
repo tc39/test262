@@ -30,10 +30,10 @@ $262.agent.sleep(10);
 
 Atomics.compareExchange(i32a, 0, 0, 1);
 
-const lapse = getReport();
+const lapse = $262.agent.getReport();
 assert(
   lapse >= TIMEOUT,
   `${lapse} should be at least ${TIMEOUT}`
 );
-assert.sameValue(getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
 assert.sameValue(Atomics.wake(i32a, 0), 0);

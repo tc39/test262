@@ -47,18 +47,18 @@ const i64a = new BigInt64Array(
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
 
-assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
 
-const lapse = getReport();
+const lapse = $262.agent.getReport();
 assert(
   lapse >= 0,
   `${lapse} should be greater than, or equal to 0`
 );
 assert(
-  lapse <= $ATOMICS_MAX_TIME_EPSILON,
-  `${lapse} should be less than ${$ATOMICS_MAX_TIME_EPSILON}`
+  lapse <= $262.agent.MAX_TIME_EPSILON,
+  `${lapse} should be less than ${$262.agent.MAX_TIME_EPSILON}`
 );
 assert.sameValue(Atomics.wake(i64a, 0), 0);
 

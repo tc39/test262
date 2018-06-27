@@ -51,7 +51,7 @@ assert.sameValue(
   1,
   'Atomics.wake(i32a, undefined, 1) returns 1'
 );
-assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 
 // wake again at index 0, default => 0
@@ -60,4 +60,4 @@ assert.sameValue(
   1,
   'Atomics.wake(i32a /*, default values used */) returns 1'
 );
-assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

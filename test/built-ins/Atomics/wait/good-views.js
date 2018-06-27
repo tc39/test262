@@ -44,10 +44,6 @@ $262.agent.start(`
   $262.agent.leaving();
 `);
 
-assert.sameValue(getReport(), 'A timed-out');
-assert.sameValue(getReport(), 'B not-equal'); // Even with zero timeout
-
-var r;
-while ((r = getReport()) != "done") {
-  assert.sameValue(r, "C not-equal");
-}
+assert.sameValue($262.agent.getReport(), 'A timed-out');
+assert.sameValue($262.agent.getReport(), 'B not-equal');
+assert.sameValue($262.agent.getReport(), 'C not-equal');

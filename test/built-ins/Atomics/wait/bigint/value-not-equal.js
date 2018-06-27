@@ -37,6 +37,6 @@ const i64a = new BigInt64Array(
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
 
-assert.sameValue(getReport(), value.toString());
-assert.sameValue(getReport(), 'not-equal');
+assert.sameValue($262.agent.getReport(), value.toString());
+assert.sameValue($262.agent.getReport(), 'not-equal');
 

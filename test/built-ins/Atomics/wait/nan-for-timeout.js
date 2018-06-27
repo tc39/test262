@@ -33,4 +33,4 @@ $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(500); // Ample time
 
 assert.sameValue(Atomics.wake(i32a, 0), 1);
-assert.sameValue(getReport(), "ok");
+assert.sameValue($262.agent.getReport(), "ok");

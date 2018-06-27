@@ -42,7 +42,7 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-waitUntil(i32a, RUNNING, NUMAGENT);
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
 // Sleep to allow the agents a fair chance to wait. If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
@@ -50,13 +50,13 @@ $262.agent.sleep(50);
 
 var waiterlist = [];
 assert.sameValue(Atomics.store(i32a, SPIN + 0, 1), 1);
-waiterlist.push(getReport());
+waiterlist.push($262.agent.getReport());
 
 assert.sameValue(Atomics.store(i32a, SPIN + 1, 1), 1);
-waiterlist.push(getReport());
+waiterlist.push($262.agent.getReport());
 
 assert.sameValue(Atomics.store(i32a, SPIN + 2, 1), 1);
-waiterlist.push(getReport());
+waiterlist.push($262.agent.getReport());
 
 var notified = [];
 assert.sameValue(
@@ -64,21 +64,21 @@ assert.sameValue(
   1,
   `Notification #0: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
 );
-notified.push(getReport());
+notified.push($262.agent.getReport());
 
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, 1),
   1,
   `Notification #1: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
 );
-notified.push(getReport());
+notified.push($262.agent.getReport());
 
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, 1),
   1,
   `Notification #2: on WAIT_INDEX (0) of i32a must notify 1 waiter.`
 );
-notified.push(getReport());
+notified.push($262.agent.getReport());
 
 assert.sameValue(
   notified.join(''),

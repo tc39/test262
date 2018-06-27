@@ -32,7 +32,7 @@ var isLockFree8;
   assert.sameValue(
     Atomics.isLockFree(1),
     isLockFree1,
-    'Atomics.isLockFree(1) equals the value of `isLockFree1` (Atomics.isLockFree(1))'
+    'Atomics.isLockFree(1) equals the value of `isLockFree1` (1)'
   );
 };
 {
@@ -47,7 +47,7 @@ var isLockFree8;
   assert.sameValue(
     Atomics.isLockFree(2),
     isLockFree2,
-    'Atomics.isLockFree(2) equals the value of `isLockFree2` (Atomics.isLockFree(2))'
+    'Atomics.isLockFree(2) equals the value of `isLockFree2` (2)'
   );
 };
 {
@@ -71,7 +71,7 @@ var isLockFree8;
   assert.sameValue(
     Atomics.isLockFree(8),
     isLockFree8,
-    'Atomics.isLockFree(8) equals the value of `isLockFree8` (Atomics.isLockFree(8))'
+    'Atomics.isLockFree(8) equals the value of `isLockFree8` (8)'
   );
 };
 
@@ -86,17 +86,17 @@ var isLockFree8;
 assert.sameValue(
   Atomics.isLockFree(1),
   isLockFree1,
-  'Later call to Atomics.isLockFree(1) equals the value of `isLockFree1` (Atomics.isLockFree(1))'
+  'Later call to Atomics.isLockFree(1) equals the value of `isLockFree1` (1)'
 );
 assert.sameValue(
   Atomics.isLockFree(2),
   isLockFree2,
-  'Later call to Atomics.isLockFree(2) equals the value of `isLockFree2` (Atomics.isLockFree(2))'
+  'Later call to Atomics.isLockFree(2) equals the value of `isLockFree2` (2)'
 );
 assert.sameValue(
   Atomics.isLockFree(8),
   isLockFree8,
-  'Later call to Atomics.isLockFree(8) equals the value of `isLockFree8` (Atomics.isLockFree(8))'
+  'Later call to Atomics.isLockFree(8) equals the value of `isLockFree8` (8)'
 );
 
 // Duplicates behavior created by loop from above

@@ -39,4 +39,4 @@ $262.agent.sleep(150);
 
 assert.sameValue(Atomics.wake(i32a, 0), 1); // wake at index 0
 assert.sameValue(Atomics.wake(i32a, 0), 0); // wake again at index 0, and 0 agents should be woken
-assert.sameValue(getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), 'ok');

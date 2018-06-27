@@ -43,7 +43,7 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-waitUntil(i32a, RUNNING, NUMAGENT + 1);
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT + 1);
 
 // Then wait some more to give the agents a fair chance to wait.  If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.
@@ -56,13 +56,13 @@ assert.sameValue(
   'Atomics.wake(i32a, WAIT_INDEX) equals the value of `NUMAGENT` (3)'
 );
 
-const rs = [];
+const reports = [];
 for (var i = 0; i < NUMAGENT + 1; i++) {
-  rs.push(getReport());
+  reports.push($262.agent.getReport());
 }
-rs.sort();
+reports.sort();
 
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue(rs[i], 'A ok', 'The value of rs[i] is "A ok"');
+  assert.sameValue(reports[i], 'A ok', 'The value of reports[i] is "A ok"');
 }
-assert.sameValue(rs[NUMAGENT], 'B timed-out', 'The value of rs[NUMAGENT] is "B timed-out"');
+assert.sameValue(reports[NUMAGENT], 'B timed-out', 'The value of reports[NUMAGENT] is "B timed-out"');
