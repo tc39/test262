@@ -30,8 +30,8 @@ assert.throws(RangeError, function() {
   Atomics.wake(i32a, Infinity, poisoned);
 }, '`Atomics.wake(i32a, Infinity, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.wake(i32a, 2, poisoned);
-}, '`Atomics.wake(i32a, 2, poisoned)` throws RangeError');
+  Atomics.wake(i32a, 4, poisoned);
+}, '`Atomics.wake(i32a, 4, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wake(i32a, 200, poisoned);
 }, '`Atomics.wake(i32a, 200, poisoned)` throws RangeError');
