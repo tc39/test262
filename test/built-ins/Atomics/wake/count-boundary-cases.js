@@ -47,7 +47,7 @@ assert.sameValue(
 assert.sameValue(
   Atomics.wake(i32a, 0, '33'),
   0,
-  'Atomics.wake(i32a, 0, "33") returns 0'
+  'Atomics.wake(i32a, 0, \'33\') returns 0'
 );
 assert.sameValue(
   Atomics.wake(i32a, 0, { valueOf: 8 }),

@@ -16,7 +16,7 @@ info: |
 
   ...
   5. If waitable is true, then
-      a. If typeName is not "Int32Array" or "BigInt64Array",
+      a. If typeName is not "BigInt64Array",
       throw a TypeError exception.
 
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
@@ -34,10 +34,10 @@ const poisoned = {
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wait(i64a, 0, 0, 0);
-}, 'BigUint64Array');
+  Atomics.wait(i64a, 0, 0n, 0);
+}, '`Atomics.wait(i64a, 0, 0n, 0)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, poisoned, poisoned, poisoned);
-}, 'BigUint64Array');
+}, '`Atomics.wait(i64a, poisoned, poisoned, poisoned)` throws TypeError');
 

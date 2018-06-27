@@ -29,7 +29,7 @@ $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
     const before = $262.agent.monotonicNow();
-    const unpark = Atomics.wait(i64a, 0, 0, ${timeout});
+    const unpark = Atomics.wait(i64a, 0, 0n, ${timeout});
     $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.report(unpark);
     $262.agent.leaving();
@@ -43,14 +43,14 @@ const i64a = new BigInt64Array(
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(sleeping);
 
-assert.sameValue(Atomics.wake(i64a, 0), 1);
+assert.sameValue(Atomics.wake(i64a, 0), 1, 'Atomics.wake(i64a, 0) returns 1');
 
 const lapse = $262.agent.getReport();
 
 assert(
   sleeping + lapse < timeout,
-  `${sleeping + lapse} should be less than ${timeout}`
+  'The result of `(sleeping + lapse < timeout)` is true'
 );
-assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 

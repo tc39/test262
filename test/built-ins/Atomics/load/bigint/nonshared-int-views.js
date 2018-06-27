@@ -9,7 +9,7 @@ includes: [testBigIntTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, TypedArray]
 ---*/
 
-var ab = new ArrayBuffer(16);
+var ab = new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);
 
 
 testWithBigIntTypedArrayConstructors(function(TA) {
@@ -17,5 +17,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     Atomics.load(view, 0);
-  }, 'Atomics.load(view, 0) throws TypeError');
+  }, '`Atomics.load(view, 0)` throws TypeError');
 });

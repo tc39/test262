@@ -19,24 +19,24 @@ const poisoned = {
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Int16Array(nonsab), poisoned, poisoned);
-}, 'Atomics.wake(new Int16Array(nonsab)) throws TypeError');
+}, '`Atomics.wake(new Int16Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Int8Array(nonsab), poisoned, poisoned);
-}, 'Atomics.wake(new Int8Array(nonsab)) throws TypeError');
+}, '`Atomics.wake(new Int8Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint32Array(nonsab),  poisoned, poisoned);
-}, 'Atomics.wake(new Uint32Array(nonsab)) throws TypeError');
+}, '`Atomics.wake(new Uint32Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint16Array(nonsab), poisoned, poisoned);
-}, 'Atomics.wake(new Uint16Array(nonsab)) throws TypeError');
+}, '`Atomics.wake(new Uint16Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint8Array(nonsab), poisoned, poisoned);
-}, 'Atomics.wake(new Uint8Array(nonsab)) throws TypeError');
+}, '`Atomics.wake(new Uint8Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
   Atomics.wake(new Uint8ClampedArray(nonsab), poisoned, poisoned);
-}, 'Atomics.wake(new Uint8ClampedArray(nonsab)) throws TypeError');
+}, '`Atomics.wake(new Uint8ClampedArray(nonsab), poisoned, poisoned)` throws TypeError');

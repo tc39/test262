@@ -34,4 +34,4 @@ try {
 
 assert.throws(TypeError, function() {
   Atomics.wake(i32a, poisoned, poisoned);
-}, 'Atomics.wake(i32a, poisoned, poisoned) on detached buffer throws TypeError');
+}, '`Atomics.wake(i32a, poisoned, poisoned)` throws TypeError');

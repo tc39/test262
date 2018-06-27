@@ -24,7 +24,7 @@ $262.agent.start(`
     const i64a = new BigInt64Array(sab);
 
     $262.agent.report(${agent1});
-    $262.agent.report(Atomics.wait(i64a, 1, 0));
+    $262.agent.report(Atomics.wait(i64a, 1, 0n));
     $262.agent.report(${agent1});
     $262.agent.leaving();
   });
@@ -35,7 +35,7 @@ $262.agent.start(`
     const i64a = new BigInt64Array(sab);
 
     $262.agent.report(${agent2});
-    $262.agent.report(Atomics.wait(i64a, 2, 0));
+    $262.agent.report(Atomics.wait(i64a, 2, 0n));
     $262.agent.report(${agent2});
     $262.agent.leaving();
   });
@@ -46,7 +46,7 @@ $262.agent.start(`
     const i64a = new BigInt64Array(sab);
 
     $262.agent.report(${agent3});
-    $262.agent.report(Atomics.wait(i64a, 3, 0));
+    $262.agent.report(Atomics.wait(i64a, 3, 0n));
     $262.agent.report(${agent3});
     $262.agent.leaving();
   });
@@ -64,14 +64,26 @@ $262.agent.sleep(100);
 const started = [$262.agent.getReport(), $262.agent.getReport(), $262.agent.getReport()];
 
 // Agents must wake in the order they waited
-assert.sameValue(Atomics.wake(i64a, 1, 1), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
-assert.sameValue($262.agent.getReport(), started[0]);
+assert.sameValue(Atomics.wake(i64a, 1, 1), 1, 'Atomics.wake(i64a, 1, 1) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+assert.sameValue(
+  $262.agent.getReport(),
+  started[0],
+  `$262.agent.getReport() returns the value of 'started[0]' (${started[0]})`
+);
 
-assert.sameValue(Atomics.wake(i64a, 2, 1), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
-assert.sameValue($262.agent.getReport(), started[1]);
+assert.sameValue(Atomics.wake(i64a, 2, 1), 1, 'Atomics.wake(i64a, 2, 1) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+assert.sameValue(
+  $262.agent.getReport(),
+  started[1],
+  `$262.agent.getReport() returns the value of 'started[1]' (${started[1]})`
+);
 
-assert.sameValue(Atomics.wake(i64a, 3, 1), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
-assert.sameValue($262.agent.getReport(), started[2]);
+assert.sameValue(Atomics.wake(i64a, 3, 1), 1, 'Atomics.wake(i64a, 3, 1) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
+assert.sameValue(
+  $262.agent.getReport(),
+  started[2],
+  `$262.agent.getReport() returns the value of 'started[2]' (${started[2]})`
+);

@@ -8,15 +8,15 @@ includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(1024);
-var ab = new ArrayBuffer(16);
-var views = intArrayConstructors.slice();
+const sab = new SharedArrayBuffer(1024);
+const ab = new ArrayBuffer(16);
+const views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
   // Make it interesting - use non-zero byteOffsets and non-zero indexes.
 
-  var view = new TA(sab, 32, 20);
-  var control = new TA(ab, 0, 2);
+  const view = new TA(sab, 32, 20);
+  const control = new TA(ab, 0, 2);
 
   // Performs the exchange
   view[8] = 0;
@@ -36,26 +36,26 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(Atomics.compareExchange(view, 8, 0, -5), 0,
     'Atomics.compareExchange(view, 8, 0, -5) returns 0');
   control[0] = -5;
-  assert.sameValue(view[8], control[0], 'The value of view[8] equals the value of control[0] (-5)');
+  assert.sameValue(view[8], control[0], 'The value of view[8] equals the value of `control[0]` (-5)');
 
 
   view[3] = -5;
   control[0] = -5;
   assert.sameValue(Atomics.compareExchange(view, 3, -5, 0), control[0],
-    'Atomics.compareExchange(view, 3, -5, 0) equals the value of control[0] (-5)');
+    'Atomics.compareExchange(view, 3, -5, 0) returns the value of `control[0]` (-5)');
   assert.sameValue(view[3], 0, 'The value of view[3] is 0');
 
 
   control[0] = 12345;
   view[3] = 12345;
   assert.sameValue(Atomics.compareExchange(view, 3, 12345, 0), control[0],
-    'Atomics.compareExchange(view, 3, 12345, 0) equals the value of control[0] (12345)');
+    'Atomics.compareExchange(view, 3, 12345, 0) returns the value of `control[0]` (12345)');
   assert.sameValue(view[3], 0, 'The value of view[3] is 0');
 
   control[0] = 123456789;
   view[3] = 123456789;
   assert.sameValue(Atomics.compareExchange(view, 3, 123456789, 0), control[0],
-    'Atomics.compareExchange(view, 3, 123456789, 0) equals the value of control[0] (123456789)');
+    'Atomics.compareExchange(view, 3, 123456789, 0) returns the value of `control[0]` (123456789)');
   assert.sameValue(view[3], 0, 'The value of view[3] is 0');
 
   // In-bounds boundary cases for indexing

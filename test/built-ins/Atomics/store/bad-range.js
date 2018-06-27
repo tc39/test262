@@ -9,14 +9,14 @@ includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);
-var views = intArrayConstructors.slice();
+const buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);
+const views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
-  let view = new TA(buffer);
+  const view = new TA(buffer);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     assert.throws(RangeError, function() {
       Atomics.store(view, IdxGen(view), 10);
-    }, 'Atomics.store(view, IdxGen(view), 10) throws RangeError');
+    }, '`Atomics.store(view, IdxGen(view), 10)` throws RangeError');
   });
 }, views);

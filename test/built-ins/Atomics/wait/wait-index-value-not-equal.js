@@ -33,6 +33,14 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(100);
 
-assert.sameValue($262.agent.getReport(), 'not-equal');
-assert.sameValue($262.agent.getReport(), 'not-equal');
-assert.sameValue(Atomics.wake(i32a, 0), 0);
+assert.sameValue(
+  $262.agent.getReport(),
+  'not-equal',
+  '$262.agent.getReport() returns "not-equal"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'not-equal',
+  '$262.agent.getReport() returns "not-equal"'
+);
+assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0');

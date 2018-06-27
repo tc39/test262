@@ -8,15 +8,15 @@ includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(1024);
-var ab = new ArrayBuffer(16);
-var views = intArrayConstructors.slice();
+const sab = new SharedArrayBuffer(1024);
+const ab = new ArrayBuffer(16);
+const views = intArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
   // Make it interesting - use non-zero byteOffsets and non-zero indexes.
 
-  var view = new TA(sab, 32, 20);
-  var control = new TA(ab, 0, 2);
+  const view = new TA(sab, 32, 20);
+  const control = new TA(ab, 0, 2);
 
   // Add positive number
   view[8] = 0;
@@ -30,17 +30,17 @@ testWithTypedArrayConstructors(function(TA) {
   view[3] = -5;
   control[0] = -5;
   assert.sameValue(Atomics.add(view, 3, 0), control[0],
-    'Atomics.add(view, 3, 0) equals the value of control[0] (-5)');
+    'Atomics.add(view, 3, 0) returns the value of `control[0]` (-5)');
 
   control[0] = 12345;
   view[3] = 12345;
   assert.sameValue(Atomics.add(view, 3, 0), control[0],
-    'Atomics.add(view, 3, 0) equals the value of control[0] (12345)');
+    'Atomics.add(view, 3, 0) returns the value of `control[0]` (12345)');
 
   control[0] = 123456789;
   view[3] = 123456789;
   assert.sameValue(Atomics.add(view, 3, 0), control[0],
-    'Atomics.add(view, 3, 0) equals the value of control[0] (123456789)');
+    'Atomics.add(view, 3, 0) returns the value of `control[0]` (123456789)');
 
   // In-bounds boundary cases for indexing
   testWithAtomicsInBoundsIndices(function(IdxGen) {

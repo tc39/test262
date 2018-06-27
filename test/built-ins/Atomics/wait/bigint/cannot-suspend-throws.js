@@ -1,6 +1,5 @@
 // Copyright (C) 2018 Amal Hussein. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.wait
 description: >
@@ -17,11 +16,8 @@ info: |
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 flags: [CanBlockIsFalse]
 ---*/
-
-const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
-);
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8));
 
 assert.throws(TypeError, function() {
-  Atomics.wait(i64a, 0, 0, 0);
-});
+  Atomics.wait(i64a, 0, 0n, 0);
+}, '`Atomics.wait(i64a, 0, 0n, 0)` throws TypeError');

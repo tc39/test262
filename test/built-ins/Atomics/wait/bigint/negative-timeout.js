@@ -13,4 +13,8 @@ const i64a = new BigInt64Array(
   new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
 );
 
-assert.sameValue(Atomics.wait(i64a, 0, 0, -1), "timed-out");
+assert.sameValue(
+  Atomics.wait(i64a, 0, 0n, -1),
+  "timed-out",
+  'Atomics.wait(i64a, 0, 0n, -1) returns "timed-out"'
+);

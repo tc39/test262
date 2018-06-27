@@ -42,12 +42,12 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT),
   WAKECOUNT,
-  'Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT) equals the value of `WAKECOUNT` (0)'
+  'Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT) returns the value of `WAKECOUNT` (0)'
 );
 
 // Sleep past the timeout
 $262.agent.sleep(300);
 
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue($262.agent.getReport(), 'timed-out', `Report #${i}: must equal "timed-out"`);
+  assert.sameValue($262.agent.getReport(), 'timed-out', '$262.agent.getReport() returns "timed-out"');
 }

@@ -17,7 +17,7 @@ $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
     const before = $262.agent.monotonicNow();
-    const unpark = Atomics.wait(i64a, 0, 0, ${TIMEOUT});
+    const unpark = Atomics.wait(i64a, 0, 0n, ${TIMEOUT});
     $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.report(unpark);
     $262.agent.leaving();
@@ -32,10 +32,14 @@ Atomics.xor(i64a, 0, 1);
 const lapse = $262.agent.getReport();
 assert(
   lapse >= TIMEOUT,
-  `${lapse} should be at least ${TIMEOUT}`
+  'The result of `(lapse >= TIMEOUT)` is true'
 );
-assert.sameValue($262.agent.getReport(), 'timed-out');
-assert.sameValue(Atomics.wake(i64a, 0), 0);
+assert.sameValue(
+  $262.agent.getReport(),
+  'timed-out',
+  '$262.agent.getReport() returns "timed-out"'
+);
+assert.sameValue(Atomics.wake(i64a, 0), 0, 'Atomics.wake(i64a, 0) returns 0');
 
 
 

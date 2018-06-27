@@ -20,7 +20,7 @@ features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
-    $262.agent.report(Atomics.wait(i64a, 0, 0, NaN));  // NaN => +Infinity
+    $262.agent.report(Atomics.wait(i64a, 0, 0n, NaN));  // NaN => +Infinity
     $262.agent.leaving();
   });
 `);
@@ -31,5 +31,5 @@ const i64a = new BigInt64Array(
 
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
-assert.sameValue(Atomics.wake(i64a, 0), 1);
-assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue(Atomics.wake(i64a, 0), 1, 'Atomics.wake(i64a, 0) returns 1');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

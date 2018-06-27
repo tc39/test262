@@ -17,6 +17,6 @@ testWithTypedArrayConstructors(function(TA) {
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     assert.throws(RangeError, function() {
       Atomics.xor(view, IdxGen(view), 0);
-    }, 'Atomics.xor(view, IdxGen(view), 0) throws RangeError');
+    }, '`Atomics.xor(view, IdxGen(view), 0)` throws RangeError');
   });
 }, views);

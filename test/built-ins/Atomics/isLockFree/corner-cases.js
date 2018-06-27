@@ -32,12 +32,12 @@ assert.sameValue(
 assert.sameValue(
   Atomics.isLockFree('1'),
   Atomics.isLockFree(1),
-  'Atomics.isLockFree("1") returns Atomics.isLockFree(1)'
+  'Atomics.isLockFree(\'1\') returns Atomics.isLockFree(1)'
 );
 assert.sameValue(
   Atomics.isLockFree('3'),
   Atomics.isLockFree(3),
-  'Atomics.isLockFree("3") returns Atomics.isLockFree(3)'
+  'Atomics.isLockFree(\'3\') returns Atomics.isLockFree(3)'
 );
 
 assert.sameValue(
@@ -59,12 +59,12 @@ assert.sameValue(
 assert.sameValue(
   Atomics.isLockFree(1),
   Atomics.isLockFree({toString: () => '1'}),
-  'Atomics.isLockFree(1) returns Atomics.isLockFree({toString: () => "1"})'
+  'Atomics.isLockFree(1) returns Atomics.isLockFree({toString: () => \'1\'})'
 );
 assert.sameValue(
   Atomics.isLockFree(3),
   Atomics.isLockFree({toString: () => '3'}),
-  'Atomics.isLockFree(3) returns Atomics.isLockFree({toString: () => "3"})'
+  'Atomics.isLockFree(3) returns Atomics.isLockFree({toString: () => \'3\'})'
 );
 
 function hide(k, x) {

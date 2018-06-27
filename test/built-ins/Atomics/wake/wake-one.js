@@ -46,7 +46,7 @@ $262.agent.sleep(10);
 assert.sameValue(
   Atomics.wake(i32a, 0, WAKECOUNT),
   WAKECOUNT,
-  'Atomics.wake(i32a, 0, WAKECOUNT) equals the value of `WAKECOUNT` (1)'
+  'Atomics.wake(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT` (1)'
 );
 
 // Collect and check results

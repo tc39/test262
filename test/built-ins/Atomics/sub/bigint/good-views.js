@@ -1,53 +1,57 @@
 // Copyright (C) 2018 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.sub
 description: Test Atomics.sub on arrays that allow atomic operations
 includes: [testAtomics.js, testBigIntTypedArray.js]
 features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
 ---*/
-
-var sab = new SharedArrayBuffer(1024);
-var ab = new ArrayBuffer(16);
+// Make it interesting - use non-zero byteOffsets and non-zero indexes.
+// In-bounds boundary cases for indexing
+// Atomics.store() computes an index from Idx in the same way as other
+// Atomics operations, not quite like view[Idx].
+const sab = new SharedArrayBuffer(1024);
+const ab = new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  // Make it interesting - use non-zero byteOffsets and non-zero indexes.
+  const view = new TA(sab, 32, 20);
+  const control = new TA(ab, 0, 2);
+  view[8] = 100n;
+  assert.sameValue(Atomics.sub(view, 8, 10n), 100n, 'Atomics.sub(view, 8, 10n) returns 100n');
+  assert.sameValue(view[8], 90n, 'The value of view[8] is 90n');
+  assert.sameValue(Atomics.sub(view, 8, -5n), 90n, 'Atomics.sub(view, 8, -5n) returns 90n');
+  assert.sameValue(view[8], 95, 'The value of view[8] is 95');
+  view[3] = -5n;
+  control[0] = -5n;
 
-  var view = new TA(sab, 32, 20);
-  var control = new TA(ab, 0, 2);
+  assert.sameValue(
+    Atomics.sub(view, 3, 0n),
+    control[0],
+    'Atomics.sub(view, 3, 0n) returns the value of `control[0]` (-5n)'
+  );
 
-  view[8] = 100;
-  assert.sameValue(Atomics.sub(view, 8, 10), 100,
-    "Subtract positive number");
-  assert.sameValue(view[8], 90);
+  control[0] = 12345n;
+  view[3] = 12345n;
 
-  assert.sameValue(Atomics.sub(view, 8, -5), 90,
-    "Subtract negative number, though result remains positive");
-  assert.sameValue(view[8], 95);
+  assert.sameValue(
+    Atomics.sub(view, 3, 0n),
+    control[0],
+    'Atomics.sub(view, 3, 0n) returns the value of `control[0]` (12345n)'
+  );
 
-  view[3] = -5;
-  control[0] = -5;
-  assert.sameValue(Atomics.sub(view, 3, 0), control[0],
-    "Result is negative and subject to coercion");
+  control[0] = 123456789n;
+  view[3] = 123456789n;
 
-  control[0] = 12345;
-  view[3] = 12345;
-  assert.sameValue(Atomics.sub(view, 3, 0), control[0],
-    "Result is subject to chopping");
+  assert.sameValue(
+    Atomics.sub(view, 3, 0n),
+    control[0],
+    'Atomics.sub(view, 3, 0n) returns the value of `control[0]` (123456789n)'
+  );
 
-  control[0] = 123456789;
-  view[3] = 123456789;
-  assert.sameValue(Atomics.sub(view, 3, 0), control[0],
-    "Result is subject to chopping");
-
-  // In-bounds boundary cases for indexing
   testWithAtomicsInBoundsIndices(function(IdxGen) {
     let Idx = IdxGen(view);
-    view.fill(0);
-    // Atomics.store() computes an index from Idx in the same way as other
-    // Atomics operations, not quite like view[Idx].
-    Atomics.store(view, Idx, 37);
-    assert.sameValue(Atomics.sub(view, Idx, 0), 37);
+    view.fill(0n);
+    Atomics.store(view, Idx, 37n);
+    assert.sameValue(Atomics.sub(view, Idx, 0n), 37n, 'Atomics.sub(view, Idx, 0n) returns 37n');
   });
 });

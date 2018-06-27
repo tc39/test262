@@ -27,18 +27,19 @@ info: |
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
-var i32a = new Int32Array(buffer);
-var initial = 0b00000001000000001000000010000001;
-var other = 0b00000001111111111000000011111111;
-var anded = 0b00000001000000001000000010000001;
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
+const a = 0b00000001000000001000000010000001;
+const b = 0b00000001111111111000000011111111;
+const c = 0b00000001000000001000000010000001;
 
-i32a[0] = initial;
+i32a[0] = a;
 
 assert.sameValue(
-  Atomics.and(i32a, 0, other),
-  initial,
-  'Atomics.and(i32a, 0, other) equals the value of `initial` (0b00000001000000001000000010000001)'
+  Atomics.and(i32a, 0, b),
+  a,
+  'Atomics.and(i32a, 0, b) returns the value of `a` (0b00000001000000001000000010000001)'
 );
 
-assert.sameValue(i32a[0], anded, 'The value of i32a[0] equals the value of `anded` (0b00000001000000001000000010000001)');
+assert.sameValue(i32a[0], c, 'The value of i32a[0] equals the value of `c` (0b00000001000000001000000010000001)');

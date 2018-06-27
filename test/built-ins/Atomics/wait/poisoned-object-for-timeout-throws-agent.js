@@ -54,14 +54,22 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(150);
 
-assert.sameValue($262.agent.getReport(), 'poisonedValueOf');
-assert.sameValue($262.agent.getReport(), 'poisonedToPrimitive');
+assert.sameValue(
+  $262.agent.getReport(),
+  'poisonedValueOf',
+  '$262.agent.getReport() returns "poisonedValueOf"'
+);
+assert.sameValue(
+  $262.agent.getReport(),
+  'poisonedToPrimitive',
+  '$262.agent.getReport() returns "poisonedToPrimitive"'
+);
 
 const lapse = $262.agent.getReport();
 
-assert(lapse >= 0, 'timeout should be a min of 0ms');
+assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (The result of `(lapse >= 0)` is true (timeout should be a min of 0ms))');
 
-assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'timeout should be a max of $$262.agent.MAX_TIME_EPSILON');
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (timeout should be a max of $$262.agent.MAX_TIME_EPSILON))');
 
-assert.sameValue(Atomics.wake(i32a, 0), 0);
+assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0');
 
