@@ -61,17 +61,17 @@ $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(100);
 
 // Agents may be started in any order...
-const started = [getReport(), getReport(), getReport()];
+const started = [$262.agent.getReport(), $262.agent.getReport(), $262.agent.getReport()];
 
 // Agents must wake in the order they waited
 assert.sameValue(Atomics.wake(i64a, 1, 1), 1);
-assert.sameValue(getReport(), 'ok');
-assert.sameValue(getReport(), started[0]);
+assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), started[0]);
 
 assert.sameValue(Atomics.wake(i64a, 2, 1), 1);
-assert.sameValue(getReport(), 'ok');
-assert.sameValue(getReport(), started[1]);
+assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), started[1]);
 
 assert.sameValue(Atomics.wake(i64a, 3, 1), 1);
-assert.sameValue(getReport(), 'ok');
-assert.sameValue(getReport(), started[2]);
+assert.sameValue($262.agent.getReport(), 'ok');
+assert.sameValue($262.agent.getReport(), started[2]);

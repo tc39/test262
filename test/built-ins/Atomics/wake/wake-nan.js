@@ -27,4 +27,4 @@ assert.sameValue(Atomics.wake(i32a, 0, NaN), 0, 'Atomics.wake(i32a, 0, NaN) retu
 
 // Sleep past the timeout
 $262.agent.sleep(300);
-assert.sameValue(getReport(), 'timed-out', 'getReport() returns "timed-out"');
+assert.sameValue($262.agent.getReport(), 'timed-out', '$262.agent.getReport() returns "timed-out"');

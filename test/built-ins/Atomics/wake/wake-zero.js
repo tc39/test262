@@ -34,7 +34,7 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-waitUntil(i32a, RUNNING, NUMAGENT);
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
 // There's a slight risk we'll fail to wake the desired count, if the preceding
 // sleep() took much longer than anticipated and workers have started timing
@@ -49,5 +49,5 @@ assert.sameValue(
 $262.agent.sleep(300);
 
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue(getReport(), 'timed-out', `Report #${i}: must equal "timed-out"`);
+  assert.sameValue($262.agent.getReport(), 'timed-out', `Report #${i}: must equal "timed-out"`);
 }

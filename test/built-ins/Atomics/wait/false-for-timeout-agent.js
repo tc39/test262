@@ -47,15 +47,15 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(100);
 
-assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(getReport(), 'timed-out');
-assert.sameValue(getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
+assert.sameValue($262.agent.getReport(), 'timed-out');
 
-var lapse = getReport();
+var lapse = $262.agent.getReport();
 
 assert(lapse >= 0, 'timeout should be a min of 0ms');
 
-assert(lapse <= $ATOMICS_MAX_TIME_EPSILON, `timeout should be a max of ${$ATOMICS_MAX_TIME_EPSILON}`);
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, `timeout should be a max of ${$262.agent.MAX_TIME_EPSILON}`);
 
 assert.sameValue(Atomics.wake(i32a, 0), 0);
 

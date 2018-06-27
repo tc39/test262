@@ -62,7 +62,7 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-waitUntil(i32a, RUNNING, NUMAGENT);
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, undefined),
@@ -70,13 +70,13 @@ assert.sameValue(
   'Atomics.wake(i32a, WAIT_INDEX, undefined) equals the value of `NUMAGENT` (4)'
 );
 
-const sortedReports = [];
+const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {
-  sortedReports.push(getReport());
+  reports.push($262.agent.getReport());
 }
-sortedReports.sort();
+reports.sort();
 
-assert.sameValue(sortedReports[0], 'A ok', 'The value of sortedReports[0] is "A ok"');
-assert.sameValue(sortedReports[1], 'B ok', 'The value of sortedReports[1] is "B ok"');
-assert.sameValue(sortedReports[2], 'C ok', 'The value of sortedReports[2] is "C ok"');
-assert.sameValue(sortedReports[3], 'D ok', 'The value of sortedReports[3] is "D ok"');
+assert.sameValue(reports[0], 'A ok', 'The value of reports[0] is "A ok"');
+assert.sameValue(reports[1], 'B ok', 'The value of reports[1] is "B ok"');
+assert.sameValue(reports[2], 'C ok', 'The value of reports[2] is "C ok"');
+assert.sameValue(reports[3], 'D ok', 'The value of reports[3] is "D ok"');

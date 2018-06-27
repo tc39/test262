@@ -60,8 +60,8 @@ assert.sameValue(Atomics.wake(i64a, 5), 0, 'Atomics.wake(i64a, 5) returns 0');
 
 // Wake index 7, wakes 1
 assert.sameValue(Atomics.wake(i64a, 7), 1, 'Atomics.wake(i64a, 7) returns 1');
-assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 // Wake index 0, wakes 1
 assert.sameValue(Atomics.wake(i64a, 0), 1, 'Atomics.wake(i64a, 0) returns 1');
-assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

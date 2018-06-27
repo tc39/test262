@@ -56,8 +56,8 @@ assert.sameValue(Atomics.wake(i32a, 3), 0, 'Atomics.wake(i32a, 3) returns 0');
 
 // Wake index 2, wakes 1
 assert.sameValue(Atomics.wake(i32a, 2), 1, 'Atomics.wake(i32a, 2) returns 1');
-assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 // Wake index 0, wakes 1
 assert.sameValue(Atomics.wake(i32a, 0), 1, 'Atomics.wake(i32a, 0) returns 1');
-assert.sameValue(getReport(), 'ok', 'getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

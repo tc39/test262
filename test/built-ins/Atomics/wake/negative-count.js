@@ -24,5 +24,5 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.sleep(500); // Give the agent a chance to wait
 assert.sameValue(Atomics.wake(i32a, 0, -1), 0, 'Atomics.wake(i32a, 0, -1) returns 0'); // Don't actually wake it
-assert.sameValue(getReport(), 'timed-out', 'getReport() returns "timed-out"');
+assert.sameValue($262.agent.getReport(), 'timed-out', '$262.agent.getReport() returns "timed-out"');
 
