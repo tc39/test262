@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.wake wakes zero waiters if the count is negative
+  Test that Atomics.notify wakes zero waiters if the count is negative
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -32,6 +32,6 @@ $262.agent.waitUntil(i32a, RUNNING, 1);
 // Try to yield control to ensure the agent actually started to wait.
 $262.agent.tryYield();
 
-assert.sameValue(Atomics.wake(i32a, 0, -1), 0, 'Atomics.wake(i32a, 0, -1) returns 0'); // Don't actually wake it
+assert.sameValue(Atomics.notify(i32a, 0, -1), 0, 'Atomics.notify(i32a, 0, -1) returns 0'); // Don't actually notify it
 
 assert.sameValue($262.agent.getReport(), 'timed-out', '$262.agent.getReport() returns "timed-out"');

@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Return abrupt when ToInteger throws for 'index' argument to Atomics.wake
+  Return abrupt when ToInteger throws for 'index' argument to Atomics.notify
 info: |
-  Atomics.wake( typedArray, index, value, timeout )
+  Atomics.notify( typedArray, index, value, timeout )
 
   2. Let i be ? ValidateAtomicAccess(typedArray, index).
 
@@ -45,17 +45,17 @@ const poisonedToPrimitive = {
 };
 
 assert.throws(Test262Error, function() {
-  Atomics.wake(i32a, poisonedValueOf, poisonedValueOf);
-}, '`Atomics.wake(i32a, poisonedValueOf, poisonedValueOf)` throws Test262Error');
+  Atomics.notify(i32a, poisonedValueOf, poisonedValueOf);
+}, '`Atomics.notify(i32a, poisonedValueOf, poisonedValueOf)` throws Test262Error');
 
 assert.throws(Test262Error, function() {
-  Atomics.wake(i32a, poisonedToPrimitive, poisonedToPrimitive);
-}, '`Atomics.wake(i32a, poisonedToPrimitive, poisonedToPrimitive)` throws Test262Error');
+  Atomics.notify(i32a, poisonedToPrimitive, poisonedToPrimitive);
+}, '`Atomics.notify(i32a, poisonedToPrimitive, poisonedToPrimitive)` throws Test262Error');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(i32a, Symbol("foo"), poisonedValueOf);
-}, '`Atomics.wake(i32a, Symbol("foo"), poisonedValueOf)` throws TypeError');
+  Atomics.notify(i32a, Symbol("foo"), poisonedValueOf);
+}, '`Atomics.notify(i32a, Symbol("foo"), poisonedValueOf)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(i32a, Symbol("foo"), poisonedToPrimitive);
-}, '`Atomics.wake(i32a, Symbol("foo"), poisonedToPrimitive)` throws TypeError');
+  Atomics.notify(i32a, Symbol("foo"), poisonedToPrimitive);
+}, '`Atomics.notify(i32a, Symbol("foo"), poisonedToPrimitive)` throws TypeError');

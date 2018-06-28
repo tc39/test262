@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Allowed boundary cases for 'count' argument to Atomics.wake
+  Allowed boundary cases for 'count' argument to Atomics.notify
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   ...
   3. If count is undefined, let c be +∞.
@@ -30,32 +30,32 @@ const i32a = new Int32Array(
 );
 
 assert.sameValue(
-  Atomics.wake(i32a, 0, -3),
+  Atomics.notify(i32a, 0, -3),
   0,
-  'Atomics.wake(i32a, 0, -3) returns 0'
+  'Atomics.notify(i32a, 0, -3) returns 0'
 );
 assert.sameValue(
-  Atomics.wake(i32a, 0, Number.POSITIVE_INFINITY),
+  Atomics.notify(i32a, 0, Number.POSITIVE_INFINITY),
   0,
-  'Atomics.wake(i32a, 0, Number.POSITIVE_INFINITY) returns 0'
+  'Atomics.notify(i32a, 0, Number.POSITIVE_INFINITY) returns 0'
 );
 assert.sameValue(
-  Atomics.wake(i32a, 0, undefined),
+  Atomics.notify(i32a, 0, undefined),
   0,
-  'Atomics.wake(i32a, 0, undefined) returns 0'
+  'Atomics.notify(i32a, 0, undefined) returns 0'
 );
 assert.sameValue(
-  Atomics.wake(i32a, 0, '33'),
+  Atomics.notify(i32a, 0, '33'),
   0,
-  'Atomics.wake(i32a, 0, \'33\') returns 0'
+  'Atomics.notify(i32a, 0, \'33\') returns 0'
 );
 assert.sameValue(
-  Atomics.wake(i32a, 0, { valueOf: 8 }),
+  Atomics.notify(i32a, 0, { valueOf: 8 }),
   0,
-  'Atomics.wake(i32a, 0, {valueOf: 8}) returns 0'
+  'Atomics.notify(i32a, 0, {valueOf: 8}) returns 0'
 );
 assert.sameValue(
-  Atomics.wake(i32a, 0),
+  Atomics.notify(i32a, 0),
   0,
-  'Atomics.wake(i32a, 0) returns 0'
+  'Atomics.notify(i32a, 0) returns 0'
 );

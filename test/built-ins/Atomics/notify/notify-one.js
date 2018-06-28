@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.wake wakes one waiter if that's what the count is.
+  Test that Atomics.notify wakes one waiter if that's what the count is.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -46,9 +46,9 @@ $262.agent.tryYield();
 // tryYield() took much longer than anticipated and workers have started timing
 // out.
 assert.sameValue(
-  Atomics.wake(i32a, 0, WAKECOUNT),
+  Atomics.notify(i32a, 0, WAKECOUNT),
   WAKECOUNT,
-  'Atomics.wake(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT`'
+  'Atomics.notify(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT`'
 );
 
 // Try to sleep past the timeout.

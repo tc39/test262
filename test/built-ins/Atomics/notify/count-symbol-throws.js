@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Return abrupt when symbol passed for 'count' argument to Atomics.wake
+  Return abrupt when symbol passed for 'count' argument to Atomics.notify
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   ...
   3. If count is undefined, let c be +∞.
@@ -22,5 +22,5 @@ const i32a = new Int32Array(
 );
 
 assert.throws(TypeError, function() {
-  Atomics.wake(i32a, 0, Symbol());
-}, '`Atomics.wake(i32a, 0, Symbol())` throws TypeError');
+  Atomics.notify(i32a, 0, Symbol());
+}, '`Atomics.notify(i32a, 0, Symbol())` throws TypeError');

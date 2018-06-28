@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  NaNs are converted to 0 for 'count' argument to Atomics.wake
+  NaNs are converted to 0 for 'count' argument to Atomics.notify
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   ...
   3. If count is undefined, let c be +∞.
@@ -29,5 +29,5 @@ const i32a = new Int32Array(
 );
 
 NaNs.forEach(nan => {
-  assert.sameValue(Atomics.wake(i32a, 0, nan), 0, 'Atomics.wake(i32a, 0, nan) returns 0');
+  assert.sameValue(Atomics.notify(i32a, 0, nan), 0, 'Atomics.notify(i32a, 0, nan) returns 0');
 });

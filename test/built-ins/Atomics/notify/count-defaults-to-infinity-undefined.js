@@ -6,7 +6,7 @@ esid: sec-atomics.notify
 description: >
   Undefined count arg should result in an infinite count
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   3.If count is undefined, let c be +∞.
 
@@ -49,8 +49,8 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 // actually started to wait.
 $262.agent.tryYield();
 
-assert.sameValue(Atomics.wake(i32a, WAIT_INDEX, undefined), NUMAGENT,
-                 'Atomics.wake(i32a, WAIT_INDEX, undefined) returns the value of `NUMAGENT`');
+assert.sameValue(Atomics.notify(i32a, WAIT_INDEX, undefined), NUMAGENT,
+                 'Atomics.notify(i32a, WAIT_INDEX, undefined) returns the value of `NUMAGENT`');
 
 const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {

@@ -5,9 +5,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Atomics.wake.length is 3.
+  Atomics.notify.length is 3.
 info: |
-  Atomics.wake ( ia, index, count )
+  Atomics.notify ( ia, index, count )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, has a length
@@ -24,7 +24,7 @@ includes: [propertyHelper.js]
 features: [Atomics]
 ---*/
 
-verifyProperty(Atomics.wake, 'length', {
+verifyProperty(Atomics.notify, 'length', {
   value: 3,
   enumerable: false,
   writable: false,

@@ -5,7 +5,7 @@ esid: sec-atomics.notify
 description: >
   Throws a TypeError if typedArray.buffer is not a SharedArrayBuffer
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
     ...
@@ -26,9 +26,9 @@ const poisoned = {
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wake(i32a, 0, 0);
-}, '`Atomics.wake(i32a, 0, 0)` throws TypeError');
+  Atomics.notify(i32a, 0, 0);
+}, '`Atomics.notify(i32a, 0, 0)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(i32a, poisoned, poisoned);
-}, '`Atomics.wake(i32a, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(i32a, poisoned, poisoned);
+}, '`Atomics.notify(i32a, poisoned, poisoned)` throws TypeError');

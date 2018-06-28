@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.wake wakes all waiters on a location, but does not
+  Test that Atomics.notify wakes all waiters on a location, but does not
   wake waiters on other locations.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
@@ -68,9 +68,9 @@ $262.agent.tryYield();
 
 // Wake all waiting on WAIT_INDEX, should be 3 always, they won't time out.
 assert.sameValue(
-  Atomics.wake(i32a, WAIT_INDEX),
+  Atomics.notify(i32a, WAIT_INDEX),
   NUMAGENT,
-  'Atomics.wake(i32a, WAIT_INDEX) returns the value of `NUMAGENT`'
+  'Atomics.notify(i32a, WAIT_INDEX) returns the value of `NUMAGENT`'
 );
 
 Atomics.store(i32a, WAKE_INDEX, 1);

@@ -6,7 +6,7 @@ esid: sec-atomics.notify
 description: >
   Throws a TypeError if typedArray arg is not an BigInt64Array
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
     ...

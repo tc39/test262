@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Default to +Infinity when missing 'count' argument to Atomics.wake
+  Default to +Infinity when missing 'count' argument to Atomics.notify
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   ...
   3. If count is undefined, let c be +∞.
@@ -51,8 +51,8 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 // actually started to wait.
 $262.agent.tryYield();
 
-assert.sameValue(Atomics.wake(i32a, WAIT_INDEX /*, count missing */), NUMAGENT,
-                 'Atomics.wake(i32a, WAIT_INDEX /*, count missing */) returns the value of `NUMAGENT`');
+assert.sameValue(Atomics.notify(i32a, WAIT_INDEX /*, count missing */), NUMAGENT,
+                 'Atomics.notify(i32a, WAIT_INDEX /*, count missing */) returns the value of `NUMAGENT`');
 
 const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {

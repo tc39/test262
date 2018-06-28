@@ -4,13 +4,13 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test Atomics.wake on view values other than TypedArrays
+  Test Atomics.notify on view values other than TypedArrays
 includes: [testAtomics.js]
 features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 testWithAtomicsNonViewValues(function(nonView) {
   assert.throws(TypeError, function() {
-    Atomics.wake(nonView, 0, 0);
-  }, '`Atomics.wake(nonView, 0, 0)` throws TypeError'); // Even with count == 0
+    Atomics.notify(nonView, 0, 0);
+  }, '`Atomics.notify(nonView, 0, 0)` throws TypeError'); // Even with count == 0
 });

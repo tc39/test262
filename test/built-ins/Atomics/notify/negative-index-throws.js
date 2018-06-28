@@ -6,7 +6,7 @@ esid: sec-atomics.notify
 description: >
   Throws a RangeError is index < 0
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   2.Let i be ? ValidateAtomicAccess(typedArray, index).
     ...
@@ -27,14 +27,14 @@ const poisoned = {
 };
 
 assert.throws(RangeError, function() {
-  Atomics.wake(i32a, -Infinity, poisoned);
-}, '`Atomics.wake(i32a, -Infinity, poisoned)` throws RangeError');
+  Atomics.notify(i32a, -Infinity, poisoned);
+}, '`Atomics.notify(i32a, -Infinity, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.wake(i32a, -7.999, poisoned);
-}, '`Atomics.wake(i32a, -7.999, poisoned)` throws RangeError');
+  Atomics.notify(i32a, -7.999, poisoned);
+}, '`Atomics.notify(i32a, -7.999, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.wake(i32a, -1, poisoned);
-}, '`Atomics.wake(i32a, -1, poisoned)` throws RangeError');
+  Atomics.notify(i32a, -1, poisoned);
+}, '`Atomics.notify(i32a, -1, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.wake(i32a, -300, poisoned);
-}, '`Atomics.wake(i32a, -300, poisoned)` throws RangeError');
+  Atomics.notify(i32a, -300, poisoned);
+}, '`Atomics.notify(i32a, -300, poisoned)` throws RangeError');
