@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Return abrupt when ToInteger throws an exception on 'count' argument to Atomics.wake
+  Return abrupt when ToInteger throws an exception on 'count' argument to Atomics.notify
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   ...
   3. If count is undefined, let c be +∞.
@@ -28,5 +28,5 @@ const poisoned = {
 };
 
 assert.throws(Test262Error, function() {
-  Atomics.wake(i32a, 0, poisoned);
-}, '`Atomics.wake(i32a, 0, poisoned)` throws Test262Error');
+  Atomics.notify(i32a, 0, poisoned);
+}, '`Atomics.notify(i32a, 0, poisoned)` throws Test262Error');

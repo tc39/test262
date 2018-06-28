@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.wake wakes zero waiters if the count is NaN
+  Test that Atomics.nofity nofities zero waiters if the count is NaN
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -32,7 +32,7 @@ $262.agent.waitUntil(i32a, RUNNING, 1);
 // Try to yield control to ensure the agent actually started to wait.
 $262.agent.tryYield();
 
-assert.sameValue(Atomics.wake(i32a, 0, NaN), 0, 'Atomics.wake(i32a, 0, NaN) returns 0');
+assert.sameValue(Atomics.notify(i32a, 0, NaN), 0, 'Atomics.notify(i32a, 0, NaN) returns 0');
 
 // Try to sleep past the timeout.
 $262.agent.trySleep(TIMEOUT);

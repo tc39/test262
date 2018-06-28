@@ -5,7 +5,7 @@ esid: sec-atomics.notify
 description: >
   Throws a TypeError if typedArray arg is not an Object
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
     ...
@@ -20,29 +20,29 @@ const poisoned = {
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wake(null, poisoned, poisoned);
-}, '`Atomics.wake(null, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(null, poisoned, poisoned);
+}, '`Atomics.notify(null, poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(undefined, poisoned, poisoned);
-}, '`Atomics.wake(undefined, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(undefined, poisoned, poisoned);
+}, '`Atomics.notify(undefined, poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(true, poisoned, poisoned);
-}, '`Atomics.wake(true, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(true, poisoned, poisoned);
+}, '`Atomics.notify(true, poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(false, poisoned, poisoned);
-}, '`Atomics.wake(false, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(false, poisoned, poisoned);
+}, '`Atomics.notify(false, poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake('***string***', poisoned, poisoned);
-}, '`Atomics.wake(\'***string***\', poisoned, poisoned)` throws TypeError');
+  Atomics.notify('***string***', poisoned, poisoned);
+}, '`Atomics.notify(\'***string***\', poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(Number.NEGATIVE_INFINITY, poisoned, poisoned);
-}, '`Atomics.wake(Number.NEGATIVE_INFINITY, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(Number.NEGATIVE_INFINITY, poisoned, poisoned);
+}, '`Atomics.notify(Number.NEGATIVE_INFINITY, poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(Symbol('***symbol***'), poisoned, poisoned);
-}, '`Atomics.wake(Symbol(\'***symbol***\'), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(Symbol('***symbol***'), poisoned, poisoned);
+}, '`Atomics.notify(Symbol(\'***symbol***\'), poisoned, poisoned)` throws TypeError');

@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.wake wakes agents in the order they are waiting.
+  Test that Atomics.notify wakes agents in the order they are waiting.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -64,9 +64,9 @@ for (var i = 0; i < NUMAGENT; i++) {
 var notified = [];
 for (var i = 0; i < NUMAGENT; i++) {
   assert.sameValue(
-    Atomics.wake(i32a, WAIT_INDEX, 1),
+    Atomics.notify(i32a, WAIT_INDEX, 1),
     1,
-    `Atomics.wake(i32a, WAIT_INDEX, 1) returns 1 (${i})`
+    `Atomics.notify(i32a, WAIT_INDEX, 1) returns 1 (${i})`
   );
 
   notified.push($262.agent.getReport());

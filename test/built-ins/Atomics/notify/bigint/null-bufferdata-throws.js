@@ -5,7 +5,7 @@ esid: sec-atomics.notify
 description: >
   A null value for bufferData throws a TypeError
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
     ...
@@ -32,5 +32,5 @@ try {
 }
 
 assert.throws(TypeError, function() {
-  Atomics.wake(i64a, poisoned, poisoned);
-}, '`Atomics.wake(i64a, poisoned, poisoned)` throws TypeError');
+  Atomics.notify(i64a, poisoned, poisoned);
+}, '`Atomics.notify(i64a, poisoned, poisoned)` throws TypeError');

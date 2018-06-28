@@ -5,7 +5,7 @@ esid: sec-atomics.notify
 description: >
   Throws a TypeError if the typedArray arg is not a TypedArray object
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   1.Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
     ...
