@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test Atomics.wake on non-shared integer TypedArrays
+  Test Atomics.notify on non-shared integer TypedArrays
 includes: [testTypedArray.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -18,25 +18,25 @@ const poisoned = {
 };
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new Int16Array(sab), poisoned, poisoned);
-}, '`Atomics.wake(new Int16Array(sab), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(new Int16Array(sab), poisoned, poisoned);
+}, '`Atomics.notify(new Int16Array(sab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new Int8Array(sab), poisoned, poisoned);
-}, '`Atomics.wake(new Int8Array(sab), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(new Int8Array(sab), poisoned, poisoned);
+}, '`Atomics.notify(new Int8Array(sab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new Uint32Array(sab),  poisoned, poisoned);
-}, '`Atomics.wake(new Uint32Array(sab), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(new Uint32Array(sab),  poisoned, poisoned);
+}, '`Atomics.notify(new Uint32Array(sab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new Uint16Array(sab), poisoned, poisoned);
-}, '`Atomics.wake(new Uint16Array(sab), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(new Uint16Array(sab), poisoned, poisoned);
+}, '`Atomics.notify(new Uint16Array(sab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new Uint8Array(sab), poisoned, poisoned);
-}, '`Atomics.wake(new Uint8Array(sab), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(new Uint8Array(sab), poisoned, poisoned);
+}, '`Atomics.notify(new Uint8Array(sab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.wake(new Uint8ClampedArray(sab), poisoned, poisoned);
-}, '`Atomics.wake(new Uint8ClampedArray(sab), poisoned, poisoned)` throws TypeError');
+  Atomics.notify(new Uint8ClampedArray(sab), poisoned, poisoned);
+}, '`Atomics.notify(new Uint8ClampedArray(sab), poisoned, poisoned)` throws TypeError');

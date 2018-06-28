@@ -5,12 +5,12 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Atomics.wake.name is "wake".
+  Atomics.notify.name is "wake".
 includes: [propertyHelper.js]
 features: [Atomics]
 ---*/
 
-verifyProperty(Atomics.wake, 'name', {
+verifyProperty(Atomics.notify, 'name', {
   value: 'wake',
   enumerable: false,
   writable: false,

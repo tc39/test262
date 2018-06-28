@@ -6,7 +6,7 @@ esid: sec-atomics.notify
 description: >
   An undefined index arg should translate to 0
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   2.Let i be ? ValidateAtomicAccess(typedArray, index).
     ...
@@ -60,14 +60,14 @@ $262.agent.tryYield();
 
 // Wake at index 0, undefined => 0.
 var woken = 0;
-while ((woken = Atomics.wake(i32a, undefined, 1)) === 0) ;
-assert.sameValue(woken, 1, 'Atomics.wake(i32a, undefined, 1) returns 1');
+while ((woken = Atomics.notify(i32a, undefined, 1)) === 0) ;
+assert.sameValue(woken, 1, 'Atomics.notify(i32a, undefined, 1) returns 1');
 
 assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
 // Wake again at index 0, default => 0.
 var woken = 0;
-while ((woken = Atomics.wake(i32a, /*, default values used */)) === 0) ;
-assert.sameValue(woken, 1, 'Atomics.wake(i32a /*, default values used */) returns 1');
+while ((woken = Atomics.notify(i32a, /*, default values used */)) === 0) ;
+assert.sameValue(woken, 1, 'Atomics.notify(i32a /*, default values used */) returns 1');
 
 assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

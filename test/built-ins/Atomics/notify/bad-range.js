@@ -4,9 +4,9 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test range checking of Atomics.wake on arrays that allow atomic operations
+  Test range checking of Atomics.notify on arrays that allow atomic operations
 info: |
-  Atomics.wake( typedArray, index, count )
+  Atomics.notify( typedArray, index, count )
 
   1. Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
   ..
@@ -21,6 +21,6 @@ const i32a = new Int32Array(
 
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
   assert.throws(RangeError, function() {
-    Atomics.wake(i32a, IdxGen(i32a), 0);
-  }, '`Atomics.wake(i32a, IdxGen(i32a), 0)` throws RangeError');
+    Atomics.notify(i32a, IdxGen(i32a), 0);
+  }, '`Atomics.notify(i32a, IdxGen(i32a), 0)` throws RangeError');
 });
