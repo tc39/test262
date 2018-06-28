@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.wait
 description: >
-  Waiter does not spuriously wake on index which is subject to exchange operation
+  Waiter does not spuriously notify on index which is subject to exchange operation
 includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
@@ -49,4 +49,9 @@ assert.sameValue(
   'timed-out',
   '$262.agent.getReport() returns "timed-out"'
 );
+<<<<<<< HEAD
 assert.sameValue(Atomics.wake(i64a, 0), 0, 'Atomics.wake(i64a, 0) returns 0');
+=======
+assert.sameValue(Atomics.notify(i64a, 0), 0, 'Atomics.notify(i64a, 0) returns 0');
+
+>>>>>>> e6e13b293e... First renaming for wake to notify in the wait folder
