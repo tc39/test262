@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Amal Hussein. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-atomics.wake
+esid: sec-atomics.notify
 description: >
   Throws a TypeError if the typedArray arg is not a TypedArray object
 info: |

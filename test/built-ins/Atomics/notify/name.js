@@ -3,7 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.wake
+esid: sec-atomics.notify
 description: >
   Atomics.wake.name is "wake".
 includes: [propertyHelper.js]
