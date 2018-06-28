@@ -4,14 +4,14 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.notify wakes zero waiters if that's what the count is.
+  Test that Atomics.notify notifies zero waiters if that's what the count is.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 const WAIT_INDEX = 0;             // Agents wait here
 const RUNNING = 1;                // Accounting of live agents here
-const WAKECOUNT = 0;
+const NOTIFYCOUNT = 0;
 const NUMAGENT = 3;
 const BUFFER_SIZE = 4;
 
@@ -43,9 +43,9 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 $262.agent.tryYield();
 
 assert.sameValue(
-  Atomics.notify(i32a, WAIT_INDEX, WAKECOUNT),
-  WAKECOUNT,
-  'Atomics.notify(i32a, WAIT_INDEX, WAKECOUNT) returns the value of `WAKECOUNT`'
+  Atomics.notify(i32a, WAIT_INDEX, NOTIFYCOUNT),
+  NOTIFYCOUNT,
+  'Atomics.notify(i32a, WAIT_INDEX, NOTIFYCOUNT) returns the value of `NOTIFYCOUNT`'
 );
 
 // Try to sleep past the timeout.

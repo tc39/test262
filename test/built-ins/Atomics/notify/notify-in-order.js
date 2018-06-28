@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.notify wakes agents in the order they are waiting.
+  Test that Atomics.notify notifies agents in the order they are waiting.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -16,8 +16,8 @@ const RUNNING = SPIN + NUMAGENT;  // Accounting of live agents
 const BUFFER_SIZE = RUNNING + 1;
 
 // Create workers and start them all spinning.  We set atomic slots to make
-// them go into a wait, thus controlling the waiting order.  Then we wake them
-// one by one and observe the wakeup order.
+// them go into a wait, thus controlling the waiting order.  Then we notify them
+// one by one and observe the notification order.
 
 for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`

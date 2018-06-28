@@ -4,14 +4,14 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.notify wakes two waiters if that's what the count is.
+  Test that Atomics.notify notifies two waiters if that's what the count is.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 const WAIT_INDEX = 0;             // Agents wait here
 const RUNNING = 1;                // Accounting of live agents here
-const WAKECOUNT = 2;
+const NOTIFYCOUNT = 2;
 const NUMAGENT = 3;
 const BUFFER_SIZE = 4;
 
@@ -42,13 +42,13 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 // Try to yield control to ensure the agent actually started to wait.
 $262.agent.tryYield();
 
-// There's a slight risk we'll fail to wake the desired count, if the preceding
+// There's a slight risk we'll fail to notify the desired count, if the preceding
 // tryYield() took much longer than anticipated and workers have started timing
 // out.
 assert.sameValue(
-  Atomics.notify(i32a, 0, WAKECOUNT),
-  WAKECOUNT,
-  'Atomics.notify(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT`'
+  Atomics.notify(i32a, 0, NOTIFYCOUNT),
+  NOTIFYCOUNT,
+  'Atomics.notify(i32a, 0, NOTIFYCOUNT) returns the value of `NOTIFYCOUNT`'
 );
 
 // Try to sleep past the timeout.
@@ -61,9 +61,9 @@ for (var i = 0; i < NUMAGENT; i++) {
 }
 reports.sort();
 
-for (var i = 0; i < WAKECOUNT; i++) {
+for (var i = 0; i < NOTIFYCOUNT; i++) {
   assert.sameValue(reports[i], 'ok', 'The value of reports[i] is "ok"');
 }
-for (var i = WAKECOUNT; i < NUMAGENT; i++) {
+for (var i = NOTIFYCOUNT; i < NUMAGENT; i++) {
   assert.sameValue(reports[i], 'timed-out', 'The value of reports[i] is "timed-out"');
 }

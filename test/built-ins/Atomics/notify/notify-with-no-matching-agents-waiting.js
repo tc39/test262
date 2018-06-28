@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.notify wakes zero waiters if there are no waiters
+  Test that Atomics.notify notifies zero waiters if there are no waiters
   at the index specified.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]

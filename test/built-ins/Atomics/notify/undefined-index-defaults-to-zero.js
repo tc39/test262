@@ -58,14 +58,14 @@ $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 // Try to yield control to ensure the agents actually started to wait.
 $262.agent.tryYield();
 
-// Wake at index 0, undefined => 0.
+// Notify at index 0, undefined => 0.
 var woken = 0;
 while ((woken = Atomics.notify(i32a, undefined, 1)) === 0) ;
 assert.sameValue(woken, 1, 'Atomics.notify(i32a, undefined, 1) returns 1');
 
 assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
-// Wake again at index 0, default => 0.
+// Notify again at index 0, default => 0.
 var woken = 0;
 while ((woken = Atomics.notify(i32a, /*, default values used */)) === 0) ;
 assert.sameValue(woken, 1, 'Atomics.notify(i32a /*, default values used */) returns 1');

@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.notify wakes all waiters if that's what the count is.
+  Test that Atomics.notify notifies all waiters if that's what the count is.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -36,10 +36,10 @@ $262.agent.broadcast(i32a.buffer);
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
 // Try to yield control to ensure the agent actually started to wait. If we
-// don't, we risk sending the wakeup before agents are sleeping, and we hang.
+// don't, we risk sending the notification before agents are sleeping, and we hang.
 $262.agent.tryYield();
 
-// Wake all waiting on WAIT_INDEX, should be 3 always, they won't time out.
+// Notify all waiting on WAIT_INDEX, should be 3 always, they won't time out.
 assert.sameValue(
   Atomics.notify(i32a, WAIT_INDEX),
   NUMAGENT,

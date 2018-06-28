@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test that Atomics.notify wakes zero waiters if there are no agents waiting.
+  Test that Atomics.notify notifies zero waiters if there are no agents waiting.
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -27,5 +27,5 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 $262.agent.waitUntil(i32a, RUNNING, 1);
 
-// There are ZERO agents waiting to wake...
+// There are ZERO agents waiting to notify...
 assert.sameValue(Atomics.notify(i32a, 0, 1), 0, 'Atomics.notify(i32a, 0, 1) returns 0');
