@@ -2,14 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-    "export ExportClause" declarations require a trailing semicolon or
-    LineTerminator
+    "export NamedExports FromClause" declarations require a trailing semicolon
+    or LineTerminator
 esid: sec-exports
 info: |
     ExportDeclaration:
       export * FromClause;
-      export ExportClause FromClause;
-      export ExportClause;
+      export * as IdentifierName FromClause;
+      export NamedExports FromClause;
+      export NamedExports;
       export VariableStatement
       export Declaration
       export default HoistableDeclaration[Default]
@@ -23,4 +24,4 @@ flags: [module]
 
 throw "Test262: This statement should not be evaluated.";
 
-export {} null;
+export {} from './parse-err-semi-export-clause-from.js' null;

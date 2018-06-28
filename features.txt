@@ -97,9 +97,9 @@ Intl.RelativeTimeFormat
 # https://github.com/tc39/proposal-global
 global
 
-# Catch initializer
-# https://github.com/tc39/ecma262/pull/1126
-catch-initializer
+# `export * as namespace from module` consensus PR
+# https://github.com/tc39/ecma262/pull/1174
+export-star-as-namespace-from-module
 
 # Standard language features
 #

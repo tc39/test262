@@ -6,9 +6,10 @@ description: >
 esid: sec-exports
 info: |
     ExportDeclaration:
-      export * FromClause;
-      export ExportClause FromClause;
-      export ExportClause;
+      export * FromClause
+      export * as IdentifierName FromClause;
+      export NamedExports FromClause;
+      export NamedExports;
       export VariableStatement
       export Declaration
       export default HoistableDeclaration[Default]
