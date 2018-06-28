@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.wake
+esid: sec-atomics.notify
 description: >
   NaNs are converted to 0 for 'count' argument to Atomics.wake
 info: |

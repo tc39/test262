@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.wake
+esid: sec-atomics.notify
 description: >
   Test Atomics.wake on view values other than TypedArrays
 includes: [testAtomics.js]

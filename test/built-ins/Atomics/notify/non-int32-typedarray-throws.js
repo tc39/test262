@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.wake
+esid: sec-atomics.notify
 description: >
   Throws a TypeError if typedArray arg is not an Int32Array
 info: |
