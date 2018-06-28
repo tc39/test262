@@ -15,10 +15,10 @@ info: |
     16. Let result be the result of evaluating module.[[ECMAScriptCode]].
     [...]
 includes: [fnGlobalObject.js]
-flags: [module]
+flags: [module, export-star-as-namespace-from-module]
 ---*/
 
-assert.sameValue(fnGlobalObject().test262, '12345678');
+assert.sameValue(fnGlobalObject().test262, '123456789');
 
 import {} from './eval-rqstd-order-1_FIXTURE.js';
 
@@ -34,4 +34,6 @@ import dflt2, {} from './eval-rqstd-order-6_FIXTURE.js';
 
 export * from './eval-rqstd-order-7_FIXTURE.js';
 
-import dflt3, * as ns from './eval-rqstd-order-8_FIXTURE.js';
+import dflt3, * as ns2 from './eval-rqstd-order-8_FIXTURE.js';
+
+export * as ns3 from './eval-rqstd-order-9_FIXTURE.js';
