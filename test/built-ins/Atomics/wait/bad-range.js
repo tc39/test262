@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.wake
+esid: sec-atomics.wait
 description: >
-  Test range checking of Atomics.wake on arrays that allow atomic operations
+  Test range checking of Atomics.wait on arrays that allow atomic operations
 info: |
   Atomics.wait( typedArray, index, value, timeout )
 
