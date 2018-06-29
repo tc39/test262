@@ -27,7 +27,7 @@ $262.agent.start(`
 $262.agent.broadcast(i64a.buffer);
 $262.agent.sleep(10);
 
-Atomics.exchange(i64a, 0, 1);
+Atomics.exchange(i64a, 0, 1n);
 
 const lapse = $262.agent.getReport();
 assert(

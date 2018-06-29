@@ -34,7 +34,7 @@ const validScriptOptions = [
   [null, 'Null'],
   ['bali', 'Bali'],
   ['Bali', 'Bali'],
-  ['bALI', 'BALI'], // TODO REVIEW: is this the correct case regularization?
+  ['bALI', 'Bali'],
   [{ toString() { return 'Brai' } }, 'Brai'],
 ];
 for (const [script, expected] of validScriptOptions) {

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-  Default exports are not included in an imported module namespace object when module exported with `* as namespace`
+  Default exports are included in an imported module namespace object when module exported with `* as namespace`
 esid: sec-moduledeclarationinstantiation
 info: |
   [...]
@@ -40,18 +40,19 @@ info: |
   c. For each element n of starNames, do
   i. If SameValue(n, "default") is false, then
   [...]
-flags: [module, export-star-as-namespace-from-module]
+flags: [module]
+features: [export-star-as-namespace-from-module]
   ---*/
 
-import named from './instn-star-props-dflt-skip-star-as-named_FIXTURE.js';
-import production from './instn-star-props-dflt-skip-star-as-prod_FIXTURE.js';
+import {named} from './instn-star-props-dflt-skip-star-as-named_FIXTURE.js';
+import {production} from './instn-star-props-dflt-skip-star-as-prod_FIXTURE.js';
 
 assert('namedOther' in named);
 assert.sameValue(
-  'default' in named, false, 'default specified via identifier'
+  'default' in named, true, 'default specified via identifier'
 );
 
 assert('productionOther' in production);
 assert.sameValue(
-  'default' in production, false, 'default specified via dedicated production'
+  'default' in production, true, 'default specified via dedicated production'
 );

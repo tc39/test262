@@ -12,7 +12,7 @@ features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab, id) {
     const i64a = new BigInt64Array(sab);
-    $262.agent.report(Atomics.wait(i64a, 0, 0, -5)); // -5 => 0
+    $262.agent.report(Atomics.wait(i64a, 0, 0n, -5)); // -5 => 0
     $262.agent.leaving();
   });
 `);

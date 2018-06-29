@@ -20,7 +20,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(Atomics.sub(view, 8, 10n), 100n, 'Atomics.sub(view, 8, 10n) returns 100n');
   assert.sameValue(view[8], 90n, 'The value of view[8] is 90n');
   assert.sameValue(Atomics.sub(view, 8, -5n), 90n, 'Atomics.sub(view, 8, -5n) returns 90n');
-  assert.sameValue(view[8], 95, 'The value of view[8] is 95');
+  assert.sameValue(view[8], 95n, 'The value of view[8] is 95');
   view[3] = -5n;
   control[0] = -5n;
 

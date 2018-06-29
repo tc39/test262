@@ -35,7 +35,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   );
 
   assert.sameValue(
-    Atomics.xor(view, 8, 0xF0F0F0F0),
+    Atomics.xor(view, 8, 0xF0F0F0F0n),
     control[0],
     'Atomics.xor(view, 8, 0xF0F0F0F0) returns the value of `control[0]` (0x66666666n)'
   );
