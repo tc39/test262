@@ -8,7 +8,7 @@ function notExportedFunc() {}
 function* notExportedGen() {}
 class notExportedClass {}
 
-var starBindingId;
+var starAsBindingId;
 
 export var starAsVarDecl;
 export let starAsLetDecl;
