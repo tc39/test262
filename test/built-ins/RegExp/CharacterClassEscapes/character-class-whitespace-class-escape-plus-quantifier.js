@@ -4,7 +4,7 @@
 /*---
 esid: prod-CharacterClassEscape
 description: >
-    Compare range for Whitespace class escape, \\s+ with flags 
+    Compare range for Whitespace class escape, \\s+ with flags g
 info: |
     This is a generated test, please checkout https://github.com/bocoup/test262-regexp-generator
     for any changes.
@@ -34,37 +34,22 @@ info: |
         Return the set of all characters not included in the set returned by CharacterClassEscape :: w.
 ---*/
 
-var re = /\s+/;
-var matchingRange = /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]+/;
-
-var codePoint, str, msg, hex, escapedStr;
-
-function matching(str, pattern) {
-    return str.replace(pattern, 'test262') === 'test262';
-}
-
-function assertSameRange(str, msg) {
-    var fromEscape = matching(str, re);
-    var fromRange = matching(str, matchingRange);
-    assert(fromEscape === fromRange, msg);
-}
-
-function toHex(cp) {
-    return '0x' + cp.toString(16);
-}
+var chunks = [];
+var chunk;
+var totalChunks = Math.ceil(65535 / 2000);
+var codePoint;
 
 for (codePoint = 0; codePoint < 0xFFFF; codePoint++) {
     if (codePoint === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
-    hex = toHex(codePoint);
-    escapedStr = '"\\u{' + codePoint + '}"';
-    msg = ' (' + hex + ') should be in range for \\s+ with flags ';
-    str = String.fromCharCode(codePoint);
-
-    assertSameRange(str, escapedStr + msg);
-
-
-    msg = hex + ' + ' + msg;
-    str += str;
-    escapedStr += ' + ' + escapedStr;
-    assertSameRange(str, escapedStr + msg);
+    // split strings to avoid a super long one;
+    chunks[codePoint % totalChunks] = String.fromCharCode(codePoint);
 }
+
+chunks.forEach(function(str) {
+    var re = /\s+/g;
+    var matchingRange = /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]+/g;
+    var fromEscape = str.replace(re, '');
+    var fromRange = str.replace(matchingRange, '');
+
+    assert.sameValue(fromEscape, fromRange);
+});

@@ -4,7 +4,7 @@
 /*---
 esid: prod-CharacterClassEscape
 description: >
-    Compare range for Word class escape, \\w+ with flags u
+    Compare range for Word class escape, \\w+ with flags ug
 info: |
     This is a generated test, please checkout https://github.com/bocoup/test262-regexp-generator
     for any changes.
@@ -35,37 +35,22 @@ info: |
 features: [String.fromCodePoint]
 ---*/
 
-var re = /\w+/u;
-var matchingRange = /[0-9A-Z_a-z]+/u;
-
-var codePoint, str, msg, hex, escapedStr;
-
-function matching(str, pattern) {
-    return str.replace(pattern, 'test262') === 'test262';
-}
-
-function assertSameRange(str, msg) {
-    var fromEscape = matching(str, re);
-    var fromRange = matching(str, matchingRange);
-    assert(fromEscape === fromRange, msg);
-}
-
-function toHex(cp) {
-    return '0x' + cp.toString(16);
-}
+var chunks = [];
+var chunk;
+var totalChunks = Math.ceil(1114111 / 2000);
+var codePoint;
 
 for (codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
 
-    hex = toHex(codePoint);
-    escapedStr = '"\\u{' + codePoint + '}"';
-    msg = ' (' + hex + ') should be in range for \\w+ with flags u';
-    str = String.fromCodePoint(codePoint);
-
-    assertSameRange(str, escapedStr + msg);
-
-
-    msg = hex + ' + ' + msg;
-    str += str;
-    escapedStr += ' + ' + escapedStr;
-    assertSameRange(str, escapedStr + msg);
+    // split strings to avoid a super long one;
+    chunks[codePoint % totalChunks] = String.fromCodePoint(codePoint);
 }
+
+chunks.forEach(function(str) {
+    var re = /\w+/ug;
+    var matchingRange = /[0-9A-Z_a-z]+/ug;
+    var fromEscape = str.replace(re, '');
+    var fromRange = str.replace(matchingRange, '');
+
+    assert.sameValue(fromEscape, fromRange);
+});
