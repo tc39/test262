@@ -42,3 +42,4 @@ Volunteer-maintained projects that may be used to execute Test262 in various ECM
 - https://github.com/bterlson/test262-harness (platform: Node.js)
 - https://github.com/test262-utils/test262-harness-py (platform: Python)
 - https://bakkot.github.io/test262-web-runner/ (platform: web)
+- https://github.com/Izhido/test262_harness_cpp (platform: C++)
