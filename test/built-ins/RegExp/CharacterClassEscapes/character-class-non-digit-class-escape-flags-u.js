@@ -35,22 +35,34 @@ info: |
 features: [String.fromCodePoint]
 ---*/
 
-var chunks = [];
-var chunk;
-var totalChunks = Math.ceil(1114111 / 2000);
-var codePoint;
+const chunks = [];
+const totalChunks = Math.ceil(1114111 / 0x10000);
 
-for (codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
-
+for (let codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
     // split strings to avoid a super long one;
-    chunks[codePoint % totalChunks] = String.fromCodePoint(codePoint);
+    chunks[codePoint % totalChunks] += String.fromCodePoint(codePoint);
 }
 
-chunks.forEach(function(str) {
-    var re = /\D/ug;
-    var matchingRange = /[\0-\/:-\u{10FFFF}]/ug;
-    var fromEscape = str.replace(re, '');
-    var fromRange = str.replace(matchingRange, '');
+const re = /\D/ug;
+const matchingRange = /[\0-\/:-\u{10FFFF}]/ug;
 
-    assert.sameValue(fromEscape, fromRange);
-});
+const errors = [];
+
+function matching(str) {
+    return str.replace(re, '') === str.replace(matchingRange, '');
+}
+
+for (const str of chunks) {
+    if (!matching(str)) {
+        // Error, let's find out where
+        for (const char of str) {
+            if (!matching(char)) {
+                errors.push('0x' + char.codePointAt(0).toString(16));
+            }
+        }
+    }
+};
+
+if (errors.length) {
+    throw new Test262Error('Code point(s) not in the expected range: ' + errors.join(','));
+}

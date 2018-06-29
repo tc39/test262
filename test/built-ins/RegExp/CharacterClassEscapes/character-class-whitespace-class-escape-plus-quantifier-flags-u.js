@@ -35,22 +35,34 @@ info: |
 features: [String.fromCodePoint]
 ---*/
 
-var chunks = [];
-var chunk;
-var totalChunks = Math.ceil(1114111 / 2000);
-var codePoint;
+const chunks = [];
+const totalChunks = Math.ceil(1114111 / 0x10000);
 
-for (codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
-    if (codePoint === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
+for (let codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
     // split strings to avoid a super long one;
-    chunks[codePoint % totalChunks] = String.fromCodePoint(codePoint);
+    chunks[codePoint % totalChunks] += String.fromCodePoint(codePoint);
 }
 
-chunks.forEach(function(str) {
-    var re = /\s+/ug;
-    var matchingRange = /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]+/ug;
-    var fromEscape = str.replace(re, '');
-    var fromRange = str.replace(matchingRange, '');
+const re = /\s+/ug;
+const matchingRange = /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]+/ug;
 
-    assert.sameValue(fromEscape, fromRange);
-});
+const errors = [];
+
+function matching(str) {
+    return str.replace(re, '') === str.replace(matchingRange, '');
+}
+
+for (const str of chunks) {
+    if (!matching(str)) {
+        // Error, let's find out where
+        for (const char of str) {
+            if (!matching(char)) {
+                errors.push('0x' + char.codePointAt(0).toString(16));
+            }
+        }
+    }
+};
+
+if (errors.length) {
+    throw new Test262Error('Code point(s) not in the expected range: ' + errors.join(','));
+}

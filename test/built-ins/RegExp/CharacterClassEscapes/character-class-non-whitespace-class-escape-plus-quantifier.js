@@ -32,24 +32,37 @@ info: |
         Return the set of all characters returned by WordCharacters().
     The production CharacterClassEscape :: W evaluates as follows:
         Return the set of all characters not included in the set returned by CharacterClassEscape :: w.
+features: [String.fromCodePoint]
 ---*/
 
-var chunks = [];
-var chunk;
-var totalChunks = Math.ceil(65535 / 2000);
-var codePoint;
+const chunks = [];
+const totalChunks = Math.ceil(65535 / 0x10000);
 
-for (codePoint = 0; codePoint < 0xFFFF; codePoint++) {
-    if (codePoint === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
+for (let codePoint = 0; codePoint < 0xFFFF; codePoint++) {
     // split strings to avoid a super long one;
-    chunks[codePoint % totalChunks] = String.fromCharCode(codePoint);
+    chunks[codePoint % totalChunks] += String.fromCodePoint(codePoint);
 }
 
-chunks.forEach(function(str) {
-    var re = /\S+/g;
-    var matchingRange = /[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uFEFE\uFF00-\uFFFF]+/g;
-    var fromEscape = str.replace(re, '');
-    var fromRange = str.replace(matchingRange, '');
+const re = /\S+/g;
+const matchingRange = /[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uFEFE\uFF00-\uFFFF]+/g;
 
-    assert.sameValue(fromEscape, fromRange);
-});
+const errors = [];
+
+function matching(str) {
+    return str.replace(re, '') === str.replace(matchingRange, '');
+}
+
+for (const str of chunks) {
+    if (!matching(str)) {
+        // Error, let's find out where
+        for (const char of str) {
+            if (!matching(char)) {
+                errors.push('0x' + char.codePointAt(0).toString(16));
+            }
+        }
+    }
+};
+
+if (errors.length) {
+    throw new Test262Error('Code point(s) not in the expected range: ' + errors.join(','));
+}
