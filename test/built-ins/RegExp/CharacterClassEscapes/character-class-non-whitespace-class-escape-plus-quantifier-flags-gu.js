@@ -36,21 +36,36 @@ features: [String.fromCodePoint]
 ---*/
 
 var re = /\S+/gu;
-var matchingRange = /(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+/gu;
-var msg = '"\\u{REPLACE}" should be in range for \\S+ with flags gu';
+var matchingRange = /[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uFEFE\uFF00-\u{10FFFF}]+/gu;
 
-var i;
-var fromEscape, fromRange, str;
-for (i = 0; i < 0x10FFFF; i++) {
-    if (i === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
-    str = String.fromCodePoint(i);
-    fromEscape = !str.replace(re, 'test262');
-    fromRange = !str.replace(re, 'test262');
-    assert.sameValue(fromEscape, fromRange, msg.replace('REPLACE', i));
+var codePoint, str, msg, hex, escapedStr;
+
+function matching(str, pattern) {
+    return str.replace(pattern, 'test262') === 'test262';
+}
+
+function assertSameRange(str, msg) {
+    var fromEscape = matching(str, re);
+    var fromRange = matching(str, matchingRange);
+    assert(fromEscape === fromRange, msg);
+}
+
+function toHex(cp) {
+    return '0x' + cp.toString(16);
+}
+
+for (codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
+    if (codePoint === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
+    hex = toHex(codePoint);
+    escapedStr = '"\\u{' + codePoint + '}"';
+    msg = ' (' + hex + ') should be in range for \\S+ with flags gu';
+    str = String.fromCodePoint(codePoint);
+
+    assertSameRange(str, escapedStr + msg);
 
 
+    msg = hex + ' + ' + msg;
     str += str;
-    fromEscape = !str.replace(re, 'test262');
-    fromRange = !str.replace(re, 'test262');
-    assert.sameValue(fromEscape, fromRange, msg.replace('REPLACE', String(i) + i));
+    escapedStr += ' + ' + escapedStr;
+    assertSameRange(str, escapedStr + msg);
 }

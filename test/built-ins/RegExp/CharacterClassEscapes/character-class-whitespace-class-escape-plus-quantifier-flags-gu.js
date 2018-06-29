@@ -37,20 +37,35 @@ features: [String.fromCodePoint]
 
 var re = /\s+/gu;
 var matchingRange = /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]+/gu;
-var msg = '"\\u{REPLACE}" should be in range for \\s+ with flags gu';
 
-var i;
-var fromEscape, fromRange, str;
-for (i = 0; i < 0x10FFFF; i++) {
-    if (i === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
-    str = String.fromCodePoint(i);
-    fromEscape = !str.replace(re, 'test262');
-    fromRange = !str.replace(re, 'test262');
-    assert.sameValue(fromEscape, fromRange, msg.replace('REPLACE', i));
+var codePoint, str, msg, hex, escapedStr;
+
+function matching(str, pattern) {
+    return str.replace(pattern, 'test262') === 'test262';
+}
+
+function assertSameRange(str, msg) {
+    var fromEscape = matching(str, re);
+    var fromRange = matching(str, matchingRange);
+    assert(fromEscape === fromRange, msg);
+}
+
+function toHex(cp) {
+    return '0x' + cp.toString(16);
+}
+
+for (codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
+    if (codePoint === 0x180E) { continue; } // Skip 0x180E, addressed in a separate test file
+    hex = toHex(codePoint);
+    escapedStr = '"\\u{' + codePoint + '}"';
+    msg = ' (' + hex + ') should be in range for \\s+ with flags gu';
+    str = String.fromCodePoint(codePoint);
+
+    assertSameRange(str, escapedStr + msg);
 
 
+    msg = hex + ' + ' + msg;
     str += str;
-    fromEscape = !str.replace(re, 'test262');
-    fromRange = !str.replace(re, 'test262');
-    assert.sameValue(fromEscape, fromRange, msg.replace('REPLACE', String(i) + i));
+    escapedStr += ' + ' + escapedStr;
+    assertSameRange(str, escapedStr + msg);
 }

@@ -36,21 +36,36 @@ features: [String.fromCodePoint]
 ---*/
 
 var re = /\W+/gu;
-var matchingRange = /(?:[\0-\/:-@\[-\^`\{-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+/gu;
-var msg = '"\\u{REPLACE}" should be in range for \\W+ with flags gu';
+var matchingRange = /[\0-\/:-@\[-\^`\{-\u{10FFFF}]+/gu;
 
-var i;
-var fromEscape, fromRange, str;
-for (i = 0; i < 0x10FFFF; i++) {
+var codePoint, str, msg, hex, escapedStr;
 
-    str = String.fromCodePoint(i);
-    fromEscape = !str.replace(re, 'test262');
-    fromRange = !str.replace(re, 'test262');
-    assert.sameValue(fromEscape, fromRange, msg.replace('REPLACE', i));
+function matching(str, pattern) {
+    return str.replace(pattern, 'test262') === 'test262';
+}
+
+function assertSameRange(str, msg) {
+    var fromEscape = matching(str, re);
+    var fromRange = matching(str, matchingRange);
+    assert(fromEscape === fromRange, msg);
+}
+
+function toHex(cp) {
+    return '0x' + cp.toString(16);
+}
+
+for (codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
+
+    hex = toHex(codePoint);
+    escapedStr = '"\\u{' + codePoint + '}"';
+    msg = ' (' + hex + ') should be in range for \\W+ with flags gu';
+    str = String.fromCodePoint(codePoint);
+
+    assertSameRange(str, escapedStr + msg);
 
 
+    msg = hex + ' + ' + msg;
     str += str;
-    fromEscape = !str.replace(re, 'test262');
-    fromRange = !str.replace(re, 'test262');
-    assert.sameValue(fromEscape, fromRange, msg.replace('REPLACE', String(i) + i));
+    escapedStr += ' + ' + escapedStr;
+    assertSameRange(str, escapedStr + msg);
 }
