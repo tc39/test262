@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-  Default exports are not included in an imported module namespace object when a namespace object is created.
+  Default exports are included in an imported module namespace object when a namespace object is created.
 esid: sec-module-namespace-exotic-objects-get-p-receiver
 info: |
   [...]
@@ -25,7 +25,8 @@ info: |
                unambiguousNames.
        d. Let namespace be ModuleNamespaceCreate(module, unambiguousNames).
   [...]
-flags: [module, export-star-as-namespace-from-module]
+flags: [module]
+features: [export-star-as-namespace-from-module]
 ---*/
 
 import * as namedns1 from './get-nested-namespace-dflt-skip-named_FIXTURE.js';
@@ -33,10 +34,10 @@ import * as productionns1 from './get-nested-namespace-dflt-skip-prod_FIXTURE.js
 
 assert('namedOther' in namedns1.namedns2);
 assert.sameValue(
-  'default' in namedns1.namedns2, false, 'default specified via identifier'
+  'default' in namedns1.namedns2, true, 'default specified via identifier'
 );
 
 assert('productionOther' in productionns1.productionns2);
 assert.sameValue(
-  'default' in productionns1.productionns2, false, 'default specified via dedicated production'
+  'default' in productionns1.productionns2, true, 'default specified via dedicated production'
 );

@@ -17,7 +17,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   for (let val of [10n, -5n, 12345n, 123456789n, BigInt('33'), {
     valueOf: () => 33n
-  }, BigInt(undefined)]) {
+  }]) {
     assert.sameValue(
       Atomics.store(view, 3, val),
       BigInt(val),

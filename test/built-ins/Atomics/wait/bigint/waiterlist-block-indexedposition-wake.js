@@ -27,7 +27,7 @@ $262.agent.start(`
     const i64a = new BigInt64Array(sab);
 
     // Wait on index 0
-    $262.agent.report(Atomics.wait(i64a, 0, 0, Infinity));
+    $262.agent.report(Atomics.wait(i64a, 0, 0n, Infinity));
     $262.agent.leaving();
   });
 `);
@@ -37,7 +37,7 @@ $262.agent.start(`
     const i64a = new BigInt64Array(sab);
 
     // Wait on index 7
-    $262.agent.report(Atomics.wait(i64a, 7, 0, Infinity));
+    $262.agent.report(Atomics.wait(i64a, 7, 0n, Infinity));
     $262.agent.leaving();
   });
 `);

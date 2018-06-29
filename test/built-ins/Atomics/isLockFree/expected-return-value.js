@@ -60,7 +60,7 @@ var isLockFree8;
 };
 
 {
-  let isLockFree8 = Atomics.isLockFree(8);
+  isLockFree8 = Atomics.isLockFree(8);
   //
   // If n equals 8, return AR.[[IsLockFree8]].
   //

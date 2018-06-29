@@ -2,4 +2,4 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 export var indirectIdName;
-export var starIndirectIdName;
+export var starAsIndirectIdName;

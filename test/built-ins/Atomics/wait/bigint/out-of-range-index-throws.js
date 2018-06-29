@@ -30,8 +30,8 @@ assert.throws(RangeError, function() {
   Atomics.wait(i64a, Infinity, poisoned, poisoned);
 }, '`Atomics.wait(i64a, Infinity, poisoned, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.wait(i64a, 2, poisoned, poisoned);
-}, '`Atomics.wait(i64a, 2, poisoned, poisoned)` throws RangeError');
+  Atomics.wait(i64a, 8, poisoned, poisoned);
+}, '`Atomics.wait(i64a, 8, poisoned, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
   Atomics.wait(i64a, 200, poisoned, poisoned);
 }, '`Atomics.wait(i64a, 200, poisoned, poisoned)` throws RangeError');

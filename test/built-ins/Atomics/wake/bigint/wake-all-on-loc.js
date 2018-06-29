@@ -20,8 +20,8 @@ for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
       const i64a = new BigInt64Array(sab);
-      Atomics.add(i64a, ${RUNNING}, 1);
-      $262.agent.report("A " + Atomics.wait(i64a, ${WAIT_INDEX}, 0));
+      Atomics.add(i64a, ${RUNNING}, 1n);
+      $262.agent.report("A " + Atomics.wait(i64a, ${WAIT_INDEX}, 0n));
       $262.agent.leaving();
     });
   `);
@@ -30,9 +30,9 @@ for (var i = 0; i < NUMAGENT; i++) {
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
-    Atomics.add(i64a, ${RUNNING}, 1);
+    Atomics.add(i64a, ${RUNNING}, 1n);
     // This will always time out.
-    $262.agent.report("B " + Atomics.wait(i64a, ${WAIT_FAKE}, 0, 10));
+    $262.agent.report("B " + Atomics.wait(i64a, ${WAIT_FAKE}, 0n, 10));
     $262.agent.leaving();
   });
 `);
@@ -43,7 +43,7 @@ const i64a = new BigInt64Array(
 $262.agent.broadcast(i64a.buffer);
 
 // Wait for agents to be running.
-$262.agent.waitUntil(i64a, RUNNING, BUFFER_SIZE);
+$262.agent.waitUntil(i64a, RUNNING, BigInt(BUFFER_SIZE));
 
 // Then wait some more to give the agents a fair chance to wait.  If we don't,
 // we risk sending the wakeup before agents are sleeping, and we hang.

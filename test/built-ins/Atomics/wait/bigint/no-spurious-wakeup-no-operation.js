@@ -21,7 +21,7 @@ $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab, id) {
     const i64a = new BigInt64Array(sab);
     const before = $262.agent.monotonicNow();
-    const unpark = Atomics.wait(i64a, 0, 0, ${TIMEOUT});
+    const unpark = Atomics.wait(i64a, 0, 0n, ${TIMEOUT});
     $262.agent.report($262.agent.monotonicNow() - before);
     $262.agent.report(unpark);
     $262.agent.leaving();

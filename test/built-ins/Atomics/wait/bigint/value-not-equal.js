@@ -18,14 +18,14 @@ includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
-const value = 42n;
+const value = "42n";
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
-    Atomics.add(i64a, 1, 1);
+    Atomics.add(i64a, 1, 1n);
     $262.agent.report(Atomics.store(i64a, 0, ${value}));
-    $262.agent.report(Atomics.wait(i64a, 0, 0));
+    $262.agent.report(Atomics.wait(i64a, 0, 0n));
     $262.agent.leaving();
   });
 `);
@@ -35,7 +35,7 @@ const i64a = new BigInt64Array(
 );
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.waitUntil(i64a, 1, 1);
+$262.agent.waitUntil(i64a, 1, 1n);
 
 assert.sameValue(
   $262.agent.getReport(),

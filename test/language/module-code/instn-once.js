@@ -20,7 +20,8 @@ info: |
       a. Let requiredModule be ? HostResolveImportedModule(module, required).
       b. Set index to ? InnerModuleInstantiation(requiredModule, stack, index).
     [...]
-flags: [module, export-star-as-namespace-from-module]
+flags: [module]
+features: [export-star-as-namespace-from-module]
 ---*/
 
 import {} from './instn-once.js';

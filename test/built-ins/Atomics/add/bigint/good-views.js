@@ -13,7 +13,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   const view = new TA(sab, 32, 20);
   const control = new TA(ab, 0, 2);
   view[8] = 0n;
-  assert.sameValue(Atomics.add(view, 8, 10n), 0, 'Atomics.add(view, 8, 10n) returns 0');
+  assert.sameValue(Atomics.add(view, 8, 10n), 0n, 'Atomics.add(view, 8, 10n) returns 0');
   assert.sameValue(view[8], 10n, 'The value of view[8] is 10n');
   assert.sameValue(Atomics.add(view, 8, -5n), 10n, 'Atomics.add(view, 8, -5n) returns 10n');
   assert.sameValue(view[8], 5n, 'The value of view[8] is 5n');
@@ -46,8 +46,8 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   testWithAtomicsInBoundsIndices(function(IdxGen) {
     let Idx = IdxGen(view);
-    view.fill(0);
+    view.fill(0n);
     Atomics.store(view, Idx, 37n);
-    assert.sameValue(Atomics.add(view, Idx, 0), 37n, 'Atomics.add(view, Idx, 0) returns 37n');
+    assert.sameValue(Atomics.add(view, Idx, 0n), 37n, 'Atomics.add(view, Idx, 0) returns 37n');
   });
 });
