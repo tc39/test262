@@ -4,7 +4,7 @@
 esid: sec-atomics.load
 description: Test Atomics.load on arrays that allow atomic operations.
 includes: [testAtomics.js, testBigIntTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 const sab = new SharedArrayBuffer(1024);
 const ab = new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);

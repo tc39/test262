@@ -5,7 +5,7 @@
 esid: sec-atomics.or
 description: Test Atomics.or on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);

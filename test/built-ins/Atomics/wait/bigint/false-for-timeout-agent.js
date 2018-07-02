@@ -16,6 +16,8 @@ includes: [atomicsHelper.js]
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 
+const RUNNING = 1;
+
 $262.agent.start(`
   const valueOf = {
     valueOf: function() {
@@ -31,21 +33,31 @@ $262.agent.start(`
 
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
+    Atomics.add(i64a, ${RUNNING}, 1n);
+
     const before = $262.agent.monotonicNow();
-    $262.agent.report(Atomics.wait(i64a, 0, 0n, false));
-    $262.agent.report(Atomics.wait(i64a, 0, 0n, valueOf));
-    $262.agent.report(Atomics.wait(i64a, 0, 0n, toPrimitive));
-    $262.agent.report($262.agent.monotonicNow() - before);
+    const status1 = Atomics.wait(i64a, 0, 0n, false);
+    const status2 = Atomics.wait(i64a, 0, 0n, valueOf);
+    const status3 = Atomics.wait(i64a, 0, 0n, toPrimitive);
+    const duration = $262.agent.monotonicNow() - before;
+
+    $262.agent.report(status1);
+    $262.agent.report(status2);
+    $262.agent.report(status3);
+    $262.agent.report(duration);
     $262.agent.leaving();
   });
 `);
 
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(100);
+$262.agent.waitUntil(i64a, RUNNING, 1n);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 assert.sameValue(
   $262.agent.getReport(),
@@ -64,13 +76,9 @@ assert.sameValue(
 );
 
 const lapse = $262.agent.getReport();
-assert(
-  lapse >= 0,
-  'The result of `(lapse >= 0)` is true'
-);
-assert(
-  lapse <= $262.agent.MAX_TIME_EPSILON,
-  'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true'
-);
-assert.sameValue(Atomics.wake(i64a, 0), 0, 'Atomics.wake(i64a, 0) returns 0');
 
+assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (timeout should be a min of 0ms)');
+
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true');
+
+assert.sameValue(Atomics.wake(i64a, 0), 0, 'Atomics.wake(i64a, 0) returns 0');

@@ -9,9 +9,13 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
+const RUNNING = 1;
+
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab, id) {
     var i32a = new Int32Array(sab);
+    Atomics.add(i32a, ${RUNNING}, 1);
+
     $262.agent.report(Atomics.wait(i32a, 0, 0, -5)); // -5 => 0
     $262.agent.leaving();
   });
@@ -22,7 +26,10 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(100);
+$262.agent.waitUntil(i32a, RUNNING, 1);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 assert.sameValue(
   $262.agent.getReport(),

@@ -16,7 +16,8 @@ info: |
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 flags: [CanBlockIsFalse]
 ---*/
-const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8));
+
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, 0, 0n, 0);

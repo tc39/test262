@@ -16,6 +16,8 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
+const RUNNING = 1;
+
 $262.agent.start(`
   const poisonedValueOf = {
     valueOf: function() {
@@ -31,18 +33,27 @@ $262.agent.start(`
 
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
+    Atomics.add(i32a, ${RUNNING}, 1);
+
+    let status1 = "";
+    let status2 = "";
+
     const start = $262.agent.monotonicNow();
     try {
       Atomics.wait(i32a, 0, 0, poisonedValueOf);
     } catch (error) {
-      $262.agent.report("poisonedValueOf");
+      status1 = "poisonedValueOf";
     }
     try {
       Atomics.wait(i32a, 0, 0, poisonedToPrimitive);
     } catch (error) {
-      $262.agent.report("poisonedToPrimitive");
+      status2 = "poisonedToPrimitive";
     }
-    $262.agent.report($262.agent.monotonicNow() - start);
+    const duration = $262.agent.monotonicNow() - start;
+
+    $262.agent.report(status1);
+    $262.agent.report(status2);
+    $262.agent.report(duration);
     $262.agent.leaving();
   });
 `);
@@ -52,7 +63,10 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(150);
+$262.agent.waitUntil(i32a, RUNNING, 1);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 assert.sameValue(
   $262.agent.getReport(),
@@ -67,9 +81,8 @@ assert.sameValue(
 
 const lapse = $262.agent.getReport();
 
-assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (The result of `(lapse >= 0)` is true (timeout should be a min of 0ms))');
+assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (timeout should be a min of 0ms)');
 
-assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (timeout should be a max of $$262.agent.MAX_TIME_EPSILON))');
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (timeout should be a max of $$262.agent.MAX_TIME_EPSILON)');
 
 assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0');
-

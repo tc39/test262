@@ -4,7 +4,7 @@
 esid: sec-atomics.add
 description: Test Atomics.add on arrays that allow atomic operations.
 includes: [testAtomics.js, testBigIntTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 const sab = new SharedArrayBuffer(1024);
 const ab = new ArrayBuffer(16);

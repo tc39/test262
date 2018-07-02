@@ -4,7 +4,7 @@
 esid: sec-atomics.xor
 description: Test Atomics.xor on arrays that allow atomic operations
 includes: [testAtomics.js, testBigIntTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 // Make it interesting - use non-zero byteOffsets and non-zero indexes.
 // And again
