@@ -6,7 +6,7 @@ esid: sec-atomics.sub
 description: >
   Test Atomics.sub on view values other than TypedArrays
 includes: [testAtomics.js]
-features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 testWithAtomicsNonViewValues(function(view) {

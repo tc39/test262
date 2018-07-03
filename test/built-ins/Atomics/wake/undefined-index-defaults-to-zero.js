@@ -22,42 +22,52 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
-    $262.agent.leaving();
-  });
-`);
+var WAIT_INDEX = 0;
+var RUNNING = 1;
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    $262.agent.report(Atomics.wait(i32a, 0, 0, 200));
-    $262.agent.leaving();
-  });
-`);
+var NUMAGENT = 2;
+
+for (var i = 0; i < NUMAGENT; i++) {
+  $262.agent.start(`
+    $262.agent.receiveBroadcast(function(sab) {
+      const i32a = new Int32Array(sab);
+
+      // Notify main thread that the agent was started.
+      Atomics.add(i32a, ${RUNNING}, 1);
+
+      // Wait until restarted by main thread.
+      var status = Atomics.wait(i32a, ${WAIT_INDEX}, 0);
+
+      // Report wait status.
+      $262.agent.report(status);
+
+      $262.agent.leaving();
+    });
+  `);
+}
 
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(100); // halfway through timeout
 
-// wake at index 0, undefined => 0
-assert.sameValue(
-  Atomics.wake(i32a, undefined, 1),
-  1,
-  'Atomics.wake(i32a, undefined, 1) returns 1'
-);
+// Wait until both agents started.
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
+
+// Try to yield control to ensure the agents actually started to wait.
+$262.agent.tryYield();
+
+// Wake at index 0, undefined => 0.
+var woken = 0;
+while ((woken = Atomics.wake(i32a, undefined, 1)) === 0) ;
+assert.sameValue(woken, 1, 'Atomics.wake(i32a, undefined, 1) returns 1');
+
 assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
+// Wake again at index 0, default => 0.
+var woken = 0;
+while ((woken = Atomics.wake(i32a, /*, default values used */)) === 0) ;
+assert.sameValue(woken, 1, 'Atomics.wake(i32a /*, default values used */) returns 1');
 
-// wake again at index 0, default => 0
-assert.sameValue(
-  Atomics.wake(i32a /*, default values used */),
-  1,
-  'Atomics.wake(i32a /*, default values used */) returns 1'
-);
 assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');

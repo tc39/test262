@@ -6,11 +6,11 @@ esid: sec-atomics.wait
 description: >
   Test that Atomics.wait times out with a negative timeout
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
-flags: [CanBlockIsFalse]
+flags: [CanBlockIsTrue]
 ---*/
 
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
 assert.sameValue(

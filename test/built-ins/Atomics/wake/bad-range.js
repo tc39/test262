@@ -11,8 +11,8 @@ info: |
   1. Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
   ..
 
-includes: [testAtomics.js, testTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+includes: [testAtomics.js]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 const i32a = new Int32Array(

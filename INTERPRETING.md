@@ -354,6 +354,30 @@ following strings:
   test generation tool. This flag is specified for informational purposes only
   and has no bearing on how the test should be interpreted.
 
+- **`CanBlockIsFalse`** The test file should only be run when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the file is `false`.
+
+ *Example*
+
+  ```js
+  /*---
+  flags: [CanBlockIsFalse]
+  ---*/
+  var i32 = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+  assert.throws(TypeError, function() { Atomics.wait(i32, 0, 0, 1000); });
+  ```
+
+- **`CanBlockIsTrue`** The test file should only be run when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the file is `true`.
+
+ *Example*
+
+  ```js
+  /*---
+  flags: [CanBlockIsTrue]
+  ---*/
+  var i32 = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+  Atomics.wait(i32, 0, 0, 1000); // Sleep for one second.
+  ```
+
 ### `locale`
 
 The `locale` attribute allows tests to declare explicit information regarding locale specificity. Its value is an array of one or more valid language tags or subtags.

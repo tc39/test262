@@ -16,6 +16,8 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
+const RUNNING = 1;
+
 $262.agent.start(`
   const valueOf = {
     valueOf: function() {
@@ -31,11 +33,18 @@ $262.agent.start(`
 
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
+    Atomics.add(i32a, ${RUNNING}, 1);
+
     const before = $262.agent.monotonicNow();
-    $262.agent.report(Atomics.wait(i32a, 0, 0, false));
-    $262.agent.report(Atomics.wait(i32a, 0, 0, valueOf));
-    $262.agent.report(Atomics.wait(i32a, 0, 0, toPrimitive));
-    $262.agent.report($262.agent.monotonicNow() - before);
+    const status1 = Atomics.wait(i32a, 0, 0, false);
+    const status2 = Atomics.wait(i32a, 0, 0, valueOf);
+    const status3 = Atomics.wait(i32a, 0, 0, toPrimitive);
+    const duration = $262.agent.monotonicNow() - before;
+
+    $262.agent.report(status1);
+    $262.agent.report(status2);
+    $262.agent.report(status3);
+    $262.agent.report(duration);
     $262.agent.leaving();
   });
 `);
@@ -45,7 +54,10 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(100);
+$262.agent.waitUntil(i32a, RUNNING, 1);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 assert.sameValue(
   $262.agent.getReport(),
@@ -63,11 +75,10 @@ assert.sameValue(
   '$262.agent.getReport() returns "timed-out"'
 );
 
-var lapse = $262.agent.getReport();
+const lapse = $262.agent.getReport();
 
-assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (The result of `(lapse >= 0)` is true (timeout should be a min of 0ms))');
+assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (timeout should be a min of 0ms)');
 
-assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true)');
+assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true');
 
 assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0');
-

@@ -5,27 +5,37 @@
 esid: sec-atomics.wait
 description: >
   Waiter does not spuriously wake on index which is subject to Sub operation
-includes: [testAtomics.js]
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
+includes: [atomicsHelper.js]
+features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 ---*/
-const TIMEOUT = 200;
+
+const RUNNING = 1;
+const TIMEOUT = $262.agent.timeouts.small;
+
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
+    Atomics.add(i64a, ${RUNNING}, 1n);
+
     const before = $262.agent.monotonicNow();
     const unpark = Atomics.wait(i64a, 0, 0n, ${TIMEOUT});
-    $262.agent.report($262.agent.monotonicNow() - before);
+    const duration = $262.agent.monotonicNow() - before;
+
+    $262.agent.report(duration);
     $262.agent.report(unpark);
     $262.agent.leaving();
   });
 `);
 
 $262.agent.broadcast(i64a.buffer);
-$262.agent.sleep(10);
+$262.agent.waitUntil(i64a, RUNNING, 1n);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 Atomics.sub(i64a, 0, 1n);
 

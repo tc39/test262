@@ -14,61 +14,43 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-const RUNNING = 0
-const WAIT_INDEX = 1; // Index all agents are waiting on
+const RUNNING = 0; // Index to notify agent has started.
+const WAIT_INDEX = 1; // Index all agents are waiting on.
+const BUFFER_SIZE = 2;
+
 const NUMAGENT = 4; // Total number of agents started
-const BUFFER_SIZE = 5; // Index all agents are waiting on
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    Atomics.add(i32a, ${RUNNING}, 1);
-    $262.agent.report("A " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
-    $262.agent.leaving();
-  });
-`);
+for (var i = 0; i < NUMAGENT; i++) {
+  $262.agent.start(`
+    $262.agent.receiveBroadcast(function(sab) {
+      const i32a = new Int32Array(sab);
+      Atomics.add(i32a, ${RUNNING}, 1);
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    Atomics.add(i32a, ${RUNNING}, 1);
-    $262.agent.report("B " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
-    $262.agent.leaving();
-  });
-`);
+      // Wait until restarted by main thread.
+      var status = Atomics.wait(i32a, ${WAIT_INDEX}, 0);
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    Atomics.add(i32a, ${RUNNING}, 1);
-    $262.agent.report("C " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
-    $262.agent.leaving();
-  });
-`);
-
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    Atomics.add(i32a, ${RUNNING}, 1);
-    $262.agent.report("D " + Atomics.wait(i32a, ${WAIT_INDEX}, 0, 50));
-    $262.agent.leaving();
-  });
-`);
+      // Report wait status and then exit the agent.
+      var name = String.fromCharCode(0x41 + ${i}); // "A", "B", "C", or "D"
+      $262.agent.report(name + " " + status);
+      $262.agent.leaving();
+    });
+  `);
+}
 
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
 );
 
 $262.agent.broadcast(i32a.buffer);
-
-// Wait for agents to be running.
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-assert.sameValue(
-  Atomics.wake(i32a, WAIT_INDEX, undefined),
-  NUMAGENT,
-  'Atomics.wake(i32a, WAIT_INDEX, undefined) returns the value of `NUMAGENT` (4)'
-);
+// An agent may have been interrupted between reporting its initial report
+// and the `Atomics.wait` call. Try to yield control to ensure the agent
+// actually started to wait.
+$262.agent.tryYield();
+
+assert.sameValue(Atomics.wake(i32a, WAIT_INDEX, undefined), NUMAGENT,
+                 'Atomics.wake(i32a, WAIT_INDEX, undefined) returns the value of `NUMAGENT`');
 
 const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {

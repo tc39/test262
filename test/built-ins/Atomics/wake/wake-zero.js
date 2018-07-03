@@ -9,19 +9,22 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-const WAKECOUNT = 0;
 const WAIT_INDEX = 0;             // Agents wait here
 const RUNNING = 1;                // Accounting of live agents here
+const WAKECOUNT = 0;
 const NUMAGENT = 3;
 const BUFFER_SIZE = 4;
+
+const TIMEOUT = $262.agent.timeouts.long;
 
 for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
       const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
+
       // Waiters that are not woken will time out eventually.
-      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, 200));
+      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, ${TIMEOUT}));
       $262.agent.leaving();
     });
   `);
@@ -36,17 +39,17 @@ $262.agent.broadcast(i32a.buffer);
 // Wait for agents to be running.
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-// There's a slight risk we'll fail to wake the desired count, if the preceding
-// sleep() took much longer than anticipated and workers have started timing
-// out.
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
+
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT),
   WAKECOUNT,
-  'Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT) returns the value of `WAKECOUNT` (0)'
+  'Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT) returns the value of `WAKECOUNT`'
 );
 
-// Sleep past the timeout
-$262.agent.sleep(300);
+// Try to sleep past the timeout.
+$262.agent.trySleep(TIMEOUT);
 
 for (var i = 0; i < NUMAGENT; i++) {
   assert.sameValue($262.agent.getReport(), 'timed-out', '$262.agent.getReport() returns "timed-out"');

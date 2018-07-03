@@ -17,7 +17,7 @@ info: |
 
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
-flags: [CanBlockIsFalse]
+flags: [CanBlockIsTrue]
 ---*/
 
 const i32a = new Int32Array(

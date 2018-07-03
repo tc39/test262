@@ -49,13 +49,18 @@ assert.sameValue(
   'A timed-out',
   '$262.agent.getReport() returns "A timed-out"'
 );
+
 assert.sameValue(
   $262.agent.getReport(),
   'B not-equal',
   '$262.agent.getReport() returns "B not-equal"'
 );
-assert.sameValue(
-  $262.agent.getReport(),
-  'C not-equal',
-  '$262.agent.getReport() returns "C not-equal"'
-);
+
+var r;
+while ((r = $262.agent.getReport()) !== "done") {
+  assert.sameValue(
+    r,
+    'C not-equal',
+    '$262.agent.getReport() returns "C not-equal"'
+  );
+}

@@ -50,4 +50,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   Atomics.wait(i32a, 0, Symbol("foo"), poisonedToPrimitive);
 }, '`Atomics.wait(i32a, 0, Symbol("foo"), poisonedToPrimitive)` throws TypeError');
-

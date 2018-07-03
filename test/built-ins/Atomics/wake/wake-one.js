@@ -15,13 +15,16 @@ const WAKECOUNT = 1;
 const NUMAGENT = 3;
 const BUFFER_SIZE = 4;
 
+const TIMEOUT = $262.agent.timeouts.long;
+
 for (var i = 0; i < NUMAGENT; i++ ) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
       const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
+
       // Waiters that are not woken will time out eventually.
-      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, 2000));
+      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, ${TIMEOUT}));
       $262.agent.leaving();
     });
   `);
@@ -36,18 +39,20 @@ $262.agent.broadcast(i32a.buffer);
 // Wait for agents to be running.
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-// Then wait some more to give the agents a fair chance to wait.  If we don't,
-// we risk sending the wakeup before agents are sleeping, and we hang.
-$262.agent.sleep(10);
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 // There's a slight risk we'll fail to wake the desired count, if the preceding
-// sleep() took much longer than anticipated and workers have started timing
+// tryYield() took much longer than anticipated and workers have started timing
 // out.
 assert.sameValue(
   Atomics.wake(i32a, 0, WAKECOUNT),
   WAKECOUNT,
-  'Atomics.wake(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT` (1)'
+  'Atomics.wake(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT`'
 );
+
+// Try to sleep past the timeout.
+$262.agent.trySleep(TIMEOUT);
 
 // Collect and check results
 const reports = [];

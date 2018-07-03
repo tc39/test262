@@ -157,6 +157,8 @@ This tag is for boolean properties associated with the test.
   created procedurally using the project's test generation tool; refer to the
   section titled "Procedurally-generated tests" for more information on this
   process
+- **`CanBlockIsFalse`** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `false`
+- **`CanBlockIsTrue`** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `true`
 
 #### features
 **features**: [list]
@@ -170,7 +172,7 @@ Some tests require the use of language features that are not directly described 
 
 This tag identifies the section number from the portion of the ECMAScript 5.1 or ECMAScript 3 standard that is tested by this test. It was automatically generated for tests that were originally written for the ES5 (or earlier) version of the test suite and are now part of the ES6 version. You can use the es5id to discover the relevant portion of the ECMAScript standard by looking up the section number in [previous publications of the specification](https://www.ecma-international.org/publications/standards/Ecma-262-arch.htm). Unfortunately, there is no way to identify which version of ECMAScript (specifically, 3 or 5.1) without looking up the section number and deciding whether it covers the observable in the test.
 
-Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids] for reasoning behind deprecation.
+Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids) for reasoning behind deprecation.
 
 #### es6id
 **es6id**: [es6-test-id]
@@ -179,7 +181,7 @@ Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wi
 
 This tag identifies the section number from the portion of the ES6 standard that is tested by this test _at the time the test was written_. The es6ids might not correspond to the correction section numbers in the ES6 (or later) specification because routine edits to the specification will change section numbering. For this reason, only the esid is required for new tests.
 
-Read the (Test262 Technical Rationale Report)[https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids] for reasoning behind deprecation.
+Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids) for reasoning behind deprecation.
 
 ## Test Environment
 

@@ -12,7 +12,7 @@ info: |
   ...
 
 includes: [testAtomics.js]
-features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 const i64a = new BigInt64Array(

@@ -13,11 +13,11 @@ info: |
     Boolean -> If argument is true, return 1. If argument is false, return +0.
 
 features: [Atomics, BigInt, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
-flags: [CanBlockIsFalse]
+flags: [CanBlockIsTrue]
 ---*/
 
 const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
 const valueOf = {
@@ -47,4 +47,3 @@ assert.sameValue(
   "timed-out",
   'Atomics.wait(i64a, 0, 0n, toPrimitive) returns "timed-out"'
 );
-

@@ -6,7 +6,7 @@ esid: sec-atomics.compareexchange
 description: >
   Test range checking of Atomics.compareExchange on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 const buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);

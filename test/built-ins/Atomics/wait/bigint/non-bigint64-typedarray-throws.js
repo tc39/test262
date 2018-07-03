@@ -19,8 +19,7 @@ info: |
       a. If typeName is not "BigInt64Array",
       throw a TypeError exception.
 
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray, ArrayBuffer, DataView, let, arrow-function, for-of, Atomics, BigInt, SharedArrayBuffer, TypedArray]
-includes: [testAtomics.js, testBigIntTypedArray.js]
+features: [Atomics, BigInt, SharedArrayBuffer]
 ---*/
 
 const i64a = new BigUint64Array(
@@ -40,4 +39,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   Atomics.wait(i64a, poisoned, poisoned, poisoned);
 }, '`Atomics.wait(i64a, poisoned, poisoned, poisoned)` throws TypeError');
-

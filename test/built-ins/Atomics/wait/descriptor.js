@@ -13,4 +13,3 @@ verifyProperty(Atomics, 'wait', {
   writable: true,
   configurable: true,
 });
-
