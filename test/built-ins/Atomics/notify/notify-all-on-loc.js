@@ -13,13 +13,13 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 const WAIT_INDEX = 0;             // Waiters on this will be woken
 const WAIT_FAKE = 1;              // Waiters on this will not be woken
 const RUNNING = 2;                // Accounting of live agents
-const WAKE_INDEX = 3;             // Accounting for too early timeouts
+const NOTIFY_INDEX = 3;             // Accounting for too early timeouts
 const NUMAGENT = 3;
 const TIMEOUT_AGENT_MESSAGES = 2; // Number of messages for the timeout agent
 const BUFFER_SIZE = 4;
 
 // Long timeout to ensure the agent doesn't timeout before the main agent calls
-// `Atomics.wake`.
+// `Atomics.notify`.
 const TIMEOUT = $262.agent.timeouts.long;
 
 for (var i = 0; i < NUMAGENT; i++) {
@@ -43,10 +43,10 @@ $262.agent.start(`
     $262.agent.report("B " + Atomics.wait(i32a, ${WAIT_FAKE}, 0, ${TIMEOUT}));
 
     // If this value is not 1, then the agent timeout before the main agent
-    // called Atomics.wake.
-    const result = Atomics.load(i32a, ${WAKE_INDEX}) === 1
-                   ? "timeout after Atomics.wake"
-                   : "timeout before Atomics.wake";
+    // called Atomics.notify.
+    const result = Atomics.load(i32a, ${NOTIFY_INDEX}) === 1
+                   ? "timeout after Atomics.notify"
+                   : "timeout before Atomics.notify";
     $262.agent.report("W " + result);
 
     $262.agent.leaving();
@@ -73,7 +73,7 @@ assert.sameValue(
   'Atomics.notify(i32a, WAIT_INDEX) returns the value of `NUMAGENT`'
 );
 
-Atomics.store(i32a, WAKE_INDEX, 1);
+Atomics.store(i32a, NOTIFY_INDEX, 1);
 
 const reports = [];
 for (var i = 0; i < NUMAGENT + TIMEOUT_AGENT_MESSAGES; i++) {
@@ -85,5 +85,5 @@ for (var i = 0; i < NUMAGENT; i++) {
   assert.sameValue(reports[i], "A ok", 'The value of reports[i] is "A ok"');
 }
 assert.sameValue(reports[NUMAGENT], "B timed-out", 'The value of reports[NUMAGENT] is "B timed-out"');
-assert.sameValue(reports[NUMAGENT + 1], "W timeout after Atomics.wake",
-                 'The value of reports[NUMAGENT + 1] is "W timeout after Atomics.wake"');
+assert.sameValue(reports[NUMAGENT + 1], "W timeout after Atomics.notify",
+                 'The value of reports[NUMAGENT + 1] is "W timeout after Atomics.notify"');
