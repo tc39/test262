@@ -37,5 +37,5 @@ assert.sameValue(Atomics.notify(i32a, 0, 1), 1, 'Atomics.notify(i32a, 0, 1) retu
 
 assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
 
-// Already awake, this should be a noop
+// Already notified, this should be a noop
 assert.sameValue(Atomics.notify(i32a, 0, 1), 0, 'Atomics.notify(i32a, 0, 1) returns 0');
