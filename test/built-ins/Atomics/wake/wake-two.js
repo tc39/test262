@@ -9,20 +9,22 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-
 const WAIT_INDEX = 0;             // Agents wait here
 const RUNNING = 1;                // Accounting of live agents here
 const WAKECOUNT = 2;
 const NUMAGENT = 3;
 const BUFFER_SIZE = 4;
 
+const TIMEOUT = $262.agent.timeouts.long;
+
 for (var i = 0; i < NUMAGENT; i++ ) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
       const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
+
       // Waiters that are not woken will time out eventually.
-      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, 200));
+      $262.agent.report(Atomics.wait(i32a, ${WAIT_INDEX}, 0, ${TIMEOUT}));
       $262.agent.leaving();
     })
   `);
@@ -37,24 +39,23 @@ $262.agent.broadcast(i32a.buffer);
 // Wait for agents to be running.
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-// Then wait some more to give the agents a fair chance to wait.  If we don't,
-// we risk sending the wakeup before agents are sleeping, and we hang.
-$262.agent.sleep(10);
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 // There's a slight risk we'll fail to wake the desired count, if the preceding
-// sleep() took much longer than anticipated and workers have started timing
+// tryYield() took much longer than anticipated and workers have started timing
 // out.
 assert.sameValue(
   Atomics.wake(i32a, 0, WAKECOUNT),
   WAKECOUNT,
-  'Atomics.wake(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT` (2)'
+  'Atomics.wake(i32a, 0, WAKECOUNT) returns the value of `WAKECOUNT`'
 );
 
-// Sleep past the timeout
-$262.agent.sleep(300);
+// Try to sleep past the timeout.
+$262.agent.trySleep(TIMEOUT);
 
 // Collect and check results
-var reports = [];
+const reports = [];
 for (var i = 0; i < NUMAGENT; i++) {
   reports.push($262.agent.getReport());
 }
@@ -66,4 +67,3 @@ for (var i = 0; i < WAKECOUNT; i++) {
 for (var i = WAKECOUNT; i < NUMAGENT; i++) {
   assert.sameValue(reports[i], 'timed-out', 'The value of reports[i] is "timed-out"');
 }
-

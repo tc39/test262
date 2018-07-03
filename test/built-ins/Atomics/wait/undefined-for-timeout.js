@@ -25,8 +25,9 @@ const WAKECOUNT = 2;  // Total number of agents to wake up
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     var i32a = new Int32Array(sab);
-    // undefined => NaN => +Infinity
     Atomics.add(i32a, ${RUNNING}, 1);
+
+    // undefined => NaN => +Infinity
     $262.agent.report("A " + Atomics.wait(i32a, 0, 0, undefined));
     $262.agent.leaving();
   });
@@ -35,8 +36,9 @@ $262.agent.start(`
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     var i32a = new Int32Array(sab);
-    // undefined timeout arg => NaN => +Infinity
     Atomics.add(i32a, ${RUNNING}, 1);
+
+    // undefined timeout arg => NaN => +Infinity
     $262.agent.report("B " + Atomics.wait(i32a, 0, 0));
     $262.agent.leaving();
   });
@@ -48,6 +50,9 @@ const i32a = new Int32Array(
 
 $262.agent.broadcast(i32a.buffer);
 $262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX, WAKECOUNT),

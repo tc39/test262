@@ -6,7 +6,7 @@ esid: sec-atomics.sub
 description: >
   Test range checking of Atomics.sub on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);

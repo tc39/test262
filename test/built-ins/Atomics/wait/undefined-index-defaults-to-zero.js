@@ -22,10 +22,15 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
+const RUNNING = 1;
+const TIMEOUT = $262.agent.timeouts.long;
+
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i32a = new Int32Array(sab);
-    $262.agent.report(Atomics.wait(i32a, undefined, 0, 1000)); // undefined index => 0
+    Atomics.add(i32a, ${RUNNING}, 1);
+
+    $262.agent.report(Atomics.wait(i32a, undefined, 0, ${TIMEOUT})); // undefined index => 0
     $262.agent.leaving();
   });
 `);
@@ -35,7 +40,10 @@ const i32a = new Int32Array(
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(150);
+$262.agent.waitUntil(i32a, RUNNING, 1);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
 
 assert.sameValue(Atomics.wake(i32a, 0), 1, 'Atomics.wake(i32a, 0) returns 1'); // wake at index 0
 assert.sameValue(Atomics.wake(i32a, 0), 0, 'Atomics.wake(i32a, 0) returns 0'); // wake again at index 0, and 0 agents should be woken

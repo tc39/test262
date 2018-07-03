@@ -16,75 +16,78 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-var agent1 = '1';
-var agent2 = '2';
-var agent3 = '3';
+var NUMAGENT = 3;
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
+var WAIT_INDEX = 0;
+var RUNNING = 1;
+var LOCK_INDEX = 2;
 
-    $262.agent.report(${agent1});
-    $262.agent.report(Atomics.wait(i32a, 1, 0));
-    $262.agent.report(${agent1});
-    $262.agent.leaving();
-  });
-`);
+for (var i = 0; i < NUMAGENT; i++) {
+  var agentNum = i;
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
+  $262.agent.start(`
+    $262.agent.receiveBroadcast(function(sab) {
+      const i32a = new Int32Array(sab);
+      Atomics.add(i32a, ${RUNNING}, 1);
 
-    $262.agent.report(${agent2});
-    $262.agent.report(Atomics.wait(i32a, 2, 0));
-    $262.agent.report(${agent2});
-    $262.agent.leaving();
-  });
-`);
+      // Synchronize workers before reporting the initial report.
+      while (Atomics.compareExchange(i32a, ${LOCK_INDEX}, 0, 1) !== 0) ;
 
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
+      // Report the agent number before waiting.
+      $262.agent.report(${agentNum});
 
-    $262.agent.report(${agent3});
-    $262.agent.report(Atomics.wait(i32a, 3, 0));
-    $262.agent.report(${agent3});
-    $262.agent.leaving();
-  });
-`);
+      // Wait until restarted by main thread.
+      var status = Atomics.wait(i32a, ${WAIT_INDEX}, 0);
 
+      // Report wait status.
+      $262.agent.report(status);
+
+      // Report the agent number after waiting.
+      $262.agent.report(${agentNum});
+
+      $262.agent.leaving();
+    });
+  `);
+}
 
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
 $262.agent.broadcast(i32a.buffer);
-$262.agent.sleep(100);
 
-// Agents may be started in any order...
-const started = [$262.agent.getReport(), $262.agent.getReport(), $262.agent.getReport()];
+// Wait until all agents started.
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-// Agents must wake in the order they waited
-assert.sameValue(Atomics.wake(i32a, 1, 1), 1, 'Atomics.wake(i32a, 1, 1) returns 1');
-assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
-assert.sameValue(
-  $262.agent.getReport(),
-  started[0],
-  '$262.agent.getReport() returns the value of `started[0]` (undefined)'
-);
+// Agents may be started in any order.
+const started = [];
+for (var i = 0; i < NUMAGENT; i++) {
+  // Wait until an agent entered its critical section.
+  $262.agent.waitUntil(i32a, LOCK_INDEX, 1);
 
-assert.sameValue(Atomics.wake(i32a, 2, 1), 1, 'Atomics.wake(i32a, 2, 1) returns 1');
-assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
-assert.sameValue(
-  $262.agent.getReport(),
-  started[1],
-  '$262.agent.getReport() returns the value of `started[1]` (undefined)'
-);
+  // Record the agent number.
+  started.push($262.agent.getReport());
 
-assert.sameValue(Atomics.wake(i32a, 3, 1), 1, 'Atomics.wake(i32a, 3, 1) returns 1');
-assert.sameValue($262.agent.getReport(), 'ok', '$262.agent.getReport() returns "ok"');
-assert.sameValue(
-  $262.agent.getReport(),
-  started[2],
-  '$262.agent.getReport() returns the value of `started[2]` (undefined)'
-);
+  // The agent may have been interrupted between reporting its initial report
+  // and the `Atomics.wait` call. Try to yield control to ensure the agent
+  // actually started to wait.
+  $262.agent.tryYield();
+
+  // Now continue with the next agent.
+  Atomics.store(i32a, LOCK_INDEX, 0);
+}
+
+// Agents must wake in the order they waited.
+for (var i = 0; i < NUMAGENT; i++) {
+  var woken = 0;
+  while ((woken = Atomics.wake(i32a, WAIT_INDEX, 1)) === 0) ;
+
+  assert.sameValue(woken, 1,
+                   'Atomics.wake(i32a, WAIT_INDEX, 1) returns 1, at index = ' + i);
+
+  assert.sameValue($262.agent.getReport(), 'ok',
+                   '$262.agent.getReport() returns "ok", at index = ' + i);
+
+  assert.sameValue($262.agent.getReport(), started[i],
+                   '$262.agent.getReport() returns the value of `started[' + i + ']`');
+}

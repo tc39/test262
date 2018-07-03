@@ -10,8 +10,7 @@ features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 const WAIT_INDEX = 0;             // Waiters on this will be woken
-const WAIT_FAKE = 1;              // Waiters on this will not be woken
-const RUNNING = 2;                // Accounting of live agents
+const RUNNING = 1;                // Accounting of live agents
 const NUMAGENT = 3;
 const BUFFER_SIZE = 4;
 
@@ -20,21 +19,12 @@ for (var i = 0; i < NUMAGENT; i++) {
     $262.agent.receiveBroadcast(function(sab) {
       const i32a = new Int32Array(sab);
       Atomics.add(i32a, ${RUNNING}, 1);
+
       $262.agent.report("A " + Atomics.wait(i32a, ${WAIT_INDEX}, 0));
       $262.agent.leaving();
     });
   `);
 }
-
-$262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
-    const i32a = new Int32Array(sab);
-    Atomics.add(i32a, ${RUNNING}, 1);
-    // This will always time out.
-    $262.agent.report("B " + Atomics.wait(i32a, ${WAIT_FAKE}, 0, 10));
-    $262.agent.leaving();
-  });
-`);
 
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
@@ -43,26 +33,19 @@ const i32a = new Int32Array(
 $262.agent.broadcast(i32a.buffer);
 
 // Wait for agents to be running.
-$262.agent.waitUntil(i32a, RUNNING, NUMAGENT + 1);
+$262.agent.waitUntil(i32a, RUNNING, NUMAGENT);
 
-// Then wait some more to give the agents a fair chance to wait.  If we don't,
-// we risk sending the wakeup before agents are sleeping, and we hang.
-$262.agent.sleep(50);
+// Try to yield control to ensure the agent actually started to wait. If we
+// don't, we risk sending the wakeup before agents are sleeping, and we hang.
+$262.agent.tryYield();
 
 // Wake all waiting on WAIT_INDEX, should be 3 always, they won't time out.
 assert.sameValue(
   Atomics.wake(i32a, WAIT_INDEX),
   NUMAGENT,
-  'Atomics.wake(i32a, WAIT_INDEX) returns the value of `NUMAGENT` (3)'
+  'Atomics.wake(i32a, WAIT_INDEX) returns the value of `NUMAGENT`'
 );
 
-const reports = [];
-for (var i = 0; i < NUMAGENT + 1; i++) {
-  reports.push($262.agent.getReport());
-}
-reports.sort();
-
 for (var i = 0; i < NUMAGENT; i++) {
-  assert.sameValue(reports[i], 'A ok', 'The value of reports[i] is "A ok"');
+  assert.sameValue($262.agent.getReport(), 'A ok', 'The value of reports[i] is "A ok"');
 }
-assert.sameValue(reports[NUMAGENT], 'B timed-out', 'The value of reports[NUMAGENT] is "B timed-out"');

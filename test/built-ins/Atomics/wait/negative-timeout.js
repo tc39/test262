@@ -6,7 +6,7 @@ esid: sec-atomics.wait
 description: >
   Test that Atomics.wait times out with a negative timeout
 features: [Atomics, SharedArrayBuffer, TypedArray]
-flags: [CanBlockIsFalse]
+flags: [CanBlockIsTrue]
 ---*/
 
 const i32a = new Int32Array(

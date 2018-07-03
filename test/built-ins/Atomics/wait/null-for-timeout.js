@@ -13,7 +13,7 @@ info: |
     Null -> Return +0.
 
 features: [Atomics, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray]
-flags: [CanBlockIsFalse]
+flags: [CanBlockIsTrue]
 ---*/
 
 const i32a = new Int32Array(
@@ -47,4 +47,3 @@ assert.sameValue(
   "timed-out",
   'Atomics.wait(i32a, 0, 0, toPrimitive) returns "timed-out"'
 );
-

@@ -1,10 +1,17 @@
-// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2017 Mozilla Corporation.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-atomics.wait
 description: >
-  Waiter does not spuriously wake on index which is subject to Store operation
+  Test that Atomics.wait returns the right result when it timed out and that
+  the time to time out is reasonable.
+  info: |
+    17. Let awoken be Suspend(WL, W, t).
+    18. If awoken is true, then
+      a. Assert: W is not on the list of waiters in WL.
+    19. Else,
+      a.Perform RemoveWaiter(WL, W).
 includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
@@ -17,7 +24,7 @@ const i32a = new Int32Array(
 );
 
 $262.agent.start(`
-  $262.agent.receiveBroadcast(function(sab) {
+  $262.agent.receiveBroadcast(function(sab, id) {
     const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
@@ -37,7 +44,7 @@ $262.agent.waitUntil(i32a, RUNNING, 1);
 // Try to yield control to ensure the agent actually started to wait.
 $262.agent.tryYield();
 
-Atomics.store(i32a, 0, 0x111111);
+// NO OPERATION OCCURS HERE!
 
 const lapse = $262.agent.getReport();
 assert(

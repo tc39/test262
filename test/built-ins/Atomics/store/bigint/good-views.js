@@ -4,7 +4,7 @@
 esid: sec-atomics.store
 description: Test Atomics.store on arrays that allow atomic operations.
 includes: [testAtomics.js, testBigIntTypedArray.js]
-features: [ArrayBuffer, arrow-function, Atomics, BigInt, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 // Make it interesting - use non-zero byteOffsets and non-zero indexes.
 // In-bounds boundary cases for indexing
@@ -15,9 +15,19 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   const view = new TA(sab, 32, 20);
   const control = new TA(ab, 0, 2);
 
-  for (let val of [10n, -5n, 12345n, 123456789n, BigInt('33'), {
-    valueOf: () => 33n
-  }]) {
+  const values = [
+    10n,
+    -5n,
+    12345n,
+    123456789n,
+    BigInt('33'),
+    {
+      valueOf: function() { return 33n; }
+    }
+  ];
+
+  for (let i = 0; i < values.length; i++) {
+    let val = values[i];
     assert.sameValue(
       Atomics.store(view, 3, val),
       BigInt(val),

@@ -12,7 +12,7 @@ info: |
   ...
 
 includes: [testAtomics.js]
-features: [ArrayBuffer, arrow-function, Atomics, DataView, for-of, let, SharedArrayBuffer, TypedArray]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
 const i32a = new Int32Array(
