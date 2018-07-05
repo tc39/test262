@@ -36,7 +36,7 @@ features: [String.fromCodePoint]
 ---*/
 
 const chunks = [];
-const totalChunks = Math.ceil(1114111 / 0x10000);
+const totalChunks = Math.ceil(0x10ffff / 0x10000);
 
 for (let codePoint = 0; codePoint < 0x10FFFF; codePoint++) {
     // split strings to avoid a super long one;
@@ -63,6 +63,8 @@ for (const str of chunks) {
     }
 };
 
-if (errors.length) {
-    throw new Test262Error('Code point(s) not in the expected range: ' + errors.join(','));
-}
+assert.sameValue(
+    errors.length,
+    0,
+    'Expected matching code points, but received: ' + errors.join(',')
+);
