@@ -85,6 +85,10 @@ Symbol.prototype.description
 # https://github.com/tc39/proposal-json-superset
 json-superset
 
+# Intl.ListFormat
+# https://github.com/tc39/proposal-intl-list-format
+Intl.ListFormat
+
 # Intl.Locale
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
