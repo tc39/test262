@@ -97,6 +97,10 @@ Intl.Locale
 # https://github.com/tc39/proposal-intl-relative-time
 Intl.RelativeTimeFormat
 
+# Intl.Segmenter
+# https://github.com/tc39/proposal-intl-segmenter
+Intl.Segmenter
+
 # Global
 # https://github.com/tc39/proposal-global
 global
