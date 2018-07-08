@@ -6,9 +6,14 @@ es5id: 7.8.4-1-s
 description: >
     A directive preceeding an 'use strict' directive may not contain
     an OctalEscapeSequence
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-    eval(' "asterisk: \\052" /* octal escape sequences forbidden in strict mode*/ ; "use strict";');
+(function() {
+  "asterisk: \052";
+  "use strict";
 });
