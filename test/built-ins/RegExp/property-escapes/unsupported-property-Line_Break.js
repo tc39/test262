@@ -4,14 +4,15 @@
 /*---
 author: Mathias Bynens
 description: >
-  Unicode property escapes must be supported in character classes.
+  Properties not explicitly listed in the Unicode property escapes spec must
+  not be supported.
 esid: sec-static-semantics-unicodematchproperty-p
+negative:
+  phase: parse
+  type: SyntaxError
 features: [regexp-unicode-property-escapes]
 ---*/
 
-/[\p{Hex}]/u;
+throw "Test262: This statement should not be evaluated.";
 
-assert(
-  /[\p{Hex}\P{Hex}]/u.test('\u{1D306}'),
-  'multiple property escapes in a single character class should be supported'
-);
+/\p{Line_Break}/u;
