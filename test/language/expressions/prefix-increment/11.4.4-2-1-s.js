@@ -3,12 +3,12 @@
 
 /*---
 es5id: 11.4.4-2-1-s
-description: Strict Mode - SyntaxError is thrown for ++eval
+description: Strict Mode - ReferenceError is thrown for ++eval
 flags: [onlyStrict]
 ---*/
 
         var blah = eval;
-assert.throws(SyntaxError, function() {
+assert.throws(ReferenceError, function() {
             eval("++eval;");
 });
 assert.sameValue(blah, eval, 'blah');

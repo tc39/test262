@@ -4,14 +4,14 @@
 /*---
 es5id: 11.3.1-2-1-s
 description: >
-    Strict Mode - SyntaxError is thrown if the identifier 'arguments'
+    Strict Mode - ReferenceError is thrown if the identifier 'arguments'
     appear as a PostfixExpression(arguments++)
 flags: [onlyStrict]
 ---*/
 
 function testcase() {
         var blah = arguments;
-        assert.throws(SyntaxError, function() {
+        assert.throws(ReferenceError, function() {
             eval("arguments++;");
         });
         assert.sameValue(blah, arguments, 'blah');

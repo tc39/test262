@@ -4,13 +4,13 @@
 /*---
 es5id: 11.3.1-2-2-s
 description: >
-    Strict Mode - SyntaxError is thrown if the identifier 'eval'
+    Strict Mode - ReferenceError is thrown if the identifier 'eval'
     appear as a PostfixExpression(eval++)
 flags: [onlyStrict]
 ---*/
 
         var blah = eval;
-assert.throws(SyntaxError, function() {
+assert.throws(ReferenceError, function() {
             eval("eval++;");
 });
 assert.sameValue(blah, eval, 'blah');

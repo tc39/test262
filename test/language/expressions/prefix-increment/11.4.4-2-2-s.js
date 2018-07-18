@@ -3,13 +3,13 @@
 
 /*---
 es5id: 11.4.4-2-2-s
-description: Strict Mode - SyntaxError is thrown for ++arguments
+description: Strict Mode - ReferenceError is thrown for ++arguments
 flags: [onlyStrict]
 ---*/
 
 function testcase() {
         var blah = arguments;
-        assert.throws(SyntaxError, function() {
+        assert.throws(ReferenceError, function() {
             eval("++arguments;");
         });
         assert.sameValue(blah, arguments, 'blah');
