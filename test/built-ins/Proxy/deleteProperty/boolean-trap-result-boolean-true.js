@@ -6,6 +6,7 @@ description: >
     [[Delete]] (P)
 
     The result is a Boolean value.
+features: [Reflect]
 ---*/
 
 var p = new Proxy({}, {
