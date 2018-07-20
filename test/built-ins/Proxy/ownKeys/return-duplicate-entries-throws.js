@@ -9,6 +9,7 @@ info: |
 
     ...
     9. If trapResult contains any duplicate entries, throw a TypeError exception.
+features: [Proxy]
 ---*/
 
 var p = new Proxy({}, {
