@@ -24,7 +24,7 @@ info: |
 ---*/
 
 var p = new Proxy({}, {
-  ownKeys() {
+  ownKeys: function() {
     return [1];
   }
 });
