@@ -38,3 +38,39 @@ compareFTPtoFormat(['ar'], {
   day: 'numeric',
   year: '2-digit'
 }, Date.now());
+
+const actualPartTypes = new Intl.DateTimeFormat('en-us', {
+    weekday: 'long',
+    era: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: true,
+    timeZone: 'UTC',
+    timeZoneName: 'long'
+}).formatToParts(Date.UTC(2012, 11, 17, 3, 0, 42))
+  .map(function (part) { return part.type; });
+
+const legalPartTypes = [
+  "weekday",
+  "era",
+  "year",
+  "month",
+  "day",
+  "hour",
+  "minute",
+  "second",
+  "literal",
+  "dayPeriod",
+  "timeZoneName"
+];
+
+actualPartTypes.forEach(
+  function (type) {
+    assert(
+      legalPartTypes.indexOf(type) !== -1,
+      type + " is not a legal type");
+  });
