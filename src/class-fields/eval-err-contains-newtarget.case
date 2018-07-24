@@ -16,7 +16,7 @@ info: |
   ScriptBody:StatementList
 
     It is a Syntax Error if StatementList Contains NewTarget.
-features: [class, class-fields-public]
+features: [class, class-fields-public, new.target]
 template: initializer-eval-newtarget
 ---*/
 
