@@ -19,7 +19,8 @@ info: |
 negative:
   phase: parse
   type: SyntaxError
-flags: [module, export-star-as-namespace-from-module]
+flags: [module]
+features: [export-star-as-namespace-from-module]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
