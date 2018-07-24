@@ -8,7 +8,7 @@ info: |
   [...]
   6. Let result be ? Construct(func, argList, newTarget).
   [...]
-features: [class, Reflect]
+features: [class, Reflect, new.target]
 ---*/
 
 var expectedNewTarget = function() {};
