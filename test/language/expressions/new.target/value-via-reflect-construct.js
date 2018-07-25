@@ -9,7 +9,7 @@ info: |
   2. If newTarget is not present, let newTarget be target.
   [...]
   5. Return ? Construct(target, args, newTarget).
-features: [Reflect]
+features: [Reflect, new.target]
 ---*/
 
 var customNewTarget = function() {};
