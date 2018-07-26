@@ -103,7 +103,7 @@ Intl.Segmenter
 
 # Global
 # https://github.com/tc39/proposal-global
-global
+globalThis
 
 # `export * as namespace from module` consensus PR
 # https://github.com/tc39/ecma262/pull/1174
