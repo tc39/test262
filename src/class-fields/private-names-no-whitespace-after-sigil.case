@@ -1,0 +1,19 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Syntax error if whitespace after '#' sigil
+template: class-fields-early-errors
+features: [class-fields-private]
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- fields
+# x = 1;
+
+//- methods
+m() {
+    # x = 1;
+}

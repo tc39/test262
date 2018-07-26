@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/class-fields-early-errors
+name: early errors in class declaration
+features: [class, class-fields-private]
+esid: sec-static-semantics-early-errors
+---*/
+
+throw "Test262: This statement should not be evaluated.";
+
+var C = class {
+  /*{ fields }*/
+  /*{ methods }*/
+}
