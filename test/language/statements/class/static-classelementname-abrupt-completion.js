@@ -9,26 +9,17 @@ info: |
   ...
   27. For each ClassElement e in order from elements
     a. If IsStatic of e is false, then
-        i. Let fields be the result of performing ClassElementEvaluation for e with arguments proto and false.
+      i. Let fields be the result of performing ClassElementEvaluation
+          for e with arguments proto and false.
     b. Else,
-        i. Let fields be the result of performing ClassElementEvaluation for e with arguments F and false.
+      i. Let fields be the result of performing ClassElementEvaluation
+          for e with arguments F and false.
     c. If fields is an abrupt completion, then
-        i. Set the running execution context's LexicalEnvironment to lex.
-        ii. Set the running execution context's PrivateNameEnvironment to outerPrivateEnvironment.
-        iii. Return Completion(status).
+      i. Set the running execution context's LexicalEnvironment to lex.
+      ii. Set the running execution context's PrivateNameEnvironment to outerPrivateEnvironment.
+      iii. Return Completion(status).
 
-  Runtime Semantics: ClassElementEvaluation
-  ...
-    ClassElement : static FieldDefinition ;
-      1. Return ClassFieldDefinitionEvaluation of FieldDefinition with parameter true and object.
-
-  Runtime Semantics: ClassFieldDefinitionEvaluation
-  With parameters isStatic and homeObject.
-    FieldDefinition : ClassElementNameInitializer
-      1. Let fieldName be the result of evaluating ClassElementName.
-      2. ReturnIfAbrupt(fieldName).
-
-features: [class-fields]
+features: [class-static-fields-public]
 ---*/
 
 function f() {

@@ -7,28 +7,19 @@ esid: runtime-semantics-class-definition-evaluation
 info: |
   Runtime Semantics: ClassDefinitionEvaluation
   ...
-  33. Let result be InitializeStaticFields(F).
-  34. If result is an abrupt completion, then
-    a. Set the running execution context's LexicalEnvironment to lex.
-    b. Return Completion(result).
+  27. For each ClassElement e in order from elements
+    a. If IsStatic of e is false, then
+      i. Let fields be the result of performing ClassElementEvaluation
+          for e with arguments proto and false.
+    b. Else,
+      i. Let fields be the result of performing ClassElementEvaluation
+          for e with arguments F and false.
+    c. If fields is an abrupt completion, then
+      i. Set the running execution context's LexicalEnvironment to lex.
+      ii. Set the running execution context's PrivateNameEnvironment to outerPrivateEnvironment.
+      iii. Return Completion(status).
 
-  InitializeStaticFields(F)
-    1. Assert: Type(F) is Object.
-    2. Assert: F is an ECMAScript function object.
-    3. Let fieldRecords be the value of F's [[Fields]] internal slot.
-    4. For each item fieldRecord in order from fieldRecords,
-      a. If fieldRecord.[[static]] is true, then
-        i. Perform ? DefineField(F, fieldRecord).
-
-  DefineField(receiver, fieldRecord)
-    1. Assert: Type(receiver) is Object.
-    2. Assert: fieldRecord is a Record as created by ClassFieldDefinitionEvaluation.
-    3. Let fieldName be fieldRecord.[[Name]].
-    4. Let initializer be fieldRecord.[[Initializer]].
-    5. If initializer is not empty, then
-        a. Let initValue be ? Call(initializer, receiver).
-
-features: [class-fields]
+features: [class-static-fields-public]
 ---*/
 
 function f() {
@@ -39,4 +30,4 @@ assert.throws(Test262Error, function() {
   class C {
     static x = f();
   }
-})
+});
