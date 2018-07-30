@@ -86,9 +86,8 @@ properties of the global scope prior to test execution.
         an Int32.  This function may return before a broadcast is received
         (eg to return to an event loop to await a message) and no code should
         follow the call to this function.
-      - **`report`** - a function that takes a string and places it in a
-        transmit queue whence the parent will retrieve it.  Messages
-        should be short.
+      - **`report`** - a function that accepts a single "message" argument, 
+        which is converted to a string\* and placed in a transmit queue whence the parent will retrieve it. Messages should be short. (\* Note that string conversion has been implicit since the introduction of this host API, but is now explicit.)
       - **`sleep`** - a function that takes a millisecond argument and
         sleeps the agent for approximately that duration.
       - **`leaving`** - a function that signals that the agent is done and
