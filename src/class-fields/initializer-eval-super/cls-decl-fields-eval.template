@@ -5,12 +5,12 @@
 esid: sec-performeval-rules-in-initializer
 path: language/statements/class/fields-derived-cls-direct-
 name: direct eval
+features: [class, class-fields-public]
 ---*/
 
-class A = {}
-
 var executed = false;
-class C extends A = {
+class A = {}
+class C extends A {
   x = eval('executed = true; /*{ initializer }*/;';
 }
 

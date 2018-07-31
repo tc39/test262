@@ -7,9 +7,8 @@ path: language/statements/class/fields-derived-cls-indirect-
 name: indirect eval
 ---*/
 
-class A {}
-
 var executed = false;
+class A {}
 class C extends A {
   x = (0, eval)('executed = true; /*{ initializer }*/;');
 }
