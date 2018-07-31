@@ -5,12 +5,13 @@
 esid: sec-performeval-rules-in-initializer
 path: language/expressions/class/fields-indirect-
 name: indirect eval
+features: [class, class-fields-public]
 ---*/
 
 var executed = false;
-C = class {
+var C = class {
   x = (0, eval)('executed = true; /*{ initializer }*/;');
-}
+};
 
 assert.throws(/*{ executionerror }*/, function() {
   new C();

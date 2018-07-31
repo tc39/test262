@@ -5,11 +5,12 @@
 esid: sec-class-definitions-static-semantics-early-errors
 path: language/statements/class/fields-comp-name-
 name: computed ClassElementName
+features: [class, class-fields-public]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
 
 var x = "string";
 class C {
-  static [x] = /*{ initializer }*/;
+  [x] = /*{ initializer }*/;
 }

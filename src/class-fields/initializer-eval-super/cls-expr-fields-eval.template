@@ -5,14 +5,14 @@
 esid: sec-performeval-rules-in-initializer
 path: language/expressions/class/fields-derived-cls-direct-
 name: direct eval
+features: [class, class-fields-public]
 ---*/
 
-A = class {}
-
 var executed = false;
-C = class extends A {
+var A = class {}
+var C = class extends A {
   x = eval('executed = true; /*{ initializer }*/;';
-}
+};
 
 assert.throws(/*{ earlyerror }*/, function() {
   new C();
