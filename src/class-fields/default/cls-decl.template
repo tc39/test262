@@ -4,7 +4,7 @@
 /*---
 path: language/statements/class/fields-
 name: field definitions in a class declaration
-features: [class, class-fields-public]
+features: [class]
 esid: prod-FieldDefinition
 ---*/
 
