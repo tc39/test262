@@ -12,7 +12,7 @@ includes: [propertyHelper.js]
 
 class C {
   async m() { return 42; } /*{ fields }*/;
-/*{ privateinspectionfunctions }*/
+  /*{ privateinspectionfunctions }*/
 }
 
 var c = new C();

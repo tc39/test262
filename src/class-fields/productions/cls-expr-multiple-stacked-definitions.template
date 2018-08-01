@@ -13,7 +13,7 @@ var C = class {
   /*{ fields }*/
   foo = "foobar"
   bar = "barbaz";
-/*{ privateinspectionfunctions }*/
+  /*{ privateinspectionfunctions }*/
 }
 
 var c = new C();
