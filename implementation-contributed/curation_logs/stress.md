@@ -1,0 +1,20 @@
+- addition-order-evaluation.js:
+    - not exactly covered, but language/expressions/addition/order-of-evalution.js does it for ToNumber vs ToPrimitive checks
+    - language/expressions/addition/
+    - Should check for primitive coercion converting values to primitive to be used before comparing to symbol values
+    - https://tc39.github.io/ecma262/#sec-addition-operator-plus checks for both operands as their primitive values before ToNumber over Symbol values
+    - should cover ToPrimitive before ToNumber
+- allow-math-ic-b3-code-duplication.js:
+    - Could add cases for addition expressions with primitive operations returning other objects, not really like this specific test, but from @@toPrimitive, valueOf, and toString calls.
+- apply-second-argument-must-be-array-like.js
+    - Cases should be covered in Function#apply, where the second arg is not an array like value
+- arguments-bizarre-behavior.js
+    - This is partially covered in a different way: needs to check length of arguments after defineProperty, and checking after the function escope, as a returned result. Enumerability might be a point to consider as well (too specific?)
+- arith-*-on-varios-types.js
+    - Test262 needs several tests for the Math methods with type coercions on the given arguments
+- array-*:
+    - Perhaps: add cases of operations on top of proxies object to arrays.
+- set-*.js / map-*.js / weakmap-set-*.js / weakset-*.js:
+    - Test static return values for before and after adding an item in an WeakSet.
+- zero-to-string.js:
+    - Number#toString is not checked over literal numbers but number objects only.
