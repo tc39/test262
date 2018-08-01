@@ -2,43 +2,42 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: literal private names
+desc: static private methods
 info: |
-  ClassElement:
+  ClassElement :
     ...
     static FieldDefinition ;
 
-  FieldDefinition:
+  FieldDefinition :
     ClassElementName Initializer_opt
 
-  ClassElementName:
+  ClassElementName :
     PrivateName
 
-  PrivateName:
+  PrivateName :
     # IdentifierName
 
-template: default
+template: productions
 features: [class-static-methods-private]
 ---*/
 
 //- fields
 static #xVal; static #yVal
 //- privateinspectionfunctions
-  static #x(value) {
-    this.#xVal = value;
-    return this.#xVal;
-  }
-  static #y(value) {
-    this.#y = value;
-    return this.#yVal;
-  }
-  static x() {
-    return this.#x(42);
-  }
-  static y() {
-    return this.#y(43);
-  }
-
+static #x(value) {
+  this.#xVal = value;
+  return this.#xVal;
+}
+static #y(value) {
+  this.#y = value;
+  return this.#yVal;
+}
+static x() {
+  return this.#x(42);
+}
+static y() {
+  return this.#y(43);
+}
 //- assertions
 
 // Test the private methods do not appear as properties before set to value

@@ -2,20 +2,21 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: static literal private names
+desc: private names
 info: |
-  ClassElement:
+  ClassElement :
     ...
     FieldDefinition ;
 
-  FieldDefinition:
+  FieldDefinition :
     ClassElementName Initializer_opt
 
-  ClassElementName:
+  ClassElementName :
     PrivateName
 
-  PrivateName:
+  PrivateName :
     # IdentifierName
+
 template: productions
 features: [class-fields-private]
 ---*/
@@ -23,14 +24,14 @@ features: [class-fields-private]
 //- fields
 #x; #y
 //- privateinspectionfunctions
-  x() {
-    this.#x = 42;
-    return this.#x;
-  }
-  y() {
-    this.#y = 43;
-    return this.#y;
-  }
+x() {
+  this.#x = 42;
+  return this.#x;
+}
+y() {
+  this.#y = 43;
+  return this.#y;
+}
 //- assertions
 
 // Test the private fields do not appear as properties before set to value
