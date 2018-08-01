@@ -34,7 +34,12 @@ const rtf = new Intl.RelativeTimeFormat("en-US");
 assert.sameValue(typeof rtf.formatToParts, "function", "formatToParts should be supported");
 
 for (const unit of units) {
-  // Note https://github.com/tc39/proposal-intl-relative-time/issues/80
+  verifyFormatParts(rtf.formatToParts(1000, unit), [
+    { "type": "literal", "value": "in " },
+    { "type": "integer", "value": "1,000", "unit": unit },
+    { "type": "literal", "value": ` ${unit}s` },
+  ], `formatToParts(1000, ${unit})`);
+
   verifyFormatParts(rtf.formatToParts(10, unit), [
     { "type": "literal", "value": "in " },
     { "type": "integer", "value": "10", "unit": unit },
@@ -78,4 +83,9 @@ for (const unit of units) {
     { "type": "integer", "value": "10", "unit": unit },
     { "type": "literal", "value": ` ${unit}s ago` },
   ], `formatToParts(-10, ${unit})`);
+
+  verifyFormatParts(rtf.formatToParts(-1000, unit), [
+    { "type": "integer", "value": "1,000", "unit": unit },
+    { "type": "literal", "value": ` ${unit}s ago` },
+  ], `formatToParts(-1000, ${unit})`);
 }

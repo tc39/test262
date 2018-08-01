@@ -56,7 +56,8 @@ for (const unit of units) {
   const expected = unit in exceptions
     ? [exceptions[unit]["1"], exceptions[unit]["0"], exceptions[unit]["0"], exceptions[unit]["-1"]]
     : [`in 1 ${unit}`, `in 0 ${unit}s`, `0 ${unit}s ago`, `1 ${unit} ago`];
-  // Note https://github.com/tc39/proposal-intl-relative-time/issues/80
+
+  assert.sameValue(rtf.format(1000, unit), `in 1,000 ${unit}s`);
   assert.sameValue(rtf.format(10, unit), `in 10 ${unit}s`);
   assert.sameValue(rtf.format(2, unit), `in 2 ${unit}s`);
   assert.sameValue(rtf.format(1, unit), expected[0]);
@@ -65,4 +66,5 @@ for (const unit of units) {
   assert.sameValue(rtf.format(-1, unit), expected[3]);
   assert.sameValue(rtf.format(-2, unit), `2 ${unit}s ago`);
   assert.sameValue(rtf.format(-10, unit), `10 ${unit}s ago`);
+  assert.sameValue(rtf.format(-1000, unit), `1,000 ${unit}s ago`);
 }
