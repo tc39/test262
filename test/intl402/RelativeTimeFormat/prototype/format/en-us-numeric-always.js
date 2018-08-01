@@ -24,7 +24,7 @@ const rtf = new Intl.RelativeTimeFormat("en-US");
 assert.sameValue(typeof rtf.format, "function", "format should be supported");
 
 for (const unit of units) {
-  // Note https://github.com/tc39/proposal-intl-relative-time/issues/80
+  assert.sameValue(rtf.format(1000, unit), `in 1,000 ${unit}s`);
   assert.sameValue(rtf.format(10, unit), `in 10 ${unit}s`);
   assert.sameValue(rtf.format(2, unit), `in 2 ${unit}s`);
   assert.sameValue(rtf.format(1, unit), `in 1 ${unit}`);
@@ -33,4 +33,5 @@ for (const unit of units) {
   assert.sameValue(rtf.format(-1, unit), `1 ${unit} ago`);
   assert.sameValue(rtf.format(-2, unit), `2 ${unit}s ago`);
   assert.sameValue(rtf.format(-10, unit), `10 ${unit}s ago`);
+  assert.sameValue(rtf.format(-1000, unit), `1,000 ${unit}s ago`);
 }

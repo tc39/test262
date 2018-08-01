@@ -72,17 +72,12 @@ const rtf = new Intl.RelativeTimeFormat("en-US", { "numeric": "auto" });
 assert.sameValue(typeof rtf.formatToParts, "function", "formatToParts should be supported");
 
 for (const unit of units) {
-  // Note https://github.com/tc39/proposal-intl-relative-time/issues/80
-  /*
-  assert.sameValue(rtf.formatToParts(10, unit), `in 10 ${unit}s`);
-  assert.sameValue(rtf.formatToParts(2, unit), `in 2 ${unit}s`);
-  assert.sameValue(rtf.formatToParts(1, unit), expected[0]);
-  assert.sameValue(rtf.formatToParts(0, unit), expected[1]);
-  assert.sameValue(rtf.formatToParts(-0, unit), expected[2]);
-  assert.sameValue(rtf.formatToParts(-1, unit), expected[3]);
-  assert.sameValue(rtf.formatToParts(-2, unit), `2 ${unit}s ago`);
-  assert.sameValue(rtf.formatToParts(-10, unit), `10 ${unit}s ago`);
-*/
+  verifyFormatParts(rtf.formatToParts(1000, unit), [
+    { "type": "literal", "value": "in " },
+    { "type": "integer", "value": "1,000", "unit": unit },
+    { "type": "literal", "value": ` ${unit}s` },
+  ], `formatToParts(1000, ${unit})`);
+
   verifyFormatParts(rtf.formatToParts(10, unit), [
     { "type": "literal", "value": "in " },
     { "type": "integer", "value": "10", "unit": unit },
@@ -126,4 +121,9 @@ for (const unit of units) {
     { "type": "integer", "value": "10", "unit": unit },
     { "type": "literal", "value": ` ${unit}s ago` },
   ], `formatToParts(-10, ${unit})`);
+
+  verifyFormatParts(rtf.formatToParts(-1000, unit), [
+    { "type": "integer", "value": "1,000", "unit": unit },
+    { "type": "literal", "value": ` ${unit}s ago` },
+  ], `formatToParts(-1000, ${unit})`);
 }
