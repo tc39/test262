@@ -4,7 +4,7 @@
 /*---
 description: Syntax error if `arguments` used in class field (static computed ClassElementName)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class, class-fields-public]
+features: [class, class-fields-public, class-static-fields-public]
 flags: [generated]
 negative:
   phase: parse

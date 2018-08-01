@@ -1,31 +1,43 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-methods.case
-// - src/class-fields/default/cls-decl.template
+// - src/class-fields/static-private-fields.case
+// - src/class-fields/productions/cls-decl-wrapped-in-sc.template
 /*---
-description: literal private names (field definitions in a class declaration)
+description: static private fields (fields definition wrapped in semicolons)
 esid: prod-FieldDefinition
-features: [class-static-methods-private, class, class-fields-public]
+features: [class-static-fields-private, class, class-fields-public]
 flags: [generated]
 info: |
-    ClassElement:
+    ClassElement :
       ...
       static FieldDefinition ;
 
-    FieldDefinition:
+    FieldDefinition :
       ClassElementName Initializer_opt
 
-    ClassElementName:
+    ClassElementName :
       PrivateName
 
-    PrivateName:
+    PrivateName :
       # IdentifierName
 
 ---*/
 
 
 class C {
-  static #xVal; static #yVal
+  ;;;;
+  ;;;;;;static #x; static #y;;;;;;;
+  ;;;;
+  static x() {
+    this.#x = 42;
+    return this.#x;
+  }
+  static y() {
+    this.#y = 43;
+    return this.#y;
+  }
 }
+
+var c = new C();
 
 // Test the private fields do not appear as properties before set to value
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#x"), false, "test 1");

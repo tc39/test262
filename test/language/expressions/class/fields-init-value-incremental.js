@@ -4,7 +4,7 @@
 /*---
 description: The initializer value is defined during the class instatiation (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [computed-property-names, class, class-fields-public]
+features: [computed-property-names, class]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
