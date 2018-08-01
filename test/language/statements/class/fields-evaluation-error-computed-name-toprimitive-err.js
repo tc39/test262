@@ -4,7 +4,7 @@
 /*---
 description: Custom error evaluating a computed property name (field definitions in a class declaration)
 esid: sec-runtime-semantics-classdefinitionevaluation
-features: [computed-property-names, Symbol.toPrimitive, class, class-fields-public]
+features: [computed-property-names, Symbol.toPrimitive, class]
 flags: [generated]
 info: |
     Runtime Semantics: ClassDefinitionEvaluation

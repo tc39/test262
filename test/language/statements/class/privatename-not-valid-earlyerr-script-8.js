@@ -9,7 +9,7 @@ info: |
 
     It is a Syntax Error if AllPrivateNamesValid of StatementList with an empty List as an argument is false unless the source code is eval code that is being processed by a direct eval.
 
-features: [class-fields-private]
+features: [class, class-fields-private]
 negative:
   phase: parse
   type: SyntaxError

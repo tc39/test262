@@ -1,31 +1,53 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/static-private-fields.case
-// - src/class-fields/default/cls-decl.template
+// - src/class-fields/productions/cls-expr-new-sc-line-generator.template
 /*---
-description: literal private names (field definitions in a class declaration)
+description: static private fields (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition
-features: [class, class-fields-public]
+features: [class-static-fields-private, class, class-fields-public, generators]
 flags: [generated]
+includes: [propertyHelper.js]
 info: |
-    ClassElement:
+    ClassElement :
       ...
       static FieldDefinition ;
 
-    FieldDefinition:
+    FieldDefinition :
       ClassElementName Initializer_opt
 
-    ClassElementName:
+    ClassElementName :
       PrivateName
 
-    PrivateName:
+    PrivateName :
       # IdentifierName
 
 ---*/
 
 
-class C {
-  static #x; static #y
+var C = class {
+  static #x; static #y;
+  *m() { return 42; }
+  static x() {
+    this.#x = 42;
+    return this.#x;
+  }
+  static y() {
+    this.#y = 43;
+    return this.#y;
+  }
 }
+
+var c = new C();
+
+assert.sameValue(c.m().next().value, 42);
+assert.sameValue(c.m, C.prototype.m);
+assert.sameValue(Object.hasOwnProperty.call(c, "m"), false);
+
+verifyProperty(C.prototype, "m", {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+});
 
 // Test the private fields do not appear as properties before set to value
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#x"), false, "test 1");

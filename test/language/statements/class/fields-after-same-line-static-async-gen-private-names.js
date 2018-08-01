@@ -2,31 +2,31 @@
 // - src/class-fields/private-names.case
 // - src/class-fields/productions/cls-decl-after-same-line-static-async-gen.template
 /*---
-description: static literal private names (field definitions after a static async generator in the same line)
+description: private names (field definitions after a static async generator in the same line)
 esid: prod-FieldDefinition
 features: [class-fields-private, class, class-fields-public, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |
-    ClassElement:
+    ClassElement :
       ...
       FieldDefinition ;
 
-    FieldDefinition:
+    FieldDefinition :
       ClassElementName Initializer_opt
 
-    ClassElementName:
+    ClassElementName :
       PrivateName
 
-    PrivateName:
-      #IdentifierName
+    PrivateName :
+      # IdentifierName
 
 ---*/
 
 
 class C {
   static async *m() { return 42; } #x; #y;
-x() {
+  x() {
     this.#x = 42;
     return this.#x;
   }
