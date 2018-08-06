@@ -1,0 +1,27 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: SyntaxError
+info: |
+
+  ClassElement :
+    MethodDefinition
+    static MethodDefinition
+    FieldDefinition ;
+    ;
+
+  FieldDefinition :
+    ClassElementName Initializer _opt
+
+  ClassElementName :
+    PropertyName
+    PrivateName
+
+template: syntax/invalid
+features: [class-fields-private]
+---*/
+
+//- fields
+x = []
+y;
