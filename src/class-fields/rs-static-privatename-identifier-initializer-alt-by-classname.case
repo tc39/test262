@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Valid Static Method PrivateName
+desc: Valid Static PrivateName
 info: |
 
   ClassElement :
@@ -12,8 +12,8 @@ info: |
     static FieldDefinition ;
     ;
 
-  MethodDefinition :
-    ClassElementName ( UniqueFormalParameters ){ FunctionBody }
+  FieldDefinition :
+    ClassElementName Initializer _opt
 
   ClassElementName :
     PropertyName
@@ -51,53 +51,35 @@ info: |
   properties "Other_ID_Start" and "Other_ID_Continue".
 
 template: productions
-features: [class-static-methods-private]
+features: [class-static-fields-private]
 ---*/
 
 //- fields
-static #$(value) {
-  return value;
-}
-static #_(value) {
-  return value;
-}
-static #\u{6F}(value) {
-  return value;
-}
-static #\u2118(value) {
-  return value;
-}
-static #ZW_\u200C_NJ(value) {
-  return value;
-}
-static #ZW_\u200D_J(value) {
-  return value;
-}
+static #$ = 1; static #_ = 1; static #\u{6F} = 1; static #℘ = 1; static #ZW_‌_NJ = 1; static #ZW_‍_J = 1
 //- privateinspectionfunctions
-static $(value) {
-  return this.#$(value);
+static $() {
+  return C.#$;
 }
-static _(value) {
-  return this.#_(value);
+static _() {
+  return C.#_;
 }
-static \u{6F}(value) {
-  return this.#\u{6F}(value);
+static \u{6F}() {
+  return C.#\u{6F};
 }
-static \u2118(value) {
-  return this.#\u2118(value);
+static ℘() {
+  return C.#℘;
 }
-static ZW_\u200C_NJ(value) {
-  return this.#ZW_\u200C_NJ(value);
+static ZW_‌_NJ() {
+  return C.#ZW_‌_NJ;
 }
-static ZW_\u200D_J(value) {
-  return this.#ZW_\u200D_J(value);
+static ZW_‍_J() {
+  return C.#ZW_‍_J;
 }
-
 //- assertions
-assert.sameValue(C.$(1), 1);
-assert.sameValue(C._(1), 1);
-assert.sameValue(C.\u{6F}(1), 1);
-assert.sameValue(C.\u2118(1), 1);
-assert.sameValue(C.ZW_\u200C_NJ(1), 1);
-assert.sameValue(C.ZW_\u200D_J(1), 1);
+assert.sameValue(C.$(), 1);
+assert.sameValue(C._(), 1);
+assert.sameValue(C.\u{6F}(), 1);
+assert.sameValue(C.℘(), 1);
+assert.sameValue(C.ZW_‌_NJ(), 1);
+assert.sameValue(C.ZW_‍_J(), 1);
 

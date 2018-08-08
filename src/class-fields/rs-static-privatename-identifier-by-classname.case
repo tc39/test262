@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Valid Static Method PrivateName
+desc: Valid Static PrivateName
 info: |
 
   ClassElement :
@@ -12,8 +12,8 @@ info: |
     static FieldDefinition ;
     ;
 
-  MethodDefinition :
-    ClassElementName ( UniqueFormalParameters ){ FunctionBody }
+  FieldDefinition :
+    ClassElementName Initializer _opt
 
   ClassElementName :
     PropertyName
@@ -51,48 +51,36 @@ info: |
   properties "Other_ID_Start" and "Other_ID_Continue".
 
 template: productions
-features: [class-static-methods-private]
+features: [class-static-fields-private]
 ---*/
 
 //- fields
-static #$(value) {
-  return value;
-}
-static #_(value) {
-  return value;
-}
-static #\u{6F}(value) {
-  return value;
-}
-static #\u2118(value) {
-  return value;
-}
-static #ZW_\u200C_NJ(value) {
-  return value;
-}
-static #ZW_\u200D_J(value) {
-  return value;
-}
+static #$; static #_; static #\u{6F}; static #\u2118; static #ZW_\u200C_NJ; static #ZW_\u200D_J
 //- privateinspectionfunctions
 static $(value) {
-  return this.#$(value);
+  C.#$ = value;
+  return C.#$;
 }
 static _(value) {
-  return this.#_(value);
+  C.#_ = value;
+  return C.#_;
 }
 static \u{6F}(value) {
-  return this.#\u{6F}(value);
+  C.#\u{6F} = value;
+  return C.#\u{6F};
 }
 static \u2118(value) {
-  return this.#\u2118(value);
+  C.#\u2118 = value;
+  return C.#\u2118;
 }
 static ZW_\u200C_NJ(value) {
-  return this.#ZW_\u200C_NJ(value);
+  C.#ZW_\u200C_NJ = value;
+  return C.#ZW_\u200C_NJ;
 }
 static ZW_\u200D_J(value) {
-  return this.#ZW_\u200D_J(value);
+  C.#ZW_\u200D_J = value;
+  return C.#ZW_\u200D_J;
 }
-
 //- assertions
 assert.sameValue(C.$(1), 1);
 assert.sameValue(C._(1), 1);
