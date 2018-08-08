@@ -12,8 +12,8 @@ info: |
     static FieldDefinition ;
     ;
 
-  FieldDefinition :
-    ClassElementName Initializer _opt
+  MethodDefinition :
+    ClassElementName ( UniqueFormalParameters ){ FunctionBody }
 
   ClassElementName :
     PropertyName
@@ -51,32 +51,26 @@ info: |
   properties "Other_ID_Start" and "Other_ID_Continue".
 
 template: productions
-features: [class-static-fields-private]
+features: [class-static-methods-private]
 ---*/
 
 //- fields
 static #$(value) {
-  this.$ = value;
   return value;
 }
 static #_(value) {
-  this.#stored = value;
   return value;
 }
 static #o(value) {
-  this.#stored = value;
   return value;
 }
 static #℘(value) {
-  this.#stored = value;
   return value;
 }
 static #ZW_‌_NJ(value) {
-  this.#stored = value;
   return value;
 }
 static #ZW_‍_J(value) {
-  this.#stored = value;
   return value;
 }
 //- privateinspectionfunctions
