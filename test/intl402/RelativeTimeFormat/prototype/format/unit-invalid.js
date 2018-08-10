@@ -33,6 +33,16 @@ const values = [
   "MONTH",
   "QUARTER",
   "YEAR",
+  "decade",
+  "decades",
+  "century",
+  "centuries",
+  "millisecond",
+  "milliseconds",
+  "microsecond",
+  "microseconds",
+  "nanosecond",
+  "nanoseconds",
 ];
 
 for (const value of values) {
