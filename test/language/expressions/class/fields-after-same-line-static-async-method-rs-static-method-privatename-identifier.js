@@ -4,7 +4,7 @@
 /*---
 description: Valid Static Method PrivateName (field definitions after a static async method in the same line)
 esid: prod-FieldDefinition
-features: [class-static-fields-private, class, class-fields-public, async-functions]
+features: [class-static-methods-private, class, class-fields-public, async-functions]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |
@@ -16,30 +16,30 @@ info: |
       static FieldDefinition ;
       ;
 
-    FieldDefinition :
-      ClassElementName Initializer _opt
+    MethodDefinition :
+      ClassElementName ( UniqueFormalParameters ){ FunctionBody }
 
     ClassElementName :
       PropertyName
       PrivateName
 
-    PrivateName::
+    PrivateName ::
       # IdentifierName
 
-    IdentifierName::
+    IdentifierName ::
       IdentifierStart
       IdentifierName IdentifierPart
 
-    IdentifierStart::
+    IdentifierStart ::
       UnicodeIDStart
       $
       _
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
 
     IdentifierPart::
       UnicodeIDContinue
       $
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
       <ZWNJ> <ZWJ>
 
     UnicodeIDStart::

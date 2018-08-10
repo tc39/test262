@@ -4,7 +4,7 @@
 /*---
 description: Valid Static Method PrivateName (multiple fields definitions)
 esid: prod-FieldDefinition
-features: [class-static-fields-private, class, class-fields-public]
+features: [class-static-methods-private, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
@@ -16,30 +16,30 @@ info: |
       static FieldDefinition ;
       ;
 
-    FieldDefinition :
-      ClassElementName Initializer _opt
+    MethodDefinition :
+      ClassElementName ( UniqueFormalParameters ){ FunctionBody }
 
     ClassElementName :
       PropertyName
       PrivateName
 
-    PrivateName::
+    PrivateName ::
       # IdentifierName
 
-    IdentifierName::
+    IdentifierName ::
       IdentifierStart
       IdentifierName IdentifierPart
 
-    IdentifierStart::
+    IdentifierStart ::
       UnicodeIDStart
       $
       _
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
 
     IdentifierPart::
       UnicodeIDContinue
       $
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
       <ZWNJ> <ZWJ>
 
     UnicodeIDStart::
@@ -61,27 +61,21 @@ var C = class {
   foo = "foobar";
   m() { return 42 }
   static #$(value) {
-    this.$ = value;
     return value;
   }
   static #_(value) {
-    this.#stored = value;
     return value;
   }
   static #o(value) {
-    this.#stored = value;
     return value;
   }
   static #℘(value) {
-    this.#stored = value;
     return value;
   }
   static #ZW_‌_NJ(value) {
-    this.#stored = value;
     return value;
   }
   static #ZW_‍_J(value) {
-    this.#stored = value;
     return value;
   }
   m2() { return 39 }

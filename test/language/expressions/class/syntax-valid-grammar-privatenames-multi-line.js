@@ -21,7 +21,7 @@ info: |
       PropertyName
       PrivateName
 
-    PrivateName::
+    PrivateName ::
       # IdentifierName
 
 ---*/

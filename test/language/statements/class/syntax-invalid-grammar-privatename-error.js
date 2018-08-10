@@ -2,7 +2,7 @@
 // - src/class-fields/grammar-privatename-error.case
 // - src/class-fields/syntax/invalid/cls-decl-fields-invalid-syntax.template
 /*---
-description: SyntaxError (class declaration)
+description: No space allowed between sigial and IdentifierName (class declaration)
 esid: prod-ClassElement
 features: [class-fields-private, class]
 flags: [generated]
@@ -24,7 +24,7 @@ info: |
       PropertyName
       PrivateName
 
-    PrivateName::
+    PrivateName ::
       # IdentifierName
 
 ---*/

@@ -2,7 +2,7 @@
 // - src/class-fields/grammar-field-identifier-invalid-zwj-error.case
 // - src/class-fields/syntax/invalid/cls-expr-fields-invalid-syntax.template
 /*---
-description: Valid FieldDefinition, ClassElementName, PropertyName Syntax (class expression)
+description: Invalid FieldDefinition, ClassElementName, PropertyName Syntax (class expression)
 esid: prod-ClassElement
 features: [class-fields-public, class]
 flags: [generated]
@@ -41,12 +41,12 @@ info: |
       UnicodeIDStart
       $
       _
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
 
     IdentifierPart ::
       UnicodeIDContinue
       $
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
       <ZWNJ> <ZWJ>
 
     UnicodeIDStart ::

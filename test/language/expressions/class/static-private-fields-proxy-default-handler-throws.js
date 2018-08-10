@@ -22,7 +22,7 @@ var C = class {
 
 var P = new Proxy(C, {});
 
-assert.sameValue(C.x, 1);
+assert.sameValue(C.x(), 1);
 assert.throws(TypeError, function() {
-  P.x;
+  P.x();
 });
