@@ -163,7 +163,7 @@ This tag is for boolean properties associated with the test.
 #### features
 **features**: [list]
 
-Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this tag. See the `features.txt` file for a complete list of available values. This tag is required for new tests written for new features, but contributions will not be "blocked" if the tag is missing from frontmatter. The committing maintainer is required to ensure that the tag is present and contains the correct feature names; this can be done in an follow up commit. 
+Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this tag. See the `features.txt` file for a complete list of available values. This tag is required for new tests written for new features, but contributions will not be "blocked" if the tag is missing from frontmatter. The committing maintainer is required to ensure that the tag is present and contains the correct feature names; this can be done in an follow up commit.
 
 #### es5id
 **es5id**: [es5-test-id]
@@ -195,7 +195,6 @@ assert(value, message) | throw a new Test262Error instance if the specified valu
 assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.throws(expectedErrorConstructor, fn, message) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
-assert.throws.early(expectedErrorConstructor, code) | throw a new Test262Error instance if the provided code does not throw an early error, or if the constructor of the value thrown does not match the provided constructor. This assertion catches only errors that will be parsed through `Function(code)`.
 $ERROR(message) | construct a Test262Error object and throw it <br>**DEPRECATED** -- Do not use in new tests. Use `assert`, `assert.*`, or `throw new Test262Error` instead.
 
 ```

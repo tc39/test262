@@ -86,10 +86,3 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   message += 'Expected a ' + expectedErrorConstructor.name + ' to be thrown but no exception was thrown at all';
   $ERROR(message);
 };
-
-assert.throws.early = function(err, code) {
-  var wrappedCode = 'function wrapperFn() { ' + code + ' }';
-  var ieval = eval;
-
-  assert.throws(err, function() { Function(wrappedCode); }, 'Function: ' + code);
-};
