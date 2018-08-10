@@ -4,7 +4,7 @@
 /*---
 description: Valid Static Method PrivateName (regular fields defintion)
 esid: prod-FieldDefinition
-features: [class-static-fields-private, class, class-fields-public]
+features: [class-static-methods-private, class, class-fields-public]
 flags: [generated]
 info: |
     
@@ -15,30 +15,30 @@ info: |
       static FieldDefinition ;
       ;
 
-    FieldDefinition :
-      ClassElementName Initializer _opt
+    MethodDefinition :
+      ClassElementName ( UniqueFormalParameters ){ FunctionBody }
 
     ClassElementName :
       PropertyName
       PrivateName
 
-    PrivateName::
+    PrivateName ::
       # IdentifierName
 
-    IdentifierName::
+    IdentifierName ::
       IdentifierStart
       IdentifierName IdentifierPart
 
-    IdentifierStart::
+    IdentifierStart ::
       UnicodeIDStart
       $
       _
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
 
     IdentifierPart::
       UnicodeIDContinue
       $
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
       <ZWNJ> <ZWJ>
 
     UnicodeIDStart::
@@ -58,27 +58,21 @@ info: |
 
 class C {
   static #$(value) {
-    this.$ = value;
     return value;
   }
   static #_(value) {
-    this.#stored = value;
     return value;
   }
   static #o(value) {
-    this.#stored = value;
     return value;
   }
   static #℘(value) {
-    this.#stored = value;
     return value;
   }
   static #ZW_‌_NJ(value) {
-    this.#stored = value;
     return value;
   }
   static #ZW_‍_J(value) {
-    this.#stored = value;
     return value;
   }
   static $(value) {

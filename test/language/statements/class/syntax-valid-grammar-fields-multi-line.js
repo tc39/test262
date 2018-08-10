@@ -2,7 +2,7 @@
 // - src/class-fields/grammar-fields-multi-line.case
 // - src/class-fields/syntax/valid/cls-decl-fields-valid-syntax.template
 /*---
-description: SyntaxError (class declaration)
+description: Valid multi-line, multi-field (class declaration)
 esid: prod-ClassElement
 features: [class-fields-public, class]
 flags: [generated]

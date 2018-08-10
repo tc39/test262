@@ -16,7 +16,7 @@ info: |
 
     Additional Early Error Rules for Eval Outside Functions
     These static semantics are applied by PerformEval when a direct eval call occurs outside of any function.
-    ScriptBody:StatementList
+    ScriptBody : StatementList
 
       It is a Syntax Error if StatementList Contains NewTarget.
 

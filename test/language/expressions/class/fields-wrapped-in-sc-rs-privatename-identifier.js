@@ -21,23 +21,23 @@ info: |
       PropertyName
       PrivateName
 
-    PrivateName::
+    PrivateName ::
       # IdentifierName
 
-    IdentifierName::
+    IdentifierName ::
       IdentifierStart
       IdentifierName IdentifierPart
 
-    IdentifierStart::
+    IdentifierStart ::
       UnicodeIDStart
       $
       _
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
 
     IdentifierPart::
       UnicodeIDContinue
       $
-      \UnicodeEscapeSequence
+      \ UnicodeEscapeSequence
       <ZWNJ> <ZWJ>
 
     UnicodeIDStart::
