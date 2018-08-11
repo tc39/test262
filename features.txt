@@ -7,6 +7,10 @@
 #
 # https://github.com/tc39/process-document
 
+# Object.fromEntries
+# https://github.com/tc39/proposal-object-from-entries
+Object.fromEntries
+
 # BigInt
 # https://github.com/tc39/proposal-bigint
 BigInt
