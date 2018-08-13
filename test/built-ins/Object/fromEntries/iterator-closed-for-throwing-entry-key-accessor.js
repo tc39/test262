@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-object.fromentries
-description: Closes iterators when they return entries which are null.
+description: Closes iterators when accessing an entry's key throws.
 info: |
   Object.fromEntries ( iterable )
 
@@ -17,12 +17,13 @@ info: |
   ...
   4. Repeat,
     ...
-    d. If Type(nextItem) is not Object, then
-      i. Let error be ThrowCompletion(a newly created TypeError object).
-      ii. Return ? IteratorClose(iteratorRecord, error).
+    e. Let k be Get(nextItem, "0").
+    f. If k is an abrupt completion, return ? IteratorClose(iteratorRecord, k).
 
 features: [Symbol.iterator, Object.fromEntries]
 ---*/
+
+function DummyError() {}
 
 var returned = false;
 var iterable = {
@@ -36,7 +37,11 @@ var iterable = {
         advanced = true;
         return {
           done: false,
-          value: null,
+          value: {
+            get '0'() {
+              throw new DummyError();
+            },
+          },
         };
       },
       return: function() {
@@ -49,8 +54,8 @@ var iterable = {
   },
 };
 
-assert.throws(TypeError, function() {
+assert.throws(DummyError, function() {
   Object.fromEntries(iterable);
 });
 
-assert(returned, 'iterator should be closed when entry is null');
+assert(returned, 'iterator should be closed when entry property access throws');
