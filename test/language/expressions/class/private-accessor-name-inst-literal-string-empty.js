@@ -39,15 +39,15 @@ var C = class {
   set #''(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'';
+    return this[#''];
   }
 
   setPrivateReference(value) {
-    this.#'' = value;
+    this[#''] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 
