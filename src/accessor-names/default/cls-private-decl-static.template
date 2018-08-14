@@ -29,11 +29,11 @@ class C {
   static set #/*{ declareWith }*/(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#/*{ referenceWith }*/;
+    return this[#/*{ referenceWith }*/];
   }
 
   static setPrivateReference(value) {
-    this.#/*{ referenceWith }*/ = value;
+    this[#/*{ referenceWith }*/] = value;
   }
 }
 

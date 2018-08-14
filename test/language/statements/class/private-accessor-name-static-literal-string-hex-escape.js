@@ -39,11 +39,11 @@ class C {
   static set #'hex\x45scape'(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#'hexEscape';
+    return this[#'hexEscape'];
   }
 
   static setPrivateReference(value) {
-    this.#'hexEscape' = value;
+    this[#'hexEscape'] = value;
   }
 }
 

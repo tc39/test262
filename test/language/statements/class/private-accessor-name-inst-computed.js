@@ -41,15 +41,15 @@ class C {
   set #[_ = 'str' + 'ing'](param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'string';
+    return this[#'string'];
   }
 
   setPrivateReference(value) {
-    this.#'string' = value;
+    this[#'string'] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 

@@ -39,15 +39,15 @@ var C = class {
   set #'hex\x45scape'(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'hexEscape';
+    return this[#'hexEscape'];
   }
 
   setPrivateReference(value) {
-    this.#'hexEscape' = value;
+    this[#'hexEscape'] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 
