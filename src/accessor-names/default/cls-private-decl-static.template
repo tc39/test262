@@ -1,0 +1,46 @@
+// Copyright (C) 2018 Katie Broida. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/class/private-accessor-name-static-
+name: Class declaration, static method
+esid: #prod-MethodDefinition
+info: |
+  [...]
+  MethodDefinition[Yield, Await]:
+      PropertyNameClassElementName [?Yield, ?Await](
+        UniqueFormalParameters [~Yield, ~Await] ) {
+        FunctionBody [~Yield, ~Await] }
+      AsyncMethod[?Yield, ?Await]
+        get PropertyName ClassElementName [?Yield, ?Await] (){
+          FunctionBody [~Yield, ~Await] }
+        set PropertyNameClassElementName [?Yield, ?Await] (
+          PropertySetParameterList ) { FunctionBody [~Yield, ~Await] }
+      AsyncMethod [Yield, Await]:
+        async [no LineTerminator here] PropertyName
+          ClassElementName[?Yield, ?Await](
+          UniqueFormalParameters[~Yield, +Await] ) { AsyncFunctionBody }
+
+---*/
+
+var stringSet;
+
+class C {
+  static get #/*{ declareWith }*/() { return 'get string'; }
+  static set #/*{ declareWith }*/(param) { stringSet = param; }
+
+  static getPrivateReference() {
+    return this.#/*{ referenceWith }*/;
+  }
+
+  static setPrivateReference(value) {
+    this.#/*{ referenceWith }*/ = value;
+  }
+}
+
+var inst = C();
+
+assert.sameValue(inst.getPrivateReference(), 'get string');
+
+inst.setPrivateReference('set string');
+assert.sameValue(stringSet, 'set string');
+
