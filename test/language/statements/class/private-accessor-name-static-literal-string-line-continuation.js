@@ -41,11 +41,11 @@ Continuation'() { return 'get string'; }
 Continuation'(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#'lineContinuation';
+    return this[#'lineContinuation'];
   }
 
   static setPrivateReference(value) {
-    this.#'lineContinuation' = value;
+    this[#'lineContinuation'] = value;
   }
 }
 

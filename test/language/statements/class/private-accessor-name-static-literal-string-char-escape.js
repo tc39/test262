@@ -39,11 +39,11 @@ class C {
   static set #'character\tescape'(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#'character	escape';
+    return this[#'character	escape'];
   }
 
   static setPrivateReference(value) {
-    this.#'character	escape' = value;
+    this[#'character	escape'] = value;
   }
 }
 

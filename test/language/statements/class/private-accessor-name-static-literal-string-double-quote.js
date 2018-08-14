@@ -39,11 +39,11 @@ class C {
   static set #"doubleQuote"(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#"doubleQuote";
+    return this[#"doubleQuote"];
   }
 
   static setPrivateReference(value) {
-    this.#"doubleQuote" = value;
+    this[#"doubleQuote"] = value;
   }
 }
 

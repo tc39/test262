@@ -39,11 +39,11 @@ class C {
   static set #'unicod\u{000065}Escape'(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#'unicodeEscape';
+    return this[#'unicodeEscape'];
   }
 
   static setPrivateReference(value) {
-    this.#'unicodeEscape' = value;
+    this[#'unicodeEscape'] = value;
   }
 }
 

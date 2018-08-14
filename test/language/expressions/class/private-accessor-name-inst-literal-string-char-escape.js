@@ -39,15 +39,15 @@ var C = class {
   set #'character\tescape'(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'character	escape';
+    return this[#'character	escape'];
   }
 
   setPrivateReference(value) {
-    this.#'character	escape' = value;
+    this[#'character	escape'] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 

@@ -39,15 +39,15 @@ var C = class {
   set #'unicod\u{000065}Escape'(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'unicodeEscape';
+    return this[#'unicodeEscape'];
   }
 
   setPrivateReference(value) {
-    this.#'unicodeEscape' = value;
+    this[#'unicodeEscape'] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 

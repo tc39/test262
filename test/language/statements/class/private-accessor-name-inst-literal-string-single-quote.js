@@ -39,15 +39,15 @@ class C {
   set #'singleQuote'(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'singleQuote';
+    return this[#'singleQuote'];
   }
 
   setPrivateReference(value) {
-    this.#'singleQuote' = value;
+    this[#'singleQuote'] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 

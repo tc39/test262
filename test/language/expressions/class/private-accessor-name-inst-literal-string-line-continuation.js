@@ -41,15 +41,15 @@ Continuation'() { return 'get string'; }
 Continuation'(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#'lineContinuation';
+    return this[#'lineContinuation'];
   }
 
   setPrivateReference(value) {
-    this.#'lineContinuation' = value;
+    this[#'lineContinuation'] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 

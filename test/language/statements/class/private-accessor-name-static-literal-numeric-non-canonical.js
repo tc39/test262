@@ -39,11 +39,11 @@ class C {
   static set #0.0000001(param) { stringSet = param; }
 
   static getPrivateReference() {
-    return this.#'1e-7';
+    return this[#'1e-7'];
   }
 
   static setPrivateReference(value) {
-    this.#'1e-7' = value;
+    this[#'1e-7'] = value;
   }
 }
 

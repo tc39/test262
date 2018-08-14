@@ -39,15 +39,15 @@ var C = class {
   set #"doubleQuote"(param) { stringSet = param; }
 
   getPrivateReference() {
-    return this.#"doubleQuote";
+    return this[#"doubleQuote"];
   }
 
   setPrivateReference(value) {
-    this.#"doubleQuote" = value;
+    this[#"doubleQuote"] = value;
   }
 };
 
-var inst = C();
+var inst = new C();
 
 assert.sameValue(inst.getPrivateReference(), 'get string');
 
