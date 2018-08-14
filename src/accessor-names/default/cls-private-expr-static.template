@@ -37,9 +37,8 @@ var C = class {
   }
 };
 
-var inst = C();
 
-assert.sameValue(inst.getPrivateReference(), 'get string');
+assert.sameValue(C.getPrivateReference(), 'get string');
 
-inst.setPrivateReference('set string');
+C.setPrivateReference('set string');
 assert.sameValue(stringSet, 'set string');
