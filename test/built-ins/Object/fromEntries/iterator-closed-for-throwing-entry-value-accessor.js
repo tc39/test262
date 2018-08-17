@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-object.fromentries
-description: Closes iterators when toString on a key throws.
+description: Closes iterators when accessing an entry's value throws.
 info: |
   Object.fromEntries ( iterable )
 
@@ -17,8 +17,8 @@ info: |
   ...
   4. Repeat,
     ...
-    e. Let k be Get(nextItem, "0").
-    f. If k is an abrupt completion, return ? IteratorClose(iteratorRecord, k).
+    g. Let v be Get(nextItem, "1").
+    h. If v is an abrupt completion, return ? IteratorClose(iteratorRecord, v).
 
 features: [Symbol.iterator, Object.fromEntries]
 ---*/
@@ -38,10 +38,11 @@ var iterable = {
         return {
           done: false,
           value: {
-            0: {
-              toString: function() {
-                throw new DummyError();
-              },
+            get '0'() {
+              return 'key';
+            },
+            get '1'() {
+              throw new DummyError();
             },
           },
         };
@@ -60,4 +61,4 @@ assert.throws(DummyError, function() {
   Object.fromEntries(iterable);
 });
 
-assert(returned, 'iterator should be closed when key toString throws');
+assert(returned, 'iterator should be closed when entry value property access throws');

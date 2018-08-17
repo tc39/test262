@@ -2,12 +2,27 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Closes iterators when accessing an entry's properties throws.
 esid: sec-object.fromentries
+description: Closes iterators when they return entries which are null.
+info: |
+  Object.fromEntries ( iterable )
+
+  ...
+  4. Let stepsDefine be the algorithm steps defined in CreateDataPropertyOnObject Functions.
+  5. Let adder be CreateBuiltinFunction(stepsDefine, « »).
+  6. Return ? AddEntriesFromIterable(obj, iterable, adder).
+
+  AddEntriesFromIterable ( target, iterable, adder )
+
+  ...
+  4. Repeat,
+    ...
+    d. If Type(nextItem) is not Object, then
+      i. Let error be ThrowCompletion(a newly created TypeError object).
+      ii. Return ? IteratorClose(iteratorRecord, error).
+
 features: [Symbol.iterator, Object.fromEntries]
 ---*/
-
-function DummyError() {}
 
 var returned = false;
 var iterable = {
@@ -21,11 +36,7 @@ var iterable = {
         advanced = true;
         return {
           done: false,
-          value: {
-            get '0'() {
-              throw new DummyError();
-            },
-          },
+          value: null,
         };
       },
       return: function() {
@@ -38,8 +49,8 @@ var iterable = {
   },
 };
 
-assert.throws(DummyError, function() {
+assert.throws(TypeError, function() {
   Object.fromEntries(iterable);
 });
 
-assert(returned, 'iterator should be closed when entry property access throws');
+assert(returned, 'iterator should be closed when entry is null');

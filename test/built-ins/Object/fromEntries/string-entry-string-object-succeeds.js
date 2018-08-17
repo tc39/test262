@@ -2,15 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Object.fromEntries.length is 1.
+description: Succeeds when an entry object is a boxed string.
 esid: sec-object.fromentries
-includes: [propertyHelper.js]
 features: [Object.fromEntries]
 ---*/
 
-verifyProperty(Object.fromEntries, "length", {
-  value: 1,
-  enumerable: false,
-  writable: false,
-  configurable: true
-});
+var result = Object.fromEntries([new String('ab')]);
+assert.sameValue(result['a'], 'b');

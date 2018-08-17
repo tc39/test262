@@ -9,6 +9,8 @@ features: [Object.fromEntries]
 ---*/
 
 var result = Object.fromEntries([['key', 'value']]);
-verifyEnumerable(result, 'key');
-verifyWritable(result, 'key');
-verifyConfigurable(result, 'key');
+verifyProperty(result, "key", {
+  enumerable: true,
+  writable: true,
+  configurable: true,
+});
