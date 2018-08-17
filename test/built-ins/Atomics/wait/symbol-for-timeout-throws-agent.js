@@ -26,7 +26,6 @@ $262.agent.start(`
     let status1 = "";
     let status2 = "";
 
-    const start = $262.agent.monotonicNow();
     try {
       Atomics.wait(i32a, 0, 0, Symbol("1"));
     } catch (error) {
@@ -37,11 +36,9 @@ $262.agent.start(`
     } catch (error) {
       status2 = 'Symbol("2")';
     }
-    const duration = $262.agent.monotonicNow() - start;
 
     $262.agent.report(status1);
     $262.agent.report(status2);
-    $262.agent.report(duration);
     $262.agent.leaving();
   });
 `);
@@ -66,10 +63,5 @@ assert.sameValue(
   'Symbol("2")',
   '$262.agent.getReport() returns "Symbol("2")"'
 );
-
-const lapse = $262.agent.getReport();
-
-assert(lapse >= 0, 'The result of `(lapse >= 0)` is true (timeout should be a min of 0ms)');
-assert(lapse <= $262.agent.MAX_TIME_EPSILON, 'The result of `(lapse <= $262.agent.MAX_TIME_EPSILON)` is true (timeout should be a max of $$262.agent.MAX_TIME_EPSILON)');
 
 assert.sameValue(Atomics.notify(i32a, 0), 0, 'Atomics.notify(i32a, 0) returns 0');
