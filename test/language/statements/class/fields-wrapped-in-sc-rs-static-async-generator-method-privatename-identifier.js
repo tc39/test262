@@ -80,22 +80,22 @@ class C {
     yield * await value;
   };;;;;;;
   ;;;;
-  static async * $() {
+  static get $() {
     return this.#$;
   }
-  static async * _() {
+  static get _() {
     return this.#_;
   }
-  static async * \u{6F}() {
+  static get \u{6F}() {
     return this.#\u{6F};
   }
-  static async * \u2118() {
+  static get \u2118() {
     return this.#\u2118;
   }
-  static async * ZW_\u200C_NJ() {
+  static get ZW_\u200C_NJ() {
     return this.#ZW_\u200C_NJ;
   }
-  static async * ZW_\u200D_J() {
+  static get ZW_\u200D_J() {
     return this.#ZW_\u200D_J;
   }
 
