@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/class-fields/eval-err-contains-supercall.case
-// - src/class-fields/initializer-eval-super-call/cls-decl-private-fields-indirect-eval.template
+// - src/class-fields/initializer-eval-super-call/cls-decl-fields-indirect-eval.template
 /*---
 description: error if `super()` in StatementList of eval (indirect eval)
 esid: sec-performeval-rules-in-initializer
@@ -26,7 +26,7 @@ info: |
 var executed = false;
 class A {}
 class C extends A {
-  #x = (0, eval)('executed = true; super();');
+  x = (0, eval)('executed = true; super();');
 }
 
 assert.throws(SyntaxError, function() {
