@@ -74,14 +74,24 @@ verifyProperty(C, "m", {
   writable: true,
 }, {restore: true});
 
-assert.sameValue(c.$, 1);
-assert.sameValue(c._, 1);
-assert.sameValue(c.\u{6F}, 1);
-assert.sameValue(c.\u2118, 1);
-assert.sameValue(c.ZW_\u200C_NJ, 1);
-assert.sameValue(c.ZW_\u200D_J, 1);
-
 C.m().next().then(function(v) {
   assert.sameValue(v.value, 42);
   assert.sameValue(v.done, true);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    assert.sameValue(c.$, 1);
+    assert.sameValue(c._, 1);
+    assert.sameValue(c.\u{6F}, 1);
+    assert.sameValue(c.\u2118, 1);
+    assert.sameValue(c.ZW_\u200C_NJ, 1);
+    assert.sameValue(c.ZW_\u200D_J, 1);
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

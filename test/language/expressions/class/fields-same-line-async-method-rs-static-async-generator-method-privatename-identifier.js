@@ -62,40 +62,40 @@ info: |
 
 var C = class {
   async m() { return 42; } static async * #$(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #_(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #\u{6F}(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #\u2118(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #ZW_\u200C_NJ(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #ZW_\u200D_J(value) {
-    yield await value;
+    yield * await value;
   };
-  static async * $(value) {
-    yield * await this.#$(value);
+  static async * $() {
+    return this.#$;
   }
-  static async * _(value) {
-    yield * await this.#_(value);
+  static async * _() {
+    return this.#_;
   }
-  static async * \u{6F}(value) {
-    yield * await this.#\u{6F}(value);
+  static async * \u{6F}() {
+    return this.#\u{6F};
   }
-  static async * \u2118(value) {
-    yield * await this.#\u2118(value);
+  static async * \u2118() {
+    return this.#\u2118;
   }
-  static async * ZW_\u200C_NJ(value) {
-    yield * await this.#ZW_\u200C_NJ(value);
+  static async * ZW_\u200C_NJ() {
+    return this.#ZW_\u200C_NJ;
   }
-  static async * ZW_\u200D_J(value) {
-    yield * await this.#ZW_\u200D_J(value);
+  static async * ZW_\u200D_J() {
+    return this.#ZW_\u200D_J;
   }
 
 }
@@ -111,25 +111,35 @@ verifyProperty(C.prototype, "m", {
   writable: true,
 }, {restore: true});
 
-Promise.all([
-  C.$(1).next(),
-  C._(1).next(),
-  C.\u{6F}(1).next(),
-  C.\u2118(1).next(),
-  C.ZW_\u200C_NJ(1).next(),
-  C.ZW_\u200D_J(1).next(),
-]).then(results => {
-
-  assert.sameValue(results[0].value, 1);
-  assert.sameValue(results[1].value, 1);
-  assert.sameValue(results[2].value, 1);
-  assert.sameValue(results[3].value, 1);
-  assert.sameValue(results[4].value, 1);
-  assert.sameValue(results[5].value, 1);
-
-}, $DONE).then($DONE, $DONE);
-
-
 c.m().then(function(v) {
   assert.sameValue(v, 42);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    Promise.all([
+      C.$(1).next(),
+      C._(1).next(),
+      C.\u{6F}(1).next(),
+      C.\u2118(1).next(),
+      C.ZW_\u200C_NJ(1).next(),
+      C.ZW_\u200D_J(1).next(),
+    ]).then(results => {
+
+      assert.sameValue(results[0].value, 1);
+      assert.sameValue(results[1].value, 1);
+      assert.sameValue(results[2].value, 1);
+      assert.sameValue(results[3].value, 1);
+      assert.sameValue(results[4].value, 1);
+      assert.sameValue(results[5].value, 1);
+
+    }, $DONE).then($DONE, $DONE);
+
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

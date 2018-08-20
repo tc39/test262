@@ -61,43 +61,43 @@ info: |
 
 
 var C = class {
-  static async #$(value) {
+  static async * #$(value) {
     yield await value;
   }
-  static async #_(value) {
+  static async * #_(value) {
     yield await value;
   }
-  static async #o(value) {
+  static async * #o(value) {
     yield await value;
   }
-  static async #℘(value) {
+  static async * #℘(value) {
     yield await value;
   }
-  static async #ZW_‌_NJ(value) {
+  static async * #ZW_‌_NJ(value) {
     yield await value;
   }
-  static async #ZW_‍_J(value) {
+  static async * #ZW_‍_J(value) {
     yield await value;
   }
   foo = "foobar"
   bar = "barbaz";
-  static async $(value) {
-    yield * await this.#$(value);
+  static get $() {
+   return this.#$;
   }
-  static async _(value) {
-    yield * await this.#_(value);
+  static get _() {
+   return this.#_;
   }
-  static async o(value) {
-    yield * await this.#o(value);
+  static get o() {
+   return this.#o;
   }
-  static async ℘(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield * await this.#℘(value);
+  static get ℘() { // DO NOT CHANGE THE NAME OF THIS FIELD
+   return this.#℘;
   }
-  static async ZW_‌_NJ(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield * await this.#ZW_‌_NJ(value);
+  static get ZW_‌_NJ() { // DO NOT CHANGE THE NAME OF THIS FIELD
+   return this.#ZW_‌_NJ;
   }
-  static async ZW_‍_J(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield * await this.#ZW_‍_J(value);
+  static get ZW_‍_J() { // DO NOT CHANGE THE NAME OF THIS FIELD
+   return this.#ZW_‍_J;
   }
 
 }

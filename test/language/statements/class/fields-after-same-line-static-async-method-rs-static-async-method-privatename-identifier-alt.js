@@ -111,24 +111,34 @@ verifyProperty(C, "m", {
   writable: true,
 }, {restore: true});
 
-Promise.all([
-  C.$(1),
-  C._(1),
-  C.o(1),
-  C.℘(1), // DO NOT CHANGE THE NAME OF THIS FIELD
-  C.ZW_‌_NJ(1), // DO NOT CHANGE THE NAME OF THIS FIELD
-  C.ZW_‍_J(1), // DO NOT CHANGE THE NAME OF THIS FIELD
-]).then(results => {
-
-  assert.sameValue(results[0], 1);
-  assert.sameValue(results[1], 1);
-  assert.sameValue(results[2], 1);
-  assert.sameValue(results[3], 1);
-  assert.sameValue(results[4], 1);
-  assert.sameValue(results[5], 1);
-
-}, $DONE).then($DONE, $DONE);
-
 C.m().then(function(v) {
   assert.sameValue(v, 42);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    Promise.all([
+      C.$(1),
+      C._(1),
+      C.o(1),
+      C.℘(1), // DO NOT CHANGE THE NAME OF THIS FIELD
+      C.ZW_‌_NJ(1), // DO NOT CHANGE THE NAME OF THIS FIELD
+      C.ZW_‍_J(1), // DO NOT CHANGE THE NAME OF THIS FIELD
+    ]).then(results => {
+
+      assert.sameValue(results[0], 1);
+      assert.sameValue(results[1], 1);
+      assert.sameValue(results[2], 1);
+      assert.sameValue(results[3], 1);
+      assert.sameValue(results[4], 1);
+      assert.sameValue(results[5], 1);
+
+    }, $DONE).then($DONE, $DONE);
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

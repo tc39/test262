@@ -25,17 +25,15 @@ info: |
 
 
 var C = class {
-  static async *m() { return 42; } static #xVal; static #yVal;
+  static async *m() { return 42; } ;
   static #x(value) {
-    this.#xVal = value;
-    return this.#xVal;
+    return value / 2;
   }
   static #y(value) {
-    this.#y = value;
-    return this.#yVal;
+    return value * 2;
   }
   static x() {
-    return this.#x(42);
+    return this.#x(84);
   }
   static y() {
     return this.#y(43);
@@ -53,24 +51,34 @@ verifyProperty(C, "m", {
   writable: true,
 }, {restore: true});
 
-// Test the private methods do not appear as properties before set to value
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#xVal"), false, "test 1");
-assert.sameValue(Object.hasOwnProperty.call(C, "#xVal"), false, "test 2");
-assert.sameValue(Object.hasOwnProperty.call(c, "#xVal"), false, "test 3");
-
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#yVal"), false, "test 4");
-assert.sameValue(Object.hasOwnProperty.call(C, "#yVal"), false, "test 5");
-assert.sameValue(Object.hasOwnProperty.call(c, "#yVal"), false, "test 6");
-
-// Test if private fields can be sucessfully accessed and set to value
-assert.sameValue(C.x(), 42, "test 7");
-assert.sameValue(C.y(), 43, "test 8");
-
-// Test the private fields do not appear as properties before after set to value
-assert.sameValue(Object.hasOwnProperty.call(C, "#xVal"), false, "test 9");
-assert.sameValue(Object.hasOwnProperty.call(C, "#yVal"), false, "test 10");
-
 C.m().next().then(function(v) {
   assert.sameValue(v.value, 42);
   assert.sameValue(v.done, true);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    // Test the private methods do not appear as properties before set to value
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#x"), false, "test 1");
+    assert.sameValue(Object.hasOwnProperty.call(C, "#x"), false, "test 2");
+    assert.sameValue(Object.hasOwnProperty.call(c, "#x"), false, "test 3");
+
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#y"), false, "test 4");
+    assert.sameValue(Object.hasOwnProperty.call(C, "#y"), false, "test 5");
+    assert.sameValue(Object.hasOwnProperty.call(c, "#y"), false, "test 6");
+
+    // Test if private fields can be sucessfully accessed and set to value
+    assert.sameValue(C.x(), 42, "test 7");
+    assert.sameValue(C.y(), 86, "test 8");
+
+    // Test the private fields do not appear as properties before after set to value
+    assert.sameValue(Object.hasOwnProperty.call(C, "#x"), false, "test 9");
+    assert.sameValue(Object.hasOwnProperty.call(C, "#y"), false, "test 10");
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

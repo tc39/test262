@@ -62,40 +62,40 @@ info: |
 
 var C = class {
   static *m() { return 42; } static * #$(value) {
-    yield value;
+    yield * value;
   }
   static * #_(value) {
-    yield value;
+    yield * value;
   }
   static * #\u{6F}(value) {
-    yield value;
+    yield * value;
   }
   static * #\u2118(value) {
-    yield value;
+    yield * value;
   }
   static * #ZW_\u200C_NJ(value) {
-    yield value;
+    yield * value;
   }
   static * #ZW_\u200D_J(value) {
-    yield value;
+    yield * value;
   };
-  static * $(value) {
-    yield this.#$(value);
+  static get $() {
+    return this.#$;
   }
-  static * _(value) {
-    yield this.#_(value);
+  static get _() {
+    return this.#_;
   }
-  static * \u{6F}(value) {
-    yield this.#\u{6F}(value);
+  static get \u{6F}() {
+    return this.#\u{6F};
   }
-  static * \u2118(value) {
-    yield this.#\u2118(value);
+  static get \u2118() {
+    return this.#\u2118;
   }
-  static * ZW_\u200C_NJ(value) {
-    yield this.#ZW_\u200C_NJ(value);
+  static get ZW_\u200C_NJ() {
+    return this.#ZW_\u200C_NJ;
   }
-  static * ZW_\u200D_J(value) {
-    yield this.#ZW_\u200D_J(value);
+  static get ZW_\u200D_J() {
+    return this.#ZW_\u200D_J;
   }
 
 }

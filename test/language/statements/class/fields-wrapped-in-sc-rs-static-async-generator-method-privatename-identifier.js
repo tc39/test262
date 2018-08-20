@@ -62,41 +62,41 @@ info: |
 class C {
   ;;;;
   ;;;;;;static async * #$(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #_(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #\u{6F}(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #\u2118(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #ZW_\u200C_NJ(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #ZW_\u200D_J(value) {
-    yield await value;
+    yield * await value;
   };;;;;;;
   ;;;;
-  static async * $(value) {
-    yield * await this.#$(value);
+  static async * $() {
+    return this.#$;
   }
-  static async * _(value) {
-    yield * await this.#_(value);
+  static async * _() {
+    return this.#_;
   }
-  static async * \u{6F}(value) {
-    yield * await this.#\u{6F}(value);
+  static async * \u{6F}() {
+    return this.#\u{6F};
   }
-  static async * \u2118(value) {
-    yield * await this.#\u2118(value);
+  static async * \u2118() {
+    return this.#\u2118;
   }
-  static async * ZW_\u200C_NJ(value) {
-    yield * await this.#ZW_\u200C_NJ(value);
+  static async * ZW_\u200C_NJ() {
+    return this.#ZW_\u200C_NJ;
   }
-  static async * ZW_\u200D_J(value) {
-    yield * await this.#ZW_\u200D_J(value);
+  static async * ZW_\u200D_J() {
+    return this.#ZW_\u200D_J;
   }
 
 }
