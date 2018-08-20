@@ -3,11 +3,23 @@
 /*---
 esid: sec-array.prototype.flatMap
 description: >
-    properties are accessed correct number of times by .flatMap
+  properties are accessed correct number of times by .flatMap
+info: |
+  Array.prototype.flatMap ( mapperFunction [ , thisArg ] )
+
+  ...
+  6. Perform ? FlattenIntoArray(A, O, sourceLen, 0, 1, mapperFunction, T).
+
+  FlattenIntoArray (target, source, sourceLen, start, depth [ , mapperFunction, thisArg ])
+
+  3. Repeat, while sourceIndex < sourceLen
+    a. Let P be ! ToString(sourceIndex).
+    b. Let exists be ? HasProperty(source, P).
+    c. If exists is true, then
+      i. Let element be ? Get(source, P).
 features: [Array.prototype.flat]
 includes: [compareArray.js]
 ---*/
-
 
 const getCalls = [], hasCalls = [];
 const handler = {
