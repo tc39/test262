@@ -62,40 +62,40 @@ info: |
 
 var C = class {
   static async m() { return 42; } static * #$(value) {
-    yield value;
+    yield * value;
   }
   static * #_(value) {
-    yield value;
+    yield * value;
   }
   static * #o(value) {
-    yield value;
+    yield * value;
   }
   static * #℘(value) {
-    yield value;
+    yield * value;
   }
   static * #ZW_‌_NJ(value) {
-    yield value;
+    yield * value;
   }
   static * #ZW_‍_J(value) {
-    yield value;
+    yield * value;
   };
-  static * $(value) {
-    yield this.#$(value);
+  static get $() {
+    return this.#$;
   }
-  static * _(value) {
-    yield this.#_(value);
+  static get _() {
+    return this.#_;
   }
-  static * o(value) {
-    yield this.#o(value);
+  static get o() {
+    return this.#o;
   }
-  static * ℘(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield this.#℘(value);
+  static get ℘() { // DO NOT CHANGE THE NAME OF THIS FIELD
+    return this.#℘;
   }
-  static * ZW_‌_NJ(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield this.#ZW_‌_NJ(value);
+  static get ZW_‌_NJ() { // DO NOT CHANGE THE NAME OF THIS FIELD
+    return this.#ZW_‌_NJ;
   }
-  static * ZW_‍_J(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield this.#ZW_‍_J(value);
+  static get ZW_‍_J() { // DO NOT CHANGE THE NAME OF THIS FIELD
+    return this.#ZW_‍_J;
   }
 
 }
@@ -111,13 +111,23 @@ verifyProperty(C, "m", {
   writable: true,
 }, {restore: true});
 
-assert.sameValue(C.$(1).next().value, 1);
-assert.sameValue(C._(1).next().value, 1);
-assert.sameValue(C.o(1).next().value, 1);
-assert.sameValue(C.℘(1).next().value, 1);
-assert.sameValue(C.ZW_‌_NJ(1).next().value, 1);
-assert.sameValue(C.ZW_‍_J(1).next().value, 1);
-
 C.m().then(function(v) {
   assert.sameValue(v, 42);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    assert.sameValue(C.$(1).next().value, 1);
+    assert.sameValue(C._(1).next().value, 1);
+    assert.sameValue(C.o(1).next().value, 1);
+    assert.sameValue(C.℘(1).next().value, 1);
+    assert.sameValue(C.ZW_‌_NJ(1).next().value, 1);
+    assert.sameValue(C.ZW_‍_J(1).next().value, 1);
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

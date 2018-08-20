@@ -40,35 +40,45 @@ verifyProperty(C, "m", {
   writable: true,
 }, {restore: true});
 
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, x), false);
-assert.sameValue(Object.hasOwnProperty.call(C, x), false);
-
-verifyProperty(c, x, {
-  value: undefined,
-  enumerable: true,
-  writable: true,
-  configurable: true
-});
-
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, y), false);
-assert.sameValue(Object.hasOwnProperty.call(C, y), false);
-
-verifyProperty(c, y, {
-  value: 42,
-  enumerable: true,
-  writable: true,
-  configurable: true
-});
-
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "x"), false);
-assert.sameValue(Object.hasOwnProperty.call(C, "x"), false);
-assert.sameValue(Object.hasOwnProperty.call(c, "x"), false);
-
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "y"), false);
-assert.sameValue(Object.hasOwnProperty.call(C, "y"), false);
-assert.sameValue(Object.hasOwnProperty.call(c, "y"), false);
-
 C.m().next().then(function(v) {
   assert.sameValue(v.value, 42);
   assert.sameValue(v.done, true);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, x), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, x), false);
+
+    verifyProperty(c, x, {
+      value: undefined,
+      enumerable: true,
+      writable: true,
+      configurable: true
+    });
+
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, y), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, y), false);
+
+    verifyProperty(c, y, {
+      value: 42,
+      enumerable: true,
+      writable: true,
+      configurable: true
+    });
+
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "x"), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, "x"), false);
+    assert.sameValue(Object.hasOwnProperty.call(c, "x"), false);
+
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "y"), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, "y"), false);
+    assert.sameValue(Object.hasOwnProperty.call(c, "y"), false);
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

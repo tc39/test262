@@ -61,41 +61,41 @@ info: |
 
 
 class C {
-  static async m() { return 42; } static async #$(value) {
+  static async m() { return 42; } static async * #$(value) {
     yield await value;
   }
-  static async #_(value) {
+  static async * #_(value) {
     yield await value;
   }
-  static async #o(value) {
+  static async * #o(value) {
     yield await value;
   }
-  static async #℘(value) {
+  static async * #℘(value) {
     yield await value;
   }
-  static async #ZW_‌_NJ(value) {
+  static async * #ZW_‌_NJ(value) {
     yield await value;
   }
-  static async #ZW_‍_J(value) {
+  static async * #ZW_‍_J(value) {
     yield await value;
   };
-  static async $(value) {
-    yield * await this.#$(value);
+  static get $() {
+   return this.#$;
   }
-  static async _(value) {
-    yield * await this.#_(value);
+  static get _() {
+   return this.#_;
   }
-  static async o(value) {
-    yield * await this.#o(value);
+  static get o() {
+   return this.#o;
   }
-  static async ℘(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield * await this.#℘(value);
+  static get ℘() { // DO NOT CHANGE THE NAME OF THIS FIELD
+   return this.#℘;
   }
-  static async ZW_‌_NJ(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield * await this.#ZW_‌_NJ(value);
+  static get ZW_‌_NJ() { // DO NOT CHANGE THE NAME OF THIS FIELD
+   return this.#ZW_‌_NJ;
   }
-  static async ZW_‍_J(value) { // DO NOT CHANGE THE NAME OF THIS FIELD
-    yield * await this.#ZW_‍_J(value);
+  static get ZW_‍_J() { // DO NOT CHANGE THE NAME OF THIS FIELD
+   return this.#ZW_‍_J;
   }
 
 }
@@ -111,24 +111,34 @@ verifyProperty(C, "m", {
   writable: true,
 }, {restore: true});
 
-Promise.all([
-  C.$(1).next(),
-  C._(1).next(),
-  C.o(1).next(),
-  C.℘(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
-  C.ZW_‌_NJ(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
-  C.ZW_‍_J(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
-]).then(results => {
-
-  assert.sameValue(results[0].value, 1);
-  assert.sameValue(results[1].value, 1);
-  assert.sameValue(results[2].value, 1);
-  assert.sameValue(results[3].value, 1);
-  assert.sameValue(results[4].value, 1);
-  assert.sameValue(results[5].value, 1);
-
-}, $DONE).then($DONE, $DONE);
-
 C.m().then(function(v) {
   assert.sameValue(v, 42);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    Promise.all([
+      C.$(1).next(),
+      C._(1).next(),
+      C.o(1).next(),
+      C.℘(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
+      C.ZW_‌_NJ(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
+      C.ZW_‍_J(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
+    ]).then(results => {
+
+      assert.sameValue(results[0].value, 1);
+      assert.sameValue(results[1].value, 1);
+      assert.sameValue(results[2].value, 1);
+      assert.sameValue(results[3].value, 1);
+      assert.sameValue(results[4].value, 1);
+      assert.sameValue(results[5].value, 1);
+
+    }, $DONE).then($DONE, $DONE);
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

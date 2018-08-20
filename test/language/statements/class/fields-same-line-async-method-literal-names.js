@@ -40,37 +40,47 @@ verifyProperty(C.prototype, "m", {
   writable: true,
 }, {restore: true});
 
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
-assert.sameValue(Object.hasOwnProperty.call(C, "a"), false);
-
-verifyProperty(c, "a", {
-  value: undefined,
-  enumerable: true,
-  writable: true,
-  configurable: true
-});
-
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "b"), false);
-assert.sameValue(Object.hasOwnProperty.call(C, "b"), false);
-
-verifyProperty(c, "b", {
-  value: 42,
-  enumerable: true,
-  writable: true,
-  configurable: true
-});
-
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "c"), false);
-assert.sameValue(Object.hasOwnProperty.call(C, "c"), false);
-
-verifyProperty(c, "c", {
-  value: fn,
-  enumerable: true,
-  writable: true,
-  configurable: true
-});
-
-
 c.m().then(function(v) {
   assert.sameValue(v, 42);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "a"), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, "a"), false);
+
+    verifyProperty(c, "a", {
+      value: undefined,
+      enumerable: true,
+      writable: true,
+      configurable: true
+    });
+
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "b"), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, "b"), false);
+
+    verifyProperty(c, "b", {
+      value: 42,
+      enumerable: true,
+      writable: true,
+      configurable: true
+    });
+
+    assert.sameValue(Object.hasOwnProperty.call(C.prototype, "c"), false);
+    assert.sameValue(Object.hasOwnProperty.call(C, "c"), false);
+
+    verifyProperty(c, "c", {
+      value: fn,
+      enumerable: true,
+      writable: true,
+      configurable: true
+    });
+
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);
