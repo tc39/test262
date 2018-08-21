@@ -3,8 +3,7 @@
 
 /*---
 esid: sec-intl.locale
-description: >
-    Checks valid cases for the options argument to the Locale constructor.
+description: Verifies the behavior of an undefined numeric option to the Locale constructor.
 info: |
     Intl.Locale( tag [, options] )
 
@@ -35,30 +34,20 @@ info: |
 features: [Intl.Locale]
 ---*/
 
-const validNumericOptions = [
-  [false, false],
-  [true, true],
-  [null, false],
-  [0, false],
-  [0.5, true],
-  [{ valueOf() { return false; } }, true],
-];
-for (const [numeric, expected] of validNumericOptions) {
-  const options = { numeric };
-  assert.sameValue(
-    new Intl.Locale('en', options).toString(),
-    "en-u-kn-" + expected,
-  );
+const options = { numeric: undefined };
+assert.sameValue(
+  new Intl.Locale('en', options).toString(),
+  "en",
+);
 
-  assert.sameValue(
-    new Intl.Locale('en-u-kn-true', options).toString(),
-    "en-u-kn-" + expected,
-  );
+assert.sameValue(
+  new Intl.Locale('en-u-kn-true', options).toString(),
+  "en-u-kn-true",
+);
 
-  if ("numeric" in Intl.Locale.prototype) {
-    assert.sameValue(
-      new Intl.Locale('en-u-kf-lower', options).numeric,
-      String(expected),
-    );
-  }
+if ("numeric" in Intl.Locale.prototype) {
+  assert.sameValue(
+    new Intl.Locale('en-u-kf-lower', options).numeric,
+    undefined,
+  );
 }
