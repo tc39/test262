@@ -1,30 +1,32 @@
 // Copyright (C) 2017 Valerie Young. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: static class fields forbid PropName 'prototype' (no early error -- PropName of ComputedPropertyName not forbidden value)
+description: static class fields forbid PropName 'prototype' (no early error -- PropName of ComputedPropertyName)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class, class-fields-public]
+features: [class, class-static-fields-public]
 info: |
-    Static Semantics: PropName
-    ...
-    ComputedPropertyName : [ AssignmentExpression ]
-      Return empty.
+  14.6.13 Runtime Semantics: ClassDefinitionEvaluation
 
+  ...
+  16. Perform MakeConstructor(F, false, proto).
+  ...
 
-    // This test file tests the following early error:
-    Static Semantics: Early Errors
+  9.2.10 MakeConstructor ( F [ , writablePrototype [ , prototype ] ] )
 
-      ClassElement : static FieldDefinition;
-        It is a Syntax Error if PropName of FieldDefinition is "prototype" or "constructor".
-
-negative:
-  phase: parse
-  type: SyntaxError
+  6. Perform ! DefinePropertyOrThrow(F, "prototype", PropertyDescriptor { [[Value]]: prototype,
+    [[Writable]]: writablePrototype, [[Enumerable]]: false, [[Configurable]]: false }).
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
-
 var x = "prototype";
-var C = class {
-  static [x];
-};
+
+assert.throws(TypeError, function() {
+  (0, class {
+    static [x] = 42;
+  });
+});
+
+assert.throws(TypeError, function() {
+  (0, class {
+    static [x];
+  });
+});

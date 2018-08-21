@@ -17,20 +17,37 @@ info: |
       ClassElement : FieldDefinition;
         It is a Syntax Error if PropName of FieldDefinition is "constructor".
 
-negative:
-  phase: parse
-  type: SyntaxError
+    DefineField(receiver, fieldRecord)
 
+    ...
+    8. If fieldName is a Private Name,
+      ...
+    9. Else,
+      a. ...
+      b. Perform ? CreateDataPropertyOrThrow(receiver, fieldName, initValue).
+
+    CreateDataPropertyOrThrow ( O, P, V )
+
+    ...
+    3. Let success be ? CreateDataProperty(O, P, V).
+    4. If success is false, throw a TypeError exception.
+    ...
+
+    CreateDataProperty ( O, P, V )
+
+    ...
+    3. Let newDesc be the PropertyDescriptor { [[Value]]: V, [[Writable]]: true, [[Enumerable]]: true,
+      [[Configurable]]: true }.
+    4. Return ? O.[[DefineOwnProperty]](P, newDesc).
+includes: [propertyHelper.js]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
-
 var x = "constructor";
-class C {
+class C1 {
   [x];
 }
 
-var c = new C();
+var c1 = new C1();
 
-assert.sameValue(c.hasOwnProperty("constructor"), true);
-assert.sameValue(C.hasOwnProperty("constructor"), false);
+assert.sameValue(c1.hasOwnProperty("constructor"), true);
+assert.sameValue(C1.hasOwnProperty("constructor"), false);

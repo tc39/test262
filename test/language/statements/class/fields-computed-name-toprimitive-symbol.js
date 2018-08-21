@@ -62,8 +62,6 @@ var obj3 = {
   valueOf: function() { return s3; }
 };
 
-
-
 class C {
   [obj1] = 42;
   [obj2] = 43;
