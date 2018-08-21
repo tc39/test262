@@ -16,16 +16,15 @@ info: |
 
     Additional Early Error Rules for Eval Outside Methods
     These static semantics are applied by PerformEval when a direct eval call occurs outside of a MethodDefinition.
-    ScriptBody:StatementList
+    ScriptBody : StatementList
 
       It is a Syntax Error if StatementList Contains SuperProperty.
 
 ---*/
 
 
-class A {}
-
 var executed = false;
+class A {}
 class C extends A {
   x = eval('executed = true; super.x;');
 }

@@ -28,7 +28,7 @@ class C {
   c = fn
   foo = "foobar"
   bar = "barbaz";
-
+  
 }
 
 var c = new C();

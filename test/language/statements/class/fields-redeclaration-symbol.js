@@ -4,7 +4,7 @@
 /*---
 description: Redeclaration of public fields with the same name (field definitions in a class declaration)
 esid: prod-FieldDefinition
-features: [class, class-fields-public]
+features: [class]
 flags: [generated]
 includes: [propertyHelper.js, compareArray.js]
 info: |

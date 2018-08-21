@@ -12,7 +12,7 @@ includes: [propertyHelper.js]
 
 class C {
   async m() { return 42; } /*{ fields }*/;
-/*{ privateinspectionfunctions }*/
+  /*{ privateinspectionfunctions }*/
 }
 
 var c = new C();
@@ -26,8 +26,18 @@ verifyProperty(C.prototype, "m", {
   writable: true,
 }, {restore: true});
 
-/*{ assertions }*/
-
 c.m().then(function(v) {
   assert.sameValue(v, 42);
+
+  function assertions() {
+    // Cover $DONE handler for async cases.
+    function $DONE(error) {
+      if (error) {
+        throw new Test262Error('Test262:AsyncTestFailure')
+      }
+    }
+    /*{ assertions }*/
+  }
+
+  return Promise.resolve(assertions());
 }, $DONE).then($DONE, $DONE);

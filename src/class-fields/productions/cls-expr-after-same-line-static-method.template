@@ -11,7 +11,7 @@ includes: [propertyHelper.js]
 
 var C = class {
   static m() { return 42; } /*{ fields }*/;
-/*{ privateinspectionfunctions }*/
+  /*{ privateinspectionfunctions }*/
 }
 
 var c = new C();
