@@ -149,12 +149,12 @@ verifyProperty(c, "bar", {
 });
 
 Promise.all([
-  C.$(1).next(),
-  C._(1).next(),
-  C.\u{6F}(1).next(),
-  C.\u2118(1).next(),
-  C.ZW_\u200C_NJ(1).next(),
-  C.ZW_\u200D_J(1).next(),
+  C.$([1]).next(),
+  C._([1]).next(),
+  C.\u{6F}([1]).next(),
+  C.\u2118([1]).next(),
+  C.ZW_\u200C_NJ([1]).next(),
+  C.ZW_\u200D_J([1]).next(),
 ]).then(results => {
 
   assert.sameValue(results[0].value, 1);
