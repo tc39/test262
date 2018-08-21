@@ -62,7 +62,7 @@ if ("caseFirst" in loc) {
     assert.sameValue(loc.caseFirst, "true");
 }
 if ("numeric" in loc) {
-    assert.sameValue(loc.numeric, "false");
+    assert.sameValue(loc.numeric, false);
 }
 assert.sameValue(loc.numberingSystem, "latn");
 
@@ -92,7 +92,7 @@ if ("caseFirst" in loc) {
     assert.sameValue(loc.caseFirst, "false");
 }
 if ("numeric" in loc) {
-    assert.sameValue(loc.numeric, "true");
+    assert.sameValue(loc.numeric, true);
 }
 assert.sameValue(loc.numberingSystem, "jpanfin");
 
@@ -117,6 +117,6 @@ if ("caseFirst" in loc) {
     assert.sameValue(loc.caseFirst, "true");
 }
 if ("numeric" in loc) {
-    assert.sameValue(loc.numeric, "false");
+    assert.sameValue(loc.numeric, false);
 }
 assert.sameValue(loc.numberingSystem, "latn");

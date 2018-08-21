@@ -60,7 +60,7 @@ for (const [numeric, expected] of validNumericOptions) {
   if ("numeric" in Intl.Locale.prototype) {
     assert.sameValue(
       new Intl.Locale('en-u-kf-lower', options).numeric,
-      String(expected),
+      expected,
     );
   }
 }
