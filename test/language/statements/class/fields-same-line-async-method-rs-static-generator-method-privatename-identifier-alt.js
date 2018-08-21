@@ -121,12 +121,12 @@ c.m().then(function(v) {
         throw new Test262Error('Test262:AsyncTestFailure')
       }
     }
-    assert.sameValue(C.$(1).next().value, 1);
-    assert.sameValue(C._(1).next().value, 1);
-    assert.sameValue(C.o(1).next().value, 1);
-    assert.sameValue(C.℘(1).next().value, 1);
-    assert.sameValue(C.ZW_‌_NJ(1).next().value, 1);
-    assert.sameValue(C.ZW_‍_J(1).next().value, 1);
+    assert.sameValue(C.$([1]).next().value, 1);
+    assert.sameValue(C._([1]).next().value, 1);
+    assert.sameValue(C.o([1]).next().value, 1);
+    assert.sameValue(C.℘([1]).next().value, 1);
+    assert.sameValue(C.ZW_‌_NJ([1]).next().value, 1);
+    assert.sameValue(C.ZW_‍_J([1]).next().value, 1);
   }
 
   return Promise.resolve(assertions());

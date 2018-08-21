@@ -64,22 +64,22 @@ var C = class {
   foo = "foobar";
   m() { return 42 }
   static async * #$(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #_(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #o(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #℘(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #ZW_‌_NJ(value) {
-    yield await value;
+    yield * await value;
   }
   static async * #ZW_‍_J(value) {
-    yield await value;
+    yield * await value;
   }
   m2() { return 39 }
   bar = "barbaz";
@@ -149,12 +149,12 @@ verifyProperty(c, "bar", {
 });
 
 Promise.all([
-  C.$(1).next(),
-  C._(1).next(),
-  C.o(1).next(),
-  C.℘(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
-  C.ZW_‌_NJ(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
-  C.ZW_‍_J(1).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
+  C.$([1]).next(),
+  C._([1]).next(),
+  C.o([1]).next(),
+  C.℘([1]).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
+  C.ZW_‌_NJ([1]).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
+  C.ZW_‍_J([1]).next(), // DO NOT CHANGE THE NAME OF THIS FIELD
 ]).then(results => {
 
   assert.sameValue(results[0].value, 1);

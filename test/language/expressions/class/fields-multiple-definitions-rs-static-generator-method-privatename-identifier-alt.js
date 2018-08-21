@@ -148,9 +148,9 @@ verifyProperty(c, "bar", {
   writable: true,
 });
 
-assert.sameValue(C.$(1).next().value, 1);
-assert.sameValue(C._(1).next().value, 1);
-assert.sameValue(C.o(1).next().value, 1);
-assert.sameValue(C.℘(1).next().value, 1);
-assert.sameValue(C.ZW_‌_NJ(1).next().value, 1);
-assert.sameValue(C.ZW_‍_J(1).next().value, 1);
+assert.sameValue(C.$([1]).next().value, 1);
+assert.sameValue(C._([1]).next().value, 1);
+assert.sameValue(C.o([1]).next().value, 1);
+assert.sameValue(C.℘([1]).next().value, 1);
+assert.sameValue(C.ZW_‌_NJ([1]).next().value, 1);
+assert.sameValue(C.ZW_‍_J([1]).next().value, 1);
