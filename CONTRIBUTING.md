@@ -320,7 +320,7 @@ any other valid frontmatter field | see the frontmatter definitions.
 
 Generated files are managed using the `make.py` Python script located in the root of this repository. To use it, first install the required Python packages via the following command:
 
-    pip install pipenv && pipenv install && pipenv shell
+    pip install pipenv && pipenv install
 
 And then issue the following command to create files:
 
