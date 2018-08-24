@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+make = "python make.py"
+clean = "python make.py clean"
+
+[packages]
+PyYAML = "==3.11"
+
+[dev-packages]
+
+[requires]
+python_version = "2.7"

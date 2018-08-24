@@ -320,15 +320,15 @@ any other valid frontmatter field | see the frontmatter definitions.
 
 Generated files are managed using the `make.py` Python script located in the root of this repository. To use it, first install the required Python packages via the following command:
 
-    pip install --requirement tools/generation/requirements.txt
+    pip install pipenv && pipenv install && pipenv shell
 
 And then issue the following command to create files:
 
-    make.py
+    pipenv run make
 
 To remove all generated files:
 
-    make.py clean
+    pipenv run clean
 
 The executable located at `tools/generation/generator.py` offers additional control over the generation procedure.
 
