@@ -6,40 +6,20 @@ esid: sec-object.keys
 description: >
   Test Object.keys() with uninitialized binding.
 info: |
-  19.1.2.16 Object.keys ( O )
-    ...
-    2. Let nameList be ? EnumerableOwnProperties(obj, "key").
-    ...
-
-  7.3.21 EnumerableOwnProperties ( O, kind )
-    ...
-    4. For each element key of ownKeys in List order, do
-      a. If Type(key) is String, then
-        i. Let desc be ? O.[[GetOwnProperty]](key).
-        ...
-
-  9.4.6.4 [[GetOwnProperty]] (P)
-    ...
-    4. Let value be ? O.[[Get]](P, O).
-    ...
-
-  9.4.6.7 [[Get]] (P, Receiver)
-    ...
-    12. Let targetEnvRec be targetEnv's EnvironmentRecord.
-    13. Return ? targetEnvRec.GetBindingValue(binding.[[BindingName]], true).
-
-  8.1.1.1.6 GetBindingValue ( N, S )
-    ...
-    If the binding for N in envRec is an uninitialized binding, throw a ReferenceError exception.
-    ...
+  [[OwnPropertyKeys]] ( ) of Module Namespace Exotic Object:
+  1. Let keys be a copy of O.[[Exports]].
+  2. For each own property key P of O that is a Symbol, in ascending chronological order of property creation, do
+    a. Add P as the last element of keys.
+  3. Return keys.
 
 flags: [module]
 ---*/
 
-import* as self from "./object-keys-binding-uninit.js";
+import * as self from "./object-keys-binding-uninit.js";
 
-assert.throws(ReferenceError, function() {
-  Object.keys(self);
-});
+const keys = Object.keys(self);
+assert_equal(keys[0], 'a');
+assert_equal(keys[1], 'default');
 
 export default 0;
+export const a = 1;
