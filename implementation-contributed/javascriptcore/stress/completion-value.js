@@ -1,3 +1,8 @@
+/**
+ * reviewed
+ * v8: add tests for completion value resolution in try/catch/finally blocks (anything returning -2)
+ */
+
 function shouldBe(actual, expected) {
     if (actual !== expected)
         throw new Error('bad value: ' + actual);

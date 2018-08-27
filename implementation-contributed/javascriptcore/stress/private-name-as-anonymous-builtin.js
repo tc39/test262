@@ -1,3 +1,10 @@
+// Reviewed
+/***
+- jsc
+- ch
+- d8: Error: bad value: ["length","name"]
+- jsshell: Error: bad value: ["length","name"]
+ */
 function shouldBe(actual, expected)
 {
     if (actual !== expected)

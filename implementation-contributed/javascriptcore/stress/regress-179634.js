@@ -1,3 +1,4 @@
+// Reviewed
 function foo() {
     return {
         get: function () { },
