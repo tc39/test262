@@ -1,0 +1,50 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/class/gen-private-method-
+name: Generator private method as a ClassExpression element
+features: [class-methods-private]
+esid: prod-GeneratorPrivateMethod
+info: |
+  ClassElement :
+    PrivateMethodDefinition
+
+  MethodDefinition :
+    GeneratorMethod
+
+  14.4 Generator Function Definitions
+
+  GeneratorMethod :
+    * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+features: [generators]
+---*/
+
+var callCount = 0;
+
+var C = class {
+    *gen() {
+        callCount += 1;
+        /*{ body }*/
+    }
+    gen() {
+        return this.#gen();
+    }
+}
+
+const c = new C();
+
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, "test 3");
+
+var iter = c.gen();
+
+/*{ assertions }*/
+
+assert.sameValue(callCount, 1);
+
+// Test the private fields do not appear as properties after set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, "test 3");
