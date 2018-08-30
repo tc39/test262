@@ -20,11 +20,15 @@ BigInt
 class-fields-public
 class-fields-private
 
-# Static Class Fields & Methods: 
+# Static Class Fields & Methods:
 # https://github.com/tc39/proposal-static-class-features/
 class-static-fields-public
 class-static-fields-private
 class-static-methods-private
+
+# Private methods and getter/setters
+# https://github.com/tc39/proposal-private-methods
+class-methods-private
 
 # Promise.prototype.finally
 # https://github.com/tc39/proposal-promise-finally
