@@ -4,7 +4,7 @@
 /*---
 description: Valid FieldDefinition (field definitions after a static async method in the same line)
 esid: prod-FieldDefinition
-features: [class-fields-private, class, class-fields-public, async-functions]
+features: [class-fields-public, class, async-functions]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

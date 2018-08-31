@@ -4,7 +4,7 @@
 /*---
 description: error if super['x'] in StatementList of eval (indirect eval)
 esid: sec-performeval-rules-in-initializer
-features: [class, class-fields-public]
+features: [class, class-fields-public, class-fields-private]
 flags: [generated]
 info: |
     The remaining eval rules apply as outside a constructor, inside a method, and inside a function.

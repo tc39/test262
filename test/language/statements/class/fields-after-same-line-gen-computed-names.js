@@ -4,7 +4,7 @@
 /*---
 description: Computed property names (field definitions after a generator in the same line)
 esid: prod-FieldDefinition
-features: [computed-property-names, generators, class, class-fields-public]
+features: [class-fields-public, computed-property-names, generators, class]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

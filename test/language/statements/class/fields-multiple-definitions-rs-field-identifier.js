@@ -4,7 +4,7 @@
 /*---
 description: Valid FieldDefinition (multiple fields definitions)
 esid: prod-FieldDefinition
-features: [class-fields-private, class, class-fields-public]
+features: [class-fields-public, class]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

@@ -4,7 +4,7 @@
 /*---
 description: The constructor method is called after the fields are initalized (field definitions in a class declaration)
 esid: prod-FieldDefinition
-features: [class]
+features: [class-fields-public, class]
 flags: [generated]
 info: |
     [[Construct]] ( argumentsList, newTarget)

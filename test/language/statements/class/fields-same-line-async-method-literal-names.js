@@ -4,7 +4,7 @@
 /*---
 description: Literal property names (field definitions after an async method in the same line)
 esid: prod-FieldDefinition
-features: [class, class-fields-public, async-functions]
+features: [class-fields-public, class, async-functions]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

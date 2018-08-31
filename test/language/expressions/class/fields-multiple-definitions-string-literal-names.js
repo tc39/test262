@@ -4,7 +4,7 @@
 /*---
 description: String literal names (multiple fields definitions)
 esid: prod-FieldDefinition
-features: [class, class-fields-public]
+features: [class-fields-public, class]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
