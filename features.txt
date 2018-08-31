@@ -111,6 +111,10 @@ Intl.RelativeTimeFormat
 # https://github.com/tc39/proposal-intl-segmenter
 Intl.Segmenter
 
+# Intl.NumberFormat unified proposal
+# https://github.com/sffc/proposal-unified-intl-numberformat
+Intl.NumberFormat-unified
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
