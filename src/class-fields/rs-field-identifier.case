@@ -52,7 +52,7 @@ info: |
   properties "Other_ID_Start" and "Other_ID_Continue".
 
 template: productions
-features: [class-fields-private]
+features: [class-fields-public]
 ---*/
 
 //- fields

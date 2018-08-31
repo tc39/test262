@@ -26,6 +26,7 @@ info: |
       i. Perform ? DefineField(O, fieldRecord).
 
 template: default
+features: [class-fields-public, computed-property-names]
 includes: [propertyHelper.js, compareArray.js]
 ---*/
 

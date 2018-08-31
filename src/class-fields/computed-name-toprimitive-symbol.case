@@ -37,7 +37,7 @@ info: |
   2. Let propName be ? GetValue(exprValue).
   3. Return ? ToPropertyKey(propName).
 template: default
-features: [computed-property-names, Symbol.toPrimitive, Symbol]
+features: [class-fields-public, computed-property-names, Symbol.toPrimitive, Symbol]
 includes: [propertyHelper.js]
 ---*/
 

@@ -15,6 +15,7 @@ info: |
     PropertyName
 template: productions
 includes: [propertyHelper.js]
+features: [class-fields-public]
 ---*/
 
 //- fields
