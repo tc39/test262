@@ -1,0 +1,50 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/async-gen-private-method-
+name: Async generator method as a ClassExpression element
+esid: prod-AsyncGeneratorPrivateMethod
+info: |
+  ClassElement :
+    PrivateMethodDefinition
+
+  MethodDefinition :
+    AsyncGeneratorMethod
+
+  Async Generator Function Definitions
+
+  AsyncGeneratorMethod :
+    async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+features: [async-iteration, class-methods-private]
+---*/
+
+var callCount = 0;
+
+var C = class {
+    async *#gen() {
+        callCount += 1;
+        /*{ body }*/
+    }
+    gen() {
+        return this.#gen();
+    }
+}
+
+const c = new C();
+
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, "test 3");
+
+var iter = c.gen();
+
+/*{ assertions }*/
+
+assert.sameValue(callCount, 1);
+
+// Test the private fields do not appear as properties after set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, "test 3");
