@@ -16,7 +16,7 @@ info: |
 
   AsyncGeneratorMethod :
     async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
-features: [async-iteration, class-methods-private]
+features: [async-iteration, class-static-methods-private]
 ---*/
 
 var callCount = 0;
@@ -26,15 +26,12 @@ var C = class {
         callCount += 1;
         /*{ body }*/
     }
-    static gen() {
-        return C.#gen();
-    }
+    static get gen() { return this.#gen; }
 }
 
 // Test the private fields do not appear as properties before set to value
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
-assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
-assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, "test 3");
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
 
 var iter = C.gen();
 
@@ -43,6 +40,5 @@ var iter = C.gen();
 assert.sameValue(callCount, 1);
 
 // Test the private fields do not appear as properties after set to value
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
-assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
-assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, "test 3");
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');

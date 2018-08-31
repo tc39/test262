@@ -3,7 +3,6 @@
 /*---
 path: language/statements/class/gen-private-method-static-
 name: Static generator private method as a ClassDeclaration element
-features: [class-methods-private]
 esid: prod-GeneratorPrivateMethod
 info: |
   ClassElement :
@@ -16,33 +15,29 @@ info: |
 
   GeneratorMethod :
     * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
-features: [generators]
+features: [generators, class-static-methods-private]
 ---*/
 
 var callCount = 0;
 
 class C {
-    static #*gen() {
+    static *#gen() {
         callCount += 1;
         /*{ body }*/
     }
-    static gen() {
-        return C.gen();
-    }
+    static get gen() { return this.#gen; }
 }
 
-var gen = C.gen;
-
 // Test the private fields do not appear as properties before set to value
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
-assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
 
-var iter = gen();
+var iter = C.gen();
 
 /*{ assertions }*/
 
 assert.sameValue(callCount, 1);
 
 // Test the private fields do not appear as properties before set to value
-assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, "test 1");
-assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, "test 2");
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
