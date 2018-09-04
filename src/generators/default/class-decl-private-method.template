@@ -20,7 +20,7 @@ features: [generators, class-methods-private]
 
 var callCount = 0;
 
-class C { 
+class C {
     *#gen() {
         callCount += 1;
         /*{ body }*/

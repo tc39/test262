@@ -1,14 +1,14 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-spread-arr-single.case
-// - src/generators/default/class-decl-method.template
+// - src/generators/default/class-decl-private-method.template
 /*---
-description: Use yield value in a array spread position (Geenerator method as a ClassDeclaration element)
-esid: prod-GeneratorMethod
-features: [generators]
+description: Use yield value in a array spread position (Generator private method as a ClassDeclaration element)
+esid: prod-GeneratorPrivateMethod
+features: [generators, class-methods-private]
 flags: [generated]
 info: |
     ClassElement :
-      MethodDefinition
+      PrivateMethodDefinition
 
     MethodDefinition :
       GeneratorMethod
@@ -28,14 +28,22 @@ var arr = ['a', 'b', 'c'];
 
 var callCount = 0;
 
-class C { *gen() {
-    callCount += 1;
-    yield [...yield];
-}}
+class C {
+    *#gen() {
+        callCount += 1;
+        yield [...yield];
+    }
+    get gen() { return this.#gen; }
+}
 
-var gen = C.prototype.gen;
+const c = new C();
 
-var iter = gen();
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, 'Object.hasOwnProperty.call(c, "#gen")');
+
+var iter = c.gen();
 
 iter.next(false);
 var item = iter.next(arr);
@@ -50,3 +58,8 @@ assert.sameValue(value[2], 'c');
 assert.sameValue(item.done, false);
 
 assert.sameValue(callCount, 1);
+
+// Test the private fields do not appear as properties after set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, 'Object.hasOwnProperty.call(c, "#gen")');

@@ -16,7 +16,7 @@ info: |
 
   AsyncMethod :
     async [no LineTerminator here] # PropertyName ( UniqueFormalParameters ) { AsyncFunctionBody }
-features: [async-functions, class-methods-private]
+features: [async-functions, class-static-methods-private]
 ---*/
 
 var C = class { static async #method() {
