@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/async-generator/named-
+path: language/arguments-object/async-gen-named-func-expr-
 name: async generator named function expression
 esid: sec-asyncgenerator-definitions-evaluation
 info: |

@@ -1,10 +1,10 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/arguments-object/cls-expr-async-gen-meth-
-name: class expression async generator method
-esid: sec-class-definitions-runtime-semantics-evaluation
+path: language/arguments-object/cls-expr-async-private-gen-meth-static-
+name: static class expression async private generator method
+esid: sec-argument-lists-runtime-semantics-argumentlistevaluation
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
 
@@ -18,10 +18,10 @@ info: |
 
     21. For each ClassElement m in order from methods
         a. If IsStatic of m is false, then
-           i. Let status be the result of performing
-              PropertyDefinitionEvaluation for m with arguments proto and
-              false.
-        [...]
+        b. Else,
+           Let status be the result of performing PropertyDefinitionEvaluation
+           for m with arguments F and false.
+    [...]
 
     Runtime Semantics: PropertyDefinitionEvaluation
 
@@ -38,21 +38,21 @@ info: |
        AsyncGeneratorBody, scope, strict).
     [...]
 flags: [async]
-features: [async-iteration]
+features: [async-iteration, class, class-static-methods-private]
 ---*/
 
 var callCount = 0;
 var C = class {
-  async *method() {
+  static async * #method() {
     /*{ body }*/
     callCount = callCount + 1;
   }
+
+  static get method() {
+    return this.#method;
+  }
 };
 
-// Stores a reference `ref` for case evaluation
-var ref = C.prototype.method;
-
-ref(/*{ args }*/).next().then(() => {
+C.method(/*{ args }*/).next().then(() => {
     assert.sameValue(callCount, 1, 'method invoked exactly once');
 }).then($DONE, $DONE);
-

@@ -1,17 +1,15 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
-path: language/arguments-object/cls-expr-async-gen-meth-
-name: class expression async generator method
-esid: sec-class-definitions-runtime-semantics-evaluation
+path: language/arguments-object/cls-decl-async-private-gen-meth-
+name: static class declaration private generator method
+esid: sec-argument-lists-runtime-semantics-argumentlistevaluation
 info: |
-    ClassExpression : class BindingIdentifieropt ClassTail
+    ClassDeclaration : class BindingIdentifier ClassTail
 
-    1. If BindingIdentifieropt is not present, let className be undefined.
-    2. Else, let className be StringValue of BindingIdentifier.
-    3. Let value be the result of ClassDefinitionEvaluation of ClassTail
-       with argument className.
+    1. Let className be StringValue of BindingIdentifier.
+    2. Let value be the result of ClassDefinitionEvaluation of ClassTail with
+       argument className.
     [...]
 
     14.5.14 Runtime Semantics: ClassDefinitionEvaluation
@@ -38,21 +36,21 @@ info: |
        AsyncGeneratorBody, scope, strict).
     [...]
 flags: [async]
-features: [async-iteration]
+features: [async-iteration, class, class-methods-private]
 ---*/
 
 var callCount = 0;
-var C = class {
-  async *method() {
+class C {
+  async * #method() {
     /*{ body }*/
     callCount = callCount + 1;
   }
-};
 
-// Stores a reference `ref` for case evaluation
-var ref = C.prototype.method;
+  get method() {
+    return this.#method;
+  }
+}
 
-ref(/*{ args }*/).next().then(() => {
+new C().method(/*{ args }*/).next().then(() => {
     assert.sameValue(callCount, 1, 'method invoked exactly once');
 }).then($DONE, $DONE);
-
