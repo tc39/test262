@@ -15,7 +15,7 @@ info: |
 
   GeneratorMethod :
     * # PropertyName ( UniqueFormalParameters ) { GeneratorBody }
-features: [generators, class-methods-private]
+features: [generators, class-static-methods-private]
 ---*/
 
 var C = class { static *#gen() {

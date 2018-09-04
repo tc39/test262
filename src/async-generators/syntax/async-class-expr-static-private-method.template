@@ -16,7 +16,7 @@ info: |
 
   AsyncGeneratorMethod :
     async [no LineTerminator here] * # PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
-features: [async-iteration, class-methods-private]
+features: [async-iteration, class-static-methods-private]
 ---*/
 
 var C = class { static async *#gen() {
