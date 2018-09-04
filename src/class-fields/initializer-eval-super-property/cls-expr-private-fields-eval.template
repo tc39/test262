@@ -5,6 +5,7 @@
 esid: sec-performeval-rules-in-initializer
 path: language/expressions/class/fields-private-derived-cls-direct-
 name: direct eval
+features: [class, class-fields-private]
 ---*/
 
 var executed = false;

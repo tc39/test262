@@ -14,7 +14,7 @@ info: |
   11. Let result be OrdinaryCallEvaluateBody(F, argumentsList).
   ...
 template: default
-features: [computed-property-names]
+features: [class-fields-public, computed-property-names]
 includes: [propertyHelper.js]
 ---*/
 

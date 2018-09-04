@@ -4,7 +4,7 @@
 /*---
 description: Valid FieldDefinition (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition
-features: [class-fields-private, class, class-fields-public, generators]
+features: [class-fields-public, class, generators]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

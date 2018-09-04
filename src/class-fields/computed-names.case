@@ -15,7 +15,7 @@ info: |
     PropertyName
 template: productions
 includes: [propertyHelper.js]
-features: [computed-property-names]
+features: [class-fields-public, computed-property-names]
 ---*/
 
 //- setup

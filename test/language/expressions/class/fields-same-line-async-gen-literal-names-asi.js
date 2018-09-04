@@ -4,7 +4,7 @@
 /*---
 description: Literal property names with ASI (field definitions after an async generator in the same line)
 esid: prod-FieldDefinition
-features: [class, class-fields-public, async-iteration]
+features: [class-fields-public, class, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

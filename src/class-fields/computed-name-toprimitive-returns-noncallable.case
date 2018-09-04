@@ -37,7 +37,7 @@ info: |
   2. Let propName be ? GetValue(exprValue).
   3. Return ? ToPropertyKey(propName).
 template: class-evaluation-error
-features: [computed-property-names, Symbol.toPrimitive]
+features: [class-fields-public, computed-property-names, Symbol.toPrimitive]
 ---*/
 
 //- setup

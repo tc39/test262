@@ -14,6 +14,7 @@ info: |
   11. Let result be OrdinaryCallEvaluateBody(F, argumentsList).
   ...
 template: default
+features: [class-fields-public]
 ---*/
 
 //- setup

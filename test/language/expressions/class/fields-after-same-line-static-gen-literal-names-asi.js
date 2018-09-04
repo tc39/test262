@@ -4,7 +4,7 @@
 /*---
 description: Literal property names with ASI (field definitions after a static generator in the same line)
 esid: prod-FieldDefinition
-features: [generators, class, class-fields-public]
+features: [class-fields-public, generators, class]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

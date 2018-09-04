@@ -4,7 +4,7 @@
 /*---
 description: Syntax error if `super()` used in class field (computed ClassElementName)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class, class-fields-public]
+features: [class, class-fields-public, computed-property-names]
 flags: [generated]
 negative:
   phase: parse
