@@ -1,0 +1,47 @@
+// Copyright (C) 2018 Bloomberg LP. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/class/gen-method-
+name: Generator private method as a ClassDeclaration element
+esid: prod-GeneratorPrivateMethod
+info: |
+  ClassElement :
+    PrivateMethodDefinition
+
+  MethodDefinition :
+    GeneratorMethod
+
+  14.4 Generator Function Definitions
+
+  GeneratorMethod :
+    * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+features: [generators, class-methods-private]
+---*/
+
+var callCount = 0;
+
+class C { 
+    *#gen() {
+        callCount += 1;
+        /*{ body }*/
+    }
+    get gen() { return this.#gen; }
+}
+
+const c = new C();
+
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, 'Object.hasOwnProperty.call(c, "#gen")');
+
+var iter = c.gen();
+
+/*{ assertions }*/
+
+assert.sameValue(callCount, 1);
+
+// Test the private fields do not appear as properties after set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(c, "#gen"), false, 'Object.hasOwnProperty.call(c, "#gen")');
