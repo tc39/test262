@@ -8,6 +8,6 @@ path: language/statements/class/syntax/valid/
 features: [class]
 ---*/
 
-class C {
+class C /*{ heritage }*/ {
   /*{ elements }*/
 }

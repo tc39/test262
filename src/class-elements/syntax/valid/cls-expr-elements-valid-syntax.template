@@ -8,6 +8,6 @@ path: language/expressions/class/syntax/valid/
 features: [class]
 ---*/
 
-var C = class {
+var C = class /*{ heritage }*/ {
   /*{ elements }*/
 };
