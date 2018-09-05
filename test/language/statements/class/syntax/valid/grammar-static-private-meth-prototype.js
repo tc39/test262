@@ -2,7 +2,7 @@
 // - src/class-elements/grammar-static-private-meth-prototype.case
 // - src/class-elements/syntax/valid/cls-decl-elements-valid-syntax.template
 /*---
-description: Static Private Methods can be named prototype (class declaration)
+description: Static Private Methods can be named "#prototype" (class declaration)
 esid: prod-ClassElement
 features: [class-static-methods-private, class]
 flags: [generated]
