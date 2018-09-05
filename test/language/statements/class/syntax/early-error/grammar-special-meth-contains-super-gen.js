@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/class-elements/grammar-special-meth-ctor-get.case
+// - src/class-elements/grammar-special-meth-contains-super-gen.case
 // - src/class-elements/syntax/invalid/cls-decl-elements-invalid-syntax.template
 /*---
-description: Accessor get Methods cannot be named "constructor" (class declaration)
+description: Generator Methods cannot contain direct super (class declaration)
 esid: prod-ClassElement
-features: [class]
+features: [generators, class]
 flags: [generated]
 negative:
   phase: parse
@@ -13,7 +13,7 @@ info: |
     Class Definitions / Static Semantics: Early Errors
 
     ClassElement : MethodDefinition
-        It is a Syntax Error if PropName of MethodDefinition is "constructor" and SpecialMethod of MethodDefinition is true.
+        It is a Syntax Error if PropName of MethodDefinition is not "constructor" and HasDirectSuper of MethodDefinition is true.
 
 ---*/
 
@@ -21,5 +21,7 @@ info: |
 throw "Test262: This statement should not be evaluated.";
 
 class C {
-  get constructor() {}
+  * method() {
+      super();
+  }
 }
