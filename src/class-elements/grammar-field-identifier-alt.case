@@ -59,7 +59,7 @@ template: syntax/valid
 features: [class-fields-public]
 ---*/
 
-//- fields
+//- elements
 $;
 _;
 \u{6F};

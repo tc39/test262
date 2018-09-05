@@ -9,5 +9,5 @@ features: [class]
 ---*/
 
 class C {
-  /*{ fields }*/
+  /*{ elements }*/
 }

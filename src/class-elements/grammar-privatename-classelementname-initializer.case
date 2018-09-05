@@ -56,7 +56,7 @@ template: syntax/valid
 features: [class-fields-private]
 ---*/
 
-//- fields
+//- elements
 #$ = 1;
 #_ = 2;
 #\u{6F} = 3;

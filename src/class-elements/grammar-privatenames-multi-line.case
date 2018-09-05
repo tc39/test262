@@ -25,6 +25,6 @@ template: syntax/valid
 features: [class-fields-private]
 ---*/
 
-//- fields
+//- elements
 #x
 #y

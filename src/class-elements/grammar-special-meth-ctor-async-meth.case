@@ -12,5 +12,5 @@ template: syntax/invalid
 features: [async-functions]
 ---*/
 
-//- fields
+//- elements
 async constructor() {}

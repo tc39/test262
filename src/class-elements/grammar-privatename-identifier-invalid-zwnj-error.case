@@ -53,6 +53,6 @@ template: syntax/invalid
 features: [class-fields-private]
 ---*/
 
-//- fields
+//- elements
 #\u200C_ZWNJ;
 

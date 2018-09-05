@@ -12,5 +12,5 @@ template: syntax/invalid
 features: [generators]
 ---*/
 
-//- fields
+//- elements
 * constructor() {}
