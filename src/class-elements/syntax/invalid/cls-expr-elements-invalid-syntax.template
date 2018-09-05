@@ -4,7 +4,7 @@
 /*---
 esid: prod-ClassElement
 name: class expression
-path: language/expressions/class/syntax/early-error/
+path: language/expressions/class/syntax/early-errors/
 features: [class]
 negative:
   phase: parse
