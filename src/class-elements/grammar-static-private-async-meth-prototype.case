@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Static Async Private Methods can be named prototype
+desc: Static Async Private Methods can be named "#prototype"
 info: |
     Class Definitions / Static Semantics: Early Errors
 
