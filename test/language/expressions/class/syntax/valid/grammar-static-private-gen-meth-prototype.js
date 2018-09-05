@@ -2,7 +2,7 @@
 // - src/class-elements/grammar-static-private-gen-meth-prototype.case
 // - src/class-elements/syntax/valid/cls-expr-elements-valid-syntax.template
 /*---
-description: Static Generator Private Methods can be named prototype (class expression)
+description: Static Generator Private Methods can be named "#prototype" (class expression)
 esid: prod-ClassElement
 features: [generators, class-static-methods-private, class]
 flags: [generated]
