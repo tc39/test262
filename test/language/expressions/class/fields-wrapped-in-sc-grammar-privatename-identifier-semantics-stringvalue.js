@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/grammar-privatename-identifier-semantics-stringvalue.case
-// - src/class-fields/productions/cls-expr-wrapped-in-sc.template
+// - src/class-elements/grammar-privatename-identifier-semantics-stringvalue.case
+// - src/class-elements/productions/cls-expr-wrapped-in-sc.template
 /*---
 description: PrivateName Static Semantics, StringValue (fields definition wrapped in semicolons)
 esid: prod-FieldDefinition

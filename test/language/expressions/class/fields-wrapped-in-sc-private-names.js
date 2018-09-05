@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/private-names.case
-// - src/class-fields/productions/cls-expr-wrapped-in-sc.template
+// - src/class-elements/private-names.case
+// - src/class-elements/productions/cls-expr-wrapped-in-sc.template
 /*---
 description: private names (fields definition wrapped in semicolons)
 esid: prod-FieldDefinition

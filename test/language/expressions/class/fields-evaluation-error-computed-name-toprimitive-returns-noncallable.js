@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/computed-name-toprimitive-returns-noncallable.case
-// - src/class-fields/class-evaluation-error/cls-expr.template
+// - src/class-elements/computed-name-toprimitive-returns-noncallable.case
+// - src/class-elements/class-evaluation-error/cls-expr.template
 /*---
 description: Custom error evaluating a computed property name (field definitions in a class expression)
 esid: sec-runtime-semantics-classdefinitionevaluation

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-fields.case
-// - src/class-fields/productions/cls-expr-multiple-stacked-definitions.template
+// - src/class-elements/static-private-fields.case
+// - src/class-elements/productions/cls-expr-multiple-stacked-definitions.template
 /*---
 description: static private fields (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

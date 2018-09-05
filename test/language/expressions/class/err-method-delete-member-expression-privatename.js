@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/member-expression-privatename.case
-// - src/class-fields/delete-error/cls-expr-method-delete.template
+// - src/class-elements/member-expression-privatename.case
+// - src/class-elements/delete-error/cls-expr-method-delete.template
 /*---
 description: Syntax error if you call delete on member expressions . privatename (in method)
 esid: sec-class-definitions-static-semantics-early-errors

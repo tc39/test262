@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/ctor-called-after-fields-init.case
-// - src/class-fields/default/cls-expr.template
+// - src/class-elements/ctor-called-after-fields-init.case
+// - src/class-elements/default/cls-expr.template
 /*---
 description: The constructor method is called after the fields are initalized (field definitions in a class expression)
 esid: prod-FieldDefinition

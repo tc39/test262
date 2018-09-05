@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-async-generator-method-privatename-identifier.case
-// - src/class-fields/productions/cls-decl-wrapped-in-sc.template
+// - src/class-elements/rs-static-async-generator-method-privatename-identifier.case
+// - src/class-elements/productions/cls-decl-wrapped-in-sc.template
 /*---
 description: Valid Static AsyncGeneratorMethod PrivateName (fields definition wrapped in semicolons)
 esid: prod-FieldDefinition

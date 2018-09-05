@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-field-identifier-initializer.case
-// - src/class-fields/productions/cls-expr-new-sc-line-method.template
+// - src/class-elements/rs-field-identifier-initializer.case
+// - src/class-elements/productions/cls-expr-new-sc-line-method.template
 /*---
 description: Valid FieldDefinition (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition

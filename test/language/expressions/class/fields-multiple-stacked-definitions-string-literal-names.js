@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/string-literal-names.case
-// - src/class-fields/productions/cls-expr-multiple-stacked-definitions.template
+// - src/class-elements/string-literal-names.case
+// - src/class-elements/productions/cls-expr-multiple-stacked-definitions.template
 /*---
 description: String literal names (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

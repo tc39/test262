@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/redeclaration.case
-// - src/class-fields/default/cls-decl.template
+// - src/class-elements/redeclaration.case
+// - src/class-elements/default/cls-decl.template
 /*---
 description: Redeclaration of public fields with the same name (field definitions in a class declaration)
 esid: prod-FieldDefinition

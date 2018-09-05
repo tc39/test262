@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-methods.case
-// - src/class-fields/productions/cls-expr-same-line-generator.template
+// - src/class-elements/static-private-methods.case
+// - src/class-elements/productions/cls-expr-same-line-generator.template
 /*---
 description: static private methods (field definitions followed by a generator method in the same line)
 esid: prod-FieldDefinition

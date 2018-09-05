@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-field-identifier-initializer.case
-// - src/class-fields/productions/cls-decl-after-same-line-static-method.template
+// - src/class-elements/rs-field-identifier-initializer.case
+// - src/class-elements/productions/cls-decl-after-same-line-static-method.template
 /*---
 description: Valid FieldDefinition (field definitions after a static method in the same line)
 esid: prod-FieldDefinition

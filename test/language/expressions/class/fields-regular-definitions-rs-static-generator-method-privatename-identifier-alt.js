@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-generator-method-privatename-identifier-alt.case
-// - src/class-fields/productions/cls-expr-regular-definitions.template
+// - src/class-elements/rs-static-generator-method-privatename-identifier-alt.case
+// - src/class-elements/productions/cls-expr-regular-definitions.template
 /*---
 description: Valid Static GeneratorMethod PrivateName (regular fields defintion)
 esid: prod-FieldDefinition

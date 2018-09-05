@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-value-incremental.case
-// - src/class-fields/default/cls-decl.template
+// - src/class-elements/init-value-incremental.case
+// - src/class-elements/default/cls-decl.template
 /*---
 description: The initializer value is defined during the class instatiation (field definitions in a class declaration)
 esid: prod-FieldDefinition

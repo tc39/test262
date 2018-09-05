@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-fields.case
-// - src/class-fields/productions/cls-expr-after-same-line-method.template
+// - src/class-elements/static-private-fields.case
+// - src/class-elements/productions/cls-expr-after-same-line-method.template
 /*---
 description: static private fields (field definitions after a method in the same line)
 esid: prod-FieldDefinition

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-privatename-identifier-alt.case
-// - src/class-fields/productions/cls-expr-multiple-definitions.template
+// - src/class-elements/rs-privatename-identifier-alt.case
+// - src/class-elements/productions/cls-expr-multiple-definitions.template
 /*---
 description: Valid PrivateName (multiple fields definitions)
 esid: prod-FieldDefinition

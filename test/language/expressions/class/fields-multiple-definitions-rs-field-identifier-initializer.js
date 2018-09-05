@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-field-identifier-initializer.case
-// - src/class-fields/productions/cls-expr-multiple-definitions.template
+// - src/class-elements/rs-field-identifier-initializer.case
+// - src/class-elements/productions/cls-expr-multiple-definitions.template
 /*---
 description: Valid FieldDefinition (multiple fields definitions)
 esid: prod-FieldDefinition

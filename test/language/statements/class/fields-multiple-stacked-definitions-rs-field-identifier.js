@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-field-identifier.case
-// - src/class-fields/productions/cls-decl-multiple-stacked-definitions.template
+// - src/class-elements/rs-field-identifier.case
+// - src/class-elements/productions/cls-decl-multiple-stacked-definitions.template
 /*---
 description: Valid FieldDefinition (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/computed-names.case
-// - src/class-fields/productions/cls-expr-same-line-generator.template
+// - src/class-elements/computed-names.case
+// - src/class-elements/productions/cls-expr-same-line-generator.template
 /*---
 description: Computed property names (field definitions followed by a generator method in the same line)
 esid: prod-FieldDefinition

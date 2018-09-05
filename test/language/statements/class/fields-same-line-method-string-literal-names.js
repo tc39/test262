@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/string-literal-names.case
-// - src/class-fields/productions/cls-decl-same-line-method.template
+// - src/class-elements/string-literal-names.case
+// - src/class-elements/productions/cls-decl-same-line-method.template
 /*---
 description: String literal names (field definitions followed by a method in the same line)
 esid: prod-FieldDefinition

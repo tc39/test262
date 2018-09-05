@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-methods.case
-// - src/class-fields/productions/cls-decl-new-sc-line-method.template
+// - src/class-elements/static-private-methods.case
+// - src/class-elements/productions/cls-decl-new-sc-line-method.template
 /*---
 description: static private methods (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition
