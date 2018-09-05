@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-method-privatename-identifier-alt.case
-// - src/class-fields/productions/cls-decl-after-same-line-async-method.template
+// - src/class-elements/rs-static-method-privatename-identifier-alt.case
+// - src/class-elements/productions/cls-decl-after-same-line-async-method.template
 /*---
 description: Valid Static Method PrivateName (field definitions after an async method in the same line)
 esid: prod-FieldDefinition

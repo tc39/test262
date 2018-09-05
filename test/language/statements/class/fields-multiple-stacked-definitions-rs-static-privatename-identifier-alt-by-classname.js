@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-privatename-identifier-alt-by-classname.case
-// - src/class-fields/productions/cls-decl-multiple-stacked-definitions.template
+// - src/class-elements/rs-static-privatename-identifier-alt-by-classname.case
+// - src/class-elements/productions/cls-decl-multiple-stacked-definitions.template
 /*---
 description: Valid Static PrivateName (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

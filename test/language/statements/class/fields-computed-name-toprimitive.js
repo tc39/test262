@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/computed-name-toprimitive.case
-// - src/class-fields/default/cls-decl.template
+// - src/class-elements/computed-name-toprimitive.case
+// - src/class-elements/default/cls-decl.template
 /*---
 description: ToPrimitive evaluation in the ComputedPropertyName (field definitions in a class declaration)
 esid: prod-FieldDefinition

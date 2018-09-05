@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-err-contains-arguments.case
-// - src/class-fields/initializer-error/cls-decl-fields-private-ternary.template
+// - src/class-elements/init-err-contains-arguments.case
+// - src/class-elements/initializer-error/cls-decl-fields-private-ternary.template
 /*---
 description: Syntax error if `arguments` used in class field (private field, ternary expression)
 esid: sec-class-definitions-static-semantics-early-errors

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-methods.case
-// - src/class-fields/productions/cls-expr-after-same-line-async-method.template
+// - src/class-elements/static-private-methods.case
+// - src/class-elements/productions/cls-expr-after-same-line-async-method.template
 /*---
 description: static private methods (field definitions after an async method in the same line)
 esid: prod-FieldDefinition

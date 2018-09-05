@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-privatename-identifier-alt.case
-// - src/class-fields/productions/cls-expr-after-same-line-static-method.template
+// - src/class-elements/rs-privatename-identifier-alt.case
+// - src/class-elements/productions/cls-expr-after-same-line-static-method.template
 /*---
 description: Valid PrivateName (field definitions after a static method in the same line)
 esid: prod-FieldDefinition

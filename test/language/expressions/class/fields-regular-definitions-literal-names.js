@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/literal-names.case
-// - src/class-fields/productions/cls-expr-regular-definitions.template
+// - src/class-elements/literal-names.case
+// - src/class-elements/productions/cls-expr-regular-definitions.template
 /*---
 description: Literal property names (regular fields defintion)
 esid: prod-FieldDefinition

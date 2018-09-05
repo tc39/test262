@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-privatename-identifier-initializer-alt.case
-// - src/class-fields/productions/cls-decl-after-same-line-static-async-gen.template
+// - src/class-elements/rs-privatename-identifier-initializer-alt.case
+// - src/class-elements/productions/cls-decl-after-same-line-static-async-gen.template
 /*---
 description: Valid PrivateName (field definitions after a static async generator in the same line)
 esid: prod-FieldDefinition

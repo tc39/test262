@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-async-generator-method-privatename-identifier.case
-// - src/class-fields/productions/cls-expr-multiple-definitions.template
+// - src/class-elements/rs-static-async-generator-method-privatename-identifier.case
+// - src/class-elements/productions/cls-expr-multiple-definitions.template
 /*---
 description: Valid Static AsyncGeneratorMethod PrivateName (multiple fields definitions)
 esid: prod-FieldDefinition

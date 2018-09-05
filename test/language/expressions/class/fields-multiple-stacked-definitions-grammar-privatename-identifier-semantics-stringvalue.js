@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/grammar-privatename-identifier-semantics-stringvalue.case
-// - src/class-fields/productions/cls-expr-multiple-stacked-definitions.template
+// - src/class-elements/grammar-privatename-identifier-semantics-stringvalue.case
+// - src/class-elements/productions/cls-expr-multiple-stacked-definitions.template
 /*---
 description: PrivateName Static Semantics, StringValue (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

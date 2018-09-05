@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-async-generator-method-privatename-identifier-alt.case
-// - src/class-fields/productions/cls-expr-new-sc-line-generator.template
+// - src/class-elements/rs-static-async-generator-method-privatename-identifier-alt.case
+// - src/class-elements/productions/cls-expr-new-sc-line-generator.template
 /*---
 description: Valid Static AsyncGeneratorMethod PrivateName (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition

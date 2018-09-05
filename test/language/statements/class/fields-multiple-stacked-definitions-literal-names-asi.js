@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/literal-names-asi.case
-// - src/class-fields/productions/cls-decl-multiple-stacked-definitions.template
+// - src/class-elements/literal-names-asi.case
+// - src/class-elements/productions/cls-decl-multiple-stacked-definitions.template
 /*---
 description: Literal property names with ASI (multiple stacked fields definitions through ASI)
 esid: prod-FieldDefinition

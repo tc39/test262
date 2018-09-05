@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/eval-err-contains-superproperty-1.case
-// - src/class-fields/initializer-eval-super-property/cls-expr-private-fields-eval.template
+// - src/class-elements/eval-err-contains-superproperty-1.case
+// - src/class-elements/initializer-eval-super-property/cls-expr-private-fields-eval.template
 /*---
 description: error if `super.x` in StatementList of eval (direct eval)
 esid: sec-performeval-rules-in-initializer

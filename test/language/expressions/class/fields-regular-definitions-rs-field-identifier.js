@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-field-identifier.case
-// - src/class-fields/productions/cls-expr-regular-definitions.template
+// - src/class-elements/rs-field-identifier.case
+// - src/class-elements/productions/cls-expr-regular-definitions.template
 /*---
 description: Valid FieldDefinition (regular fields defintion)
 esid: prod-FieldDefinition

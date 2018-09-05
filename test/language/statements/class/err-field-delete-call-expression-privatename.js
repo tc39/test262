@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/call-expression-privatename.case
-// - src/class-fields/delete-error/cls-decl-field-delete.template
+// - src/class-elements/call-expression-privatename.case
+// - src/class-elements/delete-error/cls-decl-field-delete.template
 /*---
 description: Syntax error if you call delete on call expressions . privatename (in field)
 esid: sec-class-definitions-static-semantics-early-errors

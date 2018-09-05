@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/rs-static-method-privatename-identifier-alt.case
-// - src/class-fields/productions/cls-expr-multiple-definitions.template
+// - src/class-elements/rs-static-method-privatename-identifier-alt.case
+// - src/class-elements/productions/cls-expr-multiple-definitions.template
 /*---
 description: Valid Static Method PrivateName (multiple fields definitions)
 esid: prod-FieldDefinition

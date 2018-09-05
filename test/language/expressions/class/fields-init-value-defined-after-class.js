@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/init-value-defined-after-class.case
-// - src/class-fields/default/cls-expr.template
+// - src/class-elements/init-value-defined-after-class.case
+// - src/class-elements/default/cls-expr.template
 /*---
 description: The initializer value is defined after the class evaluation (field definitions in a class expression)
 esid: prod-FieldDefinition

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/eval-err-contains-newtarget.case
-// - src/class-fields/initializer-eval-newtarget/cls-decl-fields-indirect-eval.template
+// - src/class-elements/eval-err-contains-newtarget.case
+// - src/class-elements/initializer-eval-newtarget/cls-decl-fields-indirect-eval.template
 /*---
 description: error if `new.target` in StatementList of eval (indirect eval)
 esid: sec-performeval-rules-in-initializer

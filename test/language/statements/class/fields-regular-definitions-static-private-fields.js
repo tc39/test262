@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/static-private-fields.case
-// - src/class-fields/productions/cls-decl-regular-definitions.template
+// - src/class-elements/static-private-fields.case
+// - src/class-elements/productions/cls-decl-regular-definitions.template
 /*---
 description: static private fields (regular fields defintion)
 esid: prod-FieldDefinition

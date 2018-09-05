@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/class-fields/computed-symbol-names.case
-// - src/class-fields/productions/cls-expr-new-no-sc-line-method.template
+// - src/class-elements/computed-symbol-names.case
+// - src/class-elements/productions/cls-expr-new-no-sc-line-method.template
 /*---
 description: Computed property symbol names (field definitions followed by a method in a new line without a semicolon)
 esid: prod-FieldDefinition
