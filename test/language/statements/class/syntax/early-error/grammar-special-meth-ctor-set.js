@@ -2,9 +2,9 @@
 // - src/class-elements/grammar-special-meth-ctor-set.case
 // - src/class-elements/syntax/invalid/cls-decl-elements-invalid-syntax.template
 /*---
-description: Generator Methods cannot be named "constructor" (class declaration)
+description: Accessor set Methods cannot be named "constructor" (class declaration)
 esid: prod-ClassElement
-features: [generators, class]
+features: [class]
 flags: [generated]
 negative:
   phase: parse
