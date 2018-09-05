@@ -22,8 +22,6 @@ info: |
     # IdentifierName
 
 template: syntax/invalid
-negative:
-
 features: [class-fields-private]
 ---*/
 
