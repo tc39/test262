@@ -2,14 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Generator Methods cannot be named "constructor"
+desc: Accessor get Methods cannot be named "constructor"
 info: |
     Class Definitions / Static Semantics: Early Errors
 
     ClassElement : MethodDefinition
         It is a Syntax Error if PropName of MethodDefinition is "constructor" and SpecialMethod of MethodDefinition is true.
 template: syntax/invalid
-features: [generators]
 ---*/
 
 //- elements
