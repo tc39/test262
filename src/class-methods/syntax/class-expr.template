@@ -4,7 +4,7 @@
 /*---
 esid: prod-ClassElement
 name: class expression
-path: language/expressions/class/syntax-invalid-
+path: language/expressions/class/syntax-
 features: [class]
 ---*/
 
