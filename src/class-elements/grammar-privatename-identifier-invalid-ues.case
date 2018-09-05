@@ -53,5 +53,5 @@ template: syntax/invalid
 features: [class-fields-private]
 ---*/
 
-//- fields
+//- elements
 #\u0000;

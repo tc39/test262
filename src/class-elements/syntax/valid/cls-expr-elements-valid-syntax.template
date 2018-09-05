@@ -9,5 +9,5 @@ features: [class]
 ---*/
 
 var C = class {
-  /*{ fields }*/
+  /*{ elements }*/
 };

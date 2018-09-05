@@ -22,5 +22,5 @@ template: syntax/invalid
 features: [class-fields-public]
 ---*/
 
-//- fields
+//- elements
 x y
