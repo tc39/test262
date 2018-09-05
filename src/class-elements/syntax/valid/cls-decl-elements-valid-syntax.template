@@ -4,7 +4,7 @@
 /*---
 esid: prod-ClassElement
 name: class declaration
-path: language/statements/class/syntax-valid-
+path: language/statements/class/syntax/valid/
 features: [class]
 ---*/
 
