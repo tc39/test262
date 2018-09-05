@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Static Methods can be named constructor
+info: |
+    Class Definitions / Static Semantics: Early Errors
+
+    ClassElement : static MethodDefinition
+        It is a Syntax Error if PropName of MethodDefinition is "prototype"
+template: syntax/invalid
+---*/
+
+//- elements
+static constructor() {}
+constructor() {} // stacks with a valid constructor
