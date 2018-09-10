@@ -1,6 +1,6 @@
 {
-  "sourceRevisionAtLastExport": "8a73712b6a",
-  "targetRevisionAtLastExport": "8e73aadc2",
+  "sourceRevisionAtLastExport": "a7577363f7",
+  "targetRevisionAtLastExport": "1f7948aa7",
   "curatedFiles": {
     "/stress/Number-isNaN-basics.js": "DELETED_IN_TARGET",
     "/stress/Object_static_methods_Object.getOwnPropertyDescriptors-proxy.js": "DELETED_IN_TARGET",
@@ -1643,6 +1643,8 @@
     "/stress/yield-named-variable.js": "DELETED_IN_TARGET",
     "/stress/yield-out-of-generator.js": "DELETED_IN_TARGET",
     "/stress/yield-reserved-word.js": "DELETED_IN_TARGET",
-    "/stress/yield-star-throw-continue.js": "DELETED_IN_TARGET"
+    "/stress/yield-star-throw-continue.js": "DELETED_IN_TARGET",
+    "/stress/regress-189186.js": "DELETED_IN_TARGET",
+    "/stress/regress-189292.js": "DELETED_IN_TARGET"
   }
 }
