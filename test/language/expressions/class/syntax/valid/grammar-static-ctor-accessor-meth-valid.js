@@ -21,7 +21,7 @@ info: |
 
 var C = class {
   static get constructor() {}
-  static set constructor() {}
+  static set constructor(_) {}
   constructor() {} // stacks with a valid constructor
 };
 
