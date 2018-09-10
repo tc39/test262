@@ -1643,6 +1643,8 @@
     "/stress/yield-named-variable.js": "DELETED_IN_TARGET",
     "/stress/yield-out-of-generator.js": "DELETED_IN_TARGET",
     "/stress/yield-reserved-word.js": "DELETED_IN_TARGET",
-    "/stress/yield-star-throw-continue.js": "DELETED_IN_TARGET"
+    "/stress/yield-star-throw-continue.js": "DELETED_IN_TARGET",
+    "/stress/regress-189186.js": "DELETED_IN_TARGET",
+    "/stress/regress-189292.js": "DELETED_IN_TARGET"
   }
 }
