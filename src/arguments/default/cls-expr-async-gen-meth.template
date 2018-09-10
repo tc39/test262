@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/async-gen-meth-
+path: language/arguments-object/cls-expr-async-gen-meth-
 name: class expression async generator method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
