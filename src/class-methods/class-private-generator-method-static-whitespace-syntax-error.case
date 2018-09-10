@@ -1,0 +1,15 @@
+// Copyright (C) 2018 Bloomberg LP. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+ /*---
+desc: Syntax error if whitespace after '#' sigil
+template: syntax
+features: [class-methods-private]
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+//- setup
+throw "Test262: This statement should not be evaluated.";
+
+ //- methods
+static * # m() {}
