@@ -12,4 +12,4 @@ template: syntax/invalid
 ---*/
 
 //- elements
-static set prototype() {}
+static set prototype(_) {}
