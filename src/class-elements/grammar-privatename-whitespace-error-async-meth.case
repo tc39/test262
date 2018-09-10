@@ -1,0 +1,20 @@
+// Copyright (C) 2018 Bloomberg LP. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: No space allowed between sigil and IdentifierName (Async Method)
+info: |
+  Updated Productions
+
+  ClassElementName :
+    PropertyName
+    PrivateName
+
+  PrivateName ::
+    # IdentifierName
+template: syntax/invalid
+features: [async-functions, class-methods-private]
+---*/
+
+//- elements
+async # m() {}
