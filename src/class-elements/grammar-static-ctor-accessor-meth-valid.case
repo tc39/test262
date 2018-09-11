@@ -17,7 +17,7 @@ template: syntax/valid
 
 //- elements
 static get constructor() {}
-static set constructor() {}
+static set constructor(_) {}
 constructor() {} // stacks with a valid constructor
 //- teardown
 assert(C.hasOwnProperty('constructor'));

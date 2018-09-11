@@ -12,4 +12,4 @@ template: syntax/invalid
 ---*/
 
 //- elements
-set constructor() {}
+set constructor(_) {}

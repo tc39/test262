@@ -21,7 +21,7 @@ info: |
 
 class C {
   static get constructor() {}
-  static set constructor() {}
+  static set constructor(_) {}
   constructor() {} // stacks with a valid constructor
 }
 

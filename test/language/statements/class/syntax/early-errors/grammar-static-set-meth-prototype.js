@@ -21,5 +21,5 @@ info: |
 throw "Test262: This statement should not be evaluated.";
 
 class C {
-  static set prototype() {}
+  static set prototype(_) {}
 }
