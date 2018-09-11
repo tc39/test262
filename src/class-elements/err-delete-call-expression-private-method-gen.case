@@ -1,8 +1,8 @@
-// Copyright (C) 20178 Bloomberg LP. All rights reserved.
+// Copyright (C) 2018 Bloomberg LP. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Syntax error if you call delete on call expressions . private method
+desc: Syntax error if you call delete on call expressions . private generator method
 template: delete-error
 features: [class, class-fields-private, class-methods-private, class-fields-public]
 ---*/

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Syntax error if you call delete on member expressions . privatename
+desc: Syntax error if you call delete on member expressions . private async generator method
 template: delete-error
 features: [class-methods-private]
 ---*/
