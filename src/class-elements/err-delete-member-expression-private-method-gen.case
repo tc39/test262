@@ -1,0 +1,14 @@
+// Copyright (C) 2018 Bloomberg LP. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Syntax error if you call delete on member expressions . privatename
+template: delete-error
+features: [class-methods-private]
+---*/
+
+//- expression
+this.#m
+
+//- functiondeclaration
+  *#m() {}

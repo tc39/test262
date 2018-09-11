@@ -1,0 +1,20 @@
+// Copyright (C) 20178 Bloomberg LP. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Syntax error if you call delete on call expressions . private method
+template: delete-error
+features: [class, class-fields-private, class-methods-private, class-fields-public]
+---*/
+
+//- infieldsetup
+g = this.f;
+//- infunctionsetup
+var g = this.f;
+//- expression
+g().#m
+//- functiondeclaration
+  f() {
+  	return this;
+  }
+  #m() {}
