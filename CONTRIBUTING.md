@@ -83,15 +83,17 @@ within the file.
 
 For example:
 
+```
 /*---
 esid: sec-weakset.prototype.has
 description: Throws TypeError if `this` is not Object.
-info: >
+info: |
   WeakSet.prototype.has ( value )
 
   1. Let S be the this value.
   2. If Type(S) is not Object, throw a TypeError exception.
 ---*/
+```
 
 Note: Adding more context than the direct quote from ECMAScript should rarely
 be necessary. If you must add context to the quote, use the JavaScript
