@@ -1,4 +1,4 @@
-
+// Reviewed
 var propertyKey = {
     toString() {
         throw new Error("propertyKey.toString is called.");

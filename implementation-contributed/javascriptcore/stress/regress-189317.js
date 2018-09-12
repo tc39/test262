@@ -1,3 +1,4 @@
+// Reviewed
 let intrinsics = [
     "Array.prototype.indexOf",
     "Array.prototype.pop",

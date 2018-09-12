@@ -1,3 +1,15 @@
+/**
+#### ch
+Error: OK
+
+#### jsshell
+Error: bad error: TypeError: undefined is not a function
+
+#### d8, node
+Error: bad error: TypeError: Promise resolver undefined is not a function
+
+#### jsc
+ */
 function shouldThrow(func, errorMessage) {
     var errorThrown = false;
     var error = null;

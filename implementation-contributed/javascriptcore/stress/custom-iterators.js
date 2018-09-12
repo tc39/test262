@@ -1,3 +1,9 @@
+// Reviewed
+/**
+#### ch
+Error: bad error thrown: Error: Terminate iteration.
+ */
+
 // This test checks the behavior of custom iterable objects.
 
 var returnCalled = false;

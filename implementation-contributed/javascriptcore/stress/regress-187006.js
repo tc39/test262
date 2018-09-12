@@ -1,3 +1,4 @@
+// Reviewed
 Object.defineProperty(Array.prototype, '0', {
     get() { },
     set() { throw new Error(); }
