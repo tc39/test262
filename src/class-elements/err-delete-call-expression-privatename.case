@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Syntax error if you call delete on call expressions . privatename
+desc: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName
 template: delete-error
 features: [class, class-fields-private, class-fields-public]
 ---*/
@@ -14,6 +14,6 @@ var g = this.f;
 //- expression
 g().#x
 //- functiondeclaration
-  f() {
-  return this;
+f() {
+return this;
 }
