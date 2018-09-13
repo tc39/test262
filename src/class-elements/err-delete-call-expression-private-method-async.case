@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Syntax error if you call delete on call expressions . private async method
+desc: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName
 template: delete-error
 features: [class, class-fields-private, class-methods-private, class-fields-public]
 ---*/
@@ -14,7 +14,7 @@ var g = this.f;
 //- expression
 g().#m
 //- functiondeclaration
-  f() {
-  	return this;
-  }
-  async #m() {}
+f() {
+return this;
+}
+async #m() {}
