@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 return new Function("a", "...b",

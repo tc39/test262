@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // Function.prototype.bind -> Get -> [[Get]]

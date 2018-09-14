@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // Object.assign -> Get -> [[Get]]

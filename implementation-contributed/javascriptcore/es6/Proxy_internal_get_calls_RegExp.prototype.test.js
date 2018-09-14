@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // RegExp.prototype.test -> RegExpExec -> Get -> [[Get]]

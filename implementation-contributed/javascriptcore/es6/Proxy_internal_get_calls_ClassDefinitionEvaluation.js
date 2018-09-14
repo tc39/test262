@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // ClassDefinitionEvaluation -> Get -> [[Get]]

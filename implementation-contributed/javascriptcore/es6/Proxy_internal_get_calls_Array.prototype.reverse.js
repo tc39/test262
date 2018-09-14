@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // Array.prototype.reverse -> Get -> [[Get]]

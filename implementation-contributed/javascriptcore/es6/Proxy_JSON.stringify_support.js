@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 return JSON.stringify(new Proxy(['foo'], {})) === '["foo"]';

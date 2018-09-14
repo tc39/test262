@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // HasBinding -> Get -> [[Get]]

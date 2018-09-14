@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 var object = {foo: Symbol()};
