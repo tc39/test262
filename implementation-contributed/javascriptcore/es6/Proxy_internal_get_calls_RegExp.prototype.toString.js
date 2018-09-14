@@ -1,3 +1,4 @@
+// Reviewed
 // RegExp.prototype.toString -> Get -> [[Get]]
 function test() {
     var get = [];

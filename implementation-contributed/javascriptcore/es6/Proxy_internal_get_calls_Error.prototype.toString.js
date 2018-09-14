@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // Error.prototype.toString -> Get -> [[Get]]

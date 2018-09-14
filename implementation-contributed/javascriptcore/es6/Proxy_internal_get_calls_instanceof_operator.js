@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // InstanceofOperator -> GetMethod -> GetV -> [[Get]]

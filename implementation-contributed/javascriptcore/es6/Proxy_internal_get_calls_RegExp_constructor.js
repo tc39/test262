@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // RegExp -> Get -> [[Get]]

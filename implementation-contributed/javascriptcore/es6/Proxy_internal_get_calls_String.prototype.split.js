@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // String.prototype.split functions -> Get -> [[Get]]

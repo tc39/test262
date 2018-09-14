@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // CreateDynamicFunction -> GetPrototypeFromConstructor -> Get -> [[Get]]

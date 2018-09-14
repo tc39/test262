@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // Date.prototype.toJSON -> ToPrimitive -> Get -> [[Get]]

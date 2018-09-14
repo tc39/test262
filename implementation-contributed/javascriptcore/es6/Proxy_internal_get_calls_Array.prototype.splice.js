@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // Array.prototype.splice -> Get -> [[Get]]

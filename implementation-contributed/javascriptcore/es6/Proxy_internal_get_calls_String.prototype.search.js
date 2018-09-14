@@ -1,3 +1,4 @@
+// Reviewed
 function test() {
 
 // String.prototype.search functions -> Get -> [[Get]]
