@@ -3,14 +3,16 @@
 
 /*---
 es5id: 11.3.1-2-2-s
+esid: postfix-increment-operator
 description: >
     Strict Mode - SyntaxError is thrown if the identifier 'eval'
     appear as a PostfixExpression(eval++)
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-        var blah = eval;
-assert.throws(SyntaxError, function() {
-            eval("eval++;");
-});
-assert.sameValue(blah, eval, 'blah');
+throw "Test262: This statement should not be evaluated.";
+
+eval++;

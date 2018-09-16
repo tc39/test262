@@ -4,9 +4,14 @@
 /*---
 info: Line Terminator between LeftHandSideExpression and "--" is not allowed
 es5id: 11.3.2_A1.1_T2
+esid: sec-postfix-decrement-operator
 description: Checking Carriage Return
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-assert.throws(SyntaxError, function() {
-  eval("var x = 1; x\u000D--");
-});
+throw "Test262: This statement should not be evaluated.";
+
+x--;
+// The preceding line contains an unprintable CARRIAGE RETURN character (U+000D)

@@ -3,12 +3,14 @@
 
 /*---
 es5id: 11.4.4-2-1-s
+esid: sec-prefix-increment-operator
 description: Strict Mode - SyntaxError is thrown for ++eval
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-        var blah = eval;
-assert.throws(SyntaxError, function() {
-            eval("++eval;");
-});
-assert.sameValue(blah, eval, 'blah');
+throw "Test262: This statement should not be evaluated.";
+
+++eval;
