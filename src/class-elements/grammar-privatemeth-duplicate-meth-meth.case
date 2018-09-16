@@ -1,0 +1,17 @@
+// Copyright (C) 2018 Kubilay Kahveci (Bloomberg LP). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: It's a SyntaxError if a class contains multiple private methods with the same name
+info: |
+    Static Semantics: Early Errors
+
+    ClassBody : ClassElementList
+        It is a Syntax Error if PrivateBoundNames of ClassBody contains any duplicate entries, unless the name is used once for a getter and once for a setter and in no other entries.
+template: syntax/invalid
+features: [class-methods-private]
+---*/
+
+//- elements
+#m() {}
+#m() {}
