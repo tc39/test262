@@ -8,7 +8,7 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(Intl.NumberFormat, Symbol.toStringTag, {
+verifyProperty(Intl.NumberFormat.prototype, Symbol.toStringTag, {
   writable: false,
   enumerable: false,
   configurable: true
