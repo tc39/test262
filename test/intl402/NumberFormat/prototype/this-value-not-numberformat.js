@@ -12,6 +12,7 @@ author: Norbert Lindenberg
 
 var functions = {
     "format getter": Object.getOwnPropertyDescriptor(Intl.NumberFormat.prototype, "format").get,
+    formatToParts: Intl.NumberFormat.prototype.formatToParts,
     resolvedOptions: Intl.NumberFormat.prototype.resolvedOptions
 };
 var invalidTargets = [undefined, null, true, 0, "NumberFormat", [], {}];
