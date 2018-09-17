@@ -12,3 +12,13 @@ assert.sameValue(
   Object.prototype.toString.call(new Intl.NumberFormat()),
   '[object Object]'
 );
+
+Object.defineProperty(Intl.NumberFormat.prototype, Symbol.toStringTag, {
+  value: 'Alpha'
+});
+
+assert.sameValue(Intl.NumberFormat.prototype[Symbol.toStringTag], 'Alpha');
+assert.sameValue(
+  Object.prototype.toString.call(new Intl.NumberFormat()),
+  '[object Alpha]'
+);
