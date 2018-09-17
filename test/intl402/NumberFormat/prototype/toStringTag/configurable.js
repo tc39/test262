@@ -4,7 +4,8 @@
 /*---
 esid: sec-intl.numberformat.prototype-@@tostringtag
 description: >
-  Initial value of Intl.NumberFormat.prototype[@@toStringTag] is "Object".
+  Check that the initial value of the property is "Object" and that any changes
+  made by reconfiguring are reflected.
 ---*/
 
 assert.sameValue(Intl.NumberFormat.prototype[Symbol.toStringTag], 'Object');
