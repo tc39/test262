@@ -15,7 +15,7 @@ var functions = {
     formatToParts: Intl.NumberFormat.prototype.formatToParts,
     resolvedOptions: Intl.NumberFormat.prototype.resolvedOptions
 };
-var invalidTargets = [undefined, null, true, 0, "NumberFormat", [], {}];
+var invalidTargets = [undefined, null, true, 0, "NumberFormat", [], {}, Symbol()];
 
 Object.getOwnPropertyNames(functions).forEach(function (functionName) {
     var f = functions[functionName];
