@@ -8,6 +8,7 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
+assert.sameValue(Intl.NumberFormat.prototype[Symbol.toStringTag], 'Object');
 verifyProperty(Intl.NumberFormat.prototype, Symbol.toStringTag, {
   writable: false,
   enumerable: false,
