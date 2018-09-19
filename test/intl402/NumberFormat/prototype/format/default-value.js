@@ -12,32 +12,6 @@ info: |
   3. If value is not provided, let value be undefined.
 ---*/
 
-const localesList = [
-  undefined,
-  ['de'],
-  ['th-u-nu-thai'],
-  ['en'],
-  ['ja-u-nu-jpanfin'],
-  ['ar-u-nu-arab']
-];
-const optionsList = [
-  undefined,
-  { style: 'percent' },
-  { style: 'currency', currency: 'EUR', currencyDisplay: 'symbol' },
-  { style: 'currency', currency: 'IQD', currencyDisplay: 'symbol' },
-  { style: 'currency', currency: 'KMF', currencyDisplay: 'symbol' },
-  { style: 'currency', currency: 'CLF', currencyDisplay: 'symbol' },
-  {
-    useGrouping: false,
-    minimumIntegerDigits: 3,
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 3
-  }
-];
-
-localesList.forEach(locales => {
-  optionsList.forEach(options => {
-    const nf = Intl.NumberFormat(locales, options);
-    assert.sameValue(nf.format(), nf.format(undefined));
-  });
-});
+const nf = new Intl.NumberFormat();
+assert.sameValue(nf.format(), NaN);
+assert.sameValue(nf.format(undefined), NaN);
