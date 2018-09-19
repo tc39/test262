@@ -19,7 +19,7 @@ info: |
           If value is undefined, then
           Let index be 0.
 includes: [atomicsHelper.js]
-features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
+features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
 const RUNNING = 1;
