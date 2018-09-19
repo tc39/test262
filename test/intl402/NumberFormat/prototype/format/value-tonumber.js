@@ -25,10 +25,15 @@ const toNumberResults = [
 const nf = new Intl.NumberFormat();
 
 toNumberResults.forEach(pair => {
-  const value = pair[0];
-  const result = pair[1];
+  const [value, result] = pair;
   assert.sameValue(nf.format(value), nf.format(result));
 });
+
+let count = 0;
+const dummy = {};
+dummy[Symbol.toPrimitive] = hint => (hint === 'number' ? ++count : NaN);
+assert.sameValue(nf.format(dummy), nf.format(count));
+assert.sameValue(count, 1);
 
 assert.throws(
   TypeError,
