@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: It is syntax error if IdentifierName is accessed without receiver (Async Generator Method)
+desc: It is syntax error if IdentifierName is accessed without receiver (Accessor get Method)
 info: |
   Updated Productions
 
@@ -13,11 +13,11 @@ info: |
   PrivateName ::
     # IdentifierName
 template: syntax/invalid
-features: [async-iteration, class-methods-private]
+features: [class-methods-private]
 ---*/
 
 //- elements
-async * #m() {}
+get #m() {}
 method() {
 #m;
 }

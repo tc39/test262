@@ -19,5 +19,5 @@ features: [async-functions, class-methods-private]
 //- elements
 async #m() {}
 method() {
-#m();
+#m;
 }

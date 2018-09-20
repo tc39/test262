@@ -19,5 +19,5 @@ features: [class-methods-private]
 //- elements
 set #m(_) {}
 method() {
-#m();
+#m;
 }

@@ -19,5 +19,5 @@ features: [class-methods-private]
 //- elements
 #m() {}
 method() {
-  #x;
+#m;
 }
