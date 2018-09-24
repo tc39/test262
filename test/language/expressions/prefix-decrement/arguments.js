@@ -3,15 +3,14 @@
 
 /*---
 es5id: 11.4.5-2-2-s
+esid: sec-prefix-decrement-operator
 description: Strict Mode - SyntaxError is thrown for --arguments
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-function testcase() {
-        var blah = arguments;
-        assert.throws(SyntaxError, function() {
-            eval("--arguments;");
-        });
-        assert.sameValue(blah, arguments, 'blah');
-    }
-testcase();
+throw "Test262: This statement should not be evaluated.";
+
+--arguments;

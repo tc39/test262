@@ -3,17 +3,16 @@
 
 /*---
 es5id: 11.3.1-2-1-s
+esid: postfix-increment-operator
 description: >
     Strict Mode - SyntaxError is thrown if the identifier 'arguments'
     appear as a PostfixExpression(arguments++)
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-function testcase() {
-        var blah = arguments;
-        assert.throws(SyntaxError, function() {
-            eval("arguments++;");
-        });
-        assert.sameValue(blah, arguments, 'blah');
-    }
-testcase();
+throw "Test262: This statement should not be evaluated.";
+
+arguments++;
