@@ -5,6 +5,7 @@
 esid: sec-quotejsonstring
 description: >
     JSON.stringify strings containing surrogate code units
+features: [well-formed-json-stringify]
 ---*/
 
 assert.sameValue(JSON.stringify("\uD834"), '"\\ud834"',
