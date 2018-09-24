@@ -16,6 +16,6 @@ invalidTargets.forEach(target => {
   assert.throws(
     TypeError,
     () => fn.call(target),
-    `Calling formatToParts on ${target} should throw a TypeError.`
+    `Calling formatToParts on ${String(target)} should throw a TypeError.`
   );
 });

@@ -16,6 +16,6 @@ invalidTargets.forEach(target => {
   assert.throws(
     TypeError,
     () => fn.call(target),
-    `Calling resolvedOptions on ${target} should throw a TypeError.`
+    `Calling resolvedOptions on ${String(target)} should throw a TypeError.`
   );
 });
