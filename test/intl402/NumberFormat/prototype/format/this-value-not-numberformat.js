@@ -16,6 +16,6 @@ invalidTargets.forEach(target => {
   assert.throws(
     TypeError,
     () => fn.call(target),
-    `Calling format getter on ${target} should throw a TypeError.`
+    `Calling format getter on ${String(target)} should throw a TypeError.`
   );
 });
