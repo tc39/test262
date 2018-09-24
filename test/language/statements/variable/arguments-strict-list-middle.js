@@ -3,11 +3,14 @@
 
 /*---
 es5id: 12.2.1-33-s
+esid: sec-variable-statement
 description: arguments as local var identifier throws SyntaxError in strict mode
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-    eval('function foo() { var a, arguments, b;}');
-});
+var a, arguments, b;
