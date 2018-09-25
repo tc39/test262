@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/cls-expr-private-gen-meth-dflt.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (private class expression method (default parameter))
+description: Rest element (nested array pattern) does not support initializer (private class expression method (default parameter))
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [class, class-methods-private, generators, destructuring-binding, default-parameters]
 flags: [generated]

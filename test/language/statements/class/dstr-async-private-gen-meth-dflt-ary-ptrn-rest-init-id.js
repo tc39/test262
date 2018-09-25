@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/cls-decl-async-private-gen-meth-dflt.template
 /*---
-description: Reset element (identifier) does not support initializer (private class expression async generator method (default parameters))
+description: Rest element (identifier) does not support initializer (private class expression async generator method (default parameters))
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [class, class-methods-private, async-iteration]
 flags: [generated, async]

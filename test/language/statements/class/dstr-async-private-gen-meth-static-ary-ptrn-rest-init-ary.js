@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/cls-decl-async-private-gen-meth-static.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (private static class expression async generator method)
+description: Rest element (nested array pattern) does not support initializer (private static class expression async generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 features: [class, class-static-methods-private, async-iteration]
 flags: [generated, async]

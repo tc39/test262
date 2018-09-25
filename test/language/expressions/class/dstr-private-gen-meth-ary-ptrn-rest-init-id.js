@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/cls-expr-private-gen-meth.template
 /*---
-description: Reset element (identifier) does not support initializer (private class expression method)
+description: Rest element (identifier) does not support initializer (private class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [class, class-methods-private, generators, destructuring-binding]
 flags: [generated]
