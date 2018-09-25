@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 template: default
-desc: Reset element (identifier) does not support initializer
+desc: Rest element (identifier) does not support initializer
 negative:
   phase: parse
   type: SyntaxError
