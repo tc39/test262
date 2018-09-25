@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/cls-expr-private-meth-dflt.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (private class expression method (default parameter))
+description: Rest element (nested object pattern) does not support initializer (private class expression method (default parameter))
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [class, class-methods-private, destructuring-binding, default-parameters]
 flags: [generated]

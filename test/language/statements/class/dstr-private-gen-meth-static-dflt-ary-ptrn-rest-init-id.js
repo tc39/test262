@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/cls-decl-private-gen-meth-static-dflt.template
 /*---
-description: Reset element (identifier) does not support initializer (private static class expression generator method (default parameter))
+description: Rest element (identifier) does not support initializer (private static class expression generator method (default parameter))
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 features: [class, class-static-methods-private, generators, destructuring-binding, default-parameters]
 flags: [generated]
