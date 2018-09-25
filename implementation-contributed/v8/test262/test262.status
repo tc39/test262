@@ -586,7 +586,6 @@
   'intl402/Locale/constructor-parse-twice': [FAIL],
   'intl402/Locale/constructor-tag': [FAIL],
   'intl402/Locale/constructor-unicode-ext-invalid': [FAIL],
-  'intl402/Locale/constructor-unicode-ext-valid': [FAIL],
   'intl402/Locale/extensions-grandfathered': [FAIL],
   'intl402/Locale/extensions-private': [FAIL],
   'intl402/Locale/getters': [FAIL],
@@ -607,9 +606,6 @@
   'language/expressions/generators/generator-created-after-decl-inst': [FAIL],
   'language/expressions/async-generator/generator-created-after-decl-inst': [FAIL],
   'language/statements/async-generator/generator-created-after-decl-inst': [FAIL],
-
-  # https://bugs.chromium.org/p/chromium/issues/detail?id=865351
-  'intl402/DateTimeFormat/prototype/formatToParts/main': [FAIL],
 
   # https://bugs.chromium.org/p/v8/issues/detail?id=8099
   'intl402/NumberFormat/prototype/format/format-negative-numbers': [FAIL],
