@@ -45,9 +45,7 @@ assert.sameValue(
   "en-u-kn-true",
 );
 
-if ("numeric" in Intl.Locale.prototype) {
-  assert.sameValue(
-    new Intl.Locale('en-u-kf-lower', options).numeric,
-    undefined,
-  );
-}
+assert.sameValue(
+  new Intl.Locale('en-u-kf-lower', options).numeric,
+  undefined,
+);

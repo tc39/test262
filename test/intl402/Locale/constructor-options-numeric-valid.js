@@ -46,21 +46,21 @@ const validNumericOptions = [
   [{ valueOf() { return false; } }, true],
 ];
 for (const [numeric, expected] of validNumericOptions) {
-  const options = { numeric };
+  let options = { numeric };
+  let expect = `en-u-kn-${expected}`;
+
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    "en-u-kn-" + expected
+    expect
   );
 
   assert.sameValue(
     new Intl.Locale('en-u-kn-true', options).toString(),
-    "en-u-kn-" + expected
+    expect
   );
 
-  if ("numeric" in Intl.Locale.prototype) {
-    assert.sameValue(
-      new Intl.Locale('en-u-kf-lower', options).numeric,
-      expected
-    );
-  }
+  assert.sameValue(
+    new Intl.Locale('en-u-kf-lower', options).numeric,
+    expected
+  );
 }
