@@ -1,7 +1,7 @@
 language: python
 install:
-  - pip install --requirement tools/generation/requirements.txt
-  - pip install --requirement tools/lint/requirements.txt
+  - python -m pip install --requirement tools/generation/requirements.txt
+  - python -m pip install --requirement tools/lint/requirements.txt
 script:
   - ./tools/scripts/ci_build.sh
   - ./tools/generation/test/run.py

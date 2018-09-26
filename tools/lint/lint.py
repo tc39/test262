@@ -6,7 +6,10 @@ import argparse
 import inflect
 import os
 import pip
-import pip.req
+try:
+    from pip._internal.req import parse_requirements
+except ImportError:
+    from pip.req import parse_requirements
 import sys
 
 ie = inflect.engine()
@@ -14,7 +17,7 @@ ie = inflect.engine()
 try:
     __import__('yaml')
 except ImportError:
-    for item in pip.req.parse_requirements("./tools/lint/requirements.txt", session="test262"):
+    for item in parse_requirements("./tools/lint/requirements.txt", session="test262"):
         if isinstance(item, pip.req.InstallRequirement):
             requirement = item.name
 

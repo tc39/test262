@@ -1,0 +1,34 @@
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: A trailing comma should not increase the arguments.length, using spread args
+template: default
+info: |
+    Trailing comma in the arguments list
+
+    Left-Hand-Side Expressions
+
+    Arguments :
+        ( )
+        ( ArgumentList )
+        ( ArgumentList , )
+
+    ArgumentList :
+        AssignmentExpression
+        ... AssignmentExpression
+        ArgumentList , AssignmentExpression
+        ArgumentList , ... AssignmentExpression
+---*/
+
+//- setup
+var arr = [2, 3];
+
+//- args
+42, ...[1], ...arr,
+//- body
+assert.sameValue(arguments.length, 4);
+assert.sameValue(arguments[0], 42);
+assert.sameValue(arguments[1], 1);
+assert.sameValue(arguments[2], 2);
+assert.sameValue(arguments[3], 3);

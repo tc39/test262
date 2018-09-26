@@ -1,3 +1,4 @@
+// Reviewed
 function testSyntax(script) {
     try {
         eval(script);

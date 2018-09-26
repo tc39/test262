@@ -1,0 +1,21 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Private Generators Methods cannot contain direct super
+info: |
+    Class Definitions / Static Semantics: Early Errors
+
+    ClassElement : MethodDefinition
+        It is a Syntax Error if PropName of MethodDefinition is not "constructor" and HasDirectSuper of MethodDefinition is true.
+template: syntax/invalid
+features: [generators, class-methods-private]
+---*/
+
+// Uses a valid heritage to avoid false positives
+//- heritage
+extends Function
+//- elements
+* #method() {
+    super();
+}

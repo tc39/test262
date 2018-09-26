@@ -1,3 +1,7 @@
+// Reviewed
+/***
+ * https://github.com/Microsoft/ChakraCore/issues/3407
+ */
 function assert(b) {
     if (!b)
         throw new Error("Bad assertion")

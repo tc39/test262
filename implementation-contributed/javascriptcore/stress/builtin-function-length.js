@@ -1,3 +1,8 @@
+/**
+ * Reviewed
+ * Add length property check for function forms in the language folder
+ */
+
 function shouldBe(actual, expected) {
     if (actual !== expected)
         throw new Error('bad value: ' + actual);

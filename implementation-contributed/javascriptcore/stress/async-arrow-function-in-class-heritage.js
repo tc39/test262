@@ -1,3 +1,9 @@
+// Reviewed
+/**
+ * reviewed
+ * Tests class heritage failing with arrow functions (no constructor). Might have coverage, not found yet.
+ */
+
 function testSyntax(script) {
     try {
         eval(script);

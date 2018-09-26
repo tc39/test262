@@ -1,3 +1,8 @@
+// Reviewed
+/**
+#### ch, d8, jsshell, node
+Error: did not throw error
+ */
 //@ runDefault
 
 (function thingy() {

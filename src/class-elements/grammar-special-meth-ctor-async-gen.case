@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Async Generator Methods cannot be named "constructor"
+info: |
+    Class Definitions / Static Semantics: Early Errors
+
+    ClassElement : MethodDefinition
+        It is a Syntax Error if PropName of MethodDefinition is "constructor" and SpecialMethod of MethodDefinition is true.
+template: syntax/invalid
+features: [async-iteration]
+---*/
+
+//- elements
+async * constructor() {}

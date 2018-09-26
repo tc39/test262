@@ -83,15 +83,17 @@ within the file.
 
 For example:
 
+```
 /*---
 esid: sec-weakset.prototype.has
 description: Throws TypeError if `this` is not Object.
-info: >
+info: |
   WeakSet.prototype.has ( value )
 
   1. Let S be the this value.
   2. If Type(S) is not Object, throw a TypeError exception.
 ---*/
+```
 
 Note: Adding more context than the direct quote from ECMAScript should rarely
 be necessary. If you must add context to the quote, use the JavaScript
@@ -277,11 +279,15 @@ p.then(function () {
 
 As above, exceptions that are thrown from a `then` clause are passed to a later `$DONE` function and reported asynchronously.
 
+## A Note on Python-based tools
+
+This project's internal tooling is built with Python. Contributors seeking to interact with these tools should begin by installing [Python version 2](https://www.python.org/) and [PIP](https://pypi.org/project/pip/). This guide includes instructions for installing packages using PIP directly, but contributors are welcomed to use utilities such as [virtualenv](https://pypi.org/project/virtualenv/), [pyenv](https://github.com/pyenv/pyenv), or [pipenv](https://pypi.org/project/pipenv/) should they have more advanced package management needs.
+
 ## Linting
 
 Some of the expectations documented here are enforced via a "linting" script. This script is used to validate patches automatically at submission time, but it may also be invoked locally. To do so, first install the required Python packages via the following command:
 
-    pip install --requirement tools/lint/requirements.txt
+    python -m pip install --requirement tools/lint/requirements.txt
 
 Then invoke the following command:
 
@@ -320,7 +326,7 @@ any other valid frontmatter field | see the frontmatter definitions.
 
 Generated files are managed using the `make.py` Python script located in the root of this repository. To use it, first install the required Python packages via the following command:
 
-    pip install --requirement tools/generation/requirements.txt
+    python -m pip install --requirement tools/generation/requirements.txt
 
 And then issue the following command to create files:
 

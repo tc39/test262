@@ -5,16 +5,15 @@ esid: pending
 description: IsRegExp should only be called once
 info: |
   RegExp.prototype [ @@matchAll ] ( string )
+    1. Let R be the this value.
     [...]
-    3. Return ? MatchAllIterator(R, string).
+    4. Let C be ? SpeciesConstructor(R, %RegExp%).
+    5. Let flags be ? ToString(? Get(R, "flags")).
+    6. Let matcher be ? Construct(C, « R, flags »).
 
-  MatchAllIterator ( R, O )
+  21.2.3.1 RegExp ( pattern, flags )
+    1. Let patternIsRegExp be ? IsRegExp(pattern).
     [...]
-    2. If ? IsRegExp(R) is true, then
-      [...]
-    3. Else,
-      a. Let flags be "g".
-      b. Let matcher be ? RegExpCreate(R, flags).
 features: [Symbol.match, Symbol.matchAll]
 ---*/
 
@@ -31,7 +30,8 @@ var o = {
   get [Symbol.match]() {
     ++count;
     return false;
-  }
+  },
+  flags: "",
 };
 
 RegExp.prototype[Symbol.matchAll].call(o, '1');

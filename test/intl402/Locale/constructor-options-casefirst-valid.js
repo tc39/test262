@@ -47,18 +47,18 @@ for (const caseFirst of validCaseFirstOptions) {
   const expected = String(caseFirst);
   assert.sameValue(
     new Intl.Locale('en', options).toString(),
-    "en-u-kf-" + expected,
+    "en-u-kf-" + expected
   );
 
   assert.sameValue(
     new Intl.Locale('en-u-kf-lower', options).toString(),
-    "en-u-kf-" + expected,
+    "en-u-kf-" + expected
   );
 
   if ("caseFirst" in Intl.Locale.prototype) {
     assert.sameValue(
       new Intl.Locale('en-u-kf-lower', options).caseFirst,
-      expected,
+      expected
     );
   }
 }
