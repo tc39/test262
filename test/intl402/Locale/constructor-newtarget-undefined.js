@@ -14,8 +14,8 @@ features: [Intl.Locale]
 
 assert.throws(TypeError, function() {
   Intl.Locale();
-});
+}, 'Intl.Locale() throws TypeError');
 
 assert.throws(TypeError, function() {
   Intl.Locale("en");
-});
+}, 'Intl.Locale("en") throws TypeError');
