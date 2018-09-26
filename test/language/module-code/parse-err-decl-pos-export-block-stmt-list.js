@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 { void 0; export default null; }

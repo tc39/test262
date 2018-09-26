@@ -18,6 +18,6 @@ info: |
 ---*/
 
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 switch (0) { case 1: var f; default: function* f() {} }

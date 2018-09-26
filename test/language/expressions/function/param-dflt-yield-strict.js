@@ -16,7 +16,7 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 function *g() {
   0, function(x = yield) {

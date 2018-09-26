@@ -11,7 +11,7 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 var o = { a: 1 };
 for (let in o) { }
 

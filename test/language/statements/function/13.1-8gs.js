@@ -12,6 +12,6 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 var _13_1_8_fun = function (param, param) { };

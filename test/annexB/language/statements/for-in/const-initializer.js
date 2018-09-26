@@ -9,7 +9,7 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 throw NotEarlyError;
 for (const a = 0 in {});
 

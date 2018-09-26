@@ -14,9 +14,9 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 // CHECK#1
-try{	
+try{
 }
 finally(e){}

@@ -9,7 +9,7 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 var a;
 throw NotEarlyError;
 for (a = 0 in {});

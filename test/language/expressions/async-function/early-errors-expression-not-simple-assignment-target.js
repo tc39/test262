@@ -11,6 +11,6 @@ negative:
   type: ReferenceError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 (async function foo() { } = 1)

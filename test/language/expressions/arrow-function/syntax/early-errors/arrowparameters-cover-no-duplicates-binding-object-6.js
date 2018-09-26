@@ -23,5 +23,5 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 var af = ({y: x, x}) => 1;

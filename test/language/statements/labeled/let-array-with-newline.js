@@ -15,7 +15,7 @@ negative:
 flags: [noStrict]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 // Wrapped in an if-statement to avoid reference errors at runtime.
 if (false) {

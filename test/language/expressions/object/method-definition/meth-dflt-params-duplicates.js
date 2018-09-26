@@ -56,7 +56,7 @@ info: |
       elements.
 
 ---*/
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 0, {
   method(x = 0, x) {

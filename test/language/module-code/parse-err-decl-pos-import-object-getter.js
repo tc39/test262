@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 ({ get m() { import v from './decl-pos-import-object-getter.js'; } });

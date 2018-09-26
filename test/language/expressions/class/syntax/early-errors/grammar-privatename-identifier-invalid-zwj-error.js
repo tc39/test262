@@ -58,7 +58,7 @@ info: |
 ---*/
 
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 var C = class {
   #\u200D_ZWJ;

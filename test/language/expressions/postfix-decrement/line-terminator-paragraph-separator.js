@@ -11,7 +11,7 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 x --;
 // The preceding line contains an unprintable PARAGRAPH SEPARATOR character

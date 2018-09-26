@@ -13,6 +13,6 @@ negative:
 flags: [noStrict]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 (function eval() {'use strict';});

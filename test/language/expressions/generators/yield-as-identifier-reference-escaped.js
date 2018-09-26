@@ -22,7 +22,7 @@ info: |
     StringValue of Identifier is "yield".
 
 ---*/
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 var gen = function *() {
   void yi\u0065ld;

@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 if (true) { } else import v from './decl-pos-import-if-else.js';

@@ -15,6 +15,6 @@ negative:
 features: [async-functions]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 for (var x in {}) async function f() {}

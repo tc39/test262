@@ -41,6 +41,6 @@ negative:
 flags: [module]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 import {} from './instn-resolve-empty-import_FIXTURE.js';

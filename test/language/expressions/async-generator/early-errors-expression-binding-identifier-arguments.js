@@ -14,6 +14,6 @@ flags: [onlyStrict]
 features: [async-iteration]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 (async function* arguments() { });

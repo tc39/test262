@@ -28,7 +28,7 @@ info: |
     StringValue of Identifier is "await".
 
 ---*/
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 
 var C = class { async #method() {

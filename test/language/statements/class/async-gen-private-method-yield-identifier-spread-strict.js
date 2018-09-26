@@ -29,7 +29,7 @@ info: |
       ...AssignmentExpression[In, ?Yield]
 
 ---*/
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 
 var callCount = 0;

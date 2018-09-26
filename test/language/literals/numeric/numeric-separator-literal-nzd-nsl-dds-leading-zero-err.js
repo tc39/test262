@@ -22,6 +22,6 @@ negative:
 features: [numeric-separator-literal]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 0_0123456789

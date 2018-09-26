@@ -9,7 +9,7 @@ negative:
 flags: [module]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 for (let x = 0; false;)
   export default null;

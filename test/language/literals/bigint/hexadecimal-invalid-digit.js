@@ -21,6 +21,6 @@ negative:
 features: [BigInt]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 0xgn;

@@ -10,6 +10,6 @@ negative:
 features: [generators]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 if (true) function* g() {  } else function* _g() {}

@@ -15,7 +15,7 @@ negative:
 features: [generators]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 var o = {
   *m(a = 0) {

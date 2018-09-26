@@ -18,7 +18,7 @@ info: |
 ---*/
 
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 class C extends Function{
   static * method() {

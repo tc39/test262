@@ -15,6 +15,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+failIfCodeGetsEvaluated();
 
 /[\p{Hex}-\uFFFF]/u;
