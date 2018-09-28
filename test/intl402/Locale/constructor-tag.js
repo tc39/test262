@@ -15,7 +15,6 @@ const validLanguageTags = {
     "eN": "en",
     "en-gb": "en-GB",
     "IT-LATN-iT": "it-Latn-IT",
-    "ar-ma-u-ca-islamicc": "ar-MA-u-ca-islamicc",
     "th-th-u-nu-thai": "th-TH-u-nu-thai",
     "X-u-foo": "x-u-foo",
     "en-x-u-foo": "en-x-u-foo",
