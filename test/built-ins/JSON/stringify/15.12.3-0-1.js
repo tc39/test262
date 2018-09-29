@@ -14,7 +14,7 @@ info: |
     This default applies to JSON.stringify, and it must exist as a function
     taking 3 parameters.
 es5id: 15.12.3-0-1
-description: JSON.stringify must exist as be a function
+description: JSON.stringify must exist as a function
 ---*/
 
 var f = JSON.stringify;
