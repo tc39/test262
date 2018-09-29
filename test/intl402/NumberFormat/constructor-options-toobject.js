@@ -15,7 +15,9 @@ info: |
 const toObjectResults = [
   [true, new Boolean(true)],
   [42, new Number(42)],
-  ['foo', new String('foo')]
+  ['foo', new String('foo')],
+  [{}, {}],
+  [Symbol(), Object(Symbol())]
 ];
 
 // Test if ToObject is used to convert primitives to Objects.
