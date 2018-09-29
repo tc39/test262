@@ -12,7 +12,12 @@ info: |
   4.a. Let O be ? ToObject(locales).
 ---*/
 
-const toObjectResults = [[true, new Boolean(true)], [42, new Number(42)]];
+const toObjectResults = [
+  [true, new Boolean(true)],
+  [42, new Number(42)],
+  [{}, {}],
+  [Symbol(), Object(Symbol())]
+];
 
 // Test if ToObject is used to convert primitives to Objects.
 toObjectResults.forEach(pair => {
