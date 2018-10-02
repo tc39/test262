@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/nested-arrow.template
+// - src/dynamic-import/syntax/invalid/nested-else-braceless.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested arrow syntax)
+description: It's a SyntaxError if AssignmentExpression is omitted (nested else syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, module]
@@ -28,10 +28,11 @@ info: |
         import()
 
 ---*/
+
 throw "Test262: This statement should not be evaluated.";
 
-let f = () => {
-  import();
-};
+if (false) {
+
+} else import();
 
 /* The params region intentionally empty */

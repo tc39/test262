@@ -5,7 +5,7 @@
 description: Modifications to named bindings that occur after dependency has been evaluated are reflected in local binding (nested block)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async, module]
+flags: [generated, async]
 includes: [fnGlobalObject.js]
 info: |
     ImportCall :

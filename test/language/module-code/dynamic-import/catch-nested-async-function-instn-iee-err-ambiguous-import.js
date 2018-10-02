@@ -5,7 +5,7 @@
 description: IndirectExportEntries validation - ambiguous imported bindings (nested in async function)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async, module]
+flags: [generated, async]
 info: |
     ImportCall :
         import( AssignmentExpression )

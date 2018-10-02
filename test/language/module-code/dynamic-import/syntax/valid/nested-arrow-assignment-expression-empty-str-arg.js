@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/empty-str-arg.case
-// - src/dynamic-import/syntax/nested-else.template
+// - src/dynamic-import/syntax/valid/nested-arrow-assignment-expression.template
 /*---
-description: Calling import('') (nested else syntax)
+description: Calling import('') (nested arrow syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, module]
@@ -22,8 +22,4 @@ info: |
 
 ---*/
 
-if (false) {
-
-} else {
-  import('');
-}
+let f = () => import('');

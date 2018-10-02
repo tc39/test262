@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/nested-arrow-assignment-expression.template
+// - src/dynamic-import/empty-str-arg.case
+// - src/dynamic-import/syntax/valid/nested-if.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested arrow syntax)
+description: Calling import('') (nested if syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, module]
-negative:
-  phase: parse
-  type: SyntaxError
+flags: [generated]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -23,13 +20,8 @@ info: |
     8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
     9. Return promiseCapability.[[Promise]].
 
-
-    ImportCall :
-        import()
-
 ---*/
-throw "Test262: This statement should not be evaluated.";
 
-let f = () => import();
-
-/* The params region intentionally empty */
+if (true) {
+  import('');
+}

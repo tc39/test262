@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/nested-else.template
+// - src/dynamic-import/empty-str-arg.case
+// - src/dynamic-import/syntax/valid/nested-function-return.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested else syntax)
+description: Calling import('') (nested function syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, module]
-negative:
-  phase: parse
-  type: SyntaxError
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -23,17 +20,8 @@ info: |
     8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
     9. Return promiseCapability.[[Promise]].
 
-
-    ImportCall :
-        import()
-
 ---*/
-throw "Test262: This statement should not be evaluated.";
 
-if (false) {
-
-} else {
-  import();
+function fn() {
+  return import('');
 }
-
-/* The params region intentionally empty */
