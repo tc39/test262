@@ -26,5 +26,5 @@ features: [dynamic-import]
 if (false) {
 
 } else {
-  import(/*{ params }*/);
+  /*{ import }*/;
 }

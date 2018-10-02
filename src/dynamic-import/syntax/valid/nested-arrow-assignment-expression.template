@@ -23,4 +23,4 @@ flags: [module]
 features: [dynamic-import]
 ---*/
 
-let f = () => import(/*{ params }*/);
+let f = () => /*{ import }*/;

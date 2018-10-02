@@ -24,6 +24,6 @@ features: [dynamic-import]
 ---*/
 
 async function f() {
-  return await import(/*{ params }*/);
+  return await /*{ import }*/;
 }
 
