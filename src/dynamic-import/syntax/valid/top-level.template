@@ -13,4 +13,4 @@ flags: [module]
 features: [dynamic-import]
 ---*/
 
-import(/*{ params }*/);
+/*{ import }*/;

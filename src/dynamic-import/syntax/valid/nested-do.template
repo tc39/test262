@@ -25,5 +25,5 @@ features: [dynamic-import]
 let x = 0;
 do {
   x++;
-  import(/*{ params }*/);
+  /*{ import }*/;
 } while (!x);

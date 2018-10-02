@@ -24,5 +24,5 @@ features: [dynamic-import]
 ---*/
 
 do {
-  import(/*{ params }*/);
+  /*{ import }*/;
 } while (false);

@@ -6,5 +6,5 @@ desc: Calling import('')
 template: syntax/valid
 ---*/
 
-//- params
-''
+//- import
+import('')

@@ -23,4 +23,4 @@ info: |
 features: [dynamic-import]
 ---*/
 
-if (true) import(/*{ params }*/);
+if (true) /*{ import }*/;
