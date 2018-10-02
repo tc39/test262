@@ -21,6 +21,7 @@ info: |
 
 
 features: [dynamic-import]
+flags: [async]
 ---*/
 
 label: {

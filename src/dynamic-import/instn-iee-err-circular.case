@@ -21,7 +21,6 @@ info: |
           i. Assert: this is a circular import request.
           ii. Return null.
 template: catch
-flags: [async]
 ---*/
 
 //- params
