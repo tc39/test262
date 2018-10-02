@@ -11,7 +11,13 @@ description: >
 const actual = Intl.NumberFormat({
   length: 1,
   1: 'en-US'
-});
-const expected = Intl.NumberFormat(['en-US']);
+}).resolvedOptions();
+const expected = Intl.NumberFormat(['en-US']).resolvedOptions();
 
-assert.sameValue(actual.resolvedOptions(), expected.resolvedOptions());
+assert.sameValue(actual.locale, expected.locale);
+assert.sameValue(actual.minimumIntegerDigits, expected.minimumIntegerDigits);
+assert.sameValue(actual.minimumFractionDigits, expected.minimumFractionDigits);
+assert.sameValue(actual.maximumFractionDigits, expected.maximumFractionDigits);
+assert.sameValue(actual.numberingSystem, expected.numberingSystem);
+assert.sameValue(actual.style, expected.style);
+assert.sameValue(actual.useGrouping, expected.useGrouping);
