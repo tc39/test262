@@ -5,7 +5,7 @@
 description: IndirectExportEntries validation - undefined imported bindings (top level)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async, module]
+flags: [generated, async]
 info: |
     ImportCall :
         import( AssignmentExpression )

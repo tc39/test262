@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/empty-str-arg.case
-// - src/dynamic-import/syntax/nested-do.template
+// - src/dynamic-import/syntax/valid/nested-else.template
 /*---
-description: Calling import('') (nested do syntax)
+description: Calling import('') (nested else syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, module]
+flags: [generated]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -22,8 +22,8 @@ info: |
 
 ---*/
 
-let x = 0;
-do {
-  x++;
+if (false) {
+
+} else {
   import('');
-} while (!x);
+}

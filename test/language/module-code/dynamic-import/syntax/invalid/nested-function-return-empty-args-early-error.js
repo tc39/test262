@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/nested-if-braceless.template
+// - src/dynamic-import/syntax/invalid/nested-function-return.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested if syntax)
+description: It's a SyntaxError if AssignmentExpression is omitted (nested function syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, module]
@@ -28,8 +28,11 @@ info: |
         import()
 
 ---*/
+
 throw "Test262: This statement should not be evaluated.";
 
-if (true) import();
+function fn() {
+  return import();
+}
 
 /* The params region intentionally empty */

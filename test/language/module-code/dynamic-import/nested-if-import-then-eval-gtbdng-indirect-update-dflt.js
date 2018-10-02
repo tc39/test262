@@ -5,7 +5,7 @@
 description: Modifications to default binding that occur after dependency has been evaluated are reflected in local binding (nested if)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async, module]
+flags: [generated, async]
 info: |
     ImportCall :
         import( AssignmentExpression )

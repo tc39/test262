@@ -5,7 +5,7 @@
 description: Abrupt completion during module evaluation precludes further evaluation (nested do syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async, module]
+flags: [generated, async]
 info: |
     ImportCall :
         import( AssignmentExpression )

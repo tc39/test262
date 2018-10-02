@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/empty-str-arg.case
-// - src/dynamic-import/syntax/nested-arrow-assignment-expression.template
+// - src/dynamic-import/syntax/valid/nested-block.template
 /*---
-description: Calling import('') (nested arrow syntax)
+description: Calling import('') (nested block syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, module]
+flags: [generated]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -22,4 +22,6 @@ info: |
 
 ---*/
 
-let f = () => import('');
+{
+  import('');
+};

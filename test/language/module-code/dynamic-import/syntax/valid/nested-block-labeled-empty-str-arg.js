@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/nested-do-while.template
+// - src/dynamic-import/empty-str-arg.case
+// - src/dynamic-import/syntax/valid/nested-block-labeled.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested do syntax)
+description: Calling import('') (nested block syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, module]
-negative:
-  phase: parse
-  type: SyntaxError
+flags: [generated]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -23,15 +20,8 @@ info: |
     8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
     9. Return promiseCapability.[[Promise]].
 
-
-    ImportCall :
-        import()
-
 ---*/
-throw "Test262: This statement should not be evaluated.";
 
-do {
-  import();
-} while (false);
-
-/* The params region intentionally empty */
+label: {
+  import('');
+};

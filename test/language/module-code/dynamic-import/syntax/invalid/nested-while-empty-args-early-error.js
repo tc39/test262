@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/nested-labeled.template
+// - src/dynamic-import/syntax/invalid/nested-while.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested block syntax)
+description: It's a SyntaxError if AssignmentExpression is omitted (nested while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, module]
@@ -28,9 +28,12 @@ info: |
         import()
 
 ---*/
+
 throw "Test262: This statement should not be evaluated.";
 
-{
+let x = 0;
+while (!x) {
+  x++;
   import();
 };
 
