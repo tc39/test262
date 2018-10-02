@@ -2,7 +2,7 @@
 // Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/module-code/dynamic-import/syntax-nested-block-labeled-
+path: language/module-code/dynamic-import/syntax/invalid/nested-block-
 name: nested block syntax
 esid: sec-import-call-runtime-semantics-evaluation
 info: |
@@ -19,10 +19,15 @@ info: |
   8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
   9. Return promiseCapability.[[Promise]].
 
-
+flags: [module]
 features: [dynamic-import]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-label: {
+throw "Test262: This statement should not be evaluated.";
+
+{
   import(/*{ params }*/);
 };
