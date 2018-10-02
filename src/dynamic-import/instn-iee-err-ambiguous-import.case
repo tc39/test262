@@ -32,7 +32,6 @@ info: |
                   SameValue(resolution.[[BindingName]],
                   starResolution.[[BindingName]]) is false, return "ambiguous".
 template: catch
-flags: [async]
 ---*/
 
 //- params

@@ -20,7 +20,6 @@ info: |
         [...]
     11. Return starResolution.
 template: catch
-flags: [async]
 ---*/
 
 //- params

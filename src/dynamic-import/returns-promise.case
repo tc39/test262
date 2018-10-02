@@ -4,7 +4,6 @@
 /*---
 desc: Dynamic import() returns a Promise object.
 template: default
-flags: [async]
 ---*/
 
 //- params

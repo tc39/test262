@@ -19,7 +19,6 @@ info: |
        e. Return ? targetER.GetBindingValue(N2, S).
 includes: [fnGlobalObject.js]
 template: default
-flags: [async]
 ---*/
 
 //- params
