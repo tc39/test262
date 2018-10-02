@@ -3,7 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: Calling import('')
-template: syntax
+template: syntax/valid
 ---*/
 
 //- params
