@@ -22,10 +22,16 @@ const toObjectResults = [
 // Test if ToObject is used to convert primitives to Objects.
 toObjectResults.forEach(pair => {
   const [value, result] = pair;
-  assert.sameValue(
-    new Intl.NumberFormat(value).resolvedOptions(),
-    new Intl.NumberFormat(result).resolvedOptions()
-  );
+  const actual = new Intl.NumberFormat(value).resolvedOptions();
+  const expected = new Intl.NumberFormat(result).resolvedOptions()
+
+  assert.sameValue(actual.locale, expected.locale);
+  assert.sameValue(actual.minimumIntegerDigits, expected.minimumIntegerDigits);
+  assert.sameValue(actual.minimumFractionDigits, expected.minimumFractionDigits);
+  assert.sameValue(actual.maximumFractionDigits, expected.maximumFractionDigits);
+  assert.sameValue(actual.numberingSystem, expected.numberingSystem);
+  assert.sameValue(actual.style, expected.style);
+  assert.sameValue(actual.useGrouping, expected.useGrouping);
 });
 
 // ToObject throws a TypeError for undefined and null, but it's not called

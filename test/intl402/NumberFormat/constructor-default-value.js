@@ -8,7 +8,13 @@ description: >
   values for its arguments (locales and options).
 ---*/
 
-const actual = new Intl.NumberFormat();
-const expected = new Intl.NumberFormat([], { __proto__: null });
+const actual = new Intl.NumberFormat().resolvedOptions();
+const expected = new Intl.NumberFormat([], { __proto__: null }).resolvedOptions();
 
-assert.sameValue(actual.resolvedOptions(), expected.resolvedOptions());
+assert.sameValue(actual.locale, expected.locale);
+assert.sameValue(actual.minimumIntegerDigits, expected.minimumIntegerDigits);
+assert.sameValue(actual.minimumFractionDigits, expected.minimumFractionDigits);
+assert.sameValue(actual.maximumFractionDigits, expected.maximumFractionDigits);
+assert.sameValue(actual.numberingSystem, expected.numberingSystem);
+assert.sameValue(actual.style, expected.style);
+assert.sameValue(actual.useGrouping, expected.useGrouping);
