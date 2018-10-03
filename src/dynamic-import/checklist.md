@@ -47,7 +47,8 @@ _general places it can be found as a CallExpression_
     - [ ] AsyncArrowFunction
     - [ ] LeftHandSideExpression = AssignmentExpression
     - [ ] LeftHandSideExpression AssignmentOperator AssignmentExpression
-- [ ] ToString on the AssignmentExpression value
+- [ ] ToString on the AssignmentExpression value `Let specifierString be ToString(specifier).`
+    - [ ] `If AbruptRejectPromise(specifierString, promiseCapability).`
 - [ ] nest `import()` in CallExpressions
     - [ ] `import(import(...))`
     - [ ] ... (other CallExpressions here)
@@ -58,12 +59,31 @@ _general places it can be found as a CallExpression_
 - [ ] module code on host syntax
 - [ ] Multiple imports on the same imported module
     - [ ] verify indirect updates
+    - [x] Imported module is only evaluated once. `test/language/module-code/dynamic-import/eval-rqstd-once.js`
+    - [x] Self loading module only evaluates once. `test/language/module-code/dynamic-import/eval-self-once.js`
 - [ ] ImportCall in runtime returns a Promise
     - [ ] Verify ctor
     - [ ] Use in Promise.all?
     - [ ] await resolving (include failures)
     - [ ] Use Promise.prototype
     - [ ] Promise.resolve
+- [x] Captures exported operations of `.. in ..` in exported values. `test/language/module-code/dynamic-import/eval-export-dflt-expr-in.js`
+- [ ] Does not create a default property if default export is not given
+- [ ] imported value is an object with the exported names, including default
+
+### Non generated tests
+
+- [ ] Self importing test files
+    - [x] default name binding `test/language/module-code/dynamic-import/eval-export-dflt-cls-anon.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-cls-name-meth.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-cls-named.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-cls-anon.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-cls-name-meth.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-cls-named.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-fn-anon.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-fn-named.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-gen-anon.js`
+    - [x] `test/language/module-code/dynamic-import/eval-export-dflt-expr-gen-named.js`
 
 ### Error catching
 
