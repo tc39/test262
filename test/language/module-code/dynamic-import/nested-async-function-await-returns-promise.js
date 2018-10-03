@@ -27,7 +27,7 @@ async function f() {
 
     assert.sameValue(imported.x, 1);
 
-  }).then($DONE, $DONE).catch($DONE);
+  });
 }
 
-f();
+f().then($DONE, $DONE).catch($DONE);

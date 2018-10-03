@@ -44,4 +44,3 @@ async function f() {
 }
 
 f();
-

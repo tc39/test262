@@ -2,7 +2,7 @@
 // - src/dynamic-import/returns-promise.case
 // - src/dynamic-import/default/nested-do-while.template
 /*---
-description: Dynamic import() returns a Promise object. (nested do syntax)
+description: Dynamic import() returns a Promise object. (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, async]

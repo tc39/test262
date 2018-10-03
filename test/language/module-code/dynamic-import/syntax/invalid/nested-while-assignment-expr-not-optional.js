@@ -1,11 +1,14 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/returns-promise.case
-// - src/dynamic-import/default/nested-do.template
+// - src/dynamic-import/assignment-expr-not-optional.case
+// - src/dynamic-import/syntax/invalid/nested-while.template
 /*---
-description: Dynamic import() returns a Promise object. (nested do)
+description: It's a SyntaxError if AssignmentExpression is omitted (nested while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async]
+flags: [generated, module]
+negative:
+  phase: parse
+  type: SyntaxError
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -20,14 +23,17 @@ info: |
     8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
     9. Return promiseCapability.[[Promise]].
 
+
+    ImportCall :
+        import( AssignmentExpression[+In, ?Yield] )
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
+
 let x = 0;
-do {
+while (!x) {
   x++;
-  import('./dynamic-import-module_FIXTURE.js').then(imported => {
+  import();
+};
 
-    assert.sameValue(imported.x, 1);
-
-  }).then($DONE, $DONE).catch($DONE);
-} while (!x);
+/* The params region intentionally empty */
