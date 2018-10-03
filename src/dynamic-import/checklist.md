@@ -16,7 +16,7 @@ _general places it can be found as a CallExpression_
 - [x] labeled blocks
 - [x] blocks
 - [x] do while
-- [ ] else braceless
+- [x] else braceless
 - [x] else block
 - [x] if braceless
 - [x] if block
