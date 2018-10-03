@@ -36,19 +36,19 @@ info: |
 ---*/
 
 async function f() {
-  return await import('./eval-gtbndng-indirect-update_FIXTURE.js').then(imported => {
-
-    assert.sameValue(imported.x, 1);
-
-    // This function is exposed on the global scope (instead of as an exported
-    // binding) in order to avoid possible false positives from assuming correct
-    // behavior of the semantics under test.
-    fnGlobalObject().test262update();
-
-    assert.sameValue(imported.x, 2);
-
-
-  }).then($DONE, $DONE).catch($DONE);
+  return await import('./eval-gtbndng-indirect-update_FIXTURE.js');
 }
 
-f();
+f().then(imported => {
+
+  assert.sameValue(imported.x, 1);
+
+  // This function is exposed on the global scope (instead of as an exported
+  // binding) in order to avoid possible false positives from assuming correct
+  // behavior of the semantics under test.
+  fnGlobalObject().test262update();
+
+  assert.sameValue(imported.x, 2);
+
+
+}).then($DONE, $DONE).catch($DONE);

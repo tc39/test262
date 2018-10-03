@@ -2,7 +2,7 @@
 // - src/dynamic-import/instn-iee-err-ambiguous-import.case
 // - src/dynamic-import/catch/nested-do-while.template
 /*---
-description: IndirectExportEntries validation - ambiguous imported bindings (nested do syntax)
+description: IndirectExportEntries validation - ambiguous imported bindings (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, async]

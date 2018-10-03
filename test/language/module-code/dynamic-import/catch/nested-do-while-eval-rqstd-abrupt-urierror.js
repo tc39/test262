@@ -2,7 +2,7 @@
 // - src/dynamic-import/eval-rqstd-abrupt-urierror.case
 // - src/dynamic-import/catch/nested-do-while.template
 /*---
-description: Abrupt completion during module evaluation precludes further evaluation (nested do syntax)
+description: Abrupt completion during module evaluation precludes further evaluation (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, async]

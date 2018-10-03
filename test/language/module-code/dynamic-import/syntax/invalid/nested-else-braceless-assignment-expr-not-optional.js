@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/empty-args-early-error.case
-// - src/dynamic-import/syntax/invalid/nested-labeled.template
+// - src/dynamic-import/assignment-expr-not-optional.case
+// - src/dynamic-import/syntax/invalid/nested-else-braceless.template
 /*---
-description: It's a SyntaxError if AssignmentExpression is omitted (nested block syntax)
+description: It's a SyntaxError if AssignmentExpression is omitted (nested else syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, module]
@@ -25,14 +25,13 @@ info: |
 
 
     ImportCall :
-        import()
-
+        import( AssignmentExpression[+In, ?Yield] )
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
 
-{
-  import();
-};
+if (false) {
+
+} else import();
 
 /* The params region intentionally empty */

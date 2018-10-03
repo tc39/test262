@@ -2,7 +2,7 @@
 // - src/dynamic-import/eval-gtbdng-indirect-update-dflt.case
 // - src/dynamic-import/default/nested-do-while.template
 /*---
-description: Modifications to default binding that occur after dependency has been evaluated are reflected in local binding (nested do syntax)
+description: Modifications to default binding that occur after dependency has been evaluated are reflected in local binding (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, async]

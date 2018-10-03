@@ -40,7 +40,7 @@ async function f() {
     assert.sameValue(imported.default(), 1);
     assert.sameValue(imported.default, 2);
 
-  }).then($DONE, $DONE).catch($DONE);
+  });
 }
 
-f();
+f().then($DONE, $DONE).catch($DONE);

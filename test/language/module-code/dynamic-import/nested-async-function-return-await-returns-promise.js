@@ -23,11 +23,11 @@ info: |
 ---*/
 
 async function f() {
-  return await import('./dynamic-import-module_FIXTURE.js').then(imported => {
-
-    assert.sameValue(imported.x, 1);
-
-  }).then($DONE, $DONE).catch($DONE);
+  return await import('./dynamic-import-module_FIXTURE.js');
 }
 
-f();
+f().then(imported => {
+
+  assert.sameValue(imported.x, 1);
+
+}).then($DONE, $DONE).catch($DONE);

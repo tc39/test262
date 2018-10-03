@@ -2,7 +2,7 @@
 // - src/dynamic-import/eval-gtbndng-indirect-update.case
 // - src/dynamic-import/default/nested-do-while.template
 /*---
-description: Modifications to named bindings that occur after dependency has been evaluated are reflected in local binding (nested do syntax)
+description: Modifications to named bindings that occur after dependency has been evaluated are reflected in local binding (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, async]

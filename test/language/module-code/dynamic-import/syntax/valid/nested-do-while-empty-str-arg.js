@@ -2,7 +2,7 @@
 // - src/dynamic-import/empty-str-arg.case
 // - src/dynamic-import/syntax/valid/nested-do-while.template
 /*---
-description: Calling import('') (nested do syntax)
+description: Calling import('') (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated]

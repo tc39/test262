@@ -1,11 +1,14 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/eval-rqstd-abrupt-typeerror.case
-// - src/dynamic-import/catch/nested-do.template
+// - src/dynamic-import/assignment-expr-not-optional.case
+// - src/dynamic-import/syntax/invalid/nested-if.template
 /*---
-description: Abrupt completion during module evaluation precludes further evaluation (nested do)
+description: It's a SyntaxError if AssignmentExpression is omitted (nested if syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, async]
+flags: [generated, module]
+negative:
+  phase: parse
+  type: SyntaxError
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -21,20 +24,14 @@ info: |
     9. Return promiseCapability.[[Promise]].
 
 
-    [...]
-    6. For each String required that is an element of
-       module.[[RequestedModules]] do,
-       a. Let requiredModule be ? HostResolveImportedModule(module, required).
-       b. Perform ? requiredModule.ModuleEvaluation().
-
+    ImportCall :
+        import( AssignmentExpression[+In, ?Yield] )
 ---*/
 
-let x = 0;
-do {
-  x++;
-  import('./eval-rqstd-abrupt-err-type_FIXTURE.js').catch(error => {
+throw "Test262: This statement should not be evaluated.";
 
-    assert.sameValue(error.name, 'TypeError');
+if (true) {
+  import();
+}
 
-  }).then($DONE, $DONE);
-} while (!x);
+/* The params region intentionally empty */

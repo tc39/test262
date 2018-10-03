@@ -35,12 +35,12 @@ info: |
 ---*/
 
 async function f() {
-  return await import('./eval-gtbndng-indirect-update-dflt_FIXTURE.js').then(imported => {
-
-    assert.sameValue(imported.default(), 1);
-    assert.sameValue(imported.default, 2);
-
-  }).then($DONE, $DONE).catch($DONE);
+  return await import('./eval-gtbndng-indirect-update-dflt_FIXTURE.js');
 }
 
-f();
+f().then(imported => {
+
+  assert.sameValue(imported.default(), 1);
+  assert.sameValue(imported.default, 2);
+
+}).then($DONE, $DONE).catch($DONE);
