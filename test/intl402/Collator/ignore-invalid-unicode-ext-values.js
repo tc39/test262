@@ -24,7 +24,7 @@ var defaultLocale = defaultOptions.locale;
 var defaultSortedArray = testArray.slice(0).sort(defaultCollator.compare);
 
 var keyValues = {
-    "co": ["standard", "search", "invalid"],
+    "co": ["standard", "search"],
     "ka": ["noignore", "shifted", "invalid"],
     "kb": ["true", "false", "invalid"],
     "kc": ["true", "false", "invalid"],
