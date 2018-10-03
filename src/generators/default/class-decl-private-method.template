@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Bloomberg LP. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/class/gen-method-
+path: language/statements/class/gen-private-method-
 name: Generator private method as a ClassDeclaration element
 esid: prod-GeneratorPrivateMethod
 info: |
