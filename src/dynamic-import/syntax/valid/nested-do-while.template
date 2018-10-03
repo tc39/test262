@@ -3,7 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 path: language/module-code/dynamic-import/syntax/valid/nested-do-while-
-name: nested do syntax
+name: nested do while syntax
 esid: sec-import-call-runtime-semantics-evaluation
 info: |
   ImportCall :

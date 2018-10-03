@@ -6,8 +6,7 @@ desc: It's a SyntaxError if AssignmentExpression is omitted
 template: syntax/invalid
 info: |
   ImportCall :
-      import()
-
+      import( AssignmentExpression[+In, ?Yield] )
 ---*/
 //- import
 import()
