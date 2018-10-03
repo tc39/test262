@@ -154,7 +154,7 @@ class Template:
         features += self.attribs['meta'].get('features', [])
         features = list(OrderedDict.fromkeys(features))
         if len(features):
-            lines += ['features: ' + yaml.dump(features).strip()]
+            lines += ['features: ' + re.sub('\n\s*', ' ', yaml.dump(features).strip())]
 
         flags = ['generated']
         flags += case_values['meta'].get('flags', [])
