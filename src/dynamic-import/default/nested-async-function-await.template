@@ -29,7 +29,7 @@ async function f() {
 
     /*{ body }*/
 
-  }).then($DONE, $DONE).catch($DONE);
+  });
 }
 
-f();
+f().then($DONE, $DONE).catch($DONE);

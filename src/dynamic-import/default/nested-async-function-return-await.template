@@ -25,11 +25,11 @@ flags: [async]
 ---*/
 
 async function f() {
-  return await import(/*{ params }*/).then(imported => {
-
-    /*{ body }*/
-
-  }).then($DONE, $DONE).catch($DONE);
+  return await import(/*{ params }*/);
 }
 
-f();
+f().then(imported => {
+
+  /*{ body }*/
+
+}).then($DONE, $DONE).catch($DONE);
