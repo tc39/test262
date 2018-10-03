@@ -4,13 +4,22 @@
 
 // Flags: --allow-natives-syntax
 
-function f(x, b) {
-    if (b) return Math.trunc(+(x))
-    else return Math.trunc(Number(x))
+var a = 42;
+
+function g(n) {
+  while (n > 0) {
+    a = new Array(n);
+    n--;
+  }
 }
 
-f("1", true);
-f("2", true);
-f("2", false);
+g(1);
+
+function f() {
+  g();
+}
+
+f();
 %OptimizeFunctionOnNextCall(f);
-f(3n);
+f();
+assertEquals(1, a.length);

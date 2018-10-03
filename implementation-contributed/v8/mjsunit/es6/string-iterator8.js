@@ -4,13 +4,11 @@
 
 // Flags: --allow-natives-syntax
 
-function f(x, b) {
-    if (b) return Math.trunc(+(x))
-    else return Math.trunc(Number(x))
-}
+assertTrue(%StringIteratorProtector());
 
-f("1", true);
-f("2", true);
-f("2", false);
-%OptimizeFunctionOnNextCall(f);
-f(3n);
+var proto = String.prototype;
+
+String.prototype = {};
+
+assertEquals(proto, String.prototype);
+assertTrue(%StringIteratorProtector());
