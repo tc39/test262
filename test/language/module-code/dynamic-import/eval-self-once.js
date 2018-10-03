@@ -1,4 +1,4 @@
-// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Module is evaluated exactly once
@@ -12,7 +12,7 @@ info: |
        b. Perform ? requiredModule.ModuleEvaluation().
     [...]
 includes: [fnGlobalObject.js]
-flags: [async,module]
+flags: [async]
 features: [dynamic-import]
 ---*/
 
@@ -27,6 +27,10 @@ global.evaluated++;
 Promise.all([
   import('./eval-self-once.js'),
   import('./eval-self-once.js'),
-]).then((...importeds) => {
+]).then(async () => {
+  // Use await to serialize imports
+  await import('./eval-self-once.js');
+  await import('./eval-self-once.js');
+
   assert.sameValue(global.evaluated, 1, 'global property was defined and incremented only once');
 }).then($DONE, $DONE);
