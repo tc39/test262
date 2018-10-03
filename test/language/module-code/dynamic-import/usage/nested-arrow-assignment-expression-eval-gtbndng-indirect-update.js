@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/dynamic-import/eval-gtbndng-indirect-update.case
-// - src/dynamic-import/default/nested-arrow-assignment-expression.template
+// - src/dynamic-import/default/nested-arrow-assign-expr.template
 /*---
 description: Modifications to named bindings that occur after dependency has been evaluated are reflected in local binding (nested arrow)
 esid: sec-import-call-runtime-semantics-evaluation
