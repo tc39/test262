@@ -99,7 +99,7 @@ var typeid = 1;
 // u
 var uint = 1;
 var unchecked = 1;
-var undefiend = 1;
+var undefined = 1;
 var union = 1;
 var unsafe = 1;
 var unsigned = 1;
