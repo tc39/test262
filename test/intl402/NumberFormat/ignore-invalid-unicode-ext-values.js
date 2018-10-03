@@ -21,7 +21,7 @@ locales.forEach(function (locale) {
 
     var keyValues = {
         "cu": ["USD", "EUR", "JPY", "CNY", "TWD", "invalid"],
-        "nu": ["native", "traditio", "finance", "invalid"]
+        "nu": ["native", "traditio", "finance"]
     };
     
     Object.getOwnPropertyNames(keyValues).forEach(function (key) {
