@@ -11,8 +11,11 @@ info: |
        a. Let requiredModule be ? HostResolveImportedModule(module, required).
        b. Perform ? requiredModule.ModuleEvaluation().
     [...]
+
+    This test is meant to be flagged as module code, it should not initially
+    run as script code or the result will not be the same.
 includes: [fnGlobalObject.js]
-flags: [async]
+flags: [async, module]
 features: [dynamic-import]
 ---*/
 
