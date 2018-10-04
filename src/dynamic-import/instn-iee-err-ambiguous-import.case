@@ -35,6 +35,6 @@ template: catch
 ---*/
 
 //- params
-'./instn-iee-err-ambiguous-export.js'
+'./instn-iee-err-ambiguous-export_FIXTURE.js'
 //- body
 assert.sameValue(error.name, 'SyntaxError');
