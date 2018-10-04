@@ -28,12 +28,12 @@ if (typeof global.evaluated === 'undefined') {
 global.evaluated++;
 
 Promise.all([
-  import('./eval-self-once.js'),
-  import('./eval-self-once.js'),
+  import('./eval-self-once-module.js'),
+  import('./eval-self-once-module.js'),
 ]).then(async () => {
   // Use await to serialize imports
-  await import('./eval-self-once.js');
-  await import('./eval-self-once.js');
+  await import('./eval-self-once-module.js');
+  await import('./eval-self-once-module.js');
 
   assert.sameValue(global.evaluated, 1, 'global property was defined and incremented only once');
 }).then($DONE, $DONE);
