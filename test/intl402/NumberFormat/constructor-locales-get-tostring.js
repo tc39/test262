@@ -38,4 +38,4 @@ const proxyLocales = new Proxy(locales, handlers);
 
 const nf = new Intl.NumberFormat(proxyLocales);
 
-actualLookups.forEach(lookup => assert(expectedLookups.indexOf(lookup) != -1));
+expectedLookups.forEach(lookup => assert(actualLookups.indexOf(lookup) != -1));
