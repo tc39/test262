@@ -51,7 +51,7 @@ info: |
 ---*/
 
 function f() {
-  import('./instn-iee-err-ambiguous-export.js').catch(error => {
+  import('./instn-iee-err-ambiguous-export_FIXTURE.js').catch(error => {
 
     assert.sameValue(error.name, 'SyntaxError');
 

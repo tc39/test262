@@ -51,7 +51,7 @@ info: |
 ---*/
 
 async function f() {
-  return await import('./instn-iee-err-ambiguous-export.js').catch(error => {
+  return await import('./instn-iee-err-ambiguous-export_FIXTURE.js').catch(error => {
 
     assert.sameValue(error.name, 'SyntaxError');
 
