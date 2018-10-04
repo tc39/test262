@@ -4,8 +4,7 @@
 /*---
 description: static private methods with fields (field definitions after an async method in the same line)
 esid: prod-FieldDefinition
-features: [class-static-methods-private, class-static-fields-private, class, class-fields-public,
-  async-functions]
+features: [class-static-methods-private, class-static-fields-private, class, class-fields-public, async-functions]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |
