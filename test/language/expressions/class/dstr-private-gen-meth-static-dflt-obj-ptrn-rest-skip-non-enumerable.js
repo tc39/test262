@@ -4,8 +4,7 @@
 /*---
 description: Rest object doesn't contain non-enumerable properties (private static class expression generator method (default parameter))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [object-rest, class, class-static-methods-private, generators, destructuring-binding,
-  default-parameters]
+features: [object-rest, class, class-static-methods-private, generators, destructuring-binding, default-parameters]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

@@ -4,8 +4,7 @@
 /*---
 description: Iterator is not closed when exhausted by pattern evaluation (private static class expression generator method (default parameter))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [Symbol.iterator, class, class-static-methods-private, generators, destructuring-binding,
-  default-parameters]
+features: [Symbol.iterator, class, class-static-methods-private, generators, destructuring-binding, default-parameters]
 flags: [generated]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
