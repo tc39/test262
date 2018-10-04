@@ -4,8 +4,7 @@
 /*---
 description: RestElement applied to an exhausted iterator (private class expression method (default parameters))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [Symbol.iterator, class, class-methods-private, generators, destructuring-binding,
-  default-parameters]
+features: [Symbol.iterator, class, class-methods-private, generators, destructuring-binding, default-parameters]
 flags: [generated]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

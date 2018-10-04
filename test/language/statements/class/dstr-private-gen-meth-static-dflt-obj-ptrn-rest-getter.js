@@ -4,8 +4,7 @@
 /*---
 description: Getter is called when obj is being deconstructed to a rest Object (private static class expression generator method (default parameter))
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-features: [object-rest, class, class-static-methods-private, generators, destructuring-binding,
-  default-parameters]
+features: [object-rest, class, class-static-methods-private, generators, destructuring-binding, default-parameters]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
