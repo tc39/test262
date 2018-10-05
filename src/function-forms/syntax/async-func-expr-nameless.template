@@ -10,6 +10,7 @@ info: |
 
   AsyncFunctionExpression :
     async function ( FormalParameters ) { AsyncFunctionBody }
+features: [async-functions]
 ---*/
 
 (async function(/*{ params }*/) {

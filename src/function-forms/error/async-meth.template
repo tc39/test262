@@ -11,6 +11,7 @@ info: |
   AsyncMethod :
    async PropertyName ( UniqueFormalParameters ) { AsyncFunctionBody }
 flags: [async]
+features: [async-functions]
 ---*/
 
 var callCount = 0;

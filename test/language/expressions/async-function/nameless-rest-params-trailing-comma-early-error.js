@@ -4,6 +4,7 @@
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (async function nameless expression)
 esid: sec-async-function-definitions
+features: [async-functions]
 flags: [generated]
 negative:
   phase: parse
@@ -13,6 +14,7 @@ info: |
 
     AsyncFunctionExpression :
       async function ( FormalParameters ) { AsyncFunctionBody }
+
 
     Trailing comma in the parameters list
 
