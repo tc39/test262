@@ -10,7 +10,7 @@ info: |
 
   AsyncFunctionExpression :
     async function BindingIdentifier ( FormalParameters ) { AsyncFunctionBody }
-
+features: [async-functions]
 ---*/
 
 (async function f(/*{ params }*/) {
