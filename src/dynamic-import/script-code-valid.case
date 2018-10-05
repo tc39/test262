@@ -1,0 +1,14 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: import() can be used in script code
+template: syntax/valid
+---*/
+
+//- setup
+// It is a Syntax Error if ModuleItemList Contains NewTarget
+// This is still valid in script code
+new.target;
+
+//- import
+import('./script-code-valid.js')

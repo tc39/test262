@@ -2,8 +2,8 @@
 // Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/module-code/dynamic-import/catch/top-level-import-catch-
-name: top level
+path: language/module-code/dynamic-import/syntax/invalid/nested-with-
+name: nested with syntax
 esid: sec-import-call-runtime-semantics-evaluation
 info: |
   ImportCall :
@@ -18,14 +18,15 @@ info: |
   7. IfAbruptRejectPromise(specifierString, promiseCapability).
   8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
   9. Return promiseCapability.[[Promise]].
-
-
 features: [dynamic-import]
-flags: [async]
+flags: [noStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-/*{ import }*/.catch(error => {
+throw "Test262: This statement should not be evaluated.";
 
-  /*{ body }*/
-
-}).then($DONE, $DONE);
+with ({}) {
+  /*{ import }*/;
+}

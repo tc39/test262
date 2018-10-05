@@ -25,7 +25,7 @@ flags: [async]
 ---*/
 
 async function f() {
-  return await import(/*{ params }*/);
+  return await /*{ import }*/;
 }
 
 f().then(imported => {

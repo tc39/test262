@@ -21,8 +21,8 @@ includes: [fnGlobalObject.js]
 template: default
 ---*/
 
-//- params
-'./eval-gtbndng-indirect-update_FIXTURE.js'
+//- import
+import('./eval-gtbndng-indirect-update_FIXTURE.js')
 //- body
 assert.sameValue(imported.x, 1);
 

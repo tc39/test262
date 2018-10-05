@@ -18,8 +18,6 @@ info: |
   7. IfAbruptRejectPromise(specifierString, promiseCapability).
   8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
   9. Return promiseCapability.[[Promise]].
-
-flags: [module]
 features: [dynamic-import]
 negative:
   phase: parse
