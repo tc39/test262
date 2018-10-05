@@ -34,4 +34,9 @@ info: |
 
 ---*/
 
-if (true) import('./eval-gtbndng-indirect-update-dflt_FIXTURE.js');
+if (true) import('./eval-gtbndng-indirect-update-dflt_FIXTURE.js').then(imported => {
+
+  assert.sameValue(imported.default(), 1);
+  assert.sameValue(imported.default, 2);
+
+}).then($DONE, $DONE).catch($DONE);
