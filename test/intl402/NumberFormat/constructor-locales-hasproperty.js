@@ -34,6 +34,6 @@ const proxyLocales = new Proxy(locales, handlers);
 const nf = new Intl.NumberFormat(proxyLocales);
 
 assert.sameValue(actualLookups.length, locales.length);
-for (index in actualLookups) {
+for (let index in actualLookups) {
   assert.sameValue(actualLookups[index], String(index));
 }
