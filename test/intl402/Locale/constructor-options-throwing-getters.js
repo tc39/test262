@@ -28,5 +28,6 @@ for (const option of options) {
         throw new CustomError();
       }
     });
-  }, `Exception from ${option} getter should be propagated`);
+  },
+  `new Intl.Locale("en", {get ${option}() {throw new CustomError();}}) throws CustomError`);
 }

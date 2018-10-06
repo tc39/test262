@@ -4,8 +4,7 @@
 /*---
 description: static private methods with fields (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition
-features: [class-static-methods-private, class-static-fields-private, class, class-fields-public,
-  generators]
+features: [class-static-methods-private, class-static-fields-private, class, class-fields-public, generators]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

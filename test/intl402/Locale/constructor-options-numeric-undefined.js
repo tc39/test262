@@ -38,14 +38,17 @@ const options = { numeric: undefined };
 assert.sameValue(
   new Intl.Locale('en', options).toString(),
   "en",
+  'new Intl.Locale("en", {numeric: undefined}).toString() returns "en"'
 );
 
 assert.sameValue(
   new Intl.Locale('en-u-kn-true', options).toString(),
   "en-u-kn-true",
+  'new Intl.Locale("en-u-kn-true", {numeric: undefined}).toString() returns "en-u-kn-true"'
 );
 
 assert.sameValue(
   new Intl.Locale('en-u-kf-lower', options).numeric,
   undefined,
+  'The value of new Intl.Locale("en-u-kf-lower", {numeric: undefined}).numeric equals `undefined`'
 );

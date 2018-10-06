@@ -1,0 +1,21 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/module-code/dynamic-import/syntax/invalid/top-level-
+name: top level syntax
+esid: sec-import-call-runtime-semantics-evaluation
+info: |
+  ImportCall :
+      import( AssignmentExpression )
+
+flags: [module]
+features: [dynamic-import]
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+throw "Test262: This statement should not be evaluated.";
+
+/*{ import }*/;

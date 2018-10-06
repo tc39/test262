@@ -36,6 +36,7 @@ info: |
      scope, strict).
   [...]
 flags: [async]
+features: [async-functions]
 ---*/
 
 var callCount = 0;
