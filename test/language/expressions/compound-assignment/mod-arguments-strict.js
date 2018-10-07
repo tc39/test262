@@ -9,17 +9,11 @@ description: >
     appear as the LeftHandSideExpression of a Compound Assignment
     operator(%=)
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
-function testcase() {
-        var err = null;
-        var blah = arguments;
-        try {
-            eval("arguments %= 20;");
-        } catch (e) {
-            err = e;
-        }
-        assert(err instanceof SyntaxError, 'err instanceof SyntaxError');
-        assert.sameValue(blah, arguments, 'blah');
-}
-testcase();
+throw "Test262: This statement should not be evaluated.";
+
+arguments %= 20;

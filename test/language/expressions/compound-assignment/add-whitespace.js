@@ -12,63 +12,46 @@ description: Checking by using eval, check operator is x += y
 
 var x;
 
-//CHECK#1
 x = -1;
-if ((eval("x\u0009+=\u0009-1")) !== -2) {
-  $ERROR('#1: x = -1; (x\\u0009+=\\u0009-1) === -2');
-}
+assert.sameValue(x	+=	-1, -2, 'U+0009 (expression)');
+assert.sameValue(x, -2, 'U+0009 (side effect)');
 
-//CHECK#2
 x = -1;
-if ((eval("x\u000B+=\u000B-1")) !== -2) {
-  $ERROR('#2: x = -1; (x\\u000B+=\\u000B-1) === -2');  
-}
+assert.sameValue(x+=-1, -2, 'U+000B (expression)');
+assert.sameValue(x, -2, 'U+000B (side effect)');
 
-//CHECK#3
 x = -1;
-if ((eval("x\u000C+=\u000C-1")) !== -2) {
-  $ERROR('#3: x = -1; (x\\u000C+=\\u000C-1) === -2');
-}
+assert.sameValue(x+=-1, -2, 'U+000C (expression)');
+assert.sameValue(x, -2, 'U+000C (side effect)');
 
-//CHECK#4
 x = -1;
-if ((eval("x\u0020+=\u0020-1")) !== -2) {
-  $ERROR('#4: x = -1; (x\\u0020+=\\u0020-1) === -2');
-}
+assert.sameValue(x += -1, -2, 'U+0020 (expression)');
+assert.sameValue(x, -2, 'U+0020 (side effect)');
 
-//CHECK#5
 x = -1;
-if ((eval("x\u00A0+=\u00A0-1")) !== -2) {
-  $ERROR('#5: x = -1; (x\\u00A0+=\\u00A0-1) === -2');
-}
+assert.sameValue(x += -1, -2, 'U+00A0 (expression)');
+assert.sameValue(x, -2, 'U+00A0 (side effect)');
 
-//CHECK#6
 x = -1;
-if ((eval("x\u000A+=\u000A-1")) !== -2) {
-  $ERROR('#6: x = -1; (x\\u000A+=\\u000A-1) === -2');  
-}
+assert.sameValue(x
++=
+-1, -2, 'U+000A (expression)');
+assert.sameValue(x, -2, 'U+000A (side effect)');
 
-//CHECK#7
 x = -1;
-if ((eval("x\u000D+=\u000D-1")) !== -2) {
-  $ERROR('#7: x = -1; (x\\u000D+=\\u000D-1) === -2');
-}
+assert.sameValue(x+=-1, -2, 'U+000D (expression)');
+assert.sameValue(x, -2, 'U+000D (side effect)');
 
-//CHECK#8
 x = -1;
-if ((eval("x\u2028+=\u2028-1")) !== -2) {
-  $ERROR('#8: x = -1; (x\\u2028+=\\u2028-1) === -2');
-}
+assert.sameValue(x += -1, -2, 'U+2028 (expression)');
+assert.sameValue(x, -2, 'U+2028 (side effect)');
 
-//CHECK#9
 x = -1;
-if ((eval("x\u2029+=\u2029-1")) !== -2) {
-  $ERROR('#9: x = -1; (x\\u2029+=\\u2029-1) === -2');
-}
+assert.sameValue(x += -1, -2, 'U+2029 (expression)');
+assert.sameValue(x, -2, 'U+2029 (side effect)');
 
-
-//CHECK#10
 x = -1;
-if ((eval("x\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029+=\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029-1")) !== -2) {
-  $ERROR('#10: x = -1; (x\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029+=\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029-1) === -2');
-}
+assert.sameValue(x	  
+  +=	  
+  -1, -2, 'U+0009U+000BU+000CU+0020U+00A0U+000AU+000DU+2028U+2029 (expression)');
+assert.sameValue(x, -2, 'U+0009U+000BU+000CU+0020U+00A0U+000AU+000DU+2028U+2029 (side effect)');
