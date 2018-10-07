@@ -3,6 +3,7 @@
 
 /*---
 es5id: 11.13.2-6-9-s
+esid: sec-assignment-operators
 description: >
     Strict Mode - SyntaxError is thrown if the identifier eval appear
     as the LeftHandSideExpression of a Compound Assignment operator(&=)
