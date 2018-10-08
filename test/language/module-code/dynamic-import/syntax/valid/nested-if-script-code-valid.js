@@ -21,9 +21,9 @@ info: |
     9. Return promiseCapability.[[Promise]].
 
 ---*/
-// It is a Syntax Error if ModuleItemList Contains NewTarget
-// This is still valid in script code
-new.target;
+// This is still valid in script code, and should not be valid for module code
+// https://tc39.github.io/ecma262/#sec-scripts-static-semantics-lexicallydeclarednames
+var x; function x() {}
 
 
 if (true) {
