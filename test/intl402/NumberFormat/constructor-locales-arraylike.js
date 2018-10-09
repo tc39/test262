@@ -10,7 +10,7 @@ description: >
 
 const actual = Intl.NumberFormat({
   length: 1,
-  1: 'en-US'
+  0: 'en-US'
 }).resolvedOptions();
 const expected = Intl.NumberFormat(['en-US']).resolvedOptions();
 
