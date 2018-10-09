@@ -1,8 +1,8 @@
 // Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-desc: import() can be used in script code
-template: syntax/valid
+desc: import() from a ascript code can load a file with module code
+template: default
 ---*/
 
 //- setup
@@ -11,4 +11,8 @@ template: syntax/valid
 var smoosh; function smoosh() {}
 
 //- import
-import('./empty_FIXTURE.js')
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(imported.default, 42);
+assert.sameValue(imported.x, 'Test262');
+assert.sameValue(imported.z, 42);
