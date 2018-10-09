@@ -13,8 +13,8 @@ info: |
   PrivateName ::
     # IdentifierName
 
-  SuperProperty[Yield, Await]:
-    super[Expression[+In, ?Yield, ?Await]]
+  SuperProperty:
+    super[Expression]
     super.IdentifierName
 
 template: syntax/invalid
