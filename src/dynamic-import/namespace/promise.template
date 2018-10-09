@@ -2,8 +2,8 @@
 // Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/module-code/dynamic-import/module-namespace-object/await-
-name: value from await resolving
+path: language/module-code/dynamic-import/ns/promise-then-
+name: value from promise then
 esid: sec-finishdynamicimport
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
@@ -72,10 +72,8 @@ features: [dynamic-import]
 flags: [async]
 ---*/
 
-async function fn() {
-    const imported = await /*{ import }*/;
+/*{ import }*/.then(ns => {
 
     /*{ body }*/
-}
 
-fn().then($DONE, $DONE).catch($DONE);
+}).then($DONE, $DONE).catch($DONE);

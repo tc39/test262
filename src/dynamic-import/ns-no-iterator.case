@@ -3,11 +3,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: Module namespace objects lack a Symbol.toStringTag
-template: module-namespace-object
+template: namespace
 features: [Symbol.iterator]
 ---*/
 
 //- import
 import('./module-code_FIXTURE.js')
 //- body
-assert.sameValue(Object.prototype.hasOwnProperty.call(imported, Symbol.iterator), false);
+assert.sameValue(Object.prototype.hasOwnProperty.call(ns, Symbol.iterator), false);
