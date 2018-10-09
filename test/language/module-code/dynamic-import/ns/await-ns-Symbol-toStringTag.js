@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-Symbol-toStringTag.case
-// - src/dynamic-import/module-namespace-object/promise.template
+// - src/dynamic-import/ns-Symbol-toStringTag.case
+// - src/dynamic-import/namespace/await.template
 /*---
-description: Module namespace objects have a Symbol.toStringTag (value from promise then)
+description: Module namespace objects have a Symbol.toStringTag (value from await resolving)
 esid: sec-finishdynamicimport
 features: [Symbol.toStringTag, dynamic-import]
 flags: [generated, async]
@@ -79,18 +79,20 @@ info: |
 
 ---*/
 
-import('./module-code_FIXTURE.js').then(imported => {
+async function fn() {
+    const ns = await import('./module-code_FIXTURE.js');
 
-    assert.sameValue(imported[Symbol.toStringTag], 'Module');
+    assert.sameValue(ns[Symbol.toStringTag], 'Module');
 
     // propertyHelper.js is not appropriate for this test because it assumes that
     // the object exposes the ordinary object's implementation of [[Get]], [[Set]],
 // [[Delete]], and [[OwnPropertyKeys]], which the module namespace exotic
 // object does not.
-var desc = Object.getOwnPropertyDescriptor(imported, Symbol.toStringTag);
+var desc = Object.getOwnPropertyDescriptor(ns, Symbol.toStringTag);
 
 assert.sameValue(desc.enumerable, false, 'reports as non-enumerable');
 assert.sameValue(desc.writable, false, 'reports as non-writable');
 assert.sameValue(desc.configurable, false, 'reports as non-configurable');
+}
 
-}).then($DONE, $DONE).catch($DONE);
+fn().then($DONE, $DONE).catch($DONE);

@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-no-iterator.case
-// - src/dynamic-import/module-namespace-object/await.template
+// - src/dynamic-import/ns-Symbol-toStringTag.case
+// - src/dynamic-import/namespace/promise.template
 /*---
-description: Module namespace objects lack a Symbol.toStringTag (value from await resolving)
+description: Module namespace objects have a Symbol.toStringTag (value from promise then)
 esid: sec-finishdynamicimport
-features: [Symbol.iterator, dynamic-import]
+features: [Symbol.toStringTag, dynamic-import]
 flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
@@ -69,12 +69,28 @@ info: |
         object. Each such property has the attributes { [[Writable]]: true, [[Enumerable]]: true,
         [[Configurable]]: false }. Module namespace objects are not extensible.
 
+
+    @@toStringTag
+
+        The initial value of the @@toStringTag property is the String value "Module".
+
+        This property has the attributes { [[Writable]]: false, [[Enumerable]]: false,
+            [[Configurable]]: false }.
+
 ---*/
 
-async function fn() {
-    const imported = await import('./module-code_FIXTURE.js');
+import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(Object.prototype.hasOwnProperty.call(imported, Symbol.iterator), false);
-}
+    assert.sameValue(ns[Symbol.toStringTag], 'Module');
 
-fn().then($DONE, $DONE).catch($DONE);
+    // propertyHelper.js is not appropriate for this test because it assumes that
+    // the object exposes the ordinary object's implementation of [[Get]], [[Set]],
+// [[Delete]], and [[OwnPropertyKeys]], which the module namespace exotic
+// object does not.
+var desc = Object.getOwnPropertyDescriptor(ns, Symbol.toStringTag);
+
+assert.sameValue(desc.enumerable, false, 'reports as non-enumerable');
+assert.sameValue(desc.writable, false, 'reports as non-writable');
+assert.sameValue(desc.configurable, false, 'reports as non-configurable');
+
+}).then($DONE, $DONE).catch($DONE);

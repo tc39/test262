@@ -1,11 +1,12 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-prop-descs.case
-// - src/dynamic-import/module-namespace-object/await.template
+// - src/dynamic-import/ns-extensible.case
+// - src/dynamic-import/namespace/promise.template
 /*---
-description: imported object properties descriptors (value from await resolving)
+description: Module namespace objects are not extensible. (value from promise then)
 esid: sec-finishdynamicimport
 features: [dynamic-import]
 flags: [generated, async]
+includes: [propertyHelper.js]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -71,33 +72,8 @@ info: |
 
 ---*/
 
-async function fn() {
-    const imported = await import('./module-code_FIXTURE.js');
+import('./module-code_FIXTURE.js').then(ns => {
 
-    // propertyHelper.js is not appropriate for this test because it assumes that
-    // the object exposes the ordinary object's implementation of [[Get]], [[Set]],
-// [[Delete]], and [[OwnPropertyKeys]], which the module namespace exotic
-// object does not.
-var desc = Object.getOwnPropertyDescriptor(imported, 'default');
+    assert.sameValue(Object.isExtensible(ns), false);
 
-assert.sameValue(desc.value, 42, 'default value is 42');
-assert.sameValue(desc.enumerable, true, 'default reports as enumerable');
-assert.sameValue(desc.writable, true, 'default reports as writable');
-assert.sameValue(desc.configurable, false, 'default reports as non-configurable');
-
-desc = Object.getOwnPropertyDescriptor(imported, 'x');
-
-assert.sameValue(desc.value, 'Test262', 'x value is "Test262"');
-assert.sameValue(desc.enumerable, true, 'x reports as enumerable');
-assert.sameValue(desc.writable, true, 'x reports as writable');
-assert.sameValue(desc.configurable, false, 'x reports as non-configurable');
-
-desc = Object.getOwnPropertyDescriptor(imported, 'z');
-
-assert.sameValue(desc.value, 42, 'z value is 42');
-assert.sameValue(desc.enumerable, true, 'z reports as enumerable');
-assert.sameValue(desc.writable, true, 'z reports as writable');
-assert.sameValue(desc.configurable, false, 'z reports as non-configurable');
-}
-
-fn().then($DONE, $DONE).catch($DONE);
+}).then($DONE, $DONE).catch($DONE);

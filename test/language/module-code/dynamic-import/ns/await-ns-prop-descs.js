@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-Symbol-toStringTag.case
-// - src/dynamic-import/module-namespace-object/await.template
+// - src/dynamic-import/ns-prop-descs.case
+// - src/dynamic-import/namespace/await.template
 /*---
-description: Module namespace objects have a Symbol.toStringTag (value from await resolving)
+description: imported object properties descriptors (value from await resolving)
 esid: sec-finishdynamicimport
-features: [Symbol.toStringTag, dynamic-import]
+features: [dynamic-import]
 flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
@@ -69,30 +69,35 @@ info: |
         object. Each such property has the attributes { [[Writable]]: true, [[Enumerable]]: true,
         [[Configurable]]: false }. Module namespace objects are not extensible.
 
-
-    @@toStringTag
-
-        The initial value of the @@toStringTag property is the String value "Module".
-
-        This property has the attributes { [[Writable]]: false, [[Enumerable]]: false,
-            [[Configurable]]: false }.
-
 ---*/
 
 async function fn() {
-    const imported = await import('./module-code_FIXTURE.js');
-
-    assert.sameValue(imported[Symbol.toStringTag], 'Module');
+    const ns = await import('./module-code_FIXTURE.js');
 
     // propertyHelper.js is not appropriate for this test because it assumes that
     // the object exposes the ordinary object's implementation of [[Get]], [[Set]],
 // [[Delete]], and [[OwnPropertyKeys]], which the module namespace exotic
 // object does not.
-var desc = Object.getOwnPropertyDescriptor(imported, Symbol.toStringTag);
+var desc = Object.getOwnPropertyDescriptor(ns, 'default');
 
-assert.sameValue(desc.enumerable, false, 'reports as non-enumerable');
-assert.sameValue(desc.writable, false, 'reports as non-writable');
-assert.sameValue(desc.configurable, false, 'reports as non-configurable');
+assert.sameValue(desc.value, 42, 'default value is 42');
+assert.sameValue(desc.enumerable, true, 'default reports as enumerable');
+assert.sameValue(desc.writable, true, 'default reports as writable');
+assert.sameValue(desc.configurable, false, 'default reports as non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'x');
+
+assert.sameValue(desc.value, 'Test262', 'x value is "Test262"');
+assert.sameValue(desc.enumerable, true, 'x reports as enumerable');
+assert.sameValue(desc.writable, true, 'x reports as writable');
+assert.sameValue(desc.configurable, false, 'x reports as non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'z');
+
+assert.sameValue(desc.value, 42, 'z value is 42');
+assert.sameValue(desc.enumerable, true, 'z reports as enumerable');
+assert.sameValue(desc.writable, true, 'z reports as writable');
+assert.sameValue(desc.configurable, false, 'z reports as non-configurable');
 }
 
 fn().then($DONE, $DONE).catch($DONE);

@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-prototype.case
-// - src/dynamic-import/module-namespace-object/promise.template
+// - src/dynamic-import/ns-prop-descs.case
+// - src/dynamic-import/namespace/promise.template
 /*---
-description: Module namespace object prototype is null (value from promise then)
+description: imported object properties descriptors (value from promise then)
 esid: sec-finishdynamicimport
 features: [dynamic-import]
 flags: [generated, async]
@@ -71,8 +71,31 @@ info: |
 
 ---*/
 
-import('./module-code_FIXTURE.js').then(imported => {
+import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(Object.getPrototypeOf(imported), null, 'prototype is null');
+    // propertyHelper.js is not appropriate for this test because it assumes that
+    // the object exposes the ordinary object's implementation of [[Get]], [[Set]],
+// [[Delete]], and [[OwnPropertyKeys]], which the module namespace exotic
+// object does not.
+var desc = Object.getOwnPropertyDescriptor(ns, 'default');
+
+assert.sameValue(desc.value, 42, 'default value is 42');
+assert.sameValue(desc.enumerable, true, 'default reports as enumerable');
+assert.sameValue(desc.writable, true, 'default reports as writable');
+assert.sameValue(desc.configurable, false, 'default reports as non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'x');
+
+assert.sameValue(desc.value, 'Test262', 'x value is "Test262"');
+assert.sameValue(desc.enumerable, true, 'x reports as enumerable');
+assert.sameValue(desc.writable, true, 'x reports as writable');
+assert.sameValue(desc.configurable, false, 'x reports as non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'z');
+
+assert.sameValue(desc.value, 42, 'z value is 42');
+assert.sameValue(desc.enumerable, true, 'z reports as enumerable');
+assert.sameValue(desc.writable, true, 'z reports as writable');
+assert.sameValue(desc.configurable, false, 'z reports as non-configurable');
 
 }).then($DONE, $DONE).catch($DONE);

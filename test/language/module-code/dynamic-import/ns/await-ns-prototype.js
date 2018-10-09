@@ -1,12 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-extensible.case
-// - src/dynamic-import/module-namespace-object/promise.template
+// - src/dynamic-import/ns-prototype.case
+// - src/dynamic-import/namespace/await.template
 /*---
-description: Module namespace objects are not extensible. (value from promise then)
+description: Module namespace object prototype is null (value from await resolving)
 esid: sec-finishdynamicimport
 features: [dynamic-import]
 flags: [generated, async]
-includes: [propertyHelper.js]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -72,8 +71,10 @@ info: |
 
 ---*/
 
-import('./module-code_FIXTURE.js').then(imported => {
+async function fn() {
+    const ns = await import('./module-code_FIXTURE.js');
 
-    assert.sameValue(Object.isExtensible(imported), false);
+    assert.sameValue(Object.getPrototypeOf(ns), null, 'prototype is null');
+}
 
-}).then($DONE, $DONE).catch($DONE);
+fn().then($DONE, $DONE).catch($DONE);

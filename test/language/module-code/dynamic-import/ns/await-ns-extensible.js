@@ -1,11 +1,12 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-no-iterator.case
-// - src/dynamic-import/module-namespace-object/promise.template
+// - src/dynamic-import/ns-extensible.case
+// - src/dynamic-import/namespace/await.template
 /*---
-description: Module namespace objects lack a Symbol.toStringTag (value from promise then)
+description: Module namespace objects are not extensible. (value from await resolving)
 esid: sec-finishdynamicimport
-features: [Symbol.iterator, dynamic-import]
+features: [dynamic-import]
 flags: [generated, async]
+includes: [propertyHelper.js]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -71,8 +72,10 @@ info: |
 
 ---*/
 
-import('./module-code_FIXTURE.js').then(imported => {
+async function fn() {
+    const ns = await import('./module-code_FIXTURE.js');
 
-    assert.sameValue(Object.prototype.hasOwnProperty.call(imported, Symbol.iterator), false);
+    assert.sameValue(Object.isExtensible(ns), false);
+}
 
-}).then($DONE, $DONE).catch($DONE);
+fn().then($DONE, $DONE).catch($DONE);

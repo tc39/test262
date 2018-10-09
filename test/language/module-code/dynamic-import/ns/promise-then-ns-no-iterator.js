@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/imported-prototype.case
-// - src/dynamic-import/module-namespace-object/await.template
+// - src/dynamic-import/ns-no-iterator.case
+// - src/dynamic-import/namespace/promise.template
 /*---
-description: Module namespace object prototype is null (value from await resolving)
+description: Module namespace objects lack a Symbol.toStringTag (value from promise then)
 esid: sec-finishdynamicimport
-features: [dynamic-import]
+features: [Symbol.iterator, dynamic-import]
 flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
@@ -71,10 +71,8 @@ info: |
 
 ---*/
 
-async function fn() {
-    const imported = await import('./module-code_FIXTURE.js');
+import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(Object.getPrototypeOf(imported), null, 'prototype is null');
-}
+    assert.sameValue(Object.prototype.hasOwnProperty.call(ns, Symbol.iterator), false);
 
-fn().then($DONE, $DONE).catch($DONE);
+}).then($DONE, $DONE).catch($DONE);
