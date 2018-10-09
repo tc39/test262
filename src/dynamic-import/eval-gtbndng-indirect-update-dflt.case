@@ -20,8 +20,8 @@ info: |
 template: default
 ---*/
 
-//- params
-'./eval-gtbndng-indirect-update-dflt_FIXTURE.js'
+//- import
+import('./eval-gtbndng-indirect-update-dflt_FIXTURE.js')
 //- body
 assert.sameValue(imported.default(), 1);
 assert.sameValue(imported.default, 2);

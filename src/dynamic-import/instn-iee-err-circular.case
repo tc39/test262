@@ -23,7 +23,7 @@ info: |
 template: catch
 ---*/
 
-//- params
-'./instn-iee-err-circular-1_FIXTURE.js'
+//- import
+import('./instn-iee-err-circular-1_FIXTURE.js')
 //- body
 assert.sameValue(error.name, 'SyntaxError');

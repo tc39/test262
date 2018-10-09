@@ -25,7 +25,7 @@ flags: [async]
 ---*/
 
 async function f() {
-  await import(/*{ params }*/).catch(error => {
+  await /*{ import }*/.catch(error => {
 
     /*{ body }*/
 

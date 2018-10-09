@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    Non existent file can't resolve to a Script or Module Record
+esid: sec-hostresolveimportedmodule
+info: |
+    If a Module Record corresponding to the pair referencingModulereferencingScriptOrModule,
+    specifier does not exist or cannot be created, an exception must be thrown.
+template: catch
+---*/
+
+//- import
+import('./THIS_FILE_DOES_NOT_EXIST.js')
+//- body
+assert.notSameValue(typeof error, 'undefined');

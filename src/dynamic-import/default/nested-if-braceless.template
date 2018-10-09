@@ -24,7 +24,7 @@ features: [dynamic-import]
 flags: [async]
 ---*/
 
-if (true) import(/*{ params }*/).then(imported => {
+if (true) /*{ import }*/.then(imported => {
 
   /*{ body }*/
 

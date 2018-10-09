@@ -27,7 +27,7 @@ flags: [async]
 let x = 0;
 while (!x) {
   x++;
-  import(/*{ params }*/).then(imported => {
+  /*{ import }*/.then(imported => {
 
     /*{ body }*/
 

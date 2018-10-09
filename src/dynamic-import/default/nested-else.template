@@ -27,7 +27,7 @@ flags: [async]
 if (false) {
 
 } else {
-  import(/*{ params }*/).then(imported => {
+  /*{ import }*/.then(imported => {
 
     /*{ body }*/
 
