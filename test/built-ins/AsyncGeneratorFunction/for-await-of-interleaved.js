@@ -45,7 +45,7 @@ async function checkAssertions() {
     'Async/await and promises should be interleaved');
 }
 
-async function countdown(counter) {
+function countdown(counter) {
   actual.push('Promise: ' + counter);
   if (counter > 0) {
     return Promise.resolve(counter - 1).then(countdown);
