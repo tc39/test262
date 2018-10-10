@@ -24,7 +24,7 @@ features: [dynamic-import]
 flags: [async]
 ---*/
 
-import(/*{ params }*/).then(imported => {
+/*{ import }*/.then(imported => {
 
   /*{ body }*/
 

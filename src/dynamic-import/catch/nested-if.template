@@ -25,7 +25,7 @@ flags: [async]
 ---*/
 
 if (true) {
-  import(/*{ params }*/).catch(error => {
+  /*{ import }*/.catch(error => {
 
     /*{ body }*/
 

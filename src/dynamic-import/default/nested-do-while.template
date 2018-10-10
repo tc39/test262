@@ -25,7 +25,7 @@ flags: [async]
 ---*/
 
 do {
-  import(/*{ params }*/).then(imported => {
+  /*{ import }*/.then(imported => {
 
     /*{ body }*/
 

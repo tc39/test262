@@ -14,7 +14,7 @@ info: |
 template: catch
 ---*/
 
-//- params
-'./eval-rqstd-abrupt-err-uri_FIXTURE.js'
+//- import
+import('./eval-rqstd-abrupt-err-uri_FIXTURE.js')
 //- body
 assert.sameValue(error.name, 'URIError');

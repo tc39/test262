@@ -5,7 +5,7 @@
 description: Calling import('') (nested while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, module]
+flags: [generated]
 info: |
     ImportCall :
         import( AssignmentExpression )

@@ -8,8 +8,6 @@ esid: sec-import-call-runtime-semantics-evaluation
 info: |
   ImportCall :
       import( AssignmentExpression )
-
-flags: [module]
 features: [dynamic-import]
 negative:
   phase: parse

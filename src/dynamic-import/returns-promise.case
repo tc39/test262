@@ -6,7 +6,7 @@ desc: Dynamic import() returns a Promise object.
 template: default
 ---*/
 
-//- params
-'./dynamic-import-module_FIXTURE.js'
+//- import
+import('./dynamic-import-module_FIXTURE.js')
 //- body
 assert.sameValue(imported.x, 1);

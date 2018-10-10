@@ -62,7 +62,7 @@ for (const [numeric, expected] of validNumericOptions) {
 
   assert.sameValue(
     new Intl.Locale('en-u-kf-lower', {numeric}).numeric,
-    String(expected),
+    expected,
     `new Intl.Locale("en-u-kf-lower", {numeric: ${numeric}}).numeric equals "${expected}"`
   );
 }

@@ -5,7 +5,7 @@
 description: It's a SyntaxError if AssignmentExpression is omitted (nested if syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
-flags: [generated, module]
+flags: [generated]
 negative:
   phase: parse
   type: SyntaxError

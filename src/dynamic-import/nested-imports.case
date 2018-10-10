@@ -1,0 +1,9 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is a CallExpression can be nested in other import calls
+template: syntax/valid
+---*/
+
+//- import
+import(import(import('./empty_FIXTURE.js')))

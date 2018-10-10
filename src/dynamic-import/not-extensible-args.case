@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is not extensible - no arguments list
+template: syntax/invalid
+info: |
+  ImportCall :
+      import( AssignmentExpression[+In, ?Yield] )
+
+  Forbidden Extensions
+
+  - ImportCall must not be extended.
+---*/
+
+//- import
+import('', '')
