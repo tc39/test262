@@ -5,10 +5,10 @@
 esid: sec-Intl.ListFormat
 description: Checks the order of operations on the options argument to the ListFormat constructor.
 info: |
-    InitializeListFormat (listFormat, locales, options)
-    7. Let matcher be ? GetOption(options, "localeMatcher", "string", «"lookup", "best fit"», "best fit").
-    14. Let s be ? GetOption(options, "style", "string", «"long", "short", "narrow"», "long").
-    16. Let numeric be ? GetOption(options, "numeric", "string", «"always", "auto"», "always").
+    Intl.ListFormat ( [ locales [ , options ] ] )
+    7. Let type be GetOption(options, "type", "string", « "conjunction", "disjunction", "unit" », "conjunction").
+    9. Let style be GetOption(options, "style", "string", « "long", "short", "narrow" », "long").
+    12. Let matcher be ? GetOption(options, "localeMatcher", "string", « "lookup", "best fit" », "best fit").
 includes: [compareArray.js]
 features: [Intl.ListFormat]
 ---*/
@@ -16,6 +16,16 @@ features: [Intl.ListFormat]
 const callOrder = [];
 
 new Intl.ListFormat([], {
+  get localeMatcher() {
+    callOrder.push("localeMatcher");
+    return {
+      toString() {
+        callOrder.push("localeMatcher toString");
+        return "best fit";
+      }
+    };
+  },
+
   get type() {
     callOrder.push("type");
     return {
@@ -25,6 +35,7 @@ new Intl.ListFormat([], {
       }
     };
   },
+
   get style() {
     callOrder.push("style");
     return {
@@ -41,4 +52,6 @@ assert.compareArray(callOrder, [
   "type toString",
   "style",
   "style toString",
+  "localeMatcher",
+  "localeMatcher toString",
 ]);
