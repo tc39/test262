@@ -15,6 +15,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 await: 1;

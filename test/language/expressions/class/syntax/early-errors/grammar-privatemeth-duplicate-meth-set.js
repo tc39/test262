@@ -18,7 +18,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {
   set #m(_) {}

@@ -22,7 +22,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   async * # m() {}

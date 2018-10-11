@@ -17,6 +17,6 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 { var f; class f {}; }

@@ -14,7 +14,7 @@ negative:
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 //- elems
 { eval }
 //- vals

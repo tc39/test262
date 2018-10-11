@@ -13,6 +13,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 /\p{Line_Break=Alphabetic}/u;

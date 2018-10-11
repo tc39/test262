@@ -17,6 +17,6 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 { const f = 0; class f {}; }

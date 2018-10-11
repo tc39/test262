@@ -17,6 +17,6 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 yi\u0065ld: 1;

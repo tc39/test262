@@ -11,6 +11,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var thro\u0077 = 123;

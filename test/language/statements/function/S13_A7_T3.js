@@ -10,6 +10,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function __func(){\A\B\C};

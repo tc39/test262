@@ -27,7 +27,7 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 async function fn() {
   for await ([[x[yield]]] of [[[]]])

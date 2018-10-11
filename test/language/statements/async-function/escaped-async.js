@@ -19,6 +19,6 @@ negative:
 features: [async-functions]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 \u0061sync function f(){}

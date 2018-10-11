@@ -13,6 +13,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 /\p{Other_Math}/u;

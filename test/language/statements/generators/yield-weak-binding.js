@@ -11,6 +11,6 @@ negative:
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function* g() { yield 3 + yield 4; }

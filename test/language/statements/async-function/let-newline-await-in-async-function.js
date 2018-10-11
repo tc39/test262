@@ -16,7 +16,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 async function f() {
     let

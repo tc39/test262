@@ -10,7 +10,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 //CHECK#1
 var x = 1;

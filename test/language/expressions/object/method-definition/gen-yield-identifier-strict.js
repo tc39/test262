@@ -16,7 +16,7 @@ info: |
       * PropertyName[?Yield, ?Await] ( UniqueFormalParameters[+Yield, ~Await] ) { GeneratorBody }
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var callCount = 0;
 

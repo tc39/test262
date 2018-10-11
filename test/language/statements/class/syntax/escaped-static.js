@@ -18,7 +18,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   st\u0061tic m() {}

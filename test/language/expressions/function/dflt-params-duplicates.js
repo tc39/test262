@@ -54,7 +54,7 @@ info: |
       elements.
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, function(x = 0, x) {
   

@@ -18,7 +18,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class extends Function{
   async * #method() {

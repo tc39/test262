@@ -12,6 +12,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 /\p{Line_Breakz=Alphabetic}/u;

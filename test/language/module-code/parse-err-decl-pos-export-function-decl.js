@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function f() { export default null; }

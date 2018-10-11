@@ -12,6 +12,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 // single line LS> ??? (invalid)

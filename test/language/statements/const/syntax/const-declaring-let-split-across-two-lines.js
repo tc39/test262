@@ -13,7 +13,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 const
 let = "irrelevant initializer";

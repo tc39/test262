@@ -15,6 +15,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 /[\p{Hex}--]/u;

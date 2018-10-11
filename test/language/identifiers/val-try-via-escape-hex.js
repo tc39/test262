@@ -11,6 +11,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var \u{74}\u{72}\u{79} = 123;

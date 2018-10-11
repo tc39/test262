@@ -8,6 +8,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 `\u{10FFFFF}${'inner'}right`;

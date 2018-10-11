@@ -18,6 +18,6 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 { const f = 0; async function f() {} }

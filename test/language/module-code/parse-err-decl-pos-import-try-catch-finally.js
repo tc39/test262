@@ -9,7 +9,7 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 try { } catch (err) { } finally {
   import v from './decl-pos-import-try-catch-finally.js';

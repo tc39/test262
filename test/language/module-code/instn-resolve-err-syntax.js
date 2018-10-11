@@ -16,6 +16,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 import './instn-resolve-err-syntax_FIXTURE.js';

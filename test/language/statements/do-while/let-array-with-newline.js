@@ -15,7 +15,7 @@ negative:
 flags: [noStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 do let
 [x] = 0

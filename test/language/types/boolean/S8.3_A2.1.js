@@ -10,6 +10,6 @@ negative:
   type: ReferenceError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 true = 1;

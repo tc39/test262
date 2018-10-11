@@ -18,7 +18,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   static set prototype(_) {}

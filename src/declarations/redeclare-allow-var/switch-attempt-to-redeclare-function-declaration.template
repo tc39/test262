@@ -15,6 +15,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 switch (0) { case 1: function f() {} default: /*{ body }*/ }

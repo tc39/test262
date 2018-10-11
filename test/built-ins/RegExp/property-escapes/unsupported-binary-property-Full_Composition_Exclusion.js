@@ -13,6 +13,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 /\p{Full_Composition_Exclusion}/u;

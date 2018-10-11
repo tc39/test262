@@ -11,6 +11,6 @@ negative:
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 with ({}) function* g() {}

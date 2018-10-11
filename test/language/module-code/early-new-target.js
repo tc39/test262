@@ -11,6 +11,6 @@ negative:
 features: [new.target]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 new.target;

@@ -18,6 +18,6 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 { class f {} async function f() {} }

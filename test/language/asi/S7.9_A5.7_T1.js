@@ -16,7 +16,7 @@ negative:
   type: ReferenceError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var x=0, y=0;
 var z=

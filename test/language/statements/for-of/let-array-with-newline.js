@@ -15,7 +15,7 @@ negative:
 flags: [noStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (var x of []) let
 [a] = 0;

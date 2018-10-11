@@ -11,6 +11,6 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var eval;

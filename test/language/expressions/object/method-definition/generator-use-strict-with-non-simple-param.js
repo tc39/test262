@@ -15,7 +15,7 @@ negative:
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var o = {
   *m(a = 0) {

@@ -19,6 +19,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 import* \u0061s self from "./escaped-as-namespace-import.js";

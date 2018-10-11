@@ -15,7 +15,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function g() {
     // Create an outer block-statement.

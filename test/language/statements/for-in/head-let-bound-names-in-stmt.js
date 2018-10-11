@@ -12,7 +12,7 @@ esid: sec-for-in-and-for-of-statements-static-semantics-early-errors
 es6id: 13.7.5
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (let x in {}) {
   var x;

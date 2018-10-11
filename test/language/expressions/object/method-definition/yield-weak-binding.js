@@ -11,7 +11,7 @@
     type: SyntaxError
  ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var obj = {
   *g() { yield 3 + yield 4; }

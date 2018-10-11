@@ -82,7 +82,7 @@ info: |
       ...BindingPattern[?Yield]
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, class {
   *method(...x = []) {

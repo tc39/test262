@@ -9,7 +9,7 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (let y of [])
   import v from './decl-pos-import-for-of-let.js';

@@ -26,7 +26,7 @@ info: |
         [ BindingElementList[?Yield] ]
         [ BindingElementList[?Yield] , Elisionopt BindingRestElement[?Yield]opt ]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 let [...x, y] = [1, 2, 3];
 

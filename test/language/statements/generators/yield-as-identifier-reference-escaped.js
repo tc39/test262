@@ -22,7 +22,7 @@ info: |
     StringValue of Identifier is "yield".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function *gen() {
   void yi\u0065ld;

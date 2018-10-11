@@ -22,7 +22,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {
   static # m() {}

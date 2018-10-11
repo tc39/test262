@@ -21,6 +21,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 with ({}) label1: label2: function test262() {}

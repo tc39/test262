@@ -24,7 +24,7 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 // Create an appropriately-named ExportEntry in order to avoid false positives
 // (e.g. cases where the implementation does not generate the expected early

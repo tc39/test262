@@ -18,6 +18,6 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 switch (0) { case 1: function f() {} default: async function* f() {} }

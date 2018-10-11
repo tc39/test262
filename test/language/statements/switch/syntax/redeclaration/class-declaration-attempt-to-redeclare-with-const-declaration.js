@@ -17,6 +17,6 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 switch (0) { case 1: class f {} default: const f = 0; }

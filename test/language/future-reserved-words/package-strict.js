@@ -18,6 +18,6 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var package = 1;

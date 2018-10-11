@@ -22,7 +22,7 @@ info: |
     StringValue of Identifier is "await".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 var fn = async function fn() {

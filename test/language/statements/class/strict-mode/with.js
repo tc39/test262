@@ -9,7 +9,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C extends (function B() { with ({}); return B; }()) {}
 

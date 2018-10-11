@@ -15,5 +15,5 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 var af = arguments => 1;

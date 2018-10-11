@@ -61,7 +61,7 @@ info: |
       ...BindingPattern[?Yield]
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, class {
   static async *method(...x = []) {

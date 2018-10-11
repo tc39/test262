@@ -64,7 +64,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   \u200D_ZWJ;

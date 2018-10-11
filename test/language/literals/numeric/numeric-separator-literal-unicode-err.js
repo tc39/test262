@@ -21,6 +21,6 @@ negative:
 features: [numeric-separator-literal]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 1\u005F0123456789

@@ -13,6 +13,6 @@ negative:
 features: [regexp-unicode-property-escapes]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 /\\p{Script_Extensions=H_e_h}/u;

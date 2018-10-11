@@ -19,6 +19,6 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var \u0073\u0074\u0061\u0074\u0069\u0063 = 123;

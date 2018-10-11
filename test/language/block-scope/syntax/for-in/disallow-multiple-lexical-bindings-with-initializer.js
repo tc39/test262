@@ -10,6 +10,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 for (let x = 3, y = 4 in {}) { }
 

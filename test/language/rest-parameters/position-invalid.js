@@ -9,5 +9,5 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 function f(a, ...b, c) {}

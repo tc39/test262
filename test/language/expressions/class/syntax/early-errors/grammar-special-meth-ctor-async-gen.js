@@ -18,7 +18,7 @@ info: |
 ---*/
 
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {
   async * constructor() {}

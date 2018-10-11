@@ -18,7 +18,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function f() {
     new.t\u0061rget;

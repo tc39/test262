@@ -59,7 +59,7 @@ info: |
       ...BindingPattern[?Yield]
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function* f(...x = []) {
   

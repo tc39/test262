@@ -11,7 +11,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 x --;
 // The preceding line contains an unprintable LINE SEPARATOR character (U+2028)

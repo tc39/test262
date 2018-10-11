@@ -14,7 +14,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var f = function(a = 0) {
   "use strict";

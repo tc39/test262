@@ -9,6 +9,6 @@ negative:
   phase: parse
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 !!!

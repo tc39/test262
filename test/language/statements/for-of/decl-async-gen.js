@@ -15,6 +15,6 @@ negative:
 features: [async-iteration]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (var x of []) async function* g() {}

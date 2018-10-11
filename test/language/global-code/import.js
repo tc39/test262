@@ -16,6 +16,6 @@ info: |
          StatementList
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 import v from './import.js';

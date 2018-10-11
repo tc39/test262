@@ -47,7 +47,7 @@ info: |
         [ BindingElementList[?Yield] ]
         [ BindingElementList[?Yield] , Elisionopt BindingRestElement[?Yield]opt ]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var callCount = 0;
 function* f([...{ x }, y] = [1, 2, 3]) {

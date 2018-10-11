@@ -15,7 +15,7 @@ negative:
 flags: [noStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 // Wrapped in an if-statement to avoid reference errors at runtime.
 if (false) {

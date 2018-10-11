@@ -16,6 +16,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 try { } catch (x) { for (var x of []) {} }

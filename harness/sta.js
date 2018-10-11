@@ -22,6 +22,6 @@ $ERROR = function $ERROR(message) {
   throw new Test262Error(message);
 };
 
-function failIfCodeGetsEvaluated() {
+function $DONOTEVALUATE() {
   throw "Test262: This statement should not be evaluated.";
 }

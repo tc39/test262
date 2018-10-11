@@ -53,7 +53,7 @@ info: |
       elements.
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, (x = 0, x) => {
   

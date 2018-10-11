@@ -17,7 +17,7 @@ info: |
         AsyncGeneratorBody }
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 var callCount = 0;

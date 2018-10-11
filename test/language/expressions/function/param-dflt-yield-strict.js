@@ -16,7 +16,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function *g() {
   0, function(x = yield) {

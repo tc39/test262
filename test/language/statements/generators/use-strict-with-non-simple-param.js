@@ -15,7 +15,7 @@ negative:
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function* f(a = 0) {
   "use strict";

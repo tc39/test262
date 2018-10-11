@@ -24,7 +24,7 @@ info: |
       ...AssignmentExpression[In, ?Yield]
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 var callCount = 0;

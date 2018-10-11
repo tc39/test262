@@ -34,7 +34,7 @@ info: |
       ...BindingPattern[?Yield]
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 ({

@@ -18,6 +18,6 @@ template: syntax
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 //- body
   var await;

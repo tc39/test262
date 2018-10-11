@@ -10,7 +10,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 class Foo {
   async foo () { super() }
 }

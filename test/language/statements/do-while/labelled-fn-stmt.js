@@ -13,6 +13,6 @@ info: |
     of the language mode.
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 do label1: label2: function f() {} while (false)

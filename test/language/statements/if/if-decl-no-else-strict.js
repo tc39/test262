@@ -19,6 +19,6 @@ info: |
     The above rules are only applied when parsing code that is not strict mode code.
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 if (true) function f() {  }

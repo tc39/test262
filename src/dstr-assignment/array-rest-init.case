@@ -12,7 +12,7 @@ negative:
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 var x;
 //- elems
 [...x = 1]

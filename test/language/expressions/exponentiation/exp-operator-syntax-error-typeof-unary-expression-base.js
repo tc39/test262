@@ -20,5 +20,5 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 typeof 1 ** 2;

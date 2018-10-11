@@ -9,7 +9,7 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 import './instn-resolve-order-depth-child_FIXTURE.js';
 import './instn-resolve-order-depth-syntax_FIXTURE.js';

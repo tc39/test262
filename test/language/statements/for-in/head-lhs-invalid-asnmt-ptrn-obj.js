@@ -15,6 +15,6 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for ({ m() {} } in {}) {}

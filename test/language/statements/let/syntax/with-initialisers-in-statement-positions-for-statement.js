@@ -10,5 +10,5 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 for (;false;) let x = 1;

@@ -8,7 +8,7 @@ name: literal ClassElementName
 features: [class, class-fields-public]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   x = /*{ initializer }*/;

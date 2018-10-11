@@ -10,6 +10,6 @@ flags: [module]
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function* g() { import v from './decl-pos-import-generator-decl.js'; }

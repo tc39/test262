@@ -12,6 +12,6 @@ negative:
 flags: [onlyStrict]
  ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var yield = 13;

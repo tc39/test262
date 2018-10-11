@@ -23,6 +23,6 @@ flags: [module]
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 export default function* () {}();

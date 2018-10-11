@@ -33,7 +33,7 @@ info: |
       elements.
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 0, async function* g(x = 0, x) {

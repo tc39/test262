@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 switch(0) { default: import v from './decl-pos-import-switch-dftl.js'; }

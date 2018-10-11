@@ -8,7 +8,7 @@ name: static PrivateName
 features: [class, class-static-fields-private]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {
   static #x = /*{ initializer }*/;

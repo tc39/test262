@@ -13,6 +13,6 @@ flags: [onlyStrict]
 features: [async-iteration]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 (async function*(eval) { });

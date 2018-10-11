@@ -12,6 +12,6 @@ es6id: 13.7.5
 flags: [noStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (const let of []) {}

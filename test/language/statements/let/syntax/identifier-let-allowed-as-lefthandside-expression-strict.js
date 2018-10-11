@@ -11,7 +11,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 var o = { a: 1 };
 for (let in o) { }
 

@@ -15,6 +15,6 @@ negative:
 features: [async-iteration]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 if (true) async function* f() {  }

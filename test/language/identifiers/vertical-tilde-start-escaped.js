@@ -11,6 +11,6 @@ negative:
   phase: parse
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var \u2E2F;

@@ -10,6 +10,6 @@ flags: [module]
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 (class { static *method() { import v from './decl-pos-import-class-expr-meth-gen-static.js'; } });

@@ -29,7 +29,7 @@ negative:
   phase: parse
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   #x;

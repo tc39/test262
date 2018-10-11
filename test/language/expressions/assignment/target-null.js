@@ -18,6 +18,6 @@ negative:
   type: ReferenceError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 null = 42;

@@ -16,7 +16,7 @@ info: |
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var callCount = 0;
 

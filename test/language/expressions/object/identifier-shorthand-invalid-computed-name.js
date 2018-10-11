@@ -24,6 +24,6 @@ negative:
 var x = "y";
 var y = 42;
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 ({[x]});

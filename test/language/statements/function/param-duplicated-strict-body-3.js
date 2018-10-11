@@ -17,6 +17,6 @@ negative:
 flags: [noStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function _13_1_28_fun(param, param, param) { 'use strict'; }

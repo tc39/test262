@@ -15,7 +15,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 // It's tempting to write `this = 0`, but that'd be a test to validate `this`
 // is not a valid simple assignment target, cf. tests in language/expressions/assignment.

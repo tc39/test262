@@ -26,7 +26,7 @@ negative:
   type: ReferenceError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function* g() {
   (yield) = 1;

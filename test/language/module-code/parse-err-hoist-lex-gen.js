@@ -21,7 +21,7 @@ flags: [module]
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var g;
 function* g() {}

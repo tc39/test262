@@ -22,6 +22,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 export {} from './parse-err-semi-export-clause-from.js' null;

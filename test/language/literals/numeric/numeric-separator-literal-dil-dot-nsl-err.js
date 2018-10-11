@@ -24,6 +24,6 @@ negative:
 features: [numeric-separator-literal]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 10._

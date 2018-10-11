@@ -12,6 +12,6 @@
   flags: [onlyStrict]
  ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 yield: 1;

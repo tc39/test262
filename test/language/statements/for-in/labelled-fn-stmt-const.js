@@ -13,6 +13,6 @@ info: |
     of the language mode.
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (const x in {}) label1: label2: function f() {}

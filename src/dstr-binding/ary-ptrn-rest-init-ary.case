@@ -16,7 +16,7 @@ info: >
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 //- elems
 [...[ x ] = []]
 //- vals

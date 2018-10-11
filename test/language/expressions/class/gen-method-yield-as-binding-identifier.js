@@ -28,7 +28,7 @@ info: |
     StringValue of Identifier is "yield".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {*gen() {
     var yield;

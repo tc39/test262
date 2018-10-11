@@ -25,7 +25,7 @@ negative:
 features: [new.target]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function f() {
   new.target++;

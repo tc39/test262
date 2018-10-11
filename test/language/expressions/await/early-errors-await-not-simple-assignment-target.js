@@ -11,7 +11,7 @@ negative:
   type: ReferenceError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 async function foo() {
   (await 1) = 1;

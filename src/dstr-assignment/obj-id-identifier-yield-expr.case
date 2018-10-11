@@ -15,7 +15,7 @@ negative:
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 (function*() {
 //- elems
 { yield }

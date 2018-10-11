@@ -35,6 +35,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 export {} from './instn-resolve-empty-export_FIXTURE.js';

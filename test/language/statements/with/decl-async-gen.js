@@ -16,6 +16,6 @@ features: [async-iteration]
 flags: [noStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 with ({}) async function* g() {}

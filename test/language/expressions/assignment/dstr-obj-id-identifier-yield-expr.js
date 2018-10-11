@@ -19,7 +19,7 @@ info: |
     4. Return the result of performing BindingInitialization for
        BindingPattern passing rval and undefined as arguments.
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 (function*() {
 
 0, { yield } = {};

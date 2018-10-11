@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 switch(0) { case 1: import v from './decl-pos-import-switch-case.js'; }

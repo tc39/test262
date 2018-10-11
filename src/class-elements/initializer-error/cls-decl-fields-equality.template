@@ -8,7 +8,7 @@ name: equality expression
 features: [class, class-fields-public]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   x = {} == /*{ initializer }*/;

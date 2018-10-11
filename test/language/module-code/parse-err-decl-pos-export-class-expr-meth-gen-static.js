@@ -10,6 +10,6 @@ flags: [module]
 features: [generators]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 (class { static *method() { export default null; } });

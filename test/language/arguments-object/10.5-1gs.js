@@ -10,7 +10,7 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 function f_10_5_1_gs(){

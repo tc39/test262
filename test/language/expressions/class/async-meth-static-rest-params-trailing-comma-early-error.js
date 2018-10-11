@@ -51,7 +51,7 @@ info: |
         FormalParameterList[?Yield, ?Await] ,
         FormalParameterList[?Yield, ?Await] , FunctionRestParameter[?Yield, ?Await]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {
   static async method(...a,) {

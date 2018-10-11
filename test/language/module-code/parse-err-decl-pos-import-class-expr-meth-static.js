@@ -9,6 +9,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 (class { static method() { import v from './decl-pos-import-class-expr-meth-static.js'; } });

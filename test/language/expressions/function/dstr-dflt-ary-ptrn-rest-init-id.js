@@ -47,7 +47,7 @@ info: |
         [ BindingElementList[?Yield] ]
         [ BindingElementList[?Yield] , Elisionopt BindingRestElement[?Yield]opt ]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var callCount = 0;
 var f;

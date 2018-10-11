@@ -12,7 +12,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 function SwitchTest(value){
   var result = 0;

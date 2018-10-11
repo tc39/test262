@@ -22,7 +22,7 @@ info: |
       * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var callCount = 0;
 

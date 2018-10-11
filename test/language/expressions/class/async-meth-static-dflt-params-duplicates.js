@@ -55,7 +55,7 @@ info: |
       elements.
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var C = class {
   static async method(x = 0, x) {

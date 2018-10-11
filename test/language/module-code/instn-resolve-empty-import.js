@@ -41,6 +41,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 import {} from './instn-resolve-empty-import_FIXTURE.js';

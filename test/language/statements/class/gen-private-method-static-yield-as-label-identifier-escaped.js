@@ -28,7 +28,7 @@ info: |
     StringValue of Identifier is "yield".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {static *#gen() {
     yi\u0065ld: ;

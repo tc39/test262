@@ -15,6 +15,6 @@ negative:
 features: [super]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 super.property;

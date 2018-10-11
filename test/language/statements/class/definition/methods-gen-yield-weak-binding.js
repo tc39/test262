@@ -11,7 +11,7 @@
     type: SyntaxError
  ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class A {
   *g() { yield 3 + yield 4; }

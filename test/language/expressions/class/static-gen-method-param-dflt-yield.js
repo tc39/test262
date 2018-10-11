@@ -20,7 +20,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, class {
   static *g(x = yield) {}

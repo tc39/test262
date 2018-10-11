@@ -2,7 +2,7 @@ import re
 from ..check import Check
 
 _THROW_STMT = re.compile(
-      r'^failIfCodeGetsEvaluated\(\);$',
+      r'^\$DONOTEVALUATE\(\);$',
       re.MULTILINE)
 
 class CheckNegative(Check):

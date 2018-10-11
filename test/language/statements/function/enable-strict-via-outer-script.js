@@ -16,7 +16,7 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var _13_0_9_fun = function () {
     function _13_0_9_inner() {

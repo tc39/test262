@@ -22,6 +22,6 @@ flags: [module]
 features: [export-star-as-namespace-from-module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 export * from './parse-err-semi-export-star.js' null;

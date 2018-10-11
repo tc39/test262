@@ -28,7 +28,7 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 (function*() {
 
 for ({ yield } in [{}]) ;

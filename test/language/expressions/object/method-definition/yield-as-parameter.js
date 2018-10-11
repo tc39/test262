@@ -12,7 +12,7 @@
     type: SyntaxError
  ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var obj = {
   *g(yield) {}

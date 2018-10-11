@@ -21,6 +21,6 @@ info: |
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 //- params
 ...a,

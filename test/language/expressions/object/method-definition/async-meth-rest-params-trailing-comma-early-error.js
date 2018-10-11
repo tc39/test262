@@ -27,7 +27,7 @@ info: |
         FormalParameterList[?Yield, ?Await] ,
         FormalParameterList[?Yield, ?Await] , FunctionRestParameter[?Yield, ?Await]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 ({

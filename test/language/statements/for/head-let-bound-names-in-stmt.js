@@ -15,7 +15,7 @@ esid: sec-for-statement
 es6id: 13.7.4
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (let x; false; ) {
   var x;

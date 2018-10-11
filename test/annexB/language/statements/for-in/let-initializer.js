@@ -9,7 +9,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 throw NotEarlyError;
 for (let a = 0 in {});
 

@@ -19,6 +19,6 @@ info: |
     4. Return the result of performing BindingInitialization for
        BindingPattern passing rval and undefined as arguments.
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, [{ x = yield }] = [{}];

@@ -12,7 +12,7 @@ esid: sec-for-in-and-for-of-statements
 es6id: 13.7.5
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for (const x in {}) {
   var x;

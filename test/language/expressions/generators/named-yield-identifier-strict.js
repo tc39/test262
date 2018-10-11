@@ -16,7 +16,7 @@ info: |
       function * BindingIdentifier opt ( FormalParameters ) { GeneratorBody }
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var callCount = 0;
 

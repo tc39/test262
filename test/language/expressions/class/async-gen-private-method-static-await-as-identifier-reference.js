@@ -28,7 +28,7 @@ info: |
     StringValue of Identifier is "await".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 var C = class { static async *#gen() {

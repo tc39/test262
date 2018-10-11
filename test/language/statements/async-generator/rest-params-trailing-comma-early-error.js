@@ -30,7 +30,7 @@ info: |
         FormalParameterList[?Yield, ?Await] ,
         FormalParameterList[?Yield, ?Await] , FunctionRestParameter[?Yield, ?Await]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 async function* f(...a,) {

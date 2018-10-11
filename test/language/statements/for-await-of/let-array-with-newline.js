@@ -16,7 +16,7 @@ flags: [noStrict]
 features: [async-iteration]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 async function* f() {
   for await (var x of []) let

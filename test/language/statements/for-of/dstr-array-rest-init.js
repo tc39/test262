@@ -28,7 +28,7 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 var x;
 
 for ([...x = 1] of [[]]) ;

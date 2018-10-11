@@ -10,6 +10,6 @@ negative:
   phase: resolution
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 import 'non-existent-module.js';

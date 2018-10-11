@@ -23,6 +23,6 @@ flags: [module]
 features: [export-star-as-namespace-from-module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 export * as namespace from './parse-err-semi-name-space-export.js' null;

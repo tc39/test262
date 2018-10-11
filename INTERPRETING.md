@@ -203,7 +203,7 @@ negative:
   phase: parse
   type: ReferenceError
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 'litera'=1;
 ```
 
@@ -213,7 +213,7 @@ negative:
   phase: parse
   type: SyntaxError
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 var a\u2E2F;
 ```
 
@@ -225,7 +225,7 @@ negative:
   type: ReferenceError
 flags: [module]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 export {} from './instn-resolve-empty-export_FIXTURE.js';
 // instn-resolve-empty-export_FIXTURE.js contains only:
 // 0++;

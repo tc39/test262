@@ -23,6 +23,6 @@ info: |
        [...]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 if (false) ; else function f() {  }

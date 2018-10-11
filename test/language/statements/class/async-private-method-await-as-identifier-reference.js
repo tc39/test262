@@ -28,7 +28,7 @@ info: |
     StringValue of Identifier is "await".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 class C { async #method() {

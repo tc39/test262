@@ -16,6 +16,6 @@ negative:
 features: [async-functions]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 { async function f() {} /*{ body }*/ }

@@ -17,6 +17,6 @@ info: |
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 ?

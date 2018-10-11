@@ -60,7 +60,7 @@ info: |
       elements.
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0, {
   *method(x = 0, x) {

@@ -24,7 +24,7 @@ info: |
         [ BindingElementList[?Yield] ]
         [ BindingElementList[?Yield] , Elisionopt BindingRestElement[?Yield]opt ]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 var ranCatch = false;
 

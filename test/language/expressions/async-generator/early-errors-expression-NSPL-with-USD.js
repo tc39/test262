@@ -13,6 +13,6 @@ negative:
 features: [async-iteration]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 (async function*(x = 1) {"use strict"});

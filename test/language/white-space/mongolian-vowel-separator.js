@@ -26,7 +26,7 @@ negative:
 features: [u180e]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 // U+180E between "var" and "foo"; UTF8(0x180E) = 0xE1 0xA0 0x8E
 var᠎foo;

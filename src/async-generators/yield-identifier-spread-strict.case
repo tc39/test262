@@ -20,7 +20,7 @@ negative:
 ---*/
 
 //- setup
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 //- body
   return {
      ...(function() {

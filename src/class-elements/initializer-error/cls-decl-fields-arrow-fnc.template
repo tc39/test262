@@ -8,7 +8,7 @@ name: arrow function expression
 features: [arrow-function, class-fields-public]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   x = () => /*{ initializer }*/;

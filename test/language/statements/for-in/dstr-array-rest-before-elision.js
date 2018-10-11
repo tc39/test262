@@ -28,6 +28,6 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 for ([...x,] in [[]]) ;

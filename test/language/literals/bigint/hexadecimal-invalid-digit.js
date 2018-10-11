@@ -21,6 +21,6 @@ negative:
 features: [BigInt]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 0xgn;

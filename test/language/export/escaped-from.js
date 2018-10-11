@@ -19,6 +19,6 @@ negative:
 flags: [module]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 export {} \u0066rom "./escaped-from.js";

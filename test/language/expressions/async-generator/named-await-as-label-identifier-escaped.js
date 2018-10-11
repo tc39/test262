@@ -23,7 +23,7 @@ info: |
     StringValue of Identifier is "await".
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 
 var gen = async function *g() {

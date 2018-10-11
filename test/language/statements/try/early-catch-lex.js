@@ -12,6 +12,6 @@ negative:
 features: [let]
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 try { } catch (x) { let x; }

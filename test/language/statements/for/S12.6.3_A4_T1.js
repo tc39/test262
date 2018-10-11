@@ -13,7 +13,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 arr = [1,2,3,4,5];
 

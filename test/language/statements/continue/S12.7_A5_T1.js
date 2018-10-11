@@ -13,7 +13,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 LABEL_OUT : var x=0, y=0;
 LABEL_DO_LOOP : do {

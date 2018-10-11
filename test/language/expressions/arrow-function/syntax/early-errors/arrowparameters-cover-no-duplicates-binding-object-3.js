@@ -23,5 +23,5 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 var af = ({x}, {y: x}) => 1;

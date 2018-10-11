@@ -27,7 +27,7 @@ negative:
   type: SyntaxError
 ---*/
 
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 let  // start of a LexicalDeclaration, *not* an ASI opportunity
 let;

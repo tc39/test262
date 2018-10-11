@@ -56,7 +56,7 @@ info: |
       elements.
 
 ---*/
-failIfCodeGetsEvaluated();
+$DONOTEVALUATE();
 
 class C {
   async *method(x = 0, x) {
