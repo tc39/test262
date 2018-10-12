@@ -1,0 +1,22 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-hasproperty-p
+desc: >
+    Behavior of the [[HasProperty]] internal method with a symbol argument that
+    cannot be found
+info: |
+    1. If Type(P) is Symbol, return OrdinaryHasProperty(O, P).
+features: [Symbol]
+template: namespace
+---*/
+
+//- setup
+var sym = Symbol('test262');
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(sym in ns, false, 'in');
+assert.sameValue(Reflect.has(ns, sym), false, 'Reflect.has');

@@ -1,0 +1,43 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-set-p-v-receiver
+desc: The [[Set]] internal method consistently returns `false`, No Strict Mode
+info: |
+    1. Return false.
+features: [Symbol, Symbol.toStringTag]
+template: namespace
+flags: [noStrict]
+---*/
+
+//- setup
+var sym = Symbol('test262');
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(Reflect.set(ns, 'local1'), false, 'Reflect.set: local1');
+assert.sameValue(ns.local1 = null, null, 'AssignmentExpression: local1');
+
+assert.sameValue(Reflect.set(ns, 'local2'), false, 'Reflect.set: local2');
+assert.sameValue(ns.local2 = null, null, 'AssignmentExpression: local2');
+
+assert.sameValue(Reflect.set(ns, 'renamed'), false, 'Reflect.set: renamed');
+assert.sameValue(ns.renamed = null, null, 'AssignmentExpression: renamed');
+
+assert.sameValue(Reflect.set(ns, 'indirect'), false, 'Reflect.set: indirect');
+assert.sameValue(ns.indirect = null, null, 'AssignmentExpression: indirect');
+
+assert.sameValue(Reflect.set(ns, 'default'), false, 'Reflect.set: default');
+assert.sameValue(ns.default = null, null, 'AssignmentExpression: default');
+
+assert.sameValue(
+  Reflect.set(ns, Symbol.toStringTag, null),
+  false,
+  'Reflect.set: Symbol.toStringTag'
+);
+assert.sameValue(ns[Symbol.toStringTag] = null, null, 'AssignmentExpression: Symbol.toStringTag');
+
+assert.sameValue(Reflect.set(ns, sym), false, 'Reflect.set: sym');
+assert.sameValue(ns[sym] = null, null, 'AssignmentExpression: sym');

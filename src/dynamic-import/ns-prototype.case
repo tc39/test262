@@ -8,4 +8,5 @@ template: namespace
 //- import
 import('./module-code_FIXTURE.js')
 //- body
+assert.sameValue(ns instanceof Object, false);
 assert.sameValue(Object.getPrototypeOf(ns), null, 'prototype is null');

@@ -1,0 +1,37 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-hasproperty-p
+desc: >
+    Behavior of the [[HasProperty]] internal method with a string argument for
+    non-exported bindings
+info: |
+    [...]
+    2. Let exports be the value of O's [[Exports]] internal slot.
+    3. If P is an element of exports, return true.
+    4. Return false.
+template: namespace
+---*/
+
+//- setup
+var local2; // not used
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue('local2' in ns, false, 'in: local2');
+assert.sameValue(Reflect.has(ns, 'local2'), false, 'Reflect.has: local2');
+
+assert.sameValue('toStringTag' in ns, false, 'in: toStringTag');
+assert.sameValue(
+  Reflect.has(ns, 'toStringTag'), false, 'Reflect.has: toStringTag'
+);
+
+assert.sameValue('iterator' in ns, false, 'in: iterator');
+assert.sameValue(Reflect.has(ns, 'iterator'), false, 'Reflect.has: iterator');
+
+assert.sameValue('__proto__' in ns, false, 'in: __proto__');
+assert.sameValue(
+  Reflect.has(ns, '__proto__'), false, 'Reflect.has: __proto__'
+);

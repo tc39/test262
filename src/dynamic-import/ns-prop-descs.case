@@ -5,8 +5,6 @@ desc: imported object properties descriptors
 template: namespace
 ---*/
 
-// exports: default === 42, local1 === 'Test262', renamed === 'TC39', indirect === 'Test262'
-
 //- import
 import('./module-code_FIXTURE.js')
 //- body
@@ -35,7 +33,7 @@ assert.sameValue(desc.enumerable, true, 'renamed: is enumerable');
 assert.sameValue(desc.writable, true, 'renamed: is writable');
 assert.sameValue(desc.configurable, false, 'renamed: is non-configurable');
 
-desc = Object.getOwnPropertyDescriptor(ns, 'indirect:');
+desc = Object.getOwnPropertyDescriptor(ns, 'indirect');
 
 assert.sameValue(desc.value, 'Test262', 'indirect: value is Test262"');
 assert.sameValue(desc.enumerable, true, 'indirect: is enumerable');
