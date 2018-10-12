@@ -79,7 +79,15 @@ info: |
 
 ---*/
 
-import('./delete-exported-init_FIXTURE.js').then(ns => {
+import('./module-code_FIXTURE.js').then(ns => {
+
+    assert.throws(TypeError, function() {
+      delete ns.default;
+    }, 'delete: default');
+    assert.sameValue(
+      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
+    );
+    assert.sameValue(ns.default, 42, 'binding unmodified: default');
 
     assert.throws(TypeError, function() {
       delete ns.local1;
@@ -87,7 +95,7 @@ import('./delete-exported-init_FIXTURE.js').then(ns => {
     assert.sameValue(
       Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
     );
-    assert.sameValue(ns.local1, 333, 'binding unmodified: local1');
+    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
 
     assert.throws(TypeError, function() {
       delete ns.renamed;
@@ -95,7 +103,7 @@ import('./delete-exported-init_FIXTURE.js').then(ns => {
     assert.sameValue(
       Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
     );
-    assert.sameValue(ns.renamed, 444, 'binding unmodified: renamed');
+    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
 
     assert.throws(TypeError, function() {
       delete ns.indirect;
@@ -105,6 +113,6 @@ import('./delete-exported-init_FIXTURE.js').then(ns => {
       false,
       'Reflect.deleteProperty: indirect'
     );
-    assert.sameValue(ns.indirect, 333, 'binding unmodified: indirect');
+    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
 
 }).then($DONE, $DONE).catch($DONE);

@@ -74,6 +74,7 @@ info: |
 async function fn() {
     const ns = await import('./module-code_FIXTURE.js');
 
+    assert.sameValue(ns instanceof Object, false);
     assert.sameValue(Object.getPrototypeOf(ns), null, 'prototype is null');
 }
 

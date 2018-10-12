@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/ns-delete-exported-init-no-strict.case
+// - src/dynamic-import/ns-get-own-property-sym.case
 // - src/dynamic-import/namespace/promise.template
 /*---
-description: The [[Delete]] behavior for a key that describes an initialized exported binding on non strict mode (value from promise then)
+description: Behavior of the [[GetOwnProperty]] internal method with a Symbol argument (value from promise then)
 esid: sec-finishdynamicimport
-features: [dynamic-import]
-flags: [generated, noStrict, async]
+features: [Symbol, Symbol.toStringTag, dynamic-import]
+flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -69,42 +69,25 @@ info: |
         object. Each such property has the attributes { [[Writable]]: true, [[Enumerable]]: true,
         [[Configurable]]: false }. Module namespace objects are not extensible.
 
-
-    [...]
-    2. If Type(P) is Symbol, then
-      a. Return ? OrdinaryDelete(O, P).
-    3. Let exports be O.[[Exports]].
-    4. If P is an element of exports, return false.
-    5. Return true.
-
 ---*/
+var notFound = Symbol('test262');
+
 
 import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(delete ns.default, false, 'delete: default');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
-    );
-    assert.sameValue(ns.default, 42, 'binding unmodified: default');
+    var desc;
 
-    assert.sameValue(delete ns.local1, false, 'delete: local1');
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
+      Object.prototype.hasOwnProperty.call(ns, Symbol.toStringTag), true
     );
-    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
+    desc = Object.getOwnPropertyDescriptor(ns, Symbol.toStringTag);
+    assert.sameValue(desc.value, ns[Symbol.toStringTag]);
+    assert.sameValue(desc.enumerable, false, 'Symbol.toStringTag enumerable');
+    assert.sameValue(desc.writable, false, 'Symbol.toStringTag writable');
+    assert.sameValue(desc.configurable, false, 'Symbol.toStringTag configurable');
 
-    assert.sameValue(delete ns.renamed, false, 'delete: renamed');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
-    );
-    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
-
-    assert.sameValue(delete ns.indirect, false, 'delete: indirect');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'indirect'),
-      false,
-      'Reflect.deleteProperty: indirect'
-    );
-    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
+    assert.sameValue(Object.prototype.hasOwnProperty.call(ns, notFound), false);
+    desc = Object.getOwnPropertyDescriptor(ns, notFound);
+    assert.sameValue(desc, undefined);
 
 }).then($DONE, $DONE).catch($DONE);

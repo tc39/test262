@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/ns-delete-exported-init-no-strict.case
+// - src/dynamic-import/ns-get-own-property-str-found-init.case
 // - src/dynamic-import/namespace/promise.template
 /*---
-description: The [[Delete]] behavior for a key that describes an initialized exported binding on non strict mode (value from promise then)
+description: Behavior of the [[GetOwnProperty]] internal method with a string argument describing an initialized binding (value from promise then)
 esid: sec-finishdynamicimport
 features: [dynamic-import]
-flags: [generated, noStrict, async]
+flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -70,41 +70,53 @@ info: |
         [[Configurable]]: false }. Module namespace objects are not extensible.
 
 
-    [...]
-    2. If Type(P) is Symbol, then
-      a. Return ? OrdinaryDelete(O, P).
-    3. Let exports be O.[[Exports]].
-    4. If P is an element of exports, return false.
-    5. Return true.
+    1. If Type(P) is Symbol, return OrdinaryGetOwnProperty(O, P).
+    2. Let exports be the value of O's [[Exports]] internal slot.
+    3. If P is not an element of exports, return undefined.
+    4. Let value be ? O.[[Get]](P, O).
+    5. Return PropertyDescriptor{[[Value]]: value, [[Writable]]: true,
+       [[Enumerable]]: true, [[Configurable]]: false }.
 
 ---*/
 
 import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(delete ns.default, false, 'delete: default');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
-    );
-    assert.sameValue(ns.default, 42, 'binding unmodified: default');
+    var desc;
 
-    assert.sameValue(delete ns.local1, false, 'delete: local1');
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
+      Object.prototype.hasOwnProperty.call(ns, 'local1'), true
     );
-    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
+    desc = Object.getOwnPropertyDescriptor(ns, 'local1');
+    assert.sameValue(desc.value, 'Test262');
+    assert.sameValue(desc.enumerable, true, 'local1 enumerable');
+    assert.sameValue(desc.writable, true, 'local1 writable');
+    assert.sameValue(desc.configurable, false, 'local1 configurable');
 
-    assert.sameValue(delete ns.renamed, false, 'delete: renamed');
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
+      Object.prototype.hasOwnProperty.call(ns, 'renamed'), true
     );
-    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
+    desc = Object.getOwnPropertyDescriptor(ns, 'renamed');
+    assert.sameValue(desc.value, 'TC39');
+    assert.sameValue(desc.enumerable, true, 'renamed enumerable');
+    assert.sameValue(desc.writable, true, 'renamed writable');
+    assert.sameValue(desc.configurable, false, 'renamed configurable');
 
-    assert.sameValue(delete ns.indirect, false, 'delete: indirect');
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'indirect'),
-      false,
-      'Reflect.deleteProperty: indirect'
+      Object.prototype.hasOwnProperty.call(ns, 'indirect'), true
     );
-    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
+    desc = Object.getOwnPropertyDescriptor(ns, 'indirect');
+    assert.sameValue(desc.value, 'Test262');
+    assert.sameValue(desc.enumerable, true, 'indirect enumerable');
+    assert.sameValue(desc.writable, true, 'indirect writable');
+    assert.sameValue(desc.configurable, false, 'indirect configurable');
+
+    assert.sameValue(
+      Object.prototype.hasOwnProperty.call(ns, 'default'), true
+    );
+    desc = Object.getOwnPropertyDescriptor(ns, 'default');
+    assert.sameValue(desc.value, 42);
+    assert.sameValue(desc.enumerable, true, 'default enumerable');
+    assert.sameValue(desc.writable, true, 'default writable');
+    assert.sameValue(desc.configurable, false, 'default configurable');
 
 }).then($DONE, $DONE).catch($DONE);

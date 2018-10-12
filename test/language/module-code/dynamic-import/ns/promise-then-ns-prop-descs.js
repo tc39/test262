@@ -79,23 +79,30 @@ import('./module-code_FIXTURE.js').then(ns => {
 // object does not.
 var desc = Object.getOwnPropertyDescriptor(ns, 'default');
 
-assert.sameValue(desc.value, 42, 'default value is 42');
-assert.sameValue(desc.enumerable, true, 'default reports as enumerable');
-assert.sameValue(desc.writable, true, 'default reports as writable');
-assert.sameValue(desc.configurable, false, 'default reports as non-configurable');
+assert.sameValue(desc.value, 42, 'default: value is 42');
+assert.sameValue(desc.enumerable, true, 'default: is enumerable');
+assert.sameValue(desc.writable, true, 'default: is writable');
+assert.sameValue(desc.configurable, false, 'default: is non-configurable');
 
-desc = Object.getOwnPropertyDescriptor(ns, 'x');
+desc = Object.getOwnPropertyDescriptor(ns, 'local1');
 
-assert.sameValue(desc.value, 'Test262', 'x value is "Test262"');
-assert.sameValue(desc.enumerable, true, 'x reports as enumerable');
-assert.sameValue(desc.writable, true, 'x reports as writable');
-assert.sameValue(desc.configurable, false, 'x reports as non-configurable');
+assert.sameValue(desc.value, 'Test262', 'local1: value is "Test262"');
+assert.sameValue(desc.enumerable, true, 'local1: is enumerable');
+assert.sameValue(desc.writable, true, 'local1: is writable');
+assert.sameValue(desc.configurable, false, 'local1: is non-configurable');
 
-desc = Object.getOwnPropertyDescriptor(ns, 'z');
+desc = Object.getOwnPropertyDescriptor(ns, 'renamed');
 
-assert.sameValue(desc.value, 42, 'z value is 42');
-assert.sameValue(desc.enumerable, true, 'z reports as enumerable');
-assert.sameValue(desc.writable, true, 'z reports as writable');
-assert.sameValue(desc.configurable, false, 'z reports as non-configurable');
+assert.sameValue(desc.value, 'TC39', 'renamed: value is TC39"');
+assert.sameValue(desc.enumerable, true, 'renamed: is enumerable');
+assert.sameValue(desc.writable, true, 'renamed: is writable');
+assert.sameValue(desc.configurable, false, 'renamed: is non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'indirect');
+
+assert.sameValue(desc.value, 'Test262', 'indirect: value is Test262"');
+assert.sameValue(desc.enumerable, true, 'indirect: is enumerable');
+assert.sameValue(desc.writable, true, 'indirect: is writable');
+assert.sameValue(desc.configurable, false, 'indirect: is non-configurable');
 
 }).then($DONE, $DONE).catch($DONE);

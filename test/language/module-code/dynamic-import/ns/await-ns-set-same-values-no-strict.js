@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/ns-delete-exported-init-no-strict.case
-// - src/dynamic-import/namespace/promise.template
+// - src/dynamic-import/ns-set-same-values-no-strict.case
+// - src/dynamic-import/namespace/await.template
 /*---
-description: The [[Delete]] behavior for a key that describes an initialized exported binding on non strict mode (value from promise then)
+description: The [[Set]] internal method consistently returns `false` even setting the same value - No Strict Mode (value from await resolving)
 esid: sec-finishdynamicimport
-features: [dynamic-import]
+features: [Symbol, Symbol.toStringTag, dynamic-import]
 flags: [generated, noStrict, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
@@ -70,41 +70,31 @@ info: |
         [[Configurable]]: false }. Module namespace objects are not extensible.
 
 
-    [...]
-    2. If Type(P) is Symbol, then
-      a. Return ? OrdinaryDelete(O, P).
-    3. Let exports be O.[[Exports]].
-    4. If P is an element of exports, return false.
-    5. Return true.
+    1. Return false.
 
 ---*/
 
-import('./module-code_FIXTURE.js').then(ns => {
+async function fn() {
+    const ns = await import('./module-code_FIXTURE.js');
 
-    assert.sameValue(delete ns.default, false, 'delete: default');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
-    );
-    assert.sameValue(ns.default, 42, 'binding unmodified: default');
+    assert.sameValue(Reflect.set(ns, 'local1', 'Test262'), false, 'Reflect.set: local1');
+    assert.sameValue(ns.local1 = 'Test262', 'Test262', 'AssignmentExpression: local1');
 
-    assert.sameValue(delete ns.local1, false, 'delete: local1');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
-    );
-    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
+    assert.sameValue(Reflect.set(ns, 'renamed', 'TC39'), false, 'Reflect.set: renamed');
+    assert.sameValue(ns.renamed = 'TC39', 'TC39', 'AssignmentExpression: renamed');
 
-    assert.sameValue(delete ns.renamed, false, 'delete: renamed');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
-    );
-    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
+    assert.sameValue(Reflect.set(ns, 'indirect', 'Test262'), false, 'Reflect.set: indirect');
+    assert.sameValue(ns.indirect = 'Test262', 'Test262', 'AssignmentExpression: indirect');
 
-    assert.sameValue(delete ns.indirect, false, 'delete: indirect');
+    assert.sameValue(Reflect.set(ns, 'default', 42), false, 'Reflect.set: default');
+    assert.sameValue(ns.default = 42, 42, 'AssignmentExpression: default');
+
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'indirect'),
+      Reflect.set(ns, Symbol.toStringTag, ns[Symbol.toStringTag]),
       false,
-      'Reflect.deleteProperty: indirect'
+      'Reflect.set: Symbol.toStringTag'
     );
-    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
+    assert.sameValue(ns[Symbol.toStringTag] = ns[Symbol.toStringTag], 'Module', 'AssignmentExpression: Symbol.toStringTag');
+}
 
-}).then($DONE, $DONE).catch($DONE);
+fn().then($DONE, $DONE).catch($DONE);

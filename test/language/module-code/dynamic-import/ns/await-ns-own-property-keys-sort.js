@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/ns-delete-exported-init-no-strict.case
-// - src/dynamic-import/namespace/promise.template
+// - src/dynamic-import/ns-own-property-keys-sort.case
+// - src/dynamic-import/namespace/await.template
 /*---
-description: The [[Delete]] behavior for a key that describes an initialized exported binding on non strict mode (value from promise then)
+description: The [[OwnPropertyKeys]] internal method reflects the sorted order (value from await resolving)
 esid: sec-finishdynamicimport
-features: [dynamic-import]
-flags: [generated, noStrict, async]
+features: [Symbol.toStringTag, dynamic-import]
+flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -70,41 +70,61 @@ info: |
         [[Configurable]]: false }. Module namespace objects are not extensible.
 
 
-    [...]
-    2. If Type(P) is Symbol, then
-      a. Return ? OrdinaryDelete(O, P).
-    3. Let exports be O.[[Exports]].
-    4. If P is an element of exports, return false.
-    5. Return true.
+    1. Let exports be a copy of the value of O's [[Exports]] internal slot.
+    2. Let symbolKeys be ! OrdinaryOwnPropertyKeys(O).
+    3. Append all the entries of symbolKeys to the end of exports.
+    4. Return exports.
 
 ---*/
 
-import('./module-code_FIXTURE.js').then(ns => {
+async function fn() {
+    const ns = await import('./own-keys-sort_FIXTURE.js');
 
-    assert.sameValue(delete ns.default, false, 'delete: default');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
+    var stringKeys = Object.getOwnPropertyNames(ns);
+
+    assert.sameValue(stringKeys.length, 16);
+    assert.sameValue(stringKeys[0], '$', 'stringKeys[0] === "$"');
+    assert.sameValue(stringKeys[1], '$$', 'stringKeys[1] === "$$"');
+    assert.sameValue(stringKeys[2], 'A', 'stringKeys[2] === "A"');
+    assert.sameValue(stringKeys[3], 'Z', 'stringKeys[3] === "Z"');
+    assert.sameValue(stringKeys[4], '_', 'stringKeys[4] === "_"');
+    assert.sameValue(stringKeys[5], '__', 'stringKeys[5] === "__"');
+    assert.sameValue(stringKeys[6], 'a', 'stringKeys[6] === "a"');
+    assert.sameValue(stringKeys[7], 'aa', 'stringKeys[7] === "aa"');
+    assert.sameValue(stringKeys[8], 'az', 'stringKeys[8] === "az"');
+    assert.sameValue(stringKeys[9], 'default', 'stringKeys[9] === "default"');
+    assert.sameValue(stringKeys[10], 'z', 'stringKeys[10] === "z"');
+    assert.sameValue(stringKeys[11], 'za', 'stringKeys[11] === "za"');
+    assert.sameValue(stringKeys[12], 'zz', 'stringKeys[12] === "zz"');
+    assert.sameValue(stringKeys[13], '\u03bb', 'stringKeys[13] === "\u03bb"');
+    assert.sameValue(stringKeys[14], '\u03bc', 'stringKeys[14] === "\u03bc"');
+    assert.sameValue(stringKeys[15], '\u03c0', 'stringKeys[15] === "\u03c0"');
+
+    var allKeys = Reflect.ownKeys(ns);
+    assert(
+      allKeys.length >= 17,
+      'at least as many keys as defined by the module and the specification'
     );
-    assert.sameValue(ns.default, 42, 'binding unmodified: default');
-
-    assert.sameValue(delete ns.local1, false, 'delete: local1');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
+    assert.sameValue(allKeys[0], '$', 'allKeys[0] === "$"');
+    assert.sameValue(allKeys[1], '$$', 'allKeys[1] === "$$"');
+    assert.sameValue(allKeys[2], 'A', 'allKeys[2] === "A"');
+    assert.sameValue(allKeys[3], 'Z', 'allKeys[3] === "Z"');
+    assert.sameValue(allKeys[4], '_', 'allKeys[4] === "_"');
+    assert.sameValue(allKeys[5], '__', 'allKeys[5] === "__"');
+    assert.sameValue(allKeys[6], 'a', 'allKeys[6] === "a"');
+    assert.sameValue(allKeys[7], 'aa', 'allKeys[7] === "aa"');
+    assert.sameValue(allKeys[8], 'az', 'allKeys[8] === "az"');
+    assert.sameValue(allKeys[9], 'default', 'allKeys[9] === "default"');
+    assert.sameValue(allKeys[10], 'z', 'allKeys[10] === "z"');
+    assert.sameValue(allKeys[11], 'za', 'allKeys[11] === "za"');
+    assert.sameValue(allKeys[12], 'zz', 'allKeys[12] === "zz"');
+    assert.sameValue(allKeys[13], '\u03bb', 'allKeys[13] === "\u03bb"');
+    assert.sameValue(allKeys[14], '\u03bc', 'allKeys[14] === "\u03bc"');
+    assert.sameValue(allKeys[15], '\u03c0', 'allKeys[15] === "\u03c0"');
+    assert(
+      allKeys.indexOf(Symbol.toStringTag) > 15,
+      'keys array includes Symbol.toStringTag'
     );
-    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
+}
 
-    assert.sameValue(delete ns.renamed, false, 'delete: renamed');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
-    );
-    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
-
-    assert.sameValue(delete ns.indirect, false, 'delete: indirect');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'indirect'),
-      false,
-      'Reflect.deleteProperty: indirect'
-    );
-    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
-
-}).then($DONE, $DONE).catch($DONE);
+fn().then($DONE, $DONE).catch($DONE);

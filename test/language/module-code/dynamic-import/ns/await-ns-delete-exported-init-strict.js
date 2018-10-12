@@ -80,7 +80,15 @@ info: |
 ---*/
 
 async function fn() {
-    const ns = await import('./delete-exported-init_FIXTURE.js');
+    const ns = await import('./module-code_FIXTURE.js');
+
+    assert.throws(TypeError, function() {
+      delete ns.default;
+    }, 'delete: default');
+    assert.sameValue(
+      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
+    );
+    assert.sameValue(ns.default, 42, 'binding unmodified: default');
 
     assert.throws(TypeError, function() {
       delete ns.local1;
@@ -88,7 +96,7 @@ async function fn() {
     assert.sameValue(
       Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
     );
-    assert.sameValue(ns.local1, 333, 'binding unmodified: local1');
+    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
 
     assert.throws(TypeError, function() {
       delete ns.renamed;
@@ -96,7 +104,7 @@ async function fn() {
     assert.sameValue(
       Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
     );
-    assert.sameValue(ns.renamed, 444, 'binding unmodified: renamed');
+    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
 
     assert.throws(TypeError, function() {
       delete ns.indirect;
@@ -106,7 +114,7 @@ async function fn() {
       false,
       'Reflect.deleteProperty: indirect'
     );
-    assert.sameValue(ns.indirect, 333, 'binding unmodified: indirect');
+    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
 }
 
 fn().then($DONE, $DONE).catch($DONE);

@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/ns-delete-exported-init-no-strict.case
+// - src/dynamic-import/ns-get-str-found.case
 // - src/dynamic-import/namespace/promise.template
 /*---
-description: The [[Delete]] behavior for a key that describes an initialized exported binding on non strict mode (value from promise then)
+description: Behavior of the [[Get]] internal method with a string argument for exported initialized bindings. (value from promise then)
 esid: sec-finishdynamicimport
 features: [dynamic-import]
-flags: [generated, noStrict, async]
+flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -71,40 +71,16 @@ info: |
 
 
     [...]
-    2. If Type(P) is Symbol, then
-      a. Return ? OrdinaryDelete(O, P).
-    3. Let exports be O.[[Exports]].
-    4. If P is an element of exports, return false.
-    5. Return true.
+    12. Let targetEnvRec be targetEnv's EnvironmentRecord.
+    13. Return ? targetEnvRec.GetBindingValue(binding.[[BindingName]], true).
 
 ---*/
 
 import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(delete ns.default, false, 'delete: default');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
-    );
-    assert.sameValue(ns.default, 42, 'binding unmodified: default');
-
-    assert.sameValue(delete ns.local1, false, 'delete: local1');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
-    );
-    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
-
-    assert.sameValue(delete ns.renamed, false, 'delete: renamed');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
-    );
-    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
-
-    assert.sameValue(delete ns.indirect, false, 'delete: indirect');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'indirect'),
-      false,
-      'Reflect.deleteProperty: indirect'
-    );
-    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
+    assert.sameValue(ns.local1, 'Test262');
+    assert.sameValue(ns.renamed, 'TC39');
+    assert.sameValue(ns.indirect, 'Test262');
+    assert.sameValue(ns.default, 42);
 
 }).then($DONE, $DONE).catch($DONE);

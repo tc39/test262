@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/ns-delete-exported-init-no-strict.case
+// - src/dynamic-import/ns-has-property-str-not-found.case
 // - src/dynamic-import/namespace/promise.template
 /*---
-description: The [[Delete]] behavior for a key that describes an initialized exported binding on non strict mode (value from promise then)
+description: Behavior of the [[HasProperty]] internal method with a string argument for non-exported bindings (value from promise then)
 esid: sec-finishdynamicimport
 features: [dynamic-import]
-flags: [generated, noStrict, async]
+flags: [generated, async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -71,40 +71,30 @@ info: |
 
 
     [...]
-    2. If Type(P) is Symbol, then
-      a. Return ? OrdinaryDelete(O, P).
-    3. Let exports be O.[[Exports]].
-    4. If P is an element of exports, return false.
-    5. Return true.
+    2. Let exports be the value of O's [[Exports]] internal slot.
+    3. If P is an element of exports, return true.
+    4. Return false.
 
 ---*/
+var local2; // not used
+
 
 import('./module-code_FIXTURE.js').then(ns => {
 
-    assert.sameValue(delete ns.default, false, 'delete: default');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
-    );
-    assert.sameValue(ns.default, 42, 'binding unmodified: default');
+    assert.sameValue('local2' in ns, false, 'in: local2');
+    assert.sameValue(Reflect.has(ns, 'local2'), false, 'Reflect.has: local2');
 
-    assert.sameValue(delete ns.local1, false, 'delete: local1');
+    assert.sameValue('toStringTag' in ns, false, 'in: toStringTag');
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
+      Reflect.has(ns, 'toStringTag'), false, 'Reflect.has: toStringTag'
     );
-    assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
 
-    assert.sameValue(delete ns.renamed, false, 'delete: renamed');
-    assert.sameValue(
-      Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
-    );
-    assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
+    assert.sameValue('iterator' in ns, false, 'in: iterator');
+    assert.sameValue(Reflect.has(ns, 'iterator'), false, 'Reflect.has: iterator');
 
-    assert.sameValue(delete ns.indirect, false, 'delete: indirect');
+    assert.sameValue('__proto__' in ns, false, 'in: __proto__');
     assert.sameValue(
-      Reflect.deleteProperty(ns, 'indirect'),
-      false,
-      'Reflect.deleteProperty: indirect'
+      Reflect.has(ns, '__proto__'), false, 'Reflect.has: __proto__'
     );
-    assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');
 
 }).then($DONE, $DONE).catch($DONE);

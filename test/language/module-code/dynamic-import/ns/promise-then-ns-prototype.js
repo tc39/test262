@@ -73,6 +73,7 @@ info: |
 
 import('./module-code_FIXTURE.js').then(ns => {
 
+    assert.sameValue(ns instanceof Object, false);
     assert.sameValue(Object.getPrototypeOf(ns), null, 'prototype is null');
 
 }).then($DONE, $DONE).catch($DONE);
