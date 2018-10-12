@@ -28,3 +28,11 @@ for (const [validOption, expected] of validOptions) {
 const lf = new Intl.ListFormat([], {"style": "narrow", "type": "unit"});
 const resolvedOptions = lf.resolvedOptions();
 assert.sameValue(resolvedOptions.style, "narrow");
+
+/*---
+    14. If style is "narrow" and type is not "unit", throw a RangeError exception.
+features: [Intl.ListFormat]
+---*/
+assert.throws(RangeError, () => lf = new Intl.ListFormat([], {"style": "narrow"}));
+assert.throws(RangeError, () => lf = new Intl.ListFormat([], {"style": "narrow", "type": "conjuction"}));
+assert.throws(RangeError, () => lf = new Intl.ListFormat([], {"style": "narrow", "type": "disjuction"}));
