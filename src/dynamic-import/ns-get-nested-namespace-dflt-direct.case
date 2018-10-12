@@ -1,0 +1,60 @@
+// Copyright (C) 2018 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+  Direct Default exports are included in an imported module namespace object when
+  a namespace object is created.
+esid: sec-module-namespace-exotic-objects-get-p-receiver
+info: |
+  [...]
+  6. Let binding be ! m.ResolveExport(P, « »).
+  7. Assert: binding is a ResolvedBinding Record.
+  8. Let targetModule be binding.[[Module]].
+  9. Assert: targetModule is not undefined.
+  10. If binding.[[BindingName]] is "*namespace*", then
+  11. Return ? GetModuleNamespace(targetModule).
+
+  Runtime Semantics: GetModuleNamespace
+  [...]
+    3. If namespace is undefined, then
+       a. Let exportedNames be ? module.GetExportedNames(« »).
+       b. Let unambiguousNames be a new empty List.
+       c. For each name that is an element of exportedNames,
+          i. Let resolution be ? module.ResolveExport(name, « », « »).
+          ii. If resolution is null, throw a SyntaxError exception.
+          iii. If resolution is not "ambiguous", append name to
+               unambiguousNames.
+       d. Let namespace be ModuleNamespaceCreate(module, unambiguousNames).
+  [...]
+features: [export-star-as-namespace-from-module]
+template: namespace
+---*/
+
+//- import
+import('./get-nested-namespace-dflt-skip-prod_FIXTURE.js')
+//- body
+var desc = Object.getOwnPropertyDescriptor(ns, 'productionNS2');
+
+assert.sameValue(desc.enumerable, true, 'ns.productionNS2: is enumerable');
+assert.sameValue(desc.writable, true, 'ns.productionNS2: is writable');
+assert.sameValue(desc.configurable, false, 'ns.productionNS2: is non-configurable');
+
+var keys = Object.keys(ns.productionNS2);
+
+assert.sameValue(keys.length, 2);
+assert.sameValue(keys[0], 'default');
+assert.sameValue(keys[1], 'productionOther');
+
+desc = Object.getOwnPropertyDescriptor(ns.productionNS2, 'productionOther');
+
+assert.sameValue(desc.value, null, 'ns.productionNS2.productionOther: value is null');
+assert.sameValue(desc.enumerable, true, 'ns.productionNS2.productionOther: is enumerable');
+assert.sameValue(desc.writable, true, 'ns.productionNS2.productionOther: is writable');
+assert.sameValue(desc.configurable, false, 'ns.productionNS2.productionOther: is non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns.productionNS2, 'default');
+
+assert.sameValue(desc.value, 42, 'ns.productionNS2.default value is 42');
+assert.sameValue(desc.enumerable, true, 'ns.productionNS2.default is enumerable');
+assert.sameValue(desc.writable, true, 'ns.productionNS2.default is writable');
+assert.sameValue(desc.configurable, false, 'ns.productionNS2.default is non-configurable');
