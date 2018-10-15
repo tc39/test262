@@ -47,6 +47,7 @@ const transforms = [
 
 const lf = new Intl.ListFormat("en-US", {
   "style": "narrow",
+  "type": "unit",
 });
 
 assert.sameValue(typeof lf.formatToParts, "function", "formatToParts should be supported");
@@ -58,31 +59,31 @@ for (const f of transforms) {
   ]);
   verifyFormatParts(lf.formatToParts(f(["foo", "bar"])), [
     { "type": "element", "value": "foo" },
-    { "type": "literal", "value": " and " },
+    { "type": "literal", "value": " " },
     { "type": "element", "value": "bar" },
   ]);
   verifyFormatParts(lf.formatToParts(f(["foo", "bar", "baz"])), [
     { "type": "element", "value": "foo" },
-    { "type": "literal", "value": ", " },
+    { "type": "literal", "value": " " },
     { "type": "element", "value": "bar" },
-    { "type": "literal", "value": ", and " },
+    { "type": "literal", "value": " " },
     { "type": "element", "value": "baz" },
   ]);
   verifyFormatParts(lf.formatToParts(f(["foo", "bar", "baz", "quux"])), [
     { "type": "element", "value": "foo" },
-    { "type": "literal", "value": ", " },
+    { "type": "literal", "value": " " },
     { "type": "element", "value": "bar" },
-    { "type": "literal", "value": ", " },
+    { "type": "literal", "value": " " },
     { "type": "element", "value": "baz" },
-    { "type": "literal", "value": ", and " },
+    { "type": "literal", "value": " " },
     { "type": "element", "value": "quux" },
   ]);
 }
 
 verifyFormatParts(lf.formatToParts("foo"), [
   { "type": "element", "value": "f" },
-  { "type": "literal", "value": ", " },
+  { "type": "literal", "value": " " },
   { "type": "element", "value": "o" },
-  { "type": "literal", "value": ", and " },
+  { "type": "literal", "value": " " },
   { "type": "element", "value": "o" },
 ]);
