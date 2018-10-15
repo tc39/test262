@@ -27,6 +27,6 @@ var smoosh; function smoosh() {}
 
 
 async function f() {
-  import('./script-code-valid.js');
+  import('./empty_FIXTURE.js');
 }
 

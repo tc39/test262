@@ -11,4 +11,4 @@ template: syntax/valid
 var smoosh; function smoosh() {}
 
 //- import
-import('./script-code-valid.js')
+import('./empty_FIXTURE.js')

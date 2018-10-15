@@ -27,5 +27,5 @@ var smoosh; function smoosh() {}
 
 
 do {
-  import('./script-code-valid.js');
+  import('./empty_FIXTURE.js');
 } while (false);

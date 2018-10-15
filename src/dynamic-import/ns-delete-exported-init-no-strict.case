@@ -1,0 +1,47 @@
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-delete-p
+desc: >
+    The [[Delete]] behavior for a key that describes an initialized exported
+    binding on non strict mode
+info: |
+    [...]
+    2. If Type(P) is Symbol, then
+      a. Return ? OrdinaryDelete(O, P).
+    3. Let exports be O.[[Exports]].
+    4. If P is an element of exports, return false.
+    5. Return true.
+template: namespace
+flags: [noStrict]
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(delete ns.default, false, 'delete: default');
+assert.sameValue(
+  Reflect.deleteProperty(ns, 'default'), false, 'Reflect.deleteProperty: default'
+);
+assert.sameValue(ns.default, 42, 'binding unmodified: default');
+
+assert.sameValue(delete ns.local1, false, 'delete: local1');
+assert.sameValue(
+  Reflect.deleteProperty(ns, 'local1'), false, 'Reflect.deleteProperty: local1'
+);
+assert.sameValue(ns.local1, 'Test262', 'binding unmodified: local1');
+
+assert.sameValue(delete ns.renamed, false, 'delete: renamed');
+assert.sameValue(
+  Reflect.deleteProperty(ns, 'renamed'), false, 'Reflect.deleteProperty: renamed'
+);
+assert.sameValue(ns.renamed, 'TC39', 'binding unmodified: renamed');
+
+assert.sameValue(delete ns.indirect, false, 'delete: indirect');
+assert.sameValue(
+  Reflect.deleteProperty(ns, 'indirect'),
+  false,
+  'Reflect.deleteProperty: indirect'
+);
+assert.sameValue(ns.indirect, 'Test262', 'binding unmodified: indirect');

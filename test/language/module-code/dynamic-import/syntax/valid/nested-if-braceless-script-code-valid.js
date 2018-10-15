@@ -26,4 +26,4 @@ info: |
 var smoosh; function smoosh() {}
 
 
-if (true) import('./script-code-valid.js');
+if (true) import('./empty_FIXTURE.js');

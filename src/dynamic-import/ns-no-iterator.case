@@ -1,0 +1,13 @@
+// Copyright (C) 2016 Kevin Gibbons. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Module namespace objects lack a Symbol.toStringTag
+template: namespace
+features: [Symbol.iterator]
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(Object.prototype.hasOwnProperty.call(ns, Symbol.iterator), false);

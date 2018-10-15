@@ -28,4 +28,4 @@ var smoosh; function smoosh() {}
 
 if (false) {
 
-} else import('./script-code-valid.js');
+} else import('./empty_FIXTURE.js');

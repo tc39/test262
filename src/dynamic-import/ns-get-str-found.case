@@ -1,0 +1,22 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-get-p-receiver
+desc: >
+    Behavior of the [[Get]] internal method with a string argument for exported
+    initialized bindings.
+info: |
+    [...]
+    12. Let targetEnvRec be targetEnv's EnvironmentRecord.
+    13. Return ? targetEnvRec.GetBindingValue(binding.[[BindingName]], true).
+template: namespace
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(ns.local1, 'Test262');
+assert.sameValue(ns.renamed, 'TC39');
+assert.sameValue(ns.indirect, 'Test262');
+assert.sameValue(ns.default, 42);
