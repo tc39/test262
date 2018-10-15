@@ -13,22 +13,38 @@ flags: [async]
 features: [async-functions]
 ---*/
 
-let thenCalled = false;
-
+let thenCallCount = 0;
 const value = 42;
+
+const actual = [];
+const expected = [
+  'Promise: 1',
+  'Await: ' + value,
+  'Promise: 2',
+];
+
 const patched = Promise.resolve(value);
 patched.then = function(...args) {
-  thenCalled = true;
-  return Promise.prototype.then.apply(this, args);
+  thenCallCount++;
+  Promise.prototype.then.apply(this, args);
 };
 
 async function trigger() {
-  return await patched;
+  actual.push('Await: ' + await patched);
 }
 
-trigger().then((v) => {
-  assert.sameValue(v, value,
-    'Patched promise should resolve with correct value when awaited on.');
-  assert.sameValue(thenCalled, false,
+function checkAssertions() {
+  assert.compareArray(actual, expected,
+    'Async/await and promises should be interleaved');
+  assert.sameValue(thenCallCount, 0,
     'Monkey-patched "then" on native promises should not be called.')
-}).then($DONE, $DONE);
+}
+
+trigger().then(checkAssertions).then($DONE, $DONE);
+
+new Promise(function (resolve) {
+  actual.push('Promise: 1');
+  resolve();
+}).then(function () {
+  actual.push('Promise: 2');
+});

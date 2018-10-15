@@ -12,26 +12,34 @@ flags: [async]
 features: [async-functions]
 ---*/
 
-const value = 1;
+let thenCallCount = 0;
 
 const actual = [];
 const expected = [
-  'Await: 1',
   'Promise: 1',
   'Promise: 2',
+  'Await: 1',
+  'Promise: 3',
+  'Promise: 4',
+  'Await: 2',
 ];
 
-function pushAwaitSync(value) {
-  actual.push('Await: ' + value);
-}
+const patched = {};
+patched.then = function(fulfill, reject) {
+  thenCallCount++;
+  fulfill(thenCallCount);
+};
 
 async function trigger() {
-  await pushAwaitSync(value);
+  actual.push('Await: ' + await patched);
+  actual.push('Await: ' + await patched);
 }
 
 function checkAssertions() {
   assert.compareArray(actual, expected,
     'Async/await and promises should be interleaved');
+  assert.sameValue(thenCallCount, 2,
+    '"then" on non-native promises should be called.');
 }
 
 trigger().then(checkAssertions).then($DONE, $DONE);
@@ -41,4 +49,8 @@ new Promise(function (resolve) {
   resolve();
 }).then(function () {
   actual.push('Promise: 2');
+}).then(function () {
+  actual.push('Promise: 3');
+}).then(function () {
+  actual.push('Promise: 4');
 });

@@ -13,18 +13,20 @@ features: [async-functions]
 ---*/
 
 const actual = [];
-const expected = [ 'await', 1, 'await', 2 ];
-const iterations = 2;
+const expected = [
+  'Await: 1',
+  'Promise: 1',
+  'Await: 2',
+  'Promise: 2'
+];
 
-async function pushAwait() {
-  actual.push('await');
+async function pushAwait(value) {
+  actual.push('Await: ' + value);
 }
 
 async function callAsync() {
-  for (let i = 0; i < iterations; i++) {
-    await pushAwait();
-  }
-  return 0;
+  await pushAwait(1);
+  await pushAwait(2);
 }
 
 function checkAssertions() {
@@ -35,8 +37,8 @@ function checkAssertions() {
 callAsync();
 
 new Promise(function (resolve) {
-  actual.push(1);
+  actual.push('Promise: 1');
   resolve();
 }).then(function () {
-  actual.push(2);
+  actual.push('Promise: 2');
 }).then(checkAssertions).then($DONE, $DONE);
