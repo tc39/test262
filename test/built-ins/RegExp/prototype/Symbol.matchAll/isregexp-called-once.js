@@ -36,6 +36,7 @@ var o = {
     return {
       toString() {
         calls.push('flags toString');
+        return "";
       }
     };
   },
@@ -50,7 +51,7 @@ RegExp.prototype[Symbol.matchAll].call(o, {
 assert.sameValue(0, internalCount);
 
 assert.sameValue(calls.length, 4);
-assert.sameValue(calls[0], 'get @@match');
-assert.sameValue(calls[1], 'arg toString');
-assert.sameValue(calls[2], 'get flags');
-assert.sameValue(calls[3], 'flags toString');
+assert.sameValue(calls[0], 'arg toString');
+assert.sameValue(calls[1], 'get flags');
+assert.sameValue(calls[2], 'flags toString');
+assert.sameValue(calls[3], 'get @@match');

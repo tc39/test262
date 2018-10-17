@@ -14,7 +14,11 @@ var nf = new Intl.NumberFormat();
 
 const implicit = nf.formatToParts();
 const explicit = nf.formatToParts(undefined);
-const result = [{ type: 'nan', value: 'NaN' }];
+
+// In most locales this is string "NaN", but there are exceptions, cf. "ليس رقم"
+// in Arabic, "epäluku" in Finnish, "не число" in Russian, "son emas" in Uzbek etc.
+const resultNaN = nf.format(NaN);
+const result = [{ type: 'nan', value: resultNaN }];
 
 assert(
   partsEquals(implicit, explicit),

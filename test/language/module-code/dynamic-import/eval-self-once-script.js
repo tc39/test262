@@ -20,13 +20,14 @@ features: [dynamic-import]
 
 var global = fnGlobalObject();
 
-if (typeof global.evaluated === 'undefined') {
+var isFirstScript = typeof global.evaluated === 'undefined';
+if (isFirstScript) {
   global.evaluated = 0;
 }
 
 global.evaluated++;
 
-Promise.all([
+var p = Promise.all([
   import('./eval-self-once-script.js'),
   import('./eval-self-once-script.js'),
 ]).then(async () => {
@@ -34,5 +35,9 @@ Promise.all([
   await import('./eval-self-once-script.js');
   await import('./eval-self-once-script.js');
 
-  assert.sameValue(global.evaluated, 2, 'global property was defined and incremented only once');
-}).then($DONE, $DONE);
+  assert.sameValue(global.evaluated, 2, 'global property was defined once and incremented twice');
+});
+
+if (isFirstScript) {
+  p.then($DONE, $DONE);
+}

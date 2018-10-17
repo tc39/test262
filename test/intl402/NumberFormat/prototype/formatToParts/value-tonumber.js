@@ -24,15 +24,23 @@ const toNumberResults = [
 
 const nf = new Intl.NumberFormat();
 
+function assertSameParts(actual, expected) {
+  assert.sameValue(actual.length, expected.length);
+  for (let i = 0; i < expected.length; ++i) {
+    assert.sameValue(actual[i].type, expected[i].type);
+    assert.sameValue(actual[i].value, expected[i].value);
+  }
+}
+
 toNumberResults.forEach(pair => {
   const [value, result] = pair;
-  assert.sameValue(nf.formatToParts(value), nf.formatToParts(result));
+  assertSameParts(nf.formatToParts(value), nf.formatToParts(result));
 });
 
 let count = 0;
 const dummy = {};
 dummy[Symbol.toPrimitive] = hint => (hint === 'number' ? ++count : NaN);
-assert.sameValue(nf.formatToParts(dummy), nf.formatToParts(count));
+assertSameParts(nf.formatToParts(dummy), nf.formatToParts(count));
 assert.sameValue(count, 1);
 
 assert.throws(
