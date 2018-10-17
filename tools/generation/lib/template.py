@@ -160,14 +160,14 @@ class Template:
         flags += case_values['meta'].get('flags', [])
         flags += self.attribs['meta'].get('flags', [])
         flags = list(OrderedDict.fromkeys(flags))
-        lines += ['flags: ' + yaml.dump(flags).strip()]
+        lines += ['flags: ' + re.sub('\n\s*', ' ', yaml.dump(flags).strip())]
 
         includes = []
         includes += case_values['meta'].get('includes', [])
         includes += self.attribs['meta'].get('includes', [])
         includes = list(OrderedDict.fromkeys(includes))
         if len(includes):
-            lines += ['includes: ' + yaml.dump(includes).strip()]
+            lines += ['includes: ' + re.sub('\n\s*', ' ', yaml.dump(includes).strip())]
 
         if case_values['meta'].get('negative'):
             if self.attribs['meta'].get('negative'):
