@@ -2,18 +2,18 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-Intl.RelativeTimeFormat.supportedLocalesOf
+esid: sec-Intl.ListFormat.supportedLocalesOf
 description: Checks handling of an undefined options argument to the supportedLocalesOf function.
 info: |
     SupportedLocales ( availableLocales, requestedLocales, options )
 
     1. If options is not undefined, then
         b. Let matcher be ? GetOption(options, "localeMatcher", "string", «"lookup", "best fit"», "best fit").
-features: [Intl.RelativeTimeFormat]
+features: [Intl.ListFormat]
 ---*/
 
-assert.sameValue(typeof Intl.RelativeTimeFormat.supportedLocalesOf, "function",
-                 "Should support Intl.RelativeTimeFormat.supportedLocalesOf.");
+assert.sameValue(typeof Intl.ListFormat.supportedLocalesOf, "function",
+                 "Should support Intl.ListFormat.supportedLocalesOf.");
 
 Object.defineProperties(Object.prototype, {
   "localeMatcher": {
@@ -21,6 +21,6 @@ Object.defineProperties(Object.prototype, {
   }
 });
 
-assert.sameValue(Array.isArray(Intl.RelativeTimeFormat.supportedLocalesOf()), true, "No arguments");
-assert.sameValue(Array.isArray(Intl.RelativeTimeFormat.supportedLocalesOf([])), true, "One argument");
-assert.sameValue(Array.isArray(Intl.RelativeTimeFormat.supportedLocalesOf([], undefined)), true, "Two arguments");
+assert.sameValue(Array.isArray(Intl.ListFormat.supportedLocalesOf()), true, "No arguments");
+assert.sameValue(Array.isArray(Intl.ListFormat.supportedLocalesOf([])), true, "One argument");
+assert.sameValue(Array.isArray(Intl.ListFormat.supportedLocalesOf([], undefined)), true, "Two arguments");
