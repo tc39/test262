@@ -46,7 +46,7 @@ const validNumericOptions = [
   [{ valueOf() { return false; } }, true],
 ];
 for (const [numeric, expected] of validNumericOptions) {
-  let expect = `en-u-kn-${expected}`;
+  let expect = expected ? "en-u-kn" : "en-u-kn-false";
 
   assert.sameValue(
     new Intl.Locale('en', {numeric}).toString(),

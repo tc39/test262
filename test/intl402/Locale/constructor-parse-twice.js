@@ -22,17 +22,17 @@ const testData = [
   // Irregular grandfathered tags.
 
   // "en-GB-oed" is a grandfathered tag, so we can't add "US". After it is
-  // canonicalized to "en-GB-oxendict" we can append "u-ca-gregory".
+  // canonicalized to "en-GB-oxendict" we can append "US" and "u-ca-gregory".
   {
     tag: "en-GB-oed",
     options: {
       region: "US",
       calendar: "gregory",
     },
-    canonical: "en-GB-oxendict-u-ca-gregory",
+    canonical: "en-US-oxendict-u-ca-gregory",
   },
 
-  // Canonicalized version of the above, which we can add "US" to.
+  // Canonicalized version of the above, which we can add "US" to right away.
   {
     tag: "en-GB-oxendict",
     options: {
@@ -45,14 +45,14 @@ const testData = [
   // Regular grandfathered tags.
 
   // "no-bok" is a grandfathered, so "NO"/"SE" isn't added. After
-  // canonicalization we can append "u-ca-gregory".
+  // canonicalization we can append "NO"/"SE" and "u-ca-gregory".
   {
     tag: "no-bok",
     options: {
       region: "NO",
       calendar: "gregory",
     },
-    canonical: "nb-u-ca-gregory",
+    canonical: "nb-NO-u-ca-gregory",
   },
 
   {
@@ -61,7 +61,7 @@ const testData = [
       region: "SE",
       calendar: "gregory",
     },
-    canonical: "nb-u-ca-gregory",
+    canonical: "nb-SE-u-ca-gregory",
   },
 
   // "no-bok-NO" isn't a grandfathered tag, so we can replace "NO" with "SE"

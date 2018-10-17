@@ -43,12 +43,12 @@ assert.sameValue(
 
 assert.sameValue(
   new Intl.Locale('en-u-kn-true', options).toString(),
-  "en-u-kn-true",
-  'new Intl.Locale("en-u-kn-true", {numeric: undefined}).toString() returns "en-u-kn-true"'
+  "en-u-kn",
+  'new Intl.Locale("en-u-kn-true", {numeric: undefined}).toString() returns "en-u-kn"'
 );
 
 assert.sameValue(
   new Intl.Locale('en-u-kf-lower', options).numeric,
-  undefined,
-  'The value of new Intl.Locale("en-u-kf-lower", {numeric: undefined}).numeric equals `undefined`'
+  false,
+  'The value of new Intl.Locale("en-u-kf-lower", {numeric: undefined}).numeric equals `false`'
 );

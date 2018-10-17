@@ -9,7 +9,7 @@ description: >
 ---*/
 
 const actual = new Intl.NumberFormat().resolvedOptions();
-const expected = new Intl.NumberFormat([], { __proto__: null }).resolvedOptions();
+const expected = new Intl.NumberFormat([], Object.create(null)).resolvedOptions();
 
 assert.sameValue(actual.locale, expected.locale);
 assert.sameValue(actual.minimumIntegerDigits, expected.minimumIntegerDigits);
