@@ -17,7 +17,7 @@ info: |
   7. IfAbruptRejectPromise(specifierString, promiseCapability).
   8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
   9. Return promiseCapability.[[Promise]].
-features: [dynamic-import, async iteration]
+features: [dynamic-import, async-iteration]
 flags: [async]
 ---*/
 
