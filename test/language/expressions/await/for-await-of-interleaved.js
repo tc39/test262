@@ -9,6 +9,7 @@ description: >
   meaning await in for-of loop takes only 1 tick on the microtask queue.
 flags: [async]
 features: [async-functions, async-iteration]
+includes: [compareArray.js]
 ---*/
 
 const actual = [];
