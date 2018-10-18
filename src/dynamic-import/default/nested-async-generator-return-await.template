@@ -25,7 +25,7 @@ async function * f() {
   return await /*{ import }*/;
 }
 
-f().next().then(imported => {
+f().next().then(({value: imported}) => {
 
   /*{ body }*/
 
