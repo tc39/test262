@@ -4,7 +4,7 @@
 /*---
 description: ImportCall is a CallExpression, it can be followed by square brackets (nested in async generator, returns awaited)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import, async iteration]
+features: [dynamic-import, async-iteration]
 flags: [generated, async]
 info: |
     ImportCall :

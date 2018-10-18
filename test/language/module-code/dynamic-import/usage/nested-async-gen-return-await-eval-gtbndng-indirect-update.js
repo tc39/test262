@@ -4,7 +4,7 @@
 /*---
 description: Modifications to named bindings that occur after dependency has been evaluated are reflected in local binding (nested in async generator, returns awaited)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import, async iteration]
+features: [dynamic-import, async-iteration]
 flags: [generated, async]
 includes: [fnGlobalObject.js]
 info: |
