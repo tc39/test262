@@ -38,7 +38,7 @@ async function * f() {
   return await import('./eval-gtbndng-indirect-update-dflt_FIXTURE.js');
 }
 
-f().next().then(imported => {
+f().next().then(({value: imported}) => {
 
   assert.sameValue(imported.default(), 1);
   assert.sameValue(imported.default, 2);

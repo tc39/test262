@@ -26,7 +26,7 @@ async function * f() {
   return await import('./dynamic-import-module_FIXTURE.js')['then'](x => x);
 }
 
-f().next().then(imported => {
+f().next().then(({value: imported}) => {
 
   assert.sameValue(imported.x, 1);
 

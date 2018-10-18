@@ -39,7 +39,7 @@ async function * f() {
   return await import('./eval-gtbndng-indirect-update_FIXTURE.js');
 }
 
-f().next().then(imported => {
+f().next().then(({value: imported}) => {
 
   assert.sameValue(imported.x, 1);
 

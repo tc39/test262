@@ -48,7 +48,7 @@ async function * f() {
   return await import(obj);
 }
 
-f().next().then(imported => {
+f().next().then(({value: imported}) => {
 
   assert.sameValue(imported.default, 42);
   assert.sameValue(imported.x, 'Test262');
