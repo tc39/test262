@@ -4,7 +4,7 @@
 /*---
 description: import() from a module code can load a file with script code, but the target is resolved into a Module Record (nested in async generator, returns awaited)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import, async iteration]
+features: [dynamic-import, async-iteration]
 flags: [generated, module, async]
 info: |
     ImportCall :

@@ -4,7 +4,7 @@
 /*---
 description: ToString value of specifier (nested in async generator, returns awaited)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import, async iteration]
+features: [dynamic-import, async-iteration]
 flags: [generated, async]
 info: |
     ImportCall :
