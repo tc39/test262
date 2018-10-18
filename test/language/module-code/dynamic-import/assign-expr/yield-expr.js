@@ -20,6 +20,7 @@ features: [dynamic-import]
 ---*/
 
 const a = './module-code_FIXTURE.js';
+const b = './module-code-other_FIXTURE.js';
 
 function *g() {
     return import(yield);
