@@ -3,6 +3,7 @@
 /*---
 description: >
     Dynamic Import receives an AssignmentExpression (LHS Expr = AssignmentExpression)
+    Using a frozen object property
 esid: prod-ImportCall
 info: |
     ImportCall [Yield]:
@@ -15,23 +16,17 @@ info: |
         AsyncArrowFunction[?In, ?Yield, ?Await]
         LeftHandSideExpression[?Yield, ?Await] = AssignmentExpression[?In, ?Yield, ?Await]
         LeftHandSideExpression[?Yield, ?Await] AssignmentOperator AssignmentExpression[?In, ?Yield, ?Await]
-flags: [async]
+flags: [async, noStrict]
 features: [dynamic-import]
 ---*/
 
-let x = 'foo';
 const y = {
     z: 0
 };
-const a = './module-code_FIXTURE.js';
+Object.freeze(y);
 const b = './module-code-other_FIXTURE.js';
 
 async function fn() {
-    const ns1 = await import(x = a); // import('./module-code_FIXTURE.js')
-
-    assert.sameValue(ns1.local1, 'Test262');
-    assert.sameValue(ns1.default, 42);
-
     const ns2 = await import(y.z = b); // import('./module-code-other_FIXTURE.js')
 
     assert.sameValue(ns2.local1, 'one six one two');
