@@ -26,7 +26,7 @@ function *g() {
     return import(yield);
 }
 
-async function *fn() {
+async function fn() {
     let iter = g();
     iter.next();
 
@@ -44,4 +44,4 @@ async function *fn() {
     assert.sameValue(ns2.default, 1612);
 }
 
-fn().next(a).then($DONE, $DONE).catch($DONE);
+fn().then($DONE, $DONE).catch($DONE);
