@@ -103,6 +103,8 @@ properties of the global scope prior to test execution.
         sleeps the execution for approximately that duration.
     - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
 
+In addition, consumers may choose to override any of the [the available test harness helper functions](https://github.com/tc39/test262/blob/master/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/master/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
+
 
 #### Normative references
 

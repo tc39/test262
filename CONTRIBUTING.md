@@ -231,6 +231,8 @@ assert.throws(TypeError, function() {
 });
 ```
 
+Consumers that violate the spec by throwing exceptions for parsing errors at runtime instead of at parse time can still get value out of Test262's negative tests by conditionally overriding `$DONOTEVALUATE` to be a no-op for tests that are known to fail. This way, the consumer can still verify that they throw an exception of the expected type, even if it happens during the wrong phase, which prevents regressions and further deviations from the spec.
+
 ## Writing Asynchronous Tests
 
 An asynchronous test is any test that include the `async` frontmatter flag. When executing such tests, the runner expects that the global `$DONE()` function will be called to signal test completion.
