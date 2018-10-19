@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/module-code/dynamic-import/usage/nested-async-gen-await-
+path: language/expressions/dynamic-import/usage/nested-async-gen-await-
 name: nested in async generator, awaited
 esid: sec-import-call-runtime-semantics-evaluation
 info: |

@@ -2,7 +2,7 @@
 // Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/module-code/dynamic-import/syntax/valid/nested-block-
+path: language/expressions/dynamic-import/syntax/valid/nested-block-
 name: nested block syntax
 esid: sec-import-call-runtime-semantics-evaluation
 info: |
