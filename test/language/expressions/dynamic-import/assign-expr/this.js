@@ -23,7 +23,7 @@ features: [dynamic-import]
 ---*/
 
 async function fn() {
-    const ns1 = await import(this);
+    const ns1 = await import(this); // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns1.local1, 'Test262');
     assert.sameValue(ns1.default, 42);

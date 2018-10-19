@@ -26,13 +26,13 @@ const obj = {
 
 async function fn() {
     // MemberExpression [ Expression ]
-    const ns1 = await import(obj['a']);
+    const ns1 = await import(obj['a']); // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns1.local1, 'Test262');
     assert.sameValue(ns1.default, 42);
 
     // MemberExpression . IdentifierName
-    const ns2 = await import(obj.b);
+    const ns2 = await import(obj.b); // import('./module-code-other_FIXTURE.js')
 
     assert.sameValue(ns2.local1, 'one six one two');
     assert.sameValue(ns2.default, 1612);

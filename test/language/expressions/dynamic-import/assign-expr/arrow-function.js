@@ -22,7 +22,7 @@ features: [dynamic-import]
 Function.prototype.toString = () => './module-code_FIXTURE.js';
 
 async function fn() {
-    const ns = await import(() => {});
+    const ns = await import(() => {}); // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns.local1, 'Test262');
     assert.sameValue(ns.default, 42);

@@ -19,16 +19,13 @@ flags: [async]
 features: [dynamic-import]
 ---*/
 
-const a = './module-code_FIXTURE.js';
-const b = './module-code-other_FIXTURE.js';
-
 function tag(arg) {
     return arg[0];
 }
 
 async function fn() {
     // MemberExpression TemplateLiteral
-    const ns = await import(tag`./module-code-other_FIXTURE.js`);
+    const ns = await import(tag`./module-code-other_FIXTURE.js`); // import('./module-code-other_FIXTURE.js')
 
     assert.sameValue(ns.local1, 'one six one two');
     assert.sameValue(ns.default, 1612);

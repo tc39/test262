@@ -22,7 +22,7 @@ features: [dynamic-import]
 const yield = './module-code_FIXTURE.js';
 
 async function fn() {
-    const ns1 = await import(yield);
+    const ns1 = await import(yield); // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns1.local1, 'Test262');
     assert.sameValue(ns1.default, 42);

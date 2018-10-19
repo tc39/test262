@@ -30,12 +30,12 @@ features: [dynamic-import]
 const a = () => ['./module-code_FIXTURE.js', './module-code-other_FIXTURE.js'];
 
 async function fn() {
-    const ns1 = await import(a()[0]);
+    const ns1 = await import(a()[0]); // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns1.local1, 'Test262');
     assert.sameValue(ns1.default, 42);
 
-    const ns2 = await import(a()[0, 1]);
+    const ns2 = await import(a()[0, 1]); // import('./module-code-other_FIXTURE.js')
 
     assert.sameValue(ns2.local1, 'one six one two');
     assert.sameValue(ns2.default, 1612);

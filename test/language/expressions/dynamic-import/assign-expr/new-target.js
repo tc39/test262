@@ -20,7 +20,7 @@ features: [dynamic-import]
 ---*/
 
 function ctor() {
-    return import(new.target);
+    return import(new.target); // import('./module-code_FIXTURE.js')
 }
 
 ctor.toString = () => './module-code_FIXTURE.js';
