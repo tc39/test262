@@ -21,6 +21,8 @@ info: |
     9. Return promiseCapability.[[Promise]].
 
 ---*/
+// import('./dynamic-import-module_FIXTURE.js')
+
 
 label: {
   import('./dynamic-import-module_FIXTURE.js')['then'](x => x).then(imported => {

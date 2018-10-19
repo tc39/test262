@@ -37,6 +37,8 @@ info: |
     8. Return promiseCapability.[[Promise]].
 
 ---*/
+// import('./module-code_FIXTURE.js')
+
 const obj = {
     toString() {
         return './module-code_FIXTURE.js';
