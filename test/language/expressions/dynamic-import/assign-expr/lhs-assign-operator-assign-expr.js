@@ -26,12 +26,12 @@ const a = '_FIXTURE.js';
 const b = '-other_FIXTURE.js';
 
 async function fn() {
-    const ns1 = await import(x += a);
+    const ns1 = await import(x += a); // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns1.local1, 'Test262');
     assert.sameValue(ns1.default, 42);
 
-    const ns2 = await import(y += b);
+    const ns2 = await import(y += b); // import('./module-code-other_FIXTURE.js')
 
     assert.sameValue(ns2.local1, 'one six one two');
     assert.sameValue(ns2.default, 1612);

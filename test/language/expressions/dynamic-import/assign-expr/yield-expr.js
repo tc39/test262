@@ -30,7 +30,7 @@ async function *fn() {
     let iter = g();
     iter.next();
 
-    const ns1 = await iter.next(a).value;
+    const ns1 = await iter.next(a).value; // import('./module-code_FIXTURE.js')
 
     assert.sameValue(ns1.local1, 'Test262');
     assert.sameValue(ns1.default, 42);
@@ -38,7 +38,7 @@ async function *fn() {
     iter = g();
     iter.next();
 
-    const ns2 = await iter.next(b).value;
+    const ns2 = await iter.next(b).value; // import('./module-code-other_FIXTURE.js')
 
     assert.sameValue(ns2.local1, 'one six one two');
     assert.sameValue(ns2.default, 1612);
