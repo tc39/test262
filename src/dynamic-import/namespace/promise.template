@@ -2,7 +2,7 @@
 // Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/module-code/dynamic-import/ns/promise-then-
+path: language/expressions/dynamic-import/ns/promise-then-
 name: value from promise then
 esid: sec-finishdynamicimport
 info: |
