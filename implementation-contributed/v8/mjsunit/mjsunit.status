@@ -32,6 +32,8 @@
   'modules-skip*': [SKIP],
   'harmony/modules-skip*': [SKIP],
   'regress/modules-skip*': [SKIP],
+  'wasm/wasm-constants': [SKIP],
+  'wasm/wasm-module-builder': [SKIP],
 
   # All tests in the bug directory are expected to fail.
   'bugs/*': [FAIL],
@@ -171,10 +173,11 @@
   'string-replace-gc': [PASS, SLOW],
   'wasm/asm-wasm-f32': [PASS, SLOW],
   'wasm/asm-wasm-f64': [PASS, SLOW],
-  'wasm/compare-exchange-stress': [PASS, SLOW],
   'wasm/embenchen/*': [PASS, SLOW],
   'wasm/grow-memory': [PASS, SLOW],
   'wasm/unreachable-validation': [PASS, SLOW],
+  'wasm/compare-exchange-stress': [PASS, SLOW, NO_VARIANTS],
+  'wasm/compare-exchange64-stress': [PASS, SLOW, NO_VARIANTS],
 
   # case-insensitive unicode regexp relies on case mapping provided by ICU.
   'es6/unicode-regexp-ignore-case': [PASS, ['no_i18n == True', FAIL]],
@@ -224,6 +227,11 @@
 
   # BUG(v8:8169)
   'external-backing-store-gc': [SKIP],
+
+  # BUG(v8:8332)
+  'wasm/atomics-stress': [SKIP],
+  # BUG(v8:8331)
+  'wasm/atomics64-stress': [SKIP],
 }],  # ALWAYS
 
 ['novfp3 == True', {
@@ -805,9 +813,6 @@
 
   # Too memory hungry on Odroid devices.
   'regress/regress-678917': [PASS, ['arch == arm and not simulator_run', SKIP]],
-
-  # https://crbug.com/v8/8164
-  'wasm/compare-exchange-stress': [SKIP],
 
   # Too slow for verify-csa builds.
   'big-object-literal': [PASS, ['verify_csa == True', SKIP]],
