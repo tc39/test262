@@ -21,6 +21,8 @@ info: |
     9. Return promiseCapability.[[Promise]].
 
 ---*/
+// import('./dynamic-import-module_FIXTURE.js')
+
 
 let callCount = 0;
 
