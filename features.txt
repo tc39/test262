@@ -131,6 +131,10 @@ globalThis
 # https://github.com/tc39/ecma262/pull/1174
 export-star-as-namespace-from-module
 
+# import.meta
+# https://github.com/tc39/proposal-import-meta
+import.meta
+
 # Standard language features
 #
 # Language features that have been included in a published version of the
