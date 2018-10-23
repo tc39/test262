@@ -27,12 +27,7 @@ assert._isSameValue = function (a, b) {
 };
 
 assert.sameValue = function (actual, expected, message) {
-  try {
-    if (assert._isSameValue(actual, expected)) {
-      return;
-    }
-  } catch (error) {
-    $ERROR(message + ' (_isSameValue operation threw) ' + error);
+  if (assert._isSameValue(actual, expected)) {
     return;
   }
 
