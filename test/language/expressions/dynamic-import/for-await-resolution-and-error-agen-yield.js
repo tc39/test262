@@ -6,7 +6,7 @@ description: >
 esid: sec-finishdynamicimport
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
-    
+
     2. Otherwise,
         a. Assert: completion is a normal completion and completion.[[Value]] is undefined.
         b. Let moduleRecord be ! HostResolveImportedModule(referencingScriptOrModule, specifier).
