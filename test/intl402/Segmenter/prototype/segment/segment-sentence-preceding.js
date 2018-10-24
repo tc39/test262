@@ -1,10 +1,15 @@
 // Copyright 2018 the V8 project authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// This code is governed by the BSD license found in the LICENSE file.
 
-// Flags: --harmony-intl-segmenter
+/*---
+esid: sec-Intl.Segmenter.prototype.segment
+description: Verifies the behavior for the "segment" function of the Segmenter prototype object.
+info: |
+    Intl.Segmenter.prototype.segment( string )
+features: [Intl.Segmenter]
+---*/
 
-const seg = new Intl.Segmenter([], {granularity: "line"})
+const seg = new Intl.Segmenter([], {granularity: "sentence"})
 for (const text of [
     "Hello world!", // English
     " Hello world! ",  // English with space before/after
@@ -24,6 +29,21 @@ for (const text of [
     "법원 “다스 지분 처분권·수익권 모두 MB가 보유”", // Korean
     ]) {
   const iter = seg.segment(text);
-  assertTrue(["soft", "hard"].includes(iter.breakType), iter.breakType);
-  assertEquals(0, iter.position);
+  let prev = text.length;
+  let segments = [];
+  iter.preceding(prev);
+  assert(["sep", "term"].includes(iter.breakType), iter.breakType);
+  assert(iter.position >= 0);
+  assert(iter.position < prev);
+  segments.push(text.substring(iter.position, prev));
+  prev = iter.position;
+  while (!iter.preceding()) {
+    assert(["sep", "term"].includes(iter.breakType), iter.breakType);
+    assert(iter.position >= 0);
+    assert(iter.position <= text.length);
+    assert(iter.position < prev);
+    segments.push(text.substring(iter.position, prev));
+    prev = iter.position;
+  }
+  assert.sameValue(text, segments.reverse().join(""));
 }

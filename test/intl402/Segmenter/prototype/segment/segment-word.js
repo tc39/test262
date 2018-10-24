@@ -1,8 +1,13 @@
 // Copyright 2018 the V8 project authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// This code is governed by the BSD license found in the LICENSE file.
 
-// Flags: --harmony-intl-segmenter
+/*---
+esid: sec-Intl.Segmenter.prototype.segment
+description: Verifies the behavior for the "segment" function of the Segmenter prototype object.
+info: |
+    Intl.Segmenter.prototype.segment( string )
+features: [Intl.Segmenter]
+---*/
 
 const seg = new Intl.Segmenter([], {granularity: "word"})
 for (const text of [
@@ -24,13 +29,6 @@ for (const text of [
     "법원 “다스 지분 처분권·수익권 모두 MB가 보유”", // Korean
     ]) {
   const iter = seg.segment(text);
-  let segments = [];
-  for (let result = iter.next(); !result.done; result = iter.next()) {
-    const v = result.value;
-    assertTrue(["word", "none"].includes(iter.breakType), iter.breakType);
-    assertEquals("string", typeof v.segment);
-    assertTrue(v.segment.length > 0);
-    segments.push(v.segment);
-  }
-  assertEquals(text, segments.join(''));
+  assert(["word", "none"].includes(iter.breakType), iter.breakType);
+  assert.sameValue(0, iter.position);
 }

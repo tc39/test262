@@ -1,10 +1,15 @@
 // Copyright 2018 the V8 project authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// This code is governed by the BSD license found in the LICENSE file.
 
-// Flags: --harmony-intl-segmenter
+/*---
+esid: sec-Intl.Segmenter.prototype.segment
+description: Verifies the behavior for the "segment" function of the Segmenter prototype object.
+info: |
+    Intl.Segmenter.prototype.segment( string )
+features: [Intl.Segmenter]
+---*/
 
-const seg = new Intl.Segmenter([], {granularity: "sentence"})
+const seg = new Intl.Segmenter([], {granularity: "grapheme"})
 for (const text of [
     "Hello world!", // English
     " Hello world! ",  // English with space before/after
@@ -23,22 +28,23 @@ for (const text of [
     "九州北部の一部が暴風域に入りました(日直予報士 2018年10月06日) - 日本気象協会 tenki.jp",  // Japanese
     "법원 “다스 지분 처분권·수익권 모두 MB가 보유”", // Korean
     ]) {
-  const iter = seg.segment(text);
-  let prev = text.length;
   let segments = [];
-  iter.preceding(prev);
-  assertTrue(["sep", "term"].includes(iter.breakType), iter.breakType);
-  assertTrue(iter.position >= 0);
-  assertTrue(iter.position < prev);
-  segments.push(text.substring(iter.position, prev));
-  prev = iter.position;
-  while (!iter.preceding()) {
-    assertTrue(["sep", "term"].includes(iter.breakType), iter.breakType);
-    assertTrue(iter.position >= 0);
-    assertTrue(iter.position <= text.length);
-    assertTrue(iter.position < prev);
-    segments.push(text.substring(iter.position, prev));
+  // Create another %SegmentIterator% to compare with result from the one that
+  // created in the for of loop.
+  let iter = seg.segment(text);
+  let prev = 0;
+  for (const v of seg.segment(text)) {
+    assert.sameValue(undefined, v.breakType);
+    assert.sameValue("string", typeof v.segment);
+    assert(v.segment.length > 0);
+    segments.push(v.segment);
+
+    // manually advance the iter.
+    assertFalse(iter.following());
+    assert.sameValue(iter.breakType, v.breakType);
+    assert.sameValue(text.substring(prev, iter.position), v.segment);
     prev = iter.position;
   }
-  assertEquals(text, segments.reverse().join(""));
+  assert(iter.following());
+  assert.sameValue(text, segments.join(''));
 }
