@@ -17,6 +17,7 @@ const optionsArguments = [
   "test",
   7,
   Symbol(),
+  {},
 ];
 
 for (const options of optionsArguments) {

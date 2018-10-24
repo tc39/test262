@@ -17,6 +17,7 @@ const invalidOptions = [
   null,
   1,
   "",
+  "giant",
   "Strict",
   "STRICT",
   "strict\0",

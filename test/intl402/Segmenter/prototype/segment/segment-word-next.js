@@ -30,12 +30,16 @@ for (const text of [
     ]) {
   const iter = seg.segment(text);
   let segments = [];
+  let oldPos = -1;
   for (let result = iter.next(); !result.done; result = iter.next()) {
     const v = result.value;
     assert(["word", "none"].includes(iter.breakType), iter.breakType);
     assert.sameValue("string", typeof v.segment);
     assert(v.segment.length > 0);
     segments.push(v.segment);
+    assert.sameValue(typeof v.position, "number");
+    assert(oldPos < v.position);
+    oldPos = v.position;
   }
   assert.sameValue(text, segments.join(''));
 }
