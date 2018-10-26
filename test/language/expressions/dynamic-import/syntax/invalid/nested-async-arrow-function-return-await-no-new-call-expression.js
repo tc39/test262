@@ -2,7 +2,7 @@
 // - src/dynamic-import/no-new-call-expression.case
 // - src/dynamic-import/syntax/invalid/nested-async-arrow-fn-return-await.template
 /*---
-description: ImportCall is a CallExpression, it can't be preceeded by the new keyword (nested in async arrow function, returned)
+description: ImportCall is a CallExpression, it can't be preceded by the new keyword (nested in async arrow function, returned)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated]

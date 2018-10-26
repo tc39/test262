@@ -2,7 +2,7 @@
 // - src/dynamic-import/no-new-call-expression.case
 // - src/dynamic-import/syntax/invalid/nested-async-generator-await.template
 /*---
-description: ImportCall is a CallExpression, it can't be preceeded by the new keyword (nested in async generator, awaited)
+description: ImportCall is a CallExpression, it can't be preceded by the new keyword (nested in async generator, awaited)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import, async-iteration]
 flags: [generated]

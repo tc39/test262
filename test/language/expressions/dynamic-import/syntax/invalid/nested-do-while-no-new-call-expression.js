@@ -2,7 +2,7 @@
 // - src/dynamic-import/no-new-call-expression.case
 // - src/dynamic-import/syntax/invalid/nested-do-while.template
 /*---
-description: ImportCall is a CallExpression, it can't be preceeded by the new keyword (nested do while syntax)
+description: ImportCall is a CallExpression, it can't be preceded by the new keyword (nested do while syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated]

@@ -2,7 +2,7 @@
 // - src/dynamic-import/no-new-call-expression.case
 // - src/dynamic-import/syntax/invalid/nested-with.template
 /*---
-description: ImportCall is a CallExpression, it can't be preceeded by the new keyword (nested with syntax)
+description: ImportCall is a CallExpression, it can't be preceded by the new keyword (nested with syntax)
 esid: sec-import-call-runtime-semantics-evaluation
 features: [dynamic-import]
 flags: [generated, noStrict]
