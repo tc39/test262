@@ -40,7 +40,7 @@ for (const text of [
     segments.push(v.segment);
 
     // manually advance the iter.
-    assertFalse(iter.following());
+    assert.sameValue(iter.following(), false);
     assert.sameValue(iter.breakType, v.breakType);
     assert.sameValue(text.substring(prev, iter.position), v.segment);
     prev = iter.position;
