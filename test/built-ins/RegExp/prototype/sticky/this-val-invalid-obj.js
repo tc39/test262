@@ -14,6 +14,9 @@ info: |
 ---*/
 
 var sticky = Object.getOwnPropertyDescriptor(RegExp.prototype, 'sticky').get;
+var other = $262.createRealm().global;
+var otherRegExpProto = other.RegExp.prototype;
+var otherRegExpGetter = Object.getOwnPropertyDescriptor(otherRegExpProto, 'sticky').get;
 
 assert.throws(TypeError, function() {
   sticky.call({});
@@ -26,3 +29,11 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   sticky.call(arguments);
 }, 'arguments object');
+
+assert.throws(TypeError, function() {
+  sticky.call(otherRegExpProto);
+}, 'cross-realm RegExp.prototype');
+
+assert.throws(other.TypeError, function() {
+  otherRegExpGetter.call(RegExp.prototype);
+}, 'cross-realm RegExp.prototype getter method against primary realm RegExp.prototype');
