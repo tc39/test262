@@ -13,6 +13,8 @@ info: |
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(RegExp.prototype, 'source').get;
+var otherRealm = $262.createRealm().global;
+var otherRealmRegExpProto = otherRealm.RegExp.prototype;
 
 assert.throws(TypeError, function() {
   get.call({});
@@ -25,3 +27,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   get.call(arguments);
 }, 'arguments object');
+
+assert.throws(TypeError, function() {
+  get.call(otherRealmRegExpProto);
+}, 'cross-realm RegExp.prototype');
