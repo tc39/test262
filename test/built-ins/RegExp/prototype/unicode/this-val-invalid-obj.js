@@ -14,9 +14,6 @@ info: |
 ---*/
 
 var unicode = Object.getOwnPropertyDescriptor(RegExp.prototype, 'unicode').get;
-var other = $262.createRealm().global;
-var otherRegExpProto = other.RegExp.prototype;
-var otherRegExpGetter = Object.getOwnPropertyDescriptor(otherRegExpProto, 'unicode').get;
 
 assert.throws(TypeError, function() {
   unicode.call({});
@@ -29,11 +26,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   unicode.call(arguments);
 }, 'arguments object');
-
-assert.throws(TypeError, function() {
-  unicode.call(otherRegExpProto);
-}, 'cross-realm RegExp.prototype');
-
-assert.throws(other.TypeError, function() {
-  otherRegExpGetter.call(RegExp.prototype);
-}, 'cross-realm RegExp.prototype getter method against primary realm RegExp.prototype');
