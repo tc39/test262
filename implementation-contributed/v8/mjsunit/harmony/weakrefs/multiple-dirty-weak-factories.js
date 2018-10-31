@@ -8,33 +8,37 @@ let cleanup_call_count = 0;
 let cleanup_weak_cell_count = 0;
 let cleanup = function(iter) {
   for (wc of iter) {
-    assertSame(wc, weak_cell);
-    wc.clear();
     ++cleanup_weak_cell_count;
   }
   ++cleanup_call_count;
 }
 
-let wf = new WeakFactory(cleanup);
-// Create an object and a WeakCell pointing to it. The object needs to be inside
+let wf1 = new WeakFactory(cleanup);
+let wf2 = new WeakFactory(cleanup);
+
+// Create two objects and WeakCells pointing to them. The objects need to be inside
 // a closure so that we can reliably kill them!
-let weak_cell;
+let weak_cell1;
+let weak_cell2;
 
 (function() {
-  let object = {};
-  weak_cell = wf.makeCell(object);
+  let object1 = {};
+  weak_cell1 = wf1.makeCell(object1);
 
-  // object goes out of scope.
+  let object2 = {};
+  weak_cell2 = wf2.makeCell(object2);
+
+  // object1 and object2 go out of scope.
 })();
 
 // This GC will discover dirty WeakCells and schedule cleanup.
 gc();
 assertEquals(0, cleanup_call_count);
 
-// Assert that the cleanup function was called and iterated the WeakCell.
+// Assert that the cleanup function was called and iterated the WeakCells.
 let timeout_func = function() {
-  assertEquals(1, cleanup_call_count);
-  assertEquals(1, cleanup_weak_cell_count);
+  assertEquals(2, cleanup_call_count);
+  assertEquals(2, cleanup_weak_cell_count);
 }
 
 setTimeout(timeout_func, 0);

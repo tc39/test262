@@ -4,18 +4,13 @@
 
 // Flags: --harmony-weak-refs --expose-gc --noincremental-marking
 
-let cleanup_call_count = 0;
-let cleanup_weak_cell_count = 0;
-let cleanup = function(iter) {
-  for (wc of iter) {
-    assertSame(wc, weak_cell);
-    wc.clear();
-    ++cleanup_weak_cell_count;
-  }
-  ++cleanup_call_count;
-}
+let r = Realm.create();
+
+let cleanup = Realm.eval(r, "var stored_global; function cleanup() { stored_global = globalThis; } cleanup");
+let realm_global_this = Realm.eval(r, "globalThis");
 
 let wf = new WeakFactory(cleanup);
+
 // Create an object and a WeakCell pointing to it. The object needs to be inside
 // a closure so that we can reliably kill them!
 let weak_cell;
@@ -27,14 +22,13 @@ let weak_cell;
   // object goes out of scope.
 })();
 
-// This GC will discover dirty WeakCells and schedule cleanup.
 gc();
-assertEquals(0, cleanup_call_count);
 
-// Assert that the cleanup function was called and iterated the WeakCell.
+// Assert that the cleanup function was called in its Realm.
 let timeout_func = function() {
-  assertEquals(1, cleanup_call_count);
-  assertEquals(1, cleanup_weak_cell_count);
+  let stored_global = Realm.eval(r, "stored_global;");
+  assertNotEquals(stored_global, globalThis);
+  assertEquals(stored_global, realm_global_this);
 }
 
 setTimeout(timeout_func, 0);
