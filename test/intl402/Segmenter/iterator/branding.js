@@ -7,6 +7,9 @@ description: Verifies the behavior for the iterators.
 features: [Intl.Segmenter]
 ---*/
 
+let seg = new Intl.Segmenter();
+let segmentIterator = seg.segment('text');
+let prototype = Object.getPrototypeOf(segmentIterator);
 const otherReceivers = [
     1, 123.45, undefined, null, "string", true, false,
     Intl, Intl.Segmenter, Intl.Segmenter.prototype,
