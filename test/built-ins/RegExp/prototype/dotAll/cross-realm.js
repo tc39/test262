@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-get-regexp.prototype.dotall
-description: Invoked on an object without an [[OriginalFlags]] internal slot
+description: Invoked on a cross-realm object
 info: |
     get RegExp.prototype.dotAll
 
@@ -12,19 +12,18 @@ info: |
     3. If R does not have an [[OriginalFlags]] internal slot, then
       a. If SameValue(R, %RegExpPrototype%) is true, return undefined.
       b. Otherwise, throw a TypeError exception.
-features: [regexp-dotall]
+features: [regexp-dotall, cross-realm]
 ---*/
 
 var dotAll = Object.getOwnPropertyDescriptor(RegExp.prototype, 'dotAll').get;
+var other = $262.createRealm().global;
+var otherRegExpProto = other.RegExp.prototype;
+var otherRegExpGetter = Object.getOwnPropertyDescriptor(otherRegExpProto, 'dotAll').get;
 
 assert.throws(TypeError, function() {
-  dotAll.call({});
-}, 'ordinary object');
+  dotAll.call(otherRegExpProto);
+}, 'cross-realm RegExp.prototype');
 
-assert.throws(TypeError, function() {
-  dotAll.call([]);
-}, 'array exotic object');
-
-assert.throws(TypeError, function() {
-  dotAll.call(arguments);
-}, 'arguments object');
+assert.throws(other.TypeError, function() {
+  otherRegExpGetter.call(RegExp.prototype);
+}, 'cross-realm RegExp.prototype getter method against primary realm RegExp.prototype');
