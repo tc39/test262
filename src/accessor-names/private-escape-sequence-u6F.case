@@ -1,0 +1,13 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Private IdentifierName - u6F (o)
+esid: sec-private-names-static-semantics-stringvalue
+template: private
+---*/
+
+//- declareWith
+\u{6F}
+//- referenceWith
+o

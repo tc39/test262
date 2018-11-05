@@ -1,0 +1,13 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Private IdentifierName - ZWJ
+esid: sec-private-names-static-semantics-stringvalue
+template: private
+---*/
+
+//- declareWith
+ZW_\u200D_J
+//- referenceWith
+ZW_‍_J
