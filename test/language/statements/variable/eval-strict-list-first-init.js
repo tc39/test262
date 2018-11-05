@@ -2,14 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 12.2.1-24-s
+es5id: 12.2.1-27-s
+esid: sec-variable-statement
 description: >
     eval as local var identifier assigned to throws SyntaxError in
     strict mode
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-    eval('function foo() { var eval = 42;}');
-});
+var eval = 42, a;

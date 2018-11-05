@@ -3,13 +3,16 @@
 
 /*---
 es5id: 12.2.1-31-s
+esid: sec-variable-statement
 description: >
     eval as local var identifier defined twice throws SyntaxError in
     strict mode
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-    eval('function foo() { var eval, eval;}');
-});
+var eval, eval;

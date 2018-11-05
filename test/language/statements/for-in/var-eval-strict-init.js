@@ -2,12 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 12.2.1-35-s
+esid: sec-for-statement
 description: "'for(var eval = 42 in ...) {...}' throws SyntaxError in strict mode"
 flags: [onlyStrict]
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+throw "Test262: This statement should not be evaluated.";
 
-assert.throws(SyntaxError, function() {
-    eval('for (var eval = 42 in null) {};');
-});
+for (var eval = 42 in null) {}
