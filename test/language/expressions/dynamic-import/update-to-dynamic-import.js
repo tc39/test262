@@ -19,7 +19,7 @@ features: [dynamic-import]
 ---*/
 
 async function fn() {
-    const first = await import('update-to-dynamic-import_FIXTURE.js');
+    const first = await import('./update-to-dynamic-import_FIXTURE.js');
     assert.sameValue(first.x, 'first', 'the other module has not been evaluated yet');
 
     const other = await first.default();
