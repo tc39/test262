@@ -4,9 +4,10 @@
 /*---
 esid: prod-CharacterClassEscape
 description: >
-    Compare range for Non whitespace class escape, \\S with flags g
+    Compare range for non-whitespace class escape \S with flags g
 info: |
-    This is a generated test, please checkout https://github.com/bocoup/test262-regexp-generator
+    This is a generated test. Please check out
+    https://github.com/bocoup/test262-regexp-generator
     for any changes.
 
     CharacterClassEscape[U] ::
@@ -18,7 +19,7 @@ info: |
         W
 
     21.2.2.12 CharacterClassEscape
-    
+
     The production CharacterClassEscape :: d evaluates as follows:
         Return the ten-element set of characters containing the characters 0 through 9 inclusive.
     The production CharacterClassEscape :: D evaluates as follows:
@@ -36,7 +37,7 @@ features: [String.fromCodePoint]
 includes: [regExpUtils.js]
 ---*/
 
-const str = buildString({loneCodePoints: [], ranges: [[0, 0xFFFF]]});
+const str = buildString({ loneCodePoints: [], ranges: [[0, 0xFFFF]] });
 
 const re = /\S/g;
 const matchingRange = /[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uFEFE\uFF00-\uFFFF]/g;
