@@ -16,7 +16,7 @@ info: |
         LeftHandSideExpression[?Yield, ?Await] = AssignmentExpression[?In, ?Yield, ?Await]
         LeftHandSideExpression[?Yield, ?Await] AssignmentOperator AssignmentExpression[?In, ?Yield, ?Await]
 flags: [async]
-features: [dynamic-import]
+features: [dynamic-import, new.target]
 ---*/
 
 function ctor() {
