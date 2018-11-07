@@ -2,9 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName
+desc: >
+  It's a SyntaxError if delete operator is applied to CallExpression.PrivateName
+  async generator
 template: delete-error
-features: [class, class-fields-private, class-methods-private, class-fields-public]
+features: [class-methods-private, async-iteration]
 ---*/
 
 //- infieldsetup

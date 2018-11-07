@@ -1,10 +1,10 @@
-// Copyright (C) 2017 Valerie Young. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 desc: >
   It's a SyntaxError if delete operator is applied to CallExpression.PrivateName
-  private field
+  no referencing class element
 template: delete-error
 ---*/
 
@@ -13,7 +13,7 @@ g = this.f;
 //- infunctionsetup
 var g = this.f;
 //- expression
-g().#x
+g().#m
 //- functiondeclaration
 f() {
 return this;
