@@ -12,4 +12,4 @@ features: [regexp-named-groups]
 
 throw "Test262: This statement should not be evaluated.";
 
-/(?<\u{0041}>a)/;
+/(?<\u{0041}>.)/;

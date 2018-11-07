@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: GroupSpecifier must be identifier-like.
+description: \u{} escapes in GroupSpecifier allowed only in Unicode mode
 esid: prod-GroupSpecifier
 negative:
   phase: parse
@@ -12,4 +12,4 @@ features: [regexp-named-groups]
 
 throw "Test262: This statement should not be evaluated.";
 
-/(?<a\uDCA4>.)/;
+/(?<\u{03C0}>a)/;

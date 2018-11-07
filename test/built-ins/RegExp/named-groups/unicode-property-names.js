@@ -23,6 +23,8 @@ assert(/(?<a\uD801\uDCA4>.)/u.test("a"), "\\u Lead \\u Trail");
 assert(/(?<\u0041>.)/u.test("a"), "\\u NonSurrogate");
 assert(/(?<\u{0041}>.)/u.test("a"), "\\u{ Non-surrogate }");
 assert(/(?<a\u{104A4}>.)/u.test("a"), "\\u{ Surrogate, ID_Continue }");
+assert(RegExp("(?<\u{0041}>.)", "u").test("a"), "Non-surrogate");
+assert(RegExp("(?<a\u{104A4}>.)", "u").test("a"), "Surrogate,ID_Continue");
 assert((/(?<\u{0041}>.)/u).test("a"), "Non-surrogate");
 assert(/(?<a\u{104A4}>.)/u.test("a"), "Surrogate, ID_Continue");
 assert(RegExp("(?<\\u0041>.)", "u").test("a"), "Non-surrogate");
