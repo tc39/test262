@@ -2,9 +2,9 @@
 // - src/class-elements/err-delete-call-expression-private-method-async.case
 // - src/class-elements/delete-error/cls-decl-method-delete.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in method)
+description: It's a SyntaxError if delete operator is applied to CallExpression.PrivateName async method (in method)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class, class-fields-private, class-methods-private, class-fields-public]
+features: [class-methods-private, async-functions, class, class-fields-private]
 flags: [generated, onlyStrict]
 negative:
   phase: parse

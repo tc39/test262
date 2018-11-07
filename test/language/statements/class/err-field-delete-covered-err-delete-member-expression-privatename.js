@@ -2,9 +2,9 @@
 // - src/class-elements/err-delete-member-expression-privatename.case
 // - src/class-elements/delete-error/cls-decl-field-delete-covered.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in field, covered)
+description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName private field (in field, covered)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-fields-private, class, class-fields-public]
+features: [class, class-fields-private, class-fields-public]
 flags: [generated, onlyStrict]
 negative:
   phase: parse

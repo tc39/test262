@@ -2,9 +2,9 @@
 // - src/class-elements/err-delete-member-expression-private-method-gen.case
 // - src/class-elements/delete-error/cls-decl-method-delete-covered.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in method, covered)
+description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName generator (in method, covered)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-methods-private, class, class-fields-private]
+features: [class-methods-private, generators, class, class-fields-private]
 flags: [generated, onlyStrict]
 negative:
   phase: parse
@@ -40,5 +40,5 @@ class C {
 );
   }
 
-  
+  *#m() {}
 }
