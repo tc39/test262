@@ -8,7 +8,7 @@ description: >
   for-await-of iteration and builtin Promises are properly interleaved,
   meaning await in for-of loop takes only 1 tick on the microtask queue.
 flags: [async]
-features: [async-functions, async-iteration]
+features: [async-functions, async-iteration, generators]
 includes: [compareArray.js]
 ---*/
 
