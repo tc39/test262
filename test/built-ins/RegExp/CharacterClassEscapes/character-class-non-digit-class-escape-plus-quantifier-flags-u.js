@@ -37,21 +37,22 @@ features: [String.fromCodePoint]
 includes: [regExpUtils.js]
 ---*/
 
-const str = buildString({ loneCodePoints: [], ranges: [[0, 0x10FFFF]] });
+const str = buildString({
+  loneCodePoints: [],
+  ranges: [
+      [0x000000, 0x00002F],
+      [0x00003A, 0x10FFFF],
+  ],
+});
 
 const re = /\D+/ug;
-const matchingRange = /[\0-\/:-\u{10FFFF}]+/ug;
 
 const errors = [];
 
-function matching(str) {
-    return str.replace(re, '') === str.replace(matchingRange, '');
-}
-
-if (!matching(str)) {
+if (!re.test(str)) {
     // Error, let's find out where
     for (const char of str) {
-        if (!matching(char)) {
+        if (!re.test(char)) {
             errors.push('0x' + char.codePointAt(0).toString(16));
         }
     }

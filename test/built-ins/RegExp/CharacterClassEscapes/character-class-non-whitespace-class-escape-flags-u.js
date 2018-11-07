@@ -37,21 +37,33 @@ features: [String.fromCodePoint]
 includes: [regExpUtils.js]
 ---*/
 
-const str = buildString({ loneCodePoints: [], ranges: [[0, 0x10FFFF]] });
+const str = buildString({
+    loneCodePoints: [],
+    ranges: [
+        [0x00DC00, 0x00DFFF],
+        [0x000000, 0x000008],
+        [0x00000E, 0x00001F],
+        [0x000021, 0x00009F],
+        [0x0000A1, 0x00167F],
+        [0x001681, 0x001FFF],
+        [0x00200B, 0x002027],
+        [0x00202A, 0x00202E],
+        [0x002030, 0x00205E],
+        [0x002060, 0x002FFF],
+        [0x003001, 0x00DBFF],
+        [0x00E000, 0x00FEFE],
+        [0x00FF00, 0x10FFFF],
+    ],
+});
 
 const re = /\S/ug;
-const matchingRange = /[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uFEFE\uFF00-\u{10FFFF}]/ug;
 
 const errors = [];
 
-function matching(str) {
-    return str.replace(re, '') === str.replace(matchingRange, '');
-}
-
-if (!matching(str)) {
+if (!re.test(str)) {
     // Error, let's find out where
     for (const char of str) {
-        if (!matching(char)) {
+        if (!re.test(char)) {
             errors.push('0x' + char.codePointAt(0).toString(16));
         }
     }
