@@ -33,6 +33,12 @@ matrix:
     script: ./tools/scripts/ci_test.sh
     env: T262ENGINE=v8 hostType=d8 hostArgs='--harmony'
   - language: node_js
+    name: "New or modified tests on V8 with all --harmony flags"
+    if: type = pull_request
+    node_js: "node"
+    script: ./tools/scripts/ci_test.sh
+    env: T262ENGINE=v8 hostType=d8 hostArgs=$(v8 --help | grep "\--harmony" | perl -p -e "s/ \(enable.*\n//")
+  - language: node_js
     name: "New or modified tests on ChakraCore"
     if: type = pull_request
     node_js: "node"
