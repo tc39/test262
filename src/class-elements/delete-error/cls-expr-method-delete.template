@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/err-method-delete-
+path: language/expressions/class/syntax/early-errors/delete/method-delete-
 name: in method
 info: |
   Static Semantics: Early Errors
@@ -15,8 +15,6 @@ info: |
     PrimaryExpression : IdentifierReference ,
     MemberExpression : MemberExpression.PrivateName , or
     CallExpression : CallExpression.PrivateName .
-
-flags: [onlyStrict]
 features: [class, class-fields-private]
 negative:
   type: SyntaxError

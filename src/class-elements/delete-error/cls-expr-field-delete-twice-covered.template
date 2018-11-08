@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/err-field-delete-twice-covered-
+path: language/expressions/class/syntax/early-errors/delete/field-delete-twice-covered-
 name: in field, recursively covered
 info: |
   Static Semantics: Early Errors
@@ -21,8 +21,6 @@ info: |
     CoverParenthesizedExpressionAndArrowParameterList ultimately derives a
     phrase that, if used in place of UnaryExpression, would produce a
     Syntax Error according to these rules. This rule is recursively applied.
-
-flags: [onlyStrict]
 features: [class, class-fields-private, class-fields-public]
 negative:
   type: SyntaxError

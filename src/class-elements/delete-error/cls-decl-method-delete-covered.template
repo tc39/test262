@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/statements/class/err-method-delete-covered-
+path: language/statements/class/syntax/early-errors/delete/method-delete-covered-
 name: in method, covered
 info: |
   Static Semantics: Early Errors
@@ -21,8 +21,6 @@ info: |
     CoverParenthesizedExpressionAndArrowParameterList ultimately derives a
     phrase that, if used in place of UnaryExpression, would produce a
     Syntax Error according to these rules. This rule is recursively applied.
-
-flags: [onlyStrict]
 features: [class, class-fields-private]
 negative:
   type: SyntaxError
