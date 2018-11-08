@@ -2,9 +2,9 @@
 // - src/class-elements/err-delete-member-expression-private-method-async.case
 // - src/class-elements/delete-error/cls-decl-method-delete-twice-covered.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in method, recursively covered)
+description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName async method (in method, recursively covered)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-methods-private, class, class-fields-private]
+features: [class-methods-private, async-functions, class, class-fields-private]
 flags: [generated, onlyStrict]
 negative:
   phase: parse
@@ -40,5 +40,5 @@ class C {
 ));
   }
 
-  
+  async #m() {}
 }

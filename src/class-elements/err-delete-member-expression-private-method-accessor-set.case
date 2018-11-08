@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName
+    accessor set method
+template: delete-error
+features: [class-methods-private]
+---*/
+
+//- expression
+this.#m
+
+//- functiondeclaration
+set #m(arg) {}

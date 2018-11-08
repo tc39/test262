@@ -2,9 +2,9 @@
 // - src/class-elements/err-delete-member-expression-private-method-async.case
 // - src/class-elements/delete-error/cls-decl-field-delete.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in field)
+description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName async method (in field)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-methods-private, class, class-fields-private, class-fields-public]
+features: [class-methods-private, async-functions, class, class-fields-private, class-fields-public]
 flags: [generated, onlyStrict]
 negative:
   phase: parse
@@ -30,5 +30,5 @@ class C {
   
   x = delete this.#m
 ;
-  
+  async #m() {}
 }

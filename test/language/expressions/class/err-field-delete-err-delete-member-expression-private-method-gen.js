@@ -2,9 +2,9 @@
 // - src/class-elements/err-delete-member-expression-private-method-gen.case
 // - src/class-elements/delete-error/cls-expr-field-delete.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in field)
+description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName generator (in field)
 esid: sec-class-definitions-static-semantics-early-errors
-features: [class-methods-private, class, class-fields-private, class-fields-public]
+features: [class-methods-private, generators, class, class-fields-private, class-fields-public]
 flags: [generated, onlyStrict]
 negative:
   phase: parse
@@ -31,5 +31,5 @@ var C = class {
   x = delete this.#m
 ;
 
-  
+  *#m() {}
 }

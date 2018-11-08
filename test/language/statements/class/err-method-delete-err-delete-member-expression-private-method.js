@@ -2,7 +2,7 @@
 // - src/class-elements/err-delete-member-expression-private-method.case
 // - src/class-elements/delete-error/cls-decl-method-delete.template
 /*---
-description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName (in method)
+description: It's a SyntaxError if delete operator is applied to MemberExpression.PrivateName private ordinary method (in method)
 esid: sec-class-definitions-static-semantics-early-errors
 features: [class-methods-private, class, class-fields-private]
 flags: [generated, onlyStrict]
