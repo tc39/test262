@@ -1,0 +1,27 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Multiple class instances of PrivateName Private method have same function identity 
+info: |
+  Static Semantics: PrivateStringValue
+    PrivateName::
+      #IdentifierName
+  Return the String value consisting of the sequence of code units corresponding to PrivateName
+
+template: productions
+features: [class-methods-private]
+---*/
+
+//- fields
+#m() {}
+//- privateinspectionfunctions
+method() {
+  return this.#m;
+}
+
+const c1 = new C();
+const c2 = new C();
+
+//- assertions
+assert.sameValue(c1.method(), c2.method());

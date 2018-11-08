@@ -1,0 +1,28 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: PrivateName IdentifierName PropName StringValue
+info: |
+  Static Semantics: PrivateStringValue
+    PrivateName::
+      #IdentifierName
+  Return the String value consisting of the sequence of code units corresponding to PrivateName
+
+template: productions
+features: [class-methods-private]
+---*/
+
+//- fields
+#foo() { return 'test'; }
+static #bar() { return '262'; }
+//- privateinspectionfunctions
+method1() {
+  return this.#foo.call(C);
+}
+method2() {
+  return C.#bar.call(this);
+}
+//- assertions
+assert.sameValue(c.method1(), 'test');
+assert.sameValue(c.method2(), '262');
