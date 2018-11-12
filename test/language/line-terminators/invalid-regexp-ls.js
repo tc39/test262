@@ -2,13 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 7.3-8
+esid: sec-line-terminators
+es5id: 7.3-7
 description: >
-    7.3 - ES5 recognizes the character <PS> (\u2029) as terminating
+    7.3 - ES5 recognizes the character <LS> (\u2028) as terminating
     regular expression literals
+negative:
+  phase: parse
+  type: SyntaxError
 ---*/
 
+$DONOTEVALUATE();
 
-assert.throws(SyntaxError, function() {
-            eval("var regExp =  /[\u2029]/");
-});
+/ /
