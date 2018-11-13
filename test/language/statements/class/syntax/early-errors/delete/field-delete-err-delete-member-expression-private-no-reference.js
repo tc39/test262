@@ -10,6 +10,9 @@ negative:
   phase: parse
   type: SyntaxError
 info: |
+    This file must never use the onlyStrict flag as the strict mode should always
+    be observed inside class bodies.
+
     Static Semantics: Early Errors
 
       UnaryExpression : delete UnaryExpression
