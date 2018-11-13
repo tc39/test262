@@ -26,6 +26,6 @@ negative:
 features: [import.meta, destructuring-assignment]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 [...import.meta] = [];

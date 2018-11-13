@@ -30,6 +30,6 @@ negative:
 features: [dynamic-import]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 im\u0070ort('./empty_FIXTURE.js');

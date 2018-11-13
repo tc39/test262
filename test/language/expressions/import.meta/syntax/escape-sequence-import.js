@@ -29,6 +29,6 @@ negative:
 features: [import.meta]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 im\u0070ort.meta;
