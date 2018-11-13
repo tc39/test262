@@ -6,6 +6,9 @@ esid: sec-class-definitions-static-semantics-early-errors
 path: language/expressions/class/syntax/early-errors/delete/method-delete-twice-covered-
 name: in method, recursively covered
 info: |
+  This file must never use the onlyStrict flag as the strict mode should always
+  be observed inside class bodies.
+
   Static Semantics: Early Errors
 
     UnaryExpression : delete UnaryExpression
