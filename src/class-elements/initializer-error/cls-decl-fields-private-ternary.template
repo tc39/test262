@@ -8,7 +8,7 @@ name: private field, ternary expression
 features: [class, class-fields-private]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 class C {
   #x = false ? {} : /*{ initializer }*/;

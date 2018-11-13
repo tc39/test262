@@ -14,7 +14,7 @@ negative:
 ---*/
 
 //- setup
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 //- elems
 { eval = 0 }
 //- vals

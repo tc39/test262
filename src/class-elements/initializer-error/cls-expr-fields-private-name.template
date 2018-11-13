@@ -8,7 +8,7 @@ name: ClassElementName PrivateName
 features: [class, class-fields-private]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 var C = class {
   #x = /*{ initializer }*/;

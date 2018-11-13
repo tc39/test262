@@ -20,7 +20,7 @@ negative:
 ---*/
 
 //- setup
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 //- body
   return {
      ...(function() {

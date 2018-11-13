@@ -191,18 +191,19 @@ Each test case is run in a fresh JavaScript environment; in a browser, this will
 
 Function | Purpose
 ---------|--------
-Test262Error(message) | constructor for an error object that indicates a test failure
-$DONE(arg) | see Writing Asynchronous Tests, below
-assert(value, message) | throw a new Test262Error instance if the specified value is not strictly equal to the JavaScript `true` value; accepts an optional string message for use in creating the error
-assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
-assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
-assert.throws(expectedErrorConstructor, fn, message) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
-$ERROR(message) | construct a Test262Error object and throw it <br>**DEPRECATED** -- Do not use in new tests. Use `assert`, `assert.*`, or `throw new Test262Error` instead.
+`Test262Error(message)` | constructor for an error object that indicates a test failure
+`$DONE(arg)` | see [Writing Asynchronous Tests](#writing-asynchronous-tests), below
+`assert(value, message)` | throw a new Test262Error instance if the specified value is not strictly equal to the JavaScript `true` value; accepts an optional string message for use in creating the error
+`assert.sameValue(actual, expected, message)` | throw a new Test262Error instance if the first two arguments are not [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
+`assert.notSameValue(actual, unexpected, message)` | throw a new Test262Error instance if the first two arguments are [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
+`assert.throws(expectedErrorConstructor, fn, message)` | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
+`$DONOTEVALUATE()` | throw an exception if the code gets evaluated. This is useful for [negative test cases for parsing errors](#handling-errors-and-negative-test-cases)
+`$ERROR(message)` | construct a Test262Error object and throw it <br>**DEPRECATED** -- Do not use in new tests. Use `assert`, `assert.*`, or `throw new Test262Error` instead.
 
-```
+```javascript
 /// error class
 function Test262Error(message) {
-//[omitted body]
+  // [omitted body]
 }
 ```
 
@@ -217,7 +218,7 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 var var = var;
 ```
@@ -229,6 +230,8 @@ assert.throws(TypeError, function() {
   null(); // expect this statement to throw a TypeError
 });
 ```
+
+Consumers that violate the spec by throwing exceptions for parsing errors at runtime instead of at parse time can still get value out of Test262's negative tests by conditionally overriding `$DONOTEVALUATE` to be a no-op for tests that are known to fail. This way, the consumer can still verify that they throw an exception of the expected type, even if it happens during the wrong phase, which prevents regressions and further deviations from the spec.
 
 ## Writing Asynchronous Tests
 

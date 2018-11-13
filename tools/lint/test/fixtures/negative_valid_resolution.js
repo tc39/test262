@@ -10,6 +10,6 @@ negative:
   phase: resolution
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 import 'non-existent-module.js';

@@ -8,7 +8,7 @@ name: static literal ClassElementName
 features: [class, class-static-fields-public]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 class C {
   static x = /*{ initializer }*/;

@@ -2,7 +2,7 @@ import re
 from ..check import Check
 
 _THROW_STMT = re.compile(
-      r'^throw "Test262: This statement should not be evaluated\.";$',
+      r'^\$DONOTEVALUATE\(\);$',
       re.MULTILINE)
 
 class CheckNegative(Check):

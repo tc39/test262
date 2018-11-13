@@ -11,7 +11,8 @@ negative:
   type: SyntaxError
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
-x--;
+x
+--;
 // The preceding line contains an unprintable CARRIAGE RETURN character (U+000D)

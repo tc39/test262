@@ -14,7 +14,7 @@ features: [object-rest]
 ---*/
 
 //- setup
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 var rest, b;
 //- elems
 {...rest, b}

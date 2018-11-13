@@ -86,7 +86,7 @@ properties of the global scope prior to test execution.
         an Int32.  This function may return before a broadcast is received
         (eg to return to an event loop to await a message) and no code should
         follow the call to this function.
-      - **`report`** - a function that accepts a single "message" argument, 
+      - **`report`** - a function that accepts a single "message" argument,
         which is converted to a string\* and placed in a transmit queue whence the parent will retrieve it. Messages should be short. (\* Note that string conversion has been implicit since the introduction of this host API, but is now explicit.)
       - **`sleep`** - a function that takes a millisecond argument and
         sleeps the agent for approximately that duration.
@@ -101,7 +101,9 @@ properties of the global scope prior to test execution.
       and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
-    - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**. 
+    - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
+
+In addition, consumers may choose to override any of the [the available test harness helper functions](https://github.com/tc39/test262/blob/master/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/master/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
 
 
 #### Normative references
@@ -174,7 +176,7 @@ These tests are expected to generate an uncaught exception. The value of this
 attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
-  expected to be produced; valid phases are: 
+  expected to be produced; valid phases are:
     - `parse`: occurs while parsing the source text.
     - `early`: occurs prior to evaluation.
     - `resolution`: occurs during module resolution.
@@ -203,7 +205,7 @@ negative:
   phase: parse
   type: ReferenceError
 ---*/
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 'litera'=1;
 ```
 
@@ -213,7 +215,7 @@ negative:
   phase: parse
   type: SyntaxError
 ---*/
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 var a\u2E2F;
 ```
 
@@ -225,7 +227,7 @@ negative:
   type: ReferenceError
 flags: [module]
 ---*/
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 export {} from './instn-resolve-empty-export_FIXTURE.js';
 // instn-resolve-empty-export_FIXTURE.js contains only:
 // 0++;
@@ -387,10 +389,10 @@ The `locale` attribute allows tests to declare explicit information regarding lo
   /*---
   locale: [en, en-US, ar]
   ---*/
-  
+
   var en = new Intl.PluralRules('en');
   assert.sameValue(en.select(1), 'one', 'en.select(1) returns "one"');
-  assert.sameValue(en.select(2), 'other', 'en.select(2) returns "other"');  
+  assert.sameValue(en.select(2), 'other', 'en.select(2) returns "other"');
 
   var enUS = new Intl.PluralRules('en-US');
   assert.sameValue(enUS.select(1), 'one', 'enUS.select(1) returns "one"');

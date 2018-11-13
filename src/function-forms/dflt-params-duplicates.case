@@ -25,6 +25,6 @@ features: [default-parameters]
 ---*/
 
 //- setup
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 //- params
 x = 0, x
