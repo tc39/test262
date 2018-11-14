@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-Intl.Segmenter
-description: Checks handling of valid values for the style option to the Segmenter constructor.
+description: Checks handling of valid values for the lineBreakStyle option to the Segmenter constructor.
 info: |
     Intl.Segmenter ([ locales [ , options ]])
 
