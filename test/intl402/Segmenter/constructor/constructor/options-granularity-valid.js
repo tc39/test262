@@ -3,26 +3,26 @@
 
 /*---
 esid: sec-Intl.Segmenter
-description: Checks handling of valid values for the style option to the Segmenter constructor.
+description: Checks handling of valid values for the granularity option to the Segmenter constructor.
 info: |
     Intl.Segmenter ([ locales [ , options ]])
 
-    9. Let lineBreakStyle be ? GetOption(options, "lineBreakStyle", "string", « "strict", "normal", "loose" », "normal").
-    15. If granularity is "line",
-        a. Set segmenter.[[SegmenterLineBreakStyle]] to r.[[lb]].
+    13. Let granularity be ? GetOption(options, "granularity", "string", « "grapheme", "word", "sentence", "line" », "grapheme").
+    14. Set segmenter.[[SegmenterGranularity]] to granularity.
 features: [Intl.Segmenter]
 ---*/
 
 const validOptions = [
-  [undefined, "normal"],
-  ["strict", "strict"],
-  ["normal", "normal"],
-  ["loose", "loose"],
-  [{ toString() { return "loose"; } }, "loose"],
+  [undefined, "grapheme"],
+  ["grapheme", "grapheme"],
+  ["word", "word"],
+  ["sentence", "sentence"],
+  ["line", "line"],
+  [{ toString() { return "line"; } }, "line"],
 ];
 
-for (const [lineBreakStyle, expected] of validOptions) {
-  const segmenter = new Intl.Segmenter([], { granularity: "line", lineBreakStyle });
+for (const [granularity, expected] of validOptions) {
+  const segmenter = new Intl.Segmenter([], { granularity });
   const resolvedOptions = segmenter.resolvedOptions();
-  assert.sameValue(resolvedOptions.lineBreakStyle, expected);
+  assert.sameValue(resolvedOptions.granularity, expected);
 }
