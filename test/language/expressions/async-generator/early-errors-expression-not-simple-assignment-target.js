@@ -3,11 +3,11 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: pending
+esid: prod-LeftHandSideExpression
 description: >
   Async generator function expressions are not a simple assignment target.
 negative:
-  phase: early
+  phase: parse
   type: ReferenceError
 features: [async-iteration]
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-array-exotic-objects-defineownproperty-p-desc
-info: >
+info: |
     For every integer k that is less than the value of
     the length property of A but not less than ToUint32(length),
     if A itself has a property (not an inherited property) named ToString(k),
@@ -14,7 +14,7 @@ description: Checking an inherited property
 
 //CHECK#1
 Array.prototype[2] = 2;
-var x = [0,1];
+var x = [0, 1];
 x.length = 3;
 if (x.hasOwnProperty('2') !== false) {
   $ERROR('#1: Array.prototype[2] = 2; x = [0,1]; x.length = 3; x.hasOwnProperty(\'2\') === false. Actual: ' + (x.hasOwnProperty('2')));

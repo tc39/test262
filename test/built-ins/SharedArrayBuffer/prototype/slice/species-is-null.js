@@ -5,10 +5,10 @@
 /*---
 description: >
   Uses default constructor is species constructor is null.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
-features: [Symbol.species]
+features: [SharedArrayBuffer, Symbol.species]
 ---*/
 
 var speciesConstructor = {};

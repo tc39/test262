@@ -4,7 +4,7 @@
 /*---
 description: Elision advances iterator (async generator function expression (default parameter))
 esid: sec-asyncgenerator-definitions-evaluation
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated, async]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * ( FormalParameters ) {

@@ -4,12 +4,13 @@
 es6id: 26.2.2.1.1
 description: >
     Calling the revoked function again will return undefined
-info: >
+info: |
     Proxy Revocation Functions
 
     ...
     1. Let p be the value of F’s [[RevocableProxy]] internal slot.
     2. If p is null, return undefined.
+features: [Proxy]
 ---*/
 
 var r = Proxy.revocable({}, {});

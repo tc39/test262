@@ -4,16 +4,17 @@
 /*---
 description: RestParameter does not support an initializer (async function declaration)
 esid: sec-async-function-definitions
-features: [default-parameters]
+features: [default-parameters, async-functions]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     14.6 Async Function Definitions
 
     AsyncFunctionDeclaration :
       async function BindingIdentifier ( FormalParameters ) { AsyncFunctionBody }
+
 
     14.1 Function Definitions
 

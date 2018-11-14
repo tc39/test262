@@ -4,7 +4,7 @@
 es6id: 26.1.7
 description: >
   Use a symbol value on property key.
-info: >
+info: |
   26.1.7 Reflect.getOwnPropertyDescriptor ( target, propertyKey )
 
   ...
@@ -18,7 +18,7 @@ info: >
     a. Return key.
   ...
 includes: [compareArray.js]
-features: [Symbol]
+features: [Reflect, Symbol]
 ---*/
 
 var o = {};
@@ -29,8 +29,7 @@ var result = Reflect.getOwnPropertyDescriptor(o, s);
 
 assert(
   compareArray(
-    Object.keys(result),
-    ['value', 'writable', 'enumerable', 'configurable']
+    Object.keys(result), ['value', 'writable', 'enumerable', 'configurable']
   )
 );
 assert.sameValue(result.value, 42);

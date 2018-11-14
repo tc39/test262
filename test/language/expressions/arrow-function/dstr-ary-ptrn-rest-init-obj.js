@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/arrow-function.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (arrow function expression)
+description: Rest element (nested object pattern) does not support initializer (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 es6id: 14.2.16
 features: [destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ArrowFunction : ArrowParameters => ConciseBody

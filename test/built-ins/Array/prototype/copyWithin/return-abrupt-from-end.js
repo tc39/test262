@@ -5,7 +5,7 @@ esid: sec-array.prototype.copywithin
 es6id: 22.1.3.3
 description: >
   Return abrupt from ToInteger(end).
-info: >
+info: |
   22.1.3.3 Array.prototype.copyWithin (target, start [ , end ] )
 
   ...
@@ -23,4 +23,3 @@ var o1 = {
 assert.throws(Test262Error, function() {
   [].copyWithin(0, 0, o1);
 });
-

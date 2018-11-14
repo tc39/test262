@@ -2,12 +2,12 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/async-gen-meth.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (async generator method)
+description: Rest element (nested array pattern) does not support initializer (async generator method)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
 features: [async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     AsyncGeneratorMethod :

@@ -4,7 +4,7 @@
 /*---
 description: Error forwarding when IteratorStep returns an abrupt completion (async generator named function expression (default parameter))
 esid: sec-asyncgenerator-definitions-evaluation
-features: [async-iteration]
+features: [Symbol.iterator, async-iteration]
 flags: [generated]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * BindingIdentifier
@@ -24,6 +24,7 @@ info: |
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).
        b. If next is an abrupt completion, set iteratorRecord.[[done]] to true.
        c. ReturnIfAbrupt(next).
+
 ---*/
 var g = {};
 g[Symbol.iterator] = function() {

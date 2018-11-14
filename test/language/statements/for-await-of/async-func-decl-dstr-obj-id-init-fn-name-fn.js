@@ -41,10 +41,12 @@ async function fn() {
   for await ({ xFnexp = function x() {}, fnexp = function() {} } of [{}]) {
     assert.notSameValue(xFnexp.name, 'xFnexp');
 
-    assert.sameValue(fnexp.name, 'fnexp');
-    verifyNotEnumerable(fnexp, 'name');
-    verifyNotWritable(fnexp, 'name');
-    verifyConfigurable(fnexp, 'name');
+    verifyProperty(fnexp, 'name', {
+      enumerable: false,
+      writable: false,
+      configurable: true,
+      value: 'fnexp'
+    });
 
     iterCount += 1;
   }

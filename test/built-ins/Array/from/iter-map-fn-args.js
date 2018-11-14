@@ -5,7 +5,7 @@ esid: sec-array.from
 es6id: 22.1.2.1
 description: >
     Arguments of mapping function (traversed via iterator)
-info: >
+info: |
     [...]
     2. If mapfn is undefined, let mapping be false.
     3. else
@@ -26,8 +26,14 @@ features: [Symbol.iterator]
 ---*/
 
 var args = [];
-var firstResult = { done: false, value: {} };
-var secondResult = { done: false, value: {} };
+var firstResult = {
+  done: false,
+  value: {}
+};
+var secondResult = {
+  done: false,
+  value: {}
+};
 var mapFn = function(value, idx) {
   args.push(arguments);
 };
@@ -40,7 +46,9 @@ items[Symbol.iterator] = function() {
     next: function() {
       var result = nextResult;
       nextResult = nextNextResult;
-      nextNextResult = { done: true };
+      nextNextResult = {
+        done: true
+      };
 
       return result;
     }

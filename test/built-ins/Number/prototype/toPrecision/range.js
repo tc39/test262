@@ -4,7 +4,7 @@
 /*---
 esid: sec-number.prototype.toprecision
 description: Number.prototype.toPrecision permits fractionDigits from 1 to 100
-info: >
+info: |
   Number.prototype.toPrecision ( fractionDigits )
 
   ...
@@ -18,4 +18,3 @@ assert.throws(RangeError, () => (3).toPrecision(-10));
 
 assert.sameValue((3).toPrecision(100), "3.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
 assert.throws(RangeError, () => (3).toPrecision(101));
-

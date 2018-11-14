@@ -4,7 +4,7 @@
 es6id: 26.1.13
 description: >
   Return false if target is not writable.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
@@ -24,6 +24,7 @@ info: >
       i. If IsAccessorDescriptor(existingDescriptor) is true, return false.
       ii. If existingDescriptor.[[Writable]] is false, return false.
   ...
+features: [Reflect, Reflect.set]
 ---*/
 
 var o1 = {};

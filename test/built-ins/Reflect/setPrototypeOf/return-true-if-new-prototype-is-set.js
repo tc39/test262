@@ -4,7 +4,7 @@
 es6id: 26.1.14
 description: >
   Return true if the new prototype is set.
-info: >
+info: |
   26.1.14 Reflect.setPrototypeOf ( target, proto )
 
   ...
@@ -16,6 +16,7 @@ info: >
   9. Set the value of the [[Prototype]] internal slot of O to V.
   10. Return true.
   ...
+features: [Reflect, Reflect.setPrototypeOf]
 ---*/
 
 var o1 = {};

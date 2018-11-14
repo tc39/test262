@@ -4,7 +4,7 @@
 /*---
 description: Elision advances iterator and forwards abrupt completions (async generator method)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated]
 info: |
     AsyncGeneratorMethod :

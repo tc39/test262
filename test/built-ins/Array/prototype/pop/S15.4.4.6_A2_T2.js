@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The pop function is intentionally generic.
     It does not require that its this value be an Array object
 esid: sec-array.prototype.pop
@@ -62,7 +62,7 @@ if (pop !== undefined) {
 if (obj.length !== 0) {
   $ERROR('#8: var obj = {}; obj.length = -0; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));
 } else {
-  if (1/obj.length !== Number.POSITIVE_INFINITY) {
+  if (1 / obj.length !== Number.POSITIVE_INFINITY) {
     $ERROR('#8: var obj = {}; obj.length = -0; obj.pop = Array.prototype.pop; obj.pop(); obj.length === +0. Actual: ' + (obj.length));
   }
 }

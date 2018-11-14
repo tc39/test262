@@ -4,7 +4,7 @@
 /*---
 description: Elision accepts exhausted iterator (class expression async generator method (default parameters))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated, async]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

@@ -4,7 +4,7 @@
 /*---
 description: Elision advances iterator (static class expression async generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated, async]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

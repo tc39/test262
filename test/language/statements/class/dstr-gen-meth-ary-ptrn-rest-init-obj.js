@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/cls-decl-gen-meth.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (class expression method)
+description: Rest element (nested object pattern) does not support initializer (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 es6id: 14.5.16
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

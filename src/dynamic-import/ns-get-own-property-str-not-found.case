@@ -1,0 +1,51 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-getownproperty-p
+desc: >
+    Behavior of the [[GetOwnProperty]] internal method with a string argument
+    describing a binding that cannot be found
+info: |
+    1. If Type(P) is Symbol, return OrdinaryGetOwnProperty(O, P).
+    2. Let exports be the value of O's [[Exports]] internal slot.
+    3. If P is not an element of exports, return undefined.
+template: namespace
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+var desc;
+
+assert.sameValue(
+  Object.prototype.hasOwnProperty.call(ns, 'local2'),
+  false,
+  'hasOwnProperty: local2'
+);
+desc = Object.getOwnPropertyDescriptor(ns, 'local2');
+assert.sameValue(desc, undefined, 'property descriptor for "local2"');
+
+assert.sameValue(
+  Object.prototype.hasOwnProperty.call(ns, 'toStringTag'),
+  false,
+  'hasOwnProperty: toStringTag'
+);
+desc = Object.getOwnPropertyDescriptor(ns, 'toStringTag');
+assert.sameValue(desc, undefined, 'property descriptor for "toStringTag"');
+
+assert.sameValue(
+  Object.prototype.hasOwnProperty.call(ns, 'iterator'),
+  false,
+  'hasOwnProperty: iterator'
+);
+desc = Object.getOwnPropertyDescriptor(ns, 'iterator');
+assert.sameValue(desc, undefined, 'property descriptor for "iterator"');
+
+assert.sameValue(
+  Object.prototype.hasOwnProperty.call(ns, '__proto__'),
+  false,
+  'hasOwnProperty: __proto__'
+);
+desc = Object.getOwnPropertyDescriptor(ns, '__proto__');
+assert.sameValue(desc, undefined, 'property descriptor for "__proto__"');

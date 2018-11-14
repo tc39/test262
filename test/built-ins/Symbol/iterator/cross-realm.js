@@ -4,10 +4,10 @@
 esid: sec-symbol.iterator
 es6id: 19.4.2.4
 description: Value shared by all realms
-info: >
+info: |
   Unless otherwise specified, well-known symbols values are shared by all
   realms.
-features: [Symbol.iterator]
+features: [cross-realm, Symbol.iterator]
 ---*/
 
 var OSymbol = $262.createRealm().global.Symbol;

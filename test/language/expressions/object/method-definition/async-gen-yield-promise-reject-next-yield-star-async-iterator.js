@@ -42,6 +42,6 @@ iter.next().then(() => {
     assert.sameValue(done, true, "The value of IteratorResult.done is `true`");
     assert.sameValue(value, undefined, "The value of IteratorResult.value is `undefined`");
   }).then($DONE, $DONE);
-}).then($DONE, $DONE);
+}, $DONE).catch($DONE);
 
 assert.sameValue(callCount, 1);

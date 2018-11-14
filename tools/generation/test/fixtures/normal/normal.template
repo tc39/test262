@@ -14,6 +14,8 @@ before*/*{ second }*/*between*/*{ first }*/*after
 
 before/* " *//*{ third }*/after
 
+// Special characters like `≠` should be tolerated.
+
 The following should not be expanded:
 
 /* */*{ first }*/

@@ -7,6 +7,7 @@ desc: >
     iterable values and throws for Symbol values.
 template: error
 es6id: 12.14.5.2
+features: [Symbol]
 ---*/
 
 //- setup

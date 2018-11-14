@@ -1,0 +1,41 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: imported object properties descriptors
+template: namespace
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+// propertyHelper.js is not appropriate for this test because it assumes that
+// the object exposes the ordinary object's implementation of [[Get]], [[Set]],
+// [[Delete]], and [[OwnPropertyKeys]], which the module namespace exotic
+// object does not.
+var desc = Object.getOwnPropertyDescriptor(ns, 'default');
+
+assert.sameValue(desc.value, 42, 'default: value is 42');
+assert.sameValue(desc.enumerable, true, 'default: is enumerable');
+assert.sameValue(desc.writable, true, 'default: is writable');
+assert.sameValue(desc.configurable, false, 'default: is non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'local1');
+
+assert.sameValue(desc.value, 'Test262', 'local1: value is "Test262"');
+assert.sameValue(desc.enumerable, true, 'local1: is enumerable');
+assert.sameValue(desc.writable, true, 'local1: is writable');
+assert.sameValue(desc.configurable, false, 'local1: is non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'renamed');
+
+assert.sameValue(desc.value, 'TC39', 'renamed: value is TC39"');
+assert.sameValue(desc.enumerable, true, 'renamed: is enumerable');
+assert.sameValue(desc.writable, true, 'renamed: is writable');
+assert.sameValue(desc.configurable, false, 'renamed: is non-configurable');
+
+desc = Object.getOwnPropertyDescriptor(ns, 'indirect');
+
+assert.sameValue(desc.value, 'Test262', 'indirect: value is Test262"');
+assert.sameValue(desc.enumerable, true, 'indirect: is enumerable');
+assert.sameValue(desc.writable, true, 'indirect: is writable');
+assert.sameValue(desc.configurable, false, 'indirect: is non-configurable');

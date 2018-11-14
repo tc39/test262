@@ -4,7 +4,7 @@
 es6id: 21.1.2.2
 description: >
   Throw a RangeError if an argument is not equal to its Integer representation.
-info: >
+info: |
   String.fromCodePoint ( ...codePoints )
 
   1. Let codePoints be a List containing the arguments passed to this function.
@@ -18,6 +18,7 @@ info: >
     d. If SameValue(nextCP, ToInteger(nextCP)) is false, throw a RangeError
     exception.
   ...
+features: [String.fromCodePoint]
 ---*/
 
 assert.throws(RangeError, function() {

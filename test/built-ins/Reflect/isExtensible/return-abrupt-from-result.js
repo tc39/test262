@@ -4,12 +4,12 @@
 es6id: 26.1.10
 description: >
   Return abrupt result.
-info: >
+info: |
   26.1.10 Reflect.isExtensible (target)
 
   ...
   2. Return target.[[IsExtensible]]().
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var o1 = {};

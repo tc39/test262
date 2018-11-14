@@ -1,0 +1,31 @@
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/arguments-object/cls-expr-private-gen-meth-static-
+name: static class expression private generator method
+esid: sec-argument-lists-runtime-semantics-argumentlistevaluation
+info: |
+    9.4.4 Arguments Exotic Objects
+
+    Most ECMAScript functions make an arguments object available to their code. Depending upon the
+    characteristics of the function definition, its arguments object is either an ordinary object
+    or an arguments exotic object.
+features: [generators, class, class-static-methods-private]
+---*/
+
+var callCount = 0;
+var C = class {
+  static * #method() {
+    /*{ body }*/
+    callCount = callCount + 1;
+  }
+
+  static get method() {
+    return this.#method;
+  }
+};
+
+C.method(/*{ args }*/).next();
+
+assert.sameValue(callCount, 1, 'method invoked exactly once');

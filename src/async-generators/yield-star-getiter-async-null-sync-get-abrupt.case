@@ -28,7 +28,7 @@ info: |
     2. Let func be ? GetV(V, P).
     ...
 
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

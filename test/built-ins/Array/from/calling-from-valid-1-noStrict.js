@@ -4,7 +4,7 @@
 esid: sec-array.from
 es6id: 22.1.2.1
 description: Map function without thisArg on non strict mode
-info: >
+info: |
   22.1.2.1 Array.from ( items [ , mapfn [ , thisArg ] ] )
 
   ...
@@ -34,7 +34,7 @@ var list = {
 };
 var calls = [];
 
-function mapFn (value) {
+function mapFn(value) {
   calls.push({
     args: arguments,
     thisArg: this

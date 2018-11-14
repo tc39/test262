@@ -1,0 +1,12 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Module namespace objects are not extensible.
+template: namespace
+includes: [propertyHelper.js]
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(Object.isExtensible(ns), false);

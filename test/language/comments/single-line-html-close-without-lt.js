@@ -2,8 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-html-like-comments
-es6id: B1.3
-description: An HTMLCloseComment must be preceeded by a LineTerminator
+description: An HTMLCloseComment must be preceded by a LineTerminator
 info: |
     Comment ::
       MultiLineComment
@@ -15,7 +14,7 @@ info: |
     HTMLCloseComment ::
       WhiteSpaceSequence[opt] SingleLineDelimitedCommentSequence[opt] --> SingleLineCommentChars[opt]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

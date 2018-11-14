@@ -9,6 +9,7 @@ info: |
 
   GeneratorMethod[Yield, Await]:
     * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+features: [generators]
 ---*/
 
 var callCount = 0;

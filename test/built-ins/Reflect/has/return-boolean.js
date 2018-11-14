@@ -4,7 +4,7 @@
 es6id: 26.1.9
 description: >
   Return boolean value.
-info: >
+info: |
   26.1.9 Reflect.has ( target, propertyKey )
 
   ...
@@ -21,6 +21,7 @@ info: >
   6. If parent is not null, then
     a. Return parent.[[HasProperty]](P).
   7. Return false.
+features: [Reflect]
 ---*/
 
 var o1 = {
@@ -33,5 +34,7 @@ assert.sameValue(
   'false when property is not present'
 );
 
-var o2 = Object.create({p: 42});
+var o2 = Object.create({
+  p: 42
+});
 assert.sameValue(Reflect.has(o2, 'p'), true, 'true from a prototype property');

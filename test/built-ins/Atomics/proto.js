@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics-object
 description: >
   The prototype of Atomics is Object.prototype
 info: |
@@ -9,8 +10,11 @@ info: |
 
   The value of the [[Prototype]] internal slot of the Atomics object is the
   intrinsic object %ObjectPrototype%.
+features: [Atomics]
 ---*/
 
-var proto = Object.getPrototypeOf(Atomics);
-
-assert.sameValue(proto, Object.prototype);
+assert.sameValue(
+  Object.getPrototypeOf(Atomics),
+  Object.prototype,
+  'Object.getPrototypeOf(Atomics) returns the value of `Object.prototype`'
+);

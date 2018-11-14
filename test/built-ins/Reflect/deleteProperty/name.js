@@ -4,12 +4,13 @@
 es6id: 26.1.4
 description: >
   Reflect.deleteProperty.name value and property descriptor
-info: >
+info: |
   26.1.4 Reflect.deleteProperty ( target, propertyKey )
 
   17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [Reflect]
 ---*/
 
 assert.sameValue(

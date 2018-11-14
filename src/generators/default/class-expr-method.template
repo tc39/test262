@@ -15,6 +15,7 @@ info: |
 
   GeneratorMethod :
     * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+features: [generators]
 ---*/
 
 var callCount = 0;

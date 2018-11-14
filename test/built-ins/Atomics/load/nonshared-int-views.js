@@ -2,17 +2,20 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.load
 description: >
   Test Atomics.load on non-shared integer TypedArrays
 includes: [testTypedArray.js]
+features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-var ab = new ArrayBuffer(16);
+const buffer = new ArrayBuffer(16);
+const views = intArrayConstructors.slice();
 
-var int_views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];
+testWithTypedArrayConstructors(function(TA) {
+  const view = new TA(buffer);
 
-testWithTypedArrayConstructors(function(View) {
-    var view = new View(ab);
-
-    assert.throws(TypeError, (() => Atomics.load(view, 0)));
-}, int_views);
+  assert.throws(TypeError, function() {
+    Atomics.load(view, 0);
+  }, '`Atomics.load(view, 0)` throws TypeError');
+}, views);

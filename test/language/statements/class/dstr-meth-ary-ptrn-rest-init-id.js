@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/cls-decl-meth.template
 /*---
-description: Reset element (identifier) does not support initializer (class expression method)
+description: Rest element (identifier) does not support initializer (class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 es6id: 14.5.15
 features: [destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

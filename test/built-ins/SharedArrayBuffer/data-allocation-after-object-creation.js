@@ -6,7 +6,7 @@
 esid: sec-sharedarraybuffer-length
 description: >
   The new SharedArrayBuffer instance is created prior to allocating the Data Block.
-info: >
+info: |
   SharedArrayBuffer( length )
 
   ...
@@ -18,12 +18,12 @@ info: >
     ...
     3. Let block be ? CreateByteDataBlock(byteLength).
     ...
-features: [Reflect.construct]
+features: [SharedArrayBuffer, Reflect.construct]
 ---*/
 
-function DummyError() { }
+function DummyError() {}
 
-var newTarget = function(){}.bind(null);
+var newTarget = function() {}.bind(null);
 Object.defineProperty(newTarget, "prototype", {
   get: function() {
     throw new DummyError();

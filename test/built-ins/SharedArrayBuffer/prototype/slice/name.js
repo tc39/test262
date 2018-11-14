@@ -5,7 +5,7 @@
 /*---
 description: >
   SharedArrayBuffer.prototype.slice.name is "slice".
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
   17 ECMAScript Standard Built-in Objects:
@@ -17,6 +17,7 @@ info: >
     object, if it exists, has the attributes { [[Writable]]: false,
     [[Enumerable]]: false, [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [SharedArrayBuffer]
 ---*/
 
 assert.sameValue(SharedArrayBuffer.prototype.slice.name, "slice");

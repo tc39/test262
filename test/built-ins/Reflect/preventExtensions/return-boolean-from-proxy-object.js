@@ -4,7 +4,7 @@
 es6id: 26.1.12
 description: >
   Returns boolean from Proxy object.
-info: >
+info: |
   26.1.12 Reflect.preventExtensions ( target )
 
   ...
@@ -19,7 +19,7 @@ info: >
     b. ReturnIfAbrupt(targetIsExtensible).
     c. If targetIsExtensible is true, throw a TypeError exception.
   11. Return booleanTrapResult.
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var p1 = new Proxy({}, {

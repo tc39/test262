@@ -1,0 +1,30 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: PrivateName CallExpression usage (private method)
+info: |
+  Updated Productions
+
+  CallExpression[Yield, Await]:
+    CoverCallExpressionAndAsyncArrowHead[?Yield, ?Await]
+    SuperCall[?Yield, ?Await]
+    CallExpression[?Yield, ?Await]Arguments[?Yield, ?Await]
+    CallExpression[?Yield, ?Await][Expression[+In, ?Yield, ?Await]]
+    CallExpression[?Yield, ?Await].IdentifierName
+    CallExpression[?Yield, ?Await]TemplateLiteral[?Yield, ?Await]
+    CallExpression[?Yield, ?Await].PrivateName
+
+template: productions
+features: [class-methods-private]
+---*/
+
+//- fields
+#m() { return 'test262'; }
+//- privateinspectionfunctions
+method() {
+  return this.#m();
+}
+//- assertions
+assert.sameValue(c.method(), 'test262');

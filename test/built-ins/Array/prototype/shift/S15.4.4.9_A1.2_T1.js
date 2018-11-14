@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The first element of the array is removed from the array and
     returned
 esid: sec-array.prototype.shift
@@ -11,7 +11,7 @@ description: Checking this use new Array() and []
 ---*/
 
 //CHECK#1
-var x = new Array(0,1,2,3);
+var x = new Array(0, 1, 2, 3);
 var shift = x.shift();
 if (shift !== 0) {
   $ERROR('#1: x = new Array(0,1,2,3); x.shift() === 0. Actual: ' + (shift));

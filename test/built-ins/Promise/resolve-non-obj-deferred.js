@@ -4,7 +4,7 @@
 description: >
     Resolving with a non-object value after invocation of the executor function
 es6id: 25.4.3.1
-info: >
+info: |
     [...]
     8. Let resolvingFunctions be CreateResolvingFunctions(promise).
     9. Let completion be Call(executor, undefined,
@@ -23,15 +23,15 @@ var promise = new Promise(function(_resolve) {
 });
 
 promise.then(function(value) {
-    if (value !== 45) {
-      $DONE('The promise should be fulfilled with the provided value.');
-      return;
-    }
+  if (value !== 45) {
+    $DONE('The promise should be fulfilled with the provided value.');
+    return;
+  }
 
-    $DONE();
-  }, function() {
-    $DONE('The promise should not be rejected.');
-  });
+  $DONE();
+}, function() {
+  $DONE('The promise should not be rejected.');
+});
 
 returnValue = resolve(45);
 

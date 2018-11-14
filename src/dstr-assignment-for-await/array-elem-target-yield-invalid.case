@@ -10,7 +10,7 @@ template: error-async-function-syntax
 es6id: 12.14.5.4
 flags: [onlyStrict]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

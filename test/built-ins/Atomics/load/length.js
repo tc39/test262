@@ -3,9 +3,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.load
 description: >
   Atomics.load.length is 2.
-info: >
+info: |
   Atomics.load ( ia, index )
 
   17 ECMAScript Standard Built-in Objects:
@@ -20,10 +21,12 @@ info: >
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Atomics]
 ---*/
 
-assert.sameValue(Atomics.load.length, 2);
-
-verifyNotEnumerable(Atomics.load, "length");
-verifyNotWritable(Atomics.load, "length");
-verifyConfigurable(Atomics.load, "length");
+verifyProperty(Atomics.load, 'length', {
+  value: 2,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

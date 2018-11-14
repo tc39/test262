@@ -4,7 +4,7 @@
 es6id: 21.1.2.2
 description: >
   Throw a RangeError if an argument is < 0 or > 0x10FFFF.
-info: >
+info: |
   String.fromCodePoint ( ...codePoints )
 
   1. Let codePoints be a List containing the arguments passed to this function.
@@ -19,6 +19,7 @@ info: >
     exception.
     e. If nextCP < 0 or nextCP > 0x10FFFF, throw a RangeError exception.
   ...
+features: [String.fromCodePoint]
 ---*/
 
 assert.throws(RangeError, function() {

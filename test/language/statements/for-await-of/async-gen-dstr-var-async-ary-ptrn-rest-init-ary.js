@@ -2,12 +2,12 @@
 // - src/dstr-binding-for-await/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding-for-await/default/for-await-of-async-gen-var-async.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (for-await-of statement)
+description: Rest element (nested array pattern) does not support initializer (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [destructuring-binding, async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     IterationStatement :

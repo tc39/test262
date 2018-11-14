@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     If length equal zero, call the [[Put]] method of this object
     with arguments "length" and 0 and return undefined
 esid: sec-array.prototype.pop
@@ -23,7 +23,7 @@ if (x.length !== 0) {
 }
 
 //CHECK#3
-var x = Array(1,2,3);
+var x = Array(1, 2, 3);
 x.length = 0;
 var pop = x.pop();
 if (pop !== undefined) {

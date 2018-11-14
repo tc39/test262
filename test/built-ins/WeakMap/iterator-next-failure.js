@@ -5,7 +5,7 @@ es6id: 23.3.1.1
 esid: sec-weakmap-iterable
 description: >
   Return abrupt from next iterator step.
-info: >
+info: |
   23.3.1.1 WeakMap ( [ iterable ] )
 
   ...
@@ -13,6 +13,7 @@ info: >
     a. Let next be IteratorStep(iter).
     b. ReturnIfAbrupt(next).
     ...
+features: [Symbol.iterator]
 ---*/
 
 var iterable = {};

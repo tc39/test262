@@ -1,0 +1,12 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Module namespace object prototype is null
+template: namespace
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+assert.sameValue(ns instanceof Object, false);
+assert.sameValue(Object.getPrototypeOf(ns), null, 'prototype is null');

@@ -24,9 +24,9 @@ info: |
   NOTE Normally, Contains does not look inside most function forms. However,
        Contains is used to detect new.target, this, and super usage within an
        ArrowFunction.
-features: [arrow-function]
+features: [arrow-function, new.target]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

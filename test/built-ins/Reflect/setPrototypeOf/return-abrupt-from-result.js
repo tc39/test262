@@ -4,12 +4,12 @@
 es6id: 26.1.14
 description: >
   Return abrupt result.
-info: >
+info: |
   26.1.14 Reflect.setPrototypeOf ( target, proto )
 
   ...
   3. Return target.[[SetPrototypeOf]](proto).
-features: [Proxy]
+features: [Proxy, Reflect, Reflect.setPrototypeOf]
 ---*/
 
 var target = {};

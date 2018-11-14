@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     If start is positive, use min(start, length).
     If end is negative, use max(end + length, 0)
 esid: sec-array.prototype.slice
@@ -10,8 +10,8 @@ es5id: 15.4.4.10_A1.3_T1
 description: length > abs(end) > start = 0, end < 0
 ---*/
 
-var x = [0,1,2,3,4];
-var arr = x.slice(0,-2);
+var x = [0, 1, 2, 3, 4];
+var arr = x.slice(0, -2);
 
 //CHECK#1
 arr.getClass = Object.prototype.toString;

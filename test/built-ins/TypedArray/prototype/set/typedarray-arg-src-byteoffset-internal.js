@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.set-typedarray-offset
 description: >
   Uses typedArray's internal [[ByteOffset]]
-info: >
+info: |
   22.2.3.23.2 %TypedArray%.prototype.set(typedArray [ , offset ] )
   1. Assert: typedArray has a [[TypedArrayName]] internal slot. If it does not,
   the definition in 22.2.3.23.1 applies.
@@ -12,6 +12,7 @@ info: >
   21. Let srcByteOffset be typedArray.[[ByteOffset]].
   ...
 includes: [testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 var getCalls = 0;

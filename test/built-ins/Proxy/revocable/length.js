@@ -5,7 +5,7 @@
 es6id: 26.2.2.1
 description: >
   Proxy.revocable.length is 2.
-info: >
+info: |
   Proxy.revocable ( target, handler )
 
   17 ECMAScript Standard Built-in Objects:
@@ -20,6 +20,7 @@ info: >
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Proxy]
 ---*/
 
 assert.sameValue(Proxy.revocable.length, 2);

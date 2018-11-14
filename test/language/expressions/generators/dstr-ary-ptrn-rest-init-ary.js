@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/gen-func-expr.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (generator function expression)
+description: Rest element (nested array pattern) does not support initializer (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
 es6id: 14.4.14
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }

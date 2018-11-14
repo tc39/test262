@@ -9,6 +9,7 @@ info: |
 
   GeneratorExpression:
     function * BindingIdentifier opt ( FormalParameters ) { GeneratorBody }
+features: [generators]
 ---*/
 
 var gen = function *() {

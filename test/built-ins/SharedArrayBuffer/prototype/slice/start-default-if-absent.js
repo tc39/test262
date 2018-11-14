@@ -5,9 +5,10 @@
 /*---
 description: >
   The `start` index defaults to 0 if absent.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
+features: [SharedArrayBuffer]
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);

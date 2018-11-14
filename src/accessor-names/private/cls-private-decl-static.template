@@ -1,0 +1,76 @@
+// Copyright (C) 2018 Katie Broida. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/class/private-accessor-name/static-
+name: Class declaration, static method
+esid: #prod-MethodDefinition
+info: |
+  ClassElement :
+    MethodDefinition
+    static MethodDefinition
+    FieldDefinition ;
+    ;
+
+  FieldDefinition :
+    ClassElementName Initializer _opt
+
+  ClassElementName :
+    PropertyName
+    PrivateName
+
+  PrivateName ::
+    # IdentifierName
+
+  Initializer :
+    = AssignmentExpression
+
+  IdentifierName ::
+    IdentifierStart
+    IdentifierName IdentifierPart
+
+  IdentifierStart ::
+    UnicodeIDStart
+    $
+    _
+    \ UnicodeEscapeSequence
+
+  IdentifierPart::
+    UnicodeIDContinue
+    $
+    \ UnicodeEscapeSequence
+    <ZWNJ> <ZWJ>
+
+  UnicodeIDStart::
+    any Unicode code point with the Unicode property "ID_Start"
+
+  UnicodeIDContinue::
+    any Unicode code point with the Unicode property "ID_Continue"
+
+
+  NOTE 3
+  The sets of code points with Unicode properties "ID_Start" and
+  "ID_Continue" include, respectively, the code points with Unicode
+  properties "Other_ID_Start" and "Other_ID_Continue".
+features: [class-methods-private]
+---*/
+
+var stringSet;
+
+class C {
+  static get #/*{ declareWith }*/() { return 'get string'; }
+  static set #/*{ declareWith }*/(param) { stringSet = param; }
+
+  static getPrivateReference() {
+    return this.#/*{ referenceWith }*/;
+  }
+
+  static setPrivateReference(value) {
+    this.#/*{ referenceWith }*/ = value;
+  }
+}
+
+assert.sameValue(C.getPrivateReference(), 'get string');
+
+C.setPrivateReference('set string');
+assert.sameValue(stringSet, 'set string');
+

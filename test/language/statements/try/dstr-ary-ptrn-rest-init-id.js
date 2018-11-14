@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/try.template
 /*---
-description: Reset element (identifier) does not support initializer (try statement)
+description: Rest element (identifier) does not support initializer (try statement)
 esid: sec-runtime-semantics-catchclauseevaluation
 es6id: 13.15.7
 features: [destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     Catch : catch ( CatchParameter ) Block

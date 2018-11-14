@@ -4,7 +4,7 @@
 es6id: 26.1.3
 description: >
   Define symbol properties.
-info: >
+info: |
   26.1.3 Reflect.defineProperty ( target, propertyKey, attributes )
 
   ...
@@ -17,7 +17,7 @@ info: >
   3. If Type(key) is Symbol, then
     a. Return key.
   ...
-features: [Symbol]
+features: [Reflect, Symbol]
 ---*/
 
 var o = {};

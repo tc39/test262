@@ -14,9 +14,10 @@ info: |
     20. If kind is "generator", then
         a. If parameters Contains YieldExpression is true, throw a SyntaxError
            exception.
+features: [generators]
 ---*/
 
-var GeneratorFunction = Object.getPrototypeOf(function* () {}).constructor;
+var GeneratorFunction = Object.getPrototypeOf(function*() {}).constructor;
 
 // YieldExpression is permitted in function body.
 GeneratorFunction('x = yield');

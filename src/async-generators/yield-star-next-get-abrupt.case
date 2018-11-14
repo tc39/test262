@@ -12,7 +12,7 @@ info: |
         ii. Let innerResult be ? Invoke(iterator, "next",
             « received.[[Value]] »).
     ...
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

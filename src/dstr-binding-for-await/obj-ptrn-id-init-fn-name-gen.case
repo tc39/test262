@@ -16,6 +16,7 @@ info: |
           ii. ReturnIfAbrupt(hasNameProperty).
           iii. If hasNameProperty is false, perform SetFunctionName(v,
                bindingId).
+features: [generators]
 ---*/
 
 //- elems

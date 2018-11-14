@@ -5,10 +5,10 @@
 /*---
 description: >
   Throws a TypeError if species constructor is not an object.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
-features: [Symbol.species]
+features: [SharedArrayBuffer, Symbol.species]
 ---*/
 
 var speciesConstructor = {};
@@ -16,7 +16,9 @@ var speciesConstructor = {};
 var arrayBuffer = new SharedArrayBuffer(8);
 arrayBuffer.constructor = speciesConstructor;
 
-function callSlice() { arrayBuffer.slice(); }
+function callSlice() {
+  arrayBuffer.slice();
+}
 
 speciesConstructor[Symbol.species] = true;
 assert.throws(TypeError, callSlice, "`constructor[Symbol.species]` value is Boolean");

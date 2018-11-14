@@ -4,7 +4,7 @@
 template: default
 desc: Rest element (array binding pattern) may not be followed by any element
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: >
     13.3.3 Destructuring Binding Patterns

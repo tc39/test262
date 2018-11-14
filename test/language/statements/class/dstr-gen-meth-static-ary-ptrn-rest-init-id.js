@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/cls-decl-gen-meth-static.template
 /*---
-description: Reset element (identifier) does not support initializer (static class expression generator method)
+description: Rest element (identifier) does not support initializer (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 es6id: 14.5.15
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

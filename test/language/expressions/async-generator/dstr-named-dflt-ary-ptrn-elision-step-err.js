@@ -4,7 +4,7 @@
 /*---
 description: Elision advances iterator and forwards abrupt completions (async generator named function expression (default parameter))
 esid: sec-asyncgenerator-definitions-evaluation
-features: [generator, async-iteration]
+features: [generators, async-iteration]
 flags: [generated]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * BindingIdentifier

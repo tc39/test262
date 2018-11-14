@@ -52,4 +52,4 @@ iter.next().then(() => {
     assert.sameValue(x, 1, 'x');
     assert.sameValue(y.length, 0, 'y.length');
   }).then($DONE, $DONE);
-}).then($DONE, $DONE);
+}, $DONE).catch($DONE);

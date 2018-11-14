@@ -4,7 +4,7 @@
 /*---
 esid: sec-date.prototype.totimestring
 description: Invalid Dates are rendered as "Invalid Date"
-info: >
+info: |
   Date.prototype.toTimeString ( )
 
   ...
@@ -13,5 +13,3 @@ info: >
 ---*/
 
 assert.sameValue(new Date(NaN).toTimeString(), "Invalid Date");
-
-

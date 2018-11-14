@@ -5,7 +5,7 @@ es6id: 23.3.3.2
 esid: sec-weakmap.prototype.delete
 description: >
   Delete an entry from initial iterable.
-info: >
+info: |
   WeakMap.prototype.delete ( value )
 
   ...
@@ -22,7 +22,9 @@ info: >
 ---*/
 
 var foo = {};
-var map = new WeakMap([[foo, 42]]);
+var map = new WeakMap([
+  [foo, 42]
+]);
 
 var result = map.delete(foo);
 

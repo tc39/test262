@@ -5,7 +5,7 @@ esid: sec-array.prototype.find
 es6id: 22.1.3.8
 description: >
   Return found value if predicate return a boolean true value.
-info: >
+info: |
   22.1.3.8 Array.prototype.find ( predicate[ , thisArg ] )
 
   ...
@@ -38,17 +38,27 @@ result = arr.find(function(val) {
 assert.sameValue(called, 3, 'predicate was called three times');
 assert.sameValue(result, 'Bike');
 
-result = arr.find(function(val) { return 'string'; });
+result = arr.find(function(val) {
+  return 'string';
+});
 assert.sameValue(result, 'Shoes', 'coerced string');
 
-result = arr.find(function(val) { return {}; });
+result = arr.find(function(val) {
+  return {};
+});
 assert.sameValue(result, 'Shoes', 'coerced object');
 
-result = arr.find(function(val) { return Symbol(''); });
+result = arr.find(function(val) {
+  return Symbol('');
+});
 assert.sameValue(result, 'Shoes', 'coerced Symbol');
 
-result = arr.find(function(val) { return 1; });
+result = arr.find(function(val) {
+  return 1;
+});
 assert.sameValue(result, 'Shoes', 'coerced number');
 
-result = arr.find(function(val) { return -1; });
+result = arr.find(function(val) {
+  return -1;
+});
 assert.sameValue(result, 'Shoes', 'coerced negative number');

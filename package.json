@@ -1,0 +1,23 @@
+{
+  "name": "test262",
+  "version": "3.0.0",
+  "description": "Test262 tests conformance to the continually maintained draft future ECMAScript standard found at http://tc39.github.io/ecma262/ , together with any Stage 3 or later TC39 proposals.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tc39/test262.git"
+  },
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/tc39/test262/issues"
+  },
+  "private": true,
+  "homepage": "https://github.com/tc39/test262#readme",
+  "devDependencies": {
+    "jsvu": "^1.3.1",
+    "test262-harness": "^4.7.0"
+  },
+  "scripts": {
+    "ci-jsvu": "jsvu --os=linux64 --engines=$T262ENGINE",
+    "ci-test-pr": "test262-harness --hostType=$HOSTTYPE --hostPath=~/.jsvu/$T262ENGINE --hostArgs=\"$HOSTARGS\" $(git diff --name-only --diff-filter=AMR master test/)"
+  }
+}

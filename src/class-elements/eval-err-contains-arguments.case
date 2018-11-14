@@ -1,0 +1,29 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: error if `arguments` in StatementList of eval
+info: |
+  Additional Early Error Rules for Eval Inside Initializer
+  These static semantics are applied by PerformEval when a direct eval call occurs inside a class field initializer.
+  ScriptBody : StatementList
+
+    It is a Syntax Error if ContainsArguments of StatementList is true.
+    ...
+
+  Static Semantics: ContainsArguments
+    IdentifierReference : Identifier
+
+    1. If the StringValue of Identifier is "arguments", return true.
+    ...
+    For all other grammatical productions, recurse on all nonterminals. If any piece returns true, then return true. Otherwise return false.
+features: [class, class-fields-public]
+template: initializer-eval-arguments
+---*/
+
+//- initializer
+arguments
+//- earlyerror
+SyntaxError
+//- executionerror
+ReferenceError

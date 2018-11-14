@@ -4,12 +4,12 @@
 es6id: 26.1.12
 description: >
   Return abrupt result.
-info: >
+info: |
   26.1.12 Reflect.preventExtensions ( target )
 
   ...
   2. Return target.[[PreventExtensions]]().
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var o1 = {};

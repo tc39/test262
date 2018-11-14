@@ -7,9 +7,8 @@ description: >
         $DETACHBUFFER
 
     $DETACHBUFFER relies on the presence of a definition for $262.detachArrayBuffer.
-    Without a definition, calling $DETACHBUFFER will result in a ReferenceError
 
-includes: [detachArrayBuffer.js,sta.js]
+    Without a definition, calling $DETACHBUFFER will result in a ReferenceError
 ---*/
 
 var ab = new ArrayBuffer(1);

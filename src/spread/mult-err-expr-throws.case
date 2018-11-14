@@ -12,6 +12,7 @@ info: |
     2. Let spreadRef be the result of evaluating AssignmentExpression.
     3. Let iterator be GetIterator(GetValue(spreadRef) ).
     4. ReturnIfAbrupt(iterator).
+features: [generators]
 ---*/
 
 //- error

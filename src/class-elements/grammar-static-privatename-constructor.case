@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Static Private Fields cannot be named constructor
+info: |
+    Class Definitions / Static Semantics: Early Errors
+
+    ClassElementName : PrivateName ;
+        It is a Syntax Error if StringValue of PrivateName is "#constructor"
+template: syntax/invalid
+features: [class-static-fields-private]
+---*/
+
+//- elements
+static #constructor

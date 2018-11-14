@@ -4,21 +4,22 @@
 es6id: 9.5.4
 description: >
     Trap returns abrupt.
-info: >
+info: |
     [[PreventExtensions]] ( )
 
     ...
     8. Let booleanTrapResult be ToBoolean(Call(trap, handler, «target»)).
     9. ReturnIfAbrupt(booleanTrapResult).
     ...
+features: [Proxy]
 ---*/
 
 var p = new Proxy({}, {
-    preventExtensions: function(t) {
-        throw new Test262Error();
-    }
+  preventExtensions: function(t) {
+    throw new Test262Error();
+  }
 });
 
 assert.throws(Test262Error, function() {
-    Object.preventExtensions(p);
+  Object.preventExtensions(p);
 });

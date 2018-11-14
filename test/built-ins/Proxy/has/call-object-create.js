@@ -4,7 +4,7 @@
 es6id: 9.5.7
 description: >
     `.. in Object.create(proxy)` triggers trap.call(handler, target, P);
-info: >
+info: |
     [[HasProperty]] (P)
 
     ...
@@ -15,18 +15,19 @@ info: >
     ...
     9. Let booleanTrapResult be ToBoolean(Call(trap, handler, «target, P»)).
     ...
+features: [Proxy]
 ---*/
 
 var _handler, _target, _prop;
 var target = {};
 var handler = {
-    has: function(t, prop) {
-        _handler = this;
-        _target = t;
-        _prop = prop;
+  has: function(t, prop) {
+    _handler = this;
+    _target = t;
+    _prop = prop;
 
-        return false;
-    }
+    return false;
+  }
 };
 var p = new Proxy(target, handler);
 

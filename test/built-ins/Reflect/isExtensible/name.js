@@ -4,12 +4,13 @@
 es6id: 26.1.10
 description: >
   Reflect.isExtensible.name value and property descriptor
-info: >
+info: |
   26.1.10 Reflect.isExtensible (target)
 
   17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [Reflect]
 ---*/
 
 assert.sameValue(

@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-array-exotic-objects-defineownproperty-p-desc
-info: >
+info: |
     For every integer k that is less than the value of
     the length property of A but not less than ToUint32(length),
     if A itself has a property (not an inherited property) named ToString(k),
@@ -13,7 +13,7 @@ description: Change length of array
 ---*/
 
 //CHECK#1
-var x = [0,,2,,4];
+var x = [0, , 2, , 4];
 x.length = 4;
 if (x[4] !== undefined) {
   $ERROR('#1: x = [0,,2,,4]; x.length = 4; x[4] === undefined. Actual: ' + (x[4]));

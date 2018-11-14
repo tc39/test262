@@ -1,0 +1,20 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    Abrupt completion during module evaluation precludes further evaluation
+esid: sec-moduleevaluation
+info: |
+    [...]
+    6. For each String required that is an element of
+       module.[[RequestedModules]] do,
+       a. Let requiredModule be ? HostResolveImportedModule(module, required).
+       b. Perform ? requiredModule.ModuleEvaluation().
+template: catch
+---*/
+
+//- import
+import('./eval-rqstd-abrupt-err-uri_FIXTURE.js')
+//- body
+assert.sameValue(error.name, 'URIError');

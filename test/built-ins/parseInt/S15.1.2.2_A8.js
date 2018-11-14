@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     parseInt may interpret only a leading portion of the string as
     a number value; it ignores any characters that cannot be interpreted as part
     of the notation of an decimal literal, and no indication is given that any such
@@ -21,8 +21,8 @@ var indexP;
 var indexO = 0;
 for (var index = 0; index <= 65535; index++) {
   if ((index < 0x0030) || (index > 0x0039) &&
-      (index < 0x0041) || (index > 0x005A) &&
-      (index < 0x0061) || (index > 0x007A)) {
+    (index < 0x0041) || (index > 0x005A) &&
+    (index < 0x0061) || (index > 0x007A)) {
     var hex = decimalToHexString(index);
     if (parseInt("1Z" + String.fromCharCode(index), 36) !== 71) {
       if (indexO === 0) {

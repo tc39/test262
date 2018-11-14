@@ -7,9 +7,9 @@ description: >
     ...
     3. If Type(handler) is not Object, throw a TypeError exception.
     ...
-features: [Symbol]
+features: [Proxy, Symbol]
 ---*/
 
 assert.throws(TypeError, function() {
-    new Proxy({}, Symbol());
+  new Proxy({}, Symbol());
 });

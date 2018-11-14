@@ -5,27 +5,30 @@ es6id: 9.5.2
 description: >
     Trap is called with handler on its context, first parameter is target and
     second parameter is the given value.
-info: >
+info: |
     [[SetPrototypeOf]] (V)
 
     ...
     9. Let booleanTrapResult be ToBoolean(Call(trap, handler, «target, V»)).
     ...
+features: [Proxy]
 ---*/
 
 var _handler, _target, _value;
 var target = {};
-var val = {foo: 1};
+var val = {
+  foo: 1
+};
 var handler = {
-    setPrototypeOf: function(t, v) {
-        _handler = this;
-        _target = t;
-        _value = v;
+  setPrototypeOf: function(t, v) {
+    _handler = this;
+    _target = t;
+    _value = v;
 
-        Object.setPrototypeOf(t, v);
+    Object.setPrototypeOf(t, v);
 
-        return true;
-    }
+    return true;
+  }
 };
 var p = new Proxy(target, handler);
 

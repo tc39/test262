@@ -1,0 +1,14 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is a CallExpression, it can be followed by square brackets
+template: default
+---*/
+
+//- setup
+// import('./dynamic-import-module_FIXTURE.js')
+
+//- import
+import('./dynamic-import-module_FIXTURE.js')['then'](x => x)
+//- body
+assert.sameValue(imported.x, 1);

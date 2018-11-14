@@ -4,11 +4,12 @@
 es6id: 26.1.13
 description: >
   Return abrupt result from get a property value.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
   5. Return target.[[Set]](key, V, receiver).
+features: [Reflect, Reflect.set]
 ---*/
 
 var o1 = {};

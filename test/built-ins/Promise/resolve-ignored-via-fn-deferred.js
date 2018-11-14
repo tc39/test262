@@ -6,7 +6,7 @@ description: >
     provided reject function
 esid: sec-promise-executor
 es6id: 25.4.3.1
-info: >
+info: |
     [...]
     9. Let completion be Call(executor, undefined,
        «resolvingFunctions.[[Resolve]], resolvingFunctions.[[Reject]]»).
@@ -31,10 +31,10 @@ var p = new Promise(function(_resolve, _reject) {
 });
 
 p.then(function() {
-    $DONE('The promise should not be fulfilled.');
-  }, function() {
-    $DONE();
-  });
+  $DONE('The promise should not be fulfilled.');
+}, function() {
+  $DONE();
+});
 
 reject(thenable);
 returnValue = resolve();

@@ -2,12 +2,12 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/cls-decl-async-gen-meth-dflt.template
 /*---
-description: Reset element (identifier) does not support initializer (class expression async generator method (default parameters))
+description: Rest element (identifier) does not support initializer (class expression async generator method (default parameters))
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

@@ -7,6 +7,7 @@ description: >
         testTypedArrayConversions()
 
 includes: [testTypedArray.js]
+features: [TypedArray]
 ---*/
 var threw = false;
 

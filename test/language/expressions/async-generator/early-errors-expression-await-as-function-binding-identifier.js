@@ -3,11 +3,11 @@
 
 /*---
 author: Caitlin Potter <caitp@igalia.com>
-esid: 12.1.1
+esid: sec-identifiers-static-semantics-early-errors
 description: >
   `await` is not a valid BindingIdentifier for AsyncGeneratorExpressions.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [async-iteration]
 ---*/

@@ -17,7 +17,7 @@ info: |
         vi. If done is true, then
            1. Return ? IteratorValue(innerResult).
     ...
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

@@ -4,7 +4,7 @@
 es6id: 26.1.14
 description: >
   Return false if target and proto are the same, without setting a new prototype.
-info: >
+info: |
   26.1.14 Reflect.setPrototypeOf ( target, proto )
 
   ...
@@ -17,6 +17,7 @@ info: >
     a. If p is null, let done be true.
     b. Else, if SameValue(p, O) is true, return false.
   ...
+features: [Reflect, Reflect.setPrototypeOf]
 ---*/
 
 var o1 = {};

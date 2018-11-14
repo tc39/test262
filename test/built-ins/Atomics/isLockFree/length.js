@@ -3,9 +3,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.islockfree
 description: >
   Atomics.isLockFree.length is 1.
-info: >
+info: |
   Atomics.isLockFree ( x )
 
   17 ECMAScript Standard Built-in Objects:
@@ -20,10 +21,12 @@ info: >
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Atomics]
 ---*/
 
-assert.sameValue(Atomics.isLockFree.length, 1);
-
-verifyNotEnumerable(Atomics.isLockFree, "length");
-verifyNotWritable(Atomics.isLockFree, "length");
-verifyConfigurable(Atomics.isLockFree, "length");
+verifyProperty(Atomics.isLockFree, 'length', {
+  value: 1,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

@@ -4,7 +4,7 @@
 es6id: 26.1.6
 description: >
   Return value from a receiver.
-info: >
+info: |
   26.1.6 Reflect.get ( target, propertyKey [ , receiver ])
 
   ...
@@ -27,6 +27,7 @@ info: >
   desc.[[Get]].
   7. If getter is undefined, return undefined.
   8. Return Call(getter, Receiver).
+features: [Reflect]
 ---*/
 
 var o1 = {};

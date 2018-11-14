@@ -4,15 +4,17 @@
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (async function declaration)
 esid: sec-async-function-definitions
+features: [async-functions]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     14.6 Async Function Definitions
 
     AsyncFunctionDeclaration :
       async function BindingIdentifier ( FormalParameters ) { AsyncFunctionBody }
+
 
     Trailing comma in the parameters list
 

@@ -2,18 +2,21 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.or
 description: >
   Test range checking of Atomics.or on arrays that allow atomic operations
 includes: [testAtomics.js, testTypedArray.js]
+features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 
-var sab = new SharedArrayBuffer(4);
-var views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];
+var buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 2);
+var views = intArrayConstructors.slice();
 
-testWithTypedArrayConstructors(function(View) {
-    let view = new View(sab);
-    testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
-        let Idx = IdxGen(view);
-        assert.throws(RangeError, () => Atomics.or(view, Idx, 10));
-    });
+testWithTypedArrayConstructors(function(TA) {
+  let view = new TA(buffer);
+  testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
+    assert.throws(RangeError, function() {
+      Atomics.or(view, IdxGen(view), 10);
+    }, '`Atomics.or(view, IdxGen(view), 10)` throws RangeError');
+  });
 }, views);

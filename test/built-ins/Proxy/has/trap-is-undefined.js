@@ -4,13 +4,14 @@
 es6id: 9.5.7
 description: >
     Return target.[[HasProperty]](P) if trap is undefined.
-info: >
+info: |
     [[HasProperty]] (P)
 
     ...
     8. If trap is undefined, then
         a. Return target.[[HasProperty]](P).
     ...
+features: [Proxy]
 ---*/
 
 var target = Object.create(Array.prototype);

@@ -1,0 +1,39 @@
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/arguments-object/cls-decl-async-private-gen-meth-static-
+name: static class expression private generator method
+esid: sec-argument-lists-runtime-semantics-argumentlistevaluation
+info: |
+  Arguments :
+    ( )
+    ( ArgumentList )
+    ( ArgumentList , )
+
+  ArgumentList :
+    AssignmentExpression
+    ... AssignmentExpression
+    ArgumentList , AssignmentExpression
+    ArgumentList , ... AssignmentExpression
+
+
+flags: [async]
+features: [async-iteration, class, class-static-methods-private]
+---*/
+
+var callCount = 0;
+class C {
+  static async * #method() {
+    /*{ body }*/
+    callCount = callCount + 1;
+  }
+
+  static get method() {
+      return this.#method;
+  }
+}
+
+C.method(/*{ args }*/).next().then(() => {
+    assert.sameValue(callCount, 1, 'method invoked exactly once');
+}).then($DONE, $DONE);

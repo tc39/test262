@@ -57,6 +57,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+features: [generators]
 ---*/
 
 var callCount = 0;

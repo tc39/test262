@@ -4,12 +4,12 @@
 es6id: 26.1.9
 description: >
   Return abrupt result.
-info: >
+info: |
   26.1.9 Reflect.has ( target, propertyKey )
 
   ...
   4. Return target.[[HasProperty]](key).
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var o = {};

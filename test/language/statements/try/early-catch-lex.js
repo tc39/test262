@@ -7,13 +7,11 @@ description: >
     It is a Syntax Error if any element of the BoundNames of CatchParameter
     also occurs in the LexicallyDeclaredNames of Block.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 features: [let]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
-
-$ERROR('This code should not be executed.');
 
 try { } catch (x) { let x; }

@@ -20,6 +20,7 @@ info: |
   12. Perform ? Set(A, "length", actualDeleteCount, true).
   ...
 includes: [compareArray.js, proxyTrapsHelper.js]
+features: [Symbol.species]
 ---*/
 
 function StopSplice() {}
@@ -27,7 +28,7 @@ function StopSplice() {}
 var traps = [];
 var targetLength;
 
-var array = ["no-hole", /* hole */, "stop"];
+var array = ["no-hole", /* hole */ , "stop"];
 array.constructor = {
   [Symbol.species]: function(n) {
     targetLength = n;
@@ -41,7 +42,7 @@ var source = new Proxy(array, allowProxyTraps({
 
     // length property exceeding 2^53-1.
     if (pk === "length")
-      return 2**53 + 2;
+      return 2 ** 53 + 2;
 
     return Reflect.get(t, pk, r);
   },
@@ -65,11 +66,11 @@ var target = new Proxy([], allowProxyTraps({
 
 assert.throws(StopSplice, function() {
   // deleteCount argument exceeding 2^53-1.
-  Array.prototype.splice.call(source, 0, 2**53 + 4);
+  Array.prototype.splice.call(source, 0, 2 ** 53 + 4);
 });
 
-assert.sameValue(targetLength, 2**53 - 1,
-                 "length and deleteCount were correctly clamped to 2^53-1");
+assert.sameValue(targetLength, 2 ** 53 - 1,
+  "length and deleteCount were correctly clamped to 2^53-1");
 
 assert.compareArray(traps, [
   "source.[[Get]]:length",

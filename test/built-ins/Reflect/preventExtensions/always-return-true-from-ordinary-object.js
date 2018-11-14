@@ -4,7 +4,7 @@
 es6id: 26.1.12
 description: >
   Always returns true when target is an ordinary object.
-info: >
+info: |
   26.1.12 Reflect.preventExtensions ( target )
 
   ...
@@ -14,6 +14,7 @@ info: >
 
   1. Set the value of the [[Extensible]] internal slot of O to false.
   2. Return true.
+features: [Reflect]
 ---*/
 
 var o = {};

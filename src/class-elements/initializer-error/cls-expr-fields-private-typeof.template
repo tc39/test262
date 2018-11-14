@@ -1,0 +1,15 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/expressions/class/fields-private-typeof-
+name: private field, typeof expression
+features: [class, class-fields-private]
+---*/
+
+throw "Test262: This statement should not be evaluated.";
+
+var C = class {
+  #x = typeof /*{ initializer }*/;
+}

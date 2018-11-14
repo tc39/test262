@@ -4,45 +4,45 @@
 es6id: 9.5.5
 description: >
     Throws a TypeError exception if trap result is neither Object nor Undefined
-info: >
+info: |
     [[GetOwnProperty]] (P)
 
     ...
     11. If Type(trapResultObj) is neither Object nor Undefined, throw a
     TypeError exception.
     ...
-features: [Symbol]
+features: [Proxy, Symbol]
 ---*/
 
 var target = {
-    number: 1,
-    symbol: Symbol(),
-    string: '',
-    boolean: true,
-    fn: function() {}
+  number: 1,
+  symbol: Symbol(),
+  string: '',
+  boolean: true,
+  fn: function() {}
 };
 var p = new Proxy(target, {
-    getOwnPropertyDescriptor: function(t, prop) {
-        return t[prop];
-    }
+  getOwnPropertyDescriptor: function(t, prop) {
+    return t[prop];
+  }
 });
 
 assert.throws(TypeError, function() {
-    Object.getOwnPropertyDescriptor(p, "number");
+  Object.getOwnPropertyDescriptor(p, "number");
 });
 
 assert.throws(TypeError, function() {
-    Object.getOwnPropertyDescriptor(p, "string");
+  Object.getOwnPropertyDescriptor(p, "string");
 });
 
 assert.throws(TypeError, function() {
-    Object.getOwnPropertyDescriptor(p, "symbol");
+  Object.getOwnPropertyDescriptor(p, "symbol");
 });
 
 assert.throws(TypeError, function() {
-    Object.getOwnPropertyDescriptor(p, "boolean");
+  Object.getOwnPropertyDescriptor(p, "boolean");
 });
 
 assert.throws(TypeError, function() {
-    Object.getOwnPropertyDescriptor(p, "fn");
+  Object.getOwnPropertyDescriptor(p, "fn");
 });

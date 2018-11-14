@@ -40,8 +40,15 @@ info: |
 
 ---*/
 let unreachable = 0;
+let nextCount = 0;
+let returnCount = 0;
 let iterator = {
+  next() {
+    nextCount += 1;
+    return {done: false, value: undefined};
+  },
   return() {
+    returnCount += 1;
     return null;
   }
 };
@@ -53,7 +60,7 @@ let iterable = {
 
 let iterCount = 0;
 async function * fn() {
-  for await ([ {}[yield] ] of [iterable]) {
+  for await ([ {} = yield ] of [iterable]) {
     unreachable += 1;
     iterCount += 1;
   }
@@ -61,7 +68,16 @@ async function * fn() {
 
 let iter = fn();
 
-iter.next().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
-  assert.sameValue(unreachable, 0);
-  assert.sameValue(constructor, TypeError);
-}).then($DONE, $DONE);
+iter.next().then(result => {
+  assert.sameValue(nextCount, 1);
+  assert.sameValue(returnCount, 0);
+  assert.sameValue(result.value, undefined);
+  assert.sameValue(result.done, false);
+
+  iter.return().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+    assert.sameValue(nextCount, 1);
+    assert.sameValue(returnCount, 1);
+    assert.sameValue(unreachable, 0);
+    assert.sameValue(constructor, TypeError);
+  }).then($DONE, $DONE);
+}, $DONE).catch($DONE);

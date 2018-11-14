@@ -1,0 +1,12 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Dynamic import() returns a thenable object.
+template: default
+---*/
+
+//- import
+import('./dynamic-import-module_FIXTURE.js')
+//- body
+assert.sameValue(imported.x, 1);

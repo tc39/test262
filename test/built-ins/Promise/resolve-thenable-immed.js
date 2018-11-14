@@ -4,7 +4,7 @@
 description: >
     Resolving with a thenable object value from within the executor function
 es6id: 25.4.3.1
-info: >
+info: |
     [...]
     8. Let resolvingFunctions be CreateResolvingFunctions(promise).
     9. Let completion be Call(executor, undefined,
@@ -25,7 +25,9 @@ flags: [async]
 
 var returnValue = null;
 var value = {};
-var thenable = new Promise(function(resolve) { resolve(value); });
+var thenable = new Promise(function(resolve) {
+  resolve(value);
+});
 var promise = new Promise(function(resolve) {
   returnValue = resolve(thenable);
 });
@@ -33,12 +35,12 @@ var promise = new Promise(function(resolve) {
 assert.sameValue(returnValue, undefined, '"resolve" return value');
 
 promise.then(function(val) {
-    if (val !== value) {
-      $DONE('The promise should be fulfilled with the provided value.');
-      return;
-    }
+  if (val !== value) {
+    $DONE('The promise should be fulfilled with the provided value.');
+    return;
+  }
 
-    $DONE();
-  }, function() {
-    $DONE('The promise should not be rejected.');
-  });
+  $DONE();
+}, function() {
+  $DONE('The promise should not be rejected.');
+});

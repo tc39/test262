@@ -1,25 +1,16 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-desc: Variable binding is set to `undefined`
+desc: Variable binding is left in place by legacy function hoisting
 template: eval-global
 info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
 
     [...]
     i. If varEnvRec is a global Environment Record, then
-       i. Perform ? varEnvRec.CreateGlobalFunctionBinding(F, undefined, true).
+       i. Perform ? varEnvRec.CreateGlobalVarBinding(F, true).
     [...]
 
-    8.1.1.4.18 CreateGlobalFunctionBinding
-
-    [...]
-    5. If existingProp is undefined or existingProp.[[Configurable]] is true,
-       then
-       [...]
-    6. Else,
-       a. Let desc be the PropertyDescriptor{[[Value]]: V }.
-    [...]
 includes: [fnGlobalObject.js, propertyHelper.js]
 ---*/
 
@@ -32,8 +23,17 @@ Object.defineProperty(fnGlobalObject(), 'f', {
 });
 //- before
 var global = fnGlobalObject();
-assert.sameValue(f, undefined, "binding is initialized to `undefined`");
+assert.sameValue(f, 'x', "binding is not reinitialized");
 
-verifyEnumerable(global, "f");
-verifyWritable(global, "f");
-verifyNotConfigurable(global, "f");
+verifyProperty(global, "f", {
+  enumerable: true,
+  writable: true,
+  configurable: false
+}, { restore: true });
+//- teardown
+assert.sameValue(typeof f, "function");
+verifyProperty(global, "f", {
+  enumerable: true,
+  writable: true,
+  configurable: false
+});

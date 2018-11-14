@@ -73,7 +73,7 @@ function Section(parentSection, id, name) {
     this.toHTML = function(options) {
         var defaultOptions = {header: false, renderSubsections: true};
 
-        if (typeof options === undefined) {
+        if (typeof options === "undefined") {
             options = defaultOptions;
         } else {
             options = $.extend(defaultOptions, options);

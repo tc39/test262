@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-array-len
-info: >
+info: |
     If the argument len is a Number and ToUint32(len) is not equal to len,
     a RangeError exception is thrown
 es5id: 15.4.2.2_A2.2_T2
@@ -14,7 +14,7 @@ description: Use try statement. len = NaN, +/-Infinity
 try {
   new Array(NaN);
   $ERROR('#1.1: new Array(NaN) throw RangeError. Actual: ' + (new Array(NaN)));
-} catch(e) {
+} catch (e) {
   if ((e instanceof RangeError) !== true) {
     $ERROR('#1.2: new Array(NaN) throw RangeError. Actual: ' + (e));
   }
@@ -24,7 +24,7 @@ try {
 try {
   new Array(Number.POSITIVE_INFINITY);
   $ERROR('#2.1: new Array(Number.POSITIVE_INFINITY) throw RangeError. Actual: ' + (new Array(Number.POSITIVE_INFINITY)));
-} catch(e) {
+} catch (e) {
   if ((e instanceof RangeError) !== true) {
     $ERROR('#2.2: new Array(Number.POSITIVE_INFINITY) throw RangeError. Actual: ' + (e));
   }
@@ -34,7 +34,7 @@ try {
 try {
   new Array(Number.NEGATIVE_INFINITY);
   $ERROR('#3.1: new Array(Number.NEGATIVE_INFINITY) throw RangeError. Actual: ' + (new Array(Number.NEGATIVE_INFINITY)));
-} catch(e) {
+} catch (e) {
   if ((e instanceof RangeError) !== true) {
     $ERROR('#3.2: new Array(Number.NEGATIVE_INFINITY) throw RangeError. Actual: ' + (e));
   }

@@ -4,13 +4,14 @@
 es6id: 26.1.2
 description: >
   Construct with given argumentsList
-info: >
+info: |
   26.1.2 Reflect.construct ( target, argumentsList [, newTarget] )
 
   ...
   2. If newTarget is not present, let newTarget be target.
   ...
   6. Return Construct(target, args, newTarget).
+features: [Reflect, Reflect.construct]
 ---*/
 
 function fn() {

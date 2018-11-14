@@ -4,7 +4,7 @@
 es6id: 26.1.4
 description: >
   Delete a symbol property.
-info: >
+info: |
   26.1.4 Reflect.deleteProperty ( target, propertyKey )
 
   ...
@@ -17,7 +17,7 @@ info: >
   3. If Type(key) is Symbol, then
     a. Return key.
   ...
-features: [Symbol]
+features: [Reflect, Symbol]
 ---*/
 
 var s = Symbol('1');

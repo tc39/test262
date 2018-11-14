@@ -4,7 +4,7 @@
 es6id: 26.1.6
 description: >
   Return value.
-info: >
+info: |
   26.1.6 Reflect.get ( target, propertyKey [ , receiver ])
 
   ...
@@ -27,6 +27,7 @@ info: >
   desc.[[Get]].
   7. If getter is undefined, return undefined.
   8. Return Call(getter, Receiver).
+features: [Reflect]
 ---*/
 
 var o = {};
@@ -55,7 +56,9 @@ assert.sameValue(
   'Return Call(getter, Receiver)'
 );
 
-var o2 = Object.create({p: 42});
+var o2 = Object.create({
+  p: 42
+});
 assert.sameValue(
   Reflect.get(o2, 'p'), 42,
   'Return value from prototype without own property.'

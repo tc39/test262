@@ -4,7 +4,7 @@
 es6id: 26.1.13
 description: >
   Call accessor's set from target's prototype.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
@@ -22,6 +22,7 @@ info: >
       i. Return parent.[[Set]](P, V, Receiver).
   ...
   11. Return true.
+features: [Reflect, Reflect.set]
 ---*/
 
 var args;

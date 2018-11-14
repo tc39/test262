@@ -2,9 +2,9 @@
 // - src/function-forms/dflt-params-arg-val-not-undefined.case
 // - src/function-forms/default/gen-func-expr.template
 /*---
-description: Use of intializer when argument value is not `undefined` (generator function expression)
+description: Use of initializer when argument value is not `undefined` (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-features: [default-parameters]
+features: [default-parameters, generators]
 flags: [generated]
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }
@@ -36,6 +36,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 
     14.1.19 Runtime Semantics: IteratorBindingInitialization
 

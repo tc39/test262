@@ -2,12 +2,12 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/async-gen-func-expr.template
 /*---
-description: Reset element (identifier) does not support initializer (async generator function expression)
+description: Rest element (identifier) does not support initializer (async generator function expression)
 esid: sec-asyncgenerator-definitions-evaluation
 features: [async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * ( FormalParameters ) {

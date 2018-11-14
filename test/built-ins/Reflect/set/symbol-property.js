@@ -4,7 +4,7 @@
 es6id: 26.1.13
 description: >
   Sets the new value.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
@@ -17,7 +17,7 @@ info: >
   3. If Type(key) is Symbol, then
     a. Return key.
   ...
-features: [Symbol]
+features: [Reflect, Reflect.set, Symbol]
 ---*/
 
 var o1 = {};

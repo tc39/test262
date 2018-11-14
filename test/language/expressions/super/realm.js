@@ -5,7 +5,7 @@ esid: sec-super-keyword
 es6id: 12.3.5
 description: >
     Default [[Prototype]] value derived from realm of the newTarget value
-info: >
+info: |
     1. Let newTarget be GetNewTarget().
     [...]
     6. Let result be ? Construct(func, argList, newTarget).
@@ -19,7 +19,7 @@ info: >
        a. Let realm be ? GetFunctionRealm(constructor).
        b. Let proto be realm's intrinsic object named intrinsicDefaultProto.
     [...]
-features: [Reflect]
+features: [cross-realm, Reflect]
 ---*/
 
 var other = $262.createRealm().global;

@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/func-decl-dflt.template
 /*---
-description: Reset element (identifier) does not support initializer (function declaration (default parameter))
+description: Rest element (identifier) does not support initializer (function declaration (default parameter))
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
 es6id: 14.1.19
 features: [destructuring-binding, default-parameters]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     FunctionDeclaration :

@@ -8,6 +8,7 @@ description: >
   value of the Symbol property of the global object.
 
 includes: [propertyHelper.js]
+features: [Symbol]
 ---*/
 
 verifyNotEnumerable(this, "Symbol");

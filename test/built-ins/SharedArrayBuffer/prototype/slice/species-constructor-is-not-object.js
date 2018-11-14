@@ -5,14 +5,17 @@
 /*---
 description: >
   Throws TypeError if `constructor` property is not an object.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
+features: [SharedArrayBuffer, Symbol]
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);
 
-function callSlice() { arrayBuffer.slice(); }
+function callSlice() {
+  arrayBuffer.slice();
+}
 
 arrayBuffer.constructor = null;
 assert.throws(TypeError, callSlice, "`constructor` value is null");

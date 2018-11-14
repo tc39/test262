@@ -1,0 +1,35 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/dynamic-import/usage/nested-async-function-await-
+name: nested in async function, awaited
+esid: sec-import-call-runtime-semantics-evaluation
+info: |
+  ImportCall :
+      import( AssignmentExpression )
+
+  1. Let referencingScriptOrModule be ! GetActiveScriptOrModule().
+  2. Assert: referencingScriptOrModule is a Script Record or Module Record (i.e. is not null).
+  3. Let argRef be the result of evaluating AssignmentExpression.
+  4. Let specifier be ? GetValue(argRef).
+  5. Let promiseCapability be ! NewPromiseCapability(%Promise%).
+  6. Let specifierString be ToString(specifier).
+  7. IfAbruptRejectPromise(specifierString, promiseCapability).
+  8. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
+  9. Return promiseCapability.[[Promise]].
+
+
+features: [dynamic-import]
+flags: [async]
+---*/
+
+async function f() {
+  await /*{ import }*/.then(imported => {
+
+    /*{ body }*/
+
+  });
+}
+
+f().then($DONE, $DONE).catch($DONE);

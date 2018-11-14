@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     If B = string.charAt(k+1) + string.charAt(k+2) do not represent
     hexadecimal digits, throw URIError
 es5id: 15.1.3.2_A1.2_T1
@@ -13,7 +13,12 @@ description: Complex tests
 
 //CHECK
 var result = true;
-var interval = [[0x00, 0x29], [0x40,0x40], [0x47, 0x60], [0x67, 0xFFFF]];
+var interval = [
+  [0x00, 0x2F],
+  [0x3A, 0x40],
+  [0x47, 0x60],
+  [0x67, 0xFFFF]
+];
 for (var indexI = 0; indexI < interval.length; indexI++) {
   for (var indexJ = interval[indexI][0]; indexJ <= interval[indexI][1]; indexJ++) {
     try {

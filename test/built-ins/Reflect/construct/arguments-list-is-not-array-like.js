@@ -4,7 +4,7 @@
 es6id: 26.1.2
 description: >
   Return abrupt if argumentsList is not an ArrayLike object.
-info: >
+info: |
   26.1.2 Reflect.construct ( target, argumentsList [, newTarget] )
 
   ...
@@ -19,6 +19,7 @@ info: >
   4. Let len be ToLength(Get(obj, "length")).
   5. ReturnIfAbrupt(len).
   ...
+features: [Reflect, Reflect.construct]
 ---*/
 
 function fn() {}

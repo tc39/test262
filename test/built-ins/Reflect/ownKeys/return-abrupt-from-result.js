@@ -4,14 +4,14 @@
 es6id: 26.1.11
 description: >
   Return abrupt result from target.[[OwnPropertyKeys]]()
-info: >
+info: |
   26.1.11 Reflect.ownKeys ( target )
 
   ...
   2. Let keys be target.[[OwnPropertyKeys]]().
   3. ReturnIfAbrupt(keys).
   ...
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var o = {};

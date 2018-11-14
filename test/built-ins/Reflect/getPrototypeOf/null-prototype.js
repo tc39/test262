@@ -4,11 +4,12 @@
 es6id: 26.1.8
 description: >
   Return null prototype.
-info: >
+info: |
   26.1.8 Reflect.getPrototypeOf ( target )
 
   ...
   2. Return target.[[GetPrototypeOf]]().
+features: [Reflect]
 ---*/
 
 var o = Object.create(null);

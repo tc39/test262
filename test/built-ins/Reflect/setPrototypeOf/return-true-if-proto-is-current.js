@@ -4,7 +4,7 @@
 es6id: 26.1.14
 description: >
   Return true if proto has the same value as current target's prototype.
-info: >
+info: |
   26.1.14 Reflect.setPrototypeOf ( target, proto )
 
   ...
@@ -15,6 +15,7 @@ info: >
   ...
   4. If SameValue(V, current), return true.
   ...
+features: [Reflect, Reflect.setPrototypeOf]
 ---*/
 
 var o1 = {};

@@ -5,10 +5,10 @@
 /*---
 description: >
   New SharedArrayBuffer instance is created from SpeciesConstructor.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
-features: [Symbol.species]
+features: [SharedArrayBuffer, Symbol.species]
 ---*/
 
 var resultBuffer;

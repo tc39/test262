@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The elements of the array are rearranged so as to reverse their order.
     The object is returned as the result of the call
 esid: sec-array.prototype.reverse
@@ -26,7 +26,7 @@ if (reverse !== x) {
 }
 
 //CHECK#3
-x = new Array(1,2);
+x = new Array(1, 2);
 var reverse = x.reverse();
 if (reverse !== x) {
   $ERROR('#3: x = new Array(1,2); x.reverse() === x. Actual: ' + (reverse));

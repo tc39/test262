@@ -6,7 +6,7 @@ description: >
     Throws a TypeError exception if boolean trap result is true, target is
     not extensible, and the given parameter is not the same object as the target
     prototype.
-info: >
+info: |
     [[SetPrototypeOf]] (V)
 
     ...
@@ -21,7 +21,7 @@ info: >
     16. If booleanTrapResult is true and SameValue(V, targetProto) is false,
     throw a TypeError exception.
     ...
-features: [Reflect.setPrototypeOf]
+features: [Proxy, Reflect, Reflect.setPrototypeOf]
 ---*/
 
 var target, proxy;

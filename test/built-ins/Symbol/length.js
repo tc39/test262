@@ -9,6 +9,7 @@ description: >
   Besides the length property (whose value is 0)
 
 includes: [propertyHelper.js]
+features: [Symbol]
 ---*/
 
 assert.sameValue(Symbol.length, 0, "The value of `Symbol.length` is `0`");

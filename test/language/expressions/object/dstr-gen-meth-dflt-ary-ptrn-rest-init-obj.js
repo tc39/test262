@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/gen-method-dflt.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (generator method (default parameter))
+description: Rest element (nested object pattern) does not support initializer (generator method (default parameter))
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
 es6id: 14.4.13
-features: [destructuring-binding, default-parameters]
+features: [generators, destructuring-binding, default-parameters]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     GeneratorMethod :

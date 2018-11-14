@@ -4,7 +4,7 @@
 es6id: 26.1.14
 description: >
   Return false if target is found as a prototype of proto, without setting.
-info: >
+info: |
   26.1.14 Reflect.setPrototypeOf ( target, proto )
 
   ...
@@ -21,6 +21,7 @@ info: >
       object internal method defined in 9.1.1, let done be true.
       ii. Else, let p be the value of p’s [[Prototype]] internal slot.
   ...
+features: [Reflect, Reflect.setPrototypeOf]
 ---*/
 
 var target = {};

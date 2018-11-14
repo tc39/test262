@@ -3,13 +3,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.store
 description: >
   Atomics.store.name is "store".
 includes: [propertyHelper.js]
+features: [Atomics]
 ---*/
 
-assert.sameValue(Atomics.store.name, "store");
-
-verifyNotEnumerable(Atomics.store, "name");
-verifyNotWritable(Atomics.store, "name");
-verifyConfigurable(Atomics.store, "name");
+verifyProperty(Atomics.store, 'name', {
+  value: 'store',
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

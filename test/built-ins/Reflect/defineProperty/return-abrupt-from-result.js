@@ -4,7 +4,7 @@
 es6id: 26.1.3
 description: >
   Return abrupt result on defining a property.
-info: >
+info: |
   26.1.3 Reflect.defineProperty ( target, propertyKey, attributes )
 
   ...
@@ -16,7 +16,7 @@ info: >
   1. Let current be O.[[GetOwnProperty]](P).
   2. ReturnIfAbrupt(current).
   ...
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var o = {};

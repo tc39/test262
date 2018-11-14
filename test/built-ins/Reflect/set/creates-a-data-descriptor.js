@@ -4,7 +4,7 @@
 es6id: 26.1.13
 description: >
   Creates a property data descriptor.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
@@ -41,6 +41,7 @@ info: >
   ...
   11. Return true.
 includes: [propertyHelper.js]
+features: [Reflect, Reflect.set]
 ---*/
 
 var o1 = {};
@@ -75,4 +76,3 @@ assert.sameValue(
 verifyWritable(receiver, 'p');
 verifyEnumerable(receiver, 'p');
 verifyConfigurable(receiver, 'p');
-

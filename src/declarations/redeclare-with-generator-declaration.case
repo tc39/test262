@@ -5,6 +5,7 @@
 desc: >
   redeclaration with GeneratorDeclaration
 template: redeclare
+features: [generators]
 ---*/
 
 //- body

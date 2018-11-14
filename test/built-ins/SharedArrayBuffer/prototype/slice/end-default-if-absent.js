@@ -5,9 +5,10 @@
 /*---
 description: >
   The `end` index defaults to [[ArrayBufferByteLength]] if absent.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
+features: [SharedArrayBuffer]
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);

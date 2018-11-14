@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/func-expr-dflt.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (function expression (default parameter))
+description: Rest element (nested object pattern) does not support initializer (function expression (default parameter))
 esid: sec-function-definitions-runtime-semantics-evaluation
 es6id: 14.1.20
 features: [destructuring-binding, default-parameters]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     FunctionExpression : function ( FormalParameters ) { FunctionBody }

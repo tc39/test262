@@ -6,11 +6,10 @@ es6id: 10.2.1
 esid: sec-strict-mode-code
 flags: [module]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 
 throw "Test262: This statement should not be evaluated.";
 
-$ERROR('This statement should not be executed.');
 var public;

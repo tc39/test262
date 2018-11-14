@@ -1,0 +1,16 @@
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    It is a SyntaxError if the class body has more than one constructor
+info: |
+    ClassBody : ClassElementList
+        It is a Syntax Error if PrototypePropertyNameList of ClassElementList contains more
+        than one occurrence of "constructor".
+template: syntax/invalid
+---*/
+
+//- elements
+constructor() {}
+constructor() {}

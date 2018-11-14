@@ -1,0 +1,28 @@
+// Copyright (C) 2017 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Syntax error if `arguments` used in class field
+info: |
+  Static Semantics: Early Errors
+
+    FieldDefinition:
+      PropertyNameInitializeropt
+
+    - It is a Syntax Error if ContainsArguments of Initializer is true.
+
+  Static Semantics: ContainsArguments
+    IdentifierReference : Identifier
+
+    1. If the StringValue of Identifier is "arguments", return true.
+    ...
+    For all other grammatical productions, recurse on all nonterminals. If any piece returns true, then return true. Otherwise return false.
+features: [class, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
+template: initializer-error
+---*/
+
+//- initializer
+arguments

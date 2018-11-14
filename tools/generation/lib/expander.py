@@ -14,18 +14,20 @@ class Expander:
         self.templates = dict()
         self.case_dir = case_dir
 
-    def _load_templates(self, template_class):
+    def _load_templates(self, template_class, encoding):
         directory = os.path.join(self.case_dir, template_class)
         file_names = map(
             lambda x: os.path.join(directory, x),
             filter(self.is_template_file, os.listdir(directory))
         )
 
-        self.templates[template_class] = [Template(x) for x in file_names]
+        self.templates[template_class] = [
+            Template(x, encoding) for x in file_names
+        ]
 
-    def _get_templates(self, template_class):
+    def _get_templates(self, template_class, encoding):
         if not template_class in self.templates:
-            self._load_templates(template_class)
+            self._load_templates(template_class, encoding)
 
         return self.templates[template_class]
 
@@ -49,10 +51,10 @@ class Expander:
                 yield test
 
     def expand_case(self, file_name, encoding):
-        case = Case(file_name)
+        case = Case(file_name, encoding)
 
         template_class = case.attribs['meta']['template']
         templates = self.templates.get(template_class)
 
-        for template in self._get_templates(template_class):
+        for template in self._get_templates(template_class, encoding):
             yield template.expand(file_name, os.path.basename(file_name[:-5]), case.attribs, encoding)

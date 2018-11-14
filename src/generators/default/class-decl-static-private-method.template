@@ -1,0 +1,43 @@
+// Copyright (C) 2018 Bloomberg LP. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/class/gen-private-method-static-
+name: Static generator private method as a ClassDeclaration element
+esid: prod-GeneratorPrivateMethod
+info: |
+  ClassElement :
+    static PrivateMethodDefinition
+
+  MethodDefinition :
+    GeneratorMethod
+
+  14.4 Generator Function Definitions
+
+  GeneratorMethod :
+    * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
+features: [generators, class-static-methods-private]
+---*/
+
+var callCount = 0;
+
+class C {
+    static *#gen() {
+        callCount += 1;
+        /*{ body }*/
+    }
+    static get gen() { return this.#gen; }
+}
+
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');
+
+var iter = C.gen();
+
+/*{ assertions }*/
+
+assert.sameValue(callCount, 1);
+
+// Test the private fields do not appear as properties before set to value
+assert.sameValue(Object.hasOwnProperty.call(C.prototype, "#gen"), false, 'Object.hasOwnProperty.call(C.prototype, "#gen")');
+assert.sameValue(Object.hasOwnProperty.call(C, "#gen"), false, 'Object.hasOwnProperty.call(C, "#gen")');

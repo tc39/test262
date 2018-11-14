@@ -4,13 +4,14 @@
 es6id: 26.1.2
 description: >
   Throws a TypeError if `newTarget` is not a constructor.
-info: >
+info: |
   26.1.2 Reflect.construct ( target, argumentsList [, newTarget] )
 
   ...
   2. If newTarget is not present, let newTarget be target.
   3. Else, if IsConstructor(newTarget) is false, throw a TypeError exception.
   ...
+features: [Reflect, Reflect.construct]
 ---*/
 
 assert.throws(TypeError, function() {

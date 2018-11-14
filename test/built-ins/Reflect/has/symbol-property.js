@@ -4,7 +4,7 @@
 es6id: 26.1.9
 description: >
   Return boolean value from a projectKey as a Symbol
-info: >
+info: |
   26.1.9 Reflect.has ( target, propertyKey )
 
   ...
@@ -17,7 +17,7 @@ info: >
   3. If Type(key) is Symbol, then
     a. Return key.
   ...
-features: [Symbol]
+features: [Reflect, Symbol]
 ---*/
 
 var o = {};

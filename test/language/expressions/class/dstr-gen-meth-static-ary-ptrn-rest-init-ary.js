@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/cls-expr-gen-meth-static.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (static class expression generator method)
+description: Rest element (nested array pattern) does not support initializer (static class expression generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 es6id: 14.5.16
-features: [destructuring-binding]
+features: [generators, destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail

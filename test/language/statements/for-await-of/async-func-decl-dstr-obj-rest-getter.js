@@ -31,12 +31,14 @@ let count = 0;
 let iterCount = 0;
 async function fn() {
   for await ({...x} of [{ get v() { count++; return 2; } }]) {
-    assert.sameValue(x.v, 2);
     assert.sameValue(count, 1);
 
-    verifyEnumerable(x, "v");
-    verifyWritable(x, "v");
-    verifyConfigurable(x, "v");
+    verifyProperty(x, "v", {
+      enumerable: true,
+      writable: true,
+      configurable: true,
+      value: 2
+    });
 
     iterCount += 1;
   }

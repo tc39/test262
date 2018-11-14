@@ -3,13 +3,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.xor
 description: >
   Atomics.xor.name is "xor".
 includes: [propertyHelper.js]
+features: [Atomics]
 ---*/
 
-assert.sameValue(Atomics.xor.name, "xor");
-
-verifyNotEnumerable(Atomics.xor, "name");
-verifyNotWritable(Atomics.xor, "name");
-verifyConfigurable(Atomics.xor, "name");
+verifyProperty(Atomics.xor, 'name', {
+  value: 'xor',
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

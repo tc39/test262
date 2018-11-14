@@ -1,10 +1,22 @@
-function __consolePrintHandle__(msg){
+// Copyright (C) 2017 Ecma International.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+
+---*/
+
+function __consolePrintHandle__(msg) {
   print(msg);
 }
 
-function $DONE(){
-  if(!arguments[0])
+function $DONE(error) {
+  if (error) {
+    if(typeof error === 'object' && error !== null && 'name' in error) {
+      __consolePrintHandle__('Test262:AsyncTestFailure:' + error.name + ': ' + error.message);
+    } else {
+      __consolePrintHandle__('Test262:AsyncTestFailure:Test262Error: ' + error);
+    }
+  } else {
     __consolePrintHandle__('Test262:AsyncTestComplete');
-  else
-    __consolePrintHandle__('Error: ' + arguments[0]);
+  }
 }

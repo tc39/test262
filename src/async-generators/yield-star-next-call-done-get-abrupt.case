@@ -16,7 +16,7 @@ info: |
         ...
         v. Let done be ? IteratorComplete(innerResult).
     ...
-features: [Symbol.asyncIterator]
+features: [Symbol.iterator, Symbol.asyncIterator]
 flags: [async]
 ---*/
 

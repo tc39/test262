@@ -4,13 +4,14 @@
 es6id: 9.5.1
 description: >
     Trap is called with handler as context and target as the first parameter.
-info: >
+info: |
     [[GetPrototypeOf]] ( )
 
     ...
     8. Let handlerProto be Call(trap, handler, «target»).
     ...
 
+features: [Proxy]
 ---*/
 
 var _handler, _target;

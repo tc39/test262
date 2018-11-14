@@ -4,7 +4,7 @@
 esid: sec-ecmascript-function-objects-construct-argumentslist-newtarget
 es6id: 9.2.2
 description: >
-  Error when derived constructor does not intialize the `this` binding
+  Error when derived constructor does not initialize the `this` binding
   (honoring the Realm of the current execution context)
 info: |
   [...]
@@ -15,7 +15,7 @@ info: |
   [...]
   3. If envRec.[[ThisBindingStatus]] is "uninitialized", throw a ReferenceError
      exception.
-features: [class]
+features: [cross-realm, class]
 ---*/
 
 var C = $262.createRealm().global.eval(

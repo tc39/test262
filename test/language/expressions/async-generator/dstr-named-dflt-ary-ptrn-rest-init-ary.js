@@ -2,12 +2,12 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/async-gen-func-named-expr-dflt.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (async generator named function expression (default parameter))
+description: Rest element (nested array pattern) does not support initializer (async generator named function expression (default parameter))
 esid: sec-asyncgenerator-definitions-evaluation
 features: [async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * BindingIdentifier

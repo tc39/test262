@@ -7,6 +7,37 @@
 #
 # https://github.com/tc39/process-document
 
+# Object.fromEntries
+# https://github.com/tc39/proposal-object-from-entries
+Object.fromEntries
+
+# BigInt
+# https://github.com/tc39/proposal-bigint
+BigInt
+
+# Class Fields
+# https://github.com/tc39/proposal-class-fields
+class-fields-public
+class-fields-private
+
+# Static Class Fields & Methods:
+# https://github.com/tc39/proposal-static-class-features/
+class-static-fields-public
+class-static-fields-private
+class-static-methods-private
+
+# Private methods and getter/setters
+# https://github.com/tc39/proposal-private-methods
+class-methods-private
+
+# Dynamic Import
+# https://github.com/tc39/proposal-dynamic-import
+dynamic-import
+
+# Promise.prototype.finally
+# https://github.com/tc39/proposal-promise-finally
+Promise.prototype.finally
+
 # Async Iteration and Generators
 # https://github.com/tc39/proposal-async-iteration
 async-iteration
@@ -16,6 +47,10 @@ Symbol.asyncIterator
 # https://github.com/tc39/proposal-object-rest-spread
 object-rest
 object-spread
+
+# Optional Catch Binding
+# https://github.com/tc39/proposal-optional-catch-binding
+optional-catch-binding
 
 # RegExp s (dotAll) flag
 # https://github.com/tc39/proposal-regexp-dotall-flag
@@ -35,7 +70,70 @@ regexp-unicode-property-escapes
 
 # Shared Memory and atomics
 # https://github.com/tc39/ecmascript_sharedmem
+Atomics
 SharedArrayBuffer
+
+# Array.prototype.flat and Array.prototype.flatMap
+# https://github.com/tc39/proposal-flatMap
+Array.prototype.flat
+Array.prototype.flatMap
+
+# String Trimming
+# https://github.com/tc39/proposal-string-left-right-trim
+# Includes all tests for:
+# String.prototype.{trimStart, trimEnd, trimLeft, trimRight }
+string-trimming
+String.prototype.trimEnd
+String.prototype.trimStart
+
+# Numeric Separator Literal
+# https://github.com/tc39/proposal-numeric-separator
+numeric-separator-literal
+
+# String.prototype.matchAll
+# https://github.com/tc39/proposal-string-matchall
+String.prototype.matchAll
+Symbol.matchAll
+
+# Symbol.prototype.description
+# https://github.com/tc39/proposal-symbol-description
+Symbol.prototype.description
+
+# ECMAScript ⊃ JSON
+# https://github.com/tc39/proposal-json-superset
+json-superset
+
+# Well-formed JSON.stringify
+# https://github.com/tc39/proposal-well-formed-stringify
+well-formed-json-stringify
+
+# Intl.ListFormat
+# https://github.com/tc39/proposal-intl-list-format
+Intl.ListFormat
+
+# Intl.Locale
+# https://github.com/tc39/proposal-intl-locale
+Intl.Locale
+
+# Intl.RelativeTimeFormat
+# https://github.com/tc39/proposal-intl-relative-time
+Intl.RelativeTimeFormat
+
+# Intl.Segmenter
+# https://github.com/tc39/proposal-intl-segmenter
+Intl.Segmenter
+
+# Global
+# https://github.com/tc39/proposal-global
+globalThis
+
+# `export * as namespace from module` consensus PR
+# https://github.com/tc39/ecma262/pull/1174
+export-star-as-namespace-from-module
+
+# import.meta
+# https://github.com/tc39/proposal-import-meta
+import.meta
 
 # Standard language features
 #
@@ -50,7 +148,9 @@ arrow-function
 async-functions
 caller
 class
+computed-property-names
 const
+cross-realm
 DataView
 DataView.prototype.getFloat32
 DataView.prototype.getFloat64
@@ -60,24 +160,28 @@ DataView.prototype.getInt8
 DataView.prototype.getUint16
 DataView.prototype.getUint32
 DataView.prototype.setUint8
-default-arg
 default-parameters
+destructuring-assignment
 destructuring-binding
+for-of
+Float32Array
 Float64Array
-generator
 generators
 Int8Array
+Int32Array
 let
 Map
 new.target
+Object.is
 Proxy
 Reflect
 Reflect.construct
 Reflect.set
 Reflect.setPrototypeOf
 Set
-String#endsWith
-String#includes
+String.fromCodePoint
+String.prototype.endsWith
+String.prototype.includes
 super
 Symbol
 Symbol.hasInstance
@@ -94,6 +198,17 @@ Symbol.unscopables
 tail-call-optimization
 template
 TypedArray
+u180e
 Uint8Array
+Uint16Array
+Uint8ClampedArray
 WeakMap
 WeakSet
+
+# Test-harness features requiring host environment/test runner support
+#
+# The rare cases where testing language functionality requires non-standard
+# language features, exposed through global-environment functions on the $262
+# object, go here.
+
+IsHTMLDDA

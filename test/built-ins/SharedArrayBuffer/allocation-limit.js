@@ -6,7 +6,7 @@
 esid: sec-sharedarraybuffer-length
 description: >
   Throws a RangeError if requested Data Block is too large.
-info: >
+info: |
   SharedArrayBuffer( length )
 
   ...
@@ -18,6 +18,7 @@ info: >
        bytes. If it is impossible to create such a Shared Data Block,
        throw a RangeError exception.
     ...
+features: [SharedArrayBuffer]
 ---*/
 
 assert.throws(RangeError, function() {

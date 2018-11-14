@@ -1,0 +1,40 @@
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    ToString value of specifier
+esid: sec-moduleevaluation
+info: |
+    Import Calls
+
+    Runtime Semantics: Evaluation
+    
+    ImportCall : import(AssignmentExpression)
+    
+    1. Let referencingScriptOrModule be ! GetActiveScriptOrModule().
+    2. Let argRef be the result of evaluating AssignmentExpression.
+    3. Let specifier be ? GetValue(argRef).
+    4. Let promiseCapability be ! NewPromiseCapability(%Promise%).
+    5. Let specifierString be ToString(specifier).
+    6. IfAbruptRejectPromise(specifierString, promiseCapability).
+    7. Perform ! HostImportModuleDynamically(referencingScriptOrModule, specifierString, promiseCapability).
+    8. Return promiseCapability.[[Promise]].
+template: default
+---*/
+
+//- setup
+// import('./module-code_FIXTURE.js')
+
+const obj = {
+    toString() {
+        return './module-code_FIXTURE.js';
+    }
+};
+
+//- import
+import(obj)
+//- body
+assert.sameValue(imported.default, 42);
+assert.sameValue(imported.x, 'Test262');
+assert.sameValue(imported.z, 42);

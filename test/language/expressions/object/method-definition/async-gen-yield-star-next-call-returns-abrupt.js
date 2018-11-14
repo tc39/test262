@@ -4,7 +4,7 @@
 /*---
 description: Abrupt completion while calling next (Async generator method)
 esid: prod-AsyncGeneratorMethod
-features: [Symbol.asyncIterator, async-iteration]
+features: [Symbol.iterator, Symbol.asyncIterator, async-iteration]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions

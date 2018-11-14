@@ -1,12 +1,5 @@
 from ..check import Check
 
-_REQUIRED_FIELDS = set(['description'])
-_OPTIONAL_FIELDS = set([
-    'author', 'es5id', 'es6id', 'esid', 'features', 'flags', 'includes',
-    'info', 'negative', 'timeout'
-])
-_VALID_FIELDS = _REQUIRED_FIELDS | _OPTIONAL_FIELDS
-
 class CheckFeatures(Check):
     '''Ensure tests specify only `features` from a list of valid values.'''
     ID = 'FEATURES'

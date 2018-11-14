@@ -3,13 +3,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.sub
 description: >
   Atomics.sub.name is "sub".
 includes: [propertyHelper.js]
+features: [Atomics]
 ---*/
 
-assert.sameValue(Atomics.sub.name, "sub");
+verifyProperty(Atomics.sub, 'name', {
+  value: 'sub',
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
 
-verifyNotEnumerable(Atomics.sub, "name");
-verifyNotWritable(Atomics.sub, "name");
-verifyConfigurable(Atomics.sub, "name");

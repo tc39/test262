@@ -20,6 +20,7 @@ info: |
         2. Let func be GetV(O, P).
         5. If IsCallable(func) is false, throw a TypeError exception.
         ...
+features: [cross-realm, Proxy]
 ---*/
 
 var OProxy = $262.createRealm().global.Proxy;
@@ -28,7 +29,7 @@ var p = new OProxy({}, {
 });
 
 assert.throws(TypeError, function() {
- Object.setPrototypeOf(p, {
-   value: 1
- });
+  Object.setPrototypeOf(p, {
+    value: 1
+  });
 });

@@ -4,7 +4,7 @@
 es6id: 26.1.13
 description: >
   Set value on an accessor descriptor property with receiver as `this`.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
@@ -21,6 +21,7 @@ info: >
   9. Let setterResult be Call(setter, Receiver, «V»).
   10. ReturnIfAbrupt(setterResult).
   11. Return true.
+features: [Reflect, Reflect.set]
 ---*/
 
 var args;

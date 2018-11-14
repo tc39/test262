@@ -4,7 +4,7 @@
 es6id: 9.5.4
 description: >
     Throws a TypeError exception if trap is not callable.
-info: >
+info: |
     [[PreventExtensions]] ( )
 
     ...
@@ -17,13 +17,14 @@ info: >
         2. Let func be GetV(O, P).
         5. If IsCallable(func) is false, throw a TypeError exception.
         ...
+features: [Proxy]
 ---*/
 
 var target = {};
 var p = new Proxy(target, {
-    preventExtensions: {}
+  preventExtensions: {}
 });
 
 assert.throws(TypeError, function() {
-    Object.preventExtensions(p);
+  Object.preventExtensions(p);
 });

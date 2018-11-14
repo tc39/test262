@@ -1,0 +1,28 @@
+// Copyright (C) 2018 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: It is syntax error if PrivateName IdentifierName is accessed on SuperProperty
+info: |
+  ClassElementName :
+    PropertyName
+    PrivateName
+
+  PrivateName ::
+    # IdentifierName
+
+  SuperProperty:
+    super[Expression]
+    super.IdentifierName
+
+template: syntax/invalid
+features: [class-methods-private]
+---*/
+
+//- heritage
+extends B
+
+//- elements
+method() {
+  super.#x();
+}

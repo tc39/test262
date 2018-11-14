@@ -2,13 +2,13 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/var-stmt.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (`var` statement)
+description: Rest element (nested object pattern) does not support initializer (`var` statement)
 esid: sec-variable-statement-runtime-semantics-evaluation
 es6id: 13.3.2.4
 features: [destructuring-binding]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     VariableDeclaration : BindingPattern Initializer

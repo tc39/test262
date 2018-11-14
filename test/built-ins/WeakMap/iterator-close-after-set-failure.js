@@ -5,13 +5,14 @@ es6id: 23.3.1.1
 esid: sec-weakmap-iterable
 description: >
   Return IteratorClose(iter, status) if fail on adding value on constructing.
-info: >
+info: |
   WeakMap ( [ iterable ] )
 
   ...
   9. Repeat
     k. Let status be Call(adder, map, «k.[[value]], v.[[value]]»).
     l. If status is an abrupt completion, return IteratorClose(iter, status).
+features: [Symbol.iterator]
 ---*/
 
 var count = 0;
@@ -19,14 +20,19 @@ var iterable = {};
 iterable[Symbol.iterator] = function() {
   return {
     next: function() {
-      return { value: [], done: false };
+      return {
+        value: [],
+        done: false
+      };
     },
     return: function() {
       count += 1;
     }
   };
 };
-WeakMap.prototype.set = function() { throw new Test262Error(); };
+WeakMap.prototype.set = function() {
+  throw new Test262Error();
+};
 
 assert.throws(Test262Error, function() {
   new WeakMap(iterable);

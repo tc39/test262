@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     If start is positive, use min(start, length).
     If deleteCount is negative, use 0
 esid: sec-array.prototype.splice
@@ -10,8 +10,8 @@ es5id: 15.4.4.12_A1.3_T1
 description: -length < deleteCount < start = 0, itemCount = 0
 ---*/
 
-var x = [0,1];
-var arr = x.splice(0,-1);
+var x = [0, 1];
+var arr = x.splice(0, -1);
 
 //CHECK#0
 arr.getClass = Object.prototype.toString;

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The slice function is intentionally generic.
     It does not require that its this value be an Array object
 esid: sec-array.prototype.slice
@@ -20,7 +20,7 @@ obj[2] = 2;
 obj[3] = 3;
 obj[4] = 4;
 obj.length = 5;
-var arr = obj.slice(-5,3);
+var arr = obj.slice(-5, 3);
 
 //CHECK#1
 arr.getClass = Object.prototype.toString;

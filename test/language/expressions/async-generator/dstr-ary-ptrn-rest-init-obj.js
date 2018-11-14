@@ -2,12 +2,12 @@
 // - src/dstr-binding/ary-ptrn-rest-init-obj.case
 // - src/dstr-binding/default/async-gen-func-expr.template
 /*---
-description: Reset element (nested object pattern) does not support initializer (async generator function expression)
+description: Rest element (nested object pattern) does not support initializer (async generator function expression)
 esid: sec-asyncgenerator-definitions-evaluation
 features: [async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * ( FormalParameters ) {

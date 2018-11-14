@@ -1,5 +1,13 @@
-/// Copyright (c) 2012 Ecma International.  All rights reserved.
-/// This code is governed by the BSD license found in the LICENSE file.
+// Copyright (c) 2012 Ecma International.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    Provides both:
+
+    - An error class to avoid false positives when testing for thrown exceptions
+    - A function to explicitly throw an exception using the Test262Error class
+---*/
+
 
 function Test262Error(message) {
   this.message = message || "";

@@ -7,6 +7,7 @@ description: >
     `try` block of a `try..catch` statement, `throw` should interrupt control
     flow as if a `throw` statement had appeared at that location in the
     function body.
+features: [generators]
 ---*/
 
 var unreachable = 0;
@@ -53,7 +54,7 @@ assert.sameValue(result.done, false, 'Fourth result `done` flag');
 
 result = iter.next();
 assert.sameValue(result.value, 4, 'Fifth result `value`');
-assert.sameValue(result.done, false, 'Firth result `done` flag');
+assert.sameValue(result.done, false, 'Fifth result `done` flag');
 
 result = iter.next();
 assert.sameValue(result.value, 5, 'Sixth result `value`');

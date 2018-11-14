@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     If [[Get]] ToString(j) is undefined, return 1.
     If [[]Get] ToString(k) is undefined, return -1
 esid: sec-array.prototype.sort
@@ -10,7 +10,7 @@ es5id: 15.4.4.11_A1.4_T2
 description: If comparefn is not undefined
 ---*/
 
-var myComparefn = function(x,y) {
+var myComparefn = function(x, y) {
   if (x === undefined) return -1;
   if (y === undefined) return 1;
   return 0;

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The shift function is intentionally generic.
     It does not require that its this value be an Array object
 esid: sec-array.prototype.shift
@@ -18,15 +18,15 @@ obj.shift = Array.prototype.shift;
 if (obj.length !== undefined) {
   $ERROR('#0: var obj = {}; obj.length === undefined. Actual: ' + (obj.length));
 } else {
-    //CHECK#1
-    var shift = obj.shift();
-if (shift !== undefined) {
-      $ERROR('#1: var obj = {}; obj.shift = Array.prototype.shift; obj.shift() === undefined. Actual: ' + (shift));
-    }
-    //CHECK#2
-    if (obj.length !== 0) {
-      $ERROR('#2: var obj = {}; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
-    }
+  //CHECK#1
+  var shift = obj.shift();
+  if (shift !== undefined) {
+    $ERROR('#1: var obj = {}; obj.shift = Array.prototype.shift; obj.shift() === undefined. Actual: ' + (shift));
+  }
+  //CHECK#2
+  if (obj.length !== 0) {
+    $ERROR('#2: var obj = {}; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
+  }
 }
 
 //CHECK#3

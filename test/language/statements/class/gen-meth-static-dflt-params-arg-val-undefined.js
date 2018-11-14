@@ -2,9 +2,9 @@
 // - src/function-forms/dflt-params-arg-val-undefined.case
 // - src/function-forms/default/cls-decl-gen-meth-static.template
 /*---
-description: Use of intializer when argument value is `undefined` (static class expression generator method)
+description: Use of initializer when argument value is `undefined` (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-features: [default-parameters]
+features: [default-parameters, generators]
 flags: [generated]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
@@ -57,6 +57,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 
     14.1.19 Runtime Semantics: IteratorBindingInitialization
 

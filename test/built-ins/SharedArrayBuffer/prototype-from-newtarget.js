@@ -6,7 +6,7 @@
 esid: sec-sharedarraybuffer-length
 description: >
   The [[Prototype]] internal slot is computed from NewTarget.
-info: >
+info: |
   SharedArrayBuffer( length )
 
   SharedArrayBuffer called with argument length performs the following steps:
@@ -18,13 +18,13 @@ info: >
     1. Let obj be ? OrdinaryCreateFromConstructor(constructor, "%SharedArrayBufferPrototype%",
        «[[ArrayBufferData]], [[ArrayBufferByteLength]]» ).
     ...
-features: [Reflect.construct]
+features: [SharedArrayBuffer, Reflect.construct]
 ---*/
 
 var arrayBuffer = Reflect.construct(SharedArrayBuffer, [8], Object);
 assert.sameValue(Object.getPrototypeOf(arrayBuffer), Object.prototype, "NewTarget is built-in Object constructor");
 
-var newTarget = function(){}.bind(null);
+var newTarget = function() {}.bind(null);
 Object.defineProperty(newTarget, "prototype", {
   get: function() {
     return Array.prototype;

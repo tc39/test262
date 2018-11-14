@@ -5,8 +5,9 @@
 /*---
 description: >
   The `end` index parameter is converted to an integral numeric value.
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
+features: [SharedArrayBuffer]
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);

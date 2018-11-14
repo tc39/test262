@@ -11,7 +11,7 @@ info: |
   It is a Syntax Error if any element of the LexicallyDeclaredNames of
   StatementList also occurs in the VarDeclaredNames of StatementList.
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 ---*/
 

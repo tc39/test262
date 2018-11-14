@@ -4,12 +4,13 @@
 es6id: 26.1.1
 description: >
   Reflect.apply is configurable, writable and not enumerable.
-info: >
+info: |
   26.1.1 Reflect.apply ( target, thisArgument, argumentsList )
 
   17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [Reflect]
 ---*/
 
 verifyNotEnumerable(Reflect, 'apply');

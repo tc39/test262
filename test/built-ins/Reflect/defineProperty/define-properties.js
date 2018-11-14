@@ -4,12 +4,13 @@
 es6id: 26.1.3
 description: >
   Define properties from the attributes object.
-info: >
+info: |
   26.1.3 Reflect.defineProperty ( target, propertyKey, attributes )
 
   ...
   6. Return target.[[DefineOwnProperty]](key, desc).
 includes: [propertyHelper.js]
+features: [Reflect]
 ---*/
 
 var o = {};

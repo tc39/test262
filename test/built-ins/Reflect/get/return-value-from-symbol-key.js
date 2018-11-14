@@ -4,7 +4,7 @@
 es6id: 26.1.6
 description: >
   Return value where property key is a symbol.
-info: >
+info: |
   26.1.6 Reflect.get ( target, propertyKey [ , receiver ])
 
   ...
@@ -17,7 +17,7 @@ info: >
   3. If Type(key) is Symbol, then
     a. Return key.
   ...
-features: [Symbol]
+features: [Reflect, Symbol]
 ---*/
 
 var o = {};

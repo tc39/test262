@@ -4,7 +4,7 @@
 /*---
 description: Error forwarding when IteratorStep returns an abrupt completion (class expression async generator method (default parameter))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [async-iteration]
+features: [Symbol.iterator, async-iteration]
 flags: [generated]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
@@ -48,6 +48,7 @@ info: |
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).
        b. If next is an abrupt completion, set iteratorRecord.[[done]] to true.
        c. ReturnIfAbrupt(next).
+
 ---*/
 var g = {};
 g[Symbol.iterator] = function() {

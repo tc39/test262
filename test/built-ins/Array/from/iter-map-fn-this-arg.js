@@ -5,7 +5,7 @@ esid: sec-array.from
 es6id: 22.1.2.1
 description: >
     `this` value of mapping function with custom `this` argument (traversed via iterator)
-info: >
+info: |
     [...]
     2. If mapfn is undefined, let mapping be false.
     3. else
@@ -23,8 +23,14 @@ features: [Symbol.iterator]
 ---*/
 
 var thisVals = [];
-var nextResult = { done: false, value: {} };
-var nextNextResult = { done: false, value: {} };
+var nextResult = {
+  done: false,
+  value: {}
+};
+var nextNextResult = {
+  done: false,
+  value: {}
+};
 var mapFn = function() {
   thisVals.push(this);
 };
@@ -36,7 +42,9 @@ items[Symbol.iterator] = function() {
     next: function() {
       var result = nextResult;
       nextResult = nextNextResult;
-      nextNextResult = { done: true };
+      nextNextResult = {
+        done: true
+      };
 
       return result;
     }

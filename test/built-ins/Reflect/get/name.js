@@ -4,12 +4,13 @@
 es6id: 26.1.6
 description: >
   Reflect.get.name value and property descriptor
-info: >
+info: |
   26.1.6 Reflect.get ( target, propertyKey [ , receiver ])
 
   17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [Reflect]
 ---*/
 
 assert.sameValue(

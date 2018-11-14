@@ -5,9 +5,10 @@
 /*---
 description: >
   ToInteger(start) is called before ToInteger(end).
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
 
+features: [SharedArrayBuffer]
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);

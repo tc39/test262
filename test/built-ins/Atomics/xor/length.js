@@ -3,9 +3,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-atomics.xor
 description: >
   Atomics.xor.length is 3.
-info: >
+info: |
   Atomics.xor ( ia, index, val )
 
   17 ECMAScript Standard Built-in Objects:
@@ -20,10 +21,13 @@ info: >
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Atomics]
 ---*/
 
-assert.sameValue(Atomics.xor.length, 3);
+verifyProperty(Atomics.xor, 'length', {
+  value: 3,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
 
-verifyNotEnumerable(Atomics.xor, "length");
-verifyNotWritable(Atomics.xor, "length");
-verifyConfigurable(Atomics.xor, "length");

@@ -4,11 +4,16 @@ All tests are declared as text files located within this project's `test`
 directory. In order to execute Test262 tests, runtimes must observe the
 following semantics.
 
+**Note** When these instructions change in any substantive way, the `version`
+property of the JSON-formatted `package.json` file will be incremented. In this
+way, consumers who are transitioning between revisions of Test262 can more
+easily determine the cause of new test failures.
+
 ## Test Execution
 
 Test262 tests are only valid under the runtime environment conditions described
 here. Test environments may be further modified according to the metadata
-contained with each test--refer to the "Metadata" section for more details.
+contained with each test--refer to the [Metadata](#metadata) section for more details.
 
 ### Realm Isolation
 
@@ -59,6 +64,16 @@ properties of the global scope prior to test execution.
         6. Return Completion(status).
 
   - **`global`** - a reference to the global object on which `$262` was initially defined
+  - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
+    object that 1) has an [[IsHTMLDDA]] internal slot, and 2) when called with
+    no arguments or with the single argument `""` returns `null`.  Use this
+    property to test that ECMAScript algorithms aren't mis-implemented to treat
+    `document.all` as being `undefined` or of type Undefined (instead of
+    Object).  (The peculiar second requirement permits testing algorithms when
+    they also call `document.all` with such arguments, so that testing for
+    correct behavior requires knowing how the call behaves.  This is rarely
+    necessary.)  Tests using this function must be tagged with the `IsHTMLDDA`
+    feature so that only hosts supporting this property will run them.
   - **`agent`** - an ordinary object with the following properties:
     - **`start`** - a function that takes a script source string and runs
       the script in a concurrent agent.  Will block until that agent is
@@ -71,13 +86,13 @@ properties of the global scope prior to test execution.
         an Int32.  This function may return before a broadcast is received
         (eg to return to an event loop to await a message) and no code should
         follow the call to this function.
-      - **`report`** - a function that takes a string and places it in a
-        transmit queue whence the parent will retrieve it.  Messages
-        should be short.
+      - **`report`** - a function that accepts a single "message" argument, 
+        which is converted to a string\* and placed in a transmit queue whence the parent will retrieve it. Messages should be short. (\* Note that string conversion has been implicit since the introduction of this host API, but is now explicit.)
       - **`sleep`** - a function that takes a millisecond argument and
         sleeps the agent for approximately that duration.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
+      - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
     - **`broadcast`** - a function that takes a SharedArrayBuffer and an Int32
         and broadcasts the two values to all concurrent agents.  The function
         blocks until all agents have retrieved the message.  Note, this assumes
@@ -86,6 +101,19 @@ properties of the global scope prior to test execution.
       and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
+    - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**. 
+
+
+#### Normative references
+
+[`DOMHighResTimeStamp`][], **[Monotonic Clock][]**<br>
+Ilya Grigorik, James Simonsen, Jatinder Mann.<br>
+[High Resolution Time Level 2](https://www.w3.org/TR/hr-time-2/) March 2018. W3C. URL: [https://www.w3.org/TR/hr-time-2/](https://www.w3.org/TR/hr-time-2/)
+
+
+[`DOMHighResTimeStamp`]: https://www.w3.org/TR/hr-time-2/#sec-domhighrestimestamp        "**DOMHighResTimeStamp**"
+[Monotonic Clock]:  https://www.w3.org/TR/hr-time-2/#sec-monotonic-clock  "**Monotonic Clock**"
+
 
 ### Strict Mode
 
@@ -146,8 +174,11 @@ These tests are expected to generate an uncaught exception. The value of this
 attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
-  expected to be produced; either "early" (meaning, "prior to evaluation") or
-  "runtime" (meaning, "during evaluation")
+  expected to be produced; valid phases are: 
+    - `parse`: occurs while parsing the source text.
+    - `early`: occurs prior to evaluation.
+    - `resolution`: occurs during module resolution.
+    - `runtime`: occurs during evaluation.
 - `type` - the name of the constructor of the expected error
 
 If a test configured with the `negative` attribute completes without throwing
@@ -155,7 +186,7 @@ an exception, or if the name of the thrown exception's constructor does not
 match the specified constructor name, or if the error occurs at a phase that
 differs from the indicated phase, the test must be interpreted as "failing."
 
-*Example:*
+*Examples:*
 
 ```js
 /*---
@@ -165,6 +196,42 @@ negative:
 ---*/
 unresolvable;
 ```
+
+```js
+/*---
+negative:
+  phase: parse
+  type: ReferenceError
+---*/
+throw "Test262: This statement should not be evaluated.";
+'litera'=1;
+```
+
+```js
+/*---
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+throw "Test262: This statement should not be evaluated.";
+var a\u2E2F;
+```
+
+
+```js
+/*---
+negative:
+  phase: resolution
+  type: ReferenceError
+flags: [module]
+---*/
+throw "Test262: This statement should not be evaluated.";
+export {} from './instn-resolve-empty-export_FIXTURE.js';
+// instn-resolve-empty-export_FIXTURE.js contains only:
+// 0++;
+```
+
+
 
 ### `includes`
 
@@ -176,9 +243,14 @@ directory of the Test262 project.
 
 ```js
 /*---
-includes: [testBuildInObject.js]
+includes: [propertyHelper.js]
 ---*/
-testBuiltInObject(Number.prototype.toLocaleString, true, false, [], 0);
+verifyProperty(this, "Object", {
+  value: Object,
+  writable: true,
+  enumerable: false,
+  configurable: true,
+});
 ```
 
 ### `flags`
@@ -257,8 +329,9 @@ following strings:
   considered complete until the implementation-defined `print` function has
   been invoked or some length of time has passed without any such invocation.
   In the event of a passing test run, this function will be invoked with the
-  string `'Test262:AsyncTestComplete'`. If invoked with any other value, the
-  test must be interpreted as failed. The implementation is free to select an
+  string `'Test262:AsyncTestComplete'`. If invoked with a string that is
+  prefixed with the character sequence `Test262:AsyncTestFailure:`, the test
+  must be interpreted as failed. The implementation is free to select an
   appropriate length of time to wait before considering the test "timed out"
   and failing.
 
@@ -272,10 +345,58 @@ following strings:
     .then(function() {
         print('Test262:AsyncTestComplete');
       }, function(reason) {
-        print('Error: ' + reason);
+        print('Test262:AsyncTestFailure: ' + reason);
       });
   ```
 
 - **`generated`** The test file was created procedurally using the project's
   test generation tool. This flag is specified for informational purposes only
   and has no bearing on how the test should be interpreted.
+
+- **`CanBlockIsFalse`** The test file should only be run when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the file is `false`.
+
+ *Example*
+
+  ```js
+  /*---
+  flags: [CanBlockIsFalse]
+  ---*/
+  var i32 = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+  assert.throws(TypeError, function() { Atomics.wait(i32, 0, 0, 1000); });
+  ```
+
+- **`CanBlockIsTrue`** The test file should only be run when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the file is `true`.
+
+ *Example*
+
+  ```js
+  /*---
+  flags: [CanBlockIsTrue]
+  ---*/
+  var i32 = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
+  Atomics.wait(i32, 0, 0, 1000); // Sleep for one second.
+  ```
+
+### `locale`
+
+The `locale` attribute allows tests to declare explicit information regarding locale specificity. Its value is an array of one or more valid language tags or subtags.
+
+  *Example*
+
+  ```js
+  /*---
+  locale: [en, en-US, ar]
+  ---*/
+  
+  var en = new Intl.PluralRules('en');
+  assert.sameValue(en.select(1), 'one', 'en.select(1) returns "one"');
+  assert.sameValue(en.select(2), 'other', 'en.select(2) returns "other"');  
+
+  var enUS = new Intl.PluralRules('en-US');
+  assert.sameValue(enUS.select(1), 'one', 'enUS.select(1) returns "one"');
+  assert.sameValue(enUS.select(2), 'other', 'enUS.select(2) returns "other"');
+
+  var ar = new Intl.PluralRules('ar');
+  assert.sameValue(ar.select(1), 'one', 'ar.select(1) returns "one"');
+  assert.sameValue(ar.select(2), 'other', 'ar.select(2) returns "two"');
+  ```

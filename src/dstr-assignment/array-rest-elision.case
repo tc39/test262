@@ -3,7 +3,7 @@
 
 /*---
 desc: >
-    ArrayAssignmentPattern may include elisions at any position preceeding a
+    ArrayAssignmentPattern may include elisions at any position preceding a
     AssignmentRestElement in a AssignmentElementList.
 template: default
 es6id: 12.14.5

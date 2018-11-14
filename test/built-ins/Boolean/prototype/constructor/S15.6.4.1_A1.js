@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The initial value of Boolean.prototype.constructor is the
     built-in Boolean constructor
 esid: sec-boolean-constructor
@@ -11,6 +11,6 @@ description: Compare Boolean.prototype.constructor with Boolean
 ---*/
 
 //CHECK#1
-if(Boolean.prototype.constructor !== Boolean){
+if (Boolean.prototype.constructor !== Boolean) {
   $ERROR('#1: Boolean.prototype.constructor === Boolean');
 }

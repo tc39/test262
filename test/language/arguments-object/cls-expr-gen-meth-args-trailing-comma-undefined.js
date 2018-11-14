@@ -4,6 +4,7 @@
 /*---
 description: A trailing comma after undefined should not increase the arguments.length (class expression generator method)
 esid: sec-arguments-exotic-objects
+features: [generators]
 flags: [generated]
 info: |
     9.4.4 Arguments Exotic Objects
@@ -12,11 +13,21 @@ info: |
     characteristics of the function definition, its arguments object is either an ordinary object
     or an arguments exotic object.
 
+
     Trailing comma in the arguments list
 
-    12.3 Left-Hand-Side Expressions
+    Left-Hand-Side Expressions
 
-    Arguments[Yield, Await] : ( ArgumentList[?Yield, ?Await] , )
+    Arguments :
+        ( )
+        ( ArgumentList )
+        ( ArgumentList , )
+
+    ArgumentList :
+        AssignmentExpression
+        ... AssignmentExpression
+        ArgumentList , AssignmentExpression
+        ArgumentList , ... AssignmentExpression
 ---*/
 
 

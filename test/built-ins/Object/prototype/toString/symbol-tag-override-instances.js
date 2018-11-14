@@ -5,7 +5,7 @@
 description: >
     String values of `Symbol.toStringTag` property override built-in tags
 es6id: 19.1.3.6
-info: >
+info: |
     16. Let tag be Get (O, @@toStringTag).
     17. ReturnIfAbrupt(tag).
     18. If Type(tag) is not String, let tag be builtinTag.
@@ -24,7 +24,9 @@ custom = new String();
 custom[Symbol.toStringTag] = 'test262';
 assert.sameValue(Object.prototype.toString.call(custom), '[object test262]');
 
-custom = (function() { return arguments; }());
+custom = (function() {
+  return arguments;
+}());
 custom[Symbol.toStringTag] = 'test262';
 assert.sameValue(Object.prototype.toString.call(custom), '[object test262]');
 

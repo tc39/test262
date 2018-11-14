@@ -5,8 +5,9 @@
 /*---
 description: >
   Large `start` index is clamped to [[ArrayBufferByteLength]].
-info: >
+info: |
   SharedArrayBuffer.prototype.slice ( start, end )
+features: [SharedArrayBuffer]
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);

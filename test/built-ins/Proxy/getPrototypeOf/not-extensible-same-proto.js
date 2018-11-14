@@ -5,7 +5,7 @@ es6id: 9.5.1
 description: >
     Return trap result is target is not extensible, but trap result has the same
     value as target.[[GetPrototypeOf]] result.
-info: >
+info: |
     [[GetPrototypeOf]] ( )
 
     ...
@@ -22,6 +22,7 @@ info: >
     ...
     17. Return handlerProto.
 
+features: [Proxy]
 ---*/
 
 var target = Object.create(Array.prototype);

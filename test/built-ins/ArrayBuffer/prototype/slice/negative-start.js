@@ -6,7 +6,7 @@ esid: sec-arraybuffer.prototype.slice
 es6id: 24.1.4.3
 description: >
   Negative `start` index is relative to [[ArrayBufferByteLength]].
-info: >
+info: |
   ArrayBuffer.prototype.slice ( start, end )
 
   ...
@@ -16,14 +16,17 @@ info: >
 
 var arrayBuffer = new ArrayBuffer(8);
 
-var start = -5, end = 6;
+var start = -5,
+  end = 6;
 var result = arrayBuffer.slice(start, end);
 assert.sameValue(result.byteLength, 3, "slice(-5, 6)");
 
-var start = -12, end = 6;
+var start = -12,
+  end = 6;
 var result = arrayBuffer.slice(start, end);
 assert.sameValue(result.byteLength, 6, "slice(-12, 6)");
 
-var start = -Infinity, end = 6;
+var start = -Infinity,
+  end = 6;
 var result = arrayBuffer.slice(start, end);
 assert.sameValue(result.byteLength, 6, "slice(-Infinity, 6)");

@@ -4,7 +4,7 @@
 es6id: 21.1.2.2
 description: >
   Return abrupt from ToNumber(next).
-info: >
+info: |
   String.fromCodePoint ( ...codePoints )
 
   1. Let codePoints be a List containing the arguments passed to this function.
@@ -15,6 +15,7 @@ info: >
     a. Let next be codePoints[nextIndex].
     b. Let nextCP be ToNumber(next).
     c. ReturnIfAbrupt(nextCP).
+features: [String.fromCodePoint]
 ---*/
 
 var obj = {};

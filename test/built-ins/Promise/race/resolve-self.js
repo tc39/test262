@@ -3,7 +3,7 @@
 /*---
 description: Resolving with a reference to the promise itself
 es6id: 25.4.4.3
-info: >
+info: |
     [...]
     6. Let promiseCapability be NewPromiseCapability(C).
     [...]
@@ -33,7 +33,9 @@ var thenable = {
 };
 
 try {
-  Promise.resolve = function(v) { return v; };
+  Promise.resolve = function(v) {
+    return v;
+  };
   self = Promise.race([thenable]);
 } finally {
   Promise.resolve = builtinResolve;
@@ -42,15 +44,15 @@ try {
 resolve(self);
 
 self.then(function() {
-    $DONE('The promise should not be fulfilled.');
-  }, function(value) {
-    if (!value) {
-      $DONE('The promise should be rejected with a value.');
-      return;
-    }
-    if (value.constructor !== TypeError) {
-      $DONE('The promise should be rejected with a TypeError instance.');
-      return;
-    }
-    $DONE();
-  });
+  $DONE('The promise should not be fulfilled.');
+}, function(value) {
+  if (!value) {
+    $DONE('The promise should be rejected with a value.');
+    return;
+  }
+  if (value.constructor !== TypeError) {
+    $DONE('The promise should be rejected with a TypeError instance.');
+    return;
+  }
+  $DONE();
+});

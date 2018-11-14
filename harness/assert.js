@@ -1,3 +1,10 @@
+// Copyright (C) 2017 Ecma International.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: |
+    Collection of assertion functions used throughout test262
+---*/
+
 function assert(mustBeTrue, message) {
   if (mustBeTrue === true) {
     return;
@@ -20,7 +27,12 @@ assert._isSameValue = function (a, b) {
 };
 
 assert.sameValue = function (actual, expected, message) {
-  if (assert._isSameValue(actual, expected)) {
+  try {
+    if (assert._isSameValue(actual, expected)) {
+      return;
+    }
+  } catch (error) {
+    $ERROR(message + ' (_isSameValue operation threw) ' + error);
     return;
   }
 
@@ -78,11 +90,4 @@ assert.throws = function (expectedErrorConstructor, func, message) {
 
   message += 'Expected a ' + expectedErrorConstructor.name + ' to be thrown but no exception was thrown at all';
   $ERROR(message);
-};
-
-assert.throws.early = function(err, code) {
-  let wrappedCode = `function wrapperFn() { ${code} }`;
-  let ieval = eval;
-
-  assert.throws(err, () => { Function(wrappedCode); }, `Function: ${code}`);
 };

@@ -4,7 +4,7 @@
 es6id: 26.1.13
 description: >
   Return false if receiver is not writable.
-info: >
+info: |
   26.1.13 Reflect.set ( target, propertyKey, V [ , receiver ] )
 
   ...
@@ -18,6 +18,7 @@ info: >
   5. If IsDataDescriptor(ownDesc) is true, then
     a. If ownDesc.[[Writable]] is false, return false.
   ...
+features: [Reflect, Reflect.set]
 ---*/
 
 var o1 = {};

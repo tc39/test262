@@ -4,9 +4,10 @@
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (async function named expression)
 esid: sec-async-function-definitions
+features: [async-functions]
 flags: [generated]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     14.6 Async Function Definitions

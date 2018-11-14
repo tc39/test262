@@ -6,7 +6,7 @@
 esid: sec-sharedarraybuffer-length
 description: >
   [[Prototype]] defaults to %SharedArrayBufferPrototype% if NewTarget.prototype is not an object.
-info: >
+info: |
   SharedArrayBuffer( length )
 
   SharedArrayBuffer called with argument length performs the following steps:
@@ -18,10 +18,10 @@ info: >
     1. Let obj be ? OrdinaryCreateFromConstructor(constructor, "%SharedArrayBufferPrototype%",
        «[[ArrayBufferData]], [[ArrayBufferByteLength]]» ).
     ...
-features: [Reflect.construct]
+features: [SharedArrayBuffer, Symbol, Reflect.construct]
 ---*/
 
-function newTarget() { }
+function newTarget() {}
 
 newTarget.prototype = undefined;
 var arrayBuffer = Reflect.construct(SharedArrayBuffer, [1], newTarget);

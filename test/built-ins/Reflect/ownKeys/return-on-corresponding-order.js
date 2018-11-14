@@ -4,7 +4,7 @@
 es6id: 26.1.11
 description: >
   Returns keys in their corresponding order.
-info: >
+info: |
   26.1.11 Reflect.ownKeys ( target )
 
   ...
@@ -25,7 +25,7 @@ info: >
   order
     a. Add P as the last element of keys.
   5. Return keys.
-features: [Symbol]
+features: [Reflect, Symbol]
 ---*/
 
 

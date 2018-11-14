@@ -4,13 +4,14 @@
 esid: sec-%typedarray%.prototype.fill
 description: >
   Fills all the elements with non numeric values values.
-info: >
+info: |
   22.2.3.8 %TypedArray%.prototype.fill (value [ , start [ , end ] ] )
 
   ...
   3. Let _value_ be ? ToNumber(_value_).
   ...
 includes: [testTypedArray.js]
+features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

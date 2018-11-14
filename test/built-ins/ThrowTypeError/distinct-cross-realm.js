@@ -4,15 +4,19 @@
 esid: sec-%throwtypeerror%
 description: >
   %ThrowTypeError% is defined once for each realm.
-info: >
+info: |
   %ThrowTypeError% ( )
 
   The %ThrowTypeError% intrinsic is an anonymous built-in function
   object that is defined once for each realm.
+features: [cross-realm]
 ---*/
 
 var other = $262.createRealm().global;
-var localArgs = function(){ "use strict"; return arguments; }();
+var localArgs = function() {
+  "use strict";
+  return arguments;
+}();
 var otherArgs = (new other.Function('return arguments;'))();
 var localThrowTypeError = Object.getOwnPropertyDescriptor(localArgs, "callee").get;
 var otherThrowTypeError = Object.getOwnPropertyDescriptor(otherArgs, "callee").get;

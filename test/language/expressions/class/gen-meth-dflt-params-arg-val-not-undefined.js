@@ -2,9 +2,9 @@
 // - src/function-forms/dflt-params-arg-val-not-undefined.case
 // - src/function-forms/default/cls-expr-gen-meth.template
 /*---
-description: Use of intializer when argument value is not `undefined` (class expression method)
+description: Use of initializer when argument value is not `undefined` (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [default-parameters]
+features: [default-parameters, generators]
 flags: [generated]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
@@ -59,6 +59,7 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 
     14.1.19 Runtime Semantics: IteratorBindingInitialization
 

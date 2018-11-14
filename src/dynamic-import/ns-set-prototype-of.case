@@ -1,0 +1,19 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-module-namespace-exotic-objects-setprototypeof
+desc: The [[SetPrototypeOf]] internal method returns `false`
+template: namespace
+---*/
+
+//- import
+import('./module-code_FIXTURE.js')
+//- body
+var newProto = {};
+
+assert.sameValue(typeof Object.setPrototypeOf, 'function');
+
+assert.throws(TypeError, function() {
+  Object.setPrototypeOf(ns, newProto);
+});

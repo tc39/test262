@@ -5,7 +5,7 @@ es6id: 21.1.2.2
 description: >
   Returns the String value whose elements are, in order, the code unit for the
   numbers in the arguments list.
-info: >
+info: |
   String.fromCodePoint ( ...codePoints )
 
   1. Let codePoints be a List containing the arguments passed to this function.
@@ -17,6 +17,7 @@ info: >
     g. Let nextIndex be nextIndex + 1.
   6. Return the String value whose elements are, in order, the elements in the
   List elements. If length is 0, the empty string is returned.
+features: [String.fromCodePoint]
 ---*/
 
 assert.sameValue(String.fromCodePoint(0), '\x00');

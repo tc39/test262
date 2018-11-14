@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: >
+info: |
     The last element of the array is removed from the array
     and returned
 esid: sec-array.prototype.pop
@@ -11,7 +11,7 @@ description: Checking this use new Array() and []
 ---*/
 
 //CHECK#1
-var x = new Array(0,1,2,3);
+var x = new Array(0, 1, 2, 3);
 var pop = x.pop();
 if (pop !== 3) {
   $ERROR('#1: x = new Array(0,1,2,3); x.pop() === 3. Actual: ' + (pop));

@@ -1,0 +1,15 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is a CallExpression, it can't be preceded by the new keyword
+template: syntax/invalid
+info: |
+  CallExpression:
+    ImportCall
+
+  ImportCall :
+      import( AssignmentExpression[+In, ?Yield] )
+---*/
+
+//- import
+new import('')

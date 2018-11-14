@@ -2,12 +2,12 @@
 // - src/dstr-binding/ary-ptrn-rest-init-ary.case
 // - src/dstr-binding/default/cls-expr-async-gen-meth-static.template
 /*---
-description: Reset element (nested array pattern) does not support initializer (static class expression async generator method)
+description: Rest element (nested array pattern) does not support initializer (static class expression async generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [async-iteration]
 flags: [generated, async]
 negative:
-  phase: early
+  phase: parse
   type: SyntaxError
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail

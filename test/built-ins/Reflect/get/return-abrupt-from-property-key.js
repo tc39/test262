@@ -4,13 +4,14 @@
 es6id: 26.1.6
 description: >
   Return abrupt from ToPropertyKey(propertyKey)
-info: >
+info: |
   26.1.6 Reflect.get ( target, propertyKey [ , receiver ])
 
   ...
   2. Let key be ToPropertyKey(propertyKey).
   3. ReturnIfAbrupt(key).
   ...
+features: [Reflect]
 ---*/
 
 var p = {

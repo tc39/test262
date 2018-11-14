@@ -4,7 +4,7 @@
 /*---
 es6id: 25.2.1.1
 description: Assignment of function `name` attribute
-info: >
+info: |
     [...]
     3. Return CreateDynamicFunction(C, NewTarget, "generator", args).
 
@@ -14,9 +14,10 @@ info: >
     [...]
     29. Perform SetFunctionName(F, "anonymous").
 includes: [propertyHelper.js]
+features: [generators]
 ---*/
 
-var GeneratorFunction = Object.getPrototypeOf(function* () {}).constructor;
+var GeneratorFunction = Object.getPrototypeOf(function*() {}).constructor;
 
 assert.sameValue(GeneratorFunction().name, 'anonymous');
 verifyNotEnumerable(GeneratorFunction(), 'name');

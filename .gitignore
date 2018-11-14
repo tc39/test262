@@ -5,3 +5,13 @@
 console/TestCases
 github-deploy-key
 github-deploy-key.pub
+node_modules
+
+# Only apps should have lockfiles
+package-lock.json
+yarn.lock
+npm-shrinkwrap.json
+
+# Created by test262-harness
+*.fail
+*.pass

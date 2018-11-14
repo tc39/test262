@@ -4,13 +4,14 @@
 es6id: 26.1.3
 description: >
   Return abrupt from ToPropertyDescriptor(attributes).
-info: >
+info: |
   26.1.3 Reflect.defineProperty ( target, propertyKey, attributes )
 
   ...
   4. Let desc be ToPropertyDescriptor(attributes).
   5. ReturnIfAbrupt(desc).
   ...
+features: [Reflect]
 ---*/
 
 var attributes = {};

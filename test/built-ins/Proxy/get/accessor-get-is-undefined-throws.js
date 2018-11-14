@@ -7,30 +7,31 @@ description: >
 
     if trap result is not undefined, then proxy must report the same value for a
     non-configurable accessor property with an undefined get.
-info: >
+info: |
     13. If targetDesc is not undefined, then
         b. If IsAccessorDescriptor(targetDesc) and targetDesc.[[Configurable]]
         is false and targetDesc.[[Get]] is undefined, then
             i. If trapResult is not undefined, throw a TypeError exception.
 
+features: [Proxy]
 ---*/
 
 var target = {};
 var p = new Proxy(target, {
-    get: function() {
-        return 2;
-    }
+  get: function() {
+    return 2;
+  }
 });
 
 Object.defineProperty(target, 'attr', {
-    configurable: false,
-    get: undefined
+  configurable: false,
+  get: undefined
 });
 
 assert.throws(TypeError, function() {
-    p.attr;
+  p.attr;
 });
 
 assert.throws(TypeError, function() {
-    p['attr'];
+  p['attr'];
 });

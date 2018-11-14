@@ -10,8 +10,9 @@ info: |
     eval that is contained in function code that is not the function code of an
     ArrowFunction.
 negative: 
-  phase: early
+  phase: parse
   type: SyntaxError
+features: [new.target]
 ---*/
 
 throw "Test262: This statement should not be evaluated.";

@@ -4,7 +4,7 @@
 es6id: 26.1.7
 description: >
   Return undefined for an undefined property.
-info: >
+info: |
   26.1.7 Reflect.getOwnPropertyDescriptor ( target, propertyKey )
 
   ...
@@ -15,6 +15,7 @@ info: >
   6.2.4.4 FromPropertyDescriptor ( Desc )
 
   1. If Desc is undefined, return undefined.
+features: [Reflect]
 ---*/
 
 var result = Reflect.getOwnPropertyDescriptor({}, undefined);
