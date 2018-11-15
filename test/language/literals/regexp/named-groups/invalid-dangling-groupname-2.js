@@ -15,6 +15,6 @@ negative:
 features: [regexp-named-groups]
 ---*/
 
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
 
 /(?<a>a)\k<ab>/;
