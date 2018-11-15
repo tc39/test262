@@ -10,7 +10,7 @@ includes: [propertyHelper.js]
 ---*/
 
 class C {
-  /*{ fields }*/;
+  /*{ elements }*/;
   m() { return 42; }
   /*{ privateinspectionfunctions }*/
 }

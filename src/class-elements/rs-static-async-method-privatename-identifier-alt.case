@@ -58,7 +58,7 @@ flags: [async]
 features: [class-static-methods-private]
 ---*/
 
-//- fields
+//- elements
 static async #$(value) {
   return await value;
 }

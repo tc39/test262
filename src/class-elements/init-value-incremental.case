@@ -29,7 +29,7 @@ includes: [propertyHelper.js]
 
 //- setup
 var x = 1;
-//- fields
+//- elements
 [x++] = x++;
 [x++] = x++;
 //- assertions

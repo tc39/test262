@@ -54,7 +54,7 @@ template: productions
 features: [class-static-methods-private]
 ---*/
 
-//- fields
+//- elements
 static #$(value) {
   return value;
 }

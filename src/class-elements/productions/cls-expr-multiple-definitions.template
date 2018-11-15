@@ -12,7 +12,7 @@ includes: [propertyHelper.js]
 var C = class {
   foo = "foobar";
   m() { return 42 }
-  /*{ fields }*/
+  /*{ elements }*/
   m2() { return 39 }
   bar = "barbaz";
   /*{ privateinspectionfunctions }*/

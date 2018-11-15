@@ -9,7 +9,7 @@ esid: prod-FieldDefinition
 ---*/
 
 var C = class {
-  /*{ fields }*/
+  /*{ elements }*/
   /*{ privateinspectionfunctions }*/
 }
 

@@ -21,7 +21,7 @@ template: productions
 features: [class-fields-private]
 ---*/
 
-//- fields
+//- elements
 #x; #y
 //- privateinspectionfunctions
 x() {

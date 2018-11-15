@@ -53,7 +53,7 @@ template: productions
 features: [class-fields-private]
 ---*/
 
-//- fields
+//- elements
 #$; #_; #\u{6F}; #℘; #ZW_‌_NJ; #ZW_‍_J
 //- privateinspectionfunctions
 $(value) {

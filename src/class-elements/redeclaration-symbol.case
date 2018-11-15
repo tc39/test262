@@ -33,7 +33,7 @@ includes: [propertyHelper.js, compareArray.js]
 //- setup
 var x = [];
 var y = Symbol();
-//- fields
+//- elements
 [y] = (x.push("a"), "old_value");
 [y] = (x.push("b"), "same_value");
 [y] = (x.push("c"), "same_value");

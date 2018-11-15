@@ -21,7 +21,7 @@ features: [class-fields-public]
 //- setup
 const fn = function() {}
 
-//- fields
+//- elements
 a; b = 42;
 c = fn
 //- assertions

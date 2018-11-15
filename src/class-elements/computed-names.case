@@ -21,7 +21,7 @@ features: [class-fields-public, computed-property-names]
 //- setup
 var x = "b";
 
-//- fields
+//- elements
 [x] = 42; [10] = "meep"; ["not initialized"]
 //- assertions
 
