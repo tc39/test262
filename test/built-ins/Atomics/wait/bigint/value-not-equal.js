@@ -41,7 +41,7 @@ const i64a = new BigInt64Array(
 // test case, we only do it for consistency with other test cases which do
 // require the main agent to wait and yield control.
 
-$262.agent.broadcast(i64a.buffer);
+$262.agent.safeBroadcast(i64a);
 $262.agent.waitUntil(i64a, RUNNING, 1n);
 
 // Try to yield control to ensure the agent actually started to wait.

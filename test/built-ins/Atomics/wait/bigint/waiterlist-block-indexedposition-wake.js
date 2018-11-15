@@ -51,7 +51,7 @@ const i64a = new BigInt64Array(
   new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 5)
 );
 
-$262.agent.broadcast(i64a.buffer);
+$262.agent.safeBroadcast(i64a);
 
 // Wait until all agents started.
 $262.agent.waitUntil(i64a, RUNNING, BigInt(NUMAGENT));
