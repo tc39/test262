@@ -22,7 +22,7 @@ features: [class-fields-public, Symbol, computed-property-names]
 var x = Symbol();
 var y = Symbol();
 
-//- fields
+//- elements
 [x]; [y] = 42
 //- assertions
 assert.sameValue(Object.hasOwnProperty.call(C.prototype, x), false);

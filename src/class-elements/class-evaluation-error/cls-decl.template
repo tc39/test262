@@ -10,7 +10,7 @@ esid: sec-runtime-semantics-classdefinitionevaluation
 
 function evaluate() {
   class C {
-    /*{ fields }*/
+    /*{ elements }*/
   }
 }
 

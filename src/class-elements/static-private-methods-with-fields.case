@@ -21,7 +21,7 @@ template: productions
 features: [class-static-methods-private, class-static-fields-private]
 ---*/
 
-//- fields
+//- elements
 static #xVal; static #yVal
 //- privateinspectionfunctions
 static #x(value) {

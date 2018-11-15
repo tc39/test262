@@ -11,7 +11,7 @@ includes: [propertyHelper.js]
 ---*/
 
 class C {
-  static async *m() { return 42; } /*{ fields }*/;
+  static async *m() { return 42; } /*{ elements }*/;
   /*{ privateinspectionfunctions }*/
 }
 

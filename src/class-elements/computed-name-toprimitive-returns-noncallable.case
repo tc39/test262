@@ -45,7 +45,7 @@ var obj = {
   [Symbol.toPrimitive]: {}
 };
 
-//- fields
+//- elements
 [obj] = refErrorIfEvaluated;
 //- error
 TypeError

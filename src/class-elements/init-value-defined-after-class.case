@@ -20,7 +20,7 @@ includes: [propertyHelper.js]
 
 //- setup
 var x = false;
-//- fields
+//- elements
 [x] = x;
 //- assertions
 var c1 = new C();

@@ -62,7 +62,7 @@ var obj3 = {
   valueOf: function() { return s3; }
 };
 
-//- fields
+//- elements
 [obj1] = 42;
 [obj2] = 43;
 [obj3] = 44;

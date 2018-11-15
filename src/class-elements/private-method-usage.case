@@ -20,7 +20,7 @@ template: productions
 features: [class-methods-private]
 ---*/
 
-//- fields
+//- elements
 #m() { return 'test262'; }
 //- privateinspectionfunctions
 method() {

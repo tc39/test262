@@ -19,7 +19,7 @@ features: [class-fields-public]
 
 //- setup
 var ctor;
-//- fields
+//- elements
 constructor() {
   ctor = this.foo;
 }

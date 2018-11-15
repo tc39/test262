@@ -18,7 +18,7 @@ includes: [propertyHelper.js]
 features: [class-fields-public]
 ---*/
 
-//- fields
+//- elements
 'a'; "b"; 'c' = 39;
 "d" = 42
 //- assertions

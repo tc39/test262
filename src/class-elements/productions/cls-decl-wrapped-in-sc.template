@@ -10,7 +10,7 @@ esid: prod-FieldDefinition
 
 class C {
   ;;;;
-  ;;;;;;/*{ fields }*/;;;;;;;
+  ;;;;;;/*{ elements }*/;;;;;;;
   ;;;;
   /*{ privateinspectionfunctions }*/
 }

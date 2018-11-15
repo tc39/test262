@@ -21,7 +21,7 @@ features: [class-fields-public]
 var x = 0;
 function fn1() { x += 1; }
 function fn2() { throw new Test262Error(); }
-//- fields
+//- elements
 x = fn1();
 y = fn2();
 z = fn1();

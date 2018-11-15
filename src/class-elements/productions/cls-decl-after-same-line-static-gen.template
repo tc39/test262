@@ -10,7 +10,7 @@ includes: [propertyHelper.js]
 ---*/
 
 class C {
-  static *m() { return 42; } /*{ fields }*/;
+  static *m() { return 42; } /*{ elements }*/;
   /*{ privateinspectionfunctions }*/
 }
 

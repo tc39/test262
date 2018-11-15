@@ -32,7 +32,7 @@ includes: [propertyHelper.js, compareArray.js]
 
 //- setup
 var x = [];
-//- fields
+//- elements
 y = (x.push("a"), "old_value");
 ["y"] = (x.push("b"), "another_value");
 "y" = (x.push("c"), "same_value");

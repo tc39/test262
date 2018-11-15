@@ -45,7 +45,7 @@ function fn() {
   throw new Test262Error();
 }
 
-//- fields
+//- elements
 [noRef] = fn();
 //- error
 ReferenceError
