@@ -20,9 +20,9 @@ locales.forEach(function (locale) {
     var defaultFormatted = defaultDateTimeFormat.format(input);
 
     var keyValues = {
-        "cu": ["USD", "EUR", "JPY", "CNY", "TWD", "invalid"], // DateTimeFormat internally uses NumberFormat
-        "nu": ["native", "traditio", "finance", "invalid"],
-        "tz": ["usnavajo", "utcw01", "aumel", "uslax", "usnyc", "deber", "invalid"]
+        "cu": ["USD", "EUR", "JPY", "CNY", "TWD"], // DateTimeFormat internally uses NumberFormat
+        "nu": ["native", "traditio", "finance"],
+        "tz": ["usnavajo", "utcw01", "aumel", "uslax", "usnyc", "deber"]
     };
     
     Object.getOwnPropertyNames(keyValues).forEach(function (key) {

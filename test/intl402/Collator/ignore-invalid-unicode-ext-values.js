@@ -24,15 +24,15 @@ var defaultLocale = defaultOptions.locale;
 var defaultSortedArray = testArray.slice(0).sort(defaultCollator.compare);
 
 var keyValues = {
-    "co": ["standard", "search", "invalid"],
-    "ka": ["noignore", "shifted", "invalid"],
-    "kb": ["true", "false", "invalid"],
-    "kc": ["true", "false", "invalid"],
-    "kh": ["true", "false", "invalid"],
-    "kk": ["true", "false", "invalid"],
-    "kr": ["latn-hira-hani", "hani-hira-latn", "invalid"],
-    "ks": ["level1", "level2", "level3", "level4", "identic", "invalid"],
-    "vt": ["1234-5678-9abc-edf0", "invalid"]
+    "co": ["standard", "search"],
+    "ka": ["noignore", "shifted"],
+    "kb": ["true", "false"],
+    "kc": ["true", "false"],
+    "kh": ["true", "false"],
+    "kk": ["true", "false"],
+    "kr": ["latn-hira-hani", "hani-hira-latn"],
+    "ks": ["level1", "level2", "level3", "level4", "identic"],
+    "vt": ["1234-5678-9abc-edf0"]
 };
 
 Object.getOwnPropertyNames(keyValues).forEach(function (key) {

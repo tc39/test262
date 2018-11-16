@@ -20,8 +20,8 @@ locales.forEach(function (locale) {
     var defaultFormatted = defaultNumberFormat.format(input);
 
     var keyValues = {
-        "cu": ["USD", "EUR", "JPY", "CNY", "TWD", "invalid"],
-        "nu": ["native", "traditio", "finance", "invalid"]
+        "cu": ["USD", "EUR", "JPY", "CNY", "TWD"],
+        "nu": ["native", "traditio", "finance"]
     };
     
     Object.getOwnPropertyNames(keyValues).forEach(function (key) {
