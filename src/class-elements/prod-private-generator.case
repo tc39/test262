@@ -1,0 +1,23 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Private Generator
+template: private-methods
+features: [generators]
+---*/
+
+//- element
+* #m() { return 42; }
+
+//- constructor
+var res = this.#m().next();
+assert.sameValue(res.value, 42, 'return from generator method, inside ctor');
+assert.sameValue(res.done, true, 'iterator is done, inside ctor');
+assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
+
+//- assertions
+var res = c.ref().next();
+assert.sameValue(res.value, 42, 'return from generator method');
+assert.sameValue(res.done, true, 'iterator is done');
+assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');

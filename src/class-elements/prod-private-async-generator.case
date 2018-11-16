@@ -1,0 +1,34 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Private Async Generator
+template: private-methods
+features: [async-iteration]
+flags: [async]
+---*/
+
+//- setup
+var ctorPromise;
+
+//- element
+async * #m() { return 42; }
+
+//- constructor
+var ctorIter = this.#m();
+var p = ctorIter.next();
+ctorPromise = p.then(({ value, done }) => {
+    assert.sameValue(value, 42, 'return from generator method, inside ctor');
+    assert.sameValue(done, true, 'iterator is done, inside ctor');
+}, $DONE);
+assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
+
+//- assertions
+assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');
+ctorPromise.then(() => {
+    var iter = c.ref();
+    return iter.next().then(({ value, done }) => {
+        assert.sameValue(value, 42, 'return from generator method');
+        assert.sameValue(done, true, 'iterator is done');
+    });
+}, $DONE).then($DONE, $DONE);
