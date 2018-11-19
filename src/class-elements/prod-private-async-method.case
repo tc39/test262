@@ -23,6 +23,7 @@ ctorPromise = this.#m().then(value => {
 //- assertions
 assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');
 ctorPromise.then(() => {
+    // gets the returned promise from #m
     return c.ref().then(value => {
         assert.sameValue(value, 42, 'function return');
     });

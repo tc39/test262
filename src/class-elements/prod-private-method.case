@@ -14,5 +14,6 @@ assert.sameValue(this.#m(), 42, 'already defined in the ctor');
 assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
 
 //- assertions
+// gets the returned value from #m
 assert.sameValue(c.ref(), 42, 'function return');
 assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');
