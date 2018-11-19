@@ -26,6 +26,7 @@ assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
 //- assertions
 assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');
 ctorPromise.then(() => {
+    // gets the returned async iterator from #m
     var iter = c.ref();
     return iter.next().then(({ value, done }) => {
         assert.sameValue(value, 42, 'return from generator method');

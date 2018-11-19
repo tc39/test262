@@ -17,6 +17,7 @@ assert.sameValue(res.done, true, 'iterator is done, inside ctor');
 assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
 
 //- assertions
+// gets the returned iterator from #m
 var res = c.ref().next();
 assert.sameValue(res.value, 42, 'return from generator method');
 assert.sameValue(res.done, true, 'iterator is done');
