@@ -4,7 +4,7 @@
 /*---
 description: Private Async Generator (private method definitions in a class expression)
 esid: prod-MethodDefinition
-features: [async-iteration]
+features: [async-iteration, class, class-methods-private]
 flags: [generated, async]
 info: |
     ClassElement :
@@ -77,8 +77,12 @@ var ctorPromise;
  * 2. the template provides c.ref/other.ref for external reference
  */
 
-function hasOwnProperty(obj, name) {
-  return Object.prototype.hasOwnProperty.call(obj, name);
+function hasProp(obj, name, expected, msg) {
+  var hasOwnProperty = Object.prototype.hasOwnProperty.call(obj, name);
+  assert.sameValue(hasOwnProperty, expected, msg);
+
+  var hasProperty = Reflect.has(obj, name);
+  assert.sameValue(hasProperty, expected, msg);
 }
 
 var C = class {
@@ -88,12 +92,9 @@ var C = class {
   get ref() { return this.#m; }
 
   constructor() {
-    assert.sameValue(
-      hasOwnProperty(this, '#m'), false,
-      'private methods are defined in an special internal slot and cannot be found as own properties'
-    );
+    hasProp(this, '#m', false, 'private methods are defined in an special internal slot and cannot be found as own properties');
     assert.sameValue(typeof this.#m, 'function');
-    assert.sameValue(this.ref(), this.#m, 'returns the same value');
+    assert.sameValue(this.ref, this.#m, 'returns the same value');
 
     var ctorIter = this.#m();
     var p = ctorIter.next();
@@ -109,20 +110,9 @@ var C = class {
 var c = new C();
 var other = new C();
 
-assert.sameValue(
-  hasOwnProperty(C.prototype, '#m'), false,
-  'method is not defined in the prototype'
-);
-
-assert.sameValue(
-  hasOwnProperty(C, '#m'), false,
-  'method is not defined in the contructor'
-);
-
-assert.sameValue(
-  hasOwnProperty(c, '#m'), false,
-  'method cannot be seen outside of the class'
-);
+hasProp(C.prototype, '#m', false, 'method is not defined in the prototype');
+hasProp(C, '#m', false, 'method is not defined in the contructor');
+hasProp(c, '#m', false, 'method cannot be seen outside of the class');
 
 /***
  * MethodDefinition : ClassElementName ( UniqueFormalParameters ) { FunctionBody }
@@ -134,6 +124,7 @@ assert.sameValue(c.ref, other.ref, 'The method is defined once, and reused on ev
 
 assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');
 ctorPromise.then(() => {
+    // gets the returned async iterator from #m
     var iter = c.ref();
     return iter.next().then(({ value, done }) => {
         assert.sameValue(value, 42, 'return from generator method');
