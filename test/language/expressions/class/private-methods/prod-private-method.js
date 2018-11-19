@@ -4,6 +4,7 @@
 /*---
 description: Private Method (private method definitions in a class expression)
 esid: prod-MethodDefinition
+features: [class, class-methods-private]
 flags: [generated]
 info: |
     ClassElement :
@@ -74,8 +75,12 @@ info: |
  * 2. the template provides c.ref/other.ref for external reference
  */
 
-function hasOwnProperty(obj, name) {
-  return Object.prototype.hasOwnProperty.call(obj, name);
+function hasProp(obj, name, expected, msg) {
+  var hasOwnProperty = Object.prototype.hasOwnProperty.call(obj, name);
+  assert.sameValue(hasOwnProperty, expected, msg);
+
+  var hasProperty = Reflect.has(obj, name);
+  assert.sameValue(hasProperty, expected, msg);
 }
 
 var C = class {
@@ -85,12 +90,9 @@ var C = class {
   get ref() { return this.#m; }
 
   constructor() {
-    assert.sameValue(
-      hasOwnProperty(this, '#m'), false,
-      'private methods are defined in an special internal slot and cannot be found as own properties'
-    );
+    hasProp(this, '#m', false, 'private methods are defined in an special internal slot and cannot be found as own properties');
     assert.sameValue(typeof this.#m, 'function');
-    assert.sameValue(this.ref(), this.#m, 'returns the same value');
+    assert.sameValue(this.ref, this.#m, 'returns the same value');
 
     assert.sameValue(this.#m(), 42, 'already defined in the ctor');
     assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
@@ -101,20 +103,9 @@ var C = class {
 var c = new C();
 var other = new C();
 
-assert.sameValue(
-  hasOwnProperty(C.prototype, '#m'), false,
-  'method is not defined in the prototype'
-);
-
-assert.sameValue(
-  hasOwnProperty(C, '#m'), false,
-  'method is not defined in the contructor'
-);
-
-assert.sameValue(
-  hasOwnProperty(c, '#m'), false,
-  'method cannot be seen outside of the class'
-);
+hasProp(C.prototype, '#m', false, 'method is not defined in the prototype');
+hasProp(C, '#m', false, 'method is not defined in the contructor');
+hasProp(c, '#m', false, 'method cannot be seen outside of the class');
 
 /***
  * MethodDefinition : ClassElementName ( UniqueFormalParameters ) { FunctionBody }
@@ -124,5 +115,6 @@ assert.sameValue(
  */
 assert.sameValue(c.ref, other.ref, 'The method is defined once, and reused on every new instance');
 
+// gets the returned value from #m
 assert.sameValue(c.ref(), 42, 'function return');
 assert.sameValue(c.ref.name, '#m', 'function name is preserved external reference');
