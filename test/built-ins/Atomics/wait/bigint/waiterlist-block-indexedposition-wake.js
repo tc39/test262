@@ -25,6 +25,10 @@ features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 var NUMAGENT = 2;
 var RUNNING = 4;
 
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 5)
+);
+
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
@@ -46,10 +50,6 @@ $262.agent.start(`
     $262.agent.leaving();
   });
 `);
-
-const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 5)
-);
 
 $262.agent.safeBroadcast(i64a);
 

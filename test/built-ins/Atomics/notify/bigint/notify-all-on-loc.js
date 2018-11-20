@@ -22,6 +22,10 @@ const BUFFER_SIZE = 4;
 // `Atomics.notify`.
 const TIMEOUT = $262.agent.timeouts.long;
 
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
+);
+
 for (var i = 0; i < NUMAGENT; i++) {
   $262.agent.start(`
     $262.agent.receiveBroadcast(function(sab) {
@@ -52,10 +56,6 @@ $262.agent.start(`
     $262.agent.leaving();
   });
 `);
-
-const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * BUFFER_SIZE)
-);
 
 $262.agent.safeBroadcast(i64a);
 
