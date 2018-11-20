@@ -66,24 +66,24 @@ properties of the global scope prior to test execution.
   - **`global`** - a reference to the global object on which `$262` was initially defined
   - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
     object that 1) has an [[IsHTMLDDA]] internal slot, and 2) when called with
-    no arguments or with the single argument `""` returns `null`.  Use this
+    no arguments or with the single argument `""` returns `null`. Use this
     property to test that ECMAScript algorithms aren't mis-implemented to treat
     `document.all` as being `undefined` or of type Undefined (instead of
-    Object).  (The peculiar second requirement permits testing algorithms when
+    Object). (The peculiar second requirement permits testing algorithms when
     they also call `document.all` with such arguments, so that testing for
-    correct behavior requires knowing how the call behaves.  This is rarely
+    correct behavior requires knowing how the call behaves. This is rarely
     necessary.)  Tests using this function must be tagged with the `IsHTMLDDA`
     feature so that only hosts supporting this property will run them.
   - **`agent`** - an ordinary object with the following properties:
     - **`start`** - a function that takes a script source string and runs
-      the script in a concurrent agent.  Will block until that agent is
-      running.  The agent has no representation.  The agent script will be
+      the script in a concurrent agent. Will block until that agent is
+      running. The agent has no representation. The agent script will be
       run in an environment that has an object `$262` with a property `agent`
       with the following properties:
       - **`receiveBroadcast`** - a function that takes a function and
         calls the function when it has received a broadcast from the parent,
         passing it the broadcast as two arguments, a SharedArrayBuffer and
-        an Int32.  This function may return before a broadcast is received
+        an Int32 or BigInt. This function may return before a broadcast is received
         (eg to return to an event loop to await a message) and no code should
         follow the call to this function.
       - **`report`** - a function that accepts a single "message" argument,
@@ -93,10 +93,11 @@ properties of the global scope prior to test execution.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
       - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
-    - **`broadcast`** - a function that takes a SharedArrayBuffer and an Int32
-        and broadcasts the two values to all concurrent agents.  The function
-        blocks until all agents have retrieved the message.  Note, this assumes
-        that all agents that were started are still running.
+    - **`broadcast`** - a function that takes a SharedArrayBuffer and an 
+        Int32 or BigInt and broadcasts the two values to all concurrent 
+        agents. The function blocks until all agents have retrieved the 
+        message. Note, this assumes that all agents that were started are 
+        still running.
     - **`getReport`** - a function that reads an incoming string from any agent,
       and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and

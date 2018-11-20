@@ -25,6 +25,10 @@ features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
 const RUNNING = 1;
 const TIMEOUT = $262.agent.timeouts.huge;
 
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
+);
+
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
     const i64a = new BigInt64Array(sab);
@@ -40,11 +44,7 @@ $262.agent.start(`
   });
 `);
 
-const i64a = new BigInt64Array(
-  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
-);
-
-$262.agent.broadcast(i64a.buffer);
+$262.agent.safeBroadcast(i64a);
 $262.agent.waitUntil(i64a, RUNNING, 1n);
 
 // Try to yield control to ensure the agent actually started to wait.
