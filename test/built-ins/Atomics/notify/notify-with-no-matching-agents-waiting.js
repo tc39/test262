@@ -10,7 +10,7 @@ includes: [atomicsHelper.js]
 features: [Atomics, SharedArrayBuffer, TypedArray]
 ---*/
 
-const RUNNING = 1;
+const RUNNING = 0;
 
 $262.agent.start(`
   $262.agent.receiveBroadcast(function(sab) {
