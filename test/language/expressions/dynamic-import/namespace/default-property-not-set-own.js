@@ -5,7 +5,7 @@
 description: The default property is not set the if the module doesn't export any default
 esid: sec-finishdynamicimport
 features: [dynamic-import]
-flags: [async]
+flags: [async, module]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
