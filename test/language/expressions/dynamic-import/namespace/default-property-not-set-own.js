@@ -5,7 +5,7 @@
 description: The default property is not set the if the module doesn't export any default
 esid: sec-finishdynamicimport
 features: [dynamic-import]
-flags: [async, module]
+flags: [async]
 info: |
     Runtime Semantics: FinishDynamicImport ( referencingScriptOrModule, specifier, promiseCapability, completion )
 
@@ -26,7 +26,7 @@ info: |
         5. Return namespace.
 ---*/
 
-import('./default-property-not-set-own.js').then(ns => {
+import('./empty_FIXTURE.js').then(ns => {
 
     assert.sameValue(Object.prototype.hasOwnProperty.call(ns, 'default'), false);
 
