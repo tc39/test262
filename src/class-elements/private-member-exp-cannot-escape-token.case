@@ -1,0 +1,24 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: The pound signal in the private reference cannot be escaped
+template: syntax/invalid
+info: |
+  PrivateName ::
+    # IdentifierName
+
+  MemberExpression :
+    MemberExpression . PrivateName
+
+  CallExpression :
+    CallExpression . PrivateName
+
+  U+0023 is the escape sequence for #
+features: [class-fields-private]
+---*/
+
+//- elements
+method() {
+  this.\u0023field;
+}
