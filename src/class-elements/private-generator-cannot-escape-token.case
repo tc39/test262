@@ -1,0 +1,16 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: The pound signal in the private generator cannot be escaped
+template: syntax/invalid
+info: |
+  PrivateName::
+    # IdentifierName
+
+  U+0023 is the escape sequence for #
+features: [class-methods-private, generators]
+---*/
+
+//- elements
+* \u0023m() { return 42; }
