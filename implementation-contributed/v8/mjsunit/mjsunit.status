@@ -57,6 +57,9 @@
   # Issue 5495: enable the test when the constant field tracking in enabled.
   'const-field-tracking': [SKIP],
 
+  # Issue 8505: Math.pow is incorrect for asm.js
+  'regress/wasm/regress-8505': [SKIP],
+
   ##############################################################################
   # Too slow in debug mode with --stress-opt mode.
   'regress/regress-create-exception': [PASS, ['mode == debug', SKIP]],
@@ -103,12 +106,12 @@
 
   ##############################################################################
   # Skip long running tests that time out in debug mode.
-  'generated-transition-stub': [PASS, ['mode == debug', SKIP]],
+  'generated-transition-stub': [PASS, ['mode == debug or dcheck_always_on', SKIP]],
   'migrations': [SKIP],
-  'array-functions-prototype-misc': [PASS, SLOW, ['mode == debug', SKIP]],
-  'compiler/regress-808472': [PASS, ['mode == debug', SKIP]],
+  'array-functions-prototype-misc': [PASS, SLOW, ['mode == debug or dcheck_always_on', SKIP]],
+  'compiler/regress-808472': [PASS, ['mode == debug or dcheck_always_on', SKIP]],
   'es6/promise-all-overflow-1': [SKIP],
-  'es6/promise-all-overflow-2': [PASS, SLOW, ['mode == debug or arch != x64', SKIP]],
+  'es6/promise-all-overflow-2': [PASS, SLOW, ['mode == debug or dcheck_always_on or arch != x64', SKIP]],
 
   ##############################################################################
   # This test sets the umask on a per-process basis and hence cannot be
@@ -765,6 +768,7 @@
   # Intentionally non-deterministic using shared arraybuffers.
   'wasm/atomics-stress': [SKIP],
   'wasm/atomics64-stress': [SKIP],
+  'wasm/futex': [SKIP],
 }],  # 'predictable == True'
 
 ##############################################################################

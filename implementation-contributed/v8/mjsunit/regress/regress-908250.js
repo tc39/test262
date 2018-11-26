@@ -2,13 +2,4 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// Flags: --allow-natives-syntax
-
-function f() {
-  return arguments.length;
-}
-
-var a = [];
-%OptimizeFunctionOnNextCall(f);
-a.length = 65534;
-f(...a);
+assertThrows("(al,al,e={}=e)=>l", SyntaxError);

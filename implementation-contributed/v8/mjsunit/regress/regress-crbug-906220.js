@@ -4,11 +4,9 @@
 
 // Flags: --allow-natives-syntax
 
-function f() {
-  return arguments.length;
-}
+function foo() { new Array().pop(); }
 
-var a = [];
-%OptimizeFunctionOnNextCall(f);
-a.length = 65534;
-f(...a);
+assertEquals(undefined, foo());
+assertEquals(undefined, foo());
+%OptimizeFunctionOnNextCall(foo);
+assertEquals(undefined, foo());
