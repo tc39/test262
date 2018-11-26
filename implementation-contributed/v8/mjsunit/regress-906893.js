@@ -4,11 +4,18 @@
 
 // Flags: --allow-natives-syntax
 
+const r = /x/;
+let counter = 0;
+
+r.exec = () => { counter++; return null; }
+
 function f() {
-  return arguments.length;
+  r.test("ABcd");
 }
 
-var a = [];
+f();
+assertEquals(1, counter);
 %OptimizeFunctionOnNextCall(f);
-a.length = 65534;
-f(...a);
+
+f();
+assertEquals(2, counter);
