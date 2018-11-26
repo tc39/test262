@@ -1,4 +1,4 @@
-# Proposed language features
+## Proposed language features
 #
 # This project accepts tests for language proposals that have reached stage 3
 # in TC39's standardization process. Those tests should be annotated with a
@@ -20,13 +20,13 @@ BigInt
 class-fields-public
 class-fields-private
 
-# Static Class Fields & Methods:
+# Class Static Fields & Methods
 # https://github.com/tc39/proposal-static-class-features/
 class-static-fields-public
 class-static-fields-private
 class-static-methods-private
 
-# Private methods and getter/setters
+# Class Private methods and getter/setters
 # https://github.com/tc39/proposal-private-methods
 class-methods-private
 
@@ -68,7 +68,7 @@ regexp-named-groups
 # https://github.com/tc39/proposal-regexp-unicode-property-escapes
 regexp-unicode-property-escapes
 
-# Shared Memory and atomics
+# Shared Memory and Atomics
 # https://github.com/tc39/ecmascript_sharedmem
 Atomics
 SharedArrayBuffer
@@ -81,7 +81,7 @@ Array.prototype.flatMap
 # String Trimming
 # https://github.com/tc39/proposal-string-left-right-trim
 # Includes all tests for:
-# String.prototype.{trimStart, trimEnd, trimLeft, trimRight }
+# String.prototype.{trimStart, trimEnd, trimLeft, trimRight}
 string-trimming
 String.prototype.trimEnd
 String.prototype.trimStart
@@ -127,7 +127,7 @@ Intl.Segmenter
 # https://github.com/tc39/proposal-global
 globalThis
 
-# `export * as namespace from module` consensus PR
+# `export * as namespace from module`
 # https://github.com/tc39/ecma262/pull/1174
 export-star-as-namespace-from-module
 
@@ -135,7 +135,7 @@ export-star-as-namespace-from-module
 # https://github.com/tc39/proposal-import-meta
 import.meta
 
-# Standard language features
+## Standard language features
 #
 # Language features that have been included in a published version of the
 # ECMA-262 specification. These flags are largely maintained for historical
@@ -205,7 +205,7 @@ Uint8ClampedArray
 WeakMap
 WeakSet
 
-# Test-harness features requiring host environment/test runner support
+## Test-Harness Features
 #
 # The rare cases where testing language functionality requires non-standard
 # language features, exposed through global-environment functions on the $262
