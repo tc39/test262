@@ -95,6 +95,7 @@ var C = class {
     hasProp(this, '#m', false, 'private methods are defined in an special internal slot and cannot be found as own properties');
     assert.sameValue(typeof this.#m, 'function');
     assert.sameValue(this.ref, this.#m, 'returns the same value');
+    assert.sameValue(this.#m, (() => this)().#m, 'memberexpression and call expression forms');
 
     assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
     ctorPromise = this.#m().then(value => {
