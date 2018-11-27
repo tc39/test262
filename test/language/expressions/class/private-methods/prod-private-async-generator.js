@@ -95,6 +95,7 @@ var C = class {
     hasProp(this, '#m', false, 'private methods are defined in an special internal slot and cannot be found as own properties');
     assert.sameValue(typeof this.#m, 'function');
     assert.sameValue(this.ref, this.#m, 'returns the same value');
+    assert.sameValue(this.#m, (() => this)().#m, 'memberexpression and call expression forms');
 
     var ctorIter = this.#m();
     var p = ctorIter.next();
