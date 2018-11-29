@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields-evaluation-error-
+path: language/expressions/class/fields-evaluation-error/
 name: field definitions in a class expression
 features: [class]
 esid: sec-runtime-semantics-classdefinitionevaluation
 ---*/
 
 function evaluate() {
-  var C = class {
+  var C = class /*{ heritage }*/ {
     /*{ elements }*/
   };
 }
