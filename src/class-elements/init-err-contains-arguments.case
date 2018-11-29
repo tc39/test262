@@ -18,9 +18,6 @@ info: |
     ...
     For all other grammatical productions, recurse on all nonterminals. If any piece returns true, then return true. Otherwise return false.
 features: [class, class-fields-public]
-negative:
-  type: SyntaxError
-  phase: parse
 template: initializer-error
 ---*/
 

@@ -6,6 +6,9 @@ esid: sec-class-definitions-static-semantics-early-errors
 path: language/expressions/class/fields-arrow-fnc-
 name: arrow function expression
 features: [arrow-function, class, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
 ---*/
 
 $DONOTEVALUATE();

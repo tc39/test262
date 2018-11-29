@@ -6,6 +6,9 @@ esid: sec-class-definitions-static-semantics-early-errors
 path: language/statements/class/fields-literal-name-
 name: literal ClassElementName
 features: [class, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
 ---*/
 
 $DONOTEVALUATE();

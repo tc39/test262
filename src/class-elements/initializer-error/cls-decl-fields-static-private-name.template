@@ -6,6 +6,9 @@ esid: sec-class-definitions-static-semantics-early-errors
 path: language/statements/class/fields-static-private-
 name: static PrivateName
 features: [class, class-static-fields-private]
+negative:
+  type: SyntaxError
+  phase: parse
 ---*/
 
 $DONOTEVALUATE();
