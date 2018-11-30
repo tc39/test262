@@ -15,7 +15,7 @@ function fun(arg) {
 }
 
 var a1, a2;
-var a3 = [1.1,2.2];
+var a3 = [1.1, 2.2];
 a3.length = 0x11000;
 a3.fill(3.3);
 
@@ -25,30 +25,9 @@ for (let i = 0; i < 3; i++) fun(...a4);
 %OptimizeFunctionOnNextCall(fun);
 fun(...a4);
 
-assertThrows(() => fun(...a3), RangeError);
-assertThrows(() => fun.apply(null, a3), RangeError);
+res = fun(...a3);
 
-const kMaxArguments = 65534;
-let big_array = [];
-for (let i = 0; i < kMaxArguments + 1; i++) big_array.push(i);
-assertThrows(() => fun(...big_array), RangeError);
-assertThrows(() => new fun(...big_array), RangeError);
-assertThrows(() => fun.apply(null, big_array), RangeError);
-assertThrows(() => Reflect.construct(fun, big_array), RangeError);
-assertThrows(() => Reflect.apply(fun, undefined, big_array), RangeError);
-
-big_array = [];
-for (let i = 0; i < kMaxArguments + 1; i++) big_array.push(i + 0.1);
-assertThrows(() => fun(...big_array), RangeError);
-assertThrows(() => new fun(...big_array), RangeError);
-assertThrows(() => fun.apply(null, big_array), RangeError);
-assertThrows(() => Reflect.construct(fun, big_array), RangeError);
-assertThrows(() => Reflect.apply(fun, undefined, big_array), RangeError);
-
-big_array = [];
-for (let i = 0; i < kMaxArguments + 1; i++) big_array.push({i: i});
-assertThrows(() => fun(...big_array), RangeError);
-assertThrows(() => new fun(...big_array), RangeError);
-assertThrows(() => fun.apply(null, big_array), RangeError);
-assertThrows(() => Reflect.construct(fun, big_array), RangeError);
-assertThrows(() => Reflect.apply(fun, undefined, big_array), RangeError);
+assertEquals(16, a2.length);
+for (let i = 8; i < 32; i++) {
+  assertEquals(undefined, a2[i]);
+}
