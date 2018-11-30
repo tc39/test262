@@ -1,0 +1,23 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: bad reference in member expression
+info: |
+  Static Semantics: AllPrivateNamesValid
+
+  MemberExpression : MemberExpression . PrivateName
+
+  1. If StringValue of PrivateName is in names, return true.
+  2. Return false.
+
+  CallExpression : CallExpression . PrivateName
+
+  1. If StringValue of PrivateName is in names, return true.
+  2. Return false.
+template: default
+features: [class-fields-private]
+---*/
+
+//- body
+something.#x

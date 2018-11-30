@@ -1,0 +1,27 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/module-code/invalid-private-names-
+name: >
+  Invalid private names should throw a SyntaxError,
+  top level of module body
+esid: sec-static-semantics-early-errors
+info: |
+  ScriptBody:StatementList
+    It is a Syntax Error if AllPrivateNamesValid of StatementList with an empty List
+    as an argument is false unless the source code is eval code that is being
+    processed by a direct eval.
+
+  ModuleBody:ModuleItemList
+    It is a Syntax Error if AllPrivateNamesValid of ModuleItemList with an empty List
+    as an argument is false.
+negative:
+  phase: parse
+  type: SyntaxError
+flags: [module]
+---*/
+
+$DONOTEVALUATE();
+
+/*{ body }*/
