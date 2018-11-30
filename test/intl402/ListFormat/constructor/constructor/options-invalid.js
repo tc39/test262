@@ -11,4 +11,7 @@ info: |
 features: [Intl.ListFormat]
 ---*/
 
-assert.throws(TypeError, function() { new Intl.ListFormat([], null) })
+assert.sameValue(typeof Intl.ListFormat, "function");
+assert.throws(TypeError, function() {
+  new Intl.ListFormat([], null);
+});
