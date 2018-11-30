@@ -9,7 +9,7 @@ esid: sec-runtime-semantics-classdefinitionevaluation
 ---*/
 
 function evaluate() {
-  var C = class /*{ heritage }*/ {
+  var C = class {
     /*{ elements }*/
   };
 }
