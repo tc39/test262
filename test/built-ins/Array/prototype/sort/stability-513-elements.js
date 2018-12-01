@@ -543,5 +543,4 @@ const reduced = array.reduce((acc, element) => {
   }
   return acc + letter;
 }, '');
-const isProbablyStable = reduced === 'DGBEFHACIJK';
-assert(isProbablyStable);
+assert.sameValue(reduced, 'DGBEFHACIJK');

@@ -24,5 +24,4 @@ assert.sameValue(array.length, 5);
 array.sort((a, b) => b.rating - a.rating);
 
 const reduced = array.reduce((acc, element) => acc + element.name, '');
-const isProbablyStable = reduced === 'BDEAC';
-assert(isProbablyStable);
+assert.sameValue(reduced, 'BDEAC');
