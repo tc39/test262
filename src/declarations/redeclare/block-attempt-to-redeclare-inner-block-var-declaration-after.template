@@ -1,0 +1,36 @@
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/block-scope/syntax/redeclaration/inner-block-var-declaration-attempt-2-to-
+name: VariableDeclaration in a BlockStatement inside a BlockStatement
+esid: sec-block-static-semantics-early-errors
+info: |
+  Block : { StatementList }
+
+  It is a Syntax Error if any element of the LexicallyDeclaredNames of
+  StatementList also occurs in the VarDeclaredNames of StatementList.
+
+  Static Semantics: VarDeclaredNames
+
+  Block : { }
+
+  1. Return a new empty List.
+
+  StatementList : StatementList StatementListItem
+
+  1. Let names be VarDeclaredNames of StatementList.
+  2. Append to names the elements of the VarDeclaredNames of StatementListItem.
+  3. Return names.
+
+  StatementListItem : Declaration
+
+  1. Return a new empty List.
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+$DONOTEVALUATE();
+
+{ /*{ body }*/; { var f; } }
