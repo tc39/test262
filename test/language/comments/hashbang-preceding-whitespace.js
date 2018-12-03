@@ -1,4 +1,4 @@
-    #!/bin/sh
+    #!
 /*---
 esid: pending
 description: >
@@ -6,7 +6,7 @@ description: >
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
-
+flags: [raw]
 negative:
   phase: parse
   type: SyntaxError

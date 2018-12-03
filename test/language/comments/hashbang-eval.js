@@ -7,4 +7,4 @@ info: |
       #! SingleLineCommentChars[opt]
 ---*/
 
-eval('#!\n');
+assert.sameValue(eval('#!\n'), undefined);

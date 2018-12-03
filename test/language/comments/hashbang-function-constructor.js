@@ -16,8 +16,8 @@ for (ctor of [
   GeneratorFunction,
   AsyncGeneratorFunction,
 ]) {
-  assert.throws(SyntaxError, () => ctor('#!\n_',''));
-  assert.throws(SyntaxError, () => ctor('#!\n_'));
-  assert.throws(SyntaxError, () => new ctor('#!\n_',''));
-  assert.throws(SyntaxError, () => new ctor('#!\n_'));
+  assert.throws(SyntaxError, () => ctor('#!\n_',''), `${ctor.name} Call argument`);
+  assert.throws(SyntaxError, () => ctor('#!\n_'), `${ctor.name} Call body`);
+  assert.throws(SyntaxError, () => new ctor('#!\n_',''), `${ctor.name} Construct argument`);
+  assert.throws(SyntaxError, () => new ctor('#!\n_'), `${ctor.name} Construct body`);
 }
