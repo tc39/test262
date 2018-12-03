@@ -5,7 +5,6 @@ description: >
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
-flags: [module]
 ---*/
 const AsyncFunction = (async function (){}).constructor;
 const GeneratorFunction = (function *(){}).constructor;
