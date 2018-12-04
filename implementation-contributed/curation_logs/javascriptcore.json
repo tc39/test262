@@ -1,6 +1,6 @@
 {
-  "sourceRevisionAtLastExport": "60ed1be8cd",
-  "targetRevisionAtLastExport": "31e654a339",
+  "sourceRevisionAtLastExport": "205489c4f0",
+  "targetRevisionAtLastExport": "cab19d71a6",
   "curatedFiles": {
     "/stress/Number-isNaN-basics.js": "DELETED_IN_TARGET",
     "/stress/Object_static_methods_Object.getOwnPropertyDescriptors-proxy.js": "DELETED_IN_TARGET",
