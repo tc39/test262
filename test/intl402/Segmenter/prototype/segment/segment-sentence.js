@@ -29,6 +29,6 @@ for (const text of [
     "법원 “다스 지분 처분권·수익권 모두 MB가 보유”", // Korean
     ]) {
   const iter = seg.segment(text);
-  assert(["sep", "term"].includes(iter.breakType), iter.breakType);
+  assert.sameValue(undefined, iter.breakType);
   assert.sameValue(0, iter.position);
 }

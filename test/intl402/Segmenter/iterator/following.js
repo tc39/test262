@@ -25,7 +25,7 @@ const tests = [
 ];
 
 for (const [input, position] of tests) {
-  assert.sameValue(iter.following(0 | input), false);
+  assert.sameValue(iter.following(input), false);
   assert.sameValue(iter.position, position, String(input));
 }
 
