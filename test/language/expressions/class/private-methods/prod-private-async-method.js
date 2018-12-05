@@ -99,7 +99,7 @@ var C = class {
 
     assert.sameValue(this.#m.name, '#m', 'function name inside constructor');
     ctorPromise = this.#m().then(value => {
-        assert.sameValue(this.#m(), 42, 'already defined in the ctor');
+        assert.sameValue(value, 42, 'already defined in the ctor');
     }, $DONE);
 
   }

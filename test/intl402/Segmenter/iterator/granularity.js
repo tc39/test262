@@ -14,9 +14,5 @@ for (const granularity of ["grapheme", "word", "sentence", "line"]) {
 
   assert.sameValue(typeof iter.position, "number");
   assert.sameValue(iter.position, 0);
-  if (granularity === "grapheme") {
-    assert.sameValue(iter.breakType, undefined);
-  } else {
-    assert.sameValue(typeof iter.breakType, "string");
-  }
+  assert.sameValue(iter.breakType, undefined);
 }
