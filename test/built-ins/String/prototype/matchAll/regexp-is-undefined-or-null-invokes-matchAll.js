@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: Behavior when regexp is null
+description: Behavior when regexp is null or undefined
 info: |
   String.prototype.matchAll ( regexp )
     1. Let O be ? RequireObjectCoercible(this value).
@@ -15,8 +15,16 @@ features: [String.prototype.matchAll]
 includes: [compareArray.js, compareIterator.js, regExpUtils.js]
 ---*/
 
-var str = '-null-';
+var callCount = 0;
+var obj = {};
+RegExp.prototype[Symbol.matchAll] = function() {
+  callCount++;
+  return obj;
+};
 
-assert.compareIterator(str.matchAll(null), [
-  matchValidator(['null'], 1, str)
-]);
+assert.sameValue('a'.matchAll(null), obj);
+assert.sameValue(callCount, 1);
+
+assert.sameValue(''.matchAll(undefined), obj);
+assert.sameValue(callCount, 2);
+
