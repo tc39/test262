@@ -30,5 +30,5 @@ for (const text of [
     ]) {
   const iter = seg.segment(text);
   assert.sameValue(undefined, iter.breakType);
-  assert.sameValue(0, iter.position);
+  assert.sameValue(0, iter.index);
 }
