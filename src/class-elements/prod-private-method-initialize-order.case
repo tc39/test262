@@ -1,0 +1,40 @@
+// Copyright (C) 2018 Kubilay Kahveci (Bloomberg LP). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Private methods are added before any field initializer is run, even if they appear textually later
+info: |
+
+  InitializeInstanceElements ( O, constructor )
+    ...
+    4. For each item element in order from elements,
+      a. If element.[[Placement]] is "own" and element.[[Kind]] is "method",
+        i. Perform ? DefineClassElement(O, element).
+    5. For each item element in order from elements,
+      a. If element.[[Placement]] is "own" and element.[[Kind]] is "field",
+        i. Assert: element.[[Descriptor]] does not have a [[Value]], [[Get]] or [[Set]] slot.
+        ii. Perform ? DefineClassElement(O, element).
+    6. Return.
+
+    EDITOR'S NOTE:
+    Value properties are added before initializers so that private methods are visible from all initializers.
+
+template: private-methods
+features: [class-methods-private, class-fields-private]
+---*/
+
+//- element
+a = this.#m();
+
+#m() { return 42; }
+get bGetter() { return this.#b; }
+
+#b = this.#m();
+
+//- constructor
+assert.sameValue(this.a, 42);
+assert.sameValue(this.#b, 42);
+
+//- assertions
+assert.sameValue(c.a, 42);
+assert.sameValue(c.bGetter, 42);
