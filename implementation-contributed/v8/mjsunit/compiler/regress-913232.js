@@ -2,4 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-(new Int8Array((new WebAssembly.Memory({initial: 0})).buffer)).buffer;
+// Flags: --allow-natives-syntax
+
+function* E(b) {
+  while (true) {
+    for (yield* 0; b; yield* 0) {}
+  }
+}
+
+%OptimizeFunctionOnNextCall(E);
+E();
