@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/switch/syntax/redeclaration/async-function-declaration-attempt-to-
+path: language/statements/switch/syntax/redeclaration/async-function-name-redeclaration-attempt-with-
 name: AsyncFunctionDeclaration in SwitchStatement
 esid: sec-switch-statement-static-semantics-early-errors
 info: |

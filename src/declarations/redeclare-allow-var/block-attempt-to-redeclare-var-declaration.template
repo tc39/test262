@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/block-scope/syntax/redeclaration/var-declaration-attempt-to-
+path: language/block-scope/syntax/redeclaration/var-name-redeclaration-attempt-with-
 name: VariableDeclaration in BlockStatement
 esid: sec-block-static-semantics-early-errors
 info: |
