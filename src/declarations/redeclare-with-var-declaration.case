@@ -8,4 +8,4 @@ template: redeclare-allow-var
 ---*/
 
 //- body
-  var f;
+  var f
