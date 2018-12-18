@@ -8,4 +8,4 @@ template: redeclare
 ---*/
 
 //- body
-  let f;
+  let f
