@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/switch/syntax/redeclaration/let-declaration-attempt-to-
+path: language/statements/switch/syntax/redeclaration/let-name-redeclaration-attempt-with-
 name: LexicalDeclaration (let) in SwitchStatement
 esid: sec-switch-statement-static-semantics-early-errors
 info: |
