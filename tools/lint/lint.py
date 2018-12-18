@@ -39,10 +39,10 @@ from lib.checks.negative import CheckNegative
 from lib.checks.filename import CheckFileName
 from lib.eprint import eprint
 import lib.frontmatter
-import lib.whitelist
+import lib.exceptions
 
 parser = argparse.ArgumentParser(description='Test262 linting tool')
-parser.add_argument('--whitelist',
+parser.add_argument('--exceptions',
         type=argparse.FileType('r'),
         help='file containing expected linting errors')
 parser.add_argument('path',
@@ -79,10 +79,10 @@ def lint(file_names):
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    if args.whitelist:
-        whitelist = lib.whitelist.parse(args.whitelist)
+    if args.exceptions:
+        exceptions = lib.exceptions.parse(args.exceptions)
     else:
-        whitelist = dict()
+        exceptions = dict()
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
@@ -92,9 +92,9 @@ if __name__ == '__main__':
     unexpected_errors = dict(all_errors)
 
     for file_name, failures in all_errors.iteritems():
-        if file_name not in whitelist:
+        if file_name not in exceptions:
             continue
-        if set(failures.keys()) == whitelist[file_name]:
+        if set(failures.keys()) == exceptions[file_name]:
             del unexpected_errors[file_name]
 
     error_count = len(unexpected_errors)
