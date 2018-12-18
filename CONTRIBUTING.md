@@ -294,11 +294,11 @@ Some of the expectations documented here are enforced via a "linting" script. Th
 
 Then invoke the following command:
 
-    python tools/lint/lint.py --whitelist lint.whitelist [paths to tests]
+    python tools/lint/lint.py --exceptions lint.exceptions [paths to tests]
 
 ...where `[paths to tests]` is a list of one or more paths to test files or directories containing test files.
 
-In some cases, it may be necessary for a test to intentionally violate the rules enforced by the linting tool. Such violations can be allowed by including the path of the test(s) in the `lint.whitelist` file. Each path must appear on a dedicated line in that file, and a space-separated list of rules to ignore must follow each path. Lines beginning with the pound sign (`#`) will be ignored. For example:
+In some cases, it may be necessary for a test to intentionally violate the rules enforced by the linting tool. Such violations can be allowed by including the path of the test(s) in the `lint.exceptions` file. Each path must appear on a dedicated line in that file, and a space-separated list of rules to ignore must follow each path. Lines beginning with the pound sign (`#`) will be ignored. For example:
 
     # This file documents authorship information and is not itself a test
     test/built-ins/Simd/AUTHORS FRONTMATTER LICENSE
