@@ -15,4 +15,4 @@ else
   paths="test/"
 fi
 
-./tools/lint/lint.py --whitelist lint.whitelist $paths
+./tools/lint/lint.py --exceptions lint.exceptions $paths
