@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/private-methods/
+path: language/expressions/class/elements/private-methods/
 name: private method definitions in a class expression
 features: [class, class-methods-private]
 info: |
