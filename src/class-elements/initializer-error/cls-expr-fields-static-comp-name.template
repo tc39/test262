@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields-static-comp-name-
+path: language/expressions/class/fields/static-comp-name-
 name: static computed ClassElementName
 features: [class, class-static-fields-public, computed-property-names]
 negative:

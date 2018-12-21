@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields-multiple-definitions-
+path: language/expressions/class/fields/multiple-definitions-
 name: multiple fields definitions
 features: [class, class-fields-public]
 esid: prod-FieldDefinition
