@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/syntax/early-errors/invalid-names/field-init-
+path: language/statements/class/elements/syntax/early-errors/invalid-names/field-init-
 name: >
   Invalid private names should throw a SyntaxError,
   class field initializer in class declaration

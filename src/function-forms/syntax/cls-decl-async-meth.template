@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/async-meth-
+path: language/statements/class/async-meth/
 name: class declaration async method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |

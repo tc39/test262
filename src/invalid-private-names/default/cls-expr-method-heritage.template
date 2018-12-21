@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/syntax/early-errors/invalid-names/method-heritage-
+path: language/expressions/class/elements/syntax/early-errors/invalid-names/method-heritage-
 name: >
   Invalid private names should throw a SyntaxError,
   method in inner class expression

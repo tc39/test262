@@ -1,7 +1,7 @@
 // Copyright (C) 2017 Mike Pennisi. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/class/accessor-name-inst-
+path: language/statements/class/accessor-name-inst/
 name: Class declaration, instance method
 esid: sec-runtime-semantics-classdefinitionevaluation
 es6id: 14.5.14

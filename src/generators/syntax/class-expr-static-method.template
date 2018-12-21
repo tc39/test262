@@ -1,7 +1,7 @@
 // Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/class/gen-method-static-
+path: language/expressions/class/gen-method-static/
 name: Static generator method as a ClassExpression element
 esid: prod-GeneratorMethod
 info: |
