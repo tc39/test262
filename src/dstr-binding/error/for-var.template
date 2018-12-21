@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/for/dstr-var-
+path: language/statements/for/dstr/var-
 name: for statement
 esid: sec-for-statement-runtime-semantics-labelledevaluation
 es6id: 13.7.4.7

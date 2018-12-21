@@ -1,7 +1,7 @@
 // Copyright (C) 2018 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/class/dstr-private-gen-meth-dflt-
+path: language/statements/class/dstr/private-gen-meth-dflt-
 name: private class expression method (default parameters)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [class, class-methods-private, generators, destructuring-binding, default-parameters]

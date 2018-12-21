@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/object/dstr-async-gen-meth-dflt-
+path: language/expressions/object/dstr/async-gen-meth-dflt-
 name: async generator method (default parameter)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
 features: [async-iteration]
