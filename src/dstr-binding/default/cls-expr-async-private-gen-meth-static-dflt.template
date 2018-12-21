@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/dstr-async-private-gen-meth-static-dflt-
+path: language/expressions/class/dstr/async-private-gen-meth-static-dflt-
 name: private static class expression async generator method (default parameter)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [class, class-static-methods-private, async-iteration]
