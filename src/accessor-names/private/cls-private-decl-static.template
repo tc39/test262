@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Katie Broida. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/class/private-accessor-name/static-
+path: language/statements/class/elements/private-accessor-name/static-
 name: Class declaration, static method
 esid: #prod-MethodDefinition
 info: |
