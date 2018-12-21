@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields/same-line-async-gen-
+path: language/expressions/class/elements/same-line-async-gen-
 name: field definitions after an async generator in the same line
 features: [class, class-fields-public, async-iteration]
 flags: [async]

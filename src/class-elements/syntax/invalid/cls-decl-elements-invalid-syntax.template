@@ -4,7 +4,7 @@
 /*---
 esid: prod-ClassElement
 name: class declaration
-path: language/statements/class/fields/syntax/early-errors/
+path: language/statements/class/elements/syntax/early-errors/
 features: [class]
 negative:
   phase: parse

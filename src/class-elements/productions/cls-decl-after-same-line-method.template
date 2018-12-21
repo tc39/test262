@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/fields/after-same-line-method-
+path: language/statements/class/elements/after-same-line-method-
 name: field definitions after a method in the same line
 features: [class, class-fields-public]
 esid: prod-FieldDefinition

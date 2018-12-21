@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields/
+path: language/expressions/class/elements/
 name: field definitions in a class expression
 features: [class]
 esid: prod-FieldDefinition

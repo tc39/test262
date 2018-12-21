@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields/string-literal-name-
+path: language/expressions/class/elements/string-literal-name-
 name: string literal ClassElementName
 features: [class, class-fields-public]
 negative:

@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields/private-typeof-
+path: language/expressions/class/elements/private-typeof-
 name: private field, typeof expression
 features: [class, class-fields-private]
 negative:

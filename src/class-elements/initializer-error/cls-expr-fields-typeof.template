@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields/typeof-
+path: language/expressions/class/elements/typeof-
 name: typeof expression
 features: [class, class-fields-public]
 negative:

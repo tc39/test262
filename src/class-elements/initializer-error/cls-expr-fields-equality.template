@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/expressions/class/fields/equality-
+path: language/expressions/class/elements/equality-
 name: equality expression
 features: [class, class-fields-public]
 negative:

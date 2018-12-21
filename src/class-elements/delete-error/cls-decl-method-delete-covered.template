@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/statements/class/fields/syntax/early-errors/delete/method-delete-covered-
+path: language/statements/class/elements/syntax/early-errors/delete/method-delete-covered-
 name: in method, covered
 info: |
   This file must never use the onlyStrict flag as the strict mode should always
