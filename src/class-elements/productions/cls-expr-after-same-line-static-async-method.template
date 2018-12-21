@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields-after-same-line-static-async-method-
+path: language/expressions/class/fields/after-same-line-static-async-method-
 name: field definitions after a static async method in the same line
 features: [class, class-fields-public, async-functions]
 flags: [async]
