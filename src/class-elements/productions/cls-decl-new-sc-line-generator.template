@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/fields/new-sc-line-gen-
+path: language/statements/class/elements/new-sc-line-gen-
 name: field definitions followed by a method in a new line with a semicolon
 features: [class, class-fields-public, generators]
 esid: prod-FieldDefinition

@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-class-definitions-static-semantics-early-errors
-path: language/statements/class/fields/private-arrow-fnc-
+path: language/statements/class/elements/private-arrow-fnc-
 name: private field, arrow function expression
 features: [class, arrow-function, class-fields-private]
 negative:

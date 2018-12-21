@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields/same-line-gen-
+path: language/expressions/class/elements/same-line-gen-
 name: field definitions followed by a generator method in the same line
 features: [class, class-fields-public, generators]
 esid: prod-FieldDefinition

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/fields/multiple-stacked-definitions-
+path: language/expressions/class/elements/multiple-stacked-definitions-
 name: multiple stacked fields definitions through ASI
 features: [class, class-fields-public]
 esid: prod-FieldDefinition
