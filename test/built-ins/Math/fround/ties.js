@@ -25,13 +25,13 @@ description: Math.fround should use roundTiesToEven for conversion to binary32.
 // over a2 when they are equally close, and a4 over a6 when they are equally
 // close.
 
-const a0 = 1.0;
-const a1 = 1.0000000596046448;
-const a2 = 1.0000001192092896;
-const a3 = 1.0000001788139343;
-const a4 = 1.000000238418579;
-const a5 = 1.0000002980232239;
-const a6 = 1.0000003576278687;
+var a0 = 1.0;
+var a1 = 1.0000000596046448;
+var a2 = 1.0000001192092896;
+var a3 = 1.0000001788139343;
+var a4 = 1.000000238418579;
+var a5 = 1.0000002980232239;
+var a6 = 1.0000003576278687;
 
 assert.sameValue(Math.fround(a0), a0, 'Math.fround(a0)');
 assert.sameValue(Math.fround(a1), a0, 'Math.fround(a1)');
