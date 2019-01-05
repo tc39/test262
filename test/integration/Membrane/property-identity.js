@@ -4,7 +4,7 @@
 /*---
  description: Membrane proxies must return the same property on different lookups to the same name.
  esid: pending
- features: Proxy,WeakMap,Reflect,Map
+ features: [Proxy,WeakMap,Reflect,Map]
  includes: [integration-Membrane.js]
 ---*/
 

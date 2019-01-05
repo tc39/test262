@@ -4,7 +4,7 @@
 /*---
  description: Membrane proxies must correctly recreate a tree of properties from the objects they emulate.  This includes property cycles.
  esid: pending
- features: Proxy,WeakMap,Reflect,Map
+ features: [Proxy,WeakMap,Reflect,Map]
  includes: [integration-Membrane.js]
 ---*/
 

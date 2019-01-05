@@ -4,7 +4,7 @@
 /*---
  description: Membrane proxies must correctly report null on demand.
  esid: pending
- features: Proxy,WeakMap,Reflect,Map
+ features: [Proxy,WeakMap,Reflect,Map]
  includes: [integration-Membrane.js]
 ---*/
 

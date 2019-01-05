@@ -4,7 +4,7 @@
 /*---
  description: Call a method of a Membrane proxy.
  esid: pending
- features: Proxy,WeakMap,Reflect,Map
+ features: [Proxy,WeakMap,Reflect,Map]
  includes: [integration-Membrane.js]
 ---*/
 

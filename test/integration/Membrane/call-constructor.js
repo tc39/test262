@@ -4,7 +4,7 @@
 /*---
  description: Ensure wrapping and unwrapping of constructors and instances is correct.
  esid: pending
- features: Proxy,WeakMap,Reflect,Map
+ features: [Proxy,WeakMap,Reflect,Map]
  includes: [integration-Membrane.js]
 ---*/
 

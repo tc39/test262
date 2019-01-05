@@ -4,7 +4,7 @@
 /*---
  description: Membrane proxies must support isExtensible and preventExtensions.
  esid: pending
- features: Proxy,WeakMap,Reflect,Map
+ features: [Proxy,WeakMap,Reflect,Map]
  includes: [integration-Membrane.js]
 ---*/
 
