@@ -1,8 +1,8 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2019 Sony Interactive Entertainment Inc.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+author: Ross Kirsling
 esid: sec-variablestatements-in-catch-blocks
-es6id: B.3.5
 description: Re-declaration of catch parameter (for-of statement)
 info: |
     It is a Syntax Error if any element of the BoundNames of CatchParameter
