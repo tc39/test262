@@ -4,7 +4,7 @@
 /*---
 description: PrivateName CallExpression usage (private field) (multiple fields definitions)
 esid: prod-FieldDefinition
-features: [class-methods-private, class, class-fields-public]
+features: [class-fields-private, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
