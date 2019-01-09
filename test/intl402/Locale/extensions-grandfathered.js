@@ -34,30 +34,6 @@ features: [Intl.Locale]
 ---*/
 
 const testData = [
-    // Irregular grandfathered without modern replacement.
-    {
-        tag: "i-default",
-        options: {
-            language: "fr",
-            script: "Cyrl",
-            region: "DE",
-            numberingSystem: "latn",
-        },
-        canonical: "fr-Cyrl-DE-u-nu-latn",
-    },
-
-    // Irregular grandfathered with modern replacement.
-    {
-        tag: "en-gb-oed",
-        options: {
-            language: "fr",
-            script: "Cyrl",
-            region: "US",
-            numberingSystem: "latn",
-        },
-        canonical: "fr-Cyrl-US-oxendict-u-nu-latn",
-    },
-
     // Regular grandfathered without modern replacement.
     {
         tag: "cel-gaulish",

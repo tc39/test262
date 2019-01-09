@@ -19,29 +19,6 @@ features: [Intl.Locale]
 ---*/
 
 const testData = [
-  // Irregular grandfathered tags.
-
-  // "en-GB-oed" is a grandfathered tag, so we can't add "US". After it is
-  // canonicalized to "en-GB-oxendict" we can append "US" and "u-ca-gregory".
-  {
-    tag: "en-GB-oed",
-    options: {
-      region: "US",
-      calendar: "gregory",
-    },
-    canonical: "en-US-oxendict-u-ca-gregory",
-  },
-
-  // Canonicalized version of the above, which we can add "US" to right away.
-  {
-    tag: "en-GB-oxendict",
-    options: {
-      region: "US",
-      calendar: "gregory",
-    },
-    canonical: "en-US-oxendict-u-ca-gregory",
-  },
-
   // Regular grandfathered tags.
 
   // "no-bok" is a grandfathered, so "NO"/"SE" isn't added. After

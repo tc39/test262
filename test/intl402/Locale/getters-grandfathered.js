@@ -23,13 +23,6 @@ info: |
 features: [Intl.Locale]
 ---*/
 
-// Irregular grandfathered language tag.
-var loc = new Intl.Locale("i-default");
-assert.sameValue(loc.baseName, "i-default"); // Step 4.
-assert.sameValue(loc.language, "i-default");
-assert.sameValue(loc.script, undefined);
-assert.sameValue(loc.region, undefined);
-
 // Regular grandfathered language tag.
 var loc = new Intl.Locale("cel-gaulish");
 assert.sameValue(loc.baseName, "cel-gaulish"); // Step 5.
