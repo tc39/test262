@@ -16,7 +16,6 @@ const validLanguageTags = {
   "en-gb": "en-GB",
   "IT-LATN-iT": "it-Latn-IT",
   "th-th-u-nu-thai": "th-TH-u-nu-thai",
-  "X-u-foo": "x-u-foo",
   "en-x-u-foo": "en-x-u-foo",
   "en-a-bar-x-u-foo": "en-a-bar-x-u-foo",
   "en-x-u-foo-a-bar": "en-x-u-foo-a-bar",
