@@ -25,7 +25,6 @@ const validLanguageOptions = [
   [null, 'null'],
   ['zh-cmn', 'cmn'],
   ['ZH-CMN', 'cmn'],
-  ['abcd', 'abcd'],
   [{ toString() { return 'de' } }, 'de'],
 ];
 for (const [language, expected] of validLanguageOptions) {
@@ -42,12 +41,5 @@ for (const [language, expected] of validLanguageOptions) {
     new Intl.Locale('en-US', {language}).toString(),
     expect,
     `new Intl.Locale('en-US', {language: "${language}"}).toString() returns "${expect}"`
-  );
-
-  expect = expected || 'en-els';
-  assert.sameValue(
-    new Intl.Locale('en-els', {language}).toString(),
-    expect,
-    `new Intl.Locale('en-els', {language: "${language}"}).toString() returns "${expect}"`
   );
 }

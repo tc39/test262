@@ -32,9 +32,3 @@ assert.sameValue(
   'en-US',
   `new Intl.Locale('en-US', {language: undefined}).toString() returns "en-US"`
 );
-
-assert.sameValue(
-  new Intl.Locale('en-els', {language: undefined}).toString(),
-  'en-els',
-  `new Intl.Locale('en-els', {language: undefined}).toString() returns "en-els"`
-);
