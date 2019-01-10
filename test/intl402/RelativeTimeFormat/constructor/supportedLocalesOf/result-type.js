@@ -28,7 +28,6 @@ for (let i = 0; i < result.length; ++i) {
 }
 
 verifyProperty(result, "length", {
-  "writable": true,
   "enumerable": false,
   "configurable": false,
 });
