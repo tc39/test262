@@ -4,7 +4,7 @@
 /*---
 description: PrivateName CallExpression usage (private field) (field definitions after a static generator in the same line)
 esid: prod-FieldDefinition
-features: [class-methods-private, generators, class, class-fields-public]
+features: [class-fields-private, generators, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |

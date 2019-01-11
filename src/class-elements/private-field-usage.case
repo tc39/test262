@@ -17,7 +17,7 @@ info: |
     CallExpression[?Yield, ?Await].PrivateName
 
 template: productions
-features: [class-methods-private]
+features: [class-fields-private]
 ---*/
 
 //- elements

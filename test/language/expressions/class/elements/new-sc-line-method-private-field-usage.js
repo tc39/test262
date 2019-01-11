@@ -4,7 +4,7 @@
 /*---
 description: PrivateName CallExpression usage (private field) (field definitions followed by a method in a new line with a semicolon)
 esid: prod-FieldDefinition
-features: [class-methods-private, class, class-fields-public]
+features: [class-fields-private, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
