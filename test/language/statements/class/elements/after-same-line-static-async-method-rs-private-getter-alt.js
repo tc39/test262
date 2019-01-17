@@ -4,7 +4,7 @@
 /*---
 description: Valid PrivateName as private getter (field definitions after a static async method in the same line)
 esid: prod-FieldDefinition
-features: [class-methods-private, class, class-fields-public, async-functions]
+features: [class-methods-private, class-fields-private, class, class-fields-public, async-functions]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |
