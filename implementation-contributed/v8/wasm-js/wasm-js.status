@@ -9,13 +9,22 @@
   'table/grow': [FAIL],
   'table/get-set': [FAIL],
   'module/customSections': [FAIL],
-  'global/constructor': [FAIL],
-  'global/value-get-set': [FAIL],
+}], # ALWAYS
+
+[ALWAYS, {
+  # https://bugs.chromium.org/p/v8/issues/detail?id=8633
+  'limits': [SKIP],
 }], # ALWAYS
 
 ['arch == s390 or arch == s390x or system == aix', {
   # https://bugs.chromium.org/p/v8/issues/detail?id=8402
   'instance/constructor': [SKIP],
 }],  # 'arch == s390 or arch == s390x or system == aix'
+
+##############################################################################
+['lite_mode', {
+  # TODO(v8:7777): Re-enable once wasm is supported in jitless mode.
+  '*': [SKIP],
+}], # lite_mode
 
 ]
