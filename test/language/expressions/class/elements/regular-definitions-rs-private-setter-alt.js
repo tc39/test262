@@ -4,7 +4,7 @@
 /*---
 description: Valid PrivateName as private setter (regular fields defintion)
 esid: prod-FieldDefinition
-features: [class-methods-private, class, class-fields-public]
+features: [class-methods-private, class-fields-private, class, class-fields-public]
 flags: [generated]
 info: |
     
