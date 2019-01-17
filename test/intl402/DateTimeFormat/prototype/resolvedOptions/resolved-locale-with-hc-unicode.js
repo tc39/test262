@@ -49,7 +49,7 @@ function assertLocale(locale, expectedLocale, options, message) {
     hour12: options.hour12,
     hourCycle: options.hourCycle,
   }).resolvedOptions();
-  assert.sameValue(resolved.locale, expectedLocale, message + " (Without hour option.)");
+  assert.sameValue(resolved.locale, locale, message + " (Without hour option.)");
 }
 
 assertLocale(defaultLocaleWithHourCycle, defaultLocale, {
