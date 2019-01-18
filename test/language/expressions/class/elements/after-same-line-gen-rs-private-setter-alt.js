@@ -4,7 +4,7 @@
 /*---
 description: Valid PrivateName as private setter (field definitions after a generator in the same line)
 esid: prod-FieldDefinition
-features: [class-methods-private, generators, class, class-fields-public]
+features: [class-methods-private, class-fields-private, generators, class, class-fields-public]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
