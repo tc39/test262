@@ -8,7 +8,7 @@ info: |
     Intl.Segmenter ([ locales [ , options ]])
 
     7. Let matcher be ? GetOption(options, "localeMatcher", "string", « "lookup", "best fit" », "best fit").
-    12. Let granularity be ? GetOption(options, "granularity", "string", « "grapheme", "word", "sentence" », "grapheme").
+    11. Let granularity be ? GetOption(options, "granularity", "string", « "grapheme", "word", "sentence" », "grapheme").
 includes: [compareArray.js]
 features: [Intl.Segmenter]
 ---*/
