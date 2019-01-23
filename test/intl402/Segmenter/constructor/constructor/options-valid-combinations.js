@@ -7,8 +7,8 @@ description: Checks handling of valid values for the granularity option to the S
 info: |
     Intl.Segmenter ([ locales [ , options ]])
 
-    13. Let granularity be ? GetOption(options, "granularity", "string", « "grapheme", "word", "sentence" », "grapheme").
-    14. Set segmenter.[[SegmenterGranularity]] to granularity.
+    11. Let granularity be ? GetOption(options, "granularity", "string", « "grapheme", "word", "sentence" », "grapheme").
+    12. Set segmenter.[[SegmenterGranularity]] to granularity.
 features: [Intl.Segmenter]
 ---*/
 
