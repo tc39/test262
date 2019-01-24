@@ -13,54 +13,35 @@ info: |
   30. Let r be ! ApplyUnicodeExtensionToTag(tag, opt, relevantExtensionKeys).
 
   ApplyOptionsToTag( tag, options )
-  9. If tag matches neither the privateuse nor the grandfathered production, then
-  10. Return CanonicalizeLanguageTag(tag).
+  9. Set tag to CanonicalizeLanguageTag(tag).
+
+  CanonicalizeLanguageTag( tag )
+
+  The CanonicalizeLanguageTag abstract operation returns the canonical and
+  case-regularized form of the locale argument (which must be a String value
+  that is a structurally valid Unicode BCP 47 Locale Identifier as verified by
+  the IsStructurallyValidLanguageTag abstract operation).
+
+  IsStructurallyValidLanguageTag ( locale )
+
+  The IsStructurallyValidLanguageTag abstract operation verifies that the
+  locale argument (which must be a String value)
+
+  represents a well-formed Unicode BCP 47 Locale Identifier" as specified in
+  Unicode Technical Standard 35 section 3.2, or successor,
+
 features: [Intl.Locale]
 ---*/
 
 const testData = [
-  // Regular grandfathered tags.
-
-  // "no-bok" is a grandfathered, so "NO"/"SE" isn't added. After
-  // canonicalization we can append "NO"/"SE" and "u-ca-gregory".
+  // Canonicalized version of "en-GB-oed", which we can add "US" to right away.
   {
-    tag: "no-bok",
+    tag: "en-GB-oxendict",
     options: {
-      region: "NO",
+      region: "US",
       calendar: "gregory",
     },
-    canonical: "nb-NO-u-ca-gregory",
-  },
-
-  {
-    tag: "no-bok",
-    options: {
-      region: "SE",
-      calendar: "gregory",
-    },
-    canonical: "nb-SE-u-ca-gregory",
-  },
-
-  // "no-bok-NO" isn't a grandfathered tag, so we can replace "NO" with "SE"
-  // and can also append "u-ca-gregory".
-  {
-    tag: "no-bok-NO",
-    options: {
-      region: "SE",
-      calendar: "gregory",
-    },
-    canonical: "no-bok-SE-u-ca-gregory",
-  },
-
-  // "no-bok-SE" isn't a grandfathered tag, so we can replace "SE" with "NO"
-  // and can also append "u-ca-gregory".
-  {
-    tag: "no-bok-SE",
-    options: {
-      region: "NO",
-      calendar: "gregory",
-    },
-    canonical: "no-bok-NO-u-ca-gregory",
+    canonical: "en-US-oxendict-u-ca-gregory",
   },
 ];
 
@@ -71,3 +52,13 @@ for (const {tag, options, canonical} of testData) {
     `new Intl.Locale("${tag}", ${options}).toString() returns "${canonical}"`
   );
 }
+
+assert.throws(RangeError, () =>
+    new Intl.Locale("no-bok", {region: "NO", calendar: "gregory"}).toString());
+assert.throws(RangeError, () =>
+    new Intl.Locale("no-bok", {region: "SE", calendar: "gregory"}).toString());
+assert.throws(RangeError, () =>
+    new Intl.Locale("no-bok-NO", {region: "SE", calendar: "gregory"}).toString());
+assert.throws(RangeError, () =>
+    new Intl.Locale("no-bok-SE", {region: "NO", calendar: "gregory"}).toString());
+

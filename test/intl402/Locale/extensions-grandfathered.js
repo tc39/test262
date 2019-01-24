@@ -9,26 +9,22 @@ info: |
     ApplyOptionsToTag( tag, options )
 
     ...
-    9. If tag matches neither the privateuse nor the grandfathered production, then
-    ...
+    9. Set tag to CanonicalizeLanguageTag(tag).
 
-    ApplyUnicodeExtensionToTag( tag, options, relevantExtensionKeys )
+    CanonicalizeLanguageTag( tag )
 
-    ...
-    2. If tag matches the privateuse or the grandfathered production, then
-        a. Let result be a new Record.
-        b. Repeat for each element key of relevantExtensionKeys in List order,
-            i. Set result.[[<key>]] to undefined.
-        c. Set result.[[locale]] to tag.
-        d. Return result.
-    ...
-    7. Repeat for each element key of relevantExtensionKeys in List order,
-        e. Let optionsValue be options.[[<key>]].
-        f. If optionsValue is not undefined, then
-            ii. Let value be optionsValue.
-            iv. Else,
-                1. Append the Record{[[Key]]: key, [[Value]]: value} to keywords.
-    ...
+    The CanonicalizeLanguageTag abstract operation returns the canonical and
+    case-regularized form of the locale argument (which must be a String value
+    that is a structurally valid Unicode BCP 47 Locale Identifier as verified by
+    the IsStructurallyValidLanguageTag abstract operation).
+
+    IsStructurallyValidLanguageTag ( locale )
+
+    The IsStructurallyValidLanguageTag abstract operation verifies that the
+    locale argument (which must be a String value)
+
+    represents a well-formed Unicode BCP 47 Locale Identifier" as specified in
+    Unicode Technical Standard 35 section 3.2, or successor,
 
 features: [Intl.Locale]
 ---*/
@@ -67,3 +63,13 @@ for (const {tag, options, canonical} of testData) {
         assert.sameValue(loc[name], value);
     }
 }
+
+assert.throws(RangeError, () =>
+    new Intl.Locale("i-default",
+      {language: "fr", script: "Cyrl", region: "DE", numberingSystem: "latn"}
+      ).toString());
+
+assert.throws(RangeError, () =>
+    new Intl.Locale("en-gb-oed",
+      {language: "fr", script: "Cyrl", region: "US", numberingSystem: "latn"}
+      ).toString());

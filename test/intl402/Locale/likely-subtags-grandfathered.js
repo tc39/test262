@@ -7,7 +7,24 @@ description: >
     Verifies canonicalization, minimization and maximization of specific tags.
 info: |
     ApplyOptionsToTag( tag, options )
-    10. Return CanonicalizeLanguageTag(tag).
+
+    9. Set tag to CanonicalizeLanguageTag(tag).
+
+    CanonicalizeLanguageTag( tag )
+
+    The CanonicalizeLanguageTag abstract operation returns the canonical and
+    case-regularized form of the locale argument (which must be a String value
+    that is a structurally valid Unicode BCP 47 Locale Identifier as verified by
+    the IsStructurallyValidLanguageTag abstract operation).
+
+    IsStructurallyValidLanguageTag ( locale )
+
+    The IsStructurallyValidLanguageTag abstract operation verifies that the
+    locale argument (which must be a String value)
+
+    represents a well-formed Unicode BCP 47 Locale Identifier" as specified in
+    Unicode Technical Standard 35 section 3.2, or successor,
+
 
     Intl.Locale.prototype.maximize ()
     3. Let maximal be the result of the Add Likely Subtags algorithm applied to loc.[[Locale]].
@@ -16,6 +33,85 @@ info: |
     3. Let minimal be the result of the Remove Likely Subtags algorithm applied to loc.[[Locale]].
 features: [Intl.Locale]
 ---*/
+
+const irregularGrandfathered = [
+    {
+        tag: "en-GB-oed",
+        canonical: "en-GB-oxendict",
+        maximized: "en-Latn-GB-oxendict",
+    },
+    {
+        tag: "i-ami",
+        canonical: "ami",
+    },
+    {
+        tag: "i-bnn",
+        canonical: "bnn",
+    },
+    {
+        tag: "i-default",
+        canonical: "i-default",
+    },
+    {
+        tag: "i-enochian",
+        canonical: "i-enochian",
+    },
+    {
+        tag: "i-hak",
+        canonical: "hak",
+        maximized: "hak-Hans-CN",
+    },
+    {
+        tag: "i-klingon",
+        canonical: "tlh",
+    },
+    {
+        tag: "i-lux",
+        canonical: "lb",
+        maximized: "lb-Latn-LU",
+    },
+    {
+        tag: "i-mingo",
+        canonical: "i-mingo",
+    },
+    {
+        tag: "i-navajo",
+        canonical: "nv",
+        maximized: "nv-Latn-US",
+    },
+    {
+        tag: "i-pwn",
+        canonical: "pwn",
+    },
+    {
+        tag: "i-tao",
+        canonical: "tao",
+    },
+    {
+        tag: "i-tay",
+        canonical: "tay",
+    },
+    {
+        tag: "i-tsu",
+        canonical: "tsu",
+    },
+    {
+        tag: "sgn-BE-FR",
+        canonical: "sfb",
+    },
+    {
+        tag: "sgn-BE-NL",
+        canonical: "vgt",
+    },
+    {
+        tag: "sgn-CH-DE",
+        canonical: "sgg",
+    },
+];
+
+for (const {tag, canonical, maximized = canonical, minimized = canonical} of irregularGrandfathered) {
+    assert.throws(RangeError, () => new Intl.Locale(tag));
+}
 
 const regularGrandfathered = [
     {
@@ -28,16 +124,6 @@ const regularGrandfathered = [
         canonical: "cel-gaulish",
     },
     {
-        tag: "no-bok",
-        canonical: "nb",
-        maximized: "nb-Latn-NO",
-    },
-    {
-        tag: "no-nyn",
-        canonical: "nn",
-        maximized: "nn-Latn-NO",
-    },
-    {
         tag: "zh-guoyu",
         canonical: "cmn",
     },
@@ -45,15 +131,6 @@ const regularGrandfathered = [
         tag: "zh-hakka",
         canonical: "hak",
         maximized: "hak-Hans-CN",
-    },
-    {
-        tag: "zh-min",
-        canonical: "zh-min",
-    },
-    {
-        tag: "zh-min-nan",
-        canonical: "nan",
-        maximized: "nan-Hans-CN",
     },
     {
         tag: "zh-xiang",
@@ -76,6 +153,32 @@ for (const {tag, canonical, maximized = canonical, minimized = canonical} of reg
 
     assert.sameValue(loc.maximize().minimize().toString(), minimized);
     assert.sameValue(loc.minimize().maximize().toString(), maximized);
+}
+
+const regularGrandfatheredWithExtLang = [
+    {
+        tag: "no-bok",
+        canonical: "nb",
+        maximized: "nb-Latn-NO",
+    },
+    {
+        tag: "no-nyn",
+        canonical: "nn",
+        maximized: "nn-Latn-NO",
+    },
+    {
+        tag: "zh-min",
+        canonical: "zh-min",
+    },
+    {
+        tag: "zh-min-nan",
+        canonical: "nan",
+        maximized: "nan-Hans-CN",
+    },
+];
+
+for (const {tag, canonical, maximized = canonical, minimized = canonical} of regularGrandfatheredWithExtLang) {
+    assert.throws(RangeError, () => new Intl.Locale(tag));
 }
 
 // Add constiants, extensions, and privateuse subtags to regular grandfathered
