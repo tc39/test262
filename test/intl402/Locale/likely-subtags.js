@@ -99,3 +99,7 @@ for (const [tag, minimal] of Object.entries(testDataMinimal)) {
                          `"${input}".minimize() should be "${output}"`);
     }
 }
+
+// "x" in "x-private" does not match unicode_language_subtag
+// unicode_language_subtag = alpha{2,3} | alpha{5,8};
+assert.throws(RangeError, () => new Intl.Locale("x-private"));
