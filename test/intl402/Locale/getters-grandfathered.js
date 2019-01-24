@@ -33,7 +33,7 @@ assert.sameValue(loc.script, undefined);
 assert.sameValue(loc.region, undefined);
 
 // Regular grandfathered language tag.
-assert.throws(RangeError, () => new Intl.Locale("zh-min").toString());
+assert.throws(RangeError, () => new Intl.Locale("zh-min"));
 
-assert.throws(RangeError, () => new Intl.Locale("i-default").toString());
+assert.throws(RangeError, () => new Intl.Locale("i-default"));
 
