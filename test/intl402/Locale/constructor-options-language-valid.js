@@ -49,7 +49,7 @@ for (const [language, expected] of validLanguageOptions) {
     `new Intl.Locale('en-US', {language: "${language}"}).toString() returns "${expect}"`
   );
 
-  assert.throws(RangeError, () => new Intl.Locale('en-els', {language}).toString());
+  assert.throws(RangeError, () => new Intl.Locale('en-els', {language}));
 
 }
 
@@ -57,7 +57,7 @@ const invalidLanguageOptions = [
     'abcd',
 ];
 for (const language of invalidLanguageOptions) {
-  assert.throws(RangeError, () => new Intl.Locale('en', {language}).toString());
-  assert.throws(RangeError, () => new Intl.Locale('en-US', {language}).toString());
-  assert.throws(RangeError, () => new Intl.Locale('en-els', {language}).toString());
+  assert.throws(RangeError, () => new Intl.Locale('en', {language}));
+  assert.throws(RangeError, () => new Intl.Locale('en-US', {language}));
+  assert.throws(RangeError, () => new Intl.Locale('en-els', {language}));
 }
