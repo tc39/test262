@@ -16,17 +16,12 @@ const validLanguageTags = {
   "en-gb": "en-GB",
   "IT-LATN-iT": "it-Latn-IT",
   "th-th-u-nu-thai": "th-TH-u-nu-thai",
-  "X-u-foo": "x-u-foo",
   "en-x-u-foo": "en-x-u-foo",
   "en-a-bar-x-u-foo": "en-a-bar-x-u-foo",
   "en-x-u-foo-a-bar": "en-x-u-foo-a-bar",
   "en-u-baz-a-bar-x-u-foo": "en-a-bar-u-baz-x-u-foo",
-  "Flob": "flob",
-  "ZORK": "zork",
-  "Blah-latn": "blah-Latn",
-  "QuuX-latn-us": "quux-Latn-US",
-  "SPAM-gb-x-Sausages-BACON-eggs": "spam-GB-x-sausages-bacon-eggs",
-  "DE-1996": "de-1996",
+  "DE-1996": "de-1996", // unicode_language_subtag sep unicode_variant_subtag
+  // unicode_language_subtag (sep unicode_variant_subtag)*
   "sl-ROZAJ-BISKE-1994": "sl-rozaj-biske-1994",
   "zh-latn-pinyin-pinyin2": "zh-Latn-pinyin-pinyin2",
 };
@@ -43,3 +38,18 @@ for (const [langtag, canonical] of Object.entries(validLanguageTags)) {
     `new Intl.Locale("${langtag}").toString() returns "${canonical}"`
   );
 }
+
+// unicode_language_subtag	= alpha{2,3} | alpha{5,8};
+const invalidLanguageTags = {
+  "X-u-foo", 
+  "Flob",
+  "ZORK",
+  "Blah-latn",
+  "QuuX-latn-us",
+  "SPAM-gb-x-Sausages-BACON-eggs",
+};
+
+for (const langtag of Object.entries(invalidLanguageTags)) {
+  assert.throws(RangeError, () => new Intl.Locale(langtag));
+}
+
