@@ -13,14 +13,8 @@ info: |
   30. Let r be ! ApplyUnicodeExtensionToTag(tag, opt, relevantExtensionKeys).
 
   ApplyOptionsToTag( tag, options )
-  9. Set tag to CanonicalizeLanguageTag(tag).
-
-  CanonicalizeLanguageTag( tag )
-
-  The CanonicalizeLanguageTag abstract operation returns the canonical and
-  case-regularized form of the locale argument (which must be a String value
-  that is a structurally valid Unicode BCP 47 Locale Identifier as verified by
-  the IsStructurallyValidLanguageTag abstract operation).
+  ...
+  2. If IsStructurallyValidLanguageTag(tag) is false, throw a RangeError exception.
 
   IsStructurallyValidLanguageTag ( locale )
 
@@ -54,11 +48,11 @@ for (const {tag, options, canonical} of testData) {
 }
 
 assert.throws(RangeError, () =>
-    new Intl.Locale("no-bok", {region: "NO", calendar: "gregory"}).toString());
+    new Intl.Locale("no-bok", {region: "NO", calendar: "gregory"}));
 assert.throws(RangeError, () =>
-    new Intl.Locale("no-bok", {region: "SE", calendar: "gregory"}).toString());
+    new Intl.Locale("no-bok", {region: "SE", calendar: "gregory"}));
 assert.throws(RangeError, () =>
-    new Intl.Locale("no-bok-NO", {region: "SE", calendar: "gregory"}).toString());
+    new Intl.Locale("no-bok-NO", {region: "SE", calendar: "gregory"}));
 assert.throws(RangeError, () =>
-    new Intl.Locale("no-bok-SE", {region: "NO", calendar: "gregory"}).toString());
+    new Intl.Locale("no-bok-SE", {region: "NO", calendar: "gregory"}));
 

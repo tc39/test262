@@ -8,6 +8,8 @@ description: >
 info: |
     ApplyOptionsToTag( tag, options )
 
+    2. If IsStructurallyValidLanguageTag(tag) is false, throw a RangeError exception.
+
     9. Set tag to CanonicalizeLanguageTag(tag).
 
     CanonicalizeLanguageTag( tag )
@@ -35,81 +37,26 @@ features: [Intl.Locale]
 ---*/
 
 const irregularGrandfathered = [
-    {
-        tag: "en-GB-oed",
-        canonical: "en-GB-oxendict",
-        maximized: "en-Latn-GB-oxendict",
-    },
-    {
-        tag: "i-ami",
-        canonical: "ami",
-    },
-    {
-        tag: "i-bnn",
-        canonical: "bnn",
-    },
-    {
-        tag: "i-default",
-        canonical: "i-default",
-    },
-    {
-        tag: "i-enochian",
-        canonical: "i-enochian",
-    },
-    {
-        tag: "i-hak",
-        canonical: "hak",
-        maximized: "hak-Hans-CN",
-    },
-    {
-        tag: "i-klingon",
-        canonical: "tlh",
-    },
-    {
-        tag: "i-lux",
-        canonical: "lb",
-        maximized: "lb-Latn-LU",
-    },
-    {
-        tag: "i-mingo",
-        canonical: "i-mingo",
-    },
-    {
-        tag: "i-navajo",
-        canonical: "nv",
-        maximized: "nv-Latn-US",
-    },
-    {
-        tag: "i-pwn",
-        canonical: "pwn",
-    },
-    {
-        tag: "i-tao",
-        canonical: "tao",
-    },
-    {
-        tag: "i-tay",
-        canonical: "tay",
-    },
-    {
-        tag: "i-tsu",
-        canonical: "tsu",
-    },
-    {
-        tag: "sgn-BE-FR",
-        canonical: "sfb",
-    },
-    {
-        tag: "sgn-BE-NL",
-        canonical: "vgt",
-    },
-    {
-        tag: "sgn-CH-DE",
-        canonical: "sgg",
-    },
+    "en-GB-oed",
+    "i-ami",
+    "i-bnn",
+    "i-default",
+    "i-enochian",
+    "i-hak",
+    "i-klingon",
+    "i-lux",
+    "i-mingo",
+    "i-navajo",
+    "i-pwn",
+    "i-tao",
+    "i-tay",
+    "i-tsu",
+    "sgn-BE-FR",
+    "sgn-BE-NL",
+    "sgn-CH-DE",
 ];
 
-for (const {tag, canonical, maximized = canonical, minimized = canonical} of irregularGrandfathered) {
+for (const tag of irregularGrandfathered) {
     assert.throws(RangeError, () => new Intl.Locale(tag));
 }
 
@@ -156,28 +103,13 @@ for (const {tag, canonical, maximized = canonical, minimized = canonical} of reg
 }
 
 const regularGrandfatheredWithExtLang = [
-    {
-        tag: "no-bok",
-        canonical: "nb",
-        maximized: "nb-Latn-NO",
-    },
-    {
-        tag: "no-nyn",
-        canonical: "nn",
-        maximized: "nn-Latn-NO",
-    },
-    {
-        tag: "zh-min",
-        canonical: "zh-min",
-    },
-    {
-        tag: "zh-min-nan",
-        canonical: "nan",
-        maximized: "nan-Hans-CN",
-    },
+    "no-bok",
+    "no-nyn",
+    "zh-min",
+    "zh-min-nan",
 ];
 
-for (const {tag, canonical, maximized = canonical, minimized = canonical} of regularGrandfatheredWithExtLang) {
+for (const tag of regularGrandfatheredWithExtLang) {
     assert.throws(RangeError, () => new Intl.Locale(tag));
 }
 

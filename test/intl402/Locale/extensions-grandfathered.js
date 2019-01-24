@@ -7,16 +7,8 @@ description: >
     Verifies handling of options with grandfathered tags.
 info: |
     ApplyOptionsToTag( tag, options )
-
     ...
-    9. Set tag to CanonicalizeLanguageTag(tag).
-
-    CanonicalizeLanguageTag( tag )
-
-    The CanonicalizeLanguageTag abstract operation returns the canonical and
-    case-regularized form of the locale argument (which must be a String value
-    that is a structurally valid Unicode BCP 47 Locale Identifier as verified by
-    the IsStructurallyValidLanguageTag abstract operation).
+    2. If IsStructurallyValidLanguageTag(tag) is false, throw a RangeError exception.
 
     IsStructurallyValidLanguageTag ( locale )
 
@@ -67,9 +59,9 @@ for (const {tag, options, canonical} of testData) {
 assert.throws(RangeError, () =>
     new Intl.Locale("i-default",
       {language: "fr", script: "Cyrl", region: "DE", numberingSystem: "latn"}
-      ).toString());
+      ));
 
 assert.throws(RangeError, () =>
     new Intl.Locale("en-gb-oed",
       {language: "fr", script: "Cyrl", region: "US", numberingSystem: "latn"}
-      ).toString());
+      ));
