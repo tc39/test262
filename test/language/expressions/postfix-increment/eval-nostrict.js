@@ -7,24 +7,19 @@ description: >
   It is an early Reference Error if AssignmentTargetType of LeftHandSideExpression is invalid. (eval)
 info: |
 
-  sec-update-expressions-static-semantics-assignmenttargettype
+  sec-identifiers-static-semantics-assignmenttargettype
 
-    UpdateExpression : LeftHandSideExpression ++
-
-    Return invalid.
+    1. If this IdentifierReference is contained in strict mode code and StringValue of Identifier is "eval" or  "arguments", return strict.
+    2. Return simple.
 
   sec-update-expressions-static-semantics-early-errors
 
     UpdateExpression : LeftHandSideExpression ++
 
     It is an early Reference Error if AssignmentTargetType of LeftHandSideExpression is invalid.
+    It is an early Syntax Error if AssignmentTargetType of LeftHandSideExpression is strict.
 
 flags: [noStrict]
-negative:
-  phase: parse
-  type: ReferenceError
 ---*/
-
-$DONOTEVALUATE();
 
 eval++;
