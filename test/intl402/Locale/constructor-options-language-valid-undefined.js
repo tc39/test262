@@ -14,9 +14,22 @@ info: |
 
     ApplyOptionsToTag( tag, options )
     ...
-    9. If tag matches neither the privateuse nor the grandfathered production, then
-        b. If language is not undefined, then
-            i. Set tag to tag with the substring corresponding to the language production replaced by the string language.
+    9. Set tag to CanonicalizeLanguageTag(tag).
+
+    CanonicalizeLanguageTag( tag )
+
+    The CanonicalizeLanguageTag abstract operation returns the canonical and
+    case-regularized form of the locale argument (which must be a String value
+    that is a structurally valid Unicode BCP 47 Locale Identifier as verified by
+    the IsStructurallyValidLanguageTag abstract operation).
+
+    IsStructurallyValidLanguageTag ( locale )
+
+    The IsStructurallyValidLanguageTag abstract operation verifies that the
+    locale argument (which must be a String value)
+
+    represents a well-formed Unicode BCP 47 Locale Identifier" as specified in
+    Unicode Technical Standard 35 section 3.2, or successor,
 
 features: [Intl.Locale]
 ---*/
@@ -32,3 +45,5 @@ assert.sameValue(
   'en-US',
   `new Intl.Locale('en-US', {language: undefined}).toString() returns "en-US"`
 );
+
+assert.throws(RangeError, () => new Intl.Locale('en-els', {language: undefined}).toString());
