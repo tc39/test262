@@ -7,7 +7,9 @@ description: >
     Verifies canonicalization of specific tags.
 info: |
     ApplyOptionsToTag( tag, options )
-    10. Return CanonicalizeLanguageTag(tag).
+    2. If IsStructurallyValidLanguageTag(tag) is false, throw a RangeError exception.
+    ...
+    13. Return CanonicalizeLanguageTag(tag).
 features: [Intl.Locale]
 ---*/
 
