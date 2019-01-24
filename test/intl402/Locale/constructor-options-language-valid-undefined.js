@@ -40,4 +40,4 @@ assert.sameValue(
   `new Intl.Locale('en-US', {language: undefined}).toString() returns "en-US"`
 );
 
-assert.throws(RangeError, () => new Intl.Locale('en-els', {language: undefined}).toString());
+assert.throws(RangeError, () => new Intl.Locale('en-els', {language: undefined}));
