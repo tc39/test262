@@ -15,6 +15,9 @@ info: |
     ApplyOptionsToTag( tag, options )
     ...
     2. If IsStructurallyValidLanguageTag(tag) is false, throw a RangeError exception.
+    3. Let language be ? GetOption(options, "language", "string", undefined, undefined).
+    4. If language is not undefined, then
+       a. If language does not match the unicode_language_subtag production, throw a RangeError exception.
 
     IsStructurallyValidLanguageTag ( locale )
 
