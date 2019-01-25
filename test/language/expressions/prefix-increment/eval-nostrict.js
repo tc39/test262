@@ -4,7 +4,7 @@
 /*---
 esid: sec-update-expressions
 description: >
-  It is an early Reference Error if AssignmentTargetType of UnaryExpression is invalid. (eval)
+  In non-strict code, "++eval" does not produce an early error.
 info: |
 
   sec-identifiers-static-semantics-assignmenttargettype

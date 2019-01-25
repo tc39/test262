@@ -4,7 +4,7 @@
 /*---
 esid: sec-update-expressions
 description: >
-  It is an early Reference Error if AssignmentTargetType of UnaryExpression is invalid. (arguments)
+  In non-strict code, "++arguments" does not produce an early error.
 info: |
 
   sec-identifiers-static-semantics-assignmenttargettype
