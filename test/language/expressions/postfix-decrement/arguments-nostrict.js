@@ -4,7 +4,7 @@
 /*---
 esid: sec-update-expressions-static-semantics-early-errors
 description: >
-  It is an early Reference Error if AssignmentTargetType of LeftHandSideExpression is invalid. (arguments)
+  In non-strict code, "arguments--" does not produce an early error.
 info: |
 
   sec-identifiers-static-semantics-assignmenttargettype

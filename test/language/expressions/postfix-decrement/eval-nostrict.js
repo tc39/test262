@@ -4,13 +4,13 @@
 /*---
 esid: sec-update-expressions
 description: >
-  It is an early Reference Error if AssignmentTargetType of LeftHandSideExpression is invalid. (eval)
+  In non-strict code, "eval--" does not produce an early error.
 info: |
 
   sec-identifiers-static-semantics-assignmenttargettype
 
-    1. If this IdentifierReference is contained in strict mode code and StringValue of Identifier is "eval" or  "arguments", return strict.
-    2. Return simple.
+    If this IdentifierReference is contained in strict mode code and StringValue of Identifier is "eval" or  "arguments", return strict.
+    Return simple.
 
   sec-update-expressions-static-semantics-early-errors
 
