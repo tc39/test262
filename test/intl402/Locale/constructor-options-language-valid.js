@@ -15,6 +15,9 @@ info: |
     ApplyOptionsToTag( tag, options )
     ...
     2. If IsStructurallyValidLanguageTag(tag) is false, throw a RangeError exception.
+    3. Let language be ? GetOption(options, "language", "string", undefined, undefined).
+    4. If language is not undefined, then
+       a. If language does not match the unicode_language_subtag production, throw a RangeError exception.
 
     IsStructurallyValidLanguageTag ( locale )
 
@@ -28,9 +31,6 @@ features: [Intl.Locale]
 ---*/
 
 const validLanguageOptions = [
-  [null, 'null'],
-  ['zh-cmn', 'cmn'],
-  ['ZH-CMN', 'cmn'],
   [{ toString() { return 'de' } }, 'de'],
 ];
 for (const [language, expected] of validLanguageOptions) {
@@ -54,6 +54,9 @@ for (const [language, expected] of validLanguageOptions) {
 }
 
 const invalidLanguageOptions = [
+    null,
+    'zh-cmn',
+    'ZH-CMN',
     'abcd',
 ];
 for (const language of invalidLanguageOptions) {
