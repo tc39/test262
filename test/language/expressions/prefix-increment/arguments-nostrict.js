@@ -22,4 +22,6 @@ info: |
 flags: [noStrict]
 ---*/
 
-++arguments;
+if (false) {
+  ++arguments;
+}
