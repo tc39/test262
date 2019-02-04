@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// Flags: --harmony-intl-relative-time-format
-
 // The following test are not part of the comformance. Just some output in
 // English to verify the format does return something reasonable for English.
 // It may be changed when we update the CLDR data.
@@ -96,14 +94,4 @@ assertEquals('second', parts[3].unit);
 assertEquals(3, Object.getOwnPropertyNames(parts[4]).length);
 assertEquals('decimal', parts[4].type);
 assertEquals('.', parts[4].value);
-assertEquals('second', parts[4].unit);
-// 5: "78"
-assertEquals(3, Object.getOwnPropertyNames(parts[4]).length);
-assertEquals('fraction', parts[5].type);
-assertEquals('78', parts[5].value);
-assertEquals('second', parts[5].unit);
-// 6: " seconds"
-assertEquals(2, Object.getOwnPropertyNames(parts[6]).length);
-assertEquals('literal', parts[6].type);
-assertEquals(' seconds', parts[6].value);
-assertEquals(undefined, parts[6].unit);
+assertEquals('second', pa
