@@ -9,14 +9,14 @@ let cleanup = function(iter) {
   ++cleanup_call_count;
 }
 
-let wf = new WeakFactory(cleanup);
-// Create an object and a WeakCell pointing to it. The object needs to be inside
+let key = {"k": "this is my key"};
+let fg = new FinalizationGroup(cleanup);
+// Create an object and register it in the FinalizationGroup. The object needs to be inside
 // a closure so that we can reliably kill them!
-let weak_cell;
 
 (function() {
   let object = {};
-  weak_cell = wf.makeCell(object);
+  fg.register(object, {}, key);
 
   // object goes out of scope.
 })();
@@ -25,10 +25,10 @@ let weak_cell;
 gc();
 assertEquals(0, cleanup_call_count);
 
-// Clear the WeakCell before cleanup has ran.
-weak_cell.clear();
+// Unregister the object from the FinalizationGroup before cleanup has ran.
+fg.unregister(key);
 
-// Assert that the cleanup function won't be called, since the WeakCell was cleared.
+// Assert that the cleanup function won't be called.
 let timeout_func = function() {
   assertEquals(0, cleanup_call_count);
 }

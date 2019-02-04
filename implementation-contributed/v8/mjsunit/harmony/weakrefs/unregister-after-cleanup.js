@@ -5,42 +5,42 @@
 // Flags: --harmony-weak-refs --expose-gc --noincremental-marking
 
 let cleanup_call_count = 0;
-let cleanup_weak_cell_count = 0;
+let cleanup_holdings_count = 0;
 let cleanup = function(iter) {
-  for (wc of iter) {
-    assertSame(wc, weak_cell);
-    ++cleanup_weak_cell_count;
+  for (holdings of iter) {
+    assertEquals("holdings", holdings);
+    ++cleanup_holdings_count;
   }
   ++cleanup_call_count;
 }
 
-let wf = new WeakFactory(cleanup);
-// Create an object and a WeakCell pointing to it. The object needs to be inside
-// a closure so that we can reliably kill them!
-let weak_cell;
+let fg = new FinalizationGroup(cleanup);
+let key = {"k": "this is the key"};
+// Create an object and register it in the FinalizationGroup. The object needs
+// to be inside a closure so that we can reliably kill them!
 
 (function() {
   let object = {};
-  weak_cell = wf.makeCell(object);
+  fg.register(object, "holdings", key);
 
   // object goes out of scope.
 })();
 
-// This GC will discover dirty WeakCells and schedule cleanup.
+// This GC will reclaim the target object and schedule cleanup.
 gc();
 assertEquals(0, cleanup_call_count);
 
-// Assert that the cleanup function was called and iterated the WeakCell.
+// Assert that the cleanup function was called and iterated the holdings.
 let timeout_func = function() {
   assertEquals(1, cleanup_call_count);
-  assertEquals(1, cleanup_weak_cell_count);
+  assertEquals(1, cleanup_holdings_count);
 
-  // Clear an already iterated over WeakCell.
-  weak_cell.clear();
+  // Unregister an already iterated over weak reference.
+  fg.unregister(key);
 
   // Assert that it didn't do anything.
   setTimeout(() => { assertEquals(1, cleanup_call_count); }, 0);
-  setTimeout(() => { assertEquals(1, cleanup_weak_cell_count); }, 0);
+  setTimeout(() => { assertEquals(1, cleanup_holdings_count); }, 0);
 }
 
 setTimeout(timeout_func, 0);
