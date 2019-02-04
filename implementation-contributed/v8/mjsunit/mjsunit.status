@@ -268,6 +268,7 @@
   'regress/regress-trap-allocation-memento': [SKIP],
   'regress/regress-2249': [SKIP],
   'regress/regress-4121': [SKIP],
+  'regress/regress-6989': [SKIP],
   'compare-known-objects-slow': [SKIP],
   'compiler/array-multiple-receiver-maps': [SKIP],
   # Tests taking too long
@@ -322,7 +323,7 @@
 }],  # 'gc_stress == True'
 
 ##############################################################################
-['lite_mode == True', {
+['lite_mode', {
   # Skip tests not suitable for lite_mode.
 
   # TODO(8596): We cache the templates in the feedback vector. In lite mode
@@ -348,7 +349,38 @@
   'spread-large-string': [SKIP],
   'spread-large-array': [SKIP],
 
-}],  # 'lite_mode == True'
+  # TODO(v8:7777): Re-enable once wasm is supported in jitless mode.
+  'regress/wasm/*': [SKIP],
+  'tools/compiler-trace-flags': [SKIP],
+  'wasm/*': [SKIP],
+
+  # Other tests that use asm / wasm / optimized code.
+  'asm/asm-heap': [SKIP],
+  'asm/asm-validation': [SKIP],
+  'asm/call-stdlib': [SKIP],
+  'asm/call-annotation': [SKIP],
+  'asm/global-imports': [SKIP],
+  'asm/regress-913822': [SKIP],
+  'asm/return-types': [SKIP],
+  'regress/regress-599719': [SKIP],
+  'regress/regress-6196': [SKIP],
+  'regress/regress-6700': [SKIP],
+  'regress/regress-6838-2': [SKIP],
+  'regress/regress-6838-3': [SKIP],
+
+  # Timeouts in lite / jitless mode.
+  'asm/embenchen/*': [SKIP],
+
+  # Tests that generate code at runtime.
+  'code-comments': [SKIP],
+  'regress/regress-617526': [SKIP],
+  'regress/regress-7893': [SKIP],
+  'regress/regress-8377': [SKIP],
+  'regress/regress-863810': [SKIP],
+  'regress/regress-crbug-721835': [SKIP],
+  'regress/regress-crbug-759327': [SKIP],
+  'regress/regress-crbug-898974': [SKIP],
+}],  # 'lite_mode'
 
 ##############################################################################
 ['byteorder == big', {
@@ -964,4 +996,11 @@
   # crbug.com/v8/7741
   'wasm/bigint': [SKIP],
 }], # arch in [arm, android_arm, android_ia32, ia32, ppc, s390, s390x, mipsel, mips]
+
+##############################################################################
+['arch not in [x64, arm, arm64] or system != linux', {
+  # Unwinding info writer is only supported on x64, arm, and arm64 Linux
+  'regress/regress-913844': [SKIP],
+}],
+
 ]

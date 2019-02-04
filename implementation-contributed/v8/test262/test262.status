@@ -142,38 +142,6 @@
   'language/eval-code/direct/var-env-lower-lex-catch-non-strict': [FAIL],
 
   # https://bugs.chromium.org/p/v8/issues/detail?id=4951
-  'language/expressions/assignment/dstr-array-elem-iter-rtrn-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-iter-thrw-close': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-iter-thrw-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-list-thrw-close': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-list-thrw-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-rest-rtrn-close': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-rest-rtrn-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-rest-rtrn-close-null': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-rest-thrw-close': [FAIL],
-  'language/expressions/assignment/dstr-array-elem-trlg-iter-rest-thrw-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-rest-iter-rtrn-close': [FAIL],
-  'language/expressions/assignment/dstr-array-rest-iter-rtrn-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-rest-iter-rtrn-close-null': [FAIL],
-  'language/expressions/assignment/dstr-array-rest-iter-thrw-close': [FAIL],
-  'language/expressions/assignment/dstr-array-rest-iter-thrw-close-err': [FAIL],
-  'language/expressions/assignment/dstr-array-rest-lref-err': [FAIL],
-  'language/statements/for-of/dstr-array-elem-iter-rtrn-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-elem-iter-thrw-close': [FAIL],
-  'language/statements/for-of/dstr-array-elem-iter-thrw-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-list-thrw-close': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-list-thrw-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-rest-rtrn-close': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-rest-rtrn-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-rest-rtrn-close-null': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-rest-thrw-close': [FAIL],
-  'language/statements/for-of/dstr-array-elem-trlg-iter-rest-thrw-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-rest-iter-rtrn-close': [FAIL],
-  'language/statements/for-of/dstr-array-rest-iter-rtrn-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-rest-iter-rtrn-close-null': [FAIL],
-  'language/statements/for-of/dstr-array-rest-iter-thrw-close': [FAIL],
-  'language/statements/for-of/dstr-array-rest-iter-thrw-close-err': [FAIL],
-  'language/statements/for-of/dstr-array-rest-lref-err': [FAIL],
   'language/expressions/assignment/destructuring/iterator-destructuring-property-reference-target-evaluation-order': [FAIL],
   'language/expressions/assignment/destructuring/keyed-destructuring-property-reference-target-evaluation-order': [FAIL],
 
@@ -420,19 +388,6 @@
   # https://bugs.chromium.org/p/v8/issues/detail?id=5116
   'built-ins/TypedArray/prototype/fill/fill-values-conversion-operations-consistent-nan': [PASS, FAIL],
 
-  # https://bugs.chromium.org/p/v8/issues/detail?id=5135
-  'annexB/language/eval-code/direct/func-block-decl-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-else-decl-a-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-else-decl-b-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-else-stmt-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-no-else-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-if-stmt-else-decl-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-switch-case-eval-func-block-scoping': [FAIL],
-  'annexB/language/eval-code/direct/func-switch-dflt-eval-func-block-scoping': [FAIL],
-
-  # https://bugs.chromium.org/p/v8/issues/detail?id=5139
-  'annexB/built-ins/Date/prototype/setYear/year-number-relative': [FAIL],
-
   # https://bugs.chromium.org/p/v8/issues/detail?id=4698
   'language/expressions/call/tco-call-args': [SKIP],
   'language/expressions/call/tco-cross-realm-class-construct': [SKIP],
@@ -478,16 +433,6 @@
   'built-ins/TypedArrayConstructors/internals/Set/BigInt/key-is-not-integer': [FAIL],
   'built-ins/TypedArrayConstructors/internals/Set/key-is-out-of-bounds': [FAIL],
   'built-ins/TypedArrayConstructors/internals/Set/BigInt/key-is-out-of-bounds': [FAIL],
-
-  # https://bugs.chromium.org/p/v8/issues/detail?id=5112
-  'annexB/language/eval-code/direct/func-block-decl-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-else-decl-a-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-else-decl-b-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-else-stmt-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-if-decl-no-else-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-if-stmt-else-decl-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-switch-case-eval-func-no-skip-try': [FAIL],
-  'annexB/language/eval-code/direct/func-switch-dflt-eval-func-no-skip-try': [FAIL],
 
   # SharedArrayBuffer tests that require flags
   'built-ins/SharedArrayBuffer/*': ['--harmony-sharedarraybuffer'],
@@ -561,12 +506,14 @@
   'language/expressions/call/eval-spread-empty-leading': [FAIL],
   'language/expressions/call/eval-spread-empty-trailing': [FAIL],
 
+  # https://bugs.chromium.org/p/v8/issues/detail?id=8398
+  'intl402/supportedLocalesOf-returned-array-elements-are-frozen': [FAIL],
+  'intl402/ListFormat/constructor/supportedLocalesOf/result-type': [FAIL],
+  'intl402/RelativeTimeFormat/constructor/supportedLocalesOf/result-type': [FAIL],
+  'intl402/Segmenter/constructor/supportedLocalesOf/result-type': [FAIL],
+
   # https://bugs.chromium.org/p/v8/issues/detail?id=7472
   'intl402/NumberFormat/currency-digits': [FAIL],
-
-  # https://bugs.chromium.org/p/v8/issues/detail?id=7474
-  'intl402/NumberFormat/prototype/format/format-fraction-digits': [FAIL],
-  'intl402/NumberFormat/prototype/format/format-significant-digits': [FAIL],
 
   # https://bugs.chromium.org/p/v8/issues/detail?id=7482
   'intl402/DateTimeFormat/prototype/resolvedOptions/resolved-locale-with-hc-unicode': [FAIL],
@@ -576,9 +523,6 @@
 
   # https://bugs.chromium.org/p/v8/issues/detail?id=7669
   'intl402/Intl/getCanonicalLocales/canonicalized-tags': [FAIL],
-
-  # https://github.com/tc39/ecma402/issues/223
-  'intl402/Collator/missing-unicode-ext-value-defaults-to-true': [FAIL],
 
   # https://bugs.chromium.org/p/v8/issues/detail?id=8260
   'intl402/Locale/constructor-non-iana-canon': [FAIL],
@@ -592,17 +536,6 @@
   # https://bugs.chromium.org/p/v8/issues/detail?id=8246
   'intl402/Locale/constructor-tag': [FAIL],
 
-  # https://bugs.chromium.org/p/v8/issues/detail?id=8244
-  'intl402/Locale/constructor-getter-order': [FAIL],
-  'intl402/Locale/constructor-locale-object': [FAIL],
-  'intl402/Locale/constructor-options-language-grandfathered': [FAIL],
-  'intl402/Locale/constructor-options-language-invalid': [FAIL],
-  'intl402/Locale/constructor-options-region-invalid': [FAIL],
-  'intl402/Locale/constructor-options-region-valid': [FAIL],
-  'intl402/Locale/constructor-options-script-invalid': [FAIL],
-  'intl402/Locale/constructor-options-script-valid': [FAIL],
-  'intl402/Locale/getters': [FAIL],
-
   # https://bugs.chromium.org/p/v8/issues/detail?id=8243
   'intl402/Locale/extensions-private': [FAIL],
   'intl402/Locale/getters-privateuse': [FAIL],
@@ -615,6 +548,9 @@
   'intl402/Locale/getters-grandfathered': [FAIL],
   'intl402/Locale/likely-subtags-grandfathered': [FAIL],
 
+  # https://bugs.chromium.org/p/v8/issues/detail?id=8613
+  'intl402/RelativeTimeFormat/prototype/resolvedOptions/order': [FAIL],
+
   # https://bugs.chromium.org/p/v8/issues/detail?id=6705
   'built-ins/Object/assign/strings-and-symbol-order': [FAIL],
 
@@ -623,9 +559,6 @@
   'language/expressions/generators/generator-created-after-decl-inst': [FAIL],
   'language/expressions/async-generator/generator-created-after-decl-inst': [FAIL],
   'language/statements/async-generator/generator-created-after-decl-inst': [FAIL],
-
-  # https://bugs.chromium.org/p/v8/issues/detail?id=8099
-  'intl402/NumberFormat/prototype/format/format-negative-numbers': [FAIL],
 
   # await tests that require flags
   'language/expressions/await/async-generator-interleaved': ['--harmony-await-optimization'],
@@ -646,7 +579,6 @@
 
   # https://bugs.chromium.org/p/v8/issues/detail?id=8258
   'intl402/Locale/constructor-options-language-valid-undefined': [FAIL],
-  'intl402/Locale/constructor-options-throwing-getters': [FAIL],
   'intl402/NumberFormat/prototype/format/format-fraction-digits-precision': [FAIL],
   'intl402/NumberFormat/prototype/format/format-significant-digits-precision': [FAIL],
 
