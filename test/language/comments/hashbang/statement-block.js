@@ -11,6 +11,9 @@ negative:
   type: SyntaxError
 features: [hashbang]
 ---*/
+
+$DONOTEVALUATE();
+
 {
   #!
 }
