@@ -5,6 +5,10 @@ _THROW_STMT = re.compile(
       r'^\$DONOTEVALUATE\(\);$',
       re.MULTILINE)
 
+_THROW_STMT_LEGACY = re.compile(
+      r'^throw "Test262: This statement should not be evaluated\.";$',
+      re.MULTILINE)
+
 class CheckNegative(Check):
     '''Ensure tests have the expected YAML-formatted metadata.'''
     ID = 'NEGATIVE'
@@ -23,5 +27,9 @@ class CheckNegative(Check):
         if not 'phase' in negative:
             return '"negative" must specify a "phase" field'
 
-        if negative["phase"] in ["parse", "resolution"] and not _THROW_STMT.search(source):
-            return 'Negative tests of type "early" must include a `throw` statement'
+        if negative["phase"] in ["parse", "resolution"]:
+            if meta.get('flags') and 'raw' in meta['flags']:
+                if not _THROW_STMT_LEGACY.search(source):
+                    return 'Negative tests of type "early" must include a `throw` statement'
+            elif not _THROW_STMT.search(source):
+                return 'Negative tests of type "early" must include a $DONOTEVALUATE() call'
