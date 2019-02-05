@@ -9,4 +9,6 @@ negative:
   type: SyntaxError
 ---*/
 
+$DONOTEVALUATE();
+
 !!!
