@@ -1,4 +1,3 @@
-LICENSE
 ^ expected errors | v input
 /*---
 esid: sec-assignment-operators-static-semantics-early-errors
