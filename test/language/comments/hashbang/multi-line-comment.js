@@ -1,5 +1,5 @@
 #!/*
-DONOTEVALUATE();
+$DONOTEVALUATE();
 these characters should not be considered within a comment
 */
 /*---
