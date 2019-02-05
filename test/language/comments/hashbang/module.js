@@ -1,10 +1,11 @@
-#\u0021
+#!
 /*---
 esid: pending
 description: >
-    Hashbang comments should not be allowed to have encoded characters
+    Hashbang comments should be allowed in Modules.
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
-flags: [raw]
+flags: [module]
+features: [hashbang]
 ---*/

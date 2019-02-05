@@ -1,8 +1,8 @@
-    #!
+#\u0021
 /*---
 esid: pending
 description: >
-    Hashbang comments should only be allowed at the start of source texts and should not be preceded by whitespace.
+    Hashbang comments should not be allowed to have encoded characters \u0021
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
@@ -10,4 +10,5 @@ flags: [raw]
 negative:
   phase: parse
   type: SyntaxError
+features: [hashbang]
 ---*/
