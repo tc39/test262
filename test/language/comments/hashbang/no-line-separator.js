@@ -5,7 +5,6 @@ description: >
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
-flags: [raw]
 features: [hashbang]
 ---*/
 

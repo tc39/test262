@@ -6,6 +6,6 @@ description: >
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
-flags: [module]
+flags: [module, raw]
 features: [hashbang]
 ---*/
