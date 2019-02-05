@@ -9,6 +9,10 @@ flags: [raw]
 negative:
   phase: parse
   type: SyntaxError
+features: [hashbang]
 ---*/
+
+DONOTEVALUATE();
+
 function fn() {#!
 }

@@ -6,6 +6,7 @@ info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
 flags: [raw]
+features: [hashbang]
 ---*/
 
-eval('#!');
+assert.sameValue(eval('#!'), undefined);
