@@ -1,5 +1,5 @@
 #!/*
-$DONOTEVALUATE();
+throw "Test262: This statement should not be evaluated.";
 these characters should not be considered within a comment
 */
 /*---
