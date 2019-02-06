@@ -1,0 +1,42 @@
+// Copyright (C) 2019 Caio Lima. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Acessing private field from super should throw an error
+info: |
+  Updated Productions
+
+  CallExpression[Yield, Await]:
+    CoverCallExpressionAndAsyncArrowHead[?Yield, ?Await]
+    SuperCall[?Yield, ?Await]
+    CallExpression[?Yield, ?Await]Arguments[?Yield, ?Await]
+    CallExpression[?Yield, ?Await][Expression[+In, ?Yield, ?Await]]
+    CallExpression[?Yield, ?Await].IdentifierName
+    CallExpression[?Yield, ?Await]TemplateLiteral[?Yield, ?Await]
+    CallExpression[?Yield, ?Await].PrivateName
+template: default
+features: [class-fields-private, class-fields-public]
+---*/
+
+//- elements
+#m = function() { return 'test262'; };
+
+Child = class extends C {
+  access() {
+    return super.#m;
+  }
+
+  method() {
+    return super.#m();
+  }
+}
+
+//- assertions
+assert.throws(TypeError, function() {
+  (new (new C()).Child()).method();
+}, 'super.#m() throws TypeError');
+
+assert.throws(TypeError, function() {
+  (new (new C()).Child()).access();
+}, 'super.#m throws TypeError');
+
