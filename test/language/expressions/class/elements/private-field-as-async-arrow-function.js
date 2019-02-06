@@ -5,7 +5,7 @@
 description: Calling async arrow function returned from private field access (field definitions in a class expression)
 esid: prod-FieldDefinition
 features: [class-fields-private, async-functions, arrow-function, class]
-flags: [generated]
+flags: [generated, async]
 info: |
     Updated Productions
 
@@ -31,9 +31,6 @@ var C = class {
 
 let c = new C();
 
-async function asyncRun() {
-    assert.sameValue(await c.method(), 'test262');
-}
-
-asyncRun();
+c.method().then((value) => assert.sameValue(value, 'test262'))
+  .then($DONE, $DONE);
 

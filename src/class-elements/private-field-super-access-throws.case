@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Acessing private field from super shoudl throw an error
+desc: Acessing private field from super should throw an error
 info: |
   Updated Productions
 
@@ -33,10 +33,10 @@ Child = class extends C {
 
 //- assertions
 assert.throws(TypeError, function() {
-  (new (new C()).Child).method();
+  (new (new C()).Child()).method();
 }, 'super.#m() throws TypeError');
 
 assert.throws(TypeError, function() {
-  (new (new C()).Child).access();
+  (new (new C()).Child()).access();
 }, 'super.#m throws TypeError');
 

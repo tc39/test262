@@ -2,7 +2,7 @@
 // - src/class-elements/private-field-super-access-throws.case
 // - src/class-elements/default/cls-expr.template
 /*---
-description: Acessing private field from super shoudl throw an error (field definitions in a class expression)
+description: Acessing private field from super should throw an error (field definitions in a class expression)
 esid: prod-FieldDefinition
 features: [class-fields-private, class-fields-public, class]
 flags: [generated]
@@ -37,10 +37,10 @@ var C = class {
 }
 
 assert.throws(TypeError, function() {
-  (new (new C()).Child).method();
+  (new (new C()).Child()).method();
 }, 'super.#m() throws TypeError');
 
 assert.throws(TypeError, function() {
-  (new (new C()).Child).access();
+  (new (new C()).Child()).access();
 }, 'super.#m throws TypeError');
 
