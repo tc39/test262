@@ -161,7 +161,35 @@ flags: [onlyStrict]"""
         self.assertEqual(['onlyStrict'], record['flags'])
         self.assertEqual("", record['onlyStrict'])
         self.assertEqual("SyntaxError", record['negative'])
-        self.assertEqual("http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls",
+        self.assertEqual('"http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls"',
+                         record['bestPractice'])
+
+        self.assertEqual(""""use strict";
+{
+    function __func(){}
+}
+
+""", record['test'])
+
+class TestYAML2Parsing(unittest.TestCase):
+    def test_test(self):
+        self.assertTrue(True)
+
+    def test_overview(self):
+        name = 'fixtures/test262-yaml-headers-no-cr.js'
+        contents = slurpFile(name)
+        record = parseTestRecord(contents, name)
+
+        self.assertEqual('',
+                         record['header'])
+        self.assertEqual("The production Block { } in strict code can't contain function declaration;\n", record['commentary'])
+
+        self.assertEqual("Trying to declare function at the Block statement",
+                         record['description'])
+        self.assertEqual(['onlyStrict'], record['flags'])
+        self.assertEqual("", record['onlyStrict'])
+        self.assertEqual("SyntaxError", record['negative'])
+        self.assertEqual('"http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls"',
                          record['bestPractice'])
 
         self.assertEqual(""""use strict";
