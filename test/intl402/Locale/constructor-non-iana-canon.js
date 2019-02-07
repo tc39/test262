@@ -75,12 +75,6 @@ var testData = [
 ];
 
 for (const {tag, canonical = tag, maximized = canonical, minimized = canonical} of testData) {
-    assert.sameValue(
-      Intl.getCanonicalLocales(tag)[0],
-      canonical,
-      'The value of Intl.getCanonicalLocales(tag)[0] equals the value of `canonical`'
-    );
-
     const loc = new Intl.Locale(tag);
     assert.sameValue(
       new Intl.Locale(tag).toString(),
