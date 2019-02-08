@@ -5,7 +5,6 @@
 
 # TODO: resolve differences with common.py and unify into one file.
 
-
 import logging
 import optparse
 import os
@@ -94,13 +93,60 @@ def yamlAttrParser(testRecord, attrs, name):
         for flag in testRecord['flags']:
             testRecord[flag] = ""
 
+def findAttrs(src):
+    match = re.search(r'\/\*---(?:[\s]*)((?:[\s\S])*)(?:[\s]*)---\*\/', src, re.DOTALL)
+    if not match:
+        return (None, None)
+    
+    return (match.group(0), match.group(1).strip())
+
+def findLicense(src):
+    _LICENSE_PATTERN = re.compile(
+        r'\/\/ Copyright( \([cC]\))? (\w+) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
+        r'(' +
+            r'\/\/ (' +
+                r'This code is governed by the( BSD)? license found in the LICENSE file\.' +
+                r'|' +
+                r'See LICENSE for details' +
+            r')' +
+            r'|' +
+            r'\/\/ Use of this source code is governed by a BSD-style license that can be[\r\n]{1,2}' +
+            r'\/\/ found in the LICENSE file\.' +
+            r'|' +
+            r'\/\/ See LICENSE or https://github\.com/tc39/test262/blob/master/LICENSE' +
+        r')', re.IGNORECASE)
+    
+    match = _LICENSE_PATTERN.search(src)
+    if not match:
+        return None
+
+    return match.group(0).strip()
+
 def parseTestRecord(src, name):
     testRecord = {}
-    match = matchParts(src, name)
-    testRecord['header'] = match.group(1).strip()
-    testRecord['test'] = match.group(3) # do not trim
 
-    attrs = match.group(2)
+    header = ""
+    test = ""
+    attrs = ""
+
+    try:
+        match = matchParts(src, name)
+        header = match.group(1).strip()
+        attrs = match.group(2)
+        test = match.group(3)
+    except:
+        # match = something else that works without copyright
+        header = findLicense(src)
+        [frontmatter, attrs] = findAttrs(src)
+        test = src
+        if frontmatter:
+            test = test.replace(frontmatter, '')
+        if header:
+            test = test.replace(header, '')
+
+    testRecord['header'] = header
+    testRecord['test'] = test
+
     if attrs:
         if hasYAML(attrs):
             yamlAttrParser(testRecord, attrs, name)
