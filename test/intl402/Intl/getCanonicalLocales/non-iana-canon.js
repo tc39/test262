@@ -38,15 +38,27 @@ var testData = [
     },
     {
         tag: "aar-x-private",
+        // "aar" should be canonicalized into "aa" because "aar" matches the type attribute of
+        // a languageAlias element in 
+        // https://www.unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml
+        canonical: "aa-x-private", 
     },
     {
         tag: "heb-x-private",
+        // "heb" should be canonicalized into "he" because "heb" matches the type attribute of
+        // a languageAlias element in 
+        // https://www.unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml
+        canonical: "he-x-private",
     },
     {
         tag: "de-u-kf",
     },
     {
         tag: "ces",
+        // "ces" should be canonicalized into "cs" because "ces" matches the type attribute of
+        // a languageAlias element in 
+        // https://www.unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml
+        canonical: "cs",
     },
     {
         tag: "hy-arevela",
