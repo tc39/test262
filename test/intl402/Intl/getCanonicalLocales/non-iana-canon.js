@@ -19,6 +19,36 @@ var testData = [
         canonical: "ro",
     },
     {
+        tag: "es-ES-preeuro",
+    },
+    {
+        tag: "uz-UZ-cyrillic",
+    },
+    {
+        tag: "posix",
+    },
+    {
+        tag: "hi-direct",
+    },
+    {
+        tag: "zh-pinyin",
+    },
+    {
+        tag: "zh-stroke",
+    },
+    {
+        tag: "aar-x-private",
+    },
+    {
+        tag: "heb-x-private",
+    },
+    {
+        tag: "de-u-kf",
+    },
+    {
+        tag: "ces",
+    },
+    {
         tag: "hy-arevela",
         canonical: "hy",
     },
