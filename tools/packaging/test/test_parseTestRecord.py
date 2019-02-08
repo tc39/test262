@@ -19,7 +19,6 @@ def slurpFile(name):
         contents = f.read()
     return contents
 
-
 class TestOldParsing(unittest.TestCase):
 
     def test_test(self):
@@ -198,7 +197,6 @@ class TestYAML2Parsing(unittest.TestCase):
 }
 
 """, record['test'])
-
 
 
 if __name__ == '__main__':
