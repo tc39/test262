@@ -1,7 +1,7 @@
 /*---
 esid: pending
 description: >
-    Hashbang comments should be available in Script evaluator contexts.
+    Hashbang comments should be available in Script evaluator contexts. (direct eval)
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
