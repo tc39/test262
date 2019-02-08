@@ -1,0 +1,24 @@
+// Copyright (C) 2019 Caio Lima. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Acessing private field from object destructuring pattern is not a valid syntax
+info: |
+  Updated Productions
+
+  ObjectAssignmentPattern[Yield, Await]:
+     {}
+     {AssignmentRestProperty[?Yield, ?Await]}
+     {AssignmentPropertyList[?Yield, ?Await]}
+     {AssignmentPropertyList[?Yield, ?Await],AssignmentRestProperty[?Yield, ?Await]opt}
+template: syntax/invalid
+features: [class-fields-private]
+---*/
+
+//- elements
+#x = 1;
+
+destructureX() {
+  const { #x: x } = this;
+  return x;
+}
