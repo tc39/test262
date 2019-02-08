@@ -1,0 +1,26 @@
+// Copyright (C) 2019 Caio Lima. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Acessing private field from super is not a valid syntax
+info: |
+  Updated Productions
+
+  MemberExpression[Yield]:
+    MemberExpression[?Yield].PrivateName
+template: syntax/invalid
+features: [class-fields-private]
+---*/
+
+//- elements
+#m = function() { return 'test262'; };
+
+Child = class extends C {
+  access() {
+    return super.#m;
+  }
+
+  method() {
+    return super.#m();
+  }
+}
