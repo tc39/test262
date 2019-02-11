@@ -4,7 +4,7 @@
 /*---
 description: Acessing private field from object destructuring pattern is not a valid syntax (class expression)
 esid: prod-ClassElement
-features: [class-fields-private, class]
+features: [class-fields-private, destructuring-binding, class]
 flags: [generated]
 negative:
   phase: parse
@@ -28,6 +28,5 @@ var C = class {
 
   destructureX() {
     const { #x: x } = this;
-    return x;
   }
 };
