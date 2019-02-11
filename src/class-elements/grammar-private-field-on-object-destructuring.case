@@ -12,7 +12,7 @@ info: |
      {AssignmentPropertyList[?Yield, ?Await]}
      {AssignmentPropertyList[?Yield, ?Await],AssignmentRestProperty[?Yield, ?Await]opt}
 template: syntax/invalid
-features: [class-fields-private]
+features: [class-fields-private, destructuring-binding]
 ---*/
 
 //- elements
@@ -20,5 +20,4 @@ features: [class-fields-private]
 
 destructureX() {
   const { #x: x } = this;
-  return x;
 }
