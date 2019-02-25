@@ -4,7 +4,6 @@
 /*---
 desc: No space allowed between sigial and IdentifierName
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition

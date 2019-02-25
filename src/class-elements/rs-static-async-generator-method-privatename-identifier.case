@@ -4,7 +4,6 @@
 /*---
 desc: Valid Static AsyncGeneratorMethod PrivateName
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition

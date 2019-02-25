@@ -4,7 +4,6 @@
 /*---
 desc: Valid multi-line, multi-field
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition
