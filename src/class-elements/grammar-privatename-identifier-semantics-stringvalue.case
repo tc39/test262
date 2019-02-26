@@ -5,7 +5,6 @@
 desc: PrivateName Static Semantics, StringValue
 esid: sec-private-names-static-semantics-stringvalue
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition

@@ -4,7 +4,6 @@
 /*---
 desc: Valid Static AsyncMethod PrivateName
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition

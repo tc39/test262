@@ -4,7 +4,6 @@
 /*---
 desc: Invalid FieldDefinition, ClassElementName, PropertyName Syntax
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition

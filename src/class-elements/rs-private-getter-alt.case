@@ -4,7 +4,6 @@
 /*---
 desc: Valid PrivateName as private getter
 info: |
-
   ClassElement :
     MethodDefinition
     ...

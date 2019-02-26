@@ -4,7 +4,6 @@
 /*---
 desc: Private methods are added before any field initializer is run, even if they appear textually later
 info: |
-
   InitializeInstanceElements ( O, constructor )
     ...
     4. For each item element in order from elements,

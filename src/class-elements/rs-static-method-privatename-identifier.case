@@ -4,7 +4,6 @@
 /*---
 desc: Valid Static Method PrivateName
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition

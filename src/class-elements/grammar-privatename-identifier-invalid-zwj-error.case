@@ -4,7 +4,6 @@
 /*---
 desc: Valid PrivateName Syntax
 info: |
-
   ClassElement :
     MethodDefinition
     static MethodDefinition
