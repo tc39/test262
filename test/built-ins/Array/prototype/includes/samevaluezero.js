@@ -25,3 +25,5 @@ assert.sameValue(sample.includes(false), false, "false");
 assert.sameValue(sample.includes(null), false, "null");
 assert.sameValue(sample.includes(""), false, "empty string");
 assert.sameValue(sample.includes(NaN), true, "NaN");
+
+assert(false);
