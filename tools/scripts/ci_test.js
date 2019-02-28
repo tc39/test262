@@ -37,7 +37,7 @@ fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
             state: 'pending',
             target_url: TRAVIS_BUILD_WEB_URL,
             description: 'Running new and/or modified tests',
-            context: 'continuous-integration/travis'
+            context: 'continuous-integration/travis-ci'
         }),
         headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
     }
@@ -104,7 +104,7 @@ fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
                     state,
                     target_url: TRAVIS_BUILD_WEB_URL,
                     description,
-                    context: 'continuous-integration/travis'
+                    context: 'continuous-integration/travis-ci'
                 }),
                 headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
             }
