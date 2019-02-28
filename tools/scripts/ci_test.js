@@ -16,7 +16,7 @@ const engines = [
 const {
     TRAVIS_REPO_SLUG,
     GITHUB_OAUTH2TOKEN,
-    TRAVIS_SHA,
+    TRAVIS_PULL_REQUEST_SHA,
     TRAVIS_BUILD_WEB_URL,
 } = process.env;
 
@@ -30,14 +30,14 @@ if (!paths) {
 
 console.log(`New or modified test files: \n${paths.replace(/\u0000/g, '\n')}`);
 
-fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
+fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_PULL_REQUEST_SHA}`,
     {
         method: 'POST',
         body: JSON.stringify({
             state: 'pending',
             target_url: TRAVIS_BUILD_WEB_URL,
             description: 'Running new and/or modified tests',
-            context: 'continuous-integration/travis-ci'
+            context: 'continuous-integration/travis-ci/tests-execution'
         }),
         headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
     }
@@ -97,14 +97,14 @@ fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
             description = `Found ${total} failures executing the tests`;
         }
 
-        fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
+        fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_PULL_REQUEST_SHA}`,
             {
                 method: 'POST',
                 body: JSON.stringify({
                     state,
                     target_url: TRAVIS_BUILD_WEB_URL,
                     description,
-                    context: 'continuous-integration/travis-ci'
+                    context: 'continuous-integration/travis-ci/tests-execution'
                 }),
                 headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
             }
