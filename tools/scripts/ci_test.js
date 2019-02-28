@@ -14,13 +14,8 @@ const engines = [
 ];
 
 const {
-    TRAVIS_REPO_SLUG,
-    GITHUB_OAUTH2TOKEN,
-    TRAVIS_PULL_REQUEST_SHA,
     TRAVIS_BUILD_WEB_URL,
 } = process.env;
-
-const API_URL = `https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_PULL_REQUEST_SHA}`;
 
 const paths = execSync(`git diff --diff-filter ACMR --name-only -z ${process.env.TRAVIS_BRANCH} -- test/`)
     .toString().trim();
@@ -67,47 +62,32 @@ for (const { hostName, hostType, hostPath } of engines) {
 }
 
 Promise.all(promises).then((engines) => {
-    const body = engines.map(([engine, results]) =>
+    const summary = engines.map(([engine, results]) =>
         `Results for ${engine}:\n${results}`).join('\n');
-    console.log(body);
+    console.log(summary);
 
-    const faileds = body.match(/^\d* failed$/gm);
-
-    let state = 'success';
-    let description = 'All new or modified tests are passing';
+    const faileds = summary.match(/^\d* failed$/gm);
 
     const total = faileds
         .map(failed => Number(/\d+/.exec(failed)[0]))
         .reduce((acc, n) => acc + n);
 
+    let description = '';
+
     if (faileds.some(n => n !== '0 failed')) {
         // Use pending for yellow, don't break the build
-        state = 'pending';
         description = `Found ${total} failures executing the tests`;
     }
 
-    fetch(API_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-            state,
-            target_url: TRAVIS_BUILD_WEB_URL,
-            description,
-            context: 'tests-execution'
-        }),
-        headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
-    }).then(res => console.log(res));
+    console.log(`Summary for tests execution:
+
+${description}
+
+--------------------------------------------
+Visit the [TravisCI build page for more info](${TRAVIS_BUILD_WEB_URL}).
+
+End of summary!`);
 }).catch((code, hostName) => {
     console.error('Failed to execute the tests!', code, hostName);
-    fetch(API_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-            state: 'error',
-            target_url: TRAVIS_BUILD_WEB_URL,
-            description: 'Failed to execute the tests!',
-            context: 'tests-execution'
-        }),
-        headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
-    }).then(res => {
-        console.log(res);
-    }).finally(() => process.exit(code));
+    process.exit(code);
 });
