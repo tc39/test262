@@ -6,18 +6,16 @@ _MIN_YEAR = 2009
 _MAX_YEAR = 2030
 
 _LICENSE_PATTERN = re.compile(
-    r'\/\/ Copyright( \([cC]\))? (\w+) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
+    r'// Copyright( \([C]\))? (\w+) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
     r'(' +
-        r'\/\/ (' +
-            r'This code is governed by the( BSD)? license found in the LICENSE file\.' +
-            r'|' +
-            r'See LICENSE for details' +
-        r')' +
+        r'// This code is governed by the( BSD)? license found in the LICENSE file\.' +
         r'|' +
-        r'\/\/ Use of this source code is governed by a BSD-style license that can be[\r\n]{1,2}' +
-        r'\/\/ found in the LICENSE file\.' +
+        r'// See LICENSE for details.' +
         r'|' +
-        r'\/\/ See LICENSE or https://github\.com/tc39/test262/blob/master/LICENSE' +
+        r'// Use of this source code is governed by a BSD-style license that can be[\r\n]{1,2}' +
+        r'// found in the LICENSE file\.' +
+        r'|' +
+        r'// See LICENSE or https://github\.com/tc39/test262/blob/master/LICENSE' +
     r')', re.IGNORECASE)
 
 class CheckLicense(Check):
