@@ -3,6 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const { spawn, execSync } = require('child_process');
+const fetch = require('node_fetch');
 
 const jsvu = `${process.env.HOME}/.jsvu`;
 const engines = [
@@ -59,26 +60,27 @@ for (const { hostName, hostType, hostPath } of engines) {
 
 Promise.all(promises)
     .then((engines) => {
-        const summary = engines.map(([engine, results]) =>
+        const body = engines.map(([engine, results]) =>
             `Results for ${engine}:\n${results}`).join('\n');
-        console.log(summary);
+        console.log(body);
 
-        const faileds = summary.match(/^\d* failed$/gm);
+        const faileds = body.match(/^\d* failed$/gm);
         if (faileds.some(n => n !== '0 failed')) {
             console.error('Failures found running tests.');
             process.exit(1);
         }
 
         // TODO: How do we send comments to the PR on GitHub??
+        const repoSlug = process.env.TRAVIS_REPO_SLUG;
+        const PR = process.env.TRAVIS_PULL_REQUEST;
 
-        // const token = process.env.GITHUB_OAUTH2TOKEN;
-        // const escapedSummary = summary.replace(/[\""]/g, '\\"');
-        // const repoSlug = process.env.TRAVIS_REPO_SLUG;
-        // const PR = process.env.TRAVIS_PULL_REQUEST;
-
-        // execSync(`curl -H "Authorization: token ${token}" -X POST `
-        //     + `-d "{\"body\": \"testing\"}" `
-        //     + `"https://api.github.com/repos/${repoSlug}/issues/${PR}/comments"`);
+        fetch(`https://api.github.com/repos/${repoSlug}/issues/${PR}/comments`,
+            {
+                method: 'POST',
+                body,
+                headers: { 'Authorization': `token ${process.env.GITHUB_OAUTH2TOKEN}` }
+            }
+        );
     })
     .catch((code, hostName) => {
         console.error('Failed to execute the tests!', code, hostName);
