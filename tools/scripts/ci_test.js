@@ -80,7 +80,7 @@ Promise.all(promises)
                 body,
                 headers: { 'Authorization': `token ${process.env.GITHUB_OAUTH2TOKEN}` }
             }
-        );
+        ).then(res => console.log(res));
     })
     .catch((code, hostName) => {
         console.error('Failed to execute the tests!', code, hostName);
