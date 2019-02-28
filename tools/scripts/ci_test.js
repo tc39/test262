@@ -97,13 +97,6 @@ fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
             description = `Found ${total} failures executing the tests`;
         }
 
-        const {
-            TRAVIS_REPO_SLUG,
-            GITHUB_OAUTH2TOKEN,
-            TRAVIS_SHA,
-            TRAVIS_BUILD_WEB_URL,
-        } = process.env;
-
         fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_SHA}`,
             {
                 method: 'POST',
