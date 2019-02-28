@@ -77,7 +77,7 @@ Promise.all(promises)
         fetch(`https://api.github.com/repos/${repoSlug}/issues/${PR}/comments`,
             {
                 method: 'POST',
-                body,
+                body: JSON.stringify({ body }),
                 headers: { 'Authorization': `token ${process.env.GITHUB_OAUTH2TOKEN}` }
             }
         ).then(res => console.log('Response:', res));
