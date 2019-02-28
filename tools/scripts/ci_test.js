@@ -42,6 +42,7 @@ fetch(`https://api.github.com/repos/${TRAVIS_REPO_SLUG}/statuses/${TRAVIS_PULL_R
         headers: { 'Authorization': `token ${GITHUB_OAUTH2TOKEN}` }
     }
 ).then(res => {
+    console.log('Sent pending status', res);
     const promises = [];
     for (const { hostName, hostType, hostPath } of engines) {
         const execution = spawn('test262-harness', [
