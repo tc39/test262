@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const fs = require('fs');
 const { spawn, execSync } = require('child_process');
-const fetch = require('node-fetch');
 
 const jsvu = `${process.env.HOME}/.jsvu`;
 const engines = [
