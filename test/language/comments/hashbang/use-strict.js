@@ -10,7 +10,7 @@ description: >
 info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
-flags: [raw, noStrict]
+flags: [raw]
 features: [hashbang]
 ---*/
 

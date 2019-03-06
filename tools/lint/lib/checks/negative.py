@@ -27,6 +27,9 @@ class CheckNegative(Check):
         if not 'phase' in negative:
             return '"negative" must specify a "phase" field'
 
+        if negative["phase"] not in ["parse", "resolution", "runtime"]:
+            return '"phase" must be one of ["parse", "resolution", "runtime"]'
+
         if negative["phase"] in ["parse", "resolution"]:
             if meta.get('flags') and 'raw' in meta['flags']:
                 if not _THROW_STMT_LEGACY.search(source):
