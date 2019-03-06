@@ -25,6 +25,8 @@ matrix:
 notifications:
   webhooks: https://www.travisbuddy.com/
 travisBuddy:
+  templates:
+    success: "./travis-buddy-success-template.md"
   regex: "(Summary for tests execution:.*End of summary)"
   insertMode: update
   successBuildLog: true
