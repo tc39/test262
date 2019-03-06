@@ -23,9 +23,8 @@ matrix:
   allow_failures:
   - name: New or modified tests
 notifications:
-  webhooks:
-  - https://www.travisbuddy.com/
+  webhooks: https://www.travisbuddy.com/
 travisBuddy:
-  regex: "(Summary for tests execution:.*End of summary\!)"
+  regex: "(Summary for tests execution:.*End of summary)"
   insertMode: update
   successBuildLog: true
