@@ -26,6 +26,6 @@ notifications:
   webhooks:
   - https://www.travisbuddy.com/
 travisBuddy:
-  regex: "(Summary for tests execution:[\s\S]*End of summary!)"
+  regex: "(Summary for tests execution:.*End of summary\!)"
   insertMode: update
   successBuildLog: true
