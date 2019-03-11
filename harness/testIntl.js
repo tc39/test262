@@ -189,6 +189,19 @@ function getInvalidLanguageTags() {
     "de-1996-1996", // duplicate numeric variant
     "pt-u-ca-gregory-u-nu-latn", // duplicate singleton subtag
 
+    // Invalid tags starting with: https://github.com/tc39/ecma402/pull/289
+    "no-nyn", // regular grandfathered in BCP47, but invalid in UTS35
+    "i-klingon", // irregular grandfathered in BCP47, but invalid in UTS35
+    "zh-hak-CN", // language with extlang in BCP47, but invalid in UTS35
+    "sgn-ils", // language with extlang in BCP47, but invalid in UTS35
+    "x-foo", // privateuse-only in BCP47, but invalid in UTS35
+    "x-en-US-12345", // more privateuse-only variants.
+    "x-12345-12345-en-US",
+    "x-en-US-12345-12345",
+    "x-en-u-foo",
+    "x-en-u-foo-u-bar",
+    "x-u-foo",
+
     // underscores in different parts of the language tag
     "de_DE",
     "DE_de",
@@ -238,27 +251,32 @@ function getInvalidLanguageTags() {
 function isCanonicalizedStructurallyValidLanguageTag(locale) {
 
   /**
-   * Regular expression defining BCP 47 language tags.
+   * Regular expression defining Unicode BCP 47 Locale Identifiers.
    *
-   * Spec: RFC 5646 section 2.1.
+   * Spec: https://unicode.org/reports/tr35/#Unicode_locale_identifier
    */
-  var alpha = "[a-zA-Z]",
+  var alpha = "[a-z]",
     digit = "[0-9]",
     alphanum = "(" + alpha + "|" + digit + ")",
-    regular = "(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)",
-    irregular = "(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)",
-    grandfathered = "(" + irregular + "|" + regular + ")",
-    privateuse = "(x(-[a-z0-9]{1,8})+)",
-    singleton = "(" + digit + "|[A-WY-Za-wy-z])",
-    extension = "(" + singleton + "(-" + alphanum + "{2,8})+)",
     variant = "(" + alphanum + "{5,8}|(" + digit + alphanum + "{3}))",
     region = "(" + alpha + "{2}|" + digit + "{3})",
     script = "(" + alpha + "{4})",
-    extlang = "(" + alpha + "{3}(-" + alpha + "{3}){0,2})",
-    language = "(" + alpha + "{2,3}(-" + extlang + ")?|" + alpha + "{4}|" + alpha + "{5,8})",
-    langtag = language + "(-" + script + ")?(-" + region + ")?(-" + variant + ")*(-" + extension + ")*(-" + privateuse + ")?",
-    languageTag = "^(" + langtag + "|" + privateuse + "|" + grandfathered + ")$",
+    language = "(" + alpha + "{2,3}|" + alpha + "{5,8})",
+    privateuse = "(x(-[a-z0-9]{1,8})+)",
+    singleton = "(" + digit + "|[a-wy-z])",
+    attribute= "(" + alphanum + "{3,8})",
+    keyword = "(" + alphanum + alpha + "(-" + alphanum + "{3,8})*)",
+    unicode_locale_extensions = "(u((-" + keyword + ")+|((-" + attribute + ")+(-" + keyword + ")*)))",
+    tlang = "(" + language + "(-" + script + ")?(-" + region + ")?(-" + variant + ")*)",
+    tfield = "(" + alpha + digit + "(-" + alphanum + "{3,8})+)",
+    transformed_extensions = "(t((-" + tlang + "(-" + tfield + ")*)|(-" + tfield + ")+))",
+    other_singleton = "(" + digit + "|[a-sv-wy-z])",
+    other_extensions = "(" + other_singleton + "(-" + alphanum + "{2,8})+)",
+    extension = "(" + unicode_locale_extensions + "|" + transformed_extensions + "|" + other_extensions + ")",
+    locale_id = language + "(-" + script + ")?(-" + region + ")?(-" + variant + ")*(-" + extension + ")*(-" + privateuse + ")?",
+    languageTag = "^(" + locale_id + ")$",
     languageTagRE = new RegExp(languageTag, "i");
+
   var duplicateSingleton = "-" + singleton + "-(.*-)?\\1(?!" + alphanum + ")",
     duplicateSingletonRE = new RegExp(duplicateSingleton, "i"),
     duplicateVariant = "(" + alphanum + "{2,8}-)+" + variant + "-(" + alphanum + "{2,8}-)*\\3(?!" + alphanum + ")",
@@ -266,7 +284,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
 
 
   /**
-   * Verifies that the given string is a well-formed BCP 47 language tag
+   * Verifies that the given string is a well-formed Unicode BCP 47 Locale Identifier
    * with no duplicate variant or singleton subtags.
    *
    * Spec: ECMAScript Internationalization API Specification, draft, 6.2.2.
