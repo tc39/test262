@@ -13,13 +13,13 @@ includes: [compareArray.js]
 
 var weirdCases =
   [
-   "x-u-foo",
-   "en-x-u-foo",
-   "en-a-bar-x-u-foo",
-   "en-x-u-foo-a-bar",
-   "en-a-bar-u-baz-x-u-foo",
+   {locale: "x-u-foo", canonical: "und-x-u-foo"},
+   {locale: "en-x-u-foo"},
+   {locale: "en-a-bar-x-u-foo"},
+   {locale: "en-x-u-foo-a-bar"},
+   {locale: "en-a-bar-u-baz-x-u-foo"},
   ];
 
-weirdCases.forEach(function (weird) {
-  assert(compareArray(Intl.getCanonicalLocales(weird), [weird]));
+weirdCases.forEach(function ({locale, canonical = locale}) {
+  assert(compareArray(Intl.getCanonicalLocales(locale), [canonical]));
 });
