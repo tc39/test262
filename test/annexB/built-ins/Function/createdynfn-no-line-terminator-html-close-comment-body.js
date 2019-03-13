@@ -20,9 +20,6 @@ info: |
   ...
   41. Let sourceText be the string-concatenation of prefix, " anonymous(", P, 0x000A (LINE FEED),
   ") {", 0x000A (LINE FEED), bodyText, 0x000A (LINE FEED), and "}".
-negative:
-  phase: parse
-  type: SyntaxError
 ---*/
 
-Function("-->");
+assert.throws(SyntaxError, () => Function("-->"));
