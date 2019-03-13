@@ -4,7 +4,7 @@
 /*---
 esid: sec-createdynamicfunction
 description: >
-  Function parses the parameters text before forming the function body with the proper line feed.
+  Function parses the parameters text before forming the sourceText with the proper line feed.
 info: |
   The HTMLCloseComment requires a preceding line terminator.
 
