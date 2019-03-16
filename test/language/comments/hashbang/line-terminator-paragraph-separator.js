@@ -1,4 +1,4 @@
-#! this comment ends with a Paragraph Separator (U+2029) throw new EvalError();
+#! this comment ends with a Paragraph Separator (U+2029) 0++;
 
 // Copyright (C) 2019 Mike Pennisi. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
@@ -23,11 +23,16 @@ info: |
       <LS>
       <PS>
 
-    This test raises an EvalError to verify the precise location that source
-    text is interpreted as executable code.
+    This test relies on the static semantics of UpdateExpression in order to
+    verify the precise location that the source text is interpreted as
+    executable code. Although throwing a runtime exception may be a more
+    explicit mechanism to signal execution, using an early error allows this
+    test to verify correctness of ECMAScript parsers.
 flags: [raw]
 features: [hashbang]
 negative:
-  phase: runtime
-  type: EvalError
+  phase: parse
+  type: ReferenceError
 ---*/
+
+throw "Test262: This statement should not be evaluated.";
