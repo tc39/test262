@@ -3,7 +3,7 @@
 
 /*---
 description: Successfully access private method on Proxy objects without using [[Get]]
-esid: sec-privatefieldget
+esid: sec-getvalue
 info: |
   GetValue(V)
     ...
