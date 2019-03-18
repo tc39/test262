@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Successfully access private field on Proxy objects
+description: Sucessyfully get private reference without using [[Get]]
 esid: sec-getvalue
 info: |
   GetValue(V)
@@ -14,6 +14,7 @@ info: |
         ii. Let field be ? ResolveBinding(GetReferencedName(V), env).
         iii. Assert: field is a Private Name.
         iv. Return ? PrivateFieldGet(field, base).
+      c. Return ? base.[[Get]](GetReferencedName(V), GetThisValue(V)).
   PrivateFieldGet(P, O)
     1. Assert: P is a Private Name value.
     2. If O is not an object, throw a TypeError exception.
@@ -24,12 +25,8 @@ includes: [compareArray.js]
 features: [class, class-fields-private, Proxy]
 ---*/
 
-function assertArray(l, r) {
-  assert(compareArray(l, r), r);
-}
-
 let arr = [];
-	
+
 class ProxyBase {
   constructor() {
     return new Proxy(this, {
@@ -52,5 +49,5 @@ let t = new Test();
 let r = t.method();
 assert.sameValue(r, 3);
 
-assertArray(arr, ['method']);
+assert.compareArray(arr, ['method']);
 

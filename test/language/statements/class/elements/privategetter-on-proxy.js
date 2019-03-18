@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Successfully access private method on Proxy objects without using [[Get]]
+description: Successfully access private getter on Proxy objects without using [[Get]]
 esid: sec-privatefieldget
 info: |
   GetValue(V)
@@ -19,8 +19,12 @@ info: |
     ...
     4. Perform ? PrivateBrandCheck(O, P).
     5. If P.[[Kind]] is "method",
-      a. Return P.[[Value]].
       ...
+    6. Else,
+      a. Assert: P.[[Kind]] is "accessor".
+      b. If P does not have a [[Get]] field, throw a TypeError exception.
+      c. Let getter be P.[[Get]].
+      d. Return ? Call(getter, O).
 includes: [compareArray.js]
 features: [class, class-fields-methods, Proxy]
 ---*/
@@ -39,11 +43,11 @@ class ProxyBase {
 }
 
 class Test extends ProxyBase {
-  #f() {
+  get #f() {
     return 3;
   }
   method() {
-    return this.#f();
+    return this.#f;
   }
 }
 
