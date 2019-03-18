@@ -22,7 +22,7 @@ info: |
       a. Return P.[[Value]].
       ...
 includes: [compareArray.js]
-features: [class, class-fields-methods, Proxy]
+features: [class, class-methods-private, Proxy]
 ---*/
 
 let arr = [];

@@ -26,7 +26,7 @@ info: |
       c. Let getter be P.[[Get]].
       d. Return ? Call(getter, O).
 includes: [compareArray.js]
-features: [class, class-fields-methods, Proxy]
+features: [class, class-methods-private, Proxy]
 ---*/
 
 let arr = [];
