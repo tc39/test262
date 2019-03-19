@@ -7,14 +7,6 @@ es5id: 7.2_A1.3_T2
 description: Insert real FORM FEED between tokens of var x=1
 ---*/
 
-//CHECK#1
 varx=1;
-if (x !== 1) {
-  $ERROR('#1: varx=1; x === 1. Actual: ' + (x));
-}
 
-//CHECK#2
-eval("var\fx=\f1");
-if (x !== 1) {
-  $ERROR('#2: var\\fx=\\f1; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1);
