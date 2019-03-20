@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ $TRAVIS_EVENT_TYPE != "push" -o $TRAVIS_BRANCH != "master" ]; then
+if [ $CIRCLE_EVENT_TYPE != "push" -o $CIRCLE_BRANCH != "master" ]; then
   echo This job is not running against a commit that has been merged to master.
   echo Skipping deployment.
   exit 0

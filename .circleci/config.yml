@@ -1,0 +1,153 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+references:
+  js_deps_cache_key: &js_deps_cache_key
+    v1-dependency-js-deps-{{ checksum "package.json" }}
+  js_deps_backup_cache_key: &js_deps_backup_cache_key
+    v1-dependency-js-deps
+  node_latest: &node_latest
+    circleci/node:11
+  node_lts: &node_lts
+    circleci/node:10
+
+restore_cache: &restore_cache
+  restore_cache:
+    keys:
+      - *js_deps_cache_key
+      - *js_deps_backup_cache_key
+
+save_cache: &save_cache
+  save_cache:
+    paths:
+      - node_modules
+    key: *js_deps_cache_key
+
+execution_steps_node: &execution_steps_node
+  steps:
+    - checkout
+    - *restore_cache
+    - run: npm install
+    - *save_cache
+    - run: npm test
+
+execution_steps_jsvu: &execution_steps_jsvu
+  steps:
+    - checkout
+    - *restore_cache
+    - run: npm install
+    - *save_cache
+    - run: ./node_modules/.bin/jsvu --os=linux64 --engines=$hostName
+    - run: cp -r  ~/.jsvu/engines/$hostName r
+    - run: npm test
+
+jobs:
+  "Project lint, generation tests and build":
+    docker:
+      - image: circleci/python:2.7
+    working_directory: ~/test262
+    steps:
+      - checkout
+      - run:
+          name: "Install requirements for generation tool"
+          command: python -m pip install --user --requirement tools/generation/requirements.txt
+      - run:
+          name: "Install requirements for linter tool"
+          command: python -m pip install --user --requirement tools/lint/requirements.txt
+      - run:
+          name: "Test the generation tool"
+          command: ./tools/generation/test/run.py
+      - run:
+          name: "Test the lint tool"
+          command: ./tools/lint/test/run.py
+      - run:
+          name: "Re-generate files and check for new changes"
+          command: ./tools/scripts/ci_build.sh
+      - run:
+          name: "Run the linter"
+          command: ./tools/scripts/ci_lint.sh
+      # - run:
+      #     name: "Run deploy"
+      #     command: ./tools/scripts/deploy.sh
+  "V8: New or modified tests execution":
+    docker:
+      - image: *node_latest
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+    working_directory: ~/test262
+    environment:
+      hostType: d8
+      hostPath: r/v8
+      hostName: v8
+    <<: [*execution_steps_jsvu]
+  "V8 --harmony: New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: d8
+      hostPath: r/v8
+      hostName: v8
+      hostArgs: --harmony
+    <<: [*execution_steps_jsvu]
+  "SpiderMonkey: New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: jsshell
+      hostPath: r/spidermonkey
+      hostName: spidermonkey
+    <<: [*execution_steps_jsvu]
+  "ChakraCore: New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: ch
+      hostPath: r/chakra
+      hostName: chakra
+    <<: [*execution_steps_jsvu]
+  "JSC: New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: jsc
+      hostPath: r/javascriptcore
+      hostName: javascriptcore
+    <<: [*execution_steps_jsvu]
+  "Node LTS: New or modified tests execution":
+    docker:
+      - image: *node_lts
+    working_directory: ~/test262
+    environment:
+      hostType: node
+      hostPath: node
+    <<: [*execution_steps_node]
+  "Node (latest): New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: node
+      hostPath: node
+    <<: [*execution_steps_node]
+workflows:
+  version: 2
+  Tools:
+    jobs:
+      - "Project lint, generation tests and build"
+  Tests execution:
+    jobs:
+      - "ChakraCore: New or modified tests execution"
+      - "JSC: New or modified tests execution"
+      - "SpiderMonkey: New or modified tests execution"
+      - "V8: New or modified tests execution"
+      - "V8 --harmony: New or modified tests execution"
+      - "Node LTS: New or modified tests execution"
+      - "Node (latest): New or modified tests execution"
