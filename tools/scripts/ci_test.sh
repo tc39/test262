@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-  paths=$(git diff --diff-filter ACMR --name-only $TRAVIS_BRANCH -- test/)
+if [ "$CIRCLE_PULL_REQUEST" != "" ]; then
+  paths=$(git diff --diff-filter ACMR --name-only origin/master -- test/)
 
   if [ "$paths" == "" ]; then
     echo No test files added or modified. Exiting.
@@ -12,19 +12,13 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   echo "$paths"
   echo ""
 
-  if [ "$T262ENGINE" != "node" ]; then
-    echo "installing engine with jsvu"
-    echo "jsvu --os=linux64 --engines=$T262ENGINE"
-    jsvu --os=linux64 --engines=$T262ENGINE
-    hostPath=$HOME/.jsvu/$T262ENGINE
-  else
-    hostPath=node
+  echo "Running the tests with test262-harness"
+  test262-harness -t 1 --hostType=$hostType --hostPath=$hostPath --hostArgs="$hostArgs" -- $paths | tee exec.out
+
+  if grep -q '^[1-9][0-9]* failed$' exec.out; then
+    rm exec.out
+    exit 1
   fi
 
-  
-
-  echo ""
-  echo "Running the tests with test262-harness"
-  echo "test262-harness -t 1 --hostType=$hostType --hostPath=$hostPath --hostArgs=\"$hostArgs\" -- $paths"
-  test262-harness -t 1 --hostType=$hostType --hostPath=$hostPath --hostArgs="$hostArgs" -- $paths
+  rm exec.out
 fi

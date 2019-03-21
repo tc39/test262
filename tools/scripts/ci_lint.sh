@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-  paths=$(git diff --diff-filter ACMR --name-only $TRAVIS_BRANCH -- test/)
+if [ "$CIRCLE_PULL_REQUEST" != "" ]; then
+  paths=$(git diff --diff-filter ACMR --name-only origin/master -- test/)
 
   if [ "$paths" == "" ]; then
     echo No test files added or modified. Exiting.
