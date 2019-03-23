@@ -1,7 +1,7 @@
 // Copyright (C) 2019 ta7sudan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: sec-proxy-object-internal-methods-and-internal-slots-getprototypeof
+esid: sec-proxy-object-internal-methods-and-internal-slots-getprototypeof
 description: >
     instanceof operator will return true if trap result is the prototype of
     the function.
