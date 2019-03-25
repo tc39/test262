@@ -11,8 +11,6 @@ references:
     v1-dependency-js-deps
   node_latest: &node_latest
     circleci/node:11
-  node_lts: &node_lts
-    circleci/node:10
 
 restore_cache: &restore_cache
   restore_cache:
@@ -26,15 +24,7 @@ save_cache: &save_cache
       - node_modules
     key: *js_deps_cache_key
 
-execution_steps_node: &execution_steps_node
-  steps:
-    - checkout
-    - *restore_cache
-    - run: npm install
-    - *save_cache
-    - run: npm test
-
-execution_steps_jsvu: &execution_steps_jsvu
+execution_steps: &execution_steps
   steps:
     - checkout
     - *restore_cache
@@ -83,7 +73,7 @@ jobs:
       hostType: d8
       hostPath: r/v8
       hostName: v8
-    <<: [*execution_steps_jsvu]
+    <<: [*execution_steps]
   "V8 --harmony: New or modified tests execution":
     docker:
       - image: *node_latest
@@ -93,7 +83,7 @@ jobs:
       hostPath: r/v8
       hostName: v8
       hostArgs: --harmony
-    <<: [*execution_steps_jsvu]
+    <<: [*execution_steps]
   "SpiderMonkey: New or modified tests execution":
     docker:
       - image: *node_latest
@@ -102,7 +92,7 @@ jobs:
       hostType: jsshell
       hostPath: r/spidermonkey
       hostName: spidermonkey
-    <<: [*execution_steps_jsvu]
+    <<: [*execution_steps]
   "ChakraCore: New or modified tests execution":
     docker:
       - image: *node_latest
@@ -111,7 +101,7 @@ jobs:
       hostType: ch
       hostPath: r/chakra
       hostName: chakra
-    <<: [*execution_steps_jsvu]
+    <<: [*execution_steps]
   "JSC: New or modified tests execution":
     docker:
       - image: *node_latest
@@ -120,23 +110,16 @@ jobs:
       hostType: jsc
       hostPath: r/javascriptcore
       hostName: javascriptcore
-    <<: [*execution_steps_jsvu]
-  "Node LTS: New or modified tests execution":
-    docker:
-      - image: *node_lts
-    working_directory: ~/test262
-    environment:
-      hostType: node
-      hostPath: node
-    <<: [*execution_steps_node]
-  "Node (latest): New or modified tests execution":
+    <<: [*execution_steps]
+  "XS: New or modified tests execution":
     docker:
       - image: *node_latest
     working_directory: ~/test262
     environment:
-      hostType: node
-      hostPath: node
-    <<: [*execution_steps_node]
+      hostType: xs
+      hostPath: r/xs
+      hostName: xs
+    <<: [*execution_steps]
 workflows:
   version: 2
   Tools:
@@ -149,5 +132,4 @@ workflows:
       - "SpiderMonkey: New or modified tests execution"
       - "V8: New or modified tests execution"
       - "V8 --harmony: New or modified tests execution"
-      - "Node LTS: New or modified tests execution"
-      - "Node (latest): New or modified tests execution"
+      - "XS: New or modified tests execution"
