@@ -31,7 +31,7 @@ execution_steps: &execution_steps
     - run: npm install
     - *save_cache
     - run: ./node_modules/.bin/jsvu --os=linux64 --engines=$hostName
-    - run: cp -r  ~/.jsvu/engines/$hostName r
+    - run: cp -r  ~/.jsvu r
     - run: npm test
 
 jobs:
@@ -71,7 +71,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: d8
-      hostPath: r/v8
+      hostPath: r/engines/v8/v8
       hostName: v8
     <<: [*execution_steps]
   "V8 --harmony: New or modified tests execution":
@@ -80,7 +80,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: d8
-      hostPath: r/v8
+      hostPath: r/engines/v8/v8
       hostName: v8
       hostArgs: --harmony
     <<: [*execution_steps]
@@ -99,7 +99,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: ch
-      hostPath: r/chakra
+      hostPath: r/engines/chakra/chakra
       hostName: chakra
     <<: [*execution_steps]
   "JSC: New or modified tests execution":
@@ -117,7 +117,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: xs
-      hostPath: r/xs
+      hostPath: r/engines/xs/xs
       hostName: xs
     <<: [*execution_steps]
 workflows:
