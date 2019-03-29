@@ -68,21 +68,21 @@ The following keys are deprecated, but exist in old tests:
  - [**es6id**](#es6id) (deprecated)
 
 #### description
-**description**: [string]
+`description: [string]`
 
-This is one of two required frontmatter keys. The description should be a short, one-line description of the purpose of this testcase. We suggested that the description be kept to less than 100 characters, but clarity is preferred over brevity.
+This is one of two required frontmatter keys. The description should be a short, one-line description of the purpose of this testcase. We suggest that the description be kept to less than 100 characters, but clarity is preferred over brevity.
 
 Eg: Insert &lt;LS&gt; between chunks of one string
 
 #### esid
-**esid**: [spec-id]
+`esid: [spec-id]`
 
 This key is required for all new feature tests. This key identifies the hash ID from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `esid: sec-typedarray-length`. This key might be used to replace a `es6id` or further.
 
 When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash ID is not available.
 
 #### info
-**info**: [multiline string]
+`info: [multiline string]`
 
 This allows a long, free-form comment. The comment is almost always a direct
 quote from ECMAScript. It is used to indicate the observable being tested
@@ -107,79 +107,81 @@ be necessary. If you must add context to the quote, use the JavaScript
 single line comment syntax.
 
 #### negative
-**negative**: [dictionary containing **phase** and **type**]
+`negative: [dictionary containing "phase" and "type" keys]`
 
 This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
 
-- **type**- If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
+- **type** - If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
 - **phase** - Negative tests whose **phase** value is "parse" must produce the specified error prior to executing code. The value "resolution" indicates that the error is expected to result while performing ES2015 module resolution. The value "runtime" dictates that the error is expected to be produced as a result of executing the test code.
 
 For best practices on how to use the negative key please see [Handling Errors and Negative Test Cases](#handling-errors-and-negative-test-cases), below.
 
 For example:
 
-    negative:
-      phase: parse
-      type: ReferenceError
+```
+negative:
+  phase: parse
+  type: ReferenceError
+```
 
 #### includes
-**includes**: [file-list]
+`includes: [file-list]`
 
 This key names a list of helper files that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
 
 The helper files are found in the `harness/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
 
 #### timeout
-**timeout**: [integer]
+`timeout: [integer]`
 
 This key specifies the number of milliseconds to wait before the test runner declares an [asynchronous test](#writing-asynchronous-tests) to have timed out.  It has no effect on synchronous tests.
 
 Test authors **should not** use this key except as a last resort.  Each runner is allowed to provide its own default timeout, and the user may be permitted to override this in order to account for unusually fast or slow hardware, network delays, etc.
 
 #### author
-**author**: [string]
+`author: [string]`
 
 This key is used to identify the author of a test case.
 
 #### flags
-**flags**: [list]
+`flags: [list]`
 
 This key is for boolean properties associated with the test.
 
-- **`onlyStrict`** - only run the test in strict mode
-- **`noStrict`** - only run the test in "sloppy" mode
-- **`module`** - interpret the source text as [module
-  code](https://tc39.github.io/ecma262/#sec-modules)
-- **`raw`** - execute the test without any modification (no helpers will be
+- **onlyStrict** - only run the test in strict mode
+- **noStrict** - only run the test in "sloppy" mode
+- **module** - interpret the source text as
+  [module code](https://tc39.github.io/ecma262/#sec-modules)
+- **raw** - execute the test without any modification (no helpers will be
   available); necessary to test the behavior of directive prologue; implies
   `noStrict`
-- **`async`** - defer interpretation of test results until after the invocation
+- **async** - defer interpretation of test results until after the invocation
   of the global `$DONE` function
-- **`generated`** - informative flag used to denote test files that were
+- **generated** - informative flag used to denote test files that were
   created procedurally using the project's test generation tool; refer to the
   section titled "Procedurally-generated tests" for more information on this
   process
-- **`CanBlockIsFalse`** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `false`
-- **`CanBlockIsTrue`** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `true`
+- **CanBlockIsFalse** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `false`
+- **CanBlockIsTrue** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `true`
 
 #### features
-**features**: [list]
+`features: [list]`
 
 Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this key. See the [`features.txt`](features.txt) file for a complete list of available values. This key is required for new tests written for new features, but contributions will not be "blocked" if the key is missing from frontmatter. The committing maintainer is required to ensure that the key is present and contains the correct feature names; this can be done in an follow up commit.
 
 #### es5id
-**es5id**: [es5-test-id]
+`es5id: [es5-test-id]`
 
-**Deprecated.**
+**_DEPRECATED._**
 
 This key identifies the section number from the portion of the ECMAScript 5.1 or ECMAScript 3 standard that is tested by this test. It was automatically generated for tests that were originally written for the ES5 (or earlier) version of the test suite and are now part of the ES6 version. You can use the es5id to discover the relevant portion of the ECMAScript standard by looking up the section number in [previous publications of the specification](https://www.ecma-international.org/publications/standards/Ecma-262-arch.htm). Unfortunately, there is no way to identify which version of ECMAScript (specifically, 3 or 5.1) without looking up the section number and deciding whether it covers the observable in the test.
 
 Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids) for reasoning behind deprecation.
 
 #### es6id
-**es6id**: [es6-test-id]
+`es6id: [es6-test-id]`
 
-**Deprecated.**
+**_DEPRECATED._**
 
 This key identifies the section number from the portion of the ES6 standard that is tested by this test _at the time the test was written_. The es6ids might not correspond to the correction section numbers in the ES6 (or later) specification because routine edits to the specification will change section numbering. For this reason, only the esid is required for new tests.
 
@@ -187,7 +189,7 @@ Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wi
 
 ## Test Environment
 
-Each test case is run in a fresh JavaScript environment; in a browser, this will be a new `IFRAME`; for a console runner, this will be a new process.  The test harness code is loaded before the test is run.  The test harness defines the following helper functions:
+Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run.  The test harness defines the following helper functions:
 
 Function | Purpose
 ---------|--------
