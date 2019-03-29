@@ -22,12 +22,12 @@ var negative6DigitYearDateString = (new Date('-123456-07-01T00:00Z')).toDateStri
 assert.sameValue(negative1DigitYearDateString.split(' ')[3], '-0001',
     'Date.prototype.toDateString serializes year -1 to "-0001"');
 assert.sameValue(negative2DigitYearDateString.split(' ')[3], '-0012',
-    'Date.prototype.toDateString serializes year -1 to "-0012"');
+    'Date.prototype.toDateString serializes year -12 to "-0012"');
 assert.sameValue(negative3DigitYearDateString.split(' ')[3], '-0123',
-    'Date.prototype.toDateString serializes year -1 to "-0123"');
+    'Date.prototype.toDateString serializes year -123 to "-0123"');
 assert.sameValue(negative4DigitYearDateString.split(' ')[3], '-1234',
-    'Date.prototype.toDateString serializes year -1 to "-1234"');
+    'Date.prototype.toDateString serializes year -1234 to "-1234"');
 assert.sameValue(negative5DigitYearDateString.split(' ')[3], '-12345',
-    'Date.prototype.toDateString serializes year -1 to "-12345"');
+    'Date.prototype.toDateString serializes year -12345 to "-12345"');
 assert.sameValue(negative6DigitYearDateString.split(' ')[3], '-123456',
-    'Date.prototype.toDateString serializes year -1 to "-123456"');
+    'Date.prototype.toDateString serializes year -123456 to "-123456"');

@@ -22,12 +22,12 @@ var negative6DigitYearToUTCString = (new Date('-123456-07-01T00:00Z')).toUTCStri
 assert.sameValue(negative1DigitYearToUTCString.split(' ')[3], '-0001',
     'Date.prototype.toUTCString serializes year -1 to "-0001"');
 assert.sameValue(negative2DigitYearToUTCString.split(' ')[3], '-0012',
-    'Date.prototype.toUTCString serializes year -1 to "-0012"');
+    'Date.prototype.toUTCString serializes year -12 to "-0012"');
 assert.sameValue(negative3DigitYearToUTCString.split(' ')[3], '-0123',
-    'Date.prototype.toUTCString serializes year -1 to "-0123"');
+    'Date.prototype.toUTCString serializes year -123 to "-0123"');
 assert.sameValue(negative4DigitYearToUTCString.split(' ')[3], '-1234',
-    'Date.prototype.toUTCString serializes year -1 to "-1234"');
+    'Date.prototype.toUTCString serializes year -1234 to "-1234"');
 assert.sameValue(negative5DigitYearToUTCString.split(' ')[3], '-12345',
-    'Date.prototype.toUTCString serializes year -1 to "-12345"');
+    'Date.prototype.toUTCString serializes year -12345 to "-12345"');
 assert.sameValue(negative6DigitYearToUTCString.split(' ')[3], '-123456',
-    'Date.prototype.toUTCString serializes year -1 to "-123456"');
+    'Date.prototype.toUTCString serializes year -123456 to "-123456"');
