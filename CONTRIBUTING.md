@@ -53,9 +53,9 @@ The Test262 frontmatter is a string of [YAML](https://en.wikipedia.org/wiki/YAML
 Test262 supports the following tags:
 
  - [**description**](#description) (required)
+ - [**esid**](#esid) (required for new tests)
  - [**info**](#info)
  - [**negative**](#negative)
- - [**esid**](#esid) (required for new tests)
  - [**includes**](#includes)
  - [**timeout**](#timeout)
  - [**author**](#author)
@@ -73,6 +73,13 @@ The following tags are deprecated, but exist in old tests:
 This is one of two required frontmatter tags. The description should be a short, one-line description of the purpose of this testcase. We suggested that the description be kept to less than 100 characters, but clarity is preferred over brevity.
 
 Eg: Insert &lt;LS&gt; between chunks of one string
+
+#### esid
+**esid**: [spec-id]
+
+This tag is required for all new feature tests. This tag identifies the hash ID from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `esid: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
+
+When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash ID is not available.
 
 #### info
 **info**: [multiline string]
@@ -114,13 +121,6 @@ For example:
     negative:
       phase: parse
       type: ReferenceError
-
-#### esid
-**esid**: [spec-id]
-
-This tag is required for all new feature tests. This tag identifies the hash ID from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `esid: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
-
-When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash ID is not available.
 
 #### includes
 **includes**: [file-list]
