@@ -29,17 +29,39 @@ See the following directory trees for further recommended examples:
 A test file has three sections: Copyright, Frontmatter, and Body.  A test looks roughly like this:
 
 ```javascript
-// Copyright (C) 2015 [Contributor Name]. All rights reserved.
+// Copyright (C) $Year $ContributorName. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
- description: brief description
- info: >
-   verbose test description, multiple lines OK.
-   (info typically contains relevant, direct quote from ECMAScript)
+description: >
+    brief description, e.g. "Non-numeric input must be rejected with a TypeError"
+esid: reference to spec section, e.g. "sec-well-known-symbols"
+info: |
+    verbose test description, multiple lines OK.
+    (info should contain relevant, direct quotes from ECMAScript if possible)
+    For example:
+
+    String.fromCodePoint ( ..._codePoints_ )
+
+    5. Repeat, while _nextIndex_ &lt; _length_
+      a. Let _next_ be _codePoints_[_nextIndex_].
+      b. Let _nextCP_ be ? ToNumber(_next_).
+      d. If _nextCP_ &lt; 0 or _nextCP_ &gt; 0x10FFFF, throw a *RangeError* exception.
+features: [example]
 ---*/
 
-[Test Code]
+var maxCodePoint = 0x10FFFF;
+var maxCodePointString = '\u{10FFFF}';
+
+assert.sameValue(String.fromCodePoint(maxCodePoint), maxCodePointString,
+    'String.fromCodePoint can produce a string including the highest code point');
+
+assert.throws(
+  RangeError,
+  function() {
+    String.fromCodePoint(maxCodePoint + 1);
+  },
+  'String.fromCodePoint throws a RangeError when an argument is greater than the highest code point value'
+);
 ```
 
 ### Copyright
@@ -95,10 +117,12 @@ For example:
 esid: sec-weakset.prototype.has
 description: Throws TypeError if `this` is not Object.
 info: |
-  WeakSet.prototype.has ( value )
+    String.fromCodePoint ( ..._codePoints_ )
 
-  1. Let S be the this value.
-  2. If Type(S) is not Object, throw a TypeError exception.
+    5. Repeat, while _nextIndex_ &lt; _length_
+      a. Let _next_ be _codePoints_[_nextIndex_].
+      b. Let _nextCP_ be ? ToNumber(_next_).
+      d. If _nextCP_ &lt; 0 or _nextCP_ &gt; 0x10FFFF, throw a *RangeError* exception.
 ---*/
 ```
 
