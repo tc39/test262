@@ -4,16 +4,12 @@
 /*---
 es5id: 7.8.3-3-s
 description: Strict Mode - octal extension (01) is forbidden in strict mode
+negative:
+  phase: parse
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-var err = null;
+$DONOTEVALUATE();
 
-try {
-  eval("var _7_8_3_3 = 01;");
-} catch (e) {
-  err = e;
-}
-
-assert(err instanceof SyntaxError);
-assert.sameValue(typeof _7_8_3_3, "undefined");
+01;
