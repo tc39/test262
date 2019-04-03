@@ -30,18 +30,18 @@ info: |
 features: [Proxy]
 ---*/
 
-function CustomClass() {}
+function Custom() {}
 
 var target = {};
 
 var p = new Proxy(target, {
-  getPrototypeOf: function() {
-    return CustomClass.prototype;
+  getPrototypeOf() {
+    return Custom.prototype;
   }
 });
 
 Object.preventExtensions(target);
 
 assert.throws(TypeError, () => {
-  p instanceof CustomClass
+  p instanceof Custom
 });

@@ -27,12 +27,12 @@ info: |
 features: [Proxy]
 ---*/
 
-function CustomClass() {}
+function Custom() {}
 
 var p = new Proxy({}, {
-  getPrototypeOf: function() {
-    return CustomClass.prototype;
+  getPrototypeOf() {
+    return Custom.prototype;
   }
 });
 
-assert(p instanceof CustomClass);
+assert(p instanceof Custom);
