@@ -50,4 +50,4 @@ for (const f of transforms) {
   assert.sameValue(lf.format(f(["foo", "bar", "baz", "quux"])), "foo, bar, baz, & quux");
 }
 
-assert.sameValue(lf.format("foo"), "f, o, and o");
+assert.sameValue(lf.format("foo"), "f, o, & o");
