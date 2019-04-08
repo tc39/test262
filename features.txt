@@ -88,6 +88,10 @@ Intl.Segmenter
 # https://github.com/sffc/proposal-unified-intl-numberformat
 Intl.NumberFormat-unified
 
+# Intl.DateTimeFormat: dateStyle and timeStyle options
+# https://github.com/tc39/proposal-intl-datetime-style
+Intl.DateTimeFormat-datetimestyle
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
