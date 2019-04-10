@@ -8,7 +8,7 @@ features: [Intl.DateTimeFormat-datetimestyle]
 locale: [en-US]
 ---*/
 
-const date = new Date("1886-05-01T14:30:17");
+const date = new Date("1886-05-01T14:12:47Z");
 const dateOptions = [
   ["full", "Saturday, May 1, 1886", " at "],
   ["long", "May 1, 1886", " at "],
