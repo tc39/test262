@@ -1,5 +1,5 @@
 // Copyright 2012-2019 Mozilla Corporation; Igalia, S.L. All rights reserved.
-// This code is governed by the license found in the LICENSE file.
+// This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-bigint.prototype.tolocalestring

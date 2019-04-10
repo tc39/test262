@@ -8,7 +8,7 @@ features: [BigInt]
 ---*/
 
 var invalidValues = [
-//  undefined,
+  undefined,
   null,
   false,
   "5",
@@ -24,5 +24,5 @@ var invalidValues = [
 for (const value of invalidValues) {
   assert.throws(TypeError, function() {
     BigInt.prototype.toLocaleString.call(value);
-  }, "BigInt.prototype.toLocaleString did not reject this = " + value + ".");
+  }, `BigInt.prototype.toLocaleString did not throw with this = ${String(value)}.`);
 }
