@@ -24,18 +24,18 @@ flags: [async]
 ---*/
 
 var poison = [];
+var error = new Test262Error();
 Object.defineProperty(poison, Symbol.iterator, {
   get() {
-    throw new Test262Error();
+    throw error;
   }
 });
 
 try {
-  Promise.allSettled(false).then(function() {
+  Promise.allSettled(poison).then(function() {
     $DONE('The promise should be rejected, but was resolved');
-  }, function(error) {
-    assert.sameValue(Object.getPrototypeOf(error), Test262Error.prototype);
-    assert(error instanceof Test262Error);
+  }, function(err) {
+    assert.sameValue(err, error);
   }).then($DONE, $DONE);
 } catch (error) {
   $DONE(`The promise should be rejected, but threw an exception: ${error.message}`);

@@ -13,19 +13,18 @@ info: |
     ...
     z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
 flags: [async]
+includes: [promiseHelper.js]
 ---*/
 
 var simulation = {};
 var thenable = {
   then(_, reject) {
-    reject({});
+    reject(simulation);
   }
 };
 
 Promise.allSettled([thenable])
   .then((settleds) => {
-    assert.sameValue(settleds.length, 1);
-    assert.sameValue(settleds[0].status, 'rejected');
-    assert.sameValue(settleds[0].reason, simulation);
+    checkSettledPromises(settleds, [{ status: 'rejected', reason: simulation }]);
     $DONE();
   }).then($DONE, $DONE);

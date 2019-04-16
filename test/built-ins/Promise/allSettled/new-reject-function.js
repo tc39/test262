@@ -4,7 +4,7 @@
 /*---
 esid: sec-performpromiseallsettled
 description: >
-  Each Promise.allSettled element is called with the same reject function.
+  Each Promise.allSettled element is called with a new Promise.allSettled Reject Element function.
 info: |
   Runtime Semantics: PerformPromiseAllSettled ( iteratorRecord, constructor, resultCapability )
 
@@ -16,25 +16,28 @@ info: |
 function rejectFunction() {}
 
 function Constructor(executor) {
-  executor($ERROR, rejectFunction);
+  executor(rejectFunction, $ERROR);
 }
 Constructor.resolve = function(v) {
   return v;
 };
 
-var callCount1 = 0;
-var callCount2 = 0;
+var callCount1 = 0,
+  callCount2 = 0;
+var p1OnRejected;
 
 var p1 = {
   then(_, onRejected) {
     callCount1 += 1;
-    assert.sameValue(onRejected, rejectFunction, "p1.then");
+    p1OnRejected = onRejected;
+    assert.notSameValue(onRejected, rejectFunction, "p1.then");
   }
 };
 var p2 = {
   then(_, onRejected) {
     callCount2 += 1;
-    assert.sameValue(onRejected, rejectFunction, "p2.then");
+    assert.notSameValue(onRejected, rejectFunction, "p2.then");
+    assert.notSameValue(onRejected, p1OnRejected, "p1.onRejected != p2.onRejected");
   }
 };
 
