@@ -40,6 +40,7 @@ info: |
     a. Let valuesArray be CreateArrayFromList(values).
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
+includes: [promiseHelper.js]
 ---*/
 
 var obj = {};
@@ -54,11 +55,9 @@ var p3 = new Promise(function(resolve) {
 });
 
 Promise.allSettled([p1, p2, p3]).then(function(settled) {
-  assert.sameValue(settled.length, 3);
-  assert.sameValue(settled[0].value, 1);
-  assert.sameValue(settled[0].status, 'fulfilled');
-  assert.sameValue(settled[1].value, 'test262');
-  assert.sameValue(settled[1].status, 'fulfilled');
-  assert.sameValue(settled[2].value, obj);
-  assert.sameValue(settled[2].status, 'fulfilled');
+  checkSettledPromises(settled, [
+    { status: 'fulfilled', value: 1 },
+    { status: 'fulfilled', value: 'test262' },
+    { status: 'fulfilled', value: obj }
+  ], 'settled');
 }).then($DONE, $DONE);

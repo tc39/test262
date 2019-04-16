@@ -40,6 +40,7 @@ info: |
     a. Let valuesArray be CreateArrayFromList(values).
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
+includes: [promiseHelper.js]
 ---*/
 
 var p0 = Promise.resolve(2).then(v => v + 1);
@@ -53,32 +54,15 @@ var p7 = Promise.reject('nope').finally(() => { throw 'finally after rejected'; 
 var p8 = Promise.reject(1).then(() => 'nope', () => 0);
 
 Promise.allSettled([p0, p1, p2, p3, p4, p5, p6, p7, p8]).then(function(settled) {
-  assert.sameValue(settled.length, 9);
-
-  assert.sameValue(settled[0].value, 3);
-  assert.sameValue(settled[0].status, 'fulfilled');
-
-  assert.sameValue(settled[1].value, 42);
-  assert.sameValue(settled[1].status, 'fulfilled');
-
-  assert.sameValue(settled[2].reason, 'foo');
-  assert.sameValue(settled[2].status, 'rejected');
-
-  assert.sameValue(settled[3].reason, 'yes');
-  assert.sameValue(settled[3].status, 'rejected');
-
-  assert.sameValue(settled[4].value, 'here');
-  assert.sameValue(settled[4].status, 'fulfilled');
-
-  assert.sameValue(settled[5].reason, 'here too');
-  assert.sameValue(settled[5].status, 'rejected');
-
-  assert.sameValue(settled[6].reason, 'finally');
-  assert.sameValue(settled[6].status, 'rejected');
-
-  assert.sameValue(settled[7].reason, 'finally after rejected');
-  assert.sameValue(settled[7].status, 'rejected');
-
-  assert.sameValue(settled[8].value, 0);
-  assert.sameValue(settled[8].status, 'fulfilled');
+  checkSettledPromises(settled, [
+    { status: 'fulfilled', value: 3 },
+    { status: 'fulfilled', value: 42 },
+    { status: 'rejected', reason: 'foo' },
+    { status: 'rejected', reason: 'yes' },
+    { status: 'fulfilled', value: 'here' },
+    { status: 'rejected', reason: 'here too' },
+    { status: 'rejected', reason: 'finally' },
+    { status: 'rejected', reason: 'finally after rejected' },
+    { status: 'fulfilled', value: 0 },
+  ], 'settled');
 }).then($DONE, $DONE);

@@ -13,18 +13,18 @@ info: |
   3. If alreadyCalled.[[Value]] is true, return undefined.
   4. Set alreadyCalled.[[Value]] to true.
   ...
+includes: [promiseHelper.js]
 ---*/
 
 var callCount = 0;
 var valuesArray;
+var expected = [{ status: 'fulfilled', value: 'expectedValue' }];
 
 function Constructor(executor) {
   function resolve(values) {
     callCount += 1;
     valuesArray = values;
-    assert(Array.isArray(values), "values is array");
-    assert.sameValue(values.length, 1, "values.length");
-    assert.sameValue(values[0], "expectedValue", "values[0]");
+    checkSettledPromises(values, expected, 'values');
   }
   executor(resolve, $ERROR);
 }
@@ -46,9 +46,9 @@ assert.sameValue(callCount, 0, "callCount before call to all()");
 Promise.allSettled.call(Constructor, [p1]);
 
 assert.sameValue(callCount, 1, "callCount after call to all()");
-assert.sameValue(valuesArray[0], "expectedValue", "valuesArray after call to all()");
+checkSettledPromises(valuesArray, expected, 'valuesArray after call to all()');
 
 p1OnFulfilled("unexpectedValue");
 
 assert.sameValue(callCount, 1, "callCount after call to onFulfilled()");
-assert.sameValue(valuesArray[0], "expectedValue", "valuesArray after call to onFulfilled()");
+checkSettledPromises(valuesArray, expected, 'valuesArray after call to onFulfilled()');

@@ -13,6 +13,7 @@ info: |
   3. If alreadyCalled.[[Value]] is true, return undefined.
   4. Set alreadyCalled.[[Value]] to true.
   ...
+includes: [promiseHelper.js]
 ---*/
 
 var callCount = 0;
@@ -20,9 +21,12 @@ var callCount = 0;
 function Constructor(executor) {
   function resolve(values) {
     callCount += 1;
-    assert(Array.isArray(values), "values is array");
-    assert.sameValue(values.length, 1, "values length");
-    assert.sameValue(values[0], "expectedValue", "values[0]");
+    checkSettledPromises(values, [
+      {
+        status: 'fulfilled',
+        value: 'expectedValue'
+      }
+    ], 'values');
   }
   executor(resolve, $ERROR);
 }

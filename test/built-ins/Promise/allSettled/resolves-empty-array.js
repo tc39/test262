@@ -16,10 +16,11 @@ info: |
       2. Perform ? Call(resultCapability.[[Resolve]], undefined, « valuesArray »).
   ...
 flags: [async]
+includes: [promiseHelper.js]
 ---*/
 
 var arg = [];
 
 Promise.allSettled(arg).then(function(result) {
-  assert.sameValue(result.length, 0);
+  checkSettledPromises(result, []);
 }).then($DONE, $DONE);

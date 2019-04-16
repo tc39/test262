@@ -10,7 +10,7 @@ info: |
     a. Let valuesArray be ! CreateArrayFromList(values).
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
-includes: [compareArray.js]
+includes: [compareArray.js, promiseHelper.js]
 ---*/
 
 var v1 = {};
@@ -19,15 +19,20 @@ var v3 = {};
 
 Promise.allSettled([v1, v2, v3])
   .then(function(values) {
-    assert.sameValue(Array.isArray(values), true, 'Resolved with an Array instance.');
-    assert.sameValue(values.length, 3, 'value.length');
-    assert.compareArray(Object.keys(values[0]), ['status', 'value']);
-    assert.sameValue(values[0].status, 'fulfilled', 'values[0].status');
-    assert.sameValue(values[0].value, v1, 'values[0].value');
-    assert.sameValue(values[1].status, 'fulfilled', 'values[1].status');
-    assert.sameValue(values[1].value, v2, 'values[1].value');
-    assert.sameValue(values[2].status, 'fulfilled', 'values[2].status');
-    assert.sameValue(values[2].value, v3, 'values[2].value');
+    checkSettledPromises(values, [
+      {
+        status: 'fulfilled',
+        value: v1
+      },
+      {
+        status: 'fulfilled',
+        value: v2
+      },
+      {
+        status: 'fulfilled',
+        value: v3
+      }
+    ], 'values');
   }, function() {
     $DONE('The promise should not be rejected.');
   }).then($DONE, $DONE);

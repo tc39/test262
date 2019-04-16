@@ -40,6 +40,7 @@ info: |
     a. Let valuesArray be CreateArrayFromList(values).
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
+includes: [promiseHelper.js]
 ---*/
 
 var obj1 = {};
@@ -64,23 +65,12 @@ var f3 = new Promise(function(resolve) {
 });
 
 Promise.allSettled([r1, f1, f2, r2, r3, f3]).then(function(settled) {
-  assert.sameValue(settled.length, 6);
-  // r1
-  assert.sameValue(settled[0].reason, 1);
-  assert.sameValue(settled[0].status, 'rejected');
-  // f1
-  assert.sameValue(settled[1].value, 2);
-  assert.sameValue(settled[1].status, 'fulfilled');
-  // f2
-  assert.sameValue(settled[2].value, 'tc39');
-  assert.sameValue(settled[2].status, 'fulfilled');
-  // r2
-  assert.sameValue(settled[3].reason, 'test262');
-  assert.sameValue(settled[3].status, 'rejected');
-  // r3
-  assert.sameValue(settled[4].reason, obj1);
-  assert.sameValue(settled[4].status, 'rejected');
-  // r4
-  assert.sameValue(settled[5].value, obj2);
-  assert.sameValue(settled[5].status, 'fulfilled');
+  checkSettledPromises(settled, [
+    { status: 'rejected', reason: 1 },
+    { status: 'fulfilled', value: 2 },
+    { status: 'fulfilled', value: 'tc39' },
+    { status: 'rejected', reason: 'test262' },
+    { status: 'rejected', reason: obj1 },
+    { status: 'fulfilled', value: obj2 }
+  ], 'settled');
 }).then($DONE, $DONE);
