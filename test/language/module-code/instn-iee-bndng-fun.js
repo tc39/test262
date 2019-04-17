@@ -54,6 +54,7 @@ assert.sameValue(B(), 77, 'binding value is immutable');
 import { B, results } from './instn-iee-bndng-fun_FIXTURE.js';
 export function A() { return 77; }
 
+assert.sameValue(results.length, 4);
 assert.sameValue(results[0], 'ReferenceError');
 assert.sameValue(results[1], 'undefined');
 assert.sameValue(results[2], 'ReferenceError');

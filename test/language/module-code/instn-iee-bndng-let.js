@@ -46,6 +46,7 @@ assert.throws(ReferenceError, function() {
 import { B, results } from './instn-iee-bndng-let_FIXTURE.js';
 export let A;
 
+assert.sameValue(results.length, 4);
 assert.sameValue(results[0], 'ReferenceError');
 assert.sameValue(results[1], 'undefined');
 assert.sameValue(results[2], 'ReferenceError');
