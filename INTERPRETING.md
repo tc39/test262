@@ -137,9 +137,9 @@ This must precede any additional text modifications described by test metadata.
 Test262 includes tests for ECMAScript 2015 module code, denoted by the "module"
 metadata flag. Files bearing a name ending in `_FIXTURE.js`:
 
-- **MUST** not be interpreted as standalone tests; they are intended to be referenced by test files.
-- **MUST** not refer to, or make use of any [Test262-Defined Bindings](#test262-defined-bindings) in any way. 
-- **MUST** not refer to, or make use of any [Host-Defined Functions](#host-defined-functions) in any way. 
+- **MUST NOT** be interpreted as standalone tests; they are intended to be referenced by test files.
+- **MUST NOT** refer to, or make use of any [Test262-Defined Bindings](#test262-defined-bindings) in any way. 
+- **MUST NOT** refer to, or make use of any [Host-Defined Functions](#host-defined-functions) in any way. 
 
 All module specifiers used by Test262 begin with the character sequence `./`.
 The remaining characters should be interpreted as the name of a file within the
