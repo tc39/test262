@@ -17,6 +17,7 @@ info: |
     ...
     i. Let nextPromise be ? Invoke(constructor, "resolve", « nextValue »).
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var error = new Test262Error();

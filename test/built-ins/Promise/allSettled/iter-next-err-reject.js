@@ -33,7 +33,7 @@ info: |
   2. Else,
     a. Let result be ? Call(iteratorRecord.[[NextMethod]], iteratorRecord.[[Iterator]], « value »).
   ...
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 flags: [async]
 ---*/
 

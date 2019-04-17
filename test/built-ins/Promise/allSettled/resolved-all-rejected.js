@@ -41,6 +41,7 @@ info: |
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
 includes: [promiseHelper.js]
+features: [Promise.allSettled]
 ---*/
 
 var obj = {};

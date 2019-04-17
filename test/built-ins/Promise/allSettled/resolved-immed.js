@@ -6,6 +6,7 @@ esid: sec-promise.allsettled
 description: Promise.allSettled([]) returns immediately
 includes: [promiseHelper.js]
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var sequence = [];

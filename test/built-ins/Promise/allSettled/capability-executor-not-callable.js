@@ -21,6 +21,7 @@ info: |
   8. If IsCallable(promiseCapability.[[Resolve]]) is false, throw a TypeError exception.
   9. If IsCallable(promiseCapability.[[Reject]]) is false, throw a TypeError exception.
   ...
+features: [Promise.allSettled]
 ---*/
 
 var checkPoint = '';

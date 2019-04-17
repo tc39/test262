@@ -16,7 +16,7 @@ info: |
   6. Repeat
     ...
     i. Let nextPromise be ? Invoke(constructor, "resolve", « nextValue »).
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 ---*/
 
 var iterDoneSpy = {};

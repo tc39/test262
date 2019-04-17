@@ -23,6 +23,7 @@ info: |
     a. Let valuesArray be CreateArrayFromList(values).
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var simulation = {};

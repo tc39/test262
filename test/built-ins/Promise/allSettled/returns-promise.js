@@ -15,6 +15,7 @@ info: |
     a. If iteratorRecord.[[Done]] is false, set result to IteratorClose(iteratorRecord, result).
     b. IfAbruptRejectPromise(result, promiseCapability).
   8. Return Completion(result).
+features: [Promise.allSettled]
 ---*/
 
 var p = Promise.allSettled([]);

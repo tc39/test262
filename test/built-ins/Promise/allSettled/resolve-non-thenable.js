@@ -11,6 +11,7 @@ info: |
     b. Return ? Call(promiseCapability.[[Resolve]], undefined, « valuesArray »).
 flags: [async]
 includes: [compareArray.js, promiseHelper.js]
+features: [Promise.allSettled]
 ---*/
 
 var v1 = {};

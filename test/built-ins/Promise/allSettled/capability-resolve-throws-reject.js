@@ -31,6 +31,7 @@ info: |
 
   1. IfAbruptRejectPromise(value, capability).
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var thrown = new Test262Error();

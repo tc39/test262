@@ -8,7 +8,7 @@ esid: sec-promise.allsettled
 info: |
   1. Let C be the this value.
   2. If Type(C) is not Object, throw a TypeError exception.
-features: [Symbol]
+features: [Promise.allSettled, Symbol]
 ---*/
 
 assert.throws(TypeError, function() {

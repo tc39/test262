@@ -32,6 +32,7 @@ info: |
       b. Assert: status is true.
     ...
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 Object.defineProperty(Array.prototype, 0, {

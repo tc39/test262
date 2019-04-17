@@ -11,6 +11,7 @@ info: |
   B.2 has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
+features: [Promise.allSettled]
 ---*/
 
 verifyProperty(Promise, 'allSettled', {

@@ -15,6 +15,7 @@ info: |
 
   z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var promise = new Promise(function() {});

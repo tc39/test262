@@ -33,7 +33,7 @@ info: |
   Call ( F, V [ , argumentsList ] )
 
   2. If IsCallable(F) is false, throw a TypeError exception.
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 flags: [async]
 ---*/
 

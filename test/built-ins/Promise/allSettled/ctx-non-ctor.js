@@ -12,6 +12,7 @@ info: |
   NewPromiseCapability ( C )
 
   1. If IsConstructor(C) is false, throw a TypeError exception.
+features: [Promise.allSettled]
 ---*/
 
 assert.throws(TypeError, function() {

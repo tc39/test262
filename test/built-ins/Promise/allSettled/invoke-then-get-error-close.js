@@ -13,7 +13,7 @@ info: |
   Runtime Semantics: PerformPromiseAllSettled
 
   z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 ---*/
 
 var promise = new Promise(function() {});

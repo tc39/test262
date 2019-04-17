@@ -18,6 +18,7 @@ info: |
   ...
 flags: [async]
 includes: [promiseHelper.js]
+features: [Promise.allSettled]
 ---*/
 
 var sequence = [];

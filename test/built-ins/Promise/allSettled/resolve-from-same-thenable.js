@@ -24,6 +24,7 @@ info: |
   4. Set alreadyCalled.[[Value]] to true.
   ...
 includes: [promiseHelper.js]
+features: [Promise.allSettled]
 ---*/
 
 var callCount = 0;

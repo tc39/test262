@@ -15,6 +15,7 @@ info: |
     i. Let nextPromise be ? Invoke(constructor, "resolve", « nextValue »).
     ...
     z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
+features: [Promise.allSettled]
 ---*/
 
 var p1 = new Promise(function() {});

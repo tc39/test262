@@ -29,7 +29,7 @@ info: |
   IfAbruptRejectPromise
 
   1. IfAbruptRejectPromise(value, capability).
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 ---*/
 
 var returnCount = 0;

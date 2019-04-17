@@ -20,6 +20,7 @@ info: |
   6. Set promiseCapability.[[Resolve]] to resolve.
   7. Set promiseCapability.[[Reject]] to reject.
   ...
+features: [Promise.allSettled]
 ---*/
 
 var checkPoint = '';

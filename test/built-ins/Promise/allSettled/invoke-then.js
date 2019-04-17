@@ -14,6 +14,7 @@ info: |
   Runtime Semantics: PerformPromiseAllSettled
 
   z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
+features: [Promise.allSettled]
 ---*/
 
 var p1 = new Promise(function() {});

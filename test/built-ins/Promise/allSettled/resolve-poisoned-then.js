@@ -15,6 +15,7 @@ info: |
       2. Perform ? Call(resultCapability.[[Resolve]], undefined, « valuesArray »).
   ...
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var value = {};

@@ -14,6 +14,7 @@ info: |
     z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
 flags: [async]
 includes: [promiseHelper.js]
+features: [Promise.allSettled]
 ---*/
 
 var simulation = {};

@@ -19,7 +19,7 @@ info: |
     a. Let next be IteratorStep(iteratorRecord).
     b. If next is an abrupt completion, set iteratorRecord.[[done]] to true.
     c. ReturnIfAbrupt(next).
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 ---*/
 
 var iterStepThrows = {};

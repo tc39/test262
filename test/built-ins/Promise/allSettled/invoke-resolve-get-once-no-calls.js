@@ -15,6 +15,7 @@ info: |
   8. Repeat
     ...
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
+features: [Promise.allSettled]
 ---*/
 
 var resolve = Promise.resolve;

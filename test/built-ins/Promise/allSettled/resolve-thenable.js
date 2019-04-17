@@ -6,6 +6,7 @@ esid: sec-promise.allsettled
 info: |
   Let promiseCapability be NewPromiseCapability(C).
 flags: [async]
+features: [Promise.allSettled]
 ---*/
 
 var value = {};

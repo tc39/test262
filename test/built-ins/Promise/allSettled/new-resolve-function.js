@@ -13,6 +13,7 @@ info: |
   ...
   z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
   ...
+features: [Promise.allSettled]
 ---*/
 
 function resolveFunction() {}

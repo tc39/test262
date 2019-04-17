@@ -21,7 +21,7 @@ info: |
     e. Let nextValue be IteratorValue(next).
     f. If nextValue is an abrupt completion, set iteratorRecord.[[Done]] to true.
     g. ReturnIfAbrupt(nextValue).
-features: [Symbol.iterator]
+features: [Promise.allSettled, Symbol.iterator]
 flags: [async]
 ---*/
 
