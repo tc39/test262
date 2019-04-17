@@ -7,6 +7,10 @@
 #
 # https://github.com/tc39/process-document
 
+# Promise.allSettled
+# https://github.com/tc39/proposal-promise-allSettled
+Promise.allSettled
+
 # Hashbang Grammar
 # https://github.com/tc39/proposal-hashbang
 hashbang
