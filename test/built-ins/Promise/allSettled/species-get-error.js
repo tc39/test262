@@ -18,7 +18,7 @@ function C(executor) {
 }
 Object.defineProperty(C, Symbol.species, {
   get() {
-    throw new Test262Error("Getter for Symbol.species called");
+    throw new Test262Error('Getter for Symbol.species called');
   }
 });
 

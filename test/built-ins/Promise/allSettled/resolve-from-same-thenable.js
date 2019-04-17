@@ -70,19 +70,19 @@ var p3 = {
   }
 };
 
-assert.sameValue(callCount, 0, "callCount before call to all()");
+assert.sameValue(callCount, 0, 'callCount before call to all()');
 
 Promise.allSettled.call(Constructor, [p1, p2, p3]);
 
-assert.sameValue(callCount, 0, "callCount after call to all()");
+assert.sameValue(callCount, 0, 'callCount after call to all()');
 
-p1OnFulfilled("p1-fulfill");
-p1OnFulfilled("p1-fulfill-unexpected-1");
-p1OnFulfilled("p1-fulfill-unexpected-2");
+p1OnFulfilled('p1-fulfill');
+p1OnFulfilled('p1-fulfill-unexpected-1');
+p1OnFulfilled('p1-fulfill-unexpected-2');
 
-assert.sameValue(callCount, 0, "callCount after resolving p1");
+assert.sameValue(callCount, 0, 'callCount after resolving p1');
 
-p2OnFulfilled("p2-fulfill");
-p3OnFulfilled("p3-fulfill");
+p2OnFulfilled('p2-fulfill');
+p3OnFulfilled('p3-fulfill');
 
-assert.sameValue(callCount, 1, "callCount after resolving all elements");
+assert.sameValue(callCount, 1, 'callCount after resolving all elements');

@@ -36,22 +36,22 @@ sequence.push(1);
 
 p1.catch(function() {
   sequence.push(3);
-  checkSequence(sequence, "Expected to be called first.");
+  checkSequence(sequence, 'Expected to be called first.');
 }).catch($DONE);
 
 Promise.allSettled([p1, p2, p3]).then(function() {
   sequence.push(6);
-  checkSequence(sequence, "Expected to be called fourth.");
+  checkSequence(sequence, 'Expected to be called fourth.');
 }).then($DONE, $DONE);
 
 p2.then(function() {
   sequence.push(4);
-  checkSequence(sequence, "Expected to be called second.");
+  checkSequence(sequence, 'Expected to be called second.');
 }).catch($DONE);
 
 sequence.push(2);
 
 p3.catch(function() {
   sequence.push(5);
-  checkSequence(sequence, "Expected to be called third.");
+  checkSequence(sequence, 'Expected to be called third.');
 }).catch($DONE);

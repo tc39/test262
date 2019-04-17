@@ -36,13 +36,13 @@ Constructor.resolve = function(v) {
 
 var p1 = {
   then(onFulfilled, onRejected) {
-    onFulfilled("expectedValue");
-    onFulfilled("unexpectedValue");
+    onFulfilled('expectedValue');
+    onFulfilled('unexpectedValue');
   }
 };
 
-assert.sameValue(callCount, 0, "callCount before call to all()");
+assert.sameValue(callCount, 0, 'callCount before call to all()');
 
 Promise.allSettled.call(Constructor, [p1]);
 
-assert.sameValue(callCount, 1, "callCount after call to all()");
+assert.sameValue(callCount, 1, 'callCount after call to all()');

@@ -25,7 +25,7 @@ flags: [async]
 ---*/
 
 try {
-  Promise.allSettled("").then(function(v) {
+  Promise.allSettled('').then(function(v) {
     assert.sameValue(v.length, 0);
   }, function() {
     $DONE('The promise should be resolved, but was rejected');

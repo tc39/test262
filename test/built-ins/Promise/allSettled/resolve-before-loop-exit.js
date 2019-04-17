@@ -61,18 +61,18 @@ var p1 = {
 };
 var p2 = {
   then(onFulfilled, onRejected) {
-    p1OnFulfilled("p1-fulfill");
-    onFulfilled("p2-fulfill");
+    p1OnFulfilled('p1-fulfill');
+    onFulfilled('p2-fulfill');
   }
 };
 var p3 = {
   then(onFulfilled, onRejected) {
-    onFulfilled("p3-fulfill");
+    onFulfilled('p3-fulfill');
   }
 };
 
-assert.sameValue(callCount, 0, "callCount before call to all()");
+assert.sameValue(callCount, 0, 'callCount before call to all()');
 
 Promise.allSettled.call(Constructor, [p1, p2, p3]);
 
-assert.sameValue(callCount, 1, "callCount after call to all()");
+assert.sameValue(callCount, 1, 'callCount after call to all()');

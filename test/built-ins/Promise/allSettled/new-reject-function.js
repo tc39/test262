@@ -30,18 +30,18 @@ var p1 = {
   then(_, onRejected) {
     callCount1 += 1;
     p1OnRejected = onRejected;
-    assert.notSameValue(onRejected, rejectFunction, "p1.then");
+    assert.notSameValue(onRejected, rejectFunction, 'p1.then');
   }
 };
 var p2 = {
   then(_, onRejected) {
     callCount2 += 1;
-    assert.notSameValue(onRejected, rejectFunction, "p2.then");
-    assert.notSameValue(onRejected, p1OnRejected, "p1.onRejected != p2.onRejected");
+    assert.notSameValue(onRejected, rejectFunction, 'p2.then');
+    assert.notSameValue(onRejected, p1OnRejected, 'p1.onRejected != p2.onRejected');
   }
 };
 
 Promise.allSettled.call(Constructor, [p1, p2]);
 
-assert.sameValue(callCount1, 1, "p1.then call count");
-assert.sameValue(callCount2, 1, "p2.then call count");
+assert.sameValue(callCount1, 1, 'p1.then call count');
+assert.sameValue(callCount2, 1, 'p2.then call count');

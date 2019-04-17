@@ -36,7 +36,7 @@ flags: [async]
 
 Object.defineProperty(Array.prototype, 0, {
   set() {
-    throw new Test262Error("Setter on Array.prototype called");
+    throw new Test262Error('Setter on Array.prototype called');
   }
 });
 

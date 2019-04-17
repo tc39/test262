@@ -39,7 +39,7 @@ flags: [async]
 
 try {
   Promise.allSettled({
-    [Symbol.iterator]: ""
+    [Symbol.iterator]: ''
   }).then(function() {
     $DONE('The promise should be rejected, but was resolved');
   }, function(error) {

@@ -29,6 +29,6 @@ NotPromise.resolve = function(v) {
 Promise.allSettled.call(NotPromise, [thenable]);
 
 assert.sameValue(
-  Object.prototype.hasOwnProperty.call(resolveElementFunction, "name"),
+  Object.prototype.hasOwnProperty.call(resolveElementFunction, 'name'),
   false
 );

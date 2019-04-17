@@ -37,18 +37,18 @@ var p1OnFulfilled;
 var p1 = {
   then(onFulfilled, onRejected) {
     p1OnFulfilled = onFulfilled;
-    onFulfilled("expectedValue");
+    onFulfilled('expectedValue');
   }
 };
 
-assert.sameValue(callCount, 0, "callCount before call to all()");
+assert.sameValue(callCount, 0, 'callCount before call to all()');
 
 Promise.allSettled.call(Constructor, [p1]);
 
-assert.sameValue(callCount, 1, "callCount after call to all()");
+assert.sameValue(callCount, 1, 'callCount after call to all()');
 checkSettledPromises(valuesArray, expected, 'valuesArray after call to all()');
 
-p1OnFulfilled("unexpectedValue");
+p1OnFulfilled('unexpectedValue');
 
-assert.sameValue(callCount, 1, "callCount after call to onFulfilled()");
+assert.sameValue(callCount, 1, 'callCount after call to onFulfilled()');
 checkSettledPromises(valuesArray, expected, 'valuesArray after call to onFulfilled()');

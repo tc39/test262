@@ -40,19 +40,19 @@ Constructor.resolve = function(v) {
 
 var p1 = {
   then(onFulfilled, onRejected) {
-    onFulfilled("expectedValue-p1");
-    onFulfilled("unexpectedValue-p1");
+    onFulfilled('expectedValue-p1');
+    onFulfilled('unexpectedValue-p1');
   }
 };
 var p2 = {
   then(onFulfilled, onRejected) {
-    onFulfilled("expectedValue-p2");
-    onFulfilled("unexpectedValue-p2");
+    onFulfilled('expectedValue-p2');
+    onFulfilled('unexpectedValue-p2');
   }
 };
 
-assert.sameValue(callCount, 0, "callCount before call to all()");
+assert.sameValue(callCount, 0, 'callCount before call to all()');
 
 Promise.allSettled.call(Constructor, [p1, p2]);
 
-assert.sameValue(callCount, 1, "callCount after call to all()");
+assert.sameValue(callCount, 1, 'callCount after call to all()');
