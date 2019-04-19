@@ -234,6 +234,13 @@ function Test262Error(message) {
 }
 ```
 
+## Rules For Module `_FIXTURE.js` Files
+
+The [Module section of INTERPRETING.md](https://github.com/tc39/test262/blob/master/INTERPRETING.md#modules) states that `_FIXTURE.js` files will not have have Realm modifications applied. In practice, this means that code in `_FIXTURE.js` files must abide by the following rules: 
+
+- **MUST NOT** refer to, or make use of any [Test262-Defined Bindings](https://github.com/tc39/test262/blob/master/INTERPRETING.md#test262-defined-bindings) in any way. 
+- **MUST NOT** refer to, or make use of any [Host-Defined Functions](https://github.com/tc39/test262/blob/master/INTERPRETING.md#host-defined-functions) in any way. 
+
 ## Handling Errors and Negative Test Cases
 
 Expectations for **parsing errors** should be declared using [the `negative` frontmatter flag](#negative). They must also include `$DONOTEVALUATE();` (in order to guarantee that implementations do not execute the code):
