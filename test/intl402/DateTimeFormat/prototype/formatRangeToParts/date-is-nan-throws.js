@@ -5,6 +5,8 @@
 description:
   Throws a RangeError if date arg is cast to Nan
 info:
+  Intl.DateTimeFormat.prototype.formatRangeToParts ( startDate , endDate )
+
   1. Let dtf be this value.
   2. If Type(dtf) is not Object, throw a TypeError exception.
   3. If dtf does not have an [[InitializedDateTimeFormat]] internal slot, throw a TypeError exception.
