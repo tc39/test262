@@ -32,7 +32,7 @@ execution_steps: &execution_steps
     - *save_cache
     - run: ./node_modules/.bin/jsvu --os=linux64 --engines=$hostName
     - run: cp -r  ~/.jsvu r
-    - run: npm test
+    - run: npm run ci
 
 jobs:
   "Project lint, generation tests and build":
