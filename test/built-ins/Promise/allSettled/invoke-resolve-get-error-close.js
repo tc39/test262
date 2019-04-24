@@ -3,7 +3,7 @@
 
 /*---
 description: >
-  Error retrieving the constructor's `resolve` method (closing iterator)
+  Error retrieving the constructor's `resolve` method not opening iterator
 esid: sec-promise.allsettled
 info: |
   6. Let result be PerformPromiseAllSettled(iteratorRecord, C, promiseCapability).
@@ -21,9 +21,11 @@ features: [Promise.allSettled, Symbol.iterator]
 
 var iter = {};
 var returnCount = 0;
+var nextCount = 0;
 iter[Symbol.iterator] = function() {
   return {
     next() {
+      nextCount += 1;
       return {
         done: false
       };
@@ -42,4 +44,5 @@ Object.defineProperty(Promise, 'resolve', {
 
 Promise.allSettled(iter);
 
-assert.sameValue(returnCount, 1);
+assert.sameValue(nextCount, 0);
+assert.sameValue(returnCount, 0);
