@@ -11,7 +11,7 @@ includes: [isConstructor.js]
 features: [Reflect.construct,Intl.DateTimeFormat-formatRange]
 ---*/
 
-var formatRangeToParts = Intl.DateTimeFormat.prototype.formatRangeToParts;
+const formatRangeToParts = Intl.DateTimeFormat.prototype.formatRangeToParts;
 
 assert.sameValue(Object.prototype.toString.call(formatRangeToParts), "[object Function]",
                  "The [[Class]] internal property of a built-in function must be " +

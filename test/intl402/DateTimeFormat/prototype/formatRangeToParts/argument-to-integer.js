@@ -35,11 +35,11 @@ function compare(actual, expected) {
 }
 
 // Switch to a time format instead of using DateTimeFormat's default date-only format.
-var dtf = new Intl.DateTimeFormat(undefined, {
+const dtf = new Intl.DateTimeFormat(undefined, {
     hour: "numeric", minute: "numeric", second: "numeric"
 });
 const date = Date.now();
-var expected = dtf.formatRangeToParts(0, date);
+const expected = dtf.formatRangeToParts(0, date);
 
 compare(dtf.formatRangeToParts(-0.9, date), expected, "formatToParts(-0.9)");
 compare(dtf.formatRangeToParts(-0.5, date), expected, "formatToParts(-0.5)");

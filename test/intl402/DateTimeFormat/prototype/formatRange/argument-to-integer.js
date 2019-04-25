@@ -20,11 +20,11 @@ features: [Intl.DateTimeFormat-formatRange]
 ---*/
 
 // Switch to a time format instead of using DateTimeFormat's default date-only format.
-var dtf = new Intl.DateTimeFormat(undefined, {
+const dtf = new Intl.DateTimeFormat(undefined, {
     hour: "numeric", minute: "numeric", second: "numeric"
 });
 const date = Date.now();
-var expected = dtf.formatRange(0, date);
+const expected = dtf.formatRange(0, date);
 
 assert.sameValue(dtf.formatRange(-0.9, date), expected, "formatToParts(-0.9)");
 assert.sameValue(dtf.formatRange(-0.5, date), expected, "formatToParts(-0.5)");

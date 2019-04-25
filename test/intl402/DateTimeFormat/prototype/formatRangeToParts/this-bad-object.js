@@ -7,7 +7,7 @@ description: >
 features: [Intl.DateTimeFormat-formatRange]
 ---*/
 
-var formatRangeToParts = Intl.DateTimeFormat.prototype.formatRangeToParts;
+const formatRangeToParts = Intl.DateTimeFormat.prototype.formatRangeToParts;
 
 assert.throws(TypeError, function() {
   formatRangeToParts.call({});
