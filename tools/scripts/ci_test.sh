@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$CIRCLE_PULL_REQUEST" != "" ]; then
-  paths=$(git diff --diff-filter ACMR --name-only origin/master -- test/)
+  paths=$(git diff --diff-filter ACMR --name-only origin/master.. -- test/)
 
   if [ "$paths" == "" ]; then
     echo No test files added or modified. Exiting.
