@@ -22,4 +22,8 @@ Object.defineProperty(C, Symbol.species, {
   }
 });
 
+C.resolve = function() {
+  throw new Test262Error();
+};
+
 Promise.allSettled.call(C, []);

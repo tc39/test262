@@ -55,6 +55,10 @@ var P = function(executor) {
   });
 };
 
+P.resolve = function() {
+  throw new Test262Error();
+};
+
 Promise.allSettled.call(P, iter);
 
 assert.sameValue(returnCount, 0);

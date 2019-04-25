@@ -43,6 +43,10 @@ var P = function(executor) {
   });
 };
 
+P.resolve = function() {
+  throw new Test262Error();
+};
+
 Promise.allSettled.call(P, [])
   .then(function() {
     $DONE('Promise incorrectly fulfilled.');
