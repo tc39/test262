@@ -27,8 +27,8 @@ const date = new Date(dateTimeString);
 // |dateTimeString| is valid ISO-8601 style date/time string.
 assert.notSameValue(date, NaN);
 
-// Ensure string input values are not converted to time values by calling the
-// Date constructor.
+// ToNumber() will try to parse the string as an integer and yield NaN, rather
+// than attempting to parse it like the Date constructor would.
 assert.throws(RangeError, function() {
   dtf.formatRange(dateTimeString, date);
 });
