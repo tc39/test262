@@ -45,4 +45,3 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   dtf.formatRange(NaN, NaN);
 }, "NaN/NaN");
-
