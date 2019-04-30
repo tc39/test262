@@ -50,26 +50,37 @@ for (const [dateStyle, expected] of dateOptions) {
 }
 
 for (const [timeStyle, expected12, expected24] of timeOptions) {
-  for (const hourOptions of options12) {
-    const dtf = new Intl.DateTimeFormat("en-US", {
+  const check = (locale, options, expected) => {
+    const dtf = new Intl.DateTimeFormat(locale, {
       timeStyle,
       timeZone: "UTC",
-      ...hourOptions
+      ...options
     });
 
     const dateString = dtf.format(date);
-    assert.sameValue(dateString, expected12, `Result for ${timeStyle} with ${JSON.stringify(hourOptions)}`);
+    assert.sameValue(dateString, expected, `Result for ${timeStyle} with ${JSON.stringify(options)}`);
+  };
+
+  check("en-US", {}, expected12);
+  check("en-US-u-hc-h11", {}, expected12);
+  check("en-US-u-hc-h12", {}, expected12);
+  check("en-US-u-hc-h23", {}, expected24);
+  check("en-US-u-hc-h24", {}, expected24);
+
+  for (const hourOptions of options12) {
+    check("en-US", hourOptions, expected12);
+    check("en-US-u-hc-h11", hourOptions, expected12);
+    check("en-US-u-hc-h12", hourOptions, expected12);
+    check("en-US-u-hc-h23", hourOptions, expected12);
+    check("en-US-u-hc-h24", hourOptions, expected12);
   }
 
   for (const hourOptions of options24) {
-    const dtf = new Intl.DateTimeFormat("en-US", {
-      timeStyle,
-      timeZone: "UTC",
-      ...hourOptions
-    });
-
-    const dateString = dtf.format(date);
-    assert.sameValue(dateString, expected24, `Result for ${timeStyle} with ${JSON.stringify(hourOptions)}`);
+    check("en-US", hourOptions, expected24);
+    check("en-US-u-hc-h11", hourOptions, expected24);
+    check("en-US-u-hc-h12", hourOptions, expected24);
+    check("en-US-u-hc-h23", hourOptions, expected24);
+    check("en-US-u-hc-h24", hourOptions, expected24);
   }
 }
 
