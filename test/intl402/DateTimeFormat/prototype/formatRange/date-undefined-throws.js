@@ -11,22 +11,32 @@ info:
   2. If Type(dtf) is not Object, throw a TypeError exception.
   3. If dtf does not have an [[InitializedDateTimeFormat]] internal slot, throw a TypeError exception.
   4. If startDate is undefined or endDate is undefined, throw a RangeError exception.
+  5. Let x be ? ToNumber(startDate).
+  6. Let y be ? ToNumber(endDate).
 
 features: [Intl.DateTimeFormat-formatRange]
 ---*/
 
 var dtf = new Intl.DateTimeFormat();
 
-var date = new Date();
+assert.throws(RangeError, function() {
+  dtf.formatRange(); // Not possible to poison this one
+}, "no args");
+
+var poison = { valueOf() { throw new Test262Error(); } };
+
+assert.throws(RangeError, function() {
+  dtf.formatRange(undefined, poison);
+}, "date/undefined");
+
+assert.throws(RangeError, function() {
+  dtf.formatRange(poison, undefined);
+}, "undefined/date");
+
+assert.throws(RangeError, function() {
+  dtf.formatRange(poison);
+}, "only one arg");
 
 assert.throws(RangeError, function() {
   dtf.formatRange(undefined, undefined);
 }, "undefined/undefined");
-
-assert.throws(RangeError, function() {
-  dtf.formatRange(date, undefined);
-}, "date/undefined");
-
-assert.throws(RangeError, function() {
-  dtf.formatRange(undefined, date);
-}, "undefined/date");
