@@ -40,6 +40,7 @@ var date = new Date();
 assert.throws(RangeError, function() {
   dtf.formatRange(Infinity, date);
 }, "+Infinity/date");
+
 assert.throws(RangeError, function() {
   dtf.formatRange(-Infinity, date);
 }, "-Infinity/date");
