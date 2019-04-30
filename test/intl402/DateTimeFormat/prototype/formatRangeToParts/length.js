@@ -9,6 +9,9 @@ features: [Intl.DateTimeFormat-formatRange]
 
 assert.sameValue(Intl.DateTimeFormat.prototype.formatRangeToParts.length, 2);
 
-verifyNotEnumerable(Intl.DateTimeFormat.prototype.formatRangeToParts, "length");
-verifyNotWritable(Intl.DateTimeFormat.prototype.formatRangeToParts, "length");
-verifyConfigurable(Intl.DateTimeFormat.prototype.formatRangeToParts, "length");
+verifyProperty(Intl.DateTimeFormat.prototype.formatRangeToParts, 'length', {
+  value: 2,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
