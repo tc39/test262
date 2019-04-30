@@ -13,33 +13,35 @@ info:
 features: [Intl.DateTimeFormat-formatRange, Symbol]
 ---*/
 
-var formatRange = Intl.DateTimeFormat.prototype.formatRange;
+let formatRange = Intl.DateTimeFormat.prototype.formatRange;
+let d1 = new Date("1997-08-22");
+let d2 = new Date("1999-06-26");
 
 assert.throws(TypeError, function() {
-  formatRange.call(undefined, undefined);
+  formatRange.call(undefined, d1, d2);
 }, "undefined");
 
 assert.throws(TypeError, function() {
-  formatRange.call(null, null);
+  formatRange.call(null,  d1, d2);
 }, "null");
 
 assert.throws(TypeError, function() {
-  formatRange.call(42, 43);
+  formatRange.call(42,  d1, d2);
 }, "number");
 
 assert.throws(TypeError, function() {
-  formatRange.call("foo", "bar");
+  formatRange.call("foo", d1, d2);
 }, "string");
 
 assert.throws(TypeError, function() {
-  formatRange.call(false, false);
+  formatRange.call(false, d1, d2);
 }, "false");
 
 assert.throws(TypeError, function() {
-  formatRange.call(true, true);
+  formatRange.call(true, d1, d2);
 }, "true");
 
 var s = Symbol('3');
 assert.throws(TypeError, function() {
-  formatRange.call(s, s);
+  formatRange.call(s, d1, d2);
 }, "symbol");
