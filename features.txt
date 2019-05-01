@@ -96,6 +96,10 @@ Intl.NumberFormat-unified
 # https://github.com/tc39/proposal-intl-datetime-style
 Intl.DateTimeFormat-datetimestyle
 
+# Intl.DateTimeFormat: formatRange and formatRangeToParts functions
+# https://github.com/tc39/proposal-intl-DateTimeFormat-formatRange
+Intl.DateTimeFormat-formatRange
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
