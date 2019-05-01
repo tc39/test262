@@ -24,7 +24,7 @@ var p = new Proxy(target, {
     return {
       configurable: false,
       writable: false,
-    }
+    };
   },
 });
 
