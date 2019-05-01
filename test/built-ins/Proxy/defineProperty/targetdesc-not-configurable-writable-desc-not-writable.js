@@ -16,7 +16,7 @@ info: |
             i. If Desc has a [[Writable]] field and Desc.[[Writable]] is
             false, throw a TypeError exception.
     ...
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var target = {};
@@ -32,7 +32,7 @@ Object.defineProperty(target, "prop", {
 });
 
 assert.throws(TypeError, function() {
-  Object.defineProperty(p, "prop", {
+  Reflect.defineProperty(p, "prop", {
     writable: false,
   });
 });
