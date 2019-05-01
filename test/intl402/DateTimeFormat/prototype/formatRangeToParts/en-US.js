@@ -27,10 +27,10 @@ function compare(actual, expected) {
   }
 }
 
-const date1 = new Date("2019-01-03");
-const date2 = new Date("2019-01-05");
-const date3 = new Date("2019-03-04");
-const date4 = new Date("2020-03-04");
+const date1 = new Date("2019-01-03T00:00:00Z");
+const date2 = new Date("2019-01-05T00:00:00Z");
+const date3 = new Date("2019-03-04T00:00:00Z");
+const date4 = new Date("2020-03-04T00:00:00Z");
 
 let dtf = new Intl.DateTimeFormat("en-US");
 compare(dtf.formatRangeToParts(date1, date1), [

@@ -26,11 +26,11 @@ function* zip(a, b) {
   }
 }
 
-function compare(actual, expected) {
+function compare(actual, expected, message) {
   for (const [i, actualEntry, expectedEntry] of zip(actual, expected)) {
-    assert.sameValue(actualEntry.type, expectedEntry.type, `type for entry ${i}`);
-    assert.sameValue(actualEntry.value, expectedEntry.value, `value for entry ${i}`);
-    assert.sameValue(actualEntry.source, expectedEntry.source, `source for entry ${i}`);
+    assert.sameValue(actualEntry.type, expectedEntry.type, `${message}: type for entry ${i}`);
+    assert.sameValue(actualEntry.value, expectedEntry.value, `${message}: value for entry ${i}`);
+    assert.sameValue(actualEntry.source, expectedEntry.source, `${message}: source for entry ${i}`);
   }
 }
 
@@ -41,13 +41,13 @@ const dtf = new Intl.DateTimeFormat(undefined, {
 const date = Date.now();
 const expected = dtf.formatRangeToParts(0, date);
 
-compare(dtf.formatRangeToParts(-0.9, date), expected, "formatToParts(-0.9)");
-compare(dtf.formatRangeToParts(-0.5, date), expected, "formatToParts(-0.5)");
-compare(dtf.formatRangeToParts(-0.1, date), expected, "formatToParts(-0.1)");
-compare(dtf.formatRangeToParts(-Number.MIN_VALUE, date), expected, "formatToParts(-Number.MIN_VALUE)");
-compare(dtf.formatRangeToParts(-0, date), expected, "formatToParts(-0)");
-compare(dtf.formatRangeToParts(+0, date), expected, "formatToParts(+0)");
-compare(dtf.formatRangeToParts(Number.MIN_VALUE, date), expected, "formatToParts(Number.MIN_VALUE)");
-compare(dtf.formatRangeToParts(0.1, date), expected, "formatToParts(0.1)");
-compare(dtf.formatRangeToParts(0.5, date), expected, "formatToParts(0.5)");
-compare(dtf.formatRangeToParts(0.9, date), expected, "formatToParts(0.9)");
+compare(dtf.formatRangeToParts(-0.9, date), expected, "formatRangeToParts(-0.9)");
+compare(dtf.formatRangeToParts(-0.5, date), expected, "formatRangeToParts(-0.5)");
+compare(dtf.formatRangeToParts(-0.1, date), expected, "formatRangeToParts(-0.1)");
+compare(dtf.formatRangeToParts(-Number.MIN_VALUE, date), expected, "formatRangeToParts(-Number.MIN_VALUE)");
+compare(dtf.formatRangeToParts(-0, date), expected, "formatRangeToParts(-0)");
+compare(dtf.formatRangeToParts(+0, date), expected, "formatRangeToParts(+0)");
+compare(dtf.formatRangeToParts(Number.MIN_VALUE, date), expected, "formatRangeToParts(Number.MIN_VALUE)");
+compare(dtf.formatRangeToParts(0.1, date), expected, "formatRangeToParts(0.1)");
+compare(dtf.formatRangeToParts(0.5, date), expected, "formatRangeToParts(0.5)");
+compare(dtf.formatRangeToParts(0.9, date), expected, "formatRangeToParts(0.9)");

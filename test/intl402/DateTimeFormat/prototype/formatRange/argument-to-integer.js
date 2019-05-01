@@ -26,13 +26,13 @@ const dtf = new Intl.DateTimeFormat(undefined, {
 const date = Date.now();
 const expected = dtf.formatRange(0, date);
 
-assert.sameValue(dtf.formatRange(-0.9, date), expected, "formatToParts(-0.9)");
-assert.sameValue(dtf.formatRange(-0.5, date), expected, "formatToParts(-0.5)");
-assert.sameValue(dtf.formatRange(-0.1, date), expected, "formatToParts(-0.1)");
-assert.sameValue(dtf.formatRange(-Number.MIN_VALUE, date), expected, "formatToParts(-Number.MIN_VALUE)");
-assert.sameValue(dtf.formatRange(-0, date), expected, "formatToParts(-0)");
-assert.sameValue(dtf.formatRange(+0, date), expected, "formatToParts(+0)");
-assert.sameValue(dtf.formatRange(Number.MIN_VALUE, date), expected, "formatToParts(Number.MIN_VALUE)");
-assert.sameValue(dtf.formatRange(0.1, date), expected, "formatToParts(0.1)");
-assert.sameValue(dtf.formatRange(0.5, date), expected, "formatToParts(0.5)");
-assert.sameValue(dtf.formatRange(0.9, date), expected, "formatToParts(0.9)");
+assert.sameValue(dtf.formatRange(-0.9, date), expected, "formatRange(-0.9)");
+assert.sameValue(dtf.formatRange(-0.5, date), expected, "formatRange(-0.5)");
+assert.sameValue(dtf.formatRange(-0.1, date), expected, "formatRange(-0.1)");
+assert.sameValue(dtf.formatRange(-Number.MIN_VALUE, date), expected, "formatRange(-Number.MIN_VALUE)");
+assert.sameValue(dtf.formatRange(-0, date), expected, "formatRange(-0)");
+assert.sameValue(dtf.formatRange(+0, date), expected, "formatRange(+0)");
+assert.sameValue(dtf.formatRange(Number.MIN_VALUE, date), expected, "formatRange(Number.MIN_VALUE)");
+assert.sameValue(dtf.formatRange(0.1, date), expected, "formatRange(0.1)");
+assert.sameValue(dtf.formatRange(0.5, date), expected, "formatRange(0.5)");
+assert.sameValue(dtf.formatRange(0.9, date), expected, "formatRange(0.9)");

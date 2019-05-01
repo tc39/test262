@@ -4,6 +4,7 @@
 /*---
 description: Property type and descriptor.
 includes: [propertyHelper.js]
+features: [Intl.DateTimeFormat-formatRange]
 ---*/
 
 assert.sameValue(
