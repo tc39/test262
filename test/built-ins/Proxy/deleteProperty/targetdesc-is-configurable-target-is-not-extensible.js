@@ -1,7 +1,7 @@
 // Copyright (C) 2019 Aleksey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 9.5.10
+esid: sec-proxy-object-internal-methods-and-internal-slots-delete-p
 description: >
     Throw a TypeError exception if trap result is true, targetDesc is configurable,
     and target is not extensible.

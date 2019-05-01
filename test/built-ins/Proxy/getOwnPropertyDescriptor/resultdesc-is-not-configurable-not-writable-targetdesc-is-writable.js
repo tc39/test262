@@ -1,7 +1,7 @@
 // Copyright (C) 2019 Aleksey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 9.5.5
+esid: sec-proxy-object-internal-methods-and-internal-slots-getownproperty-p
 description: >
     Throws a TypeError exception if resultDesc is both non-configurable and
     non-writable, while targetDesc is writable.

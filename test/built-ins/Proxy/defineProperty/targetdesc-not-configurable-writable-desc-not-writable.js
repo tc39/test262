@@ -1,7 +1,7 @@
 // Copyright (C) 2019 Aleksey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 9.5.6
+esid: sec-proxy-object-internal-methods-and-internal-slots-defineownproperty-p-desc
 description: >
     Throw a TypeError exception if trap result is true, targetDesc is not configurable
     and writable, while Desc is not writable.
