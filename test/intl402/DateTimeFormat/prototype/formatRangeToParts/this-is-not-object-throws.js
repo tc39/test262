@@ -14,8 +14,8 @@ features: [Intl.DateTimeFormat-formatRange, Symbol]
 ---*/
 
 let formatRangeToParts = Intl.DateTimeFormat.prototype.formatRangeToParts;
-let d1 = new Date("1997-08-22");
-let d2 = new Date("1999-06-26");
+let d1 = new Date("1997-08-22T00:00");
+let d2 = new Date("1999-06-26T00:00");
 
 assert.throws(TypeError, function() {
   formatRangeToParts.call(undefined, d1, d2);
