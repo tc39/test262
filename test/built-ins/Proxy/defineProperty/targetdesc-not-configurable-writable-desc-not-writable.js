@@ -19,16 +19,17 @@ info: |
 features: [Proxy, Reflect]
 ---*/
 
-var target = {};
-var p = new Proxy(target, {
+var trapCalls = 0;
+var p = new Proxy({}, {
   defineProperty: function(t, prop, desc) {
+    Object.defineProperty(t, prop, {
+      configurable: false,
+      writable: true,
+    });
+
+    trapCalls++;
     return true;
   },
-});
-
-Object.defineProperty(target, "prop", {
-  configurable: false,
-  writable: true,
 });
 
 assert.throws(TypeError, function() {
@@ -36,3 +37,4 @@ assert.throws(TypeError, function() {
     writable: false,
   });
 });
+assert.sameValue(trapCalls, 1);
