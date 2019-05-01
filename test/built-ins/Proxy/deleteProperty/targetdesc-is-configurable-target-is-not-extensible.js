@@ -15,12 +15,14 @@ info: |
 features: [Proxy, Reflect]
 ---*/
 
+var trapCalls = 0;
 var target = {
   prop: 1,
 };
 
 var p = new Proxy(target, {
   deleteProperty: function(t, prop) {
+    trapCalls++;
     return true;
   },
 });
@@ -30,3 +32,4 @@ Object.preventExtensions(target);
 assert.throws(TypeError, function() {
   Reflect.deleteProperty(p, "prop");
 });
+assert.sameValue(trapCalls, 1);
