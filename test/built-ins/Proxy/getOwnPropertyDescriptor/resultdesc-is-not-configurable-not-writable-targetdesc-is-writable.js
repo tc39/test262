@@ -18,9 +18,15 @@ info: |
 features: [Proxy]
 ---*/
 
-var target = {};
-var p = new Proxy(target, {
+var trapCalls = 0;
+var p = new Proxy({}, {
   getOwnPropertyDescriptor: function(t, prop) {
+    Object.defineProperty(t, prop, {
+      configurable: false,
+      writable: true,
+    });
+
+    trapCalls++;
     return {
       configurable: false,
       writable: false,
@@ -28,11 +34,7 @@ var p = new Proxy(target, {
   },
 });
 
-Object.defineProperty(target, "prop", {
-  configurable: false,
-  writable: true,
-});
-
 assert.throws(TypeError, function() {
   Object.getOwnPropertyDescriptor(p, "prop");
 });
+assert.sameValue(trapCalls, 1);
