@@ -12,7 +12,7 @@ info: |
     13. Let extensibleTarget be ? IsExtensible(target).
     14. If extensibleTarget is false, throw a TypeError exception.
     ...
-features: [Proxy]
+features: [Proxy, Reflect]
 ---*/
 
 var target = {
@@ -28,5 +28,5 @@ var p = new Proxy(target, {
 Object.preventExtensions(target);
 
 assert.throws(TypeError, function() {
-  delete p.prop;
+  Reflect.deleteProperty(p, "prop");
 });
