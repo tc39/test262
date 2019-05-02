@@ -6,10 +6,9 @@ description: Intl.DateTimeFormat.prototype.formatRange.name value and descriptor
 includes: [propertyHelper.js]
 features: [Intl.DateTimeFormat-formatRange]
 ---*/
-assert.sameValue(Intl.DateTimeFormat.prototype.formatRange.name, 'formatRange',
-  'The value of `Intl.DateTimeFormat.prototype.formatRange.name` is `"formatRange"`'
-);
-
-verifyNotEnumerable(Intl.DateTimeFormat.prototype.formatRange, 'name');
-verifyNotWritable(Intl.DateTimeFormat.prototype.formatRange, 'name');
-verifyConfigurable(Intl.DateTimeFormat.prototype.formatRange, 'name');
+verifyProperty(Intl.DateTimeFormat.prototype.formatRange, 'name', {
+  value: 'formatRange',
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
