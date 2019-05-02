@@ -12,10 +12,10 @@ locale: [en-US]
 features: [Intl.DateTimeFormat-formatRange]
 ---*/
 
-const date1 = new Date("2019-01-03T00:00:00Z");
-const date2 = new Date("2019-01-05T00:00:00Z");
-const date3 = new Date("2019-03-04T00:00:00Z");
-const date4 = new Date("2020-03-04T00:00:00Z");
+const date1 = new Date("2019-01-03T00:00:00");
+const date2 = new Date("2019-01-05T00:00:00");
+const date3 = new Date("2019-03-04T00:00:00");
+const date4 = new Date("2020-03-04T00:00:00");
 
 let dtf = new Intl.DateTimeFormat("en-US");
 assert.sameValue(dtf.formatRange(date1, date1), "1/3/2019");
