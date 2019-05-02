@@ -29,7 +29,5 @@ assert.throws(TypeError, function() {
 });
 assert.sameValue(trapCalls, 1);
 
-assert.throws(TypeError, function() {
-  Reflect.deleteProperty(p, "nonExistent");
-});
+assert(Reflect.deleteProperty(p, "nonExistent"));
 assert.sameValue(trapCalls, 2);
