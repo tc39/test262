@@ -16,18 +16,13 @@ features: [Proxy, Reflect]
 ---*/
 
 var trapCalls = 0;
-var target = {
-  prop: 1,
-};
-
-var p = new Proxy(target, {
+var p = new Proxy({prop: 1}, {
   deleteProperty: function(t, prop) {
+    Object.preventExtensions(t);
     trapCalls++;
     return true;
   },
 });
-
-Object.preventExtensions(target);
 
 assert.throws(TypeError, function() {
   Reflect.deleteProperty(p, "prop");
