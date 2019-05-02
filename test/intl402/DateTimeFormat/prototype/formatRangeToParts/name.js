@@ -6,10 +6,9 @@ description: Intl.DateTimeFormat.prototype.formatRangeToParts.name value and des
 includes: [propertyHelper.js]
 features: [Intl.DateTimeFormat-formatRange]
 ---*/
-assert.sameValue(Intl.DateTimeFormat.prototype.formatRangeToParts.name, 'formatRangeToParts',
-  'The value of `Intl.DateTimeFormat.prototype.formatRangeToParts.name` is `"formatRangeToParts"`'
-);
-
-verifyNotEnumerable(Intl.DateTimeFormat.prototype.formatRangeToParts, 'name');
-verifyNotWritable(Intl.DateTimeFormat.prototype.formatRangeToParts, 'name');
-verifyConfigurable(Intl.DateTimeFormat.prototype.formatRangeToParts, 'name');
+verifyProperty(Intl.DateTimeFormat.prototype.formatRangeToParts, 'name', {
+  value: 'formatRangeToParts',
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
