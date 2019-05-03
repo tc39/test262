@@ -145,7 +145,7 @@ For example:
 ```
 negative:
   phase: parse
-  type: ReferenceError
+  type: SyntaxError
 ```
 
 #### includes
