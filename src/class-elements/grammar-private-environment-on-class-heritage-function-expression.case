@@ -1,0 +1,34 @@
+// Copyright (C) 2019 Caio Lima (Igalia S.L). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: It's a SyntaxError if a function expression evaluated on ClassHeritage uses a private name.
+info: |
+    Runtime Semantics: ClassDefinitionEvaluation
+
+    ClassTail : ClassHeritage { ClassBody }
+        ...
+        5. Let outerPrivateEnvironment be the PrivateEnvironment of the running execution context.
+        6. Let classPrivateEnvironment be NewDeclarativeEnvironment(outerPrivateEnvironment).
+        7. Let classPrivateEnvRec be classPrivateEnvironment's EnvironmentRecord.
+        8. If ClassBodyopt is present, then
+            a. For each element dn of the PrivateBoundIdentifiers of ClassBodyopt,
+              i. Perform classPrivateEnvRec.CreateImmutableBinding(dn, true).
+        9. If ClassHeritageopt is not present, then
+            a. Let protoParent be the intrinsic object %ObjectPrototype%.
+            b. Let constructorParent be the intrinsic object %FunctionPrototype%.
+        10. Else,
+            a. Set the running execution context's LexicalEnvironment to classScope.
+            b. NOTE: The running execution context's PrivateEnvironment is outerPrivateEnvironment when evaluating ClassHeritage.
+        ...
+template: syntax/invalid
+features: [class-fields-private, class-fields-public]
+---*/
+
+//- heritage
+
+extends function() { x = this.#foo; }
+
+//- elements
+
+#foo;
