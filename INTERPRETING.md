@@ -202,16 +202,6 @@ unresolvable;
 /*---
 negative:
   phase: parse
-  type: ReferenceError
----*/
-$DONOTEVALUATE();
-'litera'=1;
-```
-
-```js
-/*---
-negative:
-  phase: parse
   type: SyntaxError
 ---*/
 $DONOTEVALUATE();

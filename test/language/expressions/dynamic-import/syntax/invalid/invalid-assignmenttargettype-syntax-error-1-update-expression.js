@@ -2,19 +2,19 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-    ImportCall is a valid CallExpression and UnaryExpression, but it is an invalid
+    ImportCall is a valid CallExpression and UpdateExpression, but it is an invalid
     AssginmentTargetType then it should throw a ReferenceError if used in some
     UpdateExpressions
 esid: prod-ImportCall
 info: |
     Update Expressions
     Static Semantics: Early Errors
-
+    
     UpdateExpression:
-        ++UnaryExpression
-        --UnaryExpression
-
-    - It is an early Reference Error if AssignmentTargetType of UnaryExpression is invalid.
+        LeftHandSideExpression++
+        LeftHandSideExpression--
+    
+    - It is an early Syntax Error if AssignmentTargetType of LeftHandSideExpression is invalid or strict.
 
     LeftHandSideExpression:
         NewExpression
@@ -37,10 +37,10 @@ info: |
     1. Return invalid
 negative:
     phase: parse
-    type: ReferenceError
+    type: SyntaxError
 features: [dynamic-import]
 ---*/
 
 $DONOTEVALUATE();
 
---import('')
+import('')++

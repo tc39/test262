@@ -3,7 +3,7 @@
 /*---
 description: >
     ImportCall is a valid CallExpression and LHSExpression, but it is an invalid
-    AssginmentTargetType then it should throw a ReferenceError if used in some
+    AssginmentTargetType then it should throw a SyntaxError if used in some
     LHS Expression of a AssignmentExpression production
 esid: prod-ImportCall
 info: |
@@ -12,11 +12,11 @@ info: |
 
     AssignmentExpression : LeftHandSideExpression = AssignmentExpression
 
-    - It is an early Reference Error if LeftHandSideExpression is neither an ObjectLiteral nor an ArrayLiteral and AssignmentTargetType of LeftHandSideExpression is invalid.
+    - It is an early Syntax Error if LeftHandSideExpression is neither an ObjectLiteral nor an ArrayLiteral and AssignmentTargetType of LeftHandSideExpression is invalid or strict.
 
     AssignmentExpression : LeftHandSideExpression AssignmentOperator AssignmentExpression
 
-    - It is an early Reference Error if AssignmentTargetType of LeftHandSideExpression is invalid.
+    - It is an early Syntax Error if AssignmentTargetType of LeftHandSideExpression is invalid or strict.
 
     LeftHandSideExpression:
         NewExpression
@@ -39,10 +39,10 @@ info: |
     1. Return invalid
 negative:
     phase: parse
-    type: ReferenceError
+    type: SyntaxError
 features: [dynamic-import]
 ---*/
 
 $DONOTEVALUATE();
 
-import('') -= 1;
+import('') |= 1;
