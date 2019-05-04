@@ -18,4 +18,4 @@ flags: [module]
 
 $DONOTEVALUATE();
 
-import './instn-resolve-err-syntax_FIXTURE.js';
+import './instn-resolve-err-syntax-2_FIXTURE.js';
