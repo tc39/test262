@@ -13,6 +13,8 @@ assert.sameValue(
   '`typeof Intl.DateTimeFormat.prototype.formatRangeToParts` is `function`'
 );
 
-verifyNotEnumerable(Intl.DateTimeFormat.prototype, 'formatRangeToParts');
-verifyWritable(Intl.DateTimeFormat.prototype, 'formatRangeToParts');
-verifyConfigurable(Intl.DateTimeFormat.prototype, 'formatRangeToParts');
+verifyProperty(Intl.DateTimeFormat.prototype, 'formatRangeToParts', {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});

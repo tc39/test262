@@ -1,4 +1,4 @@
-// Copyright 2016-2019 Leonardo Balter, Igalia, S.L. All rights reserved.
+// Copyright 2019 Igalia, S.L. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
 /*---
