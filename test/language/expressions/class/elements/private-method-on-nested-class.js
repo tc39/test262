@@ -2,9 +2,9 @@
 // - src/class-elements/private-method-on-nested-class.case
 // - src/class-elements/default/cls-expr.template
 /*---
-description: PrivateName is available on inner classes (private method) (field definitions in a class expression)
+description: PrivateName of private method is available on inner classes (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [class-methods-private, class]
+features: [class-methods-private, class-fields-public, class]
 flags: [generated]
 info: |
     Updated Productions

@@ -2,9 +2,9 @@
 // - src/class-elements/private-setter-shadowed-by-field-on-nested-class.case
 // - src/class-elements/default/cls-decl.template
 /*---
-description: PrivateName can be shadowed on inner classes by a private field (private setter) (field definitions in a class declaration)
+description: PrivateName of private setter can be shadowed on inner classes by a private field (field definitions in a class declaration)
 esid: prod-FieldDefinition
-features: [class-methods-private, class-fields-private, class]
+features: [class-methods-private, class-fields-private, class-fields-public, class]
 flags: [generated]
 info: |
     Updated Productions
@@ -22,7 +22,7 @@ info: |
 
 
 class C {
-  set #m(v) { this._v = v }
+  set #m(v) { this._v = v; }
 
   method(v) { this.#m = v; }
 

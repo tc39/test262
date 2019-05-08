@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: PrivateName can be shadowed on inner classes by a private setter (private getter)
+desc: PrivateName of private getter can be shadowed on inner classes by a private setter
 info: |
   Updated Productions
 
@@ -16,7 +16,7 @@ info: |
     CallExpression[?Yield, ?Await].PrivateName
 
 template: default
-features: [class-methods-private]
+features: [class-methods-private, class-fields-public]
 ---*/
 
 //- elements

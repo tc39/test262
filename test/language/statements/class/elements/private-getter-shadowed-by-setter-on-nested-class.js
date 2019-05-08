@@ -2,9 +2,9 @@
 // - src/class-elements/private-getter-shadowed-by-setter-on-nested-class.case
 // - src/class-elements/default/cls-decl.template
 /*---
-description: PrivateName can be shadowed on inner classes by a private setter (private getter) (field definitions in a class declaration)
+description: PrivateName of private getter can be shadowed on inner classes by a private setter (field definitions in a class declaration)
 esid: prod-FieldDefinition
-features: [class-methods-private, class]
+features: [class-methods-private, class-fields-public, class]
 flags: [generated]
 info: |
     Updated Productions

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: PrivateName can be shadowed on inner classes by a private field (private setter)
+desc: PrivateName of private setter can be shadowed on inner classes by a private field
 info: |
   Updated Productions
 
@@ -16,11 +16,11 @@ info: |
     CallExpression[?Yield, ?Await].PrivateName
 
 template: default
-features: [class-methods-private, class-fields-private]
+features: [class-methods-private, class-fields-private, class-fields-public]
 ---*/
 
 //- elements
-set #m(v) { this._v = v }
+set #m(v) { this._v = v; }
 
 method(v) { this.#m = v; }
 

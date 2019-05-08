@@ -2,9 +2,9 @@
 // - src/class-elements/private-setter-shadowed-by-method-on-nested-class.case
 // - src/class-elements/default/cls-expr.template
 /*---
-description: PrivateName can be shadowed on inner class by a private method (private setter) (field definitions in a class expression)
+description: PrivateName of private setter can be shadowed on inner class by a private method (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [class-methods-private, class]
+features: [class-methods-private, class-fields-public, class]
 flags: [generated]
 info: |
     Updated Productions
@@ -47,4 +47,4 @@ assert.sameValue(c._v, 'outer class');
 
 assert.throws(TypeError, function() {
   innerB.method(c);
-}, 'ivalid access of inner class method from an object of outer class');
+}, 'invalid access of inner class method from an object of outer class');

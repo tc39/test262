@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: PrivateName can be shadowed on inner class by a private method (private setter)
+desc: PrivateName of private setter can be shadowed on inner class by a private method
 info: |
   Updated Productions
 
@@ -16,7 +16,7 @@ info: |
     CallExpression[?Yield, ?Await].PrivateName
 
 template: default
-features: [class-methods-private]
+features: [class-methods-private, class-fields-public]
 ---*/
 
 //- elements
@@ -44,4 +44,4 @@ assert.sameValue(c._v, 'outer class');
 
 assert.throws(TypeError, function() {
   innerB.method(c);
-}, 'ivalid access of inner class method from an object of outer class');
+}, 'invalid access of inner class method from an object of outer class');
