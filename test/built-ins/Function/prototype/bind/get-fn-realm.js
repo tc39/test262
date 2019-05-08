@@ -18,6 +18,7 @@ features: [cross-realm]
 
 var other = $262.createRealm().global;
 var C = new other.Function();
-var B = Function.prototype.bind.call(C);
+C.prototype = null;
+var B = C.bind();
 
-assert.sameValue(Object.getPrototypeOf(new B()), C.prototype);
+assert.sameValue(Object.getPrototypeOf(new B()), other.Object.prototype);
