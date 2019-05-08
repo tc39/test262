@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/class-elements/private-method-comparison.case
-// - src/class-elements/default/cls-expr.template
+// - src/class-elements/private-method-get-and-call.case
+// - src/class-elements/default/cls-decl.template
 /*---
-description: PrivateFieldGet of a private method returns the same function object to every instance of the same class (field definitions in a class expression)
+description: Function returned by a private method can be called with other values as 'this' (field definitions in a class declaration)
 esid: prod-FieldDefinition
 features: [class, class-methods-private]
 flags: [generated]
@@ -30,8 +30,8 @@ info: |
 ---*/
 
 
-var C = class {
-  #m() { return 'test262'; }
+class C {
+  #m() { return this._v; }
     
   getPrivateMethod() {
       return this.#m;
@@ -39,7 +39,9 @@ var C = class {
 
 }
 
-let c1 = new C();
-let c2 = new C();
+let c = new C();
 
-assert.sameValue(c1.getPrivateMethod(), c2.getPrivateMethod());
+let o1 = {_v: 'test262'};
+let o2 = {_v: 'foo'}; 
+assert.sameValue(c.getPrivateMethod().call(o1), 'test262');
+assert.sameValue(c.getPrivateMethod().call(o2), 'foo');
