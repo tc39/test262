@@ -2,7 +2,7 @@
 // - src/class-elements/private-method-comparison.case
 // - src/class-elements/default/cls-decl.template
 /*---
-description: PrivateFieldGet of a private method returns the same function object to every instance of a class (field definitions in a class declaration)
+description: PrivateFieldGet of a private method returns the same function object to every instance of the same class (field definitions in a class declaration)
 esid: prod-FieldDefinition
 features: [class, class-methods-private]
 flags: [generated]
