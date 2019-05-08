@@ -27,7 +27,7 @@ features: [class-fields-private, class-fields-public]
 
 //- heritage
 
-extends class extends class extends class { x = this.#foo; } { #foo; x = this.#ba;r } { #bar; x = this.#fuz; }
+extends class extends class extends class { x = this.#foo; } { #foo; x = this.#bar; } { #bar; x = this.#fuz; }
 
 //- elements
 

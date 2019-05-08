@@ -33,7 +33,7 @@ info: |
 
 $DONOTEVALUATE();
 
-var C = class extends class extends class extends class { x = this.#foo; } { #foo; x = this.#ba;r } { #bar; x = this.#fuz; }
+var C = class extends class extends class extends class { x = this.#foo; } { #foo; x = this.#bar; } { #bar; x = this.#fuz; }
 {
   #fuz;
 };
