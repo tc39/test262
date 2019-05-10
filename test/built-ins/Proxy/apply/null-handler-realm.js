@@ -1,17 +1,20 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2019 Aleksey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-proxy-object-internal-methods-and-internal-slots-call-thisargument-argumentslist
-es6id: 9.5.13
 description: >
+    Throws a TypeError exception if handler is null (honoring the realm of the
+    current execution context). 
+info: |
     [[Call]] (thisArgument, argumentsList)
 
+    1. Let handler be O.[[ProxyHandler]].
     2. If handler is null, throw a TypeError exception.
-features: [Proxy]
+features: [cross-realm, Proxy]
 ---*/
 
-
-var p = Proxy.revocable(function() {}, {});
+var OProxy = $262.createRealm().global.Proxy;
+var p = OProxy.revocable(function() {}, {});
 
 p.revoke();
 
