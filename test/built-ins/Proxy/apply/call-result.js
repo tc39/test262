@@ -13,7 +13,9 @@ features: [Proxy]
 ---*/
 
 var result = {};
-var p = new Proxy(function() {}, {
+var p = new Proxy(function() {
+  throw new Test262Error('target should not be called');
+}, {
   apply: function(t, c, args) {
     return result;
   },
