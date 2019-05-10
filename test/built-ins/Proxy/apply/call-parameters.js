@@ -14,9 +14,7 @@ features: [Proxy]
 ---*/
 
 var _target, _args, _handler, _context;
-var target = function(a, b) {
-  return a + b;
-};
+var target = function() {};
 var handler = {
   apply: function(t, c, args) {
     _handler = this;

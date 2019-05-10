@@ -8,10 +8,7 @@ description: >
 features: [Proxy]
 ---*/
 
-var target = function(a, b) {
-  return a + b;
-};
-var p = new Proxy(target, {
+var p = new Proxy(function() {}, {
   apply: function(t, c, args) {
     throw new Test262Error();
   }

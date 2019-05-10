@@ -12,15 +12,11 @@ info: |
 features: [Proxy]
 ---*/
 
-var target = function(a, b) {
-  return a + b;
-};
 var result = {};
-var handler = {
+var p = new Proxy(function() {}, {
   apply: function(t, c, args) {
     return result;
-  }
-};
-var p = new Proxy(target, handler);
+  },
+});
 
 assert.sameValue(p.call(), result);
