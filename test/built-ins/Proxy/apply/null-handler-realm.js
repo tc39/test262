@@ -3,6 +3,9 @@
 /*---
 esid: sec-proxy-object-internal-methods-and-internal-slots-call-thisargument-argumentslist
 description: >
+    Throws a TypeError exception if handler is null (honoring the realm of the
+    current execution context). 
+info: |
     [[Call]] (thisArgument, argumentsList)
 
     1. Let handler be O.[[ProxyHandler]].
