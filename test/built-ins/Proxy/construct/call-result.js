@@ -12,16 +12,14 @@ info: |
 features: [Proxy]
 ---*/
 
-function Target(a, b) {
-  this.sum = a + b;
-};
-var handler = {
+var P = new Proxy(function() {
+  throw new Test262Error('target should not be called');
+}, {
   construct: function(t, c, args) {
     return {
       sum: 42
     };
   }
-};
-var P = new Proxy(Target, handler);
+});
 
 assert.sameValue((new P(1, 2)).sum, 42);

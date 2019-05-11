@@ -12,10 +12,11 @@ info: |
 features: [Proxy, Symbol]
 ---*/
 
-function Target() {
-  this.attr = "done";
-};
-var P = new Proxy(Target, {
+function Target() {}
+
+var P = new Proxy(function() {
+  throw new Test262Error('target should not be called');
+}, {
   construct: function() {
     return Symbol();
   }
