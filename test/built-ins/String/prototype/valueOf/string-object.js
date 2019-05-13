@@ -23,3 +23,4 @@ var valueOf = String.prototype.valueOf;
 
 assert.sameValue(Object('').valueOf(), '');
 assert.sameValue(valueOf.call(new String('str')), 'str');
+assert.sameValue('a' + new String('b'), 'ab');

@@ -49,3 +49,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   valueOf.call(['s', 't', 'r']);
 });
+
+assert.throws(TypeError, function() {
+  'str' + {valueOf: valueOf};
+});
