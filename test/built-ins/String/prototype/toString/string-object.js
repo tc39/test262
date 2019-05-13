@@ -23,3 +23,4 @@ var toString = String.prototype.toString;
 
 assert.sameValue(Object('str').toString(), 'str');
 assert.sameValue(toString.call(new String('')), '');
+assert.sameValue('a'.concat(Object('b')), 'ab');

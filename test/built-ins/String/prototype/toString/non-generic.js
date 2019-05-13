@@ -49,3 +49,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   toString.call(['s', 't', 'r']);
 });
+
+assert.throws(TypeError, function() {
+  ''.concat({toString: toString});
+});
