@@ -71,7 +71,7 @@ info: |
   6. If index = -0, return false.
   7. Let length be O.[[ArrayLength]].
   8. If index < 0 or index ≥ length, return false.
-features: [TypedArray, Int8Array]
+features: [Reflect. Reflect.set]
 ---*/
 
 Object.setPrototypeOf(Array.prototype, new Int8Array(0));
