@@ -13,20 +13,21 @@ info: |
 features: [cross-realm]
 ---*/
 
-var OFunction = $262.createRealm().global.Function;
+var other = $262.createRealm().global;
+var otherApply = other.Function.prototype.apply;
 
-assert.throws(TypeError, function() {
-  OFunction.prototype.apply.call(undefined, {}, []);
+assert.throws(other.TypeError, function() {
+  otherApply.call(undefined, {}, []);
 });
 
-assert.throws(TypeError, function() {
-  OFunction.prototype.apply.call(null, {}, []);
+assert.throws(other.TypeError, function() {
+  otherApply.call(null, {}, []);
 });
 
-assert.throws(TypeError, function() {
-  OFunction.prototype.apply.call({}, {}, []);
+assert.throws(other.TypeError, function() {
+  otherApply.call({}, {}, []);
 });
 
-assert.throws(TypeError, function() {
-  OFunction.prototype.apply.call(/re/, {}, []);
+assert.throws(other.TypeError, function() {
+  otherApply.call(/re/, {}, []);
 });

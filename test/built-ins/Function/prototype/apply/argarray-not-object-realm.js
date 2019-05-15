@@ -18,21 +18,21 @@ info: |
 features: [cross-realm]
 ---*/
 
-var OFunction = $262.createRealm().global.Function;
-var fn = new OFunction();
+var other = $262.createRealm().global;
+var fn = new other.Function();
 
-assert.throws(TypeError, function() {
+assert.throws(other.TypeError, function() {
   fn.apply(null, false);
 });
 
-assert.throws(TypeError, function() {
+assert.throws(other.TypeError, function() {
   fn.apply(null, 1234.5678);
 });
 
-assert.throws(TypeError, function() {
+assert.throws(other.TypeError, function() {
   fn.apply(null, '');
 });
 
-assert.throws(TypeError, function() {
+assert.throws(other.TypeError, function() {
   fn.apply(null, Symbol('desc'));
 });
