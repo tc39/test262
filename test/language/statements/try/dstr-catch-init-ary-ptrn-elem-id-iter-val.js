@@ -35,6 +35,7 @@ info: |
     8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
+
 var ranCatch = false;
 
 try {

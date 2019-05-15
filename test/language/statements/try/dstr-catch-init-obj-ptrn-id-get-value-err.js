@@ -28,9 +28,9 @@ var poisonedProperty = Object.defineProperty({}, 'poisoned', {
   }
 });
 
+
 assert.throws(Test262Error, function() {
     try {
       throw undefined;
     } catch ({ poisoned } = poisonedProperty) {}
   });
-  

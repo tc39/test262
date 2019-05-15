@@ -27,6 +27,7 @@ function counter() {
   initCount += 1;
 }
 
+
 var ranCatch = false;
 
 try {

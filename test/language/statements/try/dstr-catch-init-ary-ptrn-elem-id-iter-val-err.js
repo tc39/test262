@@ -45,9 +45,9 @@ g[Symbol.iterator] = function() {
   };
 };
 
+
 assert.throws(Test262Error, function() {
     try {
       throw undefined;
     } catch ([x] = g) {}
   });
-  

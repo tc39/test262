@@ -34,9 +34,9 @@ info: |
     2. ReturnIfAbrupt(valid).
 ---*/
 
+
 assert.throws(TypeError, function() {
     try {
       throw undefined;
     } catch ([{ x }] = []) {}
   });
-  

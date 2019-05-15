@@ -2,7 +2,7 @@
 // - src/dstr-binding/ary-ptrn-rest-init-id.case
 // - src/dstr-binding/default/try-catch-init.template
 /*---
-description: Reset element (identifier) does not support initializer (try catch with initializer statement)
+description: Rest element (identifier) does not support initializer (try catch with initializer statement)
 esid: sec-runtime-semantics-catchclauseevaluation
 features: [destructuring-binding, catch-initializer]
 flags: [generated]
@@ -23,7 +23,8 @@ info: |
         [ BindingElementList[?Yield] ]
         [ BindingElementList[?Yield] , Elisionopt BindingRestElement[?Yield]opt ]
 ---*/
-throw "Test262: This statement should not be evaluated.";
+$DONOTEVALUATE();
+
 
 var ranCatch = false;
 

@@ -26,6 +26,7 @@ var iter = function*() {
   iterations += 1;
 }();
 
+
 var ranCatch = false;
 
 try {

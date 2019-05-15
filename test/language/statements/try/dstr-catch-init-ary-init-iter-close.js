@@ -38,6 +38,7 @@ iter[Symbol.iterator] = function() {
   };
 };
 
+
 var ranCatch = false;
 
 try {

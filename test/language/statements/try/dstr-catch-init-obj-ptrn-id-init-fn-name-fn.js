@@ -28,6 +28,7 @@ info: |
                bindingId).
 ---*/
 
+
 var ranCatch = false;
 
 try {

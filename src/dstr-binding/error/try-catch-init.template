@@ -1,5 +1,6 @@
 // Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
 path: language/statements/try/dstr-catch-init-
 name: try catch with initializer statement
@@ -19,4 +20,3 @@ assert.throws(/*{ error }*/, function() {
       throw undefined;
     } catch (/*{ elems }*/ = /*{ vals }*/) {}
   });
-  

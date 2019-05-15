@@ -23,6 +23,7 @@ info: |
     7. If environment is undefined, return PutValue(lhs, v). 8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
+
 var ranCatch = false;
 
 try {

@@ -35,6 +35,7 @@ function* g() {
   second += 1;
 };
 
+
 var ranCatch = false;
 
 try {

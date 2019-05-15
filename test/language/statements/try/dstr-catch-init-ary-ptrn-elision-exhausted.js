@@ -34,6 +34,7 @@ info: |
 var iter = function*() {}();
 iter.next();
 
+
 var ranCatch = false;
 
 try {

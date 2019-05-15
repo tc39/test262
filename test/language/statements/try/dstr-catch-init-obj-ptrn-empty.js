@@ -27,6 +27,7 @@ var obj = Object.defineProperty({}, 'attr', {
   }
 });
 
+
 var ranCatch = false;
 
 try {

@@ -38,11 +38,12 @@ var iter =function* () {
   following += 1;
 }();
 
+
 assert.throws(Test262Error, function() {
     try {
       throw undefined;
     } catch ([,] = iter) {}
   });
-  
+
 iter.next();
 assert.sameValue(following, 0, 'Iterator was properly closed.');

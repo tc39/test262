@@ -34,12 +34,13 @@ var iter = function*() {
   second += 1;
 }();
 
+
 assert.throws(Test262Error, function() {
     try {
       throw undefined;
     } catch ([...x] = iter) {}
   });
-  
+
 iter.next();
 assert.sameValue(first, 1);
 assert.sameValue(second, 0, 'Iterator is closed following abrupt completion.');

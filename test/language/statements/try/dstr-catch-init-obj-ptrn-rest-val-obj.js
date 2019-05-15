@@ -16,6 +16,7 @@ info: |
       FormalParameter[?Yield, ?Await]
 ---*/
 
+
 var ranCatch = false;
 
 try {

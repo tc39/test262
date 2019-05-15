@@ -21,9 +21,9 @@ info: |
     1. Return NormalCompletion(empty).
 ---*/
 
+
 assert.throws(TypeError, function() {
     try {
       throw undefined;
     } catch ({} = undefined) {}
   });
-  

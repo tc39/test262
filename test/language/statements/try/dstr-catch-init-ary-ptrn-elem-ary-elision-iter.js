@@ -33,6 +33,7 @@ function* g() {
   callCount += 1;
 };
 
+
 var ranCatch = false;
 
 try {
