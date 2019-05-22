@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/class-elements/eval-err-contains-superproperty-1.case
-// - src/class-elements/initializer-eval-super-property/cls-expr-private-fields-indirect-eval.template
+// - src/class-elements/eval-contains-superproperty-1.case
+// - src/class-elements/initializer-eval-super-property/cls-decl-fields-indirect-eval.template
 /*---
-description: error if `super.x` in StatementList of eval (indirect eval)
+description: super.x in StatementList of eval (indirect eval)
 esid: sec-performeval-rules-in-initializer
-features: [class, class-fields-public, class-fields-private]
+features: [class, class-fields-public]
 flags: [generated]
 info: |
     Additional Early Error Rules for Eval Inside Initializer
@@ -24,10 +24,10 @@ info: |
 
 
 var executed = false;
-var A = class {}
-var C = class extends A {
-  #x = (0, eval)('executed = true; super.x;');
-};
+class A {}
+class C extends A {
+  x = (0, eval)('executed = true; super.x;');
+}
 
 assert.throws(SyntaxError, function() {
   new C();

@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/class-elements/eval-err-contains-superproperty-2.case
-// - src/class-elements/initializer-eval-super-property/cls-decl-private-fields-indirect-eval.template
+// - src/class-elements/eval-contains-superproperty-2.case
+// - src/class-elements/initializer-eval-super-property/cls-decl-private-fields-eval.template
 /*---
-description: error if super['x'] in StatementList of eval (indirect eval)
+description: super['x'] in StatementList of eval (direct eval)
 esid: sec-performeval-rules-in-initializer
 features: [class, class-fields-public, class-fields-private]
 flags: [generated]
@@ -23,11 +23,9 @@ info: |
 var executed = false;
 class A {}
 class C extends A {
-  #x = (0, eval)('executed = true; super["x"];');
+  #x = eval('executed = true; super["x"];');
 }
 
-assert.throws(SyntaxError, function() {
-  new C();
-});
+new C();
 
-assert.sameValue(executed, false);
+assert.sameValue(executed, true);
