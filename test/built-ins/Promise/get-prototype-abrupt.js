@@ -3,7 +3,7 @@
 /*---
 esid: sec-promise-executor
 description: >
-  Promise constructor rethrows errors raised at getting prototype.
+  Abrupt completion from "prototype" property access
 info: |
   25.6.3.1 Promise ( executor )
 
