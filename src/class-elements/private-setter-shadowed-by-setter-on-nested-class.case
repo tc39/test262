@@ -1,0 +1,46 @@
+// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: PrivateName of private setter can be shadowed on inner classes by a private setter
+info: |
+  Updated Productions
+
+  CallExpression[Yield, Await]:
+    CoverCallExpressionAndAsyncArrowHead[?Yield, ?Await]
+    SuperCall[?Yield, ?Await]
+    CallExpression[?Yield, ?Await]Arguments[?Yield, ?Await]
+    CallExpression[?Yield, ?Await][Expression[+In, ?Yield, ?Await]]
+    CallExpression[?Yield, ?Await].IdentifierName
+    CallExpression[?Yield, ?Await]TemplateLiteral[?Yield, ?Await]
+    CallExpression[?Yield, ?Await].PrivateName
+
+template: default
+features: [class-methods-private, class-fields-public]
+---*/
+
+//- elements
+set #m(v) { this._v = v; }
+
+method(v) { this.#m = v; }
+
+B = class {
+  method(o, v) {
+    o.#m = v;
+  }
+
+  set #m(v) { this._v = v; }
+}
+//- assertions
+let c = new C();
+let innerB = new c.B();
+
+innerB.method(innerB, 'test262');
+assert.sameValue(innerB._v, 'test262');
+
+c.method('outer class');
+assert.sameValue(c._v, 'outer class');
+
+assert.throws(TypeError, function() {
+  innerB.method(c, 'foo');
+}, 'access of inner class accessor from an object of outer class');
