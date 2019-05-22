@@ -42,3 +42,6 @@ assert.sameValue(c.method(), 'outer class');
 assert.throws(TypeError, function() {
   innerB.method(c);
 }, 'accessed inner class getter from an object of outer class');
+assert.throws(TypeError, function() {
+  C.prototype.method.call(innerB);
+});
