@@ -52,7 +52,7 @@ info: |
   The sets of code points with Unicode properties "ID_Start" and
   "ID_Continue" include, respectively, the code points with Unicode
   properties "Other_ID_Start" and "Other_ID_Continue".
-features: [class-methods-private]
+features: [class-static-methods-private]
 ---*/
 
 var stringSet;
