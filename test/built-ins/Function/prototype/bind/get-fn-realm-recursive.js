@@ -1,11 +1,10 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2019 Aleksey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-getfunctionrealm
-es6id: 7.3.22
 description: >
     The realm of a bound function exotic object is the realm of its target
-    function
+    function. GetFunctionRealm is called recursively.
 info: |
     7.3.22 GetFunctionRealm ( obj )
 
@@ -21,6 +20,6 @@ features: [cross-realm]
 var other = $262.createRealm().global;
 var C = new other.Function();
 C.prototype = null;
-var B = C.bind();
+var B = C.bind().bind();
 
 assert.sameValue(Object.getPrototypeOf(new B()), other.Object.prototype);

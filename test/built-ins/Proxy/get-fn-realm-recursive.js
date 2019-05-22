@@ -1,10 +1,10 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2019 Aleksey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-getfunctionrealm
-es6id: 7.3.22
 description: >
-    The realm of a proxy exotic object is the realm of its target function
+    The realm of a proxy exotic object is the realm of its target function.
+    GetFunctionRealm is called recursively.
 info: |
     7.3.22 GetFunctionRealm ( obj )
 
@@ -22,6 +22,6 @@ features: [cross-realm, Proxy]
 var other = $262.createRealm().global;
 var C = new other.Function();
 C.prototype = null;
-var P = new Proxy(C, {});
+var P = new Proxy(new Proxy(C, {}), {});
 
 assert.sameValue(Object.getPrototypeOf(new P()), other.Object.prototype);
