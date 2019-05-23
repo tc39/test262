@@ -20,18 +20,18 @@ features: [class, class-methods-private]
 flags: [noStrict]
 ---*/
 
-let classStringExpression = `(
-class {
+let classStringExpression = `
+return class {
     get #m() { return 'test262'; }
 
     access(o) {
       return o.#m;
     }
   }
-)`;
+`;
 
 let createAndInstantiateClass = function () {
-  return new $262.createRealm().global.Function(classStringExpression);
+  return new (new $262.createRealm().global.Function(classStringExpression));
 };
 
 let c1 = createAndInstantiateClass(eval1);

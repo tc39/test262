@@ -20,22 +20,22 @@ features: [class, class-methods-private]
 flags: [noStrict]
 ---*/
 
-let classStringExpression = `(
-class {
-    get #m() { return 'test262'; }
+let classStringExpression = `
+return class {
+    get m() { return 'test262'; }
 
     access(o) {
-      return o.#m;
+      return o.m;
     }
   }
-)`;
+`;
 
 let createAndInstantiateClass = function () {
-  return new Function(classStringExpression);
+  return new (new (Function(classStringExpression)));
 };
 
-let c1 = createAndInstantiateClass(eval1);
-let c2 = createAndInstantiateClass(eval2);
+let c1 = createAndInstantiateClass();
+let c2 = createAndInstantiateClass();
 
 assert.sameValue(c1.access(c1), 'test262');
 assert.sameValue(c2.access(c2), 'test262');

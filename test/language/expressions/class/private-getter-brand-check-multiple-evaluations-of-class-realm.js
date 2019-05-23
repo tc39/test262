@@ -34,7 +34,7 @@ class {
 )`;
 
 let createAndInstantiateClass = function (eval) {
-  return new eval(classStringExpression);
+  return new (eval(classStringExpression));
 };
 
 let c1 = createAndInstantiateClass(eval1);
