@@ -22,12 +22,12 @@ flags: [noStrict]
 
 let classStringExpression = `
 return class {
-    get m() { return 'test262'; }
+  get m() { return 'test262'; }
 
-    access(o) {
-      return o.m;
-    }
+  access(o) {
+    return o.m;
   }
+}
 `;
 
 let createAndInstantiateClass = function () {

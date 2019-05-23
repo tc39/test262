@@ -1,8 +1,8 @@
-// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
+// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Every new evaluation of a class creates a different brand (private getter)
+description: Every new evaluation of a class creates a different brand (private method)
 esid: sec-privatefieldget
 info: |
   ClassTail : ClassHeritage { ClassBody }
@@ -17,28 +17,24 @@ info: |
     1. If O.[[PrivateBrands]] does not contain an entry e such that SameValue(e, P.[[Brand]]) is true,
       a. Throw a TypeError exception.
 features: [class, class-methods-private]
-flags: [noStrict]
 ---*/
 
-let eval1 = $262.createRealm().global.eval;
-let eval2 = $262.createRealm().global.eval;
-
-let classStringExpression = `(
-class {
-  get #m() { return 'test262'; }
+let classStringExpression = `
+return class C {
+  #m() { return 'test262'; }
 
   access(o) {
-    return o.#m;
+    return o.#m();
   }
 }
-)`;
+`;
 
-let createAndInstantiateClass = function (eval) {
-  return new (eval(classStringExpression));
+let createAndInstantiateClass = function () {
+  return new (new (Function(classStringExpression)));
 };
 
-let c1 = createAndInstantiateClass(eval1);
-let c2 = createAndInstantiateClass(eval2);
+let c1 = createAndInstantiateClass();
+let c2 = createAndInstantiateClass();
 
 assert.sameValue(c1.access(c1), 'test262');
 assert.sameValue(c2.access(c2), 'test262');
