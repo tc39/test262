@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -17,6 +17,7 @@ info: |
     1. If O.[[PrivateBrands]] does not contain an entry e such that SameValue(e, P.[[Brand]]) is true,
       a. Throw a TypeError exception.
 features: [class, class-methods-private]
+flags: [noStrict]
 ---*/
 
 let classStringExpression = `(
@@ -33,8 +34,8 @@ let createAndInstantiateClass = function (_eval) {
   return new (_eval(classStringExpression));
 };
 
-let c1 = createAndInstantiateClass();
-let c2 = createAndInstantiateClass();
+let c1 = createAndInstantiateClass(eval);
+let c2 = createAndInstantiateClass(eval);
 
 c1.access(c1, 'test262');
 assert.sameValue(c1._v, 'test262');

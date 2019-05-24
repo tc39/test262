@@ -17,7 +17,6 @@ info: |
     1. If O.[[PrivateBrands]] does not contain an entry e such that SameValue(e, P.[[Brand]]) is true,
       a. Throw a TypeError exception.
 features: [class, class-methods-private]
-flags: [noStrict]
 ---*/
 
 let classStringExpression = `
@@ -31,7 +30,7 @@ return class {
 `;
 
 let createAndInstantiateClass = function () {
-  return new (new $262.createRealm().global.Function(classStringExpression));
+  return new (new ($262.createRealm().global.Function)(classStringExpression));
 };
 
 let c1 = createAndInstantiateClass(eval1);

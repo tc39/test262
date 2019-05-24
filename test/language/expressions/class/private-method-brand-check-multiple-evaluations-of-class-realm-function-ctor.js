@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -30,7 +30,7 @@ return class C {
 `;
 
 let createAndInstantiateClass = function () {
-  return new (new $262.createRealm().global.Function(classStringExpression));
+  return new (new ($262.createRealm().global.Function)(classStringExpression));
 };
 
 let c1 = createAndInstantiateClass();
