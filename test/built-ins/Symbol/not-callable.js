@@ -18,6 +18,14 @@ var sym = Symbol('desc');
 var symObj = Object(Symbol());
 
 assert.throws(TypeError, function() {
+  sym();
+});
+
+assert.throws(TypeError, function() {
+  new sym();
+});
+
+assert.throws(TypeError, function() {
   symObj();
 });
 
