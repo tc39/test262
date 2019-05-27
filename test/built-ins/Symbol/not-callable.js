@@ -14,12 +14,13 @@ info: |
 features: [Symbol]
 ---*/
 
+var sym = Symbol('desc');
+var symObj = Object(Symbol());
+
 assert.throws(TypeError, function() {
-  Symbol('desc')();
+  symObj();
 });
 
 assert.throws(TypeError, function() {
-  let sym = Symbol();
-  let obj = Object(sym);
-  obj();
+  new symObj();
 });
