@@ -33,3 +33,9 @@ assert.sameValue(
   Object.prototype.hasOwnProperty.call(resolveElementFunction, 'name'),
   false
 );
+assert.sameValue(
+  Object.getOwnPropertyNames(resolveElementFunction).join(),
+  'length'
+);
+assert.sameValue(delete resolveElementFunction.name, true);
+assert.sameValue(resolveElementFunction.name, '');

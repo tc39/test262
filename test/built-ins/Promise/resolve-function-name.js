@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-promise-resolve-functions
 es6id: 25.4.1.3.2
 description: The `name` property of Promise Resolve functions
 info: |
@@ -19,3 +20,6 @@ new Promise(function(resolve, reject) {
 });
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(resolveFunction, "name"), false);
+assert.sameValue(Object.getOwnPropertyNames(resolveFunction).join(), "length");
+assert.sameValue(delete resolveFunction.name, true);
+assert.sameValue(resolveFunction.name, "");

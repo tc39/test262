@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-promise.all-resolve-element-functions
 es6id: 25.4.4.1.2
 description: The `name` property of Promise.all Resolve Element functions
 info: |
@@ -29,3 +30,6 @@ NotPromise.resolve = function(v) {
 Promise.all.call(NotPromise, [thenable]);
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(resolveElementFunction, "name"), false);
+assert.sameValue(Object.getOwnPropertyNames(resolveElementFunction).join(), "length");
+assert.sameValue(delete resolveElementFunction.name, true);
+assert.sameValue(resolveElementFunction.name, "");

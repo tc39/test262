@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-promise-reject-functions
 es6id: 25.4.1.3.1
 description: The `name` property of Promise Reject functions
 info: |
@@ -19,3 +20,6 @@ new Promise(function(resolve, reject) {
 });
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(rejectFunction, "name"), false);
+assert.sameValue(Object.getOwnPropertyNames(rejectFunction).join(), "length");
+assert.sameValue(delete rejectFunction.name, true);
+assert.sameValue(rejectFunction.name, "");

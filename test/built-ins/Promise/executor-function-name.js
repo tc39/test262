@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-getcapabilitiesexecutor-functions
 es6id: 25.4.1.5.1
 description: The `name` property of GetCapabilitiesExecutor functions
 info: |
@@ -22,3 +23,6 @@ function NotPromise(executor) {
 Promise.resolve.call(NotPromise);
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(executorFunction, "name"), false);
+assert.sameValue(Object.getOwnPropertyNames(executorFunction).join(), "length");
+assert.sameValue(delete executorFunction.name, true);
+assert.sameValue(executorFunction.name, "");
