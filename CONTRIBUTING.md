@@ -382,11 +382,11 @@ Generated files are managed using the `make.py` Python script located in the roo
 
 And then issue the following command to create files:
 
-    make.py
+    ./make.py
 
 To remove all generated files:
 
-    make.py clean
+    ./make.py clean
 
 The executable located at `tools/generation/generator.py` offers additional control over the generation procedure.
 
