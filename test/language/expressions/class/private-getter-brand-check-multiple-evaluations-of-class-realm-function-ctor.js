@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Every new evaluation of a class creates a different brand (private method)
+description: Every new evaluation of a class creates a different brand (private getter)
 esid: sec-privatefieldget
 info: |
   ClassTail : ClassHeritage { ClassBody }
@@ -19,20 +19,24 @@ info: |
 features: [class, class-methods-private]
 ---*/
 
-let createAndInstantiateClass = function () {
-  const C = class {
-    #m() { return 'test262'; }
+let classStringExpression = `
+return class {
+  get #m() { return 'test262'; }
 
-    access(o) {
-      return o.#m();
-    }
+  access(o) {
+    return o.#m;
   }
+}
+`;
 
-  return new C();
+let createAndInstantiateClass = function () {
+  let classFactoryFunction = new ($262.createRealm().global.Function)(classStringExpression);
+  let Class = classFactoryFunction();
+  return new Class();
 };
 
-let c1 = createAndInstantiateClass();
-let c2 = createAndInstantiateClass();
+let c1 = createAndInstantiateClass(eval1);
+let c2 = createAndInstantiateClass(eval2);
 
 assert.sameValue(c1.access(c1), 'test262');
 assert.sameValue(c2.access(c2), 'test262');

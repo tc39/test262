@@ -33,8 +33,8 @@ class {
 }
 )`;
 
-let createAndInstantiateClass = function (eval) {
-  return new (eval(classStringExpression));
+let createAndInstantiateClass = function (_eval) {
+  return new (_eval(classStringExpression));
 };
 
 let c1 = createAndInstantiateClass(eval1);

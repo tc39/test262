@@ -34,8 +34,8 @@ let createAndInstantiateClass = function (_eval) {
   return new (_eval(classStringExpression));
 };
 
-let c1 = createAndInstantiateClass();
-let c2 = createAndInstantiateClass();
+let c1 = createAndInstantiateClass(eval);
+let c2 = createAndInstantiateClass(eval);
 
 assert.sameValue(c1.access(c1), 'test262');
 assert.sameValue(c2.access(c2), 'test262');

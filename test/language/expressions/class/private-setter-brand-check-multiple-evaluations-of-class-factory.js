@@ -28,8 +28,7 @@ let createAndInstantiateClass = function () {
     }
   }
 
-  let c = new C();
-  return c;
+  return new C();
 };
 
 let c1 = createAndInstantiateClass();

@@ -30,7 +30,9 @@ return class C {
 `;
 
 let createAndInstantiateClass = function () {
-  return new (new (Function(classStringExpression)));
+  let classFactoryFunction = new Function(classStringExpression);
+  let Class = classFactoryFunction();
+  return new Class();
 };
 
 let c1 = createAndInstantiateClass();

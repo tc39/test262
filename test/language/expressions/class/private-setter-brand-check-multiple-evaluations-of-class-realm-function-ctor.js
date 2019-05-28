@@ -30,7 +30,9 @@ return class {
 `;
 
 let createAndInstantiateClass = function () {
-  return new (new ($262.createRealm().global.Function)(classStringExpression));
+  let classFactoryFunction = new ($262.createRealm().global.Function)(classStringExpression);
+  let Class = classFactoryFunction();
+  return new Class();
 };
 
 let c1 = createAndInstantiateClass();
