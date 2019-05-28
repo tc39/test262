@@ -25,10 +25,10 @@ let eval2 = $262.createRealm().global.eval;
 
 let classStringExpression = `(
 class {
-  get #m() { return 'test262'; }
+  #m() { return 'test262'; }
 
   access(o) {
-    return o.#m;
+    return o.#m();
   }
 }
 )`;
