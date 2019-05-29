@@ -30,7 +30,13 @@ def find_cases(location):
         return None, [location]
     else:
         return None, map(
-            lambda x: os.path.join(args.cases, x), os.listdir(args.cases))
+            lambda x: os.path.join(args.cases, x),
+            filter(
+                # skip hidden files on Unix, such as ".DS_Store" on Mac
+                lambda x: not x.startswith('.'),
+                os.listdir(args.cases)
+            )
+        )
 
 def clean(args):
     for (subdir, _, fileNames) in os.walk(args.directory):
