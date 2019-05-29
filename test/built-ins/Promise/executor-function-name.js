@@ -23,6 +23,4 @@ function NotPromise(executor) {
 Promise.resolve.call(NotPromise);
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(executorFunction, "name"), false);
-assert.sameValue(Object.getOwnPropertyNames(executorFunction).join(), "length");
-assert.sameValue(delete executorFunction.name, true);
 assert.sameValue(executorFunction.name, "");

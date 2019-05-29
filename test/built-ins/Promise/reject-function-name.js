@@ -20,6 +20,4 @@ new Promise(function(resolve, reject) {
 });
 
 assert.sameValue(Object.prototype.hasOwnProperty.call(rejectFunction, "name"), false);
-assert.sameValue(Object.getOwnPropertyNames(rejectFunction).join(), "length");
-assert.sameValue(delete rejectFunction.name, true);
 assert.sameValue(rejectFunction.name, "");
