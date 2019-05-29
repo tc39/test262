@@ -73,12 +73,6 @@ function verifyProperty(obj, name, desc, options) {
     }
   }
 
-  if (Object.prototype.hasOwnProperty.call(desc, 'get')) {
-    if (desc.get !== originalDesc.get) {
-      failures.push('descriptor get should be ' + desc.get);
-    }
-  }
-
   assert(!failures.length, failures.join('; '));
 
   if (options && options.restore) {
