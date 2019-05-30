@@ -18,28 +18,29 @@ features: [class, class-fields-public, Proxy]
 ---*/
 
 let arr = [];
-
-class ProxyBase {
-  constructor() {
-    return new Proxy(this, {
-      defineProperty: function (target, key, descriptor) {
-        arr.push(key);
-        assert(descriptor.enumerable);
-        assert(descriptor.configurable);
-        assert(descriptor.writable);
-        return Reflect.defineProperty(target, key, descriptor);
-      }
-    });
-  }
+let expectedTarget = null;
+function ProxyBase() {
+  expectedTarget = this;
+  return new Proxy(this, {
+    defineProperty: function (target, key, descriptor) {
+      arr.push(key);
+      arr.push(descriptor.value);
+      arr.push(target);
+      assert.sameValue(descriptor.enumerable, true);
+      assert.sameValue(descriptor.configurable, true);
+      assert.sameValue(descriptor.writable, true);
+      return Reflect.defineProperty(target, key, descriptor);
+    }
+  });
 }
 
 class Test extends ProxyBase {
   f = 3;
-  g = "test";
+  g = "Test262";
 }
 
 let t = new Test();
 assert.sameValue(t.f, 3);
-assert.sameValue(t.g, "test");
+assert.sameValue(t.g, "Test262");
 
-assert.compareArray(arr, ["f", "g"]);
+assert.compareArray(arr, ["f", expectedTarget, 3, "g", expectedTarget, "Test262"]);

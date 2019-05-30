@@ -28,7 +28,10 @@ class Base extends Super {
 }
 
 let o = new Base();
-assert.sameValue(o.f, "Test262");
-verifyEnumerable(o, "f");
-verifyWritable(o, "f");
-verifyConfigurable(o, "f");
+
+verifyProperty(o, "f", {
+  value: "Test262",
+  enumerable: true,
+  writable: true,
+  configurable: true,
+});

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: It is possible to add private fields on frozen objects
+description: Public class field initialization calls [[DefineOwnProperty]] and can be observed by Proxies
 esid: sec-define-field
 info: |
   DefineField(receiver, fieldRecord)
@@ -13,20 +13,20 @@ info: |
       a. Assert: IsPropertyKey(fieldName) is true.
       b. Perform ? CreateDataPropertyOrThrow(receiver, fieldName, initValue).
     10. Return.
-includes: [compareArray.js]
-features: [class, class-fields-private]
-flags: [onlyStrict]
+includes: [propertyHelper.js]
+features: [class, class-fields-public]
 ---*/
 
-class Test {
-  f = Object.freeze(this);
-  #g = "Test262";
-
-  get g() {
-    return this.#g;
-  }
+function ProxyBase() {
+  return new Proxy(this, {
+    defineProperty: function (target, key, descriptor) {
+      throw new Test262Error();
+    }
+  });
 }
 
-let t = new Test();
-assert.sameValue(t.f, t);
-assert.sameValue(t.g, "Test262");
+class Base extends Super {
+  f = "Test262";
+}
+
+assert.throws(Test262Error, () => { new Base(); });
