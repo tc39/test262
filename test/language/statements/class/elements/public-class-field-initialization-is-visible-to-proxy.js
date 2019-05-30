@@ -25,7 +25,7 @@ function ProxyBase() {
   });
 }
 
-class Base extends Super {
+class Base extends ProxyBase {
   f = "Test262";
 }
 

@@ -19,8 +19,8 @@ flags: [onlyStrict]
 ---*/
 
 class Test {
-  f = Object.freeze(this);
-  #g = "Test262";
+  f = this;
+  #g = (Object.freeze(this), "Test262");
 
   get g() {
     return this.#g;

@@ -43,4 +43,4 @@ let t = new Test();
 assert.sameValue(t.f, 3);
 assert.sameValue(t.g, "Test262");
 
-assert.compareArray(arr, ["f", expectedTarget, 3, "g", expectedTarget, "Test262"]);
+assert.compareArray(arr, ["f", 3, expectedTarget, "g", "Test262", expectedTarget]);
