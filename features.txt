@@ -128,6 +128,11 @@ export-star-as-namespace-from-module
 # https://github.com/tc39/proposal-import-meta
 import.meta
 
+# WeakRef
+# https://github.com/tc39/proposal-weakref
+WeakRef
+FinalizationGroup
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
