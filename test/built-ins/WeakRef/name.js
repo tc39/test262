@@ -23,8 +23,8 @@ includes: [propertyHelper.js]
 features: [WeakRef]
 ---*/
 
-verifyProperty(WeakRef, "name", {
-  value: "WeakRef",
+verifyProperty(WeakRef, 'name', {
+  value: 'WeakRef',
   writable: false,
   enumerable: false,
   configurable: true

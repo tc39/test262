@@ -24,7 +24,7 @@ includes: [propertyHelper.js]
 features: [FinalizationGroup]
 ---*/
 
-verifyProperty(FinalizationGroup, "length", {
+verifyProperty(FinalizationGroup, 'length', {
   value: 1,
   writable: false,
   enumerable: false,

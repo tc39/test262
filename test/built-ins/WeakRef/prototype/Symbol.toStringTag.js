@@ -7,7 +7,7 @@ description: >
     `Symbol.toStringTag` property descriptor
 info: |
     The initial value of the @@toStringTag property is the String value
-    "WeakRef".
+    'WeakRef'.
 
     This property has the attributes { [[Writable]]: false, [[Enumerable]]:
     false, [[Configurable]]: true }.
@@ -16,7 +16,7 @@ features: [WeakRef, Symbol, Symbol.toStringTag]
 ---*/
 
 verifyProperty(WeakRef.prototype, Symbol.toStringTag, {
-  value: "WeakRef",
+  value: 'WeakRef',
   writable: false,
   enumerable: false,
   configurable: true

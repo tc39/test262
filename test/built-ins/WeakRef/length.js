@@ -24,7 +24,7 @@ includes: [propertyHelper.js]
 features: [WeakRef]
 ---*/
 
-verifyProperty(WeakRef, "length", {
+verifyProperty(WeakRef, 'length', {
   value: 1,
   writable: false,
   enumerable: false,

@@ -10,5 +10,5 @@ description: >
 
 assert.sameValue(
   typeof WeakRef, 'function',
-  'typeof WeakRef is "function"'
+  'typeof WeakRef is function'
 );

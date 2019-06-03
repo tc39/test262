@@ -15,7 +15,7 @@ includes: [propertyHelper.js]
 features: [FinalizationGroup]
 ---*/
 
-verifyProperty(this, "FinalizationGroup", {
+verifyProperty(this, 'FinalizationGroup', {
   enumerable: false,
   writable: true,
   configurable: true
