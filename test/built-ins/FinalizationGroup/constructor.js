@@ -10,5 +10,5 @@ description: >
 
 assert.sameValue(
   typeof FinalizationGroup, 'function',
-  'typeof FinalizationGroup is "function"'
+  'typeof FinalizationGroup is function'
 );

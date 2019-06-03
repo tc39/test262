@@ -23,8 +23,8 @@ includes: [propertyHelper.js]
 features: [FinalizationGroup]
 ---*/
 
-verifyProperty(FinalizationGroup, "name", {
-  value: "FinalizationGroup",
+verifyProperty(FinalizationGroup, 'name', {
+  value: 'FinalizationGroup',
   writable: false,
   enumerable: false,
   configurable: true

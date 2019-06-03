@@ -7,7 +7,7 @@ description: >
     `Symbol.toStringTag` property descriptor
 info: |
     The initial value of the @@toStringTag property is the String value
-    "FinalizationGroup".
+    'FinalizationGroup'.
 
     This property has the attributes { [[Writable]]: false, [[Enumerable]]:
     false, [[Configurable]]: true }.
@@ -16,7 +16,7 @@ features: [FinalizationGroup, Symbol, Symbol.toStringTag]
 ---*/
 
 verifyProperty(FinalizationGroup.prototype, Symbol.toStringTag, {
-  value: "FinalizationGroup",
+  value: 'FinalizationGroup',
   writable: false,
   enumerable: false,
   configurable: true

@@ -15,7 +15,7 @@ includes: [propertyHelper.js]
 features: [WeakRef]
 ---*/
 
-verifyProperty(this, "WeakRef", {
+verifyProperty(this, 'WeakRef', {
   enumerable: false,
   writable: true,
   configurable: true
