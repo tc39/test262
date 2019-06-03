@@ -2,22 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-weak-ref.prototype.constructor
-description: WeakRef.prototype.constructor property descriptor
+esid: sec-properties-of-the-weak-ref-prototype-object
+description: WeakRef.prototype.constructor is not defined
 info: |
-  WeakRef.prototype.constructor
-
-  The initial value of WeakRef.prototype.constructor is the intrinsic
-  object %WeakRef%.
-
-  17 ECMAScript Standard Built-in Objects
-includes: [propertyHelper.js]
+  Ref https://github.com/tc39/proposal-weakrefs/issues/55#issuecomment-444534867
 features: [WeakRef]
 ---*/
 
-verifyProperty(WeakRef.prototype, "constructor", {
-  value: WeakRef,
-  writable: true,
-  enumerable: false,
-  configurable: true
-});
+var actual = WeakRef.prototype.hasOwnProperty('constructor');
+assert.sameValue(actual, false);
