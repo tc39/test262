@@ -35,7 +35,7 @@ Object.defineProperty(newTarget, 'prototype', {
 });
 
 assert.throws(Test262Error, function() {
-  Reflect.construct(FinalizationGroup, [{}], newTarget);
+  Reflect.construct(FinalizationGroup, [function() {}], newTarget);
 });
 
 assert.sameValue(calls, 1);
