@@ -4,6 +4,10 @@
 /*---
 esid: sec-initializedatetimeformat
 description: Checks the order of getting options of 'quarter' for the DateTimeFormat constructor.
+info: |
+    ToDateTimeOptions ( options, required, defaults )
+    4. If required is "date" or "any", then
+      a. For each of the property names "weekday", "year", "quarter", "month",  "day", do
 includes: [compareArray.js]
 features: [Intl.DateTimeFormat-quarter]
 
