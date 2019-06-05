@@ -100,6 +100,18 @@ Intl.DateTimeFormat-datetimestyle
 # https://github.com/tc39/proposal-intl-DateTimeFormat-formatRange
 Intl.DateTimeFormat-formatRange
 
+# Intl.DateTimeFormat: add 'dayPeriod' option
+# https://github.com/tc39/ecma402/pull/346
+Intl.DateTimeFormat-dayPeriod
+
+# Intl.DateTimeFormat: add 'quarter' option
+# https://github.com/tc39/ecma402/pull/346
+Intl.DateTimeFormat-quarter
+
+# Intl.DateTimeFormat: add 'fractionalSecondDigits' option
+# https://github.com/tc39/ecma402/pull/347
+Intl.DateTimeFormat-fractionalSecondDigits
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
