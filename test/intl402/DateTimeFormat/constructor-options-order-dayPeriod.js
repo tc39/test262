@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-initializedatetimeformat
-description: Checks the order of getting options of 'quarter' for the DateTimeFormat constructor.
+description: Checks the order of getting options of 'dayPeriod' for the DateTimeFormat constructor.
 info: |
     ToDateTimeOptions ( options, required, defaults )
     4. If required is "date" or "any", then
@@ -15,7 +15,7 @@ features: [Intl.DateTimeFormat-dayPeriod]
 
 ---*/
 
-// Just need to ensure quarter are get between day and hour.
+// Just need to ensure dayPeriod are get between day and hour.
 const expected = [
   // ToDateTimeOptions step 4.
   "day", "dayPeriod",
