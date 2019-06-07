@@ -24,7 +24,7 @@ var actual = WeakRef.prototype.hasOwnProperty('constructor');
 if (actual) {
   verifyProperty(WeakRef.prototype, 'constructor', {
     value: WeakRef,
-    writable: false,
+    writable: true,
     enumerable: false,
     configurable: true
   });
