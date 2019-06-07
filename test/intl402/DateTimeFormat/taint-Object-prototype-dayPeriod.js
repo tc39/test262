@@ -5,7 +5,7 @@
 esid: 12.1.1_22
 description: >
     Tests that the behavior of a Record is not affected by
-    adversarial  changes to Object.prototype.
+    adversarial changes to Object.prototype.
 includes: [testIntl.js]
 features: [Intl.DateTimeFormat-dayPeriod]
 ---*/
