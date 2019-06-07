@@ -20,33 +20,33 @@ features: [WeakRef]
 
 assert.sameValue(typeof WeakRef.prototype.deref, 'function');
 
-var defer = WeakRef.prototype.defer;
+var deref = WeakRef.prototype.deref;
 
 assert.throws(TypeError, function() {
-  defer.call(undefined);
+  deref.call(undefined);
 }, 'undefined');
 
 assert.throws(TypeError, function() {
-  defer.call(null);
+  deref.call(null);
 }, 'null');
 
 assert.throws(TypeError, function() {
-  defer.call(true);
+  deref.call(true);
 }, 'true');
 
 assert.throws(TypeError, function() {
-  defer.call(false);
+  deref.call(false);
 }, 'false');
 
 assert.throws(TypeError, function() {
-  defer.call(1);
+  deref.call(1);
 }, 'number');
 
 assert.throws(TypeError, function() {
-  defer.call('object');
+  deref.call('object');
 }, 'string');
 
 var s = Symbol();
 assert.throws(TypeError, function() {
-  defer.call(s);
+  deref.call(s);
 }, 'symbol');
