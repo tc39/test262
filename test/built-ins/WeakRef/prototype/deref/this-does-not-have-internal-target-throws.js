@@ -15,31 +15,36 @@ info: |
     a. Perform ! KeepDuringJob(target).
     b. Return target.
   6. Return undefined.
-features: [WeakRef]
+features: [WeakRef, FinalizationGroup]
 ---*/
 
 assert.sameValue(typeof WeakRef.prototype.deref, 'function');
 
-var defer = WeakRef.prototype.defer;
+var deref = WeakRef.prototype.deref;
 
 assert.throws(TypeError, function() {
-  defer.call({ ['[[Target]]']: {} });
+  deref.call({ ['[[Target]]']: {} });
 }, 'Ordinary object without [[Target]]');
 
 assert.throws(TypeError, function() {
-  defer.call(WeakRef.prototype);
+  deref.call(WeakRef.prototype);
 }, 'WeakRef.prototype does not have a [[Target]] internal slot');
 
 assert.throws(TypeError, function() {
-  defer.call(WeakRef);
+  deref.call(WeakRef);
 }, 'WeakRef does not have a [[Target]] internal slot');
+
+var fg = new FinalizationGroup(function() {});
+assert.throws(TypeError, function() {
+  deref.call(fg);
+}, 'FinalizationGroup instance');
 
 var wm = new WeakMap();
 assert.throws(TypeError, function() {
-  defer.call(wm);
+  deref.call(wm);
 }, 'WeakMap instance');
 
 var ws = new WeakSet();
 assert.throws(TypeError, function() {
-  defer.call(ws);
+  deref.call(ws);
 }, 'WeakSet instance');
