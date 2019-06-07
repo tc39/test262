@@ -4,7 +4,7 @@
 /*---
 esid: sec-finalization-group-target
 description: >
-  Returns a new ordinary object from the WeakRef constructor
+  Normal completion even if the cleanupCallback fn is poisoned
 info: |
   FinalizationGroup ( cleanupCallback )
 
@@ -12,16 +12,10 @@ info: |
   3. Let finalizationGroup be ? OrdinaryCreateFromConstructor(NewTarget,  "%FinalizationGroupPrototype%", « [[Realm]], [[CleanupCallback]], [[Cells]], [[IsFinalizationGroupCleanupJobActive]] »).
   ...
   9. Return finalizationGroup.
-
-  OrdinaryCreateFromConstructor ( constructor, intrinsicDefaultProto [ , internalSlotsList ] )
-
-  ...
-  2. Let proto be ? GetPrototypeFromConstructor(constructor, intrinsicDefaultProto).
-  3. Return ObjectCreate(proto, internalSlotsList).
 features: [FinalizationGroup]
 ---*/
 
-var cleanupCallback = function() {};
+var cleanupCallback = function() { throw new Test262Error('should not throw yet'); };
 var fg = new FinalizationGroup(cleanupCallback);
 
 assert.sameValue(Object.getPrototypeOf(fg), FinalizationGroup.prototype);
