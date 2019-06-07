@@ -3,11 +3,29 @@
 
 /*---
 esid: sec-properties-of-the-weak-ref-prototype-object
-description: WeakRef.prototype.constructor is not defined
+description: WeakRef.prototype.constructor
 info: |
-  Ref https://github.com/tc39/proposal-weakrefs/issues/55#issuecomment-444534867
+  WeakRef.prototype.constructor
+
+  Normative Optional
+
+  The initial value of WeakRef.prototype.constructor is the intrinsic object %WeakRef%.
+
+  This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: true }.
+
+  This section is to be treated identically to the "Annex B" of ECMA-262, but to be written in-line with the main specification.
+includes: [propertyHelper.js]
 features: [WeakRef]
 ---*/
 
 var actual = WeakRef.prototype.hasOwnProperty('constructor');
-assert.sameValue(actual, false);
+
+// If implemented, it should conform to the spec text
+if (actual) {
+  verifyProperty(WeakRef.prototype, 'constructor', {
+    value: WeakRef,
+    writable: false,
+    enumerable: false,
+    configurable: true
+  });
+}
