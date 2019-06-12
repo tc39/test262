@@ -4,15 +4,14 @@
 /*---
 esid: sec-initializedatetimeformat
 description: >
-    Checks error cases for the options argument to the DateTimeFormat constructor.
+  Checks error cases for the options argument to the DateTimeFormat constructor.
 info: |
-   [[DayPeriod]]    `"dayPeriod"`    `"narrow"`, `"short"`, `"long"`
-    InitializeDateTimeFormat ( dateTimeFormat, locales, options )
+  [[DayPeriod]]    `"dayPeriod"`    `"narrow"`, `"short"`, `"long"`
+  InitializeDateTimeFormat ( dateTimeFormat, locales, options )
 
-    ...
+  ...
 features: [Intl.DateTimeFormat-dayPeriod]
 ---*/
-
 
 const invalidOptions = [
   "",

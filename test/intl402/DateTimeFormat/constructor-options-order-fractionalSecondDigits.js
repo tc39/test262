@@ -5,20 +5,19 @@
 esid: sec-initializedatetimeformat
 description: Checks the order of getting options of 'fractionalSecondDigits' for the DateTimeFormat constructor.
 info: |
-    ToDateTimeOptions ( options, required, defaults )
-    5. If required is "time" or "any", then
-      a. For each of the property names "hour", "minute", "second", "fractionalSecondDigits", do
+  ToDateTimeOptions ( options, required, defaults )
+  5. If required is "time" or "any", then
+    a. For each of the property names "hour", "minute", "second", "fractionalSecondDigits", do
 
-    InitializeDateTimeFormat ( dateTimeFormat, locales, options )
-    2. Let options be ? ToDateTimeOptions(options, "any", "date").
-    4. Let matcher be ? GetOption(options, "localeMatcher", "string", «  "lookup", "best fit" », "best fit").
-    22. For each row of Table 5, except the header row, do
-      a. Let value be ? GetOption(options, prop, "string", « the strings given in the Values column of the row », undefined).
-    23. Let _opt_.[[FractionalSecondDigits]] be ? GetNumberOption(_options_, `"fractionalSecondDigits"`, 0, 3, 0).
-    26. Let matcher be ? GetOption(options, "formatMatcher", "string", «  "basic", "best fit" », "best fit").
+  InitializeDateTimeFormat ( dateTimeFormat, locales, options )
+  2. Let options be ? ToDateTimeOptions(options, "any", "date").
+  4. Let matcher be ? GetOption(options, "localeMatcher", "string", «  "lookup", "best fit" », "best fit").
+  22. For each row of Table 5, except the header row, do
+    a. Let value be ? GetOption(options, prop, "string", « the strings given in the Values column of the row », undefined).
+  23. Let _opt_.[[FractionalSecondDigits]] be ? GetNumberOption(_options_, `"fractionalSecondDigits"`, 0, 3, 0).
+  26. Let matcher be ? GetOption(options, "formatMatcher", "string", «  "basic", "best fit" », "best fit").
 includes: [compareArray.js]
 features: [Intl.DateTimeFormat-fractionalSecondDigits]
-
 ---*/
 
 // Just need to ensure fractionalSecondDigits are get
