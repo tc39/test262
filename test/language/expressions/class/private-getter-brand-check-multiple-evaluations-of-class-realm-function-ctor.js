@@ -35,8 +35,8 @@ let createAndInstantiateClass = function () {
   return new Class();
 };
 
-let c1 = createAndInstantiateClass(eval1);
-let c2 = createAndInstantiateClass(eval2);
+let c1 = createAndInstantiateClass();
+let c2 = createAndInstantiateClass();
 
 assert.sameValue(c1.access(c1), 'test262');
 assert.sameValue(c2.access(c2), 'test262');
