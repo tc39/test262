@@ -10,7 +10,6 @@ info: |
       a. For each of the property names "weekday", "year", "quarter", "month",  "day", do
 includes: [compareArray.js]
 features: [Intl.DateTimeFormat-quarter]
-
 ---*/
 
 // Just need to ensure quarter are get between year and month.

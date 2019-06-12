@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: 12.1.1_22
+esid: sec-initializedatetimeformat
 description: >
     Tests that the behavior of a Record is not affected by
     adversarial changes to Object.prototype.
