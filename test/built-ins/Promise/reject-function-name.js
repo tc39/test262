@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-promise-reject-functions
-es6id: 25.4.1.3.1
 description: The `name` property of Promise Reject functions
 info: |
   A promise reject function is an anonymous built-in function.

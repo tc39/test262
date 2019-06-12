@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-getcapabilitiesexecutor-functions
-es6id: 25.4.1.5.1
 description: The `name` property of GetCapabilitiesExecutor functions
 info: |
   A GetCapabilitiesExecutor function is an anonymous built-in function.

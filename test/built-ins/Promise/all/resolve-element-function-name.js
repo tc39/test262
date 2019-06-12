@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-promise.all-resolve-element-functions
-es6id: 25.4.4.1.2
 description: The `name` property of Promise.all Resolve Element functions
 info: |
   A promise resolve function is an anonymous built-in function.
