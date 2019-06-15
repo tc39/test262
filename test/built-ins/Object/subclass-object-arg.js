@@ -20,5 +20,5 @@ class O extends Object {}
 var o1 = new O({a: 1});
 var o2 = Reflect.construct(Object, [{b: 2}], O);
 
-assert.sameValue(o1.a, 1);
-assert.sameValue(o2.b, 2);
+assert.sameValue(o1.a, undefined);
+assert.sameValue(o2.b, undefined);
