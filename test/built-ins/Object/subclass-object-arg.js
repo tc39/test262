@@ -22,3 +22,6 @@ var o2 = Reflect.construct(Object, [{b: 2}], O);
 
 assert.sameValue(o1.a, undefined);
 assert.sameValue(o2.b, undefined);
+
+assert.sameValue(Object.getPrototypeOf(o1), O.prototype);
+assert.sameValue(Object.getPrototypeOf(o2), O.prototype);
