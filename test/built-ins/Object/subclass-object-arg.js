@@ -11,7 +11,6 @@ info: |
   1. If NewTarget is neither undefined nor the active function, then
     a. Return ? OrdinaryCreateFromConstructor(NewTarget, "%ObjectPrototype%").
   [...]
-  3. Return ! ToObject(value).
 features: [class, Reflect, Reflect.construct]
 ---*/
 
