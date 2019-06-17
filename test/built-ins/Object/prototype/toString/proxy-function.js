@@ -52,14 +52,3 @@ assert.sameValue(
   '[object GeneratorFunction]',
   'proxy for generator function proxy'
 );
-
-delete generatorProxy.constructor.prototype[Symbol.toStringTag];
-
-assert.sameValue(
-  Object.prototype.toString.call(generatorProxy), '[object Function]', 'generator function proxy without Symbol.toStringTag'
-);
-assert.sameValue(
-  Object.prototype.toString.call(generatorProxyProxy),
-  '[object Function]',
-  'proxy for generator function proxy without Symbol.toStringTag'
-);
