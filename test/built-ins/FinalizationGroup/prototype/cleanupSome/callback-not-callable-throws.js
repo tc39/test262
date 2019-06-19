@@ -20,38 +20,34 @@ assert.sameValue(typeof FinalizationGroup.prototype.cleanupSome, 'function');
 var fg = new FinalizationGroup(function() {});
 
 assert.throws(TypeError, function() {
-  fg(undefined);
-}, 'undefined');
-
-assert.throws(TypeError, function() {
-  fg(null);
+  fg.cleanupSome(null);
 }, 'null');
 
 assert.throws(TypeError, function() {
-  fg(true);
+  fg.cleanupSome(true);
 }, 'true');
 
 assert.throws(TypeError, function() {
-  fg(false);
+  fg.cleanupSome(false);
 }, 'false');
 
 assert.throws(TypeError, function() {
-  fg(1);
+  fg.cleanupSome(1);
 }, 'number');
 
 assert.throws(TypeError, function() {
-  fg('object');
+  fg.cleanupSome('object');
 }, 'string');
 
 var s = Symbol();
 assert.throws(TypeError, function() {
-  fg(s);
+  fg.cleanupSome(s);
 }, 'symbol');
 
 assert.throws(TypeError, function() {
-  fg({});
+  fg.cleanupSome({});
 }, 'object');
 
 assert.throws(TypeError, function() {
-  fg(FinalizationGroup.prototype);
+  fg.cleanupSome(FinalizationGroup.prototype);
 }, 'FinalizationGroup.prototype');

@@ -6,6 +6,7 @@ esid: sec-finalization-group-constructor
 description: >
   The FinalizationGroup constructor is the %FinalizationGroup% intrinsic object and the initial
   value of the FinalizationGroup property of the global object.
+features: [FinalizationGroup]
 ---*/
 
 assert.sameValue(

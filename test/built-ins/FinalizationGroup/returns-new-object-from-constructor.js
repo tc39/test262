@@ -18,7 +18,7 @@ info: |
   ...
   2. Let proto be ? GetPrototypeFromConstructor(constructor, intrinsicDefaultProto).
   3. Return ObjectCreate(proto, internalSlotsList).
-features: [FinalizationGroup]
+features: [FinalizationGroup, for-of]
 ---*/
 
 var cleanupCallback = function() {};

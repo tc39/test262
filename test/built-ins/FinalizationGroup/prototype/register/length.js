@@ -26,7 +26,7 @@ features: [FinalizationGroup]
 
 verifyProperty(FinalizationGroup.prototype.register, 'length', {
   value: 2,
-  writable: false,
   enumerable: false,
+  writable: false,
   configurable: true
 });

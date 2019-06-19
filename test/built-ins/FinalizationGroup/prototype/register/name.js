@@ -25,7 +25,7 @@ features: [FinalizationGroup]
 
 verifyProperty(FinalizationGroup.prototype.register, 'name', {
   value: 'register',
-  writable: false,
   enumerable: false,
+  writable: false,
   configurable: true
 });

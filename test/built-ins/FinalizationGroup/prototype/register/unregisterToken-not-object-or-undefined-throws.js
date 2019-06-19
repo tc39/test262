@@ -23,26 +23,26 @@ var fg = new FinalizationGroup(function() {});
 var target = {};
 
 assert.throws(TypeError, function() {
-  fg(target, undefined, null);
+  fg.register(target, undefined, null);
 }, 'null');
 
 assert.throws(TypeError, function() {
-  fg(target, undefined, true);
+  fg.register(target, undefined, true);
 }, 'true');
 
 assert.throws(TypeError, function() {
-  fg(target, undefined, false);
+  fg.register(target, undefined, false);
 }, 'false');
 
 assert.throws(TypeError, function() {
-  fg(target, undefined, 1);
+  fg.register(target, undefined, 1);
 }, 'number');
 
 assert.throws(TypeError, function() {
-  fg(target, undefined, 'object');
+  fg.register(target, undefined, 'object');
 }, 'string');
 
 var s = Symbol();
 assert.throws(TypeError, function() {
-  fg(target, undefined, s);
+  fg.register(target, undefined, s);
 }, 'symbol');
