@@ -23,7 +23,7 @@ info: |
   4. Set obj.[[Prototype]] to proto.
   5. Set obj.[[Extensible]] to true.
   6. Return obj.
-features: [FinalizationGroup, Reflect]
+features: [FinalizationGroup]
 ---*/
 
 var fg = new FinalizationGroup(function() {});

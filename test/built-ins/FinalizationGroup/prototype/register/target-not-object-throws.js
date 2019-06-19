@@ -23,30 +23,30 @@ assert.sameValue(typeof FinalizationGroup.prototype.register, 'function');
 var fg = new FinalizationGroup(function() {});
 
 assert.throws(TypeError, function() {
-  fg(undefined);
+  fg.register(undefined);
 }, 'undefined');
 
 assert.throws(TypeError, function() {
-  fg(null);
+  fg.register(null);
 }, 'null');
 
 assert.throws(TypeError, function() {
-  fg(true);
+  fg.register(true);
 }, 'true');
 
 assert.throws(TypeError, function() {
-  fg(false);
+  fg.register(false);
 }, 'false');
 
 assert.throws(TypeError, function() {
-  fg(1);
+  fg.register(1);
 }, 'number');
 
 assert.throws(TypeError, function() {
-  fg('object');
+  fg.register('object');
 }, 'string');
 
 var s = Symbol();
 assert.throws(TypeError, function() {
-  fg(s);
+  fg.register(s);
 }, 'symbol');
