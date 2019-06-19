@@ -14,25 +14,18 @@ info: |
             MetaProperty:
               NewTarget
 features: [new.target, async-functions]
+flags: [async]
 ---*/
 
-function a() {
-  delete new.target;
-  typeof new.target;
-  -new.target;
-  !new.target;
-}
+(function() { assert.sameValue(delete (new.target), true); })();
+(function() { assert.sameValue(void new.target, undefined); })();
+new function() { assert.sameValue(typeof new.target, 'function'); };
+new function() { assert.sameValue(+(new.target), NaN); };
+(function() { assert.sameValue(-(new.target), NaN); })();
+new function() { assert.sameValue(~new.target, -1); };
+(function() { assert.sameValue(!new.target, true); })();
+new function() { assert.sameValue(delete void typeof +-~!(new.target), true); };
 
-function b() {
-  void (new.target);
-  +(new.target);
-  ~(new.target);
-}
-
-function c() {
-  delete void typeof +-~! (new.target);
-}
-
-async function d() {
-  await new.target;
-}
+(async function() {
+  assert.sameValue(await new.target, undefined);
+})().then($DONE, $DONE);
