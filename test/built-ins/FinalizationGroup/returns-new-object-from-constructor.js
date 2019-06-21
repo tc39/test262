@@ -4,7 +4,7 @@
 /*---
 esid: sec-finalization-group-target
 description: >
-  Returns a new ordinary object from the WeakRef constructor
+  Returns a new ordinary object from the FinalizationGroup constructor
 info: |
   FinalizationGroup ( cleanupCallback )
 
