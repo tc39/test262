@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Private method is not stored as an own property of objects
+description: Private field is not clobbered by computed property
+esid: sec-privatefieldget
 info: |
   PrivateFieldGet (P, O)
     1. Assert: P is a Private Name.
@@ -19,21 +20,24 @@ info: |
       b. If P does not have a [[Get]] field, throw a TypeError exception.
       c. Let getter be P.[[Get]].
       d. Return ? Call(getter, O).
-template: default
-features: [class-methods-private]
+features: [class-fields-public, class-fields-private, class]
 ---*/
 
-//- elements
-#m() { return "Test262"; }
+class C {
+  #m = 44;
+  ["#m"] = this.#m / 11;
 
-checkPrivateMethod() {
-  assert.sameValue(this.hasOwnProperty("#m"), false);
-  assert.sameValue("#m" in this, false);
-
-  assert.sameValue(this.#m(), "Test262");
+  checkPrivateField() {
+    assert.sameValue(this.hasOwnProperty("#m"), true);
+    assert.sameValue("#m" in this, true);
   
-  return 0;
+    assert.sameValue(this["#m"], 4);
+  
+    assert.sameValue(this.#m, 44);
+  
+    return 0;
+  }
 }
-//- assertions
+
 let c = new C();
-assert.sameValue(c.checkPrivateMethod(), 0);
+assert.sameValue(c.checkPrivateField(), 0);

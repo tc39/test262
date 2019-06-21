@@ -30,23 +30,16 @@ var C = class {
   get #m() { return "Test262"; }
 
   checkPrivateGetter() {
-    assert.sameValue(Object.getOwnPropertyDescriptor(this, "#m"), undefined);
-    assert.sameValue(Reflect.getOwnPropertyDescriptor(this, "#m"), undefined);
-
     assert.sameValue(this.hasOwnProperty("#m"), false);
-    assert.sameValue(Reflect.has(this, "#m"), false);
-
-    assert.compareArray(Object.getOwnPropertyNames(this), []);
-    assert.compareArray(Reflect.ownKeys(this), []);
-
     assert.sameValue("#m" in this, false);
 
-    const descriptors = Object.getOwnPropertyDescriptors(this);
-    assert.sameValue("#m" in descriptors, false);
+    assert.sameValue(this.__lookupGetter__("#m"), undefined);
 
     assert.sameValue(this.#m, "Test262");
+
+    return 0;
   }
 }
 
 let c = new C();
-c.checkPrivateGetter();
+assert.sameValue(c.checkPrivateGetter(), 0);

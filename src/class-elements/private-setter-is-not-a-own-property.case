@@ -27,23 +27,16 @@ features: [class-methods-private]
 set #m(v) { this._v = v; }
 
 checkPrivateSetter() {
-  assert.sameValue(Object.getOwnPropertyDescriptor(this, "#m"), undefined);
-  assert.sameValue(Reflect.getOwnPropertyDescriptor(this, "#m"), undefined);
-
   assert.sameValue(this.hasOwnProperty("#m"), false);
-  assert.sameValue(Reflect.has(this, "#m"), false);
-
-  assert.compareArray(Object.getOwnPropertyNames(this), []);
-  assert.compareArray(Reflect.ownKeys(this), []);
-
   assert.sameValue("#m" in this, false);
 
-  const descriptors = Object.getOwnPropertyDescriptors(this);
-  assert.sameValue("#m" in descriptors, false);
+  assert.sameValue(this.__lookupSetter__("#m"), undefined);
 
   this.#m = "Test262";
   assert.sameValue(this._v, "Test262");
+
+  return 0;
 }
 //- assertions
 let c = new C();
-c.checkPrivateSetter();
+assert.sameValue(c.checkPrivateSetter(), 0);

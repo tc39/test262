@@ -6,7 +6,6 @@ description: Private method is not stored as an own property of objects (field d
 esid: prod-FieldDefinition
 features: [class-methods-private, class]
 flags: [generated]
-includes: [compareArray.js]
 info: |
     PrivateFieldGet (P, O)
       1. Assert: P is a Private Name.
@@ -31,23 +30,14 @@ class C {
   #m() { return "Test262"; }
 
   checkPrivateMethod() {
-    assert.sameValue(Object.getOwnPropertyDescriptor(this, "#m"), undefined);
-    assert.sameValue(Reflect.getOwnPropertyDescriptor(this, "#m"), undefined);
-
     assert.sameValue(this.hasOwnProperty("#m"), false);
-    assert.sameValue(Reflect.has(this, "#m"), false);
-
-    assert.compareArray(Object.getOwnPropertyNames(this), []);
-    assert.compareArray(Reflect.ownKeys(this), []);
-
     assert.sameValue("#m" in this, false);
 
-    const descriptors = Object.getOwnPropertyDescriptors(this);
-    assert.sameValue("#m" in descriptors, false);
-
     assert.sameValue(this.#m(), "Test262");
+    
+    return 0;
   }
 }
 
 let c = new C();
-c.checkPrivateMethod();
+assert.sameValue(c.checkPrivateMethod(), 0);
