@@ -17,4 +17,4 @@ negative:
 $DONOTEVALUATE();
 
 const obj = {foo: [1, 2]};
-const [a, b] = obj.foo;
+const [a, b] = obj?.foo;
