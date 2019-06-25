@@ -43,7 +43,7 @@ class C {
   set #m(v) { this._v = v; };
 
   setWithEval(v) {
-    return eval("this.#m = v");
+    eval("this.#m = v");
   }
 }
 
