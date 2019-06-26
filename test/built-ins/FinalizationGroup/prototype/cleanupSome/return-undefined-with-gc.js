@@ -11,7 +11,7 @@ info: |
   2. If Type(finalizationGroup) is not Object, throw a TypeError exception.
   3. If finalizationGroup does not have a [[Cells]] internal slot, throw a TypeError exception.
   4. If callback is not undefined and IsCallable(callback) is false, throw a TypeError exception.
-  5. Perform ! CleanupFinalizationGroup(finalizationGroup, callback).
+  5. Perform ? CleanupFinalizationGroup(finalizationGroup, callback).
   6. Return undefined.
 features: [FinalizationGroup, arrow-function, async-functions, async-iteration, class, host-gc-required]
 ---*/
@@ -25,17 +25,13 @@ var cb = function() {
   called += 1;
   return 42;
 };
-var poisoned = function() { throw new Test262Error(); };
 var fg = new FinalizationGroup(fn);
 
-function emptyCells(custom) {
+function emptyCells() {
   called = 0;
-  if (!custom) {
-    custom = fg;
-  }
   (function() {
     var o = {};
-    custom.register(o);
+    fg.register(o);
   })();
   $262.gc();
 }
@@ -55,9 +51,6 @@ emptyCells();
 assert.sameValue(fg.cleanupSome(fg.cleanupSome), undefined, 'cleanupSome itself');
 
 emptyCells();
-assert.sameValue(fg.cleanupSome(poisoned), undefined, 'poisoned');
-
-emptyCells();
 assert.sameValue(fg.cleanupSome(class {}), undefined, 'class expression');
 
 emptyCells();
@@ -74,11 +67,3 @@ assert.sameValue(fg.cleanupSome(), undefined, 'undefined, implicit');
 
 emptyCells();
 assert.sameValue(fg.cleanupSome(undefined), undefined, 'undefined, explicit');
-
-var poisonedFg = new FinalizationGroup(poisoned);
-
-emptyCells(poisonedFg);
-assert.sameValue(poisonedFg.cleanupSome(cb), undefined, 'regular callback on poisoned FG cleanup callback');
-
-emptyCells(poisonedFg);
-assert.sameValue(poisonedFg.cleanupSome(poisoned), undefined, 'poisoned callback on poisoned FG cleanup callback');

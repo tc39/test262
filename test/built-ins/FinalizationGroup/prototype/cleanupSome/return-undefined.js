@@ -11,7 +11,7 @@ info: |
   2. If Type(finalizationGroup) is not Object, throw a TypeError exception.
   3. If finalizationGroup does not have a [[Cells]] internal slot, throw a TypeError exception.
   4. If callback is not undefined and IsCallable(callback) is false, throw a TypeError exception.
-  5. Perform ! CleanupFinalizationGroup(finalizationGroup, callback).
+  5. Perform ? CleanupFinalizationGroup(finalizationGroup, callback).
   6. Return undefined.
 features: [FinalizationGroup, arrow-function, async-functions, async-iteration, class]
 ---*/
