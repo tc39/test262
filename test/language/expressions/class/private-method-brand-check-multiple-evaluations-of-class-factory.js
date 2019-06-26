@@ -1,8 +1,8 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Every new evaluation of a class creates a different brand (private getter)
+description: Every new evaluation of a class creates a different brand (private method)
 esid: sec-privatefieldget
 info: |
   ClassTail : ClassHeritage { ClassBody }
@@ -20,16 +20,15 @@ features: [class, class-methods-private]
 ---*/
 
 let createAndInstantiateClass = function () {
-  class C {
-    get #m() { return 'test262'; }
+  const C = class {
+    #m() { return 'test262'; }
 
     access(o) {
-      return o.#m;
+      return o.#m();
     }
   }
 
-  let c = new C();
-  return c;
+  return new C();
 };
 
 let c1 = createAndInstantiateClass();

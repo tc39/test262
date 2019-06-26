@@ -1,8 +1,8 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Every new evaluation of a class creates a different brand (private getter)
+description: Every new evaluation of a class creates a different brand (private setter)
 esid: sec-privatefieldget
 info: |
   ClassTail : ClassHeritage { ClassBody }
@@ -20,28 +20,29 @@ features: [class, class-methods-private]
 ---*/
 
 let createAndInstantiateClass = function () {
-  class C {
-    get #m() { return 'test262'; }
+  const C = class {
+    set #m(v) { this._v = v; }
 
-    access(o) {
-      return o.#m;
+    access(o, v) {
+      o.#m = v;
     }
   }
 
-  let c = new C();
-  return c;
+  return new C();
 };
 
 let c1 = createAndInstantiateClass();
 let c2 = createAndInstantiateClass();
 
-assert.sameValue(c1.access(c1), 'test262');
-assert.sameValue(c2.access(c2), 'test262');
+c1.access(c1, 'test262');
+assert.sameValue(c1._v, 'test262');
+c2.access(c2, 'test262');
+assert.sameValue(c2._v, 'test262');
 
 assert.throws(TypeError, function() {
-  c1.access(c2);
+  c1.access(c2, 'foo');
 }, 'invalid access of c1 private method');
 
 assert.throws(TypeError, function() {
-  c2.access(c1);
+  c2.access(c1, 'foo');
 }, 'invalid access of c2 private method');

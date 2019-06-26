@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -20,7 +20,7 @@ features: [class, class-methods-private]
 ---*/
 
 let createAndInstantiateClass = function () {
-  class C {
+  const C = class {
     get #m() { return 'test262'; }
 
     access(o) {

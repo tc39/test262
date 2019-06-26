@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -17,19 +17,21 @@ info: |
     1. If O.[[PrivateBrands]] does not contain an entry e such that SameValue(e, P.[[Brand]]) is true,
       a. Throw a TypeError exception.
 features: [class, class-methods-private]
+flags: [noStrict]
 ---*/
 
-let createAndInstantiateClass = function () {
-  class C {
-    get #m() { return 'test262'; }
+let classStringExpression = `(
+class {
+  get #m() { return 'test262'; }
 
-    access(o) {
-      return o.#m;
-    }
+  access(o) {
+    return o.#m;
   }
+}
+)`;
 
-  let c = new C();
-  return c;
+let createAndInstantiateClass = function () {
+  return new (eval(classStringExpression));
 };
 
 let c1 = createAndInstantiateClass();
