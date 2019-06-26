@@ -13,7 +13,7 @@ info: |
   4. If callback is not undefined and IsCallable(callback) is false, throw a TypeError exception.
   5. Perform ? CleanupFinalizationGroup(finalizationGroup, callback).
   6. Return undefined.
-features: [FinalizationGroup, arrow-function, async-functions, async-iteration, class, host-gc-required]
+features: [FinalizationGroup, host-gc-required]
 ---*/
 
 var holdingsList;
