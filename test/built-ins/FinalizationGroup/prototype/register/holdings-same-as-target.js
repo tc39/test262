@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-finalization-group.prototype.register
-description: No restriction for the value or type of holdings
+description: holdings may be the same as target
 info: |
   FinalizationGroup.prototype.register ( target , holdings [, unregisterToken ] )
 
@@ -20,16 +20,7 @@ info: |
 features: [FinalizationGroup]
 ---*/
 
-var fn = function() {};
-var fg = new FinalizationGroup(fn);
+var fg = new FinalizationGroup(function() {});
 
 var target = {};
-assert.sameValue(fg.register(target, undefined), undefined, 'undefined');
-assert.sameValue(fg.register(target, null), undefined, 'null');
-assert.sameValue(fg.register(target, false), undefined, 'false');
-assert.sameValue(fg.register(target, true), undefined, 'true');
-assert.sameValue(fg.register(target, Symbol()), undefined, 'symbol');
-assert.sameValue(fg.register(target, {}), undefined, 'object');
-assert.sameValue(fg.register(target, fg), undefined, 'same as fg instance');
-assert.sameValue(fg.register(target, 1), undefined, 'number');
-assert.sameValue(fg.register(target, 'holdings'), undefined, 'string');
+assert.sameValue(fg.register(target, target), undefined);
