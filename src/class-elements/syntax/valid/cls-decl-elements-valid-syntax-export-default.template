@@ -1,0 +1,14 @@
+// Copyright (C) 2019 Jaideep Bhoosreddy (Bloomberg LP). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: prod-ClassElement
+name: class declaration module default export
+path: language/statements/class/elements/syntax/valid/export-default-
+flags: [module]
+features: [class]
+---*/
+
+export default class /*{ heritage }*/{
+  /*{ elements }*/
+}
