@@ -35,7 +35,7 @@ info: |
     3. Let privateName be GetValue(privateNameBinding).
     4. Assert: privateName is a Private Name.
     5. Return a value of type Reference whose base value is baseValue, whose referenced name is privateName, whose strict reference flag is true.
-features: [class-fields-private, class-fields-public, class]
+features: [class-methods-private, class-fields-public, class]
 ---*/
 
 class C {

@@ -22,7 +22,7 @@ info: |
     receiver. These semantics allow for a later initializer to refer to
     a previous private field.
 template: default
-features: [class-methods-private]
+features: [class-methods-private, class-fields-public]
 ---*/
 
 //- elements
