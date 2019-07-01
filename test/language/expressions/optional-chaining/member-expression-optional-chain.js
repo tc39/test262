@@ -1,7 +1,7 @@
 /*---
 esid: pending
 info: |
-  optional chain of member expression
+  optional chain on member expression
 description: >
   Left-Hand-Side Expressions
     OptionalExpression:

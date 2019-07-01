@@ -6,7 +6,7 @@ description: >
   Static Semantics: IsValidSimpleAssignmentTarget
     LeftHandSideExpression:
       OptionalExpression
-   1. Return false.
+    Return false.
 features: [optional-chaining]
 negative:
   type: SyntaxError

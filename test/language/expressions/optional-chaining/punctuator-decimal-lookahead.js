@@ -3,7 +3,7 @@ esid: pending
 info: |
   ternary operation with decimal does not evaluate as optional chain 
 description: >
-  11.7 Punctuators
+  Punctuators
     OptionalChainingPunctuator::
       ?.[lookahead ∉ DecimalDigit]
 features: [optional-chaining]
