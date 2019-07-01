@@ -4,9 +4,9 @@ info: |
   template string passed to tail position of optional chain
 description: >
   Static Semantics: Early Errors
-    OptionalChain[Yield, Await]:
-      ?.TemplateLiteral[?Yield, ?Await, +Tagged]
-      OptionalChain[?Yield, ?Await]TemplateLiteral[?Yield, ?Await, +Tagged]
+    OptionalChain:
+      ?.TemplateLiteral
+      OptionalChain TemplateLiteral
 features: [optional-chaining]
 negative:
   type: SyntaxError
