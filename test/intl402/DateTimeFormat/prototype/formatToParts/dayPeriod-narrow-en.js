@@ -4,7 +4,7 @@
 /*---
 esid: sec-initializedatetimeformat
 description: Checks basic handling of dayPeriod, narrow format.
-features: [Intl.DateTimeFormat-datetimestyle]
+features: [Intl.DateTimeFormat-dayPeriod]
 ---*/
 
 const d0000 = new Date(2017, 11, 12,  0, 0, 0, 0);
