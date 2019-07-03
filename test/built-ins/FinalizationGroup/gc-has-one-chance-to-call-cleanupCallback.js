@@ -25,7 +25,7 @@ info: |
   2. For each FinalizationGroup fg such that fg.[[Cells]] contains cell, such that cell.[[Target]] is obj,
     a. Set cell.[[Target]] to empty.
     b. Optionally, perform ! HostCleanupFinalizationGroup(fg).
-features: [FinalizationGroup, async-function, host-gc-required]
+features: [FinalizationGroup, async-functions, host-gc-required]
 flags: [async]
 ---*/
 
