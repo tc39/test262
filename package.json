@@ -19,12 +19,12 @@
   "scripts": {
     "ci": "./tools/scripts/ci_test.sh",
     "test": "test262-harness",
-    "diff": "git diff --diff-filter ACMR --name-only master.. -- test/",
+    "diff": "git diff --diff-filter ACMR --name-only master.. -- test/ && git ls-files --exclude-standard --others -- test/",
     "test:diff": "npm run test:diff:v8 && npm run test:diff:spidermonkey && npm run test:diff:chakra && npm run test:diff:javascriptcore",
-    "test:diff:v8": "test262-harness -t 8 --hostType=d8 --hostPath=v8 $(npm run diff)",
-    "test:diff:spidermonkey": "test262-harness -t 8 --hostType=jsshell --hostPath=spidermonkey $(npm run diff)",
-    "test:diff:chakra": "test262-harness -t 8 --hostType=ch --hostPath=chakra $(npm run diff)",
-    "test:diff:javascriptcore": "test262-harness -t 8 --hostType=jsc --hostPath=javascriptcore $(npm run diff)",
-    "test:diff:xs": "test262-harness -t 8 --hostType=xs --hostPath=xs $(npm run diff)"
+    "test:diff:v8": "test262-harness -t 8 --hostType=d8 --hostPath=v8 $(npm run --silent diff)",
+    "test:diff:spidermonkey": "test262-harness -t 8 --hostType=jsshell --hostPath=spidermonkey $(npm run --silent diff)",
+    "test:diff:chakra": "test262-harness -t 8 --hostType=ch --hostPath=chakra $(npm run --silent diff)",
+    "test:diff:javascriptcore": "test262-harness -t 8 --hostType=jsc --hostPath=javascriptcore $(npm run --silent diff)",
+    "test:diff:xs": "test262-harness -t 8 --hostType=xs --hostPath=xs $(npm run --silent diff)"
   }
 }
