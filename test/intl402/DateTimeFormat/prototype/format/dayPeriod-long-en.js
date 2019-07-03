@@ -4,7 +4,7 @@
 /*---
 esid: sec-initializedatetimeformat
 description: Checks basic handling of dayPeriod, long format.
-features: [Intl.DateTimeFormat-datetimestyle]
+features: [Intl.DateTimeFormat-dayPeriod]
 locale: [en-US]
 ---*/
 
