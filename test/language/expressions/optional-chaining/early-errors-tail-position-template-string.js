@@ -15,7 +15,7 @@ negative:
 
 $DONOTEVALUATE();
 
-const a = {fn: () => {}};
+const a = {fn() {}};
 
 a?.fn
   `hello`;

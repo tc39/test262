@@ -17,7 +17,7 @@ const i = 0;
 const obj = {
   a: 'hello',
   b: {val: 13},
-  c: (arg1) => {
+  c(arg1) {
     return arg1 * 2;
   },
   arr: [11, 12]
