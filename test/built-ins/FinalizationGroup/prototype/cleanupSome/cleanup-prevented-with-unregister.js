@@ -31,8 +31,7 @@ var fg = new FinalizationGroup(function() {});
 var unregA = {};
 var unregB = {};
 var unregC = {};
-var unregDE = {};
-var unregDE = {};
+var unregDE = {}; // Use the same unregister token for D and E
 
 function emptyCells() {
   (function() {

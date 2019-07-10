@@ -26,7 +26,7 @@ features: [FinalizationGroup, WeakRef, host-gc-required]
 var holdingsList;
 function cb(iterator) {
   holdingsList = [...iterator];
-};
+}
 var fg = new FinalizationGroup(function() {});
 
 var deref = false;

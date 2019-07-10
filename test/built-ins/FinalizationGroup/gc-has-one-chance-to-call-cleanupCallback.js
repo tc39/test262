@@ -37,7 +37,7 @@ var called = 0;
 // More info at %FinalizationGroupCleanupIteratorPrototype%.next ( )
 function cb() {
   called += 1;
-};
+}
 
 var fg = new FinalizationGroup(function() {
   cleanupCallback += 1;
