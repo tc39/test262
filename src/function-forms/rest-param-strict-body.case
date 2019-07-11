@@ -9,6 +9,12 @@ negative:
   phase: parse
   type: SyntaxError
 info: |
+  14.1.13 Static Semantics: IsSimpleParameterList
+
+  FormalParameters : FormalParameterList , FunctionRestParameter
+
+  1. Return false.
+
   14.1.2 Static Semantics: Early Errors
 
   FunctionDeclaration : function BindingIdentifier ( FormalParameters ) { FunctionBody }
@@ -92,6 +98,6 @@ features: [rest-parameters]
 //- setup
 $DONOTEVALUATE();
 //- params
-...rest
+a,...rest
 //- body
 "use strict";

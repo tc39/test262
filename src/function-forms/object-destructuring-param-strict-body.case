@@ -9,6 +9,12 @@ negative:
   phase: parse
   type: SyntaxError
 info: |
+  13.3.3.4 Static Semantics: IsSimpleParameterList
+
+  BindingElement : BindingPattern
+
+  1. Return false.
+
   14.1.2 Static Semantics: Early Errors
 
   FunctionDeclaration : function BindingIdentifier ( FormalParameters ) { FunctionBody }
