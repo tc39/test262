@@ -66,7 +66,21 @@ assert.throws(
 
 ### Copyright
 
-The copyright block must be the first section of the test.  The copyright block must use `//` style comments.
+The copyright block should be the first section of the test. The copyright block must use `//` style comments.
+
+The copyright should follow this format:
+
+```js
+// Copyright (C) $Year $ContributorName. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+```
+
+Where
+
+- `$Year` must be a 4 digit single year. It should not be an year range. If it's extremely necessary to add multiple years, repeat line for each year.
+- `$ContributorName` must be a legal (natural or juridical) person's name.
+
+The code must be a BSD or BSD-style compatible with the license of this project. Therefore, the line following the year and name parts should be written as in the example above.
 
 ### Frontmatter
 
