@@ -17,7 +17,7 @@ _YAML_PATTERN = re.compile(r"/\*---(.*)---\*/" + _BLANK_LINES, re.DOTALL)
 
 # Matches all known variants for the license block.
 _LICENSE_PATTERN = re.compile(
-   r'// Copyright( \(C\))? (\w+) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
+   r'// Copyright( \([C]\))? (\w+) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
    r'(' +
        r'// This code is governed by the( BSD)? license found in the LICENSE file\.' +
        r'|' +

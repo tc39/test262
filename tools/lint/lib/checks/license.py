@@ -29,7 +29,7 @@ class CheckLicense(Check):
         match = _LICENSE_PATTERN.search(source)
 
         if not match:
-            return
+            return 'Invalid Copyright header'
 
         year_str = match.group(2)
         try:
