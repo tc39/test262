@@ -1,0 +1,24 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Block with a label
+template: default
+info: |
+  Statement:
+    BlockStatement
+    VariableStatement
+    EmptyStatement
+    ExpressionStatement
+    ...
+  
+  // lookahead here prevents capturing an Object literal
+  ExpressionStatement:
+    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
+      Expression ;
+---*/
+
+//- StatementListItem
+{x: 42};
+//- EvalAssertions
+assert.sameValue(result, 42, 'it does not evaluate to an Object with the property x');

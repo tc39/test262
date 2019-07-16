@@ -1,0 +1,38 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Arrow Function with a Function Body
+template: default
+info: |
+  Statement:
+    BlockStatement
+    VariableStatement
+    EmptyStatement
+    ExpressionStatement
+    ...
+  
+  ExpressionStatement:
+    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
+      Expression ;
+
+  ...
+
+  AssignmentExpression:
+    ConditionalExpression
+    [+Yield]YieldExpression
+    ArrowFunction
+
+  ArrowFunction:
+    ArrowParameters [no LineTerminator here] => ConciseBody
+
+  ConciseBody:
+    [lookahead ≠ {] AssignmentExpression
+    { FunctionBody }
+features: [arrow-function]
+---*/
+
+//- StatementListItem
+() => { return 42; };
+//- EvalAssertions
+assert.sameValue(result(), 42);

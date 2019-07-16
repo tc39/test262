@@ -1,0 +1,22 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: LexicalDeclaration using Let
+template: default
+info: |
+  Declaration:
+    LexicalDeclaration
+
+  LexicalDeclaration:
+    LetOrConst BindingList ;
+
+  BindingList:
+    LexicalBinding
+    BindingList , LexicalBinding
+---*/
+
+//- StatementListItem
+let a, b = 42, c;b;
+//- EvalAssertions
+assert.sameValue(result, 42);
