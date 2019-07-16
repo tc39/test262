@@ -1,0 +1,29 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statementList/eval-block-
+name: Eval production of StatementList starting with a BlockStatement
+esid: prod-StatementList
+info: |
+  StatementList:
+    StatementListItem
+    StatementList StatementListItem
+
+  StatementListItem:
+    Statement
+    Declaration
+  
+  Statement:
+    BlockStatement
+
+  BlockStatement:
+    Block
+
+  Block:
+    { StatementList_opt }
+---*/
+
+var result = eval('{}/*{ StatementListItem }*/');
+
+/*{ EvalAssertions }*/

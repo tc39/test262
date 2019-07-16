@@ -1,0 +1,26 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Block
+template: default
+info: |
+  Statement:
+    BlockStatement
+    VariableStatement
+    EmptyStatement
+    ExpressionStatement
+    ...
+
+  // lookahead here prevents capturing an Object literal
+  ExpressionStatement:
+    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
+      Expression ;
+---*/
+
+//- StatementListItem
+{}
+//- EvalAssertions
+assert.sameValue(result, undefined);
+//- EvalAssertionsCompletion
+assert.sameValue(result, expected);

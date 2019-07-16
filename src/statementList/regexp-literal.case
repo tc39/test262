@@ -1,0 +1,28 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Regular Expression Literal
+template: default
+info: |
+  Statement:
+    BlockStatement
+    VariableStatement
+    EmptyStatement
+    ExpressionStatement
+    ...
+  
+  ExpressionStatement[Yield, Await]:
+    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
+      Expression ;
+
+  RegularExpressionLiteral ::
+    / RegularExpressionBody / RegularExpressionFlags
+---*/
+
+//- StatementListItem
+/1/;
+//- EvalAssertions
+assert.sameValue(Object.getPrototypeOf(result), RegExp.prototype);
+assert.sameValue(result.flags, '');
+assert.sameValue(result.toString(), '/1/');

@@ -1,0 +1,30 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Array Literal with items
+template: default
+info: |
+  Statement:
+    BlockStatement
+    VariableStatement
+    EmptyStatement
+    ExpressionStatement
+    ...
+  
+  ExpressionStatement:
+    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
+      Expression ;
+
+  ArrayLiteral[Yield, Await]:
+    [ Elision_opt ]
+    [ ElementList ]
+    [ ElementList , Elision_opt ]
+---*/
+
+//- StatementListItem
+[42];
+//- EvalAssertions
+assert.sameValue(Object.getPrototypeOf(result), Array.prototype);
+assert.sameValue(result.length, 1);
+assert.sameValue(result[0], 42);
