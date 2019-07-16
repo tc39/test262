@@ -187,6 +187,7 @@ regexp-dotall
 regexp-lookbehind
 regexp-named-groups
 regexp-unicode-property-escapes
+rest-parameters
 Set
 SharedArrayBuffer
 String.fromCodePoint
