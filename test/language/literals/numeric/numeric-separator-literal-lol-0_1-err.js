@@ -38,4 +38,4 @@ features: [numeric-separator-literal]
 
 $DONOTEVALUATE();
 
-0_0;
+0_1;
