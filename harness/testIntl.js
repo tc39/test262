@@ -116,8 +116,8 @@ function taintArray() {
  */
 function getLocaleSupportInfo(Constructor) {
   var languages = ["zh", "es", "en", "hi", "ur", "ar", "ja", "pa"];
-  var scripts = ["Latn", "Hans", "Deva", "Arab", "Jpan", "Hant"];
-  var countries = ["CN", "IN", "US", "PK", "JP", "TW", "HK", "SG"];
+  var scripts = ["Latn", "Hans", "Deva", "Arab", "Jpan", "Hant", "Guru"];
+  var countries = ["CN", "IN", "US", "PK", "JP", "TW", "HK", "SG", "419"];
 
   var allTags = [];
   var i, j, k;
