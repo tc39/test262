@@ -298,7 +298,7 @@ Consumers that violate the spec by throwing exceptions for parsing errors at run
 
 ## Writing Asynchronous Tests
 
-An asynchronous test is any test that include the `async` frontmatter flag. When executing such tests, the runner expects that the global `$DONE()` function will be called to signal test completion.
+An asynchronous test is any test that include the `async` frontmatter flag. When executing such tests, the runner expects that the global `$DONE()` function will be called **exactly once** to signal test completion.
 
  * If the argument to `$DONE` is omitted, is `undefined`, or is any other falsy value, the test is considered to have passed.
 
