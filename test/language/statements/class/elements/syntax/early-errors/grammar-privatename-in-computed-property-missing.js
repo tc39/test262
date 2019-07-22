@@ -2,26 +2,45 @@
 // - src/class-elements/grammar-privatename-in-computed-property-missing.case
 // - src/class-elements/syntax/invalid/cls-decl-elements-invalid-syntax.template
 /*---
-description: Use of udeclared PrivateName in ComputedProperty is a syntax error (class declaration)
+description: Use of undeclared PrivateName in ComputedProperty is a syntax error (class declaration)
 esid: prod-ClassElement
-features: [class-fields-private, class]
+features: [class-fields-private, class-fields-public, class]
 flags: [generated]
 negative:
   phase: parse
   type: SyntaxError
 info: |
-    ClassTail : ClassHeritage { ClassBody }
-      1. Let lex be the LexicalEnvironment of the running execution context.
-      2. Let classScope be NewDeclarativeEnvironment(lex).
-      3. Let classScopeEnvRec be classScope's EnvironmentRecord.
-      ...
-      15. Set the running execution context's LexicalEnvironment to classScope.
-      16. Set the running execution context's PrivateEnvironment to classPrivateEnvironment.
-      ...
-      27. For each ClassElement e in order from elements
-        a. If IsStatic of e is false, then
-          i. Let field be the result of ClassElementEvaluation for e with arguments proto and false.
-      ...
+    ClassElementName:
+      PropertyName
+      PrivateIdentifier
+
+    PropertyName:
+      LiteralPropertyName
+      ComputedPropertyName
+
+    ComputedPropertyName:
+      [ AssignmentExpression ]
+
+    AssignmentExpression ... MemberExpression
+
+    MemberExpression:
+      MemberExpression . PrivateName
+
+    Static Semantics: AllPrivateIdentifiersValid
+      AllPrivateIdentifiersValid is an abstract operation which takes names as an argument.
+
+      MemberExpression : MemberExpression . PrivateIdentifier
+        1. If StringValue of PrivateIdentifier is in names, return true.
+        2. Return false.
+
+      ClassBody : ClassElementList
+        1. Let newNames be the concatenation of names with PrivateBoundIdentifiers of ClassBody.
+        2. Return AllPrivateIdentifiersValid of ClassElementList with the argument newNames.
+
+    Static Semantics: Early Errors
+
+    ScriptBody : StatementList
+      It is a Syntax Error if AllPrivateIdentifiersValid of StatementList with an empty List as an argument is false unless the source code is eval code that is being processed by a direct eval.
 
 ---*/
 
