@@ -4,8 +4,7 @@
 /*---
 esid: prod-NumericLiteralSeparator
 description: >
-  NumericLiteralSeparator may not be the appear in a LegacyOctalLikeDecimalIntegerLiteral (0_7)
-    )
+  NumericLiteralSeparator must not be in a NonOctalDecimalIntegerLiteral (0_9)
 info: |
   NumericLiteralSeparator ::
     _
@@ -28,9 +27,6 @@ info: |
 
   NonOctalDigit::one of
     8 9
-
-  OctalDigit::one of
-    0 1 2 3 4 5 6 7
 negative:
   phase: parse
   type: SyntaxError
@@ -39,4 +35,4 @@ features: [numeric-separator-literal]
 
 $DONOTEVALUATE();
 
-0_7;
+0_9;
