@@ -62,7 +62,7 @@ var regularGrandfatheredNonUTS35 = [
 
 var regularGrandfatheredUTS35 = {
   "art-lojban": "jbo",
-  "cel-gaulish": "und-x-cel-gaulish",
+  "cel-gaulish": "xtg-x-cel-gaulish",
   "zh-guoyu": "zh",
   "zh-hakka": "hak",
   "zh-xiang": "hsn",
