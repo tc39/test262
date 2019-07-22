@@ -4,7 +4,7 @@
 /*---
 esid: prod-NumericLiteralSeparator
 description: >
-  NumericLiteralSeparator may not be the appear in a LegacyOctalLikeDecimalIntegerLiteral (0_7)
+  NumericLiteralSeparator must not be in a LegacyOctalLikeDecimalIntegerLiteral (0_7)
     )
 info: |
   NumericLiteralSeparator ::
