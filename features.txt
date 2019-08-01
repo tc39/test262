@@ -133,6 +133,10 @@ import.meta
 WeakRef
 FinalizationGroup
 
+# Optional Chaining
+# https://github.com/tc39/proposal-optional-chaining
+optional-chaining
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

@@ -1,0 +1,55 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: prod-DestructuringAssignmentTarget
+desc: >
+  It is a Syntax Error if LeftHandSideExpression of an DestructuringAssignmentTarget is neither an
+  ObjectLiteral nor an ArrayLiteral and AssignmentTargetType(LeftHandSideExpression) is not simple
+  Using Object
+  (MemberExpression OptionalChain .IdentifierName Initializer)
+info: |
+  Syntax
+
+  AssignmentElement : DestructuringAssignmentTarget Initializer_opt
+  DestructuringAssignmentTarget : LeftHandSideExpression
+
+  Static Semantics: Early Errors
+
+  OptionalExpression:
+    MemberExpression OptionalChain
+    CallExpression OptionalChain
+    OptionalExpression OptionalChain
+
+  OptionalChain:
+    ?. [ Expression ]
+    ?. IdentifierName
+    ?. Arguments 
+    ?. TemplateLiteral
+    OptionalChain [ Expression ]
+    OptionalChain .IdentifierName
+    OptionalChain Arguments 
+    OptionalChain TemplateLiteral
+
+  DestructuringAssignmentTarget : LeftHandSideExpression
+
+  - It is a Syntax Error if LeftHandSideExpression is neither an ObjectLiteral nor an ArrayLiteral and IsValidSimpleAssignmentTarget(LeftHandSideExpression) is not true.
+
+  Static Semantics: IsValidSimpleAssignmentTarget
+
+  LeftHandSideExpression : OptionalExpression
+    1. Return false.
+features: [optional-chaining]
+template: syntax
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- setup
+$DONOTEVALUATE();
+var y = {};
+//- elems
+{ x: y?.z = 42 }
+//- vals
+{ x: 23 }
