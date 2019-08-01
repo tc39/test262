@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-reflect.apply
-es6id: 26.1.1
 description: Value when invoked via `Reflect.apply`
 info: |
   [...]

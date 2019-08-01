@@ -5,7 +5,6 @@
 description: >
     Array.from uses a constructor other than Array.
 esid: sec-array.from
-es6id: 22.1.2.1
 ---*/
 
 assert.sameValue(Array.from.call(Object, []).constructor, Object);

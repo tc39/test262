@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-tagged-templates-runtime-semantics-evaluation
-es6id: 12.3.7.1
 description: Value when invoked via tagged template
 info: |
    MemberExpression : MemberExpression TemplateLiteral

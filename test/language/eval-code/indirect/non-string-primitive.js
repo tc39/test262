@@ -3,7 +3,6 @@
 /*---
 info: If x is not a string value, return x
 esid: sec-performeval
-es5id: 15.1.2.1_A1.1_T1
 description: Checking all primitives
 ---*/
 

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-scripts-static-semantics-early-errors
-es6id: 15.1.1
 description: >
   A direct eval in the functon code of an ArrowFunction may not contain
   SuperProperty

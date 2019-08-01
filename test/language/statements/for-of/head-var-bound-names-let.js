@@ -4,7 +4,6 @@
 /*---
 description: The head's bound names may include "let"
 esid: sec-for-in-and-for-of-statements-static-semantics-early-errors
-es6id: 13.7.5
 flags: [noStrict]
 ---*/
 

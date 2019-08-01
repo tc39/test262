@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-line-terminators
-es5id: 7.3-7
 description: >
     7.3 - ES5 recognizes the character <LS> (\u2028) as terminating
     regular expression literals

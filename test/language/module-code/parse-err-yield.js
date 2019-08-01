@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-modules
-es6id: 15.2
 description: YieldExpression may not be used directly within ModuleBody
 info: |
   Syntax

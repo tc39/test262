@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-function-calls-runtime-semantics-evaluation
-es6id: 12.3.4.1
 description: >
     An eval function from another realm is not a candidate for direct eval
 info: |

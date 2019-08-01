@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.foreach
-es5id: 15.4.4.18-3-19
 description: >
     Array.prototype.forEach - value of 'length' is an Object which has
     an own toString method.

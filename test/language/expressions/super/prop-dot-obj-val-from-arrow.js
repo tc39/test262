@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-super-keyword
-es6id: 12.3.5
 description: Value of reference returned by SuperProperty (from arrow function)
 info: |
   1. Let propertyKey be StringValue of IdentifierName.

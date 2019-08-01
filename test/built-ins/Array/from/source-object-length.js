@@ -6,7 +6,6 @@ description: >
     Source is an object with length property and one item is deleted
     from the source
 esid: sec-array.from
-es6id: 22.1.2.1
 ---*/
 
 var array = [2, 4, 0, 16];

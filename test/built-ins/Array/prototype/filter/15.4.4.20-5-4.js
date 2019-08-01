@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-5-4
 description: >
     Array.prototype.filter - thisArg is object from object
     template(prototype)

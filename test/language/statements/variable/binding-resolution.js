@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-variable-statement-runtime-semantics-evaluation
-es6id: 13.3.2.4
 description: Binding is resolve prior to evaluation of Initializer
 info: |
    VariableDeclaration : BindingIdentifier Initializer

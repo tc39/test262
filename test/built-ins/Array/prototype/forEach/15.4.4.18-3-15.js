@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.foreach
-es5id: 15.4.4.18-3-15
 description: >
     Array.prototype.forEach - 'length' is a string containing an
     exponential number

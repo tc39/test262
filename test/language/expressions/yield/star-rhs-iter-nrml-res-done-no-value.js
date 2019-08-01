@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-es6id: 14.4.14
 description: >
   `value` property is not accessed when iteration is incomplete
 info: |

@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-date.prototype.getyear
-es6id: B.2.4.1
-es5id: B.2.4
 description: Behavior when `this` value has no [[DateValue]] internal slot
 info: |
     1. Let t be ? thisTimeValue(this value).

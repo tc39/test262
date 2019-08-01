@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-string.prototype.fontcolor
-es6id: B.2.3.7
 description: Property descriptor for String.prototype.fontcolor
 info: |
     Every other data property described in clauses 18 through 26 and in Annex

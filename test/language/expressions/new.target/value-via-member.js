@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-property-accessors-runtime-semantics-evaluation
-es6id: 12.3.2.1
 description: Value when invoked via MemberExpression
 info: |
   MemberExpression:MemberExpression.IdentifierName

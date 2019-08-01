@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-b-6
 description: >
     Array.prototype.filter - properties can be added to prototype
     after current position are visited on an Array-like object

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-evaldeclarationinstantiation
-es6id: 18.2.1.2
 description: >
     Global functions are not created if conflicting function declarations were
     detected.

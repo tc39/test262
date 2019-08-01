@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-__proto__-property-names-in-object-initializers
-es6id: B.3.1
 description: >
     The syntax error for duplicate `__proto__` property is not valid if the duplicate is a
     ComputedPropertyName

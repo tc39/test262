@@ -3,7 +3,6 @@
 /*---
 description: In non-strict mode, duplicate LexicallyDeclaredNames in a switch statement's CaseBlock are allowed if they are bound by FunctionDeclarations
 esid: sec-switch-duplicates-allowed-static-semantics
-es6id: B.3.3.5
 flags: [noStrict]
 info: |
     B.3.3.4 Changes to Block Static Semantics: Early Errors

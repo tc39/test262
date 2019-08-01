@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-object-initializer-runtime-semantics-evaluation
-es6id: 12.2.6.8
 description: >
   The `yield` keyword behaves as a YieldExpression within a generator function
 info: |

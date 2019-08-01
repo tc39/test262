@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.isarray
-es5id: 15.4.3.2-0-2
 description: Array.isArray must exist as a function taking 1 parameter
 ---*/
 

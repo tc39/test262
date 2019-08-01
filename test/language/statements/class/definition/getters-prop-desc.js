@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-class-definitions
-es6id: 14.5
 description: Class methods - "get" accessors
 includes: [propertyHelper.js]
 ---*/

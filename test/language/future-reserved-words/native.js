@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-future-reserved-words
-es5id: 7.6.1.2_A1.20
 description: Checking if execution of "native=1" succeeds
 info: |
   `native` was removed from the list of future reserved words in ECMAScript 5.

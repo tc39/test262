@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-5-7
 description: Array.prototype.filter - built-in functions can be used as thisArg
 ---*/
 

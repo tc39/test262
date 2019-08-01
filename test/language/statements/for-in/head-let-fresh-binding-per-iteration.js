@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-runtime-semantics-forin-div-ofbodyevaluation-lhs-stmt-iterator-lhskind-labelset
-es6id: 13.7.5.13
 description: >
     let ForDeclaration: creates a fresh binding per iteration
 ---*/

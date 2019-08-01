@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-with-statement-runtime-semantics-evaluation
-es6id: 13.11.7
 description: Creation of new variable environment
 info: |
     3. Let oldEnv be the running execution context's LexicalEnvironment.

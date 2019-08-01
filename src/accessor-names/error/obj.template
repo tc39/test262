@@ -4,7 +4,6 @@
 path: language/expressions/object/accessor-name-
 name: Object initializer
 esid: sec-object-initializer-runtime-semantics-evaluation
-es6id: 12.2.6.8
 info: |
   ObjectLiteral :
     { PropertyDefinitionList }

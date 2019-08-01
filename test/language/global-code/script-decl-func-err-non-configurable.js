@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-globaldeclarationinstantiation
-es6id: 15.1.8
 description: >
   Declaration of function when there is a corresponding global property that is
   non-configurable but *not* a writable and configurable data property.

@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-identifiers-static-semantics-early-errors
-es5id: 7.6.1.1_A1.16
 description: Checking if execution of "return=1" fails
 info: |
   Identifier : IdentifierName but not ReservedWord

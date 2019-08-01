@@ -3,7 +3,6 @@
 
 /*---
 esid: use-strict-directive
-es5id: 10.1.1-25-s
 description: >
     Strict Mode - Function code of Accessor PropertyAssignment
     contains Use Strict Directive which appears at the start of the

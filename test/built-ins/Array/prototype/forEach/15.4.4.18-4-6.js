@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.foreach
-es5id: 15.4.4.18-4-6
 description: Array.prototype.forEach throws TypeError if callbackfn is string
 ---*/
 

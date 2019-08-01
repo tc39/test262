@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-unescape-string
-es6id: B.2.1.2
 description: Input is the empty string
 info: |
     1. Let string be ? ToString(string).

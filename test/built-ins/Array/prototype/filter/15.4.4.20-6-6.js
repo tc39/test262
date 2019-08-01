@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-6-6
 description: >
     Array.prototype.filter returns an empty array if 'length' is 0
     (subclassed Array, length overridden with obj with valueOf)

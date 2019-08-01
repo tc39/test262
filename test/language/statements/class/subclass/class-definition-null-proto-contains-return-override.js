@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
-es6id: 14.5.14
 description: >
     The constructor of a null-extending class can contain an explicit return value.
 info: |

@@ -3,7 +3,6 @@
 /*---
 description: Referencing the arguments object from a default parameter (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-es6id: 14.5.15
 features: [generators, default-parameters]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

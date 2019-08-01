@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-pattern-semantics
-es6id: 21.2.2
 description: Out-of-bounds decimal escapes
 info: |
     1. Evaluate DecimalEscape to obtain an integer n.

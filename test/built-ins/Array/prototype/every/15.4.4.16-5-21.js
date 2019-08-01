@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.every
-es5id: 15.4.4.16-5-21
 description: Array.prototype.every - the global object can be used as thisArg
 ---*/
 

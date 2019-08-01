@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-string.prototype.substr
-es6id: B.2.3.1
 description: >
     Behavior when "start" integer conversion triggers an abrupt completion
 info: |

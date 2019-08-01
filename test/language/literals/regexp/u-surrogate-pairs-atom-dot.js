@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atom
-es6id: 21.2.2.8
 description: >
   Support for surrogate pairs within patterns match by the "period" Atom
 info: |

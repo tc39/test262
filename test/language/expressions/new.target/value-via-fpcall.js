@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-function.prototype.call
-es6id: 19.2.3.3
 description: Value when invoked via `Function.prototype.call`
 info: |
   [...]

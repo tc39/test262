@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-getidentifierreference
-es6id: 8.1.2.1
 description: >
   Behavior when accessing `Symbol.unscopables` property value throws an error
 info: |

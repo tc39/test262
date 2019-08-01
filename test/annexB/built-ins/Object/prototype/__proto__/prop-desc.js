@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-additional-properties-of-the-object.prototype-object
-es6id: B.2.2.1.2
 description: Property descriptor for Object.prototype.__proto__
 info: |
     Object.prototype.__proto__ is an accessor property with attributes {

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-destructuring-assignment
-es6id: 12.14.5
 description: Duplicate __proto__ property names
 info: |
     Annex B defines an early error for duplicate PropertyName of `__proto__`,

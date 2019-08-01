@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-object-initializer
-es6id: 12.2.6
 description: Permitted duplicate `__proto__` property
 info: |
     Annex B defines an early error for duplicate PropertyName of `__proto__`,

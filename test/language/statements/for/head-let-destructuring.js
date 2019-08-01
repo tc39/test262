@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteration-statements
-es6id: 13.7
 description: >
   The token sequence `let [`is interpreted as the beginning of a destructuring
   binding pattern

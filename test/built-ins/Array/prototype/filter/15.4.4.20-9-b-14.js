@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-b-14
 description: >
     Array.prototype.filter - decreasing length of array causes index
     property not to be visited

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-super-keyword
-es6id: 12.3.5
 description: Abrupt completion from Expression evaluation
 info: |
   1. Let propertyNameReference be the result of evaluating Expression.

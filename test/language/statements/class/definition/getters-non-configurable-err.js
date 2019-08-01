@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-method-definitions-runtime-semantics-propertydefinitionevaluation
-es6id: 14.3.9
 description: Failure to define property for static method
 info: |
   [...]

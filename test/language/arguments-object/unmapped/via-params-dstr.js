@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-functiondeclarationinstantiation
-es6id: 9.2.12
 description: >
   Arguments are "unmapped" when paramater list is non-simple due to
   destructuring pattern

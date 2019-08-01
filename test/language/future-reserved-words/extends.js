@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-identifiers-static-semantics-early-errors
-es5id: 7.6.1.2_A1.11
 description: Checking if execution of "extends=1" fails
 info: |
     Identifier : IdentifierName but not ReservedWord

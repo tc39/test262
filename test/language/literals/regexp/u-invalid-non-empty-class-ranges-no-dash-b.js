@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-pattern-semantics
-es6id: 21.2.2
 description: >
     NonEmptyClassRangesNoDash production cannot specify a multi-character set
     ("B" parameter)

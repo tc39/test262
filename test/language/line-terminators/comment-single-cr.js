@@ -4,7 +4,6 @@
 /*---
 info: Single line comments can contain Line Terminator at the end of line
 esid: sec-line-terminators
-es5id: 7.3_A4_T2
 description: Insert CARRIAGE RETURN (U+000D) into the end of single line comment
 negative:
   phase: runtime
@@ -19,4 +18,5 @@ negative:
 // guarantees that test runners will only consider the test "passing" if
 // executable sequences are correctly interpreted as such.
 
-// single linethrow new Test262Error();
+// single line
+throw new Test262Error();

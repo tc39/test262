@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-postfix-expressions-static-semantics-early-errors
-es6id: 12.4.1
-es5id: 11.1.6_A3_T5
 description: Applied to a "covered" IdentifierReference
 info: |
   PostfixExpression :

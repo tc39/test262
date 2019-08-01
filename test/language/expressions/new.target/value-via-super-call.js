@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-super-keyword-runtime-semantics-evaluation
-es6id: 12.3.5.1
 description: Value when invoked via SuperCall
 info: |
   SuperCall : super Arguments

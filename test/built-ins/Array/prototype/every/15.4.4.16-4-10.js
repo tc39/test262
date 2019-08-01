@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.every
-es5id: 15.4.4.16-4-10
 description: >
     Array.prototype.every - the exception is not thrown if exception
     was thrown by step 2

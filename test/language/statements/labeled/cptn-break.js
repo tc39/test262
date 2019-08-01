@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-labelled-statements-runtime-semantics-labelledevaluation
-es6id: 13.13.14
 description: Completion value when LabelledItem returns a "break" completion
 info: |
   LabelledStatement : LabelIdentifier : LabelledItem

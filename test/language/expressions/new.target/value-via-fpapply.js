@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-function.prototype.apply
-es6id: 19.2.3.1
 description: Value when invoked via `Function.prototype.apply`
 info: |
   [...]

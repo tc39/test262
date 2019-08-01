@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-identifiers-static-semantics-early-errors
-es5id: 7.6.1-17-s
 description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: implements (implements)

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-string.prototype.anchor
-es6id: B.2.3.2
 description: Property descriptor for String.prototype.anchor
 info: |
     Every other data property described in clauses 18 through 26 and in Annex

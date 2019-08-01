@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-b-16
 description: >
     Array.prototype.filter - decreasing length of array does not
     delete non-configurable properties

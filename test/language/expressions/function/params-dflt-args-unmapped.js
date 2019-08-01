@@ -3,7 +3,6 @@
 /*---
 description: Referencing the arguments object from a default parameter (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation
-es6id: 14.1.20
 features: [default-parameters]
 info: |
     FunctionExpression : function ( FormalParameters ) { FunctionBody }

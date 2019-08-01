@@ -5,7 +5,6 @@
 info: |
     White Space and Line Terminator between LeftHandSideExpression and "@="
     or between "@=" and AssignmentExpression are allowed
-es5id: 11.13.2_A1_T10
 esid: sec-assignment-operators
 description: Checking by using eval, check operator is x ^= y
 ---*/
@@ -39,7 +38,9 @@ assert.sameValue(x
 assert.sameValue(x, 0, 'U+000A (side effect)');
 
 x = 1;
-assert.sameValue(x^=1, 0, 'U+000D (expression)');
+assert.sameValue(x
+^=
+1, 0, 'U+000D (expression)');
 assert.sameValue(x, 0, 'U+000D (side effect)');
 
 x = 1;
@@ -52,6 +53,8 @@ assert.sameValue(x, 0, 'U+2029 (side effect)');
 
 x = 1;
 assert.sameValue(x	  
-  ^=	  
-  1, 0, 'U+0009U+000BU+000CU+0020U+00A0U+000AU+000DU+2028U+2029 (expression)');
+
+  ^=	  
+
+  1, 0, 'U+0009U+000BU+000CU+0020U+00A0U+000AU+000DU+2028U+2029 (expression)');
 assert.sameValue(x, 0, 'U+0009U+000BU+000CU+0020U+00A0U+000AU+000DU+2028U+2029 (side effect)');

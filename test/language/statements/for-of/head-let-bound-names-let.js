@@ -9,7 +9,6 @@ info: |
     It is a Syntax Error if the BoundNames of ForDeclaration contains "let".
 flags: [noStrict]
 esid: sec-for-in-and-for-of-statements
-es6id: 13.7.5
 ---*/
 
 $DONOTEVALUATE();

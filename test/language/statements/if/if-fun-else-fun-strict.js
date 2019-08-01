@@ -3,7 +3,6 @@
 /*---
 description: AnnexB extension not honored in strict mode (IfStatement with a declaration in both statement positions in the global scope)
 esid: sec-if-statement
-es6id: 13.6
 flags: [onlyStrict]
 negative:
   phase: parse

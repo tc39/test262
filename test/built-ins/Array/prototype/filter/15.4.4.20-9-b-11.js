@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-b-11
 description: >
     Array.prototype.filter - deleting property of prototype causes
     prototype index property not to be visited on an Array

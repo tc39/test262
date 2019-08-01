@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-7
 description: >
     Array.prototype.filter stops calling callbackfn once the array is
     deleted during the call

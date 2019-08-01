@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-generator-function-definitions-runtime-semantics-evaluatebody
-es6id: 14.4.11
 description: Intrinsic default prototype of GeneratorFunctions
 info: |
     1. Let G be ? OrdinaryCreateFromConstructor(functionObject,

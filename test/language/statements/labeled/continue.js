@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-labelled-statements-static-semantics-containsundefinedcontinuetarget
-es6id: 13.13.4
 description: Does not modify `iterationSet`
 info: |
   With arguments iterationSet and labelSet.

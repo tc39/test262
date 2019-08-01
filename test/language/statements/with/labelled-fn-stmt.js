@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-with-statement-static-semantics-early-errors
-es6id: 13.11.1
 description: >
   A labelled function declaration is never permitted in the Statement position
 info: |

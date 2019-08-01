@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-regexp.prototype.compile
-es6id: B.2.5.1
 description: RegExp is re-initialized when invoked with the same instance
 info: |
     [...]

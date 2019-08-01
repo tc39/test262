@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-date.prototype.setyear
-es6id: B.2.4.2
-es5id: B.2.5
 description: >
     Behavior when the [[DateValue]] internal slot of "this" value is an integer
     value

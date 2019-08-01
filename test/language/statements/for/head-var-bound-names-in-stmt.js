@@ -3,7 +3,6 @@
 /*---
 description: The body may re-declare variables declared in the head
 esid: sec-for-statement
-es6id: 13.7.4
 ---*/
 
 var iterCount = 0;

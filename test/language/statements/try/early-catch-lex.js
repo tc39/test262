@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-try-statement-static-semantics-early-errors
-es6id: 13.15.1
 description: >
     It is a Syntax Error if any element of the BoundNames of CatchParameter
     also occurs in the LexicallyDeclaredNames of Block.

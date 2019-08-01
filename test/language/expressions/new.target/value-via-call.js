@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-function-calls-runtime-semantics-evaluation
-es6id: 12.3.4.1
 description: Value when invoked via CallExpression
 info: |
   CallExpression : MemberExpressionArguments

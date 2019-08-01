@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-evaldeclarationinstantiation
-es6id: 18.2.1.2
 description: Throws a TypeError if a global generator function cannot be defined.
 info: |
   Runtime Semantics: EvalDeclarationInstantiation( body, varEnv, lexEnv, strict)

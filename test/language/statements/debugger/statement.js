@@ -3,7 +3,6 @@
 /*---
 description: The `debugger` token may occupy a statement position
 esid: sec-debugger-statement
-es6id: 13.16
 ---*/
 
 // Expressing within a `while` statement ensures that the `debugger  keyword is

@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.isarray
-es6id: 22.1.2.2
 description: >
   Array.isArray.name is "isArray".
 info: |

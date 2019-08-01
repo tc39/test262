@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-putvalue
-es6id: 6.2.3.2
 description: >
   When the base of a property reference is primitive, it is coerced to an
   object during value assignment (honoring the realm of the current execution

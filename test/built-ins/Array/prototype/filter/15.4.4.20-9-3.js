@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-3
 description: >
     Array.prototype.filter doesn't visit deleted elements in array
     after the call

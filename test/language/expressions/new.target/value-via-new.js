@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-new-operator-runtime-semantics-evaluation
-es6id: 12.3.3.1
 description: Value when invoked via NewExpression
 info: |
   NewExpression:newNewExpression

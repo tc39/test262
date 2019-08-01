@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-string.prototype.fontsize
-es6id: B.2.3.8
 description: Abrupt completion when coercing "this" value to string
 info: |
     B.2.3.2.1 Runtime Semantics: CreateHTML

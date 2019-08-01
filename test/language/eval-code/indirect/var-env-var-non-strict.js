@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-performeval
-es5id: 10.4.2-2-c-1
 description: Indirect eval code cannot instantiate variable in calling context
 ---*/
 

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-module-semantics-static-semantics-early-errors
-es6id: 15.2.1.1
 description: >
     It is a Syntax Error if the ExportedNames of ModuleItemList contains any
     duplicate entries.

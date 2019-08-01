@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-method-definitions
-es6id: 14.3
 description: >
   YieldExpression cannot be used within the FormalParameters of a class method
 info: |

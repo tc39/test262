@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-b-3
 description: >
     Array.prototype.filter - deleted properties in step 2 are visible
     here

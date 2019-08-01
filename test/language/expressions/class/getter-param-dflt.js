@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-method-definitions
-es6id: 14.3
 description: >
   Get accessor method may not have a formal parameter (regardless of the
   presence of an initializer)

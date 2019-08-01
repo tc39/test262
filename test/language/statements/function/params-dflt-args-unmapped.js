@@ -3,7 +3,6 @@
 /*---
 description: Referencing the arguments object from a default parameter (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.1.19
 features: [default-parameters]
 info: |
     FunctionDeclaration :

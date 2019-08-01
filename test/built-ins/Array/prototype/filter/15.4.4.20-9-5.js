@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-5
 description: >
     Array.prototype.filter doesn't consider newly added elements in
     sparse array

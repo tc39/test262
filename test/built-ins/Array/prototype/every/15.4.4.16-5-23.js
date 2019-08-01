@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.every
-es5id: 15.4.4.16-5-23
 description: Array.prototype.every - number primitive can be used as thisArg
 ---*/
 

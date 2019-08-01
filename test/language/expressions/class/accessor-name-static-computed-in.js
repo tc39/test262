@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
-es6id: 14.5.14
 description: >
   AssignmentExpression may contain `in` keyword regardless of outer context
 info: |

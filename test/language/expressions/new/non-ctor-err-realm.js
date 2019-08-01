@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-new-operator
-es6id: 12.3.3
 description: Realm of error object produced when operand is not a constructor
 info: |
   NewExpression : new NewExpression

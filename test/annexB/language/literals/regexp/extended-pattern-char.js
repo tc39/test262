@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-regular-expressions-patterns
-es6id: B.1.4
 description: Extended Pattern Characters (as distinct from Pattern Characters)
 info: |
     ExtendedPatternCharacter ::

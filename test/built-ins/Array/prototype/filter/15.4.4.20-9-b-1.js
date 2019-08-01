@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-b-1
 description: >
     Array.prototype.filter - callbackfn not called for indexes never
     been assigned values

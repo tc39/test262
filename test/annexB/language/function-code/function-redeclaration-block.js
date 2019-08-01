@@ -3,7 +3,6 @@
 /*---
 description: In non-strict mode, duplicate LexicallyDeclaredNames in a block are allowed if they are bound by FunctionDeclarations
 esid: sec-block-duplicates-allowed-static-semantics
-es6id: B.3.3.4
 flags: [noStrict]
 info: |
     B.3.3.4 Changes to Block Static Semantics: Early Errors

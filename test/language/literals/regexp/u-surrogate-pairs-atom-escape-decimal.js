@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-atomescape
-es6id: 21.2.2.9
 description: >
   Support for surrogate pairs within patterns match by the DecimalEscape
   AtomEscape

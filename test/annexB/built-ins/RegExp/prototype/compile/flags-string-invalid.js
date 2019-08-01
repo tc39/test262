@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-regexp.prototype.compile
-es6id: B.2.5.1
 description: Behavior when flags is a string describing an invalid flag set
 info: |
     [...]

@@ -3,7 +3,6 @@
 
 /*---
 esid: use-strict-directive
-es5id: 10.1.1-17-s
 description: >
     Strict Mode - Function code that is part of a Accessor
     PropertyAssignment is in Strict Mode if Accessor

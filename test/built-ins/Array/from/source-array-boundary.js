@@ -4,7 +4,6 @@
 /*---
 description: Source array with boundary values
 esid: sec-array.from
-es6id: 22.1.2.1
 ---*/
 
 var array = [Number.MAX_VALUE, Number.MIN_VALUE, Number.NaN, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY];

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-super-keyword
-es6id: 12.3.5
 description: >
   Behavior when invocation of "parent" constructor returns an abrupt completion
 info: |

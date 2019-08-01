@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-__proto__-property-names-in-object-initializers
-es6id: B.3.1
 description: >
   The value of the `__proto__` property key is assigned to the [[Prototype]]
   internal slot (null value)

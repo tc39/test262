@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-generator-function-definitions
-es6id: 14.4
 description: >
   YieldExpression accepts a regular expression literal as its right-hand side
 info: |

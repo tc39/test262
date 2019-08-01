@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-escape-string
-es6id: B.2.1.1
 description: Escaping of code units above 255
 info: |
     [...]

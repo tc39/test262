@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-regexp.prototype.compile
-es6id: B.2.5.1
 description: >
     Behavior when provided pattern is a RegExp instance and flags are specified
 info: |

@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-getidentifierreference
-es6id: 8.1.2.1
 description: >
   Behavior when binding query produces an abrupt completion
 info: |

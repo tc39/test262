@@ -3,7 +3,6 @@
 
 /*---
 description: White Space between LeftHandSideExpression and "--" are allowed
-es5id: 11.3.2_A1.2_T1
 esid: sec-postfix-decrement-operator
 ---*/
 

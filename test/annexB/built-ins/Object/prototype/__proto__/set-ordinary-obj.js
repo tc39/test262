@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-object.prototype.__proto__
-es6id: B.2.2.1
 description: Setting valid value on an ordinary object
 info: |
     [...]

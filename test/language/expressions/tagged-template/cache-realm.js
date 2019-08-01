@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-template-literals
-es6id: 12.2.9
 description: Each realm has a distinct template registry
 info: |
   TemplateLiteral:NoSubstitutionTemplate

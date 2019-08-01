@@ -5,7 +5,6 @@ path: annexB/language/eval-code/direct/global-switch-case-
 name: >
     Function declaration in the `case` clause of a `switch` statement in eval code
 esid: sec-web-compat-evaldeclarationinstantiation
-es6id: B.3.3.3
 flags: [noStrict]
 ---*/
 

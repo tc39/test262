@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-identifiers-static-semantics-early-errors
-es5id: 7.6.1.2-8-s
 description: >
     Strict Mode - SyntaxError is thrown when 'protected' occurs in strict mode code
 info: |

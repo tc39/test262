@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.isarray
-es5id: 15.4.3.2-0-6
 description: Array.isArray return true if its argument is an Array (new Array())
 ---*/
 

@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-performeval
-es6id: 18.2.1.1
 description: >
   Uses the global variable envrionment of the running execution context
 info: |

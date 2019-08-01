@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.foreach
-es5id: 15.4.4.18-3-23
 description: >
     Array.prototype.forEach uses inherited valueOf method when
     'length' is an object with an own toString and inherited valueOf

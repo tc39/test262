@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.filter
-es5id: 15.4.4.20-9-2
 description: >
     Array.prototype.filter considers new value of elements in array
     after it is called

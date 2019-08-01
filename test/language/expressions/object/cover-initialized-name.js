@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-object-initializer-static-semantics-early-errors
-es6id: 12.2.6.1
 description: Initialized name is explicitly barred from object initializers
 info: |
   PropertyDefinition : CoverInitializedName

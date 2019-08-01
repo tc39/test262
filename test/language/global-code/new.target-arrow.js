@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-scripts-static-semantics-early-errors
-es6id: 15.1.1
 description: An ArrowFunction in global code may not contain `new.target`
 info: |
   - It is a Syntax Error if StatementList Contains NewTarget unless the source

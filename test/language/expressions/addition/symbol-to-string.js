@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-addition-operator-plus
-es6id: 12.7.3
 description: Symbol value cannot be converted to a String
 info: |
     [...]

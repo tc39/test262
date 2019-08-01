@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.isarray
-es5id: 15.4.3.2-2-1
 description: Array.isArray applied to an object with an array as the prototype
 ---*/
 

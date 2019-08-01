@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-escape-string
-es6id: B.2.1.1
 description: Observable operations from string coercion
 info: |
     1. Let string be ? ToString(string).

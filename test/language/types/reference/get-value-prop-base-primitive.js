@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-getvalue
-es6id: 6.2.3.1
 description: >
   When the base of a property reference is primitive, it is coerced to an
   object during value retrieval

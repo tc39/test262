@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-delete-operator-runtime-semantics-evaluation
-es6id: 12.5.4.2
 description: SuperReferences may not be deleted
 info: |
   [...]

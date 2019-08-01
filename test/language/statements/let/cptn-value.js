@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-let-and-const-declarations-runtime-semantics-evaluation
-es6id: 13.3.1.4
 description: Returns an empty completion
 info: |
   LexicalDeclaration : LetOrConst BindingList ;

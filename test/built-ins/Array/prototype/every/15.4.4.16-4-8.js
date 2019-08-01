@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-array.prototype.every
-es5id: 15.4.4.16-4-8
 description: >
     Array.prototype.every - side effects produced by step 2 are
     visible when an exception occurs

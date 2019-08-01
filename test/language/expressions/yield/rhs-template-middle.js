@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-generator-function-definitions
-es6id: 14.4
 description: YieldExpression may be followed by a TemplateMiddle construct
 info: |
   The syntactic context immediately following yield requires use of the

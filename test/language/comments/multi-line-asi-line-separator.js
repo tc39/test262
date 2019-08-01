@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 7.4
 esid: sec-comments
 description: >
   A multi-line comment containing a line separator should be considered a

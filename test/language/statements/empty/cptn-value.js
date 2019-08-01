@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-empty-statement-runtime-semantics-evaluation
-es6id: 13.4.1
 description: Returns an empty completion
 info: |
   1. Return NormalCompletion(empty).

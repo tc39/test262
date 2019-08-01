@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-globaldeclarationinstantiation
-es6id: 15.1.8
 description: >
     When multiple like-named function declarations exist, the final is assigned
     to the new binding.

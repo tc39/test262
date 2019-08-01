@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-conditional-operator
-es6id: 12.13
 description: >
   The second AssignmentExpression cannot include the `in` keyword in contexts
   where it is disallowed.

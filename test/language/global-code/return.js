@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-scripts
-es6id: 15.1
 description: ReturnStatement may not be used directly within global code
 info: |
   Syntax

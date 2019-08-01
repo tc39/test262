@@ -4,7 +4,6 @@
 /*---
 description: mapFn throws an exception
 esid: sec-array.from
-es6id: 22.1.2.1
 ---*/
 
 var array = [2, 4, 8, 16, 32, 64, 128];

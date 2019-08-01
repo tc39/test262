@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 12.2.1-1-s
 esid: sec-variable-statement
 description: >
     eval - a function declaring a var named 'eval' throws SyntaxError

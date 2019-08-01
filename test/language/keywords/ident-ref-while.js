@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-identifiers-static-semantics-early-errors
-es5id: 7.6.1.1_A1.24
 description: Checking if execution of "while=1" fails
 info: |
   Identifier : IdentifierName but not ReservedWord

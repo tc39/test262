@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-patterns
-es6id: 21.2.1
 description: Support for UnicodeIDContinue in IdentityEscape
 info: |
     IdentityEscape[U] ::
