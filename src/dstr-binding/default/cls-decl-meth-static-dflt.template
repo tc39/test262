@@ -4,7 +4,6 @@
 path: language/statements/class/dstr/meth-static-dflt-
 name: static class expression method (default parameter)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-es6id: 14.5.15
 features: [destructuring-binding, default-parameters]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

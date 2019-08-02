@@ -4,7 +4,6 @@
 path: annexB/language/eval-code/direct/global-if-decl-else-decl-a-
 name: IfStatement with a declaration in both statement positions in eval code
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
-es6id: B.3.3
 info: |
     The following rules for IfStatement augment those in 13.6:
 

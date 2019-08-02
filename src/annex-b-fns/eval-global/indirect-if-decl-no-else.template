@@ -4,7 +4,6 @@
 path: annexB/language/eval-code/indirect/global-if-decl-no-else-
 name: IfStatement without an else clause in eval code
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
-es6id: B.3.4
 info: |
     The following rules for IfStatement augment those in 13.6:
 
