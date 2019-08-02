@@ -23,7 +23,6 @@ info: |
     7. If completion.[[type]] is throw, return Completion(completion)
 features: [Symbol.iterator]
 template: error
-es6id: 12.14.5.2
 esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
