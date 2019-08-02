@@ -21,4 +21,5 @@ const a = {fn() {}};
 
 // This production exists in order to prevent automatic semicolon
 // insertion rules.
-a?.fn`hello`;
+a?.fn
+  `hello`

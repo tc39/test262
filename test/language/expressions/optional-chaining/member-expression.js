@@ -1,13 +1,18 @@
+// Copyright 2019 Google, Inc.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
-info: |
+esid: prod-OptionalExpression
+desc: >
   optional chain on member expression
-description: >
+info: |
   Left-Hand-Side Expressions
     OptionalExpression:
       MemberExpression OptionalChain
 features: [optional-chaining]
 ---*/
+
+// PrimaryExpression
+//   IdentifierReference
 
 const arr = [10, 11];
 const fn = (arg1, arg2) => {

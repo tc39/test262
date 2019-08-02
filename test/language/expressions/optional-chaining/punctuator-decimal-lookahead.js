@@ -1,13 +1,15 @@
+// Copyright 2019 Google, Inc.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
-info: |
+esid: prod-OptionalExpression
+desc: >
   ternary operation with decimal does not evaluate as optional chain 
-description: >
+info: |
   Punctuators
     OptionalChainingPunctuator::
       ?.[lookahead ∉ DecimalDigit]
 features: [optional-chaining]
 ---*/
 
-const value = true ?.30 : false
-assert.sameValue(.30, value)
+const value = true ?.30 : false;
+assert.sameValue(.30, value);

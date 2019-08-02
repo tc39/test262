@@ -1,8 +1,11 @@
+
+// Copyright 2019 Google, Inc.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
-info: |
+esid: prod-OptionalExpression
+desc: >
   an optional expression cannot be target of assignment
-description: >
+info: |
   Static Semantics: IsValidSimpleAssignmentTarget
     LeftHandSideExpression:
       OptionalExpression
