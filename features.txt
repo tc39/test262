@@ -133,6 +133,10 @@ import.meta
 WeakRef
 FinalizationGroup
 
+# Top Level Await
+# https://github.com/tc39/proposal-top-level-await
+top-level-await
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
