@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: prod-OptionalExpression
-desc: >
+description: >
   template string passed to tail position of optional chain
 info: |
   Static Semantics: Early Errors

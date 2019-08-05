@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: prod-OptionalExpression
-desc: >
+description: >
   optional chain on call expression
 info: |
   Left-Hand-Side Expressions

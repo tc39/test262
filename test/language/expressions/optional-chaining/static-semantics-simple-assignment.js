@@ -3,7 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: prod-OptionalExpression
-desc: >
+description: >
   an optional expression cannot be target of assignment
 info: |
   Static Semantics: IsValidSimpleAssignmentTarget

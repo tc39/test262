@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: prod-OptionalExpression
-desc: >
+description: >
   demonstrate syntax-based short-circuiting.
 info: |
   If the expression on the LHS of ?. evaluates to null/undefined, the RHS is

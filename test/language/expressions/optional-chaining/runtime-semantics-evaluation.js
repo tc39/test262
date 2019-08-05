@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: prod-OptionalExpression
-desc: >
+description: >
   accessing optional value on undefined or null returns undefined.
 info: |
   If baseValue is undefined or null, then
