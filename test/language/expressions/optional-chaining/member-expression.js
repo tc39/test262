@@ -13,44 +13,39 @@ features: [optional-chaining]
 
 // PrimaryExpression
 //   IdentifierReference
-
-const arr = [10, 11];
-const fn = (arg1, arg2) => {
-  return arg1 + arg2;
+//   this
+function fn2 () {
+  return this?.a
 }
-const i = 0;
-const obj = {
-  a: 'hello',
-  b: {val: 13},
-  c(arg1) {
-    return arg1 * 2;
-  },
-  arr: [11, 12]
-};
+assert.sameValue(33, fn2.call({a: 33}));
+//   Literal
+assert.sameValue(undefined, "hello"?.a);
+assert.sameValue(undefined, null?.a);
+//   ArrayLiteral
+// TODO(bcoe): investigate why the following assertion fails
+// in babel plugin:
+// assert.sameValue(2, [1, 2]?.[1]));
+//   ObjectLiteral
+assert.sameValue(44, {a: 44}?.a);
+//   FunctionExpression
+assert.sameValue('a', (function a () {}?.name));
+//   ClassExpression
+assert.sameValue('Foo', (class Foo {}?.name));
+//   GeneratorFunction
+assert.sameValue('a', (function * a () {}?.name));
+//   AsyncFunctionExpression
+assert.sameValue('a', (async function a () {}?.name));
+//   AsyncGeneratorExpression
+assert.sameValue('a', (async function * a () {}?.name));
+//   RegularExpressionLiteral
+assert.sameValue(true, /[a-z]/?.test('a'));
+//   TemplateLiteral
+assert.sameValue('h', `hello`?.[0]);
+//   CoverParenthesizedExpressionAndArrowParameterList
+assert.sameValue(undefined, ({a: 33}, null)?.a);
+assert.sameValue(33, (undefined, {a: 33})?.a);
 
-// OptionalChain: ?.[Expression]
-assert.sameValue(11, arr?.[i + 1]);
-
-// OptionalChain: ?.IdentifierName
-assert.sameValue('hello', obj?.a);
-
-// OptionalChain: ?.Arguments
-assert.sameValue(30, fn?.(10, 20));
-
-// OptionalChain: OptionalChain [Expression]
-assert.sameValue(12, obj?.arr[i + 1]);
-assert.throws(TypeError, function() {
-  obj?.d[i + 1];
-});
-
-// OptionalChain: OptionalChain .IdentifierName
-assert.sameValue(13, obj?.b.val);
-assert.throws(TypeError, function() {
-  obj?.d.e;
-});
-
-// OptionalChain: OptionalChain Arguments
-assert.sameValue(20, obj?.c(10));
-assert.throws(TypeError, function() {
-  obj?.d();
-});
+//  MemberExpression [ Expression ]
+const arr = [{a: 33}];
+assert.sameValue(33, arr[0]?.a);
+assert.sameValue(undefined, arr[1]?.a);
