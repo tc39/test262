@@ -24,7 +24,6 @@ info: |
     [...]
 features: [Symbol.iterator]
 template: error
-es6id: 12.14.5.2
 esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 

@@ -5,7 +5,6 @@ path: annexB/language/eval-code/indirect/global-switch-dflt-
 name: >
     Funtion declaration in the `default` clause of a `switch` statement in eval code in the global scope
 esid: sec-web-compat-evaldeclarationinstantiation
-es6id: B.3.3.3
 flags: [noStrict]
 ---*/
 

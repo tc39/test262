@@ -27,7 +27,6 @@ info: |
        exception.
 features: [Symbol.iterator]
 template: default
-es6id: 12.14.5.2
 esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 

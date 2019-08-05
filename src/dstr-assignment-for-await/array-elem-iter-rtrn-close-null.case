@@ -20,7 +20,6 @@ info: |
 
 features: [Symbol.iterator, generators]
 template: async-generator
-es6id: 12.14.5.2
 esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
