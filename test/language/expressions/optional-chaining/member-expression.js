@@ -22,9 +22,7 @@ assert.sameValue(33, fn2.call({a: 33}));
 assert.sameValue(undefined, "hello"?.a);
 assert.sameValue(undefined, null?.a);
 //   ArrayLiteral
-// TODO(bcoe): investigate why the following assertion fails
-// in babel plugin:
-// assert.sameValue(2, [1, 2]?.[1]));
+assert.sameValue(2, [1, 2]?.[1]);
 //   ObjectLiteral
 assert.sameValue(44, {a: 44}?.a);
 //   FunctionExpression
