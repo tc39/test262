@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: prod-OptionalExpression
-desc: >
+description: >
   various optional chain expansions
 info: |
   OptionalChain[Yield, Await]:
