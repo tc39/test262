@@ -1,0 +1,50 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/module-code/top-level-await/syntax/for-await-
+name: Valid syntax for top level await in for await statements.
+esid: prod-AwaitExpression
+info: |
+  ModuleItem:
+    StatementListItem[~Yield, +Await, ~Return]
+
+  ...
+
+  IterationStatement[Yield, Await, Return]:
+    [+Await]for await ( [lookahead ≠ let] LeftHandSideExpression[?Yield, ?Await] of AssignmentExpression[+In, ?Yield, ?Await] ) Statement[?Yield, ?Await, ?Return]
+    [+Await]for await ( var ForBinding[?Yield, ?Await] of AssignmentExpression[+In, ?Yield, ?Await] ) Statement[?Yield, ?Await, ?Return]
+    [+Await]for await ( ForDeclaration[?Yield, ?Await] of AssignmentExpression[+In, ?Yield, ?Await] ) Statement[?Yield, ?Await, ?Return]
+
+  ...
+
+  UnaryExpression[Yield, Await]
+    [+Await]AwaitExpression[?Yield]
+
+  AwaitExpression[Yield]:
+    await UnaryExpression[?Yield, +Await]
+
+  ...
+flags: [module]
+features: [top-level-await, async-iteration]
+---*/
+
+var binding;
+
+// [+Await]for await ( [lookahead ≠ let] LeftHandSideExpression[?Yield, ?Await] of AssignmentExpression[+In, ?Yield, ?Await] ) Statement[?Yield, ?Await, ?Return]
+for await (binding of [/*{ expr }*/]) {
+  /*{ expr }*/;
+  break;
+}
+
+// [+Await]for await ( var ForBinding[?Yield, ?Await] of AssignmentExpression[+In, ?Yield, ?Await] ) Statement[?Yield, ?Await, ?Return]
+for await (var binding of [/*{ expr }*/]) {
+  /*{ expr }*/;
+  break;
+}
+
+// [+Await]for await ( ForDeclaration[?Yield, ?Await] of AssignmentExpression[+In, ?Yield, ?Await] ) Statement[?Yield, ?Await, ?Return]
+for await (let binding of [/*{ expr }*/]) {
+  /*{ expr }*/;
+  break;
+}

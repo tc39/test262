@@ -2,20 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: >
-  Valid syntax for top level await.
-  AwaitExpression this
+desc: >
+  AwaitExpression StringLiteral
 info: |
-  ModuleItem:
-    StatementListItem[~Yield, +Await, ~Return]
-
-  ...
-
-  UnaryExpression[Yield, Await]
-    [+Await]AwaitExpression[?Yield]
-
-  AwaitExpression[Yield]:
-    await UnaryExpression[?Yield, +Await]
+  ExpressionStatement[Yield, Await]:
+    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
+      Expression[+In, ?Yield, ?Await];
 
   ...
 
@@ -33,9 +25,8 @@ info: |
     RegularExpressionLiteral
     TemplateLiteral[?Yield, ?Await, ~Tagged]
     CoverParenthesizedExpressionAndArrowParameterList[?Yield, ?Await]
-esid: prod-AwaitExpression
-flags: [module]
-features: [top-level-await]
+template: syntax
 ---*/
 
-await this;
+//- expr
+await function() {}

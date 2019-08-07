@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: >
-  Valid syntax for top level await.
-  IfStatement ( AwaitExpression BooleanLiteral )
+path: language/module-code/top-level-await/syntax/if-block-
+name: Valid syntax for top level await in an if expression position.
+esid: prod-AwaitExpression
 info: |
   ModuleItem:
     StatementListItem[~Yield, +Await, ~Return]
@@ -17,18 +17,17 @@ info: |
 
   ...
 
-  ExpressionStatement[Yield, Await]:
-    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
-      Expression[+In, ?Yield, ?Await];
-
   UnaryExpression[Yield, Await]
     [+Await]AwaitExpression[?Yield]
 
   AwaitExpression[Yield]:
     await UnaryExpression[?Yield, +Await]
-esid: prod-AwaitExpression
+
+  ...
 flags: [module]
 features: [top-level-await]
 ---*/
 
-if (await false) {};
+if (true) {
+  /*{ expr }*/;
+}

@@ -2,23 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: >
-  Valid syntax for top level await.
-  AwaitExpression ArrayLiteral
+desc: >
+  AwaitExpression new MemberExpression
 info: |
-  ModuleItem:
-    StatementListItem[~Yield, +Await, ~Return]
-
-  ...
-
-  UnaryExpression[Yield, Await]
-    [+Await]AwaitExpression[?Yield]
-
-  AwaitExpression[Yield]:
-    await UnaryExpression[?Yield, +Await]
-
-  ...
-
   LeftHandSideExpression[Yield, Await]:
     NewExpression[?Yield, ?Await]
     CallExpression[?Yield, ?Await]
@@ -30,9 +16,8 @@ info: |
   MemberExpression[Yield, Await]:
     ...
     new MemberExpression[?Yield, ?Await] Arguments[?Yield, ?Await]
-esid: prod-AwaitExpression
-flags: [module]
-features: [top-level-await]
+template: syntax
 ---*/
 
-await new Promise(function(res, rej) { res(1); });
+//- expr
+await new Promise(function(res, rej) { res(1); })
