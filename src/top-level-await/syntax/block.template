@@ -2,37 +2,22 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: >
-  Valid syntax for top level await. It propagates to the StatementList of a Block
+path: language/module-code/top-level-await/syntax/block-
+name: Valid syntax for top level await in a block.
+esid: prod-AwaitExpression
 info: |
   ModuleItem:
     StatementListItem[~Yield, +Await, ~Return]
 
-  StatementListItem[Yield, Await, Return]:
-    Statement[?Yield, ?Await, ?Return]
-    Declaration[?Yield, ?Await]
-
-  Statement[Yield, Await, Return]:
-    BlockStatement[?Yield, ?Await, ?Return]
-
-  BlockStatement[Yield, Await, Return]:
-    Block[?Yield, ?Await, ?Return]
-
-  Block[Yield, Await, Return]:
-    { StatementList[?Yield, ?Await, ?Return]_opt }
-
   ...
-
-  ExpressionStatement[Yield, Await]:
-    [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
-      Expression[+In, ?Yield, ?Await];
 
   UnaryExpression[Yield, Await]
     [+Await]AwaitExpression[?Yield]
 
   AwaitExpression[Yield]:
     await UnaryExpression[?Yield, +Await]
-esid: prod-AwaitExpression
+
+  ...
 flags: [module]
 features: [top-level-await]
 ---*/
@@ -54,7 +39,7 @@ features: [top-level-await]
                             {
                               {
                                 {
-                                  await {};
+                                  /*{ expr }*/;
                                 }
                               }
                             }

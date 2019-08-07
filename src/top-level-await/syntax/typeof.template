@@ -1,0 +1,26 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/module-code/top-level-await/syntax/typeof-
+name: Valid syntax for top level await in an UnaryExpression (void).
+esid: prod-AwaitExpression
+info: |
+  ModuleItem:
+    StatementListItem[~Yield, +Await, ~Return]
+
+  ...
+
+  UnaryExpression[Yield, Await]
+    typeof UnaryExpression[?Yield, ?Await]
+    [+Await]AwaitExpression[?Yield]
+
+  AwaitExpression[Yield]:
+    await UnaryExpression[?Yield, +Await]
+
+  ...
+flags: [module]
+features: [top-level-await]
+---*/
+
+typeof /*{ expr }*/;
