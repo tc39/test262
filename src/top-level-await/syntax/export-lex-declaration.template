@@ -1,0 +1,44 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/module-code/top-level-await/syntax/export-lex-decl-
+name: Valid syntax for top level await in export LexicalDeclaration
+esid: prod-AwaitExpression
+info: |
+  ModuleItem:
+    StatementListItem[~Yield, +Await, ~Return]
+
+  ...
+
+  UnaryExpression[Yield, Await]
+    [+Await]AwaitExpression[?Yield]
+
+  AwaitExpression[Yield]:
+    await UnaryExpression[?Yield, +Await]
+
+  ...
+
+  ExportDeclaration:
+    export * FromClause ;
+    export ExportClause FromClause ;
+    export ExportClause ;
+    export VariableStatement[~Yield, +Await]
+    export Declaration[~Yield, +Await]
+    export defaultHoistableDeclaration[~Yield, +Await, +Default]
+    export defaultClassDeclaration[~Yield, +Await, +Default]
+    export default[lookahead ∉ { function, async [no LineTerminator here] function, class }]AssignmentExpression[+In, ~Yield, ~Await];
+
+  Declaration[Yield, Await]:
+    HoistableDeclaration[?Yield, ?Await, ~Default]
+    ClassDeclaration[?Yield, ?Await, ~Default]
+    LexicalDeclaration[+In, ?Yield, ?Await]
+
+  LexicalDeclaration[In, Yield, Await]:
+    LetOrConstBindingList[?In, ?Yield, ?Await];
+flags: [module]
+features: [top-level-await]
+---*/
+
+export let x = /*{ expr }*/;
+export const y = /*{ expr }*/;

@@ -39,9 +39,6 @@ flags: [module]
 features: [top-level-await, dynamic-import]
 ---*/
 
-try {} catch (await e) {}
-try {} catch (await {}) {}
-try {} catch (await { x: await 42 }) {} // BindingElement
-try {} catch (await { x = await 42 }) {} // Initializer
-try {} catch (await []) {}
-try {} catch (await [ x = await 42 ]) {}
+try {} catch ({ x = await 42 }) {} // Initializer
+try {} catch ({ x: y = await 42 }) {} // BindingElement Initializer
+try {} catch ([ x = await 42 ]) {}

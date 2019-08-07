@@ -1,0 +1,47 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/module-code/top-level-await/syntax/export-var-
+name: Valid syntax for top level await in export var BindingIdentifier Await_initializer
+esid: prod-AwaitExpression
+info: |
+  ModuleItem:
+    StatementListItem[~Yield, +Await, ~Return]
+
+  ...
+
+  UnaryExpression[Yield, Await]
+    [+Await]AwaitExpression[?Yield]
+
+  AwaitExpression[Yield]:
+    await UnaryExpression[?Yield, +Await]
+
+  ...
+
+  ExportDeclaration:
+    export * FromClause ;
+    export ExportClause FromClause ;
+    export ExportClause ;
+    export VariableStatement[~Yield, +Await]
+    export Declaration[~Yield, +Await]
+    export defaultHoistableDeclaration[~Yield, +Await, +Default]
+    export defaultClassDeclaration[~Yield, +Await, +Default]
+    export default[lookahead ∉ { function, async [no LineTerminator here] function, class }]AssignmentExpression[+In, ~Yield, ~Await];
+
+  VariableStatement[Yield, Await]:
+    var VariableDeclarationList[+In, ?Yield, ?Await];
+
+  VariableDeclarationList[In, Yield, Await]:
+    VariableDeclaration[?In, ?Yield, ?Await]
+    VariableDeclarationList[?In, ?Yield, ?Await] , VariableDeclaration[?In, ?Yield, ?Await]
+
+  VariableDeclaration[In, Yield, Await]:
+    BindingIdentifier[?Yield, ?Await] Initializer[?In, ?Yield, ?Await]opt
+    BindingPattern[?Yield, ?Await] Initializer[?In, ?Yield, ?Await]
+flags: [module]
+features: [top-level-await]
+---*/
+
+export var name1 = /*{ expr }*/;
+export var { x = /*{ expr }*/ } = {};
