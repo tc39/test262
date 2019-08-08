@@ -5,11 +5,12 @@
 import argparse
 import inflect
 import os
-import pip
 try:
-    from pip._internal.req import parse_requirements
+    from pip._internal import main as pip
+    from pip._internal.req import parse_requirements, InstallRequirement
 except ImportError:
-    from pip.req import parse_requirements
+    from pip import main as pip
+    from pip.req import parse_requirements, InstallRequirement
 import sys
 
 ie = inflect.engine()
@@ -18,14 +19,14 @@ try:
     __import__('yaml')
 except ImportError:
     for item in parse_requirements("./tools/lint/requirements.txt", session="test262"):
-        if isinstance(item, pip.req.InstallRequirement):
+        if isinstance(item, InstallRequirement):
             requirement = item.name
 
             if len(str(item.req.specifier)) > 0:
                 requirement = "{}{}".format(requirement, item.req.specifier)
 
             # print(requirement)
-            pip.main(['install', requirement])
+            pip(['install', requirement])
 
 
 from lib.collect_files import collect_files
