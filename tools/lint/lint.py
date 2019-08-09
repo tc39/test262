@@ -2,6 +2,8 @@
 # Copyright (C) 2017 Mike Pennisi. All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.
 
+from __future__ import print_function
+
 import argparse
 import inflect
 import os
@@ -91,7 +93,7 @@ if __name__ == '__main__':
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
-    print 'Linting %s %s' % (file_count, ie.plural('file', file_count))
+    print('Linting %s %s' % (file_count, ie.plural('file', file_count)))
 
     all_errors = lint(files)
     unexpected_errors = dict(all_errors)
@@ -103,7 +105,7 @@ if __name__ == '__main__':
             del unexpected_errors[file_name]
 
     error_count = len(unexpected_errors)
-    print 'Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count))
+    print('Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count)))
 
     if error_count == 0:
         sys.exit(0)
