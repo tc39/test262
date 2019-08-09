@@ -96,7 +96,7 @@ if __name__ == '__main__':
     all_errors = lint(files)
     unexpected_errors = dict(all_errors)
 
-    for file_name, failures in all_errors.iteritems():
+    for file_name, failures in all_errors.items():
         if file_name not in exceptions:
             continue
         if set(failures.keys()) == exceptions[file_name]:
@@ -108,8 +108,8 @@ if __name__ == '__main__':
     if error_count == 0:
         sys.exit(0)
 
-    for file_name, failures in iter(sorted(unexpected_errors.iteritems())):
-        for ID, message in failures.iteritems():
+    for file_name, failures in iter(sorted(unexpected_errors.items())):
+        for ID, message in failures.items():
             eprint('%s: %s - %s' % (os.path.abspath(file_name), ID, message))
 
     sys.exit(1)
