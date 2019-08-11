@@ -6,7 +6,7 @@ description: >
   various optional chain expansions
 info: |
   OptionalChain[Yield, Await]:
-    ?.[Expression
+    ?.[Expression]
     ?.IdentifierName
     ?.Arguments
     ?.TemplateLiteral
