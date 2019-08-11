@@ -14,10 +14,10 @@ features: [optional-chaining]
 // PrimaryExpression
 //   IdentifierReference
 //   this
-function fn2 () {
+function fn () {
   return this?.a
 }
-assert.sameValue(33, fn2.call({a: 33}));
+assert.sameValue(33, fn.call({a: 33}));
 //   Literal
 assert.sameValue(undefined, "hello"?.a);
 assert.sameValue(undefined, null?.a);
@@ -47,3 +47,52 @@ assert.sameValue(33, (undefined, {a: 33})?.a);
 const arr = [{a: 33}];
 assert.sameValue(33, arr[0]?.a);
 assert.sameValue(undefined, arr[1]?.a);
+
+//  MemberExpression .IdentifierName
+const obj = {a: {b: 44}};
+assert.sameValue(44, obj.a?.b);
+assert.sameValue(undefined, obj.c?.b);
+
+//  MemberExpression TemplateLiteral
+function f2 () {
+  return {a: 33};
+}
+function f3 () {}
+assert.sameValue(33, f2`hello world`?.a);
+assert.sameValue(undefined, f3`hello world`?.a);
+
+//  MemberExpression SuperProperty
+class A {
+  a () {}
+}
+class B extends A {
+  dot () {
+    return super.a?.name;
+  }
+  expr () {
+    return super['a'].name;
+  }
+  undf () {
+    return super.b?.c;
+  }
+}
+const subcls = new B();
+assert.sameValue('a', subcls.dot());
+assert.sameValue('a', subcls.expr());
+assert.sameValue(undefined, subcls.undf());
+
+// MemberExpression MetaProperty
+class C {
+  constructor () {
+    assert.sameValue(undefined, new.target?.a);
+  }
+}
+new C();
+
+// new MemberExpression Arguments
+class D {
+  constructor (val) {
+    this.a = val;
+  }
+}
+assert.sameValue(99, new D(99)?.a);
