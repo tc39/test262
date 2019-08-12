@@ -42,18 +42,9 @@ assert.sameValue(30, fn?.(10, 20));
 
 // OptionalChain: OptionalChain [Expression]
 assert.sameValue(12, obj?.arr[i + 1]);
-assert.throws(TypeError, function() {
-  obj?.d[i + 1];
-});
 
 // OptionalChain: OptionalChain .IdentifierName
 assert.sameValue(13, obj?.b.val);
-assert.throws(TypeError, function() {
-  obj?.d.e;
-});
 
 // OptionalChain: OptionalChain Arguments
 assert.sameValue(20, obj?.c(10));
-assert.throws(TypeError, function() {
-  obj?.d();
-});

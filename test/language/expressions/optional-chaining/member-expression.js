@@ -13,6 +13,8 @@ features: [optional-chaining]
 
 // PrimaryExpression
 //   IdentifierReference
+const a = {b: 22};
+assert.sameValue(22, a?.b);
 //   this
 function fn () {
   return this?.a
@@ -64,6 +66,9 @@ assert.sameValue(undefined, f3`hello world`?.a);
 //  MemberExpression SuperProperty
 class A {
   a () {}
+  undf () {
+    return super.a?.c;
+  }
 }
 class B extends A {
   dot () {
@@ -72,14 +77,15 @@ class B extends A {
   expr () {
     return super['a'].name;
   }
-  undf () {
+  undf2 () {
     return super.b?.c;
   }
 }
 const subcls = new B();
 assert.sameValue('a', subcls.dot());
 assert.sameValue('a', subcls.expr());
-assert.sameValue(undefined, subcls.undf());
+assert.sameValue(undefined, subcls.undf2());
+assert.sameValue(undefined, (new A()).undf());
 
 // MemberExpression MetaProperty
 class C {
