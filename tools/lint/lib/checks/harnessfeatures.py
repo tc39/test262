@@ -9,7 +9,7 @@ class CheckHarnessFeatures(Check):
 
     def __init__(self):
         with open('./harness/features.yml', 'r') as f:
-            self.include_has_features = yaml.load(f.read())
+            self.include_has_features = yaml.safe_load(f.read())
 
     def comparison_result_lists(self, meta):
 

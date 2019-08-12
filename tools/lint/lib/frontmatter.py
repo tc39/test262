@@ -11,6 +11,6 @@ def parse(src):
         return None
 
     try:
-        return yaml.load(match.group(1))
+        return yaml.safe_load(match.group(1))
     except (yaml.scanner.ScannerError, yaml.parser.ParserError):
         return None
