@@ -44,7 +44,7 @@ info: |
 features: [class-static-fields-public, class]
 ---*/
 
-initThrows() {
+function initThrows() {
   throw new Test262Error();
 }
 
