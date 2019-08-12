@@ -14,6 +14,8 @@ const tests = [
     "auto",
     "-987",
     "-0",
+    "-0",
+    "0",
     "0",
     "987",
   ],
@@ -21,6 +23,8 @@ const tests = [
     "always",
     "-987",
     "-0",
+    "-0",
+    "+0",
     "+0",
     "+987",
   ],
@@ -29,22 +33,28 @@ const tests = [
     "987",
     "0",
     "0",
+    "0",
+    "0",
     "987",
   ],
   [
     "exceptZero",
     "-987",
     "-0",
+    "-0",
     "0",
+    "+0",
     "+987",
   ],
 ];
 
-for (const [signDisplay, negative, negativeZero, zero, positive] of tests) {
+for (const [signDisplay, negative, negativeNearZero, negativeZero, zero, positiveNearZero, positive] of tests) {
   const nf = new Intl.NumberFormat("ko-KR", {signDisplay});
   assert.sameValue(nf.format(-987), negative);
+  assert.sameValue(nf.format(-0.0001), negativeNearZero);
   assert.sameValue(nf.format(-0), negativeZero);
   assert.sameValue(nf.format(0), zero);
+  assert.sameValue(nf.format(0.0001), positiveNearZero);
   assert.sameValue(nf.format(987), positive);
 }
 

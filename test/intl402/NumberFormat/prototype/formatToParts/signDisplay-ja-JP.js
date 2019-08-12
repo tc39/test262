@@ -24,6 +24,8 @@ const tests = [
     "auto",
     [{"type":"minusSign","value":"-"},{"type":"integer","value":"987"}],
     [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
+    [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
+    [{"type":"integer","value":"0"}],
     [{"type":"integer","value":"0"}],
     [{"type":"integer","value":"987"}],
   ],
@@ -31,6 +33,8 @@ const tests = [
     "always",
     [{"type":"minusSign","value":"-"},{"type":"integer","value":"987"}],
     [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
+    [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
+    [{"type":"plusSign","value":"+"},{"type":"integer","value":"0"}],
     [{"type":"plusSign","value":"+"},{"type":"integer","value":"0"}],
     [{"type":"plusSign","value":"+"},{"type":"integer","value":"987"}],
   ],
@@ -39,22 +43,28 @@ const tests = [
     [{"type":"integer","value":"987"}],
     [{"type":"integer","value":"0"}],
     [{"type":"integer","value":"0"}],
+    [{"type":"integer","value":"0"}],
+    [{"type":"integer","value":"0"}],
     [{"type":"integer","value":"987"}],
   ],
   [
     "exceptZero",
     [{"type":"minusSign","value":"-"},{"type":"integer","value":"987"}],
     [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
+    [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
     [{"type":"integer","value":"0"}],
+    [{"type":"plusSign","value":"+"},{"type":"integer","value":"0"}],
     [{"type":"plusSign","value":"+"},{"type":"integer","value":"987"}],
   ],
 ];
 
-for (const [signDisplay, negative, negativeZero, zero, positive] of tests) {
+for (const [signDisplay, negative, negativeNearZero, negativeZero, zero, positiveNearZero, positive] of tests) {
   const nf = new Intl.NumberFormat("ja-JP", {signDisplay});
   verifyFormatParts(nf.formatToParts(-987), negative);
+  verifyFormatParts(nf.formatToParts(-0.0001), negativeNearZero);
   verifyFormatParts(nf.formatToParts(-0), negativeZero);
   verifyFormatParts(nf.formatToParts(0), zero);
+  verifyFormatParts(nf.formatToParts(0.0001), positiveNearZero);
   verifyFormatParts(nf.formatToParts(987), positive);
 }
 

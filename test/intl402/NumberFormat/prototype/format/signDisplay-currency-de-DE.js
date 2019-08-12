@@ -14,6 +14,8 @@ const tests = [
     "auto",
     "-987,00 $",
     "-0,00 $",
+    "-0,00 $",
+    "0,00 $",
     "0,00 $",
     "987,00 $",
   ],
@@ -21,6 +23,8 @@ const tests = [
     "always",
     "-987,00 $",
     "-0,00 $",
+    "-0,00 $",
+    "+0,00 $",
     "+0,00 $",
     "+987,00 $",
   ],
@@ -29,22 +33,28 @@ const tests = [
     "987,00 $",
     "0,00 $",
     "0,00 $",
+    "0,00 $",
+    "0,00 $",
     "987,00 $",
   ],
   [
     "exceptZero",
     "-987,00 $",
     "-0,00 $",
+    "-0,00 $",
     "0,00 $",
+    "+0,00 $",
     "+987,00 $",
   ],
 ];
 
-for (const [signDisplay, negative, negativeZero, zero, positive] of tests) {
+for (const [signDisplay, negative, negativeNearZero, negativeZero, zero, positiveNearZero, positive] of tests) {
   const nf = new Intl.NumberFormat("de-DE", { style: "currency", currency: "USD", currencySign: "accounting", signDisplay });
   assert.sameValue(nf.format(-987), negative);
+  assert.sameValue(nf.format(-0.0001), negativeNearZero);
   assert.sameValue(nf.format(-0), negativeZero);
   assert.sameValue(nf.format(0), zero);
+  assert.sameValue(nf.format(0.0001), positiveNearZero);
   assert.sameValue(nf.format(987), positive);
 }
 

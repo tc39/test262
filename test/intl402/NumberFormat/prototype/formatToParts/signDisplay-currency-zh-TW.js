@@ -24,6 +24,8 @@ const tests = [
     "auto",
     [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
     [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
+    [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
+    [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
   ],
@@ -31,6 +33,8 @@ const tests = [
     "always",
     [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
     [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
+    [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
+    [{"type":"plusSign","value":"+"},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"plusSign","value":"+"},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"plusSign","value":"+"},{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
   ],
@@ -39,22 +43,28 @@ const tests = [
     [{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
+    [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
+    [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
   ],
   [
     "exceptZero",
     [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
     [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
+    [{"type":"literal","value":"("},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"},{"type":"literal","value":")"}],
     [{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
+    [{"type":"plusSign","value":"+"},{"type":"currency","value":"US$"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
     [{"type":"plusSign","value":"+"},{"type":"currency","value":"US$"},{"type":"integer","value":"987"},{"type":"decimal","value":"."},{"type":"fraction","value":"00"}],
   ],
 ];
 
-for (const [signDisplay, negative, negativeZero, zero, positive] of tests) {
+for (const [signDisplay, negative, negativeNearZero, negativeZero, zero, positiveNearZero, positive] of tests) {
   const nf = new Intl.NumberFormat("zh-TW", { style: "currency", currency: "USD", currencySign: "accounting", signDisplay });
   verifyFormatParts(nf.formatToParts(-987), negative);
+  verifyFormatParts(nf.formatToParts(-0.0001), negativeNearZero);
   verifyFormatParts(nf.formatToParts(-0), negativeZero);
   verifyFormatParts(nf.formatToParts(0), zero);
+  verifyFormatParts(nf.formatToParts(0.0001), positiveNearZero);
   verifyFormatParts(nf.formatToParts(987), positive);
 }
 
