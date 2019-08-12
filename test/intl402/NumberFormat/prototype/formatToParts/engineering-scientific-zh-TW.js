@@ -21,6 +21,11 @@ function verifyFormatParts(actual, expected, message) {
 
 const tests = [
   [
+    "0.000345",
+    [{"type":"integer","value":"345"},{"type":"exponentSeparator","value":"E"},{"type":"exponentMinusSign","value":"-"},{"type":"exponentInteger","value":"6"}],
+    [{"type":"integer","value":"3"},{"type":"decimal","value":"."},{"type":"fraction","value":"45"},{"type":"exponentSeparator","value":"E"},{"type":"exponentMinusSign","value":"-"},{"type":"exponentInteger","value":"4"}],
+  ],
+  [
     "0.345",
     [{"type":"integer","value":"345"},{"type":"exponentSeparator","value":"E"},{"type":"exponentMinusSign","value":"-"},{"type":"exponentInteger","value":"3"}],
     [{"type":"integer","value":"3"},{"type":"decimal","value":"."},{"type":"fraction","value":"45"},{"type":"exponentSeparator","value":"E"},{"type":"exponentMinusSign","value":"-"},{"type":"exponentInteger","value":"1"}],

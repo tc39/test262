@@ -11,6 +11,11 @@ features: [Intl.NumberFormat-unified]
 
 const tests = [
   [
+    "0.000345",
+    "345E-6",
+    "3,45E-4",
+  ],
+  [
     "0.345",
     "345E-3",
     "3,45E-1",
