@@ -52,7 +52,7 @@ assert.throws(Test262Error, function() {
   class C {
     static f = initThrows();
     static g;
-  }
+  };
 
   assert(false, 'this should never execute');
 }, 'static field initializer should throw exception');
