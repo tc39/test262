@@ -21,7 +21,7 @@ function fn () {
   return {};
 }
 
-// MemberExpression
-assert.sameValue(22, (obj?.a)?.b);
-// CallExpression
-assert.sameValue(undefined, (fn()?.a)?.b);
+// OptionalExpression (MemberExpression OptionalChain) OptionalChain
+assert.sameValue(22, obj?.a?.b);
+// OptionalExpression (CallExpression OptionalChain) OptionalChain
+assert.sameValue(undefined, fn()?.a?.b);
