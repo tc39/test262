@@ -26,7 +26,7 @@ let createClass = function () {
   return class {
     static #m() { return 'test262'; }
 
-    access() {
+    static access() {
       return this.#m();
     }
   }

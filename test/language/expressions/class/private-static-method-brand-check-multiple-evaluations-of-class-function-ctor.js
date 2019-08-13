@@ -26,13 +26,13 @@ let classStringExpression = `
 return class {
   static #m() { return 'test262'; }
 
-  access() {
+  static access() {
     return this.#m();
   }
 }
 `;
 
-det createClass = function () {
+let createClass = function () {
   let classFactoryFunction = new Function(classStringExpression);
   return classFactoryFunction();
 };
