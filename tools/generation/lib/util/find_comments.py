@@ -23,7 +23,7 @@ def find_comments(source):
     comment = ''
     lineno = 0
 
-    for idx in xrange(len(source)):
+    for idx in range(len(source)):
         if source[idx] == '\n':
             lineno += 1
 
