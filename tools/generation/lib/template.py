@@ -5,9 +5,9 @@ import os, re
 import codecs, yaml
 from collections import OrderedDict
 
-from util.find_comments import find_comments
-from util.parse_yaml import parse_yaml
-from test import Test
+from .util.find_comments import find_comments
+from .util.parse_yaml import parse_yaml
+from .test import Test
 
 indentPattern = re.compile(r'^(\s*)')
 interpolatePattern = re.compile(r'\{\s*(\S+)\s*\}')

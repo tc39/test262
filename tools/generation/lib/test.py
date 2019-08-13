@@ -3,8 +3,8 @@
 
 import os, re
 
-from util.find_comments import find_comments
-from util.parse_yaml import parse_yaml
+from .util.find_comments import find_comments
+from .util.parse_yaml import parse_yaml
 
 class Test:
     """Representation of a generated test. Specifies a file location which may

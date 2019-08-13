@@ -4,8 +4,8 @@
 import codecs
 import re
 
-from util.find_comments import find_comments
-from util.parse_yaml import parse_yaml
+from .util.find_comments import find_comments
+from .util.parse_yaml import parse_yaml
 
 regionStartPattern = re.compile(r'-\s+(\S+)')
 
