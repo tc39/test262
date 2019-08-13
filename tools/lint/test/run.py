@@ -78,11 +78,12 @@ def create_file_test(name, fspath):
         result = self.lint([tmp_file])
         if len(expected) == 0:
             self.assertEqual(result['returncode'], 0)
-            self.assertEqual(result['stderr'], '')
+            self.assertEqual(result['stderr'], b'')
         else:
             self.assertNotEqual(result['returncode'], 0)
+            stderr = result['stderr'].decode("utf-8")
             for err in expected:
-                self.assertIn(err, result['stderr'])
+                self.assertIn(err, stderr)
 
     return test
 

@@ -55,9 +55,10 @@ class CheckHarnessFeatures(Check):
             return
 
         if len(result['missing']) > 0:
+            missing = ', '.join(sorted(result['missing']))
             if len(result['features']) == 0:
-                return 'Missing: `features: [%s]`' % ', '.join(list(result['missing']))
+                return 'Missing: `features: [%s]`' % missing
             else:
-                return 'Missing from `features`: %s' % ', '.join(list(result['missing']))
+                return 'Missing from `features`: %s' % missing
         else:
             return

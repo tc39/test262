@@ -5,7 +5,7 @@ _THROW_STMT = re.compile(
       r'^\$DONOTEVALUATE\(\);$',
       re.MULTILINE)
 
-_THROW_STMT_LEGACY = re.compile(
+_THROW_STMT_RAW = re.compile(
       r'^throw "Test262: This statement should not be evaluated\.";$',
       re.MULTILINE)
 
@@ -32,7 +32,7 @@ class CheckNegative(Check):
 
         if negative["phase"] in ["parse", "resolution"]:
             if meta.get('flags') and 'raw' in meta['flags']:
-                if not _THROW_STMT_LEGACY.search(source):
+                if not _THROW_STMT_RAW.search(source):
                     return 'Negative tests of type "early" must include a `throw` statement'
             elif not _THROW_STMT.search(source):
                 return 'Negative tests of type "early" must include a $DONOTEVALUATE() call'
