@@ -19,7 +19,7 @@ info: |
   AssignmentProperty:
     IdentifierReference Initializer_opt
     PropertyName : AssignmentElement
-
+  
   PropertyName:
     LiteralPropertyName
     ...
@@ -29,7 +29,7 @@ info: |
     ...
 
   Reserved Words
-
+  
   A reserved word is an IdentifierName that cannot be used as an Identifier.
 features: [destructuring-assignment]
 flags: [noStrict]

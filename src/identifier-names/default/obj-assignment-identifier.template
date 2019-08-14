@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/assignment/dstr/ident-name-prop-name-literal-
-name: PropertyName of an ObjectAssignmentPattern
+path: language/expressions/assignment/dstr/syntax-error-ident-ref-
+name: IdentiferReference in ObjectAssignmentPattern cannot be a ReservedWord
 esid: prod-AssignmentPattern
 info: |
   AssignmentPattern:
@@ -20,22 +20,19 @@ info: |
     IdentifierReference Initializer_opt
     PropertyName : AssignmentElement
 
-  PropertyName:
-    LiteralPropertyName
-    ...
+  IdentifierReference:
+    Identifier
+    [~Yield]yield
+    [~Await]await
 
-  LiteralPropertyName:
-    IdentifierName
-    ...
-
-  Reserved Words
-
-  A reserved word is an IdentifierName that cannot be used as an Identifier.
+  Identifier:
+    IdentifierName but not ReservedWord
+negative:
+  phase: parse
+  type: SyntaxError
 features: [destructuring-assignment]
-flags: [noStrict]
 ---*/
 
-var y = { /*{ declareWith }*/: x } = { /*{ referenceWith }*/: 42 };
+$DONOTEVALUATE();
 
-assert.sameValue(x, 42, 'property exists');
-assert.sameValue(y['/*{ referenceWith }*/'], 42, 'assignment successful');
+var x = { /*{ declareWith }*/ } = { /*{ referenceWith }*/: 42 };

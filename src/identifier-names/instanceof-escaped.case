@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: instance is a valid identifier name, using escape
+desc: instanceof is a valid identifier name, using escape
 template: default
 ---*/
 
 //- declareWith
-\u0069nstance
+\u0069nstanceof
 //- referenceWith
-instance
+instanceof

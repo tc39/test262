@@ -3,7 +3,7 @@
 
 /*---
 desc: let is a valid identifier name, using escape
-template: default
+template: future-reserved-words
 ---*/
 
 //- declareWith
