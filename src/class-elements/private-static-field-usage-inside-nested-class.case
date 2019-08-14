@@ -57,7 +57,7 @@ info: |
     4. Assert: privateName is a Private Name.
     5. Return a value of type Reference whose base value is baseValue, whose referenced name is privateName, whose strict reference flag is true.
 template: default
-features: [class-static-fields-private, class-static-fields-public, class-fields-private]
+features: [class-static-fields-private, class-static-fields-public]
 ---*/
 
 //- elements

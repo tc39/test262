@@ -4,7 +4,7 @@
 /*---
 description: PrivateName of private static field can be shadowed on inner classes by a private field (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [class-static-fields-private, class-static-fields-public, class]
+features: [class-static-fields-private, class-static-fields-public, class-fields-private, class]
 flags: [generated]
 info: |
     Updated Productions

@@ -4,7 +4,7 @@
 /*---
 description: PrivateName of private static field is available inside inner classes (field definitions in a class expression)
 esid: prod-FieldDefinition
-features: [class-static-fields-private, class-static-fields-public, class-fields-private, class]
+features: [class-static-fields-private, class-static-fields-public, class]
 flags: [generated]
 info: |
     Updated Productions
