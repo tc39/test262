@@ -1,0 +1,44 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/ident-name-method-def-
+name: MethodDefinition
+esid: prod-PropertyDefinition
+info: |
+  ObjectLiteral :
+    { PropertyDefinitionList }
+    { PropertyDefinitionList , }
+
+  PropertyDefinitionList:
+    PropertyDefinition
+    PropertyDefinitionList , PropertyDefinition
+
+  PropertyDefinition:
+    MethodDefinition
+    ...
+
+  MethodDefinition:
+    PropertyName ( UniqueFormalParameters ){ FunctionBody }
+
+  PropertyName:
+    LiteralPropertyName
+    ...
+
+  LiteralPropertyName:
+    IdentifierName
+    ...
+
+  Reserved Words
+  
+  A reserved word is an IdentifierName that cannot be used as an Identifier.
+features: [class]
+---*/
+
+var C = class {
+  /*{ declareWith }*/() { return 42; }
+}
+
+var obj = new C();
+
+assert.sameValue(obj['/*{ referenceWith }*/'](), 42, 'property exists');

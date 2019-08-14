@@ -1,0 +1,12 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: default is a valid identifier name, using extended escape
+template: default
+---*/
+
+//- declareWith
+def\u{61}ult
+//- referenceWith
+default
