@@ -1,0 +1,12 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: with is a valid identifier name, using escape
+template: default
+---*/
+
+//- declareWith
+w\u0069th
+//- referenceWith
+with
