@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/identifier-names/package-escaped.case
-// - src/identifier-names/default/member-expr.template
+// - src/identifier-names/future-reserved-words/member-expr.template
 /*---
 description: package is a valid identifier name, using escape (MemberExpression IdentifierName)
 esid: prod-PropertyDefinition

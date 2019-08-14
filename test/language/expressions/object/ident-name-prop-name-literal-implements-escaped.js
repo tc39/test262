@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/identifier-names/implements-escaped.case
-// - src/identifier-names/default/obj-prop-name.template
+// - src/identifier-names/future-reserved-words/obj-prop-name.template
 /*---
 description: implements is a valid identifier name, using escape (PropertyName)
 esid: prod-PropertyDefinition

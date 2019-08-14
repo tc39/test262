@@ -35,7 +35,7 @@ info: |
 ---*/
 
 var obj = {
-  s\u0065per: 42
+  sup\u0065r: 42
 };
 
 assert.sameValue(obj['super'], 42, 'property exists');

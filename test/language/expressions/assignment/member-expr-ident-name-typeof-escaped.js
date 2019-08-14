@@ -17,6 +17,6 @@ info: |
 
 var obj = {};
 
-obj.t\u0068peof = 42;
+obj.typ\u0065of = 42;
 
 assert.sameValue(obj['typeof'], 42, 'property exists');

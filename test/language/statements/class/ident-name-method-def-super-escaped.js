@@ -38,7 +38,7 @@ info: |
 
 
 class C {
-  s\u0065per() { return 42; }
+  sup\u0065r() { return 42; }
 }
 
 var obj = new C();

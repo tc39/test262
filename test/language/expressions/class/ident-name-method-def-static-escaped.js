@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/identifier-names/static-escaped.case
-// - src/identifier-names/default/class-expression-method-def.template
+// - src/identifier-names/future-reserved-words/class-expression-method-def.template
 /*---
 description: static is a valid identifier name, using escape (MethodDefinition)
 esid: prod-PropertyDefinition

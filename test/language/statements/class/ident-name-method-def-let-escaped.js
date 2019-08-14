@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/identifier-names/let-escaped.case
-// - src/identifier-names/default/class-statement-method-def.template
+// - src/identifier-names/future-reserved-words/class-statement-method-def.template
 /*---
 description: let is a valid identifier name, using escape (MethodDefinition)
 esid: prod-PropertyDefinition

@@ -38,7 +38,7 @@ info: |
 
 
 var C = class {
-  t\u0068peof() { return 42; }
+  typ\u0065of() { return 42; }
 }
 
 var obj = new C();
