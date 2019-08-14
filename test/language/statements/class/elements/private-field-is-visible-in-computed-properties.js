@@ -46,9 +46,10 @@ info: |
 features: [class-fields-private, class]
 ---*/
 
+const self = this;
 assert.throws(ReferenceError, function() {
   class C {
-    [this.#f] = 'Test262';
+    [self.#f] = 'Test262';
     #f = 'foo';
   }
 }, 'access to a not defined private field in object should throw a ReferenceError');
