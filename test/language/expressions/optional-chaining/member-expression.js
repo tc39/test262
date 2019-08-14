@@ -75,7 +75,7 @@ class B extends A {
     return super.a?.name;
   }
   expr () {
-    return super['a'].name;
+    return super['a']?.name;
   }
   undf2 () {
     return super.b?.c;
