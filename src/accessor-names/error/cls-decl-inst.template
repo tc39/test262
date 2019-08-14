@@ -10,6 +10,7 @@ info: |
       a. If IsStatic of m is false, then
          i. Let status be the result of performing PropertyDefinitionEvaluation
             for m with arguments proto and false.
+features: [class]
 ---*/
 
 assert.throws(/*{ error }*/, function() {

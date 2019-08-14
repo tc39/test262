@@ -12,6 +12,7 @@ info: |
       b. Else,
          a. Let status be the result of performing PropertyDefinitionEvaluation
             for m with arguments F and false.
+features: [class]
 ---*/
 
 assert.throws(/*{ error }*/, function() {
