@@ -62,15 +62,21 @@ jobs:
       # - run:
       #     name: "Run deploy"
       #     command: ./tools/scripts/deploy.sh
-  "Project lint unit tests on Python 3":
+  "Project lint and generation unit tests on Python 3":
     docker:
       - image: circleci/python:3.7.4
     working_directory: ~/test262
     steps:
       - checkout
       - run:
+          name: "Install requirements for generation tool"
+          command: python -m pip install --user --requirement tools/generation/requirements.txt
+      - run:
           name: "Install requirements for linter tool"
           command: python -m pip install --user --requirement tools/lint/requirements.txt
+      - run:
+          name: "Test the generation tool"
+          command: ./tools/generation/test/run.py
       - run:
           name: "Test the lint tool"
           command: ./tools/lint/test/run.py
@@ -137,7 +143,7 @@ workflows:
   Tools:
     jobs:
       - "Project lint, generation tests and build"
-      - "Project lint unit tests on Python 3"
+      - "Project lint and generation unit tests on Python 3"
   Tests execution:
     jobs:
       - "ChakraCore: New or modified tests execution"

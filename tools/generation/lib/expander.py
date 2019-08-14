@@ -3,8 +3,8 @@
 
 import re, os
 
-from case import Case
-from template import Template
+from .case import Case
+from .template import Template
 
 caseFilenamePattern = re.compile(r'^[^\.].*\.case$')
 templateFilenamePattern = re.compile(r'^[^\.].*\.template$')

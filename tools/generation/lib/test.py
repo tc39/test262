@@ -3,8 +3,8 @@
 
 import os, re
 
-from util.find_comments import find_comments
-from util.parse_yaml import parse_yaml
+from .util.find_comments import find_comments
+from .util.parse_yaml import parse_yaml
 
 class Test:
     """Representation of a generated test. Specifies a file location which may
@@ -19,7 +19,7 @@ class Test:
 
     def load(self, prefix = None):
         location = os.path.join(prefix or '', self.file_name)
-        with open(location) as handle:
+        with open(location, 'rb') as handle:
             self.source = handle.read()
         self._parse()
 
@@ -59,5 +59,5 @@ class Test:
             else:
                 raise Exception('Directory does not exist: ' + path)
 
-        with open(location, 'w') as handle:
+        with open(location, 'wb') as handle:
             handle.write(self.source)
