@@ -1,0 +1,38 @@
+// Copyright (C) 2019 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/object/covered-ident-name-prop-name-literal-
+name: PropertyName in a CoverParenthesizedExpressionAndArrowParameterList
+esid: prod-PropertyDefinition
+info: |
+  ObjectLiteral :
+    { PropertyDefinitionList }
+    { PropertyDefinitionList , }
+
+  PropertyDefinitionList:
+    PropertyDefinition
+    PropertyDefinitionList , PropertyDefinition
+
+  PropertyDefinition:
+    IdentifierReference
+    PropertyName : AssignmentExpression
+    MethodDefinition
+    ... AssignmentExpression
+    ...
+
+  PropertyName:
+    LiteralPropertyName
+    ...
+
+  LiteralPropertyName:
+    IdentifierName
+    ...
+
+  Reserved Words
+  
+  A reserved word is an IdentifierName that cannot be used as an Identifier.
+---*/
+
+var obj = ({ /*{ declareWith }*/: 42 });
+
+assert.sameValue(obj['/*{ referenceWith }*/'], 42, 'property exists');
