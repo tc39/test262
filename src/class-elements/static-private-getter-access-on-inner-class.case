@@ -8,7 +8,7 @@ info: |
     1. Assert: P is a Private Name.
     2. If O is not an object, throw a TypeError exception.
     3. If P.[[Kind]] is "field",
-        ...
+    ...
     4. Perform ? PrivateBrandCheck(O, P).
     5. If P.[[Kind]] is "method",
       a. Return P.[[Value]].
@@ -31,7 +31,6 @@ static Inner = class {
     return o.#f;
   }
 }
-
 //- assertions
 assert.sameValue(C.Inner.access(C), 'Test262');
 assert.throws(TypeError, function() {

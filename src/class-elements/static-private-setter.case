@@ -4,26 +4,25 @@
 /*---
 desc: static private setter declaration and usage
 info: |
-
   MethodDefinition :
     get ClassElementName () { FunctionBody }
     set ClassElementName ( PropertySetParameterList ) { FunctionBody }
 
   ClassTail : ClassHeritage { ClassBody }
-	  ...
-	  33. If PrivateBoundIdentifiers of ClassBody contains a Private Name P such that P's [[Kind]] field is either "method" or "accessor" and P's [[Brand]] is F,
-	    a. PrivateBrandAdd(F, F).
-	  34. For each item fieldRecord in order from staticFields,
-	    a. Perform ? DefineField(F, field).
+    ...
+    33. If PrivateBoundIdentifiers of ClassBody contains a Private Name P such that P's [[Kind]] field is either "method" or "accessor" and P's [[Brand]] is F,
+      a. PrivateBrandAdd(F, F).
+    34. For each item fieldRecord in order from staticFields,
+      a. Perform ? DefineField(F, field).
 
   PrivateFieldGet (P, O)
     1. Assert: P is a Private Name.
     2. If O is not an object, throw a TypeError exception.
     3. If P.[[Kind]] is "field",
-      ...
+    ...
     4. Perform ? PrivateBrandCheck(O, P).
     5. If P.[[Kind]] is "method",
-      ...
+    ...
     6. Else,
       a. Assert: P.[[Kind]] is "accessor".
       b. If P does not have a [[Get]] field, throw a TypeError exception.
@@ -45,7 +44,6 @@ static set #f(v) {
 static access() {
   this.#f = 'Test262';
 }
-
 //- assertions
 C.access();
 assert.sameValue(C._v, 'Test262');
