@@ -141,6 +141,10 @@ optional-chaining
 # https://github.com/tc39/proposal-top-level-await
 top-level-await
 
+# RegExp Match Array Indices
+# https://github.com/tc39/proposal-regexp-match-indices
+regexp-match-indices
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
