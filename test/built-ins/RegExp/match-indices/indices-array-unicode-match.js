@@ -35,3 +35,22 @@ assert.hasOwnDataProperty(groups, "c", {
     configurable: true,
     value: [2, 3]
 }, { equaler: compareArray });
+
+// "𝐁" is U+1d401 MATHEMATICAL BOLD CAPITAL B
+// - Also representable as the code point "\u{1d401}"
+// - Also representable as the surrogate pair "\uD835\uDC01"
+
+// Verify assumptions:
+assert.sameValue("𝐁".length, 2, 'The length of "𝐁" is 2');
+assert.sameValue("\u{1d401}".length, 2, 'The length of "\\u{1d401}" is 2');
+assert.sameValue("\uD835\uDC01".length, 2, 'The length of "\\uD835\\uDC01" is 2');
+assert.sameValue(2, "𝐁".match(/./u)[0].length, 'The length of a single code point match against "𝐁" is 2 (with /u flag)');
+assert.sameValue(2, "\u{1d401}".match(/./u)[0].length, 'The length of a single code point match against "\\u{1d401}" is 2 (with /u flag)');
+assert.sameValue(2, "\uD835\uDC01".match(/./u)[0].length, 'The length of a single code point match against "\\ud835\\udc01" is 2 (with /u flag)');
+
+assert.compareArray([0, 2], "𝐁".match(/./u).indices[0], 'Indices for unicode match against "𝐁" (with /u flag)');
+assert.compareArray([0, 2], "\u{1d401}".match(/./u).indices[0], 'Indices for unicode match against \\u{1d401} (with /u flag)');
+assert.compareArray([0, 2], "\uD835\uDC01".match(/./u).indices[0], 'Indices for unicode match against \\ud835\\udc01 (with /u flag)');
+assert.compareArray([0, 2], "𝐁".match(/(?<a>.)/u).indices.groups.a, 'Indices for unicode match against 𝐁 in groups.a (with /u flag)');
+assert.compareArray([0, 2], "\u{1d401}".match(/(?<a>.)/u).indices.groups.a, 'Indices for unicode match against \\u{1d401} in groups.a (with /u flag)');
+assert.compareArray([0, 2], "\uD835\uDC01".match(/(?<a>.)/u).indices.groups.a, 'Indices for unicode match against \\ud835\\udc01 in groups.a (with /u flag)');
