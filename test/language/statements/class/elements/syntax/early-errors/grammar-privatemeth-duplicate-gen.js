@@ -13,7 +13,7 @@ info: |
     Static Semantics: Early Errors
 
     ClassBody : ClassElementList
-        It is a Syntax Error if PrivateBoundNames of ClassBody contains any duplicate entries, unless the name is used once for a getter and once for a setter and in no other entries.
+      It is a Syntax Error if PrivateBoundNames of ClassBody contains any duplicate entries, unless the name is used once for a getter and once for a setter and in no other entries.
 
 ---*/
 
