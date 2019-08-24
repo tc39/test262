@@ -26,6 +26,10 @@ function compareArray(a, b) {
 }
 
 assert.compareArray = function(actual, expected, message) {
+  function formatArray(array) {
+    return '[' + array.map(String).join(', ') + ']';
+  }
+
   assert(compareArray(actual, expected),
-         'Expected [' + actual.join(', ') + '] and [' + expected.join(', ') + '] to have the same contents. ' + message);
+         'Expected ' + formatArray(actual) + ' and ' + formatArray(expected) + ' to have the same contents. ' + message);
 };
