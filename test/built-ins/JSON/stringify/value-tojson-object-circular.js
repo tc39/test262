@@ -27,26 +27,13 @@ info: |
   1. If stack contains value, throw a TypeError exception because the structure is cyclical.
 ---*/
 
-var direct = {
-  toJSON: function() {
-    return {prop: direct};
-  },
+var obj = {};
+var circular = { prop: obj };
+
+obj.toJSON = function() {
+  return circular;
 };
 
 assert.throws(TypeError, function() {
-  JSON.stringify(direct);
-});
-
-var indirect = {
-  p1: {
-    p2: {
-      toJSON: function() {
-        return {p3: indirect};
-      },
-    },
-  },
-};
-
-assert.throws(TypeError, function() {
-  JSON.stringify(indirect);
+  JSON.stringify(circular);
 });

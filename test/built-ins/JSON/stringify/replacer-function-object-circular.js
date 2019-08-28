@@ -25,13 +25,9 @@ info: |
   1. If stack contains value, throw a TypeError exception because the structure is cyclical.
 ---*/
 
-var direct = {};
-var directReplacer = function(_key, value) {
-  if (value === direct) {
-    return {prop: direct};
-  }
-
-  return value;
+var direct = {prop: {}};
+var directReplacer = function(k, v) {
+  return direct;
 };
 
 assert.throws(TypeError, function() {
@@ -39,10 +35,10 @@ assert.throws(TypeError, function() {
 });
 
 var indirect = {p1: {p2: {}}};
-var indirectReplacer = function(_key, value) {
-  if (value === indirect.p1.p2) {
-    return {p3: indirect};
-  }
+var indirectReplacer = function(key, value) {
+  if (key === 'p2') {
+    return indirect;
+  } 
 
   return value;
 };
