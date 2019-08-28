@@ -4,7 +4,7 @@
 /*---
 description: It's a SyntaxError if a class contains a private async generator and a private field with the same name (class expression)
 esid: prod-ClassElement
-features: [class-methods-private, class]
+features: [class-methods-private class-fields-private async-iteration, class]
 flags: [generated]
 negative:
   phase: parse
