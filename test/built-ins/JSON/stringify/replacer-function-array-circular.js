@@ -25,29 +25,11 @@ info: |
   1. If stack contains value, throw a TypeError exception because the structure is cyclical.
 ---*/
 
-var direct = [];
-var directReplacer = function(_key, value) {
-  if (value === direct) {
-    return [direct];
-  }
-
-  return value;
+var circular = [{}];
+var circularReplacer = function(k, v) {
+  return circular;
 };
 
 assert.throws(TypeError, function() {
-  JSON.stringify(direct, directReplacer);
-});
-
-var arr = [];
-var indirect = [[arr]];
-var indirectReplacer = function(_key, value) {
-  if (value === arr) {
-    return [indirect];
-  }
-
-  return value;
-};
-
-assert.throws(TypeError, function() {
-  JSON.stringify(indirect, indirectReplacer);
+  JSON.stringify(circular, circularReplacer);
 });
