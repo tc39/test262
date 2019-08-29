@@ -45,7 +45,7 @@ class C {
   [i++] = i++;
 }
 
-let c = new c();
+let c = new C();
 
 // It is important to notice that static field initializer will run before any instance initializer
 verifyProperty(c, "0", {
