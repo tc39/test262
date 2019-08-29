@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: PrivateFieldSet should return a abrupt complition
+description: PrivateFieldSet should return an abrupt complition
 esid: sec-privatefieldset
 info: |
   PrivateFieldSet (P, O, value)

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: PrivateFieldGet should return a abrupt complition
+description: PrivateFieldGet should return an abrupt complition
 esid: sec-privatefieldget
 info: |
   PrivateFieldGet (P, O)
