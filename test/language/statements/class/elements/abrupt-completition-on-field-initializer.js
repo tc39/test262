@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: If an initializer returns an abrupt completition, other initializers should not execute
+description: If an initializer returns an abrupt complition, other initializers should not execute
 esid: [[construct]]
 info: |
   [[Construct]] ( argumentsList, newTarget)
@@ -24,7 +24,7 @@ info: |
 features: [class-fields-public, class-static-fields-public, class]
 ---*/
 
-function abruptCompletition() {
+function abruptComplition() {
   throw new Test262Error();
 }
 
@@ -35,19 +35,19 @@ function sideEffect() {
 }
 
 class C {
-  a = abruptCompletition();
+  a = abruptComplition();
   b = sideEffect();
 }
 
 assert.throws(Test262Error, function() {
   let c = new C();
-}, 'field initializer should end with abrupt completition');
+}, 'field initializer should end with abrupt complition');
 assert.sameValue(neverExecuted, false);
 
 assert.throws(Test262Error, function() {
   class D {
-    static a = abruptCompletition();
+    static a = abruptcomplition();
     static b = sideEffect();
   }
-}, 'static field initializer should end with abrupt completition');
+}, 'static field initializer should end with abrupt complition');
 assert.sameValue(neverExecuted, false);
