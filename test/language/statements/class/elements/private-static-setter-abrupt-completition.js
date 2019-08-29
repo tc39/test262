@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: PrivateFieldGet shoudl return with abrupt completition
-esid: sec-privatefieldget
+description: PrivateFieldSet should return a abrupt completition
+esid: sec-privatefieldset
 info: |
   PrivateFieldSet (P, O, value)
     1. Assert: P is a Private Name.
