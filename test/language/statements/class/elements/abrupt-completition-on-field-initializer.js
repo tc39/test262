@@ -46,7 +46,7 @@ assert.sameValue(neverExecuted, false);
 
 assert.throws(Test262Error, function() {
   class D {
-    static a = abruptcomplition();
+    static a = abruptComplition();
     static b = sideEffect();
   }
 }, 'static field initializer should end with abrupt complition');
