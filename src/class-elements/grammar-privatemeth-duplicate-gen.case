@@ -9,7 +9,7 @@ info: |
   ClassBody : ClassElementList
     It is a Syntax Error if PrivateBoundNames of ClassBody contains any duplicate entries, unless the name is used once for a getter and once for a setter and in no other entries.
 template: syntax/invalid
-features: [class-methods-private class-fields-private generators]
+features: [class-methods-private, class-fields-private, generators]
 ---*/
 
 //- elements

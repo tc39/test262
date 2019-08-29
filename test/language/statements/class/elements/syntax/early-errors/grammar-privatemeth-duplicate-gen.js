@@ -4,7 +4,7 @@
 /*---
 description: It's a SyntaxError if a class contains a private generator and a private field with the same name (class declaration)
 esid: prod-ClassElement
-features: [class-methods-private class-fields-private generators, class]
+features: [class-methods-private, class-fields-private, generators, class]
 flags: [generated]
 negative:
   phase: parse
