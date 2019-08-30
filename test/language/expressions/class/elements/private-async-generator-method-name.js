@@ -53,7 +53,7 @@ var C = class {
   getPrivateMethod() {
     return this.#method;
   }
-
 }
 
-assert.sameValue(C.getPrivateMethod().name, "#method");
+let c = new C();
+assert.sameValue(c.getPrivateMethod().name, "#method");

@@ -50,6 +50,6 @@ async * #method() {};
 getPrivateMethod() {
   return this.#method;
 }
-
 //- assertions
-assert.sameValue(C.getPrivateMethod().name, "#method");
+let c = new C();
+assert.sameValue(c.getPrivateMethod().name, "#method");
