@@ -12,17 +12,20 @@ info: |
       d. Perform ! CreateDataProperty(_A_, ! ToString(_n_), _matchIndicesArray_).
 ---*/
 
+/// <reference path="../../../../harness/assert.js" />
+/// <reference path="../../../../harness/propertyHelper.js" />
+
 let input = "abcd";
 let match = /b(c)/.exec(input);
 let indices = match.indices;
 
-assert.hasOwnDataProperty(indices, '0', {
+verifyProperty(indices, '0', {
   enumerable: true,
   configurable: true,
   writable: true
 });
 
-assert.hasOwnDataProperty(indices, '1', {
+verifyProperty(indices, '1', {
   enumerable: true,
   configurable: true,
   writable: true

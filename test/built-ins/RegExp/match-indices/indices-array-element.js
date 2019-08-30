@@ -3,13 +3,16 @@
 
 /*---
 description: A matching element of indices is an Array with exactly two number properties.
-includes: [compareArray.js, propertyHelper.js]
+includes: [compareArray.js]
 esid: sec-getmatchindicesarray
 features: [regexp-match-indices]
 info: |
   GetMatchIndicesArray ( S, match )
     5. Return CreateArrayFromList(« _match_.[[StartIndex]], _match_.[[EndIndex]] »).
 ---*/
+
+/// <reference path="../../../../harness/assert.js" />
+/// <reference path="../../../../harness/compareArray.js" />
 
 let input = "abcd";
 let match = /b(c)/.exec(input);

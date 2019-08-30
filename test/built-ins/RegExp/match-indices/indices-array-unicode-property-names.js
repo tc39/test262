@@ -3,10 +3,13 @@
 
 /*---
 description: Basic matching cases with non-unicode matches.
-includes: [compareArray.js, propertyHelper.js]
+includes: [compareArray.js]
 esid: sec-makeindicesarray
 features: [regexp-match-indices]
 ---*/
+
+/// <reference path="../../../../harness/assert.js" />
+/// <reference path="../../../../harness/compareArray.js" />
 
 assert.compareArray([1, 2], /(?<π>a)/u.exec("bab").indices.groups.π);
 assert.compareArray([1, 2], /(?<\u{03C0}>a)/u.exec("bab").indices.groups.π);

@@ -13,6 +13,9 @@ info: |
         i. Perform ! CreateDataProperty(_groups_, _groupNames_[_i_], _matchIndicesArray_).
 ---*/
 
+/// <reference path="../../../../harness/assert.js" />
+/// <reference path="../../../../harness/compareArray.js" />
+
 const re = /(?<a>a).|(?<x>x)/;
 const result = re.exec("ab").indices;
 assert.compareArray([0, 1], result.groups.a);

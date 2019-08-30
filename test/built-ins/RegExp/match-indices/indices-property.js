@@ -12,6 +12,9 @@ info: |
     35. Perform ! DefinePropertyOrThrow(_A_, `"indices"`, PropertyDescriptor { [[Value]]: _indicesArray_, [[Writable]]: *false*, [[Enumerable]]: *false*, [[Configurable]]: *true* }).
 ---*/
 
+/// <reference path="../../../../harness/assert.js" />
+/// <reference path="../../../../harness/propertyHelper.js" />
+
 // `indices` is created with Define, not Set.
 let counter = 0;
 Object.defineProperty(Array.prototype, "indices", {
@@ -22,7 +25,7 @@ let match = /a/.exec("a");
 assert.sameValue(counter, 0);
 
 // `indices` is a non-writable, non-enumerable, and configurable data-property.
-assert.hasOwnDataProperty(match, 'indices', {
+verifyProperty(match, 'indices', {
   writable: true,
   enumerable: true,
   configurable: true

@@ -10,8 +10,11 @@ info: |
     6. Set _A_ to ! ArrayCreate(_n_).
 ---*/
 
+/// <reference path="../../../../harness/assert.js" />
+
 let match = /a/.exec("a");
 let indices = match.indices;
 
 // `indices` is an array
 assert.sameValue(Object.getPrototypeOf(indices), Array.prototype);
+assert(Array.isArray(indices));

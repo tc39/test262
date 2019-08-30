@@ -6,13 +6,15 @@ description: |
     property descriptors.
 ---*/
 
+// @ts-check
+/// <reference path="./assert.js" />
+
 /**
  * @param {object} obj
  * @param {string|symbol} name
  * @param {PropertyDescriptor|undefined} desc
  * @param {object} [options]
  * @param {boolean} [options.restore]
- * @param {(a: unknown, b: unknown) => boolean} [options.equaler]
  */
 function verifyProperty(obj, name, desc, options) {
   assert(
@@ -55,8 +57,7 @@ function verifyProperty(obj, name, desc, options) {
   var failures = [];
 
   if (Object.prototype.hasOwnProperty.call(desc, 'value')) {
-    let equaler = options && options.equaler || isSameValue;
-    if (!equaler(desc.value, originalDesc.value)) {
+    if (!isSameValue(desc.value, originalDesc.value)) {
       failures.push("descriptor value should be " + desc.value);
     }
   }
@@ -217,86 +218,3 @@ function verifyNotConfigurable(obj, name) {
     $ERROR("Expected obj[" + String(name) + "] NOT to be configurable, but was.");
   }
 }
-
-/**
- * @param {PropertyDescriptor} desc
- */
-function isDataDescriptor(desc) {
-  return typeof desc === 'object' && desc !== null &&
-    Object.hasOwnProperty.call(desc, 'value') &&
-    !Object.hasOwnProperty.call(desc, 'get') &&
-    !Object.hasOwnProperty.call(desc, 'set');
-}
-
-/**
- * @param {PropertyDescriptor} desc
- * @param {'get' | 'get-set'} [kind]
- */
-function isAccessorDescriptor(desc, kind) {
-  if (typeof desc !== 'object' || desc === null ||
-      Object.hasOwnProperty.call(desc, 'value') ||
-      Object.hasOwnProperty.call(desc, 'writable') ||
-      !Object.hasOwnProperty.call(desc, 'get') &&
-      !Object.hasOwnProperty.call(desc, "set")) {
-    return false;
-  }
-  if (kind === 'get' || kind === 'get-set') {
-    if (!Object.hasOwnProperty.call(desc, 'get') || desc.get === undefined) {
-      return false;
-    }
-  }
-  if (kind === 'get-set') {
-    if (!Object.hasOwnProperty.call(desc, 'set') || desc.set === undefined) {
-      return false;
-    }
-  }
-  if (kind === 'get') {
-    if (Object.hasOwnProperty.call(desc, 'set') && desc.set !== undefined) {
-      return false;
-    }
-  }
-  return true;
-}
-
-/**
- * Asserts that an object has an own data-property with the provided key and attributes.
- * @type {{
- *  <T>(obj: T, key: keyof T, desc?: Omit<PropertyDescriptor, 'get' | 'set'>, options?: { equaler?: (a: unknown, b: unknown) => boolean }, message?: string): void;
- *  <T>(obj: T, key: keyof T, desc?: Omit<PropertyDescriptor, 'get' | 'set'>, message?: string): void;
- *  <T>(obj: T, key: keyof T, message?: string): void;
- * }}
- */
-assert.hasOwnDataProperty = function (obj, key, ...args) {
-  let desc = (typeof args[0] === 'object' || args[0] === undefined) ? args.shift() : undefined;
-  let options = (typeof args[0] === 'object' || args[0] === undefined) ? args.shift() : undefined;
-  let message = (typeof args[0] === 'string' || args[0] === undefined) ? args.shift() : undefined;
-  let keyStr = typeof key === 'symbol' ? key.toString() : '"' + key + '"';
-  let equaler = options && options.equaler;
-  verifyProperty(obj, key, desc || {}, { restore: true, equaler });
-  assert(isDataDescriptor(Object.getOwnPropertyDescriptor(obj, key)), 
-        'Expected ' + keyStr + ' property of \'obj\' to be a data-property. ' + (message || ''));
-};
-
-/**
- * Asserts that an object has an own accessor-property with the provided key and attributes.
- * @type {{
- *  <T>(obj: T, key: keyof T, desc?: Omit<PropertyDescriptor, 'writable' | 'value'>, options?: { equaler?: (a: unknown, b: unknown) => boolean }, kind?: 'get' | 'get-set', message?: string): void;
- *  <T>(obj: T, key: keyof T, desc?: Omit<PropertyDescriptor, 'writable' | 'value'>, options?: { equaler?: (a: unknown, b: unknown) => boolean }, message?: string): void;
- *  <T>(obj: T, key: keyof T, desc?: Omit<PropertyDescriptor, 'writable' | 'value'>, kind?: 'get' | 'get-set', message?: string): void;
- *  <T>(obj: T, key: keyof T, desc?: Omit<PropertyDescriptor, 'writable' | 'value'>, message?: string): void;
- *  <T>(obj: T, key: keyof T, message?: string): void;
- * }}
- */
-assert.hasOwnAccessorProperty = function (obj, key, ...args) {
-  let desc = (typeof args[0] === 'object' || args[0] === undefined) ? args.shift() : undefined;
-  let options = (typeof args[0] === 'object' || args[0] === undefined) ? args.shift() : undefined;
-  let kind = (typeof args[0] === 'string' && /^get(-set)$/.test(args[0]) || args[0] === undefined) ? args.shift() : undefined;
-  let message = (typeof args[0] === 'string' || args[0] === undefined) ? args.shift() : undefined;
-  let keyStr = typeof key === 'symbol' ? key.toString() : '"' + key + '"';
-  let equaler = options && options.equaler;
-  verifyProperty(obj, key, desc || {}, { restore: true, equaler });
-  assert(isAccessorDescriptor(Object.getOwnPropertyDescriptor(obj, key), kind),
-        kind === 'get' ? 'Expected ' + keyStr + ' property of \'obj\' to be an accessor-property descriptor with a \'get\' member but no \'set\' member. ' + (message || '') :
-        kind === 'get-set' ? 'Expected ' + keyStr + ' property of \'obj\' to be an accessor-property descriptor with both \'get\' and \'set\' members. ' + (message || '') :
-        'Expected ' + keyStr + ' property of \'obj\' to be an accessor-property descriptor. ' + (message || ''));
-};
