@@ -51,9 +51,6 @@ testWithTypedArrayConstructors(function(TA) {
   sample = new TA([0.5, 0, 1.5, -0.5, -1, -1.5, 1]).sort();
   assert(compareArray(sample, [-1.5, -1, -0.5, 0, 0.5, 1, 1.5]), "non integers + negatives");
 
-  sample = new TA([1, 0, -0, 2]).sort();
-  assert(compareArray(sample, [0, 0, 1, 2]), "0 and -0");
-
   sample = new TA([3, 4, Infinity, -Infinity, 1, 2]).sort();
   assert(compareArray(sample, [-Infinity, 1, 2, 3, 4, Infinity]), "infinities");
 
