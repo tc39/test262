@@ -28,12 +28,12 @@ testWithTypedArrayConstructors(function(TA) {
 });
 
 testWithTypedArrayConstructors(function(TA) {
-  sample = new TA([1, 0, -0, 2]).sort();
+  var sample = new TA([1, 0, -0, 2]).sort();
   assert(compareArray(sample, [-0, 0, 1, 2]), "0s");
 }, floatArrayConstructors);
 
 testWithTypedArrayConstructors(function(TA) {
-  sample = new TA([1, 0, -0, 2]).sort();
+  var sample = new TA([1, 0, -0, 2]).sort();
   assert(compareArray(sample, [0, 0, 1, 2]), "0s");
 }, intArrayConstructors);
 
