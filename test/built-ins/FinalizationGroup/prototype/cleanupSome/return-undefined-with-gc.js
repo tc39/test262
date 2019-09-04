@@ -48,9 +48,6 @@ emptyCells();
 assert.sameValue(fg.cleanupSome(() => 1), undefined, 'arrow function');
 
 emptyCells();
-assert.sameValue(fg.cleanupSome(fg.cleanupSome), undefined, 'cleanupSome itself');
-
-emptyCells();
 assert.sameValue(fg.cleanupSome(class {}), undefined, 'class expression');
 
 emptyCells();
