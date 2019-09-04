@@ -47,8 +47,8 @@ function emptyCells() {
     fg.register(e, 'e', unregDE);
   })();
 
-  var res = fg.unregister(unregC); // unregister 'c' before GC
-  assert.sameValue(res, true, 'unregister c before GC');
+  var res = fg.unregister(unregC);
+  assert.sameValue(res, true, 'unregister c before iterating over it in cleanup');
 
   $262.gc();
 }
@@ -59,7 +59,7 @@ var res = fg.unregister(unregDE);
 assert.sameValue(res, true, 'unregister d and e after GC');
 
 fg.cleanupSome(function cb(iterator) {
-  var res = fb.unregister(unregA);
+  var res = fg.unregister(unregA);
   assert.sameValue(res, true, 'unregister a before the iterator is consumed.');
 
   holdingsList = [...iterator];
@@ -72,13 +72,11 @@ assert.sameValue(holdingsList[0], 'b');
 assert.sameValue(holdingsList.length, 1);
 
 // Second run
-res = fg.unregister(unregB); // let's empty the cells
-assert.sameValue(res, true, 'unregister B for cleanup');
 holdingsList = undefined;
 emptyCells();
 
 fg.cleanupSome(function cb(iterator) {
-  var res = fb.unregister(unregDE);
+  var res = fg.unregister(unregDE);
   assert.sameValue(res, true, 'unregister d and e before the iterator is consumed.');
   holdingsList = [...iterator];
 });
