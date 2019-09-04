@@ -35,7 +35,7 @@ info: |
     ...
     8. If fieldName is a Private Name,
       a. Perform ? PrivateFieldAdd(fieldName, receiver, initValue).
-features: [class, class-static-fields-private]
+features: [class, class-static-fields-private, cross-realm]
 flags: [noStrict]
 ---*/
 
