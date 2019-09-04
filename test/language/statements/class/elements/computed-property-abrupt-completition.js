@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: PrivateFieldGet should return with abrupt complition
+description: PrivateFieldGet should return with abrupt completion
 esid: runtime-semantics-class-definition-evaluation
 info: |
   ClassTail : ClassHeritage { ClassBody }
@@ -31,7 +31,7 @@ assert.throws(Test262Error, function() {
     [abruptCompletion()];
     [neverExecuted = true];
   }
-}, 'computed property should have abrupt complition');
+}, 'computed property should have abrupt completion');
 assert.sameValue(neverExecuted, false);
 
 assert.throws(Test262Error, function() {
@@ -39,5 +39,5 @@ assert.throws(Test262Error, function() {
     static [abruptCompletion()];
     [neverExecuted = true];
   }
-}, 'static computed property should have abrupt complition');
+}, 'static computed property should have abrupt completion');
 assert.sameValue(neverExecuted, false);

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: PrivateFieldSet should return an abrupt complition
+description: PrivateFieldSet should return an abrupt completion
 esid: sec-privatefieldset
 info: |
   PrivateFieldSet (P, O, value)
@@ -37,4 +37,4 @@ class C {
 let c = new C();
 assert.throws(Test262Error, function() {
   c.access();
-}, 'private setter should have abrupt complition');
+}, 'private setter should have abrupt completion');

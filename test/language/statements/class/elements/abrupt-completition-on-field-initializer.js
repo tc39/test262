@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: If an initializer returns an abrupt complition, other initializers should not execute
+description: If an initializer returns an abrupt completion, other initializers should not execute
 esid: sec-ecmascript-function-objects-construct-argumentslist-newtarget
 info: |
   [[Construct]] ( argumentsList, newTarget)
@@ -41,7 +41,7 @@ class C {
 
 assert.throws(Test262Error, function() {
   let c = new C();
-}, 'field initializer should end with abrupt complition');
+}, 'field initializer should end with abrupt completion');
 assert.sameValue(neverExecuted, false);
 
 assert.throws(Test262Error, function() {
@@ -49,5 +49,5 @@ assert.throws(Test262Error, function() {
     static a = abruptCompletion();
     static b = sideEffect();
   }
-}, 'static field initializer should end with abrupt complition');
+}, 'static field initializer should end with abrupt completion');
 assert.sameValue(neverExecuted, false);
