@@ -6,22 +6,31 @@ description: >
 ---*/
 
 function asyncGc(target) {
-  var wr = new WeakRef(target);
-  return asyncGcDeref(wr).then(() => {
-    if (wr.deref()) {
+  var fg = new FinalizationGroup(() => {});
+  fg.register(target, 'target');
+
+  target = null;
+
+  return Promise.resolve('tick').then(() => asyncGcDeref()).then(() => {
+    var names;
+
+    // consume iterator to capture names
+    fg.cleanupSome(iter => { names = [...iter]; });
+
+    if (!names) {
       throw new Test262Error('Object was not collected');
     }
   });
 }
 
-async function asyncGcDeref(wr) {
+async function asyncGcDeref() {
   var trigger;
-
+  
   // TODO: Remove this when $262.clearKeptObject becomes documented and required
   if ($262.clearKeptObjects) {
     trigger = $262.clearKeptObjects();
   }
-
+  
   await $262.gc();
 
   return Promise.resolve(trigger);

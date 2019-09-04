@@ -70,10 +70,6 @@ tests.push(emptyCells().then(function() {
 }));
 
 tests.push(emptyCells().then(function() {
-  assert.sameValue(fg.cleanupSome(class {}), undefined, 'class expression');
-}));
-
-tests.push(emptyCells().then(function() {
   assert.sameValue(fg.cleanupSome(async function() {}), undefined, 'async function');
 }));
 
