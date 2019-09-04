@@ -7,11 +7,14 @@ description: >
 
 function asyncGc(target) {
   var wr = new WeakRef(target);
-  return asyncGcDeref(wr);
-  
+  return asyncGcDeref(wr).then(() => {
+    if (wr.deref()) {
+      throw new Test262Error('Object was not collected');
+    }
+  });
 }
 
-function asyncGcDeref(wr) {
+async function asyncGcDeref(wr) {
   var trigger;
 
   // TODO: Remove this when $262.clearKeptObject becomes documented and required
@@ -19,13 +22,9 @@ function asyncGcDeref(wr) {
     trigger = $262.clearKeptObjects();
   }
 
-  return Promise.resolve(trigger).then(() => {
-    // TODO: Change this accordingly to the documented sync $262.gc
-    $262.gc();
-    if (wr.deref()) {
-      throw new Test262Error('Object was not collected');
-    }
-  });
+  await $262.gc();
+
+  return Promise.resolve(trigger);
 }
 
 // function emptyCells() {
