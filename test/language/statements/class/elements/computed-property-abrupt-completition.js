@@ -20,7 +20,7 @@ info: |
 features: [class-fields-public, class-static-fields-public, class]
 ---*/
 
-function abruptComplition() {
+function abruptCompletion() {
   throw new Test262Error();
 }
 
@@ -28,7 +28,7 @@ let neverExecuted = false;
 
 assert.throws(Test262Error, function() {
   class C {
-    [abruptComplition()];
+    [abruptCompletion()];
     [neverExecuted = true];
   }
 }, 'computed property should have abrupt complition');
@@ -36,7 +36,7 @@ assert.sameValue(neverExecuted, false);
 
 assert.throws(Test262Error, function() {
   class C {
-    static [abruptComplition()];
+    static [abruptCompletion()];
     [neverExecuted = true];
   }
 }, 'static computed property should have abrupt complition');

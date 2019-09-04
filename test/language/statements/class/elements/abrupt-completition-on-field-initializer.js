@@ -3,7 +3,7 @@
 
 /*---
 description: If an initializer returns an abrupt complition, other initializers should not execute
-esid: [[construct]]
+esid: sec-ecmascript-function-objects-construct-argumentslist-newtarget
 info: |
   [[Construct]] ( argumentsList, newTarget)
     ...
@@ -24,7 +24,7 @@ info: |
 features: [class-fields-public, class-static-fields-public, class]
 ---*/
 
-function abruptComplition() {
+function abruptCompletion() {
   throw new Test262Error();
 }
 
@@ -35,7 +35,7 @@ function sideEffect() {
 }
 
 class C {
-  a = abruptComplition();
+  a = abruptCompletion();
   b = sideEffect();
 }
 
@@ -46,7 +46,7 @@ assert.sameValue(neverExecuted, false);
 
 assert.throws(Test262Error, function() {
   class D {
-    static a = abruptComplition();
+    static a = abruptCompletion();
     static b = sideEffect();
   }
 }, 'static field initializer should end with abrupt complition');
