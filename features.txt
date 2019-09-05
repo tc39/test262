@@ -232,4 +232,3 @@ WeakSet
 # object, go here.
 
 IsHTMLDDA
-host-gc-required
