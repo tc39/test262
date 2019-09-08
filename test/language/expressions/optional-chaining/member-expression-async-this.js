@@ -1,0 +1,25 @@
+// Copyright 2019 Google, Inc.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: prod-OptionalExpression
+description: >
+  optional chain on member expression in async context
+info: |
+  Left-Hand-Side Expressions
+    OptionalExpression:
+      MemberExpression [PrimaryExpression this] OptionalChain
+features: [optional-chaining]
+flags: [async]
+---*/
+
+function returnSoon(val) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(val), 5);
+  });
+}
+async function thisFn() {
+  return await this?.a
+}
+thisFn.call({a: returnSoon(33)}).then(function checkAssertions(arg) {
+  assert.sameValue(33, arg);
+}).then($DONE, $DONE);
