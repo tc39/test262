@@ -91,3 +91,15 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   message += 'Expected a ' + expectedErrorConstructor.name + ' to be thrown but no exception was thrown at all';
   $ERROR(message);
 };
+
+assert._toString = function (value) {
+  try {
+    return String(value);
+  } catch (err) {
+    if (err.name === 'TypeError') {
+      return Object.prototype.toString.call(value);
+    }
+
+    throw err;
+  }
+};
