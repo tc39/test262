@@ -58,7 +58,7 @@ assert.notSameValue = function (actual, unexpected, message) {
     message += ' ';
   }
 
-  message += 'Expected SameValue(«' + String(actual) + '», «' + String(unexpected) + '») to be false';
+  message += 'Expected SameValue(«' + assert._toString(actual) + '», «' + assert._toString(unexpected) + '») to be false';
 
   $ERROR(message);
 };
