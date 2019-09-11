@@ -42,7 +42,7 @@ assert.sameValue = function (actual, expected, message) {
     message += ' ';
   }
 
-  message += 'Expected SameValue(«' + String(actual) + '», «' + String(expected) + '») to be true';
+  message += 'Expected SameValue(«' + assert._toString(actual) + '», «' + assert._toString(expected) + '») to be true';
 
   $ERROR(message);
 };
