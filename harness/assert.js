@@ -11,7 +11,7 @@ function assert(mustBeTrue, message) {
   }
 
   if (message === undefined) {
-    message = 'Expected true but got ' + String(mustBeTrue);
+    message = 'Expected true but got ' + assert._toString(mustBeTrue);
   }
   $ERROR(message);
 }
