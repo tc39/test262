@@ -42,12 +42,11 @@ function* g() {
   second += 1;
 };
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([,] = g()) {
+  throw ;
+} catch () {
   assert.sameValue(first, 1);
   assert.sameValue(second, 0);
   ranCatch = true;

@@ -27,12 +27,11 @@ var obj = Object.defineProperty({}, 'attr', {
   }
 });
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({} = obj) {
+  throw ;
+} catch () {
   assert.sameValue(accessCount, 0);
   ranCatch = true;
 }

@@ -32,9 +32,8 @@ info: |
     4. If IsUnresolvableReference(V), throw a ReferenceError exception.
 ---*/
 
-
 assert.throws(ReferenceError, function() {
-    try {
-      throw undefined;
-    } catch ({ x: y = unresolvableReference } = {}) {}
-  });
+	try {
+		throw ;
+	} catch () {}
+});

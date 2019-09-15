@@ -34,9 +34,8 @@ info: |
     2. ReturnIfAbrupt(iterator).
 ---*/
 
-
 assert.throws(TypeError, function() {
-    try {
-      throw undefined;
-    } catch ([[x]] = [null]) {}
-  });
+	try {
+		throw ;
+	} catch () {}
+});

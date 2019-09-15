@@ -29,12 +29,11 @@ info: |
     8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([cls = class {}, xCls = class X {}, xCls2 = class { static name() {} }] = []) {
+  throw ;
+} catch () {
   assert.sameValue(cls.name, 'cls');
   assert.notSameValue(xCls.name, 'xCls');
   assert.notSameValue(xCls2.name, 'xCls2');

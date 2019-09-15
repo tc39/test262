@@ -26,12 +26,11 @@ info: |
     8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([_, x] = []) {
+  throw ;
+} catch () {
   assert.sameValue(x, undefined);
   ranCatch = true;
 }

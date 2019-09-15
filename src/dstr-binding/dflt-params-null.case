@@ -1,0 +1,20 @@
+// Copyright (C) 2019 Sergey Rubanov. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Use of initializer when argument value is `null`
+template: default
+info: |
+  https://github.com/tc39/ecma262/pull/1126
+
+  Catch : catch ( CatchParameter ) Block
+
+  CatchParameter[Yield, Await] :
+    FormalParameter[?Yield, ?Await]
+---*/
+
+//- throwVal
+null
+//- params
+e = 42
+//- body
+assert.sameValue(e, null);

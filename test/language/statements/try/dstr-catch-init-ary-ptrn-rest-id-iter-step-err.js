@@ -34,12 +34,11 @@ var iter = function*() {
   second += 1;
 }();
 
-
 assert.throws(Test262Error, function() {
-    try {
-      throw undefined;
-    } catch ([...x] = iter) {}
-  });
+	try {
+		throw ;
+	} catch () {}
+});
 
 iter.next();
 assert.sameValue(first, 1);

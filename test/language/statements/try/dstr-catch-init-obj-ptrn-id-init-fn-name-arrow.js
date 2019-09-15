@@ -28,12 +28,11 @@ info: |
                bindingId).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({ arrow = () => {} } = {}) {
+  throw ;
+} catch () {
   assert.sameValue(arrow.name, 'arrow');
   ranCatch = true;
 }

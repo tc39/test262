@@ -33,12 +33,11 @@ function* g() {
   callCount += 1;
 };
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([[,] = g()] = [[]]) {
+  throw ;
+} catch () {
   assert.sameValue(callCount, 0);
   ranCatch = true;
 }

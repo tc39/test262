@@ -28,12 +28,11 @@ info: |
        [...]
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([...{ length }] = [1, 2, 3]) {
+  throw ;
+} catch () {
   assert.sameValue(length, 3);
   ranCatch = true;
 }

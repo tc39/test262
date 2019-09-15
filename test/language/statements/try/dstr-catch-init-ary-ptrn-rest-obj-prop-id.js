@@ -29,12 +29,11 @@ info: |
 ---*/
 let length = "outer";
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([...{ 0: v, 1: w, 2: x, 3: y, length: z }] = [7, 8, 9]) {
+  throw ;
+} catch () {
   assert.sameValue(v, 7);
   assert.sameValue(w, 8);
   assert.sameValue(x, 9);

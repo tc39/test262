@@ -30,12 +30,11 @@ info: |
 var values = [2, 1, 3];
 var initCount = 0;
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([[...x] = function() { initCount += 1; }()] = [values]) {
+  throw ;
+} catch () {
   assert(Array.isArray(x));
   assert.sameValue(x[0], 2);
   assert.sameValue(x[1], 1);

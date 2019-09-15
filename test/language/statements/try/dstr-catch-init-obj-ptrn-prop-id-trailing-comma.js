@@ -22,12 +22,11 @@ info: |
         { BindingPropertyList[?Yield] , }
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({ x: y, } = { x: 23 }) {
+  throw ;
+} catch () {
   assert.sameValue(y, 23);
 
   assert.throws(ReferenceError, function() {

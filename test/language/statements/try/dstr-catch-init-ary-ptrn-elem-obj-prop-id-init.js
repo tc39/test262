@@ -27,12 +27,11 @@ info: |
        with v and environment as the arguments.
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([{ u: v, w: x, y: z } = { u: 444, w: 555, y: 666 }] = []) {
+  throw ;
+} catch () {
   assert.sameValue(v, 444);
   assert.sameValue(x, 555);
   assert.sameValue(z, 666);

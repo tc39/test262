@@ -27,11 +27,10 @@ function thrower() {
   throw new Test262Error();
 }
 
-
 assert.throws(Test262Error, function() {
-    try {
-      throw undefined;
-    } catch ({ a, b = thrower(), c = ++initCount } = {}) {}
-  });
+	try {
+		throw ;
+	} catch () {}
+});
 
 assert.sameValue(initCount, 0);

@@ -22,12 +22,11 @@ info: |
     8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({ x: y = 33 } = { }) {
+  throw ;
+} catch () {
   assert.sameValue(y, 33);
   assert.throws(ReferenceError, function() {
     x;

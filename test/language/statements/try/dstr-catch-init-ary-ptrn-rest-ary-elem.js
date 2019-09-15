@@ -48,12 +48,11 @@ info: |
     8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([...[x, y, z]] = [3, 4, 5]) {
+  throw ;
+} catch () {
   assert.sameValue(x, 3);
   assert.sameValue(y, 4);
   assert.sameValue(z, 5);

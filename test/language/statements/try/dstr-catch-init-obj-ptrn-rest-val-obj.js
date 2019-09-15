@@ -16,12 +16,11 @@ info: |
       FormalParameter[?Yield, ?Await]
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({a, b, ...rest} = {x: 1, y: 2, a: 5, b: 3}) {
+  throw ;
+} catch () {
   assert.sameValue(rest.a, undefined);
   assert.sameValue(rest.b, undefined);
 

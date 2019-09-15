@@ -23,12 +23,11 @@ info: |
        passing v and environment as arguments.
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({ w: [x, y, z] = [4, 5, 6] } = { w: [7, undefined, ] }) {
+  throw ;
+} catch () {
   assert.sameValue(x, 7);
   assert.sameValue(y, undefined);
   assert.sameValue(z, undefined);

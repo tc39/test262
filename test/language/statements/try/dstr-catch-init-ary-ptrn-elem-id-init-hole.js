@@ -23,12 +23,11 @@ info: |
     7. If environment is undefined, return PutValue(lhs, v). 8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([x = 23] = [,]) {
+  throw ;
+} catch () {
   assert.sameValue(x, 23);
   // another statement
   ranCatch = true;

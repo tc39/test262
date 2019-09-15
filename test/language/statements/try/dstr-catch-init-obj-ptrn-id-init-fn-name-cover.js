@@ -28,12 +28,11 @@ info: |
                bindingId).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({ cover = (function () {}), xCover = (0, function() {})  } = {}) {
+  throw ;
+} catch () {
   assert.sameValue(cover.name, 'cover');
   assert.notSameValue(xCover.name, 'xCover');
   ranCatch = true;

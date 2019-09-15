@@ -29,12 +29,11 @@ info: |
 ---*/
 var initCount = 0;
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([[] = function() { initCount += 1; }()] = [[23]]) {
+  throw ;
+} catch () {
   assert.sameValue(initCount, 0);
   ranCatch = true;
 }

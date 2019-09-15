@@ -29,12 +29,11 @@ info: |
     8. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([fn = function () {}, xFn = function x() {}] = []) {
+  throw ;
+} catch () {
   assert.sameValue(fn.name, 'fn');
   assert.notSameValue(xFn.name, 'xFn');
   ranCatch = true;

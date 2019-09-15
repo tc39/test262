@@ -1,0 +1,20 @@
+// Copyright (C) 2019 Sergey Rubanov. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+template: error
+desc: Abrupt completion returned by evaluation of initializer
+info: |
+  https://github.com/tc39/ecma262/pull/1126
+
+  Catch : catch ( CatchParameter ) Block
+
+  CatchParameter[Yield, Await] :
+    FormalParameter[?Yield, ?Await]
+---*/
+
+//- throwVal
+undefined
+//- params
+_ = (function() { throw new Test262Error(); }())
+//- error
+Test262Error

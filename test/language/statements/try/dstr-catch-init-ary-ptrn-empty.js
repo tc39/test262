@@ -26,12 +26,11 @@ var iter = function*() {
   iterations += 1;
 }();
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([] = iter) {
+  throw ;
+} catch () {
   assert.sameValue(iterations, 0);
   ranCatch = true;
 }

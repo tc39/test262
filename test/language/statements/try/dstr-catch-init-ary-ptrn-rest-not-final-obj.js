@@ -25,12 +25,11 @@ info: |
 ---*/
 $DONOTEVALUATE();
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([...{ x }, y] = [1, 2, 3]) {
+  throw ;
+} catch () {
   
   ranCatch = true;
 }

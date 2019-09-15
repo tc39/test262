@@ -28,12 +28,11 @@ function counter() {
   initCount += 1;
 }
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({ w = counter(), x = counter(), y = counter(), z = counter() } = { w: null, x: 0, y: false, z: '' }) {
+  throw ;
+} catch () {
   assert.sameValue(w, null);
   assert.sameValue(x, 0);
   assert.sameValue(y, false);

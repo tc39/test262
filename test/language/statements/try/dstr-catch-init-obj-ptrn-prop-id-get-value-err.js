@@ -28,11 +28,10 @@ var poisonedProperty = Object.defineProperty({}, 'poisoned', {
   }
 });
 
-
 assert.throws(Test262Error, function() {
-    try {
-      throw undefined;
-    } catch ({ poisoned: x = ++initEvalCount } = poisonedProperty) {}
-  });
+	try {
+		throw ;
+	} catch () {}
+});
 
 assert.sameValue(initEvalCount, 0);

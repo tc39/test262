@@ -40,9 +40,8 @@ iter[Symbol.iterator] = function() {
   };
 };
 
-
 assert.throws(Test262Error, function() {
-    try {
-      throw undefined;
-    } catch ([...x] = iter) {}
-  });
+	try {
+		throw ;
+	} catch () {}
+});

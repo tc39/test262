@@ -30,12 +30,11 @@ info: |
 
 ---*/
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([gen = function* () {}, xGen = function* x() {}] = []) {
+  throw ;
+} catch () {
   assert.sameValue(gen.name, 'gen');
   assert.notSameValue(xGen.name, 'xGen');
   ranCatch = true;

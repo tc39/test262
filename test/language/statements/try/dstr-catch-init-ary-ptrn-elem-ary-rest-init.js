@@ -28,12 +28,11 @@ info: |
 ---*/
 var values = [2, 1, 3];
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([[...x] = values] = []) {
+  throw ;
+} catch () {
   assert(Array.isArray(x));
   assert.sameValue(x[0], 2);
   assert.sameValue(x[1], 1);

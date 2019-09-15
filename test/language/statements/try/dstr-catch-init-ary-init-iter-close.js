@@ -38,12 +38,11 @@ iter[Symbol.iterator] = function() {
   };
 };
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ([x] = iter) {
+  throw ;
+} catch () {
   assert.sameValue(doneCallCount, 1);
   ranCatch = true;
 }

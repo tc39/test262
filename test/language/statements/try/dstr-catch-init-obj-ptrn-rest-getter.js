@@ -17,12 +17,11 @@ info: |
 ---*/
 var count = 0;
 
-
 var ranCatch = false;
 
 try {
-  throw undefined;
-} catch ({...x} = { get v() { count++; return 2; } }) {
+  throw ;
+} catch () {
   assert.sameValue(count, 1);
 
   verifyProperty(x, "v", {
