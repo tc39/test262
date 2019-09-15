@@ -9,10 +9,10 @@ description: Checking for Number object
 
 //CHECK#1
 if (parseInt("11", new Number(2)) !== parseInt("11", 2)) {
-  $ERROR('#1: parseInt("11", new Number(2)) === parseInt("11", 2). Actual: ' + (parseInt("11", new Number(2))));
+  throw new Test262Error('#1: parseInt("11", new Number(2)) === parseInt("11", 2). Actual: ' + (parseInt("11", new Number(2))));
 }
 
 //CHECK#2
 if (parseInt("11", new Number(Infinity)) !== parseInt("11", Infinity)) {
-  $ERROR('#2: parseInt("11", new Number(Infinity)) === parseInt("11", Infinity). Actual: ' + (parseInt("11", new Number(Infinity))));
+  throw new Test262Error('#2: parseInt("11", new Number(Infinity)) === parseInt("11", Infinity). Actual: ' + (parseInt("11", new Number(Infinity))));
 }

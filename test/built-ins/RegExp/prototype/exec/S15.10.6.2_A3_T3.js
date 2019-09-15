@@ -134,8 +134,8 @@ var __the__raven = "	Once upon a midnight dreary, while I pondered weak and wear
         "And my soul from out that shadow that lies floating on the floor" +
         "Shall be lifted - nevermore!"
 
-var NEVERMORE_AND_EVERMORE=12;       
-       
+var NEVERMORE_AND_EVERMORE=12;
+
 var __re = /[Nn]?evermore/g;
 var __matched=0;
 
@@ -150,5 +150,5 @@ do{
 
 //CHECK#1
 if (__matched !== NEVERMORE_AND_EVERMORE) {
-	$ERROR('#1: __re = /[Nn]?evermore/g; __executed = __re.exec(__the__raven)'+__matched);
+	throw new Test262Error('#1: __re = /[Nn]?evermore/g; __executed = __re.exec(__the__raven)'+__matched);
 }

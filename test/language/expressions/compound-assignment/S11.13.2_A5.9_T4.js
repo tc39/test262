@@ -30,5 +30,5 @@ with (scope) {
 }
 
 if (scope.x !== 1) {
-  $ERROR('#1: scope.x === 1. Actual: ' + (scope.x));
+  throw new Test262Error('#1: scope.x === 1. Actual: ' + (scope.x));
 }

@@ -13,14 +13,14 @@ function __FUNC(){
     function __GUNC(){
         return arguments[0];
     };
-    
+
     return __GUNC;
 };
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (__FUNC()(__JEDI) !== __JEDI) {
-	$ERROR('#1: __FUNC()(__JEDI) === __JEDI. Actual: __FUNC()(__JEDI) ==='+__FUNC()(__JEDI));
+	throw new Test262Error('#1: __FUNC()(__JEDI) === __JEDI. Actual: __FUNC()(__JEDI) ==='+__FUNC()(__JEDI));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

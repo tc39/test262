@@ -9,12 +9,12 @@ description: "StrWhiteSpaceChar :: NBSB (U+00A0)"
 
 //CHECK#1
 if (parseInt("\u00A01") !== parseInt("1")) {
-  $ERROR('#1: parseInt("\\u00A01") === parseInt("1"). Actual: ' + (parseInt("\u00A01")));
+  throw new Test262Error('#1: parseInt("\\u00A01") === parseInt("1"). Actual: ' + (parseInt("\u00A01")));
 }
 
 //CHECK#2
 if (parseInt("\u00A0\u00A0-1") !== parseInt("-1")) {
-  $ERROR('#2: parseInt("\\u00A0\\u00A0-1") === parseInt("-1"). Actual: ' + (parseInt("\u00A0\u00A0-1")));
+  throw new Test262Error('#2: parseInt("\\u00A0\\u00A0-1") === parseInt("-1"). Actual: ' + (parseInt("\u00A0\u00A0-1")));
 }
 
 //CHECK#3

@@ -17,9 +17,9 @@ i = 1;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try {
-	for(eval("i in arr");1;) {break;};	
-} catch (e) {	
-		$ERROR('#1.1: for(eval("i in arr");1;) {break;}; does not lead to throwing exception');	
+	for(eval("i in arr");1;) {break;};
+} catch (e) {
+		throw new Test262Error('#1.1: for(eval("i in arr");1;) {break;}; does not lead to throwing exception');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -27,9 +27,9 @@ try {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 try {
-	for(eval("var i = 1 in arr");1;) {break;};	
-} catch (e) {	
-		$ERROR('#2.1: for(eval("var i = 1 in arr");1;) {break;}; does not lead to throwing exception');	
+	for(eval("var i = 1 in arr");1;) {break;};
+} catch (e) {
+		throw new Test262Error('#2.1: for(eval("var i = 1 in arr");1;) {break;}; does not lead to throwing exception');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -38,8 +38,8 @@ try {
 //CHECK#3
 try {
 	for(eval("1 in arr");1;) {break;};
-} catch (e) {	
-		$ERROR('#3.1: for(eval("1 in arr");1;) {break;}; does not lead to throwing exception');	
+} catch (e) {
+		throw new Test262Error('#3.1: for(eval("1 in arr");1;) {break;}; does not lead to throwing exception');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

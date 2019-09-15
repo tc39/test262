@@ -35,7 +35,7 @@ if (toString === Object.prototype.toString) {
   //////////////////////////////////////////////////////////////////////////////
   //CHECK#1
   if (typeof __split !== "object") {
-    $ERROR('#1: typeof __split === "object". Actual: ' + typeof __split);
+    throw new Test262Error('#1: typeof __split === "object". Actual: ' + typeof __split);
   }
   //
   //////////////////////////////////////////////////////////////////////////////
@@ -43,7 +43,7 @@ if (toString === Object.prototype.toString) {
   //////////////////////////////////////////////////////////////////////////////
   //CHECK#2
   if (__split.constructor !== Array) {
-    $ERROR('#2: __split.constructor === Array. Actual: ' + __split.constructor);
+    throw new Test262Error('#2: __split.constructor === Array. Actual: ' + __split.constructor);
   }
   //
   //////////////////////////////////////////////////////////////////////////////
@@ -51,7 +51,7 @@ if (toString === Object.prototype.toString) {
   //////////////////////////////////////////////////////////////////////////////
   //CHECK#3
   if (__split.length !== 2) {
-    $ERROR('#3: __split.length === 2. Actual: ' + __split.length);
+    throw new Test262Error('#3: __split.length === 2. Actual: ' + __split.length);
   }
   //
   //////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ if (toString === Object.prototype.toString) {
   //////////////////////////////////////////////////////////////////////////////
   //CHECK#3
   if (__split[1].substring(0, 6) !== "object") {
-    $ERROR('#4: __split[1].substring(0,6) === "object". Actual: ' + __split[1].substring(0, 6));
+    throw new Test262Error('#4: __split[1].substring(0,6) === "object". Actual: ' + __split[1].substring(0, 6));
   }
   //
   //////////////////////////////////////////////////////////////////////////////

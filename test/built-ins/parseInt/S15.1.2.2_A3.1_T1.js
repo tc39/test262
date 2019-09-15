@@ -9,7 +9,7 @@ description: Checking for boolean primitive
 
 //CHECK#1
 if (parseInt("11", false) !== parseInt("11", 10)) {
-  $ERROR('#1: parseInt("11", false) === parseInt("11", 10). Actual: ' + (parseInt("11", false)));
+  throw new Test262Error('#1: parseInt("11", false) === parseInt("11", 10). Actual: ' + (parseInt("11", false)));
 }
 
 //CHECK#2

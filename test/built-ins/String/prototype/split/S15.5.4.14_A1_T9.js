@@ -25,7 +25,7 @@ var __split = new String(__obj).split(function() {}());
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (typeof __split !== "object") {
-  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); typeof __split === "object". Actual: ' + typeof __split);
+  throw new Test262Error('#1: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); typeof __split === "object". Actual: ' + typeof __split);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ if (typeof __split !== "object") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.constructor !== Array) {
-  $ERROR('#2: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); __split.constructor === Array. Actual: ' + __split.constructor);
+  throw new Test262Error('#2: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); __split.constructor === Array. Actual: ' + __split.constructor);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -41,7 +41,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 if (__split.length !== 1) {
-  $ERROR('#3: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); __split.length === 1. Actual: ' + __split.length);
+  throw new Test262Error('#3: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); __split.length === 1. Actual: ' + __split.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ if (__split.length !== 1) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
 if (__split[0] !== "undefined") {
-  $ERROR('#4: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); __split[0] !== "undefined". Actual: ' + __split[0]);
+  throw new Test262Error('#4: __obj = {valueOf:function(){}, toString:void 0}; __split = new String(__obj).split(function(){}()); __split[0] !== "undefined". Actual: ' + __split[0]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

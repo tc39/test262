@@ -13,18 +13,18 @@ description: >
 
 //CHECK#0
 if (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {
-  $ERROR('#0: the Object.prototype.isPrototypeOf has length property');
+  throw new Test262Error('#0: the Object.prototype.isPrototypeOf has length property');
 }
 
 
 // CHECK#1
 if (Object.prototype.isPrototypeOf.propertyIsEnumerable('length')) {
-  $ERROR('#1: the Object.prototype.isPrototypeOf.length property has the attributes DontEnum');
+  throw new Test262Error('#1: the Object.prototype.isPrototypeOf.length property has the attributes DontEnum');
 }
 
 // CHECK#2
 for (var p in Object.prototype.isPrototypeOf) {
   if (p === "length")
-    $ERROR('#2: the Object.prototype.isPrototypeOf.length property has the attributes DontEnum');
+    throw new Test262Error('#2: the Object.prototype.isPrototypeOf.length property has the attributes DontEnum');
 }
 //

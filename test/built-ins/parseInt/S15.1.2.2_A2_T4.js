@@ -9,12 +9,12 @@ description: "StrWhiteSpaceChar :: FF (U+000C)"
 
 //CHECK#1
 if (parseInt("\u000C1") !== parseInt("1")) {
-  $ERROR('#1: parseInt("\\u000C1") === parseInt("1"). Actual: ' + (parseInt("\u000C1")));
+  throw new Test262Error('#1: parseInt("\\u000C1") === parseInt("1"). Actual: ' + (parseInt("\u000C1")));
 }
 
 //CHECK#2
 if (parseInt("\u000C\u000C-1") !== parseInt("-1")) {
-  $ERROR('#2: parseInt("\\u000C\\u000C-1") === parseInt("-1"). Actual: ' + (parseInt("\u000C\u000C-1")));
+  throw new Test262Error('#2: parseInt("\\u000C\\u000C-1") === parseInt("-1"). Actual: ' + (parseInt("\u000C\u000C-1")));
 }
 
 //CHECK#3

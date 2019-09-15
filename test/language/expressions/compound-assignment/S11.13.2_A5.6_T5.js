@@ -28,5 +28,5 @@ Object.defineProperty(this, "x", {
 })();
 
 if (this.x !== 16) {
-  $ERROR('#1: this.x === 16. Actual: ' + (this.x));
+  throw new Test262Error('#1: this.x === 16. Actual: ' + (this.x));
 }

@@ -17,14 +17,14 @@ FOR : for(;;){
 		throw 1;
 	} catch(e){
 		continue;
-	}	
+	}
 }
 })();
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (x!==10) {
-	$ERROR('#1: Continue inside of try-catch nested in loop is allowed');
+	throw new Test262Error('#1: Continue inside of try-catch nested in loop is allowed');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

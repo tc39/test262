@@ -14,7 +14,7 @@ do_out : while(1===1) {
     var __in__do__before__break="black";
     do_in : while (1) {
         var __in__do__IN__before__break="hole";
-        break do_in; 
+        break do_in;
         var __in__do__IN__after__break="sun";
     } ;
     var __in__do__after__break="won't you come";
@@ -23,7 +23,7 @@ do_out : while(1===1) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (!(__in__do__before__break&&__in__do__IN__before__break&&!__in__do__IN__after__break&&__in__do__after__break)) {
-	$ERROR('#1: Break inside do-while is allowed as its described at standard');
+	throw new Test262Error('#1: Break inside do-while is allowed as its described at standard');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

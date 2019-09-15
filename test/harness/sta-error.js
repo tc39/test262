@@ -9,7 +9,7 @@ description: >
 var threw = false;
 
 try {
-  $ERROR('This is a test message');
+  throw new Test262Error('This is a test message');
 } catch(err) {
   threw = true;
   if (err.constructor !== Test262Error) {
@@ -24,5 +24,5 @@ try {
 }
 
 if (threw === false) {
-  $ERROR('Expected a Test262Error, but no error was thrown.');
+  throw new Test262Error('Expected a Test262Error, but no error was thrown.');
 }

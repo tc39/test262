@@ -18,5 +18,5 @@ $ERROR = function() {
 };
 
 assert.throws(BaloneyError, function() {
-  $ERROR();
+  throw new Test262Error();
 });

@@ -14,7 +14,7 @@ includes: [propertyHelper.js]
 
 //CHECK#1
 if (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {
-  $ERROR('#1: the Object.prototype.isPrototypeOf has length property');
+  throw new Test262Error('#1: the Object.prototype.isPrototypeOf has length property');
 }
 
 var obj = Object.prototype.isPrototypeOf.length;
@@ -25,5 +25,5 @@ verifyNotWritable(Object.prototype.isPrototypeOf, "length", null, function() {
 
 //CHECK#2
 if (Object.prototype.isPrototypeOf.length !== obj) {
-  $ERROR('#2: the Object.prototype.isPrototypeOf length property has the attributes ReadOnly');
+  throw new Test262Error('#2: the Object.prototype.isPrototypeOf length property has the attributes ReadOnly');
 }

@@ -12,5 +12,5 @@ includes: [propertyHelper.js]
 var x = parseInt.length;
 verifyNotWritable(parseInt, "length", null, Infinity);
 if (parseInt.length !== x) {
-  $ERROR('#1: x = parseInt.length; parseInt.length = Infinity; parseInt.length === x. Actual: ' + (parseInt.length));
+  throw new Test262Error('#1: x = parseInt.length; parseInt.length = Infinity; parseInt.length === x. Actual: ' + (parseInt.length));
 }

@@ -11,7 +11,7 @@ description: >
     prototype contain it
 ---*/
 
-//Establish foo object 
+//Establish foo object
 function FooObj(){}; FooObj.prototype.propFoo="some";
 
 // Invoke instance of foo object
@@ -20,7 +20,7 @@ var __obj= new FooObj;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (__obj.propFoo !== "some"){
-  $ERROR('#1: function FooObj(){}; FooObj.prototype.propFoo="some"; var __obj= new FooObj; __obj.propFoo === "some". Actual: ' + (__obj.propFoo));
+  throw new Test262Error('#1: function FooObj(){}; FooObj.prototype.propFoo="some"; var __obj= new FooObj; __obj.propFoo === "some". Actual: ' + (__obj.propFoo));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -28,7 +28,7 @@ if (__obj.propFoo !== "some"){
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__obj['propFoo'] !== "some"){
-  $ERROR('#1: function FooObj(){}; FooObj.prototype.propFoo="some"; var __obj= new FooObj; __obj[\'propFoo\'] === "some". Actual: ' + (__obj['propFoo']));
+  throw new Test262Error('#1: function FooObj(){}; FooObj.prototype.propFoo="some"; var __obj= new FooObj; __obj[\'propFoo\'] === "some". Actual: ' + (__obj['propFoo']));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

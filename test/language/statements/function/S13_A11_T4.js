@@ -15,14 +15,14 @@ function __func(){
     {
         delete arguments[i];
         is_undef= is_undef && (typeof arguments[i] === "undefined");
-    };       
+    };
     return is_undef;
 };
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (!__func("A","B",1,2)) {
-	$ERROR('#1: Since arguments property has attribute { DontDelete }, but elements of arguments can be deleted');
+	throw new Test262Error('#1: Since arguments property has attribute { DontDelete }, but elements of arguments can be deleted');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

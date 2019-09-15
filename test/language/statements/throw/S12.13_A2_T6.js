@@ -9,8 +9,8 @@ es5id: 12.13_A2_T6
 description: Throwing object
 ---*/
 
-var myObj = {p1: 'a', 
-             p2: 'b', 
+var myObj = {p1: 'a',
+             p2: 'b',
              p3: 'c',
              value: 'myObj_value',
              valueOf : function(){return 'obj_valueOf';},
@@ -27,13 +27,13 @@ var myObj = {p1: 'a',
 try{
   throw myObj;
 }
-catch(e){	
+catch(e){
 // CHECK#1
-  if (e.p1!=="a") $ERROR('#1: e.p1 === "a". Actual:  e.p1 ==='+ e.p1  );
+  if (e.p1!=="a") throw new Test262Error('#1: e.p1 === "a". Actual:  e.p1 ==='+ e.p1  );
 // CHECK#2
-  if (e.value!=='myObj_value') $ERROR('#2: e.p1 === \'myObj_value\'. Actual:  e.p1 ==='+ e.p1  );
+  if (e.value!=='myObj_value') throw new Test262Error('#2: e.p1 === \'myObj_value\'. Actual:  e.p1 ==='+ e.p1  );
 // CHECK#3
-  if (e.eval()!=='obj_eval') $ERROR('#3: e.p1 === \'obj_eval\'. Actual:  e.p1 ==='+ e.p1  );
+  if (e.eval()!=='obj_eval') throw new Test262Error('#3: e.p1 === \'obj_eval\'. Actual:  e.p1 ==='+ e.p1  );
 }
 
 // CHECK#4
@@ -42,4 +42,4 @@ try{
   throw myObj;
 }
 catch(e){}
-if (myObj.i!==6) $ERROR('#4: Handling of catch must be correct');
+if (myObj.i!==6) throw new Test262Error('#4: Handling of catch must be correct');

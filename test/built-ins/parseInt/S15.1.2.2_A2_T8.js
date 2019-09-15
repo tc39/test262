@@ -9,12 +9,12 @@ description: "StrWhiteSpaceChar :: LS (U+2028)"
 
 //CHECK#1
 if (parseInt("\u20281") !== parseInt("1")) {
-  $ERROR('#1: parseInt("\\u20281") === parseInt("1"). Actual: ' + (parseInt("\u20281")));
+  throw new Test262Error('#1: parseInt("\\u20281") === parseInt("1"). Actual: ' + (parseInt("\u20281")));
 }
 
 //CHECK#2
 if (parseInt("\u2028\u2028-1") !== parseInt("-1")) {
-  $ERROR('#2: parseInt("\\u2028\\u2028-1") === parseInt("-1"). Actual: ' + (parseInt("\u2028\u2028-1")));
+  throw new Test262Error('#2: parseInt("\\u2028\\u2028-1") === parseInt("-1"). Actual: ' + (parseInt("\u2028\u2028-1")));
 }
 
 //CHECK#3

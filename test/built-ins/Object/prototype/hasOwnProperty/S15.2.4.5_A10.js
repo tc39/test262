@@ -14,7 +14,7 @@ includes: [propertyHelper.js]
 
 //CHECK#1
 if (!(Object.prototype.hasOwnProperty.hasOwnProperty('length'))) {
-  $ERROR('#1: the Object.prototype.hasOwnProperty has length property.');
+  throw new Test262Error('#1: the Object.prototype.hasOwnProperty has length property.');
 }
 
 var obj = Object.prototype.hasOwnProperty.length;
@@ -25,5 +25,5 @@ verifyNotWritable(Object.prototype.hasOwnProperty, "length", null, function() {
 
 //CHECK#2
 if (Object.prototype.hasOwnProperty.length !== obj) {
-  $ERROR('#2: the Object.prototype.hasOwnProperty length property has the attributes ReadOnly.');
+  throw new Test262Error('#2: the Object.prototype.hasOwnProperty length property has the attributes ReadOnly.');
 }

@@ -9,15 +9,15 @@ description: Checking for string primitive
 
 //CHECK#1
 if (parseInt("11", "2") !== parseInt("11", 2)) {
-  $ERROR('#1: parseInt("11", "2") === parseInt("11", 2). Actual: ' + (parseInt("11", "2")));
+  throw new Test262Error('#1: parseInt("11", "2") === parseInt("11", 2). Actual: ' + (parseInt("11", "2")));
 }
 
 //CHECK#2
 if (parseInt("11", "0") !== parseInt("11", 10)) {
-  $ERROR('#2: parseInt("11", "0") === parseInt("11", 10). Actual: ' + (parseInt("11", "0")));
+  throw new Test262Error('#2: parseInt("11", "0") === parseInt("11", 10). Actual: ' + (parseInt("11", "0")));
 }
 
 //CHECK#3
 if (parseInt("11", "") !== parseInt("11", 10)) {
-  $ERROR('#3: parseInt("11", "") === parseInt("11", 10). Actual: ' + (parseInt("11", "")));
+  throw new Test262Error('#3: parseInt("11", "") === parseInt("11", 10). Actual: ' + (parseInt("11", "")));
 }

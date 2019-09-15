@@ -12,11 +12,11 @@ description: Break statement
 //CHECK#1
 try {
   eval("break;");
-  $ERROR('#1.1: break must throw SyntaxError. Actual: ' + (eval("break;")));
+  throw new Test262Error('#1.1: break must throw SyntaxError. Actual: ' + (eval("break;")));
 } catch(e) {
   if ((e instanceof SyntaxError) !== true) {
-    $ERROR('#1.2: break must throw SyntaxError. Actual: ' + (e));
-  }  
+    throw new Test262Error('#1.2: break must throw SyntaxError. Actual: ' + (e));
+  }
 }
 
 //CHECK#2
@@ -26,9 +26,9 @@ try {
        eval("break;");
     }
   }
-  $ERROR('#2.1: break must throw SyntaxError. Actual: ' + (eval("break;")));    
+  throw new Test262Error('#2.1: break must throw SyntaxError. Actual: ' + (eval("break;")));
 } catch(e) {
-  if ((e instanceof SyntaxError) !== true) {   
-    $ERROR('#2.2: break must throw SyntaxError. Actual: ' + (e));
-  }  
+  if ((e instanceof SyntaxError) !== true) {
+    throw new Test262Error('#2.2: break must throw SyntaxError. Actual: ' + (e));
+  }
 }

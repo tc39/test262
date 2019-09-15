@@ -9,12 +9,12 @@ description: "StrWhiteSpaceChar :: VT (U+000B)"
 
 //CHECK#1
 if (parseInt("\u000B1") !== parseInt("1")) {
-  $ERROR('#1: parseInt("\\u000B1") === parseInt("1"). Actual: ' + (parseInt("\u000B1")));
+  throw new Test262Error('#1: parseInt("\\u000B1") === parseInt("1"). Actual: ' + (parseInt("\u000B1")));
 }
 
 //CHECK#2
 if (parseInt("\u000B\u000B-1") !== parseInt("-1")) {
-  $ERROR('#2: parseInt("\\u000B\\u000B-1") === parseInt("-1"). Actual: ' + (parseInt("\u000B\u000B-1")));
+  throw new Test262Error('#2: parseInt("\\u000B\\u000B-1") === parseInt("-1"). Actual: ' + (parseInt("\u000B\u000B-1")));
 }
 
 //CHECK#3

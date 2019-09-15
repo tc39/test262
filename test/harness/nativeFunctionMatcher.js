@@ -9,41 +9,41 @@ includes: [nativeFunctionMatcher.js]
 ---*/
 
 if (!NATIVE_FUNCTION_RE.test('function(){[native code]}')) {
-  $ERROR('expected string to pass: "function(){[native code]}"');
+  throw new Test262Error('expected string to pass: "function(){[native code]}"');
 }
 
 if (!NATIVE_FUNCTION_RE.test('function(){ [native code] }')) {
-  $ERROR('expected string to pass: "function(){ [native code] }"');
+  throw new Test262Error('expected string to pass: "function(){ [native code] }"');
 }
 
 if (!NATIVE_FUNCTION_RE.test('function ( ) { [ native code ] }')) {
-  $ERROR('expected string to pass: "function ( ) { [ native code ] }"');
+  throw new Test262Error('expected string to pass: "function ( ) { [ native code ] }"');
 }
 
 if (!NATIVE_FUNCTION_RE.test('function a(){ [native code] }')) {
-  $ERROR('expected string to pass: "function a(){ [native code] }"');
+  throw new Test262Error('expected string to pass: "function a(){ [native code] }"');
 }
 
 if (!NATIVE_FUNCTION_RE.test('function a(){ /* } */ [native code] }')) {
-  $ERROR('expected string to pass: "function a(){ /* } */ [native code] }"');
+  throw new Test262Error('expected string to pass: "function a(){ /* } */ [native code] }"');
 }
 
 if (NATIVE_FUNCTION_RE.test('')) {
-  $ERROR('expected string to fail: ""');
+  throw new Test262Error('expected string to fail: ""');
 }
 
 if (NATIVE_FUNCTION_RE.test('native code')) {
-  $ERROR('expected string to fail: "native code"');
+  throw new Test262Error('expected string to fail: "native code"');
 }
 
 if (NATIVE_FUNCTION_RE.test('function(){}')) {
-  $ERROR('expected string to fail: "function(){}"');
+  throw new Test262Error('expected string to fail: "function(){}"');
 }
 
 if (NATIVE_FUNCTION_RE.test('function(){ "native code" }')) {
-  $ERROR('expected string to fail: "function(){ "native code" }"');
+  throw new Test262Error('expected string to fail: "function(){ "native code" }"');
 }
 
 if (NATIVE_FUNCTION_RE.test('function(){ [] native code }')) {
-  $ERROR('expected string to fail: "function(){ [] native code }"');
+  throw new Test262Error('expected string to fail: "function(){ [] native code }"');
 }

@@ -10,10 +10,10 @@ esid: sec-parseint-string-radix
 
 //CHECK#1
 if (parseInt("11", new String("2")) !== parseInt("11", 2)) {
-  $ERROR('#1: parseInt("11", new String("2")) === parseInt("11", 2). Actual: ' + (parseInt("11", new String("2"))));
+  throw new Test262Error('#1: parseInt("11", new String("2")) === parseInt("11", 2). Actual: ' + (parseInt("11", new String("2"))));
 }
 
 //CHECK#2
 if (parseInt("11", new String("Infinity")) !== parseInt("11", Infinity)) {
-  $ERROR('#2: parseInt("11", new String("Infinity")) === parseInt("11", Infinity). Actual: ' + (parseInt("11", new String("Infinity"))));
+  throw new Test262Error('#2: parseInt("11", new String("Infinity")) === parseInt("11", Infinity). Actual: ' + (parseInt("11", new String("Infinity"))));
 }

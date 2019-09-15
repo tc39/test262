@@ -53,7 +53,7 @@ assert.sameValue(
 //////
 // CHECK#3
 if (Number.isPrototypeOf(luke)) {
-  $ERROR('#2: Native ECMAScript objects have an internal property called [[Prototype]].');
+  throw new Test262Error('#2: Native ECMAScript objects have an internal property called [[Prototype]].');
 }
 //
 /////////

@@ -15,9 +15,9 @@ var p = Promise.all([]);
 
 p.then(function(result) {
   if (!(result instanceof Array)) {
-    $ERROR("Expected Promise.all([]) to be Array, actually " + result);
+    throw new Test262Error("Expected Promise.all([]) to be Array, actually " + result);
   }
   if (result.length !== 0) {
-    $ERROR("Expected Promise.all([]) to be empty Array, actually " + result);
+    throw new Test262Error("Expected Promise.all([]) to be empty Array, actually " + result);
   }
 }).then($DONE, $DONE);

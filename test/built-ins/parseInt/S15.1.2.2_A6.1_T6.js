@@ -12,45 +12,45 @@ description: Complex test. Radix-R notation in [0..9]
 
 //CHECK#2
 if (parseInt("0123456789", 2) !== 1) {
-  $ERROR('#2: parseInt("0123456789", 2) === 1. Actual: ' + (parseInt("0123456789", 2)));
+  throw new Test262Error('#2: parseInt("0123456789", 2) === 1. Actual: ' + (parseInt("0123456789", 2)));
 }
 
 //CHECK#3
 if (parseInt("01234567890", 3) !== 5) {
-  $ERROR('#3: parseInt("01234567890", 3) === 5. Actual: ' + (parseInt("01234567890", 3)));
+  throw new Test262Error('#3: parseInt("01234567890", 3) === 5. Actual: ' + (parseInt("01234567890", 3)));
 }
 
 //CHECK#4
 if (parseInt("01234567890", 4) !== 27) {
-  $ERROR('#4: parseInt("01234567890", 4) === 27. Actual: ' + (parseInt("01234567890", 4)));
+  throw new Test262Error('#4: parseInt("01234567890", 4) === 27. Actual: ' + (parseInt("01234567890", 4)));
 }
 
 //CHECK#5
 if (parseInt("01234567890", 5) !== 194) {
-  $ERROR('#5: parseInt("01234567890", 5) === 194. Actual: ' + (parseInt("01234567890", 5)));
+  throw new Test262Error('#5: parseInt("01234567890", 5) === 194. Actual: ' + (parseInt("01234567890", 5)));
 }
 
 //CHECK#6
 if (parseInt("01234567890", 6) !== 1865) {
-  $ERROR('#6: parseInt("01234567890", 6) === 1865. Actual: ' + (parseInt("01234567890", 6)));
+  throw new Test262Error('#6: parseInt("01234567890", 6) === 1865. Actual: ' + (parseInt("01234567890", 6)));
 }
 
 //CHECK#7
 if (parseInt("01234567890", 7) !== 22875) {
-  $ERROR('#7: parseInt("01234567890", 7) === 22875. Actual: ' + (parseInt("01234567890", 7)));
+  throw new Test262Error('#7: parseInt("01234567890", 7) === 22875. Actual: ' + (parseInt("01234567890", 7)));
 }
 
 //CHECK#8
 if (parseInt("01234567890", 8) !== 342391) {
-  $ERROR('#8: parseInt("01234567890", 8) === 342391. Actual: ' + (parseInt("01234567890", 8)));
+  throw new Test262Error('#8: parseInt("01234567890", 8) === 342391. Actual: ' + (parseInt("01234567890", 8)));
 }
 
 //CHECK#9
 if (parseInt("01234567890", 9) !== 6053444) {
-  $ERROR('#9: parseInt("01234567890", 9) === 6053444. Actual: ' + (parseInt("01234567890", 9)));
+  throw new Test262Error('#9: parseInt("01234567890", 9) === 6053444. Actual: ' + (parseInt("01234567890", 9)));
 }
 
 //CHECK#10
 if (parseInt("01234567890", 10) !== Number(1234567890)) {
-  $ERROR('#10: parseInt("01234567890", 10) === Number(1234567890). Actual: ' + (parseInt("01234567890", 10)));
+  throw new Test262Error('#10: parseInt("01234567890", 10) === Number(1234567890). Actual: ' + (parseInt("01234567890", 10)));
 }

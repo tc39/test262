@@ -12,7 +12,7 @@ description: >
 flags: [noStrict]
 ---*/
 
-function __func(){ 
+function __func(){
     delete arguments;
     return arguments;
 }
@@ -20,7 +20,7 @@ function __func(){
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (typeof __func("A","B",1,2) !== "object") {
-	$ERROR('#1: arguments property has attribute { DontDelete }');
+	throw new Test262Error('#1: arguments property has attribute { DontDelete }');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

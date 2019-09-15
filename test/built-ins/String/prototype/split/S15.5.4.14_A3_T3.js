@@ -23,7 +23,7 @@ var __split = __instance.split();
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (__split.constructor !== Array) {
-  $ERROR('#1: var __instance = function(){}; __instance.split = String.prototype.split; __split = __instance.split(); __split.constructor === Array. Actual: ' + __split.constructor);
+  throw new Test262Error('#1: var __instance = function(){}; __instance.split = String.prototype.split; __split = __instance.split(); __split.constructor === Array. Actual: ' + __split.constructor);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.length !== 1) {
-  $ERROR('#2: var __instance = function(){}; __instance.split = String.prototype.split; __split = __instance.split(); __split.length === 1. Actual: ' + __split.length);
+  throw new Test262Error('#2: var __instance = function(){}; __instance.split = String.prototype.split; __split = __instance.split(); __split.length === 1. Actual: ' + __split.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ if (__split.length !== 1) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 if (__split[0].substring(0, 8) !== "function") {
-  $ERROR('#3: var __instance = function(){}; __instance.split = String.prototype.split; __split = __instance.split(); __split[0].substring(0,8) === "function". Actual: ' + __split[0].substring(0, 8));
+  throw new Test262Error('#3: var __instance = function(){}; __instance.split = String.prototype.split; __split = __instance.split(); __split[0].substring(0,8) === "function". Actual: ' + __split[0].substring(0, 8));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

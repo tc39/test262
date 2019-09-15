@@ -18,7 +18,7 @@ var __split = __string.split("h");
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = new String("hello"); __split = __string.split("h"); __split.constructor === Array. Actual: ' + __split.constructor);
+  throw new Test262Error('#1: var __string = new String("hello"); __split = __string.split("h"); __split.constructor === Array. Actual: ' + __split.constructor);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.length !== 2) {
-  $ERROR('#2: var __string = new String("hello"); __split = __string.split("h"); __split.length === 2. Actual: ' + __split.length);
+  throw new Test262Error('#2: var __string = new String("hello"); __split = __string.split("h"); __split.length === 2. Actual: ' + __split.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -34,7 +34,7 @@ if (__split.length !== 2) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 if (__split[0] !== "") {
-  $ERROR('#3: var __string = new String("hello"); __split = __string.split("h"); __split[0] === "". Actual: ' + __split[0]);
+  throw new Test262Error('#3: var __string = new String("hello"); __split = __string.split("h"); __split[0] === "". Actual: ' + __split[0]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@ if (__split[0] !== "") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
 if (__split[1] !== "ello") {
-  $ERROR('#4: var __string = new String("hello"); __split = __string.split("h"); __split[1] === "ello". Actual: ' + __split[1]);
+  throw new Test262Error('#4: var __string = new String("hello"); __split = __string.split("h"); __split[1] === "ello". Actual: ' + __split[1]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

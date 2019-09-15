@@ -9,7 +9,7 @@ description: Checking for Boolean object
 
 //CHECK#1
 if (parseInt("11", new Boolean(false)) !== parseInt("11", false)) {
-  $ERROR('#1: parseInt("11", new Boolean(false)) === parseInt("11", false). Actual: ' + (parseInt("11", new Boolean(false))));
+  throw new Test262Error('#1: parseInt("11", new Boolean(false)) === parseInt("11", false). Actual: ' + (parseInt("11", new Boolean(false))));
 }
 
 //CHECK#2

@@ -18,16 +18,16 @@ for (var index = 0; index < uspU.length; index++) {
   var result = true;
   n = false;
   if (parseInt(uspU[index] + "1") !== parseInt("1")) {
-    $ERROR('#1.' + uspS[index] + ' ');
+    throw new Test262Error('#1.' + uspS[index] + ' ');
     result = false;
   }
   if (parseInt(uspU[index] + uspU[index] + uspU[index] + "1") !== parseInt("1")) {
-    $ERROR('#2.' + uspS[index] + ' ');
+    throw new Test262Error('#2.' + uspS[index] + ' ');
     result = false;
   }
   n = parseInt(uspU[index]);
   if (!(n !== n)) {
-    $ERROR('#3.' + uspS[index] + ' ');
+    throw new Test262Error('#3.' + uspS[index] + ' ');
     result = false;
   }
   if (result !== true) {
@@ -37,5 +37,5 @@ for (var index = 0; index < uspU.length; index++) {
 }
 
 if (errorCount > 0) {
-  $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);
+  throw new Test262Error('Total error: ' + errorCount + ' bad Unicode character in ' + count);
 }

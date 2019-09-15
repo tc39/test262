@@ -11,19 +11,19 @@ description: Calling a function as a constructor
 
 function FACTORY(){
    this.id = 0;
-   
+
    this.id = this.func();
-   
+
    this.func = function (){
       return 5;
    }
-  
+
 }
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try {
 	var obj = new FACTORY();
-	$ERROR('#1: var obj = new FACTORY() lead to throwing exception');
+	throw new Test262Error('#1: var obj = new FACTORY() lead to throwing exception');
 } catch (e) {
     if (e instanceof Test262Error) throw e;
 }

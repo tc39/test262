@@ -11,7 +11,7 @@ description: Checking length property
 //CHECK#1
 var err1 = Error("err");
 if (err1.constructor.length !== 1) {
-  $ERROR('#1: var err1=Error("err"); err1.constructor.length===1. Actual: ' + err1.constructor.length);
+  throw new Test262Error('#1: var err1=Error("err"); err1.constructor.length===1. Actual: ' + err1.constructor.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -19,7 +19,7 @@ if (err1.constructor.length !== 1) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (Error.constructor.length !== 1) {
-  $ERROR('#2: Error.constructor.length===1. Actual: ' + Error.constructor.length);
+  throw new Test262Error('#2: Error.constructor.length===1. Actual: ' + Error.constructor.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

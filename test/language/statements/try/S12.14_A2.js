@@ -11,8 +11,8 @@ description: >
 
 // CHECK#1
 try {
-  throw "catchme";	
-  $ERROR('#1: throw "catchme" lead to throwing exception');
+  throw "catchme";
+  throw new Test262Error('#1: throw "catchme" lead to throwing exception');
 }
 catch(e){}
 
@@ -21,32 +21,32 @@ var c2=0;
 try{
   try{
     throw "exc";
-    $ERROR('#2.1: throw "exc" lead to throwing exception');
+    throw new Test262Error('#2.1: throw "exc" lead to throwing exception');
   }finally{
     c2=1;
   }
 }
 catch(e){
   if (c2!==1){
-    $ERROR('#2.2: "finally" block must be evaluated');
+    throw new Test262Error('#2.2: "finally" block must be evaluated');
   }
 }
- 
+
 // CHECK#3
 var c3=0;
 try{
   throw "exc";
-  $ERROR('#3.1: throw "exc" lead to throwing exception');
+  throw new Test262Error('#3.1: throw "exc" lead to throwing exception');
 }
-catch(err){  	
+catch(err){
   var x3=1;
 }
 finally{
   c3=1;
 }
 if (x3!==1){
-  $ERROR('#3.2: "catch" block must be evaluated');
-}  
+  throw new Test262Error('#3.2: "catch" block must be evaluated');
+}
 if (c3!==1){
-  $ERROR('#3.3: "finally" block must be evaluated');
+  throw new Test262Error('#3.3: "finally" block must be evaluated');
 }

@@ -9,5 +9,5 @@ description: Checking parseInt.prototype
 
 //CHECK#1
 if (parseInt.prototype !== undefined) {
-  $ERROR('#1: parseInt.prototype === undefined. Actual: ' + (parseInt.prototype));
+  throw new Test262Error('#1: parseInt.prototype === undefined. Actual: ' + (parseInt.prototype));
 }

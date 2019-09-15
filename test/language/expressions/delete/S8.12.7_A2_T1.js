@@ -14,7 +14,7 @@ var __color__map = {};
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (delete __color__map.red !== true){
-  $ERROR('#1: var __color__map = {}; delete __color__map.red === true. Actual: ' + (delete __color__map.red));
+  throw new Test262Error('#1: var __color__map = {}; delete __color__map.red === true. Actual: ' + (delete __color__map.red));
 };
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -22,7 +22,7 @@ if (delete __color__map.red !== true){
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (delete __color__map["green"] !== true){
-  $ERROR('#2: var __color__map = {}; delete __color__map["green"] === true. Actual: ' + (delete __color__map["green"]));
+  throw new Test262Error('#2: var __color__map = {}; delete __color__map["green"] === true. Actual: ' + (delete __color__map["green"]));
 };
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ if (delete __color__map["green"] !== true){
 //CHECK#3
 var blue = 1;
 if (delete __color__map[blue] !== true){
-  $ERROR('#3: var __color__map = {}; var blue = 1; delete __color__map[blue] === true. Actual: ' + (delete __color__map[blue]));
+  throw new Test262Error('#3: var __color__map = {}; var blue = 1; delete __color__map[blue] === true. Actual: ' + (delete __color__map[blue]));
 };
 //
 //////////////////////////////////////////////////////////////////////////////

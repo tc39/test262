@@ -13,6 +13,6 @@ description: Complex test. R in [2, 36]
 //CHECK#
 for (var i = 2; i <= 36; i++) {
   if (parseInt("10$1", i) !== i) {
-    $ERROR('#' + i + ': i = ' + i + 'parseInt("10$1", i) === i. Actual: ' + (parseInt("10$1", i)));
+    throw new Test262Error('#' + i + ': i = ' + i + 'parseInt("10$1", i) === i. Actual: ' + (parseInt("10$1", i)));
   }
 }

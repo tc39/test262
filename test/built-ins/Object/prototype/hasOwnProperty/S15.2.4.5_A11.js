@@ -9,10 +9,10 @@ description: Checking the Object.prototype.hasOwnProperty.length
 
 //CHECK#1
 if (!(Object.prototype.hasOwnProperty.hasOwnProperty("length"))) {
-  $ERROR('#1: The length property of the toObject method is 1');
+  throw new Test262Error('#1: The length property of the toObject method is 1');
 }
 
 //CHECK#2
 if (Object.prototype.hasOwnProperty.length !== 1) {
-  $ERROR('#2: The length property of the toObject method is 1');
+  throw new Test262Error('#2: The length property of the toObject method is 1');
 }

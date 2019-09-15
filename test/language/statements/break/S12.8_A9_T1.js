@@ -19,14 +19,14 @@ FOR : for(;;){
 		throw 1;
 	} catch(e){
 		break FOR;
-	}	
+	}
 }
 })();
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (x!==1) {
-	$ERROR('#1: break inside of try-catch nested in loop is allowed');
+	throw new Test262Error('#1: break inside of try-catch nested in loop is allowed');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

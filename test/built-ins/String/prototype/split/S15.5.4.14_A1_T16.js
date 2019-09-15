@@ -24,9 +24,9 @@ Number.prototype.split = String.prototype.split;
 
 try {
   var __split = 6776767677.006771122677555.split(__obj);
-  $ERROR('#1: "__split = 6776767677.006771122677555.split(__obj)" lead to throwing exception');
+  throw new Test262Error('#1: "__split = 6776767677.006771122677555.split(__obj)" lead to throwing exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: Exception is instance of TypeError. Actual: ' + e);
+    throw new Test262Error('#1.1: Exception is instance of TypeError. Actual: ' + e);
   }
 }

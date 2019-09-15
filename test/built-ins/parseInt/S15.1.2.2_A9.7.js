@@ -13,9 +13,9 @@ description: >
 
 try {
   new parseInt();
-  $ERROR('#1.1: new parseInt() throw TypeError. Actual: ' + (new parseInt()));
+  throw new Test262Error('#1.1: new parseInt() throw TypeError. Actual: ' + (new parseInt()));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
-    $ERROR('#1.2: new parseInt() throw TypeError. Actual: ' + (e));
+    throw new Test262Error('#1.2: new parseInt() throw TypeError. Actual: ' + (e));
   }
 }

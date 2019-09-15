@@ -24,7 +24,7 @@ try {
 }
 
 if (threw === false) {
-  $ERROR('Expected a TypeError, but no error was thrown.');
+  throw new Test262Error('Expected a TypeError, but no error was thrown.');
 }
 
 

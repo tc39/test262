@@ -9,10 +9,10 @@ description: Checking for undefined and null
 
 //CHECK#1
 if (parseInt("11", undefined) !== parseInt("11", 10)) {
-  $ERROR('#1: parseInt("11", undefined) === parseInt("11", 10). Actual: ' + (parseInt("11", undefined)));
+  throw new Test262Error('#1: parseInt("11", undefined) === parseInt("11", 10). Actual: ' + (parseInt("11", undefined)));
 }
 
 //CHECK#2
 if (parseInt("11", null) !== parseInt("11", 10)) {
-  $ERROR('#2: parseInt("11", null) === parseInt("11", 10). Actual: ' + (parseInt("11", null)));
+  throw new Test262Error('#2: parseInt("11", null) === parseInt("11", 10). Actual: ' + (parseInt("11", null)));
 }

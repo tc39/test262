@@ -22,7 +22,7 @@ var __split = function() {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (typeof __split !== "object") {
-  $ERROR('#1: __split = function(){return "gnulluna"}().split(null); typeof __split === "object". Actual: ' + typeof __split);
+  throw new Test262Error('#1: __split = function(){return "gnulluna"}().split(null); typeof __split === "object". Actual: ' + typeof __split);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ if (typeof __split !== "object") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.constructor !== Array) {
-  $ERROR('#2: __split = function(){return "gnulluna"}().split(null); __split.constructor === Array. Actual: ' + __split.constructor);
+  throw new Test262Error('#2: __split = function(){return "gnulluna"}().split(null); __split.constructor === Array. Actual: ' + __split.constructor);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -38,7 +38,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 if (__split.length !== 2) {
-  $ERROR('#3: __split = function(){return "gnulluna"}().split(null); __split.length === 2. Actual: ' + __split.length);
+  throw new Test262Error('#3: __split = function(){return "gnulluna"}().split(null); __split.length === 2. Actual: ' + __split.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -46,7 +46,7 @@ if (__split.length !== 2) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
 if (__split[0] !== "g") {
-  $ERROR('#4: __split = function(){return "gnulluna"}().split(null); __split[0] === "g". Actual: ' + __split[0]);
+  throw new Test262Error('#4: __split = function(){return "gnulluna"}().split(null); __split[0] === "g". Actual: ' + __split[0]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ if (__split[0] !== "g") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5
 if (__split[1] !== "una") {
-  $ERROR('#5: __split = function(){return "gnulluna"}().split(null); __split[1] === "una". Actual: ' + __split[1]);
+  throw new Test262Error('#5: __split = function(){return "gnulluna"}().split(null); __split[1] === "una". Actual: ' + __split[1]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -22,7 +22,7 @@ var __expected = ["", "00", "", "", "", "22", "33", "44", "60"];
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (__split.constructor !== Array) {
-  $ERROR('#1: __split.constructor === Array. Actual: ' + __split.constructor);
+  throw new Test262Error('#1: __split.constructor === Array. Actual: ' + __split.constructor);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.length !== __expected.length) {
-  $ERROR('#2: __split.length === __expected.length. Actual: ' + __split.length);
+  throw new Test262Error('#2: __split.length === __expected.length. Actual: ' + __split.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ if (__split.length !== __expected.length) {
 //CHECK#3
 for (var index = 0; index < __expected.length; index++) {
   if (__split[index] !== __expected[index]) {
-    $ERROR('#3.' + index + ': __split[index] === ' + __expected[index] + '. Actual: ' + __split[index]);
+    throw new Test262Error('#3.' + index + ': __split[index] === ' + __expected[index] + '. Actual: ' + __split[index]);
   }
 }
 //

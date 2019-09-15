@@ -10,20 +10,20 @@ description: Testing FunctionExpression too
 ---*/
 
 var check=0;
-while(function f(){}){    
+while(function f(){}){
   if(typeof(f) === "function") {
     check = -1;
-    break; 
+    break;
   } else {
     check = 1;
-    break; 
+    break;
   }
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (check !== 1) {
-	$ERROR('#1: FunctionExpression inside while construction expression allowed but function not declare');
+	throw new Test262Error('#1: FunctionExpression inside while construction expression allowed but function not declare');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

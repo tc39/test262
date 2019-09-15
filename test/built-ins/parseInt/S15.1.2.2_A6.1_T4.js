@@ -14,6 +14,6 @@ description: Complex test. Radix-R notation in [0..9, A-Z]
 var R_digit = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 for (var i = 2; i <= 35; i++) {
   if (parseInt(R_digit[i - 2] + R_digit[i - 1], i) !== i - 1) {
-    $ERROR('#' + i + ': ');
+    throw new Test262Error('#' + i + ': ');
   }
 }

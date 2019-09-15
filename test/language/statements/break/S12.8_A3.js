@@ -13,7 +13,7 @@ LABEL_DO_LOOP : do {
     LABEL_IN : x=2;
     break ;
     LABEL_IN_2 : var y=2;
-    
+
     function IN_DO_FUNC(){}
 } while(0);
 
@@ -26,7 +26,7 @@ function OUT_FUNC(){}
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if ((x!==2)&&(y!==0)) {
-	$ERROR('#1: x === 2 and y === 0. Actual:  x ==='+x+' and y ==='+y);
+	throw new Test262Error('#1: x === 2 and y === 0. Actual:  x ==='+x+' and y ==='+y);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

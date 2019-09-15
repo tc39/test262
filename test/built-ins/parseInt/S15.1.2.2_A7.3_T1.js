@@ -31,7 +31,7 @@ for (var i = 2; i <= 36; i++) {
       pow = pow * i;
     }
     if (parseInt(str, i) !== num * sign) {
-      $ERROR('#' + i + '.' + j + ' : ');
+      throw new Test262Error('#' + i + '.' + j + ' : ');
     }
   }
 }

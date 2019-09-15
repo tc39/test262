@@ -18,7 +18,7 @@ function otherScope(msg)
 //CHECK#1
 var err1 = new Error('msg1');
 if (err1.message !== "msg1") {
-  $ERROR('#1: var err1=new Error(\'msg1\'); err1.message==="msg1". Actual: ' + err1.message);
+  throw new Test262Error('#1: var err1=new Error(\'msg1\'); err1.message==="msg1". Actual: ' + err1.message);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -27,7 +27,7 @@ if (err1.message !== "msg1") {
 //CHECK#2
 var err2 = otherScope('msg2');
 if (err2.message !== "msg2") {
-  $ERROR('#2: function otherScope(msg){return new Error(msg);} var err2=otherScope(\'msg2\'); err2.message==="msg2". Actual: ' + err2.message);
+  throw new Test262Error('#2: function otherScope(msg){return new Error(msg);} var err2=otherScope(\'msg2\'); err2.message==="msg2". Actual: ' + err2.message);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ if (err2.message !== "msg2") {
 //CHECK#3
 var err3 = otherScope();
 if (err3.hasOwnProperty('message')) {
-  $ERROR('#3: function otherScope(msg){return new Error(msg);} var err3=otherScope(); err3.hasOwnProperty("message"). Actual: ' + err3.message);
+  throw new Test262Error('#3: function otherScope(msg){return new Error(msg);} var err3=otherScope(); err3.hasOwnProperty("message"). Actual: ' + err3.message);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ if (err3.hasOwnProperty('message')) {
 //CHECK#4
 var err4 = eval("new Error('msg4')");
 if (err4.message !== "msg4") {
-  $ERROR('#4: var err4=eval("new Error(\'msg4\')"); err4.message==="msg4". Actual: ' + err4.message);
+  throw new Test262Error('#4: var err4=eval("new Error(\'msg4\')"); err4.message==="msg4". Actual: ' + err4.message);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

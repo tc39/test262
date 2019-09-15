@@ -48,7 +48,7 @@ function BrowserRunner() {
             dataType: "text",
             success: function(data){assertContents = data;},
             url:harnessDir+"assert.js"});
-    
+
 	$.ajax({async: false,
 		dataType: "text",
 		success: function(data){timerContents = data;},
@@ -168,7 +168,7 @@ function BrowserRunner() {
         //TODO: these should be moved to sta.js
         var includes,
             include;
-        
+
         includes = test.includes;
         if (includes && includes.length) {
             // We have some includes, so loop through each include and
@@ -229,9 +229,9 @@ function BrowserRunner() {
         idoc.writeln("<script type='text/javascript'>");
         idoc.writeln(this.compileSource(test, code));
         idoc.writeln("</script>");
-		
+
         idoc.writeln("<script type='text/javascript'>");
-		
+
         if (!isAsyncTest(code)) {
             //if the test is synchronous - call $DONE immediately
             idoc.writeln("if(typeof $DONE === 'function') $DONE()");
@@ -240,7 +240,7 @@ function BrowserRunner() {
             //bailout after 1 min or given bailout time by calling $DONE
             var asyncval = parseInt(test.timeout);
             var testTimeout = asyncval !== asyncval ? 2000 : asyncval;
-	    idoc.writeln("setTimeout(function() {$ERROR(\" Test Timed Out at " + testTimeout +"\" )} ," + testTimeout + ")");
+	    idoc.writeln("setTimeout(function() {throw new Test262Error(\" Test Timed Out at " + testTimeout +"\" )} ," + testTimeout + ")");
         }
         idoc.writeln("</script>");
         idoc.close();
@@ -580,8 +580,8 @@ function Controller() {
     //into this test framework to handle test case failures and passes in their
     //own way (e.g., logging failures to the filesystem)
     this.implementerHook = {
-        //Adds a test result        
-        addTestResult: function (test) { },            
+        //Adds a test result
+        addTestResult: function (test) { },
 
         //Called whenever all tests have finished running.  Provided with the
         //elapsed time in milliseconds.

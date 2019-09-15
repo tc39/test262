@@ -13,11 +13,11 @@ description: >
 
 //CHECK#0
 if (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {
-  $ERROR('#0: the Object.prototype.isPrototypeOf has length property');
+  throw new Test262Error('#0: the Object.prototype.isPrototypeOf has length property');
 }
 
 //CHECK#1
 if (!delete Object.prototype.isPrototypeOf.length) {
-  $ERROR('#1: The Object.prototype.isPrototypeOf.length property does not have the attributes DontDelete');
+  throw new Test262Error('#1: The Object.prototype.isPrototypeOf.length property does not have the attributes DontDelete');
 }
 //

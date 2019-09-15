@@ -17,19 +17,19 @@ function __cont(){
     function __func(){
         return ALIVE;
     };
-    
+
     //////////////////////////////////////////////////////////////////////////////
     //CHECK#1
     if (delete __func) {
-    	$ERROR('#1: delete __func returning false');
+    	throw new Test262Error('#1: delete __func returning false');
     }
     //
     //////////////////////////////////////////////////////////////////////////////
-    
+
     //////////////////////////////////////////////////////////////////////////////
     //CHECK#2
     if (__func() !== ALIVE) {
-    	$ERROR('#2: __func() === ALIVE. Actual: __func() ==='+__func());
+    	throw new Test262Error('#2: __func() === ALIVE. Actual: __func() ==='+__func());
     }
     //
     //////////////////////////////////////////////////////////////////////////////

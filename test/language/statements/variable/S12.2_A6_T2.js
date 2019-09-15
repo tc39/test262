@@ -15,7 +15,7 @@ try{
 	incatch__intry__var=incatch__intry__var;
 	incatch__incatch__var=incatch__incatch__var;
 }catch(e){
-	$ERROR('#1: Variable declaration inside "try-catch" block is admitted');
+	throw new Test262Error('#1: Variable declaration inside "try-catch" block is admitted');
 };
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -32,5 +32,5 @@ try{
     } catch (e) {
         var incatch__incatch__var;
     }
-    
+
 };

@@ -17,7 +17,7 @@ var __obj = {a:2};
 with (__obj)
 {
     try {
-        
+
     	var __func = function()
         {
             return a;
@@ -35,7 +35,7 @@ result = __func();
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (result !== 2) {
-	$ERROR('#1: result === 2. Actual: result ==='+result);
+	throw new Test262Error('#1: result === 2. Actual: result ==='+result);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

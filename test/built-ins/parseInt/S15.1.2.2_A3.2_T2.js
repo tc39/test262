@@ -9,25 +9,25 @@ description: ToInt32 use floor
 
 //CHECK#1
 if (parseInt("11", 2.1) !== parseInt("11", 2)) {
-  $ERROR('#1: parseInt("11", 2.1) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.1)));
+  throw new Test262Error('#1: parseInt("11", 2.1) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.1)));
 }
 
 //CHECK#2
 if (parseInt("11", 2.5) !== parseInt("11", 2)) {
-  $ERROR('#2: parseInt("11", 2.5) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.5)));
+  throw new Test262Error('#2: parseInt("11", 2.5) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.5)));
 }
 
 //CHECK#3
 if (parseInt("11", 2.9) !== parseInt("11", 2)) {
-  $ERROR('#3: parseInt("11", 2.9) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.9)));
+  throw new Test262Error('#3: parseInt("11", 2.9) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.9)));
 }
 
 //CHECK#4
 if (parseInt("11", 2.000000000001) !== parseInt("11", 2)) {
-  $ERROR('#4: parseInt("11", 2.000000000001) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.000000000001)));
+  throw new Test262Error('#4: parseInt("11", 2.000000000001) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.000000000001)));
 }
 
 //CHECK#5
 if (parseInt("11", 2.999999999999) !== parseInt("11", 2)) {
-  $ERROR('#5: parseInt("11", 2.999999999999) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.999999999999)));
+  throw new Test262Error('#5: parseInt("11", 2.999999999999) === parseInt("11", 2). Actual: ' + (parseInt("11", 2.999999999999)));
 }

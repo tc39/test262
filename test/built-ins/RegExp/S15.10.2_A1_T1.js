@@ -7,11 +7,11 @@ es5id: 15.10.2_A1_T1
 description: "See bug http://bugzilla.mozilla.org/show_bug.cgi?id=103087"
 ---*/
 
-// REX/Javascript 1.0 
+// REX/Javascript 1.0
 // Robert D. Cameron "REX: XML Shallow Parsing with Regular Expressions",
-// Technical Report TR 1998-17, School of Computing Science, Simon Fraser 
+// Technical Report TR 1998-17, School of Computing Science, Simon Fraser
 // University, November, 1998.
-// Copyright (c) 1998, Robert D. Cameron. 
+// Copyright (c) 1998, Robert D. Cameron.
 // The following code may be freely used and distributed provided that
 // this copyright and citation notice remains intact and that modifications
 // or additions are clearly identified.
@@ -46,8 +46,8 @@ var XML_SPE = TextSE + "|" + MarkupSPE;
 ////
 /////
 
-var __patterns = [TextSE,UntilHyphen,Until2Hyphens,CommentCE,UntilRSBs,CDATA_CE,S,NameStrt, NameChar, 
-Name, QuoteSE, DT_IdentSE, MarkupDeclCE, S1,UntilQMs, PI_Tail, DT_ItemSE, DocTypeCE, DeclCE, 
+var __patterns = [TextSE,UntilHyphen,Until2Hyphens,CommentCE,UntilRSBs,CDATA_CE,S,NameStrt, NameChar,
+Name, QuoteSE, DT_IdentSE, MarkupDeclCE, S1,UntilQMs, PI_Tail, DT_ItemSE, DocTypeCE, DeclCE,
 PI_CE, EndTagCE, AttValSE, ElemTagCE, MarkupSPE, XML_SPE];
 
 var __html=""+
@@ -80,7 +80,7 @@ try {
     	__re.test(__html);
     }
 } catch (e) {
-	$ERROR('#'+index+": XML Shallow Parsing with Regular Expression: "+__patterns[index]);
+	throw new Test262Error('#'+index+": XML Shallow Parsing with Regular Expression: "+__patterns[index]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

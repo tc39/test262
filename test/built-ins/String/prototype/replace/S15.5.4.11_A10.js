@@ -13,7 +13,7 @@ includes: [propertyHelper.js]
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (!(String.prototype.replace.hasOwnProperty('length'))) {
-  $ERROR('#1: String.prototype.replace.hasOwnProperty(\'length\') return true. Actual: ' + String.prototype.replace.hasOwnProperty('length'));
+  throw new Test262Error('#1: String.prototype.replace.hasOwnProperty(\'length\') return true. Actual: ' + String.prototype.replace.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -27,7 +27,7 @@ verifyNotWritable(String.prototype.replace, "length", null, function() {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.replace.length !== __obj) {
-  $ERROR('#2: __obj = String.prototype.replace.length; String.prototype.replace.length = function(){return "shifted";}; String.prototype.replace.length === __obj. Actual: ' + String.prototype.replace.length);
+  throw new Test262Error('#2: __obj = String.prototype.replace.length; String.prototype.replace.length = function(){return "shifted";}; String.prototype.replace.length === __obj. Actual: ' + String.prototype.replace.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

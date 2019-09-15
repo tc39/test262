@@ -34,7 +34,7 @@ var __split = "ABB\u0041BABAB\u0042cc^^\u0042Bvv%%B\u0042xxx".split(__obj, __obj
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (typeof __split !== "object") {
-  $ERROR('#1: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); typeof __split === "object". Actual: ' + typeof __split);
+  throw new Test262Error('#1: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); typeof __split === "object". Actual: ' + typeof __split);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@ if (typeof __split !== "object") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.constructor !== Array) {
-  $ERROR('#2: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split.constructor === Array. Actual: ' + __split.constructor);
+  throw new Test262Error('#2: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split.constructor === Array. Actual: ' + __split.constructor);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -50,7 +50,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 if (__split.length !== 2) {
-  $ERROR('#3: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split.length === 2. Actual: ' + __split.length);
+  throw new Test262Error('#3: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split.length === 2. Actual: ' + __split.length);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ if (__split.length !== 2) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
 if (__split[0] !== "A") {
-  $ERROR('#4: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split[0] === "A". Actual: ' + __split[0]);
+  throw new Test262Error('#4: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split[0] === "A". Actual: ' + __split[0]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ if (__split[0] !== "A") {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5
 if (__split[1] !== "ABABA") {
-  $ERROR('#5: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split[1] === "ABABA". Actual: ' + __split[1]);
+  throw new Test262Error('#5: var __obj = {toString:function(){return "u0042u0042";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return "2";}}; __split = "ABBu0041BABABu0042cc^^u0042Bvv%%Bu0042xxx".split(__obj, __obj2); __split[1] === "ABABA". Actual: ' + __split[1]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
