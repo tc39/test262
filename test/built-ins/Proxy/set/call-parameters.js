@@ -23,7 +23,7 @@ var handler = {
     _prop = prop;
     _value = value;
     _receiver = receiver;
-    return t[prop] = value;
+    return true;
   }
 };
 var p = new Proxy(target, handler);
