@@ -26,7 +26,7 @@ function rejectSoon(error) {
 async function checkAssertions() {
   assert.sameValue(11, await [11]?.[0]);
   assert.sameValue(33, [22, 33]?.[await Promise.resolve(1)]);
-  assert.sameValue(55, [44, await returnSoon(55)]?.[1]);
+  assert.sameValue(55, [44, await Promise.resolve(55)]?.[1]);
   assert.sameValue(undefined, undefined?.[
     await Promise.reject(new Error('unreachable'))
   ]);
