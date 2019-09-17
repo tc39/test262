@@ -18,7 +18,7 @@ function returnSoon(val) {
   });
 }
 const a = undefined;
-const c = {d: returnSoon(11)};
+const c = {d: Promise.resolve(11)};
 async function checkAssertions() {
   assert.sameValue(undefined, await a?.b);
   assert.sameValue(await a?.b, undefined);
