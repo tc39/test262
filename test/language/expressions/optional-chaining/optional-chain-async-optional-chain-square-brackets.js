@@ -32,7 +32,7 @@ async function checkAssertions() {
   }
   assert.sameValue(55, {d: e}?.d(await Promise.resolve([44, 55]))[1]);
   assert.sameValue(undefined, undefined?.arr[
-    await rejectSoon(Error('unreachable'))
+    await Promise.reject(new Error('unreachable'))
   ]);
 }
 checkAssertions().then($DONE, $DONE);
