@@ -13,22 +13,12 @@ features: [optional-chaining]
 flags: [async]
 ---*/
 
-function returnSoon(val) {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(val), 5);
-  });
-}
-function rejectSoon(error) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => reject(error), 5);
-  });
-}
 async function checkAssertions() {
-  assert.sameValue(11, await [11]?.[0]);
-  assert.sameValue(33, [22, 33]?.[await Promise.resolve(1)]);
-  assert.sameValue(55, [44, await Promise.resolve(55)]?.[1]);
-  assert.sameValue(undefined, undefined?.[
+  assert.sameValue(await [11]?.[0], 11);
+  assert.sameValue([22, 33]?.[await Promise.resolve(1)], 33);
+  assert.sameValue([44, await Promise.resolve(55)]?.[1], 55);
+  assert.sameValue(undefined?.[
     await Promise.reject(new Error('unreachable'))
-  ]);
+  ], undefined);
 }
 checkAssertions().then($DONE, $DONE);

@@ -12,11 +12,6 @@ features: [optional-chaining]
 flags: [async]
 ---*/
 
-function returnSoon(val) {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(val), 5);
-  });
-}
 async function thisFn() {
   return await this?.a
 }

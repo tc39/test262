@@ -13,7 +13,7 @@ flags: [async]
 ---*/
 
 async function checkAssertions() {
-  assert.sameValue('h', await "hello"?.[0]);
-  assert.sameValue(undefined, await null?.a);  
+  assert.sameValue(await "hello"?.[0], 'h');
+  assert.sameValue(await null?.a, undefined);
 }
 checkAssertions().then($DONE, $DONE);
