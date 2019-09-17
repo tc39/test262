@@ -12,11 +12,6 @@ features: [optional-chaining]
 flags: [async]
 ---*/
 
-function returnSoon(val) {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(val), 5);
-  });
-}
 const a = undefined;
 const c = {d: Promise.resolve(11)};
 async function checkAssertions() {
