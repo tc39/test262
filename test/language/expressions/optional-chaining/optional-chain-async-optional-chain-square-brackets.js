@@ -26,7 +26,7 @@ function rejectSoon(error) {
 async function checkAssertions() {
   assert.sameValue(11, await {a: [11]}?.a[0]);
   const b = {c: [22, 33]};
-  assert.sameValue(33, b?.c[await returnSoon(1)]);
+  assert.sameValue(33, b?.c[await Promise.resolve(1)]);
   function e(val) {
     return val;
   }
