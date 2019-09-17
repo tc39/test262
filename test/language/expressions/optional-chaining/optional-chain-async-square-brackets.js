@@ -28,7 +28,7 @@ async function checkAssertions() {
   assert.sameValue(33, [22, 33]?.[await returnSoon(1)]);
   assert.sameValue(55, [44, await returnSoon(55)]?.[1]);
   assert.sameValue(undefined, undefined?.[
-    await rejectSoon(Error('unreachable'))
+    await Promise.reject(new Error('unreachable'))
   ]);
 }
 checkAssertions().then($DONE, $DONE);
