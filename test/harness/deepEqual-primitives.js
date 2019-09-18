@@ -7,8 +7,6 @@ description: >
 includes: [deepEqual.js]
 ---*/
 
-/// <reference path="../../harness/assert.js" />
-/// <reference path="../../harness/deepEqual.js" />
 
 var s1 = Symbol();
 var s2 = Symbol();

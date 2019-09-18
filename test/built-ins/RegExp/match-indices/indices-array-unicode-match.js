@@ -36,10 +36,6 @@ info: |
     5. Return _eUTF_.
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/compareArray.js" />
-/// <reference path="../../../../harness/propertyHelper.js" />
-/// <reference path="../../../../harness/deepEqual.js" />
 
 assert.deepEqual([[1, 2], [1, 2]], "bab".match(/(a)/u).indices);
 assert.deepEqual([[0, 3], [1, 2]], "bab".match(/.(a)./u).indices);

@@ -6,7 +6,6 @@ description: |
 ---*/
 
 // @ts-check
-/// <reference path="./assert.js" />
 
 var deepEqual = (function () {
     /**

@@ -6,7 +6,6 @@ description: |
 ---*/
 
 // @ts-check
-/// <reference path="./assert.js" />
 
 function isSameValue(a, b) {
   if (a === 0 && b === 0) return 1 / a === 1 / b;

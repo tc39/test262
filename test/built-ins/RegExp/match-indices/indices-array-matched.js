@@ -22,8 +22,6 @@ info: |
         ...
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/compareArray.js" />
 
 let input = "abcd";
 let match = /b(c)/.exec(input);

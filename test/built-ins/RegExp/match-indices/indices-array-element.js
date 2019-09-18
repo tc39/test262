@@ -11,8 +11,6 @@ info: |
     5. Return CreateArrayFromList(« _match_.[[StartIndex]], _match_.[[EndIndex]] »).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/compareArray.js" />
 
 let input = "abcd";
 let match = /b(c)/.exec(input);

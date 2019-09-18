@@ -10,7 +10,6 @@ info: |
     6. Set _A_ to ! ArrayCreate(_n_).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
 
 let match = /a/.exec("a");
 let indices = match.indices;

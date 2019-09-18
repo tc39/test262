@@ -27,10 +27,6 @@ info: |
     34. Let _indicesArray_ be MakeIndicesArray( _S_, _indices_, _groupNames_).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/compareArray.js" />
-/// <reference path="../../../../harness/propertyHelper.js" />
-/// <reference path="../../../../harness/deepEqual.js" />
 
 assert.deepEqual([[1, 2], [1, 2]], "bab".match(/(a)/).indices);
 assert.deepEqual([[0, 3], [1, 2]], "bab".match(/.(a)./).indices);

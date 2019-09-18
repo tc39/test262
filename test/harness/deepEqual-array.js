@@ -7,8 +7,6 @@ description: >
 includes: [deepEqual.js]
 ---*/
 
-/// <reference path="../../harness/assert.js" />
-/// <reference path="../../harness/deepEqual.js" />
 
 assert.deepEqual([], []);
 assert.deepEqual([1, "a", true], [1, "a", true]);
