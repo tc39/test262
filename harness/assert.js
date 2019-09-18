@@ -14,7 +14,7 @@ function assert(mustBeTrue, message) {
   }
 
   if (message === undefined) {
-    message = 'Expected true but got ' + String(mustBeTrue);
+    message = 'Expected true but got ' + assert._toString(mustBeTrue);
   }
   $ERROR(message);
 }
@@ -45,7 +45,7 @@ assert.sameValue = function (actual, expected, message) {
     message += ' ';
   }
 
-  message += 'Expected SameValue(«' + String(actual) + '», «' + String(expected) + '») to be true';
+  message += 'Expected SameValue(«' + assert._toString(actual) + '», «' + assert._toString(expected) + '») to be true';
 
   $ERROR(message);
 };
@@ -61,7 +61,7 @@ assert.notSameValue = function (actual, unexpected, message) {
     message += ' ';
   }
 
-  message += 'Expected SameValue(«' + String(actual) + '», «' + String(unexpected) + '») to be false';
+  message += 'Expected SameValue(«' + assert._toString(actual) + '», «' + assert._toString(unexpected) + '») to be false';
 
   $ERROR(message);
 };
@@ -144,5 +144,17 @@ assert._formatValue = function(value, seen) {
       return (tag ? tag + ' ' : '') + '{ ' + Object.keys(value).map(function (key) { return key.toString() + ': ' + assert._formatValue(value[key], seen); }).join(', ') + ' }' + (usage.used ? ' as #' + usage.id : '');
     default:
       return typeof value;
+  }
+};
+
+assert._toString = function (value) {
+  try {
+    return String(value);
+  } catch (err) {
+    if (err.name === 'TypeError') {
+      return Object.prototype.toString.call(value);
+    }
+
+    throw err;
   }
 };
