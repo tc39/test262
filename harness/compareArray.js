@@ -5,6 +5,9 @@ description: |
     Compare the contents of two arrays
 ---*/
 
+// @ts-check
+/// <reference path="./assert.js" />
+
 function isSameValue(a, b) {
   if (a === 0 && b === 0) return 1 / a === 1 / b;
   if (a !== a && b !== b) return true;
@@ -12,6 +15,11 @@ function isSameValue(a, b) {
   return a === b;
 }
 
+/**
+ * @template T
+ * @param {T[]} a
+ * @param {T[]} b
+ */
 function compareArray(a, b) {
   if (b.length !== a.length) {
     return false;
@@ -25,11 +33,13 @@ function compareArray(a, b) {
   return true;
 }
 
+/**
+ * @template T
+ * @param {T[]} actual
+ * @param {T[]} expected
+ * @param {string} [message]
+ */
 assert.compareArray = function(actual, expected, message) {
-  function formatArray(array) {
-    return '[' + array.map(String).join(', ') + ']';
-  }
-
   assert(compareArray(actual, expected),
-         'Expected ' + formatArray(actual) + ' and ' + formatArray(expected) + ' to have the same contents. ' + message);
+         'Expected ' + assert._formatValue(actual) + ' and ' + assert._formatValue(expected) + ' to have the same contents. ' + message);
 };
