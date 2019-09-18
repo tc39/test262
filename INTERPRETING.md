@@ -62,6 +62,8 @@ properties of the global scope prior to test execution.
               Completion{[[Type]]: throw, [[Value]]: error, [[Target]]: empty}.
         5. Let status be ScriptEvaluation(s).
         6. Return Completion(status).
+
+  - **`gc`** - a function that wraps the host's garbage collection invocation mechanism, if such a capability exists. Must throw an exception if no capability exists. This is necessary for testing the semantics of any feature that relies on garbage collection, e.g. the `WeakRef` API.
   - **`global`** - a reference to the global object on which `$262` was initially defined
   - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
     object that 1) has an [[IsHTMLDDA]] internal slot, and 2) when called with
