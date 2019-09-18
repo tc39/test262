@@ -13,9 +13,6 @@ info: |
         i. Perform ! CreateDataProperty(_groups_, _groupNames_[_i_], _matchIndicesArray_).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/compareArray.js" />
-/// <reference path="../../../../harness/propertyHelper.js" />
 
 // Properties created on result.groups in textual order.
 let groupNames = Object.getOwnPropertyNames(/(?<fst>.)|(?<snd>.)/u.exec("abcd").indices.groups);

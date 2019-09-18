@@ -21,7 +21,6 @@ info: |
         ...
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
 
 let input = "abd";
 let match = /b(c)?/.exec(input);

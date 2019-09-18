@@ -12,8 +12,6 @@ info: |
     35. Perform ! DefinePropertyOrThrow(_A_, `"indices"`, PropertyDescriptor { [[Value]]: _indicesArray_, [[Writable]]: *false*, [[Enumerable]]: *false*, [[Configurable]]: *true* }).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/propertyHelper.js" />
 
 // `indices` is created with Define, not Set.
 let counter = 0;

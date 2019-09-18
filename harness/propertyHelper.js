@@ -7,7 +7,6 @@ description: |
 ---*/
 
 // @ts-check
-/// <reference path="./assert.js" />
 
 /**
  * @param {object} obj

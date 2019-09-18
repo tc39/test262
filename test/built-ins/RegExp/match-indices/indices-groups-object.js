@@ -15,9 +15,6 @@ info: |
     10. Perform ! CreateDataProperty(_A_, `"groups"`, _groups_).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/compareArray.js" />
-/// <reference path="../../../../harness/propertyHelper.js" />
 
 // `groups` is created with Define, not Set.
 let counter = 0;

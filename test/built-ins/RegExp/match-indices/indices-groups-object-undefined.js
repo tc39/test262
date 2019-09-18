@@ -15,8 +15,6 @@ info: |
     10. Perform ! CreateDataProperty(_A_, `"groups"`, _groups_).
 ---*/
 
-/// <reference path="../../../../harness/assert.js" />
-/// <reference path="../../../../harness/propertyHelper.js" />
 
 const re = /./;
 const indices = re.exec("a").indices;

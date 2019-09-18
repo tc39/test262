@@ -5,8 +5,6 @@ description: |
     Collection of assertion functions used throughout test262
 ---*/
 
-/// <reference lib="esnext" />
-/// <reference path="./types.d.ts" />
 
 function assert(mustBeTrue, message) {
   if (mustBeTrue === true) {
@@ -95,10 +93,10 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   $ERROR(message);
 };
 
-assert._formatValue = function(value, seen) {
+assert._formatValue = (value, seen) => {
   switch (typeof value) {
     case 'string':
-      return typeof JSON !== "undefined" ? JSON.stringify(value) : '"' + value + '"';
+      return typeof JSON !== "undefined" ? JSON.stringify(value) : `"${value}"`;
     case 'number':
     case 'boolean':
     case 'symbol':
@@ -107,10 +105,10 @@ assert._formatValue = function(value, seen) {
     case 'undefined':
       return 'undefined';
     case 'function':
-      return '[Function' + (value.name ? ': ' + value.name : '') + ']';
+      return `[Function${value.name ? `: ${value.name}` : ''}]`;
     case 'object':
       if (value === null) return 'null';
-      if (value instanceof Date) return 'Date "' + value.toISOString() + '"';
+      if (value instanceof Date) return `Date "${value.toISOString()}"`;
       if (value instanceof RegExp) return value.toString();
       if (!seen) {
         seen = {
@@ -119,29 +117,29 @@ assert._formatValue = function(value, seen) {
         };
       }
 
-      var usage = seen.map.get(value);
+      let usage = seen.map.get(value);
       if (usage) {
         usage.used = true;
-        return '[Ref: #' + usage.id + ']';
+        return `[Ref: #${usage.id}]`;
       }
 
       usage = { id: ++seen.counter, used: false };
       seen.map.set(value, usage);
 
       if (typeof Set !== "undefined" && value instanceof Set) {
-        return 'Set {' + Array.from(value).map(function (value) { return assert._formatValue(value, seen); }).join(', ') + '}' + (usage.used ? ' as #' + usage.id : '');
+        return `Set {${Array.from(value).map(value => assert._formatValue(value, seen)).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
       }
       if (typeof Map !== "undefined" && value instanceof Map) {
-        return 'Map {' + Array.from(value).map(function (pair) { return assert._formatValue(pair[0], seen) + ' => ' + assert._formatValue(pair[1], seen) + '}'; }).join(', ') + '}' + (usage.used ? ' as #' + usage.id : '');
+        return `Map {${Array.from(value).map(pair => `${assert._formatValue(pair[0], seen)} => ${assert._formatValue(pair[1], seen)}}`).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
       }
       if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
-        return '[' + value.map(function (value) { return assert._formatValue(value, seen); }).join(', ') + ']' + (usage.used ? ' as #' + usage.id : '');
+        return `[${value.map(value => assert._formatValue(value, seen)).join(', ')}]${usage.used ? ` as #${usage.id}` : ''}`;
       }
-      var tag = Symbol.toStringTag in value ? value[Symbol.toStringTag] : 'Object';
+      let tag = Symbol.toStringTag in value ? value[Symbol.toStringTag] : 'Object';
       if (tag === 'Object' && Object.getPrototypeOf(value) === null) {
         tag = '[Object: null prototype]';
       }
-      return (tag ? tag + ' ' : '') + '{ ' + Object.keys(value).map(function (key) { return key.toString() + ': ' + assert._formatValue(value[key], seen); }).join(', ') + ' }' + (usage.used ? ' as #' + usage.id : '');
+      return `${tag ? `${tag} ` : ''}{ ${Object.keys(value).map(key => `${key.toString()}: ${assert._formatValue(value[key], seen)}`).join(', ')} }${usage.used ? ` as #${usage.id}` : ''}`;
     default:
       return typeof value;
   }
