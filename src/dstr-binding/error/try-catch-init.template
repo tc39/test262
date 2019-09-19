@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/try/dstr-catch-init-
+path: language/statements/try/dstr-catch-init-error-
 name: try catch with initializer statement
 esid: sec-runtime-semantics-catchclauseevaluation
 features: [destructuring-binding, catch-initializer]
