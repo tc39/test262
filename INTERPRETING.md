@@ -369,6 +369,13 @@ following strings:
   Atomics.wait(i32, 0, 0, 1000); // Sleep for one second.
   ```
 
+- **`non-deterministic`** Due to implementation defined parts in the matching
+  specs, a test may have more than one path to pass, without failures during
+  the execution. While passing state still refers to a compatible implementation,
+  it doesn't guarantee all the assertions in the test will execute. In the same
+  way, it's not possible to tell the assertions would pass whenever they are
+  executed.
+
 ### `locale`
 
 The `locale` attribute allows tests to declare explicit information regarding locale specificity. Its value is an array of one or more valid language tags or subtags.
