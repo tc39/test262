@@ -19,7 +19,7 @@ info: |
     Value properties are added before initializers so that private methods are visible from all initializers.
 
 template: private-methods
-features: [class-methods-private, class-fields-private]
+features: [class-methods-private, class-fields-private, class-fields-public]
 ---*/
 
 //- element
