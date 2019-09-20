@@ -23,6 +23,8 @@ features: [class-methods-private]
 extends B
 
 //- elements
+#x() {}
+
 method() {
   super.#x();
 }
