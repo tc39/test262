@@ -19,9 +19,9 @@ flags: [async, non-deterministic]
 ---*/
 
 var deref = false;
+var wr;
 
 function emptyCells() {
-  var wr;
   var target = {};
   wr = new WeakRef(target);
 

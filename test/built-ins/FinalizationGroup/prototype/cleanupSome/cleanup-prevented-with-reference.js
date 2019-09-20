@@ -31,7 +31,7 @@ function emptyCells() {
   fg.register(target, 'target!');
   fg.register(referenced, 'referenced');
 
-  var prom = asyncGC(target, referenced);
+  var prom = asyncGC(target);
   target = null;
 
   return prom;
