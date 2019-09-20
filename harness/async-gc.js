@@ -47,25 +47,10 @@ async function asyncGCDeref() {
 }
 
 function resolveAsyncGC(err) {
-  if (err === asyncGC.notCollected) {
-    // Do not fail as GC can't provide necessary resources.
-    $DONE();
-  }
+  // if (err === asyncGC.notCollected) {
+  //   // Do not fail as GC can't provide necessary resources.
+  //   $DONE();
+  // }
 
   $DONE(err);
 }
-
-// function emptyCells() {
-//   var target = {};
-//   var wr = new WeakRef(target);
-//   var collected = asyncGC(target, clearKeptObjects());
-//   target = null;
-//   return collected.then(() => {
-//     return wr.deref();
-//   });
-// }
-
-// emptyCells().then((derefAsync) => {
-//   assert.sameValue(derefAsync, undefined);
-// });
-
