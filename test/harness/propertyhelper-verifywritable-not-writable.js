@@ -3,19 +3,18 @@
 
 /*---
 description: >
-    Objects whose specified property is not configurable do not satisfy the
-    assertion in strict mode.
+    Objects whose specified property is not writable do not satisfy the
+    assertion.
 includes: [propertyHelper.js]
-flags: [onlyStrict]
 ---*/
 var threw = false;
 var obj = {};
 Object.defineProperty(obj, 'a', {
-  configurable: false
+  writable: false
 });
 
 try {
-  verifyConfigurable(obj, 'a');
+  verifyWritable(obj, 'a');
 } catch(err) {
   threw = true;
   if (err.constructor !== Test262Error) {
