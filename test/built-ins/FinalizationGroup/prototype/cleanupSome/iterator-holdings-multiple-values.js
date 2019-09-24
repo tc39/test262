@@ -29,7 +29,7 @@ info: |
     c. Return CreateIterResultObject(cell.[[Holdings]], false).
   9. Otherwise, return CreateIterResultObject(undefined, true).
 features: [FinalizationGroup, Symbol, host-gc-required]
-includes: [compareArray.js, async-gc.js]
+includes: [async-gc.js]
 flags: [async, non-deterministic]
 ---*/
 

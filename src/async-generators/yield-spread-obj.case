@@ -11,8 +11,6 @@ info: |
     (...)
     ...AssignmentExpression[In, ?Yield]
 features: [object-spread]
-includes:
-  - compareArray.js
 flags: [async]
 ---*/
 

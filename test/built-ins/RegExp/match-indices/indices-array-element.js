@@ -3,7 +3,6 @@
 
 /*---
 description: A matching element of indices is an Array with exactly two number properties.
-includes: [compareArray.js]
 esid: sec-getmatchindicesarray
 features: [regexp-match-indices]
 info: |
