@@ -43,7 +43,7 @@ info: |
     3. If the binding for N in envRec is an uninitialized binding, throw a ReferenceError exception.
     ...
 
-features: [class-fields-private, class]
+features: [class-fields-private, class-fields-public, class]
 ---*/
 
 const self = this;

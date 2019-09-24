@@ -63,7 +63,7 @@ info: |
     4. If entry is empty, throw a TypeError exception.
     5. Return entry.[[PrivateFieldValue]].
 
-features: [class-fields-private, class]
+features: [class-fields-private, class-fields-public, class]
 ---*/
 
 const self = this;
