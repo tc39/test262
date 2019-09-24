@@ -30,8 +30,11 @@ execution_steps: &execution_steps
     - *restore_cache
     - run: npm install
     - *save_cache
-    - run: ./node_modules/.bin/jsvu --os=linux64 --engines=$hostName
-    - run: cp -r  ~/.jsvu r
+    - run:
+        name: fetch engines from jsvu
+        command: |
+          ./node_modules/.bin/jsvu --os=linux64 --engines=$hostName
+          cp -r  ~/.jsvu r
     - run: npm run ci
 
 jobs:
@@ -125,6 +128,7 @@ jobs:
       - image: *node_latest
     working_directory: ~/test262
     environment:
+      LANG: C
       hostType: jsc
       hostPath: r/javascriptcore
       hostName: javascriptcore
