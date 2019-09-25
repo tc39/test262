@@ -89,6 +89,7 @@ def create_file_test(name, fspath):
             for err in expected:
                 self.assertIn(err, stderr)
 
+    test.__name__ = 'test_' + file_name.split('.')[0]
     return test
 
 dirname = os.path.join(os.path.abspath(testDir), 'fixtures')
@@ -99,7 +100,6 @@ for file_name in os.listdir(dirname):
         continue
 
     t = create_file_test(file_name, full_path)
-    t.__name__ = 'test_' + file_name
     setattr(TestLinter, t.__name__, t)
 
 if __name__ == '__main__':
