@@ -3,6 +3,7 @@
 /*---
 description: |
     Collection of assertion functions used throughout test262
+defines: [assert]
 ---*/
 
 

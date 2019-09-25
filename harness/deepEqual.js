@@ -3,6 +3,7 @@
 /*---
 description: |
     Compare two values structurally
+defines: [assert.deepEqual]
 ---*/
 
 // @ts-check

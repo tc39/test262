@@ -4,6 +4,15 @@
 description: |
     Collection of functions used to safely verify the correctness of
     property descriptors.
+defines:
+  - verifyProperty
+  - verifyEqualTo
+  - verifyWritable
+  - verifyNotWritable
+  - verifyEnumerable
+  - verifyNotEnumerable
+  - verifyConfigurable
+  - verifyNotConfigurable
 ---*/
 
 // @ts-check

@@ -1,11 +1,10 @@
 ^ expected errors | v input
-// Copyright (C) 2017 Rick Waldron. All rights reserved.
+// Copyright (C) 2019 Mike Pennisi. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
-features: [TypedArray]
-includes: [testTypedArray.js]
+includes: [detachArrayBuffer.js]
 ---*/
 
-intArrayConstructors;
+$DETACHBUFFER();

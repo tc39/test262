@@ -3,6 +3,7 @@
 /*---
 description: |
     Compare the contents of two arrays
+defines: [compareArray]
 ---*/
 
 // @ts-check
