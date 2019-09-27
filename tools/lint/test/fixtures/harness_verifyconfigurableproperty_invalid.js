@@ -5,7 +5,7 @@ HARNESS - verifyConfigurable & verifyProperty may not be used in the same file
 /*---
 esid: sec-whatever
 description: Minimal test
-includes: [verifyProperty.js]
+includes: [propertyHelper.js]
 ---*/
 
 verifyConfigurable(Object, '');

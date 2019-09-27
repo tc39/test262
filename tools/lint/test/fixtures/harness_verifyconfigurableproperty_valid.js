@@ -4,7 +4,7 @@
 /*---
 esid: sec-whatever
 description: Minimal test
-includes: [verifyProperty.js]
+includes: [propertyHelper.js]
 ---*/
 
 verifyConfigurable(Object, '');

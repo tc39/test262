@@ -4,7 +4,7 @@
 
 import shutil, subprocess, sys, os, unittest, tempfile
 
-testDir = os.path.dirname(os.path.relpath(__file__))
+testDir = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(testDir, 'out')
 ex = os.path.join(testDir, '..', 'lint.py')
 
@@ -19,7 +19,11 @@ class TestLinter(unittest.TestCase):
 
     def lint(self, args):
         args[:0] = [ex]
-        sp = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        sp = subprocess.Popen(args,
+                              stdout=subprocess.PIPE,
+                              stderr=subprocess.PIPE,
+                              cwd=os.path.join(testDir, 'fixtures')
+                              )
         stdout, stderr = sp.communicate()
         return dict(stdout=stdout, stderr=stderr, returncode=sp.returncode)
 
@@ -85,16 +89,17 @@ def create_file_test(name, fspath):
             for err in expected:
                 self.assertIn(err, stderr)
 
+    test.__name__ = 'test_' + file_name.split('.')[0]
     return test
 
 dirname = os.path.join(os.path.abspath(testDir), 'fixtures')
 for file_name in os.listdir(dirname):
     full_path = os.path.join(dirname, file_name)
-    if not os.path.isfile(full_path) or file_name.startswith('.'):
+    if (not os.path.isfile(full_path) or file_name.startswith('.') or
+            not file_name.endswith('.js')):
         continue
 
     t = create_file_test(file_name, full_path)
-    t.__name__ = 'test_' + file_name
     setattr(TestLinter, t.__name__, t)
 
 if __name__ == '__main__':

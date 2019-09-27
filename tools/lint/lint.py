@@ -37,6 +37,7 @@ from lib.checks.features import CheckFeatures
 from lib.checks.frontmatter import CheckFrontmatter
 from lib.checks.harnessfeatures import CheckHarnessFeatures
 from lib.checks.harness import CheckHarness
+from lib.checks.includes import CheckIncludes
 from lib.checks.license import CheckLicense
 from lib.checks.negative import CheckNegative
 from lib.checks.filename import CheckFileName
@@ -61,6 +62,7 @@ checks = [
     CheckFeatures('features.txt'),
     CheckHarnessFeatures(),
     CheckHarness(),
+    CheckIncludes(),
     CheckLicense(),
     CheckNegative(),
     CheckNoPadding(),

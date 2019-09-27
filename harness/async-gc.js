@@ -6,6 +6,7 @@ description: >
 features: [Symbol, async-functions]
 flags: [non-deterministic]
 features: [FinalizationGroup]
+defines: [asyncGC, asyncGCDeref, resolveAsyncGC]
 ---*/
 
 function asyncGC(...targets) {
