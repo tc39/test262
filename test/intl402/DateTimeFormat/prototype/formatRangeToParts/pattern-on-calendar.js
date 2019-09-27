@@ -40,7 +40,6 @@ function serializeTypesAndLiteral(parts) {
       types.push(part.type);
     }
   });
-  print(types.join(":"));
   return types.join(":");
 }
 
