@@ -26,5 +26,5 @@ info: |
 ---*/
 
 async function fn() {
-  for await (/*{ elems }*/ of [/*{ vals }*/])
+  for await (/*{ elems }*/ of [/*{ vals }*/]) {}
 }
