@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializedatetimeformat
+esid: sec-initializenumberformat
 description: Checks the order of getting "numberingSystem" option in the
     NumberFormat is between "localeMatcher" and "style" options.
 info: |
