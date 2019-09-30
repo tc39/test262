@@ -16,6 +16,8 @@ info: |
 includes: [compareArray.js]
 ---*/
 
+var actual = [];
+
 const options = {
   get localeMatcher() {
     actual.push("localeMatcher");
