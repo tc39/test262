@@ -39,5 +39,5 @@ const expected = [
     "style"
 ];
 
-nf = new Intl.NumberFormat(undefined, options);
+let nf = new Intl.NumberFormat(undefined, options);
 assert.compareArray(actual, expected);
