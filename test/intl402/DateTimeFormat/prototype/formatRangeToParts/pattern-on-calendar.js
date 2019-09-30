@@ -33,7 +33,7 @@ let date2 = new Date();
 // serialize parts to a string by considering only the type and literal.
 function serializeTypesAndLiteral(parts) {
   var types = new Array();
-  parts.forEach(function(part) {
+  parts.map(part => {
     if (part.type == "literal") {
       types.push(part.type + "(" + part.value + ")");
     } else {
@@ -45,16 +45,11 @@ function serializeTypesAndLiteral(parts) {
 
 let df = new Intl.DateTimeFormat("en");
 let base  = serializeTypesAndLiteral(df.formatRangeToParts(date1, date2));
-let diff = 0;
 
-// Iterate through all different known calendars.
-// Expect at least one of them get get different pattern.
-calendars.forEach(function(calendar) {
-  let cdf =  new Intl.DateTimeFormat("en-u-ca-" + calendar);
-  if (base != serializeTypesAndLiteral(cdf.formatRangeToParts(date1, date2))) {
-    diff++;
-  }
+const foundDifferentPattern = calendars.some(function(calendar) {
+  let cdf = new Intl.DateTimeFormat("en-u-ca-" + calendar);
+  return base != serializeTypesAndLiteral(cdf.formatRangeToParts(date1, date2));
 });
 
 // Expect at least some calendar use different pattern.
-assert.sameValue(diff > 0, true);
+assert.sameValue(foundDifferentPattern, true);
