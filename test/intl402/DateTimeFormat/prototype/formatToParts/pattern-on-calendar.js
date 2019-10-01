@@ -31,13 +31,11 @@ let date = new Date();
 
 // serialize parts to a string by considering only the type and literal.
 function serializeTypesAndLiteral(parts) {
-  var types = new Array();
-  parts.map(part => {
+  let types = parts.map(part => {
     if (part.type == "literal") {
-      types.push(part.type + "(" + part.value + ")");
-    } else {
-      types.push(part.type);
+      return `${part.type}(${part.value})`;
     }
+    return part.type;
   });
   return types.join(":");
 }
