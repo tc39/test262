@@ -18,9 +18,10 @@ features: [Intl.ListFormat]
 ---*/
 
 function CustomError() {}
+
 let lf = new Intl.ListFormat();
 // Test the failure case.
-let step_iterator_throw = {
+let iterator_step_throw = {
   [Symbol.iterator]() {
     return this;
   },
@@ -37,5 +38,5 @@ let step_iterator_throw = {
   }
 };
 assert.throws(CustomError,
-    ()=> {lf.formatToParts(step_iterator_throw)});
-assert.sameValue(step_iterator_throw.count, 3);
+    ()=> {lf.formatToParts(iterator_step_throw)});
+assert.sameValue(iterator_step_throw.count, 3);
