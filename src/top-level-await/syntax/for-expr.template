@@ -33,6 +33,7 @@ info: |
     await UnaryExpression[?Yield, +Await]
 
   ...
+flags: [module]
 features: [top-level-await]
 ---*/
 
