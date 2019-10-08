@@ -3,16 +3,17 @@
 
 /*---
 esid: sec-initializenumberformat
-description: Checks the order of getting "numberingSystem" option in the
-    NumberFormat is between "localeMatcher" and "style" options.
+description: >
+  Checks the order of getting "numberingSystem" option in the
+  NumberFormat is between "localeMatcher" and "style" options.
 info: |
-    InitializeNumberFormat ( _numberFormat_, _locales_, _options_ )
-        5. Let _matcher_ be ? GetOption(_options_, `"localeMatcher"`, `"string"`, &laquo; `"lookup"`, `"best fit"` &raquo;, `"best fit"`).
-        ...
-        7. Let _numberingSystem_ be ? GetOption(_options_, `"numberingSystem"`, `"string"`, *undefined*, *undefined*).
-        ...
-        17. Let _style_ be ? GetOption(_options_, `"style"`, `"string"`, &laquo; `"decimal"`, `"percent"`, `"currency"` &raquo;, `"decimal"`).
+  InitializeNumberFormat ( _numberFormat_, _locales_, _options_ )
 
+  5. Let _matcher_ be ? GetOption(_options_, `"localeMatcher"`, `"string"`, &laquo; `"lookup"`, `"best fit"` &raquo;, `"best fit"`).
+  ...
+  7. Let _numberingSystem_ be ? GetOption(_options_, `"numberingSystem"`, `"string"`, *undefined*, *undefined*).
+  ...
+  17. Let _style_ be ? GetOption(_options_, `"style"`, `"string"`, &laquo; `"decimal"`, `"percent"`, `"currency"` &raquo;, `"decimal"`).
 includes: [compareArray.js]
 ---*/
 
@@ -34,9 +35,9 @@ const options = {
 };
 
 const expected = [
-    "localeMatcher",
-    "numberingSystem",
-    "style"
+  "localeMatcher",
+  "numberingSystem",
+  "style"
 ];
 
 let nf = new Intl.NumberFormat(undefined, options);
