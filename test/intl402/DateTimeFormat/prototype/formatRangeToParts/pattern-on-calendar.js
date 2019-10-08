@@ -3,8 +3,9 @@
 
 /*---
 esid: sec-initializedatetimeformat
-description: Checks the DateTimeFormat choose different patterns based
-    on calendar.
+description: >
+  Checks the DateTimeFormat choose different patterns based
+  on calendar.
 locale: [en]
 ---*/
 
