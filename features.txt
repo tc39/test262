@@ -145,6 +145,10 @@ top-level-await
 # https://github.com/tc39/proposal-regexp-match-indices
 regexp-match-indices
 
+# Nullish Coalesce Expression
+# https://github.com/tc39/proposal-nullish-coalescing
+coalesce-expression
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
