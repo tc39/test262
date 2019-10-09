@@ -3,16 +3,17 @@
 
 /*---
 esid: sec-initializedatetimeformat
-description: Checks the order of getting "calendar" and "numberingSystem" options in the
-    DateTimeFormat is between "localeMatcher" and "hour12" options.
+description: >
+  Checks the order of getting "calendar" and "numberingSystem" options in the
+  DateTimeFormat is between "localeMatcher" and "hour12" options.
 info: |
-        4. Let _matcher_ be ? GetOption(_options_, `"localeMatcher"`, `"string"`, &laquo; `"lookup"`, `"best fit"` &raquo;, `"best fit"`).
-        ...
-        6. Let _calendar_ be ? GetOption(_options_, `"calendar"`, `"string"`, *undefined*, *undefined*).
-        ...
-        9. Let _numberingSystem_ be ? GetOption(_options_, `"numberingSystem"`, `"string"`, *undefined*, *undefined*).
-        ...
-        12. Let _hour12_ be ? GetOption(_options_, `"hour12"`, `"boolean"`, *undefined*, *undefined*).
+  4. Let _matcher_ be ? GetOption(_options_, `"localeMatcher"`, `"string"`, &laquo; `"lookup"`, `"best fit"` &raquo;, `"best fit"`).
+  ...
+  6. Let _calendar_ be ? GetOption(_options_, `"calendar"`, `"string"`, *undefined*, *undefined*).
+  ...
+  9. Let _numberingSystem_ be ? GetOption(_options_, `"numberingSystem"`, `"string"`, *undefined*, *undefined*).
+  ...
+  12. Let _hour12_ be ? GetOption(_options_, `"hour12"`, `"boolean"`, *undefined*, *undefined*).
 includes: [compareArray.js]
 ---*/
 
@@ -38,10 +39,10 @@ const options = {
 };
 
 const expected = [
-    "localeMatcher",
-    "calendar",
-    "numberingSystem",
-    "hour12"
+  "localeMatcher",
+  "calendar",
+  "numberingSystem",
+  "hour12"
 ];
 
 let df = new Intl.DateTimeFormat(undefined, options);
