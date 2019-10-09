@@ -3,8 +3,8 @@
 
 /*---
 esid: sec-Intl.ListFormat.prototype.format
-description: Checks the behavior of Abstract Operation StringListFromIterable
-    called by Intl.ListFormat.prototype.format() while the GetIterator
+description: >
+    Checks the behavior of Abstract Operation StringListFromIterable    called by Intl.ListFormat.prototype.format() while the GetIterator
     throws error.
 info: |
     StringListFromIterable
