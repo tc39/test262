@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-Intl.ListFormat.prototype.formatToParts
-description: Checks the behavior of Abstract Operation StringListFromIterable
+description: >
+    Checks the behavior of Abstract Operation StringListFromIterable
     called by Intl.ListFormat.prototype.formatToParts().
 info: |
     StringListFromIterable

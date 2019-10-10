@@ -3,8 +3,9 @@
 
 /*---
 esid: sec-partitiondatetimepattern
-description: Checks the output of 'relatedYear' and 'yearName' type, and
-    the choose of pattern base on calendar.
+description: >
+  Checks the output of 'relatedYear' and 'yearName' type, and
+  the choose of pattern base on calendar.
 locale: [en-u-ca-chinese]
 ---*/
 
