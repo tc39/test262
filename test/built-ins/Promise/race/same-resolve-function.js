@@ -3,6 +3,7 @@
 
 /*---
 es6id: 25.4.4.3.1
+flags: [async]
 description: >
   Each Promise.race element is called with the same resolve function.
 info: |

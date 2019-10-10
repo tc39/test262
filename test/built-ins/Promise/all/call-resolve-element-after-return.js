@@ -3,6 +3,7 @@
 
 /*---
 es6id: 25.4.4.1.2
+flags: [async]
 description: >
   Cannot change result value of resolved Promise.all element after Promise.all() returned.
 info: |

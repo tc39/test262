@@ -3,6 +3,7 @@
 
 /*---
 es6id: 25.4.4.1.1
+flags: [async]
 description: >
   Each Promise.all element is called with the same reject function.
 info: |

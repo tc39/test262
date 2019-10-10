@@ -3,6 +3,7 @@
 
 /*---
 es6id: 25.4.4.5
+flags: [async]
 description: >
   Resolve function is called after Promise constructor returns.
 info: |

@@ -3,6 +3,7 @@
 
 /*---
 es6id: 25.4.4.1.1
+flags: [async]
 description: >
   Cannot tamper remainingElementsCount when two Promise.all resolve element functions are called in succession.
 info: |
