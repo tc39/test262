@@ -24,7 +24,7 @@ function Constructor(executor) {
     assert.sameValue(values[0], "expectedValue-p1", "values[0]");
     assert.sameValue(values[1], "expectedValue-p2", "values[1]");
   }
-  executor(resolve, $ERROR);
+  executor(resolve, $DONE);
 }
 Constructor.resolve = function(v) {
   return v;

@@ -19,4 +19,4 @@ class FooPromise extends Promise {
 FooPromise.resolve().finally(() => {}).then(() => {
   assert.sameValue(6, count);
   $DONE();
-}, $ERROR);
+}, $DONE);

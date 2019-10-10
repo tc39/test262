@@ -36,4 +36,4 @@ no.catch(function(e) {
 }).then(function() {
   checkSequence(sequence, "All expected callbacks called in correct order");
   $DONE();
-}).catch($ERROR);
+}).catch($DONE);

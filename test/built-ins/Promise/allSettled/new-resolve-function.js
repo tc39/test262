@@ -19,7 +19,7 @@ features: [Promise.allSettled]
 function resolveFunction() {}
 
 function Constructor(executor) {
-  executor(resolveFunction, $ERROR);
+  executor(resolveFunction, $DONE);
 }
 Constructor.resolve = function(v) {
   return v;

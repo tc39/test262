@@ -16,7 +16,7 @@ class FooPromise extends Promise {
   }
 }
 
-FooPromise.reject().finally(() => {}).then($ERROR).catch(() => {
+FooPromise.reject().finally(() => {}).then($DONE).catch(() => {
   assert.sameValue(7, count);
   $DONE();
 });

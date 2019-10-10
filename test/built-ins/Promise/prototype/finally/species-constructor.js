@@ -22,4 +22,4 @@ new FooPromise(r => r())
   .then(() => {
     assert.sameValue(count, 6, "6 new promises were created");
     $DONE();
-  }, $ERROR);
+  }, $DONE);

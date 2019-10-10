@@ -47,7 +47,7 @@ function Constructor(executor) {
       }
     ], 'values');
   }
-  executor(resolve, $ERROR);
+  executor(resolve, $DONE);
 }
 Constructor.resolve = function(v) {
   return v;
