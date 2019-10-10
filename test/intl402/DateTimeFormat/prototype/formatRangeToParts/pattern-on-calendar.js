@@ -6,6 +6,7 @@ esid: sec-initializedatetimeformat
 description: >
   Checks the DateTimeFormat choose different patterns based
   on calendar.
+features: [Intl.DateTimeFormat-formatRange]
 locale: [en]
 ---*/
 
