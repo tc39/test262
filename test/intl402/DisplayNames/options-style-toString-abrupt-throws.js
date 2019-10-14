@@ -43,6 +43,7 @@ assert.throws(Test262Error, () => {
 }, 'from toString');
 
 options.style = {
+  toString: undefined,
   valueOf() {
     throw new Test262Error();
   }

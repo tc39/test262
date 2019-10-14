@@ -43,6 +43,7 @@ assert.throws(Test262Error, () => {
 }, 'from toString');
 
 options.fallback = {
+  toString: undefined,
   valueOf() {
     throw new Test262Error();
   }
@@ -64,6 +65,6 @@ assert.throws(Test262Error, () => {
 
 options.fallback = Symbol();
 
-assert.throws(Test262Error, () => {
+assert.throws(TypeError, () => {
   new Intl.DisplayNames('en', options);
 }, 'symbol value');

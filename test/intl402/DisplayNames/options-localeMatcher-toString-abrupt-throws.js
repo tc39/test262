@@ -40,6 +40,7 @@ assert.throws(Test262Error, () => {
 }, 'from toString');
 
 options.localeMatcher = {
+  toString: undefined,
   valueOf() {
     throw new Test262Error();
   }
@@ -61,6 +62,6 @@ assert.throws(Test262Error, () => {
 
 options.localeMatcher = Symbol();
 
-assert.throws(Test262Error, () => {
+assert.throws(TypeError, () => {
   new Intl.DisplayNames('en', options);
 }, 'symbol value');
