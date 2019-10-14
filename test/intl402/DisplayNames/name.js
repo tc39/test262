@@ -16,7 +16,7 @@ info: |
   if it exists, has the attributes { [[Writable]]: false, [[Enumerable]]:
   false, [[Configurable]]: true }.
 includes: [propertyHelper.js]
-features: [Intl.DisplayNames
+features: [Intl.DisplayNames]
 ---*/
 
 verifyProperty(Intl.DisplayNames, "name", {
