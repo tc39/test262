@@ -30,7 +30,7 @@ info: |
 
   1. Let value be ? Get(options, property).
   ...
-features: [Intl.DisplayNames, Symbol]
+features: [Intl.DisplayNames]
 locale: [en]
 ---*/
 
