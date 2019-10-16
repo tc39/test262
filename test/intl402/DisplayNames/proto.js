@@ -5,7 +5,6 @@
 esid: sec-Intl.DisplayNames
 description: >
   The internal prototype of Intl.DisplayNames
-includes: [propertyHelper.js]
 features: [Intl.DisplayNames]
 ---*/
 
