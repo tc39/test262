@@ -12,7 +12,7 @@ info: |
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
-features: [Intl.DisplayNames
+features: [Intl.DisplayNames]
 ---*/
 
 assert.sameValue(typeof Intl.DisplayNames, "function", "`typeof Intl.DisplayNames` is `'function'`");
