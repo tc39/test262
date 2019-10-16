@@ -65,6 +65,6 @@ assert.throws(Test262Error, () => {
 
 options.style = Symbol();
 
-assert.throws(Test262Error, () => {
+assert.throws(TypeError, () => {
   new Intl.DisplayNames('en', options);
 }, 'symbol value');

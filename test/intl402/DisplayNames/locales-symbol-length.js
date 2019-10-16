@@ -4,7 +4,7 @@
 /*---
 esid: sec-Intl.DisplayNames
 description: >
-  Throws TypeError if locales is not undefined, a string, or an array-like object.
+  CanonicalizeLocaleList tries to fetch length from Object.
 info: |
   Intl.DisplayNames ([ locales [ , options ]])
 
@@ -24,9 +24,36 @@ info: |
   4. Else,
     a. Let O be ? ToObject(locales).
   5. Let len be ? ToLength(? Get(O, "length")).
-features: [Intl.DisplayNames]
+features: [Intl.DisplayNames, Symbol]
+locale: [en]
+includes: [compareArray.js]
 ---*/
 
-assert.throws(TypeError, () => {
-  new Intl.DisplayNames(null);
-}, 'null');
+var calls = [];
+var symbol = Symbol();
+
+Symbol.prototype.length = 1;
+
+Object.defineProperty(Symbol.prototype, 'length', {
+  get() {
+    assert.notSameValue(this, symbol, 'this is an object from given symbol');
+    assert.sameValue(this.valueOf(), symbol, 'internal value is the symbol');
+    assert(this instanceof Symbol);
+    calls.push('length');
+    return 1;
+  }
+});
+
+Object.defineProperty(Symbol.prototype, '0', {
+  get() {
+    assert.notSameValue(this, symbol, 'this is an object from given symbol');
+    assert.sameValue(this.valueOf(), symbol, 'internal value is the symbol');
+    assert(this instanceof Symbol);
+    calls.push('0');
+    return 'en';
+  }
+});
+
+new Intl.DisplayNames(symbol);
+
+assert.compareArray(calls, ['length', '0']);

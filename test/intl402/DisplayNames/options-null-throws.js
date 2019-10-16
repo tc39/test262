@@ -4,7 +4,7 @@
 /*---
 esid: sec-Intl.DisplayNames
 description: >
-  Throws TypeError if options is a Symbol or null
+  Throws TypeError if options is null
 info: |
   Intl.DisplayNames ([ locales [ , options ]])
 
@@ -17,15 +17,10 @@ info: |
   5. Else
     a. Let options be ? ToObject(options).
   ...
-features: [Intl.DisplayNames, Symbol]
+features: [Intl.DisplayNames]
 locale: [en]
 ---*/
 
 assert.throws(TypeError, () => {
   new Intl.DisplayNames('en', null);
 }, 'null');
-
-var symbol = Symbol();
-assert.throws(TypeError, () => {
-  new Intl.DisplayNames('en', symbol);
-}, 'symbol');
