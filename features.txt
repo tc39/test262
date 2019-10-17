@@ -153,6 +153,11 @@ coalesce-expression
 # https://github.com/tc39-transfer/proposal-intl-displaynames
 Intl.DisplayNames
 
+# Promise.any
+# https://github.com/tc39/proposal-promise-any
+Promise.any
+AggregateError
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
