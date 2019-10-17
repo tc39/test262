@@ -149,6 +149,10 @@ regexp-match-indices
 # https://github.com/tc39/proposal-nullish-coalescing
 coalesce-expression
 
+# Intl.DisplayNames
+# https://github.com/tc39-transfer/proposal-intl-displaynames
+Intl.DisplayNames
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
