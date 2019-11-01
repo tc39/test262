@@ -1,0 +1,20 @@
+// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: PrivateName after '?.' is not valid syntax
+info: |
+  Updated Productions
+
+  MemberExpression[Yield]:
+    MemberExpression[?Yield].PrivateName
+template: syntax/invalid
+features: [class-fields-private, optional-chaining]
+---*/
+
+//- elements
+#m = 'test262';
+
+access(obj) {
+  return obj?.#m;
+}
