@@ -9,7 +9,7 @@ info: |
   1. Let E be the this value.
   2. If Type(E) is not Object, throw a TypeError exception.
   ...
-features: [AggregateError]
+features: [AggregateError, Symbol]
 ---*/
 
 var getter = Object.getOwnPropertyDescriptor(

@@ -11,7 +11,7 @@ info: |
   ...
   5. Return ! CreateArrayFromList(E.[[AggregateErrors]]).
 includes: [compareArray.js]
-features: [AggregateError]
+features: [AggregateError, Symbol.iterator]
 ---*/
 
 var count = 0;

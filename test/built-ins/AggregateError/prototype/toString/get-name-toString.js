@@ -17,7 +17,7 @@ info: |
   7. If name is the empty String, return msg.
   8. If msg is the empty String, return name.
   9. Return the string-concatenation of name, the code unit 0x003A (COLON), the code unit 0x0020 (SPACE) and msg.
-features: [AggregateError]
+features: [AggregateError, Symbol.toPrimitive]
 ---*/
 
 var method = AggregateError.prototype.toString;

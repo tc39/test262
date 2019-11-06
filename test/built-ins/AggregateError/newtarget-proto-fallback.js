@@ -27,7 +27,7 @@ info: |
     a. Let realm be ? GetFunctionRealm(constructor).
     b. Set proto to realm's intrinsic object named intrinsicDefaultProto.
   Return proto.
-features: [AggregateError]
+features: [AggregateError, Symbol]
 ---*/
 
 var custom = { x: 42 };

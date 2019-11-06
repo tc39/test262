@@ -13,7 +13,7 @@ info: |
     a. Let msg be ? ToString(message).
     b. Perform ! CreateMethodProperty(O, "message", msg).
   6. Return O.
-features: [AggregateError]
+features: [AggregateError, Symbol, Symbol.toPrimitive]
 ---*/
 
 var case1 = Symbol();

@@ -41,7 +41,7 @@ info: |
   6. Let nextMethod be ? GetV(iterator, "next").
   ...
   8. Return iteratorRecord.
-features: [AggregateError]
+features: [AggregateError, Symbol.iterator]
 ---*/
 
 var case1 = {

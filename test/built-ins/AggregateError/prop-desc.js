@@ -19,7 +19,7 @@ features: [AggregateError]
 
 assert.sameValue(typeof AggregateError, 'function');
 
-verifyProperty(this, "AggregateError", {
+verifyProperty(this, 'AggregateError', {
   enumerable: false,
   writable: true,
   configurable: true

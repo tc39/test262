@@ -11,7 +11,7 @@ info: |
   ...
   5. Return ! CreateArrayFromList(E.[[AggregateErrors]]).
 includes: [compareArray.js]
-features: [AggregateError]
+features: [AggregateError, Symbol]
 ---*/
 
 var errors = [];
@@ -62,3 +62,15 @@ assert.notSameValue(case3get1, case3get2, 'creates a new array everytime it gets
 
 assert.compareArray(case3get1, errors);
 assert.compareArray(case3get2, errors);
+
+assert(Object.prototype.hasOwnProperty.call(case3get1, 0), 'filled array from a sparse origin - case3get1, 0');
+assert(Object.prototype.hasOwnProperty.call(case3get1, 1), 'filled array from a sparse origin - case3get1, 1');
+assert(Object.prototype.hasOwnProperty.call(case3get1, 2), 'filled array from a sparse origin - case3get1, 2');
+assert(Object.prototype.hasOwnProperty.call(case3get1, 3), 'filled array from a sparse origin - case3get1, 3');
+assert(Object.prototype.hasOwnProperty.call(case3get1, 4), 'filled array from a sparse origin - case3get1, 4');
+
+assert(Object.prototype.hasOwnProperty.call(case3get2, 0), 'filled array from a sparse origin - case3get2, 0');
+assert(Object.prototype.hasOwnProperty.call(case3get2, 1), 'filled array from a sparse origin - case3get2, 1');
+assert(Object.prototype.hasOwnProperty.call(case3get2, 2), 'filled array from a sparse origin - case3get2, 2');
+assert(Object.prototype.hasOwnProperty.call(case3get2, 3), 'filled array from a sparse origin - case3get2, 3');
+assert(Object.prototype.hasOwnProperty.call(case3get2, 4), 'filled array from a sparse origin - case3get2, 4');
