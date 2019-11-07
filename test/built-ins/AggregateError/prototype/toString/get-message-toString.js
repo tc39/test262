@@ -4,7 +4,7 @@
 /*---
 esid: sec-aggregate-error.prototype.toString
 description: >
-  ToString(name)
+  ToString(message)
 info: |
   AggregateError.prototype.toString ( )
 
@@ -22,15 +22,15 @@ features: [AggregateError]
 
 var method = AggregateError.prototype.toString;
 
-var obj = { message: '' };
+var obj = { name: '' };
 
-obj.name = 0;
+obj.message = 0;
 assert.sameValue(method.call(obj), '0', 'Number 0');
-obj.name = null;
+obj.message = null;
 assert.sameValue(method.call(obj), 'null', 'null');
-obj.name = false;
+obj.message = false;
 assert.sameValue(method.call(obj), 'false', 'false');
-obj.name = true;
+obj.message = true;
 assert.sameValue(method.call(obj), 'true', 'true');
-obj.name = 1;
+obj.message = 1;
 assert.sameValue(method.call(obj), '1', 'Number 1');

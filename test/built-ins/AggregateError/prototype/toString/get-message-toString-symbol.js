@@ -4,7 +4,7 @@
 /*---
 esid: sec-aggregate-error.prototype.toString
 description: >
-  ToString(name)
+  ToString(Symbol msg)
 info: |
   AggregateError.prototype.toString ( )
 
@@ -17,20 +17,19 @@ info: |
   7. If name is the empty String, return msg.
   8. If msg is the empty String, return name.
   9. Return the string-concatenation of name, the code unit 0x003A (COLON), the code unit 0x0020 (SPACE) and msg.
-features: [AggregateError]
+features: [AggregateError, Symbol]
 ---*/
 
 var method = AggregateError.prototype.toString;
 
-var obj = { message: '' };
+var obj = { name: '', message: Symbol() };
 
-obj.name = 0;
-assert.sameValue(method.call(obj), '0', 'Number 0');
-obj.name = null;
-assert.sameValue(method.call(obj), 'null', 'null');
-obj.name = false;
-assert.sameValue(method.call(obj), 'false', 'false');
-obj.name = true;
-assert.sameValue(method.call(obj), 'true', 'true');
-obj.name = 1;
-assert.sameValue(method.call(obj), '1', 'Number 1');
+assert.throws(TypeError, function() {
+  method.call(obj);
+}, 'own property');
+
+obj = Object.create({ name: '', message: Symbol() });
+
+assert.throws(TypeError, function() {
+  method.call(obj);
+}, 'from prototype');

@@ -4,7 +4,7 @@
 /*---
 esid: sec-aggregate-error.prototype.toString
 description: >
-  ToString(name)
+  ToString(name) where it can return "undefined"
 info: |
   AggregateError.prototype.toString ( )
 
@@ -22,15 +22,17 @@ features: [AggregateError]
 
 var method = AggregateError.prototype.toString;
 
-var obj = { message: '' };
+var obj = {
+  name: {
+    toString() {
+      return undefined;
+    }
+  },
+  message: '',
+};
 
-obj.name = 0;
-assert.sameValue(method.call(obj), '0', 'Number 0');
-obj.name = null;
-assert.sameValue(method.call(obj), 'null', 'null');
-obj.name = false;
-assert.sameValue(method.call(obj), 'false', 'false');
-obj.name = true;
-assert.sameValue(method.call(obj), 'true', 'true');
-obj.name = 1;
-assert.sameValue(method.call(obj), '1', 'Number 1');
+assert.sameValue(method.call(obj), 'undefined', 'without message');
+
+obj.message = 'lol';
+
+assert.sameValue(method.call(obj), 'undefined\u003A\u0020lol', 'with message');

@@ -4,7 +4,7 @@
 /*---
 esid: sec-aggregate-error.prototype.toString
 description: >
-  ToString(name)
+  Returns a string concatenating name and msg when both are defined
 info: |
   AggregateError.prototype.toString ( )
 
@@ -22,15 +22,17 @@ features: [AggregateError]
 
 var method = AggregateError.prototype.toString;
 
-var obj = { message: '' };
+var obj = {
+  name: 'foo',
+  message: 'bar',
+};
 
-obj.name = 0;
-assert.sameValue(method.call(obj), '0', 'Number 0');
-obj.name = null;
-assert.sameValue(method.call(obj), 'null', 'null');
-obj.name = false;
-assert.sameValue(method.call(obj), 'false', 'false');
-obj.name = true;
-assert.sameValue(method.call(obj), 'true', 'true');
-obj.name = 1;
-assert.sameValue(method.call(obj), '1', 'Number 1');
+assert.sameValue(method.call(obj), 'foo\u003A\u0020bar');
+
+obj = new AggregateError(['a', 'b', 'c'], 'Hello World!');
+
+assert.sameValue(method.call(obj), 'AggregateError\u003A\u0020Hello World!');
+
+obj = new AggregateError(['a', 'b', 'c']);
+
+assert.sameValue(method.call(obj), 'AggregateError');

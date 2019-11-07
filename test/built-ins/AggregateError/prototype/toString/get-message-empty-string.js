@@ -4,7 +4,7 @@
 /*---
 esid: sec-aggregate-error.prototype.toString
 description: >
-  ToString(name)
+  If message value is the empty string, return name
 info: |
   AggregateError.prototype.toString ( )
 
@@ -22,15 +22,33 @@ features: [AggregateError]
 
 var method = AggregateError.prototype.toString;
 
-var obj = { message: '' };
+var result = method.call({
+  name: 'the name',
+  message: '',
+});
 
-obj.name = 0;
-assert.sameValue(method.call(obj), '0', 'Number 0');
-obj.name = null;
-assert.sameValue(method.call(obj), 'null', 'null');
-obj.name = false;
-assert.sameValue(method.call(obj), 'false', 'false');
-obj.name = true;
-assert.sameValue(method.call(obj), 'true', 'true');
-obj.name = 1;
-assert.sameValue(method.call(obj), '1', 'Number 1');
+assert.sameValue(result, 'the name', 'explicit from own property');
+
+result = false;
+result = method.call(Object.create({
+  name: 'the name',
+  message: '',
+}));
+
+assert.sameValue(result, 'the name', 'explicit from prototype');
+
+result = false;
+result = method.call({
+  name: 'the name',
+  message: undefined,
+});
+
+assert.sameValue(result, 'the name', 'message is undefined');
+
+result = false;
+result = method.call({
+  name: 'the name!',
+  message: { toString() { return ''; } },
+});
+
+assert.sameValue(result, 'the name!', 'return name');
