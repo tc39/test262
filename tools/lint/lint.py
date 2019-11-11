@@ -43,6 +43,7 @@ from lib.checks.negative import CheckNegative
 from lib.checks.filename import CheckFileName
 from lib.checks.nopadding import CheckNoPadding
 from lib.checks.flags import CheckFlags
+from lib.checks.posix import CheckPosix
 from lib.eprint import eprint
 import lib.frontmatter
 import lib.exceptions
@@ -67,6 +68,7 @@ checks = [
     CheckNegative(),
     CheckNoPadding(),
     CheckFlags(),
+    CheckPosix(),
 ]
 
 def lint(file_names):

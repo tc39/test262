@@ -39,7 +39,7 @@ class TestLinter(unittest.TestCase):
 
     def test_exceptions_single(self):
         test_content = ('// Copyright (C) 2017 Mike Pennisi. All rights reserved.\n' +
-            '// This code is governed by the BSD license found in the LICENSE file.')
+            '// This code is governed by the BSD license found in the LICENSE file.\n')
         test_file = self.fixture('input.js', test_content)
         exceptions_content = test_file + ' FRONTMATTER'
         exceptions_file = self.fixture('lint.exceptions', exceptions_content)
@@ -54,7 +54,7 @@ class TestLinter(unittest.TestCase):
 
     def test_exceptions_comment(self):
         test_content = ('// Copyright (C) 2017 Mike Pennisi. All rights reserved.\n' +
-            '// This code is governed by the BSD license found in the LICENSE file.')
+            '// This code is governed by the BSD license found in the LICENSE file.\n')
         test_file = self.fixture('input.js', test_content)
         exceptions_content = ('# One comment\n' +
             '# Another comment\n' +
