@@ -4,6 +4,7 @@
 esid: sec-proxy-object-internal-methods-and-internal-slots-hasproperty-p
 description: >
   Ordinary [[HasProperty]] forwards call to Proxy "has" trap with correct arguments.
+  (integer index property name)
 info: |
   OrdinaryHasProperty ( O, P )
 
@@ -23,7 +24,7 @@ features: [Proxy]
 ---*/
 
 var _handler, _target, _prop;
-var proto = {prop: 1};
+var proto = [14];
 var target = Object.create(proto);
 var handler = allowProxyTraps({
   has: function(target, prop) {
@@ -35,9 +36,10 @@ var handler = allowProxyTraps({
   },
 });
 var proxy = new Proxy(target, handler);
-var heir = Object.create(proxy);
+var array = [];
+Object.setPrototypeOf(array, proxy);
 
-assert.sameValue('prop' in heir, false);
+assert.sameValue(1 in array, false);
 assert.sameValue(_handler, handler, 'handler is context');
 assert.sameValue(_target, target, 'target is the first parameter');
-assert.sameValue(_prop, 'prop', 'given prop is the second paramter');
+assert.sameValue(_prop, '1', 'given prop is the second paramter');
