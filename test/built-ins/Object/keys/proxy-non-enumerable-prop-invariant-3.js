@@ -31,14 +31,13 @@ info: |
   ...
   18. Let uncheckedResultKeys be a new List which is a copy of trapResult.
   ...
-  21. For each key that is an element of targetConfigurableKeys, do
-    a. If key is not an element of uncheckedResultKeys, throw a TypeError exception.
+  22. If uncheckedResultKeys is not empty, throw a TypeError exception.
 features: [Proxy]
 ---*/
 
 var target = {};
 Object.defineProperty(target, 'prop', {
-  value: 2,
+  value: 3,
   writable: true,
   enumerable: false,
   configurable: true,
@@ -46,12 +45,11 @@ Object.defineProperty(target, 'prop', {
 
 var proxy = new Proxy(target, {
   ownKeys: function() {
-    return [];
+    return ['prop'];
   },
 });
 
 Object.preventExtensions(target);
 
-assert.throws(TypeError, function() {
-  Object.keys(proxy);
-});
+var keys = Object.keys(proxy);
+assert.sameValue(keys.length, 0);

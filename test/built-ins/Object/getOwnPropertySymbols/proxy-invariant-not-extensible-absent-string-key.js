@@ -2,21 +2,20 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-object.keys
+esid: sec-object.getownpropertysymbols
 description: >
-  Proxy [[OwnPropertyKeys]] trap does not skip non-enumerable keys when validating invariant:
+  Proxy [[OwnPropertyKeys]] trap does not skip string keys when validating invariant:
   * If the target object is not extensible, then the result List must contain all the keys of
     the own properties of the target object and no other values.
 info: |
-  Object.keys ( O )
+  Object.getOwnPropertySymbols ( O )
+
+  1. Return ? GetOwnPropertyKeys(O, Symbol).
+
+  GetOwnPropertyKeys ( O, type )
 
   ...
-  2. Let nameList be ? EnumerableOwnPropertyNames(obj, "key").
-
-  EnumerableOwnPropertyNames ( O, kind )
-
-  ...
-  2. Let ownKeys be ? O.[[OwnPropertyKeys]]().
+  2. Let keys be ? obj.[[OwnPropertyKeys]]().
 
   [[OwnPropertyKeys]] ( )
 
@@ -36,14 +35,7 @@ info: |
 features: [Proxy]
 ---*/
 
-var target = {};
-Object.defineProperty(target, 'prop', {
-  value: 2,
-  writable: true,
-  enumerable: false,
-  configurable: true,
-});
-
+var target = {prop: 2};
 var proxy = new Proxy(target, {
   ownKeys: function() {
     return [];
@@ -53,5 +45,5 @@ var proxy = new Proxy(target, {
 Object.preventExtensions(target);
 
 assert.throws(TypeError, function() {
-  Object.keys(proxy);
+  Object.getOwnPropertySymbols(proxy);
 });
