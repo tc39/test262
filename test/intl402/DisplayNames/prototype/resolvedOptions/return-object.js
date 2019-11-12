@@ -64,18 +64,18 @@ assert.notSameValue(options, other, 'each call returns a new object');
 assert.sameValue(Object.getPrototypeOf(options), Object.prototype, 'ordinary object #1');
 assert.sameValue(Object.getPrototypeOf(other), Object.prototype, 'ordinary object #2');
 
+assert.compareArray(
+  Reflect.ownKeys(options),
+  ['locale', 'style', 'type', 'fallback'],
+  'all the data properties set to this object, in order of creation'
+);
+
 verifyProperty(options, 'locale', {
   value: 'en-US',
   writable: true,
   enumerable: true,
   configurable: true
 });
-
-assert.compareArray(
-  Reflect.ownKeys(options),
-  ['locale', 'style', 'type', 'fallback'],
-  'all the data properties set to this object, in order of creation'
-);
 
 var explicit = new Intl.DisplayNames('en', { localeMatcher: 'lookup' }).resolvedOptions();
 
@@ -87,7 +87,7 @@ assert.sameValue(
 
 var extra = new Intl.DisplayNames('en', { chaos: 'yes', random: 'sure', '0': 42 }).resolvedOptions();
 
-assert.compareyArray(
+assert.compareArray(
   Reflect.ownKeys(extra),
   ['locale', 'style', 'type', 'fallback'],
   'extra properties are not reflected in the resolvedOptions'
