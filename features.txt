@@ -158,6 +158,10 @@ Intl.DisplayNames
 Promise.any
 AggregateError
 
+# String.prototype.replaceAll
+# https://github.com/tc39/proposal-string-replaceall
+String.prototype.replaceAll
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
