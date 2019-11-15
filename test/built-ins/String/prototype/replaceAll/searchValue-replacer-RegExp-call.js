@@ -44,9 +44,27 @@ const samples = [
   [ ['b', 'g'], 'abc abc abc', 'z', 'azc azc azc' ],
   [ ['b', 'gy'], 'abc abc abc', 'z', 'abc abc abc' ],
   [ ['b', 'giy'], 'abc abc abc', 'z', 'abc abc abc' ],
-  [ ['[A-Z]', 'g'], 'No Uppercase!', '', 'o ppercase!'],
-  [ ['[A-Z]', 'gy'], 'No Uppercase?', '', 'o Uppercase?'],
-  [ ['[A-Z]', 'gy'], 'NO UPPERCASE!', '', ' UPPERCASE!'],
+  [ [ '[A-Z]', 'g' ], 'No Uppercase!', '', 'o ppercase!' ],
+  [ [ '[A-Z]', 'gy' ], 'No Uppercase?', '', 'o Uppercase?' ],
+  [ [ '[A-Z]', 'gy' ], 'NO UPPERCASE!', '', ' UPPERCASE!' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '$2-$1', 'ca-bbcca-bbc' ],
+  [ [ '(a(.))', 'g' ], 'abcabcabcabc', '$1$2$3', 'abb$3cabb$3cabb$3cabb$3c' ],
+  [ [ '(((((((((((((a(.).).).).).).).).))))))', 'g' ], 'aabacadaeafagahaiajakalamano a azaya', '($10)-($12)-($1)', '(aabaca)-(aaba)-(aabacadaea)f(agahai)-(agah)-(agahaiajak)(alaman)-(alam)-(alamano a )azaya' ],
+  [ [ 'b', 'g' ], 'abcba', '$\'', 'acbacaa' ],
+  [ [ 'b', 'g' ], 'abcba', '$`', 'aacabca' ],
+  [ [ '(?<named>b)', 'g' ], 'abcba', '($<named>)', 'a(b)c(b)a' ],
+  [ [ '(?<named>b)', 'g' ], 'abcba', '($<named)', 'a($<named)c($<named)a' ],
+  [ [ '(?<named>b)', 'g' ], 'abcba', '($<unnamed>)', 'a()c()a' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$)', '($)bc($)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($)', '($)bc($)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$$$)', '($$)bc($$)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$$)', '($$)bc($$)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$&)', '($&)bc($&)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$1)', '($1)bc($1)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$`)', '($`)bc($`)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($$\')', '($\')bc($\')bc' ],
+  [ [ 'a(?<z>b)(ca)', 'g' ], 'abcabcabcabc', '($$<z>)', '($<z>)bc($<z>)bc' ],
+  [ [ 'a(b)(ca)', 'g' ], 'abcabcabcabc', '($&)', '(abca)bc(abca)bc' ],
 ];
 
 let count = 0;
@@ -56,7 +74,9 @@ for (const [ reArgs, thisValue, replaceValue, expected ] of samples) {
   called = 0;
   const actual = thisValue.replaceAll(searchValue, replaceValue);
 
-  assert.sameValue(called, 1, `sample ${count}`);
-  assert.sameValue(actual, expected, `sample ${count}`);
+  const message = `sample ${count}: '${thisValue}'.replaceAll(/${reArgs.join('/')}, '${replaceValue}')`;
+
+  assert.sameValue(called, 1, message);
+  assert.sameValue(actual, expected, message);
   count += 1;
 }
