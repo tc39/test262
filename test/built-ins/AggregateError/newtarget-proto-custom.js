@@ -41,7 +41,7 @@ var newt = new Proxy(function() {}, {
   }
 });
 
-var obj = Reflect.construct(AggregateError, [], newt);
+var obj = Reflect.construct(AggregateError, [[]], newt);
 
 assert.sameValue(Object.getPrototypeOf(obj), custom);
 assert.sameValue(obj.x, 42);

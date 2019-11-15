@@ -55,7 +55,7 @@ for (const value of values) {
     }
   });
 
-  const obj = Reflect.construct(AggregateError, [], newt);
+  const obj = Reflect.construct(AggregateError, [[]], newt);
 
   assert.sameValue(Object.getPrototypeOf(obj), custom);
   assert.sameValue(obj.x, 42);
