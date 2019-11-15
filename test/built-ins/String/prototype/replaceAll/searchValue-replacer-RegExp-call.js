@@ -68,13 +68,13 @@ const samples = [
 ];
 
 let count = 0;
-for (const [ reArgs, thisValue, replaceValue, expected ] of samples) {
-  const searchValue = new RE(...reArgs);
+for (const [ [ reStr, flags ], thisValue, replaceValue, expected ] of samples) {
+  const searchValue = new RE(reStr, flags);
 
   called = 0;
   const actual = thisValue.replaceAll(searchValue, replaceValue);
 
-  const message = `sample ${count}: '${thisValue}'.replaceAll(/${reArgs.join('/')}, '${replaceValue}')`;
+  const message = `sample ${count}: '${thisValue}'.replaceAll(/${reStr}/${flags}, '${replaceValue}')`;
 
   assert.sameValue(called, 1, message);
   assert.sameValue(actual, expected, message);
