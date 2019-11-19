@@ -1,0 +1,22 @@
+// Copyright 2019 Google, LLC.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: prod-OptionalExpression
+description: >
+  optional call invoked on new.target should be equivalent to call
+info: |
+  OptionalExpression
+    MemberExpression OptionalChain
+      NewTarget OptionalChain
+features: [optional-chaining]
+---*/
+
+let called = false;
+function Base() {
+  called = true;
+}
+function Foo(blerg) {
+  new.target?.();
+}
+Reflect.construct(Foo, [], Base);
+assert.sameValue(called, true);
