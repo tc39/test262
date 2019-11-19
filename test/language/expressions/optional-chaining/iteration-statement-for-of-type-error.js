@@ -11,8 +11,18 @@ features: [optional-chaining]
 ---*/
 
 assert.throws(TypeError, function() {
-  const obj = undefined;
-  for (const key of obj?.a) {
-    str += key;
-  }
+  for (const key of {}?.a) ;
+});
+
+assert.throws(TypeError, function() {
+  for (const key of {}?.a) {}
+});
+
+const obj = undefined;
+assert.throws(TypeError, function() {
+  for (const key of obj?.a) {}
+});
+
+assert.throws(TypeError, function() {
+  for (const key of obj?.a);
 });

@@ -8,6 +8,7 @@ info: |
   IterationStatement
     for await (LeftHandSideExpression of AssignmentExpression) Statement
 features: [optional-chaining]
+flags: [async]
 ---*/
 const obj = {
   iterable: {
