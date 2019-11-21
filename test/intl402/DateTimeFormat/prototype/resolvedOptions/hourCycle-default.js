@@ -28,6 +28,8 @@ info: |
            3. Else,
               a. Set hc to "h24".
      e. Set dateTimeFormat.[[HourCycle]] to hc.
+     
+locale: [en, fr, it, ja, zh, ko, ar, hi]
 ---*/
 
 let locales = ["en", "fr", "it", "ja", "zh", "ko", "ar", "hi"];
