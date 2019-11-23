@@ -4,6 +4,7 @@
 /*---
 esid: sec-enumerate-object-properties
 description: Properties added to the object during iteration are not enumerated
+features: [for-in-order]
 includes: [compareArray.js]
 ---*/
 

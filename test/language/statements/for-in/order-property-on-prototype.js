@@ -4,6 +4,7 @@
 /*---
 esid: sec-enumerate-object-properties
 description: Properties on the prototype are enumerated after properties on the object
+features: [for-in-order]
 includes: [compareArray.js]
 ---*/
 

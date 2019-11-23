@@ -4,6 +4,7 @@
 /*---
 esid: sec-enumerate-object-properties
 description: Property enumeration order for simple objects
+features: [for-in-order]
 includes: [compareArray.js]
 ---*/
 

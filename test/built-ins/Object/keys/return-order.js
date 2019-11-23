@@ -4,6 +4,7 @@
 /*---
 esid: sec-object.keys
 description: Object.keys enumeration order
+features: [for-in-order]
 includes: [compareArray.js]
 ---*/
 

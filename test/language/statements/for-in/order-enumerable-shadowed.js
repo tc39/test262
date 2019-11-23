@@ -4,6 +4,7 @@
 /*---
 esid: sec-enumerate-object-properties
 description: Enumerable properties the prototype which are shadowed by non-enumerable properties on the object are not enumerated
+features: [for-in-order]
 includes: [compareArray.js]
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 esid: sec-internalizejsonproperty
 description: JSON.parse reviver call order
+features: [for-in-order]
 includes: [compareArray.js]
 ---*/
 

@@ -162,6 +162,10 @@ AggregateError
 # https://github.com/tc39/proposal-string-replaceall
 String.prototype.replaceAll
 
+# Enumeration order for for-in
+# https://github.com/tc39/proposal-for-in-order
+for-in-order
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

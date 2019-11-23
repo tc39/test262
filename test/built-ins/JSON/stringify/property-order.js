@@ -4,6 +4,7 @@
 /*---
 esid: sec-serializejsonobject
 description: JSON.stringify property enumeration order
+features: [for-in-order]
 ---*/
 
 var o = {
