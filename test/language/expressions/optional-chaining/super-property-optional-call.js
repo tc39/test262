@@ -12,17 +12,19 @@ features: [optional-chaining]
 ---*/
 
 let called = false;
+let context;
 class Base {
     method() {
       called = true;
-      return this;
+      context = this;
     }
 }
 class Foo extends Base {
     method() {
-      return super.method?.();
+      super.method?.();
     }
 }
 const foo = new Foo();
-assert(foo.method() === foo);
+foo.method();
+assert(foo === context);
 assert.sameValue(called, true);

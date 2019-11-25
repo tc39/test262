@@ -15,12 +15,17 @@ includes: [fnGlobalObject.js]
 const newTargetContext = (function() { return this; })();
 
 let called = false;
+// should be set to 'undefined' or global context, depending on whether
+// mode is strict or sloppy.
+let context = null;
 function Base() {
   called = true;
-  return this;
+  context = this;
 }
 function Foo(blerg) {
-  return new.target?.();
+  new.target?.();
 }
-assert(Reflect.construct(Foo, [], Base) === newTargetContext);
+
+Reflect.construct(Foo, [], Base);
+assert(context === newTargetContext);
 assert.sameValue(called, true);
