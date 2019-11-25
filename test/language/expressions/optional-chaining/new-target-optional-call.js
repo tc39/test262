@@ -12,7 +12,7 @@ features: [optional-chaining]
 includes: [fnGlobalObject.js]
 ---*/
 
-var global = fnGlobalObject();
+const newTargetContext = (function() { return this; })();
 
 let called = false;
 function Base() {
@@ -22,5 +22,5 @@ function Base() {
 function Foo(blerg) {
   return new.target?.();
 }
-assert(Reflect.construct(Foo, [], Base) === global);
+assert(Reflect.construct(Foo, [], Base) === newTargetContext);
 assert.sameValue(called, true);
