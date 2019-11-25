@@ -18,6 +18,6 @@ var nativeErrors = [
 for (let i = 0; i < nativeErrors.length; i += 1) {
   var NativeError = nativeErrors[i];
 
-  assert(!NativeError.prototype.hasOwnProperty('toString'));
+  assert.sameValue(NativeError.prototype.hasOwnProperty('toString'), false);
   assert.sameValue(NativeError.prototype.toString, Error.prototype.toString);
 }
