@@ -15,13 +15,14 @@ let called = false;
 class Base {
     method() {
       called = true;
+      return this;
     }
 }
 class Foo extends Base {
     method() {
-      super.method?.();
+      return super.method?.();
     }
 }
 const foo = new Foo();
-foo.method();
+assert(foo.method() === foo);
 assert.sameValue(called, true);

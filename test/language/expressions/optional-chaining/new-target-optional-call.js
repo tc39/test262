@@ -9,14 +9,18 @@ info: |
     MemberExpression OptionalChain
       NewTarget OptionalChain
 features: [optional-chaining]
+includes: [fnGlobalObject.js]
 ---*/
+
+var global = fnGlobalObject();
 
 let called = false;
 function Base() {
   called = true;
+  return this;
 }
 function Foo(blerg) {
-  new.target?.();
+  return new.target?.();
 }
-Reflect.construct(Foo, [], Base);
+assert(Reflect.construct(Foo, [], Base) === global);
 assert.sameValue(called, true);
