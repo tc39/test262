@@ -8,7 +8,7 @@ esid: sec-promise.any
 info: |
   2. Let promiseCapability be ? NewPromiseCapability(C).
   ...
-  5. Let result be PerformPromiseany(iteratorRecord, C, promiseCapability).
+  5. Let result be PerformPromiseAny(iteratorRecord, C, promiseCapability).
   ...
   7. Return Completion(result).
 features: [Promise.any, class]
