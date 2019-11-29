@@ -142,6 +142,28 @@ jobs:
       hostPath: r/engines/xs/xs
       hostName: xs
     <<: [*execution_steps]
+  "engine262: New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: engine262
+      hostPath: engine262/bin/engine262.js
+      hostName: engine262
+      hostArgs: --features=all
+    steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - *save_cache
+      - run:
+          name: fetch engine262
+          command: |
+            git clone https://github.com/engine262/engine262
+            cd engine262
+            npm install
+            npm run build
+      - run: npm run ci
 workflows:
   version: 2
   Tools:
@@ -156,3 +178,4 @@ workflows:
       - "V8: New or modified tests execution"
       - "V8 --harmony: New or modified tests execution"
       - "XS: New or modified tests execution"
+      - "engine262: New or modified tests execution"
