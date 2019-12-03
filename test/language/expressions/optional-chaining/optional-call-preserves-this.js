@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Sony Interactive Entertainment Inc.
+// Copyright (C) 2019 Sony Interactive Entertainment Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-optional-chaining-chain-evaluation
