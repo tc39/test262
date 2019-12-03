@@ -30,11 +30,8 @@ function shorten(){
 	return 1000;
 }
 
-var array = longDenseArray();
+var array = [];
 array.length = 20;
-for(var i = 0; i < 20; i++){
-	array[i] = array[i+1000];
-}
 
 var currArray = longDenseArray();
 
