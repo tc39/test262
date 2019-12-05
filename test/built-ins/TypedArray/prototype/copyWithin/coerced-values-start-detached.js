@@ -22,7 +22,7 @@ info: |
   ...
   5. Let relativeStart be ? ToInteger(start).
   ...
-includes: [compareArray.js, testTypedArray.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [TypedArray]
 ---*/
 
