@@ -1,0 +1,20 @@
+// Copyright (C) 2016 Valerie Young. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: sloppy direct eval in params introduces var
+template: error
+info: |
+
+  Runtime Semantics: IteratorBindingInitialization
+  FormalParameter : BindingElement
+
+  1. Return the result of performing IteratorBindingInitialization for BindingElement with arguments iteratorRecord and environment.
+
+
+features: [default-parameters]
+---*/
+
+//- params
+a = eval("var a = 42")
+//- error
+SyntaxError
