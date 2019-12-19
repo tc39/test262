@@ -21,7 +21,7 @@ info: |
   ...
   11. Let style be ? GetOption(options, "style", "string", « "narrow", "short", "long" », "long").
   ...
-  13. Let type be ? GetOption(options, "type", "string", « "language", "region", "script", "currency", "weekday", "month", "quarter", "dayPeriod", "dateTimeField" », "language").
+  13. Let type be ? GetOption(options, "type", "string", « "language", "region", "script", "currency" », "language").
   ...
   15. Let fallback be ? GetOption(options, "fallback", "string", « "code", "none" », "code").
   ...
@@ -41,12 +41,7 @@ var values = [
   'language',
   'region',
   'script',
-  'currency',
-  'weekday',
-  'month',
-  'quarter',
-  'dayPeriod',
-  'dateTimeField'
+  'currency'
 ];
 
 for (let valid of values) {
