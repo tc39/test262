@@ -9,7 +9,6 @@ info: |
     MemberExpression OptionalChain
       NewTarget OptionalChain
 features: [optional-chaining]
-includes: [fnGlobalObject.js]
 ---*/
 
 const newTargetContext = (function() { return this; })();
