@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (method)
 esid: sec-runtime-semantics-definemethod
 features: [default-parameters]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     MethodDefinition : PropertyName ( StrictFormalParameters ) { FunctionBody }
 

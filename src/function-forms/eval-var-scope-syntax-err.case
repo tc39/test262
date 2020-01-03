@@ -12,6 +12,7 @@ info: |
 
 
 features: [default-parameters]
+flags: [noStrict]
 ---*/
 
 //- params

@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (async arrow function expression)
 esid: sec-async-arrow-function-definitions
 features: [default-parameters, async-functions]
-flags: [generated, async]
+flags: [generated, noStrict, async]
 info: |
     14.7 Async Arrow Function Definitions
 

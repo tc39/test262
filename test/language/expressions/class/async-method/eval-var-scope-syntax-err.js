@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (class expression async method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [default-parameters, async-functions]
-flags: [generated, async]
+flags: [generated, noStrict, async]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
 

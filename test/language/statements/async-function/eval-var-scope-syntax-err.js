@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (async function declaration)
 esid: sec-async-function-definitions
 features: [default-parameters, async-functions]
-flags: [generated, async]
+flags: [generated, noStrict, async]
 info: |
     14.6 Async Function Definitions
 

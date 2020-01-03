@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [default-parameters]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
 

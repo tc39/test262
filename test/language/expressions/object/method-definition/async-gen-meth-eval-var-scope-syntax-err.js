@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (async generator method)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
 features: [default-parameters, async-iteration]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     AsyncGeneratorMethod :
         async [no LineTerminator here] * PropertyName ( UniqueFormalParameters )
