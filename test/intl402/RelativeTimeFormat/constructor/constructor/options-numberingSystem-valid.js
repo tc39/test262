@@ -22,6 +22,6 @@ const validNumberingSystemOptions = [
 ];
 
 for (const numberingSystem of validNumberingSystemOptions) {
-  const rdf = new Intl.RelativeTimeFormat("en", {numberingSystem});
-  assert.sameValue(rdf.resolvedOptions().numberingSystem, "latn");
+  const rtf = new Intl.RelativeTimeFormat("en", {numberingSystem});
+  assert.sameValue(rtf.resolvedOptions().numberingSystem, "latn");
 }
