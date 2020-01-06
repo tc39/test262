@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 features: [default-parameters]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     ArrowFunction : ArrowParameters => ConciseBody
 

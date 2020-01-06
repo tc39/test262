@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
 features: [default-parameters]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     FunctionDeclaration :
         function BindingIdentifier ( FormalParameters ) { FunctionBody }

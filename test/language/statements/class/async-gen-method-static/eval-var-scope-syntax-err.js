@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 features: [default-parameters, async-iteration]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
 

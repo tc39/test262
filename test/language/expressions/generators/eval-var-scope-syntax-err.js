@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
 features: [default-parameters, generators]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }
 

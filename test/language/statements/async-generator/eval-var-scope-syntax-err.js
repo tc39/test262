@@ -5,7 +5,7 @@
 description: sloppy direct eval in params introduces var (async generator function declaration)
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject
 features: [default-parameters, async-iteration]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     AsyncGeneratorDeclaration : async [no LineTerminator here] function * BindingIdentifier
         ( FormalParameters ) { AsyncGeneratorBody }
