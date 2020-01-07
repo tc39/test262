@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/function-forms/eval-var-scope-syntax-err.case
-// - src/function-forms/error/async-gen-meth.template
+// - src/function-forms/error-no-strict/async-gen-meth.template
 /*---
-description: sloppy direct eval in params introduces var (async generator method)
+description: sloppy direct eval in params introduces var (async generator method in sloppy code)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
 features: [default-parameters, async-iteration]
 flags: [generated, noStrict]

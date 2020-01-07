@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/function-forms/eval-var-scope-syntax-err.case
-// - src/function-forms/error/gen-meth.template
+// - src/function-forms/error-no-strict/gen-meth.template
 /*---
-description: sloppy direct eval in params introduces var (generator method)
+description: sloppy direct eval in params introduces var (generator method in sloppy code)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
 features: [default-parameters, generators]
 flags: [generated, noStrict]
