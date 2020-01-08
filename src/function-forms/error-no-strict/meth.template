@@ -1,11 +1,10 @@
-// This file was procedurally generated from the following sources:
-// - src/function-forms/eval-var-scope-syntax-err.case
-// - src/function-forms/error-no-strict/meth.template
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: sloppy direct eval in params introduces var (method in sloppy code)
+path: language/expressions/object/method-definition/meth-
+name: method in sloppy code
 esid: sec-runtime-semantics-definemethod
-features: [default-parameters]
-flags: [generated, noStrict]
+flags: [noStrict]
 info: |
     MethodDefinition : PropertyName ( StrictFormalParameters ) { FunctionBody }
 
@@ -38,24 +37,17 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
-
-    
-    Runtime Semantics: IteratorBindingInitialization
-    FormalParameter : BindingElement
-
-    1. Return the result of performing IteratorBindingInitialization for BindingElement with arguments iteratorRecord and environment.
-
 ---*/
 
 var callCount = 0;
 var obj = {
-  method(a = eval("var a = 42")) {
-    
+  method(/*{ params }*/) {
+    /*{ body }*/
     callCount = callCount + 1;
   }
 };
 
-assert.throws(SyntaxError, function() {
-  obj.method();
+assert.throws(/*{ error }*/, function() {
+  obj.method(/*{ args }*/);
 });
 assert.sameValue(callCount, 0, 'method body not evaluated');

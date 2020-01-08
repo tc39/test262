@@ -1,11 +1,10 @@
-// This file was procedurally generated from the following sources:
-// - src/function-forms/eval-var-scope-syntax-err.case
-// - src/function-forms/error-no-strict/arrow-function.template
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: sloppy direct eval in params introduces var (arrow function expression in sloppy code)
+path: language/expressions/arrow-function/
+name: arrow function expression in sloppy code
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-features: [default-parameters]
-flags: [generated, noStrict]
+flags: [noStrict]
 info: |
     ArrowFunction : ArrowParameters => ConciseBody
 
@@ -35,23 +34,16 @@ info: |
         b. Let formalStatus be IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
-
-    
-    Runtime Semantics: IteratorBindingInitialization
-    FormalParameter : BindingElement
-
-    1. Return the result of performing IteratorBindingInitialization for BindingElement with arguments iteratorRecord and environment.
-
 ---*/
 
 var callCount = 0;
 var f;
-f = (a = eval("var a = 42")) => {
-  
+f = (/*{ params }*/) => {
+  /*{ body }*/
   callCount = callCount + 1;
 };
 
-assert.throws(SyntaxError, function() {
-  f();
+assert.throws(/*{ error }*/, function() {
+  f(/*{ args }*/);
 });
 assert.sameValue(callCount, 0, 'arrow function body not evaluated');

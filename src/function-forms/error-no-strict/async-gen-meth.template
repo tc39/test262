@@ -1,11 +1,10 @@
-// This file was procedurally generated from the following sources:
-// - src/function-forms/eval-var-scope-syntax-err.case
-// - src/function-forms/error-no-strict/async-gen-meth.template
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: sloppy direct eval in params introduces var (async generator method in sloppy code)
+path: language/expressions/object/method-definition/async-gen-meth-
+name: async generator method in sloppy code
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation
-features: [default-parameters, async-iteration]
-flags: [generated, noStrict]
+flags: [noStrict]
 info: |
     AsyncGeneratorMethod :
         async [no LineTerminator here] * PropertyName ( UniqueFormalParameters )
@@ -19,25 +18,18 @@ info: |
     5. Let closure be ! AsyncGeneratorFunctionCreate(Method, UniqueFormalParameters,
        AsyncGeneratorBody, scope, strict).
     [...]
-
-
-    
-    Runtime Semantics: IteratorBindingInitialization
-    FormalParameter : BindingElement
-
-    1. Return the result of performing IteratorBindingInitialization for BindingElement with arguments iteratorRecord and environment.
-
+features: [async-iteration]
 ---*/
 
 var callCount = 0;
 var obj = {
-  async *method(a = eval("var a = 42")) {
-    
+  async *method(/*{ params }*/) {
+    /*{ body }*/
     callCount = callCount + 1;
   }
 };
 
-assert.throws(SyntaxError, function() {
-  obj.method();
+assert.throws(/*{ error }*/, function() {
+  obj.method(/*{ args }*/);
 });
 assert.sameValue(callCount, 0, 'generator method body not evaluated');
