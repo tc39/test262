@@ -22,7 +22,6 @@ features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  
   var ta;
   function detachAndReturnIndex(){
       $DETACHBUFFER(ta.buffer);
@@ -33,9 +32,7 @@ testWithTypedArrayConstructors(function(TA) {
   array.length = 10000; // big arrays are more likely to cause a crash if they are accessed after they are freed
   array.fill(7, 0);
   ta = new TA(array);
-  assert.throws(TypeError, function(){ 
+  assert.throws(TypeError, function(){
     ta.copyWithin(0, {valueOf : detachAndReturnIndex}, 1000);
-    "should throw TypeError as array is detached");
-  
-  });
+  }, "should throw TypeError as array is detached");
 });
