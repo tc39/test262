@@ -15,13 +15,14 @@ flags: [async]
 ---*/
 
 Promise.resolve(1).then(function() {
-  return Promise.resolve(2);
-});
+  return Promise.resolve();
+}).then($DONE, $DONE);
 
-Promise.prototype.then = function(_resolve, reject) {
+var then = Promise.prototype.then;
+Promise.prototype.then = function(resolve, reject) {
   assert(!isConstructor(reject));
   assert.sameValue(reject.length, 1);
   assert.sameValue(reject.name, '');
 
-  $DONE();
+  return then.call(this, resolve, reject);
 };

@@ -19,12 +19,16 @@ flags: [async]
 
 var value = {};
 
-Promise.resolve(value).finally(function() {});
+Promise.resolve(value)
+  .finally(function() {})
+  .then($DONE, $DONE);
+
+var then = Promise.prototype.then;
 Promise.prototype.then = function(valueThunk) {
   assert(!isConstructor(valueThunk));
   assert.sameValue(valueThunk.length, 1);
   assert.sameValue(valueThunk.name, '');
   assert.sameValue(valueThunk(), value);
 
-  $DONE();
+  return then.call(this, valueThunk);
 };

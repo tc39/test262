@@ -17,12 +17,16 @@ includes: [isConstructor.js]
 flags: [async]
 ---*/
 
-Promise.reject(new Test262Error()).finally(function() {});
+Promise.reject(new Test262Error())
+  .finally(function() {})
+  .then($DONE, $DONE);
+
+var then = Promise.prototype.then;
 Promise.prototype.then = function(thrower) {
   assert(!isConstructor(thrower));
   assert.sameValue(thrower.length, 1);
   assert.sameValue(thrower.name, '');
   assert.throws(Test262Error, thrower);
 
-  $DONE();
+  return then.call(this, thrower);
 };
