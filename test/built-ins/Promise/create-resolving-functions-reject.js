@@ -19,7 +19,7 @@ Promise.resolve(1).then(function() {
 });
 
 Promise.prototype.then = function(_resolve, reject) {
-  assert.sameValue(!isConstructor(reject));
+  assert(!isConstructor(reject));
   assert.sameValue(reject.length, 1);
   assert.sameValue(reject.name, '');
 
