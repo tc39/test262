@@ -31,11 +31,10 @@ execution_steps: &execution_steps
     - run: npm install
     - *save_cache
     - run:
-        name: fetch engines from jsvu
+        name: fetch engines from esvu
         command: |
-          ./node_modules/.bin/jsvu --os=linux64 --engines=$hostName
-          cp -r  ~/.jsvu r
-    - run: npm run ci
+          ./node_modules/.bin/esvu install $hostName
+    - run: hostPath=$HOME/.esvu/bin/$hostPath npm run ci
 
 jobs:
   "Project lint, generation tests and build":
@@ -92,7 +91,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: d8
-      hostPath: r/engines/v8/v8
+      hostPath: v8
       hostName: v8
     <<: [*execution_steps]
   "V8 --harmony: New or modified tests execution":
@@ -101,7 +100,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: d8
-      hostPath: r/engines/v8/v8
+      hostPath: v8
       hostName: v8
       hostArgs: --harmony
     <<: [*execution_steps]
@@ -111,7 +110,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: jsshell
-      hostPath: r/spidermonkey
+      hostPath: spidermonkey
       hostName: spidermonkey
     <<: [*execution_steps]
   "ChakraCore: New or modified tests execution":
@@ -120,7 +119,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: ch
-      hostPath: r/engines/chakra/chakra
+      hostPath: chakra
       hostName: chakra
     <<: [*execution_steps]
   "JSC: New or modified tests execution":
@@ -130,7 +129,7 @@ jobs:
     environment:
       LANG: C
       hostType: jsc
-      hostPath: r/javascriptcore
+      hostPath: javascriptcore
       hostName: javascriptcore
     <<: [*execution_steps]
   "XS: New or modified tests execution":
@@ -139,7 +138,7 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: xs
-      hostPath: r/engines/xs/xs
+      hostPath: xs
       hostName: xs
     <<: [*execution_steps]
   "engine262: New or modified tests execution":
@@ -148,22 +147,10 @@ jobs:
     working_directory: ~/test262
     environment:
       hostType: engine262
-      hostPath: engine262/bin/engine262.js
+      hostPath: engine262
       hostName: engine262
       hostArgs: --features=all
-    steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - *save_cache
-      - run:
-          name: fetch engine262
-          command: |
-            git clone https://github.com/engine262/engine262
-            cd engine262
-            npm install
-            npm run build
-      - run: npm run ci
+    <<: [*execution_steps]
 workflows:
   version: 2
   Tools:
