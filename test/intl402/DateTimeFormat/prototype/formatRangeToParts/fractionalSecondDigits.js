@@ -8,6 +8,13 @@ features: [Intl.DateTimeFormat-fractionalSecondDigits, Intl.DateTimeFormat-forma
 locale: [en-US]
 ---*/
 
+function* zip(a, b) {
+  assert.sameValue(a.length, b.length);
+  for (let i = 0; i < a.length; ++i) {
+    yield [i, a[i], b[i]];
+  }
+}
+
 function compare(actual, expected) {
   for (const [i, actualEntry, expectedEntry] of zip(actual, expected)) {
     assert.sameValue(actualEntry.type, expectedEntry.type, `type for entry ${i}`);
