@@ -2,21 +2,19 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.includes
-description: Throws a TypeError if this has an element that can detach the 
-  buffer if coerced
+description: Check that search element is not coerced if not an integer
 info: |
-  22.2.3.14 %TypedArray%.prototype.includes ( searchElement [ , fromIndex ] )
+  22.2.3.13 %TypedArray%.prototype.includes ( searchElement [ , fromIndex ] )
+  
+  %TypedArray%.prototype.includes is a distinct function that implements the same algorithm as Array.prototype.includes as defined in 22.1.3.13 
 
-  This function is not generic. ValidateTypedArray is applied to the this value
-  prior to evaluating the algorithm. If its result is an abrupt completion that
-  exception is thrown instead of evaluating the algorithm.
+  22.1.3.13 Array.prototype.includes ( searchElement [ , fromIndex ] )
 
-  22.2.3.5.1 Runtime Semantics: ValidateTypedArray ( O )
+  8. Repeat, while k < len
+    a. Let elementK be the result of ? Get(O, ! ToString(k)).
+    b. If SameValueZero(searchElement, elementK) is true, return true.
 
-  ...
-  5. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
-  ...
-includes: [testTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
