@@ -23,12 +23,20 @@ Promise.resolve(value)
   .finally(function() {})
   .then($DONE, $DONE);
 
-var then = Promise.prototype.then;
-Promise.prototype.then = function(valueThunk) {
-  assert(!isConstructor(valueThunk));
-  assert.sameValue(valueThunk.length, 1);
-  assert.sameValue(valueThunk.name, '');
-  assert.sameValue(valueThunk(), value);
+var calls = 0;
+var expected = [
+  { length: 0, name: '' },
+  { length: 1, name: '' }
+];
 
-  return then.call(this, valueThunk);
+var then = Promise.prototype.then;
+Promise.prototype.then = function(resolve) {
+  assert(!isConstructor(resolve));
+  assert.sameValue(resolve.length, expected[calls].length);
+  assert.sameValue(resolve.name, expected[calls].name);
+  if (calls === 0) {
+    assert.sameValue(resolve(), value);
+  }
+
+  return then.call(this, resolve);
 };

@@ -21,12 +21,22 @@ Promise.reject(new Test262Error())
   .finally(function() {})
   .then($DONE, $DONE);
 
-var then = Promise.prototype.then;
-Promise.prototype.then = function(thrower) {
-  assert(!isConstructor(thrower));
-  assert.sameValue(thrower.length, 1);
-  assert.sameValue(thrower.name, '');
-  assert.throws(Test262Error, thrower);
+var calls = 0;
+var expected = [
+  { length: 0, name: '' },
+  { length: 1, name: '' }
+];
 
-  return then.call(this, thrower);
+var then = Promise.prototype.then;
+Promise.prototype.then = function(resolve) {
+  assert(!isConstructor(resolve));
+  assert.sameValue(resolve.length, expected[calls].length);
+  assert.sameValue(resolve.name, expected[calls].name);
+  if (calls === 0) {
+    assert.throws(Test262Error, resolve);
+  }
+
+  calls += 1;
+
+  return then.call(this, resolve);
 };
