@@ -13,7 +13,7 @@ assert.sameValue("a", /(?<π>a)/u.exec("bab").groups.\u03C0);
 assert.sameValue("a", /(?<\u{03C0}>a)/u.exec("bab").groups.\u03C0);
 assert.sameValue("a", /(?<$>a)/u.exec("bab").groups.$);
 assert.sameValue("a", /(?<_>a)/u.exec("bab").groups._);
-assert.sameValue("a", /(?<$𐒤>a)/u.exec("bab").groups.$𐒤);
+assert.sameValue("a", /(?<$𐒤>a)/u.exec("bab").groups["$𐒤"]);
 assert.sameValue("a", /(?<_\u200C>a)/u.exec("bab").groups._\u200C);
 assert.sameValue("a", /(?<_\u200D>a)/u.exec("bab").groups._\u200D);
 assert.sameValue("a", /(?<ಠ_ಠ>a)/u.exec("bab").groups.ಠ_ಠ);
