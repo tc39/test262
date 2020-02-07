@@ -3,9 +3,9 @@
 
 /*---
 esid: sec-names-and-keywords
-description: Test grandfathered astral characters of ID_Continue.
+description: Test astral characters of ID_Continue.
 info: |
-  Grandfathered astral characters (Other_ID_Continue)
+  Astral characters (Other_ID_Continue)
 ---*/
 
 // Other_ID_Continue (Unicode 4.1)
