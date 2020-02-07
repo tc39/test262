@@ -21,7 +21,7 @@ var value = {};
 
 Promise.resolve(value)
   .finally(function() {})
-  .then($DONE, $DONE);
+  .then(() => $DONE(), $DONE);
 
 var calls = 0;
 var expected = [
@@ -37,6 +37,6 @@ Promise.prototype.then = function(resolve) {
   if (calls === 0) {
     assert.sameValue(resolve(), value);
   }
-
+  calls += 1;
   return then.call(this, resolve);
 };
