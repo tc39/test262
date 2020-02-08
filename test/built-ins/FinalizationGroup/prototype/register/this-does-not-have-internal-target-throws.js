@@ -12,7 +12,7 @@ info: |
   3. If Type(target) is not Object, throw a TypeError exception.
   4. If finalizationGroup does not have a [[Cells]] internal slot, throw a TypeError exception.
   ...
-features: [FinalizationGroup, WeakRef]
+features: [WeakSet, WeakMap, FinalizationGroup, WeakRef]
 ---*/
 
 assert.sameValue(typeof FinalizationGroup.prototype.register, 'function');
