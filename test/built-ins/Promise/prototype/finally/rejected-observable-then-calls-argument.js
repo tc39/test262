@@ -19,7 +19,7 @@ flags: [async]
 
 Promise.reject(new Test262Error())
   .finally(function() {})
-  .then($DONE, $DONE);
+  .then(() => $DONE(), $DONE);
 
 var calls = 0;
 var expected = [
