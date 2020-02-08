@@ -15,7 +15,7 @@ info: |
     a. Perform ! KeepDuringJob(target).
     b. Return target.
   6. Return undefined.
-features: [WeakRef, FinalizationGroup]
+features: [WeakSet, WeakMap, WeakRef, FinalizationGroup]
 ---*/
 
 assert.sameValue(typeof WeakRef.prototype.deref, 'function');
