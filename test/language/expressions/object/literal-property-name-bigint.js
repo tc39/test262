@@ -1,18 +1,60 @@
-// Copyright (C) 2019 Toru Nagashima. All rights reserved.
+// Copyright (C) 2019 Igalia S.L, Toru Nagashima. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
 description: >
     BigInt in LiteralPropertyName must be valid and the property name must be
     the string representation of the numeric value.
-esid: sec-object-initializer-runtime-semantics-evaluation
+esid: prod-PropertyName
 info: |
+    PropertyName[Yield, Await]:
+        LiteralPropertyName
+        ComputedPropertyName[?Yield, ?Await]
+
+    LiteralPropertyName:
+        IdentifierName
+        StringLiteral
+        NumericLiteral
+
+    NumericLiteral:
+        DecimalLiteral
+        DecimalBigIntegerLiteral
+
     LiteralPropertyName: NumericLiteral
         1. Let _nbr_ be the NumericValue of |NumericLiteral|.
         1. Return ! ToString(_nbr_).
-features: [BigInt]
+features: [BigInt, class, destructuring-binding, let]
 ---*/
 
-var obj = { 999999999999999999n: true };
+// Property
 
-assert.sameValue(obj["999999999999999999"], true,
+let o = { 999999999999999999n: true }; // greater than max safe integer
+
+assert.sameValue(o["999999999999999999"], true,
     "the property name must be the string representation of the numeric value.");
+
+o = { 1n: "foo" };
+assert.sameValue(o[1n], "foo");
+assert.sameValue(o[1], "foo");
+assert.sameValue(o["1"], "foo");
+
+// MethodDeclaration
+
+o = { 1n() { return "bar"; } };
+assert.sameValue(o[1n](), "bar");
+assert.sameValue(o[1](), "bar");
+assert.sameValue(o["1"](), "bar");
+
+class C {
+  1n() { return "baz"; }
+}
+
+let c = new C();
+assert.sameValue(c[1n](), "baz");
+assert.sameValue(c[1](), "baz");
+assert.sameValue(c["1"](), "baz");
+
+// Destructuring
+
+let {1n: a} = {1n: "foo"};
+assert.sameValue(a, "foo");
