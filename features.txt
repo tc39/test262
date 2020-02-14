@@ -131,7 +131,7 @@ import.meta
 # WeakRef
 # https://github.com/tc39/proposal-weakref
 WeakRef
-FinalizationGroup
+FinalizationRegistry
 
 # Optional Chaining
 # https://github.com/tc39/proposal-optional-chaining
