@@ -19,7 +19,7 @@ flags: [async]
 
 Promise.reject(new Test262Error())
   .finally(function() {})
-  .then(() => $DONE(), $DONE);
+  .then($DONE, () => $DONE());
 
 var calls = 0;
 var expected = [
@@ -28,7 +28,7 @@ var expected = [
 ];
 
 var then = Promise.prototype.then;
-Promise.prototype.then = function(resolve) {
+Promise.prototype.then = function(resolve, reject) {
   assert(!isConstructor(resolve));
   assert.sameValue(resolve.length, expected[calls].length);
   assert.sameValue(resolve.name, expected[calls].name);
@@ -38,5 +38,5 @@ Promise.prototype.then = function(resolve) {
 
   calls += 1;
 
-  return then.call(this, resolve);
+  return then.call(this, resolve, reject);
 };

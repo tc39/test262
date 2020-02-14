@@ -12,7 +12,7 @@ info: |
   3. If finalizationGroup does not have a [[Cells]] internal slot, throw a TypeError exception.
   4. If callback is not undefined and IsCallable(callback) is false, throw a TypeError exception.
   ...
-features: [FinalizationGroup, WeakRef]
+features: [WeakSet, WeakMap, FinalizationGroup, WeakRef]
 ---*/
 
 assert.sameValue(typeof FinalizationGroup.prototype.cleanupSome, 'function');
