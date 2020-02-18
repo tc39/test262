@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-super-keyword
-es6id: 12.3.5
 description: SuperCall should evaluate Arguments prior to checking IsConstructor
 info: |
   SuperCall : `super` Arguments
@@ -16,16 +15,27 @@ features: [class]
 ---*/
 
 var evaluatedArg = false;
+var caught;
 class C extends Object {
   constructor() {
-    super(evaluatedArg = true);
+    try {
+      super(evaluatedArg = true);
+    } catch (err) {
+      caught = err;
+    }
   }
 }
 
 Object.setPrototypeOf(C, parseInt);
 
-assert.throws(TypeError, () => {
+// When the "construct" invocation completes and the "this" value is
+// uninitialized, the specification dictates that a ReferenceError must be
+// thrown. That behavior is tested elsewhere, so the error is ignored (if it is
+// produced at all).
+try {
   new C();
-});
+} catch (_) {}
 
+assert.sameValue(typeof caught, 'object');
+assert.sameValue(caught.constructor, TypeError);
 assert(evaluatedArg, 'performs ArgumentsListEvaluation');
