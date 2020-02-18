@@ -2,8 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.sort
-description: SECURITY Throws a TypeError if coercion of the comparefn
-  return value detaches the object buffer
+description: >
+  SECURITY Throws a TypeError if coercion of the comparefn return value
+  detaches the object buffer
 info: |
   22.2.3.26 %TypedArray%.prototype.sort ( comparefn )
 
