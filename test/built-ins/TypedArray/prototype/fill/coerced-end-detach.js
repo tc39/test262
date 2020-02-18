@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.fill
-description: Security Throws a TypeError if end coercion detaches 
-  the buffer
+description: >
+  Security Throws a TypeError if end coercion detaches the buffer
 info: |
   22.2.3.8 %TypedArray%.prototype.fill (value [ , start [ , end ] ] )
 
