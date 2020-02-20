@@ -151,6 +151,15 @@ jobs:
       hostName: engine262
       hostArgs: --features=all
     <<: [*execution_steps]
+  "GraalJS: New or modified tests execution":
+    docker:
+      - image: *node_latest
+    working_directory: ~/test262
+    environment:
+      hostType: graaljs
+      hostPath: graaljs
+      hostName: graaljs
+    <<: [*execution_steps]
 workflows:
   version: 2
   Tools:
@@ -166,3 +175,4 @@ workflows:
       - "V8 --harmony: New or modified tests execution"
       - "XS: New or modified tests execution"
       - "engine262: New or modified tests execution"
+      - "GraalJS: New or modified tests execution"
