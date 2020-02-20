@@ -5,6 +5,7 @@
 esid: sec-quantifier
 description: >
   MV of DecimalDigits evaluates to 2 ** 53 - 1.
+  (although DecimalDigits could be arbitrary large integer)
 info: |
   Quantifier
 
