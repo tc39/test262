@@ -16,5 +16,5 @@ info: |
   1. Return the code point value of U+0008 (BACKSPACE).
 ---*/
 
-assert(/[\b]/u.test('\b'));
+assert(/[\b]/u.test('\u0008'));
 assert(/[\b-A]/u.test('A'));
