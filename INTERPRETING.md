@@ -48,7 +48,7 @@ properties of the global scope prior to test execution.
     DetachArrayBuffer abstract
     operation](https://tc39.github.io/ecma262/#sec-detacharraybuffer)
   - **`evalScript`** - a function which accepts a string value as its first
-    argument and executes is as [an ECMAScript
+    argument and executes it as [an ECMAScript
     script](https://tc39.github.io/ecma262/#sec-scripts) according to the
     following algorithm:
 
