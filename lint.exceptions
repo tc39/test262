@@ -7,5 +7,4 @@
 # test/language/made-up-file.js FRONTMATTER LICENSE
 #
 # Note that lines prefixed with the "hash" symbol (#) will be ignored.
-
 test/built-ins/Function/prototype/toString/line-terminator-normalisation-CR.js POSIX
