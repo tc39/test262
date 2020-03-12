@@ -14,6 +14,8 @@ info: |
   Runtime Semantics: PerformPromiseAny
 
   r. Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], rejectElement »).
+
+flags: [async]
 features: [Promise.any]
 ---*/
 
@@ -48,6 +50,8 @@ p1.then = p2.then = p3.then = function(a, b) {
   callCount += 1;
 };
 
-Promise.any([p1, p2, p3]);
-
-assert.sameValue(callCount, 3, '`then` invoked once for every iterated value');
+Promise.any([p1, p2, p3])
+  .then(function() {
+      assert.sameValue(callCount, 3, '`then` invoked once for every iterated value');
+      $DONE();
+    }, $DONE);
