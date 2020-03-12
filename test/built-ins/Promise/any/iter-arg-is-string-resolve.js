@@ -27,8 +27,8 @@ flags: [async]
 try {
   Promise.any('').then(function(v) {
     assert.sameValue(v.length, 0);
-  }, function() {
-    $DONE('The promise should be resolved, but was rejected');
+  }, function(error) {
+    $DONE(`The promise should be resolved, but was rejected with error: ${error.message}`);
   }).then($DONE, $DONE);
 } catch (error) {
   $DONE(`The promise should be resolved, but threw an exception: ${error.message}`);
