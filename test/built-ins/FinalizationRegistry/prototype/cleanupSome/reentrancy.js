@@ -4,14 +4,9 @@
 /*---
 esid: sec-properties-of-the-finalization-registry-constructor
 description: >
-  The cleanupSome() method throws if cleanup is currently in progress. 
+  The cleanupSome() method can be reentered
 info: |
   FinalizationRegistry.prototype.cleanupSome ( [ callback ] )
-
-  1. Let finalizationRegistry be the this value.
-  ...
-  4. If finalizationRegistry.[[IsFinalizationRegistryCleanupJobActive]] is true, 
-     throw a TypeError exception.
 
 features: [FinalizationRegistry, host-gc-required]
 includes: [async-gc.js]
@@ -22,16 +17,14 @@ var called = 0;
 var endOfCall = 0;
 var finalizationRegistry = new FinalizationRegistry(function() {});
 
-function callback(iterator) {
+function callback(holding) {
   called += 1;
 
   if (called === 1) {
     // Atempt to re-enter the callback.
     var nestedCallbackRan = false;
-    assert.throws(TypeError, () => {
-      finalizationRegistry.cleanupSome(() => { nestedCallbackRan = true });
-    });
-    assert.sameValue(nestedCallbackRan, false);
+    finalizationRegistry.cleanupSome(() => { nestedCallbackRan = true });
+    assert.sameValue(nestedCallbackRan, true);
   }
 
   endOfCall += 1;
@@ -39,7 +32,10 @@ function callback(iterator) {
 
 function emptyCells() {
   var o1 = {};
+  var o2 = {};
+  // Register more than one objects to test reentrancy.
   finalizationRegistry.register(o1, 'holdings 1');
+  finalizationRegistry.register(o2, 'holdings 2');
 
   var prom = asyncGC(o1);
   o1 = null;

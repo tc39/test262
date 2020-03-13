@@ -16,31 +16,26 @@ info: |
   CleanupFinalizationRegistry ( finalizationRegistry [ , callback ] )
 
   ...
-  3. Let iterator be ! CreateFinalizationRegistryCleanupIterator(finalizationRegistry).
-  ...
-  6. Let result be Call(callback, undefined, « iterator »).
-  ...
-
-  %FinalizationRegistryCleanupIteratorPrototype%.next ( )
-
-  8. If finalizationRegistry.[[Cells]] contains a Record cell such that cell.[[Target]] is empty,
+  3. While finalizationRegistry.[[Cells]] contains a Record cell such that cell.[[WeakRefTarget]] is ~empty~, then an implementation may perform the following steps,
     a. Choose any such cell.
     b. Remove cell from finalizationRegistry.[[Cells]].
-    c. Return CreateIterResultObject(cell.[[Holdings]], false).
-  9. Otherwise, return CreateIterResultObject(undefined, true).
+    c. Perform ? Call(callback, undefined, << cell.[[HeldValue]] >>).
+  ...
+
+
 features: [FinalizationRegistry, Symbol, host-gc-required]
 includes: [async-gc.js]
 flags: [async, non-deterministic]
 ---*/
 
 function check(value, expectedName) {
-  var holdings;
+  var holdings = [];
   var called = 0;
   var finalizationRegistry = new FinalizationRegistry(function() {});
 
-  function callback(iterator) {
+  function callback(holding) {
     called += 1;
-    holdings = [...iterator];
+    holdings.push(holding);
   }
 
   // This is internal to avoid conflicts
