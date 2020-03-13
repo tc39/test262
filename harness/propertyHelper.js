@@ -140,7 +140,8 @@ function isSameValue(a, b) {
 }
 
 function isWritable(obj, name, verifyProp, value) {
-  var newValue = value || "unlikelyValue";
+  var unlikelyValue = Array.isArray(obj) && name === "length" ? 217493 : "unlikelyValue";
+  var newValue = value || unlikelyValue;
   var hadValue = Object.prototype.hasOwnProperty.call(obj, name);
   var oldValue = obj[name];
   var writeSucceeded;
