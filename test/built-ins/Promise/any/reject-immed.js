@@ -10,6 +10,7 @@ features: [Promise.any]
 ---*/
 
 Promise.any([])
-  .then(function() {
-    $DONE('The promise should not be fulfilled.');
-  }, $DONE);
+  .then(
+    () => $DONE('The promise should be rejected, but was resolved'),
+    () => $DONE()
+  );
