@@ -6,11 +6,15 @@ description: Promise.any([]) rejects immediately
 esid: sec-promise.any
 flags: [async]
 includes: [promiseHelper.js]
-features: [Promise.any]
+features: [AggregateError, Promise.any]
 ---*/
 
 Promise.any([])
   .then(
     () => $DONE('The promise should be rejected, but was resolved'),
-    () => $DONE()
+    error => {
+      assert(error instanceof AggregateError);
+      assert.sameValue(error.errors.length, 0);
+      $DONE()
+    }
   );
