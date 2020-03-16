@@ -15,6 +15,7 @@ info: |
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
     ...
     z. Perform ? Invoke(nextPromise, "then", « resolveElement, rejectElement »).
+flags: [async]
 features: [Promise.any]
 ---*/
 
@@ -45,8 +46,10 @@ Promise.resolve = function(nextValue) {
   return resolve.apply(Promise, arguments);
 };
 
-Promise.any([p1, p2, p3]);
-
-assert.sameValue(
-  callCount, 3, '`resolve` invoked once for each iterated value'
-);
+Promise.any([p1, p2, p3])
+  .then(function() {
+      assert.sameValue(
+        callCount, 3, '`resolve` invoked once for each iterated value'
+      );
+      $DONE();
+    }, $DONE);
