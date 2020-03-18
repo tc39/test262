@@ -170,6 +170,10 @@ for-in-order
 # https://github.com/tc39/proposal-logical-assignment
 logical-assignment-operators
 
+# Atomics.waitAsync
+# https://github.com/tc39/proposal-atomics-wait-async
+Atomics.waitAsync
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
