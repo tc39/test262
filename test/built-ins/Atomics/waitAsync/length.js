@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.waitAsync
+esid: sec-atomics.waitasync
 description: >
   Atomics.waitAsync.length is 4.
 info: |
@@ -20,7 +20,7 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
-features: [Atomics]
+features: [Atomics.waitAsync,Atomics]
 ---*/
 
 verifyProperty(Atomics.waitAsync, 'length', {
