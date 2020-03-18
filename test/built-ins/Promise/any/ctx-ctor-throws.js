@@ -12,6 +12,7 @@ info: |
 
   ...
   7. Let promise be ? Construct(C, « executor »).
+
 features: [Promise.any]
 ---*/
 

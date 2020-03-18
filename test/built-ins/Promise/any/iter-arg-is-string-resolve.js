@@ -4,13 +4,13 @@
 /*---
 esid: sec-promise.any
 description: >
-  Resolve when argument is a string
+  Promise.any('non-empty-string') resolves with the first character in the non-empty string
 info: |
   Promise.any ( iterable )
 
   ...
-  4. Let iteratorRecord be GetIterator(iterable).
-  5. IfAbruptRejectPromise(iteratorRecord, promiseCapability).
+  3. Let iteratorRecord be GetIterator(iterable).
+  4. IfAbruptRejectPromise(iteratorRecord, promiseCapability).
   ...
 
   #sec-getiterator
@@ -25,9 +25,10 @@ flags: [async]
 ---*/
 
 try {
-  Promise.any('').then(function(v) {
-    assert.sameValue(v.length, 0);
-  }, function(error) {
+  Promise.any('xyz').then(v => {
+    assert.sameValue(v, 'x');
+    assert.sameValue(v.length, 1);
+  }, error => {
     $DONE(`The promise should be resolved, but was rejected with error: ${error.message}`);
   }).then($DONE, $DONE);
 } catch (error) {

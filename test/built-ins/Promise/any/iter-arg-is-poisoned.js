@@ -4,13 +4,13 @@
 /*---
 esid: sec-promise.any
 description: >
-  Reject with abrupt completion from GetIterator
+  Promise.any(poisoned iterable) rejects with whatever error is thrown.
 info: |
   Promise.any ( iterable )
 
   ...
-  4. Let iteratorRecord be GetIterator(iterable).
-  5. IfAbruptRejectPromise(iteratorRecord, promiseCapability).
+  3. Let iteratorRecord be GetIterator(iterable).
+  4. IfAbruptRejectPromise(iteratorRecord, promiseCapability).
   ...
 
   #sec-getiterator
@@ -24,18 +24,18 @@ flags: [async]
 ---*/
 
 var poison = [];
-var error = new Test262Error();
 Object.defineProperty(poison, Symbol.iterator, {
   get() {
-    throw error;
+    throw new Test262Error();
   }
 });
 
 try {
-  Promise.any(poison).then(function() {
+  Promise.any(poison).then(() => {
     $DONE('The promise should be rejected, but was resolved');
-  }, function(err) {
-    assert.sameValue(err, error);
+  }, (error) => {
+    assert.sameValue(Object.getPrototypeOf(error), Test262Error.prototype);
+    assert(error instanceof Test262Error);
   }).then($DONE, $DONE);
 } catch (error) {
   $DONE(`The promise should be rejected, but threw an exception: ${error.message}`);

@@ -19,16 +19,27 @@ flags: [async]
 features: [Promise.any]
 ---*/
 
-let promise = new Promise(() => {});
-let boundThen = promise.then.bind(promise);
+let promises = [
+  new Promise(resolve => resolve()),
+  new Promise(resolve => resolve()),
+  new Promise(resolve => resolve()),
+];
+let callCount = 0;
 
-promise.then = function(resolver, rejectElement) {
-  assert.sameValue(this, promise);
-  assert.sameValue(typeof resolver, 'function');
-  assert.sameValue(resolver.length, 1, 'resolver.length is 1');
-  assert.sameValue(typeof rejectElement, 'function');
-  assert.sameValue(rejectElement.length, 1, 'rejectElement.length is 0');
-  return boundThen(resolver, rejectElement);
-};
+promises.forEach(promise => {
+  let boundThen = promise.then.bind(promise);
+  promise.then = function(...args) {
+    assert.sameValue(this, promises[callCount]);
+    callCount += 1;
+    return boundThen(...args);
+  };
+});
 
-Promise.any([promise]).then(() => $DONE(), $DONE);
+Promise.any(promises)
+  .then(() => {
+      assert.sameValue(callCount, 3, '`then` invoked once for every iterated value');
+    }, (error) => {
+      $DONE(error);
+      // $DONE('The promise should not be rejected');
+    }
+  ).then($DONE, $DONE);

@@ -12,9 +12,34 @@ info: |
   NewPromiseCapability ( C )
 
   1. If IsConstructor(C) is false, throw a TypeError exception.
+
 features: [Promise.any]
 ---*/
 
 assert.throws(TypeError, function() {
   Promise.any.call(eval);
+});
+
+assert.throws(TypeError, function() {
+  Promise.any.call(undefined, []);
+});
+
+assert.throws(TypeError, function() {
+  Promise.any.call(null, []);
+});
+
+assert.throws(TypeError, function() {
+  Promise.any.call(86, []);
+});
+
+assert.throws(TypeError, function() {
+  Promise.any.call('string', []);
+});
+
+assert.throws(TypeError, function() {
+  Promise.any.call(true, []);
+});
+
+assert.throws(TypeError, function() {
+  Promise.any.call(Symbol(), []);
 });

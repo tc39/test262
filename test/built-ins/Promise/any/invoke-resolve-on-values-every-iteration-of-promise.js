@@ -3,7 +3,7 @@
 
 /*---
 description: >
-  Invocation of the constructor's `resolve` method
+  Invocation of the constructor's `resolve` method for iterable with non-promise values
 esid: sec-promise.any
 info: |
   5. Let result be PerformPromiseAny(iteratorRecord, C, promiseCapability).
@@ -13,19 +13,25 @@ info: |
   8. Repeat
     ...
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
-    ...
-    r. Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], rejectElement »).
 
 flags: [async]
 features: [Promise.any]
 ---*/
 
+let values = [1, 2, 3];
+let callCount = 0;
 let boundPromiseResolve = Promise.resolve.bind(Promise);
 
 Promise.resolve = function(...args) {
-  assert.sameValue(args.length, 1, '`resolve` invoked with a single argument');
-  assert.sameValue(this, Promise, '`this` value is the constructor');
+  callCount += 1;
   return boundPromiseResolve(...args);
 };
 
-Promise.any([1]).then(() => $DONE(), $DONE);
+Promise.any(values)
+  .then(() => {
+      assert.sameValue(callCount, 3, '`Promise.resolve` invoked once for every iterated value');
+    }, (error) => {
+      $DONE(error);
+    }
+  ).then($DONE, $DONE);
+

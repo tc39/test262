@@ -4,13 +4,13 @@
 /*---
 esid: sec-promise.any
 description: >
-  Reject when argument is `undefined`
+  Promise.any(undefined) rejects with TypeError.
 info: |
   Promise.any ( iterable )
 
   ...
-  4. Let iteratorRecord be GetIterator(iterable).
-  5. IfAbruptRejectPromise(iteratorRecord, promiseCapability).
+  3. Let iteratorRecord be GetIterator(iterable).
+  4. IfAbruptRejectPromise(iteratorRecord, promiseCapability).
   ...
 
   GetIterator ( obj [ , hint [ , method ] ] )
