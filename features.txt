@@ -7,10 +7,6 @@
 #
 # https://github.com/tc39/process-document
 
-# Promise.any
-# https://github.com/tc39/proposal-promise-any
-Promise.any
-
 # Missing checks in Proxy internal methods
 # https://github.com/tc39/ecma262/pull/666
 proxy-missing-checks
