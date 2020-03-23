@@ -139,7 +139,7 @@ function isSameValue(a, b) {
   return a === b;
 }
 
-function isWritable(obj, name, value) {
+function isWritable(obj, name, verifyProp, value) {
   var unlikelyValue = Array.isArray(obj) && name === "length" ?
     Math.pow(2, 32) - 1 :
     "unlikelyValue";
@@ -156,7 +156,7 @@ function isWritable(obj, name, value) {
     }
   }
 
-  writeSucceeded = isSameValue(obj[name], newValue);
+  writeSucceeded = isSameValue(obj[verifyProp || name], newValue);
 
   // Revert the change only if it was successful (in other cases, reverting
   // is unnecessary and may trigger exceptions for certain property
@@ -184,7 +184,7 @@ function verifyWritable(obj, name, verifyProp, value) {
     assert(Object.getOwnPropertyDescriptor(obj, name).writable,
          "Expected obj[" + String(name) + "] to have writable:true.");
   }
-  if (!isWritable(obj, name, value)) {
+  if (!isWritable(obj, name, verifyProp, value)) {
     $ERROR("Expected obj[" + String(name) + "] to be writable, but was not.");
   }
 }
@@ -194,7 +194,7 @@ function verifyNotWritable(obj, name, verifyProp, value) {
     assert(!Object.getOwnPropertyDescriptor(obj, name).writable,
          "Expected obj[" + String(name) + "] to have writable:false.");
   }
-  if (isWritable(obj, name, value)) {
+  if (isWritable(obj, name, verifyProp)) {
     $ERROR("Expected obj[" + String(name) + "] NOT to be writable, but was.");
   }
 }
