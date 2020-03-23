@@ -1,0 +1,40 @@
+// Copyright (C) 2020 Caio Lima (Igalia SL). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: OptionalChain.PrivateIdentifier is a valid syntax
+info: |
+  Updated Productions
+
+  OptionalChain[Yield, Await] :
+    `?.` `[` Expression[+In, ?Yield, ?Await] `]`
+    `?.` IdentifierName
+    `?.` Arguments[?Yield, ?Await]
+    `?.` TemplateLiteral[?Yield, ?Await, +Tagged]
+    OptionalChain[?Yield, ?Await]  `[` Expression[+In, ?Yield, ?Await] `]`
+    OptionalChain[?Yield, ?Await] `.` IdentifierName
+    OptionalChain[?Yield, ?Await] Arguments[?Yield, ?Await]
+    OptionalChain[?Yield, ?Await] TemplateLiteral[?Yield, ?Await, +Tagged]
+    OptionalChain[?Yield, ?Await] `.` PrivateIdentifier
+template: default
+features: [class-fields-private, optional-chaining]
+---*/
+
+//- elements
+#f = 'Test262';
+
+method(o) {
+  return o?.c.#f;
+}
+//- assertions
+let c = new C();
+let o = {c: c};
+assert.sameValue(c.method(o), 'Test262');
+
+assert.sameValue(c.method(null), undefined);
+assert.sameValue(c.method(undefined), undefined);
+
+o = {c: new Object()};
+assert.throws(TypeError, function() {
+  c.method(o);
+}, 'accessed private field from an ordinary object');
