@@ -156,7 +156,7 @@ function isWritable(obj, name, value) {
     }
   }
 
-  writeSucceeded = isSameValue(obj[verifyProp || name], newValue);
+  writeSucceeded = isSameValue(obj[name], newValue);
 
   // Revert the change only if it was successful (in other cases, reverting
   // is unnecessary and may trigger exceptions for certain property
@@ -184,7 +184,7 @@ function verifyWritable(obj, name, verifyProp, value) {
     assert(Object.getOwnPropertyDescriptor(obj, name).writable,
          "Expected obj[" + String(name) + "] to have writable:true.");
   }
-  if (!isWritable(obj, name, verifyProp, value)) {
+  if (!isWritable(obj, name, value)) {
     $ERROR("Expected obj[" + String(name) + "] to be writable, but was not.");
   }
 }
@@ -194,7 +194,7 @@ function verifyNotWritable(obj, name, verifyProp, value) {
     assert(!Object.getOwnPropertyDescriptor(obj, name).writable,
          "Expected obj[" + String(name) + "] to have writable:false.");
   }
-  if (isWritable(obj, name, verifyProp)) {
+  if (isWritable(obj, name, value)) {
     $ERROR("Expected obj[" + String(name) + "] NOT to be writable, but was.");
   }
 }
