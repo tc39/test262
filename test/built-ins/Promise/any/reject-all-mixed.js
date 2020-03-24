@@ -6,7 +6,7 @@ esid: sec-promise.any
 description: >
   Promise.any rejection reasons from various rejections are all present
 flags: [async]
-features: [Promise.any]
+features: [Promise.any, arrow-function]
 ---*/
 
 let rejections = [

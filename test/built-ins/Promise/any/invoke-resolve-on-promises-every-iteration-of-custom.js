@@ -15,7 +15,7 @@ info: |
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
 
 flags: [async]
-features: [Promise.any]
+features: [Promise.any, class, arrow-function]
 ---*/
 class Custom extends Promise {}
 

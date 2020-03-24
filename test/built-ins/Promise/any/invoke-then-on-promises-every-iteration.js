@@ -16,7 +16,7 @@ info: |
   r. Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], rejectElement »).
 
 flags: [async]
-features: [Promise.any]
+features: [Promise.any, arrow-function]
 ---*/
 
 let promises = [

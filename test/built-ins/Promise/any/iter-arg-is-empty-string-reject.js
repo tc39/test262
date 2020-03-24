@@ -24,7 +24,7 @@ info: |
         3. Return ThrowCompletion(error).
   ...
 
-features: [AggregateError, Promise.any]
+features: [AggregateError, Promise.any, arrow-function]
 flags: [async]
 ---*/
 

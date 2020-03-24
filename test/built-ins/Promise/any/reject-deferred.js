@@ -10,7 +10,7 @@ info: |
 
 
 flags: [async]
-features: [AggregateError, Promise.any]
+features: [AggregateError, Promise.any, arrow-function]
 ---*/
 
 var rejection = {};

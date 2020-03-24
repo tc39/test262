@@ -17,7 +17,7 @@ info: |
   ...
 
 flags: [async]
-features: [Promise.any, Symbol.species]
+features: [Promise.any, Symbol.species, Symbol, arrow-function]
 ---*/
 
 Object.defineProperty(Promise, Symbol.species, {

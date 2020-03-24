@@ -6,7 +6,7 @@ esid: sec-promise.any
 description: >
   Promise.any resolves with the first item that does not reject.
 flags: [async]
-features: [Promise.any]
+features: [Promise.any, arrow-function]
 ---*/
 
 let fulfillables = [

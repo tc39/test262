@@ -17,7 +17,7 @@ info: |
   ...
 
 flags: [async]
-features: [Promise.any, Symbol.species]
+features: [Promise.any, Symbol.species, class, class-static-method, computed-property-names, Symbol, arrow-function]
 ---*/
 
 class C extends Promise {

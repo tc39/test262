@@ -21,7 +21,7 @@ info: |
     c. ReturnIfAbrupt(next).
 
 flags: [async]
-features: [Promise.any, Symbol.iterator]
+features: [Promise.any, Symbol.iterator, computed-property-names, Symbol, arrow-function]
 ---*/
 
 let returnCount = 0;

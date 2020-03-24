@@ -19,7 +19,7 @@ info: |
   ...
   Let iterator be ? Call(method, obj).
   ...
-features: [Promise.any]
+features: [Promise.any, Symbol, Symbol.iterator, arrow-function]
 flags: [async]
 ---*/
 

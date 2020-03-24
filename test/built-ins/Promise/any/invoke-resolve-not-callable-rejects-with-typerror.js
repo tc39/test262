@@ -14,7 +14,7 @@ info: |
   7. If ! IsCallable(promiseResolve) is false, throw a TypeError exception.
 
 flags: [async]
-features: [Promise.any]
+features: [Promise.any, arrow-function]
 ---*/
 
 Promise.resolve = null;
