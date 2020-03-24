@@ -16,9 +16,9 @@ info: |
 features: [Promise.any]
 ---*/
 
-var CustomPromise = function() {
+function CustomPromise() {
   throw new Test262Error();
-};
+}
 
 assert.throws(Test262Error, function() {
   Promise.any.call(CustomPromise);

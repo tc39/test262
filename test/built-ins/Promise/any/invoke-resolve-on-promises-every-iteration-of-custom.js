@@ -19,11 +19,7 @@ features: [Promise.any]
 ---*/
 class Custom extends Promise {}
 
-let customs = [
-  new Custom(resolve => resolve()),
-  new Custom(resolve => resolve()),
-  new Custom(resolve => resolve()),
-];
+let values = [1, 1, 1];
 let cresolveCallCount = 0;
 let presolveCallCount = 0;
 let boundCustomResolve = Custom.resolve.bind(Custom);
@@ -39,12 +35,9 @@ Promise.resolve = function(...args) {
   return boundPromiseResolve(...args);
 };
 
-Promise.any.call(Custom, customs)
+Promise.any.call(Custom, values)
   .then(() => {
       assert.sameValue(presolveCallCount, 0, '`Promise.resolve` is never invoked');
       assert.sameValue(cresolveCallCount, 3, '`Custom.resolve` invoked once for every iterated promise');
-    }, (error) => {
-      $DONE(error);
-    }
-  ).then($DONE, $DONE);
+    }, $DONE).then($DONE, $DONE);
 

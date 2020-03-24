@@ -18,11 +18,7 @@ flags: [async]
 features: [Promise.any]
 ---*/
 
-let promises = [
-  new Promise(resolve => resolve()),
-  new Promise(resolve => resolve()),
-  new Promise(resolve => resolve()),
-];
+let values = [1,1,1];
 let callCount = 0;
 let boundPromiseResolve = Promise.resolve.bind(Promise);
 
@@ -31,11 +27,8 @@ Promise.resolve = function(...args) {
   return boundPromiseResolve(...args);
 };
 
-Promise.any(promises)
+Promise.any(values)
   .then(() => {
       assert.sameValue(callCount, 3, '`then` invoked once for every iterated promise');
-    }, (error) => {
-      $DONE(error);
-    }
-  ).then($DONE, $DONE);
+    }, $DONE).then($DONE, $DONE);
 

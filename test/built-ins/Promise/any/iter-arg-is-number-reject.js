@@ -20,7 +20,7 @@ info: |
   Let iterator be ? Call(method, obj).
   If Type(iterator) is not Object, throw a TypeError exception.
   ...
-features: [Promise.any, Symbol.iterator]
+features: [Promise.any]
 flags: [async]
 ---*/
 

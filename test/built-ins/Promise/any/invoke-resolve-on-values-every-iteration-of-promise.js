@@ -30,8 +30,5 @@ Promise.resolve = function(...args) {
 Promise.any(values)
   .then(() => {
       assert.sameValue(callCount, 3, '`Promise.resolve` invoked once for every iterated value');
-    }, (error) => {
-      $DONE(error);
-    }
-  ).then($DONE, $DONE);
+    }, $DONE).then($DONE, $DONE);
 

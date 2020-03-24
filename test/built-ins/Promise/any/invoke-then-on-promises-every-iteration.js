@@ -20,9 +20,9 @@ features: [Promise.any]
 ---*/
 
 let promises = [
-  new Promise(resolve => resolve()),
-  new Promise(resolve => resolve()),
-  new Promise(resolve => resolve()),
+  Promise.resolve(),
+  Promise.resolve(),
+  Promise.resolve(),
 ];
 let callCount = 0;
 
@@ -38,8 +38,4 @@ promises.forEach(promise => {
 Promise.any(promises)
   .then(() => {
       assert.sameValue(callCount, 3, '`then` invoked once for every iterated value');
-    }, (error) => {
-      $DONE(error);
-      // $DONE('The promise should not be rejected');
-    }
-  ).then($DONE, $DONE);
+    }, $DONE).then($DONE, $DONE);
