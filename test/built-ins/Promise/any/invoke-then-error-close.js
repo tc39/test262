@@ -20,7 +20,7 @@ features: [Promise.any, Symbol.iterator]
 ---*/
 
 let error = new Test262Error();
-let promise = new Promise(() => {});
+let promise = Promise.resolve();
 let returnCount = 0;
 let iter = {
   [Symbol.iterator]() {

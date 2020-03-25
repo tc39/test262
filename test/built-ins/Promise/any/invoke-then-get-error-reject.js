@@ -19,7 +19,7 @@ flags: [async]
 features: [Promise.any]
 ---*/
 let error = new Test262Error();
-let promise = new Promise(() => {});
+let promise = Promise.resolve();
 
 Object.defineProperty(promise, 'then', {
   get() {
