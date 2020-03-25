@@ -4,7 +4,7 @@
 /*---
 esid: sec-promise.any
 description: >
-  Promise.any() does not retrieve `Symbol.species` property of the "`this` value".
+  Promise.any() does not derive a constructor via SpeciesConstructor()
 info: |
   1. Let C be the this value.
   2. Let promiseCapability be ? NewPromiseCapability(C).
@@ -22,7 +22,10 @@ features: [Promise.any, Symbol.species, Symbol, arrow-function]
 
 Object.defineProperty(Promise, Symbol.species, {
   get() {
-    throw new Test262Error('Getter for Symbol.species called');
+    throw new Test262Error('Erroneous Get(C, @@species) via SpeciesConstructor() occurred.');
+  }
+  static resolve() {
+    throw new Test262Error('Promise.resolve was reached');
   }
 });
 

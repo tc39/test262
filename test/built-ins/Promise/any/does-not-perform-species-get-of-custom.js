@@ -4,7 +4,7 @@
 /*---
 esid: sec-promise.any
 description: >
-  Promise.any() does not retrieve `Symbol.species` property of the "`this` value"
+  Promise.any.call(Custom, ...) does not derive a constructor via SpeciesConstructor()
 info: |
   1. Let C be the this value.
   2. Let promiseCapability be ? NewPromiseCapability(C).
@@ -20,13 +20,13 @@ flags: [async]
 features: [Promise.any, Symbol.species, class, class-static-method, computed-property-names, Symbol, arrow-function]
 ---*/
 
-class C extends Promise {
+class Custom extends Promise {
   static get [Symbol.species]() {
-    throw new Test262Error('Getter for Symbol.species called');
+    throw new Test262Error('Erroneous Get(C, @@species) via SpeciesConstructor() occurred.');
   }
   static resolve() {
-    throw new Test262Error('C.resolve was reached');
+    throw new Test262Error('Custom.resolve was reached');
   }
 }
 
-Promise.any.call(C, [1]).then(() => $DONE(), $DONE);
+Promise.any.call(Custom, [1]).then(() => $DONE(), $DONE);
