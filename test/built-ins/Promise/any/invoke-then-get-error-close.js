@@ -16,7 +16,7 @@ info: |
   r. Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], rejectElement »).
 
 flags: [async]
-features: [Promise.any, Symbol.iterator]
+features: [Promise.any, Symbol.iterator, arrow-function, computed-property-names, Symbol]
 ---*/
 let error = new Test262Error();
 let promise = Promise.resolve();

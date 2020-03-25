@@ -19,7 +19,7 @@ info: |
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
 
 flags: [async]
-features: [Promise.any]
+features: [Promise.any, arrow-function]
 ---*/
 
 let error = new Test262Error();
