@@ -12,7 +12,7 @@ info: |
   6. Let result be ? RegExpExec(rx, S).
   7. Let currentLastIndex be ? Get(rx, "lastIndex").
   8. If SameValue(currentLastIndex, previousLastIndex) is false, then
-  	a. Perform ? Set(rx, "lastIndex", previousLastIndex, true).
+    a. Perform ? Set(rx, "lastIndex", previousLastIndex, true).
   [...]
 features: [Symbol.search]
 ---*/
