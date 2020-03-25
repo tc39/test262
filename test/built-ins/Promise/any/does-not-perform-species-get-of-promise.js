@@ -24,9 +24,6 @@ Object.defineProperty(Promise, Symbol.species, {
   get() {
     throw new Test262Error('Erroneous Get(C, @@species) via SpeciesConstructor() occurred.');
   }
-  static resolve() {
-    throw new Test262Error('Promise.resolve was reached');
-  }
 });
 
 Promise.any([1]).then(() => $DONE(), $DONE);
