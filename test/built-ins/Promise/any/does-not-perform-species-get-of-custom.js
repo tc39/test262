@@ -24,9 +24,6 @@ class Custom extends Promise {
   static get [Symbol.species]() {
     throw new Test262Error('Erroneous Get(C, @@species) via SpeciesConstructor() occurred.');
   }
-  static resolve() {
-    throw new Test262Error('Custom.resolve was reached');
-  }
 }
 
 Promise.any.call(Custom, [1]).then(() => $DONE(), $DONE);
