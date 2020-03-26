@@ -1,0 +1,44 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-atomics.waitasync
+description: >
+  NaN timeout arg should result in an infinite timeout
+info: |
+  Atomics.waitAsync( typedArray, index, value, timeout )
+
+  1. Return DoWait(async, typedArray, index, value, timeout).
+
+  DoWait ( mode, typedArray, index, value, timeout )
+
+  6. Let q be ? ToNumber(timeout).
+
+includes: [atomicsHelper.js]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
+---*/
+
+const RUNNING = 1;
+
+$262.agent.start(`
+  $262.agent.receiveBroadcast(async (sab) => {
+    const i32a = new Int32Array(sab);
+    Atomics.add(i32a, ${RUNNING}, 1);
+
+    $262.agent.report(await Atomics.waitAsync(i32a, 0, 0, NaN));  // NaN => +Infinity
+    $262.agent.leaving();
+  });
+`);
+
+const i32a = new Int32Array(
+  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+);
+
+$262.agent.safeBroadcast(i32a);
+$262.agent.waitUntil(i32a, RUNNING, 1);
+
+// Try to yield control to ensure the agent actually started to wait.
+$262.agent.tryYield();
+
+assert.sameValue(Atomics.notify(i32a, 0), 1, 'Atomics.notify(i32a, 0) returns 1');
+assert.sameValue($262.agent.getReport(), "ok", '$262.agent.getReport() returns "ok"');
