@@ -17,7 +17,7 @@ info: |
   ...
 
 flags: [async]
-features: [Promise.any, Symbol.species, class, class-static-method, computed-property-names, Symbol, arrow-function]
+features: [Promise.any, Symbol.species, class, computed-property-names, Symbol, arrow-function]
 ---*/
 
 class Custom extends Promise {

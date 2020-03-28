@@ -6,7 +6,6 @@ description: >
   Error thrown when invoking the instance's `then` method (rejecting Promise)
 esid: sec-promise.any
 info: |
-
   5. Let result be PerformPromiseAny(iteratorRecord, C, promiseCapability).
   6. If result is an abrupt completion, then
     a. If iteratorRecord.[[Done]] is false, set result to IteratorClose(iteratorRecord, result).
