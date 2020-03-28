@@ -1,0 +1,32 @@
+// Copyright (C) 2020 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: static is a valid name of an instance field
+info: |
+  ClassElement:
+    ...
+    FieldDefinition ;
+
+  FieldDefinition:
+    ClassElementName Initializer_opt
+
+  ClassElementName:
+    PropertyName
+template: default
+includes: [propertyHelper.js]
+features: [class-fields-public]
+---*/
+
+//- elements
+static = "foo";
+//- assertions
+let c = new C();
+
+verifyProperty(c, "static", {
+  value: "foo",
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+
