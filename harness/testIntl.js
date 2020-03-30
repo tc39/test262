@@ -39,7 +39,8 @@ function testWithIntlConstructors(f) {
   var constructors = ["Collator", "NumberFormat", "DateTimeFormat"];
 
   // Optionally supported Intl constructors.
-  ["PluralRules"].forEach(function(constructor) {
+  // NB: Intl.Locale isn't an Intl service constructor!
+  ["PluralRules", "RelativeTimeFormat", "ListFormat", "DisplayNames"].forEach(function(constructor) {
     if (typeof Intl[constructor] === "function") {
       constructors[constructors.length] = constructor;
     }
