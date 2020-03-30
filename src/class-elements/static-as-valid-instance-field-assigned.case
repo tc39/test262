@@ -19,12 +19,12 @@ features: [class-fields-public]
 ---*/
 
 //- elements
-static;
+static = "foo";
 //- assertions
 let c = new C();
 
 verifyProperty(c, "static", {
-  value: undefined,
+  value: "foo",
   enumerable: true,
   writable: true,
   configurable: true

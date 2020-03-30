@@ -2,29 +2,21 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: static is a valid name of an instance field
+desc: static is a valid name of a static field
 info: |
   ClassElement:
     ...
-    FieldDefinition ;
-
-  FieldDefinition:
-    ClassElementName Initializer_opt
-
-  ClassElementName:
-    PropertyName
+    static FieldDefinition ;
 template: default
 includes: [propertyHelper.js]
-features: [class-fields-public]
+features: [class-static-fields-public]
 ---*/
 
 //- elements
-static;
+static static = "test262";
 //- assertions
-let c = new C();
-
-verifyProperty(c, "static", {
-  value: undefined,
+verifyProperty(C, "static", {
+  value: "test262",
   enumerable: true,
   writable: true,
   configurable: true

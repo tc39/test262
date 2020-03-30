@@ -22,13 +22,13 @@ info: |
 
 
 var C = class {
-  static = "foo";
+  static;
 }
 
 let c = new C();
 
 verifyProperty(c, "static", {
-  value: "foo",
+  value: undefined,
   enumerable: true,
   writable: true,
   configurable: true

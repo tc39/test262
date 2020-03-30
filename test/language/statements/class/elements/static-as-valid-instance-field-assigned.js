@@ -1,5 +1,5 @@
 // This file was procedurally generated from the following sources:
-// - src/class-elements/static-as-valid-instance-field.case
+// - src/class-elements/static-as-valid-instance-field-assigned.case
 // - src/class-elements/default/cls-decl.template
 /*---
 description: static is a valid name of an instance field (field definitions in a class declaration)
@@ -22,13 +22,13 @@ info: |
 
 
 class C {
-  static;
+  static = "foo";
 }
 
 let c = new C();
 
 verifyProperty(c, "static", {
-  value: undefined,
+  value: "foo",
   enumerable: true,
   writable: true,
   configurable: true
