@@ -299,6 +299,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     duplicateVariant = "(" + alphanum + "{2,8}-)+" + variant + "-(" + alphanum + "{2,8}-)*\\3(?!" + alphanum + ")",
     duplicateVariantRE = new RegExp(duplicateVariant, "i");
 
+  var transformKeyRE = new RegExp("^" + alpha + digit + "$", "i");
 
   /**
    * Verifies that the given string is a well-formed Unicode BCP 47 Locale Identifier
@@ -1255,6 +1256,330 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
     "polytoni": {type: "variant", replacement: "polyton"},
   };
 
+
+  /**
+   * Mappings from Unicode extension subtags to preferred values.
+   *
+   * Spec: http://unicode.org/reports/tr35/#Identifiers
+   * Version: CLDR, version 36.1
+   */
+  var __unicodeMappings = {
+    // property names and values must be in canonical case
+
+    "ca": {
+      "ethiopic-amete-alem": "ethioaa",
+      "islamicc": "islamic-civil",
+    },
+    "kb": {
+      "yes": "true",
+    },
+    "kc": {
+      "yes": "true",
+    },
+    "kh": {
+      "yes": "true",
+    },
+    "kk": {
+      "yes": "true",
+    },
+    "kn": {
+      "yes": "true",
+    },
+    "ks": {
+      "primary": "level1",
+      "tertiary": "level3",
+    },
+    "ms": {
+      "imperial": "uksystem",
+    },
+    "rg": {
+      "cn11": "cnbj",
+      "cn12": "cntj",
+      "cn13": "cnhe",
+      "cn14": "cnsx",
+      "cn15": "cnmn",
+      "cn21": "cnln",
+      "cn22": "cnjl",
+      "cn23": "cnhl",
+      "cn31": "cnsh",
+      "cn32": "cnjs",
+      "cn33": "cnzj",
+      "cn34": "cnah",
+      "cn35": "cnfj",
+      "cn36": "cnjx",
+      "cn37": "cnsd",
+      "cn41": "cnha",
+      "cn42": "cnhb",
+      "cn43": "cnhn",
+      "cn44": "cngd",
+      "cn45": "cngx",
+      "cn46": "cnhi",
+      "cn50": "cncq",
+      "cn51": "cnsc",
+      "cn52": "cngz",
+      "cn53": "cnyn",
+      "cn54": "cnxz",
+      "cn61": "cnsn",
+      "cn62": "cngs",
+      "cn63": "cnqh",
+      "cn64": "cnnx",
+      "cn65": "cnxj",
+      "cz10a": "cz110",
+      "cz10b": "cz111",
+      "cz10c": "cz112",
+      "cz10d": "cz113",
+      "cz10e": "cz114",
+      "cz10f": "cz115",
+      "cz611": "cz663",
+      "cz612": "cz632",
+      "cz613": "cz633",
+      "cz614": "cz634",
+      "cz615": "cz635",
+      "cz621": "cz641",
+      "cz622": "cz642",
+      "cz623": "cz643",
+      "cz624": "cz644",
+      "cz626": "cz646",
+      "cz627": "cz647",
+      "czjc": "cz31",
+      "czjm": "cz64",
+      "czka": "cz41",
+      "czkr": "cz52",
+      "czli": "cz51",
+      "czmo": "cz80",
+      "czol": "cz71",
+      "czpa": "cz53",
+      "czpl": "cz32",
+      "czpr": "cz10",
+      "czst": "cz20",
+      "czus": "cz42",
+      "czvy": "cz63",
+      "czzl": "cz72",
+      "fra": "frges",
+      "frb": "frnaq",
+      "frc": "frara",
+      "frd": "frbfc",
+      "fre": "frbre",
+      "frf": "frcvl",
+      "frg": "frges",
+      "frh": "frcor",
+      "fri": "frbfc",
+      "frj": "fridf",
+      "frk": "frocc",
+      "frl": "frnaq",
+      "frm": "frges",
+      "frn": "frocc",
+      "fro": "frhdf",
+      "frp": "frnor",
+      "frq": "frnor",
+      "frr": "frpdl",
+      "frs": "frhdf",
+      "frt": "frnaq",
+      "fru": "frpac",
+      "frv": "frara",
+      "laxn": "laxs",
+      "lud": "lucl",
+      "lug": "luec",
+      "lul": "luca",
+      "mrnkc": "mr13",
+      "no23": "no50",
+      "nzn": "nzauk",
+      "nzs": "nzcan",
+      "omba": "ombj",
+      "omsh": "omsj",
+      "plds": "pl02",
+      "plkp": "pl04",
+      "pllb": "pl08",
+      "plld": "pl10",
+      "pllu": "pl06",
+      "plma": "pl12",
+      "plmz": "pl14",
+      "plop": "pl16",
+      "plpd": "pl20",
+      "plpk": "pl18",
+      "plpm": "pl22",
+      "plsk": "pl26",
+      "plsl": "pl24",
+      "plwn": "pl28",
+      "plwp": "pl30",
+      "plzp": "pl32",
+      "tteto": "tttob",
+      "ttrcm": "ttmrc",
+      "ttwto": "tttob",
+      "twkhq": "twkhh",
+      "twtnq": "twtnn",
+      "twtpq": "twnwt",
+      "twtxq": "twtxg",
+    },
+    "sd": {
+      "cn11": "cnbj",
+      "cn12": "cntj",
+      "cn13": "cnhe",
+      "cn14": "cnsx",
+      "cn15": "cnmn",
+      "cn21": "cnln",
+      "cn22": "cnjl",
+      "cn23": "cnhl",
+      "cn31": "cnsh",
+      "cn32": "cnjs",
+      "cn33": "cnzj",
+      "cn34": "cnah",
+      "cn35": "cnfj",
+      "cn36": "cnjx",
+      "cn37": "cnsd",
+      "cn41": "cnha",
+      "cn42": "cnhb",
+      "cn43": "cnhn",
+      "cn44": "cngd",
+      "cn45": "cngx",
+      "cn46": "cnhi",
+      "cn50": "cncq",
+      "cn51": "cnsc",
+      "cn52": "cngz",
+      "cn53": "cnyn",
+      "cn54": "cnxz",
+      "cn61": "cnsn",
+      "cn62": "cngs",
+      "cn63": "cnqh",
+      "cn64": "cnnx",
+      "cn65": "cnxj",
+      "cz10a": "cz110",
+      "cz10b": "cz111",
+      "cz10c": "cz112",
+      "cz10d": "cz113",
+      "cz10e": "cz114",
+      "cz10f": "cz115",
+      "cz611": "cz663",
+      "cz612": "cz632",
+      "cz613": "cz633",
+      "cz614": "cz634",
+      "cz615": "cz635",
+      "cz621": "cz641",
+      "cz622": "cz642",
+      "cz623": "cz643",
+      "cz624": "cz644",
+      "cz626": "cz646",
+      "cz627": "cz647",
+      "czjc": "cz31",
+      "czjm": "cz64",
+      "czka": "cz41",
+      "czkr": "cz52",
+      "czli": "cz51",
+      "czmo": "cz80",
+      "czol": "cz71",
+      "czpa": "cz53",
+      "czpl": "cz32",
+      "czpr": "cz10",
+      "czst": "cz20",
+      "czus": "cz42",
+      "czvy": "cz63",
+      "czzl": "cz72",
+      "fra": "frges",
+      "frb": "frnaq",
+      "frc": "frara",
+      "frd": "frbfc",
+      "fre": "frbre",
+      "frf": "frcvl",
+      "frg": "frges",
+      "frh": "frcor",
+      "fri": "frbfc",
+      "frj": "fridf",
+      "frk": "frocc",
+      "frl": "frnaq",
+      "frm": "frges",
+      "frn": "frocc",
+      "fro": "frhdf",
+      "frp": "frnor",
+      "frq": "frnor",
+      "frr": "frpdl",
+      "frs": "frhdf",
+      "frt": "frnaq",
+      "fru": "frpac",
+      "frv": "frara",
+      "laxn": "laxs",
+      "lud": "lucl",
+      "lug": "luec",
+      "lul": "luca",
+      "mrnkc": "mr13",
+      "no23": "no50",
+      "nzn": "nzauk",
+      "nzs": "nzcan",
+      "omba": "ombj",
+      "omsh": "omsj",
+      "plds": "pl02",
+      "plkp": "pl04",
+      "pllb": "pl08",
+      "plld": "pl10",
+      "pllu": "pl06",
+      "plma": "pl12",
+      "plmz": "pl14",
+      "plop": "pl16",
+      "plpd": "pl20",
+      "plpk": "pl18",
+      "plpm": "pl22",
+      "plsk": "pl26",
+      "plsl": "pl24",
+      "plwn": "pl28",
+      "plwp": "pl30",
+      "plzp": "pl32",
+      "tteto": "tttob",
+      "ttrcm": "ttmrc",
+      "ttwto": "tttob",
+      "twkhq": "twkhh",
+      "twtnq": "twtnn",
+      "twtpq": "twnwt",
+      "twtxq": "twtxg",
+    },
+    "tz": {
+      "aqams": "nzakl",
+      "cnckg": "cnsha",
+      "cnhrb": "cnsha",
+      "cnkhg": "cnurc",
+      "cuba": "cuhav",
+      "egypt": "egcai",
+      "eire": "iedub",
+      "est": "utcw05",
+      "gmt0": "gmt",
+      "hongkong": "hkhkg",
+      "hst": "utcw10",
+      "iceland": "isrey",
+      "iran": "irthr",
+      "israel": "jeruslm",
+      "jamaica": "jmkin",
+      "japan": "jptyo",
+      "libya": "lytip",
+      "mst": "utcw07",
+      "navajo": "usden",
+      "poland": "plwaw",
+      "portugal": "ptlis",
+      "prc": "cnsha",
+      "roc": "twtpe",
+      "rok": "krsel",
+      "turkey": "trist",
+      "uct": "utc",
+      "usnavajo": "usden",
+      "zulu": "utc",
+    },
+  };
+
+
+  /**
+   * Mappings from Unicode extension subtags to preferred values.
+   *
+   * Spec: http://unicode.org/reports/tr35/#Identifiers
+   * Version: CLDR, version 36.1
+   */
+  var __transformMappings = {
+    // property names and values must be in canonical case
+
+    "d0": {
+      "name": "charname",
+    },
+    "m0": {
+      "names": "prprname",
+    },
+  };
+
   /**
    * Canonicalizes the given well-formed BCP 47 language tag, including regularized case of subtags.
    *
@@ -1364,7 +1689,80 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
       while (i < subtags.length && subtags[i].length > 1) {
         i++;
       }
-      var extension = subtags.slice(extensionStart, i).join("-");
+
+      var extension;
+      var extensionKey = subtags[extensionStart];
+      if (extensionKey === "u") {
+        var j = extensionStart + 1;
+
+        // skip over leading attributes
+        while (j < i && subtags[j].length > 2) {
+          j++;
+        }
+
+        extension = subtags.slice(extensionStart, j).join("-");
+
+        while (j < i) {
+          var keyStart = j;
+          j++;
+
+          while (j < i && subtags[j].length > 2) {
+            j++;
+          }
+
+          var key = subtags[keyStart];
+          var value = subtags.slice(keyStart + 1, j).join("-");
+
+          if (__unicodeMappings.hasOwnProperty(key)) {
+            var mapping = __unicodeMappings[key];
+            if (mapping.hasOwnProperty(value)) {
+              value = mapping[value];
+            }
+          }
+
+          extension += "-" + key;
+          if (value !== "" && value !== "true") {
+            extension += "-" + value;
+          }
+        }
+      } else if (extensionKey === "t") {
+        var j = extensionStart + 1;
+
+        while (j < i && !transformKeyRE.test(subtags[j])) {
+          j++;
+        }
+
+        extension = "t";
+
+        var transformLanguage = subtags.slice(extensionStart + 1, j).join("-");
+        if (transformLanguage !== "") {
+          extension += "-" + canonicalizeLanguageTag(transformLanguage).toLowerCase();
+        }
+
+        while (j < i) {
+          var keyStart = j;
+          j++;
+
+          while (j < i && subtags[j].length > 2) {
+            j++;
+          }
+
+          var key = subtags[keyStart];
+          var value = subtags.slice(keyStart + 1, j).join("-");
+
+          if (__transformMappings.hasOwnProperty(key)) {
+            var mapping = __transformMappings[key];
+            if (mapping.hasOwnProperty(value)) {
+              value = mapping[value];
+            }
+          }
+
+          extension += "-" + key + "-" + value;
+        }
+      } else {
+        extension = subtags.slice(extensionStart, i).join("-");
+      }
+
       extensions.push(extension);
     }
     extensions.sort();
