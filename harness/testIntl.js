@@ -1550,7 +1550,7 @@ function testForUnwantedRegExpChanges(testFunc) {
 
 function isValidNumberingSystem(name) {
 
-  // source: CLDR file common/bcp47/number.xml; version CLDR 32.
+  // source: CLDR file common/bcp47/number.xml; version CLDR 36.1.
   var numberingSystems = [
     "adlm",
     "ahom",
@@ -1566,10 +1566,12 @@ function isValidNumberingSystem(name) {
     "cham",
     "cyrl",
     "deva",
+    "diak",
     "ethi",
     "finance",
     "fullwide",
     "geor",
+    "gong",
     "gonm",
     "grek",
     "greklow",
@@ -1583,9 +1585,11 @@ function isValidNumberingSystem(name) {
     "hantfin",
     "hebr",
     "hmng",
+    "hmnp",
     "java",
     "jpan",
     "jpanfin",
+    "jpanyear",
     "kali",
     "khmr",
     "knda",
@@ -1614,6 +1618,7 @@ function isValidNumberingSystem(name) {
     "olck",
     "orya",
     "osma",
+    "rohg",
     "roman",
     "romanlow",
     "saur",
@@ -1633,6 +1638,7 @@ function isValidNumberingSystem(name) {
     "traditio",
     "vaii",
     "wara",
+    "wcho",
   ];
 
   var excluded = [
