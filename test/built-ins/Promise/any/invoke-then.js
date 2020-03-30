@@ -19,7 +19,7 @@ flags: [async]
 features: [Promise.any, arrow-function]
 ---*/
 
-let promise = new Promise(() => {});
+let promise = Promise.resolve();
 let boundThen = promise.then.bind(promise);
 
 promise.then = function(resolver, rejectElement) {
