@@ -21,7 +21,7 @@ info: |
 ---*/
 
 var value = 0n;
-assert.sameValue(value &&= 1n, "test", "(value &&= 1n) === 0n; where value = 0n");
+assert.sameValue(value &&= 1n, 0n, "(value &&= 1n) === 0n; where value = 0n");
 
-var value = 2n;
-assert.sameValue(value &&= 1n, "test", "(value &&= 1n) === 1n; where value = 2n");
+value = 2n;
+assert.sameValue(value &&= 1n, 1n, "(value &&= 1n) === 1n; where value = 2n");

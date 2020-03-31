@@ -23,7 +23,7 @@ assert.throws(DummyError, function() {
   base[prop()] ||= expr();
 });
 
-assert.throws(Test262Error, function() {
+assert.throws(TypeError, function() {
   var base = null;
   var prop = {
     toString: function() {

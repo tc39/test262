@@ -22,7 +22,7 @@ Object.defineProperty(obj, "prop", {
   configurable: true
 });
 
-assert.throws(ReferenceError, function() {
+assert.throws(TypeError, function() {
   obj.prop ||= 1;
 });
 assert.sameValue(obj.prop, 0, "obj.prop");
