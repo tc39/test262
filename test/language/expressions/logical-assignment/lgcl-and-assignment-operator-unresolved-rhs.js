@@ -7,6 +7,7 @@ description: >
     ReferenceError is not thrown if the AssignmentExpression of a Logical
     Assignment operator(&&=) evaluates to an unresolvable reference and the
     AssignmentExpression is not evaluated.
+features: [logical-assignment-operators]
 
 ---*/
 

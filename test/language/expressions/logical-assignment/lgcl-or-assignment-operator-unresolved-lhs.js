@@ -7,6 +7,7 @@ description: >
     ReferenceError is thrown if the LeftHandSideExpression of a Logical
     Assignment operator(||=) evaluates to an unresolvable reference
 flags: [onlyStrict]
+features: [logical-assignment-operators]
 
 ---*/
 

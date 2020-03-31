@@ -9,6 +9,7 @@ description: >
 negative:
   phase: parse
   type: SyntaxError
+features: [logical-assignment-operators]
 
 ---*/
 

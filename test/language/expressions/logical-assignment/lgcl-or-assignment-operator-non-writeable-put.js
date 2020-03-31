@@ -8,6 +8,7 @@ description: >
     Assignment operator(||=) is a reference to a data property with the
     attribute value {[[Writable]]:false} and PutValue step is reached.
 flags: [onlyStrict]
+features: [logical-assignment-operators]
 
 ---*/
 
