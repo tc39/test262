@@ -23,7 +23,7 @@ assert.throws(DummyError, function() {
   base[prop()] ??= expr();
 });
 
-assert.throws(Test262Error, function() {
+assert.throws(TypeError, function() {
   var base = null;
   var prop = {
     toString: function() {
@@ -45,9 +45,9 @@ function incr() {
 
 assert.sameValue(obj[incr()] ??= incr(), 2, "obj[incr()] ??= incr()");
 assert.sameValue(obj[1], 2, "obj[1]");
-assert.sameValue(count, 1, "count");
+assert.sameValue(count, 2, "count");
 
-obj[2] = 1;
-assert.sameValue(obj[incr()] ??= incr(), 3, "obj[incr()] ??= incr()");
+obj[3] = 1;
+assert.sameValue(obj[incr()] ??= incr(), 1, "obj[incr()] ??= incr()");
 assert.sameValue(obj[3], 1, "obj[3]");
 assert.sameValue(count, 3, "count");
