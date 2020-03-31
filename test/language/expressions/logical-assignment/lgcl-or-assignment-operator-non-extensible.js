@@ -8,6 +8,7 @@ description: >
     Assignment operator(||=) is a reference to a non-existent property
     of an object whose [[Extensible]] internal property is false.
 flags: [onlyStrict]
+features: [logical-assignment-operators]
 
 ---*/
 

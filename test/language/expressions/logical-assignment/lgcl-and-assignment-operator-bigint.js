@@ -4,7 +4,7 @@
 /*---
 esid: sec-assignment-operators-runtime-semantics-evaluation
 description: Logical And Assignment Operator
-features: [BigInt]
+features: [BigInt, logical-assignment-operators]
 info: |
     AssignmentExpression:
       LeftHandSideExpression &&= AssignmentExpression

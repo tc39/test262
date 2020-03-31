@@ -15,6 +15,7 @@ info: |
     5. Let rval be ? GetValue(rref).
     6. Perform ? PutValue(lref, rval).
     7. Return rval.
+features: [logical-assignment-operators]
 
 ---*/
 

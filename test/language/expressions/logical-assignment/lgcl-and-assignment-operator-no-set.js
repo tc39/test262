@@ -8,6 +8,7 @@ description: >
     Assignment operator(&&=) is a reference to a data property with the
     attribute value {[[Set]]:undefined} and PutValue step is not reached.
 flags: [onlyStrict]
+features: [logical-assignment-operators]
 
 ---*/
 

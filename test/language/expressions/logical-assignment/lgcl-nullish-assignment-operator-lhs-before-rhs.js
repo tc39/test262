@@ -5,6 +5,7 @@
 esid: sec-assignment-operators-runtime-semantics-evaluation
 description: >
     The LeftHandSideExpression is evaluated before the AssignmentExpression.
+features: [logical-assignment-operators]
 
 ---*/
 

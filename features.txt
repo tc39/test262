@@ -166,6 +166,10 @@ String.prototype.replaceAll
 # https://github.com/tc39/proposal-for-in-order
 for-in-order
 
+# Logical Assignment Operators
+# https://github.com/tc39/proposal-logical-assignment
+logical-assignment-operators
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
