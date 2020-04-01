@@ -1,20 +1,37 @@
-// Copyright (C) 2019 Caio Lima (Igalia SL). All rights reserved.
+// Copyright (C) 2020 Caio Lima (Igalia SL). All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: PrivateName after '?.' is not valid syntax
+desc: PrivateName after '?.' is valid syntax
 info: |
   Updated Productions
 
-  MemberExpression[Yield]:
-    MemberExpression[?Yield].PrivateName
-template: syntax/invalid
+  OptionalChain[Yield, Await]:
+    `?.` `[` Expression[+In, ?Yield, ?Await] `]`
+    `?.` IdentifierName
+    `?.` Arguments[?Yield, ?Await]
+    `?.` TemplateLiteral[?Yield, ?Await, +Tagged]
+    `?.` PrivateIdentifier
+template: default
 features: [class-fields-private, optional-chaining]
 ---*/
 
 //- elements
 #m = 'test262';
 
-access(obj) {
+static access(obj) {
   return obj?.#m;
 }
+//- assertions
+
+let c = new C();
+
+assert.sameValue(C.access(c), 'test262');
+
+assert.sameValue(C.access(null), undefined);
+assert.sameValue(C.access(undefined), undefined);
+
+assert.throws(TypeError, function() {
+  C.access({});
+}, 'accessed private field from an ordinary object');
+
