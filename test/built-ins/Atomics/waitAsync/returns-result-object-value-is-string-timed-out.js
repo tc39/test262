@@ -4,8 +4,9 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Atomics.waitAsync returns a promise.
+  Atomics.waitAsync returns a result object containing a string "not-equal" and async is false.
 info: |
+
   Atomics.waitAsync( typedArray, index, value, timeout )
 
   1. Return DoWait(async, typedArray, index, value, timeout).
@@ -18,7 +19,9 @@ info: |
     a. Set promiseCapability to ! NewPromiseCapability(%Promise%).
 
   ...
-  24. Return promiseCapability.[[Promise]].
+  Perform ! CreateDataPropertyOrThrow(_resultObject_, *"async"*, *true*).
+  Perform ! CreateDataPropertyOrThrow(_resultObject_, *"value"*, _promiseCapability_.[[Promise]]).
+  Return _resultObject_.
 
 features: [Atomics.waitAsync]
 ---*/
@@ -27,7 +30,7 @@ const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 8)
 );
 
-let p = Atomics.waitAsync(i32a, 0, 0, 0);
+let {async, value} = Atomics.waitAsync(i32a, 0, 0, 0);
 
-assert(p instanceof Promise);
-assert.sameValue(Object.getPrototypeOf(p), Promise.prototype);
+assert.sameValue(async, false);
+assert.sameValue(value, "timed-out");
