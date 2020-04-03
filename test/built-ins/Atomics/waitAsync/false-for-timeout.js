@@ -14,7 +14,7 @@ info: |
 
   6. Let q be ? ToNumber(timeout).
 
-flags: [async, CanBlockIsTrue]
+flags: [async]
 includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
@@ -34,25 +34,12 @@ const toPrimitive = {
   }
 };
 
-(async () => {
-  try {
-    assert.sameValue(
-      await Atomics.waitAsync(i32a, 0, 0, false),
-      'timed-out',
-      'Atomics.waitAsync(i32a, 0, 0, false) returns "timed-out"'
-    );
-    assert.sameValue(
-      await Atomics.waitAsync(i32a, 0, 0, valueOf),
-      'timed-out',
-      'Atomics.waitAsync(i32a, 0, 0, valueOf) returns "timed-out"'
-    );
-    assert.sameValue(
-      await Atomics.waitAsync(i32a, 0, 0, toPrimitive),
-      'timed-out',
-      'Atomics.waitAsync(i32a, 0, 0, toPrimitive) returns "timed-out"'
-    );
-    $DONE();
-  } catch (error) {
-    $DONE(error);
-  }
-})();
+Promise.all([
+    Atomics.waitAsync(i32a, 0, 0, false).value,
+    Atomics.waitAsync(i32a, 0, 0, valueOf).value,
+    Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
+  ]).then(outcomes => {
+    assert.sameValue(outcomes[0], "timed-out");
+    assert.sameValue(outcomes[0], "timed-out");
+    assert.sameValue(outcomes[0], "timed-out");
+  }, $DONE).then($DONE, $DONE);
