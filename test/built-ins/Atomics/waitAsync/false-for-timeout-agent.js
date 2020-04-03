@@ -36,9 +36,9 @@ $262.agent.start(`
     const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
-    const status1 = await Atomics.waitAsync(i32a, 0, 0, false);
-    const status2 = await Atomics.waitAsync(i32a, 0, 0, valueOf);
-    const status3 = await Atomics.waitAsync(i32a, 0, 0, toPrimitive);
+    const status1 = await Atomics.waitAsync(i32a, 0, 0, false).value;
+    const status2 = await Atomics.waitAsync(i32a, 0, 0, valueOf).value;
+    const status3 = await Atomics.waitAsync(i32a, 0, 0, toPrimitive).value;
 
     $262.agent.report(status1);
     $262.agent.report(status2);
