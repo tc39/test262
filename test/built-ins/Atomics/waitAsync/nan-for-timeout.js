@@ -25,7 +25,7 @@ $262.agent.start(`
     const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
-    $262.agent.report(await Atomics.waitAsync(i32a, 0, 0, NaN));  // NaN => +Infinity
+    $262.agent.report(await Atomics.waitAsync(i32a, 0, 0, NaN).value);  // NaN => +Infinity
     $262.agent.leaving();
   });
 `);
@@ -36,9 +36,7 @@ const i32a = new Int32Array(
 
 $262.agent.safeBroadcast(i32a);
 $262.agent.waitUntil(i32a, RUNNING, 1);
-
-// Try to yield control to ensure the agent actually started to wait.
 $262.agent.tryYield();
 
 assert.sameValue(Atomics.notify(i32a, 0), 1, 'Atomics.notify(i32a, 0) returns 1');
-assert.sameValue($262.agent.getReport(), "ok", '$262.agent.getReport() returns "ok"');
+assert.sameValue($262.agent.getReport(), "ok", 'await Atomics.waitAsync(i32a, 0, 0, NaN).value resolves to "ok"');

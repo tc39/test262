@@ -33,6 +33,6 @@ $262.agent.tryYield();
 assert.sameValue(
   $262.agent.getReport(),
   'timed-out',
-  '$262.agent.getReport() returns "timed-out"'
+  'await Atomics.waitSync(i32a, 0, 0, -5).value resolves to "timed-out"'
 );
 assert.sameValue(Atomics.notify(i32a, 0), 0, 'Atomics.notify(i32a, 0) returns 0');
