@@ -9,6 +9,7 @@ description: >
 ---*/
 
 assert(typeof Test262Error === "function");
+assert.sameValue(Test262Error.prototype.name, "Test262Error");
 assert(typeof Test262Error.prototype.toString === "function");
 assert(typeof $ERROR === "function");
 assert(typeof $DONOTEVALUATE === "function");
