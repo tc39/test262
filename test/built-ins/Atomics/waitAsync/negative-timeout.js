@@ -12,9 +12,12 @@ const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
-let {async, value} = Atomics.waitAsync(i32a, 0, 0, -1);
-
-
-value.then(outcome => {
-  assert.sameValue(outcome, "timed-out");
-}, $DONE).then($DONE, $DONE);
+Promise.all([
+    Atomics.waitAsync(i32a, 0, 0, -1).value,
+  ]).then(outcomes => {
+    assert.sameValue(
+      outcomes[0],
+      'timed-out',
+      'Atomics.waitAsync(i32a, 0, 0, -1).value resolves to "timed-out"'
+    );
+  }, $DONE).then($DONE, $DONE);

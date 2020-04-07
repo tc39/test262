@@ -4,60 +4,56 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  False timeout arg should result in an +0 timeout
+  null timeout arg should result in an +0 timeout
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
-  1. Return DoWait(async, typedArray, index, value, timeout).
+  4. Let q be ? ToNumber(timeout).
 
-  DoWait ( mode, typedArray, index, value, timeout )
+    Null -> Return +0.
 
-  6. Let q be ? ToNumber(timeout).
-
+features: [Atomics.waitAsync, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray, computed-property-names, Atomics]
 flags: [async]
-includes: [atomicsHelper.js]
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
+
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
 const valueOf = {
   valueOf() {
-    return false;
+    return null;
   }
 };
 
 const toPrimitive = {
   [Symbol.toPrimitive]() {
-    return false;
+    return null;
   }
 };
 
 assert.sameValue(
-  Atomics.waitAsync(i32a, 0, 0, false).value,
+  Atomics.waitAsync(i32a, 0, 0, null).value,
   'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, false).value resolves to "timed-out"'
+  'Atomics.waitAsync(i32a, 0, 0, null).value resolves to "timed-out"'
 );
-
 assert.sameValue(
   Atomics.waitAsync(i32a, 0, 0, valueOf).value,
   'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, false).value resolves to "timed-out"'
+  'Atomics.waitAsync(i32a, 0, 0, valueOf).value resolves to "timed-out"'
 );
-
 assert.sameValue(
   Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
   'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, false).value resolves to "timed-out"'
+  'Atomics.waitAsync(i32a, 0, 0, toPrimitive).value resolves to "timed-out"'
 );
 
 Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, false).value,
+    Atomics.waitAsync(i32a, 0, 0, null).value,
     Atomics.waitAsync(i32a, 0, 0, valueOf).value,
     Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
   ]).then(outcomes => {
-    assert.sameValue(outcomes[0], 'timed-out');
-    assert.sameValue(outcomes[0], 'timed-out');
-    assert.sameValue(outcomes[0], 'timed-out');
+    assert.sameValue(outcomes[0], "timed-out");
+    assert.sameValue(outcomes[0], "timed-out");
+    assert.sameValue(outcomes[0], "timed-out");
   }, $DONE).then($DONE, $DONE);
