@@ -43,6 +43,12 @@ function verifyProperty(obj, name, desc, options) {
 
     // desc and originalDesc are both undefined, problem solved;
     return true;
+  } else {
+    assert.notSameValue(
+      originalDesc,
+      undefined,
+      "obj['" + nameStr + "'] descriptor should not be undefined"
+    );
   }
 
   assert(

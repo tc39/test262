@@ -18,6 +18,10 @@ assert.sameValue(
 );
 
 assert.throws(Test262Error, () => {
+  verifyProperty(sample, "foo2", {value: undefined});
+}, "originalDesc is undefined, desc is not undefined");
+
+assert.throws(Test262Error, () => {
   verifyProperty(sample, 'bar', undefined);
 }, "dataDescriptor value is undefined");
 
