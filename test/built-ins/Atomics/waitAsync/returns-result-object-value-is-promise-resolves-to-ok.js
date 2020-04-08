@@ -6,7 +6,6 @@ esid: sec-atomics.waitasync
 description: >
   Atomics.waitAsync returns a result object containing a promise that resolves to "ok" and async is true.
 info: |
-
   Atomics.waitAsync( typedArray, index, value, timeout )
 
   1. Return DoWait(async, typedArray, index, value, timeout).
