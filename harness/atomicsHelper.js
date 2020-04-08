@@ -57,7 +57,7 @@ defines:
   $262.agent.getReportAsync = function() {
     return new Promise(function(resolve) {
       (function loop() {
-        let result = getReport(id);
+        let result = getReport();
         if (!result) {
           setTimeout(loop, 1000);
         } else {
