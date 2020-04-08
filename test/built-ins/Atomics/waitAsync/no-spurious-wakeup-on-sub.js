@@ -22,6 +22,7 @@ info: |
     c. Perform NotifyWaiter(WL, waiterRecord).
   4. Perform LeaveCriticalSection(WL).
 
+flags: [async]
 includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
@@ -34,38 +35,39 @@ const i32a = new Int32Array(
 );
 
 $262.agent.start(`
-  $262.agent.receiveBroadcast(async function(sab) => {
+  $262.agent.receiveBroadcast(async (sab) => {
     const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
     const before = $262.agent.monotonicNow();
     const unpark = await Atomics.waitAsync(i32a, 0, 0, ${TIMEOUT}).value;
     const duration = $262.agent.monotonicNow() - before;
+
     $262.agent.report(duration);
     $262.agent.report(unpark);
     $262.agent.leaving();
   });
 `);
 
-$262.agent.safeBroadcast(i32a);
-$262.agent.waitUntil(i32a, RUNNING, 1);
-$262.agent.tryYield();
+$262.agent.safeBroadcastAsync(i32a, RUNNING, 1).then(async (agentCount) => {
 
-Atomics.sub(i32a, 0, 1);
+  assert.sameValue(agentCount, 1);
 
-assert(
-  $262.agent.getReport() >= TIMEOUT,
-  'The result of `(lapse >= TIMEOUT)` is true'
-);
+  Atomics.sub(i32a, 0, 1);
 
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'await Atomics.wait(i32a, 0, 0, ${TIMEOUT}).value resolves to "timed-out"'
-);
+  const lapse = await $262.agent.getReportAsync();
 
-assert.sameValue(
-  Atomics.notify(i32a, 0),
-  0,
-  'Atomics.notify(i32a, 0) returns 0'
-);
+  assert(
+    lapse >= TIMEOUT,
+    'The result of `(lapse >= TIMEOUT)` is true'
+  );
+
+  const result = await $262.agent.getReportAsync();
+
+  assert.sameValue(
+    result,
+    'timed-out',
+    'await Atomics.waitAsync(i32a, 0, 0, ${TIMEOUT}).value resolves to "timed-out"'
+  );
+  assert.sameValue(Atomics.notify(i32a, 0), 0, 'Atomics.notify(i32a, 0) returns 0');
+}).then($DONE, $DONE);
