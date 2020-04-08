@@ -8,7 +8,11 @@ description: >
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
-  4. Let q be ? ToNumber(timeout).
+  1. Return DoWait(async, typedArray, index, value, timeout).
+
+  DoWait ( mode, typedArray, index, value, timeout )
+
+  6. Let q be ? ToNumber(timeout).
 
     Null -> Return +0.
 

@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Test that Atomics.waitAsync times out with a negative timeout
+  Throws a TypeError if index arg can not be converted to an Integer
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -14,19 +14,34 @@ info: |
 
   6. Let q be ? ToNumber(timeout).
 
+    Boolean -> If argument is true, return 1. If argument is false, return +0.
+
 flags: [async]
+includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
+const valueOf = {
+  valueOf() {
+    return true;
+  }
+};
+
+const toPrimitive = {
+  [Symbol.toPrimitive]() {
+    return true;
+  }
+};
+
 Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, -1).value,
+    Atomics.waitAsync(i32a, 0, 0, true).value,
+    Atomics.waitAsync(i32a, 0, 0, valueOf).value,
+    Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
   ]).then(outcomes => {
-    assert.sameValue(
-      outcomes[0],
-      'timed-out',
-      'Atomics.waitAsync(i32a, 0, 0, -1).value resolves to "timed-out"'
-    );
+    assert.sameValue(outcomes[0], 'timed-out');
+    assert.sameValue(outcomes[0], 'timed-out');
+    assert.sameValue(outcomes[0], 'timed-out');
   }, $DONE).then($DONE, $DONE);
