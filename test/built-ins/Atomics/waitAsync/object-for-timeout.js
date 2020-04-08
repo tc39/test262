@@ -4,11 +4,15 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Throws a TypeError if index arg can not be converted to an Integer
+  Object valueOf, toString, toPrimitive Zero timeout arg should result in an +0 timeout
 info: |
-  Atomics.wait( typedArray, index, value, timeout )
+  Atomics.waitAsync( typedArray, index, value, timeout )
 
-  4. Let q be ? ToNumber(timeout).
+  1. Return DoWait(async, typedArray, index, value, timeout).
+
+  DoWait ( mode, typedArray, index, value, timeout )
+
+  6. Let q be ? ToNumber(timeout).
 
     Object -> Apply the following steps:
 

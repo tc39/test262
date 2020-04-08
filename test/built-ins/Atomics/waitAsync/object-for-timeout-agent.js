@@ -4,14 +4,22 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  False timeout arg should result in an +0 timeout
+  Object valueOf, toString, toPrimitive Zero timeout arg should result in an +0 timeout
 info: |
-  Atomics.wait( typedArray, index, value, timeout )
+  Atomics.waitAsync( typedArray, index, value, timeout )
 
-  4. Let q be ? ToNumber(timeout).
+  1. Return DoWait(async, typedArray, index, value, timeout).
 
-    Null -> Return +0.
+  DoWait ( mode, typedArray, index, value, timeout )
 
+  6. Let q be ? ToNumber(timeout).
+
+    Object -> Apply the following steps:
+
+      Let primValue be ? ToPrimitive(argument, hint Number).
+      Return ? ToNumber(primValue).
+
+flags: [async]
 includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
@@ -53,41 +61,42 @@ const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
-$262.agent.safeBroadcast(i32a);
-$262.agent.waitUntil(i32a, RUNNING, 1);
+$262.agent.safeBroadcastAsync(i32a, RUNNING, 1).then(async (agentCount) => {
 
-// Try to yield control to ensure the agent actually started to wait.
-$262.agent.tryYield();
+  assert.sameValue(agentCount, 1);
 
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'await Atomics.waitAsync(i32a, 0, 0, valueOf).value resolves to "timed-out"'
-);
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'await Atomics.waitAsync(i32a, 0, 0, toString).value resolves to "timed-out"'
-);
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'await Atomics.waitAsync(i32a, 0, 0, toPrimitive).value resolves to "timed-out"'
-);
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, valueOf).value resolves to "timed-out"'
-);
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, toString).value resolves to "timed-out"'
-);
-assert.sameValue(
-  $262.agent.getReport(),
-  'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, toPrimitive).value resolves to "timed-out"'
-);
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'timed-out',
+    'await Atomics.waitAsync(i32a, 0, 0, valueOf).value resolves to "timed-out"'
+  );
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'timed-out',
+    'await Atomics.waitAsync(i32a, 0, 0, toString).value resolves to "timed-out"'
+  );
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'timed-out',
+    'await Atomics.waitAsync(i32a, 0, 0, toPrimitive).value resolves to "timed-out"'
+  );
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'timed-out',
+    'Atomics.waitAsync(i32a, 0, 0, valueOf).value resolves to "timed-out"'
+  );
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'timed-out',
+    'Atomics.waitAsync(i32a, 0, 0, toString).value resolves to "timed-out"'
+  );
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'timed-out',
+    'Atomics.waitAsync(i32a, 0, 0, toPrimitive).value resolves to "timed-out"'
+  );
 
-assert.sameValue(Atomics.notify(i32a, 0), 0, 'Atomics.notify(i32a, 0) returns 0');
+  assert.sameValue(Atomics.notify(i32a, 0), 0, 'Atomics.notify(i32a, 0) returns 0');
+
+}).then($DONE, $DONE);
+

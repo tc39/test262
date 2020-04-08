@@ -14,6 +14,7 @@ info: |
 
   6. Let q be ? ToNumber(timeout).
 
+flags: [async]
 includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
@@ -34,9 +35,18 @@ const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
-$262.agent.safeBroadcast(i32a);
-$262.agent.waitUntil(i32a, RUNNING, 1);
-$262.agent.tryYield();
+$262.agent.safeBroadcastAsync(i32a, RUNNING, 1).then(async (agentCount) => {
 
-assert.sameValue(Atomics.notify(i32a, 0), 1, 'Atomics.notify(i32a, 0) returns 1');
-assert.sameValue($262.agent.getReport(), "ok", 'await Atomics.waitAsync(i32a, 0, 0, NaN).value resolves to "ok"');
+  assert.sameValue(agentCount, 1);
+
+  assert.sameValue(Atomics.notify(i32a, 0), 1, 'Atomics.notify(i32a, 0) returns 1');
+
+  assert.sameValue(
+    await $262.agent.getReportAsync(),
+    'ok',
+    'await Atomics.waitAsync(i32a, 0, 0, NaN).value resolves to "ok"'
+  );
+
+}).then($DONE, $DONE);
+
+
