@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Throws a TypeError if index arg can not be converted to an Integer
+  Returns "not-equal" when value arg does not match an index in the typedArray
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -12,13 +12,17 @@ info: |
 
   DoWait ( mode, typedArray, index, value, timeout )
 
-  6. Let q be ? ToNumber(timeout).
-
-    Boolean -> If argument is true, return 1. If argument is false, return +0.
+  16. Let w be ! AtomicLoad(typedArray, i).
+  17. If v is not equal to w, then
+    a. Perform LeaveCriticalSection(WL).
+    b. If mode is sync, then
+      i. Return the String "not-equal".
+    c. Perform ! Call(capability.[[Resolve]], undefined, « "not-equal" »).
+    d. Return promiseCapability.[[Promise]].
 
 flags: [async]
 includes: [atomicsHelper.js]
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray]
 ---*/
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
@@ -26,22 +30,20 @@ const i32a = new Int32Array(
 
 const valueOf = {
   valueOf() {
-    return true;
+    return undefined;
   }
 };
 
 const toPrimitive = {
   [Symbol.toPrimitive]() {
-    return true;
+    return undefined;
   }
 };
 
 Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, true).value,
-    Atomics.waitAsync(i32a, 0, 0, valueOf).value,
-    Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
+    Atomics.store(i32a, 0, 42),
+    Atomics.waitAsync(i32a, 0, 0).value,
   ]).then(outcomes => {
-    assert.sameValue(outcomes[0], 'timed-out');
-    assert.sameValue(outcomes[1], 'timed-out');
-    assert.sameValue(outcomes[2], 'timed-out');
+    assert.sameValue(outcomes[0], 42);
+    assert.sameValue(outcomes[1], 'not-equal');
   }, $DONE).then($DONE, $DONE);

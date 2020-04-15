@@ -1,10 +1,9 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Undefined timeout arg is coerced to zero
+  Undefined index arg is coerced to zero
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -12,17 +11,21 @@ info: |
 
   DoWait ( mode, typedArray, index, value, timeout )
 
-  6. Let q be ? ToNumber(timeout).
-    ...
-    Undefined    Return NaN.
+  2. Let i be ? ValidateAtomicAccess(typedArray, index).
+      ...
+      2.Let accessIndex be ? ToIndex(requestIndex).
 
-  5.If q is NaN, let t be +∞, else let t be max(q, 0)
+      9.If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
+        ...
+          3.If bufferData is a Data Block, return false
+
+          If value is undefined, then
+          Let index be 0.
 
 flags: [async]
 includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
-
 const WAIT_INDEX = 0;
 const RUNNING = 1;
 const NUMAGENT = 2;
@@ -33,8 +36,7 @@ $262.agent.start(`
     var i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
-    // undefined => NaN => +Infinity
-    $262.agent.report("A " + (await Atomics.waitAsync(i32a, 0, 0, undefined).value));
+    $262.agent.report("A " + (await Atomics.waitAsync(i32a, undefined, 0).value));
     $262.agent.leaving();
   });
 `);
@@ -44,8 +46,7 @@ $262.agent.start(`
     var i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
-    // undefined timeout arg => NaN => +Infinity
-    $262.agent.report("B " + (await Atomics.waitAsync(i32a, 0, 0).value));
+    $262.agent.report("B " + (await Atomics.waitAsync(i32a, undefined, 0).value));
     $262.agent.leaving();
   });
 `);

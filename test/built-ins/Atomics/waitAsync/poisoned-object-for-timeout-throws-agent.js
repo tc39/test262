@@ -41,8 +41,8 @@ $262.agent.start(`
     const i32a = new Int32Array(sab);
     Atomics.add(i32a, ${RUNNING}, 1);
 
-    let status1 = ';
-    let status2 = ';
+    let status1 = '';
+    let status2 = '';
 
     try {
       Atomics.wait(i32a, 0, 0, poisonedValueOf);

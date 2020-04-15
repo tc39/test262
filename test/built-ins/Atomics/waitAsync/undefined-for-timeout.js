@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  False timeout arg should result in an +0 timeout
+  Undefined timeout arg is coerced to zero
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -13,6 +13,10 @@ info: |
   DoWait ( mode, typedArray, index, value, timeout )
 
   6. Let q be ? ToNumber(timeout).
+    ...
+    Undefined    Return NaN.
+
+  5.If q is NaN, let t be +∞, else let t be max(q, 0)
 
 flags: [async]
 includes: [atomicsHelper.js]
@@ -22,42 +26,37 @@ const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
+$262.agent.start(`
+  $262.agent.receiveBroadcast(async (sab) => {
+    var i32a = new Int32Array(sab);
+    $262.agent.sleep(1000);
+    Atomics.notify(i32a, 0, 4);
+    $262.agent.leaving();
+  });
+`);
+
+$262.agent.safeBroadcast(i32a);
+
 const valueOf = {
   valueOf() {
-    return false;
+    return undefined;
   }
 };
 
 const toPrimitive = {
   [Symbol.toPrimitive]() {
-    return false;
+    return undefined;
   }
 };
 
-assert.sameValue(
-  Atomics.waitAsync(i32a, 0, 0, false).value,
-  'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, false).value resolves to "timed-out"'
-);
-
-assert.sameValue(
-  Atomics.waitAsync(i32a, 0, 0, valueOf).value,
-  'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, false).value resolves to "timed-out"'
-);
-
-assert.sameValue(
-  Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
-  'timed-out',
-  'Atomics.waitAsync(i32a, 0, 0, false).value resolves to "timed-out"'
-);
-
 Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, false).value,
+    Atomics.waitAsync(i32a, 0, 0).value,
+    Atomics.waitAsync(i32a, 0, 0, undefined).value,
     Atomics.waitAsync(i32a, 0, 0, valueOf).value,
     Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
   ]).then(outcomes => {
-    assert.sameValue(outcomes[0], 'timed-out');
-    assert.sameValue(outcomes[1], 'timed-out');
-    assert.sameValue(outcomes[2], 'timed-out');
+    assert.sameValue(outcomes[0], 'ok');
+    assert.sameValue(outcomes[1], 'ok');
+    assert.sameValue(outcomes[2], 'ok');
+    assert.sameValue(outcomes[3], 'ok');
   }, $DONE).then($DONE, $DONE);
