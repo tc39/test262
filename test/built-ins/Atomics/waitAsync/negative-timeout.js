@@ -23,9 +23,9 @@ const i32a = new Int32Array(
 
 Promise.all([
     Atomics.waitAsync(i32a, 0, 0, -1).value,
-  ]).then(outcomes => {
+  ]).then(([outcome]) => {
     assert.sameValue(
-      outcomes[0],
+      outcome,
       'timed-out',
       'Atomics.waitAsync(i32a, 0, 0, -1).value resolves to "timed-out"'
     );

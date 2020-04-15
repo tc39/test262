@@ -66,6 +66,6 @@ Promise.all([
     Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
   ]).then(outcomes => {
     assert.sameValue(outcomes[0], "timed-out");
-    assert.sameValue(outcomes[0], "timed-out");
-    assert.sameValue(outcomes[0], "timed-out");
+    assert.sameValue(outcomes[1], "timed-out");
+    assert.sameValue(outcomes[2], "timed-out");
   }, $DONE).then($DONE, $DONE);
