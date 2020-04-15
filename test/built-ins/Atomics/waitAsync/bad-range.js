@@ -17,7 +17,7 @@ info: |
   ...
 
 includes: [testAtomics.js]
-features: [Atomics.waitAsync, Atomics, SharedArrayBuffer]
+features: [Atomics.waitAsync, Atomics, SharedArrayBuffer, ArrayBuffer, DataView, Symbol, TypedArray]
 ---*/
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 8)

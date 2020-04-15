@@ -21,7 +21,6 @@ info: |
     d. Return promiseCapability.[[Promise]].
 
 flags: [async]
-includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray]
 ---*/
 const i32a = new Int32Array(
