@@ -51,8 +51,6 @@ $262.agent.start(`
 
 $262.agent.safeBroadcastAsync(i32a, RUNNING, 1).then(async (agentCount) => {
 
-  Atomics.add(i32a, 0, 1);
-
   assert.sameValue(agentCount, 1);
 
   const lapse = await $262.agent.getReportAsync();
