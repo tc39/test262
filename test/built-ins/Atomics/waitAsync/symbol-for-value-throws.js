@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Throws a TypeError if index arg can not be converted to an Integer
+  Throws a TypeError if value arg is a Symbol
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -12,7 +12,11 @@ info: |
 
   DoWait ( mode, typedArray, index, value, timeout )
 
-  6. Let q be ? ToNumber(timeout).
+  5. Otherwise, let v be ? ToInt32(value).
+
+  ToInt32(value)
+
+  1.Let number be ? ToNumber(argument).
 
     Symbol --> Throw a TypeError exception.
 
@@ -30,22 +34,22 @@ const poisonedValueOf = {
 
 const poisonedToPrimitive = {
   [Symbol.toPrimitive]() {
-    throw new Test262Error('passing a poisoned object using @@ToPrimitive');
+    throw new Test262Error("passing a poisoned object using @@ToPrimitive");
   }
 };
 
 assert.throws(Test262Error, function() {
-  Atomics.waitAsync(i32a, 0, 0, poisonedValueOf);
-}, '`Atomics.waitAsync(i32a, 0, 0, poisonedValueOf)` throws Test262Error');
+  Atomics.waitAsync(i32a, 0, poisonedValueOf, poisonedValueOf);
+}, '`Atomics.waitAsync(i32a, 0, poisonedValueOf, poisonedValueOf)` throws Test262Error');
 
 assert.throws(Test262Error, function() {
-  Atomics.waitAsync(i32a, 0, 0, poisonedToPrimitive);
-}, '`Atomics.waitAsync(i32a, 0, 0, poisonedToPrimitive)` throws Test262Error');
+  Atomics.waitAsync(i32a, 0, poisonedToPrimitive, poisonedToPrimitive);
+}, '`Atomics.waitAsync(i32a, 0, poisonedToPrimitive, poisonedToPrimitive)` throws Test262Error');
 
 assert.throws(TypeError, function() {
-  Atomics.waitAsync(i32a, 0, 0, Symbol("foo"));
-}, '`Atomics.waitAsync(i32a, 0, 0, Symbol("foo"))` throws TypeError');
+  Atomics.waitAsync(i32a, 0, Symbol("foo"), poisonedValueOf);
+}, '`Atomics.waitAsync(i32a, 0, Symbol("foo"), poisonedValueOf)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.waitAsync(i32a, 0, 0, Symbol("foo"));
-}, '`Atomics.waitAsync(i32a, 0, 0, Symbol("foo"))` throws TypeError');
+  Atomics.waitAsync(i32a, 0, Symbol("foo"), poisonedToPrimitive);
+}, '`Atomics.waitAsync(i32a, 0, Symbol("foo"), poisonedToPrimitive)` throws TypeError');

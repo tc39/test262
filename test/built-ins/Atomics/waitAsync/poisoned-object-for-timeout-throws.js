@@ -6,14 +6,16 @@ esid: sec-atomics.waitasync
 description: >
   Throws a TypeError if index arg can not be converted to an Integer
 info: |
-  Atomics.wait( typedArray, index, value, timeout )
+  Atomics.waitAsync( typedArray, index, value, timeout )
 
-  4. Let q be ? ToNumber(timeout).
+  1. Return DoWait(async, typedArray, index, value, timeout).
 
-    Object -> Apply the following steps:
+  DoWait ( mode, typedArray, index, value, timeout )
 
-      Let primValue be ? ToPrimitive(argument, hint Number).
-      Return ? ToNumber(primValue).
+  6. Let q be ? ToNumber(timeout).
+
+  Let primValue be ? ToPrimitive(argument, hint Number).
+  Return ? ToNumber(primValue).
 
 features: [Atomics.waitAsync, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray, computed-property-names, Atomics]
 ---*/
@@ -30,7 +32,7 @@ const poisonedValueOf = {
 
 const poisonedToPrimitive = {
   [Symbol.toPrimitive]() {
-    throw new Test262Error("passing a poisoned object using @@ToPrimitive");
+    throw new Test262Error('passing a poisoned object using @@ToPrimitive');
   }
 };
 

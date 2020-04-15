@@ -6,7 +6,6 @@ esid: sec-atomics.waitasync
 description: >
   Atomics.waitAsync returns a result object containing a string "not-equal" and async is false.
 info: |
-
   Atomics.waitAsync( typedArray, index, value, timeout )
 
   1. Return DoWait(async, typedArray, index, value, timeout).
