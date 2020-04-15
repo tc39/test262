@@ -17,7 +17,6 @@ info: |
     Boolean -> If argument is true, return 1. If argument is false, return +0.
 
 flags: [async]
-includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
 const i32a = new Int32Array(

@@ -6,7 +6,6 @@ esid: sec-atomics.waitasync
 description: >
   Waiter does not spuriously notify on index which is subject to Sub operation
 info: |
-
   AddWaiter ( WL, waiterRecord )
 
   5. Append waiterRecord as the last element of WL.[[Waiters]]

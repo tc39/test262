@@ -15,7 +15,6 @@ info: |
   6. Let q be ? ToNumber(timeout).
 
 flags: [async]
-includes: [atomicsHelper.js]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
 ---*/
 const i32a = new Int32Array(
