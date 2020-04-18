@@ -3,7 +3,7 @@
 
 /*---
 description: The groups object of indices is created with CreateDataProperty
-includes: [compareArray.js, propertyHelper.js]
+includes: [propertyHelper.js]
 esid: sec-makeindicesarray
 features: [regexp-named-groups, regexp-match-indices]
 info: |
