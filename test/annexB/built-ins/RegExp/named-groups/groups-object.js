@@ -3,7 +3,6 @@
 
 /*---
 description: Properties of the groups object are created with CreateDataProperty
-includes: [propertyHelper.js]
 esid: sec-regexpbuiltinexec
 features: [regexp-named-groups]
 info: |
