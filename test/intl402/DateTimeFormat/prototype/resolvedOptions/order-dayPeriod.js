@@ -5,7 +5,7 @@
 esid: sec-intl.datetimeformat.prototype.resolvedoptions
 description: Verifies the property order for the object returned by resolvedOptions().
 includes: [compareArray.js]
-features: [Intl.DateTimeFormat-dayPeriod]
+features: [Intl.DateTimeFormat-dayPeriod,Intl.DateTimeFormat-fractionalSecondDigits]
 ---*/
 
 const options = new Intl.DateTimeFormat([], {
@@ -24,6 +24,7 @@ const expected = [
   "dayPeriod",
   "hour",
   "minute",
+  "fractionalSecondDigits",
 ];
 
 assert.compareArray(Object.getOwnPropertyNames(options), expected);
