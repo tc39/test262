@@ -5,6 +5,7 @@
 esid: sec-intl.datetimeformat.prototype.resolvedoptions
 description: Verifies the property order for the object returned by resolvedOptions().
 includes: [compareArray.js]
+features: [Intl.DateTimeFormat-fractionalSecondDigits]
 ---*/
 
 const options = new Intl.DateTimeFormat([], {
@@ -36,6 +37,7 @@ const expected = [
   "minute",
   "second",
   "timeZoneName",
+  "fractionalSecondDigits",
 ];
 
 assert.compareArray(Object.getOwnPropertyNames(options), expected);
