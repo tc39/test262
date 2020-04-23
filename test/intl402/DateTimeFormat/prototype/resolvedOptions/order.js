@@ -4,8 +4,7 @@
 /*---
 esid: sec-intl.datetimeformat.prototype.resolvedoptions
 description: Verifies the property order for the object returned by resolvedOptions().
-includes: [compareArray.js]
-features: [Intl.DateTimeFormat-fractionalSecondDigits]
+includes: [arrayContains.js]
 ---*/
 
 const options = new Intl.DateTimeFormat([], {
@@ -37,7 +36,14 @@ const expected = [
   "minute",
   "second",
   "timeZoneName",
-  "fractionalSecondDigits",
 ];
 
-assert.compareArray(Object.getOwnPropertyNames(options), expected);
+let actual = Object.getOwnPropertyNames(options);
+
+// Ensure all expected items are in actual and also allow other property
+// implemented in other new proposal.
+assert(arrayContains(actual, expected));
+for (var i = 1; i < expected.length; i++) {
+  // Ensure the order as expected but allow additional new property in between
+  assert(actual.indexOf(expected[i-1]) < actual.indexOf(expected[i]));
+}
