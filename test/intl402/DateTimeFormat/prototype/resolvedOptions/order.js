@@ -40,8 +40,8 @@ const expected = [
 
 let actual = Object.getOwnPropertyNames(options);
 
-// Ensure all expected items are in actual and also allow other property
-// implemented in other new proposal.
+// Ensure all expected items are in actual and also allow other properties
+// implemented in new proposals.
 assert(arrayContains(actual, expected));
 for (var i = 1; i < expected.length; i++) {
   // Ensure the order as expected but allow additional new property in between
