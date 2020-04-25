@@ -34,7 +34,7 @@ var testDataMinimal = {
     // https://unicode-org.atlassian.net/browse/ICU-12345
     "und-CW": "pap-CW",
     "und-US": "en",
-    "zh-Hant": "zh-TW",
+    "zh-Hant": "zh-Hant",
     "zh-Hani": "zh-Hani",
 };
 
