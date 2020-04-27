@@ -274,7 +274,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
    */
   var alpha = "[a-z]",
     digit = "[0-9]",
-    alphanum = "(" + alpha + "|" + digit + ")",
+    alphanum = "(?:" + alpha + "|" + digit + ")",
     variant = "(" + alphanum + "{5,8}|(?:" + digit + alphanum + "{3}))",
     region = "(" + alpha + "{2}|" + digit + "{3})",
     script = "(" + alpha + "{4})",
