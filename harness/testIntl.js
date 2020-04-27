@@ -275,7 +275,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
   var alpha = "[a-z]",
     digit = "[0-9]",
     alphanum = "(" + alpha + "|" + digit + ")",
-    variant = "(" + alphanum + "{5,8}|(" + digit + alphanum + "{3}))",
+    variant = "(" + alphanum + "{5,8}|(?:" + digit + alphanum + "{3}))",
     region = "(" + alpha + "{2}|" + digit + "{3})",
     script = "(" + alpha + "{4})",
     language = "(" + alpha + "{2,3}|" + alpha + "{5,8})",
@@ -296,7 +296,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
 
   var duplicateSingleton = "-" + singleton + "-(.*-)?\\1(?!" + alphanum + ")",
     duplicateSingletonRE = new RegExp(duplicateSingleton, "i"),
-    duplicateVariant = "(" + alphanum + "{2,8}-)+" + variant + "-(" + alphanum + "{2,8}-)*\\3(?!" + alphanum + ")",
+    duplicateVariant = "(" + alphanum + "{2,8}-)+" + variant + "-(" + alphanum + "{2,8}-)*\\2(?!" + alphanum + ")",
     duplicateVariantRE = new RegExp(duplicateVariant, "i");
 
   var transformKeyRE = new RegExp("^" + alpha + digit + "$", "i");
