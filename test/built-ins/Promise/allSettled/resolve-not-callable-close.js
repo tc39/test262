@@ -19,7 +19,7 @@ info: |
   [...]
 
 flags: [async]
-features: [Promise.allSettled, Symbol.iterator, computed-property-names]
+features: [Promise.allSettled, Symbol.iterator, computed-property-names, arrow-function]
 ---*/
 
 let returnCount = 0;

@@ -22,7 +22,7 @@ info: |
     [...]
 
 flags: [async]
-features: [Symbol.iterator, computed-property-names]
+features: [Symbol.iterator, computed-property-names, arrow-function]
 ---*/
 
 let returnCount = 0;
