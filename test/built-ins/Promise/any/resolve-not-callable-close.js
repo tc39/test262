@@ -27,7 +27,7 @@ const iter = { 
   [Symbol.iterator]: function() {
     return {
       return: function() {
-        returnCount += 1;
+        ++returnCount;
       }
     };
   }
