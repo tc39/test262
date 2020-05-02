@@ -32,6 +32,7 @@ var testData = [
     },
     {
         tag: "uz-UZ-cyrillic",
+        canonical: "uz-Latn-UZ-cyrillic",
         maximized: "uz-Latn-UZ-cyrillic",
         minimized: "uz-cyrillic",
     },
