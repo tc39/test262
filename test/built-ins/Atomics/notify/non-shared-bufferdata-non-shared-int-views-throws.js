@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.notify
 description: >
-  Test Atomics.notify on non-shared integer TypedArrays
+  Atomics.notify throws on non-shared integer TypedArrays
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
@@ -25,7 +25,7 @@ assert.throws(TypeError, function() {
 }, '`Atomics.notify(new Int8Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
-  Atomics.notify(new Uint32Array(nonsab),  poisoned, poisoned);
+  Atomics.notify(new Uint32Array(nonsab), poisoned, poisoned);
 }, '`Atomics.notify(new Uint32Array(nonsab), poisoned, poisoned)` throws TypeError');
 
 assert.throws(TypeError, function() {
