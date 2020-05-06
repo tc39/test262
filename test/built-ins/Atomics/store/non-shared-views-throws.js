@@ -4,16 +4,16 @@
 /*---
 esid: sec-atomics.store
 description: >
-  Test Atomics.store on non-shared integer TypedArrays
+  Atomics.store throws when operating on non-sharable integer TypedArrays
 includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-const buffer = new ArrayBuffer(16);
+const buffer = new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
 const views = intArrayConstructors.slice();
 
-testWithTypedArrayConstructors(function(TA) {
+testWithNonSharableTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     Atomics.store(new TA(buffer), 0, 0);
-  }, '`Atomics.store(new TA(buffer), 0, 0)` throws TypeError');
+  }, `Atomics.store(new ${TA.name}(view), 0, 1) throws TypeError`);
 }, views);
