@@ -4,18 +4,16 @@
 /*---
 esid: sec-atomics.load
 description: >
-  Test Atomics.load on non-shared integer TypedArrays
+  Atomics.load throws when operating on non-sharable integer TypedArrays
 includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-const buffer = new ArrayBuffer(16);
-const views = intArrayConstructors.slice();
+const buffer = new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithNonSharableTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
-
   assert.throws(TypeError, function() {
     Atomics.load(view, 0);
-  }, '`Atomics.load(view, 0)` throws TypeError');
-}, views);
+  }, `Atomics.load(new ${TA.name}(view), 0) throws TypeError`);
+});
