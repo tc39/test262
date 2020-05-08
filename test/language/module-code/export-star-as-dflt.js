@@ -19,5 +19,10 @@ features: [export-star-as-namespace-from-module]
 ---*/
 
 export * as default from './export-star-as-dflt_FIXTURE.js';
-import ns from './export-star-as-dflt.js';
+import Self from './export-star-as-dflt.js';
+import { default as named } from './export-star-as-dflt.js';
+import * as ns from './export-star-as-dflt.js';
+
+assert.sameValue(Self.x, 1, 'Module was re-exported under the name `default`');
+assert.sameValue(named.x, 1, 'named binding was re-exported under the name `default`');
 assert.sameValue(ns.default.x, 1, 'namespace was re-exported under the name `default`');
