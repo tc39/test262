@@ -23,6 +23,7 @@ var testData = [
     },
     {
         tag: "uz-UZ-cyrillic",
+        canonical: "uz-Latn-UZ-cyrillic",
     },
     {
         tag: "posix",
