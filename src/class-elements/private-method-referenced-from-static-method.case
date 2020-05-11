@@ -18,7 +18,7 @@ info: |
     1. If O.[[PrivateBrands]] does not contain an entry e such that SameValue(e, P.[[Brand]]) is true,
       a. Throw a TypeError exception.
 template: default
-features: [class-static-methods-private]
+features: [class-methods-private]
 ---*/
 
 //- elements
