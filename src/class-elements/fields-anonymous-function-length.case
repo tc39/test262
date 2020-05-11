@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Anonymous function in field initilizer have length properly set
+desc: Anonymous functions in field initializer have length properly set
 info: |
   Updated Productions
 
@@ -26,7 +26,7 @@ info: |
       a. Let initValue be ? Call(initializer, receiver).
     ...
 template: default
-features: [class-static-fields-private, class-static-fields-public]
+features: [class-fields-private, class-fields-public]
 ---*/
 
 //- elements
