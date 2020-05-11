@@ -2,6 +2,7 @@
 # Copyright (C) 2016 the V8 project authors. All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.
 
+from __future__ import print_function
 import os, shutil, subprocess, sys
 
 OUT_DIR = os.environ.get('OUT_DIR') or 'test'
@@ -10,10 +11,10 @@ UPSTREAM = os.environ.get('UPSTREAM') or 'git@github.com:tc39/test262.git'
 MAINTAINER = os.environ.get('MAINTAINER') or 'test262@ecma-international.org'
 
 def shell(*args):
-    sp = subprocess.Popen(list(args), stdout=subprocess.PIPE)
+    sp = subprocess.Popen(list(args), stdout=subprocess.PIPE, universal_newlines=True)
     cmd_str = ' '.join(args)
 
-    print '> ' + cmd_str
+    print('> ' + cmd_str)
 
     for line in iter(sp.stdout.readline, ''):
         sys.stdout.write(line)
@@ -27,7 +28,7 @@ targets = dict()
 def target(*deps):
     def other(orig):
         def wrapped():
-            print 'Running target: ' + orig.__name__
+            print('Running target: ' + orig.__name__)
 
             for dep in deps:
                 targets[dep]()
