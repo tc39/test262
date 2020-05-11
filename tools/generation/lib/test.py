@@ -19,7 +19,7 @@ class Test:
 
     def load(self, prefix = None):
         location = os.path.join(prefix or '', self.file_name)
-        with open(location, 'rb') as handle:
+        with open(location, 'r') as handle:
             self.source = handle.read()
         self._parse()
 
