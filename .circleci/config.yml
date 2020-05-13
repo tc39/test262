@@ -37,7 +37,7 @@ execution_steps: &execution_steps
     - run: hostPath=$HOME/.esvu/bin/$hostPath npm run ci
 
 jobs:
-  "Project lint, generation tests and build":
+  "Test262: verify tools; build & lint tests (Python 2)":
     docker:
       - image: circleci/python:2.7
     working_directory: ~/test262
@@ -47,7 +47,7 @@ jobs:
           name: "Install requirements for generation tool"
           command: python -m pip install --user --requirement tools/generation/requirements.txt
       - run:
-          name: "Install requirements for linter tool"
+          name: "Install requirements for lint tool"
           command: python -m pip install --user --requirement tools/lint/requirements.txt
       - run:
           name: "Test the generation tool"
@@ -56,15 +56,15 @@ jobs:
           name: "Test the lint tool"
           command: ./tools/lint/test/run.py
       - run:
-          name: "Re-generate files and check for new changes"
+          name: "Build tests; check for new changes"
           command: ./tools/scripts/ci_build.sh
       - run:
-          name: "Run the linter"
+          name: "Lint tests"
           command: ./tools/scripts/ci_lint.sh
       # - run:
       #     name: "Run deploy"
       #     command: ./tools/scripts/deploy.sh
-  "Project lint and generation unit tests on Python 3":
+  "Test262: verify tools; build & lint tests (Python 3)":
     docker:
       - image: circleci/python:3.7.4
     working_directory: ~/test262
@@ -74,7 +74,7 @@ jobs:
           name: "Install requirements for generation tool"
           command: python -m pip install --user --requirement tools/generation/requirements.txt
       - run:
-          name: "Install requirements for linter tool"
+          name: "Install requirements for lint tool"
           command: python -m pip install --user --requirement tools/lint/requirements.txt
       - run:
           name: "Test the generation tool"
@@ -82,6 +82,12 @@ jobs:
       - run:
           name: "Test the lint tool"
           command: ./tools/lint/test/run.py
+      - run:
+          name: "Build tests; check for new changes"
+          command: ./tools/scripts/ci_build.sh
+      - run:
+          name: "Lint tests"
+          command: ./tools/scripts/ci_lint.sh
   "V8: New or modified tests execution":
     docker:
       - image: *node_latest
@@ -164,8 +170,8 @@ workflows:
   version: 2
   Tools:
     jobs:
-      - "Project lint, generation tests and build"
-      - "Project lint and generation unit tests on Python 3"
+      - "Test262: verify tools; build & lint tests (Python 2)"
+      - "Test262: verify tools; build & lint tests (Python 3)"
   Tests execution:
     jobs:
       - "ChakraCore: New or modified tests execution"
