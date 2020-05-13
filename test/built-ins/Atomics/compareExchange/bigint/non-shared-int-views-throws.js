@@ -15,5 +15,5 @@ testWithNonShareableBigIntTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
   assert.throws(TypeError, function() {
     Atomics.compareExchange(view, 0, 0n, 0n);
-  }, `Atomics.compareExchange(new ${TA.name}(view), 0, 0n, 0n) throws TypeError`);
+  }, `Atomics.compareExchange(new ${TA.name}(buffer), 0, 0n, 0n) throws TypeError`);
 });

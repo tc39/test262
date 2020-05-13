@@ -16,5 +16,5 @@ testWithNonSharableTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     Atomics.compareExchange(view, 0, 0, 0);
-  }, `Atomics.compareExchange(new ${TA.name}(view), 0, 0, 0) throws TypeError`);
+  }, `Atomics.compareExchange(new ${TA.name}(buffer), 0, 0, 0) throws TypeError`);
 });

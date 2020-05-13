@@ -15,5 +15,5 @@ testWithNonSharableTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
   assert.throws(TypeError, function() {
     Atomics.load(view, 0);
-  }, `Atomics.load(new ${TA.name}(view), 0) throws TypeError`);
+  }, `Atomics.load(new ${TA.name}(buffer), 0) throws TypeError`);
 });

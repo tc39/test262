@@ -15,5 +15,5 @@ testWithNonShareableBigIntTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
   assert.throws(TypeError, function() {
     Atomics.add(view, 0, 1n);
-  }, `Atomics.add(new ${TA.name}(view), 0, 1n) throws TypeError`);
+  }, `Atomics.add(new ${TA.name}(buffer), 0, 1n) throws TypeError`);
 });

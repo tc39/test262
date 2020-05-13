@@ -15,5 +15,5 @@ const views = intArrayConstructors.slice();
 testWithNonSharableTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     Atomics.store(new TA(buffer), 0, 0);
-  }, `Atomics.store(new ${TA.name}(view), 0, 1) throws TypeError`);
+  }, `Atomics.store(new ${TA.name}(buffer), 0, 1) throws TypeError`);
 }, views);
