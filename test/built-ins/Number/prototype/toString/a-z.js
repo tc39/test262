@@ -13,7 +13,7 @@ info: |
   generalization of that specified in 6.1.6.1.20.
 ---*/
 
-for (let radix = 11; radix < 36; radix++) {
+for (let radix = 11; radix <= 36; radix++) {
   for (let i = 10; i < radix; i++) {
     assert.sameValue(i.toString(radix), String.fromCharCode(i + 87));
   }

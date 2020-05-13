@@ -14,7 +14,7 @@ info: |
 features: [BigInt]
 ---*/
 
-for (let radix = 11; radix < 36; radix++) {
+for (let radix = 11; radix <= 36; radix++) {
   for (let i = 10n; i < radix; i++) {
     assert.sameValue(i.toString(radix), String.fromCharCode(Number(i + 87n)));
   }
