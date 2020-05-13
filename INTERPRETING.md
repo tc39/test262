@@ -1,3 +1,4 @@
+
 # Interpreting Test262 Tests
 
 All tests are declared as text files located within this project's `test`
@@ -66,15 +67,16 @@ properties of the global scope prior to test execution.
   - **`gc`** - a function that wraps the host's garbage collection invocation mechanism, if such a capability exists. Must throw an exception if no capability exists. This is necessary for testing the semantics of any feature that relies on garbage collection, e.g. the `WeakRef` API.
   - **`global`** - a reference to the global object on which `$262` was initially defined
   - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
-    object that 1) has an [[IsHTMLDDA]] internal slot, and 2) when called with
-    no arguments or with the single argument `""` returns `null`. Use this
-    property to test that ECMAScript algorithms aren't mis-implemented to treat
-    `document.all` as being `undefined` or of type Undefined (instead of
-    Object). (The peculiar second requirement permits testing algorithms when
-    they also call `document.all` with such arguments, so that testing for
-    correct behavior requires knowing how the call behaves. This is rarely
-    necessary.)  Tests using this function must be tagged with the `IsHTMLDDA`
-    feature so that only hosts supporting this property will run them.
+    object that:
+
+    1. has an [[IsHTMLDDA]] internal slot, and 
+    2. when called with no arguments or with the single argument `""` (an empty string) returns `null`. 
+
+          Note: The peculiar second requirement permits testing algorithms when they also call `document.all` with such arguments, so that testing for correct behavior requires knowing how the call behaves. This is rarely necessary.  
+    
+          Use this property to test that ECMAScript algorithms aren't mis-implemented to treat `document.all` as being `undefined` or of type Undefined (instead of Object).
+    
+          **Tests using this function must be tagged with the `IsHTMLDDA` feature so that only hosts supporting this property will run them.**
   - **`agent`** - an ordinary object with the following properties:
     - **`start`** - a function that takes a script source string and runs
       the script in a concurrent agent. Will block until that agent is
