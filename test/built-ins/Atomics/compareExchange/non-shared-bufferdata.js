@@ -12,6 +12,6 @@ const i32a = new Int32Array(
   new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
-assert.sameValue(Atomics.compareExchange(i32a, 0, 0, 1), 0);
-assert.sameValue(Atomics.load(i32a, 0), 1);
+assert.sameValue(Atomics.compareExchange(i32a, 0, 0, 1), 0, 'Atomics.compareExchange(i32a, 0, 0, 1) returns 0');
+assert.sameValue(Atomics.load(i32a, 0), 1, 'Atomics.load(i32a, 0) returns 1');
 
