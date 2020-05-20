@@ -17,5 +17,5 @@ const i64a = new BigInt64Array(
   new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8)
 );
 
-assert.sameValue(Atomics.notify(i64a, 0, 0), 0);
+assert.sameValue(Atomics.notify(i64a, 0, 0), 0, 'Atomics.notify(i64a, 0, 0) returns 0');
 
