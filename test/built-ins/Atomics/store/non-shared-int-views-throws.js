@@ -1,4 +1,4 @@
-// Copyright (C) 2017 Mozilla Corporation.  All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -10,10 +10,11 @@ features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
 const buffer = new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
-const views = intArrayConstructors.slice();
 
 testWithNonSharableTypedArrayConstructors(function(TA) {
+  const view = new TA(buffer);
+
   assert.throws(TypeError, function() {
-    Atomics.store(new TA(buffer), 0, 0);
+    Atomics.store(view, 0, 1);
   }, `Atomics.store(new ${TA.name}(buffer), 0, 1) throws TypeError`);
-}, views);
+});

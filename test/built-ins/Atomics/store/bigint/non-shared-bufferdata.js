@@ -12,4 +12,5 @@ const i64a = new BigInt64Array(
   new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
-assert.sameValue(Atomics.store(i64a, 0, 1), 1);
+assert.sameValue(Atomics.store(i64a, 0, 1n), 1n);
+assert.sameValue(Atomics.load(i64a, 0), 1n);
