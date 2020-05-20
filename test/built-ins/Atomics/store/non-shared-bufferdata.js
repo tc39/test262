@@ -13,3 +13,5 @@ const i32a = new Int32Array(
 );
 
 assert.sameValue(Atomics.store(i32a, 0, 1), 1);
+assert.sameValue(Atomics.load(i32a, 0), 1);
+
