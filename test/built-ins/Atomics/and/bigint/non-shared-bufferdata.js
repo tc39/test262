@@ -13,4 +13,4 @@ const i64a = new BigInt64Array(
 );
 
 assert.sameValue(Atomics.and(i64a, 0, 1n), 0n);
-assert.sameValue(Atomics.load(i64a, 0), 1n);
+assert.sameValue(Atomics.load(i64a, 0), 0n);
