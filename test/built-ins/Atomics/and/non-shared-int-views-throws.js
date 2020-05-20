@@ -9,7 +9,7 @@ includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
 
-const buffer = new ArrayBuffer(16);
+const buffer = new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
 
 testWithNonSharableTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
