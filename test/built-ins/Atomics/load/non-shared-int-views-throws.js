@@ -11,7 +11,7 @@ features: [ArrayBuffer, Atomics, TypedArray]
 
 const buffer = new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4);
 
-testWithNonSharableTypedArrayConstructors(function(TA) {
+testWithNonShareableTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
   assert.throws(TypeError, function() {
     Atomics.load(view, 0);

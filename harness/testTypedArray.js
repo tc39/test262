@@ -9,7 +9,7 @@ defines:
   - intArrayConstructors
   - TypedArray
   - testWithTypedArrayConstructors
-  - testWithNonSharableTypedArrayConstructors
+  - testWithNonShareableTypedArrayConstructors
   - testTypedArrayConversions
 ---*/
 
@@ -68,7 +68,7 @@ function testWithTypedArrayConstructors(f, selected) {
  * @param {typedArrayConstructorCallback} f - the function to call for each typed array constructor.
  * @param {Array} selected - An optional Array with filtered typed arrays
  */
-function testWithNonSharableTypedArrayConstructors(f) {
+function testWithNonShareableTypedArrayConstructors(f) {
   testWithTypedArrayConstructors(f, [
     Float64Array,
     Float32Array,
