@@ -16,13 +16,11 @@ info: |
   ValidateSharedIntegerTypedArray ( typedArray [ , waitable ] )
 
   5. If waitable is true, then
-    a. If typeName is not "Int32Array" or "BigInt64Array", throw a TypeError exception.
+    a. If typeName is not "BigInt64Array" or "BigInt64Array", throw a TypeError exception.
 
-features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray, arrow-function]
+features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray, BigInt, arrow-function]
 ---*/
-const i32a = new Int32Array(
-  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
+const i64a = new BigInt64Array(new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
 const poisoned = {
   valueOf() {
@@ -31,9 +29,9 @@ const poisoned = {
 };
 
 assert.throws(TypeError, () => {
-  Atomics.waitAsync(i32a, 0, 0, 0);
-}, '`Atomics.waitAsync(i32a, 0, 0, 0)` throws TypeError');
+  Atomics.waitAsync(i64a, 0, 0n, 0);
+}, '`Atomics.waitAsync(i64a, 0, 0n, 0)` throws TypeError');
 
 assert.throws(TypeError, () => {
-  Atomics.waitAsync(i32a, poisoned, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, poisoned, poisoned, poisoned)` throws TypeError');
+  Atomics.waitAsync(i64a, poisoned, poisoned, poisoned);
+}, '`Atomics.waitAsync(i64a, poisoned, poisoned, poisoned)` throws TypeError');

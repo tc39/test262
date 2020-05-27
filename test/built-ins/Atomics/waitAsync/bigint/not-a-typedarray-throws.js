@@ -3,7 +3,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Throws a TypeError if typedArray.buffer is not a SharedArrayBuffer
+  Throws a TypeError if the typedArray arg is not a TypedArray object
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -15,15 +15,15 @@ info: |
 
   ValidateSharedIntegerTypedArray ( typedArray [ , waitable ] )
 
-  5. If waitable is true, then
-    a. If typeName is not "Int32Array" or "BigInt64Array", throw a TypeError exception.
+  2. Perform ? RequireInternalSlot(typedArray, [[TypedArrayName]]).
 
-features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray, arrow-function]
+  RequireInternalSlot ( O, internalSlot )
+
+  1. If Type(O) is not Object, throw a TypeError exception.
+  2. If O does not have an internalSlot internal slot, throw a TypeError exception.
+
+features: [Atomics.waitAsync, arrow-function, Atomics]
 ---*/
-const i32a = new Int32Array(
-  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
-
 const poisoned = {
   valueOf() {
     throw new Test262Error('should not evaluate this code');
@@ -31,9 +31,9 @@ const poisoned = {
 };
 
 assert.throws(TypeError, () => {
-  Atomics.waitAsync(i32a, 0, 0, 0);
-}, '`Atomics.waitAsync(i32a, 0, 0, 0)` throws TypeError');
+  Atomics.waitAsync({}, 0, 0n, 0);
+}, '`Atomics.waitAsync({}, 0, 0n, 0)` throws TypeError');
 
 assert.throws(TypeError, () => {
-  Atomics.waitAsync(i32a, poisoned, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, poisoned, poisoned, poisoned)` throws TypeError');
+  Atomics.waitAsync({}, poisoned, poisoned, poisoned);
+}, '`Atomics.waitAsync({}, poisoned, poisoned, poisoned)` throws TypeError');

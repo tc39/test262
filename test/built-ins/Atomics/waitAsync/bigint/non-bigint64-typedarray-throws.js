@@ -1,9 +1,10 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Throws a TypeError if typedArray.buffer is not a SharedArrayBuffer
+  Throws a TypeError if typedArray arg is not an BigInt64Array
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -18,12 +19,8 @@ info: |
   5. If waitable is true, then
     a. If typeName is not "Int32Array" or "BigInt64Array", throw a TypeError exception.
 
-features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray, arrow-function]
+features: [Atomics.waitAsync, Float32Array, Float64Array, Int8Array, TypedArray, Uint16Array, Uint8Array, Uint8ClampedArray, arrow-function, SharedArrayBuffer, Atomics]
 ---*/
-const i32a = new Int32Array(
-  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
-
 const poisoned = {
   valueOf() {
     throw new Test262Error('should not evaluate this code');
@@ -31,9 +28,7 @@ const poisoned = {
 };
 
 assert.throws(TypeError, () => {
-  Atomics.waitAsync(i32a, 0, 0, 0);
-}, '`Atomics.waitAsync(i32a, 0, 0, 0)` throws TypeError');
+  const view = new BigUint64Array(new SharedArrayBuffer(BigUint64Array.BYTES_PER_ELEMENT * 8));
+  Atomics.waitAsync(view, poisoned, poisoned, poisoned);
+}, '`const view = new BigUint64Array(new SharedArrayBuffer(BigUint64Array.BYTES_PER_ELEMENT * 8)); Atomics.waitAsync(view, poisoned, poisoned, poisoned);` throws TypeError');
 
-assert.throws(TypeError, () => {
-  Atomics.waitAsync(i32a, poisoned, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, poisoned, poisoned, poisoned)` throws TypeError');

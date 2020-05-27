@@ -7,14 +7,14 @@ description: >
   Test Atomics.waitAsync on arrays that allow atomic operations
 flags: [async]
 includes: [atomicsHelper.js]
-features: [Atomics.waitAsync, Atomics]
+features: [Atomics.waitAsync, Atomics, BigInt]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
 
 
 $262.agent.start(`
   (async () => {
-    var sab = new SharedArrayBuffer(1024);
+    var sab = new SharedArrayBuffer(2048);
     var good_indices = [ (view) => 0/-1, // -0
                          (view) => '-0',
                          (view) => view.length - 1,
@@ -22,23 +22,24 @@ $262.agent.start(`
                          (view) => ({ toString: () => '0', valueOf: false }) // non-callable valueOf triggers invocation of toString
                        ];
 
-    var view = new Int32Array(sab, 32, 20);
+    var view = new BigInt64Array(sab, 32, 20);
 
-    view[0] = 0;
-    $262.agent.report("A " + (await Atomics.waitAsync(view, 0, 0, 0).value))
-    $262.agent.report("B " + (await Atomics.waitAsync(view, 0, 37, 0).value));
+    view[0] = 0n;
+    $262.agent.report("A " + (await Atomics.waitAsync(view, 0, 0n, 0).value))
+    $262.agent.report("B " + (await Atomics.waitAsync(view, 0, 37n, 0).value));
 
     const results = [];
     // In-bounds boundary cases for indexing
     for ( let IdxGen of good_indices ) {
         let Idx = IdxGen(view);
-        view.fill(0);
+        view.fill(0n);
         // Atomics.store() computes an index from Idx in the same way as other
         // Atomics operations, not quite like view[Idx].
-        Atomics.store(view, Idx, 37);
-        results.push(await Atomics.waitAsync(view, Idx, 0).value);
+        Atomics.store(view, Idx, 37n);
+        results.push(await Atomics.waitAsync(view, Idx, 0n).value);
     }
     $262.agent.report("C " + results.join(","));
+
     $262.agent.leaving();
   })();
 `);
@@ -53,13 +54,13 @@ Promise.all([
   assert.sameValue(
     outcomes[0],
     'A timed-out',
-    '"A " + (await Atomics.waitAsync(view, 0, 0, 0).value resolves to "A timed-out"'
+    '"A " + (await Atomics.waitAsync(view, 0, 0n, 0).value resolves to "A timed-out"'
   );
 
   assert.sameValue(
     outcomes[1],
     'B not-equal',
-    '"B " + (await Atomics.waitAsync(view, 0, 37, 0).value resolves to "B not-equal"'
+    '"B " + (await Atomics.waitAsync(view, 0, 37n, 0).value resolves to "B not-equal"'
   );
   assert.sameValue(
     outcomes[2],
@@ -67,4 +68,5 @@ Promise.all([
     'All C values are not equal'
   );
 }, $DONE).then($DONE, $DONE);
+
 
