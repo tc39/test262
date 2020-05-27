@@ -37,8 +37,8 @@ async function* asyncGenerator() {
 var asyncIterator = asyncGenerator();
 asyncIterator.next().then(function() {
   var promise = Promise.resolve(2).then(() => 3);
-  asyncIterator.return(promise).then(function(result) {
+  return asyncIterator.return(promise).then(function(result) {
     assert.sameValue(result.value, 3);
     assert.sameValue(result.done, true);
-  }).then($DONE, $DONE);
-}).catch($DONE);
+  });
+}).then($DONE, $DONE);
