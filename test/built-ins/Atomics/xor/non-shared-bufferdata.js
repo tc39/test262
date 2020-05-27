@@ -5,13 +5,14 @@
 esid: sec-atomics.and
 description: >
   Atomics.and will operate on TA when TA.buffer is not a SharedArrayBuffer
+includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
+testWithAtomicsFriendlyTypedArrayConstructors(TA => {
+  const view = new TA(
+    new ArrayBuffer(TA.BYTES_PER_ELEMENT * 4)
+  );
 
-const i32a = new Int32Array(
-  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
-
-assert.sameValue(Atomics.and(i32a, 0, 1), 0, 'Atomics.and(i32a, 0, 1) returns 0');
-assert.sameValue(Atomics.load(i32a, 0), 0, 'Atomics.load(i32a, 0) returns 0');
-
+  assert.sameValue(Atomics.and(view, 0, 1), 0, 'Atomics.and(view, 0, 1) returns 0');
+  assert.sameValue(Atomics.load(view, 0), 0, 'Atomics.load(view, 0) returns 0');
+});

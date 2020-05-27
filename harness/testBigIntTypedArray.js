@@ -6,7 +6,6 @@ description: |
 defines:
   - TypedArray
   - testWithBigIntTypedArrayConstructors
-  - testWithNonShareableBigIntTypedArrayConstructors
 ---*/
 
 /**
@@ -38,13 +37,4 @@ function testWithBigIntTypedArrayConstructors(f, selected) {
       throw e;
     }
   }
-}
-
-/**
- * Calls the provided function for every NON SHARABLE bigint typed array constructor.
- *
- * @param {typedArrayConstructorCallback} f - the function to call for each typed array constructor.
- */
-function testWithNonShareableBigIntTypedArrayConstructors(f) {
-  testWithBigIntTypedArrayConstructors(f, [BigUint64Array]);
 }

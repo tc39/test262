@@ -5,7 +5,7 @@
 esid: sec-atomics.notify
 description: >
   Atomics.notify throws on non-shared integer TypedArrays
-features: [ArrayBuffer, Atomics, BigInt TypedArray]
+features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 
 const nonsab = new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8);

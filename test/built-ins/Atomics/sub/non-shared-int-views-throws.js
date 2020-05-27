@@ -8,10 +8,8 @@ description: >
 includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
-
-const buffer = new ArrayBuffer(16);
-
-testWithNonShareableTypedArrayConstructors(function(TA) {
+testWithNonAtomicsFriendlyTypedArrayConstructors(TA => {
+  const buffer = new ArrayBuffer(16);
   const view = new TA(buffer);
 
   assert.throws(TypeError, function() {

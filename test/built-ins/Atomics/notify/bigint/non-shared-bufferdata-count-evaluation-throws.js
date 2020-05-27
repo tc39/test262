@@ -31,5 +31,3 @@ const poisoned = {
 assert.throws(Test262Error, function() {
   Atomics.notify(i64a, poisoned, 0);
 }, '`Atomics.notify(i64a, poisoned, 0)` throws Test262Error');
-
-
