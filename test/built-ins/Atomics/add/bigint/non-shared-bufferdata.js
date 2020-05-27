@@ -4,8 +4,12 @@
 esid: sec-atomics.add
 description: >
   Atomics.add will operate on TA when TA.buffer is not a SharedArrayBuffer
+includes: [testBigIntTypedArray.js]
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
-const i64a = new BigInt64Array(new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
-assert.sameValue(Atomics.add(i64a, 0, 1n), 0n, 'Atomics.add(i64a, 0, 1n) returns 0n');
-assert.sameValue(Atomics.load(i64a, 0), 1n, 'Atomics.load(i64a, 0) returns 1n');
+testWithBigIntTypedArrayConstructors(TA => {
+  const buffer = new ArrayBuffer(TA.BYTES_PER_ELEMENT * 4);
+  const view = new TA(buffer);
+  assert.sameValue(Atomics.add(view, 0, 1n), 0n, 'Atomics.add(view, 0, 1n) returns 0n');
+  assert.sameValue(Atomics.load(view, 0), 1n, 'Atomics.load(view, 0) returns 1n');
+});
