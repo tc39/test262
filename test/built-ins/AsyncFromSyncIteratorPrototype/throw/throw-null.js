@@ -44,19 +44,16 @@ async function* asyncGenerator() {
 }
 
 var asyncIterator = asyncGenerator();
-asyncIterator.next().then(function() {
-  var thrownError = { name: "err" };
-  asyncIterator.throw(thrownError).then(
-    function(result) {
-      throw new Test262Error("Promise should be rejected, got: " + result.value);
-    },
-    function(err) {
-      assert.sameValue(err, thrownError);
+var thrownError = { name: "err" };
 
-      asyncIterator.next().then(function(result) {
-        assert.sameValue(result.value, undefined);
-        assert.sameValue(result.done, true);
-      }).then($DONE, $DONE);
-    }
-  ).catch($DONE);
-}).catch($DONE);
+asyncIterator.next().then(function() {
+  return asyncIterator.throw(thrownError);
+}).then(function(result) {
+  throw new Test262Error("Promise should be rejected, got: " + result.value);
+}, function(err) {
+  assert.sameValue(err, thrownError);
+  return asyncIterator.next().then(function(result) {
+    assert.sameValue(result.value, undefined);
+    assert.sameValue(result.done, true);
+  });
+}).then($DONE, $DONE);
