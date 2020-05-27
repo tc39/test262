@@ -47,9 +47,9 @@ async function* asyncGenerator() {
 
 var asyncIterator = asyncGenerator();
 asyncIterator.next().then(function() {
-  asyncIterator.return(2).then(function(result) {
+  return asyncIterator.return(2).then(function(result) {
     assert.sameValue(result.value, 2);
     assert.sameValue(result.done, true);
     assert.sameValue(returnGets, 1);
-  }).then($DONE, $DONE);
-}).catch($DONE);
+  });
+}).then($DONE, $DONE);

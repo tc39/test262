@@ -62,14 +62,11 @@ async function* asyncGenerator() {
 
 var asyncIterator = asyncGenerator();
 asyncIterator.next().then(function() {
-  asyncIterator.throw().then(
-    function(result) {
-      throw new Test262Error("Promise should be rejected, got: " + result.value);
-    },
-    function(err) {
-      assert.sameValue(err.constructor, TypeError);
-      assert.sameValue(throwGets, 1);
-      assert.sameValue(returnGets, 1);
-    },
-  ).then($DONE, $DONE);
-}).catch($DONE);
+  return asyncIterator.throw();
+}).then(function(result) {
+  throw new Test262Error("Promise should be rejected, got: " + result.value);
+}, function(err) {
+  assert.sameValue(err.constructor, TypeError);
+  assert.sameValue(throwGets, 1);
+  assert.sameValue(returnGets, 1);
+}).then($DONE, $DONE);
