@@ -31,7 +31,6 @@ for (const text of [
   let segments = [];
   for (const v of seg.segment(text)) {
     assert.sameValue("boolean", typeof v.isWordLike);
-    assert([true, false].includes(v.isWordLike), v.isWordLike);
     assert.sameValue("string", typeof v.segment);
     assert(v.segment.length > 0);
     segments.push(v.segment);
