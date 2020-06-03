@@ -19,16 +19,10 @@ let callCount = 0;
 let errorArray;
 
 function Constructor(executor) {
-  function reject(error) {
-    callCount += 1;
+  executor($ERROR, (error) => {
+    callCount++;
     errorArray = error.errors;
-
-    assert(Array.isArray(error.errors), "error is array");
-    assert.sameValue(error.errors.length, 1, "error.length");
-    assert.sameValue(error.errors[0], "onRejectedValue", "error[0]");
-    assert(error instanceof AggregateError, "error instanceof AggregateError");
-  }
-  executor($ERROR, reject);
+  });
 }
 Constructor.resolve = function(v) {
   return v;
@@ -52,5 +46,4 @@ assert.sameValue(errorArray[0], "onRejectedValue", "errorArray after call to any
 
 p1OnRejected("unexpectedonRejectedValue");
 
-assert.sameValue(callCount, 1, "callCount after call to onRejected()");
-assert.sameValue(errorArray[0], "onRejectedValue", "errorArray after call to onRejected()");
+assert.sameValue(errorArray[0], "onRejectedValue", "errorArray[0] === 'onRejectedValue', after call to p1OnRejected()");
