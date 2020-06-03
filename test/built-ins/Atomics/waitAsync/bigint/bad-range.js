@@ -18,6 +18,7 @@ info: |
 includes: [testAtomics.js]
 features: [Atomics.waitAsync, Atomics, SharedArrayBuffer, ArrayBuffer, DataView, Symbol, TypedArray, BigInt]
 ---*/
+assert.sameValue(typeof Atomics.waitAsync, 'function');
 const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8));
 
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {

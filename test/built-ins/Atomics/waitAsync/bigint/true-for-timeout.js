@@ -18,6 +18,7 @@ info: |
 flags: [async]
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, BigInt, computed-property-names, Symbol, Symbol.toPrimitive, arrow-function]
 ---*/
+assert.sameValue(typeof Atomics.waitAsync, 'function');
 const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
 const valueOf = {

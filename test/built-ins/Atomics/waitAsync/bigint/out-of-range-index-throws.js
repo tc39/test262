@@ -20,6 +20,7 @@ info: |
     5. If accessIndex ≥ length, throw a RangeError exception.
 features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, BigInt]
 ---*/
+assert.sameValue(typeof Atomics.waitAsync, 'function');
 const i64a = new BigInt64Array(
   new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
