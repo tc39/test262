@@ -19,12 +19,19 @@ info: |
 features: [Promise.any, Symbol.iterator]
 flags: [async]
 ---*/
+let callCount = 0;
 let thrown = new Test262Error();
-let P = function(executor) {
+function P(executor) {
+  callCount++;
   return new Promise((_, reject) => {
+    callCount++;
     executor(() => {
+      callCount++;
       throw thrown;
-    }, reject);
+    }, (...args) => {
+      callCount++;
+      reject(...args);
+    });
   });
 };
 P.resolve = Promise.resolve;
@@ -36,7 +43,7 @@ Promise.any.call(P, [1])
     // The error was not the result of promise
     // resolution, so will not be an AggregateError
     assert.sameValue(thrown, error);
-    $DONE();
-  });
+    assert.sameValue(callCount, 6);
+  }).then($DONE, $DONE);
 
 
