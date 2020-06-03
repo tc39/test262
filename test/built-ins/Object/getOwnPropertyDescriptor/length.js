@@ -1,4 +1,4 @@
-// Copyright (C) 2012 Ecma International. All rights reserved.
+// Copyright (C) 2020 Alexey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
