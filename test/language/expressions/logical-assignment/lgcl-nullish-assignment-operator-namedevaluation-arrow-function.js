@@ -14,7 +14,7 @@ features: [logical-assignment-operators]
 
 ---*/
 
-var value = 1;
+var value = undefined;
 value ??= () => {};
 
 assert.sameValue(value.name, "value", "value");
