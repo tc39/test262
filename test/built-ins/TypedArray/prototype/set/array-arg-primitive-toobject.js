@@ -36,14 +36,11 @@ testWithTypedArrayConstructors(function(TA) {
   ta2.set(0);
   assert.compareArray(ta2, [1, 2, 3], "number");
 
-  Boolean.prototype.length = 1;
-  Boolean.prototype[0] = 7;
   var ta3 = new TA([1, 2, 3]);
   ta3.set(true, 2);
-  assert.compareArray(ta3, [1, 2, 7], "boolean (modified prototype)");
+  assert.compareArray(ta3, [1, 2, 3], "boolean");
 
-  Symbol.prototype.length = -15;
   var ta4 = new TA([1]);
   ta4.set(Symbol());
-  assert.compareArray(ta4, [1], "symbol (modified prototype)");
+  assert.compareArray(ta4, [1], "symbol");
 });
