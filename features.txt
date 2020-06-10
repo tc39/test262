@@ -170,6 +170,10 @@ String.prototype.replaceAll
 # https://github.com/tc39/proposal-for-in-order
 for-in-order
 
+# Legacy RegExp features
+# https://github.com/tc39/proposal-regexp-legacy-features
+legacy-regexp
+
 # Logical Assignment Operators
 # https://github.com/tc39/proposal-logical-assignment
 logical-assignment-operators
