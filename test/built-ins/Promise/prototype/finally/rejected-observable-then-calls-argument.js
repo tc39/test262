@@ -19,12 +19,13 @@ flags: [async]
 
 class MyError extends Error {}
 
-Promise.reject(new MyError())
+var myError = new MyError();
+Promise.reject(myError)
   .finally(function() {})
   .then(function(value) {
     $DONE('Expected promise to be rejected, got fulfilled with ' + value);
   }, function(reason) {
-    if (reason instanceof MyError) {
+    if (reason === myError) {
       $DONE();
     } else {
       $DONE(reason);
