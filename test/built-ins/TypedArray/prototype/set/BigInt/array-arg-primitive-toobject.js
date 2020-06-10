@@ -31,11 +31,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   ta1.set("567");
   assert.compareArray(ta1, [5n, 6n, 7n, 4n], "string");
 
-  Number.prototype.length = 1;
-  Number.prototype[0] = 9n;
   var ta2 = new TA([1n, 2n, 3n]);
   ta2.set(-10, 2);
-  assert.compareArray(ta2, [1n, 2n, 9n], "number (modified prototype)");
+  assert.compareArray(ta2, [1n, 2n, 3n], "number");
 
   var ta3 = new TA([1n]);
   ta3.set(false);
@@ -45,8 +43,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   ta4.set(Symbol("desc"), 0);
   assert.compareArray(ta4, [1n, 2n], "symbol");
 
-  BigInt.prototype.length = -8;
   var ta5 = new TA([1n, 2n]);
   ta5.set(4n, 1);
-  assert.compareArray(ta5, [1n, 2n], "bigint (modified prototype)");
+  assert.compareArray(ta5, [1n, 2n], "bigint");
 });
