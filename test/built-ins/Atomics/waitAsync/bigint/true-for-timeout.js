@@ -1,6 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.waitasync
 description: >
@@ -17,12 +16,10 @@ info: |
     Boolean -> If argument is true, return 1. If argument is false, return +0.
 
 flags: [async]
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, computed-property-names, Symbol, Symbol.toPrimitive, arrow-function]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, BigInt, computed-property-names, Symbol, Symbol.toPrimitive, arrow-function]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
 const valueOf = {
   valueOf() {
@@ -37,11 +34,11 @@ const toPrimitive = {
 };
 
 Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, true).value,
-    Atomics.waitAsync(i32a, 0, 0, valueOf).value,
-    Atomics.waitAsync(i32a, 0, 0, toPrimitive).value,
-  ]).then(outcomes => {
-    assert.sameValue(outcomes[0], 'timed-out');
-    assert.sameValue(outcomes[1], 'timed-out');
-    assert.sameValue(outcomes[2], 'timed-out');
-  }, $DONE).then($DONE, $DONE);
+  Atomics.waitAsync(i64a, 0, 0n, true).value,
+  Atomics.waitAsync(i64a, 0, 0n, valueOf).value,
+  Atomics.waitAsync(i64a, 0, 0n, toPrimitive).value
+]).then(outcomes => {
+  assert.sameValue(outcomes[0], 'timed-out');
+  assert.sameValue(outcomes[1], 'timed-out');
+  assert.sameValue(outcomes[2], 'timed-out');
+}, $DONE).then($DONE, $DONE);

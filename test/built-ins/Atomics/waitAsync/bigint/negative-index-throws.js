@@ -15,11 +15,11 @@ info: |
   1. Let buffer be ? ValidateSharedIntegerTypedArray(typedArray, true).
   2. Let i be ? ValidateAtomicAccess(typedArray, index).
 
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, BigInt]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+const i64a = new BigInt64Array(
+  new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
 const poisoned = {
@@ -29,14 +29,15 @@ const poisoned = {
 };
 
 assert.throws(RangeError, function() {
-  Atomics.waitAsync(i32a, -Infinity, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, -Infinity, poisoned, poisoned)` throws RangeError');
+  Atomics.waitAsync(i64a, -Infinity, poisoned, poisoned);
+}, '`Atomics.waitAsync(i64a, -Infinity, poisoned, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.waitAsync(i32a, -7.999, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, -7.999, poisoned, poisoned)` throws RangeError');
+  Atomics.waitAsync(i64a, -7.999, poisoned, poisoned);
+}, '`Atomics.waitAsync(i64a, -7.999, poisoned, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.waitAsync(i32a, -1, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, -1, poisoned, poisoned)` throws RangeError');
+  Atomics.waitAsync(i64a, -1, poisoned, poisoned);
+}, '`Atomics.waitAsync(i64a, -1, poisoned, poisoned)` throws RangeError');
 assert.throws(RangeError, function() {
-  Atomics.waitAsync(i32a, -300, poisoned, poisoned);
-}, '`Atomics.wait(i32a, -300, poisoned, poisoned)` throws RangeError');
+  Atomics.waitAsync(i64a, -300, poisoned, poisoned);
+}, '`Atomics.wait(i64a, -300, poisoned, poisoned)` throws RangeError');
+

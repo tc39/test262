@@ -1,6 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.waitasync
 description: >
@@ -21,12 +20,10 @@ info: |
     d. Return promiseCapability.[[Promise]].
 
 flags: [async]
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, computed-property-names, Symbol, Symbol.toPrimitive, Atomics, arrow-function]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, BigInt, computed-property-names, Symbol, Symbol.toPrimitive, Atomics, arrow-function]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
 const valueOf = {
   valueOf() {
@@ -40,10 +37,7 @@ const toPrimitive = {
   }
 };
 
-Promise.all([
-    Atomics.store(i32a, 0, 42),
-    Atomics.waitAsync(i32a, 0, 0).value,
-  ]).then(outcomes => {
-    assert.sameValue(outcomes[0], 42);
-    assert.sameValue(outcomes[1], 'not-equal');
-  }, $DONE).then($DONE, $DONE);
+Promise.all([Atomics.store(i64a, 0, 42n), Atomics.waitAsync(i64a, 0, 0n).value]).then(outcomes => {
+  assert.sameValue(outcomes[0], 42n);
+  assert.sameValue(outcomes[1], 'not-equal');
+}, $DONE).then($DONE, $DONE);

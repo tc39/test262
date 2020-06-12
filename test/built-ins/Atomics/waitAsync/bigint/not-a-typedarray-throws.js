@@ -3,7 +3,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  A null value for bufferData throws a TypeError
+  Throws a TypeError if the typedArray arg is not a TypedArray object
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -22,26 +22,19 @@ info: |
   1. If Type(O) is not Object, throw a TypeError exception.
   2. If O does not have an internalSlot internal slot, throw a TypeError exception.
 
-includes: [detachArrayBuffer.js]
-features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray]
+features: [Atomics.waitAsync, arrow-function, Atomics]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
-
 const poisoned = {
   valueOf() {
     throw new Test262Error('should not evaluate this code');
   }
 };
 
-try {
-  $DETACHBUFFER(i32a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
-} catch (error) {
-  $ERROR(`An unexpected error occurred when detaching ArrayBuffer: ${error.message}`);
-}
+assert.throws(TypeError, () => {
+  Atomics.waitAsync({}, 0, 0n, 0);
+}, '`Atomics.waitAsync({}, 0, 0n, 0)` throws TypeError');
 
-assert.throws(TypeError, function() {
-  Atomics.waitAsync(i32a, poisoned, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, poisoned, poisoned, poisoned)` throws TypeError');
+assert.throws(TypeError, () => {
+  Atomics.waitAsync({}, poisoned, poisoned, poisoned);
+}, '`Atomics.waitAsync({}, poisoned, poisoned, poisoned)` throws TypeError');

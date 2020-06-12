@@ -58,3 +58,4 @@ assert.throws(TypeError, () => {
 assert.throws(TypeError, () => {
   Atomics.waitAsync(Symbol('***symbol***'), poisoned, poisoned, poisoned);
 }, '`Atomics.waitAsync(Symbol(\'***symbol***\'), poisoned, poisoned, poisoned)` throws TypeError');
+

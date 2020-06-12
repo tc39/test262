@@ -1,6 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.waitasync
 description: >
@@ -15,19 +14,15 @@ info: |
   6. Let q be ? ToNumber(timeout).
 
 flags: [async]
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, destructuring-binding, arrow-function]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, BigInt, destructuring-binding, arrow-function]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
-Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, -1).value,
-  ]).then(([outcome]) => {
-    assert.sameValue(
-      outcome,
-      'timed-out',
-      'Atomics.waitAsync(i32a, 0, 0, -1).value resolves to "timed-out"'
-    );
-  }, $DONE).then($DONE, $DONE);
+Promise.all([Atomics.waitAsync(i64a, 0, 0n, -1).value]).then(([outcome]) => {
+  assert.sameValue(
+    outcome,
+    'timed-out',
+    'Atomics.waitAsync(i64a, 0, 0n, -1).value resolves to "timed-out"'
+  );
+}, $DONE).then($DONE, $DONE);

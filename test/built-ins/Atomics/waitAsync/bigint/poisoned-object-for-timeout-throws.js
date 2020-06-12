@@ -1,6 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.waitasync
 description: >
@@ -14,14 +13,13 @@ info: |
 
   6. Let q be ? ToNumber(timeout).
 
-    Symbol --> Throw a TypeError exception.
+  Let primValue be ? ToPrimitive(argument, hint Number).
+  Return ? ToNumber(primValue).
 
-features: [Atomics.waitAsync, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray, computed-property-names, Atomics]
+features: [Atomics.waitAsync, SharedArrayBuffer, Symbol, Symbol.toPrimitive, TypedArray, computed-property-names, Atomics, BigInt]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
-);
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4));
 
 const poisonedValueOf = {
   valueOf() {
@@ -36,17 +34,9 @@ const poisonedToPrimitive = {
 };
 
 assert.throws(Test262Error, function() {
-  Atomics.waitAsync(i32a, 0, 0, poisonedValueOf);
-}, '`Atomics.waitAsync(i32a, 0, 0, poisonedValueOf)` throws Test262Error');
+  Atomics.wait(i64a, 0, 0n, poisonedValueOf);
+}, '`Atomics.wait(i64a, 0, 0n, poisonedValueOf)` throws Test262Error');
 
 assert.throws(Test262Error, function() {
-  Atomics.waitAsync(i32a, 0, 0, poisonedToPrimitive);
-}, '`Atomics.waitAsync(i32a, 0, 0, poisonedToPrimitive)` throws Test262Error');
-
-assert.throws(TypeError, function() {
-  Atomics.waitAsync(i32a, 0, 0, Symbol("foo"));
-}, '`Atomics.waitAsync(i32a, 0, 0, Symbol("foo"))` throws TypeError');
-
-assert.throws(TypeError, function() {
-  Atomics.waitAsync(i32a, 0, 0, Symbol("foo"));
-}, '`Atomics.waitAsync(i32a, 0, 0, Symbol("foo"))` throws TypeError');
+  Atomics.wait(i64a, 0, 0n, poisonedToPrimitive);
+}, '`Atomics.wait(i64a, 0, 0n, poisonedToPrimitive)` throws Test262Error');

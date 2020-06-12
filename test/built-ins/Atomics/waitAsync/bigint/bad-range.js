@@ -1,6 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-atomics.waitasync
 description: >
@@ -17,17 +16,13 @@ info: |
   ...
 
 includes: [testAtomics.js]
-features: [Atomics.waitAsync, Atomics, SharedArrayBuffer, ArrayBuffer, DataView, Symbol, TypedArray]
+features: [Atomics.waitAsync, Atomics, SharedArrayBuffer, ArrayBuffer, DataView, Symbol, TypedArray, BigInt]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 8)
-);
+const i64a = new BigInt64Array(new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 8));
 
 testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
   assert.throws(RangeError, function() {
-    Atomics.waitAsync(i32a, IdxGen(i32a), 0, 0);
-  }, '`Atomics.waitAsync(i32a, IdxGen(i32a), 0, 0)` throws RangeError');
+    Atomics.waitAsync(i64a, IdxGen(i64a), 0n, 0);
+  }, '`Atomics.waitAsync(i64a, IdxGen(i64a), 0n, 0)` throws RangeError');
 });
-
-

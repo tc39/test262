@@ -23,11 +23,11 @@ info: |
   2. If O does not have an internalSlot internal slot, throw a TypeError exception.
 
 includes: [detachArrayBuffer.js]
-features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray]
+features: [Atomics.waitAsync, ArrayBuffer, Atomics, TypedArray, BigInt]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function');
-const i32a = new Int32Array(
-  new ArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
+const i64a = new BigInt64Array(
+  new ArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 4)
 );
 
 const poisoned = {
@@ -37,11 +37,12 @@ const poisoned = {
 };
 
 try {
-  $DETACHBUFFER(i32a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
+  $DETACHBUFFER(i64a.buffer); // Detaching a non-shared ArrayBuffer sets the [[ArrayBufferData]] value to null
 } catch (error) {
   $ERROR(`An unexpected error occurred when detaching ArrayBuffer: ${error.message}`);
 }
 
 assert.throws(TypeError, function() {
-  Atomics.waitAsync(i32a, poisoned, poisoned, poisoned);
-}, '`Atomics.waitAsync(i32a, poisoned, poisoned, poisoned)` throws TypeError');
+  Atomics.waitAsync(i64a, poisoned, poisoned, poisoned);
+}, '`Atomics.waitAsync(i64a, poisoned, poisoned, poisoned)` throws TypeError');
+
