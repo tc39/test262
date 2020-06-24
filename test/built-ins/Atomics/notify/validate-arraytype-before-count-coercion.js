@@ -24,7 +24,7 @@ features: [Atomics]
 
 var count = {
   valueOf() {
-    throw new Test262Error("count coerced");
+    $ERROR("count coerced");
   }
 };
 

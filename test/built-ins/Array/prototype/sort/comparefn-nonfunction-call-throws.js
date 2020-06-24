@@ -18,7 +18,7 @@ features: [Symbol]
 var sample = [1];
 var poisoned = {
   get length() {
-    throw new Test262Error("IsCallable(comparefn) should be observed before this.length");
+    $ERROR("IsCallable(comparefn) should be observed before this.length");
   }
 };
 

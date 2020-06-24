@@ -24,7 +24,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     sample.map(function() {
       if (loops === 1) {
-        throw new Test262Error("callbackfn called twice");
+        $ERROR("callbackfn called twice");
       }
       $DETACHBUFFER(sample.buffer);
       loops++;

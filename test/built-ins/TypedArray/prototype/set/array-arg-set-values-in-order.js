@@ -54,7 +54,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   Object.defineProperty(obj, 3, {
     get: function() {
-      throw new Test262Error("Should not call obj[3]");
+      $ERROR("Should not call obj[3]");
     }
   });
 

@@ -19,6 +19,6 @@ try {
   $ERROR("Expected a TypeError");
 } catch (e) {
   if (!(e instanceof TypeError)) {
-    throw e;
+    $ERROR("Expected TypeError but got " + e);
   }
 }

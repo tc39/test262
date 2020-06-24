@@ -24,7 +24,7 @@ features: [Atomics]
 
 var expectedValue = {
   valueOf() {
-    throw new Test262Error("expectedValue coerced");
+    $ERROR("expectedValue coerced");
   }
 };
 

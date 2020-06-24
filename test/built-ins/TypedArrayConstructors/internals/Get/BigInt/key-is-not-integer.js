@@ -26,7 +26,7 @@ features: [BigInt, TypedArray]
 var proto = TypedArray.prototype;
 Object.defineProperty(proto, "1.1", {
   get: function() {
-    throw new Test262Error("OrdinaryGet was called! Ref: 9.1.8.1 3.c");
+    $ERROR("OrdinaryGet was called! Ref: 9.1.8.1 3.c");
   }
 });
 

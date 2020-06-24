@@ -41,7 +41,7 @@ var accumulator = function(acc, el, index) {
 
 try {
   Array.prototype.reduceRight.call(arrayLike, accumulator, []);
-  throw new Test262Error("should not be called");
+  $ERROR("should not be called");
 } catch (acc) {
   assert.sameValue(acc.length, 2);
   assert.compareArray(acc[0], [1, Number.MAX_SAFE_INTEGER - 1]);

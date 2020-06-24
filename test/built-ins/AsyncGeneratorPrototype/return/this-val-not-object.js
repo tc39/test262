@@ -30,67 +30,67 @@ var symbol = Symbol();
 var testPromises = [
   AsyncGeneratorPrototype.return.call(undefined).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.return should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.return should reject promise" +
                              " when `this` value `undefined`");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(undefined) expected TypeError but got " + e);
+       $ERROR("(undefined) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.return.call(1).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.return should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.return should reject promise" +
                              " when `this` value is a Number");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(Number) expected TypeError but got " + e);
+       $ERROR("(Number) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.return.call("string").then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.return should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.return should reject promise" +
                              " when `this` value is a String");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(String) expected TypeError but got " + e);
+       $ERROR("(String) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.return.call(null).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.return should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.return should reject promise" +
                              " when `this` value `null`");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(null) expected TypeError but got " + e);
+       $ERROR("(null) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.return.call(true).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.return should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.return should reject promise" +
                              " when `this` value is a Boolean");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(Boolean) expected TypeError but got " + e);
+       $ERROR("(Boolean) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.return.call(symbol).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.return should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.return should reject promise" +
                              " when `this` value is a Symbol");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(Symbol) expected TypeError but got " + e);
+       $ERROR("(Symbol) expected TypeError but got " + e);
       }
     }
   )

@@ -12,7 +12,7 @@ features: [TypedArray, SharedArrayBuffer]
 var proto = TypedArray.prototype;
 var throwDesc = {
   get: function() {
-    throw new Test262Error("OrdinaryGet was called! Ref: 9.1.8.1 3.c");
+    $ERROR("OrdinaryGet was called! Ref: 9.1.8.1 3.c");
   }
 };
 Object.defineProperty(proto, "0", throwDesc);

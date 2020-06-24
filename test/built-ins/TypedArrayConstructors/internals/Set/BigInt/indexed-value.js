@@ -26,7 +26,7 @@ features: [BigInt, Reflect, TypedArray]
 var proto = TypedArray.prototype;
 var throwDesc = {
   set: function() {
-    throw new Test262Error("OrdinarySet was called! Ref: 9.1.9.1 3.b.i");
+    $ERROR("OrdinarySet was called! Ref: 9.1.9.1 3.b.i");
   }
 };
 Object.defineProperty(proto, "0", throwDesc);

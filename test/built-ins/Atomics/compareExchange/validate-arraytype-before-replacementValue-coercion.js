@@ -24,7 +24,7 @@ features: [Atomics]
 
 var replacementValue = {
   valueOf() {
-    throw new Test262Error("replacementValue coerced");
+    $ERROR("replacementValue coerced");
   }
 };
 

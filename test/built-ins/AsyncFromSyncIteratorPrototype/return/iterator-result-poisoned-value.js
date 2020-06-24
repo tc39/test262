@@ -55,7 +55,7 @@ iter.next().then(function(result) {
 
   iter.return().then(
     function (result) {
-      throw new Test262Error("Promise should be rejected, got: " + result.value);
+      $ERROR("Promise should be rejected, got: " + result.value);
     },
     function (err) {
       assert.sameValue(err, thrownError, "Promise should be rejected with thrown error");

@@ -35,7 +35,7 @@ testWithTypedArrayConstructors(function(TA) {
   });
   Object.defineProperty(obj, 2, {
     get: function() {
-      throw new Test262Error("Should not get other values");
+      $ERROR("Should not get other values");
     }
   });
 

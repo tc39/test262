@@ -3,7 +3,7 @@
 /*---
 esid: sec-%typedarray%.prototype.tolocalestring
 description: >
-  Calls toString from each property's value return from toLocaleString 
+  Calls toString from each property's value return from toLocaleString
 info: |
   22.2.3.28 %TypedArray%.prototype.toLocaleString ([ reserved1 [ , reserved2 ] ])
 
@@ -11,9 +11,9 @@ info: |
   the same algorithm as Array.prototype.toLocaleString as defined in 22.1.3.27
   except that the this object's [[ArrayLength]] internal slot is accessed in
   place of performing a [[Get]] of "length".
-  
+
   22.1.3.27 Array.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
-  
+
   ...
   5. Let firstElement be ? Get(array, "0").
   6. If firstElement is undefined or null, then
@@ -42,7 +42,7 @@ BigInt.prototype.toLocaleString = function() {
       return "hacks" + calls;
     },
     valueOf: function() {
-      throw new Test262Error("should not call valueOf if toString is present");
+      $ERROR("should not call valueOf if toString is present");
     }
   };
 };

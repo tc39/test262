@@ -49,7 +49,7 @@ var thrownError = { name: "err" };
 asyncIterator.next().then(function() {
   return asyncIterator.throw(thrownError);
 }).then(function(result) {
-  throw new Test262Error("Promise should be rejected, got: " + result.value);
+  $ERROR("Promise should be rejected, got: " + result.value);
 }, function(err) {
   assert.sameValue(err, thrownError);
   return asyncIterator.next().then(function(result) {

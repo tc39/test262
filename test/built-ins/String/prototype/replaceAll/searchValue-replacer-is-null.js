@@ -28,7 +28,7 @@ features: [String.prototype.replaceAll, Symbol.replace]
 var searchValue = {};
 searchValue[Symbol.replace] = null;
 searchValue.toString = function() { return "2"; };
-searchValue.valueOf = function() { throw new Test262Error("should not be called"); };
+searchValue.valueOf = function() { $ERROR("should not be called"); };
 
 var replacer = function() { return "<foo>"; };
 assert.sameValue("a2b2c".replaceAll(searchValue, replacer), "a<foo>b<foo>c");

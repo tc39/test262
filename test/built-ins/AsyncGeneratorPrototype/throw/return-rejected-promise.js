@@ -44,11 +44,11 @@ assert(result instanceof Promise, "Expected result to be an instanceof Promise")
 
 result.then(
   function () {
-    throw new Test262Error("Expected result to be rejected promise.");
+    $ERROR("Expected result to be rejected promise.");
   },
   function (e) {
     if (!(e.message = errormessage)) {
-      throw new Test262Error("Expected thrown custom error, got " + e);
+      $ERROR("Expected thrown custom error, got " + e);
     }
   }
 ).then($DONE, $DONE)

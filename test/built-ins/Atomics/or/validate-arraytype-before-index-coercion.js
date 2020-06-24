@@ -27,7 +27,7 @@ features: [Atomics]
 
 var index = {
   valueOf() {
-    throw new Test262Error("index coerced");
+    $ERROR("index coerced");
   }
 };
 

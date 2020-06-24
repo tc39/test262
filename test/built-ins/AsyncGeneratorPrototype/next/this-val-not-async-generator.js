@@ -30,56 +30,56 @@ var syncIterator = syncGenerator()
 var testPromises = [
   AsyncGeneratorPrototype.next.call({}).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.next should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.next should reject promise" +
                              " when `this` value is an object");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(object) expected TypeError but got " + e);
+       $ERROR("(object) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.next.call(function() {}).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.next should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.next should reject promise" +
                              " when `this` value is a function");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(function) expected TypeError but got " + e);
+       $ERROR("(function) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.next.call(g).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.next should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.next should reject promise" +
                              " when `this` value is an async generator function");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(async generator function) expected TypeError but got " + e);
+       $ERROR("(async generator function) expected TypeError but got " + e);
       }
     }
   ),
   AsyncGeneratorPrototype.next.call(g.prototype).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.next should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.next should reject promise" +
                              " when `this` value is an async generator function prototype object");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(async generator function prototype) expected TypeError but got " + e);
+       $ERROR("(async generator function prototype) expected TypeError but got " + e);
       }
     },
   ),
   AsyncGeneratorPrototype.next.call(syncIterator).then(
     function () {
-      throw new Test262Error("AsyncGeneratorPrototype.next should reject promise" +
+      $ERROR("AsyncGeneratorPrototype.next should reject promise" +
                              " when `this` value is a generator");
     },
     function (e) {
       if (!(e instanceof TypeError)) {
-       throw new Test262Error("(generator) expected TypeError but got " + e);
+       $ERROR("(generator) expected TypeError but got " + e);
       }
     }
   )

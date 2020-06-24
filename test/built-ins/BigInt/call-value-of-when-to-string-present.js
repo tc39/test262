@@ -17,7 +17,7 @@ let o = {
   },
 
   toString: function() {
-    throw new Test262Error("unreachable");
+    $ERROR("unreachable");
   }
 }
 

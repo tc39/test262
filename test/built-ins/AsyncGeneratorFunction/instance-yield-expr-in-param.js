@@ -32,11 +32,11 @@ var withinAsyncGenerator = async function*() {
 
 withinAsyncGenerator().next().then(
  function () {
-   throw new Test262Error("YieldExpression not permitted when calling context is a async generator");
+   $ERROR("YieldExpression not permitted when calling context is a async generator");
  },
  function (e) {
    if (!(e instanceof SyntaxError)) {
-    throw new Test262Error("Expected SyntaxError but got " + e);
+    $ERROR("Expected SyntaxError but got " + e);
    }
  }
 ).then($DONE, $DONE);

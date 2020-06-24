@@ -24,7 +24,7 @@ features: [Atomics]
 
 var timeout = {
   valueOf() {
-    throw new Test262Error("timeout coerced");
+    $ERROR("timeout coerced");
   }
 };
 

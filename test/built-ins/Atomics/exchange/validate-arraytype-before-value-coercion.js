@@ -27,7 +27,7 @@ features: [Atomics]
 
 var value = {
   valueOf() {
-    throw new Test262Error("value coerced");
+    $ERROR("value coerced");
   }
 };
 

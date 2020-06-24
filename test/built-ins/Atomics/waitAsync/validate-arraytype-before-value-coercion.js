@@ -32,7 +32,7 @@ features: [Atomics.waitAsync, Atomics, TypedArray, SharedArrayBuffer]
 
 const value = {
   valueOf() {
-    throw new Test262Error("value coerced");
+    $ERROR("value coerced");
   }
 };
 

@@ -27,7 +27,7 @@ features: [Symbol.search]
 var regexp = {};
 regexp[Symbol.search] = null;
 regexp.toString = function() { return "\\d"; };
-regexp.valueOf = function() { throw new Test262Error("should not be called"); };
+regexp.valueOf = function() { $ERROR("should not be called"); };
 
 assert.sameValue("abc".search(regexp), -1);
 assert.sameValue("ab3c".search(regexp), 2);

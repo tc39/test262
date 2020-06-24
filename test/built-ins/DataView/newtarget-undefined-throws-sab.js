@@ -16,7 +16,7 @@ features: [SharedArrayBuffer]
 
 var obj = {
   valueOf: function() {
-    throw new Test262Error("NewTarget should be verified before byteOffset");
+    $ERROR("NewTarget should be verified before byteOffset");
   }
 };
 

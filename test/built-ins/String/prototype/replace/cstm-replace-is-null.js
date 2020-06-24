@@ -27,7 +27,7 @@ features: [Symbol.replace]
 var searchValue = {};
 searchValue[Symbol.replace] = null;
 searchValue.toString = function() { return "3"; };
-searchValue.valueOf = function() { throw new Test262Error("should not be called"); };
+searchValue.valueOf = function() { $ERROR("should not be called"); };
 
 var replacer = function() { return "<foo>"; };
 assert.sameValue("ab3c".replace(searchValue, replacer), "ab<foo>c");

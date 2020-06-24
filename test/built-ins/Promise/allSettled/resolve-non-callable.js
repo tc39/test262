@@ -21,16 +21,16 @@ flags: [async]
 features: [Promise.allSettled, Symbol.iterator]
 ---*/
 
-const iter = { 
+const iter = {
   get [Symbol.iterator]() {
-    throw new Test262Error("unreachable");
+    $ERROR("unreachable");
   },
 };
 
 Promise.resolve = "certainly not callable";
 
 Promise.allSettled(iter).then(() => {
-  throw new Test262Error("The promise should be rejected, but it was resolved");
+  $ERROR("The promise should be rejected, but it was resolved");
 }, (reason) => {
   assert(reason instanceof TypeError);
 }).then($DONE, $DONE);

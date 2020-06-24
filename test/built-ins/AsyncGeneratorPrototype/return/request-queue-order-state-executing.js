@@ -46,7 +46,7 @@ async function* g() {
   valueisset = true;
 
   yield 1;
-  throw new Test262Error("This line should no be reached: generator closed by return");
+  $ERROR("This line should no be reached: generator closed by return");
 }
 
 iter = g();

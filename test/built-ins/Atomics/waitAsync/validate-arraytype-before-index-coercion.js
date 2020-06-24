@@ -32,7 +32,7 @@ features: [Atomics.waitAsync, Atomics, TypedArray, SharedArrayBuffer]
 
 const index = {
   valueOf() {
-    throw new Test262Error("index coerced");
+    $ERROR("index coerced");
   }
 };
 

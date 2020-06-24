@@ -28,7 +28,7 @@ features: [Symbol.split]
 var separator = {};
 separator[Symbol.split] = null;
 separator.toString = function() { return "2"; };
-separator.valueOf = function() { throw new Test262Error("should not be called"); };
+separator.valueOf = function() { $ERROR("should not be called"); };
 
 assert.compareArray("a2b2c".split(separator), ["a", "b", "c"]);
 assert.compareArray("a2b2c".split(separator, 1), ["a"]);

@@ -34,7 +34,7 @@ async function* asyncg() {
 
 asyncg().next().then(
   function (result) {
-    throw new Test262Error("Promise should be rejected.");
+    $ERROR("Promise should be rejected.");
   },
   function (err) {
     assert.sameValue(err, thrownError, "Promise should be rejected with thrown error");

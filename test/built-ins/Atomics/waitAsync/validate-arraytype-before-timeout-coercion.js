@@ -31,7 +31,7 @@ features: [Atomics.waitAsync, Atomics, TypedArray, SharedArrayBuffer]
 ---*/
 const timeout = {
   valueOf() {
-    throw new Test262Error("timeout coerced");
+    $ERROR("timeout coerced");
   }
 };
 
