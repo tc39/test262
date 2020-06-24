@@ -25,12 +25,12 @@ includes: [promiseHelper.js]
 ---*/
 
 let callCount = 0;
-let values = [];
+let sequence = [];
 
 function Constructor(executor) {
   function reject(value) {
     callCount += 1;
-    values.push(value);
+    sequence.push(value);
   }
   executor(() => {
     throw new Test262Error();
@@ -59,4 +59,5 @@ pReject(2);
 pReject(3);
 
 assert.sameValue(callCount, 3, 'callCount after resolving a');
-checkSequence(values);
+assert.sameValue(sequence.length, 3);
+checkSequence(sequence);
