@@ -70,7 +70,7 @@ properties of the global scope prior to test execution.
     object that:
 
     1. has an [[IsHTMLDDA]] internal slot, and 
-    2. when called with no arguments or with the single argument `""` (an empty string) returns `null`. 
+    2. when called with no arguments or with the first argument `""` (an empty string) returns `null`. 
 
           Note: The peculiar second requirement permits testing algorithms when they also call `document.all` with such arguments, so that testing for correct behavior requires knowing how the call behaves. This is rarely necessary.  
     
