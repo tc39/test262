@@ -21,7 +21,7 @@ info: |
     Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], resultCapability.[[Reject]] »).
 
 flags: [async]
-includes: [compareArray.js,promiseHelper.js]
+includes: [promiseHelper.js]
 ---*/
 
 let a = new Promise(resolve => resolve({}));
@@ -36,6 +36,7 @@ Promise.all([
     sequence.push(5);
   }),
 ]).then(() => {
+  assert.sameValue(sequence.length, 5);
   checkSequence(sequence);
 }).then($DONE, $DONE);
 sequence.push(2);

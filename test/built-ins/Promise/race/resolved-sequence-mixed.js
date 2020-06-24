@@ -22,27 +22,27 @@ info: |
     Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], resultCapability.[[Reject]] »).
 
 flags: [async]
-includes: [compareArray.js,promiseHelper.js]
+includes: [promiseHelper.js]
 ---*/
 
-let a = new Promise((_, reject) => reject(''));
+let a = Promise.reject('');
 let b = new Promise(resolve => resolve(''));
 let c = new Promise((_, reject) => reject(''));
 let sequence = [1];
 Promise.all([
   a.catch(() => {
     sequence.push(3);
-    checkSequence(sequence, 'Expected to be called first.');
   }),
   Promise.race([a, b, c]).then(() => {
-    sequence.push(6);
-    checkSequence(sequence, 'Expected to be called fourth.');
+    // This should not be present when the final
+    // sequence is evaluated.
+    sequence.push(5);
   }),
   b.then(() => {
     sequence.push(4);
-    checkSequence(sequence, 'Expected to be called second.');
   }),
-]).then(result => {
-  compareArray(result, [true, true, true]);
+]).catch(() => {
+  assert.sameValue(sequence.length, 4);
+  checkSequence(sequence);
 }).then($DONE, $DONE);
 sequence.push(2);

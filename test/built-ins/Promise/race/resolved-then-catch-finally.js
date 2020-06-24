@@ -22,7 +22,7 @@ info: |
     Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], resultCapability.[[Reject]] »).
 
 flags: [async]
-includes: [compareArray.js,promiseHelper.js]
+includes: [promiseHelper.js]
 ---*/
 
 let a = Promise.reject('a').catch((v) => v);

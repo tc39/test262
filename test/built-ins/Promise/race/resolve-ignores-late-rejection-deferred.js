@@ -17,25 +17,30 @@ info: |
 
 flags: [async]
 features: [arrow-function]
+includes: [promiseHelper.js]
 ---*/
 
-let resolver = {
-  then(resolve) {
-    new Promise((resolve) => resolve())
-      .then(() => resolve(42));
-  }
-};
+let sequence = [1];
 let lateRejector = {
   then(resolve, reject) {
-    new Promise((resolve) => resolve())
-      .then(() => {
-        resolve(9);
-        reject();
-      });
+    return new Promise((resolve) => {
+      sequence.push(3);
+      resolve();
+      sequence.push(4);
+    }).then(() => {
+      sequence.push(5);
+      resolve(9);
+      sequence.push(6);
+      reject();
+      sequence.push(7);
+    });
   }
 };
+sequence.push(2);
 
-Promise.race([resolver, lateRejector])
+Promise.race([lateRejector])
   .then(resolution => {
-    assert.sameValue(resolution, 42);
+    assert.sameValue(resolution, 9);
+    assert.sameValue(sequence.length, 7);
+    checkSequence(sequence);
   }).then($DONE, $DONE);
