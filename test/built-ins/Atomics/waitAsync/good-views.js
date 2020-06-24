@@ -66,5 +66,5 @@ Promise.all([
     'C not-equal,not-equal,not-equal,not-equal,not-equal',
     'All C values are not equal'
   );
-}, $DONE).then($DONE, $DONE);
+}).then($DONE, $DONE);
 

@@ -30,5 +30,5 @@ Promise.resolve = function(...args) {
 Promise.race(values)
   .then(() => {
       assert.sameValue(callCount, 3, '`then` invoked once for every item in iterable arg');
-    }, $DONE).then($DONE, $DONE);
+    }).then($DONE, $DONE);
 

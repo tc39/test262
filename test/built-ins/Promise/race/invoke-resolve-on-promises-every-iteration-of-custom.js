@@ -39,5 +39,5 @@ Promise.race.call(Custom, values)
   .then(() => {
       assert.sameValue(presolveCallCount, 0, '`Promise.resolve` is never invoked');
       assert.sameValue(cresolveCallCount, 3, '`Custom.resolve` invoked once for every item in iterable arg');
-    }, $DONE).then($DONE, $DONE);
+    }).then($DONE, $DONE);
 
