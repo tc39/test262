@@ -43,3 +43,8 @@ Volunteer-maintained projects that may be used to execute Test262 in various ECM
 - https://github.com/test262-utils/test262-harness-py (platform: Python)
 - https://bakkot.github.io/test262-web-runner/ (platform: web)
 - https://github.com/Izhido/test262_harness_cpp (platform: C++)
+
+
+### How To Read CI Results
+
+Test262 runs CI tests against every PR and commit. The only tests that are required to pass are visibly flagged as **REQUIRED**. The CI test results that are attributed to specific runs against specific engines should not be perceived as meaningful to anyone but the person that is reviewing the test material contained within the contributed changeset. These tests are almost always expected to fail, especially in the case of tests for new features. They _may_ be helpful in determining whether or not a regression occurred, but that can only be determined by an actual human reviewing the results and comparing those outcomes to the expected outcomes of the tests.
