@@ -13,7 +13,6 @@ info: |
 		   If strict is true, the Early Error rules for UniqueFormalParameters:FormalParameters are applied.
 		...
     ...
-features: [class-fields-private]
 ---*/
 
 var f = new Function(" 'use strict'; var o = {}; print('hello world'); with (o) {}; " );
