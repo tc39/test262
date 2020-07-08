@@ -17,6 +17,5 @@ info: |
 ---*/
 
 assert.throws(SyntaxError, function() {
-	var f = new Function(" 'use strict'; var o = {}; print('hello world'); with (o) {}; " );
-  	f();
+	new Function(" 'use strict'; var o = {}; print('hello world'); with (o) {}; " );
 });
