@@ -7,19 +7,6 @@ info: |
 	B.2.1.1 escape(string)
 	[...]
     	1. Let string be ? ToString(string).
-    	
-    7.1.17 ToString(argument)
-    
-				Table 13: ToString Conversions
-
-		Argument Type			    Result
-
-		undefined				Return "undefined".
-	
-		null					Return "null".
-	
-		boolean					If argument is true, return "true".
-							If argument is false, return "false".
 ---*/
 
 assert.sameValue(escape(null), 'null');
