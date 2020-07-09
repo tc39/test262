@@ -14,6 +14,20 @@ assert.sameValue(escape(null), 'null');
 
 assert.sameValue(escape(undefined), 'undefined');
 
+assert.sameValue(escape(), 'undefined');
+
 assert.sameValue(escape(true), 'true');
 
 assert.sameValue(escape(false), 'false');
+
+assert.sameValue(escape(-0), '0');
+
+assert.sameValue(escape(0), '0');
+
+assert.sameValue(escape(1), '1');
+
+assert.sameValue(escape(NaN), 'NaN');
+
+assert.sameValue(escape(Number.POSITIVE_INFINITY), 'Infinity');
+
+assert.sameValue(escape(Number.NEGATIVE_INFINITY), '-Infinity');
