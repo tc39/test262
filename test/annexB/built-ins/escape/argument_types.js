@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-escape-string
-description: Input is a null, undefined or boolean
+description: Input is a null, undefined, boolean or Number
 info: |
     B.2.1.1 escape ( string )
 
