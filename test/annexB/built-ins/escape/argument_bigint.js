@@ -8,6 +8,7 @@ info: |
 
     1. Let string be ? ToString(string).
     ...
+features: [BigInt]
 ---*/
 
 assert.sameValue(escape(1n), '1');
