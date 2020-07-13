@@ -1,8 +1,7 @@
-name: Mirror "master" and "main" branches
+name: Updates the master branch after main
 on:
   push:
     branches:
-      - master
       - main
 
 jobs:
@@ -16,4 +15,3 @@ jobs:
       - name: Push
         run: |
           git push origin HEAD:master
-          git push origin HEAD:main
