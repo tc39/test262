@@ -1,0 +1,16 @@
+name: Tooling and Lint
+on: [push, pull_request]
+
+jobs:
+  sayhello:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7, 3.8]
+    steps:
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name:
+      run: echo hello
