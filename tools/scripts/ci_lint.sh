@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [ "$CIRCLE_PULL_REQUEST" != "" ]; then
-  paths=$(git diff --diff-filter ACMR --name-only origin/master.. -- test/)
+pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+
+if [ "$pull_number" != "" ]; then
+  paths=$(git diff --diff-filter ACMR --name-only origin/main.. -- test/)
 
   if [ "$paths" == "" ]; then
     echo No test files added or modified. Exiting.
