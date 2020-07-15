@@ -1,4 +1,4 @@
-name: Updates the master branch after main
+name: Updates the main branch after main
 on:
   push:
     branches:
@@ -14,4 +14,4 @@ jobs:
           fetch-depth: 0
       - name: Push
         run: |
-          git push origin HEAD:master
+          git push origin HEAD:main

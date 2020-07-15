@@ -1,6 +1,6 @@
 #!/bin/sh
-if [ $CIRCLE_EVENT_TYPE != "push" -o $CIRCLE_BRANCH != "master" ]; then
-  echo This job is not running against a commit that has been merged to master.
+if [ $CIRCLE_EVENT_TYPE != "push" -o $CIRCLE_BRANCH != "main" ]; then
+  echo This job is not running against a commit that has been merged to main.
   echo Skipping deployment.
   exit 0
 fi
@@ -16,9 +16,9 @@ ssh-add github-deploy-key
 rm github-deploy-key
 git config --global user.email "test262@ecma-international.org"
 git config --global user.name "Test262 Automation Script"
-# The repository on TravisCI is a shallow clone, so the `master` branch must
+# The repository on TravisCI is a shallow clone, so the `main` branch must
 # be retrieved explicitly, and a local branch created from the `FETCH_HEAD`
 # git reference
-git fetch origin master
-git branch master FETCH_HEAD
+git fetch origin main
+git branch main FETCH_HEAD
 ./make.py deploy
