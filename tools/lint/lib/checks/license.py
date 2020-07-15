@@ -15,7 +15,7 @@ _LICENSE_PATTERN = re.compile(
         r'// Use of this source code is governed by a BSD-style license that can be[\r\n]{1,2}' +
         r'// found in the LICENSE file\.' +
         r'|' +
-        r'// See LICENSE or https://github\.com/tc39/test262/blob/main/LICENSE' +
+        r'// See LICENSE or https://github\.com/tc39/test262/blob/HEAD/LICENSE' +
     r')', re.IGNORECASE)
 
 class CheckLicense(Check):
