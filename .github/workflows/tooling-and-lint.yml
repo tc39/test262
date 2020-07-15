@@ -14,38 +14,38 @@ jobs:
       matrix:
         python-version: [2.7, 3.8]
     steps:
-      - name: Remove me
-        run: |
-          echo $GITHUB_PULL_REQUEST
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: "Install requirements for generation tool"
-        run: |
-          python -m pip install --user --requirement tools/generation/requirements.txt
-      - name: "Test the generation tool"
-        run: |
-          ./tools/generation/test/run.py
-      - name: "Build tests; check for new changes"
-        run: |
-          ./tools/scripts/ci_build.sh
+    - name: Remove me
+      run: |
+        echo $GITHUB_PULL_REQUEST
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: "Install requirements for generation tool"
+      run: |
+        python -m pip install --user --requirement tools/generation/requirements.txt
+    - name: "Test the generation tool"
+      run: |
+        ./tools/generation/test/run.py
+    - name: "Build tests; check for new changes"
+      run: |
+        ./tools/scripts/ci_build.sh
   lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [2.7, 3.8]
     steps:
-      - name: Checkout
-          uses: actions/checkout@v2
-          with:
-            fetch-depth: 0
-      - name: "Install requirements for lint tool"
-          run: |
-            python -m pip install --user --requirement tools/lint/requirements.txt
-      - name: "Test the lint tool"
-          run: |
-            ./tools/lint/test/run.py
-      - name: "Lint tests"
-          run: |
-            ./tools/scripts/ci_lint.sh
+    - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+    - name: "Install requirements for lint tool"
+        run: |
+          python -m pip install --user --requirement tools/lint/requirements.txt
+    - name: "Test the lint tool"
+        run: |
+          ./tools/lint/test/run.py
+    - name: "Lint tests"
+        run: |
+          ./tools/scripts/ci_lint.sh
