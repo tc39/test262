@@ -53,7 +53,7 @@ def clean():
 def deploy():
     shell('git', 'add', '--all', OUT_DIR)
     shell('git', 'commit', '--message', '"Re-build from source"')
-    shell('git', 'push', UPSTREAM, 'master')
+    shell('git', 'push', UPSTREAM, 'main')
     shell('git', 'checkout', '-')
 
 # Generate a deploy key for use in a continuous integration system, allowing

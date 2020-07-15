@@ -19,7 +19,7 @@
   "scripts": {
     "ci": "./tools/scripts/ci_test.sh",
     "test": "test262-harness",
-    "diff": "git diff --diff-filter ACMR --name-only master.. -- test/ && git ls-files --exclude-standard --others -- test/",
+    "diff": "git diff --diff-filter ACMR --name-only main.. -- test/ && git ls-files --exclude-standard --others -- test/",
     "test:diff": "npm run test:diff:v8 && npm run test:diff:spidermonkey && npm run test:diff:chakra && npm run test:diff:javascriptcore",
     "test:diff:v8": "test262-harness -t 8 --hostType=d8 --hostPath=v8 $(npm run --silent diff)",
     "test:diff:spidermonkey": "test262-harness -t 8 --hostType=jsshell --hostPath=spidermonkey $(npm run --silent diff)",
