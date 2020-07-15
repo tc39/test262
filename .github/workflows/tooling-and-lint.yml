@@ -8,9 +8,10 @@ jobs:
       matrix:
         python-version: [2.7, 3.8]
     steps:
-    - name: Remove me
-      run: |
-        echo $GITHUB_PULL_REQUEST
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
     - name: Checkout
       uses: actions/checkout@v2
       with:
@@ -30,6 +31,10 @@ jobs:
       matrix:
         python-version: [2.7, 3.8]
     steps:
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
     - name: Checkout
         uses: actions/checkout@v2
         with:
