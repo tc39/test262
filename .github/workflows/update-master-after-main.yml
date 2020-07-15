@@ -1,4 +1,4 @@
-name: Updates the main branch after main
+name: Updates the main branch after master
 on:
   push:
     branches:
