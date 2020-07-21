@@ -133,6 +133,10 @@ import.meta
 WeakRef
 FinalizationRegistry
 
+# FinalizationRegistry#cleanupSome
+# link pending
+cleanupSome
+
 # Optional Chaining
 # https://github.com/tc39/proposal-optional-chaining
 optional-chaining
