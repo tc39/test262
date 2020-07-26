@@ -7,13 +7,16 @@ info: |
     the NativeFunction grammar production without requiring a correct tokeniser.
 
     NativeFunction :
-      function _IdentifierName_ opt ( _FormalParameters_ ) { [ native code ] }
+      function _NativeFunctionAccessor_ opt _IdentifierName_ opt ( _FormalParameters_ ) { [ native code ] }
+    NativeFunctionAccessor :
+      get
+      set
 defines:
   - NATIVE_FUNCTION_RE
   - assertToStringOrNativeFunction
   - assertNativeFunction
 ---*/
-const NATIVE_FUNCTION_RE = /\bfunction\b[\s\S]*\([\s\S]*\)[\s\S]*\{[\s\S]*\[[\s\S]*\bnative\b[\s\S]+\bcode\b[\s\S]*\][\s\S]*\}/;
+const NATIVE_FUNCTION_RE = /\bfunction\b((get|set)\b)?[\s\S]*\([\s\S]*\)[\s\S]*\{[\s\S]*\[[\s\S]*\bnative\b[\s\S]+\bcode\b[\s\S]*\][\s\S]*\}/;
 
 const assertToStringOrNativeFunction = function(fn, expected) {
   const actual = "" + fn;
