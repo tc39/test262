@@ -16,7 +16,7 @@ info: |
     get
     set
 
-includes: [nativeFunctionMatcher.js, fnGlobalObject.js]
+includes: [nativeFunctionMatcher.js, wellKnownIntrinsicObjects.js]
 features: [arrow-function, Reflect]
 ---*/
 
@@ -50,70 +50,7 @@ function visit(ns, path) {
     });
 }
 
-[
-  // Function Properties of the Global Object
-  'eval',
-  'isFinite',
-  'isNaN',
-  'parseFloat',
-  'parseInt',
-  'decodeURI',
-  'decodeURIComponent',
-  'encodeURI',
-  'encodeURIComponent',
-
-  // Constructor Properties of the Global Object
-  'AggregateError',
-  'Array',
-  'ArrayBuffer',
-  'Boolean',
-  'BigInt',
-  'BigInt64Array',
-  'BigUint64Array',
-  'DataView',
-  'Date',
-  'Error',
-  'EvalError',
-  'FinalizationRegistry',
-  'Float32Array',
-  'Float64Array',
-  'Function',
-  'Int8Array',
-  'Int16Array',
-  'Int32Array',
-  'Map',
-  'Number',
-  'Object',
-  'Promise',
-  'Proxy',
-  'RangeError',
-  'ReferenceError',
-  'RegExp',
-  'Set',
-  'SharedArrayBuffer',
-  'String',
-  'Symbol',
-  'SyntaxError',
-  'TypeError',
-  'Uint8Array',
-  'Uint8ClampedArray',
-  'Uint16Array',
-  'Uint32Array',
-  'URIError',
-  'WeakMap',
-  'WeakRef',
-  'WeakSet',
-
-  // Other Properties of the Global Object
-  'Atomics',
-  'JSON',
-  'Math',
-  'Reflect',
-].forEach((n) => {
-  const ref = fnGlobalObject()[n];
-  if (ref === undefined) {
-    return;
-  }
-  visit(ref, `globalThis.${n}`);
+WellKnownIntrinsicObjects.forEach((intrinsic) => {
+  visit(intrinsic.value, intrinsic.name);
 });
 assert.notSameValue(visited.length, 0);
