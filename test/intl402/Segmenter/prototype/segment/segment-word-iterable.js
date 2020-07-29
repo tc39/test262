@@ -35,6 +35,8 @@ for (const text of [
     assert.sameValue(true, v.hasOwnProperty("isWordLike"));
     assert.sameValue("string", typeof v.segment);
     assert(v.segment.length > 0);
+    assert.sameValue("string", typeof v.input);
+    assert.sameValue(text, v.input);
     segments.push(v.segment);
   }
   assert.sameValue(text, segments.join(''));
