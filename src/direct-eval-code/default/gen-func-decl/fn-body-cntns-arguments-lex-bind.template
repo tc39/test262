@@ -1,0 +1,19 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/gen-func-decl-fn-body-cntns-arguments-lex-bind-
+name: Declare |arguments| when the function body contains an |arguments| lexical binding.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+---*/
+
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");
+
+function * f(p = /*{ parameter-code }*/) {
+  let arguments;
+}
+assert.throws(SyntaxError, f);
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");

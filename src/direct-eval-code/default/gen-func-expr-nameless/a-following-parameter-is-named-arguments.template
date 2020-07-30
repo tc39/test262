@@ -1,0 +1,19 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/gen-func-expr-nameless-a-following-parameter-is-named-arguments-
+name: Declare |arguments| when a following parameter is named |arguments|.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+---*/
+
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");
+
+let f = function * (p = /*{ parameter-code }*/, arguments) {
+  /*{ body }*/
+}
+assert.throws(SyntaxError, f);
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");

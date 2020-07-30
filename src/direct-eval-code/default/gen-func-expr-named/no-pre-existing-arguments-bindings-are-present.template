@@ -1,0 +1,16 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/gen-func-expr-named-no-pre-existing-arguments-bindings-are-present-
+name: Declare |arguments| when no pre-existing |arguments| bindings are present.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+---*/
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");
+
+let f = function * f(p = /*{ parameter-code }*/) {}
+assert.throws(SyntaxError, f);
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");

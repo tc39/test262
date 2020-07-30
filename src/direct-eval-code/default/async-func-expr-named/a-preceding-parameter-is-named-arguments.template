@@ -1,0 +1,22 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/async-func-expr-named-a-preceding-parameter-is-named-arguments-
+name: Declare |arguments| when a preceding parameter is named |arguments|.
+esid: sec-evaldeclarationinstantiation
+flags: [async,noStrict]
+features: [globalThis]
+---*/
+
+const oldArguments = globalThis.arguments;
+
+
+let f = async function f(arguments, p = /*{ parameter-code }*/) {
+  /*{ body }*/
+}
+f().then($DONE, error => {
+  assert(error instanceof SyntaxError);
+  assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");
+}).then($DONE, $DONE);
+

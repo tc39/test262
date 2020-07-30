@@ -1,0 +1,19 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/gen-func-expr-named-fn-body-cntns-arguments-func-decl-
+name: Declare |arguments| when the function body contains an |arguments| function declaration.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+---*/
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");
+
+let f = function * f(p = /*{ parameter-code }*/) {
+  function arguments() {}
+}
+assert.throws(SyntaxError, f);
+
+
+assert.sameValue("arguments" in this, false, "No global 'arguments' binding");
