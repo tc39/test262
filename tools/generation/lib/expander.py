@@ -1,7 +1,7 @@
 # Copyright (C) 2016 the V8 project authors. All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.
 
-import re, os
+import glob, os, re
 
 from .case import Case
 from .template import Template
@@ -16,10 +16,15 @@ class Expander:
 
     def _load_templates(self, template_class, encoding):
         directory = os.path.join(self.case_dir, template_class)
-        file_names = map(
-            lambda x: os.path.join(directory, x),
-            filter(self.is_template_file, os.listdir(directory))
-        )
+        file_names = []
+
+        for expanded_directory in glob.glob(directory):
+            file_names.extend(
+                map(
+                    lambda x: os.path.join(expanded_directory, x),
+                    filter(self.is_template_file, os.listdir(expanded_directory))
+                )
+            )
 
         self.templates[template_class] = [
             Template(x, encoding) for x in file_names

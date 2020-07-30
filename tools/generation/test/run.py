@@ -49,6 +49,11 @@ class TestGeneration(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(OUT_DIR, ignore_errors=True)
 
+    def test_glob(self):
+        result = self.fixture('glob.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('glob')
+
     def test_normal(self):
         result = self.fixture('normal.case')
         self.assertEqual(result['returncode'], 0)
