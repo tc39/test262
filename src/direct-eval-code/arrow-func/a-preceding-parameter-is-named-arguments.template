@@ -1,0 +1,15 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/arrow-fn-a-preceding-parameter-is-named-arguments-
+name: Declare |arguments| when a preceding parameter is named |arguments|.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+---*/
+
+const oldArguments = globalThis.arguments;
+
+const f = (arguments, p = /*{ parameter-code }*/) => {}
+assert.throws(SyntaxError, f);
+assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");

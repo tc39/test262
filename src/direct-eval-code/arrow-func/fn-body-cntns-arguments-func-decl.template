@@ -1,0 +1,22 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/arrow-fn-body-cntns-arguments-func-decl-
+name: Declare |arguments| when the function body contains an |arguments| function declaration.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+---*/
+
+const oldArguments = globalThis.arguments;
+
+let count = 0;
+const f = (p = /*{ parameter-code }*/) => {
+  function arguments() {}
+  assert.sameValue(typeof arguments, "function");
+  /*{ body }*/
+  count++;
+}
+f();
+assert.sameValue(count, 1);
+assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");

@@ -1,0 +1,21 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/async-func-expr-nameless-fn-body-cntns-arguments-func-decl-
+name: Declare |arguments| when the function body contains an |arguments| function declaration.
+esid: sec-evaldeclarationinstantiation
+flags: [async,noStrict]
+features: [globalThis]
+---*/
+
+const oldArguments = globalThis.arguments;
+
+
+let f = async function(p = /*{ parameter-code }*/) {
+  function arguments() {}
+}
+f().then($DONE, error => {
+  assert(error instanceof SyntaxError);
+  assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");
+}).then($DONE, $DONE);

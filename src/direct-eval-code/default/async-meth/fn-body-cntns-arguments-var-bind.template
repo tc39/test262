@@ -1,0 +1,21 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/async-meth-fn-body-cntns-arguments-var-bind-
+name: Declare |arguments| when the function body contains an |arguments| var-binding.
+esid: sec-evaldeclarationinstantiation
+flags: [async,noStrict]
+features: [globalThis]
+---*/
+
+const oldArguments = globalThis.arguments;
+
+
+let o = { async f(p = /*{ parameter-code }*/) {
+  var arguments;
+}};
+o.f().then($DONE, error => {
+  assert(error instanceof SyntaxError);
+  assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");
+}).then($DONE, $DONE);

@@ -1,0 +1,20 @@
+// Copyright (C) 2020 Rick Waldron, André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/eval-code/direct/async-gen-func-expr-fn-body-cntns-arguments-func-decl-
+name: Declare |arguments| when the function body contains an |arguments| function declaration.
+esid: sec-evaldeclarationinstantiation
+flags: [noStrict]
+features: [globalThis]
+---*/
+
+const oldArguments = globalThis.arguments;
+
+
+let f = async function * (p = /*{ parameter-code }*/) {
+  function arguments() {}
+}
+
+assert.throws(SyntaxError, f);
+assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");
