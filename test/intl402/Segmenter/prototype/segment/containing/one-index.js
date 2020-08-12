@@ -36,6 +36,7 @@ const index_to_one = [
     "1.49",
     "14.9E-1",
     "14.9e-1",
+    true,
 ];
 
 // Except granularity: "sentence", check the result.segment is " ".
