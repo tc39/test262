@@ -4,7 +4,7 @@
 /*---
 esid: sec-intl.segmenter
 description:
-    Return abrupt completion from GetOption localeMatcher
+    Return abrupt completion from GetOption granularity
 
 info: |
     Intl.Segmenter ([ locales [ , options ]])
@@ -17,7 +17,7 @@ features: [Intl.Segmenter, Symbol]
 ---*/
 
 var options = {
-  localeMatcher: {
+  granularity: {
     toString() {
       throw new Test262Error();
     }
@@ -28,7 +28,7 @@ assert.throws(Test262Error, () => {
   new Intl.Segmenter(undefined, options);
 }, 'from toString');
 
-options.localeMatcher = {
+options.granularity = {
   toString: undefined,
   valueOf() {
     throw new Test262Error();
@@ -39,7 +39,7 @@ assert.throws(Test262Error, () => {
   new Intl.Segmenter(undefined, options);
 }, 'from valueOf');
 
-options.localeMatcher = {
+options.granularity = {
   [Symbol.toPrimitive]() {
     throw new Test262Error();
   }
@@ -49,7 +49,7 @@ assert.throws(Test262Error, () => {
   new Intl.Segmenter(undefined, options);
 }, 'from ToPrimitive');
 
-options.localeMatcher = Symbol();
+options.granularity = Symbol();
 
 assert.throws(TypeError, () => {
   new Intl.Segmenter(undefined, options);

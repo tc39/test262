@@ -19,5 +19,5 @@ features: [Intl.Segmenter]
 ---*/
 
 assert.throws(TypeError, () => {
-  new Intl.DisplayNames(undefined, null);
+  new Intl.Segmenter(undefined, null);
 }, 'null');
