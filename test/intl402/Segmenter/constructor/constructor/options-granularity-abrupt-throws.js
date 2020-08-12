@@ -4,7 +4,7 @@
 /*---
 esid: sec-intl.segmenter
 description:
-    Return abrupt completion from GetOption localeMatcher
+    Return abrupt completion from GetOption granularity
 info: |
     Intl.Segmenter ([ locales [ , options ]])
 
@@ -17,10 +17,10 @@ features: [Intl.Segmenter]
 
 
 var options = {};
-Object.defineProperty(options, 'localeMatcher', {
+Object.defineProperty(options, 'granularity', {
   get() { throw new Test262Error(); },
 });
 
 assert.throws(Test262Error, () => {
-  new Intl.DisplayNames(undefined, options);
+  new Intl.Segmenter(undefined, options);
 });
