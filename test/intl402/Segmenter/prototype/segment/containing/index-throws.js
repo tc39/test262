@@ -17,7 +17,6 @@ info: |
     Symbol | Throw a TypeError exception.
     BigInt | Throw a TypeError exception.
 
-includes: [propertyHelper.js]
 features: [Intl.Segmenter]
 ---*/
 

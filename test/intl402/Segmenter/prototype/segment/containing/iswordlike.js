@@ -13,8 +13,6 @@ info: |
      a. Let isWordLike be a Boolean value indicating whether the segment in string is "word-like" according to locale segmenter.[[Locale]].
      b. Perform ! CreateDataPropertyOrThrow(result, "isWordLike", isWordLike).
 
-
-includes: [propertyHelper.js]
 features: [Intl.Segmenter]
 ---*/
 
