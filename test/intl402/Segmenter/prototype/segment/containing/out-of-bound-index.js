@@ -20,7 +20,6 @@ info: |
     ToNumber ( argument )
     String | See grammar and conversion algorithm below.
 
-includes: [propertyHelper.js]
 features: [Intl.Segmenter]
 ---*/
 
