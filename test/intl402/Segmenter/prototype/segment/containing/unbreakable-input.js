@@ -9,7 +9,6 @@ info: |
     8. Let startIndex be ! FindBoundary(segmenter, string, n, before).
     9. Let endIndex be ! FindBoundary(segmenter, string, n, after).
 
-includes: [propertyHelper.js]
 features: [Intl.Segmenter]
 ---*/
 

@@ -22,7 +22,6 @@ info: |
     Null      | Return +0.
     Boolean   | If argument is true, return 1. If argument is false, return +0.
 
-includes: [propertyHelper.js]
 features: [Intl.Segmenter]
 ---*/
 
