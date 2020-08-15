@@ -10,7 +10,7 @@ references:
   js_deps_backup_cache_key: &js_deps_backup_cache_key
     v1-dependency-js-deps
   node_latest: &node_latest
-    circleci/node:latest
+    circleci/node:lts
 
 restore_cache: &restore_cache
   restore_cache:
