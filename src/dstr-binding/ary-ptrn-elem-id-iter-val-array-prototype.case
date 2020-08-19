@@ -1,0 +1,46 @@
+// Copyright (C) 2020 Alexey Shvayka. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Array destructuring uses overriden Array.prototype[Symbol.iterator]
+template: default
+info: |
+    Runtime Semantics: IteratorBindingInitialization
+
+    SingleNameBinding : BindingIdentifier Initializer_opt
+
+    1. Let bindingId be StringValue of BindingIdentifier.
+    2. Let lhs be ? ResolveBinding(bindingId, environment).
+    3. If iteratorRecord.[[Done]] is false, then
+        a. Let next be IteratorStep(iteratorRecord).
+        b. If next is an abrupt completion, set iteratorRecord.[[Done]] to true.
+        c. ReturnIfAbrupt(next).
+        d. If next is false, set iteratorRecord.[[Done]] to true.
+        e. Else,
+            i. Let v be IteratorValue(next).
+            ii. If v is an abrupt completion, set iteratorRecord.[[Done]] to true.
+            iii. ReturnIfAbrupt(v).
+    [...]
+    7. Return InitializeReferencedBinding(lhs, v).
+features: [Symbol.iterator, generators]
+---*/
+
+//- setup
+Array.prototype[Symbol.iterator] = function* () {
+    if (this.length > 0) {
+        yield this[0];
+    }
+    if (this.length > 1) {
+        yield this[1];
+    }
+    if (this.length > 2) {
+        yield 42;
+    }
+};
+//- elems
+[x, y, z]
+//- vals
+[1, 2, 3]
+//- body
+assert.sameValue(x, 1);
+assert.sameValue(y, 2);
+assert.sameValue(z, 42);
