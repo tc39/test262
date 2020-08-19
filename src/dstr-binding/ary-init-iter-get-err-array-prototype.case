@@ -1,0 +1,32 @@
+// Copyright (C) 2020 Alexey Shvayka. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Abrupt completion returned by GetIterator
+template: error
+info: |
+    Runtime Semantics: BindingInitialization
+
+    BindingPattern : ArrayBindingPattern
+
+    1. Let iteratorRecord be ? GetIterator(value).
+
+    GetIterator ( obj [ , hint [ , method ] ] )
+
+    [...]
+    4. Let iterator be ? Call(method, obj).
+
+    Call ( F, V [ , argumentsList ] )
+
+    [...]
+    2. If IsCallable(F) is false, throw a TypeError exception.
+features: [Symbol.iterator]
+---*/
+
+//- setup
+delete Array.prototype[Symbol.iterator];
+//- elems
+[x, y, z]
+//- vals
+[1, 2, 3]
+//- error
+TypeError
