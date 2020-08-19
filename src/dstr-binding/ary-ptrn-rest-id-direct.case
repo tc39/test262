@@ -1,0 +1,27 @@
+// Copyright (C) 2020 Alexey Shvayka. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Lone rest element (direct binding)
+template: default
+info: |
+    Runtime Semantics: IteratorBindingInitialization
+
+    BindingRestElement : ... BindingIdentifier
+
+    [...]
+    2. Let A be ! ArrayCreate(0).
+    3. Let n be 0.
+    4. Repeat,
+        [...]
+        f. Perform ! CreateDataPropertyOrThrow(A, ! ToString(n), nextValue).
+        g. Set n to n + 1.
+includes: [compareArray.js]
+---*/
+
+//- elems
+[...x]
+//- vals
+[1]
+//- body
+assert(Array.isArray(x));
+assert.compareArray(x, [1]);
