@@ -84,7 +84,7 @@ assert.throws = function (expectedErrorConstructor, func, message) {
       message += 'Thrown value was not an object!';
       $ERROR(message);
     } else if (thrown.constructor !== expectedErrorConstructor) {
-      message += 'Expected a ' + expectedErrorConstructor.name + ' but got a ' + thrown.constructor.name;
+      message += 'Expected a ' + expectedErrorConstructor.name + ' but got a ' + thrown.constructor.name + ' ' + thrown.message;
       $ERROR(message);
     }
     return;
