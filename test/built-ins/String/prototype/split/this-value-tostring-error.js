@@ -12,10 +12,17 @@ info: |
   1. Let _S_ be ? ToString(_O_).
 ---*/
 
+function ExpectedError(message) {
+  this.message = message || "";
+}
+ExpectedError.prototype.toString = function () {
+  return "ExpectedError: " + this.message;
+};
+
 var split = String.prototype.split;
 
 var nonStringableReceiver = {};
-nonStringableReceiver.toString = function() { throw new Test262Error(); };
+nonStringableReceiver.toString = function() { throw new ExpectedError("receiver.toString"); };
 
 var splitter = {};
 splitter[Symbol.split] = function() {};
@@ -28,10 +35,11 @@ try {
 }
 
 var nonStringableSeparator = {};
-nonStringableSeparator[Symbol.toPrimitive] = $DONOTEVALUATE;
-nonStringableSeparator.toString = $DONOTEVALUATE;
-nonStringableSeparator.valueOf = $DONOTEVALUATE;
+nonStringableSeparator[Symbol.toPrimitive] =
+  function() { throw new Test262Error("separator[Symbol.toPrimitive]"); };
+nonStringableSeparator.toString = function() { throw new Test262Error("separator.toString"); };
+nonStringableSeparator.valueOf = function() { throw new Test262Error("separator.valueOf"); };
 
-assert.throws(Test262Error, function() {
+assert.throws(ExpectedError, function() {
   split.call(nonStringableReceiver, nonStringableSeparator, Symbol());
 }, 'ToString should be called on the receiver before processing the separator or limit.');

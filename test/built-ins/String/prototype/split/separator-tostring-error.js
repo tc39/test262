@@ -8,9 +8,16 @@ info: |
   1. If _lim_ = 0, return _A_.
 ---*/
 
-var nonStringableSeparator = {};
-nonStringableSeparator.toString = function() { throw new Test262Error(); };
+function ExpectedError(message) {
+  this.message = message || "";
+}
+ExpectedError.prototype.toString = function () {
+  return "ExpectedError: " + this.message;
+};
 
-assert.throws(Test262Error, function() {
+var nonStringableSeparator = {};
+nonStringableSeparator.toString = function() { throw new ExpectedError(); };
+
+assert.throws(ExpectedError, function() {
   "foo".split(nonStringableSeparator, 0);
 }, 'ToString should be called on the separator before checking if the limit is zero.');
