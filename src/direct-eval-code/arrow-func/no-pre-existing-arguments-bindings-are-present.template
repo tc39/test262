@@ -7,9 +7,7 @@ name: Declare |arguments| when no pre-existing |arguments| bindings are present.
 esid: sec-evaldeclarationinstantiation
 flags: [noStrict]
 ---*/
-
 const oldArguments = globalThis.arguments;
-
 let count = 0;
 const f = (p = /*{ parameter-code }*/) => {
   assert.sameValue(arguments, "param");
