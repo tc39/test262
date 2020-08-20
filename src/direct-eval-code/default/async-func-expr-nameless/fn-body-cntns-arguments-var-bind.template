@@ -8,10 +8,7 @@ esid: sec-evaldeclarationinstantiation
 flags: [async,noStrict]
 features: [globalThis]
 ---*/
-
 const oldArguments = globalThis.arguments;
-
-
 let f = async function(p = /*{ parameter-code }*/) {
   var arguments;
 }

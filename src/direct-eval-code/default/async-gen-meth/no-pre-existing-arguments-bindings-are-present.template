@@ -8,10 +8,7 @@ esid: sec-evaldeclarationinstantiation
 flags: [noStrict]
 features: [globalThis]
 ---*/
-
 const oldArguments = globalThis.arguments;
-
-
 let o = { async *f(p = /*{ parameter-code }*/) {}};
 assert.throws(SyntaxError, o.f);
 assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");
