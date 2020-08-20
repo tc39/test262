@@ -7,9 +7,7 @@ esid: sec-evaldeclarationinstantiation
 flags: [generated, noStrict]
 ---*/
 
-
 const oldArguments = globalThis.arguments;
-
 const f = (p = eval("var arguments = 'param'"), arguments) => {}
 assert.throws(SyntaxError, f);
 assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");

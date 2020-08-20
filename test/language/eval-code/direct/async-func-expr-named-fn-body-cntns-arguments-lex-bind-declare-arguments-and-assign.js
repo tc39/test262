@@ -8,10 +8,7 @@ features: [globalThis]
 flags: [generated, async, noStrict]
 ---*/
 
-
 const oldArguments = globalThis.arguments;
-
-
 let f = async function f(p = eval("var arguments = 'param'")) {
   let arguments;
 }

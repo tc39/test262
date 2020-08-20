@@ -8,10 +8,7 @@ features: [globalThis]
 flags: [generated, async, noStrict]
 ---*/
 
-
 const oldArguments = globalThis.arguments;
-
-
 async function f(p = eval("var arguments = 'param'")) {}
 f().then($DONE, error => {
   assert(error instanceof SyntaxError);
