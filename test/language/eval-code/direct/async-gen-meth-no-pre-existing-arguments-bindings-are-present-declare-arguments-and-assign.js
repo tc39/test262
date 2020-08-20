@@ -8,10 +8,7 @@ features: [globalThis]
 flags: [generated, noStrict]
 ---*/
 
-
 const oldArguments = globalThis.arguments;
-
-
 let o = { async *f(p = eval("var arguments = 'param'")) {}};
 assert.throws(SyntaxError, o.f);
 assert.sameValue(globalThis.arguments, oldArguments, "globalThis.arguments unchanged");
