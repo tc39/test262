@@ -190,6 +190,16 @@ an exception, or if the name of the thrown exception's constructor does not
 match the specified constructor name, or if the error occurs at a phase that
 differs from the indicated phase, the test must be interpreted as "failing."
 
+The **`$DONOTEVALUATE()`** function is for use in tests that include the following meta data: 
+
+```
+negative:
+  phase: runtime
+  type: ReferenceError
+```
+
+The definition is considered "runner implementation defined" and no guarantees can be made about its behavior, therefore it is restricted to only tests that meet the criteria described above. 
+
 *Examples:*
 
 ```js
