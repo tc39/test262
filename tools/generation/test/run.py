@@ -59,6 +59,11 @@ class TestGeneration(unittest.TestCase):
         self.assertEqual(result['returncode'], 0)
         self.compareTrees('normal')
 
+    def test_async(self):
+        result = self.fixture('async-negative-invalid.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('async')
+
     def test_negative(self):
         result = self.fixture('negative.case')
         self.assertEqual(result['returncode'], 0)
