@@ -156,10 +156,20 @@ class Template:
         if len(features):
             lines += ['features: ' + re.sub('\n\s*', ' ', yaml.dump(features, default_flow_style=True).strip())]
 
+        # Reconcile "negative" meta data before "flags"
+        if case_values['meta'].get('negative'):
+            if self.attribs['meta'].get('negative'):
+                raise Exception('Cannot specify negative in case and template file')
+            negative = case_values['meta'].get('negative')
+        else:
+            negative = self.attribs['meta'].get('negative')
+
         flags = ['generated']
         flags += case_values['meta'].get('flags', [])
         flags += self.attribs['meta'].get('flags', [])
         flags = list(OrderedDict.fromkeys(flags))
+        if 'async' in flags and negative and negative.get('phase') == 'parse' and negative.get('type') == 'SyntaxError':
+            flags.remove('async')
         lines += ['flags: ' + re.sub('\n\s*', ' ', yaml.dump(flags, default_flow_style=True).strip())]
 
         includes = []
@@ -169,17 +179,9 @@ class Template:
         if len(includes):
             lines += ['includes: ' + re.sub('\n\s*', ' ', yaml.dump(includes, default_flow_style=True).strip())]
 
-        if case_values['meta'].get('negative'):
-            if self.attribs['meta'].get('negative'):
-                raise Exception('Cannot specify negative in case and template file')
-            negative = case_values['meta'].get('negative')
-        else:
-            negative = self.attribs['meta'].get('negative')
-
         if negative:
             lines += ['negative:']
-            as_yaml = yaml.dump(negative,
-                                default_flow_style=False)
+            as_yaml = yaml.dump(negative, default_flow_style=False)
             lines += indent(as_yaml.strip(), '  ').split('\n')
 
         info = []
