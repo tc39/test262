@@ -16,10 +16,6 @@ info: |
   ...
   GetPrototypeFromConstructor ( constructor, intrinsicDefaultProto )
   3. Let proto be ? Get(constructor, "prototype").
-  4. If Type(proto) is not Object, then
-    a. Let realm be ? GetFunctionRealm(constructor).
-    b. Set proto to realm's intrinsic object named intrinsicDefaultProto.
-  5. Return proto.
 features: [Intl.Segmenter, Reflect, Proxy]
 ---*/
 

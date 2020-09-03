@@ -19,8 +19,8 @@ info: |
   8. Let matcher be ? GetOption(options, "localeMatcher", "string", « "lookup", "best fit" », "best fit").
 
   GetOption ( options, property, type, values, fallback )
-
-  1. Let value be ? Get(options, property).
+  6. If type is "string", then
+        a. Let value be ? ToString(value).
   ...
 features: [Intl.Segmenter, Symbol]
 ---*/
