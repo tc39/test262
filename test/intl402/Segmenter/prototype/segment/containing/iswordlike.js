@@ -42,14 +42,13 @@ other_granularities.forEach(
         const segment = segmenter.segment(input);
         for (let index = 0; index < input.length; index++) {
           const result = segment.containing(index);
-          const msg = "granularity: " + granularity + " input: " + input +
-              " containing(" + index + ") ";
-          assert.sameValue(true, result.index >= 0, msg + "index >= 0");
-          assert.sameValue(true, result.index < input.length,
-              msg + "index < " + input.length);
-          assert.sameValue("string", typeof result.input, msg + "input");
+          const msg =
+              `granularity: ${granularity} input: ${input} containing(${index})`;
+          assert.sameValue(true, result.index >= 0, `${msg} index >= 0`);
+          assert.sameValue(true, result.index < input.length, `${msg} index`);
+          assert.sameValue("string", typeof result.input, `${msg} input`);
           assert.sameValue(undefined, result.isWordLike,
-              msg + "isWordLike should be undefined");
+              `${msg} isWordLike should be undefined`);
         }
       });
     });

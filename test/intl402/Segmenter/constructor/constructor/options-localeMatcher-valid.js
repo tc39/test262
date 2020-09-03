@@ -31,7 +31,7 @@ const localeMatchers = [
 ];
 
 localeMatchers.forEach(localeMatcher => {
-  const obj = new Intl.Segmenter();
+  const obj = new Intl.Segmenter(undefined, { localeMatcher });
 
   assert(obj instanceof Intl.Segmenter, `instanceof check - ${localeMatcher}`);
   assert.sameValue(Object.getPrototypeOf(obj), Intl.Segmenter.prototype, `proto check - ${localeMatcher}`);

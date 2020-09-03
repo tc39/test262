@@ -12,7 +12,8 @@ info: |
     13. Let granularity be ? GetOption(options, "granularity", "string", « "grapheme", "word", "sentence" », "grapheme").
 
     GetOption ( options, property, type, values, fallback )
-    1. Let value be ? Get(options, property).
+    6. If type is "string", then
+        a. Let value be ? ToString(value).
 features: [Intl.Segmenter, Symbol]
 ---*/
 

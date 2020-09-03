@@ -37,19 +37,17 @@ granularities.forEach(
       const segmenter = new Intl.Segmenter(undefined, {granularity});
       inputs.forEach(function(input) {
         const segment = segmenter.segment(input);
-        let msg = "granularity: " + granularity + " input: " + input;
+        let msg = `granularity: ${granularity} input: ${input}`;
         const first = segment.containing(0);
-        assert.sameValue(0, first.index,
-            msg + " containing(0) index");
-        assert.sameValue(input, first.input,
-            msg + " containing(0) input");
+        assert.sameValue(0, first.index, `${msg} containing(0) index`);
+        assert.sameValue(input, first.input, `${msg} containing(0) input`);
         assert.sameValue(false, first.segment == input,
-            msg + " containing(0) segment");
+            `${msg} containing(0) segment`);
         const last = segment.containing(input.length - 1);
-        msg += " containing(" + input.length - 1 + ") "
-        assert.sameValue(true, last.index > 0, msg + " index > 0");
-        assert.sameValue(true, last.index < input.length, msg + " index");
-        assert.sameValue(input, last.input, msg + " input");
-        assert.sameValue(false, last.segment == input, msg + " segment");
+        msg += ` containing(${input.length - 1}) `
+        assert.sameValue(true, last.index > 0, `${msg} index > 0`);
+        assert.sameValue(true, last.index < input.length, `${msg} index`);
+        assert.sameValue(input, last.input, `${msg} input`);
+        assert.sameValue(false, last.segment == input, `${msg} segment`);
       });
     });
