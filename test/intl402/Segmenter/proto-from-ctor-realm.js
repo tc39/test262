@@ -24,9 +24,9 @@ info: |
 features: [cross-realm, Reflect, Symbol, Intl.Segmenter]
 ---*/
 
-var other = $262.createRealm().global;
-var newTarget = new other.Function();
-var sgm;
+const other = $262.createRealm().global;
+const newTarget = new other.Function();
+let sgm;
 
 newTarget.prototype = undefined;
 sgm = Reflect.construct(Intl.Segmenter, [], newTarget);
