@@ -19,7 +19,7 @@ info: |
 features: [Intl.Segmenter, Reflect, Proxy]
 ---*/
 
-var custom = new Proxy(new Function(), {
+const custom = new Proxy(new Function(), {
   get(target, key) {
     if (key === 'prototype') {
       throw new Test262Error();
