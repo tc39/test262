@@ -25,7 +25,7 @@ info: |
 features: [Intl.Segmenter, Symbol]
 ---*/
 
-var options = {
+const options = {
   localeMatcher: {
     toString() {
       throw new Test262Error();
