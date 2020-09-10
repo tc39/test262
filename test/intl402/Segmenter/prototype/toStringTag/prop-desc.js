@@ -1,4 +1,5 @@
 // Copyright 2018 Igalia, S.L. All rights reserved.
+// Copyright 2019 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
