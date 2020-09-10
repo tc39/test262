@@ -15,6 +15,7 @@ features: [Intl.Segmenter]
 ---*/
 
 verifyProperty(Intl.Segmenter, "prototype", {
+  value: Intl.Segmenter.prototype,
   writable: false,
   enumerable: false,
   configurable: false,
