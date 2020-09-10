@@ -17,7 +17,7 @@ info: |
 features: [Intl.Segmenter, Symbol]
 ---*/
 
-var options = {
+const options = {
   granularity: {
     toString() {
       throw new Test262Error();
