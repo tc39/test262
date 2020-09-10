@@ -23,6 +23,8 @@ template: initializer-eval-arguments
 
 //- initializer
 arguments
+//- arrow-body
+() => arguments
 //- earlyerror
 SyntaxError
 //- executionerror

@@ -1,0 +1,18 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/expressions/class/elements/nested-comp-name-
+name: computed ClassElementName
+features: [class, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
+---*/
+$DONOTEVALUATE();
+
+var x = "string";
+var C = class {
+  [x] = () => /*{ initializer }*/;
+}

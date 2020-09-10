@@ -23,6 +23,8 @@ template: initializer-eval-newtarget
 
 //- initializer
 new.target
+//- arrow-body
+() => new.target
 //- earlyerror
 SyntaxError
 //- executionerror

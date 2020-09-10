@@ -23,6 +23,8 @@ template: initializer-eval-super-call
 
 //- initializer
 super()
+//- arrow-body
+() => super()
 //- earlyerror
 SyntaxError
 //- executionerror

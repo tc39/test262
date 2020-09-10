@@ -1,0 +1,23 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-performeval-rules-in-initializer
+path: language/statements/class/elements/nested-indirect-
+name: indirect eval
+features: [class, class-fields-public]
+---*/
+
+var executed = false;
+class C {
+  x = () => {
+    var t = () => { (0, eval)('executed = true; /*{ initializer }*/;'); };
+    t();
+  }
+}
+
+assert.throws(/*{ executionerror }*/, function() {
+  new C().x();
+});
+
+assert.sameValue(executed, false);

@@ -22,3 +22,5 @@ template: initializer-eval-super-property
 
 //- initializer
 super.x
+//- arrow-body
+() => super.x

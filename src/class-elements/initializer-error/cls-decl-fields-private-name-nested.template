@@ -1,0 +1,17 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/statements/class/elements/nested-private-literal-name-
+name: ClassElementName PrivateName
+features: [class, class-fields-private]
+negative:
+  type: SyntaxError
+  phase: parse
+---*/
+$DONOTEVALUATE();
+
+class C {
+  #x = () => /*{ initializer }*/;
+}

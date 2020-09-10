@@ -1,0 +1,17 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/expressions/class/elements/nested-static-literal-
+name: static literal ClassElementName
+features: [class, class-static-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
+---*/
+$DONOTEVALUATE();
+
+var C = class {
+  static x = () => /*{ initializer }*/;
+}

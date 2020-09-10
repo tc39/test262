@@ -16,6 +16,8 @@ template: initializer-eval-super-call
 
 //- initializer
 super().x
+//- arrow-body
+() => super().x
 //- earlyerror
 SyntaxError
 //- executionerror
