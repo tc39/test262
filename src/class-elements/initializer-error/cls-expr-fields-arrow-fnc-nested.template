@@ -1,0 +1,20 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-class-definitions-static-semantics-early-errors
+path: language/expressions/class/elements/nested-arrow-fnc-
+name: arrow function expression
+features: [arrow-function, class, class-fields-public]
+negative:
+  type: SyntaxError
+  phase: parse
+---*/
+
+$DONOTEVALUATE();
+
+var C = class {
+  x = () => {
+    var t = () => /*{ initializer }*/;
+  }
+}

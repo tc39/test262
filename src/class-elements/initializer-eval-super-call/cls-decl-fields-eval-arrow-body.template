@@ -1,0 +1,21 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-performeval-rules-in-initializer
+path: language/statements/class/elements/arrow-body-derived-cls-direct-
+name: direct eval
+features: [class, class-fields-public]
+---*/
+
+var executed = false;
+class A {}
+class C extends A {
+  x = eval('executed = true; /*{ arrow-body }*/;');
+}
+
+assert.throws(SyntaxError, function() {
+  new C().x();
+});
+
+assert.sameValue(executed, false);

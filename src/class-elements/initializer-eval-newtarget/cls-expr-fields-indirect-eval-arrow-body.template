@@ -1,0 +1,18 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-performeval-rules-in-initializer
+path: language/expressions/class/elements/arrow-body-indirect-
+name: indirect eval
+features: [class, class-fields-public]
+---*/
+
+var C = class {
+  x = (0, eval)('/*{ arrow-body }*/;');
+}
+
+assert.throws(SyntaxError, function() {
+  new C().x();
+});
+
