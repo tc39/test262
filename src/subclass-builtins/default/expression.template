@@ -1,0 +1,13 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/subclass-builtins/subclass-
+name: Subclass instanceof Heritage
+---*/
+
+const Subclass = class extends /*{ builtin }*/ {}
+
+const sub = new Subclass(/*{ args }*/);
+assert(sub instanceof Subclass);
+assert(sub instanceof /*{ builtin }*/);
