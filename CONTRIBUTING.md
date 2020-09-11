@@ -6,6 +6,16 @@
 - https://github.com/tc39/ecma262/pulls?q=is%3Apr+is%3Aopen+label%3A%22needs+tests%22
   + This is a list of the "needs tests" PRs for changes to the specification.
 
+## Acceptable Tests
+
+Any test that execercises observable grammar or semantics, originating with citable, normative text in the latest draft of the [ECMAScript Language Specification](https://tc39.es/ecma262/), the [ECMAScript Internationalization API Specification](https://tc39.es/ecma402/), the [The JSON Data
+Interchange Syntax](https://ecma-international.org/publications/standards/Ecma-404.htm), a [Stage 3](https://github.com/tc39/proposals#stage-3) proposal or a Pull Request which makes a normative change to any of those specifications.
+
+## Unacceptable Tests
+
+Any test that restricts potentially valid extensions to the ECMAScript Language will not be accepted. Implementations are allowed to extend the language in any way that does not contradict the normative grammar specification, nor violate the specification's [Forbidden Extensions](https://tc39.es/ecma262/#sec-forbidden-extensions) section, which clearly lists the only exceptions to this rule.
+
+
 ## Test Case Names
 
 Test cases should be created in files that are named to identify the feature or API that's being tested.
