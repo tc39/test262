@@ -3,7 +3,7 @@
 /*---
 esid: sec-array.prototype.shift
 description: >
-  Array#shift throws TypeError upon attempting to modify a string
+  Array#shift throws TypeError if this value's "length" property was defined with [[Writable]]: false.
 info: |
   Array.prototype.shift ( )
   ...
@@ -25,3 +25,11 @@ assert.throws(TypeError, () => {
 assert.throws(TypeError, () => {
   Array.prototype.shift.call('abc');
 }, "Array.prototype.shift.call('abc')");
+
+assert.throws(TypeError, () => {
+  Array.prototype.shift.call(function() {});
+}, "Array.prototype.shift.call(function() {})");
+
+assert.throws(TypeError, () => {
+  Array.prototype.shift.call(Object.defineProperty({}, 'length', {writable: false}));
+}, "Array.prototype.shift.call(Object.defineProperty({}, 'length', {writable: false}))");
