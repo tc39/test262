@@ -417,3 +417,17 @@ The executable located at `tools/generation/generator.py` offers additional cont
     ./tools/generation/generator.py --help
 
 Tests expressed with this convention are built automatically following the source files' acceptance into the project. Patches should **not** include assets built from these sources.
+
+
+## Reporting Bugs to Implementers
+
+- [ChakraCore](https://github.com/microsoft/ChakraCore/issues/new)
+- [engine262](https://github.com/engine262/engine262/issues/new)
+- [Hermes](https://github.com/facebook/hermes/issues/new?labels%5B%5D=need+triage&labels%5B%5D=bug&template=01_bug_report.md&title=)
+- [JavaScriptCore](https://bugs.webkit.org/enter_bug.cgi?product=WebKit&component=JavaScriptCore)
+- [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)
+- [QuickJS](https://github.com/bellard/quickjs/issues/new)
+- [SpiderMonkey](https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=JavaScript%20Engine)
+- [V8](https://bugs.chromium.org/p/v8/issues/entry)
+
+
