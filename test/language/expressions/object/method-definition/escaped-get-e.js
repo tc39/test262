@@ -1,10 +1,10 @@
-// Copyright (C) 2017 André Bargull. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-grammar-notation
 description: >
-  The `set` contextual keyword must not contain Unicode escape sequences.
+  The `get` contextual keyword must not contain Unicode escape sequences.
 info: |
   Terminal symbols of the lexical, RegExp, and numeric string grammars are shown
   in fixed width font, both in the productions of the grammars and throughout this
@@ -21,5 +21,5 @@ negative:
 $DONOTEVALUATE();
 
 ({
-  \u0073\u0065\u0074 m(v) {}
+  g\u0065t m() {}
 });

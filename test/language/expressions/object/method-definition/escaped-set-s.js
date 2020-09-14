@@ -1,4 +1,4 @@
-// Copyright (C) 2017 André Bargull. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -21,5 +21,5 @@ negative:
 $DONOTEVALUATE();
 
 ({
-  \u0073\u0065\u0074 m(v) {}
+  \u0073et m(v) {}
 });
