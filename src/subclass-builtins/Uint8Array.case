@@ -5,6 +5,7 @@
 esid: sec-ecmascript-standard-built-in-objects
 desc: >
   new SubUint8Array() instanceof Uint8Array
+features: [TypedArray, Uint8Array]
 template: default
 ---*/
 

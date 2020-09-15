@@ -5,6 +5,7 @@
 esid: sec-ecmascript-standard-built-in-objects
 desc: >
   new SubBigInt64Array() instanceof BigInt64Array
+features: [TypedArray, BigInt]
 template: default
 ---*/
 
