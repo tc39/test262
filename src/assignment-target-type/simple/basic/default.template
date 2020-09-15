@@ -1,0 +1,10 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/assignmenttargettype/simple-basic-
+name: Simple
+  Direct assignment
+---*/
+
+/*{ assignmenttarget }*/ = 1;

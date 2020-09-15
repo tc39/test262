@@ -1,0 +1,19 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-static-semantics-static-semantics-assignmenttargettype
+desc: >
+  Static Semantics AssignmentTargetType, Return simple
+info: |
+  MemberExpression . IdentifierName
+  Static Semantics AssignmentTargetType, Return simple
+template: simple/complex
+---*/
+
+//- assignmenttarget
+o.v
+//- operator
+=
+//- value
+1

@@ -1,0 +1,20 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-identifiers-static-semantics-assignmenttargettype
+desc: >
+  If this IdentifierReference is contained in strict mode code and StringValue of Identifier is "eval" or "arguments", return invalid.
+flags: [onlyStrict]
+template: invalid
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- assignmenttarget
+eval
+//- operator
+=
+//- value
+1

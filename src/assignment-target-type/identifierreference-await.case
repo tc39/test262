@@ -1,0 +1,14 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-identifiers-static-semantics-assignmenttargettype
+desc: >
+  IdentifierReference  await Return simple.
+template: simple/basic
+---*/
+
+//- setup
+var await = 0;
+//- assignmenttarget
+await
