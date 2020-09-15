@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubBigUint64Array() instanceof BigUint64Array (Subclass instanceof Heritage)
+features: [TypedArray, BigInt]
 flags: [generated]
 ---*/
 

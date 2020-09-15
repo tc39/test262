@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubPromise() instanceof Promise (Subclass instanceof Heritage)
+features: [Promise]
 flags: [generated]
 ---*/
 

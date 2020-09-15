@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubAggregateError() instanceof AggregateError (Subclass instanceof Heritage)
+features: [AggregateError]
 flags: [generated]
 ---*/
 

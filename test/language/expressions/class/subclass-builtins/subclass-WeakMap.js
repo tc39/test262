@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubWeakMap() instanceof WeakMap (Subclass instanceof Heritage)
+features: [WeakMap]
 flags: [generated]
 ---*/
 

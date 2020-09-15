@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubUint16Array() instanceof Uint16Array (Subclass instanceof Heritage)
+features: [TypedArray, Uint16Array]
 flags: [generated]
 ---*/
 
