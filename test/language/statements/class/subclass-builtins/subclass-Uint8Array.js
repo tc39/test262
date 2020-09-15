@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubUint8Array() instanceof Uint8Array (Subclass instanceof Heritage)
+features: [TypedArray, Uint8Array]
 flags: [generated]
 ---*/
 

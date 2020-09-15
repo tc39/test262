@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubUint8ClampedArray() instanceof Uint8ClampedArray (Subclass instanceof Heritage)
+features: [TypedArray, Uint8ClampedArray]
 flags: [generated]
 ---*/
 

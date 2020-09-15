@@ -1,15 +1,15 @@
 // This file was procedurally generated from the following sources:
-// - src/subclass-builtins/WeakMap.case
+// - src/subclass-builtins/WeakRef.case
 // - src/subclass-builtins/default/statement.template
 /*---
-description: new SubWeakMap() instanceof WeakMap (Subclass instanceof Heritage)
-features: [WeakMap]
+description: new SubWeakRef() instanceof WeakRef (Subclass instanceof Heritage)
+features: [WeakRef]
 flags: [generated]
 ---*/
 
 
-class Subclass extends WeakMap {}
+class Subclass extends WeakRef {}
 
 const sub = new Subclass();
 assert(sub instanceof Subclass);
-assert(sub instanceof WeakMap);
+assert(sub instanceof WeakRef);

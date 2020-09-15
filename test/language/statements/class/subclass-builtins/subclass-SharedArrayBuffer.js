@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubSharedArrayBuffer() instanceof SharedArrayBuffer (Subclass instanceof Heritage)
+features: [SharedArrayBuffer]
 flags: [generated]
 ---*/
 

@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubSet() instanceof Set (Subclass instanceof Heritage)
+features: [Set]
 flags: [generated]
 ---*/
 

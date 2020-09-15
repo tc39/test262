@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubMap() instanceof Map (Subclass instanceof Heritage)
+features: [Map]
 flags: [generated]
 ---*/
 

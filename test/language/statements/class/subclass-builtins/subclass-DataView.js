@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubDataView() instanceof DataView (Subclass instanceof Heritage)
+features: [TypedArray, DataView]
 flags: [generated]
 ---*/
 

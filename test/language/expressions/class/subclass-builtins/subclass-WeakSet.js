@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubWeakSet() instanceof WeakSet (Subclass instanceof Heritage)
+features: [WeakSet]
 flags: [generated]
 ---*/
 

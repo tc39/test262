@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/statement.template
 /*---
 description: new SubFloat64Array() instanceof Float64Array (Subclass instanceof Heritage)
+features: [TypedArray, Float64Array]
 flags: [generated]
 ---*/
 

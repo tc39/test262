@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubFloat32Array() instanceof Float32Array (Subclass instanceof Heritage)
+features: [TypedArray, Float32Array]
 flags: [generated]
 ---*/
 

@@ -3,6 +3,7 @@
 // - src/subclass-builtins/default/expression.template
 /*---
 description: new SubArrayBuffer() instanceof ArrayBuffer (Subclass instanceof Heritage)
+features: [TypedArray, ArrayBuffer]
 flags: [generated]
 ---*/
 
