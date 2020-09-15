@@ -1,0 +1,14 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/assignmenttargettype/simple-complex-
+name: Simple
+  Direct assignment
+---*/
+
+let v = 'v';
+let o = { [v]: 1, f() {} };
+let f = () => o;
+
+/*{ assignmenttarget }*/ /*{ operator }*/ /*{ value }*/;

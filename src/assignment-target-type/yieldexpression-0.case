@@ -1,0 +1,22 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-assignment-operators-static-semantics-assignmenttargettype
+desc: >
+  Static Semantics AssignmentTargetType, Return invalid.
+info: |
+  YieldExpression
+  Static Semantics AssignmentTargetType, Return invalid.
+template: invalid
+negative: 
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- assignmenttarget
+yield x
+//- operator
+=
+//- value
+1

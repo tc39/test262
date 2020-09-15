@@ -1,0 +1,22 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-update-expressions-static-semantics-early-errors
+desc: >
+  It is an early Syntax Error if AssignmentTargetType of UnaryExpression is not simple.
+info: |
+  UpdateExpression: --UnaryExpression
+  It is an early Syntax Error if AssignmentTargetType of UnaryExpression is not simple.
+template: invalid
+negative: 
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- assignmenttarget
+--x
+//- operator
+=
+//- value
+1
