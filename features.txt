@@ -217,6 +217,7 @@ Float32Array
 Float64Array
 generators
 Int8Array
+Int16Array
 Int32Array
 json-superset
 let
@@ -226,6 +227,7 @@ object-rest
 object-spread
 Object.is
 optional-catch-binding
+Promise
 Promise.prototype.finally
 Proxy
 Reflect
@@ -262,6 +264,7 @@ TypedArray
 u180e
 Uint8Array
 Uint16Array
+Uint32Array
 Uint8ClampedArray
 WeakMap
 WeakSet

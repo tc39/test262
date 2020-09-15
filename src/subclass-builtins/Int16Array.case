@@ -5,6 +5,7 @@
 esid: sec-ecmascript-standard-built-in-objects
 desc: >
   new SubInt16Array() instanceof Int16Array
+features: [TypedArray, Int16Array]
 template: default
 ---*/
 

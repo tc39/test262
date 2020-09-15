@@ -4,10 +4,10 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 desc: >
-  new SubBigUint64Array() instanceof BigUint64Array
-features: [TypedArray, BigInt]
+  new SubWeakRef() instanceof WeakRef
+features: [WeakRef]
 template: default
 ---*/
 
 //- builtin
-BigUint64Array
+WeakRef

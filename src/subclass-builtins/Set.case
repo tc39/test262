@@ -5,6 +5,7 @@
 esid: sec-ecmascript-standard-built-in-objects
 desc: >
   new SubSet() instanceof Set
+features: [Set]
 template: default
 ---*/
 
