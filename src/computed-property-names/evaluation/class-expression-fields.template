@@ -1,0 +1,51 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/cpn-fields-
+name: ComputedPropertyName in ClassExpression
+esid: prod-ComputedPropertyName
+info: |
+  ClassExpression:
+    classBindingIdentifier opt ClassTail
+
+  ClassTail:
+    ClassHeritage opt { ClassBody opt }
+
+  ClassBody:
+    ClassElementList
+
+  ClassElementList:
+    ClassElement
+
+  ClassElement:
+    MethodDefinition
+
+  MethodDefinition:
+    PropertyName ...
+    get PropertyName ...
+    set PropertyName ...
+
+  PropertyName:
+    ComputedPropertyName
+
+  ComputedPropertyName:
+    [ AssignmentExpression ]
+---*/
+
+let C = class {
+  [/*{ComputedPropertyName}*/] = /*{value}*/;
+
+  static [/*{ComputedPropertyName}*/] = /*{value}*/;
+};
+
+let c = new C();
+
+assert.sameValue(
+  c[/*{ComputedPropertyName}*/],
+  /*{value}*/
+);
+assert.sameValue(
+  C[/*{ComputedPropertyName}*/],
+  /*{value}*/
+);

@@ -1,0 +1,32 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/object/cpn-
+name: ComputedPropertyName in ObjectLiteral
+esid: prod-ComputedPropertyName
+info: |
+  ObjectLiteral:
+    { PropertyDefinitionList }
+
+  PropertyDefinitionList:
+    PropertyDefinition
+
+  PropertyDefinition:
+    PropertyName: AssignmentExpression
+
+  PropertyName:
+    ComputedPropertyName
+
+  ComputedPropertyName:
+    [ AssignmentExpression ]
+---*/
+
+let o = {
+  [/*{ComputedPropertyName}*/]: /*{value}*/
+};
+
+assert.sameValue(
+  o[/*{ComputedPropertyName}*/],
+  /*{value}*/
+);

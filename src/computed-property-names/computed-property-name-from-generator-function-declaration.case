@@ -1,0 +1,14 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Computed property name from generator function
+template: evaluation
+features: [computed-property-names]
+---*/
+//- setup
+function * g() { return 1; }
+//- ComputedPropertyName
+g()
+//- value
+1
