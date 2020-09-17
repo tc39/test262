@@ -1,0 +1,16 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Computed property name from logical or
+template: evaluation
+features: [computed-property-names]
+---*/
+//- setup
+let x = 0;
+//- ComputedPropertyName
+x || 1
+//- value
+2
+//- teardown
+assert.sameValue(x, 0);
