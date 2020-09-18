@@ -36,7 +36,7 @@ fn = function() {
 
 assert.throws(Test262Error, fn, '1: try Abrupt, catch Abrupt, finally Abrupt; Completion: finally');
 assert.sameValue(count.catch, 1, '1: catch count');
-assert.sameValue(count.finally, 1, '1: fiinally count');
+assert.sameValue(count.finally, 1, '1: finally count');
 
 // 2: try Abrupt, catch Return, finally Abrupt; Completion: finally
 count.catch = 0;
