@@ -9,13 +9,6 @@ description: >
     throw a TypeError exception
 ---*/
 
-//CHECK#1
-
-try {
+assert.throws(TypeError, () => {
   new parseInt();
-  $ERROR('#1.1: new parseInt() throw TypeError. Actual: ' + (new parseInt()));
-} catch (e) {
-  if ((e instanceof TypeError) !== true) {
-    $ERROR('#1.2: new parseInt() throw TypeError. Actual: ' + (e));
-  }
-}
+}, '`new parseInt()` throws TypeError');
