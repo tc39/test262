@@ -1,0 +1,22 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+template: forbidden-extensions/bullet-two
+esid: sec-forbidden-extensions
+desc: >
+  Forbidden extension, o.caller
+info: |
+  If an implementation extends any function object with an own property named "caller" the value of that property, as observed using [[Get]] or [[GetOwnProperty]], must not be a strict function object. If it is an accessor property, the function that is the value of the property's [[Get]] attribute must never return a strict function when called.
+
+flags: [noStrict]
+---*/
+
+//- setup
+function inner() {
+  // This property is forbidden from having a value that is strict function object
+  return inner.caller;
+}
+//- body
+inner().toString();
+//- error
+TypeError

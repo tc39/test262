@@ -1,0 +1,21 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/arrow-function/
+name: arrow function expression
+esid: sec-arrow-function-definitions-runtime-semantics-evaluation
+info: |
+    ArrowFunction : ArrowParameters => ConciseBody
+---*/
+
+var callCount = 0;
+var f;
+f = (/*{ params }*/) => {
+  /*{ function-body }*/
+  callCount = callCount + 1;
+};
+
+assert.throws(/*{ error }*/, function() {
+  f(/*{ args }*/);
+});
+assert.sameValue(callCount, 0, 'arrow function body not evaluated');

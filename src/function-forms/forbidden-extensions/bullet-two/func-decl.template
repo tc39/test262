@@ -1,0 +1,21 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/function/
+name: function declaration
+esid: sec-definitions-runtime-semantics-instantiatefunctionobject
+info: |
+    FunctionDeclaration :
+        function BindingIdentifier ( FormalParameters ) { FunctionBody }
+---*/
+
+var callCount = 0;
+function f(/*{ params }*/) {
+  "use strict";
+  /*{ body }*/
+  callCount = callCount + 1;
+}
+assert.throws(/*{ error }*/, function() {
+  f(/*{ args }*/);
+});
+assert.sameValue(callCount, 0, 'method body not evaluated');

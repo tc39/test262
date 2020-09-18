@@ -1,0 +1,23 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/class/gen-method/
+name: class expression method
+esid: sec-class-definitions-runtime-semantics-evaluation
+info: |
+    ClassDeclaration : class BindingIdentifier ClassTail
+features: [generators]
+---*/
+
+var callCount = 0;
+class C {
+  *method(/*{ params }*/) {
+    /*{ method-body }*/
+    callCount = callCount + 1;
+  }
+}
+
+assert.throws(/*{ error }*/, function() {
+  C.prototype.method(/*{ args }*/).next();
+});
+assert.sameValue(callCount, 0, 'method body not evaluated');

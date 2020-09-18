@@ -1,0 +1,29 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/class/async-gen-method-static/
+name: static class expression async generator method
+esid: sec-class-definitions-runtime-semantics-evaluation
+info: |
+    ClassExpression : class BindingIdentifieropt ClassTail
+features: [async-iteration]
+flags: [async]
+---*/
+
+var callCount = 0;
+var C = class {
+  static async *method(/*{ params }*/) {
+    /* implicit strict */
+    /*{ body }*/
+    callCount = callCount + 1;
+  }
+};
+
+C.method(/*{ args }*/).next()
+  .then(_ => {
+    throw new Test262Error('function should not be resolved');
+  }, error => assert.sameValue(error.constructor, /*{ error }*/))
+  .then(() => {
+    assert.sameValue(callCount, 0, 'function body is not evaluated');
+  }, $DONE)
+  .then($DONE, $DONE);

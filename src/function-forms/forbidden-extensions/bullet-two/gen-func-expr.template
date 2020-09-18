@@ -1,0 +1,23 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/generators/
+name: generator function expression
+esid: sec-generator-definitions-runtime-semantics-evaluation
+info: |
+    GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }
+features: [generators]
+---*/
+
+var callCount = 0;
+var f;
+f = function*(/*{ params }*/) {
+  "use strict";
+  /*{ body }*/
+  callCount = callCount + 1;
+};
+
+assert.throws(/*{ error }*/, function() {
+  f(/*{ args }*/).next();
+});
+assert.sameValue(callCount, 0, 'generator function body not evaluated');
