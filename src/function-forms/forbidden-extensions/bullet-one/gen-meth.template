@@ -1,0 +1,25 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/object/method-definition/gen-meth-
+name: generator method
+esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
+info: |
+    GeneratorMethod :
+        * PropertyName ( StrictFormalParameters ) { GeneratorBody }
+
+features: [generators]
+---*/
+
+var callCount = 0;
+var obj = {
+  *method(/*{ params }*/) {
+    /*{ method-body }*/
+    callCount = callCount + 1;
+  }
+};
+
+assert.throws(/*{ error }*/, function() {
+  obj.method(/*{ args }*/).next();
+});
+assert.sameValue(callCount, 0, 'generator method body not evaluated');

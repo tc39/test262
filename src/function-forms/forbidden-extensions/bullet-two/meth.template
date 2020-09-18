@@ -1,0 +1,23 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/object/method-definition/meth-
+name: method
+esid: sec-runtime-semantics-definemethod
+info: |
+    MethodDefinition : PropertyName ( StrictFormalParameters ) { FunctionBody }
+---*/
+
+var callCount = 0;
+var obj = {
+  method(/*{ params }*/) {
+    "use strict";
+    /*{ body }*/
+    callCount = callCount + 1;
+  }
+};
+
+assert.throws(/*{ error }*/, function() {
+  obj.method(/*{ args }*/);
+});
+assert.sameValue(callCount, 0, 'method body not evaluated');

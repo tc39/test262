@@ -1,0 +1,19 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/function/
+name: function expression
+esid: sec-function-definitions-runtime-semantics-evaluation
+info: |
+    FunctionExpression : function ( FormalParameters ) { FunctionBody }
+---*/
+
+var callCount = 0;
+var f;
+f = function(/*{ params }*/) {
+  /*{ function-body }*/
+  callCount = callCount + 1;
+};
+f(/*{ args }*/);
+
+assert.sameValue(callCount, 1, 'function was evaluated');
