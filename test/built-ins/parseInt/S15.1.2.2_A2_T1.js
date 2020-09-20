@@ -18,18 +18,18 @@ if (parseInt("\u0009\u0009-1") !== parseInt("-1")) {
 }
 
 //CHECK#3
-if (parseInt("	1") !== parseInt("1")) {
-  $ERROR('#3: parseInt("	1") === parseInt("1"). Actual: ' + (parseInt("	1")));
+if (parseInt("\t1") !== parseInt("1")) {
+  $ERROR('#3: parseInt("\t1") === parseInt("1"). Actual: ' + (parseInt("\t1")));
 }
 
 //CHECK#4
-if (parseInt("			1") !== parseInt("1")) {
-  $ERROR('#4: parseInt("			1") === parseInt("1"). Actual: ' + (parseInt("			1")));
+if (parseInt("\t\t\t1") !== parseInt("1")) {
+  $ERROR('#4: parseInt("\t\t\t1") === parseInt("1"). Actual: ' + (parseInt("\t\t\t1")));
 }
 
 //CHECK#5
-if (parseInt("			\u0009			\u0009-1") !== parseInt("-1")) {
-  $ERROR('#5: parseInt("			\\u0009			\\u0009-1") === parseInt("-1"). Actual: ' + (parseInt("			\u0009			\u0009-1")));
+if (parseInt("\t\t\t\u0009\t\t\t\u0009-1") !== parseInt("-1")) {
+  $ERROR('#5: parseInt("\t\t\t\\u0009\t\t\t\\u0009-1") === parseInt("-1"). Actual: ' + (parseInt("\t\t\t\u0009\t\t\t\u0009-1")));
 }
 
 //CHECK#6
