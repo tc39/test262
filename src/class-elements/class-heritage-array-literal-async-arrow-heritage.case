@@ -1,0 +1,16 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: It's a SyntaxError if an array literal evaluated on ClassHeritage uses a private name.
+info: |
+    ClassTail : ClassHeritage { ClassBody }
+
+    ClassHeritage :
+        extends LeftHandSideExpression
+
+template: syntax/invalid
+---*/
+
+//- heritage
+extends async () => {} 
