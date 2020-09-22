@@ -1,0 +1,33 @@
+// Copyright (C) 2020 HyeockJin Kim. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Destructuring field can be a non-string computed property, i.e it
+    can be defined only at runtime. Rest operation needs to skip
+    these properties as well.
+template: default
+includes: [compareArray.js,propertyHelper.js]
+features: [object-rest]
+---*/
+
+//- setup
+var a = 1.;
+var b, rest;
+//- elems
+{[a]:b, ...rest}
+//- vals
+{[a]: [1e0], bar: 2 }
+//- body
+assert.compareArray(b, [1]);
+
+
+assert.sameValue(Object.getOwnPropertyDescriptor(rest, "1"), undefined);
+
+verifyProperty(rest, "bar", {
+  value: 2,
+  enumerable: true,
+  writable: true,
+  configurable: true
+});
+
