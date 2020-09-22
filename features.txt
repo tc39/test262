@@ -182,6 +182,12 @@ logical-assignment-operators
 # https://github.com/tc39/proposal-atomics-wait-async
 Atomics.waitAsync
 
+# Item Method
+# https://github.com/tc39/proposal-item-method
+Array.prototype.item
+String.prototype.item
+TypedArray.prototype.item
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
