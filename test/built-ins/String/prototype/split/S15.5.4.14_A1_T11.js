@@ -31,11 +31,9 @@ var __str = "ABB\u0041BABAB";
 //CHECK#1
 try {
   var x = __str.split(__obj, __obj2);
-  $ERROR('#1: "var x = __str.split(__obj, __obj2)" lead to throwing exception');
+  Test262Error.thrower('#1: "var x = __str.split(__obj, __obj2)" lead to throwing exception');
 } catch (e) {
-  if (e !== "intointeger") {
-    $ERROR('#1.1: Exception === "intointeger". Actual: ' + e);
-  }
+  assert.sameValue(e, "intointeger", 'The value of `e` is "intointeger"');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

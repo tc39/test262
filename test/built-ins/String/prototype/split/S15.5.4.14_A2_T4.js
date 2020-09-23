@@ -15,50 +15,19 @@ var __string = new String("one two three");
 
 var __split = __string.split("");
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = new String("one two three"); __split = __string.split(""); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== __string.length) {
-  $ERROR('#2: var __string = new String("one two three"); __split = __string.split(""); __split.length === __string.length. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.length,
+  __string.length,
+  'The value of __split.length is expected to equal the value of __string.length'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== "o") {
-  $ERROR('#3: var __string = new String("one two three"); __split = __string.split(""); __split[0] === "o". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[1] !== "n") {
-  $ERROR('#4: var __string = new String("one two three"); __split = __string.split(""); __split[1] === "n". Actual: ' + __split[1]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#5
-if (__split[11] !== "e") {
-  $ERROR('#5: var __string = new String("one two three"); __split = __string.split(""); __split[11] === "e". Actual: ' + __split[11]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#6
-if (__split[12] !== "e") {
-  $ERROR('#6: var __string = new String("one two three"); __split = __string.split(""); __split[12] === "e". Actual: ' + __split[12]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split[0], "o", 'The value of __split[0] is "o"');
+assert.sameValue(__split[1], "n", 'The value of __split[1] is "n"');
+assert.sameValue(__split[11], "e", 'The value of __split[11] is "e"');
+assert.sameValue(__split[12], "e", 'The value of __split[12] is "e"');

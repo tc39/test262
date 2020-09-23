@@ -18,28 +18,25 @@ var __expected = [__string];
 
 var __split = __string.split(void 0);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["thisundefinedisundefinedaundefinedstringundefinedobject"]; __split = __string.split(void 0); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== __expected.length) {
-  $ERROR('#2: var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["thisundefinedisundefinedaundefinedstringundefinedobject"]; __split = __string.split(void 0); __split.length === __expected.length. Actual: ' + __split.length);
-}
+assert.sameValue(
+  __split.length,
+  __expected.length,
+  'The value of __split.length is expected to equal the value of __expected.length'
+);
+
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 for (var i = 0; i < __expected.length; i++) {
-  if (__expected[i] !== __split[i]) {
-    $ERROR('#3.' + i + ': var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["thisundefinedisundefinedaundefinedstringundefinedobject"]; __split = __string.split(void 0); __expected[' + i + ']===' + __split[i] + '. Actual: ' + __expected[i]);
-  }
+  assert.sameValue(__expected[i], __split[i], 'The value of __expected[i] is expected to equal the value of __split[i]');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

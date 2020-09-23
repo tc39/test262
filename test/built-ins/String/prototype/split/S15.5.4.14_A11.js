@@ -7,18 +7,9 @@ es5id: 15.5.4.14_A11
 description: Checking String.prototype.split.length
 ---*/
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (!(String.prototype.split.hasOwnProperty("length"))) {
-  $ERROR('#1: String.prototype.split.hasOwnProperty("length") return true. Actual: ' + String.prototype.split.hasOwnProperty("length"));
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert(
+  String.prototype.split.hasOwnProperty("length"),
+  'String.prototype.split.hasOwnProperty("length") must return true'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (String.prototype.split.length !== 2) {
-  $ERROR('#2: String.prototype.split.length === 2. Actual: ' + String.prototype.split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(String.prototype.split.length, 2, 'The value of String.prototype.split.length is 2');

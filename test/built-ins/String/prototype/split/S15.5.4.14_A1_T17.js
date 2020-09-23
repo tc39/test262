@@ -16,60 +16,18 @@ var __re = /\u0037\u0037/g;
 
 Number.prototype.split = String.prototype.split;
 
-var __split = 6776767677.006771122677555.split(__re);
+var __split = (6776767677.006771122677555).split(__re);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (typeof __split !== "object") {
-  $ERROR('#1: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); typeof __split === "object". Actual: ' + typeof __split);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.constructor !== Array) {
-  $ERROR('#2: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split.length !== 4) {
-  $ERROR('#3: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); __split.length === 4. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[0] !== "6") {
-  $ERROR('#4: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); __split[0] === "6". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#5
-if (__split[1] !== "67676") {
-  $ERROR('#5: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); __split[1] === "67676". Actual: ' + __split[1]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#6
-if (__split[2] !== ".006") {
-  $ERROR('#6: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); __split[2] === ".006". Actual: ' + __split[2]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#7
-if (__split[3] !== "1") {
-  $ERROR('#7: var __re = /u0037u0037/g; Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re); __split[3] === "1". Actual: ' + __split[3]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 4, 'The value of __split.length is 4');
+assert.sameValue(__split[0], "6", 'The value of __split[0] is "6"');
+assert.sameValue(__split[1], "67676", 'The value of __split[1] is "67676"');
+assert.sameValue(__split[2], ".006", 'The value of __split[2] is ".006"');
+assert.sameValue(__split[3], "1", 'The value of __split[3] is "1"');

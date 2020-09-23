@@ -16,36 +16,15 @@ var __re = new RegExp("00");
 
 Number.prototype.split = String.prototype.split;
 
-var __split = 6776767677.006771122677555.split(__re, eval("\"1\""));
+var __split = (6776767677.006771122677555).split(__re, eval("\"1\""));
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (typeof __split !== "object") {
-  $ERROR('#1: var __re =  new RegExp("00"); Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re, eval(""1"")); typeof __split === "object". Actual: ' + typeof __split);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.constructor !== Array) {
-  $ERROR('#2: var __re =  new RegExp("00"); Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re, eval(""1"")); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split.length !== 1) {
-  $ERROR('#3: var __re =  new RegExp("00"); Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re, eval(""1"")); __split.length === 1. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== "6776767677.") {
-  $ERROR('#3: var __re =  new RegExp("00"); Number.prototype.split=String.prototype.split; __split = 6776767677.006771122677555.split(__re, eval(""1"")); __split[0] === "6776767677.". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 1, 'The value of __split.length is 1');
+assert.sameValue(__split[0], "6776767677.", 'The value of __split[0] is "6776767677."');

@@ -32,35 +32,14 @@ if (toString === Object.prototype.toString) {
 
   var __split = split(eval("\"[\""), __obj__lim);
 
-  //////////////////////////////////////////////////////////////////////////////
-  //CHECK#1
-  if (typeof __split !== "object") {
-    $ERROR('#1: typeof __split === "object". Actual: ' + typeof __split);
-  }
-  //
-  //////////////////////////////////////////////////////////////////////////////
+  assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-  //////////////////////////////////////////////////////////////////////////////
-  //CHECK#2
-  if (__split.constructor !== Array) {
-    $ERROR('#2: __split.constructor === Array. Actual: ' + __split.constructor);
-  }
-  //
-  //////////////////////////////////////////////////////////////////////////////
+  assert.sameValue(
+    __split.constructor,
+    Array,
+    'The value of __split.constructor is expected to equal the value of Array'
+  );
 
-  //////////////////////////////////////////////////////////////////////////////
-  //CHECK#3
-  if (__split.length !== 2) {
-    $ERROR('#3: __split.length === 2. Actual: ' + __split.length);
-  }
-  //
-  //////////////////////////////////////////////////////////////////////////////
-
-  //////////////////////////////////////////////////////////////////////////////
-  //CHECK#3
-  if (__split[1].substring(0, 6) !== "object") {
-    $ERROR('#4: __split[1].substring(0,6) === "object". Actual: ' + __split[1].substring(0, 6));
-  }
-  //
-  //////////////////////////////////////////////////////////////////////////////
+  assert.sameValue(__split.length, 2, 'The value of __split.length is 2');
+  assert.sameValue(__split[1].substring(0, 6), "object", '__split[1].substring(0, 6) must return "object"');
 }

@@ -19,26 +19,16 @@ var __split = __instance.split(1, -Math.pow(2, 32) + 1);
 
 var __expected = [""];
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== __expected.length) {
-  $ERROR('#2: __split.length === __expected.length. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.length,
+  __expected.length,
+  'The value of __split.length is expected to equal the value of __expected.length'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== __expected[0]) {
-  $ERROR('#3: __split[0] === ' + __expected[0] + '. Actual: ' + __split[index]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split[0], __expected[0], 'The value of __split[0] is expected to equal the value of __expected[0]');

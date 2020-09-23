@@ -32,11 +32,9 @@ Number.prototype.split = String.prototype.split;
 //CHECK#1
 try {
   var x = __instance.split(__obj, __obj2);
-  $ERROR('#1: "var x = __instance.split(__obj, __obj2)" lead to throwing exception');
+  Test262Error.thrower('#1: "var x = __instance.split(__obj, __obj2)" lead to throwing exception');
 } catch (e) {
-  if (e !== "intoint") {
-    $ERROR('#1.1: Exception === "intoint". Actual: ' + e);
-  }
+  assert.sameValue(e, "intoint", 'The value of `e` is "intoint"');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

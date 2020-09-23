@@ -16,26 +16,11 @@ __instance.split = String.prototype.split;
 
 var __split = __instance.split();
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __instance = new Array(1,2,3,4,5); __instance.split = String.prototype.split; __split = __instance.split(); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== 1) {
-  $ERROR('#2: var __instance = new Array(1,2,3,4,5); __instance.split = String.prototype.split; __split = __instance.split(); __split.length === 1. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== "1,2,3,4,5") {
-  $ERROR('#3: var __instance = new Array(1,2,3,4,5); __instance.split = String.prototype.split; __split = __instance.split(); __split[0] === "1,2,3,4,5". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 1, 'The value of __split.length is 1');
+assert.sameValue(__split[0], "1,2,3,4,5", 'The value of __split[0] is "1,2,3,4,5"');

@@ -23,10 +23,8 @@ var __obj = {
 Number.prototype.split = String.prototype.split;
 
 try {
-  var __split = 6776767677.006771122677555.split(__obj);
-  $ERROR('#1: "__split = 6776767677.006771122677555.split(__obj)" lead to throwing exception');
+  var __split = (6776767677.006771122677555).split(__obj);
+  Test262Error.thrower('#1: "__split = 6776767677.006771122677555.split(__obj)" lead to throwing exception');
 } catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: Exception is instance of TypeError. Actual: ' + e);
-  }
+  assert(e instanceof TypeError, 'The result of `(e instanceof TypeError)` is true');
 }

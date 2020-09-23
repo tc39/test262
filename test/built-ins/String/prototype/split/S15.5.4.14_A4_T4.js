@@ -16,34 +16,12 @@ var __re = /l/;
 
 var __split = __string.split(__re, 2);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = new String("hello"); var __re = /l/; __split = __string.split(__re,2); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== 2) {
-  $ERROR('#2: var __string = new String("hello"); var __re = /l/; __split = __string.split(__re,2); __split.length === 2. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== "he") {
-  $ERROR('#3: var __string = new String("hello"); var __re = /l/; __split = __string.split(__re,2); __split[0] === "he". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[1] !== "") {
-  $ERROR('#4: var __string = new String("hello"); var __re = /l/; __split = __string.split(__re,2); __split[1] === "". Actual: ' + __split[1]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 2, 'The value of __split.length is 2');
+assert.sameValue(__split[0], "he", 'The value of __split[0] is "he"');
+assert.sameValue(__split[1], "", 'The value of __split[1] is ""');

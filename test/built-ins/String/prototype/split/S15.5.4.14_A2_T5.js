@@ -15,42 +15,13 @@ var __string = new String("one-1,two-2,four-4");
 
 var __split = __string.split(/,/);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = new String("one-1,two-2,four-4"); __split = __string.split(/,/); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== 3) {
-  $ERROR('#2: var __string = new String("one-1,two-2,four-4"); __split = __string.split(/,/); __split.length === 3. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== "one-1") {
-  $ERROR('#3: var __string = new String("one-1,two-2,four-4"); __split = __string.split(/,/); __split[0] === "one-1". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[1] !== "two-2") {
-  $ERROR('#4: var __string = new String("one-1,two-2,four-4"); __split = __string.split(/,/); __split[1] === "two-2". Actual: ' + __split[1]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#5
-if (__split[2] !== "four-4") {
-  $ERROR('#5: var __string = new String("one-1,two-2,four-4"); __split = __string.split(/,/); __split[2] === "four-4". Actual: ' + __split[2]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 3, 'The value of __split.length is 3');
+assert.sameValue(__split[0], "one-1", 'The value of __split[0] is "one-1"');
+assert.sameValue(__split[1], "two-2", 'The value of __split[1] is "two-2"');
+assert.sameValue(__split[2], "four-4", 'The value of __split[2] is "four-4"');

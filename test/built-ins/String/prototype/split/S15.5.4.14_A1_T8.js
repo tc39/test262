@@ -20,34 +20,13 @@ var __obj = {
 
 var __split = String(__obj).split(void 0);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (typeof __split !== "object") {
-  $ERROR('#1: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); typeof __split === "object". Actual: ' + typeof __split);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.constructor !== Array) {
-  $ERROR('#2: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split.length !== 1) {
-  $ERROR('#3: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split.length === 1. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[0] !== "undefined") {
-  $ERROR('#4: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split[0] !== "undefined". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 1, 'The value of __split.length is 1');
+assert.sameValue(__split[0], "undefined", 'The value of __split[0] is "undefined"');

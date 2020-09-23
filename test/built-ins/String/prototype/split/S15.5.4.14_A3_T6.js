@@ -16,26 +16,16 @@ __instance.split = String.prototype.split;
 
 var __split = __instance.split();
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __instance = new Number(-1e21); __instance.split = String.prototype.split; __split = __instance.split(); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== 1) {
-  $ERROR('#2: var __instance = new Number(-1e21); __instance.split = String.prototype.split; __split = __instance.split(); __split.length === 1. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 1, 'The value of __split.length is 1');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split[0] !== __instance.toString()) {
-  $ERROR('#3: var __instance = new Number(-1e21); __instance.split = String.prototype.split; __split = __instance.split(); __split[0] === __instance.toString(). Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split[0],
+  __instance.toString(),
+  'The value of __split[0] must return the same value returned by __instance.toString()'
+);

@@ -29,34 +29,13 @@ var __str = "ABB\u0041BABAB";
 
 var __split = __str.split(__obj, __obj2);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (typeof __split !== "object") {
-  $ERROR('#1: var __obj = {toString:function(){return "u0042B";}}; var __obj2 = {valueOf:function(){return true;}}; var __str = "ABBu0041BABAB"; var __split = split(__obj, __obj2); typeof __split === "object". Actual: ' + typeof __split);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.constructor !== Array) {
-  $ERROR('#2: var __obj = {toString:function(){return "u0042B";}}; var __obj2 = {valueOf:function(){return true;}}; var __str = "ABBu0041BABAB"; var __split = split(__obj, __obj2); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split.length !== 1) {
-  $ERROR('#3: var __obj = {toString:function(){return "u0042B";}}; var __obj2 = {valueOf:function(){return true;}}; var __str = "ABBu0041BABAB"; var __split = split(__obj, __obj2); __split.length === 1. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[0] !== "A") {
-  $ERROR('#4: var __obj = {toString:function(){return "u0042B";}}; var __obj2 = {valueOf:function(){return true;}}; var __str = "ABBu0041BABAB"; var __split = split(__obj, __obj2); __split[0] === "A". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 1, 'The value of __split.length is 1');
+assert.sameValue(__split[0], "A", 'The value of __split[0] is "A"');

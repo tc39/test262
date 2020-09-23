@@ -10,13 +10,10 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (!(String.prototype.split.hasOwnProperty('length'))) {
-  $ERROR('#1: String.prototype.split.hasOwnProperty(\'length\') return true. Actual: ' + String.prototype.split.hasOwnProperty('length'));
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert(
+  String.prototype.split.hasOwnProperty('length'),
+  'String.prototype.split.hasOwnProperty(\'length\') must return true'
+);
 
 var __obj = String.prototype.split.length;
 
@@ -24,10 +21,8 @@ verifyNotWritable(String.prototype.split, "length", null, function() {
   return "shifted";
 });
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (String.prototype.split.length !== __obj) {
-  $ERROR('#2: __obj = String.prototype.split.length; String.prototype.split.length = function(){return "shifted";}; String.prototype.split.length === __obj. Actual: ' + String.prototype.split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  String.prototype.split.length,
+  __obj,
+  'The value of String.prototype.split.length is expected to equal the value of __obj'
+);
