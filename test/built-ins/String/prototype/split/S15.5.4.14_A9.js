@@ -11,26 +11,14 @@ description: >
     fails
 ---*/
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#0
-if (!(String.prototype.split.hasOwnProperty('length'))) {
-  $ERROR('#0: String.prototype.split.hasOwnProperty(\'length\') return true. Actual: ' + String.prototype.split.hasOwnProperty('length'));
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert(
+  String.prototype.split.hasOwnProperty('length'),
+  'String.prototype.split.hasOwnProperty(\'length\') must return true'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (!delete String.prototype.split.length) {
-  $ERROR('#1: delete String.prototype.split.length return true');
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert(delete String.prototype.split.length, 'The value of `delete String.prototype.split.length` is true');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (String.prototype.split.hasOwnProperty('length')) {
-  $ERROR('#2: delete String.prototype.split.length; String.prototype.split.hasOwnProperty(\'length\') return false. Actual: ' + String.prototype.split.hasOwnProperty('length'));
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert(
+  !String.prototype.split.hasOwnProperty('length'),
+  'The value of `!String.prototype.split.hasOwnProperty(\'length\')` is true'
+);

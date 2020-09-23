@@ -15,28 +15,25 @@ var __string = new String("one-1 two-2 three-3");
 
 var __split = __string.split(new RegExp);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = new String("one-1 two-2 three-3"); __split = __string.split(new RegExp); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.length !== __string.length) {
-  $ERROR('#2: var __string = new String("one-1 two-2 three-3"); __split = __string.split(new RegExp); __split.length === __string.length. Actual: ' + __split.length);
-}
+assert.sameValue(
+  __split.length,
+  __string.length,
+  'The value of __split.length is expected to equal the value of __string.length'
+);
+
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
 for (var i = 0; i < __string.length; i++) {
-  if (__string.charAt(i) !== __split[i]) {
-    $ERROR('#3.' + i + ': var __string = new String("one-1 two-2 three-3"); __split = __string.split(new RegExp); __string.charAt(' + i + ')===__split[' + i + ']. Actual: ' + __string.charAt(i));
-  }
+  assert.sameValue(__string.charAt(i), __split[i], '__string.charAt("0") must return the value of __split[i]');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -11,7 +11,9 @@ var __FACTORY = String.prototype.split;
 
 try {
   var __instance = new __FACTORY;
-  $ERROR('#1: __FACTORY = String.prototype.split; "__instance = new __FACTORY" lead to throwing exception');
+  Test262Error.thrower('#1: __FACTORY = String.prototype.split; "__instance = new __FACTORY" lead to throwing exception');
 } catch (e) {
-  if (e instanceof Test262Error) throw e;
+  if (e instanceof Test262Error) {
+    throw e;
+  }
 }

@@ -14,34 +14,13 @@ description: Argument is undefined, and instance is String
 
 var __split = String("undefinedd").split(undefined);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (typeof __split !== "object") {
-  $ERROR('#1: __split = String("undefinedd").split(undefined); typeof __split === "object". Actual: ' + typeof __split);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.constructor !== Array) {
-  $ERROR('#2: __split = String("undefinedd").split(undefined); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split.length !== 1) {
-  $ERROR('#3: __split = String("undefinedd").split(undefined); __split.length === 1. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#4
-if (__split[0] !== "undefinedd") {
-  $ERROR('#4: __split = String("undefinedd").split(undefined); __split[0] === "undefinedd". Actual: ' + __split[0]);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 1, 'The value of __split.length is 1');
+assert.sameValue(__split[0], "undefinedd", 'The value of __split[0] is "undefinedd"');

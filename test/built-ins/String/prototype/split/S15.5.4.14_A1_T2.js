@@ -22,26 +22,12 @@ var __split = __instance.split("A" !== "\u0041", function() {
   return 0;
 }(), null);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-if (typeof __split !== "object") {
-  $ERROR('#1: __instance = new Boolean; __instance.split = String.prototype.split; __split = __instance.split("A"!=="u0041", function(){return 0;}(),null); typeof __split === "object". Actual: ' + typeof __split);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(typeof __split, "object", 'The value of `typeof __split` is "object"');
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#2
-if (__split.constructor !== Array) {
-  $ERROR('#2: __instance = new Boolean; __instance.split = String.prototype.split; __split = __instance.split("A"!=="u0041", function(){return 0;}(),null); __split.constructor === Array. Actual: ' + __split.constructor);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(
+  __split.constructor,
+  Array,
+  'The value of __split.constructor is expected to equal the value of Array'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#3
-if (__split.length !== 0) {
-  $ERROR('#3: __instance = new Boolean; __instance.split = String.prototype.split; __split = __instance.split("A"!=="u0041", function(){return 0;}(),null); __split.length === 0. Actual: ' + __split.length);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(__split.length, 0, 'The value of __split.length is 0');

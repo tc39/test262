@@ -9,20 +9,16 @@ description: >
     fails
 ---*/
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#0
-if (!(String.prototype.split.hasOwnProperty('length'))) {
-  $ERROR('#0: String.prototype.split.hasOwnProperty(\'length\') return true. Actual: ' + String.prototype.split.hasOwnProperty('length'));
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert(
+  String.prototype.split.hasOwnProperty('length'),
+  'String.prototype.split.hasOwnProperty(\'length\') must return true'
+);
 
+assert(
+  !String.prototype.split.propertyIsEnumerable('length'),
+  'The value of `!String.prototype.split.propertyIsEnumerable(\'length\')` is true'
+);
 
-//////////////////////////////////////////////////////////////////////////////
-// CHECK#1
-if (String.prototype.split.propertyIsEnumerable('length')) {
-  $ERROR('#1: String.prototype.split.propertyIsEnumerable(\'length\') return false');
-}
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -31,11 +27,9 @@ if (String.prototype.split.propertyIsEnumerable('length')) {
 var count = 0;
 
 for (var p in String.prototype.split) {
-  if (p === "length") count++;
+  if (p === "length") {
+    count++;
+  }
 }
 
-if (count !== 0) {
-  $ERROR('#2: count=0; for (p in String.prototype.split){if (p==="length") count++;}; count === 0. Actual: ' + count);
-}
-//
-//////////////////////////////////////////////////////////////////////////////
+assert.sameValue(count, 0, 'The value of `count` is 0');
