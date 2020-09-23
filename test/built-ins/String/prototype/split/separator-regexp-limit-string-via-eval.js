@@ -9,7 +9,7 @@ info: |
     ii) if separator is not RegExp ToString(separator) performs and
     iii) ToInteger(limit) performs
 es5id: 15.5.4.14_A1_T18
-description: Checking by using eval
+description: Separator regexp, limit string via eval
 ---*/
 
 var __re = new RegExp("00");

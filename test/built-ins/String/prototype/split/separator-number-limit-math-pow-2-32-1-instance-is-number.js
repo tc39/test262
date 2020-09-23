@@ -8,7 +8,7 @@ info: |
     separator; these occurrences are not part of any substring in the returned array, but serve to divide up
     the string value. The value of separator may be a string of any length or it may be a RegExp object
 es5id: 15.5.4.14_A2_T35
-description: Call split(1, Math.pow(2,32)-1), instance is Number
+description: Separator number, limit Math.pow(2,32)-1, instance is Number
 ---*/
 
 var __instance = new Number(100111122133144155);
