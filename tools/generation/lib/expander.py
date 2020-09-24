@@ -19,12 +19,15 @@ class Expander:
         file_names = []
 
         for expanded_directory in glob.glob(directory):
-            file_names.extend(
-                map(
-                    lambda x: os.path.join(expanded_directory, x),
-                    filter(self.is_template_file, os.listdir(expanded_directory))
+            try:
+                file_names.extend(
+                    map(
+                        lambda x: os.path.join(expanded_directory, x),
+                        filter(self.is_template_file, os.listdir(expanded_directory))
+                    )
                 )
-            )
+            except:
+                file_names.append(expanded_directory)
 
         self.templates[template_class] = [
             Template(x, encoding) for x in file_names
@@ -37,7 +40,7 @@ class Expander:
         return self.templates[template_class]
 
     def is_template_file(self, filename):
-      return re.match(templateFilenamePattern, filename)
+        return re.match(templateFilenamePattern, filename)
 
     def list_cases(self):
         for name in os.listdir(self.case_dir):

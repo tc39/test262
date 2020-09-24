@@ -8,6 +8,7 @@ from .util.find_comments import find_comments
 from .util.parse_yaml import parse_yaml
 
 regionStartPattern = re.compile(r'-\s+(\S+)')
+metaPattern = r'\/\*---\n([\s]*)((?:\s|\S)*)[\n\s*]---\*\/'
 
 class Case:
     def __init__(self, file_name, encoding):
@@ -21,13 +22,16 @@ class Case:
         region_name = None
         region_start = 0
         lines = source.split('\n')
+        matches = re.finditer(metaPattern, source, re.MULTILINE)
+
+        for matchNum, match in enumerate(matches, start=1):
+            meta = "{match}".format(matchNum = matchNum, start = match.start(), end = match.end(), match = match.group())
+            meta = parse_yaml(meta[2:-2])
+            if meta and not case['meta']:
+                case['meta'] = meta
+                break
 
         for comment in find_comments(source):
-            meta = parse_yaml(comment['source'])
-            if meta:
-                case['meta'] = meta
-                continue
-
             match = regionStartPattern.match(comment['source'])
             if match:
                 if region_name:
