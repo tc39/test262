@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-asynciteratorprototype.every
 description: >
-  AsyncIterator.prototype.drop has a "length" property whose value is 1.
+  AsyncIterator.prototype.every has a "length" property whose value is 0.
 info: |
   ECMAScript Standard Built-in Objects
 
@@ -15,8 +15,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.prototype.drop.length, 1, 'The value of AsyncIterator.prototype.drop.length is 1');
+assert.sameValue(AsyncIterator.prototype.every.length, 1, 'The value of AsyncIterator.prototype.every.length is 1');
 
-verifyNotEnumerable(AsyncIterator.prototype.drop, 'length');
-verifyNotWritable(AsyncIterator.prototype.drop, 'length');
-verifyConfigurable(AsyncIterator.prototype.drop, 'length');
+verifyNotEnumerable(AsyncIterator.prototype.every, 'length');
+verifyNotWritable(AsyncIterator.prototype.every, 'length');
+verifyConfigurable(AsyncIterator.prototype.every, 'length');

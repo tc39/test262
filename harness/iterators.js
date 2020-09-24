@@ -9,7 +9,7 @@ defines: [Test262AsyncIterator, Test262Iterator]
 class Test262Iterator extends Iterator {
   constructor(iterable = []) {
     super();
-    this.iterable = iterable;
+    this.iterable = Array.from(iterable);
     this.nextCalls = 0;
   }
   next() {
@@ -26,7 +26,7 @@ class Test262Iterator extends Iterator {
 class Test262AsyncIterator extends AsyncIterator {
   constructor(iterable = []) {
     super();
-    this.iterable = iterable;
+    this.iterable = Array.from(iterable);
     this.nextCalls = 0;
   }
   async next() {

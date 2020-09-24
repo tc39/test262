@@ -6,12 +6,9 @@ esid: sec-asynciteratorprototype.asindexedpairs
 description: >
   AsyncIterator.prototype.asIndexedPairs has a "length" property whose value is 0.
 info: |
-  The AsyncIterator.prototype.asIndexedPairs Constructor
+  ECMAScript Standard Built-in Objects
 
-  The length property of the AsyncIterator.prototype.asIndexedPairs constructor function is 0.
-  ...
-
-  ES7 section 17: Unless otherwise specified, the length property of a built-in
+  Unless otherwise specified, the length property of a built-in
   Function object has the attributes { [[Writable]]: false, [[Enumerable]]:
   false, [[Configurable]]: true }.
 features: [iterator-helpers]
