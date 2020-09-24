@@ -3,7 +3,7 @@
 
 /*---
 description: The groups object of indices is created with CreateDataProperty
-includes: [compareArray.js]
+includes: [propertyHelper.js, compareArray.js]
 esid: sec-makeindicesarray
 features: [regexp-named-groups, regexp-match-indices]
 info: |
@@ -14,6 +14,23 @@ info: |
       a. Let _groups_ be *undefined*.
     10. Perform ! CreateDataProperty(_A_, `"groups"`, _groups_).
 ---*/
+
+// `groups` is created with Define, not Set.
+let counter = 0;
+Object.defineProperty(Array.prototype, "groups", {
+  set() { counter++; }
+});
+
+let indices = /(?<x>.)/.exec("a").indices;
+assert.sameValue(counter, 0);
+
+// `groups` is writable, enumerable and configurable
+// (from CreateDataProperty).
+verifyProperty(indices, 'groups', {
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
 
 // The `__proto__` property on the groups object is not special,
 // and does not affect the [[Prototype]] of the resulting groups object.
