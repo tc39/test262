@@ -24,7 +24,6 @@ assert.compareArray("x".split(/.?/), ["", ""], '"x".split(/.?/) must return ["",
 assert.compareArray("x".split(/.*/), ["", ""], '"x".split(/.*/) must return ["", ""]');
 assert.compareArray("x".split(/.+/), ["", ""], '"x".split(/.+/) must return ["", ""]');
 assert.compareArray("x".split(/.*?/), ["x"], '"x".split(/.*?/) must return ["x"]');
-assert.compareArray("x".split(/.{}/), ["x"], '"x".split(/.{}/) must return ["x"]');
 assert.compareArray("x".split(/.{1}/), ["", ""], '"x".split(/.{1}/) must return ["", ""]');
 assert.compareArray("x".split(/.{1,}/), ["", ""], '"x".split(/.{1,}/) must return ["", ""]');
 assert.compareArray("x".split(/.{1,2}/), ["", ""], '"x".split(/.{1,2}/) must return ["", ""]');
@@ -48,8 +47,6 @@ assert.compareArray("x".split(/\S/), ["", ""], '"x".split(/\\S/) must return [""
 assert.compareArray("x".split(/\v/), ["x"], '"x".split(/\\v/) must return ["x"]');
 assert.compareArray("x".split(/\w/), ["", ""], '"x".split(/\\w/) must return ["", ""]');
 assert.compareArray("x".split(/\W/), ["x"], '"x".split(/\\W/) must return ["x"]');
-assert.compareArray("x".split(/\p{}/), ["x"], '"x".split(/\\p{}/) must return ["x"]');
-assert.compareArray("x".split(/\P{}/), ["x"], '"x".split(/\\P{}/) must return ["x"]');
 assert.compareArray("x".split(/\k<x>/), ["x"], '"x".split(/\\k<x>/) must return ["x"]');
 assert.compareArray("x".split(/\xA0/), ["x"], '"x".split(/\\xA0/) must return ["x"]');
 assert.compareArray("x".split(/\XA0/), ["x"], '"x".split(/\\XA0/) must return ["x"]');
