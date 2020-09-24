@@ -1,7 +1,10 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-template: glob-expr/**/normal*.template
+templates:
+  - multiple/**/normal*.template
+  - multiple/b/features.template
+  - multiple/a/no-info.template
 desc: foobar
 info: case info
 flags: [a, b]

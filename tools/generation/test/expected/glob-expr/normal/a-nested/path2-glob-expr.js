@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - tools/generation/test/fixtures/glob-expr.case
-// - tools/generation/test/fixtures/glob/a/normal2.template
+// - tools/generation/test/fixtures/glob-expr/a/normal2.template
 /*---
 description: foobar (Second template name)
 esid: sec-a-generic-id

@@ -22,14 +22,13 @@ class Case:
         region_name = None
         region_start = 0
         lines = source.split('\n')
-        matches = re.finditer(metaPattern, source, re.MULTILINE)
+        search = re.search(metaPattern, source, re.DOTALL|re.MULTILINE)
 
-        for matchNum, match in enumerate(matches, start=1):
-            meta = "{match}".format(matchNum = matchNum, start = match.start(), end = match.end(), match = match.group())
+        if search:
+            meta = search.group()
             meta = parse_yaml(meta[2:-2])
             if meta and not case['meta']:
                 case['meta'] = meta
-                break
 
         for comment in find_comments(source):
             match = regionStartPattern.match(comment['source'])
