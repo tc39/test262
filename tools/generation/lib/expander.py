@@ -60,9 +60,17 @@ class Expander:
 
     def expand_case(self, file_name, encoding):
         case = Case(file_name, encoding)
+        localtemplates = [];
 
-        template_class = case.attribs['meta']['template']
-        templates = self.templates.get(template_class)
+        if 'template' in case.attribs['meta']:
+            localtemplates.append(case.attribs['meta']['template'])
 
-        for template in self._get_templates(template_class, encoding):
-            yield template.expand(file_name, os.path.basename(file_name[:-5]), case.attribs, encoding)
+        if 'templates' in case.attribs['meta']:
+            localtemplates.extend(case.attribs['meta']['templates'])
+
+        for t in localtemplates:
+            template_class = t
+            templates = self.templates.get(template_class)
+
+            for template in self._get_templates(template_class, encoding):
+                yield template.expand(file_name, os.path.basename(file_name[:-5]), case.attribs, encoding)

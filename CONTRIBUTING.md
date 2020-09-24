@@ -385,7 +385,8 @@ Test cases and test templates specify meta-data using the same YAML frontmatter 
 ### test cases (`*.case`)
 Field | Description
 ------|-------------
-`template` | name of the sub-directory to locate templates for this test
+`template` | a template file, directory or glob expression.
+`templates` | a list of template file, directory or glob expressions.
 `desc` | see the frontmatter definition of the "desc" field. The generated test will have a have final "desc" value which is this text appended with the test template's "name" field in parentheses.
 `info` | see the frontmatter definition of the "info" field. The generated test will have a have final "info" value which is this text concatenated at the end of the test templates's "info" text.
 `features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the template's feature field.

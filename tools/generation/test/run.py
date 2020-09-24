@@ -54,6 +54,16 @@ class TestGeneration(unittest.TestCase):
         self.assertEqual(result['returncode'], 0)
         self.compareTrees('glob')
 
+    def test_glob_expr(self):
+        result = self.fixture('glob-expr.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('glob-expr')
+
+    def test_multiple_templates(self):
+        result = self.fixture('multiple-templates.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('multiple-templates')
+
     def test_normal(self):
         result = self.fixture('normal.case')
         self.assertEqual(result['returncode'], 0)

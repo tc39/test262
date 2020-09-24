@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - tools/generation/test/fixtures/glob-expr.case
-// - tools/generation/test/fixtures/glob/b/normal.template
+// - tools/generation/test/fixtures/glob-expr/b/normal.template
 /*---
 description: foobar (First template name)
 es6id: 1.2.3
