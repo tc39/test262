@@ -2,11 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-desc: Computed property name from condition expression
+desc: Computed property name from yield expression
 template: evaluation
 features: [computed-property-names]
 ---*/
+
+//- setup
+function * g() {
 //- ComputedPropertyName
-true ? 1 : 2
+yield 9
 //- value
-2
+9
+//- teardown
+}
