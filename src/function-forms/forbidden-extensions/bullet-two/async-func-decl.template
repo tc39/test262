@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/async-function/
+path: language/statements/async-function/forbidden-ext/b2/async-func-decl-
 name: async function declaration
 esid: sec-async-definitions
 info: |
@@ -16,7 +16,7 @@ var callCount = 0;
 async function f(/*{ params }*/) {
   "use strict";
   /*{ body }*/
-  callCount = callCount + 1;
+  callCount++;
 }
 
 f(/*{ args }*/)

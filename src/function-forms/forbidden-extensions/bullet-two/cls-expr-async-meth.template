@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/async-method/
+path: language/expressions/class/async-method/forbidden-ext/b2/cls-expr-async-meth-
 name: class expression async method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
@@ -16,7 +16,7 @@ var C = class {
   async method(/*{ params }*/) {
     /* implicit strict */
     /*{ body }*/
-    callCount = callCount + 1;
+    callCount++;
   }
 };
 

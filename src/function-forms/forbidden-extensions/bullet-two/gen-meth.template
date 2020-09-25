@@ -1,7 +1,7 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/object/method-definition/gen-meth-
+path: language/expressions/object/method-definition/forbidden-ext/b2/gen-meth-
 name: generator method
 esid: sec-generator-definitions-runtime-semantics-propertydefinitionevaluation
 info: |
@@ -16,7 +16,7 @@ var obj = {
   *method(/*{ params }*/) {
     "use strict";
     /*{ body }*/
-    callCount = callCount + 1;
+    callCount++;
   }
 };
 

@@ -1,7 +1,7 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/function/
+path: language/expressions/function/forbidden-ext/b2/func-expr-
 name: function expression
 esid: sec-definitions-runtime-semantics-evaluation
 info: |
@@ -13,7 +13,7 @@ var f;
 f = function(/*{ params }*/) {
   "use strict";
   /*{ body }*/
-  callCount = callCount + 1;
+  callCount++;
 };
 assert.throws(/*{ error }*/, function() {
   f(/*{ args }*/);

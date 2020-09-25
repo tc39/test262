@@ -1,9 +1,10 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/function/
+path: language/statements/function/forbidden-ext/b1/func-decl-
 name: function declaration
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
+desc: In non-strict code, f.caller is not forbidden
 info: |
     FunctionDeclaration :
         function BindingIdentifier ( FormalParameters ) { FunctionBody }
@@ -12,7 +13,7 @@ info: |
 var callCount = 0;
 function f(/*{ params }*/) {
   /*{ function-body }*/
-  callCount = callCount + 1;
+  callCount++;
 }
 f(/*{ args }*/);
-assert.sameValue(callCount, 0, 'function was evaluated');
+assert.sameValue(callCount, 1, 'function was evaluated');
