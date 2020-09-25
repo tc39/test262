@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/elements/async-private-method/
-name: Async private method as a ClassDeclaration element
+path: language/expressions/class/elements/async-private-method/
+name: Async private method as a ClassExpression element
 esid: prod-AsyncMethod
 info: |
   ClassElement :
@@ -19,8 +19,14 @@ info: |
 features: [async-functions, class-methods-private]
 ---*/
 
-class C {
+var C = class {
   async #method(/*{ params }*/) {
     /*{ body }*/
   }
-}
+  async method(/*{ params }*/) {
+    return this.#method(/*{ params }*/);
+  }
+};
+// Stores a reference `asyncFn` for case evaluation
+let c = new C();
+let asyncFn = c.method.bind(c);

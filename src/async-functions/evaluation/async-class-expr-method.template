@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/async-method-static/
-name: Static async method as a ClassDeclaration element
+path: language/expressions/class/async-method/
+name: Async method as a ClassExpression element
 esid: prod-AsyncMethod
 info: |
   ClassElement :
-    static MethodDefinition
+    MethodDefinition
 
   MethodDefinition :
     AsyncMethod
@@ -19,9 +19,11 @@ info: |
 features: [async-functions]
 ---*/
 
-class C {
-  static async method(/*{ params }*/) {
+var C = class {
+  async method(/*{ params }*/) {
     /*{ body }*/
   }
-}
-
+};
+// Stores a reference `asyncFn` for case evaluation
+let c = new C();
+let asyncFn = c.method.bind(c);
