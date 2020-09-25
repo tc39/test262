@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/async-functions/returns-async-function-returns-arguments-from-own-function.case
-// - src/async-functions/syntax/async-class-expr-method.template
+// - src/async-functions/evaluation/async-class-expr-method.template
 /*---
 description: Async function returns an async function. (Async method as a ClassExpression element)
 esid: prod-AsyncMethod
@@ -31,7 +31,6 @@ var C = class {
 // Stores a reference `asyncFn` for case evaluation
 let c = new C();
 let asyncFn = c.method.bind(c);
-
 
 asyncFn(1).then(retFn => {
   count++;

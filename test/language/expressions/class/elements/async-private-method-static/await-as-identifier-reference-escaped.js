@@ -35,9 +35,4 @@ var C = class {
   static async #method() {
     void \u0061wait;
   }
-  static async method() {
-    return this.#method();
-  }
 }
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = C.method.bind(C);

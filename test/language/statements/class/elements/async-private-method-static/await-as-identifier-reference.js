@@ -35,10 +35,6 @@ class C {
   static async #method() {
     void await;
   }
-  static async method() {
-    return this.#method();
-  }
 }
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = C.method.bind(C);
+
 

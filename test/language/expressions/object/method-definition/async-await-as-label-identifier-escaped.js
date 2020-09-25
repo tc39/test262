@@ -30,5 +30,3 @@ var obj = {
     \u0061wait: ;
   }
 };
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = obj.method;

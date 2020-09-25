@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/async-functions/returns-async-arrow-returns-arguments-from-parent-function.case
-// - src/async-functions/syntax/async-class-decl-static-method.template
+// - src/async-functions/evaluation/async-class-decl-static-method.template
 /*---
 description: Async function returns an async function. (Static async method as a ClassDeclaration element)
 esid: prod-AsyncMethod
@@ -30,7 +30,6 @@ class C {
 }
 // Stores a reference `asyncFn` for case evaluation
 let asyncFn = C.method;
-
 
 asyncFn().then(retFn => {
   count++;

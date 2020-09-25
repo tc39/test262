@@ -36,5 +36,3 @@ var C = class {
     var \u0061wait;
   }
 };
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = C.method;
