@@ -5,7 +5,7 @@
 description: Computed property name from condition expression (ComputedPropertyName in ClassExpression)
 esid: prod-ComputedPropertyName
 features: [computed-property-names, top-level-await]
-flags: [generated, module]
+flags: [generated, async, module]
 info: |
     ClassExpression:
       classBindingIdentifier opt ClassTail
@@ -33,6 +33,7 @@ info: |
     ComputedPropertyName:
       [ AssignmentExpression ]
 ---*/
+try {
 
 
 let C = class {
@@ -51,3 +52,16 @@ assert.sameValue(
   C[await 9],
   9
 );
+assert.sameValue(
+  c[String(await 9)],
+  9
+);
+assert.sameValue(
+  C[String(await 9)],
+  9
+);
+
+} catch (e) {
+  $DONE(e);
+}
+$DONE();
