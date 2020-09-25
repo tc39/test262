@@ -2,7 +2,7 @@
 // - src/computed-property-names/computed-property-name-from-yield-expression.case
 // - src/computed-property-names/evaluation/class-declaration-accessors.template
 /*---
-description: Computed property name from condition expression (ComputedPropertyName in ClassDeclaration)
+description: Computed property name from yield expression (ComputedPropertyName in ClassDeclaration)
 esid: prod-ComputedPropertyName
 features: [computed-property-names]
 flags: [generated]
@@ -33,59 +33,62 @@ info: |
     ComputedPropertyName:
       [ AssignmentExpression ]
 ---*/
+function * g() {
 
 
 class C {
-  get [true ? 1 : 2]() {
-    return 2;
+  get [yield 9]() {
+    return 9;
   }
 
-  set [true ? 1 : 2](v) {
-    return 2;
+  set [yield 9](v) {
+    return 9;
   }
 
-  static get [true ? 1 : 2]() {
-    return 2;
+  static get [yield 9]() {
+    return 9;
   }
 
-  static set [true ? 1 : 2](v) {
-    return 2;
+  static set [yield 9](v) {
+    return 9;
   }
 };
 
 let c = new C();
 
 assert.sameValue(
-  c[true ? 1 : 2],
-  2
+  c[yield 9],
+  9
 );
 assert.sameValue(
-  c[true ? 1 : 2] = 2,
-  2
+  c[yield 9] = 9,
+  9
 );
 
 assert.sameValue(
-  C[true ? 1 : 2],
-  2
+  C[yield 9],
+  9
 );
 assert.sameValue(
-  C[true ? 1 : 2] = 2,
-  2
+  C[yield 9] = 9,
+  9
 );
 assert.sameValue(
-  c[String(true ? 1 : 2)],
-  2
+  c[String(yield 9)],
+  9
 );
 assert.sameValue(
-  c[String(true ? 1 : 2)] = 2,
-  2
+  c[String(yield 9)] = 9,
+  9
 );
 
 assert.sameValue(
-  C[String(true ? 1 : 2)],
-  2
+  C[String(yield 9)],
+  9
 );
 assert.sameValue(
-  C[String(true ? 1 : 2)] = 2,
-  2
+  C[String(yield 9)] = 9,
+  9
 );
+
+}
