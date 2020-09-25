@@ -23,9 +23,4 @@ var C = class {
   static async #method(/*{ params }*/) {
     /*{ body }*/
   }
-  static async method(/*{ params }*/) {
-    return this.#method(/*{ params }*/);
-  }
 }
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = C.method.bind(C);

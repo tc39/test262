@@ -24,5 +24,3 @@ var C = class {
     /*{ body }*/
   }
 };
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = C.method;
