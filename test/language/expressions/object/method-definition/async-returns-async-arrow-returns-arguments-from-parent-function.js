@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/async-functions/returns-async-arrow-returns-arguments-from-parent-function.case
-// - src/async-functions/syntax/async-obj-method.template
+// - src/async-functions/evaluation/async-obj-method.template
 /*---
 description: Async function returns an async function. (Async method)
 esid: prod-AsyncMethod

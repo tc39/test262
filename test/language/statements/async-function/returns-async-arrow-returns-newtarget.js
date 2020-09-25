@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/async-functions/returns-async-arrow-returns-newtarget.case
-// - src/async-functions/syntax/async-declaration.template
+// - src/async-functions/evaluation/async-declaration.template
 /*---
 description: Async function returns an async function. (Async function declaration)
 esid: prod-AsyncFunctionDeclaration

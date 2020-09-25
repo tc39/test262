@@ -30,5 +30,3 @@ var obj = {
     var await;
   }
 };
-// Stores a reference `asyncFn` for case evaluation
-let asyncFn = obj.method;

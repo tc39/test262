@@ -36,7 +36,4 @@ var C = class {
     var await;
   }
 };
-// Stores a reference `asyncFn` for case evaluation
-let c = new C();
-let asyncFn = c.method.bind(c);
 

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/async-functions/returns-async-function-returns-newtarget.case
-// - src/async-functions/syntax/async-expression-named.template
+// - src/async-functions/evaluation/async-expression-named.template
 /*---
 description: Async function returns an async function. (Named async function expression)
 esid: prod-AsyncFunctionExpression

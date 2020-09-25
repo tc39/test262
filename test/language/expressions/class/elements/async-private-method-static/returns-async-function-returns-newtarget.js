@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/async-functions/returns-async-function-returns-newtarget.case
-// - src/async-functions/syntax/async-class-expr-static-private-method.template
+// - src/async-functions/evaluation/async-class-expr-static-private-method.template
 /*---
 description: Async function returns an async function. (Static private async method as a ClassExpression element)
 esid: prod-AsyncMethod
