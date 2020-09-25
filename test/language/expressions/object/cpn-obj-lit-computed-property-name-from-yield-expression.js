@@ -2,7 +2,7 @@
 // - src/computed-property-names/computed-property-name-from-yield-expression.case
 // - src/computed-property-names/evaluation/object-literal.template
 /*---
-description: Computed property name from condition expression (ComputedPropertyName in ObjectLiteral)
+description: Computed property name from yield expression (ComputedPropertyName in ObjectLiteral)
 esid: prod-ComputedPropertyName
 features: [computed-property-names]
 flags: [generated]
@@ -22,17 +22,20 @@ info: |
     ComputedPropertyName:
       [ AssignmentExpression ]
 ---*/
+function * g() {
 
 
 let o = {
-  [true ? 1 : 2]: 2
+  [yield 9]: 9
 };
 
 assert.sameValue(
-  o[true ? 1 : 2],
-  2
+  o[yield 9],
+  9
 );
 assert.sameValue(
-  o[String(true ? 1 : 2)],
-  2
+  o[String(yield 9)],
+  9
 );
+
+}

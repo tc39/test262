@@ -2,7 +2,7 @@
 // - src/computed-property-names/computed-property-name-from-yield-expression.case
 // - src/computed-property-names/evaluation/class-declaration-fields.template
 /*---
-description: Computed property name from condition expression (ComputedPropertyName in ClassExpression)
+description: Computed property name from yield expression (ComputedPropertyName in ClassExpression)
 esid: prod-ComputedPropertyName
 features: [computed-property-names]
 flags: [generated]
@@ -33,29 +33,32 @@ info: |
     ComputedPropertyName:
       [ AssignmentExpression ]
 ---*/
+function * g() {
 
 
 let C = class {
-  [true ? 1 : 2] = 2;
+  [yield 9] = 9;
 
-  static [true ? 1 : 2] = 2;
+  static [yield 9] = 9;
 };
 
 let c = new C();
 
 assert.sameValue(
-  c[true ? 1 : 2],
-  2
+  c[yield 9],
+  9
 );
 assert.sameValue(
-  C[true ? 1 : 2],
-  2
+  C[yield 9],
+  9
 );
 assert.sameValue(
-  c[String(true ? 1 : 2)],
-  2
+  c[String(yield 9)],
+  9
 );
 assert.sameValue(
-  C[String(true ? 1 : 2)],
-  2
+  C[String(yield 9)],
+  9
 );
+
+}
