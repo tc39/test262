@@ -14,7 +14,9 @@ features: [async-functions]
 ---*/
 
 var obj = {
-  async method() {
+  async method(/*{ params }*/) {
     /*{ body }*/
   }
 };
+// Stores a reference `asyncFn` for case evaluation
+let asyncFn = obj.method;

@@ -1,0 +1,29 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-async-arrow-function-definitions
+desc: >
+  Async function returns an async function.
+templates:
+  - syntax/async-class-*.template
+  - syntax/async-declaration.template
+  - syntax/async-expression-*.template
+  - syntax/async-obj-method.template
+flags: [async]
+---*/
+
+//- setup
+let count = 0;
+//- params
+x
+//- body
+  return async () => x;
+//- teardown
+asyncFn(1).then(retFn => {
+  count++;
+  return retFn();
+}).then(result => {
+  assert.sameValue(result, 1);
+  assert.sameValue(count, 1);
+}).then($DONE, $DONE);
