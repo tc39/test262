@@ -30,3 +30,7 @@ assert.sameValue(
   o[/*{ComputedPropertyName}*/],
   /*{value}*/
 );
+assert.sameValue(
+  o[String(/*{ComputedPropertyName}*/)],
+  /*{value}*/
+);

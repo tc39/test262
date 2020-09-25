@@ -53,3 +53,11 @@ assert.sameValue(
   C[/*{ComputedPropertyName}*/](),
   /*{value}*/
 );
+assert.sameValue(
+  c[String(/*{ComputedPropertyName}*/)](),
+  /*{value}*/
+);
+assert.sameValue(
+  C[String(/*{ComputedPropertyName}*/)](),
+  /*{value}*/
+);
