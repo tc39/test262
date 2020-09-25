@@ -31,6 +31,11 @@ info: |
 $DONOTEVALUATE();
 
 
-class C { static async method() {
+class C {
+  static async method() {
     await: ;
-}}
+  }
+}
+// Stores a reference `asyncFn` for case evaluation
+let asyncFn = C.method;
+
