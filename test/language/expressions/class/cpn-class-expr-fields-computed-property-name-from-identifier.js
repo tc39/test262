@@ -53,3 +53,11 @@ assert.sameValue(
   C[x],
   '2'
 );
+assert.sameValue(
+  c[String(x)],
+  '2'
+);
+assert.sameValue(
+  C[String(x)],
+  '2'
+);

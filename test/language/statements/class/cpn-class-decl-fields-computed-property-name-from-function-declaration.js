@@ -52,3 +52,11 @@ assert.sameValue(
   C[f()],
   1
 );
+assert.sameValue(
+  c[String(f())],
+  1
+);
+assert.sameValue(
+  C[String(f())],
+  1
+);

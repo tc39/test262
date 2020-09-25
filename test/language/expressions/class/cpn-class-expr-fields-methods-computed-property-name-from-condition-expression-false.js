@@ -55,3 +55,11 @@ assert.sameValue(
   C[false ? 1 : 2](),
   1
 );
+assert.sameValue(
+  c[String(false ? 1 : 2)](),
+  1
+);
+assert.sameValue(
+  C[String(false ? 1 : 2)](),
+  1
+);

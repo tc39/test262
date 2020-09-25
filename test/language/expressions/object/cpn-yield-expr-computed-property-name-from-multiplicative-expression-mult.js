@@ -32,3 +32,7 @@ assert.sameValue(
   o[1 * 1],
   1
 );
+assert.sameValue(
+  o[String(1 * 1)],
+  1
+);

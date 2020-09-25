@@ -72,3 +72,20 @@ assert.sameValue(
   C[2 ** 2] = 4,
   4
 );
+assert.sameValue(
+  c[String(2 ** 2)],
+  4
+);
+assert.sameValue(
+  c[String(2 ** 2)] = 4,
+  4
+);
+
+assert.sameValue(
+  C[String(2 ** 2)],
+  4
+);
+assert.sameValue(
+  C[String(2 ** 2)] = 4,
+  4
+);

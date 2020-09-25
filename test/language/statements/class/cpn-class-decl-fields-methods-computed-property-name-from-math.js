@@ -55,3 +55,11 @@ assert.sameValue(
   C[1 + 2 - 3 * 4 / 5 ** 6](),
   2.999232
 );
+assert.sameValue(
+  c[String(1 + 2 - 3 * 4 / 5 ** 6)](),
+  2.999232
+);
+assert.sameValue(
+  C[String(1 + 2 - 3 * 4 / 5 ** 6)](),
+  2.999232
+);

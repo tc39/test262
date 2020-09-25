@@ -32,3 +32,7 @@ assert.sameValue(
   o[false ? 1 : 2],
   1
 );
+assert.sameValue(
+  o[String(false ? 1 : 2)],
+  1
+);

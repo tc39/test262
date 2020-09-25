@@ -55,5 +55,13 @@ assert.sameValue(
   C[x && 1](),
   2
 );
+assert.sameValue(
+  c[String(x && 1)](),
+  2
+);
+assert.sameValue(
+  C[String(x && 1)](),
+  2
+);
 
 assert.sameValue(x, 0);
