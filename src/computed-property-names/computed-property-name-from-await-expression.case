@@ -5,9 +5,16 @@
 desc: Computed property name from condition expression
 template: evaluation
 features: [computed-property-names, top-level-await]
-flags: [module]
+flags: [async, module]
 ---*/
+//- setup
+try {
 //- ComputedPropertyName
 await 9
 //- value
 9
+//- teardown
+} catch (e) {
+  $DONE(e);
+}
+$DONE();
