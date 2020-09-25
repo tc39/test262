@@ -17,6 +17,6 @@ info: |
 features: [async-functions]
 ---*/
 
-async() => {
+async (/*{ params }*/) => {
   /*{ body }*/
-};
+}

@@ -13,6 +13,6 @@ info: |
 features: [async-functions]
 ---*/
 
-async function fn() {
+async function asyncFn(/*{ params }*/) {
   /*{ body }*/
 }

@@ -19,6 +19,11 @@ info: |
 features: [async-functions]
 ---*/
 
-class C { static async method() {
+class C {
+  static async method(/*{ params }*/) {
     /*{ body }*/
-}}
+  }
+}
+// Stores a reference `asyncFn` for case evaluation
+let asyncFn = C.method;
+
