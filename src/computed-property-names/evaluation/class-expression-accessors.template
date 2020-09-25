@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/cpn-accessors-
+path: language/expressions/class/cpn-class-expr-accessors-
 name: ComputedPropertyName in ClassExpression
 esid: prod-ComputedPropertyName
 info: |
