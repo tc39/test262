@@ -51,3 +51,11 @@ assert.sameValue(
   C[1_2_3_4_5_6_7_8],
   1_2_3_4_5_6_7_8
 );
+assert.sameValue(
+  c[String(1_2_3_4_5_6_7_8)],
+  1_2_3_4_5_6_7_8
+);
+assert.sameValue(
+  C[String(1_2_3_4_5_6_7_8)],
+  1_2_3_4_5_6_7_8
+);

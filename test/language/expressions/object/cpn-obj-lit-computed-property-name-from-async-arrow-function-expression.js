@@ -32,3 +32,7 @@ assert.sameValue(
   o[async () => {}],
   1
 );
+assert.sameValue(
+  o[String(async () => {})],
+  1
+);

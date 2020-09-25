@@ -72,3 +72,20 @@ assert.sameValue(
   C[function () {}] = 1,
   1
 );
+assert.sameValue(
+  c[String(function () {})],
+  1
+);
+assert.sameValue(
+  c[String(function () {})] = 1,
+  1
+);
+
+assert.sameValue(
+  C[String(function () {})],
+  1
+);
+assert.sameValue(
+  C[String(function () {})] = 1,
+  1
+);

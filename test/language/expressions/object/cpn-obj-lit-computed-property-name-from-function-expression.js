@@ -32,3 +32,7 @@ assert.sameValue(
   o[function () {}],
   1
 );
+assert.sameValue(
+  o[String(function () {})],
+  1
+);

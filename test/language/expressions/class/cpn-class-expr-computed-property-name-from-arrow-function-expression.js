@@ -54,3 +54,11 @@ assert.sameValue(
   C[() => { }](),
   1
 );
+assert.sameValue(
+  c[String(() => { })](),
+  1
+);
+assert.sameValue(
+  C[String(() => { })](),
+  1
+);

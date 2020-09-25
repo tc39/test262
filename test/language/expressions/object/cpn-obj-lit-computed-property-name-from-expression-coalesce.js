@@ -33,5 +33,9 @@ assert.sameValue(
   o[x ?? 1],
   2
 );
+assert.sameValue(
+  o[String(x ?? 1)],
+  2
+);
 
 assert.sameValue(x, undefined);

@@ -51,3 +51,11 @@ assert.sameValue(
   C[1 - 1],
   0
 );
+assert.sameValue(
+  c[String(1 - 1)],
+  0
+);
+assert.sameValue(
+  C[String(1 - 1)],
+  0
+);

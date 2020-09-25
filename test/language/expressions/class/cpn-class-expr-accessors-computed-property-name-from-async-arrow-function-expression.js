@@ -72,3 +72,20 @@ assert.sameValue(
   C[async () => {}] = 1,
   1
 );
+assert.sameValue(
+  c[String(async () => {})],
+  1
+);
+assert.sameValue(
+  c[String(async () => {})] = 1,
+  1
+);
+
+assert.sameValue(
+  C[String(async () => {})],
+  1
+);
+assert.sameValue(
+  C[String(async () => {})] = 1,
+  1
+);

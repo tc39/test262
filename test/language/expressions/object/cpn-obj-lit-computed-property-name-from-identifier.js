@@ -34,3 +34,7 @@ assert.sameValue(
   o[x],
   '2'
 );
+assert.sameValue(
+  o[String(x)],
+  '2'
+);

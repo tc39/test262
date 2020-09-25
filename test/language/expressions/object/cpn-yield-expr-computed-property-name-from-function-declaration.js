@@ -33,3 +33,7 @@ assert.sameValue(
   o[f()],
   1
 );
+assert.sameValue(
+  o[String(f())],
+  1
+);

@@ -32,3 +32,7 @@ assert.sameValue(
   o[() => { }],
   1
 );
+assert.sameValue(
+  o[String(() => { })],
+  1
+);

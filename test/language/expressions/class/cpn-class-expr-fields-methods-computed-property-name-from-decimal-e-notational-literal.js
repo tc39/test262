@@ -55,3 +55,11 @@ assert.sameValue(
   C[1.e1](),
   2
 );
+assert.sameValue(
+  c[String(1.e1)](),
+  2
+);
+assert.sameValue(
+  C[String(1.e1)](),
+  2
+);

@@ -56,3 +56,11 @@ assert.sameValue(
   C[g()](),
   1
 );
+assert.sameValue(
+  c[String(g())](),
+  1
+);
+assert.sameValue(
+  C[String(g())](),
+  1
+);

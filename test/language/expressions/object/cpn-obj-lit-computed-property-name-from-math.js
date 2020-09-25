@@ -32,3 +32,7 @@ assert.sameValue(
   o[1 + 2 - 3 * 4 / 5 ** 6],
   2.999232
 );
+assert.sameValue(
+  o[String(1 + 2 - 3 * 4 / 5 ** 6)],
+  2.999232
+);
