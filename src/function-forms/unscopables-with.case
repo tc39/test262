@@ -1,0 +1,63 @@
+// Copyright (c) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Symbol.unscopables behavior across scope boundaries
+template: default/*func*.template
+esid: sec-symbol.unscopables
+info: |
+  ...
+  Let envRec be lex's EnvironmentRecord.
+  Let exists be ? envRec.HasBinding(name).
+
+  HasBinding
+
+  ...
+  If the withEnvironment flag of envRec is false, return true.
+  Let unscopables be ? Get(bindings, @@unscopables).
+  If Type(unscopables) is Object, then
+     Let blocked be ToBoolean(? Get(unscopables, N)).
+     If blocked is true, return false.
+
+  (The `with` Statement) Runtime Semantics: Evaluation
+
+  ...
+  Set the withEnvironment flag of newEnv’s EnvironmentRecord to true.
+  ...
+
+flags: [noStrict]
+features: [globalThis, Symbol.unscopables]
+---*/
+
+//- setup
+let count = 0;
+var v = 1;
+globalThis[Symbol.unscopables] = {
+  v: true,
+};
+
+{
+  count++;
+//- params
+x
+//- args
+10
+//- body
+count++;
+with (globalThis) {
+  count++;
+  assert.sameValue(v, undefined, 'The value of `v` is expected to equal `undefined`');
+}
+count++;
+var v = x;
+with (globalThis) {
+  count++;
+  assert.sameValue(v, 10, 'The value of `v` is 10');
+  v = 20;
+}
+assert.sameValue(v, 20, 'The value of `v` is 20');
+assert.sameValue(globalThis.v, 1, 'The value of globalThis.v is 1');
+//- teardown
+  count++;
+}
+assert.sameValue(count, 6, 'The value of `count` is 6');
