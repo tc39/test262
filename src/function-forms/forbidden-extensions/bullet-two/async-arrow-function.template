@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/async-arrow-function/
+path: language/expressions/async-arrow-function/forbidden-ext/b2/async-arrow-function-
 name: async arrow function expression
 esid: sec-async-arrow-definitions
 info: |
@@ -22,7 +22,7 @@ var f;
 f = async (/*{ params }*/) => {
   "use strict";
   /*{ body }*/
-  callCount = callCount + 1;
+  callCount++;
 };
 
 f(/*{ args }*/)

@@ -1,7 +1,7 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/class/method-static/
+path: language/statements/class/method-static/forbidden-ext/b1/cls-decl-meth-static-
 name: static class expression method
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 info: |
@@ -12,7 +12,7 @@ var callCount = 0;
 class C {
   static method(/*{ params }*/) {
     /*{ method-body }*/
-    callCount = callCount + 1;
+    callCount++;
   }
 }
 

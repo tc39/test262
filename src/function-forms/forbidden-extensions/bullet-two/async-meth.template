@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/object/method-definition/async-meth-
+path: language/expressions/object/method-definition/forbidden-ext/b2/async-meth-
 name: async method
 esid: sec-async-definitions
 info: |
@@ -18,7 +18,7 @@ var obj = {
   async method(/*{ params }*/) {
     "use strict";
     /*{ body }*/
-    callCount = callCount + 1;
+    callCount++;
   }
 };
 

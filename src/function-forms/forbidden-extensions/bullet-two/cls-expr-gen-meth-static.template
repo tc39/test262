@@ -1,7 +1,7 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/class/gen-method-static/
+path: language/expressions/class/gen-method-static/forbidden-ext/b2/cls-expr-gen-meth-static-
 name: static class expression generator method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
@@ -14,7 +14,7 @@ var C = class {
   static *method(/*{ params }*/) {
     /* implicit strict */
     /*{ body }*/
-    callCount = callCount + 1;
+    callCount++;
   }
 };
 

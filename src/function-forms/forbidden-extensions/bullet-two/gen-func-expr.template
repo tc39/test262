@@ -1,7 +1,7 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/generators/
+path: language/expressions/generators/forbidden-ext/b2/gen-func-expr-
 name: generator function expression
 esid: sec-generator-definitions-runtime-semantics-evaluation
 info: |
@@ -14,7 +14,7 @@ var f;
 f = function*(/*{ params }*/) {
   "use strict";
   /*{ body }*/
-  callCount = callCount + 1;
+  callCount++;
 };
 
 assert.throws(/*{ error }*/, function() {

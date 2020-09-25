@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/async-method/
+path: language/statements/class/async-method/forbidden-ext/b1/cls-decl-async-meth-
 name: class declaration async method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
@@ -15,7 +15,7 @@ var callCount = 0;
 class C {
   async method(/*{ params }*/) {
     /*{ method-body }*/
-    callCount = callCount + 1;
+    callCount++;
   }
 }
 
