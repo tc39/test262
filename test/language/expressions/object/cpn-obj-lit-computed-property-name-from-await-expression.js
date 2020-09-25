@@ -5,7 +5,7 @@
 description: Computed property name from condition expression (ComputedPropertyName in ObjectLiteral)
 esid: prod-ComputedPropertyName
 features: [computed-property-names, top-level-await]
-flags: [generated, module]
+flags: [generated, async, module]
 info: |
     ObjectLiteral:
       { PropertyDefinitionList }
@@ -22,6 +22,7 @@ info: |
     ComputedPropertyName:
       [ AssignmentExpression ]
 ---*/
+try {
 
 
 let o = {
@@ -32,3 +33,12 @@ assert.sameValue(
   o[await 9],
   9
 );
+assert.sameValue(
+  o[String(await 9)],
+  9
+);
+
+} catch (e) {
+  $DONE(e);
+}
+$DONE();
