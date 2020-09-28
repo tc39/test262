@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -16,7 +16,7 @@ includes: [detachArrayBuffer.js]
 let buffer = new ArrayBuffer(1);
 let dv = new DataView(buffer, 0);
 
-$DETACHBUFFER(buffer);
+$DETACHBUFFER(dv.buffer);
 
 assert.throws(TypeError, () => {
   dv.byteLength;

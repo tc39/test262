@@ -12,7 +12,7 @@ info: |
     a. Let numericIndex be ! CanonicalNumericIndexString(P).
     b. If numericIndex is not undefined, then
       i. Let buffer be O.[[ViewedArrayBuffer]].
-      ii. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
+      ii. If IsDetachedBuffer(buffer) is true, return false.
       ...
 
   7.1.16 CanonicalNumericIndexString ( argument )
@@ -27,10 +27,24 @@ features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(0);
-  $DETACHBUFFER(sample.buffer);
+  let count = 0;
+  let n = {
+    valueOf() {
+      count++;
+      return 9;
+    }
+  };
 
-  assert.throws(TypeError, function() {
-    with (sample) Infinity;
-  });
+  assert.sameValue(count, 0, 'The value of `count` is 0');
+
+  let ta = new TA([n]);
+
+  assert.sameValue(count, 1, 'The value of `count` is 1');
+
+  $DETACHBUFFER(ta.buffer);
+
+  with (ta) {
+    Infinity;
+    assert.sameValue(count, 1, 'The value of `count` is 1');
+  }
 });

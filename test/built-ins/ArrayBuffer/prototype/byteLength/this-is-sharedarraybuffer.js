@@ -7,11 +7,18 @@ description: Throws a TypeError exception when `this` is a SharedArrayBuffer
 features: [SharedArrayBuffer]
 ---*/
 
-var getter = Object.getOwnPropertyDescriptor(
+var byteLength = Object.getOwnPropertyDescriptor(
   ArrayBuffer.prototype, "byteLength"
-).get;
+);
+
+var getter = byteLength.get;
+var sab = new SharedArrayBuffer(4);
 
 assert.throws(TypeError, function() {
-  var sab = new SharedArrayBuffer(4);
   getter.call(sab);
+}, "`this` cannot be a SharedArrayBuffer");
+
+assert.throws(TypeError, function() {
+  Object.defineProperties(sab, { byteLength });
+  sab.byteLength;
 }, "`this` cannot be a SharedArrayBuffer");
