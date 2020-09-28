@@ -3,7 +3,7 @@
 /*---
 esid: sec-integer-indexed-exotic-objects-set-p-v-receiver
 description: >
-  Throws a TypeError if key has a numeric index and object has a detached
+  Returns false if key has a numeric index and object has a detached
   buffer (honoring the Realm of the current execution context)
 info: |
   9.4.5.5 [[Set]] ( P, V, Receiver)
@@ -17,24 +17,23 @@ info: |
 
   9.4.5.9 IntegerIndexedElementSet ( O, index, value )
 
-  ...
-  3. Let numValue be ? ToNumber(value).
-  4. Let buffer be the value of O's [[ViewedArrayBuffer]] internal slot.
-  5. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
-  ...
+  Assert: O is an Integer-Indexed exotic object.
+  Assert: Type(index) is Number.
+  If O.[[ContentType]] is BigInt, let numValue be ? ToBigInt(value).
+  Otherwise, let numValue be ? ToNumber(value).
+  Let buffer be O.[[ViewedArrayBuffer]].
+  If IsDetachedBuffer(buffer) is true, return false.
+  If ! IsValidIntegerIndex(O, index) is false, return false.
+
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, cross-realm, TypedArray]
 ---*/
-
 var other = $262.createRealm().global;
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var OtherTA = other[TA.name];
   var sample = new OtherTA(1);
-
   $DETACHBUFFER(sample.buffer);
-
-  assert.throws(TypeError, function() {
-    sample[0] = 0n;
-  });
+  sample[0] = 0n;
+  assert.sameValue(sample[0], undefined, 'The value of sample[0] is expected to equal `undefined`');
 });
