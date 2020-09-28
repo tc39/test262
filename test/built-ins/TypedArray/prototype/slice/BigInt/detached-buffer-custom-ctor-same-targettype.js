@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.slice
-description: Throws a TypeError if _O_.[[ViewedArrayBuffer]] is detached on Get custom constructor.
+description: >
+  Throws a TypeError if _O_.[[ViewedArrayBuffer]] is detached during Get custom constructor.
 info: |
   22.2.3.24 %TypedArray%.prototype.slice ( start, end )
 
