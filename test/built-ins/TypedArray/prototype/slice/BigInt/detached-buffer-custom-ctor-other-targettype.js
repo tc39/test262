@@ -3,7 +3,7 @@
 /*---
 esid: sec-%typedarray%.prototype.slice
 description: >
-  Throws a TypeError if _O_.[[ViewedArrayBuffer]] is detached.
+  Throws a TypeError if _O_.[[ViewedArrayBuffer]] is detached during Get custom constructor (other targetType)
 info: |
   22.2.3.24 %TypedArray%.prototype.slice ( start, end )
 

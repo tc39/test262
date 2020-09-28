@@ -2,42 +2,37 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.slice
-description: >
-  Custom @@species constructor throws if it returns an instance with a detached
-  buffer
+description: Throws a TypeError if buffer of object created by custom constructor is detached.
 info: |
   22.2.3.24 %TypedArray%.prototype.slice ( start, end )
 
+  Let A be ? TypedArraySpeciesCreate(O, « count »).
+  If count > 0, then
+    If IsDetachedBuffer(O.[[ViewedArrayBuffer]]) is true, throw a TypeError exception.
   ...
-  9. Let A be ? TypedArraySpeciesCreate(O, « count »).
-  ...
+  Return A.
 
-  22.2.4.7 TypedArraySpeciesCreate ( exemplar, argumentList )
-
-  ...
-  3. Let constructor be ? SpeciesConstructor(exemplar, defaultConstructor).
-  4. Return ? TypedArrayCreate(constructor, argumentList).
-
-  22.2.4.6 TypedArrayCreate ( constructor, argumentList )
-
-  1. Let newTypedArray be ? Construct(constructor, argumentList).
-  2. Perform ? ValidateTypedArray(newTypedArray).
-  ...
 includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [Symbol.species, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+  let counter = 0;
+  let sample = new TA(1);
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = function(count) {
-    var other = new TA(count);
+    let other = new TA(count);
+    counter++;
+    assert.sameValue(count, 1, 'The value of `count` is 1');
     $DETACHBUFFER(other.buffer);
     return other;
   };
 
   assert.throws(TypeError, function() {
+    counter++;
     sample.slice();
-  });
+  }, '`sample.slice()` throws TypeError');
+
+  assert.sameValue(counter, 2, 'The value of `counter` is 2');
 });
