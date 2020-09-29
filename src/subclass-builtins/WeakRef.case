@@ -11,3 +11,5 @@ template: default
 
 //- builtin
 WeakRef
+//- args
+{}
