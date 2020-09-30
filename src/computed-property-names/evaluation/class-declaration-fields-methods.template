@@ -5,6 +5,7 @@
 path: language/statements/class/cpn-class-decl-fields-methods-
 name: ComputedPropertyName in ClassExpression
 esid: prod-ComputedPropertyName
+features: [class-fields-public, class-static-fields-public]
 info: |
   ClassExpression:
     classBindingIdentifier opt ClassTail
