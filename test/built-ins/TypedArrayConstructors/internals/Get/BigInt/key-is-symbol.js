@@ -3,7 +3,7 @@
 /*---
 esid: sec-integer-indexed-exotic-objects-get-p-receiver
 description: >
-  Use OrginaryGet if key is a Symbol
+  Use OrdinaryGet if key is a Symbol
 info: |
   9.4.5.4 [[Get]] (P, Receiver)
 

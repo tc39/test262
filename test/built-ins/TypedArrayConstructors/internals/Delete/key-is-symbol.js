@@ -3,7 +3,7 @@
 /*---
 esid: sec-integer-indexed-exotic-objects-delete-p
 description: >
-  Use OrginaryDelete if key is a Symbol
+  Use OrdinaryDelete if key is a Symbol
 info: |
   [[Delete]] (P)
 

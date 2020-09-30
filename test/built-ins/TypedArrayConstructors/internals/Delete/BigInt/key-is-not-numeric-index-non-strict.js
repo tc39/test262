@@ -3,7 +3,7 @@
 /*---
 esid: sec-integer-indexed-exotic-objects-delete-p
 description: >
-  Use OrginaryDelete if key is not a CanonicalNumericIndex
+  Use OrdinaryDelete if key is not a CanonicalNumericIndex
 info: |
   [[Delete]] (P)
 
