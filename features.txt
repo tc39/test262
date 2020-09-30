@@ -188,6 +188,10 @@ Array.prototype.item
 String.prototype.item
 TypedArray.prototype.item
 
+# Arbitrary module namespace names
+# https://github.com/tc39/ecma262/pull/2154
+arbitrary-module-namespace-names
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

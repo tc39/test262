@@ -12,6 +12,7 @@ info: |
     [+From] ModuleExportName as IdentifierName
 
 flags: [module]
+features: [arbitrary-module-namespace-names]
 ---*/
 import * as Scouts from "./export-expname-from-string-binding.js";
 export { "☿" as Ami } from "./export-expname_FIXTURE.js";

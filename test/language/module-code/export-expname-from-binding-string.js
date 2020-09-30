@@ -14,6 +14,7 @@ info: |
   ModuleExportName : StringLiteral
 
 flags: [module]
+features: [arbitrary-module-namespace-names]
 ---*/
 import * as Scouts from "./export-expname-from-binding-string.js";
 export { Mercury as "☿" } from "./export-expname_FIXTURE.js";
