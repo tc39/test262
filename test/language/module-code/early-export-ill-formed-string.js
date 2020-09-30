@@ -12,6 +12,7 @@ negative:
   flags: module
   phase: parse
   type: SyntaxError
+features: [arbitrary-module-namespace-names]
 ---*/
 
 $DONOTEVALUATE();

@@ -10,6 +10,7 @@ info: |
     ModuleExportName `as` IdentifierName
 
 flags: [module]
+features: [arbitrary-module-namespace-names]
 ---*/
 import { "☿" as Ami } from "./export-expname_FIXTURE.js";
 
