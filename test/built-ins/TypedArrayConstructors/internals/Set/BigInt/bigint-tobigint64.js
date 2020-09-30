@@ -67,44 +67,34 @@ info: |
 
 features: [BigInt, TypedArray]
 ---*/
-
+// 2n ** 64n + 2n
+// 2n ** 63n + 2n
+// -(2n ** 63n) - 2n
+// -(2n ** 64n) - 2n
+// 2n - 2n ** 63n
+// 2n ** 63n - 2
 var vals = [
-  18446744073709551618n, // 2n ** 64n + 2n
-  9223372036854775810n, // 2n ** 63n + 2n
+  18446744073709551618n,
+  9223372036854775810n,
   2n,
   0n,
   -2n,
-  -9223372036854775810n, // -(2n ** 63n) - 2n
-  -18446744073709551618n, // -(2n ** 64n) - 2n
+  -9223372036854775810n,
+  -18446744073709551618n
 ];
 
 var typedArray = new BigInt64Array(1);
-
 typedArray[0] = vals[0];
-assert.sameValue(typedArray[0], 2n,
-                 "ToBigInt64(2n ** 64n + 2n) => 2n");
-
+assert.sameValue(typedArray[0], 2n, 'The value of typedArray[0] is 2n');
 typedArray[0] = vals[1];
-assert.sameValue(typedArray[0], -9223372036854775806n, // 2n - 2n ** 63n
-                 "ToBigInt64(2n ** 63n + 2n) => -9223372036854775806n");
-
+assert.sameValue(typedArray[0], -9223372036854775806n, 'The value of typedArray[0] is -9223372036854775806n');
 typedArray[0] = vals[2];
-assert.sameValue(typedArray[0], 2n,
-                 "ToBigInt64(2n) => 2n");
-
+assert.sameValue(typedArray[0], 2n, 'The value of typedArray[0] is 2n');
 typedArray[0] = vals[3];
-assert.sameValue(typedArray[0], 0n,
-                 "ToBigInt64(0n) => 0n");
-
+assert.sameValue(typedArray[0], 0n, 'The value of typedArray[0] is 0n');
 typedArray[0] = vals[4];
-assert.sameValue(typedArray[0], -2n,
-                 "ToBigInt64( -2n) => -2n");
-
+assert.sameValue(typedArray[0], -2n, 'The value of typedArray[0] is -2n');
 typedArray[0] = vals[5];
-assert.sameValue(typedArray[0], 9223372036854775806n, // 2n ** 63n - 2
-                 "ToBigInt64( -(2n ** 64n) - 2n) => 9223372036854775806n");
-
+assert.sameValue(typedArray[0], 9223372036854775806n, 'The value of typedArray[0] is 9223372036854775806n');
 typedArray[0] = vals[6];
-assert.sameValue(typedArray[0], -2n,
-                 "ToBigInt64( -(2n ** 64n) - 2n) => -2n");
-
+assert.sameValue(typedArray[0], -2n, 'The value of typedArray[0] is -2n');

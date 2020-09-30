@@ -3,18 +3,18 @@
 /*---
 esid: sec-integer-indexed-exotic-objects-set-p-v-receiver
 description: >
-  Returns false if key has a numeric index and object has a detached buffer
+  Returns true when setting the value of any CanonicalNumericIndexString if buffer is detached.
 info: |
-  9.4.5.5 [[Set]] ( P, V, Receiver)
+  [[Set]] ( P, V, Receiver)
 
   ...
-  2. If Type(P) is String, then
-    a. Let numericIndex be ! CanonicalNumericIndexString(P).
-    b. If numericIndex is not undefined, then
-      i. Return ? IntegerIndexedElementSet(O, numericIndex, V).
+   If Type(P) is String, then
+    Let numericIndex be ! CanonicalNumericIndexString(P).
+    If numericIndex is not undefined, then
+      Return ? IntegerIndexedElementSet(O, numericIndex, V).
   ...
 
-  9.4.5.9 IntegerIndexedElementSet ( O, index, value )
+  IntegerIndexedElementSet ( O, index, value )
 
   Assert: O is an Integer-Indexed exotic object.
   Assert: Type(index) is Number.
@@ -22,13 +22,12 @@ info: |
   Otherwise, let numValue be ? ToNumber(value).
   Let buffer be O.[[ViewedArrayBuffer]].
   If IsDetachedBuffer(buffer) is true, return false.
-  If ! IsValidIntegerIndex(O, index) is false, return false.
 
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n]);
+  let sample = new TA([42n]);
   $DETACHBUFFER(sample.buffer);
   assert.sameValue(sample[0] = 1n, false, '`sample[0] = 1n` is false');
   assert.sameValue(sample['1.1'] = 1n, false, '`sample["1.1"] = 1n` is false');
@@ -37,8 +36,8 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(sample['1'] = 1n, false, '`sample["1"] = 1n` is false');
   assert.sameValue(sample['2'] = 1n, false, '`sample["2"] = 1n` is false');
 
-  var obj = {
-    valueOf: function() {
+  let obj = {
+    valueOf() {
       throw new Test262Error();
     }
   };

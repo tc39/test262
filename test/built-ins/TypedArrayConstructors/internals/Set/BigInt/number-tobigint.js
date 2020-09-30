@@ -56,30 +56,30 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     typedArray[0] = 1;
-  }, "abrupt completion from Number: 1");
+  }, '`typedArray[0] = 1` throws TypeError');
 
   assert.throws(TypeError, function() {
     typedArray[0] = Math.pow(2, 63);
-  }, "abrupt completion from Number: 2**63");
+  }, '`typedArray[0] = Math.pow(2, 63)` throws TypeError');
 
   assert.throws(TypeError, function() {
     typedArray[0] = +0;
-  }, "abrupt completion from Number: +0");
+  }, '`typedArray[0] = +0` throws TypeError');
 
   assert.throws(TypeError, function() {
     typedArray[0] = -0;
-  }, "abrupt completion from Number: -0");
+  }, '`typedArray[0] = -0` throws TypeError');
 
   assert.throws(TypeError, function() {
     typedArray[0] = Infinity;
-  }, "abrupt completion from Number: Infinity");
+  }, '`typedArray[0] = Infinity` throws TypeError');
 
   assert.throws(TypeError, function() {
     typedArray[0] = -Infinity;
-  }, "abrupt completion from Number: -Infinity");
+  }, '`typedArray[0] = -Infinity` throws TypeError');
 
   assert.throws(TypeError, function() {
     typedArray[0] = NaN;
-  }, "abrupt completion from Number: NaN");
+  }, '`typedArray[0] = NaN` throws TypeError');
 
 });
