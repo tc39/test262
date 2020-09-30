@@ -3,7 +3,7 @@
 /*---
 description: Module Namespace Objects can have non-Identifier properties
 esid: prod-ExportSpecifier
-info:
+info: |
   ExportSpecifier[From] :
     IdentifierName `as` ModuleExportName
 
