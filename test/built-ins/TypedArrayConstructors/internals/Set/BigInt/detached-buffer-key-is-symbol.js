@@ -14,13 +14,17 @@ info: |
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, Symbol, Reflect, TypedArray]
 ---*/
-
-var s = Symbol("1");
+var s = Symbol('1');
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n]);
+  var sample = new TA(2);
   $DETACHBUFFER(sample.buffer);
 
-  assert.sameValue(Reflect.set(sample, s, "test262"), true);
-  assert.sameValue(sample[s], "test262");
+  assert.sameValue(
+    Reflect.set(sample, s, 'test262'),
+    true,
+    'Reflect.set(sample, "Symbol(\\"1\\")", "test262") must return true'
+  );
+
+  assert.sameValue(sample[s], 'test262', 'The value of sample[s] is "test262"');
 });

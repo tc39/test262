@@ -3,7 +3,7 @@
 /*---
 esid: sec-integer-indexed-exotic-objects-set-p-v-receiver
 description: >
-  Use OrginarySet if numeric key is not a CanonicalNumericIndex
+  Use OrdinarySet if numeric key is not a CanonicalNumericIndex
 info: |
   9.4.5.5 [[Set]] ( P, V, Receiver)
 
@@ -16,43 +16,34 @@ info: |
 includes: [testBigIntTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
-
-var keys = [
-  "1.0",
-  "+1",
-  "1000000000000000000000",
-  "0.0000001"
-];
+var keys = ['1.0', '+1', '1000000000000000000000', '0.0000001'];
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   keys.forEach(function(key) {
     var sample = new TA([42n]);
 
     assert.sameValue(
-      Reflect.set(sample, key, "ecma262"),
+      Reflect.set(sample, key, 'ecma262'),
       true,
-      "Return true setting a new property [" + key + "]"
+      'Reflect.set("new TA([42n])", key, "ecma262") must return true'
     );
-    assert.sameValue(sample[key], "ecma262");
+
+    assert.sameValue(sample[key], 'ecma262', 'The value of sample[key] is "ecma262"');
 
     assert.sameValue(
-      Reflect.set(sample, key, "es3000"),
+      Reflect.set(sample, key, 'es3000'),
       true,
-      "Return true setting a value to a writable property [" + key + "]"
+      'Reflect.set("new TA([42n])", key, "es3000") must return true'
     );
-    assert.sameValue(sample[key], "es3000");
+
+    assert.sameValue(sample[key], 'es3000', 'The value of sample[key] is "es3000"');
 
     Object.defineProperty(sample, key, {
       writable: false,
       value: undefined
     });
-    assert.sameValue(
-      Reflect.set(sample, key, 42),
-      false,
-      "Return false setting a value to a non-writable property [" + key + "]"
-    );
-    assert.sameValue(
-      sample[key], undefined, "non-writable [" + key + "] is preserved"
-    );
+
+    assert.sameValue(Reflect.set(sample, key, 42), false, 'Reflect.set("new TA([42n])", key, 42) must return false');
+    assert.sameValue(sample[key], undefined, 'The value of sample[key] is expected to equal `undefined`');
   });
 });

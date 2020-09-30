@@ -57,6 +57,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     typedArray[0] = undefined;
-  }, "abrupt completion from undefined");
+  }, '`typedArray[0] = undefined` throws TypeError');
 
 });

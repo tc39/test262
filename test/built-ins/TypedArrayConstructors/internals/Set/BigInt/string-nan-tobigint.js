@@ -60,6 +60,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(SyntaxError, function() {
     typedArray[0] = "definately not a number";
-  }, "StringToBigInt(prim) == NaN");
+  }, '`typedArray[0] = "definately not a number"` throws SyntaxError');
 
 });

@@ -58,6 +58,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     typedArray[0] = s;
-  }, "abrupt completion from Symbol");
+  }, '`typedArray[0] = s` throws TypeError');
 
 });
