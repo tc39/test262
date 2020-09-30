@@ -5,6 +5,7 @@ esid: sec-additional-properties-of-the-object.prototype-object
 description: Behavior when "this" value is not Object-coercible
 info: |
     1. Let O be ? ToObject(this value).
+features: [__getter__]
 ---*/
 
 var __lookupGetter__ = Object.prototype.__lookupGetter__;

@@ -6,6 +6,7 @@ description: Behavior when property exists and is not configurable
 info: |
     [...]
     5. Perform ? DefinePropertyOrThrow(O, key, desc).
+features: [__setter__]
 ---*/
 
 var noop = function() {};

@@ -7,7 +7,7 @@ description: Abrupt completion from [[SetPrototypeOf]]
 info: |
     [...]
     4. Let status be ? O.[[SetPrototypeOf]](proto).
-features: [Proxy]
+features: [Proxy, __proto__]
 ---*/
 
 var thrower = function() {

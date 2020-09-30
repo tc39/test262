@@ -23,6 +23,7 @@ info: |
           i. If the [[GetPrototypeOf]] internal method of p is not the ordinary
              object internal method defined in 9.1.1, let done be true.
           ii. Else, let p be the value of p's [[Prototype]] internal slot.
+features: [__proto__]
 ---*/
 
 var root = {};

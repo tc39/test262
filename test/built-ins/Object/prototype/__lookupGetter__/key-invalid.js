@@ -6,6 +6,7 @@ description: Behavior when property key cannot be derived
 info: |
     [...]
     2. Let key be ? ToPropertyKey(P).
+features: [__getter__]
 ---*/
 
 var subject = {};

@@ -6,6 +6,7 @@ description: Behavior when "this" value is not extensible
 info: |
     [...]
     5. Perform ? DefinePropertyOrThrow(O, key, desc).
+features: [__setter__]
 ---*/
 
 var noop = function() {};

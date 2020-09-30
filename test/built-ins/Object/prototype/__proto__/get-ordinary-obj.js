@@ -7,6 +7,7 @@ description: Normal completion from ordinary object's [[GetPrototypeOf]]
 info: |
     1. Let O be ? ToObject(this value).
     2. Return ? O.[[GetPrototypeOf]]().
+features: [__proto__]
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').get;

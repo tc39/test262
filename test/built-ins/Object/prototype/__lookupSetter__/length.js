@@ -16,6 +16,7 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [__setter__]
 ---*/
 
 verifyProperty(Object.prototype.__lookupSetter__, "length", {

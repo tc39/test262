@@ -279,6 +279,9 @@ Uint32Array
 Uint8ClampedArray
 WeakMap
 WeakSet
+__proto__
+__getter__
+__setter__
 
 ## Test-Harness Features
 #

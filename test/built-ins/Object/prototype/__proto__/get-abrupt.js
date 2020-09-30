@@ -7,7 +7,7 @@ description: Abrupt completion from [[GetPrototypeOf]]
 info: |
     1. Let O be ? ToObject(this value).
     2. Return ? O.[[GetPrototypeOf]]().
-features: [Proxy]
+features: [Proxy, __proto__]
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').get;

@@ -11,6 +11,7 @@ description: >
     properties have "get " or "set " prepended to the property name string.
 
 includes: [propertyHelper.js]
+features: [__proto__]
 ---*/
 
 var descriptor = Object.getOwnPropertyDescriptor(Object.prototype, "__proto__");
