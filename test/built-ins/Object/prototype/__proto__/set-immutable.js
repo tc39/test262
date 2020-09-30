@@ -7,6 +7,7 @@ info: |
     [...]
     4. Let status be ? O.[[SetPrototypeOf]](proto).
     5. If status is false, throw a TypeError exception.
+features: [__proto__]
 ---*/
 
 Object.prototype.__proto__ = null;

@@ -13,7 +13,8 @@ info: |
           i. If IsAccessorDescriptor(desc) is true, return desc.[[Set]].
           ii. Return undefined.
        c. Let O be ? O.[[GetPrototypeOf]]().
-       d. If O is null, return undefined. 
+       d. If O is null, return undefined.
+features: [__setter__]
 ---*/
 
 var root = Object.defineProperty({}, 'target', { set: function() {} });

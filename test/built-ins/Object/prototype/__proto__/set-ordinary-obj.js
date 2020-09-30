@@ -9,6 +9,7 @@ info: |
     4. Let status be ? O.[[SetPrototypeOf]](proto).
     5. If status is false, throw a TypeError exception.
     6. Return undefined.
+features: [__proto__]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;

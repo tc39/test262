@@ -11,6 +11,7 @@ info: |
     5. Perform ? DefinePropertyOrThrow(O, key, desc).
     6. Return undefined.
 includes: [propertyHelper.js]
+features: [__getter__]
 ---*/
 
 var subject = {};

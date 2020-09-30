@@ -6,7 +6,7 @@ description: Behavior when getter is not callable
 info: |
     [...]
     2. If IsCallable(setter) is false, throw a TypeError exception.
-features: [Symbol]
+features: [Symbol, __setter__]
 ---*/
 
 var subject = {};

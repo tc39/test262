@@ -16,6 +16,7 @@ info: |
     3. Let current be the value of the [[Prototype]] internal slot of O.
     4. If SameValue(V, current) is true, return true.
     5. If extensible is false, return false.
+features: [__proto__]
 ---*/
 
 var proto = {};

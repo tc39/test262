@@ -8,7 +8,7 @@ info: |
     1. Let O be ? RequireObjectCoercible(this value).
     2. If Type(proto) is neither Object nor Null, return undefined.
     3. If Type(O) is not Object, return undefined.
-features: [Symbol]
+features: [Symbol, __proto__]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;

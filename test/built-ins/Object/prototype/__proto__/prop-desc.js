@@ -9,6 +9,7 @@ info: |
     [[Enumerable]]: false, [[Configurable]]: true }. The [[Get]] and [[Set]]
     attributes are defined as follows:
 includes: [propertyHelper.js]
+features: [__proto__]
 ---*/
 
 var desc = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__');
