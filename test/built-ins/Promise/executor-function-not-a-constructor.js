@@ -10,7 +10,7 @@ info: |
     implement the [[Construct]] internal method unless otherwise specified
     in the description of a particular function.
 includes: [isConstructor.js]
-features: [Reflect.construct]
+features: [Reflect.construct, arrow-function]
 ---*/
 
 var executorFunction;
@@ -21,5 +21,14 @@ function NotPromise(executor) {
 }
 Promise.resolve.call(NotPromise);
 
-assert.sameValue(Object.prototype.hasOwnProperty.call(executorFunction, "prototype"), false);
-assert.sameValue(isConstructor(executorFunction), false);
+assert.sameValue(
+  Object.prototype.hasOwnProperty.call(executorFunction, "prototype"),
+  false,
+  'Object.prototype.hasOwnProperty.call(executorFunction, "prototype") must return false'
+);
+assert.sameValue(isConstructor(executorFunction), false, 'isConstructor(executorFunction) must return false');
+
+assert.throws(TypeError, () => {
+  new executorFunction();
+}, '`new executorFunction()` throws TypeError');
+
