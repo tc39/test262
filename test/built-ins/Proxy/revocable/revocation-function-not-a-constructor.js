@@ -10,10 +10,19 @@ info: |
     implement the [[Construct]] internal method unless otherwise specified
     in the description of a particular function.
 includes: [isConstructor.js]
-features: [Proxy, Reflect.construct]
+features: [Proxy, Reflect.construct, arrow-function]
 ---*/
 
 var revocationFunction = Proxy.revocable({}, {}).revoke;
 
-assert.sameValue(Object.prototype.hasOwnProperty.call(revocationFunction, "prototype"), false);
-assert.sameValue(isConstructor(revocationFunction), false);
+assert.sameValue(
+  Object.prototype.hasOwnProperty.call(revocationFunction, "prototype"),
+  false,
+  'Object.prototype.hasOwnProperty.call(revocationFunction, "prototype") must return false'
+);
+assert.sameValue(isConstructor(revocationFunction), false, 'isConstructor(revocationFunction) must return false');
+assert.throws(TypeError, () => {
+  new revocationFunction();
+}, '`new revocationFunction()` throws TypeError');
+
+
