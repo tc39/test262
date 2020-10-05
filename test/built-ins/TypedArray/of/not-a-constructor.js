@@ -4,13 +4,19 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  TypedArray.of does not implement [[Construct]]
+  TypedArray.of does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 
   Built-in function objects that are not identified as constructors do not
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
+
+  sec-evaluatenew
+
+  ...
+  7. If IsConstructor(constructor) is false, throw a TypeError exception.
+  ...
 includes: [isConstructor.js, testTypedArray.js]
 features: [Reflect.construct, arrow-function]
 ---*/
@@ -20,4 +26,4 @@ assert.sameValue(isConstructor(TypedArray.of), false, 'isConstructor(TypedArray.
 assert.throws(TypeError, () => {
   new TypedArray.of(1, 2, 3, 4);
 }, '`new TypedArray.of(1, 2, 3, 4)` throws TypeError');
-    
+

@@ -4,13 +4,19 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  Math.log1p does not implement [[Construct]]
+  Math.log1p does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 
   Built-in function objects that are not identified as constructors do not
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
+
+  sec-evaluatenew
+
+  ...
+  7. If IsConstructor(constructor) is false, throw a TypeError exception.
+  ...
 includes: [isConstructor.js]
 features: [Reflect.construct, arrow-function]
 ---*/
@@ -20,4 +26,4 @@ assert.sameValue(isConstructor(Math.log1p), false, 'isConstructor(Math.log1p) mu
 assert.throws(TypeError, () => {
   new Math.log1p();
 }, '`new Math.log1p()` throws TypeError');
-    
+

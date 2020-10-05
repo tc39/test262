@@ -4,13 +4,19 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  DataView.prototype.getUint16 does not implement [[Construct]]
+  DataView.prototype.getUint16 does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 
   Built-in function objects that are not identified as constructors do not
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
+
+  sec-evaluatenew
+
+  ...
+  7. If IsConstructor(constructor) is false, throw a TypeError exception.
+  ...
 includes: [isConstructor.js]
 features: [Reflect.construct, DataView, arrow-function, ArrayBuffer]
 ---*/
@@ -24,4 +30,4 @@ assert.sameValue(
 assert.throws(TypeError, () => {
   let dv = new DataView(new ArrayBuffer(16)); new dv.getUint16(0, 0);
 }, '`let dv = new DataView(new ArrayBuffer(16)); new dv.getUint16(0, 0)` throws TypeError');
-    
+
