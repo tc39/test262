@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js, testTypedArray.js]
-features: [Reflect.construct, arrow-function]
+features: [Reflect.construct, TypedArray, arrow-function]
 ---*/
 
 assert.sameValue(isConstructor(TypedArray.of), false, 'isConstructor(TypedArray.of) must return false');
