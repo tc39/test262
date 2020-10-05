@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-2-a-7
+esid: sec-setintegritylevel
 description: >
     Object.seal - 'P' is own property of a Function object that uses
     Object's [[GetOwnProperty]]

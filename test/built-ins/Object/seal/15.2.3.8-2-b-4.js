@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-2-b-4
+esid: sec-setintegritylevel
 description: >
     Object.seal - all own properties of 'O' are already
     non-configurable

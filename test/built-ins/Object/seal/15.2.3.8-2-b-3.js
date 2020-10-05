@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-2-b-3
+esid: sec-setintegritylevel
 description: >
     Object.seal - the [[Configurable]] attribute of all own properties
     of 'O' are set from true to false and other attributes of the
