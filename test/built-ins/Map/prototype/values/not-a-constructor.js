@@ -4,13 +4,19 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  Map.prototype.values does not implement [[Construct]]
+  Map.prototype.values does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 
   Built-in function objects that are not identified as constructors do not
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
+
+  sec-evaluatenew
+
+  ...
+  7. If IsConstructor(constructor) is false, throw a TypeError exception.
+  ...
 includes: [isConstructor.js]
 features: [Reflect.construct, Map, arrow-function]
 ---*/
@@ -20,4 +26,4 @@ assert.sameValue(isConstructor(Map.prototype.values), false, 'isConstructor(Map.
 assert.throws(TypeError, () => {
   let m = new Map(); new m.values();
 }, '`let m = new Map(); new m.values()` throws TypeError');
-    
+

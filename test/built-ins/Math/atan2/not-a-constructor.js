@@ -4,13 +4,19 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  Math.atan2 does not implement [[Construct]]
+  Math.atan2 does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 
   Built-in function objects that are not identified as constructors do not
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
+
+  sec-evaluatenew
+
+  ...
+  7. If IsConstructor(constructor) is false, throw a TypeError exception.
+  ...
 includes: [isConstructor.js]
 features: [Reflect.construct, arrow-function]
 ---*/
@@ -20,4 +26,4 @@ assert.sameValue(isConstructor(Math.atan2), false, 'isConstructor(Math.atan2) mu
 assert.throws(TypeError, () => {
   new Math.atan2();
 }, '`new Math.atan2()` throws TypeError');
-    
+
