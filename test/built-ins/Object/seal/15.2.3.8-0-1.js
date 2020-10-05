@@ -2,10 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-0-1
-description: Object.seal must exist as a function
+esid: sec-object.seal
+description: Object.seal is a function
 ---*/
 
-var f = Object.seal;
-
-assert.sameValue(typeof(f), "function", 'typeof(f)');
+assert.sameValue(typeof Object.seal, "function", 'typeof(f)');

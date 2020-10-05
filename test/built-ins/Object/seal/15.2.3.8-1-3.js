@@ -2,10 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-1-3
+esid: sec-object.seal
 description: >
-    Object.seal does not throw TypeError if type of first param is a
-    boolean primitive
+    Object.seal does not throw TypeError if type of first param is
+    a boolean primitive
+info: |
+  If Type(O) is not Object, return O.
 ---*/
+
 
 Object.seal(false);

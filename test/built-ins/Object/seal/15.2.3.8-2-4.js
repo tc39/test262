@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-2-4
+esid: sec-setintegritylevel
 description: Object.seal - non-enumerable own property of 'O' is sealed
 includes: [propertyHelper.js]
 ---*/

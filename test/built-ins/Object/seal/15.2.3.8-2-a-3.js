@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-2-a-3
+esid: sec-setintegritylevel
 description: >
     Object.seal - 'P' is own data property that overrides an inherited
     accessor property

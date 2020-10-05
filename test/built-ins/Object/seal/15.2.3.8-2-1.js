@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 15.2.3.8-2-1
+esid: sec-object.seal
 description: >
     Object.seal - extensible of 'O' is set as false even if 'O' has no
     own property
