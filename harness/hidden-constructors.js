@@ -5,14 +5,12 @@
 description: |
   Provides uniform access to built-in constructors that are not exposed to the global object.
 defines:
-  - ArrowFunction
   - AsyncArrowFunction
   - AsyncFunction
   - AsyncGeneratorFunction
   - GeneratorFunction
 ---*/
 
-var ArrowFunction = Object.getPrototypeOf(() => {}).constructor;
 var AsyncArrowFunction = Object.getPrototypeOf(async () => {}).constructor;
 var AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 var AsyncGeneratorFunction = Object.getPrototypeOf(async function* () {}).constructor;
