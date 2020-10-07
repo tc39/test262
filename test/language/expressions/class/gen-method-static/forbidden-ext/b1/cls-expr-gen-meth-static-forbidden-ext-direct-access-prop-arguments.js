@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/cls-expr-gen-meth-static.template
 /*---
-description: Forbidden extension, o.arguments (static class expression generator method)
+description: Forbidden extension, f.arguments (static class expression generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [generators]
 flags: [generated, noStrict]

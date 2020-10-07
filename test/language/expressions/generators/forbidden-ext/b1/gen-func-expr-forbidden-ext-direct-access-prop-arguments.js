@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/gen-func-expr.template
 /*---
-description: Forbidden extension, o.arguments (generator function expression)
+description: Forbidden extension, f.arguments (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
 features: [generators]
 flags: [generated, noStrict]

@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/cls-expr-async-meth.template
 /*---
-description: Forbidden extension, o.arguments (class expression async method)
+description: Forbidden extension, f.arguments (class expression async method)
 esid: sec-class-definitions-runtime-semantics-evaluation
 features: [async-functions]
 flags: [generated, noStrict, async]

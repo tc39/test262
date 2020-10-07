@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/meth.template
 /*---
-description: Forbidden extension, o.arguments (method)
+description: Forbidden extension, f.arguments (method)
 esid: sec-runtime-semantics-definemethod
 flags: [generated, noStrict]
 info: |
