@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/async-gen-func-decl.template
 /*---
-description: Forbidden extension, o.arguments (async generator function declaration)
+description: Forbidden extension, f.arguments (async generator function declaration)
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject
 features: [async-iteration]
 flags: [generated, noStrict, async]

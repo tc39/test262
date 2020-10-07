@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/arrow-function.template
 /*---
-description: Forbidden extension, o.arguments (arrow function expression)
+description: Forbidden extension, f.arguments (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 flags: [generated, noStrict]
 info: |

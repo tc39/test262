@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/func-decl-strict.template
 /*---
-description: Forbidden extension, o.arguments (function declaration)
+description: Forbidden extension, f.arguments (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
 flags: [generated, noStrict]
 info: |

@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/cls-decl-async-meth-static.template
 /*---
-description: Forbidden extension, o.arguments (static class declaration async method)
+description: Forbidden extension, f.arguments (static class declaration async method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 features: [async-functions]
 flags: [generated, noStrict, async]

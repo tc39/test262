@@ -2,7 +2,7 @@
 // - src/function-forms/forbidden-ext-direct-access-prop-arguments.case
 // - src/function-forms/forbidden-extensions/bullet-one/cls-decl-meth.template
 /*---
-description: Forbidden extension, o.arguments (class expression method)
+description: Forbidden extension, f.arguments (class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 flags: [generated, noStrict]
 info: |

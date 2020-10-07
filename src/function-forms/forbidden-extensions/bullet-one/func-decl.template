@@ -4,10 +4,12 @@
 path: language/statements/function/forbidden-ext/b1/func-decl-
 name: function declaration
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-desc: In non-strict code, f.caller is not forbidden
 info: |
     FunctionDeclaration :
         function BindingIdentifier ( FormalParameters ) { FunctionBody }
+
+    In non-strict mode code, a function object created using the FunctionDeclaration
+    syntactic constructor, is not subject to the following forbidden extension:
 ---*/
 
 var callCount = 0;
