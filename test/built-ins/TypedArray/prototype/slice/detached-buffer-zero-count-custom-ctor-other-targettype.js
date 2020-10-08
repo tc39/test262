@@ -10,8 +10,7 @@ info: |
 
   Let A be ? TypedArraySpeciesCreate(O, « count »).
   If count > 0, then
-    If IsDetachedBuffer(O.[[ViewedArrayBuffer]]) is true, throw a TypeError exception.
-  ...
+    ...
   Return A
 
 includes: [testTypedArray.js, detachArrayBuffer.js]
@@ -24,7 +23,6 @@ testWithTypedArrayConstructors(function(TA) {
   let ctor = {};
   ctor[Symbol.species] = function(count) {
     counter++;
-    assert.sameValue(count, 0);
     Other = TA === Int16Array ? Int8Array : Int16Array;
     $DETACHBUFFER(sample.buffer);
     other = new Other(count);

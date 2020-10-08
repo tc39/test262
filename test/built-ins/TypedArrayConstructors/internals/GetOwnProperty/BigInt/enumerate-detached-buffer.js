@@ -34,9 +34,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(42);
   $DETACHBUFFER(sample.buffer);
 
-  let count = 0;
+  let counter = 0;
   for (var key in sample) {
-    count++;
+    counter++;
   }
-  assert.sameValue(count, 0, 'The value of `count` is 0');
+  assert.sameValue(counter, 0, 'The value of `counter` is 0');
 });

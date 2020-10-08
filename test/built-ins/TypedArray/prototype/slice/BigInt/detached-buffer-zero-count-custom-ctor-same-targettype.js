@@ -10,8 +10,7 @@ info: |
 
   Let A be ? TypedArraySpeciesCreate(O, « count »).
   If count > 0, then
-    If IsDetachedBuffer(O.[[ViewedArrayBuffer]]) is true, throw a TypeError exception.
-  ...
+    ...
   Return A
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Symbol.species, TypedArray]
@@ -23,7 +22,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   let ctor = {};
   ctor[Symbol.species] = function(count) {
     counter++;
-    assert.sameValue(count, 0, 'The value of `count` is 0');
     $DETACHBUFFER(sample.buffer);
     other = new TA(count);
     return other;
