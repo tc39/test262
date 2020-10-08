@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.waitasync
 description: >
-  Test that Atomics.waitAsync times out with a negative timeout
+  Undefined timeout arg is coerced to zero
 info: |
   Atomics.waitAsync( typedArray, index, value, timeout )
 
@@ -13,21 +13,26 @@ info: |
   DoWait ( mode, typedArray, index, value, timeout )
 
   6. Let q be ? ToNumber(timeout).
+    ...
+    Undefined    Return NaN.
+
+  5.If q is NaN, let t be +∞, else let t be max(q, 0)
 
 flags: [async]
-features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, destructuring-binding, arrow-function]
+features: [Atomics.waitAsync, SharedArrayBuffer, TypedArray, Atomics, computed-property-names, Symbol, Symbol.toPrimitive, arrow-function]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function', 'The value of `typeof Atomics.waitAsync` is "function"');
+
 const i32a = new Int32Array(
   new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT * 4)
 );
 
-Promise.all([
-    Atomics.waitAsync(i32a, 0, 0, -1).value,
-  ]).then(([outcome]) => {
-    assert.sameValue(
-      outcome,
-      'timed-out',
-      'The value of `outcome` is "timed-out"'
-    );
-  }).then($DONE, $DONE);
+let {async, value} = Atomics.waitAsync(i32a, 0, 0);
+
+value.then(result => {
+
+  assert.sameValue(result, "ok", 'The value of `result` is "ok"');
+
+}, $DONE).then($DONE, $DONE);
+
+Atomics.notify(i32a, 0);
