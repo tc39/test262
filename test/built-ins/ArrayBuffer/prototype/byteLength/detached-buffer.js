@@ -9,6 +9,7 @@ info: |
   If IsDetachedBuffer(buffer) is true, return 0.
   ...
 includes: [detachArrayBuffer.js]
+features: [align-detached-buffer-semantics-with-web-reality]
 ---*/
 
 var ab = new ArrayBuffer(1);

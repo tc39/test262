@@ -20,7 +20,7 @@ info: |
   Return ? OrdinaryDelete(O, P).
 flags: [onlyStrict]
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

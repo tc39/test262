@@ -22,7 +22,7 @@ info: |
   Otherwise, let numValue be ? ToNumber(value).
   ...
 includes: [testBigIntTypedArray.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
   let sample = new TA([42n]);

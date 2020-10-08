@@ -17,7 +17,7 @@ info: |
     ...
   Return ? OrdinaryDelete(O, P)
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

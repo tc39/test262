@@ -14,7 +14,7 @@ info: |
   ...
   Return A
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
-features: [BigInt, Symbol.species, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Symbol.species, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

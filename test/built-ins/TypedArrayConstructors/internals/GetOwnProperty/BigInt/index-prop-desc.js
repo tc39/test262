@@ -16,7 +16,7 @@ info: |
       [[Enumerable]]: true, [[Configurable]]: true}.
   ...
 includes: [testBigIntTypedArray.js, propertyHelper.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n, 43n]);

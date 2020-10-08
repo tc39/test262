@@ -17,7 +17,7 @@ info: |
       iv. Return true.
   ...
 includes: [testBigIntTypedArray.js]
-features: [BigInt, Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n, 43n]);

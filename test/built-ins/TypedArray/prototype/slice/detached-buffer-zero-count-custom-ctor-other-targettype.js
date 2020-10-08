@@ -15,7 +15,7 @@ info: |
   Return A
 
 includes: [testTypedArray.js, detachArrayBuffer.js]
-features: [Symbol.species, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, Symbol.species, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

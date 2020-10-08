@@ -24,7 +24,7 @@ info: |
     a. Return ? parent.[[HasProperty]](P).
   6. Return false.
 includes: [testBigIntTypedArray.js]
-features: [BigInt, Reflect, Proxy, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, Proxy, TypedArray]
 ---*/
 
 var handler = {

@@ -21,7 +21,7 @@ info: |
   9. If index < 0 or index ≥ length, return false.
   ...
 includes: [testTypedArray.js]
-features: [Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, Reflect, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

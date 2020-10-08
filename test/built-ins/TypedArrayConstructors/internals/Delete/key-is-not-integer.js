@@ -24,7 +24,7 @@ info: |
   5. If IsInteger(index) is false, return undefined.
   ...
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

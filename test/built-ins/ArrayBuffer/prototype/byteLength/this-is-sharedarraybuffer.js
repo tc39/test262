@@ -4,7 +4,7 @@
 /*---
 esid: sec-get-arraybuffer.prototype.bytelength
 description: Throws a TypeError exception when `this` is a SharedArrayBuffer
-features: [SharedArrayBuffer]
+features: [align-detached-buffer-semantics-with-web-reality, SharedArrayBuffer]
 ---*/
 
 var byteLength = Object.getOwnPropertyDescriptor(

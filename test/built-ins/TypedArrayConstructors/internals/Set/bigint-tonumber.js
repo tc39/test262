@@ -48,7 +48,7 @@ info: |
     Result: Throw a TypeError Exception
 
 includes: [testTypedArray.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithTypedArrayConstructors(function(TA) {
   var typedArray = new TA(1);

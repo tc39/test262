@@ -193,6 +193,10 @@ TypedArray.prototype.item
 # https://github.com/tc39/ecma262/pull/2154
 arbitrary-module-namespace-names
 
+# Align detached buffer semantics with web reality
+# https://github.com/tc39/ecma262/pull/2164
+align-detached-buffer-semantics-with-web-reality
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

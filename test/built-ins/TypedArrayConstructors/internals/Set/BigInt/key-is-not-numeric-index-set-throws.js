@@ -20,7 +20,7 @@ info: |
   8. Perform ? Call(setter, Receiver, « V »).
   ...
 includes: [testBigIntTypedArray.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

@@ -15,7 +15,7 @@ info: |
       ii. If IsDetachedBuffer(buffer) is true, return false.
   ...
 includes: [testTypedArray.js, detachArrayBuffer.js]
-features: [cross-realm, Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, cross-realm, Reflect, TypedArray]
 ---*/
 
 var other = $262.createRealm().global;
