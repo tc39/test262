@@ -14,7 +14,7 @@ info: |
     ...
   3. Return ? OrdinaryGet(O, P, Receiver).
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
 TypedArray.prototype.baz = "test262";

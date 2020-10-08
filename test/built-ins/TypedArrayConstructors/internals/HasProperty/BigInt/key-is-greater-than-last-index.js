@@ -14,7 +14,7 @@ info: |
       iii. If ! IsValidIntegerIndex(O, numericIndex) is false, return false.
   ...
 includes: [testBigIntTypedArray.js]
-features: [BigInt, Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 
 // Prevents false positives using OrdinaryHasProperty

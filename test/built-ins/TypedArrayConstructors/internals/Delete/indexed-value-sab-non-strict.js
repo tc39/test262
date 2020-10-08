@@ -7,7 +7,7 @@ description: >
   Return value from valid numeric index, with SharedArrayBuffer
 flags: [noStrict]
 includes: [testTypedArray.js]
-features: [TypedArray, SharedArrayBuffer]
+features: [align-detached-buffer-semantics-with-web-reality, TypedArray, SharedArrayBuffer]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

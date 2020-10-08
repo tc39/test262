@@ -12,7 +12,7 @@ info: |
     ...
   3. Return ? OrdinaryGet(O, P, Receiver).
 includes: [testBigIntTypedArray.js]
-features: [BigInt, Symbol, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Symbol, TypedArray]
 ---*/
 
 var parentKey = Symbol("2");

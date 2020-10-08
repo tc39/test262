@@ -63,7 +63,7 @@ info: |
   an expression of the form  X !== X. The result will be true if and only
   if X is a NaN.
 includes: [nans.js, testTypedArray.js]
-features: [TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(FA) {

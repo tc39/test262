@@ -65,7 +65,7 @@ info: |
     2. Let int64bit be n modulo 2^64.
     3. If int64bit ≥ 2^63, return int64bit - 2^64; otherwise return int64bit.
 
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 // 2n ** 64n + 2n
 // 2n ** 63n + 2n

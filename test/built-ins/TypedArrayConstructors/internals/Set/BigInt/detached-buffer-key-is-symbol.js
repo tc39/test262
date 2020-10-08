@@ -12,7 +12,7 @@ info: |
     ...
   3. Return ? OrdinarySet(O, P, V, Receiver).
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
-features: [BigInt, Symbol, Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Symbol, Reflect, TypedArray]
 ---*/
 var s = Symbol('1');
 

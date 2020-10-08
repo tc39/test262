@@ -14,7 +14,7 @@ info: |
   ...
   3. Return ? OrdinarySet(O, P, V, Receiver).
 includes: [testBigIntTypedArray.js]
-features: [BigInt, Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 var keys = ['1.0', '+1', '1000000000000000000000', '0.0000001'];
 

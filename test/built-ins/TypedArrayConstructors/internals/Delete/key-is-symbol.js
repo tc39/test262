@@ -15,7 +15,7 @@ info: |
   Return ? OrdinaryDelete(O, P).
 
 includes: [testTypedArray.js]
-features: [Symbol, Symbol, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, Symbol, Symbol, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

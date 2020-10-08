@@ -14,7 +14,7 @@ info: |
     ...
   3. Return ? OrdinaryGet(O, P, Receiver).
 includes: [testBigIntTypedArray.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
 var keys = [

@@ -58,7 +58,7 @@ info: |
       corresponds to the MV, rather than rounding to a Number.
 
 includes: [testBigIntTypedArray.js]
-features: [BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
   var typedArray = new TA(1);

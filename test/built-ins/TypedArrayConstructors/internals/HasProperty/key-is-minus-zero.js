@@ -14,7 +14,7 @@ info: |
       iii. If ! IsValidIntegerIndex(O, numericIndex) is false, return false.
   ...
 includes: [testTypedArray.js]
-features: [Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, Reflect, TypedArray]
 ---*/
 
 

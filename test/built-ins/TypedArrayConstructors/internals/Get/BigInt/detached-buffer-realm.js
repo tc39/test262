@@ -21,7 +21,7 @@ info: |
     If IsDetachedBuffer(buffer) is true, return undefined.
   ...
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
-features: [BigInt, cross-realm, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, cross-realm, TypedArray]
 ---*/
 
 let other = $262.createRealm().global;

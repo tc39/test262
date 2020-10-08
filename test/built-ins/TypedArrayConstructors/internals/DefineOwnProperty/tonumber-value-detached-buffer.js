@@ -26,7 +26,7 @@ info: |
   15. Perform SetValueInBuffer(buffer, indexedPosition, elementType, numValue).
   16. Return true.
 includes: [testTypedArray.js, detachArrayBuffer.js]
-features: [Reflect, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, Reflect, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

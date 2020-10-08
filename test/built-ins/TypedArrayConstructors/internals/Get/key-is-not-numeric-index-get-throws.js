@@ -20,7 +20,7 @@ info: |
   8. Return ? Call(getter, Receiver).
   ...
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
