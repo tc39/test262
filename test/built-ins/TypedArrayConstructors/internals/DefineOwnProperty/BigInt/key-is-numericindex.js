@@ -25,7 +25,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     configurable: true,
     enumerable: true,
     writable: true
-  }), true, 'Reflect.defineProperty("new TA([42n, 42n])", "0", {value: 8n, configurable: true, enumerable: true, writable: true}) must return true');
+  }), true, 'Reflect.defineProperty(sample, "0", {value: 8n, configurable: true, enumerable: true, writable: true}) must return true');
 
   assert.sameValue(sample[0], 8n, 'The value of sample[0] is 8n');
   var desc = Object.getOwnPropertyDescriptor(sample, '0');

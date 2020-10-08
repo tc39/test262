@@ -43,6 +43,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(
     Reflect.defineProperty(sample, '0', desc),
     false,
-    'Reflect.defineProperty( sample, "0", {value: 0n, configurable: true, enumerable: true, writable: true} ) must return false'
+    'Reflect.defineProperty(sample, "0", {value: 0n, configurable: true, enumerable: true, writable: true} ) must return false'
   );
 });

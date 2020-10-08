@@ -25,22 +25,22 @@ includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
-  let count = 0;
+  let counter = 0;
 
   let n = {
     valueOf() {
-      count++;
+      counter++;
       return 9n;
     }
   };
 
-  assert.sameValue(count, 0, 'The value of `count` is 0');
+  assert.sameValue(counter, 0, 'The value of `counter` is 0');
   let ta = new TA([n]);
-  assert.sameValue(count, 1, 'The value of `count` is 1');
+  assert.sameValue(counter, 1, 'The value of `counter` is 1');
   $DETACHBUFFER(ta.buffer);
 
   with (ta) {
     Infinity;
-    assert.sameValue(count, 1, 'The value of `count` is 1');
+    assert.sameValue(counter, 1, 'The value of `counter` is 1');
   }
 });

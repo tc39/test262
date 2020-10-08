@@ -22,7 +22,6 @@ testWithTypedArrayConstructors(function(TA) {
   sample.constructor = {};
   sample.constructor[Symbol.species] = function(count) {
     counter++;
-    assert.sameValue(count, 1, 'The value of `count` is 1');
     $DETACHBUFFER(sample.buffer);
     return new TA(count);
   };
