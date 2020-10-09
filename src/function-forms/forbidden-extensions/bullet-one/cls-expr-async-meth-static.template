@@ -7,24 +7,20 @@ name: static class expression async method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
   ClassExpression : class BindingIdentifieropt ClassTail
-features: [async-functions]
+features: [arrow-function, async-functions, class]
 flags: [async]
 ---*/
 
 var callCount = 0;
 
 var C = class {
-  static async method(/*{ params }*/) {
-    /*{ method-body }*/
+  static async method() {
+    assert.sameValue(/*{ method-has-forbidden-property }*/, false);
     callCount++;
   }
 };
 
 C.method(/*{ args }*/)
-  .then(_ => {
-    throw new Test262Error('function should not be resolved');
-  }, error => assert.sameValue(error.constructor, /*{ error }*/))
   .then(() => {
-    assert.sameValue(callCount, 0, 'function body is not evaluated');
-  }, $DONE)
-  .then($DONE, $DONE);
+    assert.sameValue(callCount, 1, 'function body evaluated');
+  }, $DONE).then($DONE, $DONE);

@@ -13,13 +13,11 @@ features: [generators]
 
 var callCount = 0;
 var obj = {
-  *method(/*{ params }*/) {
-    /*{ method-body }*/
+  *method() {
+    assert.sameValue(/*{ method-has-forbidden-property }*/, false);
     callCount++;
   }
 };
 
-assert.throws(/*{ error }*/, function() {
-  obj.method(/*{ args }*/).next();
-});
-assert.sameValue(callCount, 0, 'generator method body not evaluated');
+obj.method(/*{ args }*/).next();
+assert.sameValue(callCount, 1, 'generator method body evaluated');

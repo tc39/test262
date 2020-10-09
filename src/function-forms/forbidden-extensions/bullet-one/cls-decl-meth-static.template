@@ -6,17 +6,16 @@ name: static class expression method
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
+features: [class]
 ---*/
 
 var callCount = 0;
 class C {
-  static method(/*{ params }*/) {
-    /*{ method-body }*/
+  static method() {
+    assert.sameValue(/*{ method-has-forbidden-property }*/, false);
     callCount++;
   }
 }
 
-assert.throws(/*{ error }*/, function() {
-  C.method(/*{ args }*/);
-});
-assert.sameValue(callCount, 0, 'method body not evaluated');
+C.method(/*{ args }*/);
+assert.sameValue(callCount, 1, 'method body evaluated');

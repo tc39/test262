@@ -10,12 +10,11 @@ info: |
 ---*/
 
 var callCount = 0;
-function f(/*{ params }*/) {
+function f() {
   "use strict";
-  /*{ function-body }*/
+  assert.sameValue(/*{ function-has-forbidden-property }*/, false);
   callCount++;
 }
-assert.throws(/*{ error }*/, function() {
-  f(/*{ args }*/);
-});
-assert.sameValue(callCount, 0, 'function body not evaluated');
+
+f(/*{ args }*/);
+assert.sameValue(callCount, 1, 'function body evaluated');
