@@ -6,17 +6,16 @@ name: class expression method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
+features: [class]
 ---*/
 
 var callCount = 0;
 var C = class {
-  method(/*{ params }*/) {
-    /*{ method-body }*/
+  method() {
+    assert.sameValue(/*{ method-has-forbidden-property }*/, false);
     callCount++;
   }
 };
 
-assert.throws(/*{ error }*/, function() {
-  C.prototype.method(/*{ args }*/);
-});
-assert.sameValue(callCount, 0, 'method body not evaluated');
+C.prototype.method(/*{ args }*/);
+assert.sameValue(callCount, 1, 'method body evaluated');

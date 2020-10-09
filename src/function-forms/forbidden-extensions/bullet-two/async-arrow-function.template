@@ -14,22 +14,42 @@ info: |
     { AsyncFunctionBody }
 
 flags: [async]
-features: [async-functions]
+features: [arrow-function, async-functions]
 ---*/
 
 var callCount = 0;
 var f;
 f = async (/*{ params }*/) => {
   "use strict";
-  /*{ body }*/
+  // This and the following conditional value is set in the test's .case file.
+  // For every test that has a "true" value here, there is a
+  // corresponding test that has a "false" value here.
+  // They are generated from two different case files, which use
+  // the same templates.
+  let descriptor = Object.getOwnPropertyDescriptor(inner, "caller");
+  if (descriptor && descriptor.configurable && /*{ define-own-caller }*/) {
+    Object.defineProperty(inner, "caller", /*{ define-own-caller-descriptor }*/);
+  }
+  var result = inner();
+  if (descriptor && descriptor.configurable && /*{ define-own-caller }*/) {
+    assert.sameValue(result, 1, 'If this test defined an own "caller" property on the inner function, then it should be accessible and should return the value it was set to.');
+  }
+  // "CALLER_OWN_PROPERTY_DOES_NOT_EXIST" is from
+  // forbidden-ext-indirect-access-prop-caller.case
+  //
+  // If the function object "inner" has an own property
+  // named "caller", then its value will be returned.
+  //
+  // If the function object "inner" DOES NOT have an
+  // own property named "caller", then the symbol
+  // CALLER_OWN_PROPERTY_DOES_NOT_EXIST will be returned.
+  if (result !== CALLER_OWN_PROPERTY_DOES_NOT_EXIST) {
+    assert.notSameValue(result, /*{ function-object }*/);
+  }
   callCount++;
 };
 
 f(/*{ args }*/)
-  .then(_ => {
-    throw new Test262Error('function should not be resolved');
-  }, error => assert.sameValue(error.constructor, /*{ error }*/))
   .then(() => {
-    assert.sameValue(callCount, 0, 'function body is not evaluated');
-  }, $DONE)
-  .then($DONE, $DONE);
+    assert.sameValue(callCount, 1, 'function body evaluated');
+  }, $DONE).then($DONE, $DONE);

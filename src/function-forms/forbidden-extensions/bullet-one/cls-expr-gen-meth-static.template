@@ -6,18 +6,16 @@ name: static class expression generator method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
-features: [generators]
+features: [class, generators]
 ---*/
 
 var callCount = 0;
 var C = class {
-  static *method(/*{ params }*/) {
-    /*{ method-body }*/
+  static *method() {
+    assert.sameValue(/*{ method-has-forbidden-property }*/, false);
     callCount++;
   }
 };
 
-assert.throws(/*{ error }*/, function() {
-  C.method(/*{ args }*/).next();
-});
-assert.sameValue(callCount, 0, 'method body not evaluated');
+C.method(/*{ args }*/).next();
+assert.sameValue(callCount, 1, 'method body evaluated');

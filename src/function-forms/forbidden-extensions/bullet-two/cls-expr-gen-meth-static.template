@@ -6,19 +6,41 @@ name: static class expression generator method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
-features: [generators]
+features: [class, generators]
 ---*/
 
 var callCount = 0;
 var C = class {
-  static *method(/*{ params }*/) {
+  static *method() {
     /* implicit strict */
-    /*{ body }*/
+    // This and the following conditional value is set in the test's .case file.
+    // For every test that has a "true" value here, there is a
+    // corresponding test that has a "false" value here.
+    // They are generated from two different case files, which use
+    let descriptor = Object.getOwnPropertyDescriptor(inner, "caller");
+    if (descriptor && descriptor.configurable && /*{ define-own-caller }*/) {
+      Object.defineProperty(inner, "caller", /*{ define-own-caller-descriptor }*/);
+    }
+    var result = inner();
+    if (descriptor && descriptor.configurable && /*{ define-own-caller }*/) {
+      assert.sameValue(result, 1, 'If this test defined an own "caller" property on the inner function, then it should be accessible and should return the value it was set to.');
+    }
+
+    // "CALLER_OWN_PROPERTY_DOES_NOT_EXIST" is from
+    // forbidden-ext-indirect-access-prop-caller.case
+    //
+    // If the function object "inner" has an own property
+    // named "caller", then its value will be returned.
+    //
+    // If the function object "inner" DOES NOT have an
+    // own property named "caller", then the symbol
+    // CALLER_OWN_PROPERTY_DOES_NOT_EXIST will be returned.
+    if (result !== CALLER_OWN_PROPERTY_DOES_NOT_EXIST) {
+      assert.notSameValue(result, /*{ method-object }*/);
+    }
     callCount++;
   }
 };
 
-assert.throws(/*{ error }*/, function() {
-  C.method(/*{ args }*/).next();
-});
-assert.sameValue(callCount, 0, 'method body not evaluated');
+C.method(/*{ args }*/).next();
+assert.sameValue(callCount, 1, 'method body evaluated');

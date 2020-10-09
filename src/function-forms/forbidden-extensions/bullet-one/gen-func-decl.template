@@ -10,13 +10,11 @@ features: [generators]
 ---*/
 
 var callCount = 0;
-function* f(/*{ params }*/) {
-  /*{ function-body }*/
+function* f() {
+  assert.sameValue(/*{ function-has-forbidden-property }*/, false);
   callCount++;
 }
 
-assert.throws(/*{ error }*/, function() {
-  f(/*{ args }*/).next();
-});
+f(/*{ args }*/).next();
+assert.sameValue(callCount, 1, 'generator function body evaluated');
 
-assert.sameValue(callCount, 0, 'generator function body not evaluated');

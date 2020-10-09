@@ -23,9 +23,9 @@ function inner() {
     : CALLER_OWN_PROPERTY_DOES_NOT_EXIST;
 }
 //- define-own-caller
-false
+true
 //- define-own-caller-descriptor
-{}
+{value: 1}
 //- function-object
 f
 //- method-object

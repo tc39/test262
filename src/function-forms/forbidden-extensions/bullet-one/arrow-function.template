@@ -6,16 +6,16 @@ name: arrow function expression
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 info: |
     ArrowFunction : ArrowParameters => ConciseBody
+features: [arrow-function]
 ---*/
 
 var callCount = 0;
 var f;
 f = (/*{ params }*/) => {
-  /*{ function-body }*/
+  assert.sameValue(/*{ function-has-forbidden-property }*/, false);
   callCount++;
 };
 
-assert.throws(/*{ error }*/, function() {
+
   f(/*{ args }*/);
-});
-assert.sameValue(callCount, 0, 'arrow function body not evaluated');
+assert.sameValue(callCount, 1, 'arrow function body evaluated');
