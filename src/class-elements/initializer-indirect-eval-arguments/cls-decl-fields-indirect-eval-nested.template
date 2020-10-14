@@ -6,18 +6,14 @@ esid: sec-performeval-rules-in-initializer
 path: language/statements/class/elements/nested-indirect-
 name: indirect eval
 features: [class, class-fields-public]
+flags: [noStrict]
 ---*/
 
-var executed = false;
+var /*{ initializer }*/ = 1;
 class C {
   x = () => {
-    var t = () => { (0, eval)('executed = true; /*{ initializer }*/;'); };
-    t();
+    var t = () => (0, eval)('/*{ initializer }*/;');
+    return t();
   }
 }
-
-assert.throws(/*{ executionerror }*/, function() {
-  new C().x();
-});
-
-assert.sameValue(executed, false);
+assert.sameValue(new C().x(), /*{ initializer }*/);
