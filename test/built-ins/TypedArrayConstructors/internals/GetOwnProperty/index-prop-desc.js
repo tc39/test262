@@ -22,15 +22,17 @@ features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
 
-  var desc0 = Object.getOwnPropertyDescriptor(sample, 0);
-  assert.sameValue(desc0.value, 42, 'The value of desc0.value is 42');
-  assert.sameValue(desc0.writable, true, 'The value of desc0.writable is true');
-  verifyEnumerable(sample, "0", "index descriptor is enumerable [0]");
-  verifyConfigurable(sample, "0", "index descriptor is configurable [0]");
+  verifyProperty(sample, "0", {
+    value: 42,
+    configurable: true,
+    enumerable: true,
+    writable: true,
+  });
 
-  var desc1 = Object.getOwnPropertyDescriptor(sample, 1);
-  assert.sameValue(desc1.value, 43, 'The value of desc1.value is 43');
-  assert.sameValue(desc1.writable, true, 'The value of desc1.writable is true');
-  verifyEnumerable(sample, "1", "index descriptor is enumerable [1]");
-  verifyConfigurable(sample, "1", "index descriptor is configurable [1]");
+  verifyProperty(sample, "1", {
+    value: 43,
+    configurable: true,
+    enumerable: true,
+    writable: true,
+  });
 });

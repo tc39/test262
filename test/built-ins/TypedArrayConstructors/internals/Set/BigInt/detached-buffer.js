@@ -29,12 +29,18 @@ features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   let sample = new TA([42n]);
   $DETACHBUFFER(sample.buffer);
-  assert.sameValue(sample[0] = 1n, false, '`sample[0] = 1n` is false');
-  assert.sameValue(sample['1.1'] = 1n, false, '`sample["1.1"] = 1n` is false');
-  assert.sameValue(sample['-0'] = 1n, false, '`sample["-0"] = 1n` is false');
-  assert.sameValue(sample['-1'] = 1n, false, '`sample["-1"] = 1n` is false');
-  assert.sameValue(sample['1'] = 1n, false, '`sample["1"] = 1n` is false');
-  assert.sameValue(sample['2'] = 1n, false, '`sample["2"] = 1n` is false');
+  sample[0] = 1n;
+  assert.sameValue(sample[0], undefined, '`sample[0] = 1n` is undefined');
+  sample['1.1'] = 1n;
+  assert.sameValue(sample['1.1'], undefined, '`sample["1.1"] = 1n` is undefined');
+  sample['-0'] = 1n;
+  assert.sameValue(sample['-0'], undefined, '`sample["-0"] = 1n` is undefined');
+  sample['-1'] = 1n;
+  assert.sameValue(sample['-1'], undefined, '`sample["-1"] = 1n` is undefined');
+  sample['1'] = 1n;
+  assert.sameValue(sample['1'], undefined, '`sample["1"] = 1n` is undefined');
+  sample['2'] = 1n;
+  assert.sameValue(sample['2'], undefined, '`sample["2"] = 1n` is undefined');
 
   let obj = {
     valueOf() {
