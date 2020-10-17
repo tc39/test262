@@ -16,9 +16,8 @@ negative:
   type: SyntaxError
 ---*/
 
+$DONOTEVALUATE();
+
 export { "foo" as "bar" }
 
 function foo() {}
-
-$DONOTEVALUATE();
-
