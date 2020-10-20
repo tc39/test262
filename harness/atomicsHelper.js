@@ -36,26 +36,20 @@ defines:
     return r;
   };
 
-  if (this.setTimeout === undefined) {
-    (function(that) {
-      that.setTimeout = function(callback, delay) {
-        let p = Promise.resolve();
-        let start = Date.now();
-        let end = start + delay;
-        function check() {
-          if ((end - Date.now()) > 0) {
-            p.then(check);
-          }
-          else {
-            callback();
-          }
-        }
+  $262.agent.setTimeout = function(callback, delay) {
+    let p = Promise.resolve();
+    let start = $262.agent.monotonicNow();
+    let end = start + delay;
+    function check() {
+      if ($262.agent.monotonicNow() >= end) {
         p.then(check);
       }
-    })(this);
-  }
-
-  $262.agent.setTimeout = setTimeout;
+      else {
+        callback();
+      }
+    }
+    p.then(check);
+  };
 
   $262.agent.getReportAsync = function() {
     return new Promise(function(resolve) {
