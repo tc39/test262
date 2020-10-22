@@ -36,5 +36,5 @@ testWithTypedArrayConstructors(function(TA) {
     loops++;
   });
 
-  assert.sameValue(loops, 1);
+  assert.sameValue(loops, 2);
 });
