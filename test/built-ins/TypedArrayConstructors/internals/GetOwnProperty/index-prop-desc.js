@@ -13,7 +13,7 @@ info: |
     b. If numericIndex is not undefined, then
       ...
       iii. Return a PropertyDescriptor{[[Value]]: value, [[Writable]]: true,
-      [[Enumerable]]: true, [[Configurable]]: false}.
+      [[Enumerable]]: true, [[Configurable]]: true}.
   ...
 includes: [testTypedArray.js, propertyHelper.js]
 features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
