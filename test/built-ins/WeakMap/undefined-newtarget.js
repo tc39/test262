@@ -8,6 +8,7 @@ info: |
   23.3.1.1 WeakMap ( [ iterable ] )
 
   1. If NewTarget is undefined, throw a TypeError exception.
+features: [WeakMap]
 ---*/
 
 assert.throws(TypeError, function() {

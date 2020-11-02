@@ -5,6 +5,7 @@ esid: sec-weakset-constructor
 description: >
   The WeakSet constructor is the %WeakSet% intrinsic object and the initial
   value of the WeakSet property of the global object.
+features: [WeakSet]
 ---*/
 
 assert.sameValue(

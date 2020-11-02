@@ -13,7 +13,7 @@ info: |
     d. Let nextItem be IteratorValue(next).
     e. ReturnIfAbrupt(nextItem).
     ...
-features: [Symbol.iterator]
+features: [Symbol, Symbol.iterator, WeakMap]
 ---*/
 
 var iterable = {};

@@ -15,6 +15,7 @@ info: |
     b. ReturnIfAbrupt(adder).
     c. If IsCallable(adder) is false, throw a TypeError exception.
   ...
+features: [WeakSet]
 ---*/
 
 WeakSet.prototype.add = null;

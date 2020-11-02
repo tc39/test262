@@ -12,9 +12,12 @@ info: |
     a. If e is not empty and SameValueZero(e, value) is true, then
     i. Return S.
   ...
+features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
 var foo = {};
-var s = new WeakSet([foo]);
+var bar = Symbol();
+var s = new WeakSet([foo, bar]);
 
 assert.sameValue(s.add(foo), s, '`s.add(foo)` returns `s`');
+assert.sameValue(s.add(bar), s, '`s.add(bar)` returns `s`');

@@ -12,7 +12,7 @@ info: |
     ...
     d. Let nextValue be IteratorValue(next).
     e. ReturnIfAbrupt(nextValue).
-features: [Symbol.iterator]
+features: [Symbol, Symbol.iterator, WeakSet]
 ---*/
 
 var count = 0;

@@ -5,6 +5,7 @@ esid: sec-properties-of-the-weakmap-constructor
 description: >
   The length property of the WeakMap constructor is 0.
 includes: [propertyHelper.js]
+features: [WeakMap]
 ---*/
 
 assert.sameValue(WeakMap.length, 0, 'The value of `WeakMap.length` is `0`');

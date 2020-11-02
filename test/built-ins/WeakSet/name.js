@@ -8,6 +8,7 @@ description: >
     17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [WeakSet]
 ---*/
 
 assert.sameValue(

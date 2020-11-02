@@ -5,6 +5,7 @@ esid: sec-weakset.prototype.constructor
 description: >
   The initial value of WeakSet.prototype.constructor is the %WeakSet%
   intrinsic object.
+features: [WeakSet]
 ---*/
 
 assert.sameValue(

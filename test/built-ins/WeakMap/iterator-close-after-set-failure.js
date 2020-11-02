@@ -11,7 +11,7 @@ info: |
   9. Repeat
     k. Let status be Call(adder, map, «k.[[value]], v.[[value]]»).
     l. If status is an abrupt completion, return IteratorClose(iter, status).
-features: [Symbol.iterator]
+features: [Symbol, Symbol.iterator, WeakMap]
 ---*/
 
 var count = 0;

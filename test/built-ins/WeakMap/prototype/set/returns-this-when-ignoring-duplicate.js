@@ -14,6 +14,7 @@ info: |
       i. Set p.[[value]] to value.
       ii. Return M.
   ...
+features: [WeakMap]
 ---*/
 
 var foo = {};

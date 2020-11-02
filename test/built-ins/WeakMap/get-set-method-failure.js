@@ -14,6 +14,7 @@ info: |
     a. Let adder be Get(map, "set").
     b. ReturnIfAbrupt(adder).
     ...
+features: [WeakMap]
 ---*/
 
 Object.defineProperty(WeakMap.prototype, 'set', {

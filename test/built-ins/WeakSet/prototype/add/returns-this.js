@@ -10,8 +10,10 @@ info: |
   ...
   8. Return S.
 
+features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
 var s = new WeakSet();
 
 assert.sameValue(s.add({}), s, '`s.add({})` returns `s`');
+assert.sameValue(s.add(Symbol()), s, '`s.add(Symbol())` returns `s`');

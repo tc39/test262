@@ -11,6 +11,7 @@ info: |
   17 ECMAScript Standard Built-in Objects
 
 includes: [propertyHelper.js]
+features: [WeakMap]
 ---*/
 
 assert.sameValue(WeakMap.prototype.constructor, WeakMap);

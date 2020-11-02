@@ -10,6 +10,7 @@ info: |
   ...
   9. Return M.
 
+features: [WeakMap]
 ---*/
 
 var map = new WeakMap();

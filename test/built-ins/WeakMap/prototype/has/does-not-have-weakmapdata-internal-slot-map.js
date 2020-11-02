@@ -11,7 +11,7 @@ info: |
   3. If M does not have a [[WeakMapData]] internal slot, throw a TypeError
   exception.
   ...
-features: [Map]
+features: [Map, WeakMap]
 ---*/
 
 assert.throws(TypeError, function() {

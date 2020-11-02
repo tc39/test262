@@ -9,6 +9,7 @@ info: |
   23.4.1.1 WeakSet ( [ iterable ] )
 
   1. If NewTarget is undefined, throw a TypeError exception.
+features: [WeakSet]
 ---*/
 
 assert.throws(TypeError, function() {

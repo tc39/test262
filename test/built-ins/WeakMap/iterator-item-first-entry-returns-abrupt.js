@@ -15,7 +15,7 @@ info: |
     g. Let k be Get(nextItem, "0").
     h. If k is an abrupt completion, return IteratorClose(iter, k).
     ...
-features: [Symbol.iterator]
+features: [Symbol, Symbol.iterator, WeakMap]
 ---*/
 
 var count = 0;

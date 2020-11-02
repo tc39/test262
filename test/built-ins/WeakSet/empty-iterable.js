@@ -13,6 +13,7 @@ info: |
     b. ReturnIfAbrupt(next).
     c. If next is false, return set.
   ...
+features: [WeakSet]
 ---*/
 
 var counter = 0;
