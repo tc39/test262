@@ -136,7 +136,6 @@ FinalizationRegistry
 # FinalizationRegistry#cleanupSome
 # link pending
 FinalizationRegistry.prototype.cleanupSome
-cleanupSome
 
 # Optional Chaining
 # https://github.com/tc39/proposal-optional-chaining
