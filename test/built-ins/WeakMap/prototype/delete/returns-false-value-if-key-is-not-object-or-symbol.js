@@ -7,8 +7,8 @@ description: >
 info: |
   WeakMap.prototype.delete ( value )
 
-  5. If Type(key) is not Object, return false.
-features: [Symbol]
+  5. If HasIdentity(_key_) is *false*, return *false*.
+features: [WeakMap]
 ---*/
 
 var map = new WeakMap();
@@ -19,4 +19,3 @@ assert.sameValue(map.delete(NaN), false);
 assert.sameValue(map.delete(null), false);
 assert.sameValue(map.delete(undefined), false);
 assert.sameValue(map.delete(true), false);
-assert.sameValue(map.delete(Symbol()), false);

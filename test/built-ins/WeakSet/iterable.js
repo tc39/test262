@@ -3,7 +3,7 @@
 /*---
 esid: sec-weakset-iterable
 description: >
-  Returns the new WeakSet adding the objects from the iterable parameter.
+  Returns the new WeakSet adding the objects or Symbols from the iterable parameter.
 info: |
   WeakSet ( [ iterable ] )
 
@@ -11,10 +11,11 @@ info: |
   9. Repeat
     f. Let status be Call(adder, set, «nextValue»).
     g. If status is an abrupt completion, return IteratorClose(iter, status).
+features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
 var first = {};
-var second = {};
+var second = Symbol();
 var added = [];
 var add = WeakSet.prototype.add;
 WeakSet.prototype.add = function(value) {

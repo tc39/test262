@@ -1,9 +1,9 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-weakmap.prototype.get
 description: >
-  Returns undefined when key is not on the WeakMap object.
+  Returns the value from the specified key. Key is a Symbol
 info: |
   WeakMap.prototype.get ( key )
 
@@ -14,25 +14,21 @@ info: |
   entries,
     a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, return
     p.[[value]].
-  7. Return undefined.
   ...
-features: [WeakMap]
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
-var map = new WeakMap();
-var key = {};
+var foo = Symbol();
+var bar = Symbol();
+var baz = Symbol();
+var map = new WeakMap([
+  [foo, 0]
+]);
 
-assert.sameValue(
-  map.get(key), undefined,
-  'returns undefined if key is not on the weakmap'
-);
+assert.sameValue(map.get(foo), 0);
 
-map.set(key, 1);
-map.set({}, 2);
-map.delete(key);
-map.set({}, 3);
+map.set(bar, 1);
+assert.sameValue(map.get(bar), 1);
 
-assert.sameValue(
-  map.get(key), undefined,
-  'returns undefined if key was deleted'
-);
+map.set(baz, 2);
+assert.sameValue(map.get(baz), 2);

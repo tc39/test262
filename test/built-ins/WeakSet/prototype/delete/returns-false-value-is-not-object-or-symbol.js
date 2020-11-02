@@ -7,8 +7,8 @@ description: >
 info: |
   WeakSet.prototype.delete ( value )
 
-  4. If Type(value) is not Object, return false.
-features: [Symbol]
+  4. If HasIdentity(value) is *false*, return *false*.
+features: [WeakSet]
 ---*/
 
 var s = new WeakSet();
@@ -18,4 +18,3 @@ assert.sameValue(s.delete(''), false);
 assert.sameValue(s.delete(null), false);
 assert.sameValue(s.delete(undefined), false);
 assert.sameValue(s.delete(true), false);
-assert.sameValue(s.delete(Symbol()), false);

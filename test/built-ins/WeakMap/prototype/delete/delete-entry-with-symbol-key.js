@@ -1,9 +1,9 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-weakmap.prototype.delete
 description: >
-  Delete an entry from initial iterable.
+  Delete an entry. Key is Symbol.
 info: |
   WeakMap.prototype.delete ( value )
 
@@ -21,15 +21,12 @@ info: |
 features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
-var foo = {};
-var bar = Symbol();
-var map = new WeakMap([
-  [foo, 42],
-  [bar, 42],
-]);
+var foo = Symbol();
+var map = new WeakMap();
 
-assert.sameValue(map.delete(foo), true, 'WeakMap#delete returns true');
+map.set(foo, 42);
+
+var result = map.delete(foo);
+
 assert.sameValue(map.has(foo), false);
-
-assert.sameValue(map.delete(bar), true, 'WeakMap#delete returns true');
-assert.sameValue(map.has(bar), false);
+assert.sameValue(result, true, 'WeakMap#delete returns true');

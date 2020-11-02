@@ -3,13 +3,14 @@
 /*---
 esid: sec-weakset.prototype.add
 description: >
-  Appends value as the last element of entries.
+  Appends value as the last element of entries. Value is object
 info: |
   WeakSet.prototype.add ( value )
 
   ...
   7. Append value as the last element of entries.
   ...
+features: [WeakSet]
 ---*/
 
 var s = new WeakSet();

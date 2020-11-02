@@ -7,8 +7,8 @@ description: >
 info: |
   WeakMap.prototype.has ( value )
 
-  5. If Type(key) is not Object, return false.
-features: [Symbol]
+  5. If HasIdentity(_key_) is *false*, return *false*.
+features: [WeakMap]
 ---*/
 
 var map = new WeakMap();
@@ -18,4 +18,3 @@ assert.sameValue(map.has(''), false);
 assert.sameValue(map.has(null), false);
 assert.sameValue(map.has(undefined), false);
 assert.sameValue(map.has(true), false);
-assert.sameValue(map.has(Symbol()), false);

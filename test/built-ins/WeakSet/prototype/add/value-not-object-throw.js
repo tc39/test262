@@ -6,8 +6,8 @@ description: Throws TypeError if `value` is not Object.
 info: |
   WeakSet.prototype.add ( value )
 
-  4. If Type(value) is not Object, throw a TypeError exception.
-features: [Symbol]
+  If HasIdentity(value) is *false*, throw a TypeError exception.
+features: [WeakSet]
 ---*/
 
 var s = new WeakSet();
@@ -32,6 +32,3 @@ assert.throws(TypeError, function() {
   s.add(null);
 });
 
-assert.throws(TypeError, function() {
-  s.add(Symbol());
-});

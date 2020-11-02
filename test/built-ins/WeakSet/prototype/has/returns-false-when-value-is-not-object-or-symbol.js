@@ -7,8 +7,8 @@ description: >
 info: |
   WeakSet.prototype.has ( value )
 
-  5. If Type(value) is not Object, return false.
-features: [Symbol]
+  5. If HasIdentity(_value_) is *false*, return *false*.
+features: [WeakSet]
 ---*/
 
 var s = new WeakSet();
@@ -18,4 +18,3 @@ assert.sameValue(s.has(''), false);
 assert.sameValue(s.has(null), false);
 assert.sameValue(s.has(undefined), false);
 assert.sameValue(s.has(true), false);
-assert.sameValue(s.has(Symbol()), false);
