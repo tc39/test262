@@ -6,6 +6,7 @@ esid: sec-unwrapdatetimeformat
 description: >
     Tests that [[FallbackSymbol]]'s [[Description]] is "IntlLegacyConstructedSymbol" if normative optional is implemented.
 author: Yusuke Suzuki
+features: [intl-normative-optional]
 ---*/
 
 let object = new Intl.DateTimeFormat();

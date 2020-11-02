@@ -116,6 +116,10 @@ Intl.DateTimeFormat-quarter
 # https://github.com/tc39/ecma402/pull/347
 Intl.DateTimeFormat-fractionalSecondDigits
 
+# Intl "normative optional"
+# https://tc39.es/ecma402/#legacy-constructor
+intl-normative-optional
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
