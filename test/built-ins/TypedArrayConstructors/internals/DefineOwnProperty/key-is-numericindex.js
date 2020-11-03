@@ -19,7 +19,7 @@ info: |
         Let value be Desc.[[Value]].
         Return ? IntegerIndexedElementSet(O, numericIndex, value).
 
-includes: [testTypedArray.js, propertyHelper.js]
+includes: [testTypedArray.js]
 features: [Reflect, TypedArray]
 ---*/
 

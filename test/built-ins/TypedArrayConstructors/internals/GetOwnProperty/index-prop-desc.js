@@ -15,7 +15,7 @@ info: |
       iii. Return a PropertyDescriptor{[[Value]]: value, [[Writable]]: true,
       [[Enumerable]]: true, [[Configurable]]: true}.
   ...
-includes: [testTypedArray.js, propertyHelper.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
