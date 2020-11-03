@@ -50,5 +50,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(desc.get, fnget, "accessor's get");
   assert.sameValue(desc.set, fnset, "accessor's set");
   assert.sameValue(desc.enumerable, true);
-  verifyConfigurable(sample, s2);
+  verifyNotConfigurable(sample, s2);
 });
