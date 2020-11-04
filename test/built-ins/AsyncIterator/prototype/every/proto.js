@@ -6,10 +6,9 @@ esid: sec-asynciteratorprototype.every
 description: >
   The value of the [[Prototype]] internal slot of AsyncIterator.prototype.every is the
   intrinsic object %AsyncFunction%.
+includes: [hidden-constructors.js]
 features: [iterator-helpers]
 ---*/
-
-const AsyncFunction = (async function() {}).constructor;
 
 assert.sameValue(
   Object.getPrototypeOf(AsyncIterator.prototype.every),

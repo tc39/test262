@@ -1,23 +1,24 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-asynciteratorprototype.filter
 description: >
   Returns abrupt when value accessor is abrupt.
 info: |
-  %AsyncIterator.prototype%.drop ( limit )
+  %AsyncIterator.prototype%.filter ( filterer )
 
-  %AsyncIterator.prototype%.drop is a built-in async generator function which, when called, performs the following prelude steps:
+  %AsyncIterator.prototype%.filter is a built-in async generator function which, when called, performs the following prelude steps:
 
     Let iterated be ? GetIteratorDirect(this value).
-    Let remaining be ? ToInteger(limit).
-    If remaining < 0, throw a RangeError exception.
+    If IsCallable(filterer) is false, throw a TypeError exception.
 
-  The body of %AsyncIterator.prototype%.drop is composed of the following steps:
+  The body of %AsyncIterator.prototype%.filter is composed of the following steps:
 
-    Repeat, while remaining > 0,
-      Set remaining to remaining - 1.
-      Let next be ? Await(? IteratorNext(iterated)).
+    Let lastValue be undefined.
+    Repeat,
+      Let next be ? Await(? IteratorNext(value, lastValue)).
+      If ? IteratorComplete(next) is true, return undefined.
+      Let value be ? IteratorValue(next).
 
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
@@ -45,10 +46,7 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
 
   try {
     count++;
-
-    for await (const [i, v] of iterator.drop()) {
-      $DONE('for await body must not be reachable');
-    }
+    await iterator.filter(v => v);
   } catch (e) {
     count++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');

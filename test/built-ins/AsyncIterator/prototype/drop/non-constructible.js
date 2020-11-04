@@ -10,10 +10,10 @@ features: [iterator-helpers]
 
 assert.throws(TypeError, () => {
   new AsyncIterator.prototype.drop();
-}, '`new AsyncIterator.prototype.drop()` throws TypeError');
+}, '`new AsyncIterator.prototype.drop()` throws a TypeError exception');
 
 // It's ludicrous that we have to create a subclass
 // in order to instantiate a new object.
 assert.throws(TypeError, () => {
   new (new class extends AsyncIterator {}).drop();
-}, '`new (new class extends AsyncIterator {}).drop()` throws TypeError');
+}, '`new (new class extends AsyncIterator {}).drop()` throws a TypeError exception');

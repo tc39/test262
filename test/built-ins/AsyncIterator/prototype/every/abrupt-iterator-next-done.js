@@ -51,7 +51,7 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
     await iterator.every(() => true);
   } catch (e) {
     count++;
-    assert.sameValue(e instanceof Test262Error, true, 'The result of `(e instanceof Test262Error)` is true');
+    assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
   assert.sameValue(doneCount, 1, 'The value of `doneCount` is 1');

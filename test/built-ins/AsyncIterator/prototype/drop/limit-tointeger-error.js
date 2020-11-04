@@ -25,7 +25,7 @@ assert.throws(Test262Error, () => {
     }
   };
   iterator.drop(limit);
-}, '`count++; let limit = {valueOf() {count++; throw new Test262Error();}}; iterator.drop(limit)` throws Test262Error');
+}, '`count++; let limit = {valueOf() {count++; throw new Test262Error();}}; iterator.drop(limit)` throws a Test262Error exception');
 
 assert.sameValue(iterator.nextCalls, 0, 'The value of iterator.nextCalls is 0');
 assert.sameValue(count, 2, 'The value of `count` is 2');

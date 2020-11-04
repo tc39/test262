@@ -1,28 +1,31 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-asynciteratorprototype.filter
 description: >
   Returns abrupt when return call is abrupt.
 info: |
-  %AsyncIterator.prototype%.drop ( )
+  %AsyncIterator.prototype%.filter ( filterer )
 
-  %AsyncIterator.prototype%.drop is a built-in async generator function which, when called, performs the following prelude steps:
+  %AsyncIterator.prototype%.filter is a built-in async generator function which, when called, performs the following prelude steps:
 
     Let iterated be ? GetIteratorDirect(this value).
+    If IsCallable(filterer) is false, throw a TypeError exception.
 
-  The body of %AsyncIterator.prototype%.drop is composed of the following steps:
+  The body of %AsyncIterator.prototype%.filter is composed of the following steps:
 
-    Let index be 0.
     Let lastValue be undefined.
     Repeat,
-      Let next be ? Await(? IteratorNext(iterated, lastValue)).
+      Let next be ? Await(? IteratorNext(value, lastValue)).
       If ? IteratorComplete(next) is true, return undefined.
       Let value be ? IteratorValue(next).
-      Let pair be ! CreateArrayFromList(« index, value »).
-      Set index to index + 1.
-      Set lastValue to Yield(pair).
-      IfAbruptCloseAsyncIterator(iterated, lastValue).
+      Let selected be Call(filterer, undefined, « value »).
+      IfAbruptCloseAsyncIterator(iterated, selected).
+      Set selected to Await(selected).
+      IfAbruptCloseAsyncIterator(iterated, selected).
+      If ToBoolean(selected) is true, then
+        Set lastValue to Yield(value).
+        IfAbruptCloseAsyncIterator(iterated, lastValue).
 
 features: [async-iteration, iterator-helpers]
 flags: [async]
@@ -37,24 +40,24 @@ async function* g() {
 }
 
 (async () => {
-  let iterator = g().drop();
   let tryCount = 0;
   let catchCount = 0;
-  let forAwaitCount = 0;
+  let callbackCount = 0;
 
   try {
     tryCount++;
 
-    for await (const v of iterator) {
-      forAwaitCount++;
-    }
+    let iter = await g().filter(() => {
+      callbackCount++;
+      return true;
+    });
+    iter.next();
   } catch (e) {
     catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
-  assert.sameValue(genCount, 2, 'The value of `genCount` is 2');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
-  assert.sameValue(forAwaitCount, 1, 'The value of `forAwaitCount` is 1');
+  assert.sameValue(callbackCount, 1, 'The value of `callbackCount` is 1');
 })().then($DONE, $DONE);

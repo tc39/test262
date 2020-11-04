@@ -8,11 +8,12 @@ features: [iterator-helpers]
 ---*/
 async function* g() {}
 AsyncIterator.prototype.every.call(g(), () => {});
+let iter = g();
 
 assert.throws(TypeError, () => {
-  new AsyncIterator.prototype.every();
-}, '`new AsyncIterator.prototype.every()` throws TypeError');
+  iter.every(() => {});
+}, '`iter.every(() => {})` throws a TypeError exception');
 
 assert.throws(TypeError, () => {
-  new new AsyncIterator().every();
-}, '`new new AsyncIterator().every()` throws TypeError');
+  new iter.every(() => {});
+}, '`new iter.every(() => {})` throws a TypeError exception');

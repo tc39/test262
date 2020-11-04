@@ -3,7 +3,7 @@
 /*---
 esid: sec-asynciteratorprototype.every
 description: >
-  The "name" property of AsyncIterator.prototype.every
+  AsyncIterator.prototype.every returns true when the predicate returns false
 info: |
   %AsyncIterator.prototype%.every ( fn )
 

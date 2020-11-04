@@ -13,9 +13,8 @@ AsyncIterator.prototype.asIndexedPairs.call({next() {}});
 
 assert.throws(TypeError, () => {
   new AsyncIterator.prototype.asIndexedPairs();
-}, '`new AsyncIterator.prototype.asIndexedPairs()` throws TypeError');
+}, '`new AsyncIterator.prototype.asIndexedPairs()` throws a TypeError exception');
 
 assert.throws(TypeError, () => {
-  let instance = new AsyncIterator();
-  new instance.asIndexedPairs();
-}, '`let instance = new AsyncIterator(); new instance.asIndexedPairs()` throws TypeError');
+  new (new (class S extends AsyncIterator {})()).asIndexedPairs();
+}, '`let instance = new (class S extends AsyncIterator {})(); new instance.asIndexedPairs()` throws a TypeError exception');

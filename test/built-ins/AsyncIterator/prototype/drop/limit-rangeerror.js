@@ -20,6 +20,6 @@ let iterator = new Test262AsyncIterator([1, 2, 3, 4]);
 assert.throws(RangeError, () => {
   count++;
   iterator.drop(-1);
-}, '`count++; iterator.drop(-1)` throws RangeError');
+}, '`count++; iterator.drop(-1)` throws a RangeError exception');
 
 assert.sameValue(count, 1, 'The value of `count` is 1');

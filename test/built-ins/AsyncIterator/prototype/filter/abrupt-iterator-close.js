@@ -1,22 +1,26 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.every
+esid: sec-asynciteratorprototype.filter
 description: >
   Returns abrupt when return call is abrupt.
 info: |
-  %AsyncIterator.prototype%.every ( fn )
+  %AsyncIterator.prototype%.filter ( filterer )
 
-  %AsyncIterator.prototype%.every is a built-in async function which, when called, performs the following steps:
+  %AsyncIterator.prototype%.filter is a built-in async generator function which, when called, performs the following prelude steps:
 
     Let iterated be ? GetIteratorDirect(this value).
-    If IsCallable(fn) is false, throw a TypeError exception.
+    If IsCallable(filterer) is false, throw a TypeError exception.
+
+  The body of %AsyncIterator.prototype%.filter is composed of the following steps:
+
+    Let lastValue be undefined.
     Repeat,
-      Let next be ? Await(? IteratorNext(iterated)).
-      If ? IteratorComplete(next) is true, return true.
+      Let next be ? Await(? IteratorNext(value, lastValue)).
+      If ? IteratorComplete(next) is true, return undefined.
       Let value be ? IteratorValue(next).
-      Let result be Call(fn, undefined, « value »).
-      IfAbruptCloseAsyncIterator(iterated, result).
+      Let selected be Call(filterer, undefined, « value »).
+      IfAbruptCloseAsyncIterator(iterated, selected).
 
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
@@ -31,10 +35,11 @@ flags: [async]
 
   try {
     tryCount++;
-    let result = await iterator.every(() => {
+    let result = await iterator.filter(() => {
       callbackCount++;
       throw new Test262Error();
     });
+    throw result;
   } catch (e) {
     catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');

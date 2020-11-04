@@ -51,10 +51,9 @@ async function* g() {
     tryCount++;
     await iterator.next();
     await iterator.return();
-    tryCount++;
   } catch (e) {
     catchCount++;
-    assert.sameValue(e instanceof Test262Error, true, 'The result of `(e instanceof Test262Error)` is true');
+    assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
   assert.sameValue(genCount, 1, 'The value of `genCount` is 1');

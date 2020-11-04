@@ -44,11 +44,9 @@ async function* g() {
       callbackCount++;
       return true;
     });
-
-    tryCount++;
   } catch (e) {
     catchCount++;
-    assert.sameValue(e instanceof Test262Error, true, 'The result of `(e instanceof Test262Error)` is true');
+    assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
