@@ -1,0 +1,34 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/async-function/named-strict-error-
+name: async function named expression in strict mode code
+esid: sec-async-function-definitions
+info: |
+  Async Function Definitions
+
+  AsyncFunctionExpression :
+    async function BindingIdentifier ( FormalParameters ) { AsyncFunctionBody }
+
+features: [async-functions]
+flags: [async, onlyStrict]
+---*/
+
+// increment callCount in case "body"
+let callCount = 0;
+let ref = async function BindingIdentifier() {
+  /*{ body }*/
+};
+
+(async () => {
+  let catchCount = 0;
+  try {
+    await ref()
+  } catch (error) {
+    catchCount++;
+    assert(error instanceof TypeError);
+  }
+  assert.sameValue(catchCount, 1);
+  assert.sameValue(callCount, 1);
+})().then($DONE, $DONE);
+

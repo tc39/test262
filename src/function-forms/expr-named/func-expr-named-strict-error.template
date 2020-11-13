@@ -1,0 +1,22 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/function/named-strict-error-
+name: named function expression in strict mode code
+esid: sec-function-definitions-runtime-semantics-evaluation
+info: |
+    FunctionExpression : function BindingIdentifier ( FormalParameters ) { FunctionBody }
+
+flags: [onlyStrict]
+---*/
+
+// increment callCount in case "body"
+let callCount = 0;
+let ref = function BindingIdentifier() {
+  /*{ body }*/
+};
+
+assert.throws(TypeError, () => {
+  ref();
+});
+assert.sameValue(callCount, 1, 'function invoked exactly once');
