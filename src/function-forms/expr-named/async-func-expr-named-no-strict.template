@@ -1,0 +1,27 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/async-function/named-
+name: async function named expression in non-strict mode code
+esid: sec-async-function-definitions
+info: |
+  Async Function Definitions
+
+  AsyncFunctionExpression :
+    async function BindingIdentifier ( FormalParameters ) { AsyncFunctionBody }
+
+flags: [async, noStrict]
+features: [async-functions]
+---*/
+
+// increment callCount in case "body"
+let callCount = 0;
+let ref = async function BindingIdentifier() {
+  /*{ body }*/
+};
+
+(async () => {
+  assert.sameValue(await ref(), ref);
+  assert.sameValue(callCount, 1, 'function invoked exactly once');
+})().then($DONE, $DONE);
+

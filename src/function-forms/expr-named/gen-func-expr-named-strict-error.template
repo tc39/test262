@@ -1,0 +1,23 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/generators/named-strict-error-
+name: named generator function expression in strict mode code
+esid: sec-generator-function-definitions-runtime-semantics-evaluation
+info: |
+    GeneratorExpression : function * BindingIdentifier ( FormalParameters ) { GeneratorBody }
+
+features: [generators]
+flags: [onlyStrict]
+---*/
+
+// increment callCount in case "body"
+let callCount = 0;
+let ref = function * BindingIdentifier() {
+  /*{ body }*/
+};
+
+assert.throws(TypeError, () => {
+  ref().next();
+});
+assert.sameValue(callCount, 1, 'function invoked exactly once');
