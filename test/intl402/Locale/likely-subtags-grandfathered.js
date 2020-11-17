@@ -68,7 +68,7 @@ const regularGrandfathered = [
     },
     {
         tag: "cel-gaulish",
-        canonical: "xtg-x-cel-gaulish",
+        canonical: "xtg",
     },
     {
         tag: "zh-guoyu",
