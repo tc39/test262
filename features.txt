@@ -189,9 +189,9 @@ Atomics.waitAsync
 
 # Item Method
 # https://github.com/tc39/proposal-item-method
-Array.prototype.item
-String.prototype.item
-TypedArray.prototype.item
+Array.prototype.at
+String.prototype.at
+TypedArray.prototype.at
 
 # Arbitrary module namespace names
 # https://github.com/tc39/ecma262/pull/2154
