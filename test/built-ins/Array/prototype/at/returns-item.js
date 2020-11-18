@@ -5,7 +5,7 @@ esid: sec-array.prototype.at
 description: >
   Returns the item value at the specified index
 info: |
-  Array.prototypeitem ( )
+  Array.prototype.at ( )
 
   Let O be ? ToObject(this value).
   Let len be ? LengthOfArrayLike(O).

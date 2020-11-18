@@ -5,7 +5,7 @@ esid: sec-String.prototype.at
 description: >
   The method should return an Iterator instance.
 info: |
-  String.prototypeitem ( )
+  String.prototype.at ( )
 
   Let O be ? ToObject(this value).
   Let len be ? LengthOfStringLike(O).
