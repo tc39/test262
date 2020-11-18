@@ -19,6 +19,8 @@ assert.sameValue(
   'The value of `typeof String.prototype.at` is "function"'
 );
 
-verifyNotEnumerable(String.prototype, 'item');
-verifyWritable(String.prototype, 'item');
-verifyConfigurable(String.prototype, 'item');
+verifyProperty(String.prototype.at, 'name', {
+  enumerable: false,
+  writable: true,
+  configurable: true
+});

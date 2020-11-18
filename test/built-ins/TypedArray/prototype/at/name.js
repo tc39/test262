@@ -19,10 +19,12 @@ assert.sameValue(
 );
 
 assert.sameValue(
-  TypedArray.prototype.at.name, 'item',
-  'The value of TypedArray.prototype.at.name is "item"'
+  TypedArray.prototype.at.name, 'at',
+  'The value of TypedArray.prototype.at.name is "at"'
 );
 
-verifyNotEnumerable(TypedArray.prototype.at, 'name');
-verifyNotWritable(TypedArray.prototype.at, 'name');
-verifyConfigurable(TypedArray.prototype.at, 'name');
+verifyProperty(TypedArray.prototype.at, 'name', {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});
