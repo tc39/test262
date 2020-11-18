@@ -15,10 +15,12 @@ features: [Array.prototype.at]
 assert.sameValue(typeof Array.prototype.at, 'function');
 
 assert.sameValue(
-  Array.prototype.at.name, 'item',
-  'The value of Array.prototype.at.name is "item"'
+  Array.prototype.at.name, 'at',
+  'The value of Array.prototype.at.name is "at"'
 );
 
-verifyNotEnumerable(Array.prototype.at, 'name');
-verifyNotWritable(Array.prototype.at, 'name');
-verifyConfigurable(Array.prototype.at, 'name');
+verifyProperty(Array.prototype.at, 'name', {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});

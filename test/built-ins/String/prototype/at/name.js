@@ -15,10 +15,12 @@ features: [String.prototype.at]
 assert.sameValue(typeof String.prototype.at, 'function');
 
 assert.sameValue(
-  String.prototype.at.name, 'item',
-  'The value of String.prototype.at.name is "item"'
+  String.prototype.at.name, 'at',
+  'The value of String.prototype.at.name is "at"'
 );
 
-verifyNotEnumerable(String.prototype.at, 'name');
-verifyNotWritable(String.prototype.at, 'name');
-verifyConfigurable(String.prototype.at, 'name');
+verifyProperty(String.prototype.at, 'name', {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});
