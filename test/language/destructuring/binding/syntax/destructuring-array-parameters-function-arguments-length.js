@@ -4,7 +4,7 @@
 /*---
 esid: sec-destructuring-binding-patterns
 description: >
-  Funciton.length when ArrayBindingPattern in FormalParameterList
+  Function.length when ArrayBindingPattern in FormalParameterList
 features: [destructuring-binding]
 ---*/
 
