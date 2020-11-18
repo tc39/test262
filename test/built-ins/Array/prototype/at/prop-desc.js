@@ -19,6 +19,8 @@ assert.sameValue(
   'The value of `typeof Array.prototype.at` is "function"'
 );
 
-verifyNotEnumerable(Array.prototype, 'item');
-verifyWritable(Array.prototype, 'item');
-verifyConfigurable(Array.prototype, 'item');
+verifyProperty(Array.prototype, 'at', {
+  configurable: true,
+  enumerable: false,
+  writable: true
+});
