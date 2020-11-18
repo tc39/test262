@@ -2,9 +2,27 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-destructuring-binding-patterns
+esid: sec-destructuring-binding-patterns-static-semantics-hasinitializer
 description: >
   Function.length when ArrayBindingPattern in FormalParameterList
+info: |
+  #sec-function-definitions-static-semantics-expectedargumentcount
+
+  Static Semantics: ExpectedArgumentCount
+
+    FormalParameterList : FormalParameter
+
+    1. If HasInitializer of FormalParameter is true, return 0.
+    2. Return 1.
+
+  #sec-destructuring-binding-patterns-static-semantics-hasinitializer
+
+  Static Semantics: HasInitializer
+
+    BindingElement : BindingPattern
+
+    1. Return false.
+
 features: [destructuring-binding]
 ---*/
 
