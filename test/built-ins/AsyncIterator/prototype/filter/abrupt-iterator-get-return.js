@@ -26,7 +26,6 @@ info: |
       Set lastValue to Yield(? IteratorValue(next)).
       IfAbruptCloseAsyncIterator(iterated, lastValue).
 
-includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
