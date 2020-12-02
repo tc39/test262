@@ -3,17 +3,13 @@
 /*---
 esid: sec-asynciteratorprototype.filter
 description: >
-  Returns abrupt when return call is abrupt.
+  Returns abrupt when callback call is abrupt. Closes iterator
 info: |
   %AsyncIterator.prototype%.filter ( filterer )
 
-  %AsyncIterator.prototype%.filter is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-    If IsCallable(filterer) is false, throw a TypeError exception.
-
-  The body of %AsyncIterator.prototype%.filter is composed of the following steps:
-
+  Let iterated be ? GetIteratorDirect(this value).
+  If IsCallable(filterer) is false, throw a TypeError exception.
+  Let closure be a new Abstract Closure with no parameters that captures iterated and filterer and performs the following steps when called:
     Let lastValue be undefined.
     Repeat,
       Let next be ? Await(? IteratorNext(value, lastValue)).
@@ -22,24 +18,24 @@ info: |
       Let selected be Call(filterer, undefined, « value »).
       IfAbruptCloseAsyncIterator(iterated, selected).
 
+
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
 
 (async () => {
-  let iterator = new Test262AsyncIterator([1, 2, 3, 4]);
   let tryCount = 0;
   let catchCount = 0;
   let callbackCount = 0;
+  let iterator = new Test262AsyncIterator([1, 2]).filter(() => {
+    callbackCount++;
+    throw new Test262Error();
+  });
 
   try {
     tryCount++;
-    let result = await iterator.filter(() => {
-      callbackCount++;
-      throw new Test262Error();
-    });
-    throw result;
+    await iterator.next();
   } catch (e) {
     catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
@@ -51,6 +47,6 @@ flags: [async]
 
   let {value, done} = await iterator.next();
 
-  assert.sameValue(value, 2, 'The value of `value` is 2');
-  assert.sameValue(done, false, 'The value of `done` is false');
+  assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
+  assert.sameValue(done, true, 'The value of `done` is true');
 })().then($DONE, $DONE);

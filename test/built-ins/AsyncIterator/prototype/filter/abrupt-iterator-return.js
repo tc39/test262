@@ -30,12 +30,11 @@ info: |
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-let genCount = 0;
+let yieldCount = 0;
 
 async function* g() {
-  genCount++;
+  yieldCount++;
   yield 1;
-  genCount++;
   throw new Test262Error();
 }
 
@@ -44,19 +43,21 @@ async function* g() {
   let catchCount = 0;
   let callbackCount = 0;
 
+  let iterator = await g().filter(() => {
+    callbackCount++;
+    return true;
+  });
+
   try {
     tryCount++;
-
-    let iter = await g().filter(() => {
-      callbackCount++;
-      return true;
-    });
-    iter.next();
+    await iterator.next();
+    await iterator.next();
   } catch (e) {
     catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
+  assert.sameValue(yieldCount, 1, 'The value of `yieldCount` is 1');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
   assert.sameValue(callbackCount, 1, 'The value of `callbackCount` is 1');

@@ -9,10 +9,7 @@ features: [iterator-helpers]
 async function* g() {}
 AsyncIterator.prototype.every.call(g(), () => {});
 let iter = g();
-
-assert.throws(TypeError, () => {
-  iter.every(() => {});
-}, '`iter.every(() => {})` throws a TypeError exception');
+iter.every(() => {});
 
 assert.throws(TypeError, () => {
   new iter.every(() => {});

@@ -23,12 +23,12 @@ info: |
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-let genCount = 0;
+let yieldCount = 0;
 
 async function* g() {
-  genCount++;
+  yieldCount++;
   yield 1;
-  genCount++;
+  yieldCount++;
   throw new Test262Error();
 }
 
@@ -36,11 +36,12 @@ async function* g() {
   let tryCount = 0;
   let catchCount = 0;
   let callbackCount = 0;
+  let iterator = await g();
 
   try {
     tryCount++;
 
-    await g().every(() => {
+    await iterator.every(() => {
       callbackCount++;
       return true;
     });
@@ -49,6 +50,13 @@ async function* g() {
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
+  let {
+    value,
+    done
+  } = await iterator.next();
+
+  assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
+  assert.sameValue(done, true, 'The value of `done` is true');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
   assert.sameValue(callbackCount, 1, 'The value of `callbackCount` is 1');

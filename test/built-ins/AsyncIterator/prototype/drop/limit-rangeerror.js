@@ -8,14 +8,17 @@ description: >
 info: |
   %AsyncIterator.prototype%.drop ( limit )
 
+  Let iterated be ? GetIteratorDirect(this value).
+  Let remaining be ? ToInteger(limit).
   If remaining < 0, throw a RangeError exception.
+  ...
 
 includes: [iterators.js]
 features: [iterator-helpers]
 ---*/
 
 let count = 0;
-let iterator = new Test262AsyncIterator([1, 2, 3, 4]);
+let iterator = new Test262AsyncIterator([1, 2]);
 
 assert.throws(RangeError, () => {
   count++;

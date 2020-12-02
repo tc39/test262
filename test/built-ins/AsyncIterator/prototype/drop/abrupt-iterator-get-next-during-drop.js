@@ -14,6 +14,10 @@ info: |
     Repeat, while remaining > 0,
       Set remaining to remaining - 1.
       Let next be ? Await(? IteratorNext(iterated)).
+      If ? IteratorComplete(next) is true, return undefined.
+    Let lastValue be undefined.
+    Repeat,
+      Let next be ? Await(? IteratorNext(iterated, lastValue)).
       ...
 
   IteratorNext ( iteratorRecord [ , value ] )
@@ -30,10 +34,10 @@ includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-let nextCalls = 0;
+let nextGets = 0;
 class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
   get next() {
-    nextCalls++;
+    nextGets++;
     throw new Test262Error();
   }
 }
@@ -42,11 +46,11 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
   let tryCount = 0;
   let catchCount = 0;
   let iterator = new Test262AsyncIteratorAbrupt([1, 2]);
-  assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
+  assert.sameValue(nextGets, 0, 'The value of `nextGets` is 0');
 
   try {
     tryCount++;
-    await iterator.drop(0);
+    await iterator.drop(1);
   } catch (e) {
     catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
@@ -54,5 +58,5 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
 
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
-  assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');
+  assert.sameValue(nextGets, 1, 'The value of `nextGets` is 1');
 })().then($DONE, $DONE);

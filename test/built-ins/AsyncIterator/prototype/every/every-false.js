@@ -26,7 +26,7 @@ features: [iterator-helpers]
 flags: [async]
 ---*/
 (async () => {
-  let iterator = new Test262AsyncIterator([1, 2, 3, 4]);
+  let iterator = new Test262AsyncIterator([1, 2]);
   let result = await iterator.every(value => !value);
 
   assert.sameValue(result, false, 'The value of `result` is false');
@@ -35,7 +35,4 @@ flags: [async]
 
   assert.sameValue(value, 2, 'The value of `value` is 2');
   assert.sameValue(done, false, 'The value of `done` is false');
-  assert.sameValue(iterator.nextCalls, 2, 'The value of iterator.nextCalls is 2');
-  assert.sameValue(iterator.iterable.length, 2, 'The value of iterator.iterable.length is 2');
-
 })().then($DONE, $DONE);

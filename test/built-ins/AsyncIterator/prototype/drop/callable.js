@@ -9,7 +9,6 @@ features: [iterator-helpers]
 async function* g() {}
 AsyncIterator.prototype.drop.call(g());
 let iter = g();
-
 iter.drop();
 
 assert.throws(TypeError, () => {

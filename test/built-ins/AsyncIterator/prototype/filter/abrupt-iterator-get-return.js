@@ -30,25 +30,37 @@ includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
-  get return() {
-    throw new Test262Error();
-  }
+let yieldCount = 0;
+
+async function* g() {
+  yieldCount++;
 }
 
 (async () => {
+  let iterator = g().filter(() => true);
+  let proto = Object.getPrototypeOf(iterator);
+  let tryCount = 0;
   let catchCount = 0;
-  let iterator = new Test262AsyncIteratorAbrupt([1, 2, 3, 4]);
-  assert.sameValue(iterator.nextCalls, 0, 'The value of iterator.nextCalls is 0');
+  let returnGets = 0;
+
+  Object.defineProperty(proto, 'return', {
+    get() {
+      returnGets++;
+      throw new Test262Error();
+    }
+  });
 
   try {
-    await iterator.filter(() => true);
+    tryCount++;
+    await iterator.next();
+    await iterator.return();
   } catch (e) {
     catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
+  assert.sameValue(yieldCount, 1, 'The value of `yieldCount` is 1');
+  assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
-  assert.sameValue(iterator.nextCalls, 1, 'The value of iterator.nextCalls is 1');
-  assert.sameValue(iterator.iterable.length, 3, 'The value of iterator.iterable.length is 3');
+  assert.sameValue(returnGets, 1, 'The value of `returnGets` is 1');
 })().then($DONE, $DONE);

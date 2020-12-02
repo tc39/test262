@@ -5,13 +5,12 @@
 esid: sec-asynciteratorprototype.filter
 description: >
   The value of the [[Prototype]] internal slot of AsyncIterator.prototype.filter is the
-  intrinsic object %AsyncGeneratorFunction%.
-includes: [hidden-constructors.js]
+  intrinsic object %FunctionPrototype%.
 features: [iterator-helpers]
 ---*/
 
 assert.sameValue(
   Object.getPrototypeOf(AsyncIterator.prototype.filter),
-  AsyncGeneratorFunction.prototype,
-  'Object.getPrototypeOf(AsyncIterator.prototype.filter) must return the value of AsyncGeneratorFunction.prototype'
+  Function.prototype,
+  'Object.getPrototypeOf(AsyncIterator.prototype.filter) must return the value of Function.prototype'
 );

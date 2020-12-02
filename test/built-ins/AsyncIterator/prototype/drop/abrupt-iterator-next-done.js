@@ -7,33 +7,44 @@ description: >
 info: |
   %AsyncIterator.prototype%.drop ( limit )
 
-  %AsyncIterator.prototype%.drop is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-    Let remaining be ? ToInteger(limit).
-    If remaining < 0, throw a RangeError exception.
-
-  The body of %AsyncIterator.prototype%.drop is composed of the following steps:
-
+  Let iterated be ? GetIteratorDirect(this value).
+  Let remaining be ? ToInteger(limit).
+  If remaining < 0, throw a RangeError exception.
+  Let closure be a new Abstract Closure with no parameters that captures iterated and remaining and performs the following steps when called:
     Repeat, while remaining > 0,
       Set remaining to remaining - 1.
       Let next be ? Await(? IteratorNext(iterated)).
       If ? IteratorComplete(next) is true, return undefined.
+    Let lastValue be undefined.
+    Repeat,
+      Let next be ? Await(? IteratorNext(iterated, lastValue)).
+      If ? IteratorComplete(next) is true, return undefined.
+      ...
+
+  IteratorComplete ( iterResult )
+
+    Return ! ToBoolean(? Get(iterResult, "done")).
 
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
 let doneCount = 0;
+let nextCalls = 0;
 
 class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
   async next() {
-    this.nextCalls++;
+    nextCalls++;
 
     return {
       get done() {
         doneCount++;
-        throw new Test262Error();
+
+        if (nextCalls === 2) {
+          throw new Test262Error();
+        } else {
+          return false;
+        }
       },
 
       value: 1
@@ -42,22 +53,24 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
 }
 
 (async () => {
-  let count = 0;
-  let iterator = new Test262AsyncIteratorAbrupt([0, 1, 2, 3]);
-  assert.sameValue(iterator.nextCalls, 0, 'The value of iterator.nextCalls is 0');
+  let tryCount = 0;
+  let catchCount = 0;
+  let iterator = new Test262AsyncIteratorAbrupt([1, 2]).drop(1);
+  assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
   try {
-    count++;
+    tryCount++;
 
-    for await (const [i, v] of iterator.drop()) {
+    for await (const value of iterator) {
       $DONE('for await body must not be reachable');
     }
   } catch (e) {
-    count++;
+    catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
-  assert.sameValue(doneCount, 1, 'The value of `doneCount` is 1');
-  assert.sameValue(iterator.nextCalls, 1, 'The value of iterator.nextCalls is 1');
-  assert.sameValue(iterator.iterable.length, 4, 'The value of iterator.iterable.length is 4');
+  assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
+  assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
+  assert.sameValue(doneCount, 2, 'The value of `doneCount` is 2');
+  assert.sameValue(nextCalls, 2, 'The value of `nextCalls` is 2');
 })().then($DONE, $DONE);

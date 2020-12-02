@@ -7,12 +7,8 @@ description: >
 info: |
   %AsyncIterator.prototype%.asIndexedPairs ( )
 
-  %AsyncIterator.prototype%.asIndexedPairs is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-
-  The body of %AsyncIterator.prototype%.asIndexedPairs is composed of the following steps:
-
+  Let iterated be ? GetIteratorDirect(this value).
+  Let closure be a new Abstract Closure with no parameters that captures iterated and performs the following steps when called:
     Let index be 0.
     Let lastValue be undefined.
     Repeat,
@@ -23,14 +19,15 @@ info: |
       Set index to index + 1.
       Set lastValue to Yield(pair).
       IfAbruptCloseAsyncIterator(iterated, lastValue).
+  ...
 
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-let genCount = 0;
+let yieldCount = 0;
 
 async function* g() {
-  genCount++;
+  yieldCount++;
 }
 
 (async () => {
@@ -56,7 +53,7 @@ async function* g() {
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
-  assert.sameValue(genCount, 1, 'The value of `genCount` is 1');
+  assert.sameValue(yieldCount, 1, 'The value of `yieldCount` is 1');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
   assert.sameValue(returnCount, 1, 'The value of `returnCount` is 1');

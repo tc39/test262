@@ -17,4 +17,4 @@ assert.throws(TypeError, () => {
 
 assert.throws(TypeError, () => {
   new (new (class S extends AsyncIterator {})()).asIndexedPairs();
-}, '`let instance = new (class S extends AsyncIterator {})(); new instance.asIndexedPairs()` throws a TypeError exception');
+}, '`new (new (class S extends AsyncIterator {})()).asIndexedPairs()` throws a TypeError exception');

@@ -7,12 +7,8 @@ description: >
 info: |
   %AsyncIterator.prototype%.asIndexedPairs ( )
 
-  %AsyncIterator.prototype%.asIndexedPairs is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-
-  The body of %AsyncIterator.prototype%.asIndexedPairs is composed of the following steps:
-
+  Let iterated be ? GetIteratorDirect(this value).
+  Let closure be a new Abstract Closure with no parameters that captures iterated and performs the following steps when called:
     Let index be 0.
     Let lastValue be undefined.
     Repeat,
@@ -23,20 +19,21 @@ info: |
       Set index to index + 1.
       Set lastValue to Yield(pair).
       IfAbruptCloseAsyncIterator(iterated, lastValue).
+  Return ? CreateAsyncIteratorFromClosure(closure, Async Iterator Helper, %AsyncIteratorHelperPrototype%).
 
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
 (async () => {
-  let iterator = new Test262AsyncIterator([0, 1, 2, 3]);
-  assert.sameValue(iterator.nextCalls, 0, 'The value of iterator.nextCalls is 0');
+  let forAwaitCount = 0;
+  let iterator = new Test262AsyncIterator([0]);
   let indexedPairs = iterator.asIndexedPairs();
 
-  for await (const [i, v] of indexedPairs) {
-    assert.sameValue(i, v, 'The value of `i` is expected to equal the value of v');
+  for await (const pair of indexedPairs) {
+    forAwaitCount++;
+    assert.sameValue(Array.isArray(pair), true, 'Array.isArray(pair) must return true');
   }
 
-  assert.sameValue(iterator.nextCalls, 5, 'The value of iterator.nextCalls is 5');
-  assert.sameValue(iterator.iterable.length, 0, 'The value of iterator.iterable.length is 0');
+  assert.sameValue(forAwaitCount, 1, 'The value of `forAwaitCount` is 1');
 })().then($DONE, $DONE);

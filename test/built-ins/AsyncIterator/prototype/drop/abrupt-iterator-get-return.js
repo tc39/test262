@@ -7,14 +7,10 @@ description: >
 info: |
   %AsyncIterator.prototype%.drop ( limit )
 
-  %AsyncIterator.prototype%.drop is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-    Let remaining be ? ToInteger(limit).
-    If remaining < 0, throw a RangeError exception.
-
-  The body of %AsyncIterator.prototype%.drop is composed of the following steps:
-
+  Let iterated be ? GetIteratorDirect(this value).
+  Let remaining be ? ToInteger(limit).
+  If remaining < 0, throw a RangeError exception.
+  Let closure be a new Abstract Closure with no parameters that captures iterated and remaining and performs the following steps when called:
     Repeat, while remaining > 0,
       Set remaining to remaining - 1.
       Let next be ? Await(? IteratorNext(iterated)).
@@ -25,19 +21,19 @@ info: |
       If ? IteratorComplete(next) is true, return undefined.
       Set lastValue to Yield(? IteratorValue(next)).
       IfAbruptCloseAsyncIterator(iterated, lastValue).
-
+      ...
 
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-let genCount = 0;
+let yieldCount = 0;
 
 async function* g() {
-  genCount++;
+  yieldCount++;
 }
 
 (async () => {
-  let iterator = await g().drop();
+  let iterator = await g().drop(0);
   let proto = Object.getPrototypeOf(iterator);
   let tryCount = 0;
   let catchCount = 0;
@@ -59,7 +55,7 @@ async function* g() {
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
-  assert.sameValue(genCount, 1, 'The value of `genCount` is 1');
+  assert.sameValue(yieldCount, 1, 'The value of `yieldCount` is 1');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
   assert.sameValue(returnCount, 1, 'The value of `returnCount` is 1');

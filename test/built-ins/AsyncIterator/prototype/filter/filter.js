@@ -32,20 +32,19 @@ features: [iterator-helpers]
 flags: [async]
 ---*/
 (async () => {
-  let iterator = new Test262AsyncIterator([1, 0, 2, 0, 3, 0, 4]);
-  let result = await iterator.filter(value => !!value);
+  let iterator = new Test262AsyncIterator([1, 0, 2, 0, 3, 0, 4]).filter(value => !!value);
   let check = 1;
 
-  for await (let value of result) {
-    assert.sameValue(value, check);
+  for await (let value of iterator) {
+    assert.sameValue(value, check, 'The value of `value` is expected to equal the value of check');
     check++;
   }
 
-  let {value, done} = await iterator.next();
+  let {
+    value,
+    done
+  } = await iterator.next();
 
   assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
   assert.sameValue(done, true, 'The value of `done` is true');
-  // 8 calls from filter(), 1 call from next()
-  assert.sameValue(iterator.nextCalls, 9, 'The value of iterator.nextCalls is 9');
-  assert.sameValue(iterator.iterable.length, 0, 'The value of iterator.iterable.length is 0');
 })().then($DONE, $DONE);

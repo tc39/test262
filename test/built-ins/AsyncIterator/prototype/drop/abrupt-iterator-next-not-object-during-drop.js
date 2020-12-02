@@ -3,7 +3,7 @@
 /*---
 esid: sec-asynciteratorprototype.drop
 description: >
-  Returns abrupt when next accessor is abrupt.
+  Returns abrupt when value accessor is abrupt.
 info: |
   %AsyncIterator.prototype%.drop ( limit )
 
@@ -31,10 +31,11 @@ features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
 let nextCalls = 0;
+
 class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
-  get next() {
+  async next() {
     nextCalls++;
-    throw new Test262Error();
+    return null;
   }
 }
 
@@ -46,10 +47,13 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
 
   try {
     tryCount++;
-    await iterator.drop(0);
+
+    for await (const [i, v] of iterator.drop(1)) {
+      $DONE('for await body must not be reachable');
+    }
   } catch (e) {
     catchCount++;
-    assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
+    assert.sameValue(e instanceof TypeError, true, 'The result of evaluating `(e instanceof TypeError)` is true');
   }
 
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');

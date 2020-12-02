@@ -5,34 +5,32 @@ esid: sec-asynciteratorprototype.drop
 description: >
   Returns abrupt when return call is abrupt.
 info: |
-  %AsyncIterator.prototype%.drop ( )
+  %AsyncIterator.prototype%.drop ( limit )
 
-  %AsyncIterator.prototype%.drop is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-
-  The body of %AsyncIterator.prototype%.drop is composed of the following steps:
-
-    Let index be 0.
+  Let iterated be ? GetIteratorDirect(this value).
+  Let remaining be ? ToInteger(limit).
+  If remaining < 0, throw a RangeError exception.
+  Let closure be a new Abstract Closure with no parameters that captures iterated and remaining and performs the following steps when called:
+    Repeat, while remaining > 0,
+      Set remaining to remaining - 1.
+      Let next be ? Await(? IteratorNext(iterated)).
+      If ? IteratorComplete(next) is true, return undefined.
     Let lastValue be undefined.
     Repeat,
       Let next be ? Await(? IteratorNext(iterated, lastValue)).
       If ? IteratorComplete(next) is true, return undefined.
-      Let value be ? IteratorValue(next).
-      Let pair be ! CreateArrayFromList(« index, value »).
-      Set index to index + 1.
-      Set lastValue to Yield(pair).
+      Set lastValue to Yield(? IteratorValue(next)).
       IfAbruptCloseAsyncIterator(iterated, lastValue).
 
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
-let genCount = 0;
+let yieldCount = 0;
 
 async function* g() {
-  genCount++;
+  yieldCount++;
   yield 1;
-  genCount++;
+  yieldCount++;
   throw new Test262Error();
 }
 
@@ -53,7 +51,14 @@ async function* g() {
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
 
-  assert.sameValue(genCount, 2, 'The value of `genCount` is 2');
+  let {
+    value,
+    done
+  } = await iterator.next();
+
+  assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
+  assert.sameValue(done, true, 'The value of `done` is true');
+  assert.sameValue(yieldCount, 2, 'The value of `yieldCount` is 2');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
   assert.sameValue(forAwaitCount, 1, 'The value of `forAwaitCount` is 1');

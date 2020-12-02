@@ -3,7 +3,7 @@
 /*---
 esid: sec-asynciteratorprototype.drop
 description: >
-  Returns abrupt when next accessor is abrupt.
+  Returns abrupt when next call is abrupt.
 info: |
   %AsyncIterator.prototype%.drop ( limit )
 
@@ -14,44 +14,46 @@ info: |
     Repeat, while remaining > 0,
       Set remaining to remaining - 1.
       Let next be ? Await(? IteratorNext(iterated)).
-      ...
-
-  IteratorNext ( iteratorRecord [ , value ] )
-
-    If value is not present, then
-      Let result be ? Call(iteratorRecord.[[NextMethod]], iteratorRecord.[[Iterator]]).
-    Else,
-      Let result be ? Call(iteratorRecord.[[NextMethod]], iteratorRecord.[[Iterator]], « value »).
-    If Type(result) is not Object, throw a TypeError exception.
-    Return result.
-
+      If ? IteratorComplete(next) is true, return undefined.
+    Let lastValue be undefined.
+    Repeat,
+      Let next be ? Await(? IteratorNext(iterated, lastValue)).
 
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
 let nextCalls = 0;
+let returnCalls = 0;
+let rejection = new Test262Error();
 class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
-  get next() {
+  async next() {
     nextCalls++;
-    throw new Test262Error();
+    return Promise.reject(rejection);
+  }
+  async return() {
+    await super.return();
+    returnCalls++;
   }
 }
 
 (async () => {
   let tryCount = 0;
   let catchCount = 0;
-  let iterator = new Test262AsyncIteratorAbrupt([1, 2]);
+  let iterator = new Test262AsyncIteratorAbrupt([1, 2]).drop(1);
   assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
   try {
     tryCount++;
-    await iterator.drop(0);
+    await iterator.next();
   } catch (e) {
     catchCount++;
-    assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
+    assert.sameValue(e, rejection, 'The value of `e` is expected to equal the value of rejection');
   }
 
+  let {value, done} = await iterator.next();
+  assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
+  assert.sameValue(done, true, 'The value of `done` is true');
   assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
   assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
   assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');

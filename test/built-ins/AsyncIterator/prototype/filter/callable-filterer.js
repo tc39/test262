@@ -16,4 +16,4 @@ assert.throws(TypeError, () => {
 
 assert.throws(TypeError, () => {
   iter.filter(nonCallable);
-}, '`g().filter(nonCallable)` throws a TypeError exception');
+}, '`iter.filter(nonCallable)` throws a TypeError exception');

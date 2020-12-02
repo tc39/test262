@@ -26,7 +26,7 @@ features: [iterator-helpers]
 flags: [async]
 ---*/
 (async () => {
-  let iterator = new Test262AsyncIterator([1, 2, 3, 4]);
+  let iterator = new Test262AsyncIterator([1, 2]);
   let result = await iterator.every(value => !!value);
 
   assert.sameValue(result, true, 'The value of `result` is true');
@@ -35,8 +35,4 @@ flags: [async]
 
   assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
   assert.sameValue(done, true, 'The value of `done` is true');
-  // 5 calls from every(), 1 call from next()
-  assert.sameValue(iterator.nextCalls, 6, 'The value of iterator.nextCalls is 6');
-  assert.sameValue(iterator.iterable.length, 0, 'The value of iterator.iterable.length is 0');
-
 })().then($DONE, $DONE);

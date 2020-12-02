@@ -7,12 +7,8 @@ description: >
 info: |
   %AsyncIterator.prototype%.asIndexedPairs ( )
 
-  %AsyncIterator.prototype%.asIndexedPairs is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-
-  The body of %AsyncIterator.prototype%.asIndexedPairs is composed of the following steps:
-
+  Let iterated be ? GetIteratorDirect(this value).
+  Let closure be a new Abstract Closure with no parameters that captures iterated and performs the following steps when called:
     Let index be 0.
     Let lastValue be undefined.
     Repeat,
@@ -20,15 +16,20 @@ info: |
       If ? IteratorComplete(next) is true, return undefined.
       ...
 
+  IteratorComplete ( iterResult )
+
+    Return ! ToBoolean(? Get(iterResult, "done")).
+
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
 let doneCount = 0;
+let nextCalls = 0;
 
 class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
   async next() {
-    this.nextCalls++;
+    nextCalls++;
 
     return {
       get done() {
@@ -43,14 +44,12 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
 
 (async () => {
   let count = 0;
-  let iterator = new Test262AsyncIteratorAbrupt([0, 1, 2, 3]);
-  assert.sameValue(iterator.nextCalls, 0, 'The value of iterator.nextCalls is 0');
-  let indexedPairs = iterator.asIndexedPairs();
+  let iterator = new Test262AsyncIteratorAbrupt([1, 2]).asIndexedPairs();
 
   try {
     count++;
 
-    for await (const [i, v] of indexedPairs) {
+    for await (const [i, v] of iterator) {
       $DONE('for await body must not be reachable');
     }
   } catch (e) {
@@ -59,6 +58,5 @@ class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
   }
 
   assert.sameValue(doneCount, 1, 'The value of `doneCount` is 1');
-  assert.sameValue(iterator.nextCalls, 1, 'The value of iterator.nextCalls is 1');
-  assert.sameValue(iterator.iterable.length, 4, 'The value of iterator.iterable.length is 4');
+  assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');
 })().then($DONE, $DONE);

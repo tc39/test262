@@ -5,50 +5,46 @@ esid: sec-asynciteratorprototype.every
 description: >
   Returns abrupt when return accessor is abrupt.
 info: |
-  %AsyncIterator.prototype%.every ( limit )
+  %AsyncIterator.prototype%.every ( fn )
 
-  %AsyncIterator.prototype%.every is a built-in async generator function which, when called, performs the following prelude steps:
-
-    Let iterated be ? GetIteratorDirect(this value).
-    Let remaining be ? ToInteger(limit).
-    If remaining < 0, throw a RangeError exception.
-
-  The body of %AsyncIterator.prototype%.every is composed of the following steps:
-
-    Repeat, while remaining > 0,
-      Set remaining to remaining - 1.
-      Let next be ? Await(? IteratorNext(iterated)).
-      If ? IteratorComplete(next) is true, return undefined.
-    Let lastValue be undefined.
-    Repeat,
-      Let next be ? Await(? IteratorNext(iterated, lastValue)).
-      If ? IteratorComplete(next) is true, return undefined.
-      Set lastValue to Yield(? IteratorValue(next)).
-      IfAbruptCloseAsyncIterator(iterated, lastValue).
+  Let iterated be ? GetIteratorDirect(this value).
+  If IsCallable(fn) is false, throw a TypeError exception.
+  Repeat,
+    Let next be ? Await(? IteratorNext(iterated)).
+    If ? IteratorComplete(next) is true, return true.
+    Let value be ? IteratorValue(next).
+    Let result be Call(fn, undefined, « value »).
+    IfAbruptCloseAsyncIterator(iterated, result).
+    Set result to Await(result).
+    IfAbruptCloseAsyncIterator(iterated, result).
+    If ! ToBoolean(result) is false, return ? AsyncIteratorClose(iterated, NormalCompletion(false)).
 
 includes: [iterators.js]
 features: [async-iteration, iterator-helpers]
 flags: [async]
 ---*/
+let returnGets = 0;
 class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
   get return() {
+    returnGets++;
     throw new Test262Error();
   }
 }
 
 (async () => {
-  let count = 0;
-  let iterator = new Test262AsyncIteratorAbrupt([1, 2, 3, 4]);
-  assert.sameValue(iterator.nextCalls, 0, 'The value of iterator.nextCalls is 0');
+  let tryCount = 0;
+  let catchCount = 0;
+  let iterator = new Test262AsyncIteratorAbrupt([1, 2]);
+  assert.sameValue(returnGets, 0, 'The value of `returnGets` is 0');
 
   try {
+    tryCount++;
     await iterator.every(() => false);
   } catch (e) {
-    count++;
+    catchCount++;
     assert.sameValue(e instanceof Test262Error, true, 'The result of evaluating `(e instanceof Test262Error)` is true');
   }
-
-  assert.sameValue(count, 1, 'The value of `count` is 1');
-  assert.sameValue(iterator.nextCalls, 1, 'The value of iterator.nextCalls is 1');
-  assert.sameValue(iterator.iterable.length, 3, 'The value of iterator.iterable.length is 3');
+  assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
+  assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
+  assert.sameValue(returnGets, 1, 'The value of `returnGets` is 1');
 })().then($DONE, $DONE);

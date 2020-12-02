@@ -8,7 +8,6 @@ features: [iterator-helpers]
 ---*/
 async function* g() {}
 let iter = g();
-
 AsyncIterator.prototype.filter.call(iter, () => {});
 iter.filter(() => {});
 
