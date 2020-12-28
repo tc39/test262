@@ -108,14 +108,14 @@ class TempFile(object):
         prefix = self.prefix,
         text = self.text)
 
-  def Write(self, str):
-    os.write(self.fd, str)
+  def Write(self, s):
+    os.write(self.fd, s.encode("utf8"))
 
   def Read(self):
-    f = file(self.name)
+    f = open(self.name, "rb")
     result = f.read()
     f.close()
-    return result
+    return result.decode("utf8", "ignore")
 
   def Close(self):
     if not self.is_closed:
@@ -210,15 +210,15 @@ class TestCase(object):
     self.name = name
     self.full_path = full_path
     self.strict_mode = strict_mode
-    f = open(self.full_path)
-    self.contents = f.read()
+    f = open(self.full_path, "rb")
+    self.contents = f.read().decode("utf8")
     f.close()
     testRecord = parseTestRecord(self.contents, name)
     self.test = testRecord["test"]
     del testRecord["test"]
     del testRecord["header"]
     del testRecord["commentary"]
-    self.testRecord = testRecord;
+    self.testRecord = testRecord
     
 
   def GetName(self):
@@ -365,8 +365,8 @@ class TestSuite(object):
     if not name in self.include_cache:
       static = path.join(self.lib_root, name)
       if path.exists(static):
-        f = open(static)
-        contents = stripHeader(f.read())
+        f = open(static, "rb")
+        contents = stripHeader(f.read().decode("utf8"))
         contents = re.sub(r'\r\n', '\n', contents)
         self.include_cache[name] = contents + "\n"
         f.close()
