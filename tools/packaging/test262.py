@@ -41,8 +41,8 @@ def ReportError(s):
 
 
 if not os.path.exists(EXCLUDED_FILENAME):
-    print "Cannot generate (JSON) test262 tests without a file," + \
-        " %s, showing which tests have been disabled!" % EXCLUDED_FILENAME
+    print("Cannot generate (JSON) test262 tests without a file," + \
+        " %s, showing which tests have been disabled!" % EXCLUDED_FILENAME)
     sys.exit(1)
 EXCLUDE_LIST = xml.dom.minidom.parse(EXCLUDED_FILENAME)
 EXCLUDE_REASON = EXCLUDE_LIST.getElementsByTagName("reason")
@@ -126,7 +126,7 @@ class TempFile(object):
     try:
       self.Close()
       os.unlink(self.name)
-    except OSError, e:
+    except OSError as e:
       logging.error("Error disposing temp file: %s", str(e))
 
 
@@ -143,26 +143,26 @@ class TestResult(object):
     mode = self.case.GetMode()
     if self.HasUnexpectedOutcome():
       if self.case.IsNegative():
-        print "=== %s was expected to fail in %s, but didn't ===" % (name, mode)
+        print("=== %s was expected to fail in %s, but didn't ===" % (name, mode))
       else:
         if long_format:
-          print "=== %s failed in %s ===" % (name, mode)
+          print("=== %s failed in %s ===" % (name, mode))
         else:
-          print "%s in %s: " % (name, mode)
+          print("%s in %s: " % (name, mode))
         out = self.stdout.strip()
         if len(out) > 0:
-          print "--- output ---"
-          print out
+          print("--- output ---")
+          print(out)
         err = self.stderr.strip()
         if len(err) > 0:
-          print "--- errors ---"
-          print err
+          print("--- errors ---")
+          print(err)
         if long_format:
-          print "==="
+          print("===")
     elif self.case.IsNegative():
-      print "%s failed in %s as expected" % (name, mode)
+      print("%s failed in %s as expected" % (name, mode))
     else:
-      print "%s passed in %s" % (name, mode)
+      print("%s passed in %s" % (name, mode))
     
   def XmlAssemble(self, result):
     test_name = self.case.GetName()
@@ -304,7 +304,7 @@ class TestCase(object):
     return result
 
   def Print(self):
-    print self.GetSource()
+    print(self.GetSource())
 
 
 class ProgressIndicator(object):
@@ -393,7 +393,7 @@ class TestSuite(object):
             basename = path.basename(full_path)[:-3]
             name = rel_path.split(path.sep)[:-1] + [basename]
             if EXCLUDE_LIST.count(basename) >= 1:
-              print 'Excluded: ' + basename
+              print('Excluded: ' + basename)
             else:
               if not self.non_strict_only:
                 strict_case = TestCase(self, name, full_path, True)
@@ -411,54 +411,54 @@ class TestSuite(object):
     return cases
 
   def PrintSummary(self, progress, logfile):
-    print
+    print()
     if logfile:
        self.logf.write("=== Summary === \n")
-    print "=== Summary ==="
+    print("=== Summary ===")
     count = progress.count
     succeeded = progress.succeeded
     failed = progress.failed
     if logfile:
       self.logf.write(" - Ran %i test%s \n" % MakePlural(count))
-    print " - Ran %i test%s" % MakePlural(count)
+    print(" - Ran %i test%s" % MakePlural(count))
     if progress.failed == 0:
       if logfile:
         self.logf.write(" - All tests succeeded \n")
-      print " - All tests succeeded"
+      print(" - All tests succeeded")
    
     else:
       percent = ((100.0 * succeeded) / count,)
       if logfile:
         self.logf.write(" - Passed %i test%s (%.1f%%)\n" % (MakePlural(succeeded) + percent))
-      print " - Passed %i test%s (%.1f%%)" % (MakePlural(succeeded) + percent)
+      print(" - Passed %i test%s (%.1f%%)" % (MakePlural(succeeded) + percent))
       percent = ((100.0 * failed) / count,)
       if logfile:
         self.logf.write(" - Failed %i test%s (%.1f%%) \n" % (MakePlural(failed) + percent))
-      print " - Failed %i test%s (%.1f%%)" % (MakePlural(failed) + percent)
+      print(" - Failed %i test%s (%.1f%%)" % (MakePlural(failed) + percent))
       positive = [c for c in progress.failed_tests if not c.case.IsNegative()]
       negative = [c for c in progress.failed_tests if c.case.IsNegative()]
       if len(positive) > 0:
-        print
+        print()
         if logfile:
           self.logf.write("Failed Tests \n") 
-        print "Failed tests"
+        print("Failed tests")
         for result in positive:
           if logfile:
             self.logf.write("  %s in %s \n" % (result.case.GetName(), result.case.GetMode()))
-          print "  %s in %s" % (result.case.GetName(), result.case.GetMode())
+          print("  %s in %s" % (result.case.GetName(), result.case.GetMode()))
       if len(negative) > 0:
-        print
-        print "Expected to fail but passed ---"
+        print()
+        print("Expected to fail but passed ---")
         for result in negative:
           if logfile:
             self.logfile.append(" %s in %s \n" % (result.case.GetName(), result.case.GetMode()))
-          print " %s in %s" % (result.case.GetName(), result.case.GetMode())
+          print(" %s in %s" % (result.case.GetName(), result.case.GetMode()))
 
   def PrintFailureOutput(self, progress, logfile):
     for result in progress.failed_tests:
       if logfile:
         self.WriteLog(result)
-      print
+      print()
       result.ReportOutcome(False)
 
   def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile):
@@ -475,12 +475,12 @@ class TestSuite(object):
       TestSuiteElement = xmlj.Element("testsuite")
       TestSuiteElement.attrib["name "] = "test262"
       for x in range(len(EXCLUDE_LIST)):
-        if self.ShouldRun (unicode(EXCLUDE_LIST[x].encode('utf-8','ignore')), tests):
+        if self.ShouldRun (str(EXCLUDE_LIST[x].encode('utf-8','ignore')), tests):
           SkipCaseElement = xmlj.Element("testcase")
-          SkipCaseElement.attrib["classname"] = unicode(EXCLUDE_LIST[x]).encode('utf-8','ignore')
-          SkipCaseElement.attrib["name"] = unicode(EXCLUDE_LIST[x]).encode('utf-8','ignore')
+          SkipCaseElement.attrib["classname"] = str(EXCLUDE_LIST[x]).encode('utf-8','ignore')
+          SkipCaseElement.attrib["name"] = str(EXCLUDE_LIST[x]).encode('utf-8','ignore')
           SkipElement = xmlj.Element("skipped")
-          SkipElement.attrib["message"] = unicode(EXCLUDE_REASON[x].firstChild.nodeValue)
+          SkipElement.attrib["message"] = str(EXCLUDE_REASON[x].firstChild.nodeValue)
           SkipCaseElement.append(SkipElement)
           TestSuiteElement.append(SkipCaseElement)
        
@@ -500,9 +500,9 @@ class TestSuite(object):
       if full_summary:
         self.PrintFailureOutput(progress, logname)
       else:
-        print
-        print "Use --full-summary to see output from failed tests"
-    print
+        print()
+        print("Use --full-summary to see output from failed tests")
+    print()
 
   def WriteLog(self, result):
     name = result.case.GetName()
@@ -561,6 +561,6 @@ if __name__ == '__main__':
   try:
     Main()
     sys.exit(0)
-  except Test262Error, e:
-    print "Error: %s" % e.message
+  except Test262Error as e:
+    print("Error: %s" % e.message)
     sys.exit(1)
