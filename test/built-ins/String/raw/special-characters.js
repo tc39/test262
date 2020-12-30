@@ -16,6 +16,6 @@ assert.sameValue(
   String.raw`\\
 \
 `,
-  '\\\n\\\n\\\n',
+  '\\\r\\\r\n\\\n',
   'Literal characters'
 );
