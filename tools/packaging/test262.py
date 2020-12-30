@@ -93,10 +93,9 @@ def IsWindows():
 
 class TempFile(object):
 
-  def __init__(self, suffix="", prefix="tmp", text=False):
+  def __init__(self, suffix="", prefix="tmp"):
     self.suffix = suffix
     self.prefix = prefix
-    self.text = text
     self.fd = None
     self.name = None
     self.is_closed = False
@@ -106,7 +105,7 @@ class TempFile(object):
     (self.fd, self.name) = tempfile.mkstemp(
         suffix = self.suffix,
         prefix = self.prefix,
-        text = self.text)
+        text = False)
 
   def Write(self, s):
     os.write(self.fd, s.encode("utf8"))
@@ -296,7 +295,7 @@ class TestCase(object):
     return TestResult(code, out, err, self)
 
   def Run(self, command_template):
-    tmp = TempFile(suffix=".js", prefix="test262-", text=True)
+    tmp = TempFile(suffix=".js", prefix="test262-")
     try:
       result = self.RunTestIn(command_template, tmp)
     finally:
@@ -367,7 +366,6 @@ class TestSuite(object):
       if path.exists(static):
         f = open(static, "rb")
         contents = stripHeader(f.read().decode("utf8"))
-        contents = re.sub(r'\r\n', '\n', contents)
         self.include_cache[name] = contents + "\n"
         f.close()
       else:
