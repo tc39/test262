@@ -1,0 +1,35 @@
+// Copyright (C) 2021 Caio Lima (Igalia SL). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: super inside arrow functions on field initializer resolves to class' super
+info: |
+  ClassElementName :
+    PropertyName
+    PrivateName
+
+  SuperProperty:
+    super[Expression]
+    super.IdentifierName
+
+template: default
+features: [class-fields-public, class-static-fields-public]
+---*/
+
+//- elements
+func = () => {
+    super.prop = 'test262';
+}
+
+static staticFunc = () => {
+    super.staticProp = 'static test262';
+}
+//- assertions
+
+let c = new C();
+c.func();
+assert.sameValue(c.prop, 'test262');
+
+C.staticFunc();
+assert.sameValue(C.staticProp, 'static test262');
+
