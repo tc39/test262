@@ -179,8 +179,7 @@ attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
   expected to be produced; valid phases are:
-    - `parse`: occurs while parsing the source text.
-    - `early`: occurs prior to evaluation.
+    - `parse`: occurs while parsing the source text, or while checking it for early errors.
     - `resolution`: occurs during module resolution.
     - `runtime`: occurs during evaluation.
 - `type` - the name of the constructor of the expected error
