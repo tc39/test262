@@ -1,0 +1,57 @@
+// Copyright (C) 2021 Caio Lima (Igalia SL). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Trying to increment a private setter using postfix increment with getter present
+info: |
+  PrivateFieldGet (P, O)
+    1. Assert: P is a Private Name.
+    2. If O is not an object, throw a TypeError exception.
+    3. If P.[[Kind]] is "field",
+    ...
+    4. Perform ? PrivateBrandCheck(O, P).
+    5. If P.[[Kind]] is "method",
+      a. Return P.[[Value]].
+    6. Else,
+      a. Assert: P.[[Kind]] is "accessor".
+      b. If P does not have a [[Get]] field, throw a TypeError exception.
+      c. Let getter be P.[[Get]].
+      d. Return ? Call(getter, O).
+
+  PrivateFieldSet (P, O, value)
+    ...
+    4. If P.[[Kind]] is "method", throw a TypeError exception.
+    5. Else,
+      a. Assert: P.[[Kind]] is "accessor".
+      b. Perform ? PrivateBrandCheck(O, P).
+      c. If P does not have a [[Set]] field, throw a TypeError exception.
+      d. Let setter be P.[[Set]].
+      e. Perform ? Call(setter, O, value).
+      f. Return.
+      
+  UpdateExpression : UnaryExpression ++
+    1. Let lhs be the result of evaluating LeftHandSideExpression.
+    2. Let oldValue be ? ToNumeric(? GetValue(lhs)).
+    3. Let newValue be ! Type(oldValue)::add(oldValue, Type(oldValue)::unit).
+    4. Perform ? PutValue(lhs, newValue).
+    5. Return oldValue.
+
+template: default
+features: [class-methods-private]
+---*/
+
+//- elements
+set #m(v) {
+  assert.sameValue(5, v);
+}
+
+get #m() {
+  return 4;
+}
+
+access() {
+  return this.#m++;
+}
+//- assertions
+let c = new C();
+assert.sameValue(5, c.access());

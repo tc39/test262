@@ -1,0 +1,45 @@
+// Copyright (C) 2021 Caio Lima (Igalia SL). All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Trying to increment a private method using postfix increment
+info: |
+  PrivateFieldGet (P, O)
+    1. Assert: P is a Private Name.
+    2. If O is not an object, throw a TypeError exception.
+    3. If P.[[Kind]] is "field",
+    ...
+    4. Perform ? PrivateBrandCheck(O, P).
+    5. If P.[[Kind]] is "method",
+      a. Return P.[[Value]].
+    ...
+
+  PrivateFieldSet (P, O, value)
+    ...
+    4. If P.[[Kind]] is "method", throw a TypeError exception.
+    ...
+
+  UpdateExpression : UnaryExpression ++
+    1. Let lhs be the result of evaluating LeftHandSideExpression.
+    2. Let oldValue be ? ToNumeric(? GetValue(lhs)).
+    3. Let newValue be ! Type(oldValue)::add(oldValue, Type(oldValue)::unit).
+    4. Perform ? PutValue(lhs, newValue).
+    5. Return oldValue.
+
+template: default
+features: [class-methods-private]
+---*/
+
+//- elements
+#method() {
+  throw new Test262Error("Should never be called");
+}
+
+access() {
+  return this.#method++;
+}
+//- assertions
+let c = new C();
+assert.throws(TypeError, function() {
+  c.access();
+}, 'Trying to set a method should throw TypeError');
