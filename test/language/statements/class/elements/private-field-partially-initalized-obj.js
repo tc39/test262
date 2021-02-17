@@ -29,7 +29,13 @@ function throwException() {
 
 let obj = {};
 
-class C {
+class Base {
+  constructor() {
+    return obj;
+  }
+}
+
+class C extends Base {
   #f1 = 'test262';
   #f2 = throwException();
   
