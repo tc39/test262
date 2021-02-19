@@ -10,7 +10,9 @@ features: [Intl.ListFormat,BigInt]
 ---*/
 
 const optionsArguments = [
+  null,
   true,
+  false,
   "test",
   7,
   Symbol(),

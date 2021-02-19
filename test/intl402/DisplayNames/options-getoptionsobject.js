@@ -10,7 +10,9 @@ features: [Intl.DisplayNames,BigInt]
 ---*/
 
 const optionsArguments = [
+  null,
   true,
+  false,
   "test",
   7,
   Symbol(),
