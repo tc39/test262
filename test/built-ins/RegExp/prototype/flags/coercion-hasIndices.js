@@ -30,16 +30,16 @@ r.hasIndices = "";
 assert.sameValue(get.call(r), "", "hasIndices: the empty string");
 
 r.hasIndices = "string";
-assert.sameValue(get.call(r), "s", "hasIndices: string");
+assert.sameValue(get.call(r), "d", "hasIndices: string");
 
 r.hasIndices = 86;
-assert.sameValue(get.call(r), "s", "hasIndices: 86");
+assert.sameValue(get.call(r), "d", "hasIndices: 86");
 
 r.hasIndices = Symbol();
-assert.sameValue(get.call(r), "s", "hasIndices: Symbol()");
+assert.sameValue(get.call(r), "d", "hasIndices: Symbol()");
 
 r.hasIndices = [];
-assert.sameValue(get.call(r), "s", "hasIndices: []");
+assert.sameValue(get.call(r), "d", "hasIndices: []");
 
 r.hasIndices = {};
-assert.sameValue(get.call(r), "s", "hasIndices: {}");
+assert.sameValue(get.call(r), "d", "hasIndices: {}");
