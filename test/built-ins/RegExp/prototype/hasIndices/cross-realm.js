@@ -15,7 +15,7 @@ info: |
 features: [regexp-match-indices, cross-realm]
 ---*/
 
-var dotAll = Object.getOwnPropertyDescriptor(RegExp.prototype, 'hasIndices').get;
+var hasIndices = Object.getOwnPropertyDescriptor(RegExp.prototype, 'hasIndices').get;
 var other = $262.createRealm().global;
 var otherRegExpProto = other.RegExp.prototype;
 var otherRegExpGetter = Object.getOwnPropertyDescriptor(otherRegExpProto, 'hasIndices').get;

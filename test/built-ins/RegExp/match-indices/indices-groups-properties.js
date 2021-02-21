@@ -18,13 +18,13 @@ info: |
 let groupNames = Object.getOwnPropertyNames(/(?<fst>.)|(?<snd>.)/du.exec("abcd").indices.groups);
 assert.compareArray(groupNames, ["fst", "snd"]);
 
-// // Properties are created with Define, not Set
-// let counter = 0;
-// Object.defineProperty(Object.prototype, 'x', {set() { counter++; }});
+// Properties are created with Define, not Set
+let counter = 0;
+Object.defineProperty(Object.prototype, 'x', {set() { counter++; }});
 
 let indices = /(?<x>.)/d.exec('a').indices;
 let groups = indices.groups;
-// assert.sameValue(counter, 0);
+assert.sameValue(counter, 0);
 
 // Properties are writable, enumerable and configurable
 // (from CreateDataProperty)
