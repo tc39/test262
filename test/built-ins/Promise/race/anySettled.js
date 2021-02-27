@@ -7,4 +7,4 @@ description: >
   The initial value of the *"race"* property is the same function object as the initial value of the `Promise.anySettled` property.
 ---*/
 
-assert.sameValue(Promise.anySettled, Promise.race);
+assert.sameValue(Promise.race, Promise.anySettled);
