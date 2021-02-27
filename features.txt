@@ -299,3 +299,7 @@ __setter__
 
 IsHTMLDDA
 host-gc-required
+
+# Ergonomic brand checks for Private Fields
+# https://github.com/tc39/proposal-private-fields-in-in
+class-fields-private-in
