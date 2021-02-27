@@ -1,5 +1,5 @@
-// Copyright 2021 Sergey Rubanov.  All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+// Copyright 2015 Jordan Harband.  All rights reserved.
+// See LICENSE for details.
 
 /*---
 es6id: 25.4.4.3_A1.2_T1

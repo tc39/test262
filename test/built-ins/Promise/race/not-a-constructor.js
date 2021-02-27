@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Sergey Rubanov. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
