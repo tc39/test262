@@ -5,9 +5,8 @@
 esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled rejects if IteratorStep throws
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 flags: [async]
-features: [Promise.anySettled]
 ---*/
 
 var iterThrows = {};
