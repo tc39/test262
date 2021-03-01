@@ -3,6 +3,7 @@
 
 /*---
 esid: sec-promise-race
+author: Jordan Harband
 description: Promise.race property descriptor
 info: |
     ES6 Section 17
