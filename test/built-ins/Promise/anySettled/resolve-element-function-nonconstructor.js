@@ -2,13 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled-resolve-element-functions
+esid: sec-promise-anysettled
 description: Promise.anySettled Resolve Element functions are not constructors
 info: |
   17 ECMAScript Standard Built-in Objects:
     Built-in function objects that are not identified as constructors do not
     implement the [[Construct]] internal method unless otherwise specified
     in the description of a particular function.
+features: [Promise.anySettled]
 ---*/
 
 let resolveElementFunction;

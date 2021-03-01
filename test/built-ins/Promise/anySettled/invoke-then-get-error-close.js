@@ -3,7 +3,7 @@
 /*---
 description: >
   Error thrown when accessing the instance's `then` method (closing iterator)
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
@@ -20,7 +20,7 @@ info: |
         j. Let result be Invoke(nextPromise, "then",
            «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
         k. ReturnIfAbrupt(result).
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 ---*/
 
 var promise = new Promise(function() {});

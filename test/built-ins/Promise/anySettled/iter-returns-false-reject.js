@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 description: >
   Reject when argument's Symbol.iterator returns false
 info: |
@@ -18,7 +18,7 @@ info: |
     Let iterator be ? Call(method, obj).
     If Type(iterator) is not Object, throw a TypeError exception.
     ...
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 flags: [async]
 ---*/
 

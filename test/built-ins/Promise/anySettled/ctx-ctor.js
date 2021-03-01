@@ -4,7 +4,7 @@
 /*---
 description: >
     `Promise.anySettled` invoked on a constructor value
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     1. Let C be the this value.
     [...]
@@ -14,7 +14,7 @@ info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, promiseCapability, C).
     [...]
     13. Return Completion(result).
-features: [class]
+features: [classfeatures, Promise.anySettled]
 ---*/
 
 var executor = null;

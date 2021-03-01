@@ -4,7 +4,7 @@
 /*---
 description: >
     Invocation of the constructor's `resolve` method
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability).
 
@@ -15,6 +15,7 @@ info: |
     1. Repeat
         [...]
         h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
+features: [Promise.anySettled]
 ---*/
 
 var p1 = new Promise(function() {});

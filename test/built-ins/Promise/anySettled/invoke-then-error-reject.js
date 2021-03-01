@@ -4,7 +4,7 @@
 /*---
 description: >
   Error thrown when invoking the instance's `then` method (rejecting promise)
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
@@ -22,6 +22,7 @@ info: |
            «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
         k. ReturnIfAbrupt(result).
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var promise = new Promise(function() {});

@@ -4,11 +4,11 @@
 /*---
 description: >
     `Promise.anySettled` invoked on a non-object value
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     1. Let C be the this value.
     2. If Type(C) is not Object, throw a TypeError exception.
-features: [Symbol]
+features: [Symbol, Promise.anySettled]
 ---*/
 
 assert.throws(TypeError, function() {

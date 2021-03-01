@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Use of the value returned by the constructor's `resolve` method.
-es6id: 25.4.4.1
+esid: sec-promise-anysettled
 info: |
     [...]
     6. Let promiseCapability be NewPromiseCapability(C).
@@ -19,6 +19,7 @@ info: |
        j. Let result be Invoke(nextPromise, "then",
           «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
        [...]
+features: [Promise.anySettled]
 ---*/
 
 var originalCallCount = 0;

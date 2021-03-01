@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 description: >
   Promise.resolve is retrieved before GetIterator call (non-callable).
 info: |
@@ -18,7 +18,7 @@ info: |
   2. Let promiseResolve be ? Get(promiseConstructor, "resolve").
   3. If IsCallable(promiseResolve) is false, throw a TypeError exception.
 flags: [async]
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 ---*/
 
 const iter = { 

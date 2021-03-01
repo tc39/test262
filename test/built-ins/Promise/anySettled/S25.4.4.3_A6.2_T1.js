@@ -2,11 +2,12 @@
 // See LICENSE for details.
 
 /*---
-es6id: S25.4.4.3_A6.2_T1
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled([p1]) settles immediately
 includes: [promiseHelper.js]
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var sequence = [];

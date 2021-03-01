@@ -4,7 +4,7 @@
 /*---
 description: >
     `Promise.anySettled` invoked on a constructor value that throws an error
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     1. Let C be the this value.
     [...]
@@ -15,6 +15,7 @@ info: |
     [...]
     6. Let promise be Construct(C, «executor»).
     7. ReturnIfAbrupt(promise).
+features: [Promise.anySettled]
 ---*/
 
 var CustomPromise = function() {

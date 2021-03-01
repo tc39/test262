@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 description: >
   Throws a TypeError if either resolve or reject capability is not callable.
 info: |
@@ -22,6 +22,7 @@ info: |
     8. If IsCallable(promiseCapability.[[Resolve]]) is false, throw a TypeError exception.
     9. If IsCallable(promiseCapability.[[Reject]]) is false, throw a TypeError exception.
     ...
+features: [Promise.anySettled]
 ---*/
 
 var checkPoint = "";

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 25.4.4.3.1
+esid: sec-promise-anysettled
 description: >
   Each Promise.anySettled element is called with the same reject function.
 info: |
@@ -11,6 +11,7 @@ info: |
   ...
   j. Let result be Invoke(nextPromise, "then", «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
   ...
+features: [Promise.anySettled]
 ---*/
 
 function rejectFunction() {}

@@ -4,7 +4,7 @@
 /*---
 description: >
   Invocation of the constructor's `resolve` method for iterable with promise values
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
   Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability, promiseResolve).
 
@@ -15,7 +15,7 @@ info: |
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
 
 flags: [async]
-features: [class, arrow-function]
+features: [class, arrow-function, Promise.anySettled]
 ---*/
 class Custom extends Promise {}
 

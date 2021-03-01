@@ -4,13 +4,13 @@
 /*---
 description: >
     Promise.anySettled() does not retrieve `Symbol.species` property of the `this` value
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     1. Let C be the this value.
     2. If Type(C) is not Object, throw a TypeError exception.
     3. Let promiseCapability be ? NewPromiseCapability(C).
     ...
-features: [Symbol.species]
+features: [Symbol.speciesPromise.anySettled]
 ---*/
 
 function C(executor) {

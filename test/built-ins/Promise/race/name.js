@@ -1,7 +1,7 @@
 // Copyright (C) 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 25.4.4.3
+esid: sec-promise.race
 description: Promise.race `name` property
 info: |
     ES6 Section 17:
@@ -17,9 +17,10 @@ info: |
     object, if it exists, has the attributes { [[Writable]]: false,
     [[Enumerable]]: false, [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Promise.anySettled]
 ---*/
 
-assert.sameValue(Promise.race.name, 'race');
+assert.sameValue(Promise.race.name, 'anySettled');
 
 verifyNotEnumerable(Promise.race, 'name');
 verifyNotWritable(Promise.race, 'name');

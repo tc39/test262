@@ -4,7 +4,7 @@
 /*---
 description: >
   Explicit iterator closing in response to error from `Promise.resolve`
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
     [...]
     11. Let result be PerformPromiseAnySettled(iteratorRecord, promiseCapability, C).
@@ -20,7 +20,7 @@ info: |
        [...]
        h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
        i. ReturnIfAbrupt(nextPromise).
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 ---*/
 
 var iterDoneSpy = {};

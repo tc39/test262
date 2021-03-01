@@ -4,7 +4,7 @@
 /*---
 description: >
   Invocation of the constructor's `resolve` method for iterable with non-promise values
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
   Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability, promiseResolve).
 
@@ -15,7 +15,7 @@ info: |
     i. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
 
 flags: [async]
-features: [arrow-function]
+features: [arrow-function, Promise.anySettled]
 ---*/
 
 let values = [1, 2, 3];

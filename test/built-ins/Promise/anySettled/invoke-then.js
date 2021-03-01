@@ -4,7 +4,7 @@
 /*---
 description: >
     Invocation of the instance's `then` method
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability).
 
@@ -17,6 +17,7 @@ info: |
         j. Let result be Invoke(nextPromise, "then",
            «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
         k. ReturnIfAbrupt(result).
+features: [Promise.anySettled]
 ---*/
 
 var p1 = new Promise(function() {});

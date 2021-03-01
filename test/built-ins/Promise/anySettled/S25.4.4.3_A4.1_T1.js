@@ -2,11 +2,12 @@
 // See LICENSE for details.
 
 /*---
-es6id: S25.4.4.3_A4.1_T1
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled rejects if IteratorStep throws
 features: [Symbol.iterator]
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var iterThrows = {};

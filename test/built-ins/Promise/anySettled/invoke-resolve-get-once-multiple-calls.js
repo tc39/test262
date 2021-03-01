@@ -4,7 +4,7 @@
 /*---
 description: >
   Gets constructor's `resolve` method once from zero to many invocations.
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
   Runtime Semantics: PerformPromiseAnySettled
 
@@ -14,6 +14,7 @@ info: |
   1. Repeat,
     ...
     1. Let nextPromise be ? Call(promiseResolve, constructor, &laquo; nextValue &raquo;).
+features: [Promise.anySettled]
 ---*/
 
 var p1 = Promise.resolve(1);

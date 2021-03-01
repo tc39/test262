@@ -2,10 +2,11 @@
 // See LICENSE for details.
 
 /*---
-es6id: S25.4.4.3_A5.1_T1
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled([]) never settles
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var p = Promise.anySettled([]);

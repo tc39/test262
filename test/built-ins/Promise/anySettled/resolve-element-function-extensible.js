@@ -2,12 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled-resolve-element-functions
+esid: sec-promise-anysettled
 description: The [[Extensible]] slot of Promise.anySettled Resolve Element functions
 info: |
   17 ECMAScript Standard Built-in Objects:
     Unless specified otherwise, the [[Extensible]] internal slot
     of a built-in object initially has the value true.
+features: [Promise.anySettled]
 ---*/
 
 let resolveElementFunction;

@@ -5,7 +5,7 @@
 description: >
   Resolved promises ignore rejections through immediate invocation of the
     provided resolving function
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
   Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability, promiseResolve).
 
@@ -16,7 +16,7 @@ info: |
     Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], resultCapability.[[Reject]] »).
 
 flags: [async]
-features: [arrow-function]
+features: [arrow-function, Promise.anySettled]
 ---*/
 
 let resolver = {

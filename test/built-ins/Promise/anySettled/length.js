@@ -1,7 +1,7 @@
 // Copyright (C) 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 description: Promise.anySettled `length` property
 info: |
     ES6 Section 17:
@@ -16,6 +16,7 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Promise.anySettled]
 ---*/
 
 assert.sameValue(Promise.anySettled.length, 1);

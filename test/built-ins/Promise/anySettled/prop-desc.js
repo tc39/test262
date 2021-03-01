@@ -2,7 +2,7 @@
 // See LICENSE for details.
 
 /*---
-es6id: 25.4.4.3_A1.2_T1
+esid: sec-promise-anysettled
 author: Jordan Harband
 description: Promise.anySettled property descriptor
 info: |
@@ -12,6 +12,7 @@ info: |
     B.2 has the attributes { [[Writable]]: true, [[Enumerable]]: false,
     [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
+features: [Promise.anySettled]
 ---*/
 
 verifyNotEnumerable(Promise, 'anySettled');

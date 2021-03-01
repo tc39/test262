@@ -3,9 +3,10 @@
 
 /*---
 info: Promise.anySettled is callable
-es6id: S25.4.4.3_A1.1_T1
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled is callable
+features: [Promise.anySettled]
 ---*/
 
 if (typeof Promise.anySettled !== "function") {

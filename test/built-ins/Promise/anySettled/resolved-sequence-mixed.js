@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 description: >
   Resolution ticks are set in a predictable sequence of mixed fulfilled and rejected promises
 info: |
@@ -23,6 +23,7 @@ info: |
 
 flags: [async]
 includes: [promiseHelper.js]
+features: [Promise.anySettled]
 ---*/
 
 let a = Promise.reject('');

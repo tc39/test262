@@ -2,10 +2,11 @@
 // See LICENSE for details.
 
 /*---
-es6id: S25.4.4.3_A7.3_T1
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled([p1, p2]) settles when first settles
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var resolveP1, rejectP2,

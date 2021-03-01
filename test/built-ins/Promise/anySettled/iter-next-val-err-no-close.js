@@ -5,7 +5,7 @@
 description: >
   Error when accessing an iterator result's `value` property (not closing
   iterator)
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
@@ -23,7 +23,7 @@ info: |
         f. If nextValue is an abrupt completion, set iteratorRecord.[[done]] to
            true.
         g. ReturnIfAbrupt(nextValue).
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 ---*/
 
 var iterNextValThrows = {};

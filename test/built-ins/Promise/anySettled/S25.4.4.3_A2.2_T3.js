@@ -6,11 +6,12 @@ info: |
     Promise.anySettled rejects when GetIterator() returns an abrupt completion
     4. Let iterator be GetIterator(iterable).
     5. IfAbruptRejectPromise(iterator, promiseCapability)
-es6id: S25.4.4.3_A2.2_T3
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled rejects if GetIterator throws
 features: [Symbol.iterator]
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var iterThrows = {};

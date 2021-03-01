@@ -2,7 +2,7 @@
 // See LICENSE for details.
 
 /*---
-es6id: 25.4.4.3_A1.2_T1
+esid: sec-promise-race
 description: Promise.race property descriptor
 info: |
     ES6 Section 17

@@ -3,9 +3,10 @@
 
 /*---
 info: Promise.anySettled returns a new promise
-es6id: S25.4.4.3_A2.1_T1
+esid: sec-promise-anysettled
 author: Sam Mikes
 description: Promise.anySettled returns a new promise
+features: [Promise.anySettled]
 ---*/
 
 var p = Promise.anySettled([]);

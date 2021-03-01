@@ -4,7 +4,7 @@
 /*---
 description: >
   Error retrieving the constructor's `resolve` method (promise rejection)
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
@@ -21,6 +21,7 @@ info: |
         h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
         i. ReturnIfAbrupt(nextPromise).
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var error = new Test262Error();

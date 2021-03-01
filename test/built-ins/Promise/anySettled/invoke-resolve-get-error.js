@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 description: >
   Promise.resolve is retrieved before GetIterator call (abrupt lookup).
 info: |
@@ -17,7 +17,7 @@ info: |
   [...]
   2. Let promiseResolve be ? Get(promiseConstructor, "resolve").
 flags: [async]
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 ---*/
 
 const iter = {

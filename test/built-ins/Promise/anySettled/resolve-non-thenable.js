@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Resolving with a non-thenable object value
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     [...]
     6. Let promiseCapability be NewPromiseCapability(C).
@@ -25,6 +25,7 @@ info: |
     11. If IsCallable(thenAction) is false, then
         a. Return FulfillPromise(promise, resolution).
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var value = {};

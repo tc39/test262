@@ -4,7 +4,7 @@
 /*---
 description: >
     `Promise.anySettled` invoked on a non-constructor value
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     [...]
     6. Let promiseCapability be NewPromiseCapability(C).
@@ -13,6 +13,7 @@ info: |
     25.4.1.5 NewPromiseCapability ( C )
 
     1. If IsConstructor(C) is false, throw a TypeError exception.
+features: [Promise.anySettled]
 ---*/
 
 assert.throws(TypeError, function() {

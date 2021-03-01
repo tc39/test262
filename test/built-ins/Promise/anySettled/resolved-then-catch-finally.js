@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 description: >
   Resolution the first resolved promise
 info: |
@@ -22,6 +22,7 @@ info: |
     Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], resultCapability.[[Reject]] »).
 
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 let a = Promise.reject('a').catch((v) => v);

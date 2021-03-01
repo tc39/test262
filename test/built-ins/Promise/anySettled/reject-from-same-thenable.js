@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-performpromiseanySettled
+esid: sec-performpromiseanysettled
 description: >
   Promise.anySettled does not prevent resolve from being called multiple times.
 info: |
@@ -22,6 +22,7 @@ info: |
     Perform ? Invoke(nextPromise, "then", « resultCapability.[[Resolve]], resultCapability.[[Reject]] »).
 
 includes: [promiseHelper.js]
+features: [Promise.anySettled]
 ---*/
 
 let callCount = 0;

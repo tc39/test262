@@ -4,7 +4,7 @@
 /*---
 description: >
   Error when advancing the provided iterable (rejecting promise)
-esid: sec-promise.anySettled
+esid: sec-promise-anysettled
 info: |
     [...]
     11. Let result be PerformPromiseAnySettled(iteratorRecord, promiseCapability, C).
@@ -18,7 +18,7 @@ info: |
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).
        b. If next is an abrupt completion, set iteratorRecord.[[done]] to true.
        c. ReturnIfAbrupt(next).
-features: [Symbol.iterator]
+features: [Symbol.iterator, Promise.anySettled]
 flags: [async]
 ---*/
 

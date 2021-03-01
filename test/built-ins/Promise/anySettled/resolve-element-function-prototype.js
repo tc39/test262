@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled-resolve-element-functions
+esid: sec-promise-anysettled
 description: The [[Prototype]] of Promise.anySettled Resolve Element functions
 info: |
   17 ECMAScript Standard Built-in Objects:
@@ -10,6 +10,7 @@ info: |
     constructor has the Function prototype object, which is the initial
     value of the expression Function.prototype (19.2.3), as the value of
     its [[Prototype]] internal slot.
+features: [Promise.anySettled]
 ---*/
 
 let resolveElementFunction;

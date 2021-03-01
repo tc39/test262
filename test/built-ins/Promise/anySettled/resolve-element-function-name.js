@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-promise.anySettled-resolve-element-functions
+esid: sec-promise-anysettled
 description: The `name` property of Promise.anySettled Resolve Element functions
 info: |
   A promise resolve function is an anonymous built-in function.
@@ -16,6 +16,7 @@ info: |
     object has the attributes { [[Writable]]: *false*, [[Enumerable]]: *false*,
     [[Configurable]]: *true* }.
 includes: [propertyHelper.js]
+features: [Promise.anySettled]
 ---*/
 
 let resolveElementFunction;

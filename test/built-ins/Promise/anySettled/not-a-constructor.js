@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [Reflect.construct, arrow-function]
+features: [Reflect.construct, arrow-function, Promise.anySettled]
 ---*/
 
 assert.sameValue(isConstructor(Promise.anySettled), false, 'isConstructor(Promise.anySettled) must return false');

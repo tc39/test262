@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Resolving with a reference to the promise itself
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     [...]
     6. Let promiseCapability be NewPromiseCapability(C).
@@ -22,6 +22,7 @@ info: |
        a. Let selfResolutionError be a newly created TypeError object.
        b. Return RejectPromise(promise, selfResolutionError).
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var self, resolve;

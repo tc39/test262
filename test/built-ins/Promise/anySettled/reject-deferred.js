@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Rejecting through deferred invocation of the provided resolving function
-es6id: 25.4.4.3
+esid: sec-promise-anysettled
 info: |
     [...]
     6. Let promiseCapability be NewPromiseCapability(C).
@@ -20,6 +20,7 @@ info: |
     [...]
     6. Return RejectPromise(promise, reason).
 flags: [async]
+features: [Promise.anySettled]
 ---*/
 
 var thenable = {
