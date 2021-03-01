@@ -14,7 +14,7 @@ info: |
     11. Let result be PerformPromiseAnySettled(iteratorRecord, promiseCapability, C).
     [...]
     13. Return Completion(result).
-features: [classfeatures, Promise.anySettled]
+features: [class, Promise.anySettled]
 ---*/
 
 var executor = null;
