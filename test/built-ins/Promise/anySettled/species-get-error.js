@@ -10,7 +10,7 @@ info: |
     2. If Type(C) is not Object, throw a TypeError exception.
     3. Let promiseCapability be ? NewPromiseCapability(C).
     ...
-features: [Symbol.speciesPromise.anySettled]
+features: [Symbol.species, Promise.anySettled]
 ---*/
 
 function C(executor) {
