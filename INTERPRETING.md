@@ -358,7 +358,7 @@ following strings:
 
 - **`CanBlockIsFalse`** The test file should only be run when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the file is `false`.
 
- *Example*
+  *Example*
 
   ```js
   /*---
@@ -370,7 +370,7 @@ following strings:
 
 - **`CanBlockIsTrue`** The test file should only be run when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the file is `true`.
 
- *Example*
+  *Example*
 
   ```js
   /*---
