@@ -201,6 +201,10 @@ arbitrary-module-namespace-names
 # https://github.com/tc39/ecma262/pull/2164
 align-detached-buffer-semantics-with-web-reality
 
+# Class static initialization blocks
+# https://github.com/tc39/proposal-class-static-block
+class-static-block
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
