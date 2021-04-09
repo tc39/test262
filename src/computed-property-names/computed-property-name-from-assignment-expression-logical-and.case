@@ -4,7 +4,7 @@
 /*---
 desc: Computed property name from assignment expression logical and
 template: evaluation
-features: [computed-property-names]
+features: [computed-property-names, logical-assignment-operators]
 ---*/
 //- setup
 let x = 0;
