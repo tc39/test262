@@ -24,7 +24,7 @@ var message = "my-message";
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#0
 assert.throws(Test262Error, function () {
-  var options = Proxy({}, {
+  var options = new Proxy({}, {
     has(target, prop) {
       if (prop === "cause") {
         throw new Test262Error("HasProperty");
