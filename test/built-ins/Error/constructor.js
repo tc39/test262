@@ -11,6 +11,7 @@ info: |
   ...
 
 esid: sec-error-message
+features: [error-cause]
 includes: [deepEqual.js]
 ---*/
 

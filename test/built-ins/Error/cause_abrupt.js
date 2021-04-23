@@ -18,6 +18,7 @@ info: |
   ...
 
 esid: sec-error-message
+features: [error-cause]
 ---*/
 
 var message = "my-message";
