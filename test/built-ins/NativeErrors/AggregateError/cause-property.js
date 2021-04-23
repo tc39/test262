@@ -19,7 +19,7 @@ info: |
     b. Perform ! CreateNonEnumerableDataPropertyOrThrow(O, "cause", cause).
   ...
 
-features: [AggregateError]
+features: [AggregateError,error-cause]
 includes: [propertyHelper.js]
 ---*/
 

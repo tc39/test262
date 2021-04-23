@@ -12,6 +12,7 @@ info: |
 
 esid: sec-error-message
 includes: [deepEqual.js]
+features: [error-cause]
 ---*/
 
 var message = "my-message";
