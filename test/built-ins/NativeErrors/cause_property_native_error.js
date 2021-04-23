@@ -18,8 +18,8 @@ info: |
   ...
 
 esid: sec-nativeerror
-includes: [propertyHelper.js]
 features: [error-cause]
+includes: [propertyHelper.js]
 ---*/
 
 var nativeErrors = [

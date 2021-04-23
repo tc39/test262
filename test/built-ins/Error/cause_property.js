@@ -18,8 +18,8 @@ info: |
   ...
 
 esid: sec-error-message
-includes: [propertyHelper.js]
 features: [error-cause]
+includes: [propertyHelper.js]
 ---*/
 
 var message = "my-message";
