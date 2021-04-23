@@ -10,7 +10,7 @@ info: |
        is stringKey.
     [...]
     6. Return newSymbol.
-features: [Symbol]
+features: [Symbol, Symbol.prototype.description]
 ---*/
 
 var symbol = Symbol.for({toString: function() { return 'test262'; }});
