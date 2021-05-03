@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/not-extensible-no-trailing-comma.case
-// - src/dynamic-import/syntax/invalid/nested-async-generator-await.template
+// - src/dynamic-import/trailing-comma-first.case
+// - src/dynamic-import/syntax/valid/nested-function.template
 /*---
-description: ImportCall is not extensible - trailing comma (nested in async generator, awaited)
+description: ImportCall trailing comma following first parameter (nested function syntax)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import, async-iteration]
+features: [import-assertions, dynamic-import]
 flags: [generated]
-negative:
-  phase: parse
-  type: SyntaxError
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -25,15 +22,11 @@ info: |
 
 
     ImportCall :
-        import( AssignmentExpression[+In, ?Yield] )
+        import( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
+        import( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
 
-    Forbidden Extensions
-
-    - ImportCall must not be extended.
 ---*/
 
-$DONOTEVALUATE();
-
-async function * f() {
-  await import('',)
+function fn() {
+  import('./empty_FIXTURE.js',);
 }

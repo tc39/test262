@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/not-extensible-no-trailing-comma.case
-// - src/dynamic-import/syntax/invalid/nested-else-braceless.template
+// - src/dynamic-import/trailing-comma-first.case
+// - src/dynamic-import/syntax/valid/nested-with.template
 /*---
-description: ImportCall is not extensible - trailing comma (nested else syntax)
+description: ImportCall trailing comma following first parameter (nested with syntax)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
-flags: [generated]
-negative:
-  phase: parse
-  type: SyntaxError
+features: [import-assertions, dynamic-import]
+flags: [generated, noStrict]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -25,15 +22,11 @@ info: |
 
 
     ImportCall :
-        import( AssignmentExpression[+In, ?Yield] )
+        import( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
+        import( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
 
-    Forbidden Extensions
-
-    - ImportCall must not be extended.
 ---*/
 
-$DONOTEVALUATE();
-
-if (false) {
-
-} else import('',);
+with ({}) {
+  import('./empty_FIXTURE.js',);
+}

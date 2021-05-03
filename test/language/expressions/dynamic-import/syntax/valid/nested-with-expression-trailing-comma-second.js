@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/not-extensible-args.case
-// - src/dynamic-import/syntax/invalid/nested-with-expression.template
+// - src/dynamic-import/trailing-comma-second.case
+// - src/dynamic-import/syntax/valid/nested-with-expression.template
 /*---
-description: ImportCall is not extensible - no arguments list (nested with syntax in the expression position)
+description: ImportCall trailing comma following second parameter (nested with syntax in the expression position)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
+features: [import-assertions, dynamic-import]
 flags: [generated, noStrict]
-negative:
-  phase: parse
-  type: SyntaxError
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -28,11 +25,9 @@ info: |
         import( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
         import( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
 
-    Forbidden Extensions
-
-    - ImportCall must not be extended.
 ---*/
 
-$DONOTEVALUATE();
-
-with (import('./empty_FIXTURE.js', {}, '')) {}
+with (import('./empty_FIXTURE.js', {},)) {
+    assert.sameValue(then, Promise.prototype.then);
+    assert.sameValue(constructor, Promise);
+}
