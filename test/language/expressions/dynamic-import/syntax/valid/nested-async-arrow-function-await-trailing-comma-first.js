@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/not-extensible-no-trailing-comma.case
-// - src/dynamic-import/syntax/invalid/nested-with-expression.template
+// - src/dynamic-import/trailing-comma-first.case
+// - src/dynamic-import/syntax/valid/nested-async-arrow-fn-await.template
 /*---
-description: ImportCall is not extensible - trailing comma (nested with syntax in the expression position)
+description: ImportCall trailing comma following first parameter (nested in async arrow function)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
-flags: [generated, noStrict]
-negative:
-  phase: parse
-  type: SyntaxError
+features: [import-assertions, dynamic-import]
+flags: [generated]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -25,13 +22,11 @@ info: |
 
 
     ImportCall :
-        import( AssignmentExpression[+In, ?Yield] )
+        import( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
+        import( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
 
-    Forbidden Extensions
-
-    - ImportCall must not be extended.
 ---*/
 
-$DONOTEVALUATE();
-
-with (import('',)) {}
+(async () => {
+  await import('',)
+});

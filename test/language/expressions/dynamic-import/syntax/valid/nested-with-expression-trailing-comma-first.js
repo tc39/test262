@@ -1,14 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dynamic-import/not-extensible-args.case
-// - src/dynamic-import/syntax/invalid/nested-arrow-assignment-expression.template
+// - src/dynamic-import/trailing-comma-first.case
+// - src/dynamic-import/syntax/valid/nested-with-expression.template
 /*---
-description: ImportCall is not extensible - no arguments list (nested arrow syntax)
+description: ImportCall trailing comma following first parameter (nested with syntax in the expression position)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
-flags: [generated]
-negative:
-  phase: parse
-  type: SyntaxError
+features: [import-assertions, dynamic-import]
+flags: [generated, noStrict]
 info: |
     ImportCall :
         import( AssignmentExpression )
@@ -28,11 +25,9 @@ info: |
         import( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
         import( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
 
-    Forbidden Extensions
-
-    - ImportCall must not be extended.
 ---*/
 
-$DONOTEVALUATE();
-
-let f = () => import('', '', '');
+with (import('',)) {
+    assert.sameValue(then, Promise.prototype.then);
+    assert.sameValue(constructor, Promise);
+}
