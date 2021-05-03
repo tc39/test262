@@ -103,7 +103,6 @@ Test262 supports the following keys:
  - [**info**](#info)
  - [**negative**](#negative)
  - [**includes**](#includes)
- - [**timeout**](#timeout)
  - [**author**](#author)
  - [**flags**](#flags)
  - [**features**](#features) (required for new tests written for new features)
@@ -178,13 +177,6 @@ negative:
 This key names a list of helper files that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
 
 The helper files are found in the `harness/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
-
-#### timeout
-`timeout: [integer]`
-
-This key specifies the number of milliseconds to wait before the test runner declares an [asynchronous test](#writing-asynchronous-tests) to have timed out.  It has no effect on synchronous tests.
-
-Test authors **should not** use this key except as a last resort.  Each runner is allowed to provide its own default timeout, and the user may be permitted to override this in order to account for unusually fast or slow hardware, network delays, etc.
 
 #### author
 `author: [string]`
