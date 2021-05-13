@@ -28,6 +28,6 @@ info: |
 ---*/
 
 async function f() {
-  import('', '');
+  import('', '',);
 }
 

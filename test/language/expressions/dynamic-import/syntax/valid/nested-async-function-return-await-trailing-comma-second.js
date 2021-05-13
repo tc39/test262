@@ -28,6 +28,6 @@ info: |
 ---*/
 
 async function f() {
-  return await import('', '');
+  return await import('', '',);
 }
 

@@ -27,4 +27,4 @@ info: |
 
 ---*/
 
-if (true) import('', '');
+if (true) import('', '',);

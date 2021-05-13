@@ -30,5 +30,5 @@ info: |
 if (false) {
 
 } else {
-  import('', '');
+  import('', '',);
 }

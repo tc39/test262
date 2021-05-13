@@ -28,5 +28,5 @@ info: |
 ---*/
 
 label: {
-  import('', '');
+  import('', '',);
 };

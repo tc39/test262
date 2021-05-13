@@ -28,5 +28,5 @@ info: |
 ---*/
 
 do {
-  import('', '');
+  import('', '',);
 } while (false);

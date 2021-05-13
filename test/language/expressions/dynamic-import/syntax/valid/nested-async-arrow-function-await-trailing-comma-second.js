@@ -28,5 +28,5 @@ info: |
 ---*/
 
 (async () => {
-  await import('', '')
+  await import('', '',)
 });

@@ -28,5 +28,5 @@ info: |
 ---*/
 
 function fn() {
-  import('', '');
+  import('', '',);
 }
