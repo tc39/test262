@@ -10,7 +10,7 @@ info: |
 
     2. If Type(loc) is not Object or loc does not have an [[InitializedLocale]] internal slot, then
         a. Throw a TypeError exception.
-features: [Intl.Locale]
+features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
 const propdesc = Object.getOwnPropertyDescriptor(Intl.Locale.prototype, "textInfo");

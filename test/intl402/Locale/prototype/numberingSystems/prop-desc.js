@@ -12,7 +12,7 @@ info: |
 
     Every accessor property described in clauses 18 through 26 and in Annex B.2 has the attributes { [[Enumerable]]: false, [[Configurable]]: true } unless otherwise specified. If only a get accessor function is described, the set accessor function is the default value, undefined.
 includes: [propertyHelper.js]
-features: [Intl.Locale]
+features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
 const propdesc = Object.getOwnPropertyDescriptor(Intl.Locale.prototype, "numberingSystems");
