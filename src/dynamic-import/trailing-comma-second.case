@@ -11,4 +11,4 @@ features: [import-assertions]
 ---*/
 
 //- import
-import('', '')
+import('', '',)

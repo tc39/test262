@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-    AssertClause in ImportDeclaration may contain a trailing comma
+    AssertClause in ImportDeclaration may contain multiple AssertEntries
 esid: sec-modules
 info: |
   ImportDeclaration:

@@ -25,14 +25,6 @@ features: [dynamic-import, import-assertions, Symbol, BigInt]
 flags: [async]
 ---*/
 
-function test(promise, valueType) {
-  return promise.then(function() {
-      throw new Test262Error('Promise for ' + valueType + ' was not rejected.');
-    }, function(error) {
-      assert.sameValue(error.constructor, TypeError, valueType);
-    });
-}
-
 Promise.all([
     import('./2nd-param_FIXTURE.js', {}),
     import('./2nd-param_FIXTURE.js', {assert:undefined}),
