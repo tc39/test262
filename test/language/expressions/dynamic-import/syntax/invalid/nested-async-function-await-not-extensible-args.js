@@ -36,5 +36,5 @@ info: |
 $DONOTEVALUATE();
 
 async function f() {
-  await import('', '', '');
+  await import('./empty_FIXTURE.js', {}, '');
 }

@@ -35,4 +35,4 @@ info: |
 
 $DONOTEVALUATE();
 
-let f = () => import('', '', '');
+let f = () => import('./empty_FIXTURE.js', {}, '');

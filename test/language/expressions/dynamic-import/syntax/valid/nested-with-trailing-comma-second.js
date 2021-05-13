@@ -28,5 +28,5 @@ info: |
 ---*/
 
 with ({}) {
-  import('', '',);
+  import('./empty_FIXTURE.js', {},);
 }

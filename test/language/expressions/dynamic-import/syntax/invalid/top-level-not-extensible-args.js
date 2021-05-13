@@ -25,4 +25,4 @@ info: |
 
 $DONOTEVALUATE();
 
-import('', '', '');
+import('./empty_FIXTURE.js', {}, '');

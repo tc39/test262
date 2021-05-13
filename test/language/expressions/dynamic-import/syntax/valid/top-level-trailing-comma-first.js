@@ -17,4 +17,4 @@ info: |
 
 ---*/
 
-import('',);
+import('./empty_FIXTURE.js',);

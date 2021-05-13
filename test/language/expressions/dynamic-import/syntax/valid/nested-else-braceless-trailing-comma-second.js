@@ -29,4 +29,4 @@ info: |
 
 if (false) {
 
-} else import('', '',);
+} else import('./empty_FIXTURE.js', {},);

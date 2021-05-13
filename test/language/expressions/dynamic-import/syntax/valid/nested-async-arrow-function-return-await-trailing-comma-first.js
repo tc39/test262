@@ -27,4 +27,4 @@ info: |
 
 ---*/
 
-(async () => await import('',));
+(async () => await import('./empty_FIXTURE.js',));

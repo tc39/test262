@@ -36,5 +36,5 @@ info: |
 $DONOTEVALUATE();
 
 with ({}) {
-  import('', '', '');
+  import('./empty_FIXTURE.js', {}, '');
 }
