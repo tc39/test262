@@ -159,9 +159,10 @@ located at `test/language/import/nested/dep.js`.
 
 ## Test Results
 
-By default, tests signal failure by generating an uncaught exception. If
-execution completes without generating an exception, the test must be
-interpreted as "passing." Any uncaught exception must be interpreted as test
+By default, tests signal failure by generating an uncaught exception or failing
+to handle a Promise rejection. If execution completes without generating an
+exception or unhandled rejection, the test must be interpreted as "passing."
+Any uncaught exception or unhandled rejection must be interpreted as test
 failure. These semantics may be modified by any test according to the metadata
 declared within the test itself (via the `negative` attribute and the `async`
 flag, described below).
