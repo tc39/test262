@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-additional-syntax-numeric-literals
+esid: sec-literals-numeric-literals
 description: Mathematical value for NonOctalDecimalIntegerLiteral
 info: |
      DecimalIntegerLiteral ::

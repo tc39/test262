@@ -1,13 +1,13 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-additional-syntax-string-literals
-es6id: B.1.2
+esid: sec-literals-string-literals
 description: String value for LegacyOctalEscapeSequence
 info: |
     EscapeSequence ::
       CharacterEscapeSequence
       LegacyOctalEscapeSequence
+      NonOctalDecimalEscapeSequence
       HexEscapeSequence
       UnicodeEscapeSequence
 
