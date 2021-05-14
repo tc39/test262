@@ -24,4 +24,4 @@ class C {
   }
 }
 
-assert.sameValue(test262, 'outer scope');
+assert.sameValue(probe262, 'outer scope');
