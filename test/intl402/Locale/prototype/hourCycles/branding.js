@@ -14,6 +14,7 @@ features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
 const propdesc = Object.getOwnPropertyDescriptor(Intl.Locale.prototype, "hourCycles");
+assert.sameValue(typeof propdesc.get, "function");
 const invalidValues = [
   undefined,
   null,
