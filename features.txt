@@ -84,6 +84,10 @@ Intl.ListFormat
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
 
+# Intl.Locale Info
+# https://github.com/tc39/proposal-intl-locale-info
+Intl.Locale-info
+
 # Intl.RelativeTimeFormat
 # https://github.com/tc39/proposal-intl-relative-time
 Intl.RelativeTimeFormat
