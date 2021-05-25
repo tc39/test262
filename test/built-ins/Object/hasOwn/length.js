@@ -4,9 +4,9 @@
 /*---
 esid: sec-object.hasown
 description: >
-  Object.prototype.hasOwnProperty.length is 1.
+  Object.hasOwn.length is 2.
 info: |
-  Object.prototype.hasOwnProperty ( V )
+  Object.hasOwn ( _O_, _P_ )
 
   ECMAScript Standard Built-in Objects
 

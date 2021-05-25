@@ -4,7 +4,7 @@
 /*---
 esid: sec-object.hasown
 description: >
-  Object.prototype.hasOwnProperty.name is "hasOwnProperty".
+  Object.hasOwn.name is "hasOwn".
 info: |
   Object.hasOwn ( _O_, _P_ )
 
