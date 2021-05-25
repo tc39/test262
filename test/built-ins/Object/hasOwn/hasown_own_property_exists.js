@@ -12,4 +12,4 @@ var o = {
   foo: 42
 };
 
-assert(Object.hasOwn(o, "foo"), 'Object.hasOwn(o, "foo") !== true');
+assert.sameValue(Object.hasOwn(o, "foo"), true, 'Object.hasOwn(o, "foo") !== true');
