@@ -24,7 +24,7 @@ features: [Object.hasOwn]
 ---*/
 
 verifyProperty(Object.hasOwn, "length", {
-  value: 1,
+  value: 2,
   writable: false,
   enumerable: false,
   configurable: true,
