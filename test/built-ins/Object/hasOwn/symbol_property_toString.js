@@ -23,8 +23,8 @@ var wrapper = {
     callCount += 1;
     return sym;
   },
-  valueOf: function() {
-    $ERROR("valueOf() called");
+  valueOf: function () {
+    throw new Test262Error("valueOf() called")
   }
 };
 

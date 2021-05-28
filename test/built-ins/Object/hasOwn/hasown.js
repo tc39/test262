@@ -15,13 +15,5 @@ author: Jamie Kyle
 features: [Object.hasOwn]
 ---*/
 
-//CHECK#1
-if (typeof Object.hasOwn !== "function") {
-  $ERROR('#1: hasOwn method is defined');
-}
-
-//CHECK#2
-if (!(Object.hasOwn(Object, "hasOwn"))) {
-  $ERROR('#2: hasOwn method works properly');
-}
-//
+assert.sameValue(typeof Object.hasOwn, 'function');
+assert.sameValue(Object.hasOwn(Object, 'hasOwn'), false);

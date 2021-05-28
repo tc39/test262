@@ -10,8 +10,4 @@ author: Jamie Kyle
 features: [Object.hasOwn]
 ---*/
 
-//CHECK#1
-if (Object.hasOwn.prototype !== undefined) {
-  $ERROR('#1: Object.hasOwn has not prototype property' + Object.hasOwn.prototype);
-}
-//
+assert.sameValue(Object.hasOwn.prototype !== undefined, true);
