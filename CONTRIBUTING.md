@@ -250,9 +250,9 @@ function Test262Error(message) {
 }
 ```
 
-## Rules For Module `_FIXTURE.js` Files
+## Rules For Module `_FIXTURE` Files
 
-The [Module section of INTERPRETING.md](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#modules) states that `_FIXTURE.js` files will not have have Realm modifications applied. In practice, this means that code in `_FIXTURE.js` files must abide by the following rules: 
+The [Module section of INTERPRETING.md](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#modules) states that `_FIXTURE` files will not have have Realm modifications applied. In practice, this means that code in `_FIXTURE` files must abide by the following rules:
 
 - **MUST NOT** refer to, or make use of any [Test262-Defined Bindings](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#test262-defined-bindings) in any way. 
 - **MUST NOT** refer to, or make use of any [Host-Defined Functions](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#host-defined-functions) in any way. 

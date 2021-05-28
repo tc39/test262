@@ -12,7 +12,7 @@ class CheckFrontmatter(Check):
     ID = 'FRONTMATTER'
 
     def run(self, name, meta, source):
-        if name.endswith('_FIXTURE.js'):
+        if '_FIXTURE' in name:
             if meta is not None:
                 return '"Fixture" files cannot specify metadata'
             return
