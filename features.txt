@@ -315,3 +315,7 @@ error-cause
 # Import Assertions
 # https://github.com/tc39/proposal-import-assertions/
 import-assertions
+
+# JSON modules
+# https://github.com/tc39/proposal-json-modules
+json-modules

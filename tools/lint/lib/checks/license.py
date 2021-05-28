@@ -23,6 +23,9 @@ class CheckLicense(Check):
     ID = 'LICENSE'
 
     def run(self, name, meta, source):
+        if name.endswith('.json'):
+            return
+
         if meta and 'flags' in meta and 'generated' in meta['flags']:
             return
 
