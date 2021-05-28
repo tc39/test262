@@ -9,7 +9,7 @@ features: [Object.hasOwn]
 ---*/
 
 var o = {
-  set foo(x) {;
+  set foo(x) {
   }
 };
 
