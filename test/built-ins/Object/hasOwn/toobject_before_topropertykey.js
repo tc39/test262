@@ -29,7 +29,7 @@ var coercibleKey1 = {
   },
 };
 
-assert.throws(Test262Error, function() {
+assert.throws(TypeError, function() {
   Object.hasOwn(null, coercibleKey1);
 });
 assert.sameValue(callCount1, 0, "toString and valueOf must not be called");
@@ -42,7 +42,7 @@ coercibleKey2[Symbol.toPrimitive] = function() {
   throw new Test262Error();
 };
 
-assert.throws(Test262Error, function() {
+assert.throws(TypeError, function() {
   Object.hasOwn(undefined, coercibleKey2);
 });
 assert.sameValue(callCount2, 0, "Symbol.toPrimitive must not be called");
