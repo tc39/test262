@@ -8,7 +8,7 @@
 
 ## Acceptable Tests
 
-Any test that execercises observable grammar or semantics, originating with citable, normative text in the latest draft of the [ECMAScript Language Specification](https://tc39.es/ecma262/), the [ECMAScript Internationalization API Specification](https://tc39.es/ecma402/), the [The JSON Data
+Any test that exercises observable grammar or semantics, originating with citable, normative text in the latest draft of the [ECMAScript Language Specification](https://tc39.es/ecma262/), the [ECMAScript Internationalization API Specification](https://tc39.es/ecma402/), the [The JSON Data
 Interchange Syntax](https://ecma-international.org/publications/standards/Ecma-404.htm), a [Stage 3](https://github.com/tc39/proposals#stage-3) proposal or a Pull Request which makes a normative change to any of those specifications.
 
 ## Unacceptable Tests
