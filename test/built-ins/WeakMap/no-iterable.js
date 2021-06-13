@@ -13,6 +13,7 @@ info: |
   ...
   8. If iter is undefined, return map.
   ...
+features: [WeakMap]
 ---*/
 
 var a = new WeakMap();

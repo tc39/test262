@@ -1,9 +1,9 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-weakmap.prototype.has
 description: >
-  Returns true when value is present in the WeakMap entries list.
+  Returns true when value is present in the WeakMap entries list. Key is a Symbol
 info: |
   WeakMap.prototype.has ( value )
 
@@ -13,9 +13,10 @@ info: |
     a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, return
     true.
   ...
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
-var foo = {};
+var foo = Symbol();
 var map = new WeakMap();
 
 map.set(foo, 1);

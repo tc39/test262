@@ -3,23 +3,19 @@
 /*---
 esid: sec-weakset.prototype.has
 description: >
-  Return false when value is not present in the WeakSet entries.
+  Returns true when value is present in the WeakSet entries list.
 info: |
   WeakSet.prototype.has ( value )
 
   ...
-  7. Return false.
-
+  6. Repeat for each e that is an element of entries,
+    a. If e is not empty and SameValue(e, value) is true, return true.
+  ...
+features: [WeakSet]
 ---*/
 
 var foo = {};
-var bar = {};
 var s = new WeakSet();
 
-assert.sameValue(s.has(foo), false);
-
 s.add(foo);
-assert.sameValue(s.has(bar), false);
-
-s.delete(foo);
-assert.sameValue(s.has(foo), false);
+assert.sameValue(s.has(foo), true);

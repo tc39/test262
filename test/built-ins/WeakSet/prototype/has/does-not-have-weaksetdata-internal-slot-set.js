@@ -11,7 +11,7 @@ info: |
   3. If S does not have a [[WeakSetData]] internal slot, throw a TypeError
   exception.
   ...
-features: [Set]
+features: [Set, WeakSet]
 ---*/
 
 assert.throws(TypeError, function() {

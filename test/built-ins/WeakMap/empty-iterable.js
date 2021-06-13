@@ -13,6 +13,7 @@ info: |
     b. ReturnIfAbrupt(next).
     c. If next is false, return map.
   ...
+features: [WeakMap]
 ---*/
 
 var counter = 0;

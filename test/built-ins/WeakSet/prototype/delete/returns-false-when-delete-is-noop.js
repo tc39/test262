@@ -10,6 +10,7 @@ info: |
   ...
   7. Return false.
 
+features: [WeakSet]
 ---*/
 
 var s = new WeakSet();

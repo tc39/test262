@@ -1,4 +1,4 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-weakmap.prototype.set
@@ -11,12 +11,13 @@ info: |
   7. Let p be the Record {[[key]]: key, [[value]]: value}.
   8. Append p as the last element of entries.
   ...
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
 ---*/
 
 var map = new WeakMap();
-var foo = {};
-var bar = {};
-var baz = {};
+var foo = Symbol();
+var bar = Symbol();
+var baz = Symbol();
 
 map.set(foo, 1);
 map.set(bar, 2);

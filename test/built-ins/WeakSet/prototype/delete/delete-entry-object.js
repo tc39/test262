@@ -17,6 +17,7 @@ info: |
     ii. Return true.
   ...
 
+features: [WeakSet]
 ---*/
 
 var foo = {};

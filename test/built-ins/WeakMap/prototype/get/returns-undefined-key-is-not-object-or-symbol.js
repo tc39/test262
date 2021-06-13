@@ -10,9 +10,9 @@ info: |
   ...
   4. Let entries be the List that is the value of M’s [[WeakMapData]] internal
   slot.
-  5. If Type(key) is not Object, return undefined.
+  5. If HasIdentity(_key_) is *false*, return *undefined*.
   ...
-features: [Symbol]
+features: [WeakMap]
 ---*/
 
 var map = new WeakMap();
@@ -34,9 +34,4 @@ assert.sameValue(
 assert.sameValue(
   map.get(undefined), undefined,
   'Returns undefined if key is undefined'
-);
-
-assert.sameValue(
-  map.get(Symbol()), undefined,
-  'Returns undefined if key is a Symbol'
 );

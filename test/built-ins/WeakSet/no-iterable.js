@@ -13,6 +13,7 @@ info: |
   ...
   8. If iter is undefined, return set.
   ...
+features: [WeakSet]
 ---*/
 
 var a = new WeakSet();

@@ -10,7 +10,7 @@ info: |
   ...
   5. Let entries be the List that is the value of M’s [[WeakMapData]] internal
   slot.
-  6. If Type(key) is not Object, return false.
+  6. If HasIdentity(_key_) is *false*, return *false*.
   7. Repeat for each Record {[[key]], [[value]]} p that is an element of
   entries,
     a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, then
@@ -18,6 +18,7 @@ info: |
       ii. Set p.[[value]] to empty.
       iii. Return true.
   ...
+features: [WeakMap]
 ---*/
 
 var foo = {};

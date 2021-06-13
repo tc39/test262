@@ -5,6 +5,7 @@ esid: sec-properties-of-the-weakset-constructor
 description: >
   The length property of the WeakSet constructor is 0.
 includes: [propertyHelper.js]
+features: [WeakSet]
 ---*/
 
 assert.sameValue(WeakSet.length, 0, 'The value of `WeakSet.length` is `0`');

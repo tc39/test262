@@ -12,6 +12,7 @@ info: |
     d. Let iter be GetIterator(iterable).
     e. ReturnIfAbrupt(iter).
   ...
+features: [WeakMap]
 ---*/
 
 assert.throws(TypeError, function() {

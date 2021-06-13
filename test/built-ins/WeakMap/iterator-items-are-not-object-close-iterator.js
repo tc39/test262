@@ -12,13 +12,11 @@ info: |
     ...
     d. Let nextItem be IteratorValue(next).
     e. ReturnIfAbrupt(nextItem).
-    f. If Type(nextItem) is not Object,
+    f. If HasIdentity(_key_) is *false*,
       i. Let error be Completion{[[type]]: throw, [[value]]: a newly created
       TypeError object, [[target]]:empty}.
       ii. Return IteratorClose(iter, error).
-features:
-  - Symbol
-  - Symbol.iterator
+features: [Symbol, Symbol.iterator, WeakMap]
 ---*/
 
 var count = 0;
@@ -67,9 +65,3 @@ assert.throws(TypeError, function() {
   new WeakMap(iterable);
 });
 assert.sameValue(count, 5);
-
-nextItem = Symbol('a');
-assert.throws(TypeError, function() {
-  new WeakMap(iterable);
-});
-assert.sameValue(count, 6);

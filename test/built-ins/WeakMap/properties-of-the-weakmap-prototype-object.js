@@ -11,6 +11,7 @@ info: |
   value of the [[Prototype]] internal slot of the WeakMap prototype object is
   the intrinsic object %ObjectPrototype% (19.1.3). The WeakMap prototype object
   is an ordinary object. It does not have a [[WeakMapData]] internal slot.
+features: [WeakMap]
 ---*/
 
 assert.sameValue(

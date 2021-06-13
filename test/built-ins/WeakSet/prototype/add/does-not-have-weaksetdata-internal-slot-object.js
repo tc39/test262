@@ -12,6 +12,7 @@ info: |
   exception.
   ...
 
+features: [WeakSet]
 ---*/
 
 assert.throws(TypeError, function() {

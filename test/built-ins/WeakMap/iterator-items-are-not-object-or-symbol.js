@@ -3,7 +3,7 @@
 /*---
 esid: sec-weakmap-iterable
 description: >
-  Throws a TypeError if iterable itens are not Objects.
+  Throws a TypeError if iterable items are not Objects or Symbols.
 info: |
   WeakMap ( [ iterable ] )
 
@@ -12,11 +12,11 @@ info: |
     ...
     d. Let nextItem be IteratorValue(next).
     e. ReturnIfAbrupt(nextItem).
-    f. If Type(nextItem) is not Object,
+    f. If HasIdentity(_key_) is *false*,
       i. Let error be Completion{[[type]]: throw, [[value]]: a newly created
       TypeError object, [[target]]:empty}.
       ii. Return IteratorClose(iter, error).
-features: [Symbol]
+features: [WeakMap]
 ---*/
 
 assert.throws(TypeError, function() {
@@ -33,10 +33,6 @@ assert.throws(TypeError, function() {
 
 assert.throws(TypeError, function() {
   new WeakMap([null, 1]);
-});
-
-assert.throws(TypeError, function() {
-  new WeakMap([Symbol('a'), 1]);
 });
 
 assert.throws(TypeError, function() {

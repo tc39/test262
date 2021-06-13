@@ -5,6 +5,7 @@ esid: sec-weakmap-constructor
 description: >
   The WeakMap constructor is the %WeakMap% intrinsic object and the initial
   value of the WeakMap property of the global object.
+features: [WeakMap]
 ---*/
 
 assert.sameValue(

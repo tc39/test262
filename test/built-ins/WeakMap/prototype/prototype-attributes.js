@@ -5,6 +5,7 @@ esid: sec-weakmap.prototype
 description: >
   WeakMap.prototype is not writable, not enumerable and not configurable.
 includes: [propertyHelper.js]
+features: [WeakMap]
 ---*/
 
 verifyNotEnumerable(WeakMap, 'prototype');

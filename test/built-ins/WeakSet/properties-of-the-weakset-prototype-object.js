@@ -12,6 +12,7 @@ info: |
   the intrinsic object %ObjectPrototype% (19.1.3). The WeakSet prototype
   object is an ordinary object. It does not have a [[WeakSetData]] internal
   slot.
+features: [WeakSet]
 ---*/
 
 assert.sameValue(

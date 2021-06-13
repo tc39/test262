@@ -12,7 +12,7 @@ info: |
     a. Let next be IteratorStep(iter).
     b. ReturnIfAbrupt(next).
     ...
-features: [Symbol.iterator]
+features: [Symbol, Symbol.iterator, WeakMap]
 ---*/
 
 var iterable = {};

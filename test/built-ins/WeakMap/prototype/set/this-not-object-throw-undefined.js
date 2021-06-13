@@ -8,6 +8,7 @@ info: |
 
   1. Let M be the this value.
   2. If Type(M) is not Object, throw a TypeError exception.
+features: [WeakMap]
 ---*/
 
 assert.throws(TypeError, function() {

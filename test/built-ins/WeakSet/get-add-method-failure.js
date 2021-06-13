@@ -14,6 +14,7 @@ info: |
     a. Let adder be Get(set, "add").
     b. ReturnIfAbrupt(adder).
     ...
+features: [WeakSet]
 ---*/
 
 Object.defineProperty(WeakSet.prototype, 'add', {
