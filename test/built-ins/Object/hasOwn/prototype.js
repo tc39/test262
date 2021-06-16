@@ -10,4 +10,4 @@ author: Jamie Kyle
 features: [Object.hasOwn]
 ---*/
 
-assert.sameValue(Object.hasOwn.prototype !== undefined, true);
+assert.sameValue(Object.hasOwn.prototype, undefined);

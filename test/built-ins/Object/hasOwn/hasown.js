@@ -16,4 +16,4 @@ features: [Object.hasOwn]
 ---*/
 
 assert.sameValue(typeof Object.hasOwn, 'function');
-assert.sameValue(Object.hasOwn(Object, 'hasOwn'), false);
+assert(Object.hasOwn(Object, 'hasOwn'));
