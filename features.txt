@@ -205,6 +205,10 @@ arbitrary-module-namespace-names
 # https://github.com/tc39/ecma262/pull/2164
 align-detached-buffer-semantics-with-web-reality
 
+# Object.hasOwn
+# https://github.com/tc39/proposal-accessible-object-hasownproperty
+Object.hasOwn
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
