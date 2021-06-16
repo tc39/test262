@@ -124,6 +124,14 @@ Intl.DateTimeFormat-fractionalSecondDigits
 # https://tc39.es/ecma402/#legacy-constructor
 intl-normative-optional
 
+# Intl "Intl.DisplayNames v2"
+# https://github.com/tc39/intl-displaynames-v2
+Intl.DisplayNames-v2
+
+# Intl "Extend TimeZoneName Option Proposal"
+# https://github.com/tc39/proposal-intl-extend-timezonename
+Intl.DateTimeFormat-extend-timezonename
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
