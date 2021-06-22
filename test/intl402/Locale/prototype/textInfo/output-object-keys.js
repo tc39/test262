@@ -11,7 +11,7 @@ info: |
   ...
   7. Perform ! CreateDataPropertyOrThrow(info, "direction", dir).
 features: [Intl.Locale,Intl.Locale-info]
-includes: [compareArray.js]
+includes: [propertyHelper.js, compareArray.js]
 ---*/
 
 const result = new Intl.Locale('en').textInfo;
