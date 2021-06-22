@@ -10,7 +10,8 @@ info: |
   get Intl.Locale.prototype.textInfo
   ...
   7. Perform ! CreateDataPropertyOrThrow(info, "direction", dir).
-  features: [Intl.Locale,Intl.Locale-info]
+features: [Intl.Locale,Intl.Locale-info]
+includes: [compareArray.js]
 ---*/
 
 const result = new Intl.Locale('en').textInfo;

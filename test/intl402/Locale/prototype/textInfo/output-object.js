@@ -9,7 +9,7 @@ info: |
   get Intl.Locale.prototype.textInfo
   ...
   5. Let info be ! ObjectCreate(%Object.prototype%).
-  features: [Intl.Locale,Intl.Locale-info]
+features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
 assert.sameValue(Object.getPrototypeOf(new Intl.Locale('en').textInfo), Object.prototype);

@@ -17,10 +17,10 @@ info: |
 
   CreateDataProperty ( O, P, V )
   ...
-  3. Let newDesc be the PropertyDescriptor { [[Value]]: V, [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: true }.
-
-  features: [Reflect,Intl.Locale,Intl.Locale-info]
-  includes: [propertyHeler.js, compareArray.js]
+  3. Let newDesc be the PropertyDescriptor { [[Value]]: V, [[Writable]]: true,
+  [[Enumerable]]: true, [[Configurable]]: true }.
+features: [Reflect,Intl.Locale,Intl.Locale-info]
+includes: [propertyHelper.js, compareArray.js]
 ---*/
 
 const result = new Intl.Locale('en').weekInfo;

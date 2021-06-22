@@ -9,7 +9,7 @@ info: |
   get Intl.Locale.prototype.weekInfo
   ...
   5. Let info be ! ObjectCreate(%Object.prototype%).
-  features: [Intl.Locale,Intl.Locale-info]
+features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
 assert.sameValue(Object.getPrototypeOf(new Intl.Locale('en').weekInfo), Object.prototype);

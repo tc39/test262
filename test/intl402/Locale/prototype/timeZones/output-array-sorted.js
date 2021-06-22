@@ -14,8 +14,8 @@ info: |
   ordered as if an Array of the same values had been sorted using
   %Array.prototype.sort% using undefined as comparefn, of those in common use
   in region.
-  features: [Intl.Locale,Intl.Locale-info]
-  includes: [compareArray.js]
+features: [Intl.Locale,Intl.Locale-info]
+includes: [compareArray.js]
 ---*/
 
 const output = new Intl.Locale('en-US').timeZones;
