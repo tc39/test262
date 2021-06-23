@@ -4,7 +4,7 @@
 esid: sec-parse-json-module
 description: May be imported via a module namespace object
 flags: [module]
-features: [json-modules]
+features: [import-assertions, json-modules]
 ---*/
 
 import * as ns from './json-via-namespace_FIXTURE.json' assert { type: 'json' };

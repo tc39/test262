@@ -4,7 +4,7 @@
 esid: sec-parse-json-module
 description: The same object representation is returned to all import sites
 flags: [module, async]
-features: [json-modules, globalThis, dynamic-import]
+features: [import-assertions, json-modules, globalThis, dynamic-import]
 ---*/
 
 import viaStaticImport1 from './json-idempotency_FIXTURE.json' assert { type: 'json' };

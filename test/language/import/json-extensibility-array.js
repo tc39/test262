@@ -5,7 +5,7 @@ esid: sec-parse-json-module
 description: Creates extensible arrays
 flags: [module]
 includes: [propertyHelper.js]
-features: [json-modules]
+features: [import-assertions, json-modules]
 ---*/
 
 import value from './json-value-array_FIXTURE.json' assert { type: 'json' };

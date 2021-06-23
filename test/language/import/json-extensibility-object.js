@@ -5,7 +5,7 @@ esid: sec-parse-json-module
 description: Creates extensible objects
 flags: [module]
 includes: [propertyHelper.js]
-features: [json-modules]
+features: [import-assertions, json-modules]
 ---*/
 
 import value from './json-value-object_FIXTURE.json' assert { type: 'json' };
