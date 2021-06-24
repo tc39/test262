@@ -27,6 +27,9 @@ class CheckNegative(Check):
         if not 'phase' in negative:
             return '"negative" must specify a "phase" field'
 
+        if len(negative.keys()) > 2:
+            return '"negative" must specify only "type" and "phase" fields'
+
         if negative["phase"] not in ["parse", "resolution", "runtime"]:
             return '"phase" must be one of ["parse", "resolution", "runtime"]'
 
