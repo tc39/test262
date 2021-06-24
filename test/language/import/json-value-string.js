@@ -12,7 +12,7 @@ info: |
   1. Let json be ? Call(%JSON.parse%, undefined, « source »).
   2. Return CreateDefaultExportSyntheticModule(json).
 flags: [module]
-features: [json-modules]
+features: [import-assertions, json-modules]
 ---*/
 
 import value from './json-value-string_FIXTURE.json' assert { type: 'json' };

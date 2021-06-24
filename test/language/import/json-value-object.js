@@ -17,7 +17,7 @@ info: |
   of JSON's so-called "whitespace" token) both before and after the "value."
 flags: [module]
 includes: [propertyHelper.js]
-features: [json-modules]
+features: [import-assertions, json-modules]
 ---*/
 
 import value from './json-value-object_FIXTURE.json' assert { type: 'json' };

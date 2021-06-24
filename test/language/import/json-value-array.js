@@ -16,7 +16,7 @@ info: |
   module record includes non-printable characters (specifically, all four forms
   of JSON's so-called "whitespace" token) both before and after the "value."
 flags: [module]
-features: [json-modules]
+features: [import-assertions, json-modules]
 ---*/
 
 import value from './json-value-array_FIXTURE.json' assert { type: 'json' };

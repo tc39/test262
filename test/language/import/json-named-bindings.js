@@ -9,7 +9,7 @@ info: |
   This was ultimately rejected, so attempting to import in this way should
   produce a SyntaxError.
 flags: [module]
-features: [json-modules]
+features: [import-assertions, json-modules]
 negative:
   phase: parse
   type: SyntaxError
