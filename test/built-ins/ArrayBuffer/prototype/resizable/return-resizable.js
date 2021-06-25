@@ -17,7 +17,6 @@ info: |
      [[ArrayBufferData]] internal slot.
   2. If buffer has an [[ArrayBufferMaxByteLength]] internal slot, return true.
   3. Return false.
-includes: [detachArrayBuffer.js]
 features: [resizable-arraybuffer]
 ---*/
 
