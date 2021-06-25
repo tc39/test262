@@ -10,7 +10,6 @@ info: |
   2. Perform ? RequireInternalSlot(O, [[ArrayBufferData]]).
   3. If IsSharedArrayBuffer(O) is true, throw a TypeError exception.
   [...]
-includes: [detachArrayBuffer.js]
 features: [SharedArrayBuffer, resizable-arraybuffer]
 ---*/
 

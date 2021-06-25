@@ -9,8 +9,7 @@ info: |
   1. Let O be the this value.
   2. Perform ? RequireInternalSlot(O, [[ArrayBufferData]]).
   [...]
-includes: [detachArrayBuffer.js]
-features: [resizable-arraybuffer, Symbol, bigint]
+features: [resizable-arraybuffer, Symbol, BigInt]
 ---*/
 
 assert.sameValue(typeof ArrayBuffer.prototype.transfer, "function");

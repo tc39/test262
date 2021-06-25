@@ -16,7 +16,7 @@ info: |
     object, if it exists, has the attributes { [[Writable]]: false,
     [[Enumerable]]: false, [[Configurable]]: true }.
 features: [resizable-arraybuffer]
-includes: [propertyHelper.js, detachArrayBuffer.js]
+includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(ArrayBuffer.prototype.transfer, 'name', {

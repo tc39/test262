@@ -14,7 +14,6 @@ info: |
      O.[[ArrayBufferByteLength]].
   6. Else, let newByteLength be ? ToIntegerOrInfinity(newLength).
   [...]
-includes: [detachArrayBuffer.js]
 features: [resizable-arraybuffer]
 ---*/
 

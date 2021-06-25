@@ -17,7 +17,6 @@ info: |
   6. Else, let newByteLength be ? ToIntegerOrInfinity(newLength).
   7. Let new be ? Construct(%ArrayBuffer%, « 𝔽(newByteLength) »).
   [...]
-includes: [detachArrayBuffer.js]
 features: [resizable-arraybuffer]
 ---*/
 

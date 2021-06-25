@@ -24,7 +24,6 @@ info: |
       this method as a zero-copy move or a realloc.
   14. Perform ! DetachArrayBuffer(O).
   15. Return new.
-includes: [detachArrayBuffer.js]
 features: [resizable-arraybuffer]
 ---*/
 
