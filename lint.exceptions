@@ -8,3 +8,6 @@
 #
 # Note that lines prefixed with the "hash" symbol (#) will be ignored.
 test/built-ins/Function/prototype/toString/line-terminator-normalisation-CR.js POSIX
+test/harness/sta-error.js HARNESS
+test/harness/sta-override-error.js HARNESS
+test/harness/sta.js HARNESS
