@@ -331,3 +331,7 @@ import-assertions
 # JSON modules
 # https://github.com/tc39/proposal-json-modules
 json-modules
+
+# Resizable Arraybuffer
+# https://github.com/tc39/proposal-resizablearraybuffer
+resizable-arraybuffer
