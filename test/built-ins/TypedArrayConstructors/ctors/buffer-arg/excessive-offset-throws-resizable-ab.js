@@ -5,7 +5,7 @@ esid: sec-typedarray-buffer-byteoffset-length
 description: >
   Throws a RangeError for resizable ArrayBuffers when offset > byteLength
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [TypedArray, resizable-arraybuffer]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
