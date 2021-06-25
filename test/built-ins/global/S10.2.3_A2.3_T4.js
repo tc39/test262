@@ -11,7 +11,7 @@ var evalStr =
 '//CHECK#1\n'+
 'for (var x in this) {\n'+
 '  if ( x === \'Math\' ) {\n'+
-'    $ERROR("#1: \'Math\' have attribute DontEnum");\n'+
+'    throw new Test262Error("#1: \'Math\' have attribute DontEnum");\n'+
 '  }\n'+
 '}\n';
 
