@@ -13,7 +13,7 @@ var inf=Infinity;
 ///////////////////////////////////////////////////////
 // 
 if (p_inf!==inf){
-  $ERROR('#1: Infinity is the same as +Infinity');
+  throw new Test262Error('#1: Infinity is the same as +Infinity');
 }
 //
 //////////////////////////////////////////////////////////

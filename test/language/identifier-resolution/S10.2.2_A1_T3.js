@@ -22,5 +22,5 @@ function f1(){
 }
 
 if(!(f1() === undefined)){
-  $ERROR("#1: Scope chain disturbed");
+  throw new Test262Error("#1: Scope chain disturbed");
 }

@@ -11,5 +11,5 @@ var n_inf=-Infinity;
 
 //CHECK #1 
 if (n_inf !== Number.NEGATIVE_INFINITY){
-  $ERROR('#1: -Infinity is the same as Number.NEGATIVE_INFINITY');
+  throw new Test262Error('#1: -Infinity is the same as Number.NEGATIVE_INFINITY');
 }
