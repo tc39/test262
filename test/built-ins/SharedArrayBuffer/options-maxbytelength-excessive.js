@@ -5,7 +5,7 @@ esid: sec-sharedarraybuffer-constructor
 description: |
   Invoked with an options object whose `maxByteLength` property exceeds the
   maximum length value
-info:
+info: |
   SharedArrayBuffer( length [ , options ] )
 
   1. If NewTarget is undefined, throw a TypeError exception.

@@ -5,7 +5,7 @@ esid: sec-arraybuffer-constructor
 description: |
   Invoked with an options object whose `maxByteLength` property cannot be
   coerced to a primitive value
-info:
+info: |
   ArrayBuffer( length [ , options ] )
 
   1. If NewTarget is undefined, throw a TypeError exception.
