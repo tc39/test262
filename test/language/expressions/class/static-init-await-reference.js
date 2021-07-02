@@ -1,15 +1,13 @@
 // Copyright (C) 2021 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-identifiers
-description: The restriction on `await` as a IdentifierReference does not cross function boundaries
+esid: sec-class-definitions-static-semantics-early-errors
+description: The `await` keyword is interpreted as a IdentifierReference in method parameter lists
 info: |
-  IdentifierReference : Identifier
+  ClassStaticBlockBody : ClassStaticBlockStatementList
 
-  - It is a Syntax Error if the code matched by this production is nested,
-    directly or indirectly (but not crossing function or static initialization
-    block boundaries), within a ClassStaticBlock and the StringValue of
-    Identifier is "arguments" or "await".
+  [...]
+  - It is a Syntax Error if ContainsAwait of ClassStaticBlockStatementList is true.
 features: [class-static-block]
 ---*/
 
