@@ -9,7 +9,13 @@ info: |
   [...]
 
   ClassStaticBlockStatementList :
-     StatementList[~Yield, ~Await, ~Return]opt
+     StatementList[~Yield, +Await, ~Return]opt
+
+  ## 15.7.1 Static Semantics: Early Errors
+
+  ClassStaticBlockBody : ClassStaticBlockStatementList
+
+  - It is a Syntax Error if ContainsAwait of ClassStaticBlockStatementList is true.
 negative:
   phase: parse
   type: SyntaxError

@@ -9,7 +9,7 @@ info: |
   [...]
 
   ClassStaticBlockStatementList :
-     StatementList[~Yield, ~Await, ~Return]opt
+     StatementList[~Yield, +Await, ~Return]opt
 features: [class-static-block]
 ---*/
 
