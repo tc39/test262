@@ -84,6 +84,10 @@ Intl.ListFormat
 # https://github.com/tc39/proposal-intl-locale
 Intl.Locale
 
+# Intl.Locale Info
+# https://github.com/tc39/proposal-intl-locale-info
+Intl.Locale-info
+
 # Intl.RelativeTimeFormat
 # https://github.com/tc39/proposal-intl-relative-time
 Intl.RelativeTimeFormat
@@ -119,6 +123,14 @@ Intl.DateTimeFormat-fractionalSecondDigits
 # Intl "normative optional"
 # https://tc39.es/ecma402/#legacy-constructor
 intl-normative-optional
+
+# Intl "Intl.DisplayNames v2"
+# https://github.com/tc39/intl-displaynames-v2
+Intl.DisplayNames-v2
+
+# Intl "Extend TimeZoneName Option Proposal"
+# https://github.com/tc39/proposal-intl-extend-timezonename
+Intl.DateTimeFormat-extend-timezonename
 
 # Global
 # https://github.com/tc39/proposal-global
@@ -200,6 +212,10 @@ arbitrary-module-namespace-names
 # Align detached buffer semantics with web reality
 # https://github.com/tc39/ecma262/pull/2164
 align-detached-buffer-semantics-with-web-reality
+
+# Object.hasOwn
+# https://github.com/tc39/proposal-accessible-object-hasownproperty
+Object.hasOwn
 
 # Class static initialization blocks
 # https://github.com/tc39/proposal-class-static-block
@@ -315,3 +331,15 @@ error-cause
 # Import Assertions
 # https://github.com/tc39/proposal-import-assertions/
 import-assertions
+
+# JSON modules
+# https://github.com/tc39/proposal-json-modules
+json-modules
+
+# Resizable Arraybuffer
+# https://github.com/tc39/proposal-resizablearraybuffer
+resizable-arraybuffer
+
+# Temporal
+# https://github.com/tc39/proposal-temporal
+Temporal

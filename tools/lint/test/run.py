@@ -92,11 +92,10 @@ def create_file_test(name, fspath):
     test.__name__ = 'test_' + file_name.split('.')[0]
     return test
 
-dirname = os.path.join(os.path.abspath(testDir), 'fixtures')
+dirname = os.path.join(os.path.abspath(testDir), 'fixtures', 'test')
 for file_name in os.listdir(dirname):
     full_path = os.path.join(dirname, file_name)
-    if (not os.path.isfile(full_path) or file_name.startswith('.') or
-            not file_name.endswith('.js')):
+    if (not os.path.isfile(full_path) or file_name.startswith('.')):
         continue
 
     t = create_file_test(file_name, full_path)

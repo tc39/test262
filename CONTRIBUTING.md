@@ -8,7 +8,7 @@
 
 ## Acceptable Tests
 
-Any test that execercises observable grammar or semantics, originating with citable, normative text in the latest draft of the [ECMAScript Language Specification](https://tc39.es/ecma262/), the [ECMAScript Internationalization API Specification](https://tc39.es/ecma402/), the [The JSON Data
+Any test that exercises observable grammar or semantics, originating with citable, normative text in the latest draft of the [ECMAScript Language Specification](https://tc39.es/ecma262/), the [ECMAScript Internationalization API Specification](https://tc39.es/ecma402/), the [The JSON Data
 Interchange Syntax](https://ecma-international.org/publications/standards/Ecma-404.htm), a [Stage 3](https://github.com/tc39/proposals#stage-3) proposal or a Pull Request which makes a normative change to any of those specifications.
 
 ## Unacceptable Tests
@@ -87,7 +87,7 @@ The copyright should follow this format:
 
 Where
 
-- `$Year` must be a 4 digit single year. It should not be an year range. If it's extremely necessary to add multiple years, repeat line for each year.
+- `$Year` must be a 4 digit single year. It should not be a year range. If it's extremely necessary to add multiple years, repeat line for each year.
 - `$ContributorName` must be a legal (natural or juridical) person's name.
 
 The code must be a BSD or BSD-style compatible with the license of this project. Therefore, the line following the year and name parts should be written as in the example above.
@@ -207,7 +207,7 @@ This key is for boolean properties associated with the test.
 #### features
 `features: [list]`
 
-Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this key. See the [`features.txt`](features.txt) file for a complete list of available values. This key is required for new tests written for new features, but contributions will not be "blocked" if the key is missing from frontmatter. The committing maintainer is required to ensure that the key is present and contains the correct feature names; this can be done in an follow up commit.
+Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this key. See the [`features.txt`](features.txt) file for a complete list of available values. This key is required for new tests written for new features, but contributions will not be "blocked" if the key is missing from frontmatter. The committing maintainer is required to ensure that the key is present and contains the correct feature names; this can be done in a follow up commit.
 
 #### es5id
 `es5id: [es5-test-id]`
@@ -250,9 +250,9 @@ function Test262Error(message) {
 }
 ```
 
-## Rules For Module `_FIXTURE.js` Files
+## Rules For Module `_FIXTURE` Files
 
-The [Module section of INTERPRETING.md](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#modules) states that `_FIXTURE.js` files will not have have Realm modifications applied. In practice, this means that code in `_FIXTURE.js` files must abide by the following rules: 
+The [Module section of INTERPRETING.md](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#modules) states that `_FIXTURE` files will not have Realm modifications applied. In practice, this means that code in `_FIXTURE` files must abide by the following rules:
 
 - **MUST NOT** refer to, or make use of any [Test262-Defined Bindings](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#test262-defined-bindings) in any way. 
 - **MUST NOT** refer to, or make use of any [Host-Defined Functions](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#host-defined-functions) in any way. 

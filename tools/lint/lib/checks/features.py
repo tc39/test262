@@ -29,3 +29,6 @@ class CheckFeatures(Check):
         for feature in features:
             if feature not in self.valid_features:
                 return 'Unrecognized feature: "%s"' % feature
+
+        if len(set(features)) != len(features):
+            return 'The `features` tag may not include duplicate entries'

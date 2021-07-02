@@ -1,0 +1,2 @@
+^ expected errors | v input
+"Neither frontmatter nor copyright are required for JSON files because those would invalidate the content."
