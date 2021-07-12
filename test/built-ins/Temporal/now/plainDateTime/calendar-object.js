@@ -3,6 +3,7 @@
 
 /*---
 esid: sec-temporal.now.plaindatetime
+description: Behavior when provided calendar value is an object
 includes: [compareArray.js]
 features: [Temporal]
 ---*/
