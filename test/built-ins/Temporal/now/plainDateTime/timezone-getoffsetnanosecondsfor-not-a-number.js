@@ -3,6 +3,7 @@
 
 /*---
 esid: sec-temporal.now.plaindatetime
+description: Rejects non-numeric nanosecond values reported by TimeZone-like object
 features: [Temporal]
 ---*/
 
@@ -12,7 +13,6 @@ const invalidValues = [
   true,
   "2020-01-01T12:45:36",
   Symbol(),
-  2020,
   2n,
   {},
   Temporal.PlainDateTime,
@@ -20,14 +20,14 @@ const invalidValues = [
 ];
 
 for (const dateTime of invalidValues) {
+  let callCount = 0;
   const timeZone = {
-    getPlainDateTimeFor(instant, calendar) {
-      assert.sameValue(instant instanceof Temporal.Instant, true, "Instant");
-      assert.sameValue(calendar instanceof Temporal.Calendar, true, "Calendar");
-      assert.sameValue(calendar.id, "iso8601");
+    getOffsetNanosecondsFor(instant, calendar) {
+      callCount += 1;
       return dateTime;
     },
   };
 
   assert.throws(TypeError, () => Temporal.now.plainDateTime("iso8601", timeZone));
+  assert.sameValue(callCount, 1, 'Invoked `getOffsetNanosecondsFor`');
 }

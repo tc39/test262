@@ -18,7 +18,6 @@ const expected = [
 const timeZone = new Proxy({
   getOffsetNanosecondsFor(instant) {
     actual.push("call timeZone.getOffsetNanosecondsFor");
-    assert.sameValue(instant instanceof Temporal.Instant, true, "Instant");
     return -Number(instant.epochNanoseconds % 86400_000_000_000n);
   },
 }, {
