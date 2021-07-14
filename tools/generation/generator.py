@@ -4,7 +4,7 @@
 
 from __future__ import print_function
 import argparse
-import os, sys
+import glob, os, sys
 
 from lib.expander import Expander
 from lib.test import Test
@@ -21,22 +21,16 @@ def is_case_dir(location):
     return False
 
 def find_cases(location):
-    # When a file is specified, return the file name and its containing
-    # directory
+    # single file
     if os.path.isfile(location):
         return location, [os.path.dirname(location)]
 
+    # directory with case files
     if is_case_dir(location):
         return None, [location]
-    else:
-        return None, map(
-            lambda x: os.path.join(args.cases, x),
-            filter(
-                # skip hidden files on Unix, such as ".DS_Store" on Mac
-                lambda x: not x.startswith('.'),
-                os.listdir(args.cases)
-            )
-        )
+
+    # other directory, return all contents other than hidden "dot files"
+    return None, glob.glob(os.path.join(location, '*'))
 
 def clean(args):
     for (subdir, _, fileNames) in os.walk(args.directory):
