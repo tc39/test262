@@ -74,13 +74,12 @@ subparsers = parser.add_subparsers()
 
 create_parser = subparsers.add_parser('create',
     help='''Generate test material''')
-create_parser.add_argument('-o', '--out', help='''The directory to write the
-    compiled tests. If unspecified, tests will be written to standard out.''')
+create_parser.add_argument('-o', '--out', help='''The directory in which to write
+    compiled tests. If unspecified, tests will be written to standard output.''')
 create_parser.add_argument('-p', '--parents', action='store_true',
     help='''Create non-existent directories as necessary.''')
 create_parser.add_argument('-n', '--no-clobber', action='store_true',
-    help='''Do not produce test if a corresponding file exists within this
-        directory.''')
+    help='''Abort if any test file already exists.''')
 create_parser.add_argument('cases',
     help='''Test cases to generate. May be a file or a directory.''')
 create_parser.set_defaults(func=create)
