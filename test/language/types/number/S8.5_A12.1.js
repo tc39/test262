@@ -12,10 +12,10 @@ var inf=Infinity;
 
 //CHECK #1 
 if (p_inf!==Number.POSITIVE_INFINITY){
-  $ERROR('#1: +Infinity is the same as Number.POSITIVE_INFINITY');
+  throw new Test262Error('#1: +Infinity is the same as Number.POSITIVE_INFINITY');
 }
 
 //CHECK #2 
 if (inf!==Number.POSITIVE_INFINITY){
-  $ERROR('#2: Infinity is the same as Number.POSITIVE_INFINITY');
+  throw new Test262Error('#2: Infinity is the same as Number.POSITIVE_INFINITY');
 }

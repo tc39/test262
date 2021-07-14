@@ -10,7 +10,7 @@ description: Checking value of Error.prototype.name
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#1
 if (Error.prototype.name !== "Error") {
-  $ERROR('#1: Error.prototype.name==="Error". Actual: ' + Error.prototype.name);
+  throw new Test262Error('#1: Error.prototype.name==="Error". Actual: ' + Error.prototype.name);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

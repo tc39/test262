@@ -27,5 +27,5 @@ function f(a){
 y = f(0);
 
 if(!(y === undefined)){
-  $ERROR("#1: Recursive function calls shares execution context");
+  throw new Test262Error("#1: Recursive function calls shares execution context");
 }

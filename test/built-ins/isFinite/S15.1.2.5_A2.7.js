@@ -13,9 +13,9 @@ description: >
 
 try {
   new isFinite();
-  $ERROR('#1.1: new isFinite() throw TypeError. Actual: ' + (new isFinite()));
+  throw new Test262Error('#1.1: new isFinite() throw TypeError. Actual: ' + (new isFinite()));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
-    $ERROR('#1.2: new isFinite() throw TypeError. Actual: ' + (e));
+    throw new Test262Error('#1.2: new isFinite() throw TypeError. Actual: ' + (e));
   }
 }

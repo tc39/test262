@@ -18,7 +18,7 @@ features: [generators]
 
 class A {
   static name() {
-    $ERROR('Static method should not be executed during definition');
+    throw new Test262Error('Static method should not be executed during definition');
   }
 }
 
@@ -27,7 +27,7 @@ assert.sameValue(typeof A.name, 'function');
 var attr = 'name';
 class B {
   static [attr]() {
-    $ERROR(
+    throw new Test262Error(
       'Static method defined via computed property should not be executed ' +
       'during definition'
     );
@@ -42,7 +42,7 @@ class C {
     if (isDefined) {
       return 'pass';
     }
-    $ERROR('Static `get` accessor should not be executed during definition');
+    throw new Test262Error('Static `get` accessor should not be executed during definition');
   }
 }
 
@@ -51,7 +51,7 @@ assert.sameValue(C.name, 'pass');
 
 class D {
   static set name(_) {
-    $ERROR('Static `set` accessor should not be executed during definition');
+    throw new Test262Error('Static `set` accessor should not be executed during definition');
   }
 }
 
@@ -59,7 +59,7 @@ assert.sameValue(D.name, undefined);
 
 class E {
   static *name() {
-    $ERROR('Static GeneratorMethod should not be executed during definition');
+    throw new Test262Error('Static GeneratorMethod should not be executed during definition');
   }
 }
 

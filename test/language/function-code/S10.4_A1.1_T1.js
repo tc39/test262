@@ -25,5 +25,5 @@ y = f();
 y = f();
 
 if(!(y === 0)){
-  $ERROR("#1: Sequenced function calls shares execution context");
+  throw new Test262Error("#1: Sequenced function calls shares execution context");
 }

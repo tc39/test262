@@ -10,7 +10,7 @@ description: Checking value of Error.prototype.message
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#1
 if (typeof Error.prototype.message !== "string") {
-  $ERROR('#1: typeof Error.prototype.message === "string". Actual: ' + Error.prototype.message);
+  throw new Test262Error('#1: typeof Error.prototype.message === "string". Actual: ' + Error.prototype.message);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
