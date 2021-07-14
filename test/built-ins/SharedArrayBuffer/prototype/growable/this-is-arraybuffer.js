@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-get-sharedarraybuffer.prototype.growable
-description: Throws a TypeError exception when `this` is an SharedArrayBuffer
+description: Throws a TypeError exception when `this` is an ArrayBuffer
 info: |
   get SharedArrayBuffer.prototype.growable
 
@@ -18,7 +18,7 @@ var growable = Object.getOwnPropertyDescriptor(
 );
 
 var getter = growable.get;
-var ab = new SharedArrayBuffer(4);
+var ab = new ArrayBuffer(4);
 
 assert.sameValue(typeof getter, "function");
 
