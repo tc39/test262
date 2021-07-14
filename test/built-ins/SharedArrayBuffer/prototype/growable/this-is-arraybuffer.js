@@ -24,10 +24,10 @@ assert.sameValue(typeof getter, "function");
 
 assert.throws(TypeError, function() {
   getter.call(ab);
-}, "`this` cannot be an SharedArrayBuffer");
+}, "`this` cannot be an ArrayBuffer");
 
 Object.defineProperties(ab, { growable: growable });
 
 assert.throws(TypeError, function() {
   ab.growable;
-}, "`this` cannot be an SharedArrayBuffer");
+}, "`this` cannot be an ArrayBuffer");
