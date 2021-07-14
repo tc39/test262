@@ -1,0 +1,11 @@
+// Copyright (C) 2021 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: 000A (LF)
+esid: prod-RegularExpressionLiteral
+template: default
+---*/
+
+//- character
+\u000A
