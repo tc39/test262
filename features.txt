@@ -217,6 +217,10 @@ align-detached-buffer-semantics-with-web-reality
 # https://github.com/tc39/proposal-accessible-object-hasownproperty
 Object.hasOwn
 
+# Class static initialization blocks
+# https://github.com/tc39/proposal-class-static-block
+class-static-block
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
