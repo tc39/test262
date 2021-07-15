@@ -7,20 +7,21 @@ import re
 from .util.find_comments import find_comments
 from .util.parse_yaml import parse_yaml
 
-regionStartPattern = re.compile(r'-\s+(\S+)')
+regionStartPattern = re.compile(r'-\s+(\S+)(?P<options>\s*.*)?')
 metaPattern = r'\/\*---\n([\s]*)((?:\s|\S)*)[\n\s*]---\*\/'
 
 class Case:
     def __init__(self, file_name, encoding):
-        self.attribs = dict(meta=None, regions=dict())
+        self.attribs = dict(meta=None, regions=dict(), region_options=dict())
 
         with codecs.open(file_name, 'r', encoding) as handle:
             self.attribs = self._parse(handle.read())
 
     def _parse(self, source):
-        case = dict(meta=None, regions=dict())
+        case = dict(meta=None, regions=dict(), region_options=dict())
         region_name = None
         region_start = 0
+        region_options = None
         lines = source.split('\n')
         search = re.search(metaPattern, source, re.DOTALL|re.MULTILINE)
 
@@ -39,6 +40,9 @@ class Case:
 
                 region_name = match.group(1)
                 region_start = comment['lineno']
+                region_options = match.group('options').split()
+                if region_options:
+                    case['region_options'][region_name] = set(region_options)
                 continue
 
         if region_name:

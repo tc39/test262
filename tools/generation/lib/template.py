@@ -103,8 +103,9 @@ class Template:
         lines = source.split('\n')
 
         for region in self.regions:
+            region_name = region['name']
             whitespace = indentPattern.match(lines[region['lineno']]).group(1)
-            value = context['regions'].get(region['name'], '')
+            value = context['regions'].get(region_name, '')
 
             str_char = region.get('in_string')
             if str_char:
@@ -112,8 +113,19 @@ class Template:
                 value = value.replace(str_char, safe_char)
                 value = value.replace('\n', '\\\n')
 
+            # TODO: document region_options and "codepoints" (`//- <region_name> codepoints`)
+            if "codepoints" in context['region_options'].get(region_name, set()):
+                str_from_cp = chr
+                try:
+                    # In Python 2, explicitly work on code points
+                    str_from_cp = unichr
+                except NameError: pass
+                value = "".join(str_from_cp(int(cp, 16)) for cp in value.split())
+            else:
+                value = indent(value, whitespace, True).lstrip()
+
             source = source[:region['firstchar']] + \
-                indent(value, whitespace, True).lstrip() + \
+                value + \
                 source[region['lastchar']:]
 
         setup = context['regions'].get('setup')
