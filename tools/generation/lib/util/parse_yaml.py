@@ -6,7 +6,7 @@ import yaml, re, textwrap
 yamlPattern = re.compile(
         r'^\s*---\n(.*?)(?:\n[^\n\S]*)?---\s*$',
         flags=re.DOTALL)
-endOfLine = re.compile('(.?)$', flags=re.MULTILINE)
+endOfLine = re.compile(r'(^|.)$', flags=re.MULTILINE)
 
 def parse_yaml(string):
     match = yamlPattern.match(string)
@@ -16,7 +16,7 @@ def parse_yaml(string):
     # dedent truncates only-whitespace lines,
     # so run it against a transformed string
     # in which every line is terminated by a dot
-    terminated = endOfLine.sub(r'\1.', match.group(1))
+    terminated = endOfLine.sub(r'\1~', match.group(1))
     dedented_terminated = textwrap.dedent(terminated)
     dedented = endOfLine.sub('', dedented_terminated)
 
