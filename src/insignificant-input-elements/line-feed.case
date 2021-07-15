@@ -1,0 +1,29 @@
+// Copyright (C) 2021 Richard Gibson. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: U+000A LINE FEED <LF>
+template: expression
+esid: sec-white-space
+info: |
+  <tr>
+    <td>
+      `U+000A`
+    </td>
+    <td>
+      LINE FEED (LF)
+    </td>
+    <td>
+      &lt;LF&gt;
+    </td>
+  </tr>
+
+  LineTerminator ::
+    &lt;LF&gt;
+    &lt;CR&gt;
+    &lt;LS&gt;
+    &lt;PS&gt;
+---*/
+
+//- character codepoints
+000A

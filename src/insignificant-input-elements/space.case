@@ -1,0 +1,32 @@
+// Copyright (C) 2021 Richard Gibson. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: U+0020 SPACE <SP>
+template: expression
+esid: sec-white-space
+info: |
+  <tr>
+    <td>
+      `U+0020`
+    </td>
+    <td>
+      SPACE
+    </td>
+    <td>
+      &lt;SP&gt;
+    </td>
+  </tr>
+
+  WhiteSpace ::
+    &lt;TAB&gt;
+    &lt;VT&gt;
+    &lt;FF&gt;
+    &lt;SP&gt;
+    &lt;NBSP&gt;
+    &lt;ZWNBSP&gt;
+    &lt;USP&gt;
+---*/
+
+//- character codepoints
+0020

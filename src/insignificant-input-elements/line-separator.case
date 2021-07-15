@@ -1,0 +1,29 @@
+// Copyright (C) 2021 Richard Gibson. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: U+2028 LINE SEPARATOR <LS>
+template: expression
+esid: sec-white-space
+info: |
+  <tr>
+    <td>
+      `U+2028`
+    </td>
+    <td>
+      LINE SEPARATOR
+    </td>
+    <td>
+      &lt;LS&gt;
+    </td>
+  </tr>
+
+  LineTerminator ::
+    &lt;LF&gt;
+    &lt;CR&gt;
+    &lt;LS&gt;
+    &lt;PS&gt;
+---*/
+
+//- character codepoints
+2028
