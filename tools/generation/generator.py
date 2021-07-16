@@ -4,7 +4,7 @@
 
 from __future__ import print_function
 import argparse
-import os, sys
+import glob, os, sys
 
 from lib.expander import Expander
 from lib.test import Test
@@ -21,22 +21,16 @@ def is_case_dir(location):
     return False
 
 def find_cases(location):
-    # When a file is specified, return the file name and its containing
-    # directory
+    # single file
     if os.path.isfile(location):
         return location, [os.path.dirname(location)]
 
+    # directory with case files
     if is_case_dir(location):
         return None, [location]
-    else:
-        return None, map(
-            lambda x: os.path.join(args.cases, x),
-            filter(
-                # skip hidden files on Unix, such as ".DS_Store" on Mac
-                lambda x: not x.startswith('.'),
-                os.listdir(args.cases)
-            )
-        )
+
+    # other directory, return all contents other than hidden "dot files"
+    return None, glob.glob(os.path.join(location, '*'))
 
 def clean(args):
     for (subdir, _, fileNames) in os.walk(args.directory):
@@ -80,13 +74,12 @@ subparsers = parser.add_subparsers()
 
 create_parser = subparsers.add_parser('create',
     help='''Generate test material''')
-create_parser.add_argument('-o', '--out', help='''The directory to write the
-    compiled tests. If unspecified, tests will be written to standard out.''')
+create_parser.add_argument('-o', '--out', help='''The directory in which to write
+    compiled tests. If unspecified, tests will be written to standard output.''')
 create_parser.add_argument('-p', '--parents', action='store_true',
     help='''Create non-existent directories as necessary.''')
 create_parser.add_argument('-n', '--no-clobber', action='store_true',
-    help='''Do not produce test if a corresponding file exists within this
-        directory.''')
+    help='''Abort if any test file already exists.''')
 create_parser.add_argument('cases',
     help='''Test cases to generate. May be a file or a directory.''')
 create_parser.set_defaults(func=create)
