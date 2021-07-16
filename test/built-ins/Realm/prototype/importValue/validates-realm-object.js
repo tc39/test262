@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.importvalue
 description: >
   Realm.prototype.importValue validates realm object.
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate validates realm object.
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

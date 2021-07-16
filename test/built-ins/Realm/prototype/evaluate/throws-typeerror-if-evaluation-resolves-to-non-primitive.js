@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate throws a TypeError if evaluate resolves to non-primitive values
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

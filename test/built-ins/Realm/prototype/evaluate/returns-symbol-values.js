@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate returns symbol values
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

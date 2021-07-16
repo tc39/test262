@@ -5,7 +5,7 @@ esid: sec-realm-constructor
 description: >
   Realm is a constructor and has [[Construct]] internal method.
 includes: [isConstructor.js]
-features: [callable-boundary-realms]
+features: [callable-boundary-realms, Reflect.construct]
 ---*/
 assert.sameValue(
   typeof Realm,

@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate wraps errors from other realm into TypeErrors
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 
