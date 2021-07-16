@@ -22,4 +22,4 @@ assert.sameValue(
 
 assert.throws(TypeError, () => {
   new Realm.prototype.importValue("");
-}, '`let value = new Realm.prototype.importValue("")` throws TypeError');
+}, '`new Realm.prototype.importValue("")` throws TypeError');

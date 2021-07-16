@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.importvalue
 description: >
   Realm.prototype.importValue coerces exportName to string.
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

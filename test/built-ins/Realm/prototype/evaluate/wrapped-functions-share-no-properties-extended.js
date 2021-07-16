@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate wrapped functions share no properties, extended
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

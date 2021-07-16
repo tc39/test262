@@ -5,7 +5,6 @@ esid: sec-realm.prototype.importvalue
 description: >
   Realm.prototype.importValue can import a value.
 flags: [async, module]
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

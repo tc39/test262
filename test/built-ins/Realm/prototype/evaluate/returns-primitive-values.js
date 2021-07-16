@@ -4,8 +4,7 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate returns primitive values
-includes: [isConstructor.js]
-features: [callable-boundary-realms]
+sfeatures: [callable-boundary-realms]
 ---*/
 
 assert.sameValue(

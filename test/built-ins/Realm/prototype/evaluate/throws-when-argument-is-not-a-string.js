@@ -4,7 +4,6 @@
 esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate throws when argument is not a string.
-includes: [isConstructor.js]
 features: [callable-boundary-realms]
 ---*/
 

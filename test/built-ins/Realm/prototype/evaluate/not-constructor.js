@@ -5,7 +5,7 @@ esid: sec-realm.prototype.evaluate
 description: >
   Realm.prototype.evaluate is not a constructor.
 includes: [isConstructor.js]
-features: [callable-boundary-realms]
+features: [callable-boundary-realms, Reflect.construct]
 ---*/
 
 assert.sameValue(
@@ -22,5 +22,5 @@ assert.sameValue(
 
 assert.throws(TypeError, () => {
   new Realm.prototype.evaluate("");
-}, '`let value = new Realm.prototype.evaluate("")` throws TypeError');
+}, '`new Realm.prototype.evaluate("")` throws TypeError');
 
