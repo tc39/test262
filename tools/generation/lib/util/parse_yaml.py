@@ -15,7 +15,7 @@ def parse_yaml(string):
 
     # dedent truncates only-whitespace lines,
     # so run it against a transformed string
-    # in which every line is terminated by a dot
+    # in which every line is terminated by a tilde
     terminated = endOfLine.sub(r'\1~', match.group(1))
     dedented_terminated = textwrap.dedent(terminated)
     dedented = endOfLine.sub('', dedented_terminated)
