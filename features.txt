@@ -245,6 +245,10 @@ resizable-arraybuffer
 # https://github.com/tc39/proposal-temporal
 Temporal
 
+# Callable Boundary Realms
+# https://github.com/tc39/proposal-realms
+callable-boundary-realms
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
