@@ -9,8 +9,7 @@ info: |
   has the Function prototype object, which is the initial value of the expression
   Function.prototype, as the value of its [[Prototype]] internal slot.
 
-includes: [hidden-constructors.js]
 features: [callable-boundary-realms]
 ---*/
 
-assert.sameValue(Object.getPrototypeOf(Realm.prototype.importValue), AsyncFunction.prototype);
+assert.sameValue(Object.getPrototypeOf(Realm.prototype.importValue), Function.prototype);
