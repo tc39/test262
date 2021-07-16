@@ -50,7 +50,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample = new TA(arr);
   result = sample.findLast(function(val, i) {
-    if ( i <= 2 ) {
+    if ( i < 2 ) {
       sample[2] = 7;
     }
     return val === 7;

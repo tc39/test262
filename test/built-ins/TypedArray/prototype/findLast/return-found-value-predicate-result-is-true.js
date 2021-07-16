@@ -25,7 +25,7 @@ testWithTypedArrayConstructors(function(TA) {
     called++;
     return true;
   });
-  assert.sameValue(result, 62, "returned true on sample[0]");
+  assert.sameValue(result, 62, "returned true on sample[2]");
   assert.sameValue(called, 1, "predicate was called once");
 
   called = 0;
@@ -33,8 +33,8 @@ testWithTypedArrayConstructors(function(TA) {
     called++;
     return val === 62;
   });
-  assert.sameValue(called, 1, "predicate was called three times");
-  assert.sameValue(result, 62, "returned true on sample[3]");
+  assert.sameValue(called, 1, "predicate was called once");
+  assert.sameValue(result, 62, "returned true on sample[2]");
 
   result = sample.findLast(function() { return "string"; });
   assert.sameValue(result, 62, "ToBoolean(string)");
