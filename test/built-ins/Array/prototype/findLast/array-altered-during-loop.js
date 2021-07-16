@@ -8,7 +8,6 @@ info: |
   Array.prototype.findLast ( predicate[ , thisArg ] )
 
   ...
-  3. If IsCallable(predicate) is false, throw a TypeError exception.
   4. Let k be len - 1.
   5. Repeat, while k ≥ 0,
     ...
