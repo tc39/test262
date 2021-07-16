@@ -5,7 +5,7 @@ esid: sec-realm.prototype.importvalue
 description: >
   Realm.prototype.importValue is not a constructor.
 includes: [isConstructor.js]
-features: [callable-boundary-realms]
+features: [callable-boundary-realms, Reflect.construct]
 ---*/
 
 assert.sameValue(
