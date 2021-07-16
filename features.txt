@@ -221,6 +221,30 @@ Object.hasOwn
 # https://github.com/tc39/proposal-class-static-block
 class-static-block
 
+# Ergonomic brand checks for Private Fields
+# https://github.com/tc39/proposal-private-fields-in-in
+class-fields-private-in
+
+# Error cause
+# https://github.com/tc39/proposal-error-cause
+error-cause
+
+# Import Assertions
+# https://github.com/tc39/proposal-import-assertions/
+import-assertions
+
+# JSON modules
+# https://github.com/tc39/proposal-json-modules
+json-modules
+
+# Resizable Arraybuffer
+# https://github.com/tc39/proposal-resizablearraybuffer
+resizable-arraybuffer
+
+# Temporal
+# https://github.com/tc39/proposal-temporal
+Temporal
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
@@ -319,27 +343,3 @@ __setter__
 
 IsHTMLDDA
 host-gc-required
-
-# Ergonomic brand checks for Private Fields
-# https://github.com/tc39/proposal-private-fields-in-in
-class-fields-private-in
-
-# Error cause
-# https://github.com/tc39/proposal-error-cause
-error-cause
-
-# Import Assertions
-# https://github.com/tc39/proposal-import-assertions/
-import-assertions
-
-# JSON modules
-# https://github.com/tc39/proposal-json-modules
-json-modules
-
-# Resizable Arraybuffer
-# https://github.com/tc39/proposal-resizablearraybuffer
-resizable-arraybuffer
-
-# Temporal
-# https://github.com/tc39/proposal-temporal
-Temporal
