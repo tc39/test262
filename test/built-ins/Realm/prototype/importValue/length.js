@@ -18,8 +18,9 @@ includes: [propertyHelper.js]
 features: [callable-boundary-realms]
 ---*/
 
-assert.sameValue(Realm.prototype.importValue.length, 2, "The value of `Realm.prototype.importValue.length` is `2`");
-
-verifyNotEnumerable(Realm.prototype.importValue, "length");
-verifyNotWritable(Realm.prototype.importValue, "length");
-verifyConfigurable(Realm.prototype.importValue, "length");
+verifyProperty(Realm.prototype.importValue, "length", {
+  value: 2,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

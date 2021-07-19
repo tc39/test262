@@ -17,8 +17,9 @@ includes: [propertyHelper.js]
 features: [callable-boundary-realms]
 ---*/
 
-assert.sameValue(Realm.prototype.evaluate.name, "evaluate", "The value of `Realm.prototype.evaluate.name` is `'evaluate'`");
-
-verifyNotEnumerable(Realm.prototype.evaluate, "name");
-verifyNotWritable(Realm.prototype.evaluate, "name");
-verifyConfigurable(Realm.prototype.evaluate, "name");
+verifyProperty(Realm.prototype.evaluate, "name", {
+  value: "evaluate",
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
