@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.weekofyear
-description: Temporal.Calendar.prototype.weekofyear will take Temporal.PlainDate object
+description: Temporal.Calendar.prototype.weekofyear will take iso8601 string
   and return the week of year of that date.
 info: |
   1. Let calendar be the this value.
