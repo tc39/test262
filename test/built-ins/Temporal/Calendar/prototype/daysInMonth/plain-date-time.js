@@ -5,7 +5,6 @@
 esid: sec-temporal.calendar.prototype.daysinmonth
 description: Temporal.Calendar.prototype.daysInMonth will take Temporal.PlainDateTime object
   and return the number of days in that month.
-  and return Array of the same content.
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
