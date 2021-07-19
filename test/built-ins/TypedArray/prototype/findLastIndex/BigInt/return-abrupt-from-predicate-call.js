@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.findlastindex
 description: >
   Return abrupt from predicate call.
 info: |
-   %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
+  %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
 
   ...
   5. Let k be len - 1.
