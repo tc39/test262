@@ -1,0 +1,32 @@
+// Copyright (C) 2021 Richard Gibson. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: U+2001 EM QUAD
+template: expression
+esid: sec-white-space
+info: |
+  <tr>
+    <td>
+      Other category &ldquo;Zs&rdquo;
+    </td>
+    <td>
+      Any other Unicode &ldquo;Space_Separator&rdquo; code point
+    </td>
+    <td>
+      &lt;USP&gt;
+    </td>
+  </tr>
+
+  WhiteSpace ::
+    &lt;TAB&gt;
+    &lt;VT&gt;
+    &lt;FF&gt;
+    &lt;SP&gt;
+    &lt;NBSP&gt;
+    &lt;ZWNBSP&gt;
+    &lt;USP&gt;
+---*/
+
+//- character codepoints
+2001
