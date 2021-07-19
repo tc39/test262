@@ -20,8 +20,6 @@ includes: [propertyHelper.js]
 features: [callable-boundary-realms]
 ---*/
 
-assert.sameValue(Realm.prototype.evaluate.length, 1, "The value of `Realm.prototype.evaluate.length` is `1`");
-
 verifyProperty(Realm.prototype.evaluate, "length", {
   value: 1,
   enumerable: false,

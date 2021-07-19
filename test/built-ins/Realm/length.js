@@ -20,8 +20,9 @@ includes: [propertyHelper.js]
 features: [callable-boundary-realms]
 ---*/
 
-assert.sameValue(Realm.length, 0, "The value of `Realm.length` is `0`");
-
-verifyNotEnumerable(Realm, "length");
-verifyNotWritable(Realm, "length");
-verifyConfigurable(Realm, "length");
+verifyProperty(Realm, "length", {
+  value: 0,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});
