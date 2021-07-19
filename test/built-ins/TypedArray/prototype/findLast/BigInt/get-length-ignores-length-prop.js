@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.findlast
@@ -11,7 +11,7 @@ info: |
   3. Let len be O.[[ArrayLength]].
   ...
 includes: [testBigIntTypedArray.js]
-features: [BigInt, TypedArray]
+features: [BigInt, TypedArray, array-find-from-last]
 ---*/
 
 Object.defineProperty(TypedArray.prototype, "length", {

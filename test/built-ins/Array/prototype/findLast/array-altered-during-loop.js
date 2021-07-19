@@ -1,18 +1,19 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-array.prototype.findlast
 description: >
   The range of elements processed is set before the first call to `predicate`.
-info: |
+  info: |
   Array.prototype.findLast ( predicate[ , thisArg ] )
 
   ...
   4. Let k be len - 1.
   5. Repeat, while k ≥ 0,
-    ...
-    c. Let testResult be ! ToBoolean(? Call(predicate, thisArg, « kValue, 𝔽(k), O »)).
   ...
+  c. Let testResult be ! ToBoolean(? Call(predicate, thisArg, « kValue, 𝔽(k), O »)).
+  ...
+features: [array-find-from-last]
 ---*/
 
 var arr = ['Shoes', 'Car', 'Bike'];
@@ -32,7 +33,7 @@ assert.sameValue(results[2], 'Shoes');
 
 results = [];
 arr = ['Skateboard', 'Barefoot'];
-arr.find(function(kValue) {
+arr.findLast(function(kValue) {
   if (results.length === 0) {
     arr.push('Motorcycle');
     arr[1] = 'Magic Carpet';

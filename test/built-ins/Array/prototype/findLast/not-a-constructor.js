@@ -1,10 +1,10 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  Array.prototype.findLast does not implement [[Construct]], is not new-able
+  Array.prototype.findLast does not implement [[Construct]], is not new-able.
 info: |
   ECMAScript Function Objects
 
@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [Reflect.construct, arrow-function]
+features: [Reflect.construct, arrow-function, array-find-from-last]
 ---*/
 
 assert.sameValue(isConstructor(Array.prototype.findLast), false, 'isConstructor(Array.prototype.findLast) must return false');

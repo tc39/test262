@@ -1,9 +1,10 @@
-// Copyright (c) 2020 Rick Waldron.  All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-array.prototype.findlastindex
-description: Array.prototype.findLastIndex applied to boolean primitive
+description: Array.prototype.findLastIndex applied to boolean primitive.
+features: [array-find-from-last]
 ---*/
 
 assert.sameValue(
