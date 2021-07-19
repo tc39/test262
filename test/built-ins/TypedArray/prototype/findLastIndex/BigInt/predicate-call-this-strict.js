@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.findlastindex
 description: >
   Predicate thisArg as F.call( thisArg, kValue, k, O ) for each array entry.
 info: |
-    %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
+  %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
 
   ...
   5. Let k be len - 1.
