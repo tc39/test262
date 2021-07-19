@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.findlastindex
 description: >
   Predicate is not called on an empty instance
 info: |
-    %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
+  %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
 
   ...
   6. Repeat, while k ≥ 0
