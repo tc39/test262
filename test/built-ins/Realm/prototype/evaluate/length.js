@@ -22,6 +22,9 @@ features: [callable-boundary-realms]
 
 assert.sameValue(Realm.prototype.evaluate.length, 1, "The value of `Realm.prototype.evaluate.length` is `1`");
 
-verifyNotEnumerable(Realm.prototype.evaluate, "length");
-verifyNotWritable(Realm.prototype.evaluate, "length");
-verifyConfigurable(Realm.prototype.evaluate, "length");
+verifyProperty(Realm.prototype.evaluate, "length", {
+  value: 1,
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

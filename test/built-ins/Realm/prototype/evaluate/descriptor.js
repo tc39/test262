@@ -8,6 +8,8 @@ includes: [propertyHelper.js]
 features: [callable-boundary-realms]
 ---*/
 
-verifyNotEnumerable(Realm.prototype, "evaluate");
-verifyWritable(Realm.prototype, "evaluate");
-verifyConfigurable(Realm.prototype, "evaluate");
+verifyProperty(Realm.prototype, "evaluate", {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});
