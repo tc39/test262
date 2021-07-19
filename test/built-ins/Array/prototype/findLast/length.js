@@ -4,7 +4,7 @@
 esid: sec-array.prototype.findlast
 description: Array.prototype.findLast.length value and descriptor.
 info: |
-17 ECMAScript Standard Built-in Objects
+  17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
 features: [array-find-from-last]
 ---*/
