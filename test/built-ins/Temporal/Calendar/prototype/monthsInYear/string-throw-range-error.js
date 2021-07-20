@@ -3,8 +3,7 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.monthsinyear
-description: Temporal.Calendar.prototype.monthsInYear will take Temporal.PlainDate,
-  PlainYearMonth, PlainDateTime object and return the number 12 for ISO8601 calendar.
+description: Temporal.Calendar.prototype.monthsInYear will throw RangeError with incorrect ISO8601 string.
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
@@ -16,9 +15,7 @@ features: [Temporal]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 
-assert.sameValue(12, cal.monthsInYear(new Temporal.PlainDate(2021, 7, 15)));
-assert.sameValue(12, cal.monthsInYear(new Temporal.PlainDate(1234, 7, 15)));
-assert.sameValue(12, cal.monthsInYear(new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13)));
-assert.sameValue(12, cal.monthsInYear(new Temporal.PlainDateTime(1234, 8, 23, 5, 30, 13)));
-assert.sameValue(12, cal.monthsInYear(new Temporal.PlainYearMonth(1, 1)));
-assert.sameValue(12, cal.monthsInYear(new Temporal.PlainYearMonth(9834, 12)));
+assert.throws(RangeError, () => cal.monthsInYear("2021-01"), "Invalid time value");
+assert.throws(RangeError, () => cal.monthsInYear("2019-12"), "Invalid time value");
+assert.throws(RangeError, () => cal.monthsInYear("P1Y"), "Invalid time value");
+assert.throws(RangeError, () => cal.monthsInYear("-P12Y"), "Invalid time value");
