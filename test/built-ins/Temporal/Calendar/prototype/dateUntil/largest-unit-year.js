@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.dateuntil
-description: Temporal.Calendar.prototype.dateUntil with largestUnit: "year"
+description: Temporal.Calendar.prototype.dateUntil with largestUnit === "year"
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
