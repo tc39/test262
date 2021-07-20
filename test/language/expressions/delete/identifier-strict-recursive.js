@@ -1,4 +1,5 @@
 // Copyright (c) 2018 Mike Pennisi.  All rights reserved.
+// Copyright (c) 2021 Gus Caplan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-delete-operator-static-semantics-early-errors
