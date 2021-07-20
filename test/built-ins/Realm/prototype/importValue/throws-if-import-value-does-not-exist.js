@@ -34,7 +34,7 @@ info: |
     If hasOwn is false, throw a TypeError exception.
     ...
 
-  flags: [async, module]
+flags: [async, module]
 features: [callable-boundary-realms]
 ---*/
 
