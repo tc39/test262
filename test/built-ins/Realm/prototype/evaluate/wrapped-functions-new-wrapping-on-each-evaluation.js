@@ -16,9 +16,9 @@ assert.sameValue(
 const r = new Realm();
 
 r.evaluate(`
-function fn() {
+0, function fn() {
     return 42;
-}
+};
 `);
 
 const wrapped = r.evaluate('fn');

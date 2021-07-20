@@ -17,5 +17,5 @@ const r = new Realm();
 const bogus = {};
 
 assert.throws(TypeError, function() {
-  r.importValue.call(bogus);
+  r.importValue.call(bogus, "specifier", "name");
 }, 'throws a TypeError if this is not a Realm object');

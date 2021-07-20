@@ -21,5 +21,11 @@ assert.sameValue(
 );
 
 assert.throws(TypeError, () => {
-  new Realm.prototype.importValue("");
+  new Realm.prototype.importValue("", "name");
 }, '`new Realm.prototype.importValue("")` throws TypeError');
+
+const r = new Realm(); 
+
+assert.throws(TypeError, () => {
+  new r.imporValue("./import-value_FIXTURE.js", "x");
+}, '`new r.imporValue("...")` throws TypeError');
