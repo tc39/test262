@@ -15,6 +15,8 @@ assert.sameValue(
   '`typeof Array.prototype.findLast` is `function`'
 );
 
-verifyNotEnumerable(Array.prototype, 'findLast');
-verifyWritable(Array.prototype, 'findLast');
-verifyConfigurable(Array.prototype, 'findLast');
+verifyProperty(Array.prototype, "findLast", {
+  enumerable: false,
+  writable: true,
+  configurable: true
+});

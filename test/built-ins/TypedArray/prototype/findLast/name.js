@@ -22,6 +22,8 @@ features: [TypedArray, array-find-from-last]
 
 assert.sameValue(TypedArray.prototype.findLast.name, "findLast");
 
-verifyNotEnumerable(TypedArray.prototype.findLast, "name");
-verifyNotWritable(TypedArray.prototype.findLast, "name");
-verifyConfigurable(TypedArray.prototype.findLast, "name");
+verifyProperty(TypedArray.prototype.findLast, "name", {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});

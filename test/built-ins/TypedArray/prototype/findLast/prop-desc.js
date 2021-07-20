@@ -14,6 +14,8 @@ features: [TypedArray, array-find-from-last]
 
 var TypedArrayPrototype = TypedArray.prototype;
 
-verifyNotEnumerable(TypedArrayPrototype, 'findLast');
-verifyWritable(TypedArrayPrototype, 'findLast');
-verifyConfigurable(TypedArrayPrototype, 'findLast');
+verifyProperty(TypedArray.prototype, "findLast", {
+  enumerable: false,
+  writable: true,
+  configurable: true
+});

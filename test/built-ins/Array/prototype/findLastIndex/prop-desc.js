@@ -15,6 +15,8 @@ assert.sameValue(
   '`typeof Array.prototype.findLastIndex` is `function`'
 );
 
-verifyNotEnumerable(Array.prototype, 'findLastIndex');
-verifyWritable(Array.prototype, 'findLastIndex');
-verifyConfigurable(Array.prototype, 'findLastIndex');
+verifyProperty(Array.prototype, "findLastIndex", {
+  enumerable: false,
+  writable: true,
+  configurable: true
+});

@@ -4,7 +4,7 @@
 esid: sec-array.prototype.findlast
 description: >
   Array.prototype.findLast.name value and descriptor.
-  info: |
+info: |
   Array.prototype.findLast ( predicate [ , thisArg ] )
 
   17 ECMAScript Standard Built-in Objects
@@ -18,6 +18,8 @@ assert.sameValue(
   'The value of `Array.prototype.findLast.name` is `"findLast"`'
 );
 
-verifyNotEnumerable(Array.prototype.findLast, 'name');
-verifyNotWritable(Array.prototype.findLast, 'name');
-verifyConfigurable(Array.prototype.findLast, 'name');
+verifyProperty(Array.prototype.findLast, "name", {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});

@@ -4,7 +4,7 @@
 esid: sec-array.prototype.findlast
 description: >
   The range of elements processed is set before the first call to `predicate`.
-  info: |
+info: |
   Array.prototype.findLast ( predicate[ , thisArg ] )
 
   ...

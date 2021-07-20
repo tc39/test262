@@ -33,11 +33,11 @@ testWithTypedArrayConstructors(function(TA) {
   called = 0;
   result = sample.findLastIndex(function(val) {
     called++;
-    return val === 9;
+    return val === 39;
   });
 
-  assert.sameValue(called, 1, "predicate was called once");
-  assert.sameValue(result, 2, "returned true on sample[2]");
+  assert.sameValue(called, 3, "predicate was called three times");
+  assert.sameValue(result, 0, "returned true on sample[0]");
 
   result = sample.findLastIndex(function() { return "string"; });
   assert.sameValue(result, 2, "ToBoolean(string)");

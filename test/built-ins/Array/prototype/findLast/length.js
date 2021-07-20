@@ -14,6 +14,8 @@ assert.sameValue(
   'The value of `Array.prototype.findLast.length` is `1`'
 );
 
-verifyNotEnumerable(Array.prototype.findLast, 'length');
-verifyNotWritable(Array.prototype.findLast, 'length');
-verifyConfigurable(Array.prototype.findLast, 'length');
+verifyProperty(Array.prototype.findLast, "length", {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});

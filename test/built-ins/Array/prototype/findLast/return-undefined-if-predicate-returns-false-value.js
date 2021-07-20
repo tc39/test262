@@ -19,7 +19,7 @@ features: [Symbol, array-find-from-last]
 var arr = ['Shoes', 'Car', 'Bike'];
 var called = 0;
 
-var result = arr.findLast(function(val) {
+var result = arr.findLast(function() {
   called++;
   return false;
 });
@@ -27,27 +27,27 @@ var result = arr.findLast(function(val) {
 assert.sameValue(called, 3, 'predicate was called three times');
 assert.sameValue(result, undefined);
 
-result = arr.findLast(function(val) {
+result = arr.findLast(function() {
   return '';
 });
 assert.sameValue(result, undefined, 'coerced string');
 
-result = arr.findLast(function(val) {
+result = arr.findLast(function() {
   return undefined;
 });
 assert.sameValue(result, undefined, 'coerced undefined');
 
-result = arr.findLast(function(val) {
+result = arr.findLast(function() {
   return null;
 });
 assert.sameValue(result, undefined, 'coerced null');
 
-result = arr.findLast(function(val) {
+result = arr.findLast(function() {
   return 0;
 });
 assert.sameValue(result, undefined, 'coerced 0');
 
-result = arr.findLast(function(val) {
+result = arr.findLast(function() {
   return NaN;
 });
 assert.sameValue(result, undefined, 'coerced NaN');
