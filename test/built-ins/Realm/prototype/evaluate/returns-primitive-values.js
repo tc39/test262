@@ -22,6 +22,7 @@ assert.sameValue(r.evaluate('undefined'), undefined);
 assert.sameValue(r.evaluate('true'), true);
 assert.sameValue(r.evaluate('false'), false);
 assert.sameValue(r.evaluate('function fn() {}'), undefined, 'fn declaration has empty completion');
-  assert.sameValue(r.evaluate('-0'), -0);
+assert.sameValue(r.evaluate('{}'), undefined, 'Block has empty completion');
+assert.sameValue(r.evaluate('-0'), -0);
 assert.sameValue(r.evaluate('"str"'), 'str');
 assert(Number.isNaN(r.evaluate('NaN')));
