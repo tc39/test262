@@ -34,12 +34,3 @@ assert.sameValue(false, cal.inLeapYear("2023-03-18T13:00:00Z"));
 assert.sameValue(true, cal.inLeapYear("2024-03-18T13:00:00Z"));
 assert.sameValue(false, cal.inLeapYear("2025-01-01T00:00:00Z"));
 assert.sameValue(false, cal.inLeapYear("2026-03-18T13:00:00Z"));
-
-assert.sameValue(false, cal.inLeapYear("2019-03"));
-assert.sameValue(true, cal.inLeapYear("2020-03"));
-assert.sameValue(false, cal.inLeapYear("2021-03"));
-assert.sameValue(false, cal.inLeapYear("2022-03"));
-assert.sameValue(false, cal.inLeapYear("2023-03"));
-assert.sameValue(true, cal.inLeapYear("2024-03"));
-assert.sameValue(false, cal.inLeapYear("2025-03"));
-assert.sameValue(false, cal.inLeapYear("2026-03"));
