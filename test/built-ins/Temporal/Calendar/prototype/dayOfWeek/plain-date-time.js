@@ -5,7 +5,6 @@
 esid: sec-temporal.calendar.prototype.dayofweek
 description: Temporal.Calendar.prototype.dayOfWeek will take Temporal.PlainDateTime objects
   and return the day of week.
-
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).

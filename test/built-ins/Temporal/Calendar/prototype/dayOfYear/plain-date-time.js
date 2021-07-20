@@ -4,8 +4,7 @@
 /*---
 esid: sec-temporal.calendar.prototype.dayofyear
 description: Temporal.Calendar.prototype.dayOfYear will take PlainDateTime object and
-return the day of year.
-  and return Array of the same content.
+  return the day of year.
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
