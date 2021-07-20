@@ -17,7 +17,7 @@ const r = new Realm();
 const blueFn = (x, y) => x + y;
 
 const redWrappedFn = r.evaluate(`
-0, function(blueWrappedFn, a, b, c) {
+0, (blueWrappedFn, a, b, c) => {
     return blueWrappedFn(a, b) * c;
 }
 `);
