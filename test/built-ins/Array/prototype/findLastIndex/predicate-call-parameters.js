@@ -20,7 +20,7 @@ var arr = ['Mike', 'Rick', 'Leo'];
 
 var results = [];
 
-arr.findLastIndex(function(kValue, k, O) {
+arr.findLastIndex(function() {
   results.push(arguments);
 });
 

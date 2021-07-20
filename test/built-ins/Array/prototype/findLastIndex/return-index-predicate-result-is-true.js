@@ -19,7 +19,7 @@ features: [Symbol, array-find-from-last]
 var arr = ['Shoes', 'Car', 'Bike'];
 var called = 0;
 
-var result = arr.findLastIndex(function(val) {
+var result = arr.findLastIndex(function() {
   called++;
   return true;
 });
@@ -30,33 +30,33 @@ assert.sameValue(called, 1, 'predicate was called once');
 called = 0;
 result = arr.findLastIndex(function(val) {
   called++;
-  return val === 'Bike';
+  return val === 'Shoes';
 });
 
-assert.sameValue(called, 1, 'predicate was called three times');
-assert.sameValue(result, 2);
+assert.sameValue(called, 3, 'predicate was called three times');
+assert.sameValue(result, 0);
 
-result = arr.findLastIndex(function(val) {
+result = arr.findLastIndex(function() {
   return 'string';
 });
 assert.sameValue(result, 2, 'coerced string');
 
-result = arr.findLastIndex(function(val) {
+result = arr.findLastIndex(function() {
   return {};
 });
 assert.sameValue(result, 2, 'coerced object');
 
-result = arr.findLastIndex(function(val) {
+result = arr.findLastIndex(function() {
   return Symbol('');
 });
 assert.sameValue(result, 2, 'coerced Symbol');
 
-result = arr.findLastIndex(function(val) {
+result = arr.findLastIndex(function() {
   return 1;
 });
 assert.sameValue(result, 2, 'coerced number');
 
-result = arr.findLastIndex(function(val) {
+result = arr.findLastIndex(function() {
   return -1;
 });
 assert.sameValue(result, 2, 'coerced negative number');

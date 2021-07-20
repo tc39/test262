@@ -31,10 +31,10 @@ testWithTypedArrayConstructors(function(TA) {
   called = 0;
   result = sample.findLast(function(val) {
     called++;
-    return val === 62;
+    return val === 39;
   });
-  assert.sameValue(called, 1, "predicate was called once");
-  assert.sameValue(result, 62, "returned true on sample[2]");
+  assert.sameValue(called, 3, "predicate was called three times");
+  assert.sameValue(result, 39, "returned true on sample[0]");
 
   result = sample.findLast(function() { return "string"; });
   assert.sameValue(result, 62, "ToBoolean(string)");

@@ -19,7 +19,7 @@ features: [array-find-from-last]
 
 var result;
 
-[1].findLastIndex(function(kValue, k, O) {
+[1].findLastIndex(function() {
   result = this;
 });
 

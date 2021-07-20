@@ -21,7 +21,7 @@ var arr = ['Mike', 'Rick', 'Leo'];
 
 var results = [];
 
-arr.findLast(function(kValue, k, O) {
+arr.findLast(function() {
   results.push(arguments);
 });
 
