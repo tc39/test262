@@ -4,6 +4,14 @@
 esid: sec-realm-constructor
 description: >
   new Realm() returns a realm instance
+info: |
+  Realm ( )
+
+  ...
+  2. Let O be ? OrdinaryCreateFromConstructor(NewTarget, "%Realm.prototype%",
+  « [[Realm]], [[ExecutionContext]] »).
+  ...
+  13. Return O.
 features: [callable-boundary-realms]
 ---*/
 assert.sameValue(
@@ -12,4 +20,11 @@ assert.sameValue(
   'This test must fail if Realm is not a function'
 );
 
-assert(new Realm() instanceof Realm);
+var realm = new Realm();
+
+assert(realm instanceof Realm);
+assert.sameValue(
+  Object.getPrototypeOf(realm),
+  Realm.prototype,
+  '[[Prototype]] is set to %Realm.prototype%'
+);

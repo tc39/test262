@@ -17,5 +17,5 @@ const r = new Realm();
 const bogus = {};
 
 assert.throws(TypeError, function() {
-  r.evaluate.call(bogus);
+  r.evaluate.call(bogus, '');
 }, 'throws a TypeError if this is not a Realm object');

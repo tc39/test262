@@ -24,3 +24,11 @@ assert.throws(TypeError, () => {
   new Realm.prototype.evaluate("");
 }, '`new Realm.prototype.evaluate("")` throws TypeError');
 
+const r = new Realm(); 
+r.evaluate('globalThis.x = 0');
+
+assert.throws(TypeError, () => {
+  new r.evaluate("globalThis.x += 1;");
+}, '`new r.evaluate("...")` throws TypeError');
+
+assert.sameValue(r.evaluate('globalThis.x'), 0, 'No code evaluated in the new expression');

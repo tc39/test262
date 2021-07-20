@@ -22,3 +22,4 @@ assert.throws(TypeError, () => r.evaluate(null));
 assert.throws(TypeError, () => r.evaluate(undefined));
 assert.throws(TypeError, () => r.evaluate(true));
 assert.throws(TypeError, () => r.evaluate(false));
+assert.throws(TypeError, () => r.evaluate(new String('nope')));
