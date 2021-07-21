@@ -13,7 +13,6 @@ description: >
 
 try {
   new eval();
-  throw new Test262Error('#1.1: new eval() throw TypeError. Actual: ' + (new eval()));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     throw new Test262Error('#1.2: new eval() throw TypeError. Actual: ' + (e));
