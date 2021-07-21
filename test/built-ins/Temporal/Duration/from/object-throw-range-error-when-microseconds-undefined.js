@@ -17,7 +17,7 @@ info: |
      i. Throw a RangeError exception.
   # ToNumber ( argument )
     Undefined Return NaN.
-  and floor(NaN) ≠ val is true.
+  and floor(NaN) ≠ NaN is true.
 features: [Temporal]
 ---*/
 
