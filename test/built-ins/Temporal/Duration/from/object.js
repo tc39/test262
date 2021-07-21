@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.from
-description: Temporal.Duration.from will crate a Duration from an object which have all the fields.
+description: Temporal.Duration.from will create a Duration from an object which have all the fields.
 info: |
   1. If Type(item) is Object and item has an [[InitializedTemporalDuration]] internal slot, then
   a. Return ? CreateTemporalDuration(item.[[Years]], item.[[Months]], item.[[Weeks]], item.[[Days]], item.[[Hours]], item.[[Minutes]], item.[[Seconds]], item.[[Milliseconds]], item.[[Microseconds]], item.[[Nanoseconds]]).
