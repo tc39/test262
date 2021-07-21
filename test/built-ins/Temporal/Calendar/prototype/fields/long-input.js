@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.fields
-description: Temporal.Calendar.prototype.fields will take iterable of any size and any string
+description: >
+  Temporal.Calendar.prototype.fields will take iterable of any size and any string
   and return Array of the same content.
 info: |
   ## 12.4.21 Temporal.Calendar.prototype.fields ( fields )
