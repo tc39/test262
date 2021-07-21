@@ -13,7 +13,6 @@ description: >
 
 try {
   new isNaN();
-  throw new Test262Error('#1.1: new isNaN() throw TypeError. Actual: ' + (new isNaN()));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     throw new Test262Error('#1.2: new isNaN() throw TypeError. Actual: ' + (e));
