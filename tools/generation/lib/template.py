@@ -220,4 +220,5 @@ class Template:
             body = self.expand_regions(self.source, case_values)
             return codecs.encode(frontmatter + '\n' + body, encoding)
         return Test(self.attribs['meta']['path'] + case_name + '.js',
-            dynamic_source=get_source)
+            dynamic_source=get_source,
+            source_file_names=(self.filename, case_filename))

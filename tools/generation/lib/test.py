@@ -17,9 +17,10 @@ def after_parse(fn):
 class Test:
     """Representation of a generated test. Specifies a file location which may
     or may not exist."""
-    def __init__(self, file_name, dynamic_source=None):
+    def __init__(self, file_name, dynamic_source=None, source_file_names=None):
         self.file_name = file_name
         self.dynamic_source = dynamic_source
+        self.source_file_names = source_file_names
         self.source = None
         self.attribs = dict(meta=None)
 
