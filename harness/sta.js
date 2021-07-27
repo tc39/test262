@@ -21,7 +21,7 @@ Test262Error.prototype.toString = function () {
 Test262Error.thrower = (message) => {
   throw new Test262Error(message);
 };
-
+// TODO: Remove when $ERROR migration is completed
 var $ERROR = Test262Error.thrower;
 
 function $DONOTEVALUATE() {
