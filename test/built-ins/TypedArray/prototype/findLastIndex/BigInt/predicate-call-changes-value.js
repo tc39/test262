@@ -43,7 +43,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     if ( i === 2 ) {
       sample[0] = 7n;
     }
-    return val === 30n;
+    return val === 10n;
   });
   assert.sameValue(result, -1, "value not found");
 

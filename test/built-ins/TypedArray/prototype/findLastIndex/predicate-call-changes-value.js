@@ -43,7 +43,7 @@ testWithTypedArrayConstructors(function(TA) {
     if ( i === 2 ) {
       sample[0] = 7;
     }
-    return val === 30;
+    return val === 10;
   });
   assert.sameValue(result, -1, "value not found");
 

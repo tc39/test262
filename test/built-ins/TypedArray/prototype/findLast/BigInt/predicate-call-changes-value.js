@@ -44,7 +44,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     if ( i === 2 ) {
       sample[0] = 7n;
     }
-    return val === 3n;
+    return val === 1n;
   });
   assert.sameValue(result, undefined, "value not found");
 
@@ -62,5 +62,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     sample[2] = 7n;
     return true;
   });
-  assert.sameValue(result, 1n, "findLast() returns previous found value");
+  assert.sameValue(result, 3n, "findLast() returns previous found value");
 });

@@ -44,7 +44,7 @@ testWithTypedArrayConstructors(function(TA) {
     if ( i === 2 ) {
       sample[0] = 7;
     }
-    return val === 3;
+    return val === 1;
   });
   assert.sameValue(result, undefined, "value not found");
 
@@ -62,5 +62,5 @@ testWithTypedArrayConstructors(function(TA) {
     sample[2] = 7;
     return true;
   });
-  assert.sameValue(result, 1, "findLast() returns previous found value");
+  assert.sameValue(result, 3, "findLast() returns previous found value");
 });

@@ -36,7 +36,7 @@ arr = ['Skateboard', 'Barefoot'];
 arr.findLast(function(kValue) {
   if (results.length === 0) {
     arr.push('Motorcycle');
-    arr[1] = 'Magic Carpet';
+    arr[0] = 'Magic Carpet';
   }
 
   results.push(kValue);
