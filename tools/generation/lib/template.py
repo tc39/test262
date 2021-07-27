@@ -210,9 +210,10 @@ class Template:
         return '\n'.join(lines)
 
     def expand(self, case_filename, case_name, case_values, encoding):
-        frontmatter = self._frontmatter(case_filename, case_values)
-        body = self.expand_regions(self.source, case_values)
-
         assert encoding == 'utf-8'
+        def get_source():
+            frontmatter = self._frontmatter(case_filename, case_values)
+            body = self.expand_regions(self.source, case_values)
+            return codecs.encode(frontmatter + '\n' + body, encoding)
         return Test(self.attribs['meta']['path'] + case_name + '.js',
-            source=codecs.encode(frontmatter + '\n' + body, encoding))
+            dynamic_source=get_source)

@@ -6,16 +6,22 @@ import os, re
 from .util.find_comments import find_comments
 from .util.parse_yaml import parse_yaml
 
+def after_parse(fn):
+    def wrapper(self, *args, **kwargs):
+        if self.source is None and self.dynamic_source is not None:
+            self.source = self.dynamic_source()
+            self._parse()
+        return fn(self, *args, **kwargs)
+    return wrapper
+
 class Test:
     """Representation of a generated test. Specifies a file location which may
     or may not exist."""
-    def __init__(self, file_name, source=None):
+    def __init__(self, file_name, dynamic_source=None):
         self.file_name = file_name
-        self.source = source
+        self.dynamic_source = dynamic_source
+        self.source = None
         self.attribs = dict(meta=None)
-
-        if self.source:
-            self._parse()
 
     def load(self, prefix = None):
         location = os.path.join(prefix or '', self.file_name)
@@ -30,6 +36,7 @@ class Test:
                 self.attribs['meta'] = meta
                 break
 
+    @after_parse
     def is_generated(self):
         if not self.attribs['meta']:
             return False
@@ -40,6 +47,7 @@ class Test:
 
         return 'generated' in flags
 
+    @after_parse
     def to_string(self):
         return '\n'.join([
             '/**',
@@ -50,6 +58,7 @@ class Test:
             self.source,
             '\n'])
 
+    @after_parse
     def write(self, prefix, parents=False):
         location = os.path.join(prefix, self.file_name)
         path = os.path.dirname(location)
