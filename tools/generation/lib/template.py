@@ -113,7 +113,6 @@ class Template:
                 value = value.replace(str_char, safe_char)
                 value = value.replace('\n', '\\\n')
 
-            # TODO: document region_options and "codepoints" (`//- <region_name> codepoints`)
             if "codepoints" in context['region_options'].get(region_name, set()):
                 str_from_cp = chr
                 try:
