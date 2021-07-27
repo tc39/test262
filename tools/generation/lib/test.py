@@ -24,9 +24,8 @@ class Test:
         self.source = None
         self.attribs = dict(meta=None)
 
-    def load(self, prefix = None):
-        location = os.path.join(prefix or '', self.file_name)
-        with open(location, 'r') as handle:
+    def load(self):
+        with open(self.file_name, 'r') as handle:
             self.source = handle.read()
         self._parse()
 
