@@ -93,11 +93,8 @@ class Template:
                 continue
 
             match = interpolatePattern.match(comment['source'])
-
-            if match == None:
-                continue
-
-            self.regions.insert(0, dict(name=match.group(1), **comment))
+            if match:
+                self.regions.insert(0, dict(name=match.group(1), **comment))
 
     def expand_regions(self, source, context):
         lines = source.split('\n')
