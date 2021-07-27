@@ -57,6 +57,13 @@ def create(args):
                             'Refusing to overwrite file: ' + test.file_name)
                         exit(1)
 
+                    if not args.regenerate:
+                        test_file = os.path.join(args.out, test.file_name)
+                        test_mtime = os.path.getmtime(test_file)
+                        source_files = test.source_file_names
+                        if all(test_mtime > os.path.getmtime(f) for f in source_files):
+                            continue
+
                     if not existing.is_generated():
                         print_error(
                             'Refusing to overwrite non-generated file: ' +
@@ -80,6 +87,8 @@ create_parser.add_argument('-p', '--parents', action='store_true',
     help='''Create non-existent directories as necessary.''')
 create_parser.add_argument('-n', '--no-clobber', action='store_true',
     help='''Abort if any test file already exists.''')
+create_parser.add_argument('-r', '--regenerate', action='store_true',
+    help='''Regenerate test files that are already newer than their source data.''')
 create_parser.add_argument('cases',
     help='''Test cases to generate. May be a file or a directory.''')
 create_parser.set_defaults(func=create)
