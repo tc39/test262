@@ -1,4 +1,4 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-array.prototype.findlastindex
@@ -10,7 +10,7 @@ info: |
   1. Let O be ? ToObject(this value).
   2. Let len be ? LengthOfArrayLike(O).
   ...
-features: [Symbol]
+features: [Symbol, array-find-from-last]
 ---*/
 
 var o = {};

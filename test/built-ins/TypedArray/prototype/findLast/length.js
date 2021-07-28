@@ -1,4 +1,4 @@
-// Copyright (C) 2015 André Bargull. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -20,7 +20,7 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js, testTypedArray.js]
-features: [TypedArray]
+features: [TypedArray, array-find-from-last]
 ---*/
 
 assert.sameValue(TypedArray.prototype.findLast.length, 1);

@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.findlastindex
@@ -16,7 +16,7 @@ info: |
   5. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
   ...
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
-features: [BigInt, TypedArray]
+features: [BigInt, TypedArray, array-find-from-last]
 ---*/
 
 var predicate = function() {

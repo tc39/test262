@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.findlastindex
@@ -11,7 +11,7 @@ info: |
   4. If IsCallable(predicate) is false, throw a TypeError exception.
   ...
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [TypedArray, array-find-from-last]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

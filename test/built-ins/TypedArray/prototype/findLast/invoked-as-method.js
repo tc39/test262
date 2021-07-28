@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.findlast
@@ -15,7 +15,7 @@ info: |
   exception.
   ...
 includes: [testTypedArray.js]
-features: [TypedArray]
+features: [TypedArray, array-find-from-last]
 ---*/
 
 var TypedArrayPrototype = TypedArray.prototype;

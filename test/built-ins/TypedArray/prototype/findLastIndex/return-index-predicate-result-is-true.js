@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.findlastindex
@@ -15,7 +15,7 @@ info: |
     d. If testResult is true, return 𝔽(k).
   ...
 includes: [testTypedArray.js]
-features: [Symbol, TypedArray]
+features: [Symbol, TypedArray, array-find-from-last]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {

@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js, testTypedArray.js]
-features: [Reflect.construct, arrow-function, TypedArray]
+features: [Reflect.construct, arrow-function, TypedArray, array-find-from-last]
 ---*/
 
 assert.sameValue(

@@ -1,10 +1,10 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
+// Copyright (C) 2021 Microsoft. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.findlastindex
 description: Return abrupt when "this" value fails buffer boundary checks
 includes: [testTypedArray.js]
-features: [TypedArray, resizable-arraybuffer]
+features: [TypedArray, resizable-arraybuffer, array-find-from-last]
 ---*/
 
 assert.sameValue(
