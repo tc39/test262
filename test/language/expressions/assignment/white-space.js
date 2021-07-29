@@ -36,24 +36,24 @@ if (x !== 'U+00A0') {
 
 x
 =
-'Uthrow new Test262Error;
+'U+000D';
 if (x !== 'U+000D') {
-  $ERROR('#7: (x\\u000D=\\u000Dtrue) === true');
+  throw new Test262Error('#7: (x\\u000D=\\u000Dtrue) === true');
 }
 
-x throw new Test262Error028';
+x = 'U+2028';
 if (x !== 'U+2028') {
-  $ERROR('#8: (x\\u2028=\\u2028true) === true');
+  throw new Test262Error('#8: (x\\u2028=\\u2028true) === true');
 }
 
-x throw new Test262Error029';
+x = 'U+2029';
 if (x !== 'U+2029') {
-  $ERROR('#9: (x\\u2029=\\u2029true) === true');
+  throw new Test262Error('#9: (x\\u2029=\\u2029true) === true');
 }
 
-x	throw new Test262Error
+x	  
   =	  
   'U+0009U+000BU+000CU+0020U+00A0U+000DU+2028U+2029';
 if (x !== 'U+0009U+000BU+000CU+0020U+00A0U+000DU+2028U+2029') {
-  $ERROR('#10: (x\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000D\\u2028\\u2029=\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000D\\u2028\\u2029true) === true');
+  throw new Test262Error('#10: (x\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000D\\u2028\\u2029=\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000D\\u2028\\u2029true) === true');
 }
