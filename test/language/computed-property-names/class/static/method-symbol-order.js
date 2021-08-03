@@ -3,7 +3,7 @@
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
 description: >
-    In a class, static computed property method names can be a string
+  In a class, static computed property method names can be a symbol
 info: |
   Set order: "length", "name", "prototype", static methods
 
@@ -28,6 +28,10 @@ info: |
   Object.getOwnPropertyNames ( O )
 
   1. Return ? GetOwnPropertyKeys(O, string).
+
+  Object.getOwnPropertySymbols ( O )
+
+  1. Return ? GetOwnPropertyKeys(O, symbol).
 
   Runtime Semantics: GetOwnPropertyKeys ( O, type )
 
@@ -54,19 +58,22 @@ info: |
     a. Add P as the last element of keys.
   5. Return keys.
 includes: [compareArray.js]
+features: [Symbol]
 ---*/
 
+var sym1 = Symbol();
+var sym2 = Symbol();
 class C {
-  static a() { return 'A'}
-  static ['b']() { return 'B'; }
+  static a() { return 'A'; }
+  static [sym1]() { return 'B'; }
   static c() { return 'C'; }
-  static ['d']() { return 'D'; }
+  static [sym2]() { return 'D'; }
 }
-assert.sameValue(C.a(), 'A', "`C.a()` returns `'A'`. Defined as `static a() { return 'A'}`");
-assert.sameValue(C.b(), 'B', "`C.b()` returns `'B'`. Defined as `static ['b']() { return 'B'; }`");
-assert.sameValue(C.c(), 'C', "`C.c()` returns `'C'`. Defined as `static c() { return 'C'; }`");
-assert.sameValue(C.d(), 'D', "`C.d()` returns `'D'`. Defined as `static ['d']() { return 'D'; }`");
 assert.compareArray(
-  Object.keys(C),
-  []
+  Object.getOwnPropertyNames(C),
+  ['length', 'name', 'prototype', 'a', 'c']
+);
+assert.compareArray(
+  Object.getOwnPropertySymbols(C),
+  [sym1, sym2]
 );

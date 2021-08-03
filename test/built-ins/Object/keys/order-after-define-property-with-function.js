@@ -2,15 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-object.entries
+esid: sec-object.keys
 description: >
   Property names are returned in ascending chronological order of creation
   that is unaffected by [[DefineOwnProperty]].
 info: |
-  Object.entries ( O )
+  Object.keys ( O )
 
   [...]
-  2. Let nameList be ? EnumerableOwnPropertyNames(obj, key+value).
+  2. Let nameList be ? EnumerableOwnPropertyNames(obj, key).
   3. Return CreateArrayFromList(nameList).
 
   EnumerableOwnPropertyNames ( O, kind )
@@ -27,12 +27,11 @@ info: |
     a. Add P as the last element of keys.
   [...]
   5. Return keys.
+features: [arrow-function]
 includes: [compareArray.js]
 ---*/
 
-var obj = {};
-obj.a = 1;
-obj.b = 2;
-Object.defineProperty(obj, "a", {writable: false});
-var objKeys = Object.entries(obj).map(e => e[0]);
-assert.compareArray(objKeys, ["a", "b"]);
+var fn = () => {};
+fn.a = 1;
+Object.defineProperty(fn, "length", {enumerable: true});
+assert.compareArray(Object.keys(fn), ["length", "a"]);

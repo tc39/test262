@@ -3,7 +3,7 @@
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
 description: >
-    In a class, static computed property method names can be a string
+    In a class, static computed property method names can be a number
 info: |
   Set order: "length", "name", "prototype", static methods
 
@@ -57,16 +57,12 @@ includes: [compareArray.js]
 ---*/
 
 class C {
-  static a() { return 'A'}
-  static ['b']() { return 'B'; }
+  static a() { return 'A'; }
+  static [1]() { return 'B'; }
   static c() { return 'C'; }
-  static ['d']() { return 'D'; }
+  static [2]() { return 'D'; }
 }
-assert.sameValue(C.a(), 'A', "`C.a()` returns `'A'`. Defined as `static a() { return 'A'}`");
-assert.sameValue(C.b(), 'B', "`C.b()` returns `'B'`. Defined as `static ['b']() { return 'B'; }`");
-assert.sameValue(C.c(), 'C', "`C.c()` returns `'C'`. Defined as `static c() { return 'C'; }`");
-assert.sameValue(C.d(), 'D', "`C.d()` returns `'D'`. Defined as `static ['d']() { return 'D'; }`");
 assert.compareArray(
-  Object.keys(C),
-  []
+  Object.getOwnPropertyNames(C),
+  ['1', '2', 'length', 'name', 'prototype', 'a', 'c']
 );
