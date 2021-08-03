@@ -4,22 +4,20 @@
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
 description: >
-    Function `length` attribute not inferred in presence of static `length` method
+    Function `name` attribute not inferred in presence of static `name` method
 info: |
     ClassTail : ClassHeritage_opt { ClassBody_opt }
 
     14. If constructor is empty, then [...]
       b. Let F be ! CreateBuiltinFunction(steps, 0, className, « [[ConstructorKind]], [[SourceText]] », empty, constructorParent).
-    15. Else,
-      a. Let constructorInfo be ! DefineMethod of constructor with arguments proto and constructorParent.
-         [ This sets the length property on constructorInfo.[[Closure]]. ]
-      b. Let F be constructorInfo.[[Closure]].
-      [...]
+    15. Else, [...]
+      d. Perform ! SetFunctionName(F, className).
     25. For each ClassElement e of elements, do
       a. If IsStatic of e is false, then [...]
       b. Else,
         i. Let field be ClassElementEvaluation of e with arguments F and false.
-           [ This overwrites the length property on F. ]
+           [ This overwrites the name property on F. ]
+includes: [compareArray.js]
 features: [generators]
 ---*/
 
@@ -27,14 +25,14 @@ class A {
   static method() {
     throw new Test262Error('Static method should not be executed during definition');
   }
-  static length() {
+  static name() {
     throw new Test262Error('Static method should not be executed during definition');
   }
 }
 
-assert.sameValue(typeof A.length, 'function');
+assert(compareArray(Object.getOwnPropertyNames(A), ['length', 'name', 'prototype', 'method']))
 
-var attr = 'length';
+var attr = 'name';
 class B {
   static [attr]() {
     throw new Test262Error(
@@ -44,33 +42,28 @@ class B {
   }
 }
 
-assert.sameValue(typeof B.length, 'function');
+assert(compareArray(Object.getOwnPropertyNames(B), ['length', 'name', 'prototype']))
 
-var isDefined = false;
 class C {
-  static get length() {
-    if (isDefined) {
-      return 'pass';
-    }
+  static get name() {
     throw new Test262Error('Static `get` accessor should not be executed during definition');
   }
 }
 
-isDefined = true;
-assert.sameValue(C.length, 'pass');
+assert(compareArray(Object.getOwnPropertyNames(C), ['length', 'name', 'prototype']))
 
 class D {
-  static set length(_) {
+  static set name(_) {
     throw new Test262Error('Static `set` accessor should not be executed during definition');
   }
 }
 
-assert.sameValue(D.length, undefined);
+assert(compareArray(Object.getOwnPropertyNames(D), ['length', 'name', 'prototype']))
 
 class E {
-  static *length() {
+  static *name() {
     throw new Test262Error('Static GeneratorMethod should not be executed during definition');
   }
 }
 
-assert.sameValue(typeof E.length, 'function');
+assert(compareArray(Object.getOwnPropertyNames(E), ['length', 'name', 'prototype']))
