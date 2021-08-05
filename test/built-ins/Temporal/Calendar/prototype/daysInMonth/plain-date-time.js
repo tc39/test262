@@ -13,44 +13,44 @@ features: [Temporal]
 let cal = new Temporal.Calendar("iso8601");
 
 let dt = new Temporal.PlainDateTime(1997, 1, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);
 
 // leap year
 dt = new Temporal.PlainDateTime(1996, 2, 23, 5, 30, 13);
-assert.sameValue(29, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 29);
 dt = new Temporal.PlainDateTime(2000, 2, 23, 5, 30, 13);
-assert.sameValue(29, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 29);
 
 // non leap year
 dt = new Temporal.PlainDateTime(1997, 2, 23, 5, 30, 13);
-assert.sameValue(28, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 28);
 
 dt = new Temporal.PlainDateTime(1997, 3, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);
 
 dt = new Temporal.PlainDateTime(1997, 4, 23, 5, 30, 13);
-assert.sameValue(30, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 30);
 
 dt = new Temporal.PlainDateTime(1997, 5, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);
 
 dt = new Temporal.PlainDateTime(1997, 6, 23, 5, 30, 13);
-assert.sameValue(30, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 30);
 
 dt = new Temporal.PlainDateTime(1997, 7, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);
 
 dt = new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);
 
 dt = new Temporal.PlainDateTime(1997, 9, 23, 5, 30, 13);
-assert.sameValue(30, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 30);
 
 dt = new Temporal.PlainDateTime(1997, 10, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);
 
 dt = new Temporal.PlainDateTime(1997, 11, 23, 5, 30, 13);
-assert.sameValue(30, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 30);
 
 dt = new Temporal.PlainDateTime(1997, 12, 23, 5, 30, 13);
-assert.sameValue(31, cal.daysInMonth(dt));
+assert.sameValue(cal.daysInMonth(dt), 31);

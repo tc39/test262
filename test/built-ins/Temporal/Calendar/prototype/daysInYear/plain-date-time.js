@@ -13,34 +13,34 @@ features: [Temporal]
 let cal = new Temporal.Calendar("iso8601");
 
 let dt = new Temporal.PlainDateTime(1995, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(1996, 8, 23, 5, 30, 13);
-assert.sameValue(366, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 366);
 
 dt = new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(1998, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(1999, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(2000, 8, 23, 5, 30, 13);
-assert.sameValue(366, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 366);
 
 dt = new Temporal.PlainDateTime(2001, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(2002, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(2003, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
 
 dt = new Temporal.PlainDateTime(2004, 8, 23, 5, 30, 13);
-assert.sameValue(366, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 366);
 
 dt = new Temporal.PlainDateTime(2005, 8, 23, 5, 30, 13);
-assert.sameValue(365, cal.daysInYear(dt));
+assert.sameValue(cal.daysInYear(dt), 365);
