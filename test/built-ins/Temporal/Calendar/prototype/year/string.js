@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.year
-description: Temporal.Calendar.prototype.year will take different kind of object and return 
+description: Temporal.Calendar.prototype.year will take ISO8601 string and return
   the value of the year.
 info: |
   1. Let calendar be the this value.
@@ -16,7 +16,4 @@ features: [Temporal]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 
-assert.sameValue(2021, cal.year(new Temporal.PlainDate(2021, 7, 15)));
-assert.sameValue(1997, cal.year(new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13)));
-assert.sameValue(1999, cal.year(new Temporal.PlainYearMonth(1999, 6)));
 assert.sameValue(2019, cal.year("2019-03-15"));
