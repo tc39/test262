@@ -6,7 +6,7 @@ esid: sec-temporal.calendar.prototype.monthCode
 description: Temporal.Calendar.prototype.monthCode throws TypeError on RequireInternalSlot if object has no internal slot.
 info: |
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

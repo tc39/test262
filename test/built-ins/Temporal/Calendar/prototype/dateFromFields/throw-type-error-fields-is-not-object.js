@@ -5,7 +5,7 @@ esid: sec-temporal.calendar.prototype.datefromfields
 description: Temporal.Calendar.prototype.dateFromFields should throw TypeError while fields is not object.
 info: |
   4. If Type(fields) is not Object, throw a TypeError exception.
-features: [Temporal]
+features: [Symbol, Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601")
 

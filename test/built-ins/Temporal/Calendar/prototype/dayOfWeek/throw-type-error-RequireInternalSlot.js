@@ -6,7 +6,7 @@ description: Temporal.Calendar.prototype.dayOfWeek throws TypeError
   when the internal lot is not presented.
 info: |
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

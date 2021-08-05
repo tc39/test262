@@ -13,7 +13,7 @@ info: |
       a. If _temporalCalendarLike_ has an [[InitializedTemporalDate]], [[InitializedTemporalDateTime]], [[InitializedTemporalMonthDay]], [[InitializedTemporalYearMonth]], or [[InitializedTemporalZonedDateTime]] internal slot, then
         i. Return _temporalCalendarLike_.[[Calendar]].
 includes: [compareArray.js, temporalHelpers.js]
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 
 TemporalHelpers.checkToTemporalCalendarFastPath((temporalObject, calendar) => {

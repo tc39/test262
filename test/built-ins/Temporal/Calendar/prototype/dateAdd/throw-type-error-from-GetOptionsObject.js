@@ -7,7 +7,7 @@ description: Temporal.Calendar.prototype.dateAdd should throw from GetOptionsObj
 info: |
   ...
   6. Set options to ? GetOptionsObject(options).
-features: [Temporal]
+features: [BigInt, Symbol, Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 let invalidOptionsList =

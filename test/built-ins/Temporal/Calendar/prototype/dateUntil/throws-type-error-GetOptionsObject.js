@@ -6,7 +6,7 @@ esid: sec-temporal.calendar.prototype.dateuntil
 description: Temporal.Calendar.prototype.dateUntil throw TypeError on GetOptionsObject
 info: |
   6. Set options to ? GetOptionsObject(options).
-features: [Temporal]
+features: [Symbol, Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

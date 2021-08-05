@@ -5,7 +5,7 @@
 esid: sec-temporal.now.plaindatetime
 description: Observable interactions with the provided timezone-like object
 includes: [compareArray.js]
-features: [Temporal]
+features: [Proxy, Temporal]
 ---*/
 
 const actual = [];

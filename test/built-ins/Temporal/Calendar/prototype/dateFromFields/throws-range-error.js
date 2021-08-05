@@ -12,7 +12,7 @@ info: |
   5. Set options to ? GetOptionsObject(options).
   6. Let result be ? ISODateFromFields(fields, options).
   7. Return ? CreateTemporalDate(result.[[Year]], result.[[Month]], result.[[Day]], calendar).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601")
 

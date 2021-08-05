@@ -7,7 +7,7 @@ description: Temporal.Calendar.prototype.year throws TypeError on
   RequireInternalSlot if object has no internal slot.
 info: |
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

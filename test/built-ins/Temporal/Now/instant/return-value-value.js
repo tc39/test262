@@ -5,7 +5,7 @@ esid: sec-temporal.now.instant
 description: >
   Temporal.Now.instant returns an Instant describing the current moment in time
   (as corroborated by `Date.now`)
-features: [Temporal, BigInt]
+features: [BigInt, Temporal]
 ---*/
 
 var nowBefore = Date.now();

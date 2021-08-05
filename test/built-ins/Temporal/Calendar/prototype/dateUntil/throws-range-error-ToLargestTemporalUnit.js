@@ -6,7 +6,7 @@ esid: sec-temporal.calendar.prototype.dateuntil
 description: Temporal.Calendar.prototype.dateUntil throw RangeError on ToLargestTemporalUnit with invalide or disallowed unit
 info: |
   7. Let largestUnit be ? ToLargestTemporalUnit(options, « "hour", "minute", "second", "millisecond", "microsecond", "nanosecond" », "auto", "day").
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

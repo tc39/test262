@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.now.plaindatetime
 description: Rejects non-numeric nanosecond values reported by TimeZone-like object
-features: [Temporal]
+features: [Symbol, Temporal, arrow-function]
 ---*/
 
 const invalidValues = [

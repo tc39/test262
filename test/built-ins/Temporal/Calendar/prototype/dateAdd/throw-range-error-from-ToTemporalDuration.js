@@ -7,7 +7,7 @@ description: Temporal.Calendar.prototype.dateAdd should throw from ToTemporalDur
 info: |
   ...
   5. Set duration to ? ToTemporalDuration(duration).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

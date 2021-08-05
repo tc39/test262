@@ -6,7 +6,7 @@ esid: sec-temporal.calendar.prototype.dateadd
 description: Temporal.Calendar.prototype.dateAdd should throw from ToTemporalOverflow.
 info: |
   7. Let overflow be ? ToTemporalOverflow(options).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

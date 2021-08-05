@@ -10,7 +10,7 @@ info: |
   4. If Type(temporalDateLike) is Object and temporalDateLike has an
     [[InitializedTemporalMonthDay]] internal slot, then
     a. Throw a TypeError exception.
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.now.plaindatetime
 description: TypeError thrown if time zone reports an offset that is not a Number
-features: [Temporal]
+features: [Symbol, Temporal, arrow-function]
 includes: [temporalHelpers.js]
 ---*/
 

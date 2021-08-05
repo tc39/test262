@@ -4,7 +4,7 @@
 esid: sec-temporal.now.plaindatetime
 description: Temporal.Now.plainDateTime does not implement [[Construct]]
 includes: [isConstructor.js]
-features: [Reflect.construct, Temporal]
+features: [Reflect.construct, Temporal, arrow-function]
 ---*/
 
 assert.sameValue(isConstructor(Temporal.Now.plainDateTime), false, 'isConstructor(Temporal.Now.plainDateTime) must return false');

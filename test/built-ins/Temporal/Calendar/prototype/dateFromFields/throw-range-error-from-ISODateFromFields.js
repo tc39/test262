@@ -5,7 +5,7 @@ esid: sec-temporal.calendar.prototype.datefromfields
 description: Temporal.Calendar.prototype.dateFromFields should throw Error from ISODateFromFields.
 info: |
   6. Let result be ? ISODateFromFields(fields, options).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601")
 

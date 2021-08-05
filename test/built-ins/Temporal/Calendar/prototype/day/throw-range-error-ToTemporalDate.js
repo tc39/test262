@@ -10,7 +10,7 @@ info: |
      does not have an [[InitializedTemporalDate]] or
      [[InitializedTemporalYearMonth]] internal slot, then
     a. Set temporalDateLike to ? ToTemporalDate(temporalDateLike).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 

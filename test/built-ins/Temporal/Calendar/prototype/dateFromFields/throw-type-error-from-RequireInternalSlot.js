@@ -6,7 +6,7 @@ description: Temporal.Calendar.prototype.dateFromFields should throw TypeError w
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601")
 let badCal = {dateFromFields: cal.dateFromFields};

@@ -11,7 +11,7 @@ info: |
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
 includes: [isConstructor.js]
-features: [Reflect.construct, Temporal]
+features: [Reflect.construct, Temporal, arrow-function]
 ---*/
 
 assert.sameValue(isConstructor(Temporal.Now.timeZone), false, 'isConstructor(Temporal.Now.timeZone) must return false');

@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.now.plaindatetime
 description: RangeError thrown if time zone reports an offset that is not an integer number of nanoseconds
-features: [Temporal]
+features: [Temporal, arrow-function]
 includes: [temporalHelpers.js]
 ---*/
 

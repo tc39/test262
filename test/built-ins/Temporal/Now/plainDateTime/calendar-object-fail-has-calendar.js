@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.now.plaindatetime
 description: Forwards error thrown by checking presence of "calendar" property
-features: [Temporal]
+features: [Proxy, Temporal]
 ---*/
 
 var calendar = new Proxy({}, {

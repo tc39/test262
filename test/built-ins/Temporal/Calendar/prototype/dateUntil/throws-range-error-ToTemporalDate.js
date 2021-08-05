@@ -8,7 +8,7 @@ info: |
   1. Let calendar be the this value.
   4. Set one to ? ToTemporalDate(one).
   5. Set two to ? ToTemporalDate(two).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 
