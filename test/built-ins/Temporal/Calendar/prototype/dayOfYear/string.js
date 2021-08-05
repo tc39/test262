@@ -4,11 +4,9 @@
 /*---
 esid: sec-temporal.calendar.prototype.dayofyear
 description: Temporal.Calendar.prototype.dayOfYear will take ISO8601 string and
-  return the day of year.
+return the day of year.
+  and return Array of the same content.
 info: |
-  1. Let calendar be the this value.
-  2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-  3. Assert: calendar.[[Identifier]] is "iso8601".
   4. Let temporalDate be ? ToTemporalDate(temporalDateLike).
   5. Return 𝔽(! ToISODayOfYear(temporalDate.[[ISOYear]], temporalDate.[[ISOMonth]], temporalDate.[[ISODay]])).
 features: [Temporal]

@@ -6,28 +6,16 @@ esid: sec-temporal.calendar.prototype.dayofweek
 description: Temporal.Calendar.prototype.dayOfWeek will take Temporal.PlainDateTime objects
   and return the day of week.
 info: |
-  1. Let calendar be the this value.
-  2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-  3. Assert: calendar.[[Identifier]] is "iso8601".
-  4. Let temporalDate be ? ToTemporalDate(temporalDateLike).
   5. Return 𝔽(! ToISODayOfWeek(temporalDate.[[ISOYear]], temporalDate.[[ISOMonth]], temporalDate.[[ISODay]])).
 features: [Temporal]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 
-assert.sameValue(4, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 1, 23, 5, 30, 13)));
-// leap year
-assert.sameValue(5, cal.dayOfWeek(new Temporal.PlainDateTime(1996, 2, 23, 5, 30, 13)));
-assert.sameValue(3, cal.dayOfWeek(new Temporal.PlainDateTime(2000, 2, 23, 5, 30, 13)));
-// non leap year
-assert.sameValue(7, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 2, 23, 5, 30, 13)));
-assert.sameValue(7, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 3, 23, 5, 30, 13)));
-assert.sameValue(3, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 4, 23, 5, 30, 13)));
-assert.sameValue(5, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 5, 23, 5, 30, 13)));
-assert.sameValue(1, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 6, 23, 5, 30, 13)));
-assert.sameValue(3, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 7, 23, 5, 30, 13)));
-assert.sameValue(6, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13)));
-assert.sameValue(2, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 9, 23, 5, 30, 13)));
-assert.sameValue(4, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 10, 23, 5, 30, 13)));
-assert.sameValue(7, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 11, 23, 5, 30, 13)));
-assert.sameValue(2, cal.dayOfWeek(new Temporal.PlainDateTime(1997, 12, 23, 5, 30, 13)));
+let dt = new Temporal.PlainDateTime(1997, 1, 23, 5, 30, 13);
+assert.sameValue(4, cal.dayOfWeek(dt));
+dt = new Temporal.PlainDateTime(1996, 2, 23, 5, 30, 13);
+assert.sameValue(5, cal.dayOfWeek(dt));
+dt = new Temporal.PlainDateTime(1997, 2, 23, 5, 30, 13);
+assert.sameValue(7, cal.dayOfWeek(dt));
+dt = new Temporal.PlainDateTime(1997, 6, 23, 5, 30, 13);
+assert.sameValue(1, cal.dayOfWeek(dt));
