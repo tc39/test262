@@ -93,11 +93,8 @@ class Template:
                 continue
 
             match = interpolatePattern.match(comment['source'])
-
-            if match == None:
-                continue
-
-            self.regions.insert(0, dict(name=match.group(1), **comment))
+            if match:
+                self.regions.insert(0, dict(name=match.group(1), **comment))
 
     def expand_regions(self, source, context):
         lines = source.split('\n')
@@ -113,7 +110,6 @@ class Template:
                 value = value.replace(str_char, safe_char)
                 value = value.replace('\n', '\\\n')
 
-            # TODO: document region_options and "codepoints" (`//- <region_name> codepoints`)
             if "codepoints" in context['region_options'].get(region_name, set()):
                 str_from_cp = chr
                 try:
@@ -214,9 +210,11 @@ class Template:
         return '\n'.join(lines)
 
     def expand(self, case_filename, case_name, case_values, encoding):
-        frontmatter = self._frontmatter(case_filename, case_values)
-        body = self.expand_regions(self.source, case_values)
-
         assert encoding == 'utf-8'
+        def get_source():
+            frontmatter = self._frontmatter(case_filename, case_values)
+            body = self.expand_regions(self.source, case_values)
+            return codecs.encode(frontmatter + '\n' + body, encoding)
         return Test(self.attribs['meta']['path'] + case_name + '.js',
-            source=codecs.encode(frontmatter + '\n' + body, encoding))
+            dynamic_source=get_source,
+            source_file_names=(self.filename, case_filename))
