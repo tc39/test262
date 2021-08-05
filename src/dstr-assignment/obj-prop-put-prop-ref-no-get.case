@@ -13,7 +13,7 @@ es6id: 12.14.5.4
 var setValue;
 var x = {
   get y() {
-    $ERROR('The property should not be accessed.');
+    throw new Test262Error('The property should not be accessed.');
   },
   set y(val) {
     setValue = val;
