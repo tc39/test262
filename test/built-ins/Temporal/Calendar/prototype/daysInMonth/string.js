@@ -1,16 +1,14 @@
 // Copyright (C) 2021 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-temporal.calendar.prototype.daysinmonth
 description: Temporal.Calendar.prototype.daysInMonth will take ISO8601 string
   and return the number of days in that month.
 info: |
-  1. Let calendar be the this value.
-  2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-  3. Assert: calendar.[[Identifier]] is "iso8601".
-  4. If Type(temporalDateLike) is not Object or temporalDateLike does not have an [[InitializedTemporalDate]] or [[InitializedTemporalYearMonth]] internal slots, then
-  a. Set temporalDateLike to ? ToTemporalDate(temporalDateLike).
+  4. If Type(temporalDateLike) is not Object or temporalDateLike does not have
+    an [[InitializedTemporalDate]] or [[InitializedTemporalYearMonth]] internal
+    slots, then
+    a. Set temporalDateLike to ? ToTemporalDate(temporalDateLike).
   5. Return 𝔽(! ISODaysInMonth(temporalDateLike.[[ISOYear]], temporalDateLike.[[ISOMonth]])).
 features: [Temporal]
 ---*/
