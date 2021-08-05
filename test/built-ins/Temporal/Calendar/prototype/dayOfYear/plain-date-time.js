@@ -1,11 +1,9 @@
 // Copyright (C) 2021 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-temporal.calendar.prototype.dayofyear
 description: Temporal.Calendar.prototype.dayOfYear will take PlainDateTime object and
-return the day of year.
-  and return Array of the same content.
+  return the day of year.
 info: |
   4. Let temporalDate be ? ToTemporalDate(temporalDateLike).
   5. Return 𝔽(! ToISODayOfYear(temporalDate.[[ISOYear]], temporalDate.[[ISOMonth]], temporalDate.[[ISODay]])).
