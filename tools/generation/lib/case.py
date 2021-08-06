@@ -7,7 +7,7 @@ import re
 from .util.find_comments import find_comments
 from .util.parse_yaml import parse_yaml
 
-regionStartPattern = re.compile(r'-\s+(\S+)(?P<options>\s*.*)?')
+regionStartPattern = re.compile(r'-\s+(\S+)(?P<options>\s*.*)')
 metaPattern = r'\/\*---\n([\s]*)((?:\s|\S)*)[\n\s*]---\*\/'
 
 class Case:
@@ -20,7 +20,7 @@ class Case:
     def _parse(self, source):
         case = dict(meta=None, regions=dict(), region_options=dict())
         region_name = None
-        region_start = 0
+        region_end = -1
         region_options = None
         lines = source.split('\n')
         search = re.search(metaPattern, source, re.DOTALL|re.MULTILINE)
@@ -31,22 +31,15 @@ class Case:
             if meta and not case['meta']:
                 case['meta'] = meta
 
-        for comment in find_comments(source):
+        for comment in reversed(list(find_comments(source))):
             match = regionStartPattern.match(comment['source'])
             if match:
-                if region_name:
-                    case['regions'][region_name] = \
-                        '\n'.join(lines[region_start:comment['lineno'] - 1])
-
                 region_name = match.group(1)
-                region_start = comment['lineno']
+                case['regions'][region_name] = \
+                    '\n'.join(lines[comment['lineno']:region_end])
                 region_options = match.group('options').split()
                 if region_options:
                     case['region_options'][region_name] = set(region_options)
-                continue
-
-        if region_name:
-            case['regions'][region_name] = \
-                '\n'.join(lines[region_start:-1])
+                region_end = comment['lineno'] - 1
 
         return case
