@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-initializedatetimeformat
-description:
+description: >
   Invalid values for the `timeZoneName` option of the DateTimeFormat constructor
 features: [Intl.DateTimeFormat-extend-timezonename]
 ---*/

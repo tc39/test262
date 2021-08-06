@@ -1,3 +1,3 @@
 {
-    "predef": ["$ERROR", "Intl"]
+    "predef": ["Intl"]
 }

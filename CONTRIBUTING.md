@@ -198,9 +198,9 @@ This key is for boolean properties associated with the test.
 - **async** - defer interpretation of test results until after the invocation
   of the global `$DONE` function
 - **generated** - informative flag used to denote test files that were
-  created procedurally using the project's test generation tool; refer to the
-  section titled "Procedurally-generated tests" for more information on this
-  process
+  created procedurally using the project's test generation tool; refer to
+  [Procedurally-generated tests](#procedurally-generated-tests)
+  for more information on this process
 - **CanBlockIsFalse** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `false`
 - **CanBlockIsTrue** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `true`
 
@@ -241,7 +241,6 @@ Function | Purpose
 `assert.throws(expectedErrorConstructor, fn, message)` | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
 `$DONOTEVALUATE()` | throw an exception if the code gets evaluated. This may only be used in [negative test cases for parsing errors](#handling-errors-and-negative-test-cases).
 `throw "Test262: This statement should not be evaluated.";` | throw an exception if the code gets evaluated. Use this if the test file has the `raw` flag and it's a negative test case for parsing error.
-`$ERROR(message)` | construct a Test262Error object and throw it <br>**DEPRECATED** -- Do not use in new tests. Use `assert`, `assert.*`, or `throw new Test262Error` instead.
 
 ```javascript
 /// error class
@@ -370,29 +369,37 @@ In some cases, it may be necessary for a test to intentionally violate the rules
 
 ## Procedurally-generated tests
 
-Some language features are expressed through a number of distinct syntactic forms. Test262 maintains these tests as a set of "test cases" and "test templates" in order to ensure equivalent coverage across all forms. The sub-directories within the `src/` directory describe the various language features that benefit from this approach.
+Some language features are expressed through a number of distinct syntactic forms. To ensure equivalent coverage across all of them, Test262 includes "test templates" and "test cases" in sub-directories under the `src/` directory. Test cases and test templates have the same sections as so-called "static" (i.e. non-generated) tests, although the expected metadata keys differ between test cases and test templates and the Body of each is subject to special interpretation as described below.
 
-Test cases and test templates specify meta-data using the same YAML frontmatter pattern as so-called "static" (i.e. non-generated) tests. The expected attributes differ between test cases and test templates:
+### test templates (`*.template`)
+The Body of a test template matches that of a non-generated test in which an arbitrary number of "placeholder" comments have replaced input elements. A placeholder comment is one whose content consists of an identifier wrapped in curly braces with optional interior whitespace, e.g. `/*{name}*/` or `/*{ name }*/`, which is replaced in each generated file with data from a test case.
+
+Expected [Frontmatter](#frontmatter) keys:
+Key | Description
+------|-------------
+`path` | location within the published test hierarchy to output files created from this template, each with a path formed by appending the name of the corresponding test case file. For example, a template with `path` "/test/language/template1-" used by test case file case1.js will generate a test file for that case at "/test/language/template1-case1.js".
+`name` | human-readable name of the syntactic form described by this template. Each generated test will have a `description` that is the result of appending the test template `name`, in parentheses, to the test case `desc` field.
+`esid` | see the general definition of the [`esid` frontmatter key](#esid).
+`info` | see the general definition of the [`info` frontmatter key](#info). Each generated test will have `info` that is the concatenation of the test template `info` field and the test case `info` field.
+`features` | see the general definition of the [`features` frontmatter key](#features). Each generated test will have a feature list that is the union of the test template `features` and the test case `features`.
+any other valid frontmatter field | see the general definitions.
 
 ### test cases (`*.case`)
-Field | Description
+The Body of a test case consists of a sequence of "value" comments, each followed by a line break and then content for use in a template. A value comment is one whose content consists of a whitespace-separated sequence of an initial ASCII dash, an identifier, and any number of optional tags, e.g. `//- name` or `//- character codepoints`. Line(s) after the value comment are trimmed of leading whitespace and then interpreted according to its tags and used as the replacement for any template placeholder comment sharing its identifier. The special identifiers "setup" and "teardown" always become the start and end (respectively) of the template Body.
+
+Currently-defined value comment tags:
+* `codepoints` indicates that the following line(s) of content are to be interpreted as a sequence of hexadecimal-encoded Unicode code points separated by whitespace. This is useful for definining content that includes whitespace or other invisible characters, e.g. `0000` represents a NULL character and `2028 2029` represents a line separator followed by a paragraph separator.
+
+Expected [Frontmatter](#frontmatter) keys:
+Key | Description
 ------|-------------
 `template` | a template file, directory or glob expression.
 `templates` | a list of template file, directory or glob expressions.
-`desc` | see the frontmatter definition of the "desc" field. The generated test will have a have final "desc" value which is this text appended with the test template's "name" field in parentheses.
-`info` | see the frontmatter definition of the "info" field. The generated test will have a have final "info" value which is this text concatenated at the end of the test templates's "info" text.
-`features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the template's feature field.
+`desc` | see the general definition of the [`description` frontmatter key](#description). Each generated test will have a `description` that is the result of appending the test template `name`, in parentheses, to the test case `desc` field.
+`info` | see the general definition of the [`info` frontmatter key](#info). Each generated test will have `info` that is the concatenation of the test template `info` field and the test case `info` field.
+`features` | see the general definition of the [`features` frontmatter key](#features). Each generated test will have a feature list that is the union of the test template `features` and the test case `features`.
 
-### test templates (`*.template`)
-Field | Description
-------|-------------
-`path` | location within the published test hierarchy to output files created from this template. This path will be ended with the name of the test case file. If path is "/test/language/template1-" and the test case is "case1.js", the final location of the file will be "/test/language/template1-case1.js"
-`name` | human-readable name of the syntactic form described by this template. This text will be appended, in parentheses, to the end of the test cases `desc` field.
-`esid` | see the frontmatter definition of the "info" key.
-`info` | see the frontmatter definition of the "info" key. The generated test will have a have final "info" value which is this text appended with the test cases's "info" text.
-`features` | see the frontmatter definition of the "features" field. The generated test will have a final feature list in combination with the test case's feature field.
-any other valid frontmatter field | see the frontmatter definitions.
-
+### Generated test management
 Generated files are managed using the `make.py` Python script located in the root of this repository. To use it, first install the required Python packages via the following command:
 
     python -m pip install --requirement tools/generation/requirements.txt
