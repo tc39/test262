@@ -15,4 +15,4 @@ features: [Temporal]
 ---*/
 let cal = new Temporal.Calendar("iso8601");
 
-assert.sameValue(15, cal.day("2019-03-15"));
+assert.sameValue(cal.day("2019-03-15"), 15, 'cal.day("2019-03-15") must return 15');

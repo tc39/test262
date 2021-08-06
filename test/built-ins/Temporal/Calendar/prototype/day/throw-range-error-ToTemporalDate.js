@@ -15,4 +15,4 @@ features: [Temporal, arrow-function]
 let cal = new Temporal.Calendar("iso8601");
 
 assert.throws(RangeError, () => cal.day("invalid string"),
-    "Throw RangeError if temporalDateLike is invalid");
+    'cal.day("invalid string") throws a RangeError exception');

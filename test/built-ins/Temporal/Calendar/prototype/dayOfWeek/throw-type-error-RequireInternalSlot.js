@@ -12,4 +12,4 @@ let cal = new Temporal.Calendar("iso8601");
 
 let badCal = { dayOfWeek: cal.dayOfWeek }
 assert.throws(TypeError, () => badCal.dayOfWeek("2021-03-04"),
-    "Throw TypeError if no internal slot");
+    'badCal.dayOfWeek("2021-03-04") throws a TypeError exception');

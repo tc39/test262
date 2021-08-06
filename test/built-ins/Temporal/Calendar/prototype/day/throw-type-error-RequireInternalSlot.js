@@ -12,4 +12,4 @@ let cal = new Temporal.Calendar("iso8601");
 
 let badCal = { day: cal.day }
 assert.throws(TypeError, () => badCal.day("2021-03-04"),
-    "Throw TypeError if there are no internal slot");
+    'badCal.day("2021-03-04") throws a TypeError exception');

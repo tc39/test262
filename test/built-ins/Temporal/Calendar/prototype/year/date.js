@@ -17,4 +17,4 @@ features: [Temporal]
 let cal = new Temporal.Calendar("iso8601");
 
 let date = new Temporal.PlainDate(2021, 7, 15);
-assert.sameValue(2021, cal.year(date));
+assert.sameValue(cal.year(date), 2021, 'cal.year(new Temporal.PlainDate(2021, 7, 15)) must return 2021');

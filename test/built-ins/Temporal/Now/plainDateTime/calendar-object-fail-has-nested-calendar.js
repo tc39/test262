@@ -18,4 +18,4 @@ var calendar = {
 
 assert.throws(Test262Error, function() {
   Temporal.Now.plainDateTime(calendar);
-});
+}, 'Temporal.Now.plainDateTime(calendar) throws a Test262Error exception');
