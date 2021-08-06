@@ -13,63 +13,63 @@ let cal = new Temporal.Calendar("iso8601");
 
 // From https://en.wikipedia.org/wiki/ISO_week_date#Relation_with_the_Gregorian_calendar
 let d = new Temporal.PlainDate(1977, 1, 1);
-assert.sameValue(cal.weekOfYear(), 53);
+assert.sameValue(cal.weekOfYear(d), 53);
 
 d = new Temporal.PlainDate(1977, 1, 2);
-assert.sameValue(cal.weekOfYear(), 53);
+assert.sameValue(cal.weekOfYear(d), 53);
 
 
 d = new Temporal.PlainDate(1977, 12, 31);
-assert.sameValue(cal.weekOfYear(), 52);
+assert.sameValue(cal.weekOfYear(d), 52);
 
 d = new Temporal.PlainDate(1978, 1, 1);
-assert.sameValue(cal.weekOfYear(), 52);
+assert.sameValue(cal.weekOfYear(d), 52);
 
 d = new Temporal.PlainDate(1978, 1, 2);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 
 d = new Temporal.PlainDate(1978, 12, 31);
-assert.sameValue(cal.weekOfYear(), 52);
+assert.sameValue(cal.weekOfYear(d), 52);
 
 d = new Temporal.PlainDate(1979, 1, 1);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 
 d = new Temporal.PlainDate(1979, 12, 30);
-assert.sameValue(cal.weekOfYear(), 52);
+assert.sameValue(cal.weekOfYear(d), 52);
 
 d = new Temporal.PlainDate(1979, 12, 31);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 d = new Temporal.PlainDate(1980, 1, 1);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 
 d = new Temporal.PlainDate(1980, 12, 28);
-assert.sameValue(cal.weekOfYear(), 52);
+assert.sameValue(cal.weekOfYear(d), 52);
 
 d = new Temporal.PlainDate(1980, 12, 29);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 d = new Temporal.PlainDate(1980, 12, 30);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 d = new Temporal.PlainDate(1980, 12, 31);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 d = new Temporal.PlainDate(1981, 1, 1);
-assert.sameValue(cal.weekOfYear(), 1);
+assert.sameValue(cal.weekOfYear(d), 1);
 
 
 d = new Temporal.PlainDate(1981, 12, 31);
-assert.sameValue(cal.weekOfYear(), 53);
+assert.sameValue(cal.weekOfYear(d), 53);
 
 d = new Temporal.PlainDate(1982, 1, 1);
-assert.sameValue(cal.weekOfYear(), 53);
+assert.sameValue(cal.weekOfYear(d), 53);
 
 d = new Temporal.PlainDate(1982, 1, 2);
-assert.sameValue(cal.weekOfYear(), 53);
+assert.sameValue(cal.weekOfYear(d), 53);
 
 d = new Temporal.PlainDate(1982, 1, 3);
-assert.sameValue(cal.weekOfYear(), 53);
+assert.sameValue(cal.weekOfYear(d), 53);
