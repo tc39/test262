@@ -15,11 +15,11 @@ testWithIntlConstructors(function (Constructor) {
       obj = new Constructor();
       newObj = Intl.DateTimeFormat.call(obj);
       if (obj !== newObj) {
-        $ERROR("Should have modified existing object.");
+        throw new Test262Error("Should have modified existing object.");
       }
       var key = Object.getOwnPropertySymbols(newObj)[0];
       if (!(newObj[key] instanceof Intl.DateTimeFormat)) {
-        $ERROR("Should have installed a DateTimeFormat instance.");
+        throw new Test262Error("Should have installed a DateTimeFormat instance.");
       }
       return true;
     }
@@ -28,7 +28,7 @@ testWithIntlConstructors(function (Constructor) {
     obj = new Constructor();
     newObj = Intl.DateTimeFormat.call(obj);
     if (obj === newObj) {
-      $ERROR("DateTimeFormat object created with \"new\" was not ignored as this-value.");
+      throw new Test262Error("DateTimeFormat object created with \"new\" was not ignored as this-value.");
     }
 
     return true;
