@@ -132,6 +132,10 @@ Intl.DisplayNames-v2
 # https://github.com/tc39/proposal-intl-extend-timezonename
 Intl.DateTimeFormat-extend-timezonename
 
+# Intl "Enumeration API"
+# https://github.com/tc39/proposal-intl-enumeration
+Intl-enumeration
+
 # Global
 # https://github.com/tc39/proposal-global
 globalThis
