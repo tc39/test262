@@ -20,11 +20,11 @@ obj.length = {
   },
   valueOf: null
 };
-assert(compareArray([].concat(obj), []));
+assert(compareArray([].concat(obj), []), 'compareArray([].concat(obj), []) must return true');
 obj.length = {
   toString: null,
   valueOf: function() {
     return "SIX";
   }
 };
-assert(compareArray([].concat(obj), []));
+assert(compareArray([].concat(obj), []), 'compareArray([].concat(obj), []) must return true');

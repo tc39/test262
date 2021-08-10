@@ -11,16 +11,25 @@ features: [Symbol.isConcatSpreadable]
 ---*/
 var str1 = new String("yuck\uD83D\uDCA9")
 // String wrapper objects are not concat-spreadable by default
-assert(compareArray([str1], [].concat(str1)));
+assert(compareArray([str1], [].concat(str1)), 'compareArray([str1], [].concat(str1)) must return true');
 
 // String wrapper objects may be individually concat-spreadable
 str1[Symbol.isConcatSpreadable] = true;
-assert(compareArray(["y", "u", "c", "k", "\uD83D", "\uDCA9"], [].concat(str1)));
+assert(
+  compareArray(["y", "u", "c", "k", "\uD83D", "\uDCA9"], [].concat(str1)),
+  'compareArray(["y", "u", "c", "k", "\\uD83D", "\\uDCA9"], [].concat(str1)) must return true'
+);
 
 String.prototype[Symbol.isConcatSpreadable] = true;
 // String wrapper objects may be concat-spreadable
-assert(compareArray(["y", "u", "c", "k", "\uD83D", "\uDCA9"], [].concat(new String("yuck\uD83D\uDCA9"))));
+assert(
+  compareArray(["y", "u", "c", "k", "\uD83D", "\uDCA9"], [].concat(new String("yuck\uD83D\uDCA9"))),
+  'compareArray(["y", "u", "c", "k", "\\uD83D", "\\uDCA9"], [].concat(new String("yuck\\uD83D\\uDCA9"))) must return true'
+);
 
 // String values are never concat-spreadable
-assert(compareArray(["yuck\uD83D\uDCA9"], [].concat("yuck\uD83D\uDCA9")));
+assert(
+  compareArray(["yuck\uD83D\uDCA9"], [].concat("yuck\uD83D\uDCA9")),
+  'compareArray(["yuck\\uD83D\\uDCA9"], [].concat("yuck\\uD83D\\uDCA9")) must return true'
+);
 delete String.prototype[Symbol.isConcatSpreadable];

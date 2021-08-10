@@ -15,8 +15,8 @@ var obj = {
   "5": "C"
 };
 obj[Symbol.isConcatSpreadable] = true;
-assert(compareArray([].concat(obj), []));
+assert(compareArray([].concat(obj), []), 'compareArray([].concat(obj), []) must return true');
 obj.length = -4294967294;
-assert(compareArray([].concat(obj), []));
+assert(compareArray([].concat(obj), []), 'compareArray([].concat(obj), []) must return true');
 obj.length = "-4294967294";
-assert(compareArray([].concat(obj), []));
+assert(compareArray([].concat(obj), []), 'compareArray([].concat(obj), []) must return true');
