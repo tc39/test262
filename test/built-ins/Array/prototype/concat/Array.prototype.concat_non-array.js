@@ -26,4 +26,4 @@ assert.sameValue(
   false,
   'The result of evaluating (result instanceof NonArray) is expected to be false'
 );
-assert(compareArray(result, [obj, 4, 5, 6]), 'compareArray(result, [obj, 4, 5, 6]) must return true');
+assert.compareArray(result, [obj, 4, 5, 6], 'The value of result is expected to be [obj, 4, 5, 6]');

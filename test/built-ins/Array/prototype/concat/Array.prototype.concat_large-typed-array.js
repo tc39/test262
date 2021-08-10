@@ -21,7 +21,7 @@ function concatTypedArray(type, elems, modulo) {
     'compareArray([].concat(ta, ta), [ta, ta]) must return true'
   );
   ta[Symbol.isConcatSpreadable] = true;
-  assert(compareArray([].concat(ta), items), 'compareArray([].concat(ta), items) must return true');
+  assert.compareArray([].concat(ta), items, '[].concat(new type(items)) returns items');
 
   assert(
     compareArray([].concat(ta_by_len, ta_by_len), [ta_by_len, ta_by_len]),
@@ -43,7 +43,7 @@ function concatTypedArray(type, elems, modulo) {
     value: 4000
   });
   ta[Symbol.isConcatSpreadable] = true;
-  assert(compareArray([].concat(ta), expected), 'compareArray([].concat(ta), expected) must return true');
+  assert.compareArray([].concat(ta), expected, '[].concat(new type(1)) returns expected');
 }
 
 var max = [Math.pow(2, 8), Math.pow(2, 16), Math.pow(2, 32), false, false];

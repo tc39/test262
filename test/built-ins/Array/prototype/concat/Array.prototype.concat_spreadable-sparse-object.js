@@ -13,13 +13,11 @@ var obj = {
   length: 5
 };
 obj[Symbol.isConcatSpreadable] = true;
-assert(
-  compareArray([void 0, void 0, void 0, void 0, void 0], [].concat(obj)),
-  'compareArray([void 0, void 0, void 0, void 0, void 0], [].concat(obj)) must return true'
+assert.compareArray([void 0, void 0, void 0, void 0, void 0], [].concat(obj),
+  '[void 0, void 0, void 0, void 0, void 0] must return the same value returned by [].concat(obj)'
 );
 
 obj.length = 4000;
-assert(
-  compareArray(new Array(4000), [].concat(obj)),
-  'compareArray(new Array(4000), [].concat(obj)) must return true'
+assert.compareArray(new Array(4000), [].concat(obj),
+  'new Array(4000) must return the same value returned by [].concat(obj)'
 );
