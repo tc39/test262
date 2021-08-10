@@ -10,4 +10,4 @@ features: [Temporal]
 let cal = new Temporal.Calendar("iso8601");
 
 let d = new Temporal.PlainDate(2021, 7, 15);
-assert.sameValue(cal.daysInWeek(d), 7);
+assert.sameValue(cal.daysInWeek(d), 7, 'cal.daysInWeek(new Temporal.PlainDate(2021, 7, 15)) must return 7');

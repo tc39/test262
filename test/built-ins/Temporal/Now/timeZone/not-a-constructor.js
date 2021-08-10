@@ -18,4 +18,4 @@ assert.sameValue(isConstructor(Temporal.Now.timeZone), false, 'isConstructor(Tem
 
 assert.throws(TypeError, () => {
   new Temporal.Now.timeZone();
-}, '`new Temporal.Now.timeZone()` throws TypeError');
+}, 'new Temporal.Now.timeZone() throws a TypeError exception');

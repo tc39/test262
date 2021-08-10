@@ -12,4 +12,4 @@ features: [Temporal]
 let cal = new Temporal.Calendar("iso8601");
 
 let date = new Temporal.PlainDate(2021, 7, 15);
-assert.sameValue(15, cal.day(date));
+assert.sameValue(cal.day(date), 15, 'cal.day(new Temporal.PlainDate(2021, 7, 15)) must return 15');

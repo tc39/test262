@@ -12,4 +12,4 @@ features: [Temporal]
 let cal = new Temporal.Calendar("iso8601");
 
 let date = new Temporal.PlainDate(2021, 7, 15);
-assert.sameValue("M07", cal.monthCode(date));
+assert.sameValue(cal.monthCode(date), "M07", 'cal.monthCode(new Temporal.PlainDate(2021, 7, 15)) must return "M07"');

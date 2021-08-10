@@ -11,4 +11,4 @@ let cal = new Temporal.Calendar("iso8601")
 
 assert.throws(RangeError, () => cal.dateFromFields({year: 2021, month: 7, day: 20},
       {overflow: "invalid garbage"}),
-    "RangeError should be throw from ISODateFromFields");
+    'cal.dateFromFields({year: 2021, month: 7, day: 20}, {overflow: "invalid garbage"}) throws a RangeError exception');

@@ -12,4 +12,4 @@ let cal = new Temporal.Calendar("iso8601")
 let badCal = {dateFromFields: cal.dateFromFields};
 
 assert.throws(TypeError, () => badCal.dateFromFields({}),
-    "calendar has no [[InitializedTemporalCalendar]]");
+    'badCal.dateFromFields({}) throws a TypeError exception');
