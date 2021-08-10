@@ -11,6 +11,9 @@ description: Function.prototype.toString = Object.prototype.toString
 
 //CHECK#1
 Function.prototype.toString = Object.prototype.toString;
-if (Array.toString() !== "[object " + "Function" + "]") {
-  throw new Test262Error('#1: Function.prototype.toString = Object.prototype.toString; Array.toString() === "[object " + "Function" + "]". Actual: ' + (Array.toString()));
-}
+
+assert.sameValue(
+  Array.toString(),
+  "[object Function]",
+  'Array.toString() must return "[object Function]"'
+);

@@ -33,6 +33,4 @@ for (var i = 0; i < 100; i++) {
   }
 }
 
-if (result !== true) {
-  throw new Test262Error('#1: x[i] === i. Actual: ' + (x[i]));
-}
+assert.sameValue(result, true, 'The value of result is expected to be true');
