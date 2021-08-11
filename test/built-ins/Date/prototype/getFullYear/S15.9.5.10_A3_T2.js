@@ -19,3 +19,5 @@ assert(
   !Date.prototype.getFullYear.hasOwnProperty('length'),
   'The value of !Date.prototype.getFullYear.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

@@ -14,3 +14,5 @@ if (x === 1) {
   Date.parse = 1;
 }
 assert.notSameValue(Date.parse, x, 'The value of Date.parse is expected to not equal the value of `x`');
+
+// TODO: Convert to verifyProperty() format.

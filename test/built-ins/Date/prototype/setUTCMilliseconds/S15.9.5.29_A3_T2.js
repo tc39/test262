@@ -18,3 +18,5 @@ assert(
   !Date.prototype.setUTCMilliseconds.hasOwnProperty('length'),
   'The value of !Date.prototype.setUTCMilliseconds.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

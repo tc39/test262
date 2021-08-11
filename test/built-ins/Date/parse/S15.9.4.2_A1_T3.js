@@ -14,3 +14,5 @@ assert(
 for (var x in Date) {
   assert.notSameValue(x, "parse", 'The value of x is not "parse"');
 }
+
+// TODO: Convert to verifyProperty() format.

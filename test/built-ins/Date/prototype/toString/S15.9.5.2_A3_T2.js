@@ -19,3 +19,5 @@ assert(
   !Date.prototype.toString.hasOwnProperty('length'),
   'The value of !Date.prototype.toString.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

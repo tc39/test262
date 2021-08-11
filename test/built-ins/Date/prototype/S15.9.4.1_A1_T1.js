@@ -13,3 +13,5 @@ includes: [propertyHelper.js]
 var x = Date.prototype;
 verifyNotWritable(Date, "prototype", null, 1);
 assert.sameValue(Date.prototype, x, 'The value of Date.prototype is expected to equal the value of x');
+
+// TODO: Convert to verifyProperty() format.

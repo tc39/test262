@@ -14,3 +14,5 @@ assert(
   !Date.parse.hasOwnProperty('length'),
   'The value of !Date.parse.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

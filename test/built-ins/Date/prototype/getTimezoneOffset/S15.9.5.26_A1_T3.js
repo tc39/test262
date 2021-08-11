@@ -16,3 +16,5 @@ assert(
 for (var x in Date.prototype) {
   assert.notSameValue(x, "getTimezoneOffset", 'The value of x is not "getTimezoneOffset"');
 }
+
+// TODO: Convert to verifyProperty() format.

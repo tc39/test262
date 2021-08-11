@@ -16,3 +16,5 @@ assert(
   !Date.prototype.hasOwnProperty('setMilliseconds'),
   'The value of !Date.prototype.hasOwnProperty(\'setMilliseconds\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

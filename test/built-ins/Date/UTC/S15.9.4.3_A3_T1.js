@@ -14,3 +14,5 @@ includes: [propertyHelper.js]
 var x = Date.UTC.length;
 verifyNotWritable(Date.UTC, "length", null, 1);
 assert.sameValue(Date.UTC.length, x, 'The value of Date.UTC.length is expected to equal the value of x');
+
+// TODO: Convert to verifyProperty() format.

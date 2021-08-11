@@ -14,3 +14,5 @@ assert(
 for (var x in Date.prototype) {
   assert.notSameValue(x, "constructor", 'The value of x is not "constructor"');
 }
+
+// TODO: Convert to verifyProperty() format.

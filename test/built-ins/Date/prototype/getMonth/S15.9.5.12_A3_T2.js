@@ -18,3 +18,5 @@ assert(
   !Date.prototype.getMonth.hasOwnProperty('length'),
   'The value of !Date.prototype.getMonth.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

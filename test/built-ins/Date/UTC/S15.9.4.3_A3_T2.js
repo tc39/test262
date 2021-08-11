@@ -16,3 +16,5 @@ assert(
   !Date.UTC.hasOwnProperty('length'),
   'The value of !Date.UTC.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.
