@@ -9,12 +9,7 @@ description: >
     throw a TypeError exception
 ---*/
 
-
-try {
+assert.throws(TypeError, () => {
   new Array.prototype.slice();
-  throw new Test262Error('#1.1: new Array.prototype.slice() throw TypeError. Actual: ' + (new Array.prototype.slice()));
-} catch (e) {
-  if ((e instanceof TypeError) !== true) {
-    throw new Test262Error('#1.2: new Array.prototype.slice() throw TypeError. Actual: ' + (e));
-  }
-}
+  throw new Test262Error();
+});
