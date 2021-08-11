@@ -9,3 +9,5 @@ description: Checking absence of DontDelete attribute
 ---*/
 assert.notSameValue(delete Date.UTC, false, 'The value of delete Date.UTC is not false');
 assert(!Date.hasOwnProperty('UTC'), 'The value of !Date.hasOwnProperty(\'UTC\') is expected to be true');
+
+// TODO: Convert to verifyProperty() format.

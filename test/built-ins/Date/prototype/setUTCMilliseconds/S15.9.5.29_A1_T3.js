@@ -16,3 +16,5 @@ assert(
 for (var x in Date.prototype) {
   assert.notSameValue(x, "setUTCMilliseconds", 'The value of x is not "setUTCMilliseconds"');
 }
+
+// TODO: Convert to verifyProperty() format.

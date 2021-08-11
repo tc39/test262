@@ -24,3 +24,5 @@ try {
 if (!Date.hasOwnProperty('prototype')) {
   throw new Test262Error('#2: The Date.prototype property has the attributes DontDelete');
 }
+
+// TODO: Convert to verifyProperty() format.

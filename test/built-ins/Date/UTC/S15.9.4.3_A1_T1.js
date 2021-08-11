@@ -15,3 +15,5 @@ if (x === 1) {
   Date.UTC = 1;
 }
 assert.notSameValue(Date.UTC, x, 'The value of Date.UTC is expected to not equal the value of `x`');
+
+// TODO: Convert to verifyProperty() format.

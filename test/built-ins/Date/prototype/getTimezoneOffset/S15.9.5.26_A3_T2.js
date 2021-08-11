@@ -18,3 +18,5 @@ assert(
   !Date.prototype.getTimezoneOffset.hasOwnProperty('length'),
   'The value of !Date.prototype.getTimezoneOffset.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

@@ -19,3 +19,5 @@ assert(
   !Date.prototype.hasOwnProperty('toLocaleTimeString'),
   'The value of !Date.prototype.hasOwnProperty(\'toLocaleTimeString\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

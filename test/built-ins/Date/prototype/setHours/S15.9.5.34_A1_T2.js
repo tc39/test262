@@ -12,3 +12,5 @@ assert(
   !Date.prototype.hasOwnProperty('setHours'),
   'The value of !Date.prototype.hasOwnProperty(\'setHours\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

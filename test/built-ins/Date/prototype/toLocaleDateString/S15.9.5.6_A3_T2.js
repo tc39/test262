@@ -18,3 +18,5 @@ assert(
   !Date.prototype.toLocaleDateString.hasOwnProperty('length'),
   'The value of !Date.prototype.toLocaleDateString.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

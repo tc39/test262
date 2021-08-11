@@ -16,3 +16,5 @@ assert(
   !Date.prototype.hasOwnProperty('setFullYear'),
   'The value of !Date.prototype.hasOwnProperty(\'setFullYear\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

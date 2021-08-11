@@ -16,3 +16,5 @@ assert(
   !Date.prototype.hasOwnProperty('setUTCMonth'),
   'The value of !Date.prototype.hasOwnProperty(\'setUTCMonth\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

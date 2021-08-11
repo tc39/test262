@@ -16,3 +16,5 @@ assert(
   !Date.prototype.hasOwnProperty('toDateString'),
   'The value of !Date.prototype.hasOwnProperty(\'toDateString\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

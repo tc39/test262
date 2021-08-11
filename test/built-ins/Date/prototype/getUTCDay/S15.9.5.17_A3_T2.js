@@ -18,3 +18,5 @@ assert(
   !Date.prototype.getUTCDay.hasOwnProperty('length'),
   'The value of !Date.prototype.getUTCDay.hasOwnProperty(\'length\') is expected to be true'
 );
+
+// TODO: Convert to verifyProperty() format.

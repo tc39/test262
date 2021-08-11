@@ -18,3 +18,5 @@ assert.sameValue(
   x,
   'The value of Date.prototype.setUTCMonth.length is expected to equal the value of x'
 );
+
+// TODO: Convert to verifyProperty() format.

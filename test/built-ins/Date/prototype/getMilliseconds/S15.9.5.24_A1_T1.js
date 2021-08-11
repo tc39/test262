@@ -20,3 +20,5 @@ assert.notSameValue(
   x,
   'The value of Date.prototype.getMilliseconds is expected to not equal the value of `x`'
 );
+
+// TODO: Convert to verifyProperty() format.

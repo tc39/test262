@@ -19,3 +19,5 @@ assert.sameValue(
   x,
   'The value of Date.prototype.getHours.length is expected to equal the value of x'
 );
+
+// TODO: Convert to verifyProperty() format.
