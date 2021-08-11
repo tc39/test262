@@ -13,7 +13,7 @@ info: |
     6. If seconds is supplied use ToNumber(seconds)
     7. If ms is supplied use ToNumber(ms)
 esid: sec-date-year-month-date-hours-minutes-seconds-ms
-description: 2 arguments, (year, month)
+description: 1 argument (year)
 ---*/
 
 function PoisonedValueOf(val) {
@@ -25,9 +25,5 @@ function PoisonedValueOf(val) {
 }
 
 assert.throws(Test262Error, () => {
-  new Date(new PoisonedValueOf(1), new PoisonedValueOf(2));
-}, '`new Date(new PoisonedValueOf(1), new PoisonedValueOf(2))` throws a Test262Error exception');
-
-assert.throws(Test262Error, () => {
-  new Date(1, new PoisonedValueOf(2));
-}, '`new Date(1, new PoisonedValueOf(2))` throws a Test262Error exception');
+  new Date(new PoisonedValueOf(1));
+}, '`new Date(new PoisonedValueOf(1))` throws a Test262Error exception');

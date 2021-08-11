@@ -13,11 +13,11 @@ includes: [propertyHelper.js]
 verifyNotConfigurable(Date, "prototype");
 
 try {
-  if (delete Date.prototype !== false) {
-    throw new Test262Error('#1: The Date.prototype property has the attributes DontDelete');
-  }
+  assert.sameValue(delete Date.prototype, false);
 } catch (e) {
-  if (e instanceof Test262Error) throw e;
+  if (e instanceof Test262Error) {
+    throw e;
+  }
   assert(e instanceof TypeError);
 }
 
