@@ -7,7 +7,6 @@ esid: sec-array.prototype.join
 description: If Type(argument) is Object, evaluate ToPrimitive(argument, String)
 ---*/
 
-//CHECK#1
 var object = {
   valueOf: function() {
     return "+"
@@ -18,7 +17,6 @@ if (x.join() !== "[object Object]") {
   throw new Test262Error('#1: var object = {valueOf: function() {return "+"}} var x = new Array(object); x.join() === "[object Object]". Actual: ' + (x.join()));
 }
 
-//CHECK#2
 var object = {
   valueOf: function() {
     return "+"
@@ -32,7 +30,6 @@ if (x.join() !== "*") {
   throw new Test262Error('#2: var object = {valueOf: function() {return "+"}, toString: function() {return "*"}} var x = new Array(object); x.join() === "*". Actual: ' + (x.join()));
 }
 
-//CHECK#3
 var object = {
   valueOf: function() {
     return "+"
@@ -46,7 +43,6 @@ if (x.join() !== "+") {
   throw new Test262Error('#3: var object = {valueOf: function() {return "+"}, toString: function() {return {}}} var x = new Array(object); x.join() === "+". Actual: ' + (x.join()));
 }
 
-//CHECK#4
 try {
   var object = {
     valueOf: function() {
@@ -69,7 +65,6 @@ catch (e) {
   }
 }
 
-//CHECK#5
 var object = {
   toString: function() {
     return "*"
@@ -80,7 +75,6 @@ if (x.join() !== "*") {
   throw new Test262Error('#5: var object = {toString: function() {return "*"}} var x = new Array(object); x.join() === "*". Actual: ' + (x.join()));
 }
 
-//CHECK#6
 var object = {
   valueOf: function() {
     return {}
@@ -94,7 +88,6 @@ if (x.join() !== "*") {
   throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return "*"}} var x = new Array(object); x.join() === "*". Actual: ' + (x.join()));
 }
 
-//CHECK#7
 try {
   var object = {
     valueOf: function() {
@@ -114,7 +107,6 @@ catch (e) {
   }
 }
 
-//CHECK#8
 try {
   var object = {
     valueOf: function() {

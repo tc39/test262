@@ -9,7 +9,6 @@ description: >
     throw a TypeError exception
 ---*/
 
-//CHECK#1
 
 try {
   new Array.prototype.unshift();

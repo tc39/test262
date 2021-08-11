@@ -10,7 +10,6 @@ description: >
 ---*/
 
 var x = new Array(0, 1, 2, 3);
-//CHECK#1
 var object = {
   valueOf: function() {
     return "+"
@@ -20,7 +19,6 @@ if (x.join(object) !== "0[object Object]1[object Object]2[object Object]3") {
   throw new Test262Error('#1: var object = {valueOf: function() {return "+"}}; x.join(object) === "0[object Object]1[object Object]2[object Object]3". Actual: ' + (x.join(object)));
 }
 
-//CHECK#2
 var object = {
   valueOf: function() {
     return "+"
@@ -33,7 +31,6 @@ if (x.join(object) !== "0*1*2*3") {
   throw new Test262Error('#2: var object = {valueOf: function() {return "+"}, toString: function() {return "*"}}; x.join(object) === "0*1*2*3". Actual: ' + (x.join(object)));
 }
 
-//CHECK#3
 var object = {
   valueOf: function() {
     return "+"
@@ -46,7 +43,6 @@ if (x.join(object) !== "0+1+2+3") {
   throw new Test262Error('#3: var object = {valueOf: function() {return "+"}, toString: function() {return {}}}; x.join(object) === "0+1+2+3". Actual: ' + (x.join(object)));
 }
 
-//CHECK#4
 try {
   var object = {
     valueOf: function() {
@@ -68,7 +64,6 @@ catch (e) {
   }
 }
 
-//CHECK#5
 var object = {
   toString: function() {
     return "*"
@@ -78,7 +73,6 @@ if (x.join(object) !== "0*1*2*3") {
   throw new Test262Error('#5: var object = {toString: function() {return "*"}}; x.join(object) === "0*1*2*3". Actual: ' + (x.join(object)));
 }
 
-//CHECK#6
 var object = {
   valueOf: function() {
     return {}
@@ -91,7 +85,6 @@ if (x.join(object) !== "0*1*2*3") {
   throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return "*"}}; x.join(object) === "0*1*2*3". Actual: ' + (x.join(object)));
 }
 
-//CHECK#7
 try {
   var object = {
     valueOf: function() {
@@ -110,7 +103,6 @@ catch (e) {
   }
 }
 
-//CHECK#8
 try {
   var object = {
     valueOf: function() {
@@ -129,7 +121,6 @@ catch (e) {
   }
 }
 
-//CHECK#9
 try {
   var object = {
     toString: function() {

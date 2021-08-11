@@ -14,7 +14,6 @@ description: >
 var obj = {};
 obj.push = Array.prototype.push;
 
-//CHECK#1
 obj.length = {
   valueOf: function() {
     return 3
@@ -25,7 +24,6 @@ if (push !== 3) {
   throw new Test262Error('#1:  obj.length = {valueOf: function() {return 3}}  obj.push() === 3. Actual: ' + (push));
 }
 
-//CHECK#2
 obj.length = {
   valueOf: function() {
     return 3
@@ -39,7 +37,6 @@ if (push !== 3) {
   throw new Test262Error('#0:  obj.length = {valueOf: function() {return 3}, toString: function() {return 1}}  obj.push() === 3. Actual: ' + (push));
 }
 
-//CHECK#3
 obj.length = {
   valueOf: function() {
     return 3
@@ -53,7 +50,6 @@ if (push !== 3) {
   throw new Test262Error('#1:  obj.length = {valueOf: function() {return 3}, toString: function() {return {}}}  obj.push() === 3. Actual: ' + (push));
 }
 
-//CHECK#4
 try {
 
   obj.length = {
@@ -77,7 +73,6 @@ catch (e) {
   }
 }
 
-//CHECK#5
 obj.length = {
   toString: function() {
     return 1
@@ -88,7 +83,6 @@ if (push !== 1) {
   throw new Test262Error('#5:  obj.length = {toString: function() {return 1}}  obj.push() === 1. Actual: ' + (push));
 }
 
-//CHECK#6
 obj.length = {
   valueOf: function() {
     return {}
@@ -102,7 +96,6 @@ if (push !== 1) {
   throw new Test262Error('#6:  obj.length = {valueOf: function() {return {}}, toString: function() {return 1}}  obj.push() === 1. Actual: ' + (push));
 }
 
-//CHECK#7
 try {
 
   obj.length = {
@@ -122,7 +115,6 @@ catch (e) {
   }
 }
 
-//CHECK#8
 try {
 
   obj.length = {

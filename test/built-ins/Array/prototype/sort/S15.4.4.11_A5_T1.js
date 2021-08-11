@@ -7,7 +7,6 @@ esid: sec-array.prototype.sort
 description: comparefn function throw "error"
 ---*/
 
-//CHECK#1
 var myComparefn = function(x, y) {
   throw "error";
 }

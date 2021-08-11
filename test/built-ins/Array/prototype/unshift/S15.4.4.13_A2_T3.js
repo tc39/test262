@@ -14,7 +14,6 @@ description: >
 var obj = {};
 obj.unshift = Array.prototype.unshift;
 
-//CHECK#1
 obj.length = {
   valueOf: function() {
     return 3
@@ -25,7 +24,6 @@ if (unshift !== 3) {
   throw new Test262Error('#1:  obj.length = {valueOf: function() {return 3}}  obj.unshift() === 3. Actual: ' + (unshift));
 }
 
-//CHECK#2
 obj.length = {
   valueOf: function() {
     return 3
@@ -39,7 +37,6 @@ if (unshift !== 3) {
   throw new Test262Error('#0:  obj.length = {valueOf: function() {return 3}, toString: function() {return 1}}  obj.unshift() === 3. Actual: ' + (unshift));
 }
 
-//CHECK#3
 obj.length = {
   valueOf: function() {
     return 3
@@ -53,7 +50,6 @@ if (unshift !== 3) {
   throw new Test262Error('#1:  obj.length = {valueOf: function() {return 3}, toString: function() {return {}}}  obj.unshift() === 3. Actual: ' + (unshift));
 }
 
-//CHECK#4
 try {
   obj.length = {
     valueOf: function() {
@@ -76,7 +72,6 @@ catch (e) {
   }
 }
 
-//CHECK#5
 obj.length = {
   toString: function() {
     return 1
@@ -87,7 +82,6 @@ if (unshift !== 1) {
   throw new Test262Error('#5:  obj.length = {toString: function() {return 1}}  obj.unshift() === 1. Actual: ' + (unshift));
 }
 
-//CHECK#6
 obj.length = {
   valueOf: function() {
     return {}
@@ -101,7 +95,6 @@ if (unshift !== 1) {
   throw new Test262Error('#6:  obj.length = {valueOf: function() {return {}}, toString: function() {return 1}}  obj.unshift() === 1. Actual: ' + (unshift));
 }
 
-//CHECK#7
 try {
 
   obj.length = {
@@ -121,7 +114,6 @@ catch (e) {
   }
 }
 
-//CHECK#8
 try {
 
   obj.length = {

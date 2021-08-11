@@ -14,7 +14,6 @@ description: >
 var obj = {};
 obj.shift = Array.prototype.shift;
 
-//CHECK#1
 obj[0] = -1;
 obj.length = {
   valueOf: function() {
@@ -26,7 +25,6 @@ if (shift !== -1) {
   throw new Test262Error('#1: obj[0] = -1; obj.length = {valueOf: function() {return 1}}  obj.shift() === -1. Actual: ' + (shift));
 }
 
-//CHECK#2
 obj[0] = -1;
 obj.length = {
   valueOf: function() {
@@ -41,7 +39,6 @@ if (shift !== -1) {
   throw new Test262Error('#0: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {return 0}}  obj.shift() === -1. Actual: ' + (shift));
 }
 
-//CHECK#3
 obj[0] = -1;
 obj.length = {
   valueOf: function() {
@@ -56,7 +53,6 @@ if (shift !== -1) {
   throw new Test262Error('#3: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {return {}}}  obj.shift() === -1. Actual: ' + (shift));
 }
 
-//CHECK#4
 try {
   obj[0] = -1;
   obj.length = {
@@ -80,7 +76,6 @@ catch (e) {
   }
 }
 
-//CHECK#5
 obj[0] = -1;
 obj.length = {
   toString: function() {
@@ -92,7 +87,6 @@ if (shift !== undefined) {
   throw new Test262Error('#5: obj[0] = -1; obj.length = {toString: function() {return 0}}  obj.shift() === undefined. Actual: ' + (shift));
 }
 
-//CHECK#6
 obj[0] = -1;
 obj.length = {
   valueOf: function() {
@@ -107,7 +101,6 @@ if (shift !== undefined) {
   throw new Test262Error('#6: obj[0] = -1; obj.length = {valueOf: function() {return {}}, toString: function() {return 0}}  obj.shift() === undefined. Actual: ' + (shift));
 }
 
-//CHECK#7
 try {
   obj[0] = -1;
   obj.length = {
@@ -127,7 +120,6 @@ catch (e) {
   }
 }
 
-//CHECK#8
 try {
   obj[0] = -1;
   obj.length = {
