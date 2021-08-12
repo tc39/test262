@@ -3,8 +3,8 @@
 /*---
 esid: sec-%typedarray%.prototype.values
 description: Return abrupt when "this" value fails buffer boundary checks
-includes: [testTypedArray.js]
-features: [ArrayBuffer, TypedArray, arrow-function, resizable-arraybuffer]
+includes: [testBigIntTypedArray.js]
+features: [ArrayBuffer, BigInt, TypedArray, arrow-function, resizable-arraybuffer]
 ---*/
 
 assert.sameValue(
@@ -19,7 +19,7 @@ assert.sameValue(
   'implements ArrayBuffer.prototype.resize'
 );
 
-testWithTypedArrayConstructors(TA => {
+testWithBigIntTypedArrayConstructors(TA => {
   var BPE = TA.BYTES_PER_ELEMENT;
   var ab = new ArrayBuffer(BPE * 4, {maxByteLength: BPE * 5});
   var array = new TA(ab, BPE, 2);
