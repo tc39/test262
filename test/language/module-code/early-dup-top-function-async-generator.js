@@ -17,4 +17,4 @@ negative:
 $DONOTEVALUATE();
 
 function x() {}
-function x() {}
+async function* x() {}
