@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 10.2.1
+esid: sec-module-semantics-static-semantics-early-errors
 description: >
     It is a Syntax Error if the LexicallyDeclaredNames of ModuleItemList
     contains any duplicate entries.
@@ -16,10 +16,5 @@ negative:
 
 $DONOTEVALUATE();
 
-function x() {
-
-}
-
-async function x() {
-
-}
+function x() {}
+async function x() {}
