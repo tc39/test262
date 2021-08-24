@@ -95,5 +95,4 @@ assert.throws(TypeError, () => {
   };
   var x = new Array(object);
   x.toString();
-  throw new Test262Error();
 });

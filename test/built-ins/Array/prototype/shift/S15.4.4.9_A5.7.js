@@ -11,5 +11,4 @@ description: >
 
 assert.throws(TypeError, () => {
   new Array.prototype.shift();
-  throw new Test262Error();
 });

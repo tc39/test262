@@ -12,5 +12,4 @@ description: >
 
 assert.throws(TypeError, () => {
   new Array.prototype.toLocaleString();
-  throw new Test262Error();
 });

@@ -15,12 +15,10 @@ assert.throws(TypeError, () => {
   var s1 = new String();
   s1.toString = Boolean.prototype.toString;
   var v1 = s1.toString();
-  throw new Test262Error();
 });
 
 assert.throws(TypeError, () => {
   var s2 = new String();
   s2.myToString = Boolean.prototype.toString;
   var v2 = s2.myToString();
-  throw new Test262Error();
 });

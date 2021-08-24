@@ -12,5 +12,4 @@ description: >
 
 assert.throws(TypeError, () => {
   new Array.prototype.toString();
-  throw new Test262Error();
 });

@@ -14,12 +14,10 @@ assert.throws(TypeError, () => {
   var s1 = new Number();
   s1.valueOf = Boolean.prototype.valueOf;
   s1.valueOf();
-  throw new Test262Error();
 });
 
 assert.throws(TypeError, () => {
   var s2 = new Number();
   s2.myvalueOf = Boolean.prototype.valueOf;
   s2.myvalueOf();
-  throw new Test262Error();
 });

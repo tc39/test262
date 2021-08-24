@@ -90,5 +90,4 @@ assert.throws(TypeError, () => {
     }
   };
   obj.join();
-  throw new Test262Error();
 });
