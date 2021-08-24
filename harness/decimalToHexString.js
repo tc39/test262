@@ -20,7 +20,15 @@ function decimalToHexString(n) {
   return s;
 }
 
+var decimalToPercentHexString$ = new Array(256);
+
 function decimalToPercentHexString(n) {
-  var hex = "0123456789ABCDEF";
-  return "%" + hex[(n >> 4) & 0xf] + hex[n & 0xf];
+  var s = decimalToPercentHexString$[n];
+  if (!s) {
+    var hex = "0123456789ABCDEF";
+    var cH = hex[(n >> 4) & 0xf];
+    var cL = hex[n & 0xf];
+    s = decimalToPercentHexString$[n] = `%${cH}${cL}`;
+  }
+  return s;
 }
