@@ -11,5 +11,4 @@ description: >
 
 assert.throws(TypeError, () => {
   new Array.prototype.reverse();
-  throw new Test262Error();
 });

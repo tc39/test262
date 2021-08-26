@@ -14,6 +14,4 @@ assert.throws(RangeError, () => {
   obj[4294967295] = "y";
   obj.length = 4294967296;
   obj.slice(0, 4294967296);
-  new Array.prototype.toLocaleString();
-  throw new Test262Error();
 });

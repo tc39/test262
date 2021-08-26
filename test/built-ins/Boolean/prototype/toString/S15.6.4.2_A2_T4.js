@@ -16,12 +16,10 @@ assert.throws(TypeError, () => {
   var s1 = new Object();
   s1.toString = Boolean.prototype.toString;
   s1.toString();
-  throw new Test262Error();
 });
 
 assert.throws(TypeError, () => {
   var s2 = new Object();
   s2.myToString = Boolean.prototype.toString;
   s2.myToString();
-  throw new Test262Error();
 });
