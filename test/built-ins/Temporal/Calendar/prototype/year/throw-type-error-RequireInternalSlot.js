@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.year
-description: Temporal.Calendar.prototype.year throws TypeError on
+description: >
+  Temporal.Calendar.prototype.year throws TypeError on
   RequireInternalSlot if object has no internal slot.
 info: |
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).

@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-temporal.calendar.prototype.dayOfWeek
-description: Temporal.Calendar.prototype.dayOfWeek throws TypeError
+description: >
+  Temporal.Calendar.prototype.dayOfWeek throws TypeError
   when the internal lot is not presented.
 info: |
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
