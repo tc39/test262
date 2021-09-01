@@ -12,11 +12,12 @@ for (var indexI = 0; indexI <= 65535; indexI++) {
   if (indexI !== 0x25) {
     try {
       var str = String.fromCharCode(indexI);
-      if (decodeURIComponent(str) !== str) {
-        throw new Test262Error('#' + decimalToHexString(indexI) + ' ');
-      }
+      var differs = decodeURIComponent(str) !== str;
     } catch (e) {
-      throw new Test262Error('#' + decimalToHexString(indexI) + ' ');
+      throw new Test262Error('#' + decimalToHexString(indexI) + ' throws');
+    }
+    if (differs) {
+      throw new Test262Error('#' + decimalToHexString(indexI) + ' differs');
     }
   }
 }
