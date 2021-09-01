@@ -14,10 +14,11 @@ for (var indexI = 0; indexI <= 65535; indexI++) {
   try {
     var xx = 0;
     eval("/*var " + String.fromCharCode(indexI) + "xx = 1*/");
-    if (xx !== 0) {
-      throw new Test262Error('#' + decimalToHexString(indexI) + ' ');
-    }
+    var differs = xx !== 0;
   } catch (e){
-    throw new Test262Error('#' + decimalToHexString(indexI) + ' ');
+    throw new Test262Error('#' + decimalToHexString(indexI) + ' throws');
+  }
+  if (differs) {
+    throw new Test262Error('#' + decimalToHexString(indexI) + ' differs');
   }
 }
