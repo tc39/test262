@@ -249,9 +249,9 @@ resizable-arraybuffer
 # https://github.com/tc39/proposal-temporal
 Temporal
 
-# Callable Boundary Realms
+# ShadowRealm, née Callable Boundary Realms
 # https://github.com/tc39/proposal-realms
-callable-boundary-realms
+ShadowRealm
 
 # Array.prototype.findLast & Array.prototype.findLastIndex
 # https://github.com/tc39/proposal-array-find-from-last
