@@ -25,7 +25,7 @@ const realm = new ShadowRealm();
 
 assert(Object.isExtensible(realm));
 
-Object.defineProperty(realm, 'foo', {});
+Object.defineProperty(realm, 'foo', { configurable: true });
 assert(realm.hasOwnProperty('foo'), 'confirms extensibility adding a new property');
 
 Object.defineProperty(realm, 'foo', {
