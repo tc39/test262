@@ -1,18 +1,18 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm-constructor
+esid: sec-shadowrealm-constructor
 description: >
-  Realm is a constructor and has [[Construct]] internal method.
+  ShadowRealm is a constructor and has [[Construct]] internal method.
 includes: [isConstructor.js]
 features: [ShadowRealm, Reflect.construct]
 ---*/
 assert.sameValue(
-  typeof Realm,
+  typeof ShadowRealm,
   'function',
-  'This test must fail if Realm is not a function'
+  'This test must fail if ShadowRealm is not a function'
 );
 
-assert(isConstructor(Realm));
-assert.sameValue(Object.getPrototypeOf(Realm), Function.prototype);
-new Realm();
+assert(isConstructor(ShadowRealm));
+assert.sameValue(Object.getPrototypeOf(ShadowRealm), Function.prototype);
+new ShadowRealm();

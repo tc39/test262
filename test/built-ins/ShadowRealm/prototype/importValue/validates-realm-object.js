@@ -1,21 +1,21 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.importvalue
+esid: sec-shadowrealm.prototype.importvalue
 description: >
-  Realm.prototype.importValue validates realm object.
+  ShadowRealm.prototype.importValue validates realm object.
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.importValue,
+  typeof ShadowRealm.prototype.importValue,
   'function',
-  'This test must fail if Realm.prototype.importValue is not a function'
+  'This test must fail if ShadowRealm.prototype.importValue is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 const bogus = {};
 
 assert.throws(TypeError, function() {
   r.importValue.call(bogus, "specifier", "name");
-}, 'throws a TypeError if this is not a Realm object');
+}, 'throws a TypeError if this is not a ShadowRealm object');

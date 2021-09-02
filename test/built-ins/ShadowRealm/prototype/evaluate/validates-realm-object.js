@@ -1,21 +1,21 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  Realm.prototype.evaluate validates realm object.
+  ShadowRealm.prototype.evaluate validates realm object.
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.evaluate,
+  typeof ShadowRealm.prototype.evaluate,
   'function',
-  'This test must fail if Realm.prototype.evaluate is not a function'
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 const bogus = {};
 
 assert.throws(TypeError, function() {
   r.evaluate.call(bogus, '');
-}, 'throws a TypeError if this is not a Realm object');
+}, 'throws a TypeError if this is not a ShadowRealm object');

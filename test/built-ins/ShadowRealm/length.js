@@ -1,11 +1,11 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm-constructor
+esid: sec-shadowrealm-constructor
 description: >
-  The value of Realm.length is 0
+  The value of ShadowRealm.length is 0
 info: |
-  Realm ( )
+  ShadowRealm ( )
 
   Every built-in function object, including constructors, has a "length" property
   whose value is a non-negative integral Number. Unless otherwise specified, this value
@@ -20,7 +20,7 @@ includes: [propertyHelper.js]
 features: [ShadowRealm]
 ---*/
 
-verifyProperty(Realm, "length", {
+verifyProperty(ShadowRealm, "length", {
   value: 0,
   enumerable: false,
   writable: false,

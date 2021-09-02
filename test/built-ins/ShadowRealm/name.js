@@ -3,7 +3,7 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  The value of Realm.name is 'Realm'
+  The value of ShadowRealm.name is 'ShadowRealm'
 info: |
   Every built-in function object, including constructors, has a "name" property
   whose value is a String. Unless otherwise specified, this value is the name
@@ -17,8 +17,8 @@ includes: [propertyHelper.js]
 features: [ShadowRealm]
 ---*/
 
-verifyProperty(Realm, "name", {
-  value: "Realm",
+verifyProperty(ShadowRealm, "name", {
+  value: "ShadowRealm",
   enumerable: false,
   writable: false,
   configurable: true,

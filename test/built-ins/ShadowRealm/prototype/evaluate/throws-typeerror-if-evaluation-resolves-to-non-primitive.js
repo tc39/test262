@@ -1,19 +1,19 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  Realm.prototype.evaluate throws a TypeError if evaluate resolves to non-primitive values
+  ShadowRealm.prototype.evaluate throws a TypeError if evaluate resolves to non-primitive values
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.evaluate,
+  typeof ShadowRealm.prototype.evaluate,
   'function',
-  'This test must fail if Realm.prototype.evaluate is not a function'
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 
 assert.throws(TypeError, () => r.evaluate('globalThis'), 'globalThis');
 assert.throws(TypeError, () => r.evaluate('[]'), 'array literal');

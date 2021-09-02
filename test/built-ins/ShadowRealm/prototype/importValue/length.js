@@ -1,9 +1,9 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.importvalue
+esid: sec-shadowrealm.prototype.importvalue
 description: >
-  The value of Realm.prototype.importValue.length is 2
+  The value of ShadowRealm.prototype.importValue.length is 2
 info: |
   Every built-in function object, including constructors, has a "length" property
   whose value is a non-negative integral Number. Unless otherwise specified, this value
@@ -18,7 +18,7 @@ includes: [propertyHelper.js]
 features: [ShadowRealm]
 ---*/
 
-verifyProperty(Realm.prototype.importValue, "length", {
+verifyProperty(ShadowRealm.prototype.importValue, "length", {
   value: 2,
   enumerable: false,
   writable: false,

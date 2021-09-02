@@ -1,9 +1,9 @@
 // Copyright (C) 2021 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm-constructor
+esid: sec-shadowrealm-constructor
 description: >
-  The Realm constructor is extensible
+  The ShadowRealm constructor is extensible
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -12,4 +12,4 @@ info: |
 features: [ShadowRealm]
 ---*/
 
-assert.sameValue(Object.isExtensible(Realm), true);
+assert.sameValue(Object.isExtensible(ShadowRealm), true);

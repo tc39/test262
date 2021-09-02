@@ -3,7 +3,7 @@
 /*---
 esid: sec-properties-of-the-realm-prototype-object
 description: >
-  The [[Prototype]] of Realm.prototype is Object.Prototype.
+  The [[Prototype]] of ShadowRealm.prototype is Object.Prototype.
 info: |
   Unless otherwise specified every built-in prototype object has the Object prototype
   object, which is the initial value of the expression Object.prototype, as the value
@@ -12,4 +12,4 @@ info: |
 features: [ShadowRealm]
 ---*/
 
-assert.sameValue(Object.getPrototypeOf(Realm.prototype), Object.prototype);
+assert.sameValue(Object.getPrototypeOf(ShadowRealm.prototype), Object.prototype);

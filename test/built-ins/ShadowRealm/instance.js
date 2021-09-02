@@ -1,30 +1,30 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm-constructor
+esid: sec-shadowrealm-constructor
 description: >
-  new Realm() returns a realm instance
+  new ShadowRealm() returns a shadow realm instance
 info: |
-  Realm ( )
+  ShadowRealm ( )
 
   ...
-  2. Let O be ? OrdinaryCreateFromConstructor(NewTarget, "%Realm.prototype%",
-  « [[Realm]], [[ExecutionContext]] »).
+  2. Let O be ? OrdinaryCreateFromConstructor(NewTarget, "%ShadowRealm.prototype%",
+  « [[ShadowRealm]], [[ExecutionContext]] »).
   ...
   13. Return O.
 features: [ShadowRealm]
 ---*/
 assert.sameValue(
-  typeof Realm,
+  typeof ShadowRealm,
   'function',
-  'This test must fail if Realm is not a function'
+  'This test must fail if ShadowRealm is not a function'
 );
 
-var realm = new Realm();
+var realm = new ShadowRealm();
 
-assert(realm instanceof Realm);
+assert(realm instanceof ShadowRealm);
 assert.sameValue(
   Object.getPrototypeOf(realm),
-  Realm.prototype,
-  '[[Prototype]] is set to %Realm.prototype%'
+  ShadowRealm.prototype,
+  '[[Prototype]] is set to %ShadowRealm.prototype%'
 );

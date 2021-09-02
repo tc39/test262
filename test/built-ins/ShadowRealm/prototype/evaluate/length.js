@@ -1,11 +1,11 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  The value of Realm.prototype.evaluate.length is 1
+  The value of ShadowRealm.prototype.evaluate.length is 1
 info: |
-  Realm.prototype.evaluate ( sourceText )
+  ShadowRealm.prototype.evaluate ( sourceText )
 
   Every built-in function object, including constructors, has a "length" property
   whose value is a non-negative integral Number. Unless otherwise specified, this value
@@ -20,7 +20,7 @@ includes: [propertyHelper.js]
 features: [ShadowRealm]
 ---*/
 
-verifyProperty(Realm.prototype.evaluate, "length", {
+verifyProperty(ShadowRealm.prototype.evaluate, "length", {
   value: 1,
   enumerable: false,
   writable: false,

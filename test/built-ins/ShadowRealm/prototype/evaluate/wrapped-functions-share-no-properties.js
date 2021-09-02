@@ -1,19 +1,19 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  Realm.prototype.evaluate wrapped functions share no properties
+  ShadowRealm.prototype.evaluate wrapped functions share no properties
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.evaluate,
+  typeof ShadowRealm.prototype.evaluate,
   'function',
-  'This test must fail if Realm.prototype.evaluate is not a function'
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 
 const wrapped = r.evaluate(`
 function fn() {

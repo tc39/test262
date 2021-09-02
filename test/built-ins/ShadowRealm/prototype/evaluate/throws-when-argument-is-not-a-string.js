@@ -1,19 +1,19 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  Realm.prototype.evaluate throws when argument is not a string.
+  ShadowRealm.prototype.evaluate throws when argument is not a string.
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.evaluate,
+  typeof ShadowRealm.prototype.evaluate,
   'function',
-  'This test must fail if Realm.prototype.evaluate is not a function'
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 
 assert.throws(TypeError, () => r.evaluate(['1+1']));
 assert.throws(TypeError, () => r.evaluate({ [Symbol.toPrimitive]() { return '1+1'; }}));

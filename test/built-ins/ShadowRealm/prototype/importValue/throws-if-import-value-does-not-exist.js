@@ -3,15 +3,15 @@
 /*---
 esid: sec-realmimportvalue
 description: >
-  Realm.prototype.importValue rejects when export name does not exist
+  ShadowRealm.prototype.importValue rejects when export name does not exist
 info: |
   RealmImportValue ( specifierString, exportNameString, callerRealm, evalRealm, evalContext )
 
     Assert: Type(specifierString) is String.
     Assert: Type(exportNameString) is String.
-    Assert: callerRealm is a Realm Record.
-    Assert: evalRealm is a Realm Record.
-    Assert: evalContext is an execution context associated to a Realm instance's [[ExecutionContext]].
+    Assert: callerRealm is a ShadowRealm Record.
+    Assert: evalRealm is a ShadowRealm Record.
+    Assert: evalContext is an execution context associated to a ShadowRealm instance's [[ExecutionContext]].
     Let innerCapability be ! NewPromiseCapability(%Promise%).
     Let runningContext be the running execution context.
     If runningContext is not already suspended, suspend runningContext.
@@ -39,12 +39,12 @@ features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.importValue,
+  typeof ShadowRealm.prototype.importValue,
   'function',
-  'This test must fail if Realm.prototype.importValue is not a function'
+  'This test must fail if ShadowRealm.prototype.importValue is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 
 r.importValue('./import-value_FIXTURE.js', 'y')
   .then(

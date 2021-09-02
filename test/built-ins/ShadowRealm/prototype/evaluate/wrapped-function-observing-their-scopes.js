@@ -1,19 +1,19 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  Realm.prototype.evaluate wrapped function observing their scopes
+  ShadowRealm.prototype.evaluate wrapped function observing their scopes
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.evaluate,
+  typeof ShadowRealm.prototype.evaluate,
   'function',
-  'This test must fail if Realm.prototype.evaluate is not a function'
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 let myValue;
 
 function blueFn(x) {
@@ -21,7 +21,7 @@ function blueFn(x) {
     return myValue;
 }
 
-// cb is a new function in the red Realm that chains the call to the blueFn
+// cb is a new function in the red ShadowRealm that chains the call to the blueFn
 const redFunction = r.evaluate(`
     var myValue = 'red';
     0, function(cb) {

@@ -1,30 +1,30 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.evaluate
+esid: sec-shadowrealm.prototype.evaluate
 description: >
-  Realm.prototype.evaluate is not a constructor.
+  ShadowRealm.prototype.evaluate is not a constructor.
 includes: [isConstructor.js]
 features: [ShadowRealm, Reflect.construct]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.evaluate,
+  typeof ShadowRealm.prototype.evaluate,
   'function',
-  'This test must fail if Realm.prototype.evaluate is not a function'
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
 );
 
 assert.sameValue(
-  isConstructor(Realm.prototype.evaluate),
+  isConstructor(ShadowRealm.prototype.evaluate),
   false,
-  'isConstructor(Realm.prototype.evaluate) must return false'
+  'isConstructor(ShadowRealm.prototype.evaluate) must return false'
 );
 
 assert.throws(TypeError, () => {
-  new Realm.prototype.evaluate("");
-}, '`new Realm.prototype.evaluate("")` throws TypeError');
+  new ShadowRealm.prototype.evaluate("");
+}, '`new ShadowRealm.prototype.evaluate("")` throws TypeError');
 
-const r = new Realm();
+const r = new ShadowRealm();
 r.evaluate('globalThis.x = 0');
 
 assert.throws(TypeError, () => {

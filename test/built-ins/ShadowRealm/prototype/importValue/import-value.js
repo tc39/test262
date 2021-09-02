@@ -1,20 +1,20 @@
 // Copyright (C) 2021 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-realm.prototype.importvalue
+esid: sec-shadowrealm.prototype.importvalue
 description: >
-  Realm.prototype.importValue can import a value.
+  ShadowRealm.prototype.importValue can import a value.
 flags: [async, module]
 features: [ShadowRealm]
 ---*/
 
 assert.sameValue(
-  typeof Realm.prototype.importValue,
+  typeof ShadowRealm.prototype.importValue,
   'function',
-  'This test must fail if Realm.prototype.importValue is not a function'
+  'This test must fail if ShadowRealm.prototype.importValue is not a function'
 );
 
-const r = new Realm();
+const r = new ShadowRealm();
 
 r.importValue('./import-value_FIXTURE.js', 'x').then(x => {
 

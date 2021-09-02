@@ -2,15 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-realm
+esid: sec-shadowrealm
 description: >
   The new instance is extensible
 info: |
-  Realm ( )
+  ShadowRealm ( )
 
   ...
-  2. Let O be ? OrdinaryCreateFromConstructor(NewTarget, "%Realm.prototype%",
-  « [[Realm]], [[ExecutionContext]] »).
+  2. Let O be ? OrdinaryCreateFromConstructor(NewTarget, "%ShadowRealm.prototype%",
+  « [[ShadowRealm]], [[ExecutionContext]] »).
   ...
   13. Return O.
 
@@ -21,7 +21,7 @@ includes: [propertyHelper.js]
 features: [ShadowRealm]
 ---*/
 
-const realm = new Realm();
+const realm = new ShadowRealm();
 
 assert(Object.isExtensible(realm));
 
