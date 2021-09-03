@@ -13,13 +13,10 @@ info: |
   3. For each element _number_ of _coerced_, do
 ---*/
 
-let uniqueErrorCount = 0;
-class UniqueError extends Error {
-  constructor() { super(); uniqueErrorCount++; }
-}
+var counter = 0;
 
 assert.throws(
-  UniqueError,
+  Test262Error,
   function() {
     Math.hypot(
       Infinity,
@@ -27,12 +24,12 @@ assert.throws(
       NaN,
       0,
       -0,
-      {valueOf(){ throw new UniqueError(); }},
-      {valueOf(){ throw new UniqueError(); }},
+      {valueOf: function(){ throw new Test262Error(); }},
+      {valueOf: function(){ counter++; }}
     );
   },
   'Math.hypot propagates an abrupt completion from coercing an argument to Number'
 );
 
-assert.sameValue(uniqueErrorCount, 1,
+assert.sameValue(counter, 0,
     'Math.hypot aborts argument processing at the first abrupt completion');
