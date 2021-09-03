@@ -94,7 +94,9 @@ The code must be a BSD or BSD-style compatible with the license of this project.
 
 ### Frontmatter
 
-The Test262 frontmatter is a string of [YAML](https://en.wikipedia.org/wiki/YAML) enclosed by the comment start tag `/*---` and end tag `---*/`.  There must be exactly one Frontmatter per test.
+The Test262 frontmatter is a string of [YAML](https://en.wikipedia.org/wiki/YAML) enclosed by the comment start tag `/*---` and end tag `---*/`. In order to simplify parsing, scalar values spanning multiple lines may not be expressed using "flow" notation.
+
+There must be exactly one Frontmatter per test.
 
 Test262 supports the following keys:
 
