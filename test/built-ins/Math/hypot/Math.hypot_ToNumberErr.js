@@ -15,7 +15,7 @@ info: |
 
 let uniqueErrorCount = 0;
 class UniqueError extends Error {
-  constructor() { uniqueErrorCount++; }
+  constructor() { super(); uniqueErrorCount++; }
 }
 
 assert.throws(
