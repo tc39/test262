@@ -7,7 +7,7 @@ es5id: 15.11.4_A3
 description: Checking if call of Error prototype as a function fails
 ---*/
 
-asserts.throws(TypeError, () => {
+assert.throws(TypeError, () => {
   Error.prototype();
   throw new Test262Error();
 });
