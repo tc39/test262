@@ -7,7 +7,7 @@ es5id: 15.11.4_A4
 description: Checking if creating "new Error.prototype" fails
 ---*/
 
-asserts.throws(TypeError, () => {
+assert.throws(TypeError, () => {
   new Error.prototype();
   throw new Test262Error();
 });
