@@ -10,22 +10,34 @@ info: |
   ## 12.4.21 Temporal.Calendar.prototype.fields ( fields )
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
-  3. Assert: calendar.[[Identifier]] is "iso8601".
-  4. Let fieldNames be ? IterableToListOfType(fields, « String »).
-  5. Return ! CreateArrayFromList(fieldNames).
+  4. Let iteratorRecord be ? Getiterator(fields, sync).
+  5. Let fieldNames be a new empty List.
+  6. Let next be true.
+  7. Repeat, while next is not false,
+  a. Set next to ? IteratorStep(iteratorRecord).
+  b. If next is not false, then
+  i. Let nextValue be ? IteratorValue(next).
+  iv. If nextValue is not one of "year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond", then
+  1. Let completion be ThrowCompletion(a newly created RangeError object).
+  2. Return ? IteratorClose(iteratorRecord, completion).
 features: [Symbol, Symbol.iterator, Temporal, computed-property-names, generators]
-includes: [compareArray.js]
 ---*/
 let cal = new Temporal.Calendar("iso8601")
+let i = 0;
 const fields = {
   *[Symbol.iterator]() {
-      let i = 0;
+      // The first three are valid values
+      yield "year";
+      i++;
+      yield "month";
+      i++;
+      yield "monthCode";
+      // The third one are wrong
       while (i++ < 1000001) {
         yield "garbage " + i;
       }
   }
 }
-assert(
-  compareArray(cal.fields(fields), Array.from(fields)),
-  'compareArray(cal.fields(fields), Array.from(fields)) must return true'
-);
+assert.throws( RangeError, () => cal.fields(fields), "Garbage content");
+// stop after the third one.
+assert.sameValue(3, i);
