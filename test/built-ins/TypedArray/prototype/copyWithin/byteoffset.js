@@ -19,20 +19,15 @@ features: [TypedArray]
 
 testWithTypedArrayConstructors(function(TA) {
   var ta = new TA([0, 1, 2, 3]);
-  assert(
-    compareArray(
-      new TA(ta.buffer, TA.BYTES_PER_ELEMENT).copyWithin(2, 0),
-      [1, 2, 1]
-    ),
+  assert.compareArray(
+    new TA(ta.buffer, TA.BYTES_PER_ELEMENT).copyWithin(2, 0),
+    [1, 2, 1],
     'copyWithin should respect typedarray\'s byteOffset'
   );
-  print(ta);
 
-  assert(
-    compareArray(
-      ta,
-      [0, 1, 2, 1]
-    ),
+  assert.compareArray(
+    ta,
+    [0, 1, 2, 1],
     'underlying arraybuffer should have been updated'
   );
 });
