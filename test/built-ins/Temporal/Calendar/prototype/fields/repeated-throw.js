@@ -27,11 +27,11 @@ let i = 0;
 const fields = {
   *[Symbol.iterator]() {
       yield "month";
-      i++
+      i++;
       yield "year";
-      i++
+      i++;
       yield "year";
-      i++
+      i++;
   }
 }
 assert.throws(
