@@ -38,6 +38,6 @@ const fields = {
       }
   }
 }
-assert.throws( RangeError, () => cal.fields(fields), "Garbage content");
+assert.throws(RangeError, () => cal.fields(fields), "Garbage content");
 // stop after the third one.
 assert.sameValue(3, i);
