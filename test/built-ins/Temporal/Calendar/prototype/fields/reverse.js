@@ -39,4 +39,4 @@ const fields = {
   }
 }
 assert.compareArray(cal.fields(fields), Array.from(fields),
-    'valid fields should return true even if they are in reversed order of the spec');
+    'valid fields should be supported even if they are in reversed order of the spec');
