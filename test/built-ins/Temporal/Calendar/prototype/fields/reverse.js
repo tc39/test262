@@ -38,5 +38,5 @@ const fields = {
      yield "year";
   }
 }
-assert(compareArray(cal.fields(fields), Array.from(fields)),
+assert.compareArray(cal.fields(fields), Array.from(fields),
     'valid fields should return true even if they are in reversed order of the spec');
