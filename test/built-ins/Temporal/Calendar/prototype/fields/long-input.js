@@ -32,10 +32,9 @@ const fields = {
       yield "month";
       i++;
       yield "monthCode";
+      i++;
       // The third one are wrong
-      while (i++ < 1000001) {
-        yield "garbage " + i;
-      }
+      yield "garbage";
   }
 }
 assert.throws(RangeError, () => cal.fields(fields), "Garbage content");
