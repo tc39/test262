@@ -3,6 +3,7 @@
 
 /*---
 esid: sec-temporal.now.zoneddatetime
+description: Functions when time zone argument is omitted
 includes: [compareArray.js]
 features: [Temporal]
 ---*/
