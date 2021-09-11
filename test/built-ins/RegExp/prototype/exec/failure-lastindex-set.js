@@ -29,6 +29,7 @@ var R_g = /./g, R_y = /./y, R_gy = /./gy;
 
 var S = "test";
 
+var lastIndex;
 var bigLastIndexes = [
   Infinity,
   Number.MAX_VALUE,
@@ -43,15 +44,28 @@ var bigLastIndexes = [
   5
 ];
 for ( var i = 0; i < bigLastIndexes.length; i++ ) {
-  R_g.lastIndex = bigLastIndexes[i];
-  R_y.lastIndex = bigLastIndexes[i];
-  R_gy.lastIndex = bigLastIndexes[i];
+  lastIndex = bigLastIndexes[i];
+  R_g.lastIndex = lastIndex;
+  R_y.lastIndex = lastIndex;
+  R_gy.lastIndex = lastIndex;
 
-  assert.sameValue(R_g.exec(S), null);
-  assert.sameValue(R_y.exec(S), null);
-  assert.sameValue(R_gy.exec(S), null);
+  assert.sameValue(R_g.exec(S), null,
+      "global RegExp instance must fail to match against '" + S +
+      "' at lastIndex " + lastIndex);
+  assert.sameValue(R_y.exec(S), null,
+      "sticky RegExp instance must fail to match against '" + S +
+      "' at lastIndex " + lastIndex);
+  assert.sameValue(R_gy.exec(S), null,
+      "global sticky RegExp instance must fail to match against '" + S +
+      "' at lastIndex " + lastIndex);
 
-  assert.sameValue(R_g.lastIndex, 0);
-  assert.sameValue(R_y.lastIndex, 0);
-  assert.sameValue(R_gy.lastIndex, 0);
+  assert.sameValue(R_g.lastIndex, 0,
+      "global RegExp instance lastIndex must be reset after " + lastIndex +
+      " exceeds string length");
+  assert.sameValue(R_y.lastIndex, 0,
+      "sticky RegExp instance lastIndex must be reset after " + lastIndex +
+      " exceeds string length");
+  assert.sameValue(R_gy.lastIndex, 0,
+      "global sticky RegExp instance lastIndex must be reset after " + lastIndex +
+      " exceeds string length");
 }
