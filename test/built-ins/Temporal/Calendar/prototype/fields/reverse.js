@@ -4,8 +4,8 @@
 /*---
 esid: sec-temporal.calendar.prototype.fields
 description: >
-  Temporal.Calendar.prototype.fields will take iterable of any size and any string
-  and return Array of the same content.
+  Temporal.Calendar.prototype.fields will return the iterable in array if all
+  input are valid regardless of it's order.
 info: |
   ## 12.4.21 Temporal.Calendar.prototype.fields ( fields )
   1. Let calendar be the this value.
