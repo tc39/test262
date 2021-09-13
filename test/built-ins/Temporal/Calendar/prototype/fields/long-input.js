@@ -33,7 +33,7 @@ const fields = {
       i++;
       yield "monthCode";
       i++;
-      // The third one are wrong
+      // The fourth one is wrong
       yield "garbage";
   }
 }
