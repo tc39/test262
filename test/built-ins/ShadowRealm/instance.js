@@ -28,3 +28,6 @@ assert.sameValue(
   ShadowRealm.prototype,
   '[[Prototype]] is set to %ShadowRealm.prototype%'
 );
+
+var otherRealm = new ShadowRealm();
+assert.notSameValue(realm, otherRealm, 'each instance is different');

@@ -14,10 +14,36 @@ assert.sameValue(
 );
 
 const r = new ShadowRealm();
-const s = r.evaluate('Symbol()');
+const s = r.evaluate('Symbol("foobar")');
 
 assert.sameValue(typeof s, 'symbol');
 assert.sameValue(s.constructor, Symbol, 'primitive does not expose other ShadowRealm constructor');
 assert.sameValue(Object.getPrototypeOf(s), Symbol.prototype);
-assert.sameValue(r.evaluate('Symbol.for("x")'), Symbol.for('x'));
 assert.sameValue(Symbol.prototype.toString.call(s), 'Symbol()');
+
+const shadowX = r.evaluate('Symbol.for("my symbol name")');
+const myX = Symbol.for('my symbol name')
+
+assert.sameValue(
+  shadowX,
+  myX,
+  'The shadow realms observes the symbol global registry used in Symbol.for'
+);
+
+assert.sameValue(
+  Symbol.keyFor(shadowX),
+  'my symbol name',
+  'Symbol.keyFor observes the string key name of a symbol originally registered in the shadow realm'
+);
+
+assert.sameValue(
+  Symbol.keyFor(s),
+  undefined,
+  'Symbol.keyFor cannot find a key for a regular symbol created in the shadow realm'
+);
+
+assert.sameValue(
+  Symbol.prototype.description.call(s),
+  'foobar',
+  'get description for the symbol created in the shadow realm'
+);
