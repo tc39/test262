@@ -15,7 +15,7 @@ assert.sameValue(
 
 const r = new ShadowRealm();
 
-assert.throws(TypeError, () => r.evaluate('...'), 'SyntaxError => TypeError');
+assert.throws(SyntaxError, () => r.evaluate('...'), 'SyntaxError exposed to Parent');
 assert.throws(TypeError, () => r.evaluate('throw 42'), 'throw primitive => TypeError');
 assert.throws(TypeError, () => r.evaluate('throw new ReferenceError("aaa")'), 'custom ctor => TypeError');
 assert.throws(TypeError, () => r.evaluate('throw new TypeError("aaa")'), 'Child TypeError => Parent TypeError');
