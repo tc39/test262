@@ -24,7 +24,7 @@ const specifier = {
 };
 
 assert.throws(Test262Error, () => {
-  r.importValue(specifier);
+  r.importValue(specifier, '');
 });
 
 assert.sameValue(count, 1);
