@@ -12,7 +12,7 @@ const realm2 = new ShadowRealm();
 
 globalThis.count = 0;
 
-asserts.notSameValue(realm1, realm2);
+assert.notSameValue(realm1, realm2);
 
 const r1wrapped = realm1.evaluate(`
   globalThis.count = 0;

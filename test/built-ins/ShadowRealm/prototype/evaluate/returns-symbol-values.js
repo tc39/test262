@@ -19,7 +19,7 @@ const s = r.evaluate('Symbol("foobar")');
 assert.sameValue(typeof s, 'symbol');
 assert.sameValue(s.constructor, Symbol, 'primitive does not expose other ShadowRealm constructor');
 assert.sameValue(Object.getPrototypeOf(s), Symbol.prototype);
-assert.sameValue(Symbol.prototype.toString.call(s), 'Symbol()');
+assert.sameValue(Symbol.prototype.toString.call(s), 'Symbol(foobar)');
 
 const shadowX = r.evaluate('Symbol.for("my symbol name")');
 const myX = Symbol.for('my symbol name')
@@ -42,8 +42,10 @@ assert.sameValue(
   'Symbol.keyFor cannot find a key for a regular symbol created in the shadow realm'
 );
 
+const { get: description } = Object.getOwnPropertyDescriptor(Symbol.prototype, 'description');
+
 assert.sameValue(
-  Symbol.prototype.description.call(s),
+  description.call(s),
   'foobar',
   'get description for the symbol created in the shadow realm'
 );
