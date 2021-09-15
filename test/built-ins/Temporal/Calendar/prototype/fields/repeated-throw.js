@@ -37,3 +37,20 @@ const fields = {
 assert.throws(
     RangeError, () => cal.fields(fields), "repeated valid value should throw");
 assert.sameValue(i, 2, "Should stop at 2");
+
+// Test all valid value will throw while repeate
+[ "nanosecond", "microsecond", "millisecond", "second",
+  "minute", "hour", "day", "monthCode", "month", "year" ].forEach((f) => {
+  i = 0;
+  const fields2 = {
+    *[Symbol.iterator]() {
+      yield f;
+      i++;
+      yield f;
+      i++;
+    }
+  }
+  assert.throws(
+    RangeError, () => cal.fields(fields2), "repeated valid value should throw");
+  assert.sameValue(i, 1, "Should stop at 1");
+});
