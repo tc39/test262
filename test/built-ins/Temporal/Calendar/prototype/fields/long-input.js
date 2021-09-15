@@ -33,8 +33,13 @@ const fields = {
       i++;
       yield "monthCode";
       i++;
-      // The fourth one is wrong
+      // The fourth one is wrong and should throw after the next line.
       yield "garbage";
+      // The following three lines should not be reached if the implemention
+      // correctly check the previous line.
+      i++;
+      yield "hour";
+      i++;
   }
 }
 assert.throws(RangeError, () => cal.fields(fields), "Garbage content");
