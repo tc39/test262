@@ -56,4 +56,4 @@ assert.sameValue(d11.valueOf(), 0, 'd11.valueOf() must return 0');
 
 // CHECK#12
 var d12 = new Date(-1.23e-15);
-assert.sameValue(d12.valueOf(), -0, 'd12.valueOf() must return -0');
+assert.sameValue(d12.valueOf(), 0, 'd12.valueOf() must return 0');
