@@ -30,4 +30,4 @@ assert.sameValue(d4.valueOf(), 0, 'd4.valueOf() must return 0');
 
 // CHECK#5
 var d5 = new Date(-0);
-assert.sameValue(d5.valueOf(), -0, 'd5.valueOf() must return -0');
+assert.sameValue(d5.valueOf(), 0, 'd5.valueOf() must return 0');
