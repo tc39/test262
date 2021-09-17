@@ -25,6 +25,6 @@ assert.sameValue(result4.timeZone.id, "-07:00", "date-time + offset is the offse
 
 timeZone = "2021-08-19T17:30-0700";
 const result5 = Temporal.Now.zonedDateTime("iso8601", timeZone);
-assert.sameValue(result3.timeZone.id, "-07:00", "date-time + offset is the offset time zone");
+assert.sameValue(result5.timeZone.id, "-07:00", "date-time + offset is the offset time zone");
 const result6 = Temporal.Now.zonedDateTime("iso8601", { timeZone });
-assert.sameValue(result4.timeZone.id, "-07:00", "date-time + offset is the offset time zone (string in property bag)");
+assert.sameValue(result6.timeZone.id, "-07:00", "date-time + offset is the offset time zone (string in property bag)");
