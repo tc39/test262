@@ -22,3 +22,4 @@ new Proxy(fn, {});
 
 assert.sameValue(typeof proxyCallable, 'function', 'wrapped proxy callable object is typeof function');
 assert.sameValue(proxyCallable(), 42, 'wrappedpfn() returns 42');
+assert.sameValue(proxyCallable instanceof Proxy, false, 'the wrapped function "hides" the proxy instance');
