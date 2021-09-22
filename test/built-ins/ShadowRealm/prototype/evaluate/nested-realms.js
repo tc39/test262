@@ -7,6 +7,12 @@ description: >
 features: [ShadowRealm]
 ---*/
 
+assert.sameValue(
+  typeof ShadowRealm.prototype.evaluate,
+  'function',
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
+);
+
 globalThis.myValue = 'a';
 const realm1 = new ShadowRealm();
 

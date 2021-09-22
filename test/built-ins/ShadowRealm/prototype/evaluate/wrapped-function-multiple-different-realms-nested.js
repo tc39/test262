@@ -6,6 +6,11 @@ description: >
   ShadowRealm can wrap a function to multiple nested realms.
 features: [ShadowRealm]
 ---*/
+assert.sameValue(
+  typeof ShadowRealm.prototype.evaluate,
+  'function',
+  'This test must fail if ShadowRealm.prototype.evaluate is not a function'
+);
 
 globalThis.count = 0;
 const realm1 = new ShadowRealm();
