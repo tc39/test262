@@ -26,8 +26,8 @@ compareArray.isSameValue = function(a, b) {
   return a === b;
 };
 
-compareArray.format = function(array) {
-  return `[${array.map(String).join(', ')}]`;
+compareArray.format = function(spreadable) {
+  return `[${[...spreadable].map(String).join(', ')}]`;
 };
 
 assert.compareArray = function(actual, expected, message) {
