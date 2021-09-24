@@ -41,7 +41,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   var result = sample.slice();
 
-  assert(compareArray(result, arr), "values are set");
-  assert.notSameValue(result.buffer, sample.buffer, "creates a new buffer");
-  assert.sameValue(result.constructor, other, "used the custom ctor");
+  assert.compareArray(result, arr, 'The value of result is expected to equal the value of arr');
+  assert.notSameValue(result.buffer, sample.buffer, 'The value of result.buffer is expected to not equal the value of `sample.buffer`');
+  assert.sameValue(result.constructor, other, 'The value of result.constructor is expected to equal the value of other');
 });

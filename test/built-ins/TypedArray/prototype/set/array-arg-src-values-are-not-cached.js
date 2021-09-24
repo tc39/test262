@@ -43,5 +43,5 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.set(obj);
 
-  assert(compareArray(sample, [42, 43, 44, 45, 46]));
+  assert.compareArray(sample, [42, 43, 44, 45, 46], 'The value of sample is expected to be [42, 43, 44, 45, 46]');
 });

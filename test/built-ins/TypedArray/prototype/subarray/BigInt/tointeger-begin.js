@@ -12,7 +12,6 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 var obj = {
   valueOf: function() {
     return 2;
@@ -22,27 +21,44 @@ var obj = {
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n, 41n, 42n, 43n]);
 
-  assert(compareArray(sample.subarray(false), [40n, 41n, 42n, 43n]), "false");
-  assert(compareArray(sample.subarray(true), [41n, 42n, 43n]), "true");
+  assert.compareArray(
+    sample.subarray(false),
+    [40n, 41n, 42n, 43n],
+    'sample.subarray(false) must return [40n, 41n, 42n, 43n]'
+  );
 
-  assert(compareArray(sample.subarray(NaN), [40n, 41n, 42n, 43n]), "NaN");
-  assert(compareArray(sample.subarray(null), [40n, 41n, 42n, 43n]), "null");
-  assert(compareArray(sample.subarray(undefined), [40n, 41n, 42n, 43n]), "undefined");
+  assert.compareArray(sample.subarray(true), [41n, 42n, 43n], 'sample.subarray(true) must return [41n, 42n, 43n]');
+  assert.compareArray(sample.subarray(NaN), [40n, 41n, 42n, 43n], 'sample.subarray(NaN) must return [40n, 41n, 42n, 43n]');
 
-  assert(compareArray(sample.subarray(1.1), [41n, 42n, 43n]), "1.1");
-  assert(compareArray(sample.subarray(1.5), [41n, 42n, 43n]), "1.5");
-  assert(compareArray(sample.subarray(0.6), [40n, 41n, 42n, 43n]), "0.6");
+  assert.compareArray(
+    sample.subarray(null),
+    [40n, 41n, 42n, 43n],
+    'sample.subarray(null) must return [40n, 41n, 42n, 43n]'
+  );
 
-  assert(compareArray(sample.subarray(-1.5), [43n]), "-1.5");
-  assert(compareArray(sample.subarray(-1.1), [43n]), "-1.1");
-  assert(compareArray(sample.subarray(-0.6), [40n, 41n, 42n, 43n]), "-0.6");
+  assert.compareArray(
+    sample.subarray(undefined),
+    [40n, 41n, 42n, 43n],
+    'sample.subarray(undefined) must return [40n, 41n, 42n, 43n]'
+  );
 
-  assert(compareArray(sample.subarray("3"), [43n]), "string");
-  assert(
-    compareArray(
-      sample.subarray(obj),
-      [42n, 43n]
-    ),
-    "object"
+  assert.compareArray(sample.subarray(1.1), [41n, 42n, 43n], 'sample.subarray(1.1) must return [41n, 42n, 43n]');
+  assert.compareArray(sample.subarray(1.5), [41n, 42n, 43n], 'sample.subarray(1.5) must return [41n, 42n, 43n]');
+  assert.compareArray(sample.subarray(0.6), [40n, 41n, 42n, 43n], 'sample.subarray(0.6) must return [40n, 41n, 42n, 43n]');
+  assert.compareArray(sample.subarray(-1.5), [43n], 'sample.subarray(-1.5) must return [43n]');
+  assert.compareArray(sample.subarray(-1.1), [43n], 'sample.subarray(-1.1) must return [43n]');
+
+  assert.compareArray(
+    sample.subarray(-0.6),
+    [40n, 41n, 42n, 43n],
+    'sample.subarray(-0.6) must return [40n, 41n, 42n, 43n]'
+  );
+
+  assert.compareArray(sample.subarray('3'), [43n], 'sample.subarray("3") must return [43n]');
+
+  assert.compareArray(
+    sample.subarray(obj),
+    [42n, 43n],
+    'sample.subarray({valueOf: function() {return 2;}}) must return [42n, 43n]'
   );
 });

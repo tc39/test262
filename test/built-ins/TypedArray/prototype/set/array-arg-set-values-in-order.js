@@ -60,13 +60,13 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.set(obj, 1);
 
-  assert(
-    compareArray(sample, [0, 42, 43, 44, 0]),
-    "values are set for src length"
+  assert.compareArray(
+    sample, [0, 42, 43, 44, 0],
+    'The value of sample is expected to be [0, 42, 43, 44, 0]'
   );
 
-  assert(
-    compareArray(calls, [0, "0,0,0,0,0", 1, "0,42,0,0,0", 2, "0,42,43,0,0"]),
-    "values are set in order"
+  assert.compareArray(
+    calls, [0, "0,0,0,0,0", 1, "0,42,0,0,0", 2, "0,42,43,0,0"],
+    'The value of calls is expected to be [0, "0,0,0,0,0", 1, "0,42,0,0,0", 2, "0,42,43,0,0"]'
   );
 });

@@ -49,6 +49,6 @@ testWithTypedArrayConstructors(function(TA) {
 
   result = sample.slice(1);
 
-  assert.sameValue(calls, 1, "ctor called once");
-  assert(compareArray(result, [41, 42]), "expected object");
+  assert.sameValue(calls, 1, 'The value of calls is expected to be 1');
+  assert.compareArray(result, [41, 42], 'The value of result is expected to be [41, 42]');
 });

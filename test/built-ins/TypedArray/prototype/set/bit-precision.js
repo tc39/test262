@@ -29,7 +29,7 @@ function body(FA) {
   sourceBytes = new Uint8Array(source.buffer);
   targetBytes = new Uint8Array(target.buffer);
 
-  assert(compareArray(sourceBytes, targetBytes))
+  assert.compareArray(sourceBytes, targetBytes, 'The value of sourceBytes is expected to equal the value of targetBytes');
 }
 
 testWithTypedArrayConstructors(body, [Float32Array, Float64Array]);

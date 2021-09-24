@@ -8,10 +8,26 @@ includes: [compareArray.js]
 ---*/
 var fn = (a, b, ...c) => c;
 
-assert(compareArray(fn(), []), "`compareArray(fn(), [])` returns `true`");
-assert(compareArray(fn(1, 2), []), "`compareArray(fn(1, 2), [])` returns `true`");
-assert(compareArray(fn(1, 2, 3), [3]),"`compareArray(fn(1, 2, 3), [3])` returns `true`");
-assert(compareArray(fn(1, 2, 3, 4), [3, 4]),"`compareArray(fn(1, 2, 3, 4), [3, 4])` returns `true`");
-assert(compareArray(fn(1, 2, 3, 4, 5), [3, 4, 5]),"`compareArray(fn(1, 2, 3, 4, 5), [3, 4, 5])` returns `true`");
-assert(compareArray(((...args) => args)(), []),"`compareArray(((...args) => args)(), [])` returns `true`");
-assert(compareArray(((...args) => args)(1,2,3), [1,2,3]),"`compareArray(((...args) => args)(1,2,3), [1,2,3])` returns `true`");
+assert.compareArray(fn(), [], 'fn() must return []');
+assert.compareArray(fn(1, 2), [], 'fn(1, 2) must return []');
+assert.compareArray(fn(1, 2, 3), [3], 'fn(1, 2, 3) must return [3]');
+assert.compareArray(
+  fn(1, 2, 3, 4),
+  [3, 4],
+  'fn(1, 2, 3, 4) must return [3, 4]'
+);
+assert.compareArray(
+  fn(1, 2, 3, 4, 5),
+  [3, 4, 5],
+  'fn(1, 2, 3, 4, 5) must return [3, 4, 5]'
+);
+assert.compareArray(
+  ((...args) => args)(),
+  [],
+  '((...args) => args)() must return []'
+);
+assert.compareArray(
+  ((...args) => args)(1,2,3),
+  [1,2,3],
+  '((...args) => args)(1, 2, 3) must return [1,2,3]'
+);

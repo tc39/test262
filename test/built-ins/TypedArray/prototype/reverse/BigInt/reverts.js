@@ -18,40 +18,25 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 var buffer = new ArrayBuffer(64);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(buffer, 0, 4);
   var other = new TA(buffer, 0, 5);
-
   sample[0] = 42n;
   sample[1] = 43n;
   sample[2] = 2n;
   sample[3] = 1n;
   other[4] = 7n;
-
   sample.reverse();
-  assert(
-    compareArray(sample, [1n, 2n, 43n, 42n])
-  );
-
-  assert(
-    compareArray(other, [1n, 2n, 43n, 42n, 7n])
-  );
-
+  assert.compareArray(sample, [1n, 2n, 43n, 42n], 'The value of sample is expected to be [1n, 2n, 43n, 42n]');
+  assert.compareArray(other, [1n, 2n, 43n, 42n, 7n], 'The value of other is expected to be [1n, 2n, 43n, 42n, 7n]');
   sample[0] = 7n;
   sample[1] = 17n;
   sample[2] = 1n;
   sample[3] = 0n;
   other[4] = 42n;
-
   other.reverse();
-  assert(
-    compareArray(other, [42n, 0n, 1n, 17n, 7n])
-  );
-
-  assert(
-    compareArray(sample, [42n, 0n, 1n, 17n])
-  );
+  assert.compareArray(other, [42n, 0n, 1n, 17n, 7n], 'The value of other is expected to be [42n, 0n, 1n, 17n, 7n]');
+  assert.compareArray(sample, [42n, 0n, 1n, 17n], 'The value of sample is expected to be [42n, 0n, 1n, 17n]');
 });

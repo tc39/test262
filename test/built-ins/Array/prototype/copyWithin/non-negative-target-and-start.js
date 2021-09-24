@@ -31,18 +31,22 @@ info: |
 includes: [compareArray.js]
 ---*/
 
-assert(compareArray(
-  ['a', 'b', 'c', 'd', 'e', 'f'].copyWithin(0, 0), ['a', 'b', 'c', 'd', 'e', 'f']
-), 'compareArray( ["a", "b", "c", "d", "e", "f"].copyWithin(0, 0), ["a", "b", "c", "d", "e", "f"] ) must return true');
+assert.compareArray(
+  ['a', 'b', 'c', 'd', 'e', 'f'].copyWithin(0, 0), ['a', 'b', 'c', 'd', 'e', 'f'],
+  '["a", "b", "c", "d", "e", "f"].copyWithin(0, 0) must return ["a", "b", "c", "d", "e", "f"]'
+);
 
-assert(compareArray(
-  ['a', 'b', 'c', 'd', 'e', 'f'].copyWithin(0, 2), ['c', 'd', 'e', 'f', 'e', 'f']
-), 'compareArray( ["a", "b", "c", "d", "e", "f"].copyWithin(0, 2), ["c", "d", "e", "f", "e", "f"] ) must return true');
+assert.compareArray(
+  ['a', 'b', 'c', 'd', 'e', 'f'].copyWithin(0, 2), ['c', 'd', 'e', 'f', 'e', 'f'],
+  '["a", "b", "c", "d", "e", "f"].copyWithin(0, 2) must return ["c", "d", "e", "f", "e", "f"]'
+);
 
-assert(compareArray(
-  ['a', 'b', 'c', 'd', 'e', 'f'].copyWithin(3, 0), ['a', 'b', 'c', 'a', 'b', 'c']
-), 'compareArray( ["a", "b", "c", "d", "e", "f"].copyWithin(3, 0), ["a", "b", "c", "a", "b", "c"] ) must return true');
+assert.compareArray(
+  ['a', 'b', 'c', 'd', 'e', 'f'].copyWithin(3, 0), ['a', 'b', 'c', 'a', 'b', 'c'],
+  '["a", "b", "c", "d", "e", "f"].copyWithin(3, 0) must return ["a", "b", "c", "a", "b", "c"]'
+);
 
-assert(compareArray(
-  [0, 1, 2, 3, 4, 5].copyWithin(1, 4), [0, 4, 5, 3, 4, 5]
-), 'compareArray( [0, 1, 2, 3, 4, 5].copyWithin(1, 4), [0, 4, 5, 3, 4, 5] ) must return true');
+assert.compareArray(
+  [0, 1, 2, 3, 4, 5].copyWithin(1, 4), [0, 4, 5, 3, 4, 5],
+  '[0, 1, 2, 3, 4, 5].copyWithin(1, 4) must return [0, 4, 5, 3, 4, 5]'
+);

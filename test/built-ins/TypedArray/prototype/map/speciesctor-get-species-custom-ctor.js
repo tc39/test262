@@ -50,7 +50,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   result = sample.map(function(a) { return a + 7; });
 
-  assert.sameValue(calls, 1, "ctor called once");
-  assert.sameValue(result, other, "return is instance of custom constructor");
-  assert(compareArray(result, [47, 48, 49]), "values are set on the new obj");
+  assert.sameValue(calls, 1, 'The value of calls is expected to be 1');
+  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
+  assert.compareArray(result, [47, 48, 49], 'The value of result is expected to be [47, 48, 49]');
 });

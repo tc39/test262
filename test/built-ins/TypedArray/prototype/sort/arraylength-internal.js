@@ -31,9 +31,6 @@ testWithTypedArrayConstructors(function(TA) {
 
   var result = sample.sort();
 
-  assert.sameValue(getCalls, 0, "ignores length properties");
-  assert(
-    compareArray(result, sample),
-    "result is not affected by custom length"
-  );
+  assert.sameValue(getCalls, 0, 'The value of getCalls is expected to be 0');
+  assert.compareArray(result, sample, 'The value of result is expected to equal the value of sample');
 });

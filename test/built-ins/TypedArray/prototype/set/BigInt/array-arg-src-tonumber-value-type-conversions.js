@@ -21,29 +21,22 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var obj1 = {
-      valueOf: function() {
-        return 42n;
-      }
+    valueOf: function() {
+      return 42n;
+    }
   };
 
   var obj2 = {
-      toString: function() {
-        return "42";
-      }
+    toString: function() {
+      return '42';
+    }
   };
 
   var arr = [false, true, obj1, [], [1]];
-
   var sample = new TA(arr.length);
   var expected = new TA([0n, 1n, 42n, 0n, 1n]);
-
   sample.set(arr);
-
-  assert(
-    compareArray(sample, expected),
-    "sample: [" + sample + "], expected: [" + expected + "]"
-  );
+  assert.compareArray(sample, expected, 'The value of sample is expected to equal the value of expected');
 });

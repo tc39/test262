@@ -25,7 +25,7 @@ const fields = {
       }
   }
 }
-assert(
-  compareArray(cal.fields(fields), Array.from(fields)),
-  'compareArray(cal.fields(fields), Array.from(fields)) must return true'
+assert.compareArray(
+  cal.fields(fields), Array.from(fields),
+  'cal.fields("{*[Symbol.iterator]() {let i = 0; while (i++ < 1000001) {yield "garbage " + i;}}}) must return the same value returned by Array.from(fields)'
 );

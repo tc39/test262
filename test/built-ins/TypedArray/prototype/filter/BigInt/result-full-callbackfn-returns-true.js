@@ -15,10 +15,7 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([40n, 41n, 42n]);
-
   [
     true,
     1,
@@ -32,7 +29,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     0.1,
     -0.1
   ].forEach(function(val) {
-    var result = sample.filter(function() { return val; });
-    assert(compareArray(result, sample), val);
+    const sample = new TA([40n, 41n, 42n]);
+    const result = sample.filter(() => val);
+
+    assert.compareArray(result, sample, 'The value of result is expected to equal the value of sample');
   });
 });

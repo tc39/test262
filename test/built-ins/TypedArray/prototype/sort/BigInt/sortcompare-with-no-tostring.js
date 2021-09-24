@@ -17,15 +17,15 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 var toStringCalled = false;
+
 BigInt.prototype.toString = function() {
   toStringCalled = true;
-}
+};
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([20n, 100n, 3n]);
   var result = sample.sort();
-  assert.sameValue(toStringCalled, false, "BigInt.prototype.toString will not be called");
-  assert(compareArray(result, [3n, 20n, 100n]));
+  assert.sameValue(toStringCalled, false, 'The value of toStringCalled is expected to be false');
+  assert.compareArray(result, [3n, 20n, 100n], 'The value of result is expected to be [3n, 20n, 100n]');
 });

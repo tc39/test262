@@ -19,5 +19,5 @@ Object.defineProperty(o, Symbol('foo'), { get: () => { calls.push("Symbol(foo)")
 //- vals
 o
 //- body
-assert(compareArray(calls, [1, 'z', 'a', "Symbol(foo)"]));
+assert.compareArray(calls, [1, 'z', 'a', "Symbol(foo)"]);
 assert.sameValue(Object.keys(rest).length, 3);

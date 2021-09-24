@@ -15,16 +15,17 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([41n, 1n, 42n, 7n]);
-  var result;
+  var result = sample.filter(function() {
+    return true;
+  });
 
-  result = sample.filter(function() { return true; });
-  assert(compareArray(result, [41n, 1n, 42n, 7n]), "values are set #1");
+  assert.compareArray(result, [41n, 1n, 42n, 7n], 'The value of result is expected to be [41n, 1n, 42n, 7n]');
 
   result = sample.filter(function(v) {
     return v > 40n;
   });
-  assert(compareArray(result, [41n, 42n]), "values are set #2");
+
+  assert.compareArray(result, [41n, 42n], 'The value of result is expected to be [41n, 42n]');
 });

@@ -48,7 +48,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   };
 
   result = sample.filter(function() {});
-
-  assert.sameValue(result, other, "returned another typedarray");
-  assert(compareArray(result, [1n, 0n, 1n]), "the returned object is preserved");
+  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
+  assert.compareArray(result, [1n, 0n, 1n], 'The value of result is expected to be [1n, 0n, 1n]');
 });

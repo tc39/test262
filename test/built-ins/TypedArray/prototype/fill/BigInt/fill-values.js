@@ -27,18 +27,12 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert(
-    compareArray(
-      new TA().fill(8n),
-      []
-    ),
-    "does not fill an empty instance"
-  );
+  assert.compareArray(new TA().fill(8n), [], 'new TA().fill(8n) must return []');
 
-  assert(
-    compareArray(new TA([0n, 0n, 0n]).fill(8n), [8n, 8n, 8n]),
-    "Default start and end indexes are 0 and this.length"
+  assert.compareArray(
+    new TA([0n, 0n, 0n]).fill(8n),
+    [8n, 8n, 8n],
+    'new TA([0n, 0n, 0n]).fill(8n) must return [8n, 8n, 8n]'
   );
 });
