@@ -47,6 +47,6 @@ testWithTypedArrayConstructors(function(TA) {
 
   result = sample.subarray(0, 0);
 
-  assert.sameValue(result, other, "returned another typedarray");
-  assert(compareArray(result, [1, 0, 1]), "the returned object is preserved");
+  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
+  assert.compareArray(result, [1, 0, 1], 'The value of result is expected to be [1, 0, 1]');
 });

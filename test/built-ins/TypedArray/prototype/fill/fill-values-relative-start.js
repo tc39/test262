@@ -29,23 +29,23 @@ features: [TypedArray]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  assert(
-    compareArray(new TA([0, 0, 0]).fill(8, 1), [0, 8, 8]),
-    "Fill elements from custom start position"
+  assert.compareArray(
+    new TA([0, 0, 0]).fill(8, 1), [0, 8, 8],
+    'new TA([0, 0, 0]).fill(8, 1) must return [0, 8, 8]'
   );
 
-  assert(
-    compareArray(new TA([0, 0, 0]).fill(8, 4), [0, 0, 0]),
-    "start position is never higher than length"
+  assert.compareArray(
+    new TA([0, 0, 0]).fill(8, 4), [0, 0, 0],
+    'new TA([0, 0, 0]).fill(8, 4) must return [0, 0, 0]'
   );
 
-  assert(
-    compareArray(new TA([0, 0, 0]).fill(8, -1), [0, 0, 8]),
-    "start < 0 sets initial position to max((len + relativeStart), 0)"
+  assert.compareArray(
+    new TA([0, 0, 0]).fill(8, -1), [0, 0, 8],
+    'new TA([0, 0, 0]).fill(8, -1) must return [0, 0, 8]'
   );
 
-  assert(
-    compareArray(new TA([0, 0, 0]).fill(8, -5), [8, 8, 8]),
-    "start position is 0 when (len + relativeStart) < 0"
+  assert.compareArray(
+    new TA([0, 0, 0]).fill(8, -5), [8, 8, 8],
+    'new TA([0, 0, 0]).fill(8, -5) must return [8, 8, 8]'
   );
 });

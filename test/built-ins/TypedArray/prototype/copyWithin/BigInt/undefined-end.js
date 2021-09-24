@@ -25,21 +25,16 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert(
-    compareArray(
-      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, undefined),
-      [1n, 2n, 3n, 3n]
-    ),
-    '[0, 1, 2, 3].copyWithin(0, 1, undefined) -> [1, 2, 3]'
+  assert.compareArray(
+    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, undefined),
+    [1n, 2n, 3n, 3n],
+    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, undefined) must return [1n, 2n, 3n, 3n]'
   );
 
-  assert(
-    compareArray(
-      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1),
-      [1n, 2n, 3n, 3n]
-    ),
-    '[0, 1, 2, 3].copyWithin(0, 1) -> [1, 2, 3, 3]'
+  assert.compareArray(
+    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1),
+    [1n, 2n, 3n, 3n],
+    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1) must return [1n, 2n, 3n, 3n]'
   );
 });

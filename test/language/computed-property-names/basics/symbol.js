@@ -20,15 +20,15 @@ var object = {
   c: 'C',
   [ID(sym2)]: 'D',
 };
-assert.sameValue(object.a, 'A', "The value of `object.a` is `'A'`. Defined in `object` as `a: 'A'`");
-assert.sameValue(object[sym1], 'B', "The value of `object[sym1]` is `'B'`. Defined in `object` as `[sym1]: 'B'`");
-assert.sameValue(object.c, 'C', "The value of `object.c` is `'C'`. Defined in `object` as `c: 'C'`");
-assert.sameValue(object[sym2], 'D', "The value of `object[sym2]` is `'D'`. Defined in `object` as `[ID(sym2)]: 'D'`");
-assert(
-  compareArray(Object.getOwnPropertyNames(object), ['a', 'c']),
-  "`compareArray(Object.getOwnPropertyNames(object), ['a', 'c'])` returns `true`"
+assert.sameValue(object.a, 'A', 'The value of object.a is expected to be "A"');
+assert.sameValue(object[sym1], 'B', 'The value of object[sym1] is expected to be "B"');
+assert.sameValue(object.c, 'C', 'The value of object.c is expected to be "C"');
+assert.sameValue(object[sym2], 'D', 'The value of object[sym2] is expected to be "D"');
+assert.compareArray(
+  Object.getOwnPropertyNames(object), ['a', 'c'],
+  'Object.getOwnPropertyNames({a: "A", [sym1]: "B", c: "C", [ID(sym2)]: "D",}) must return ["a", "c"]'
 );
-assert(
-  compareArray(Object.getOwnPropertySymbols(object), [sym1, sym2]),
-  "`compareArray(Object.getOwnPropertySymbols(object), [sym1, sym2])` returns `true`"
+assert.compareArray(
+  Object.getOwnPropertySymbols(object), [sym1, sym2],
+  'Object.getOwnPropertySymbols({a: "A", [sym1]: "B", c: "C", [ID(sym2)]: "D",}) must return [sym1, sym2]'
 );

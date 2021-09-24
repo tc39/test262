@@ -11,7 +11,7 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);
 
   function testRes(result, expected, msg) {
-    assert(compareArray(result, expected), msg + ", result: [" + result + "]");
+    assert.compareArray(result, expected, 'The value of result is expected to equal the value of expected');
   }
 
   testRes(sample.slice(1), [41, 42, 43], "begin == 1");

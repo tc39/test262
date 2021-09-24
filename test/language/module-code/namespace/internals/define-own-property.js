@@ -25,11 +25,11 @@ for (const key of ['local2', 0, sym, Symbol.iterator]) {
   assert.sameValue(
     Reflect.defineProperty(ns, key, {}),
     false,
-    'Reflect.defineProperty: ' + key.toString()
+    'Reflect.defineProperty(ns, , {}) must return false'
   );
   assert.throws(TypeError, function() {
     Object.defineProperty(ns, key, {});
-  }, 'Object.defineProperty: ' + key.toString());
+  }, 'Object.defineProperty(ns, key, {}) throws a TypeError exception');
 }
 
 
@@ -39,12 +39,12 @@ for (const key of ([...exported, Symbol.toStringTag])) {
   assert.sameValue(
     Reflect.defineProperty(ns, key, {}),
     true,
-    'Reflect.defineProperty: ' + key.toString()
+    'Reflect.defineProperty(ns, , {}) must return true'
   );
   assert.sameValue(
     Object.defineProperty(ns, key, {}),
     ns,
-    'Object.defineProperty: ' + key.toString()
+    'Object.defineProperty(ns, , {}) returns ns'
   );
 
 }
@@ -53,13 +53,13 @@ assert.sameValue(
   Reflect.defineProperty(ns, 'indirect',
       {writable: true, enumerable: true, configurable: false}),
   true,
-  'Reflect.defineProperty: indirect'
+  'Reflect.defineProperty(ns, "indirect", {writable: true, enumerable: true, configurable: false}) must return true'
 );
 assert.sameValue(
   Object.defineProperty(ns, 'indirect',
       {writable: true, enumerable: true, configurable: false}),
   ns,
-  'Object.defineProperty: indirect'
+  'Object.defineProperty(ns, "indirect", {writable: true, enumerable: true, configurable: false}) returns ns'
 );
 
 assert.sameValue(
@@ -67,14 +67,14 @@ assert.sameValue(
       {value: "Module", writable: false, enumerable: false,
        configurable: false}),
   true,
-  'Reflect.defineProperty: Symbol.toStringTag'
+  'Reflect.defineProperty( ns, Symbol.toStringTag, {value: "Module", writable: false, enumerable: false, configurable: false} ) must return true'
 );
 assert.sameValue(
   Object.defineProperty(ns, Symbol.toStringTag,
       {value: "Module", writable: false, enumerable: false,
        configurable: false}),
   ns,
-  'Object.defineProperty: Symbol.toStringTag'
+  'Object.defineProperty( ns, Symbol.toStringTag, {value: "Module", writable: false, enumerable: false, configurable: false} ) returns ns'
 );
 
 
@@ -84,54 +84,33 @@ for (const key of ([...exported, Symbol.toStringTag])) {
   assert.sameValue(
     Reflect.defineProperty(ns, key, {value: 123}),
     false,
-    'Reflect.defineProperty: ' + key.toString()
+    'Reflect.defineProperty(ns, , {value: 123}) must return false'
   );
   assert.throws(TypeError, function() {
     Object.defineProperty(ns, key, {value: 123});
-  }, 'Object.defineProperty: ' + key.toString());
+  }, 'Object.defineProperty(ns, key, {value: 123}) throws a TypeError exception');
 }
 
 assert.sameValue(
   Reflect.defineProperty(ns, 'indirect',
       {writable: true, enumerable: true, configurable: true}),
   false,
-  'Reflect.defineProperty: indirect'
+  'Reflect.defineProperty(ns, "indirect", {writable: true, enumerable: true, configurable: true}) must return false'
 );
 assert.throws(TypeError, function() {
   Object.defineProperty(ns, 'indirect',
       {writable: true, enumerable: true, configurable: true});
-}, 'Object.defineProperty: indirect');
+}, 'Object.defineProperty(ns, "indirect", {writable: true, enumerable: true, configurable: true}) throws a TypeError exception');
 
 assert.sameValue(
   Reflect.defineProperty(ns, Symbol.toStringTag,
       {value: "module", writable: false, enumerable: false,
        configurable: false}),
   false,
-  'Reflect.defineProperty: Symbol.toStringTag'
+  'Reflect.defineProperty( ns, Symbol.toStringTag, {value: "module", writable: false, enumerable: false, configurable: false} ) must return false'
 );
 assert.throws(TypeError, function() {
   Object.defineProperty(ns, Symbol.toStringTag,
       {value: "module", writable: false, enumerable: false,
        configurable: false});
-}, 'Object.defineProperty: Symbol.toStringTag');
-
-
-// Indirect change requested through Object.freeze
-
-// Try freezing more times than there are exported properties
-for (let i = 1; i < exported.length + 2; i++) {
-  assert.throws(
-    TypeError,
-    function () {
-      Object.freeze(ns);
-    },
-    "Object.freeze: " + String(i)
-  );
-}
-
-for (const key of exported) {
-  const desc = Object.getOwnPropertyDescriptor(ns, key);
-  assert.sameValue(desc.writable, true, String(key) + " writable");
-}
-
-assert(!Object.isFrozen(ns), "namespace object not frozen");
+}, 'Object.defineProperty(ns, Symbol.toStringTag, {value: "module", writable: false, enumerable: false, configurable: false}) throws a TypeError exception');

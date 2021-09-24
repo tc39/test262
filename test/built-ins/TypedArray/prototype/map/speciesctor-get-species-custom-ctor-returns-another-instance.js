@@ -49,6 +49,6 @@ testWithTypedArrayConstructors(function(TA) {
 
   result = sample.map(function(a) { return a + 7; });
 
-  assert.sameValue(result, other, "returned another typedarray");
-  assert(compareArray(result, [47, 0, 1]), "values are set on returned typedarray");
+  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
+  assert.compareArray(result, [47, 0, 1], 'The value of result is expected to be [47, 0, 1]');
 });

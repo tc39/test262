@@ -14,7 +14,11 @@ features: [TypedArray, Symbol.species, resizable-arraybuffer]
 // behavior will be identical to the case where `ArrayBuffer.prototype.resize`
 // has not been implemented. The following assertion prevents this test from
 // passing in runtimes which have not implemented the method.
-assert.sameValue(typeof ArrayBuffer.prototype.resize, 'function');
+assert.sameValue(
+  typeof ArrayBuffer.prototype.resize,
+  'function',
+  'The value of `typeof ArrayBuffer.prototype.resize` is expected to be "function"'
+);
 
 testWithTypedArrayConstructors(function(TA) {
   var BPE = TA.BYTES_PER_ELEMENT;
@@ -46,7 +50,7 @@ testWithTypedArrayConstructors(function(TA) {
     } catch (_) {}
   };
 
-  assert(compareArray(new TargetCtor(source), expected), 'following grow');
+  assert.compareArray(new TargetCtor(source), expected, 'new TargetCtor(source) is expected to equal the value of expected');
 
   onGetSpecies = function() {
     try {
@@ -55,7 +59,7 @@ testWithTypedArrayConstructors(function(TA) {
     } catch (_) {}
   };
 
-  assert(compareArray(new TargetCtor(source), expected), 'following shrink (within bounds)');
+  assert.compareArray(new TargetCtor(source), expected, 'new TargetCtor(source) is expected to equal the value of expected');
 
   onGetSpecies = function() {
     try {
@@ -64,7 +68,7 @@ testWithTypedArrayConstructors(function(TA) {
     } catch (_) {}
   };
 
-  assert(compareArray(new TargetCtor(source), expected), 'following shrink (on boundary)');
+  assert.compareArray(new TargetCtor(source), expected, 'new TargetCtor(source) is expected to equal the value of expected');
 
   // `assert.throws` cannot be used in this case because the expected error
   // is derived only after the constructor is invoked.
@@ -85,5 +89,9 @@ testWithTypedArrayConstructors(function(TA) {
     actualError = caught;
   }
 
-  assert.sameValue(actualError.constructor, expectedError);
+  assert.sameValue(
+    actualError.constructor,
+    expectedError,
+    'The value of actualError.constructor is expected to equal the value of expectedError'
+  );
 });

@@ -33,31 +33,31 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample = new TA([1, 2, 3, 4]);
   result = sample.set(src, 0);
-  assert(compareArray(sample, [42, 43, 3, 4]), "offset: 0, result: " + sample);
-  assert.sameValue(result, undefined, "returns undefined");
+  assert.compareArray(sample, [42, 43, 3, 4], 'The value of sample is expected to be [42, 43, 3, 4]');
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
 
   sample = new TA([1, 2, 3, 4]);
   result = sample.set(src, 1);
-  assert(compareArray(sample, [1, 42, 43, 4]), "offset: 1, result: " + sample);
-  assert.sameValue(result, undefined, "returns undefined");
+  assert.compareArray(sample, [1, 42, 43, 4], 'The value of sample is expected to be [1, 42, 43, 4]');
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
 
   sample = new TA([1, 2, 3, 4]);
   result = sample.set(src, 2);
-  assert(compareArray(sample, [1, 2, 42, 43]), "offset: 2, result: " + sample);
-  assert.sameValue(result, undefined, "returns undefined");
+  assert.compareArray(sample, [1, 2, 42, 43], 'The value of sample is expected to be [1, 2, 42, 43]');
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
 
   sample = new TA([1, 2, 3, 4]);
   result = sample.set(srcObj, 0);
-  assert(compareArray(sample, [7, 17, 3, 4]), "offset: 0, result: " + sample);
-  assert.sameValue(result, undefined, "returns undefined");
+  assert.compareArray(sample, [7, 17, 3, 4], 'The value of sample is expected to be [7, 17, 3, 4]');
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
 
   sample = new TA([1, 2, 3, 4]);
   result = sample.set(srcObj, 1);
-  assert(compareArray(sample, [1, 7, 17, 4]), "offset: 1, result: " + sample);
-  assert.sameValue(result, undefined, "returns undefined");
+  assert.compareArray(sample, [1, 7, 17, 4], 'The value of sample is expected to be [1, 7, 17, 4]');
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
 
   sample = new TA([1, 2, 3, 4]);
   result = sample.set(srcObj, 2);
-  assert(compareArray(sample, [1, 2, 7, 17]), "offset: 2, result: " + sample);
-  assert.sameValue(result, undefined, "returns undefined");
+  assert.compareArray(sample, [1, 2, 7, 17], 'The value of sample is expected to be [1, 2, 7, 17]');
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
 });

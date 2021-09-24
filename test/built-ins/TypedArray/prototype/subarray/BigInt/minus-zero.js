@@ -8,24 +8,16 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n, 41n, 42n, 43n]);
+  assert.compareArray(sample.subarray(-0), [40n, 41n, 42n, 43n], 'sample.subarray(-0) must return [40n, 41n, 42n, 43n]');
 
-  assert(
-    compareArray(sample.subarray(-0), [40n, 41n, 42n, 43n]),
-    "begin == -0"
+  assert.compareArray(
+    sample.subarray(-0, 4),
+    [40n, 41n, 42n, 43n],
+    'sample.subarray(-0, 4) must return [40n, 41n, 42n, 43n]'
   );
-  assert(
-    compareArray(sample.subarray(-0, 4), [40n, 41n, 42n, 43n]),
-    "being == -0, end == length"
-  );
-  assert(
-    compareArray(sample.subarray(0, -0), []),
-    "being == 0, end == -0"
-  );
-  assert(
-    compareArray(sample.subarray(-0, -0), []),
-    "being == -0, end == -0"
-  );
+
+  assert.compareArray(sample.subarray(0, -0), [], 'sample.subarray(0, -0) must return []');
+  assert.compareArray(sample.subarray(-0, -0), [], 'sample.subarray(-0, -0) must return []');
 });

@@ -13,19 +13,25 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
-
   sample = new TA([4n, 3n, 2n, 1n]).sort();
-  assert(compareArray(sample, [1n, 2n, 3n, 4n]), "descending values");
-
+  assert.compareArray(sample, [1n, 2n, 3n, 4n], 'The value of sample is expected to be [1n, 2n, 3n, 4n]');
   sample = new TA([3n, 4n, 1n, 2n]).sort();
-  assert(compareArray(sample, [1n, 2n, 3n, 4n]), "mixed numbers");
-
+  assert.compareArray(sample, [1n, 2n, 3n, 4n], 'The value of sample is expected to be [1n, 2n, 3n, 4n]');
   sample = new TA([3n, 4n, 3n, 1n, 0n, 1n, 2n]).sort();
-  assert(compareArray(sample, [0n, 1n, 1n, 2n, 3n, 3n, 4n]), "repeating numbers");
+
+  assert.compareArray(
+    sample,
+    [0n, 1n, 1n, 2n, 3n, 3n, 4n],
+    'The value of sample is expected to be [0n, 1n, 1n, 2n, 3n, 3n, 4n]'
+  );
 });
 
 var sample = new BigInt64Array([-4n, 3n, 4n, -3n, 2n, -2n, 1n, 0n]).sort();
-assert(compareArray(sample, [-4n, -3n, -2n, 0n, 1n, 2n, 3n, 4n]), "negative values");
+
+assert.compareArray(
+  sample,
+  [-4n, -3n, -2n, 0n, 1n, 2n, 3n, 4n],
+  'The value of sample is expected to be [-4n, -3n, -2n, 0n, 1n, 2n, 3n, 4n]'
+);

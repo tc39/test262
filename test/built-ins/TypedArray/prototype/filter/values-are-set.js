@@ -21,10 +21,10 @@ testWithTypedArrayConstructors(function(TA) {
   var result;
 
   result = sample.filter(function() { return true; });
-  assert(compareArray(result, [41, 1, 42, 7]), "values are set #1");
+  assert.compareArray(result, [41, 1, 42, 7], 'The value of result is expected to be [41, 1, 42, 7]');
 
   result = sample.filter(function(v) {
     return v > 40;
   });
-  assert(compareArray(result, [41, 42]), "values are set #2");
+  assert.compareArray(result, [41, 42], 'The value of result is expected to be [41, 42]');
 });

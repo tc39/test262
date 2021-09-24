@@ -28,51 +28,57 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var arr = [1n, 2n, 3n];
   var sample;
   var result;
-
   sample = new TA(3);
+
   sample.find(function(val, i) {
     sample[i] = arr[i];
-
-    assert.sameValue(val, 0n, "value is not mapped to instance");
+    assert.sameValue(val, 0n, 'The value of val is expected to be 0n');
   });
-  assert(compareArray(sample, arr), "values set during each predicate call");
 
+  assert.compareArray(sample, arr, 'The value of sample is expected to equal the value of arr');
   sample = new TA(arr);
+
   result = sample.find(function(val, i) {
-    if ( i === 0 ) {
+    if (i === 0) {
       sample[2] = 7n;
     }
+
     return val === 7n;
   });
-  assert.sameValue(result, 7n, "value found");
 
+  assert.sameValue(result, 7n, 'The value of result is expected to be 7n');
   sample = new TA(arr);
+
   result = sample.find(function(val, i) {
-    if ( i === 0 ) {
+    if (i === 0) {
       sample[2] = 7n;
     }
+
     return val === 3n;
   });
-  assert.sameValue(result, undefined, "value not found");
 
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
   sample = new TA(arr);
+
   result = sample.find(function(val, i) {
-    if ( i > 0 ) {
+    if (i > 0) {
       sample[0] = 7n;
     }
+
     return val === 7n;
   });
-  assert.sameValue(result, undefined, "value not found - changed after call");
 
+  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
   sample = new TA(arr);
+
   result = sample.find(function() {
     sample[0] = 7n;
     return true;
   });
-  assert.sameValue(result, 1n, "find() returns previous found value");
+
+  assert.sameValue(result, 1n, 'The value of result is expected to be 1n');
 });

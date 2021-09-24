@@ -21,73 +21,73 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample = new TA([1, 2]);
   sample.set(src, "");
-  assert(compareArray(sample, [42, 2]), "the empty string");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, "0");
-  assert(compareArray(sample, [42, 2]), "'0'");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, false);
-  assert(compareArray(sample, [42, 2]), "false");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, 0.1);
-  assert(compareArray(sample, [42, 2]), "0.1");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, 0.9);
-  assert(compareArray(sample, [42, 2]), "0.9");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, -0.5);
-  assert(compareArray(sample, [42, 2]), "-0.5");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, 1.1);
-  assert(compareArray(sample, [1, 42]), "1.1");
+  assert.compareArray(sample, [1, 42], 'The value of sample is expected to be [1, 42]');
 
   sample = new TA([1, 2]);
   sample.set(src, NaN);
-  assert(compareArray(sample, [42, 2]), "NaN");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, null);
-  assert(compareArray(sample, [42, 2]), "null");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, undefined);
-  assert(compareArray(sample, [42, 2]), "undefined");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, {});
-  assert(compareArray(sample, [42, 2]), "{}");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, []);
-  assert(compareArray(sample, [42, 2]), "[]");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, [0]);
-  assert(compareArray(sample, [42, 2]), "[0]");
+  assert.compareArray(sample, [42, 2], 'The value of sample is expected to be [42, 2]');
 
   sample = new TA([1, 2]);
   sample.set(src, true);
-  assert(compareArray(sample, [1, 42]), "true");
+  assert.compareArray(sample, [1, 42], 'The value of sample is expected to be [1, 42]');
 
   sample = new TA([1, 2]);
   sample.set(src, "1");
-  assert(compareArray(sample, [1, 42]), "'1'");
+  assert.compareArray(sample, [1, 42], 'The value of sample is expected to be [1, 42]');
 
   sample = new TA([1, 2]);
   sample.set(src, [1]);
-  assert(compareArray(sample, [1, 42]), "[1]");
+  assert.compareArray(sample, [1, 42], 'The value of sample is expected to be [1, 42]');
 
   sample = new TA([1, 2]);
   sample.set(src, { valueOf: function() {return 1;} });
-  assert(compareArray(sample, [1, 42]), "valueOf");
+  assert.compareArray(sample, [1, 42], 'The value of sample is expected to be [1, 42]');
 
   sample = new TA([1, 2]);
   sample.set(src, { toString: function() {return 1;} });
-  assert(compareArray(sample, [1, 42]), "toString");
+  assert.compareArray(sample, [1, 42], 'The value of sample is expected to be [1, 42]');
 });

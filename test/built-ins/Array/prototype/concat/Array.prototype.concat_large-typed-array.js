@@ -16,21 +16,18 @@ function concatTypedArray(type, elems, modulo) {
     ta_by_len[i] = items[i] = modulo === false ? i : elems % modulo;
   }
   var ta = new type(items);
-  assert(
-    compareArray([].concat(ta, ta), [ta, ta]),
-    'compareArray([].concat(ta, ta), [ta, ta]) must return true'
+  assert.compareArray([].concat(ta, ta), [ta, ta],
+    '[].concat(new type(items), new type(items)) must return [ta, ta]'
   );
   ta[Symbol.isConcatSpreadable] = true;
   assert.compareArray([].concat(ta), items, '[].concat(new type(items)) returns items');
 
-  assert(
-    compareArray([].concat(ta_by_len, ta_by_len), [ta_by_len, ta_by_len]),
-    'compareArray([].concat(ta_by_len, ta_by_len), [ta_by_len, ta_by_len]) must return true'
+  assert.compareArray([].concat(ta_by_len, ta_by_len), [ta_by_len, ta_by_len],
+    '[].concat(new type(elems), new type(elems)) must return [ta_by_len, ta_by_len]'
   );
   ta_by_len[Symbol.isConcatSpreadable] = true;
-  assert(
-    compareArray([].concat(ta_by_len), items),
-    'compareArray([].concat(ta_by_len), items) must return true'
+  assert.compareArray([].concat(ta_by_len), items,
+    '[].concat(new type(elems)) returns items'
   );
 
   // TypedArray with fake `length`.

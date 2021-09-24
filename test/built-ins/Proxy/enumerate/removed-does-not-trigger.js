@@ -23,25 +23,25 @@ for (x in p) {
   forInResults.push(x);
 }
 
-assert(compareArray(forInResults, ["0", "1", "2"]));
+assert.compareArray(forInResults, ["0", "1", "2"], 'The value of forInResults is expected to be ["0", "1", "2"]');
 
 var forOfResults = [];
 for (x of p) {
   forOfResults.push(x);
 }
 
-assert(compareArray(forOfResults, [1, 2, 3]));
+assert.compareArray(forOfResults, [1, 2, 3], 'The value of forOfResults is expected to be [1, 2, 3]');
 
 var itor = p[Symbol.iterator]();
 var next = itor.next();
-assert.sameValue(next.value, 1);
-assert.sameValue(next.done, false);
+assert.sameValue(next.value, 1, 'The value of next.value is expected to be 1');
+assert.sameValue(next.done, false, 'The value of next.done is expected to be false');
 next = itor.next();
-assert.sameValue(next.value, 2);
-assert.sameValue(next.done, false);
+assert.sameValue(next.value, 2, 'The value of next.value is expected to be 2');
+assert.sameValue(next.done, false, 'The value of next.done is expected to be false');
 next = itor.next();
-assert.sameValue(next.value, 3);
-assert.sameValue(next.done, false);
+assert.sameValue(next.value, 3, 'The value of next.value is expected to be 3');
+assert.sameValue(next.done, false, 'The value of next.done is expected to be false');
 next = itor.next();
-assert.sameValue(next.value, undefined);
-assert.sameValue(next.done, true);
+assert.sameValue(next.value, undefined, 'The value of next.value is expected to equal undefined');
+assert.sameValue(next.done, true, 'The value of next.done is expected to be true');

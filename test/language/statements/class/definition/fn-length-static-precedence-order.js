@@ -33,7 +33,11 @@ class A {
   }
 }
 
-assert(compareArray(Object.getOwnPropertyNames(A), ['length', 'name', 'prototype', 'method']))
+assert.compareArray(
+  Object.getOwnPropertyNames(A),
+  ['length', 'name', 'prototype', 'method'],
+  'Object.getOwnPropertyNames(A) must return ["length", "name", "prototype", "method"]'
+)
 
 var attr = 'length';
 class B {
@@ -45,7 +49,11 @@ class B {
   }
 }
 
-assert(compareArray(Object.getOwnPropertyNames(B), ['length', 'name', 'prototype']))
+assert.compareArray(
+  Object.getOwnPropertyNames(B),
+  ['length', 'name', 'prototype'],
+  'Object.getOwnPropertyNames(B) must return ["length", "name", "prototype"]'
+)
 
 class C {
   static get length() {
@@ -53,7 +61,11 @@ class C {
   }
 }
 
-assert(compareArray(Object.getOwnPropertyNames(C), ['length', 'name', 'prototype']))
+assert.compareArray(
+  Object.getOwnPropertyNames(C),
+  ['length', 'name', 'prototype'],
+  'Object.getOwnPropertyNames(C) must return ["length", "name", "prototype"]'
+)
 
 class D {
   static set length(_) {
@@ -61,7 +73,11 @@ class D {
   }
 }
 
-assert(compareArray(Object.getOwnPropertyNames(D), ['length', 'name', 'prototype']))
+assert.compareArray(
+  Object.getOwnPropertyNames(D),
+  ['length', 'name', 'prototype'],
+  'Object.getOwnPropertyNames(D) must return ["length", "name", "prototype"]'
+)
 
 class E {
   static *length() {
@@ -69,4 +85,8 @@ class E {
   }
 }
 
-assert(compareArray(Object.getOwnPropertyNames(E), ['length', 'name', 'prototype']))
+assert.compareArray(
+  Object.getOwnPropertyNames(E),
+  ['length', 'name', 'prototype'],
+  'Object.getOwnPropertyNames(E) must return ["length", "name", "prototype"]'
+)

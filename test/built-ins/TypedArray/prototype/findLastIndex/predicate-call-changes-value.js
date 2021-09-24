@@ -16,6 +16,18 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray, array-find-from-last]
 ---*/
 
+assert.sameValue(
+  typeof BigInt64Array.prototype.findLastIndex,
+  'function',
+  'The value of `typeof BigInt64Array.prototype.findLastIndex` is expected to be "function"'
+);
+
+assert.sameValue(
+  typeof BigUint64Array.prototype.findLastIndex,
+  'function',
+  'The value of `typeof BigUint64Array.prototype.findLastIndex` is expected to be "function"'
+);
+
 testWithTypedArrayConstructors(function(TA) {
   var arr = [10, 20, 30];
   var sample;
@@ -25,9 +37,9 @@ testWithTypedArrayConstructors(function(TA) {
   sample.findLastIndex(function(val, i) {
     sample[i] = arr[i];
 
-    assert.sameValue(val, 0, "value is not mapped to instance");
+    assert.sameValue(val, 0, 'The value of val is expected to be 0');
   });
-  assert(compareArray(sample, arr), "values set during each predicate call");
+  assert.compareArray(sample, arr, 'The value of sample is expected to equal the value of arr');
 
   sample = new TA(arr);
   result = sample.findLastIndex(function(val, i) {
@@ -36,7 +48,7 @@ testWithTypedArrayConstructors(function(TA) {
     }
     return val === 7;
   });
-  assert.sameValue(result, 0, "value found");
+  assert.sameValue(result, 0, 'The value of result is expected to be 0');
 
   sample = new TA(arr);
   result = sample.findLastIndex(function(val, i) {
@@ -45,7 +57,7 @@ testWithTypedArrayConstructors(function(TA) {
     }
     return val === 10;
   });
-  assert.sameValue(result, -1, "value not found");
+  assert.sameValue(result, -1, 'The value of result is expected to be -1');
 
   sample = new TA(arr);
   result = sample.findLastIndex(function(val, i) {
@@ -54,5 +66,5 @@ testWithTypedArrayConstructors(function(TA) {
     }
     return val === 7;
   });
-  assert.sameValue(result, -1, "value not found - changed after call");
+  assert.sameValue(result, -1, 'The value of result is expected to be -1');
 });

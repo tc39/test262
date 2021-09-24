@@ -24,44 +24,49 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var arr = [10n, 20n, 30n];
   var sample;
   var result;
-
   sample = new TA(3);
+
   sample.findIndex(function(val, i) {
     sample[i] = arr[i];
-
-    assert.sameValue(val, 0n, "value is not mapped to instance");
+    assert.sameValue(val, 0n, 'The value of val is expected to be 0n');
   });
-  assert(compareArray(sample, arr), "values set during each predicate call");
 
+  assert.compareArray(sample, arr, 'The value of sample is expected to equal the value of arr');
   sample = new TA(arr);
+
   result = sample.findIndex(function(val, i) {
-    if ( i === 0 ) {
+    if (i === 0) {
       sample[2] = 7n;
     }
+
     return val === 7n;
   });
-  assert.sameValue(result, 2, "value found");
 
+  assert.sameValue(result, 2, 'The value of result is expected to be 2');
   sample = new TA(arr);
+
   result = sample.findIndex(function(val, i) {
-    if ( i === 0 ) {
+    if (i === 0) {
       sample[2] = 7n;
     }
+
     return val === 30n;
   });
-  assert.sameValue(result, -1, "value not found");
 
+  assert.sameValue(result, -1, 'The value of result is expected to be -1');
   sample = new TA(arr);
+
   result = sample.findIndex(function(val, i) {
-    if ( i > 0 ) {
+    if (i > 0) {
       sample[0] = 7n;
     }
+
     return val === 7n;
   });
-  assert.sameValue(result, -1, "value not found - changed after call");
+
+  assert.sameValue(result, -1, 'The value of result is expected to be -1');
 });

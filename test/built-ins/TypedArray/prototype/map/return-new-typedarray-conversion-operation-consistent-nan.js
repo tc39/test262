@@ -65,7 +65,7 @@ function body(FloatArray) {
   sampleBytes = new Uint8Array(sample.buffer);
   resultBytes = new Uint8Array(result.buffer);
 
-  assert(compareArray(sampleBytes, resultBytes));
+  assert.compareArray(sampleBytes, resultBytes, 'The value of sampleBytes is expected to equal the value of resultBytes');
 }
 
 testWithTypedArrayConstructors(body, [Float32Array, Float64Array]);

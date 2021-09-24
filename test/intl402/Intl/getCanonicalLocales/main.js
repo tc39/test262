@@ -14,7 +14,7 @@ includes: [compareArray.js]
 var gCL = Intl.getCanonicalLocales;
 
 function assertArray(l, r) {
-  assert(compareArray(l, r), r);
+  assert.compareArray(l, r, 'The value of l is expected to equal the value of r');
 }
 
 assertArray(gCL(), []);

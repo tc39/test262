@@ -13,7 +13,6 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-
 var obj = {
   valueOf: function() {
     return 2;
@@ -22,27 +21,28 @@ var obj = {
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n, 41n, 42n, 43n]);
+  assert.compareArray(sample.slice(0, false), [], 'sample.slice(0, false) must return []');
+  assert.compareArray(sample.slice(0, true), [40n], 'sample.slice(0, true) must return [40n]');
+  assert.compareArray(sample.slice(0, NaN), [], 'sample.slice(0, NaN) must return []');
+  assert.compareArray(sample.slice(0, null), [], 'sample.slice(0, null) must return []');
 
-  assert(compareArray(sample.slice(0, false), []), "false");
-  assert(compareArray(sample.slice(0, true), [40n]), "true");
+  assert.compareArray(
+    sample.slice(0, undefined),
+    [40n, 41n, 42n, 43n],
+    'sample.slice(0, undefined) must return [40n, 41n, 42n, 43n]'
+  );
 
-  assert(compareArray(sample.slice(0, NaN), []), "NaN");
-  assert(compareArray(sample.slice(0, null), []), "null");
-  assert(compareArray(sample.slice(0, undefined), [40n, 41n, 42n, 43n]), "undefined");
+  assert.compareArray(sample.slice(0, 0.6), [], 'sample.slice(0, 0.6) must return []');
+  assert.compareArray(sample.slice(0, 1.1), [40n], 'sample.slice(0, 1.1) must return [40n]');
+  assert.compareArray(sample.slice(0, 1.5), [40n], 'sample.slice(0, 1.5) must return [40n]');
+  assert.compareArray(sample.slice(0, -0.6), [], 'sample.slice(0, -0.6) must return []');
+  assert.compareArray(sample.slice(0, -1.1), [40n, 41n, 42n], 'sample.slice(0, -1.1) must return [40n, 41n, 42n]');
+  assert.compareArray(sample.slice(0, -1.5), [40n, 41n, 42n], 'sample.slice(0, -1.5) must return [40n, 41n, 42n]');
+  assert.compareArray(sample.slice(0, '3'), [40n, 41n, 42n], 'sample.slice(0, "3") must return [40n, 41n, 42n]');
 
-  assert(compareArray(sample.slice(0, 0.6), []), "0.6");
-  assert(compareArray(sample.slice(0, 1.1), [40n]), "1.1");
-  assert(compareArray(sample.slice(0, 1.5), [40n]), "1.5");
-  assert(compareArray(sample.slice(0, -0.6), []), "-0.6");
-  assert(compareArray(sample.slice(0, -1.1), [40n, 41n, 42n]), "-1.1");
-  assert(compareArray(sample.slice(0, -1.5), [40n, 41n, 42n]), "-1.5");
-
-  assert(compareArray(sample.slice(0, "3"), [40n, 41n, 42n]), "string");
-  assert(
-    compareArray(
-      sample.slice(0, obj),
-      [40n, 41n]
-    ),
-    "object"
+  assert.compareArray(
+    sample.slice(0, obj),
+    [40n, 41n],
+    'sample.slice(0, {valueOf: function() {return 2;}}) must return [40n, 41n]'
   );
 });
