@@ -23,10 +23,3 @@ new Proxy(fn, {});
 assert.sameValue(typeof proxyCallable, 'function', 'wrapped proxy callable object is typeof function');
 assert.sameValue(proxyCallable(), 42, 'wrappedpfn() returns 42');
 assert.sameValue((new Proxy(proxyCallable, {}))(), 42, 'wrapped functions can be proxied');
-
-const getSecret = r.evaluate(`(obj) => { return obj.secret }`);
-const secretObj = { "secret": 496 };
-const dispatchToUnderlying = {
-  apply: (target, this_, args) => { return target(args); }
-};
-assert.throws(TypeError, () => (new Proxy(getSecret, dispatchToUnderlying))(secretObj), 'Proxying a wrapped function and invoking it still performs boundary checks');
