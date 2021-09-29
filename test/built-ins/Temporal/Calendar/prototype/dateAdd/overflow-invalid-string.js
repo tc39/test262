@@ -11,10 +11,12 @@ info: |
       1. Return ? GetOption(_normalizedOptions_, *"overflow"*, « String », « *"constrain"*, *"reject"* », *"constrain"*).
     sec-temporal.calendar.prototype.dateadd step 7:
       7. Let _overflow_ be ? ToTemporalOverflow(_options_).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 
 const calendar = new Temporal.Calendar("iso8601");
 const date = new Temporal.PlainDate(2000, 5, 2, calendar);
 const duration = new Temporal.Duration(3, 3, 0, 3);
-assert.throws(RangeError, () => calendar.dateAdd(date, duration, { overflow: "other string" }));
+assert.throws(RangeError,
+    () => calendar.dateAdd(date, duration, { overflow: "other string" }),
+    "Value for overflow not one of the allowed string values");

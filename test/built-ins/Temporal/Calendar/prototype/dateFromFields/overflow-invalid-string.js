@@ -13,8 +13,10 @@ info: |
       2. Let _overflow_ be ? ToTemporalOverflow(_options_).
     sec-temporal.calendar.prototype.datefromfields step 6:
       6. Let _result_ be ? ISODateFromFields(_fields_, _options_).
-features: [Temporal]
+features: [Temporal, arrow-function]
 ---*/
 
 const calendar = new Temporal.Calendar("iso8601");
-assert.throws(RangeError, () => calendar.dateFromFields({ year: 2000, month: 5, day: 2 }, { overflow: "other string" }));
+assert.throws(RangeError, () => calendar.dateFromFields({ year: 2000, month: 5, day: 2 },
+      { overflow: "other string" }),
+    "Value for overflow not one of the allowed string values");
