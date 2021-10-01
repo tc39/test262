@@ -35,17 +35,19 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n]);
   var other = new BigInt64Array([1n, 0n, 1n]);
   var result;
-  sample.constructor = {};
 
+  sample.constructor = {};
   sample.constructor[Symbol.species] = function() {
     return other;
   };
 
   result = sample.slice(0, 0);
-  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
-  assert.compareArray(result, [1n, 0n, 1n], 'The value of result is expected to be [1n, 0n, 1n]');
+
+  assert.sameValue(result, other, "returned another typedarray");
+  assert(compareArray(result, [1n, 0n, 1n]), "the returned object is preserved");
 });

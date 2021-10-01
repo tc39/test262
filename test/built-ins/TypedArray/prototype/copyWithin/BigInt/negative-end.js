@@ -27,52 +27,69 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, -1),
-    [1n, 2n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, -1) must return [1n, 2n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, -1),
+      [1n, 2n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, 1, -1) -> [1, 2, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, 0, -1),
-    [0n, 1n, 0n, 1n, 2n],
-    'new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, 0, -1) must return [0n, 1n, 0n, 1n, 2n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, 0, -1),
+      [0n, 1n, 0n, 1n, 2n]
+    ),
+    '[0, 1, 2, 3, 4].copyWithin(2, 0, -1) -> [0, 1, 0, 1, 2]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(1, 2, -2),
-    [0n, 2n, 2n, 3n, 4n],
-    'new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(1, 2, -2) must return [0n, 2n, 2n, 3n, 4n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(1, 2, -2),
+      [0n, 2n, 2n, 3n, 4n]
+    ),
+    '[0, 1, 2, 3, 4].copyWithin(1, 2, -2) -> [0, 2, 2, 3, 4]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, -2, -1),
-    [2n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, -2, -1) must return [2n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, -2, -1),
+      [2n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, -2, -1) -> [2, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, -2, -1),
-    [0n, 1n, 3n, 3n, 4n],
-    'new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, -2, -1) must return [0n, 1n, 3n, 3n, 4n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(2, -2, -1),
+      [0n, 1n, 3n, 3n, 4n]
+    ),
+    '[0, 1, 2, 3, 4].copyWithin(2, -2, 1) -> [0, 1, 3, 3, 4]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(-3, -2, -1),
-    [0n, 2n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(-3, -2, -1) must return [0n, 2n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-3, -2, -1),
+      [0n, 2n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(-3, -2, -1) -> [0, 2, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-2, -3, -1),
-    [0n, 1n, 2n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-2, -3, -1) must return [0n, 1n, 2n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-2, -3, -1),
+      [0n, 1n, 2n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3, 4].copyWithin(-2, -3, -1) -> [0, 1, 2, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-5, -2, -1),
-    [3n, 1n, 2n, 3n, 4n],
-    'new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-5, -2, -1) must return [3n, 1n, 2n, 3n, 4n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-5, -2, -1),
+      [3n, 1n, 2n, 3n, 4n]
+    ),
+    '[0, 1, 2, 3, 4].copyWithin(-5, -2, -1) -> [3, 1, 2, 3, 4]'
   );
 });

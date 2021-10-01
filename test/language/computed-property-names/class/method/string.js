@@ -17,11 +17,12 @@ class C {
   c() { return 'C'; }
   [ID('d')]() { return 'D'; }
 }
-assert.sameValue(new C().a(), 'A', 'new C().a() must return "A"');
-assert.sameValue(new C().b(), 'B', 'new C().b() must return "B"');
-assert.sameValue(new C().c(), 'C', 'new C().c() must return "C"');
-assert.sameValue(new C().d(), 'D', 'new C().d() must return "D"');
-assert.sameValue(Object.keys(C.prototype).length, 0, 'The value of Object.keys(C.prototype).length is expected to be 0');
-assert.compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'b', 'c', 'd'],
-  'Object.getOwnPropertyNames(C.prototype) must return ["constructor", "a", "b", "c", "d"]'
+assert.sameValue(new C().a(), 'A', "`new C().a()` returns `'A'`. Defined as `a() { return 'A'}`");
+assert.sameValue(new C().b(), 'B', "`new C().b()` returns `'B'`. Defined as `['b']() { return 'B'; }`");
+assert.sameValue(new C().c(), 'C', "`new C().c()` returns `'C'`. Defined as `c() { return 'C'; }`");
+assert.sameValue(new C().d(), 'D', "`new C().d()` returns `'D'`. Defined as `[ID('d')]() { return 'D'; }`");
+assert.sameValue(Object.keys(C.prototype).length, 0, "No enum keys from C.prototype");
+assert(
+  compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'b', 'c', 'd']),
+  "`compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'b', 'c', 'd'])` returns `true`"
 );

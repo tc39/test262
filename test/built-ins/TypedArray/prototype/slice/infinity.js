@@ -10,20 +10,20 @@ features: [TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);
 
-  assert.compareArray(
-    sample.slice(-Infinity), [40, 41, 42, 43],
-    'sample.slice(-Infinity) must return [40, 41, 42, 43]'
+  assert(
+    compareArray(sample.slice(-Infinity), [40, 41, 42, 43]),
+    "start == -Infinity"
   );
-  assert.compareArray(
-    sample.slice(Infinity), [],
-    'sample.slice(Infinity) must return []'
+  assert(
+    compareArray(sample.slice(Infinity), []),
+    "start == Infinity"
   );
-  assert.compareArray(
-    sample.slice(0, -Infinity), [],
-    'sample.slice(0, -Infinity) must return []'
+  assert(
+    compareArray(sample.slice(0, -Infinity), []),
+    "end == -Infinity"
   );
-  assert.compareArray(
-    sample.slice(0, Infinity), [40, 41, 42, 43],
-    'sample.slice(0, Infinity) must return [40, 41, 42, 43]'
+  assert(
+    compareArray(sample.slice(0, Infinity), [40, 41, 42, 43]),
+    "end == Infinity"
   );
 });

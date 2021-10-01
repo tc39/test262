@@ -32,8 +32,13 @@ testWithTypedArrayConstructors(function(TA) {
   other[4] = 7;
 
   sample.reverse();
-  assert.compareArray(sample, [1, 2, 43, 42], 'The value of sample is expected to be [1, 2, 43, 42]');
-  assert.compareArray(other, [1, 2, 43, 42, 7], 'The value of other is expected to be [1, 2, 43, 42, 7]');
+  assert(
+    compareArray(sample, [1, 2, 43, 42])
+  );
+
+  assert(
+    compareArray(other, [1, 2, 43, 42, 7])
+  );
 
   sample[0] = 7;
   sample[1] = 17;
@@ -42,6 +47,11 @@ testWithTypedArrayConstructors(function(TA) {
   other[4] = 42;
 
   other.reverse();
-  assert.compareArray(other, [42, 0, 1, 17, 7], 'The value of other is expected to be [42, 0, 1, 17, 7]');
-  assert.compareArray(sample, [42, 0, 1, 17], 'The value of sample is expected to be [42, 0, 1, 17]');
+  assert(
+    compareArray(other, [42, 0, 1, 17, 7])
+  );
+
+  assert(
+    compareArray(sample, [42, 0, 1, 17])
+  );
 });

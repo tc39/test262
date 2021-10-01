@@ -12,7 +12,7 @@ features: [TypedArray, resizable-arraybuffer]
 assert.sameValue(
   typeof ArrayBuffer.prototype.resize,
   'function',
-  'The value of `typeof ArrayBuffer.prototype.resize` is expected to be "function"'
+  'implements ArrayBuffer.prototype.resize'
 );
 
 testWithTypedArrayConstructors(function(TA) {
@@ -33,7 +33,7 @@ testWithTypedArrayConstructors(function(TA) {
   } catch (_) {}
 
   target.set(source);
-  assert.compareArray(target, expected, 'The value of target is expected to equal the value of expected');
+  assert(compareArray(target, expected), 'following grow');
 
   try {
     ab.resize(BPE * 3);
@@ -41,5 +41,5 @@ testWithTypedArrayConstructors(function(TA) {
   } catch (_) {}
 
   target.set(source);
-  assert.compareArray(target, expected, 'The value of target is expected to equal the value of expected');
+  assert(compareArray(target, expected), 'following shrink');
 });

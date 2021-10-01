@@ -29,28 +29,25 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 0n, 0n]).fill(8n, 0, 1),
-    [8n, 0n, 0n],
-    'new TA([0n, 0n, 0n]).fill(8n, 0, 1) must return [8n, 0n, 0n]'
+  assert(
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, 0, 1), [8n, 0n, 0n]),
+    "Fill elements from custom end position"
   );
 
-  assert.compareArray(
-    new TA([0n, 0n, 0n]).fill(8n, 0, -1),
-    [8n, 8n, 0n],
-    'new TA([0n, 0n, 0n]).fill(8n, 0, -1) must return [8n, 8n, 0n]'
+  assert(
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, 0, -1), [8n, 8n, 0n]),
+    "negative end sets final position to max((length + relativeEnd), 0)"
   );
 
-  assert.compareArray(
-    new TA([0n, 0n, 0n]).fill(8n, 0, 5),
-    [8n, 8n, 8n],
-    'new TA([0n, 0n, 0n]).fill(8n, 0, 5) must return [8n, 8n, 8n]'
+  assert(
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, 0, 5), [8n, 8n, 8n]),
+    "end position is never higher than of length"
   );
 
-  assert.compareArray(
-    new TA([0n, 0n, 0n]).fill(8n, 0, -4),
-    [0n, 0n, 0n],
-    'new TA([0n, 0n, 0n]).fill(8n, 0, -4) must return [0n, 0n, 0n]'
+  assert(
+    compareArray(new TA([0n, 0n, 0n]).fill(8n, 0, -4), [0n, 0n, 0n]),
+    "end position is 0 when (len + relativeEnd) < 0"
   );
 });

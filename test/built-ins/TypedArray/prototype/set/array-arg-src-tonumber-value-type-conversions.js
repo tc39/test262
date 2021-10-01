@@ -42,7 +42,8 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.set(arr);
 
-  assert.compareArray(sample, expected,
-    'The value of sample is expected to equal the value of expected'
+  assert(
+    compareArray(sample, expected),
+    "sample: [" + sample + "], expected: [" + expected + "]"
   );
 });

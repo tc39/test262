@@ -36,18 +36,18 @@ testWithTypedArrayConstructors(function(TA) {
   sample = new TA([1, 2, 3, 4]);
   src = new TA(sample.buffer, 0, 2);
   result = sample.set(src, 0);
-  assert.compareArray(sample, [1, 2, 3, 4], 'The value of sample is expected to be [1, 2, 3, 4]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1, 2, 3, 4]), "offset: 0, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
 
   sample = new TA([1, 2, 3, 4]);
   src = new TA(sample.buffer, 0, 2);
   result = sample.set(src, 1);
-  assert.compareArray(sample, [1, 1, 2, 4], 'The value of sample is expected to be [1, 1, 2, 4]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1, 1, 2, 4]), "offset: 1, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
 
   sample = new TA([1, 2, 3, 4]);
   src = new TA(sample.buffer, 0, 2);
   result = sample.set(src, 2);
-  assert.compareArray(sample, [1, 2, 1, 2], 'The value of sample is expected to be [1, 2, 1, 2]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1, 2, 1, 2]), "offset: 2, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
 });

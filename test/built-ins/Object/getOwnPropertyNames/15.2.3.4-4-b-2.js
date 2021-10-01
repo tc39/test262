@@ -36,5 +36,6 @@ Object.defineProperty(obj, "d", {
 });
 
 var actual = Object.getOwnPropertyNames(obj);
+var expected = ["a", "b", "c", "d"];
 
-assert.compareArray(actual, ["a", "b", "c", "d"], 'The value of actual is expected to be ["a", "b", "c", "d"]');
+assert(compareArray(actual, expected), 'compareArray(actual, expected) !== true');

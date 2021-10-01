@@ -25,40 +25,53 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, null),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, null) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, null),
+      [0n, 1n, 2n, 3n]
+    ),
+    'null value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, NaN),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, NaN) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, NaN),
+      [0n, 1n, 2n, 3n]
+    ),
+    'NaN value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, false),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, false) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, false),
+      [0n, 1n, 2n, 3n]
+    ),
+    'false value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, true),
-    [0n, 0n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, true) must return [0n, 0n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, true),
+      [0n, 0n, 2n, 3n]
+    ),
+    'true value coerced to 1'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, '-2'),
-    [0n, 0n, 1n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, "-2") must return [0n, 0n, 1n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, '-2'),
+      [0n, 0n, 1n, 3n]
+    ),
+    'string "-2" value coerced to integer -2'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, -2.5),
-    [0n, 0n, 1n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, -2.5) must return [0n, 0n, 1n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, -2.5),
+      [0n, 0n, 1n, 3n]
+    ),
+    'float -2.5 value coerced to integer -2'
   );
 });

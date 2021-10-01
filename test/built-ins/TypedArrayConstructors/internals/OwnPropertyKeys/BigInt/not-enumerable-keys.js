@@ -31,5 +31,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     enumerable: false
   });
   var result = Reflect.ownKeys(sample);
-  assert.compareArray(result, ["test262", s], 'The value of result is expected to be ["test262", s]');
+  assert(compareArray(result, ["test262", s]));
 });

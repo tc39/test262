@@ -39,10 +39,10 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(Test262Error, function() {
     sample.set(obj);
-  }, 'sample.set(obj) throws a Test262Error exception');
+  });
 
-  assert.compareArray(
-    sample, [42, 43, 3, 4],
-    'The value of sample is expected to be [42, 43, 3, 4]'
+  assert(
+    compareArray(sample, [42, 43, 3, 4]),
+    "values are set until exception"
   );
 });

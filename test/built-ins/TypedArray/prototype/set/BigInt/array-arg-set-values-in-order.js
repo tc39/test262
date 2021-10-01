@@ -21,14 +21,13 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(5);
   var calls = [];
-
   var obj = {
     length: 3
   };
-
   Object.defineProperty(obj, 0, {
     get: function() {
       calls.push(0);
@@ -55,16 +54,19 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   Object.defineProperty(obj, 3, {
     get: function() {
-      throw new Test262Error('Should not call obj[3]');
+      throw new Test262Error("Should not call obj[3]");
     }
   });
 
   sample.set(obj, 1);
-  assert.compareArray(sample, [0n, 42n, 43n, 44n, 0n], 'The value of sample is expected to be [0n, 42n, 43n, 44n, 0n]');
 
-  assert.compareArray(
-    calls,
-    [0, '0,0,0,0,0', 1, '0,42,0,0,0', 2, '0,42,43,0,0'],
-    'The value of calls is expected to be [0, "0,0,0,0,0", 1, "0,42,0,0,0", 2, "0,42,43,0,0"]'
+  assert(
+    compareArray(sample, [0n, 42n, 43n, 44n, 0n]),
+    "values are set for src length"
+  );
+
+  assert(
+    compareArray(calls, [0, "0,0,0,0,0", 1, "0,42,0,0,0", 2, "0,42,43,0,0"]),
+    "values are set in order"
   );
 });

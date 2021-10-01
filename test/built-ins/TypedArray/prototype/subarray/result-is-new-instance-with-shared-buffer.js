@@ -17,19 +17,19 @@ testWithTypedArrayConstructors(function(TA) {
   var buffer = sample.buffer;
   var result = sample.subarray(1);
 
-  assert.notSameValue(result, sample, 'The value of result is expected to not equal the value of `sample`');
-  assert.sameValue(result.buffer, sample.buffer, 'The value of result.buffer is expected to equal the value of sample.buffer');
-  assert.sameValue(sample.buffer, buffer, 'The value of sample.buffer is expected to equal the value of buffer');
+  assert.notSameValue(result, sample, "returns a new instance");
+  assert.sameValue(result.buffer, sample.buffer, "shared buffer");
+  assert.sameValue(sample.buffer, buffer, "original buffer is preserved");
 
   sample[1] = 100;
-  assert.compareArray(
-    result, [100, 42, 43],
-    'The value of result is expected to be [100, 42, 43]'
+  assert(
+    compareArray(result, [100, 42, 43]),
+    "changes on the original sample values affect the new instance"
   );
 
   result[1] = 111;
-  assert.compareArray(
-    sample, [40, 100, 111, 43],
-    'The value of sample is expected to be [40, 100, 111, 43]'
+  assert(
+    compareArray(sample, [40, 100, 111, 43]),
+    "changes on the new instance values affect the original sample"
   );
 });

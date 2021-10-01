@@ -11,8 +11,9 @@ info: |
 includes: [compareArray.js]
 ---*/
 
-assert.compareArray(Intl.getCanonicalLocales(
-  ['ab-cd', 'ff', 'de-rt', 'ab-Cd']), ['ab-CD', 'ff', 'de-RT'], 'Intl.getCanonicalLocales(["ab-cd", "ff", "de-rt", "ab-Cd"]) must return ["ab-CD", "ff", "de-RT"]');
+assert(compareArray(
+  Intl.getCanonicalLocales(
+    ['ab-cd', 'ff', 'de-rt', 'ab-Cd']), ['ab-CD', 'ff', 'de-RT']));
 
 var locales = Intl.getCanonicalLocales(['en-US', 'en-US']);
-assert.compareArray(locales, ['en-US'], 'The value of locales is expected to be ["en-US"]');
+assert(compareArray(locales, ['en-US']), 'en-US');

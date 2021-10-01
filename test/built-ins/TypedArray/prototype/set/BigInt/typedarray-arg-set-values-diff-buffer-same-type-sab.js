@@ -9,25 +9,32 @@ description: >
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample, result;
+
   var sab = new SharedArrayBuffer(2 * TA.BYTES_PER_ELEMENT);
   var src = new TA(sab);
   src[0] = 42n;
   src[1] = 43n;
+
   sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 1);
-  assert.compareArray(sample, [1n, 42n, 43n, 4n], 'The value of sample is expected to be [1n, 42n, 43n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 42n, 43n, 4n]), "src is SAB-backed, offset: 1, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 0);
-  assert.compareArray(sample, [42n, 43n, 3n, 4n], 'The value of sample is expected to be [42n, 43n, 3n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [42n, 43n, 3n, 4n]), "src is SAB-backed, offset: 0, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 2);
-  assert.compareArray(sample, [1n, 2n, 42n, 43n], 'The value of sample is expected to be [1n, 2n, 42n, 43n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 2n, 42n, 43n]), "src is SAB-backed, offset: 2, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   src = new TA([42n, 43n]);
+
   sab = new SharedArrayBuffer(4 * TA.BYTES_PER_ELEMENT);
   sample = new TA(sab);
   sample[0] = 1n;
@@ -35,8 +42,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample[2] = 3n;
   sample[3] = 4n;
   result = sample.set(src, 1);
-  assert.compareArray(sample, [1n, 42n, 43n, 4n], 'The value of sample is expected to be [1n, 42n, 43n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 42n, 43n, 4n]), "sample is SAB-backed, offset: 1, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sab = new SharedArrayBuffer(4 * TA.BYTES_PER_ELEMENT);
   sample = new TA(sab);
   sample[0] = 1n;
@@ -44,8 +52,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample[2] = 3n;
   sample[3] = 4n;
   result = sample.set(src, 0);
-  assert.compareArray(sample, [42n, 43n, 3n, 4n], 'The value of sample is expected to be [42n, 43n, 3n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [42n, 43n, 3n, 4n]), "sample is SAB-backed, offset: 0, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sab = new SharedArrayBuffer(4 * TA.BYTES_PER_ELEMENT);
   sample = new TA(sab);
   sample[0] = 1n;
@@ -53,12 +62,15 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample[2] = 3n;
   sample[3] = 4n;
   result = sample.set(src, 2);
-  assert.compareArray(sample, [1n, 2n, 42n, 43n], 'The value of sample is expected to be [1n, 2n, 42n, 43n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 2n, 42n, 43n]), "sample is SAB-backed, offset: 2, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
+
   var sab1 = new SharedArrayBuffer(2 * TA.BYTES_PER_ELEMENT);
   src = new TA(sab1);
   src[0] = 42n;
   src[1] = 43n;
+
   var sab2;
   sab2 = new SharedArrayBuffer(4 * TA.BYTES_PER_ELEMENT);
   sample = new TA(sab2);
@@ -67,8 +79,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample[2] = 3n;
   sample[3] = 4n;
   result = sample.set(src, 1);
-  assert.compareArray(sample, [1n, 42n, 43n, 4n], 'The value of sample is expected to be [1n, 42n, 43n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 42n, 43n, 4n]), "src and sample are SAB-backed, offset: 1, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sab2 = new SharedArrayBuffer(4 * TA.BYTES_PER_ELEMENT);
   sample = new TA(sab2);
   sample[0] = 1n;
@@ -76,8 +89,9 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample[2] = 3n;
   sample[3] = 4n;
   result = sample.set(src, 0);
-  assert.compareArray(sample, [42n, 43n, 3n, 4n], 'The value of sample is expected to be [42n, 43n, 3n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [42n, 43n, 3n, 4n]), "src and sample are SAB-backed, offset: 0, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sab2 = new SharedArrayBuffer(4 * TA.BYTES_PER_ELEMENT);
   sample = new TA(sab2);
   sample[0] = 1n;
@@ -85,6 +99,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample[2] = 3n;
   sample[3] = 4n;
   result = sample.set(src, 2);
-  assert.compareArray(sample, [1n, 2n, 42n, 43n], 'The value of sample is expected to be [1n, 2n, 42n, 43n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 2n, 42n, 43n]), "src and sample are SAB-backed, offset: 2, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
 });

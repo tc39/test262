@@ -11,14 +11,14 @@ class Base {
     assert.sameValue(
       arguments.length,
       a.length,
-      'The value of arguments.length is expected to equal the value of a.length'
+      "The value of `arguments.length` is `a.length`"
     );
     this.base = a;
     var args = [];
     for (var i = 0; i < arguments.length; ++i) {
       args.push(arguments[i]);
     }
-    assert.compareArray(args, a, 'The value of args is expected to equal the value of a');
+    assert(compareArray(args, a), "`compareArray(args, a)` returns `true`");
   }
 }
 class Child extends Base {
@@ -27,27 +27,27 @@ class Child extends Base {
     assert.sameValue(
       arguments.length,
       b.length,
-      'The value of arguments.length is expected to equal the value of b.length'
+      "The value of `arguments.length` is `b.length`"
     );
     this.child = b;
     var args = [];
     for (var i = 0; i < arguments.length; ++i) {
       args.push(arguments[i]);
     }
-    assert.compareArray(args, b, 'The value of args is expected to equal the value of b');
+    assert(compareArray(args, b), "`compareArray(args, b)` returns `true`");
   }
 }
 
 var c = new Child(1, 2, 3);
 
-assert.sameValue(c.child.length, 3, 'The value of c.child.length is expected to be 3');
-assert.sameValue(c.base.length, 3, 'The value of c.base.length is expected to be 3');
+assert.sameValue(c.child.length, 3, "The value of `c.child.length` is `3`");
+assert.sameValue(c.base.length, 3, "The value of `c.base.length` is `3`");
 
-assert.compareArray(
-  c.child, [1, 2, 3],
-  'The value of c.child is expected to be [1, 2, 3]'
+assert(
+  compareArray(c.child, [1, 2, 3]),
+  "`compareArray(c.child, [1, 2, 3])` returns `true`"
 );
-assert.compareArray(
-  c.base, [1, 2, 3],
-  'The value of c.base is expected to be [1, 2, 3]'
+assert(
+  compareArray(c.base, [1, 2, 3]),
+  "`compareArray(c.base, [1, 2, 3])` returns `true`"
 );

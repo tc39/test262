@@ -25,28 +25,37 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(-10, 0),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(-10, 0) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-10, 0),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(-10, 0) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-Infinity, 0),
-    [1n, 2n, 3n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-Infinity, 0) must return [1n, 2n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-Infinity, 0),
+      [1n, 2n, 3n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(-Infinity, 0) -> [1, 2, 3, 4, 5]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-10, 2),
-    [2n, 3n, 4n, 3n, 4n],
-    'new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-10, 2) must return [2n, 3n, 4n, 3n, 4n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n]).copyWithin(-10, 2),
+      [2n, 3n, 4n, 3n, 4n]
+    ),
+    '[0, 1, 2, 3, 4].copyWithin(-10, 2) -> [2, 3, 4, 3, 4]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-Infinity, 2),
-    [3n, 4n, 5n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-Infinity, 2) must return [3n, 4n, 5n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-Infinity, 2),
+      [3n, 4n, 5n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(-Infinity, 2) -> [3, 4, 5, 4, 5]'
   );
 });

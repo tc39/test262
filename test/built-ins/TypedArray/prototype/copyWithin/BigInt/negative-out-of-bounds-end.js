@@ -27,64 +27,85 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, -10),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, -10) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, -10),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, 1, -10) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, 1, -Infinity),
-    [1n, 2n, 3n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, 1, -Infinity) must return [1n, 2n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, 1, -Infinity),
+      [1n, 2n, 3n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(0, 1, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, -2, -10),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, -2, -10) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, -2, -10),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, -2, -10) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, -2, -Infinity),
-    [1n, 2n, 3n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, -2, -Infinity) must return [1n, 2n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, -2, -Infinity),
+      [1n, 2n, 3n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(0, -2, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, -9, -10),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, -9, -10) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, -9, -10),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, -9, -10) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, -9, -Infinity),
-    [1n, 2n, 3n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, -9, -Infinity) must return [1n, 2n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(0, -9, -Infinity),
+      [1n, 2n, 3n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(0, -9, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(-3, -2, -10),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(-3, -2, -10) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-3, -2, -10),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(-3, -2, -10) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-3, -2, -Infinity),
-    [1n, 2n, 3n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-3, -2, -Infinity) must return [1n, 2n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-3, -2, -Infinity),
+      [1n, 2n, 3n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(-3, -2, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(-7, -8, -9),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(-7, -8, -9) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(-7, -8, -9),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(-7, -8, -9) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-7, -8, -Infinity),
-    [1n, 2n, 3n, 4n, 5n],
-    'new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-7, -8, -Infinity) must return [1n, 2n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([1n, 2n, 3n, 4n, 5n]).copyWithin(-7, -8, -Infinity),
+      [1n, 2n, 3n, 4n, 5n]
+    ),
+    '[1, 2, 3, 4, 5].copyWithin(-7, -8, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 });

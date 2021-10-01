@@ -14,11 +14,7 @@ features: [TypedArray, Symbol.species, resizable-arraybuffer]
 // behavior will be identical to the case where `ArrayBuffer.prototype.resize`
 // has not been implemented. The following assertion prevents this test from
 // passing in runtimes which have not implemented the method.
-assert.sameValue(
-  typeof ArrayBuffer.prototype.resize,
-  'function',
-  'The value of `typeof ArrayBuffer.prototype.resize` is expected to be "function"'
-);
+assert.sameValue(typeof ArrayBuffer.prototype.resize, 'function');
 
 testWithTypedArrayConstructors(function(TA) {
   var BPE = TA.BYTES_PER_ELEMENT;
@@ -49,12 +45,8 @@ testWithTypedArrayConstructors(function(TA) {
     } catch (_) {}
   };
 
-  assert.sameValue(
-    (new TA(source)).join(','),
-    expected.join(','),
-    '(new TA(source)).join(",") must return the same value returned by expected.join(",")'
-  );
-  assert.compareArray(new TA(source), expected, 'new TA(source) is expected to equal the value of expected');
+  assert.sameValue((new TA(source)).join(','), expected.join(','));
+  assert(compareArray(new TA(source), expected), 'following grow');
 
   onGetSpecies = function() {
     try {
@@ -63,7 +55,7 @@ testWithTypedArrayConstructors(function(TA) {
     } catch (_) {}
   };
 
-  assert.compareArray(new TA(source), expected, 'new TA(source) is expected to equal the value of expected');
+  assert(compareArray(new TA(source), expected), 'following shrink (within bounds)');
 
   onGetSpecies = function() {
     try {
@@ -72,7 +64,7 @@ testWithTypedArrayConstructors(function(TA) {
     } catch (_) {}
   };
 
-  assert.compareArray(new TA(source), expected, 'new TA(source) is expected to equal the value of expected');
+  assert(compareArray(new TA(source), expected), 'following shrink (on boundary)');
 
   // `assert.throws` cannot be used in this case because the expected error
   // is derived only after the constructor is invoked.
@@ -93,9 +85,5 @@ testWithTypedArrayConstructors(function(TA) {
     actualError = caught;
   }
 
-  assert.sameValue(
-    actualError.constructor,
-    expectedError,
-    'The value of actualError.constructor is expected to equal the value of expectedError'
-  );
+  assert.sameValue(actualError.constructor, expectedError);
 });

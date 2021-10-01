@@ -35,10 +35,10 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.set(obj);
-  }, 'sample.set(obj) throws a TypeError exception');
+  });
 
-  assert.compareArray(
-    sample, [42, 43, 3, 4],
-    'The value of sample is expected to be [42, 43, 3, 4]'
+  assert(
+    compareArray(sample, [42, 43, 3, 4]),
+    "values are set until exception"
   );
 });

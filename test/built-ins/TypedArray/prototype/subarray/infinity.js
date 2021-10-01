@@ -12,20 +12,20 @@ features: [TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);
 
-  assert.compareArray(
-    sample.subarray(-Infinity), [40, 41, 42, 43],
-    'sample.subarray(-Infinity) must return [40, 41, 42, 43]'
+  assert(
+    compareArray(sample.subarray(-Infinity), [40, 41, 42, 43]),
+    "begin == -Infinity"
   );
-  assert.compareArray(
-    sample.subarray(Infinity), [],
-    'sample.subarray(Infinity) must return []'
+  assert(
+    compareArray(sample.subarray(Infinity), []),
+    "being == Infinity"
   );
-  assert.compareArray(
-    sample.subarray(0, -Infinity), [],
-    'sample.subarray(0, -Infinity) must return []'
+  assert(
+    compareArray(sample.subarray(0, -Infinity), []),
+    "end == -Infinity"
   );
-  assert.compareArray(
-    sample.subarray(0, Infinity), [40, 41, 42, 43],
-    'sample.subarray(0, Infinity) must return [40, 41, 42, 43]'
+  assert(
+    compareArray(sample.subarray(0, Infinity), [40, 41, 42, 43]),
+    "end == Infinity"
   );
 });

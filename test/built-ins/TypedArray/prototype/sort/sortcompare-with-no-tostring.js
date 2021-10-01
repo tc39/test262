@@ -26,6 +26,6 @@ Number.prototype.toString = function() {
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([20, 100, 3]);
   var result = sample.sort();
-  assert.sameValue(toStringCalled, false, 'The value of toStringCalled is expected to be false');
-  assert.compareArray(result, [3, 20, 100], 'The value of result is expected to be [3, 20, 100]');
+  assert.sameValue(toStringCalled, false, "Number.prototype.toString will not be called");
+  assert(compareArray(result, [3, 20, 100]), "Default sorting by value");
 });

@@ -24,52 +24,69 @@ info: |
 includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, undefined),
-    [0n, 0n, 1n, 2n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, undefined) must return [0n, 0n, 1n, 2n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, undefined),
+      [0n, 0n, 1n, 2n]
+    ),
+    'undefined value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, false),
-    [0n, 0n, 1n, 2n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, false) must return [0n, 0n, 1n, 2n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, false),
+      [0n, 0n, 1n, 2n]
+    ),
+    'false value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, NaN),
-    [0n, 0n, 1n, 2n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, NaN) must return [0n, 0n, 1n, 2n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, NaN),
+      [0n, 0n, 1n, 2n]
+    ),
+    'NaN value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, null),
-    [0n, 0n, 1n, 2n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, null) must return [0n, 0n, 1n, 2n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, null),
+      [0n, 0n, 1n, 2n]
+    ),
+    'null value coerced to 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, true),
-    [1n, 2n, 3n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, true) must return [1n, 2n, 3n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, true),
+      [1n, 2n, 3n, 3n]
+    ),
+    'true value coerced to 1'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, '1'),
-    [1n, 2n, 3n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, "1") must return [1n, 2n, 3n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, '1'),
+      [1n, 2n, 3n, 3n]
+    ),
+    'string "1" value coerced to 1'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0.5),
-    [0n, 0n, 1n, 2n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0.5) must return [0n, 0n, 1n, 2n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0.5),
+      [0n, 0n, 1n, 2n]
+    ),
+    '0.5 float value coerced to integer 0'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1.5),
-    [1n, 2n, 3n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1.5) must return [1n, 2n, 3n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1.5),
+      [1n, 2n, 3n, 3n]
+    ),
+    '1.5 float value coerced to integer 1'
   );
 });

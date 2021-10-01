@@ -21,25 +21,28 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var obj = {
-    length: 4,
-    '0': 42n,
-    '1': 43n,
-    '3': 44n
-  };
-
-  Object.defineProperty(obj, '2', {
-    get: function() {
-      throw new Test262Error();
-    }
-  });
+      length: 4,
+      "0": 42n,
+      "1": 43n,
+      "3": 44n
+    };
+    Object.defineProperty(obj, "2", {
+      get: function() {
+        throw new Test262Error();
+      }
+    });
 
   var sample = new TA([1n, 2n, 3n, 4n]);
 
   assert.throws(Test262Error, function() {
     sample.set(obj);
-  }, 'sample.set(obj) throws a Test262Error exception');
+  });
 
-  assert.compareArray(sample, [42n, 43n, 3n, 4n], 'The value of sample is expected to be [42n, 43n, 3n, 4n]');
+  assert(
+    compareArray(sample, [42n, 43n, 3n, 4n]),
+    "values are set until exception"
+  );
 });
