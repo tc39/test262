@@ -26,8 +26,8 @@ compareArray.isSameValue = function(a, b) {
   return a === b;
 };
 
-compareArray.format = function(array) {
-  return `[${array.map(String).join(', ')}]`;
+compareArray.format = function(arrayLike) {
+  return `[${[].map.call(arrayLike, String).join(', ')}]`;
 };
 
 assert.compareArray = function(actual, expected, message) {
@@ -35,8 +35,11 @@ assert.compareArray = function(actual, expected, message) {
   assert(actual != null, `First argument shouldn't be nullish. ${message}`);
   assert(expected != null, `Second argument shouldn't be nullish. ${message}`);
   var format = compareArray.format;
-  assert(
-    compareArray(actual, expected),
-    `Expected ${format(actual)} and ${format(expected)} to have the same contents. ${message}`
-  );
+  var result = compareArray(actual, expected);
+
+  // The following prevents actual and expected from being iterated and evaluated
+  // more than once unless absolutely necessary.
+  if (!result) {
+    assert(false, `Expected ${format(actual)} and ${format(expected)} to have the same contents. ${message}`);
+  }
 };
