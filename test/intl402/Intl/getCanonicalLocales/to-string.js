@@ -17,8 +17,4 @@ var locales = {
   length: 2
 };
 
-assert.compareArray(
-  Intl.getCanonicalLocales(locales),
-  [ "en-US", "pt-BR" ],
-  'Intl.getCanonicalLocales("{"0": {toString: function() {locales[1] = "pt-BR"; return "en-US";}}, length: 2}) must return [ "en-US", "pt-BR" ]'
-);
+assert(compareArray(Intl.getCanonicalLocales(locales), [ "en-US", "pt-BR" ]));

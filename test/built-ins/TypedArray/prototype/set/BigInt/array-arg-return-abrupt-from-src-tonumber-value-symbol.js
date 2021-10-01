@@ -21,20 +21,24 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var obj = {
-    length: 4,
-    '0': 42n,
-    '1': 43n,
-    '2': Symbol('1'),
-    '3': 44n
+      length: 4,
+      "0": 42n,
+      "1": 43n,
+      "2": Symbol("1"),
+      "3": 44n
   };
 
   var sample = new TA([1n, 2n, 3n, 4n]);
 
   assert.throws(TypeError, function() {
     sample.set(obj);
-  }, 'sample.set(obj) throws a TypeError exception');
+  });
 
-  assert.compareArray(sample, [42n, 43n, 3n, 4n], 'The value of sample is expected to be [42n, 43n, 3n, 4n]');
+  assert(
+    compareArray(sample, [42n, 43n, 3n, 4n]),
+    "values are set until exception"
+  );
 });

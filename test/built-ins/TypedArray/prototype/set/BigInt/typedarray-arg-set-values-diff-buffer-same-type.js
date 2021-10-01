@@ -28,19 +28,23 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample, result;
   var src = new TA([42n, 43n]);
+
   sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 1);
-  assert.compareArray(sample, [1n, 42n, 43n, 4n], 'The value of sample is expected to be [1n, 42n, 43n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 42n, 43n, 4n]), "offset: 1, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 0);
-  assert.compareArray(sample, [42n, 43n, 3n, 4n], 'The value of sample is expected to be [42n, 43n, 3n, 4n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [42n, 43n, 3n, 4n]), "offset: 0, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
+
   sample = new TA([1n, 2n, 3n, 4n]);
   result = sample.set(src, 2);
-  assert.compareArray(sample, [1n, 2n, 42n, 43n], 'The value of sample is expected to be [1n, 2n, 42n, 43n]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, [1n, 2n, 42n, 43n]), "offset: 2, result: " + sample);
+  assert.sameValue(result, undefined, "returns undefined");
 });

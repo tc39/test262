@@ -21,12 +21,12 @@ var o1 = {
 
 var result = Reflect.getOwnPropertyDescriptor(o1, 'p');
 
-assert.compareArray(
-  Object.getOwnPropertyNames(result),
-  ['value', 'writable', 'enumerable', 'configurable'],
-  'Object.getOwnPropertyNames(Reflect.getOwnPropertyDescriptor(o1, "p")) must return ["value", "writable", "enumerable", "configurable"]'
+assert(
+  compareArray(
+    Object.getOwnPropertyNames(result), ['value', 'writable', 'enumerable', 'configurable']
+  )
 );
-assert.sameValue(result.value, 'foo', 'The value of result.value is expected to be "foo"');
-assert.sameValue(result.enumerable, true, 'The value of result.enumerable is expected to be true');
-assert.sameValue(result.configurable, true, 'The value of result.configurable is expected to be true');
-assert.sameValue(result.writable, true, 'The value of result.writable is expected to be true');
+assert.sameValue(result.value, 'foo');
+assert.sameValue(result.enumerable, true);
+assert.sameValue(result.configurable, true);
+assert.sameValue(result.writable, true);

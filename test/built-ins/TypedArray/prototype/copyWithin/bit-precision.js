@@ -38,11 +38,7 @@ function body(FloatArray) {
     length
   );
 
-  assert.compareArray(
-    originalBytes,
-    copiedBytes,
-    'The value of originalBytes is expected to equal the value of copiedBytes'
-  );
+  assert(compareArray(originalBytes, copiedBytes));
 }
 
 testWithTypedArrayConstructors(body, [Float32Array, Float64Array]);

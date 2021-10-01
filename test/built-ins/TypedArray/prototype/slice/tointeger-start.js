@@ -22,21 +22,27 @@ var obj = {
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);
 
-  assert.compareArray(sample.slice(false), [40, 41, 42, 43], 'sample.slice(false) must return [40, 41, 42, 43]');
-  assert.compareArray(sample.slice(true), [41, 42, 43], 'sample.slice(true) must return [41, 42, 43]');
+  assert(compareArray(sample.slice(false), [40, 41, 42, 43]), "false");
+  assert(compareArray(sample.slice(true), [41, 42, 43]), "true");
 
-  assert.compareArray(sample.slice(NaN), [40, 41, 42, 43], 'sample.slice(NaN) must return [40, 41, 42, 43]');
-  assert.compareArray(sample.slice(null), [40, 41, 42, 43], 'sample.slice(null) must return [40, 41, 42, 43]');
-  assert.compareArray(sample.slice(undefined), [40, 41, 42, 43], 'sample.slice(undefined) must return [40, 41, 42, 43]');
+  assert(compareArray(sample.slice(NaN), [40, 41, 42, 43]), "NaN");
+  assert(compareArray(sample.slice(null), [40, 41, 42, 43]), "null");
+  assert(compareArray(sample.slice(undefined), [40, 41, 42, 43]), "undefined");
 
-  assert.compareArray(sample.slice(1.1), [41, 42, 43], 'sample.slice(1.1) must return [41, 42, 43]');
-  assert.compareArray(sample.slice(1.5), [41, 42, 43], 'sample.slice(1.5) must return [41, 42, 43]');
-  assert.compareArray(sample.slice(0.6), [40, 41, 42, 43], 'sample.slice(0.6) must return [40, 41, 42, 43]');
+  assert(compareArray(sample.slice(1.1), [41, 42, 43]), "1.1");
+  assert(compareArray(sample.slice(1.5), [41, 42, 43]), "1.5");
+  assert(compareArray(sample.slice(0.6), [40, 41, 42, 43]), "0.6");
 
-  assert.compareArray(sample.slice(-1.5), [43], 'sample.slice(-1.5) must return [43]');
-  assert.compareArray(sample.slice(-1.1), [43], 'sample.slice(-1.1) must return [43]');
-  assert.compareArray(sample.slice(-0.6), [40, 41, 42, 43], 'sample.slice(-0.6) must return [40, 41, 42, 43]');
+  assert(compareArray(sample.slice(-1.5), [43]), "-1.5");
+  assert(compareArray(sample.slice(-1.1), [43]), "-1.1");
+  assert(compareArray(sample.slice(-0.6), [40, 41, 42, 43]), "-0.6");
 
-  assert.compareArray(sample.slice("3"), [43], 'sample.slice("3") must return [43]');
-  assert.compareArray(sample.slice(obj), [42, 43], 'sample.slice({valueOf: function() {return 2;}}) must return [42, 43]');
+  assert(compareArray(sample.slice("3"), [43]), "string");
+  assert(
+    compareArray(
+      sample.slice(obj),
+      [42, 43]
+    ),
+    "object"
+  );
 });

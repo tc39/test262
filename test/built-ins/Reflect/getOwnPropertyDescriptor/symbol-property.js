@@ -27,12 +27,12 @@ o[s] = 42;
 
 var result = Reflect.getOwnPropertyDescriptor(o, s);
 
-assert.compareArray(
-  Object.getOwnPropertyNames(result),
-  ['value', 'writable', 'enumerable', 'configurable'],
-  'Object.getOwnPropertyNames(Reflect.getOwnPropertyDescriptor(o, s)) must return ["value", "writable", "enumerable", "configurable"]'
+assert(
+  compareArray(
+    Object.getOwnPropertyNames(result), ['value', 'writable', 'enumerable', 'configurable']
+  )
 );
-assert.sameValue(result.value, 42, 'The value of result.value is expected to be 42');
-assert.sameValue(result.enumerable, true, 'The value of result.enumerable is expected to be true');
-assert.sameValue(result.configurable, true, 'The value of result.configurable is expected to be true');
-assert.sameValue(result.writable, true, 'The value of result.writable is expected to be true');
+assert.sameValue(result.value, 42);
+assert.sameValue(result.enumerable, true);
+assert.sameValue(result.configurable, true);
+assert.sameValue(result.writable, true);

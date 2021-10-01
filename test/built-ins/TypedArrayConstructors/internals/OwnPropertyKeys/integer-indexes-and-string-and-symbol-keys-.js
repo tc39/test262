@@ -30,9 +30,9 @@ testWithTypedArrayConstructors(function(TA) {
   sample1.test262 = 42;
   sample1.ecma262 = 42;
   var result1 = Reflect.ownKeys(sample1);
-  assert.compareArray(
-    result1, ["0", "1", "2", "test262", "ecma262", s1, s2],
-    'The value of result1 is expected to be ["0", "1", "2", "test262", "ecma262", s1, s2]'
+  assert(
+    compareArray(result1, ["0", "1", "2", "test262", "ecma262", s1, s2]),
+    "result1"
   );
 
   var sample2 = new TA(4).subarray(2);
@@ -41,8 +41,8 @@ testWithTypedArrayConstructors(function(TA) {
   sample2.test262 = 42;
   sample2.ecma262 = 42;
   var result2 = Reflect.ownKeys(sample2);
-  assert.compareArray(
-    result2, ["0", "1", "test262", "ecma262", s1, s2],
-    'The value of result2 is expected to be ["0", "1", "test262", "ecma262", s1, s2]'
+  assert(
+    compareArray(result2, ["0", "1", "test262", "ecma262", s1, s2]),
+    "result2"
   );
 });

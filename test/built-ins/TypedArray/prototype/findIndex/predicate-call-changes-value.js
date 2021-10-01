@@ -34,9 +34,9 @@ testWithTypedArrayConstructors(function(TA) {
   sample.findIndex(function(val, i) {
     sample[i] = arr[i];
 
-    assert.sameValue(val, 0, 'The value of val is expected to be 0');
+    assert.sameValue(val, 0, "value is not mapped to instance");
   });
-  assert.compareArray(sample, arr, 'The value of sample is expected to equal the value of arr');
+  assert(compareArray(sample, arr), "values set during each predicate call");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
@@ -45,7 +45,7 @@ testWithTypedArrayConstructors(function(TA) {
     }
     return val === 7;
   });
-  assert.sameValue(result, 2, 'The value of result is expected to be 2');
+  assert.sameValue(result, 2, "value found");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
@@ -54,7 +54,7 @@ testWithTypedArrayConstructors(function(TA) {
     }
     return val === 30;
   });
-  assert.sameValue(result, -1, 'The value of result is expected to be -1');
+  assert.sameValue(result, -1, "value not found");
 
   sample = new TA(arr);
   result = sample.findIndex(function(val, i) {
@@ -63,5 +63,5 @@ testWithTypedArrayConstructors(function(TA) {
     }
     return val === 7;
   });
-  assert.sameValue(result, -1, 'The value of result is expected to be -1');
+  assert.sameValue(result, -1, "value not found - changed after call");
 });

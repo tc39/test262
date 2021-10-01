@@ -35,21 +35,20 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n]);
   var otherTA = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
   var other = new otherTA([1n, 0n, 1n]);
   var result;
-  sample.constructor = {};
 
+  sample.constructor = {};
   sample.constructor[Symbol.species] = function() {
     return other;
   };
 
-  result = sample.map(function(a) {
-    return a + 7n;
-  });
+  result = sample.map(function(a) { return a + 7n; });
 
-  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
-  assert.compareArray(result, [47n, 0n, 1n], 'The value of result is expected to be [47n, 0n, 1n]');
+  assert.sameValue(result, other, "returned another typedarray");
+  assert(compareArray(result, [47n, 0n, 1n]), "values are set on returned typedarray");
 });

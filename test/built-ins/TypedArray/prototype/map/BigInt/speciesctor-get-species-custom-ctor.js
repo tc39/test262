@@ -35,23 +35,22 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([40n, 41n, 42n]);
   var calls = 0;
   var other, result;
-  sample.constructor = {};
 
+  sample.constructor = {};
   sample.constructor[Symbol.species] = function(len) {
     calls++;
     other = new TA(len);
     return other;
   };
 
-  result = sample.map(function(a) {
-    return a + 7n;
-  });
+  result = sample.map(function(a) { return a + 7n; });
 
-  assert.sameValue(calls, 1, 'The value of calls is expected to be 1');
-  assert.sameValue(result, other, 'The value of result is expected to equal the value of other');
-  assert.compareArray(result, [47n, 48n, 49n], 'The value of result is expected to be [47n, 48n, 49n]');
+  assert.sameValue(calls, 1, "ctor called once");
+  assert.sameValue(result, other, "return is instance of custom constructor");
+  assert(compareArray(result, [47n, 48n, 49n]), "values are set on the new obj");
 });

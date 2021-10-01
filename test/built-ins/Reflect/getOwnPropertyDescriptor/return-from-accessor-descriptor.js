@@ -45,12 +45,12 @@ Object.defineProperty(o1, 'p', {
 
 var result = Reflect.getOwnPropertyDescriptor(o1, 'p');
 
-assert.compareArray(
-  Object.getOwnPropertyNames(result),
-  ['get', 'set', 'enumerable', 'configurable'],
-  'Object.getOwnPropertyNames(Reflect.getOwnPropertyDescriptor(o1, "p")) must return ["get", "set", "enumerable", "configurable"]'
+assert(
+  compareArray(
+    Object.getOwnPropertyNames(result), ['get', 'set', 'enumerable', 'configurable']
+  )
 );
-assert.sameValue(result.enumerable, false, 'The value of result.enumerable is expected to be false');
-assert.sameValue(result.configurable, true, 'The value of result.configurable is expected to be true');
-assert.sameValue(result.get, fn, 'The value of result.get is expected to equal the value of fn');
-assert.sameValue(result.set, undefined, 'The value of result.set is expected to equal undefined');
+assert.sameValue(result.enumerable, false);
+assert.sameValue(result.configurable, true);
+assert.sameValue(result.get, fn);
+assert.sameValue(result.set, undefined);

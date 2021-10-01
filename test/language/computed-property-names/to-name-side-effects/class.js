@@ -30,16 +30,16 @@ class C {
   [key2]() { return 'D'; }
 }
 
-assert.compareArray(key1ToString, [0], 'The value of key1ToString is expected to be [0]');
-assert.compareArray(key2ToString, [1], 'The value of key2ToString is expected to be [1]');
+assert.compareArray(key1ToString, [0], "order set for key1");
+assert.compareArray(key2ToString, [1], "order set for key2");
 
-assert.sameValue(counter, 2, 'The value of counter is expected to be 2');
-assert.sameValue(new C().a(), 'A', 'new C().a() must return "A"');
-assert.sameValue(new C().b(), 'B', 'new C().b() must return "B"');
-assert.sameValue(new C().c(), 'C', 'new C().c() must return "C"');
-assert.sameValue(new C().d(), 'D', 'new C().d() must return "D"');
-assert.sameValue(Object.keys(C.prototype).length, 0, 'The value of Object.keys(C.prototype).length is expected to be 0');
-assert.compareArray(
-  Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'b', 'c', 'd'],
-  'Object.getOwnPropertyNames(C.prototype) must return ["constructor", "a", "b", "c", "d"]'
+assert.sameValue(counter, 2, "The value of `counter` is `2`");
+assert.sameValue(new C().a(), 'A', "`new C().a()` returns `'A'`. Defined as `a() { return 'A'; }`");
+assert.sameValue(new C().b(), 'B', "`new C().b()` returns `'B'`. Defined as `[key1]() { return 'B'; }`");
+assert.sameValue(new C().c(), 'C', "`new C().c()` returns `'C'`. Defined as `c() { return 'C'; }`");
+assert.sameValue(new C().d(), 'D', "`new C().d()` returns `'D'`. Defined as `[key2]() { return 'D'; }`");
+assert.sameValue(Object.keys(C.prototype).length, 0, "No enum keys from C.prototype");
+assert(
+  compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'b', 'c', 'd']),
+  "`compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'b', 'c', 'd'])` returns `true`"
 );

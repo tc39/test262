@@ -30,19 +30,23 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-var separator = ['', ''].toLocaleString();
+
+var separator = ["", ""].toLocaleString();
 var calls;
 
 BigInt.prototype.toLocaleString = function() {
   calls.push(this);
-  return 'hacks' + calls.length;
+  return "hacks" + calls.length;
 };
 
-var expected = ['hacks1', 'hacks2'].join(separator);
+var expected = ["hacks1", "hacks2"].join(separator);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n, 0n]);
   calls = [];
-  assert.sameValue(sample.toLocaleString(), expected, 'sample.toLocaleString() returns expected');
-  assert.compareArray(new TA(calls), sample, 'new TA(calls) is expected to equal the value of sample');
+  assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
+  assert(
+    compareArray(new TA(calls), sample),
+    "toLocaleString called for each item"
+  );
 });

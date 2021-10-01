@@ -30,22 +30,22 @@ let sequence = [1];
 Promise.all([
   a.catch(() => {
     sequence.push(3);
-    assert.sameValue(sequence.length, 3, 'The value of sequence.length is expected to be 3');
+    assert.sameValue(sequence.length, 3);
     return checkSequence(sequence, 'Expected to be called first.');
   }),
   Promise.race([a, b]).catch(() => {
     sequence.push(5);
-    assert.sameValue(sequence.length, 5, 'The value of sequence.length is expected to be 5');
+    assert.sameValue(sequence.length, 5);
     return checkSequence(sequence, 'Expected to be called third.');
   }),
   b.catch(() => {
     sequence.push(4);
-    assert.sameValue(sequence.length, 4, 'The value of sequence.length is expected to be 4');
+    assert.sameValue(sequence.length, 4);
     return checkSequence(sequence, 'Expected to be called second.');
   })
 ]).then(result => {
-  assert.compareArray(result, [true, true, true], 'The value of result is expected to be [true, true, true]');
-  assert.sameValue(sequence.length, 5, 'The value of sequence.length is expected to be 5');
+  compareArray(result, [true, true, true]);
+  assert.sameValue(sequence.length, 5);
   checkSequence(sequence);
 }).then($DONE, $DONE);
 

@@ -15,9 +15,9 @@ class C {
 assert.sameValue(
   Object.keys(C.prototype).length,
   0,
-  'The value of Object.keys(C.prototype).length is expected to be 0'
+  "The value of `Object.keys(C.prototype).length` is `0`"
 );
-assert.compareArray(
-  Object.getOwnPropertyNames(C.prototype), ['constructor', 'a'],
-  'Object.getOwnPropertyNames(C.prototype) must return ["constructor", "a"]'
+assert(
+  compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a']),
+  "`compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a'])` returns `true`"
 );

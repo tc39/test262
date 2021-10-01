@@ -20,22 +20,28 @@ features: [BigInt, TypedArray]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 0, 0),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 0, 0) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 0, 0),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, 0, 0) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 0, 2),
-    [0n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 0, 2) must return [0n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 0, 2),
+      [0n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, 0, 2) -> [0, 1, 2, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, 2),
-    [1n, 1n, 2n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, 2) must return [1n, 1n, 2n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(0, 1, 2),
+      [1n, 1n, 2n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(0, 1, 2) -> [1, 1, 2, 3]'
   );
 
   /*
@@ -49,15 +55,19 @@ testWithBigIntTypedArrayConstructors(function(TA) {
    *  from = 0 + 2 - 1
    *  to = 1 + 2 - 1
    */
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, 2),
-    [0n, 0n, 1n, 3n],
-    'new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, 2) must return [0n, 0n, 1n, 3n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n]).copyWithin(1, 0, 2),
+      [0n, 0n, 1n, 3n]
+    ),
+    '[0, 1, 2, 3].copyWithin(1, 0, 2) -> [0, 0, 1, 3]'
   );
 
-  assert.compareArray(
-    new TA([0n, 1n, 2n, 3n, 4n, 5n]).copyWithin(1, 3, 5),
-    [0n, 3n, 4n, 3n, 4n, 5n],
-    'new TA([0n, 1n, 2n, 3n, 4n, 5n]).copyWithin(1, 3, 5) must return [0n, 3n, 4n, 3n, 4n, 5n]'
+  assert(
+    compareArray(
+      new TA([0n, 1n, 2n, 3n, 4n, 5n]).copyWithin(1, 3, 5),
+      [0n, 3n, 4n, 3n, 4n, 5n]
+    ),
+    '[0, 1, 2, 3, 4, 5].copyWithin(1, 3, 5) -> [0, 3, 4, 3, 4, 5]'
   );
 });

@@ -54,6 +54,6 @@ testWithTypedArrayConstructors(function(TA) {
 
   var result = sample.set(src, 1);
 
-  assert.compareArray(sample, expected[TA.name], 'The value of sample is expected to equal the value of expected[TA.name]');
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
+  assert(compareArray(sample, expected[TA.name]), sample);
+  assert.sameValue(result, undefined, "returns undefined");
 });

@@ -15,14 +15,14 @@ includes: [compareArray.js]
 features: [Reflect]
 ---*/
 
-assert.compareArray(
-  Reflect.ownKeys([]), ['length'],
-  'Reflect.ownKeys([]) must return ["length"]'
+assert(
+  compareArray(Reflect.ownKeys([]), ['length']),
+  'return non enumerable `length` from empty array'
 );
 
-assert.compareArray(
-  Reflect.ownKeys([, , 2]), ['2', 'length'],
-  'Reflect.ownKeys([, , 2]) must return ["2", "length"]'
+assert(
+  compareArray(Reflect.ownKeys([, , 2]), ['2', 'length']),
+  'return array keys'
 );
 
 var o = {};
@@ -35,4 +35,4 @@ Object.defineProperty(o, 'p2', {
   enumerable: false
 });
 
-assert.compareArray(Reflect.ownKeys(o), ['p1', 'p2'], 'Reflect.ownKeys({}) must return ["p1", "p2"]');
+assert(compareArray(Reflect.ownKeys(o), ['p1', 'p2']));

@@ -17,69 +17,50 @@ includes: [compareArray.js, testBigIntTypedArray.js]
 features: [BigInt, TypedArray, array-find-from-last]
 ---*/
 
-assert.sameValue(
-  typeof BigInt64Array.prototype.findLast,
-  'function',
-  'The value of `typeof BigInt64Array.prototype.findLast` is expected to be "function"'
-);
-
-assert.sameValue(
-  typeof BigUint64Array.prototype.findLast,
-  'function',
-  'The value of `typeof BigUint64Array.prototype.findLast` is expected to be "function"'
-);
-
 testWithBigIntTypedArrayConstructors(function(TA) {
   var arr = [1n, 2n, 3n];
   var sample;
   var result;
-  sample = new TA(3);
 
+  sample = new TA(3);
   sample.findLast(function(val, i) {
     sample[i] = arr[i];
-    assert.sameValue(val, 0n, 'The value of val is expected to be 0n');
+
+    assert.sameValue(val, 0n, "value is not mapped to instance");
   });
+  assert(compareArray(sample, arr), "values set during each predicate call");
 
-  assert.compareArray(sample, arr, 'The value of sample is expected to equal the value of arr');
   sample = new TA(arr);
-
   result = sample.findLast(function(val, i) {
-    if (i === 2) {
+    if ( i === 2 ) {
       sample[0] = 7n;
     }
-
     return val === 7n;
   });
+  assert.sameValue(result, 7n, "value found");
 
-  assert.sameValue(result, 7n, 'The value of result is expected to be 7n');
   sample = new TA(arr);
-
   result = sample.findLast(function(val, i) {
-    if (i === 2) {
+    if ( i === 2 ) {
       sample[0] = 7n;
     }
-
     return val === 1n;
   });
+  assert.sameValue(result, undefined, "value not found");
 
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
   sample = new TA(arr);
-
   result = sample.findLast(function(val, i) {
-    if (i < 2) {
+    if ( i < 2 ) {
       sample[2] = 7n;
     }
-
     return val === 7n;
   });
+  assert.sameValue(result, undefined, "value not found - changed after call");
 
-  assert.sameValue(result, undefined, 'The value of result is expected to equal undefined');
   sample = new TA(arr);
-
   result = sample.findLast(function() {
     sample[2] = 7n;
     return true;
   });
-
-  assert.sameValue(result, 3n, 'The value of result is expected to be 3n');
+  assert.sameValue(result, 3n, "findLast() returns previous found value");
 });

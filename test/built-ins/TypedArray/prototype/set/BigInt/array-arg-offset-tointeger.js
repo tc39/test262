@@ -17,72 +17,79 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample;
+
   sample = new TA([1n, 2n]);
-  sample.set([42n], '');
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  sample.set([42n], "");
+  assert(compareArray(sample, [42n, 2n]), "the empty string");
+
   sample = new TA([1n, 2n]);
-  sample.set([42n], '0');
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  sample.set([42n], "0");
+  assert(compareArray(sample, [42n, 2n]), "'0'");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], false);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "false");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], 0.1);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "0.1");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], 0.9);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "0.9");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], -0.5);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "-0.5");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], 1.1);
-  assert.compareArray(sample, [1n, 42n], 'The value of sample is expected to be [1n, 42n]');
+  assert(compareArray(sample, [1n, 42n]), "1.1");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], NaN);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "NaN");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], null);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "null");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], undefined);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "undefined");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], {});
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "{}");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], []);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "[]");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], [0]);
-  assert.compareArray(sample, [42n, 2n], 'The value of sample is expected to be [42n, 2n]');
+  assert(compareArray(sample, [42n, 2n]), "[0]");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], true);
-  assert.compareArray(sample, [1n, 42n], 'The value of sample is expected to be [1n, 42n]');
+  assert(compareArray(sample, [1n, 42n]), "true");
+
   sample = new TA([1n, 2n]);
-  sample.set([42n], '1');
-  assert.compareArray(sample, [1n, 42n], 'The value of sample is expected to be [1n, 42n]');
+  sample.set([42n], "1");
+  assert(compareArray(sample, [1n, 42n]), "'1'");
+
   sample = new TA([1n, 2n]);
   sample.set([42n], [1]);
-  assert.compareArray(sample, [1n, 42n], 'The value of sample is expected to be [1n, 42n]');
+  assert(compareArray(sample, [1n, 42n]), "[1]");
+
   sample = new TA([1n, 2n]);
+  sample.set([42n], { valueOf: function() {return 1;} });
+  assert(compareArray(sample, [1n, 42n]), "valueOf");
 
-  sample.set([42n], {
-    valueOf: function() {
-      return 1;
-    }
-  });
-
-  assert.compareArray(sample, [1n, 42n], 'The value of sample is expected to be [1n, 42n]');
   sample = new TA([1n, 2n]);
-
-  sample.set([42n], {
-    toString: function() {
-      return 1;
-    }
-  });
-
-  assert.compareArray(sample, [1n, 42n], 'The value of sample is expected to be [1n, 42n]');
+  sample.set([42n], { toString: function() {return 1;} });
+  assert(compareArray(sample, [1n, 42n]), "toString");
 });

@@ -21,9 +21,9 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
+
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA(5);
-
   var obj = {
     length: 5,
     '1': 7n,
@@ -31,7 +31,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     '3': 7n,
     '4': 7n
   };
-
   Object.defineProperty(obj, 0, {
     get: function() {
       obj[1] = 43n;
@@ -43,5 +42,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   });
 
   sample.set(obj);
-  assert.compareArray(sample, [42n, 43n, 44n, 45n, 46n], 'The value of sample is expected to be [42n, 43n, 44n, 45n, 46n]');
+
+  assert(compareArray(sample, [42n, 43n, 44n, 45n, 46n]));
 });

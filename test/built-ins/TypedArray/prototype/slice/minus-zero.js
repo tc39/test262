@@ -12,20 +12,20 @@ features: [TypedArray]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);
 
-  assert.compareArray(
-    sample.slice(-0), [40, 41, 42, 43],
-    'sample.slice(-0) must return [40, 41, 42, 43]'
+  assert(
+    compareArray(sample.slice(-0), [40, 41, 42, 43]),
+    "start == -0"
   );
-  assert.compareArray(
-    sample.slice(-0, 4), [40, 41, 42, 43],
-    'sample.slice(-0, 4) must return [40, 41, 42, 43]'
+  assert(
+    compareArray(sample.slice(-0, 4), [40, 41, 42, 43]),
+    "start == -0, end == length"
   );
-  assert.compareArray(
-    sample.slice(0, -0), [],
-    'sample.slice(0, -0) must return []'
+  assert(
+    compareArray(sample.slice(0, -0), []),
+    "start == 0, end == -0"
   );
-  assert.compareArray(
-    sample.slice(-0, -0), [],
-    'sample.slice(-0, -0) must return []'
+  assert(
+    compareArray(sample.slice(-0, -0), []),
+    "start == -0, end == -0"
   );
 });

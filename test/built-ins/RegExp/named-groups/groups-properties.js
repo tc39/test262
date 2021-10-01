@@ -15,15 +15,16 @@ info: |
 ---*/
 
 // Properties created on result.groups in textual order.
-assert.compareArray(["fst", "snd"], Object.getOwnPropertyNames(
-    /(?<fst>.)|(?<snd>.)/u.exec("abcd").groups), '["fst", "snd"] must return the same value returned by Object.getOwnPropertyNames(\n    /(?<fst>.)|(?<snd>.)/u.exec("abcd").groups)');
+assert(compareArray(["fst", "snd"],
+             Object.getOwnPropertyNames(
+                 /(?<fst>.)|(?<snd>.)/u.exec("abcd").groups)));
 
 // Properties are created with Define, not Set
 let counter = 0;
 Object.defineProperty(Object.prototype, 'x', {set() { counter++; }});
 let match = /(?<x>.)/.exec('a');
 let groups = match.groups;
-assert.sameValue(counter, 0, 'The value of counter is expected to be 0');
+assert.sameValue(counter, 0);
 
 // Properties are writable, enumerable and configurable
 // (from CreateDataProperty)

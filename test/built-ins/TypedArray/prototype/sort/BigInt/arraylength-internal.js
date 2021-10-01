@@ -11,8 +11,8 @@ info: |
 includes: [testBigIntTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
-var getCalls = 0;
 
+var getCalls = 0;
 var desc = {
   get: function getLen() {
     getCalls++;
@@ -20,14 +20,20 @@ var desc = {
   }
 };
 
-Object.defineProperty(TypedArray.prototype, 'length', desc);
+Object.defineProperty(TypedArray.prototype, "length", desc);
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA([42n, 42n, 42n]);
   getCalls = 0;
-  Object.defineProperty(TA.prototype, 'length', desc);
-  Object.defineProperty(sample, 'length', desc);
+
+  Object.defineProperty(TA.prototype, "length", desc);
+  Object.defineProperty(sample, "length", desc);
+
   var result = sample.sort();
-  assert.sameValue(getCalls, 0, 'The value of getCalls is expected to be 0');
-  assert.compareArray(result, sample, 'The value of result is expected to equal the value of sample');
+
+  assert.sameValue(getCalls, 0, "ignores length properties");
+  assert(
+    compareArray(result, sample),
+    "result is not affected by custom length"
+  );
 });
