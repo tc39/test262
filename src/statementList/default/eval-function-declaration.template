@@ -21,6 +21,6 @@ info: |
     function BindingIdentifier ( FormalParameters ) { FunctionBody }
 ---*/
 
-var result = eval('function fn() {}/*{ StatementListItem }*/;');
+var result = eval('function fn() {}/*{ StatementListItem }*/');
 
 /*{ EvalAssertions }*/

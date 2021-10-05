@@ -19,4 +19,4 @@ info: |
 features: [class]
 ---*/
 
-class C {}/*{ StatementListItem }*/;
+class C {}/*{ StatementListItem }*/

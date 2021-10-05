@@ -24,4 +24,4 @@ info: |
     { StatementList_opt }
 ---*/
 
-{}/*{ StatementListItem }*/;
+{}/*{ StatementListItem }*/
