@@ -19,6 +19,6 @@ info: |
 features: [class]
 ---*/
 
-var result = eval('class C {}/*{ StatementListItem }*/;');
+var result = eval('class C {}/*{ StatementListItem }*/');
 
 /*{ EvalAssertions }*/

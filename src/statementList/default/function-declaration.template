@@ -21,4 +21,4 @@ info: |
     function BindingIdentifier ( FormalParameters ) { FunctionBody }
 ---*/
 
-function fn() {}/*{ StatementListItem }*/;
+function fn() {}/*{ StatementListItem }*/
