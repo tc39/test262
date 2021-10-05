@@ -15,3 +15,5 @@ yield 9
 9
 //- teardown
 }
+var iter = g();
+while (iter.next().done === false) ;
