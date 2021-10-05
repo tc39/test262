@@ -25,7 +25,8 @@ const fields = {
       }
   }
 }
-assert(
-  compareArray(cal.fields(fields), Array.from(fields)),
+assert.compareArray(
+  cal.fields(fields),
+  Array.from(fields),
   'compareArray(cal.fields(fields), Array.from(fields)) must return true'
 );
