@@ -32,6 +32,11 @@ compareArray.format = function(arrayLike) {
 
 assert.compareArray = function(actual, expected, message) {
   message  = message === undefined ? '' : message;
+
+  if (typeof message === 'symbol') {
+    message = message.toString();
+  }
+
   assert(actual != null, `First argument shouldn't be nullish. ${message}`);
   assert(expected != null, `Second argument shouldn't be nullish. ${message}`);
   var format = compareArray.format;
