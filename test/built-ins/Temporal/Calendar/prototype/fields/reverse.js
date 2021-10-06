@@ -4,8 +4,8 @@
 /*---
 esid: sec-temporal.calendar.prototype.fields
 description: >
-  Temporal.Calendar.prototype.fields will throw when its input iterable yields an
-  invalid field.
+  Temporal.Calendar.prototype.fields will return the iterable in array if all
+  input are valid regardless of it's order.
 info: |
   ## 12.4.21 Temporal.Calendar.prototype.fields ( fields )
   1. Let calendar be the this value.
@@ -21,27 +21,22 @@ info: |
   1. Let completion be ThrowCompletion(a newly created RangeError object).
   2. Return ? IteratorClose(iteratorRecord, completion).
 features: [Symbol, Symbol.iterator, Temporal, computed-property-names, generators]
+includes: [compareArray.js]
 ---*/
 let cal = new Temporal.Calendar("iso8601")
-let i = 0;
 const fields = {
   *[Symbol.iterator]() {
-      // The first three are valid values
-      yield "year";
-      i++;
-      yield "month";
-      i++;
-      yield "monthCode";
-      i++;
-      // The fourth one is wrong and should throw after the next line.
-      yield "garbage";
-      // The following three lines should not be reached if the implemention
-      // correctly check the previous line.
-      i++;
-      yield "hour";
-      i++;
+     yield "nanosecond";
+     yield "microsecond";
+     yield "millisecond";
+     yield "second";
+     yield "minute";
+     yield "hour";
+     yield "day";
+     yield "monthCode";
+     yield "month";
+     yield "year";
   }
 }
-assert.throws(RangeError, () => cal.fields(fields), "Garbage content");
-// stop after the third one.
-assert.sameValue(i, 3);
+assert.compareArray(cal.fields(fields), Array.from(fields),
+    'valid fields should be supported even if they are in reversed order of the spec');
