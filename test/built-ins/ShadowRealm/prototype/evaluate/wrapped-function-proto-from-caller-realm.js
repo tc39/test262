@@ -35,5 +35,5 @@ var other = $262.createRealm().global;
 var OtherShadowRealm = other.eval('ShadowRealm');
 
 var realm = Reflect.construct(OtherShadowRealm, []);
-var fn = r.evaluate('() => {}');
+var fn = realm.evaluate('() => {}');
 assert.sameValue(Object.getPrototypeOf(fn), Function.prototype, 'WrappedFunction should be derived from the caller realm');
