@@ -32,7 +32,7 @@ assert.sameValue(
 );
 
 var other = $262.createRealm().global;
-var OtherShadowRealm = other.eval('ShadowRealm');
+var OtherShadowRealm = other.ShadowRealm;
 
 var realm = Reflect.construct(OtherShadowRealm, []);
 var fn = r.evaluate('() => {}');
