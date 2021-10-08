@@ -7,5 +7,5 @@ description: Converting objects to Temporal.Calendar
 features: [Temporal]
 ---*/
 
-assert.throws(RangeError, () => Temporal.Calendar.from({ calendar: "local" }));
+assert.throws(RangeError, () => Temporal.Calendar.from({ calendar: "invalidCalendar" }));
 assert.throws(RangeError, () => Temporal.Calendar.from({ calendar: { calendar: "iso8601" } }));
