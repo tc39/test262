@@ -13,7 +13,7 @@ const actual = [];
 const args = [
   TemporalHelpers.toPrimitiveObserver(actual, 1970, "year"),
   TemporalHelpers.toPrimitiveObserver(actual, 1, "month"),
-  "local",
+  "invalidCalendar",  // violate ISO8601 grammar
   TemporalHelpers.toPrimitiveObserver(actual, 1, "day")
 ];
 assert.throws(RangeError, () => new Temporal.PlainYearMonth(...args));
