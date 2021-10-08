@@ -3,28 +3,22 @@
 
 /*---
 esid: sec-temporal-totemporaltime
-description: Strings with non-ISO calendars are not supported.
+description: Strings with any calendars are not part of TemporalTimeString.
 info: |
-    b. Let result be ? ParseTemporalTimeString(string).
-    d. If result.[[Calendar]] is not one of undefined or "iso8601", then
-        i. Throw a RangeError exception.
+    b. Let result be ? ParseTemporalTimeString(string).  
+  sec-temporal-parsetemporaltimestring steps 3–14:
+    2. If isoString does not satisfy the syntax of a TemporalTimeString (see 13.33), then
+      a. Throw a RangeError exception.
 features: [Temporal]
 ---*/
 
 const isoString = "2004-03-21T10:00:00";
 
-const valid = [
-  "",
-  "[u-ca=iso8601]",
-];
-
-for (const s of valid) {
-  const input = isoString + s;
-  const plainTime = Temporal.PlainTime.from(input);
-  assert.sameValue(plainTime.calendar.id, "iso8601");
-}
+const plainTime = Temporal.PlainTime.from(isoString);
+assert.sameValue(plainTime.calendar.id, "iso8601");
 
 const invalid = [
+  "[u-ca=iso8601]",
   "[u-ca=indian]",
   "[u-ca=hebrew]",
 ];
