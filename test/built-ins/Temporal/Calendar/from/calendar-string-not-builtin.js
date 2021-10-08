@@ -8,10 +8,8 @@ features: [Temporal]
 ---*/
 
 const tests = [
-  "local",
-  "iso-8601",
   "[u-ca=iso8601]",
-  "invalid-calendar",
+  "invalidCalendar",
 ];
 
 for (const item of tests) {
