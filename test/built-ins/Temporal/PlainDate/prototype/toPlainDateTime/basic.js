@@ -13,7 +13,8 @@ const date = new Temporal.PlainDate(2000, 5, 2);
 const string = date.toPlainDateTime("11:30:23");
 TemporalHelpers.assertPlainDateTime(string, 2000, 5, "M05", 2, 11, 30, 23, 0, 0, 0, "string");
 
-const optionBag = date.toPlainDateTime({ hour: 11, minute: 30, second: 23 });
+const optionBag = date.toPlainDateTime({ hour: 11, minute: 30, second: 23, 
+                                       millisecond:0, microsecond:0, nanosecond: 0});
 TemporalHelpers.assertPlainDateTime(optionBag, 2000, 5, "M05", 2, 11, 30, 23, 0, 0, 0, "option bag");
 
 const plainTime = date.toPlainDateTime(Temporal.PlainTime.from("11:30:23"));
