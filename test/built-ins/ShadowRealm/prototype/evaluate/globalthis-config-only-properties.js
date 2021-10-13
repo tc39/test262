@@ -73,7 +73,7 @@ const result = r.evaluate(`
   ];
 
   // Delete every name except globalThis, for now
-  names.filter(name => {
+  const remainingNames = names.filter(name => {
     if (esNonConfigValues.includes(name)) {
       return false;
     }
@@ -85,12 +85,12 @@ const result = r.evaluate(`
   });
 
   delete globalThis['globalThis'];
-  
+
   if (hasOwn.call(savedGlobal, 'globalThis')) {
-    names.push('globalThis');
+    remainingNames.push('globalThis');
   }
 
-  const failedDelete = names.join(', ');
+  const failedDelete = remainingNames.join(', ');
 
   failedDelete;
 `);
