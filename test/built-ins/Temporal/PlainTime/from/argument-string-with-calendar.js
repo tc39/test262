@@ -5,10 +5,11 @@
 esid: sec-temporal-totemporaltime
 description: Strings with any calendars are not part of TemporalTimeString.
 info: |
-    b. Let result be ? ParseTemporalTimeString(string).  
-  sec-temporal-parsetemporaltimestring steps 3–14:
-    2. If isoString does not satisfy the syntax of a TemporalTimeString (see 13.33), then
-      a. Throw a RangeError exception.
+    sec-temporal-totemporaltime
+      b. Let result be ? ParseTemporalTimeString(string).  
+    sec-temporal-parsetemporaltimestring steps 3–14:
+      2. If isoString does not satisfy the syntax of a TemporalTimeString (see 13.33), then
+        a. Throw a RangeError exception.
 features: [Temporal]
 ---*/
 
