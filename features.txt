@@ -178,6 +178,10 @@ coalesce-expression
 # https://github.com/tc39-transfer/proposal-intl-displaynames
 Intl.DisplayNames
 
+# Intl.NumberFormat V3
+# https://github.com/tc39/proposal-intl-numberformat-v3
+Intl.NumberFormat-v3
+
 # Promise.any
 # https://github.com/tc39/proposal-promise-any
 Promise.any
