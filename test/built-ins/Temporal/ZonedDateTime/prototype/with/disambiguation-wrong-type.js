@@ -18,5 +18,5 @@ features: [Temporal]
 const datetime = new Temporal.ZonedDateTime(1_000_000_000_987_654_321n, "UTC");
 TemporalHelpers.checkStringOptionWrongType("disambiguation", "compatible",
   (disambiguation) => datetime.with({ hour: 2 }, { disambiguation }),
-  (result, descr) => assert.sameValue(result.epochNanoseconds, 1_000_003_600_987_654_321n, descr),
+  (result, descr) => assert.sameValue(result.epochNanoseconds, 1_000_000_000_987_654_321n, descr),
 );
