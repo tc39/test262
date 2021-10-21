@@ -1,7 +1,7 @@
 // Copyright (C) 2018 Leo Balter. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-desc: import() from a ascript code can load a file with module code
+desc: import() from a script code can load a file with module code
 template: default
 ---*/
 
