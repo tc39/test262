@@ -24,3 +24,4 @@ assert.throws(TypeError, () => wrappedFunction(1, {
   valueOf() { return 1; }
 }), 'object literal with immediate primitive coercion methods');
 assert.throws(TypeError, () => wrappedFunction(1, Object.create(null)), 'ordinary object with null __proto__');
+assert.throws(TypeError, () => wrappedFunction(1, new Proxy({}, { apply() {} })), 'non-callable proxy');

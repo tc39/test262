@@ -25,3 +25,4 @@ assert.throws(TypeError, r.evaluate(`
     });
 `), 'object literal with immediate primitive coercion methods');
 assert.throws(TypeError, r.evaluate('() => Object.create(null)'), 'ordinary object with null __proto__');
+assert.throws(TypeError, r.evaluate('() => new Proxy({}, { apply() {} })'), 'non-callable proxy');
