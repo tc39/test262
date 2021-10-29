@@ -33,6 +33,7 @@ assert.sameValue(
 
 var other = $262.createRealm().global;
 var OtherShadowRealm = other.ShadowRealm;
+var OtherFunctionPrototype = other.Function.prototype;
 
 var realm = Reflect.construct(OtherShadowRealm, []);
 
@@ -40,5 +41,5 @@ var checkArgWrapperFn = realm.evaluate('(x) => { return Object.getPrototypeOf(x)
 assert.sameValue(checkArgWrapperFn(() => {}), true, 'callable arguments passed into WrappedFunction should be wrapped in target realm');
 
 var fn = realm.evaluate('() => { return () => { return 1 } }');
-assert.sameValue(Object.getPrototypeOf(fn), Function.prototype, 'WrappedFunction should be derived from the caller realm');
-assert.sameValue(Object.getPrototypeOf(fn()), Function.prototype, 'callable results from WrappedFunction should be wrapped in caller realm');
+assert.sameValue(Object.getPrototypeOf(fn), OtherFunctionPrototype, 'WrappedFunction should be derived from the caller realm');
+assert.sameValue(Object.getPrototypeOf(fn()), OtherFunctionPrototype, 'callable results from WrappedFunction should be wrapped in caller realm');
