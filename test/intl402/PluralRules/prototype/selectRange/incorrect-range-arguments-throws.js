@@ -3,12 +3,11 @@
 
 /*---
 esid: sec-Intl.PluralRules.prototype.selectRange
-description: Intl.PluralRules.prototype.selectRange default behaviour returning "few"
+description: Throws a RangeError if arguments aren't x < y or are equal
 ---*/
 
-
 const pr = new Intl.PluralRules("en-US");
-
-assert.sameValue(pr.selectRange(102, 201), "few");
-assert.sameValue(pr.selectRange(200, 200), "other");
-
+pr.selectRange(200,200);
+assert.throws(RangeError, function() {
+  pr.selectRange(200, 100);
+});
