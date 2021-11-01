@@ -100,6 +100,12 @@ Intl.Segmenter
 # https://github.com/sffc/proposal-unified-intl-numberformat
 Intl.NumberFormat-unified
 
+# Intl.NumberFormat v3 proposal
+# https://github.com/tc39/proposal-intl-numberformat-v3
+Intl.NumberFormat-formatRangeToParts
+Intl.NumberFormat-formatRange
+Intl.PluralRules-selectRange
+
 # Intl.DateTimeFormat: dateStyle and timeStyle options
 # https://github.com/tc39/proposal-intl-datetime-style
 Intl.DateTimeFormat-datetimestyle
