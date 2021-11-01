@@ -5,6 +5,7 @@
 esid: sec-Intl.PluralRules.prototype.selectRange
 description: Intl.PluralRules.prototype.selectRange.name is "selectRange"
 includes: [propertyHelper.js]
+features: [Intl.PluralRules-selectRange]
 ---*/
 
 verifyProperty(Intl.PluralRules.prototype.selectRange, 'name', {

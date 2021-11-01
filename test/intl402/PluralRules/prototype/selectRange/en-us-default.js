@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-Intl.PluralRules.prototype.selectRange
-description: Intl.PluralRules.prototype.selectRange default behaviour returning "few"
+description: Intl.PluralRules.prototype.selectRange default behaviour returning "few" or "other"
+features: [Intl.PluralRules-selectRange]
 ---*/
 
 

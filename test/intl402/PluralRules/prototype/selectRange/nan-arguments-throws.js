@@ -4,6 +4,7 @@
 /*---
 esid: sec-Intl.PluralRules.prototype.selectRange
 description: Throws a RangeError if some of arguments is cast to NaN
+features: [Intl.PluralRules-selectRange]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");

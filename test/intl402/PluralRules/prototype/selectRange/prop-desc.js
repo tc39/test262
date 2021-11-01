@@ -5,6 +5,7 @@
 esid: sec-Intl.PluralRules.prototype.selectRange
 description: Property descriptor of Intl.PluralRules.prototype.selectRange
 includes: [propertyHelper.js]
+features: [Intl.PluralRules-selectRange]
 ---*/
 
 assert.sameValue(

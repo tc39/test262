@@ -4,6 +4,7 @@
 /*---
 esid: sec-Intl.PluralRules.prototype.selectRange
 description: Throws a RangeError if arguments aren't x < y or are equal
+features: [Intl.PluralRules-selectRange]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");
