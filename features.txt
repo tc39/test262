@@ -154,7 +154,7 @@ WeakRef
 FinalizationRegistry
 
 # FinalizationRegistry#cleanupSome
-# link pending
+# https://github.com/tc39/proposal-cleanup-some
 FinalizationRegistry.prototype.cleanupSome
 
 # Optional Chaining
