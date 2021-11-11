@@ -5,25 +5,28 @@
 esid: sec-intl.numberformat.prototype.format
 description: |
   Checks handling of the useGrouping option to the NumberFormat constructor.
-locale: [ko-KR]
+locale: [en-IN]
 ---*/
 
 var nf;
 
-nf = new Intl.NumberFormat('ko-KR', {});
+nf = new Intl.NumberFormat('en-IN', {});
 
 assert.sameValue(nf.format(100), '100', '(omitted)');
 assert.sameValue(nf.format(1000), '1,000', '(omitted)');
 assert.sameValue(nf.format(10000), '10,000', '(omitted)');
+assert.sameValue(nf.format(100000), '1,00,000', '(omitted)');
 
-nf = new Intl.NumberFormat('ko-KR', {useGrouping: true});
+nf = new Intl.NumberFormat('en-IN', {useGrouping: true});
 
 assert.sameValue(nf.format(100), '100', 'true');
 assert.sameValue(nf.format(1000), '1,000', 'true');
 assert.sameValue(nf.format(10000), '10,000', 'true');
+assert.sameValue(nf.format(100000), '1,00,000', 'true');
 
-nf = new Intl.NumberFormat('ko-KR', {useGrouping: false});
+nf = new Intl.NumberFormat('en-IN', {useGrouping: false});
 
 assert.sameValue(nf.format(100), '100', 'false');
 assert.sameValue(nf.format(1000), '1000', 'false');
 assert.sameValue(nf.format(10000), '10000', 'false');
+assert.sameValue(nf.format(100000), '100000', 'false');

@@ -15,15 +15,18 @@ nf = new Intl.NumberFormat('en-US', {});
 assert.sameValue(nf.format(100), '100', '(omitted)');
 assert.sameValue(nf.format(1000), '1,000', '(omitted)');
 assert.sameValue(nf.format(10000), '10,000', '(omitted)');
+assert.sameValue(nf.format(100000), '100,000', '(omitted)');
 
 nf = new Intl.NumberFormat('en-US', {useGrouping: true});
 
 assert.sameValue(nf.format(100), '100', 'true');
 assert.sameValue(nf.format(1000), '1,000', 'true');
 assert.sameValue(nf.format(10000), '10,000', 'true');
+assert.sameValue(nf.format(100000), '100,000', 'true');
 
 nf = new Intl.NumberFormat('en-US', {useGrouping: false});
 
 assert.sameValue(nf.format(100), '100', 'false');
 assert.sameValue(nf.format(1000), '1000', 'false');
 assert.sameValue(nf.format(10000), '10000', 'false');
+assert.sameValue(nf.format(100000), '100000', 'false');

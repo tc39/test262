@@ -16,15 +16,18 @@ nf = new Intl.NumberFormat('de-DE', {useGrouping: 'always'});
 assert.sameValue(nf.format(100), '100', '"always"');
 assert.sameValue(nf.format(1000), '1.000', '"always"');
 assert.sameValue(nf.format(10000), '10.000', '"always"');
+assert.sameValue(nf.format(100000), '100.000', '"always"');
 
 nf = new Intl.NumberFormat('de-DE', {useGrouping: 'min2'});
 
 assert.sameValue(nf.format(100), '100', '"min2"');
 assert.sameValue(nf.format(1000), '1000', '"min2"');
 assert.sameValue(nf.format(10000), '10.000', '"min2"');
+assert.sameValue(nf.format(100000), '100.000', '"min2"');
 
 nf = new Intl.NumberFormat('de-DE', {notation: 'compact'});
 
 assert.sameValue(nf.format(100), '100', 'notation: "compact"');
 assert.sameValue(nf.format(1000), '1000', 'notation: "compact"');
 assert.sameValue(nf.format(10000), '10.000', 'notation: "compact"');
+assert.sameValue(nf.format(100000), '100.000', 'notation: "compact"');
