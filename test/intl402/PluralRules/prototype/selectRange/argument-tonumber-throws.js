@@ -10,12 +10,13 @@ info: |
   (...)
   4. Let x be ? ToNumber(start).
   5. Let y be ? ToNumber(end).
+locale: [en-US]
 features: [Intl.PluralRules-selectRange]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");
 
-// 3. If arguments cannot be cast toNumber
+// Throw if arguments cannot be cast toNumber
 assert.throws(TypeError, () => { pr.selectRange(Symbol(102), 201) });
 assert.throws(TypeError, () => { pr.selectRange({}, -201) });
 assert.throws(TypeError, () => { pr.selectRange([], 201) });
