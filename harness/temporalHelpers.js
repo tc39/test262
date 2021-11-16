@@ -29,6 +29,17 @@ var TemporalHelpers = {
   },
 
   /*
+   * assertDurationsEqual(actual, expected[, description]):
+   *
+   * Shorthand for asserting that each field of a Temporal.Duration is equal to
+   * the corresponding field in another Temporal.Duration.
+   */
+  assertDurationsEqual(actual, expected, description = "") {
+    assert(expected instanceof Temporal.Duration, `${description} expected value should be a Temporal.Duration`);
+    TemporalHelpers.assertDuration(actual, expected.years, expected.months, expected.weeks, expected.days, expected.hours, expected.minutes, expected.seconds, expected.milliseconds, expected.microseconds, expected.nanoseconds, description);
+  },
+
+  /*
    * assertPlainDate(date, year, ..., nanosecond[, description[, era, eraYear]]):
    *
    * Shorthand for asserting that each field of a Temporal.PlainDate is equal to
