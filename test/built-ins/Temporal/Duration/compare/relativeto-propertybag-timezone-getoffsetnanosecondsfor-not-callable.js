@@ -14,6 +14,6 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => Temporal.Duration.compare(duration1, duration2, { relativeTo: { year: 2000, month: 5, day: 2, hour: 12, timeZone } }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${notCallable === null ? 'null' : typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

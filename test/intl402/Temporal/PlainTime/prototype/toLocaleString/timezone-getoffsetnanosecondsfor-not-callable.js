@@ -17,6 +17,6 @@ Temporal.TimeZone.prototype.getPossibleInstantsFor = function () {
   assert.throws(
     TypeError,
     () => instance.toLocaleString(),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${notCallable === null ? 'null' : typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

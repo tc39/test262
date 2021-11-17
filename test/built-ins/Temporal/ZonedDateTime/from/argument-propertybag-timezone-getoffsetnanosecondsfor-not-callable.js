@@ -12,7 +12,7 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, hour: 12, offset: "+00:00", timeZone }, { offset: "prefer" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no disambiguation case)`
+    `Uncallable ${notCallable === null ? 'null' : typeof notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no disambiguation case)`
   );
 
   const badTimeZone = {
@@ -22,11 +22,11 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, hour: 12, offset: "+00:00", timeZone: badTimeZone }, { offset: "ignore" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=ignore and no possible instants case)`
+    `Uncallable ${notCallable === null ? 'null' : typeof notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=ignore and no possible instants case)`
   );
   assert.throws(
     TypeError,
     () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, hour: 12, offset: "+00:00", timeZone: badTimeZone }, { offset: "prefer" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no possible instants case)`
+    `Uncallable ${notCallable === null ? 'null' : typeof notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no possible instants case)`
   );
 });
