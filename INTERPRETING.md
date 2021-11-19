@@ -26,8 +26,9 @@ code](https://tc39.github.io/ecma262/#sec-types-of-source-code).
 
 ### Test262-Defined Bindings
 
-The contents of the following files must be evaluated in the test realm's
-global scope prior to test execution:
+The contents of the following harness files must be evaluated in the test
+realm's global scope prior to test execution unless the test uses the `raw`
+frontmatter flag:
 
 1. `harness/assert.js`
 2. `harness/sta.js`
@@ -107,7 +108,7 @@ properties of the global scope prior to test execution.
         sleeps the execution for approximately that duration.
     - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
 
-In addition, consumers may choose to override any of the [the available test harness helper functions](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
+In addition, consumers may choose to override any of [the functions defined by test harness files](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
 
 
 #### Normative references
@@ -315,8 +316,9 @@ following strings:
   export default function* g() {}
   ```
 
-- **`raw`** The test source code must not be modified in any way, and the test
-  must be executed just once (in non-strict mode, only).
+- **`raw`** The test source code must not be modified in any way, files from
+  the `harness/` directory must not be evaluated, and the test must be executed
+  just once (in non-strict mode, only).
 
   *Example*
 
