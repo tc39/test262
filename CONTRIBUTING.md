@@ -177,9 +177,9 @@ negative:
 #### includes
 `includes: [file-list]`
 
-This key names a list of helper files that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
+This key names a list of files in the `harness/` directory that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
 
-The helper files are found in the `harness/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
+When some code is used repeatedly across a group of tests, it may be appropriate to define it in a harness file. This practice increase test complexity, so it should be applied sparingly.
 
 #### author
 `author: [string]`
@@ -195,8 +195,8 @@ This key is for boolean properties associated with the test.
 - **noStrict** - only run the test in "sloppy" mode
 - **module** - interpret the source text as
   [module code](https://tc39.github.io/ecma262/#sec-modules)
-- **raw** - execute the test without any modification (no helpers will be
-  available); necessary to test the behavior of directive prologue; implies
+- **raw** - execute the test without any modification (no harness files will be
+  included); necessary to test the behavior of directive prologue; implies
   `noStrict`
 - **async** - defer interpretation of test results until after the invocation
   of the global `$DONE` function
@@ -238,7 +238,9 @@ Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wi
 
 ## Test Environment
 
-Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run unless the test file has the `raw` flag.  The test harness defines the following helper functions:
+Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.
+
+Before the test is executed (and unless the test uses the `raw` frontmatter flag), the test runner will evaluate a number of files in the `harness/` directory. At a minimum, this procedure will define the following functions:
 
 Function | Purpose
 ---------|--------
@@ -281,7 +283,7 @@ $DONOTEVALUATE();
 var var = var;
 ```
 
-If the test case has the `raw` flag, this disallows the test to load any harness file including `$DONOTEVALUATE`. In this case, include a direct `throw "Test262: This statement should not be evaluated.";` statement:
+If the test case has the `raw` flag, the test runner will not load any harness file including the file which defines `$DONOTEVALUATE`. In this case, include a direct `throw "Test262: This statement should not be evaluated.";` statement:
 
 ```javascript
 /*---
