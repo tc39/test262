@@ -13,7 +13,7 @@ const valids = [
   ["Europe/Vienna"],
   ["America/New_York"],
   ["Africa/CAIRO", "Africa/Cairo"],
-  ["Asia/Ulan_Bator", "Asia/Ulan_Bator"],
+  ["Asia/Ulan_Bator", "Asia/Ulaanbaatar"],
   ["GMT", "UTC"],
   ["etc/gmt", "UTC"],
   ["1994-11-05T08:15:30-05:00[America/New_York]", "America/New_York"],
