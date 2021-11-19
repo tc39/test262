@@ -16,9 +16,13 @@ assert.throws(RangeError, () => instance.getPreviousTransition(str), "date-time 
 
 // The following are all valid strings so should not throw:
 
-[
+const valids = [
   "1970-01-01T00:00Z",
   "1970-01-01T00:00+01:00",
   "1970-01-01T00:00Z[America/Vancouver]",
   "1970-01-01T00:00+01:00[America/Vancouver]",
-].forEach((str) => instance.getPreviousTransition(str));
+];
+for (const str of valids) {
+  const result = instance.getPreviousTransition(str);
+  assert.sameValue(result, null);
+}
