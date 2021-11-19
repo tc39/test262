@@ -27,7 +27,8 @@ code](https://tc39.github.io/ecma262/#sec-types-of-source-code).
 ### Test262-Defined Bindings
 
 The contents of the following harness files must be evaluated in the test
-realm's global scope prior to test execution:
+realm's global scope prior to test execution unless the test uses the `raw`
+frontmatter flag:
 
 1. `harness/assert.js`
 2. `harness/sta.js`
