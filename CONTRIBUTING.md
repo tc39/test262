@@ -238,7 +238,7 @@ Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wi
 
 ## Test Environment
 
-Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run.  The test harness defines the following helper functions:
+Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run unless the test file has the `raw` flag.  The test harness defines the following helper functions:
 
 Function | Purpose
 ---------|--------
