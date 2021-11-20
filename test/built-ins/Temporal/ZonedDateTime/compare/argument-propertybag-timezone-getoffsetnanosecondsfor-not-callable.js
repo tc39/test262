@@ -18,11 +18,11 @@ Temporal.TimeZone.prototype.getPossibleInstantsFor = function () {
   assert.throws(
     TypeError,
     () => Temporal.ZonedDateTime.compare({ year: 2000, month: 5, day: 2, hour: 12, timeZone }, datetime),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
   assert.throws(
     TypeError,
     () => Temporal.ZonedDateTime.compare(datetime, { year: 2000, month: 5, day: 2, hour: 12, timeZone }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

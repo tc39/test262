@@ -15,6 +15,6 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => datetime.until(other, { largestUnit: "days" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

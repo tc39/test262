@@ -14,6 +14,6 @@ const instance = new Temporal.Instant(1_000_000_000_987_654_321n);
   assert.throws(
     TypeError,
     () => instance.toJSON(),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

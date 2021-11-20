@@ -16,6 +16,6 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => duration.add(other, { relativeTo }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

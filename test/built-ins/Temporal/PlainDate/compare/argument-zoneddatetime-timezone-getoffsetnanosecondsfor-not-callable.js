@@ -15,11 +15,11 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => Temporal.PlainDate.compare(datetime, date),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
   assert.throws(
     TypeError,
     () => Temporal.PlainDate.compare(date, datetime),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

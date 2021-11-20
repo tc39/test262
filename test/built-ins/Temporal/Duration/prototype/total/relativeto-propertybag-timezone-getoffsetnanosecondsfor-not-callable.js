@@ -14,6 +14,6 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => duration.total({ unit: "seconds", relativeTo: { year: 2000, month: 5, day: 2, hour: 12, timeZone } }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError`
   );
 });

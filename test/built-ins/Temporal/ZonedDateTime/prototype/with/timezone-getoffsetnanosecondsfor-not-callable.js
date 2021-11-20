@@ -14,7 +14,7 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => datetime.with({ day: 27 }, { offset: "prefer" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no disambiguation case)`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no disambiguation case)`
   );
 
   const badTimeZone = {
@@ -25,11 +25,11 @@ features: [BigInt, Symbol, Temporal, arrow-function]
   assert.throws(
     TypeError,
     () => badDateTime.with({ day: 27 }, { offset: "ignore" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=ignore and no possible instants case)`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=ignore and no possible instants case)`
   );
   assert.throws(
     TypeError,
     () => badDateTime.with({ day: 27 }, { offset: "prefer" }),
-    `Uncallable ${typeof notCallable} ${notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no possible instants case)`
+    `Uncallable ${typeof notCallable} getOffsetNanosecondsFor should throw TypeError (in offset=prefer and no possible instants case)`
   );
 });
