@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.timezone.prototype.getoffsetstringfor
-description: Conversion of ISO date-time strings to Temporal.TimeZone instances
+description: Conversion of ISO date-time strings to Temporal.Instant instances
 features: [Temporal]
 ---*/
 
