@@ -18,9 +18,7 @@ const pr = new Intl.PluralRules("en-US");
 
 // Throw if arguments cannot be cast toNumber
 assert.throws(TypeError, () => { pr.selectRange(Symbol(102), 201) });
-assert.throws(TypeError, () => { pr.selectRange({}, -201) });
-assert.throws(TypeError, () => { pr.selectRange([], 201) });
-assert.throws(TypeError, () => { pr.selectRange("NaN", 201) });
-assert.throws(TypeError, () => { pr.selectRange("xyz", 201) });
-assert.throws(TypeError, () => { pr.selectRange(102, "NaN") });
-assert.throws(TypeError, () => { pr.selectRange(102, "xyz") });
+assert.throws(TypeError, () => { pr.selectRange(102,Symbol(201)) });
+assert.throws(TypeError, () => { pr.selectRange(23n, 100) });
+assert.throws(TypeError, () => { pr.selectRange(100, 23n) });
+assert.throws(TypeError, () => { pr.selectRange(23n, 23n) });
