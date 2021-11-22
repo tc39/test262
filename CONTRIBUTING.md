@@ -108,6 +108,7 @@ Test262 supports the following keys:
  - [**author**](#author)
  - [**flags**](#flags)
  - [**features**](#features) (required for new tests written for new features)
+ - [**locale**](#locale)
 
 The following keys are deprecated, but exist in old tests:
 
@@ -205,11 +206,17 @@ This key is for boolean properties associated with the test.
   for more information on this process
 - **CanBlockIsFalse** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `false`
 - **CanBlockIsTrue** - only run the test when the [[CanBlock]] property of the [Agent Record](https://tc39.github.io/ecma262/#sec-agents) executing the test file is `true`
+- **non-deterministic** - informative flag used to communicate that the semantics under test are intentionally under-specified, so the test's passing or failing status is neither reliable nor an indication of conformance
 
 #### features
 `features: [list]`
 
 Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this key. See the [`features.txt`](features.txt) file for a complete list of available values. This key is required for new tests written for new features, but contributions will not be "blocked" if the key is missing from frontmatter. The committing maintainer is required to ensure that the key is present and contains the correct feature names; this can be done in a follow up commit.
+
+#### locale
+`locale: [list]`
+
+Some tests require the use of one or more specific human languages as exposed by [ECMA402](https://tc39.es/ecma402/) as a means to verify semantics which cannot be observed in the abstract. Sch tests must declare their requirements by using this key to define an array of one or more valid language tags or subtags.
 
 #### es5id
 `es5id: [es5-test-id]`
@@ -231,7 +238,7 @@ Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wi
 
 ## Test Environment
 
-Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run.  The test harness defines the following helper functions:
+Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run unless the test file has the `raw` flag.  The test harness defines the following helper functions:
 
 Function | Purpose
 ---------|--------
