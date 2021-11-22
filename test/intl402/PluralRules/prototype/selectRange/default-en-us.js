@@ -3,6 +3,7 @@
 
 /*---
 description: Intl.PluralRules.prototype.selectRange default behaviour returning "few" or "other"
+locale: [en-US]
 features: [Intl.NumberFormat-v3]
 ---*/
 
