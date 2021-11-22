@@ -12,7 +12,7 @@ info: |
 features: [Intl.NumberFormat-v3]
 ---*/
 
-const pr = new Intl.PluralRules("en-US");
+const pr = new Intl.PluralRules();
 
 // 1. If x > y, throw a RangeError exception.
 assert.throws(RangeError, () => { pr.selectRange(201, 102) });

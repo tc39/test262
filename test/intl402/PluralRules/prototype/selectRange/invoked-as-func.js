@@ -11,9 +11,6 @@ info: |
 features: [Intl.NumberFormat-v3]
 ---*/
 
-
-
-
 const pr = new Intl.PluralRules();
 
 // Perform ? RequireInternalSlot(pr, [[InitializedPluralRules]]).

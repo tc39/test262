@@ -14,7 +14,7 @@ info: |
 features: [Intl.NumberFormat-v3]
 ---*/
 
-const pr = new Intl.PluralRules("en-US");
+const pr = new Intl.PluralRules();
 
 assert.throws(RangeError, () => { pr.selectRange(NaN, 100) }, "NaN/Number");
 assert.throws(RangeError, () => { pr.selectRange(100, NaN) }, "Number/NaN");

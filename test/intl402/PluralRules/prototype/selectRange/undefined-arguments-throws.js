@@ -12,7 +12,7 @@ info: |
 features: [Intl.NumberFormat-v3]
 ---*/
 
-const pr = new Intl.PluralRules("en-US");
+const pr = new Intl.PluralRules();
 
 // 1. If arguments are undefined throw a TypeError exception.
 assert.throws(TypeError, () => { pr.selectRange(undefined, 201) });

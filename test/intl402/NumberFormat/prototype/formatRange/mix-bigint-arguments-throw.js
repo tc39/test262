@@ -7,7 +7,7 @@ description: When one only one value x or y is BigInt, throw a RangeError except
 features: [Intl.NumberFormat-v3]
 ---*/
 
-const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});
+const nf = new Intl.NumberFormat();
 
 // x is not bigint but y is.
 assert.throws(RangeError, () => { nf.formatRange(23, 12n) });

@@ -24,20 +24,14 @@ function compare(actual, expected) {
   }
 }
 
-const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});
-
-// Perform ? RequireInternalSlot(nf, [[InitializedNumberFormat]]).
-let f = nf['formatRangeToParts'];
-assert.throws(TypeError, () => { f(1, 23) });
-
 // Basic example test en-US
-const nf2 = new Intl.NumberFormat("en-US", {
+const nf = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "EUR",
   maximumFractionDigits: 0,
 });
 
-compare(nf2.formatRangeToParts(3, 5), [
+compare(nf.formatRangeToParts(3, 5), [
   {type: "currency", value: "€", source: "startRange"},
   {type: "integer", value: "3", source: "startRange"},
   {type: "literal", value: "–", source: "shared"},

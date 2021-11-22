@@ -12,7 +12,7 @@ info: |
 features: [Intl.NumberFormat-v3]
 ---*/
 
-const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});
+const nf = new Intl.NumberFormat();
 
 //  If arguments are undefined throw a TypeError exception.
 assert.throws(TypeError, () => { nf.formatRangeToParts(undefined, 23) });

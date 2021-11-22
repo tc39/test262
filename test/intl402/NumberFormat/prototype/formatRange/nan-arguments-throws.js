@@ -15,13 +15,11 @@ info: |
 
   PartitionNumberRangePattern( numberFormat, x, y )
   1. If x is NaN or y is NaN, throw a RangeError exception.
-
-locale: [en-US]
 features: [Intl.NumberFormat-v3]
 ---*/
 
 
-const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});
+const nf = new Intl.NumberFormat();
 
 // If x or y is NaN ..., throw a RangeError exception.
 assert.throws(RangeError, () => { nf.formatRange(NaN, 23) });
