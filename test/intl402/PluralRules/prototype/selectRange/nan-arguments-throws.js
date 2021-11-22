@@ -11,7 +11,7 @@ info: |
   WIP: https://github.com/tc39/proposal-intl-numberformat-v3/pull/76
 
 
-features: [Intl.PluralRules-selectRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");

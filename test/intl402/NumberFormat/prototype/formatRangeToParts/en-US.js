@@ -5,7 +5,7 @@
 esid: sec-Intl.NumberFormat-formatRangeToParts
 description: Basic tests for the en-US output of formatRangeToParts()
 locale: [en-US]
-features: [Intl.NumberFormat-formatRangeToParts]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 // Utils functions

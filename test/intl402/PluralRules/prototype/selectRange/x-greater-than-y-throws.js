@@ -9,7 +9,7 @@ info: |
   1.1.6 ResolvePluralRange ( pluralRules, x, y )
   (...)
   5. If x > y, throw a RangeError exception.
-features: [Intl.PluralRules-selectRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");

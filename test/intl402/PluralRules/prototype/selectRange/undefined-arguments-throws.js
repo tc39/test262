@@ -9,7 +9,7 @@ info: |
   Intl.PluralRules.prototype.selectRange ( start, end )
   (...)
   3. If start is undefined or end is undefined, throw a TypeError exception.
-features: [Intl.PluralRules-selectRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");

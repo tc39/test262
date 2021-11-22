@@ -11,7 +11,7 @@ info: |
   4. Let x be ? ToIntlMathematicalValue(start).
   5. Let y be ? ToIntlMathematicalValue(end).
 locale: [en-US]
-features: [Intl.NumberFormat-formatRangeToParts]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 

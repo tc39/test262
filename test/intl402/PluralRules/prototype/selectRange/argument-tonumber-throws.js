@@ -11,7 +11,7 @@ info: |
   4. Let x be ? ToNumber(start).
   5. Let y be ? ToNumber(end).
 locale: [en-US]
-features: [Intl.PluralRules-selectRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const pr = new Intl.PluralRules("en-US");

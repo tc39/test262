@@ -4,7 +4,7 @@
 /*---
 description: Intl.NumberFormat.prototype.formatRangeToParts.length.
 includes: [propertyHelper.js]
-features: [Intl.NumberFormat-formatRangeToParts]
+features: [Intl.NumberFormat-v3]
 ---*/
 verifyProperty(Intl.NumberFormat.prototype.formatRangeToParts, 'length', {
   value: 2,

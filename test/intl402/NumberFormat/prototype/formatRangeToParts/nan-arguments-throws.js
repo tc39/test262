@@ -17,7 +17,7 @@ info: |
   1. If x is NaN or y is NaN, throw a RangeError exception.
 
 locale: [en-US]
-features: [Intl.NumberFormat-formatRangeToParts]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 

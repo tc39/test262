@@ -8,7 +8,7 @@ description: >
     requirements for built-in objects defined by the ECMAScript Language
     Specification.
 includes: [isConstructor.js]
-features: [Reflect.construct,Intl.NumberFormat-formatRange]
+features: [Reflect.construct,Intl.NumberFormat-v3]
 ---*/
 
 const formatRange = Intl.NumberFormat.prototype.formatRange;

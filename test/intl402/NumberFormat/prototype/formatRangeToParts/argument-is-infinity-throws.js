@@ -5,7 +5,7 @@
 esid: sec-Intl.NumberFormat-formatRangeToParts
 description: Throws a RangeError exception if start or end argument is cast to an Infinity value.
 locale: [en-US]
-features: [Intl.NumberFormat-formatRangeToParts]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});

@@ -5,7 +5,7 @@
 esid: sec-Intl.NumberFormat-formatRange
 description: Basic tests for the en-US output of formatRange()
 locale: [en-US]
-features: [Intl.NumberFormat-formatRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});

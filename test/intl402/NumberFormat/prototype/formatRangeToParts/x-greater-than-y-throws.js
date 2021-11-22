@@ -9,7 +9,7 @@ info: |
   1.1.21 PartitionNumberRangePattern( numberFormat, x, y )
   (...)
   1.1.21_2.a. If y is a mathematical value and y < x, throw a RangeError exception.
-features: [Intl.NumberFormat-formatRangeToParts]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});

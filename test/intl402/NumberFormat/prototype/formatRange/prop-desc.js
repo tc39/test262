@@ -4,7 +4,7 @@
 /*---
 description: Property type and descriptor.
 includes: [propertyHelper.js]
-features: [Intl.NumberFormat-formatRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 assert.sameValue(

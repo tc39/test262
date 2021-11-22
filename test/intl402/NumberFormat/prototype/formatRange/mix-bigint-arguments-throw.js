@@ -4,7 +4,7 @@
 /*---
 esid: sec-Intl.NumberFormat.prototype.formatRange
 description: When one only one value x or y is BigInt, throw a RangeError exception.
-features: [Intl.NumberFormat-formatRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});

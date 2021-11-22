@@ -9,7 +9,7 @@ info: |
   Intl.NumberFormat.prototype.formatRangeToParts ( start, end )
   (...)
   3. If start is undefined or end is undefined, throw a TypeError exception.
-features: [Intl.NumberFormat-formatRange]
+features: [Intl.NumberFormat-v3]
 ---*/
 
 const nf = new Intl.NumberFormat("en-US", {signDisplay: "exceptZero"});
