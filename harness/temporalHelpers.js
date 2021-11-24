@@ -942,10 +942,10 @@ var TemporalHelpers = {
         return "dateadd-undef-options";
       }
 
-      dateAdd(one, two, options) {
+      dateAdd(date, duration, options) {
         this.dateAddCallCount++;
         assert.sameValue(options, undefined, "dateAdd shouldn't be called with options");
-        return super.dateAdd(one, two, options);
+        return super.dateAdd(date, duration, options);
       }
     }
     return new CalendarDateAddUndefinedOptions();
