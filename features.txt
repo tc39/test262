@@ -260,6 +260,10 @@ ShadowRealm
 # https://github.com/tc39/proposal-array-find-from-last
 array-find-from-last
 
+# Intl.DurationFormat
+# https://github.com/tc39/proposal-intl-duration-format
+Intl.DurationFormat
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

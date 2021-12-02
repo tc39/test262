@@ -7,7 +7,7 @@ description: Checks prototype's toStringTag value
 info: |
   The initial value of the @@toStringTag property is the string value "Intl.DurationFormat".
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: true }.
-features: [Symbol.toStringTag]
+features: [Intl.DurationFormat, Symbol.toStringTag]
 includes: [propertyHelper.js]
 ---*/
 
