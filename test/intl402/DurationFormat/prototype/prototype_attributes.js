@@ -6,7 +6,7 @@ esid: sec-Intl.DurationFormat.prototype
 description: Prototype attributes verification
 info: |
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
-features: [Intl.DurationFormat.prototype]
+features: [Intl.DurationFormat]
 includes: [propertyHelper.js]
 ---*/
 
