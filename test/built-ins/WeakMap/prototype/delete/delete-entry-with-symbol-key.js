@@ -18,7 +18,7 @@ info: |
       ii. Set p.[[value]] to empty.
       iii. Return true.
   ...
-features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var foo = Symbol();

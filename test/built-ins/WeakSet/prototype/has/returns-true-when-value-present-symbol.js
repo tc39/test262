@@ -12,7 +12,7 @@ info: |
     a. If e is not empty and SameValue(e, value) is true, return true.
   ...
 
-features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var foo = Symbol();

@@ -260,6 +260,10 @@ ShadowRealm
 # https://github.com/tc39/proposal-array-find-from-last
 array-find-from-last
 
+# Permit Symbol as WeakMap key and WeakSet entry
+# https://github.com/tc39/ecma262/pull/2038
+permit-symbol-weakmap-key-weakset-entry
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

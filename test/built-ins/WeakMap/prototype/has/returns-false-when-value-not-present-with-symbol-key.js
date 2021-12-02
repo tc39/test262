@@ -10,7 +10,7 @@ info: |
   ...
   7. Return false.
 
-features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var foo = Symbol();

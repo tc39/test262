@@ -11,7 +11,7 @@ info: |
   7. Let p be the Record {[[key]]: key, [[value]]: value}.
   8. Append p as the last element of entries.
   ...
-features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var map = new WeakMap();

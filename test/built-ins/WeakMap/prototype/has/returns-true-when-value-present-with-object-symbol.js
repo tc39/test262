@@ -13,7 +13,7 @@ info: |
     a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, return
     true.
   ...
-features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakMap, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var foo = Symbol();

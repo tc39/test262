@@ -10,7 +10,7 @@ info: |
   ...
   8. Return S.
 
-features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var s = new WeakSet();

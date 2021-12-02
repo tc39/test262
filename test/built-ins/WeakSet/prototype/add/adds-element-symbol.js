@@ -10,7 +10,7 @@ info: |
   ...
   7. Append value as the last element of entries.
   ...
-features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry]
+features: [Symbol, WeakSet, permit-symbol-weakmap-key-weakset-entry-weakref-target]
 ---*/
 
 var s = new WeakSet();
