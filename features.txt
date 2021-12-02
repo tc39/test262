@@ -104,6 +104,10 @@ String.prototype.toWellFormed
 # https://github.com/tc39/proposal-json-parse-with-source
 json-parse-with-source
 
+# Iterator Helpers
+# https://github.com/tc39/proposal-iterator-helpers
+iterator-helpers
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

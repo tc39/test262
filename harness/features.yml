@@ -4,3 +4,4 @@ testAtomics.js: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, Type
 testBigIntTypedArray.js: [BigInt, TypedArray]
 testTypedArray.js: [TypedArray]
 isConstructor.js: [Reflect.construct]
+iterators.js: [iterator-helpers]
