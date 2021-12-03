@@ -179,7 +179,7 @@ negative:
 
 This key names a list of files in the `harness/` directory that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
 
-When some code is used repeatedly across a group of tests, it may be appropriate to define it in a harness file. This practice increase test complexity, so it should be applied sparingly.
+When some code is used repeatedly across a group of tests, it may be appropriate to define it in a harness file. This practice increases test complexity, so it should be applied sparingly.
 
 #### author
 `author: [string]`
