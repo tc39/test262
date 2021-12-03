@@ -18,22 +18,29 @@ function* zip(a, b) {
 
 function compare(actual, expected) {
   for (const [i, actualEntry, expectedEntry] of zip(actual, expected)) {
+    // assertions
     assert.sameValue(actualEntry.type, expectedEntry.type, `type for entry ${i}`);
     assert.sameValue(actualEntry.value, expectedEntry.value, `value for entry ${i}`);
     assert.sameValue(actualEntry.source, expectedEntry.source, `source for entry ${i}`);
+
+    // checking prop-desc
+    verifyProperty(actualEntry.type , {  enumerable: true, writable: true, configurable: true }, `prop desc - type for entry ${i}`);
+    verifyProperty(actualEntry.value , {  enumerable: true, writable: true, configurable: true }, `prop desc - value for entry ${i}`);
+    verifyProperty(actualEntry.source , {  enumerable: true, writable: true, configurable: true }, `prop desc - source for entry ${i}`);
   }
 }
 
 // Basic example test en-US
 const nf = new Intl.NumberFormat("en-US", {
   style: "currency",
-  currency: "EUR",
+  currency: "USD",
   maximumFractionDigits: 0,
 });
 
 compare(nf.formatRangeToParts(3, 5), [
-  {type: "currency", value: "€", source: "startRange"},
+  {type: "currency", value: "$", source: "startRange"},
   {type: "integer", value: "3", source: "startRange"},
   {type: "literal", value: "–", source: "shared"},
-  {type: "integer", value: "5", source: "endRange"},
+  {type: "currency", value: "$", source: "endRange"},
+  {type: "integer", value: "5", source: "endRange"}
 ]);
