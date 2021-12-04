@@ -3,7 +3,8 @@
 /*---
 esid: sec-intl.numberformat
 description: Tests that the option roundingPriority is processed correctly.
-includes: [Intl.NumberFormat-v3]
+features: [Intl.NumberFormat-v3]
+includes: [testIntl.js]
 ---*/
 
 testOption(
