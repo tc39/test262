@@ -18,7 +18,7 @@ assert.sameValue(nf.format('100000'), '100,000');
 // input is the string "-Infinity".
 assert.sameValue(nf.format('-100000'), '-100,000');
 
-assert.sameValue(nf.format('1.0000000000000001'), '1.0000000000000001');
-assert.sameValue(nf.format('-1.0000000000000001'), '1.0000000000000001');
+assert.sameValue(nf.format('1.0000000000000001'), '1');
+assert.sameValue(nf.format('-1.0000000000000001'), '-1');
 assert.sameValue(nf.format('987654321987654321'), '987,654,321,987,654,321');
 assert.sameValue(nf.format('-987654321987654321'), '-987,654,321,987,654,321');
