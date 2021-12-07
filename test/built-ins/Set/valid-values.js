@@ -10,7 +10,7 @@ info: |
   For each element e of entries, do
     If e is not empty and SameValueZero(e, value) is true, then
     Return S.
-  If value is -0𝔽, set value to +0𝔽.
+  If value is -0, set value to +0.
   Append value as the last element of entries.
   ...
 
