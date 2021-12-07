@@ -34,7 +34,7 @@ info: |
     If hasOwn is false, throw a TypeError exception.
     ...
 
-flags: [async, module]
+flags: [async]
 features: [ShadowRealm]
 ---*/
 
@@ -48,6 +48,11 @@ const r = new ShadowRealm();
 
 r.importValue('./import-value_FIXTURE.js', 'y')
   .then(
-    () => $DONE('Expected rejection'),
-    () => $DONE()
-  );
+    () => {
+      throw new Test262Error("Expected rejection");
+    },
+    err => {
+      assert.sameValue(Object.getPrototypeOf(err), TypeError.prototype, 'should be rejected with TypeError');
+    }
+  )
+  .then($DONE, $DONE);
