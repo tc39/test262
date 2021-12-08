@@ -284,6 +284,11 @@ regexp-duplicate-named-groups
 # https://github.com/tc39/proposal-symbols-as-weakmap-keys
 symbols-as-weakmap-keys
 
+# Array.prototype.toReversed, Array.prototype.toSorted, Array.prototype.toSpliced,
+# Array.prototype.with and the equivalent TypedArray methods.
+# https://github.com/tc39/proposal-change-array-by-copy/
+change-array-by-copy
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
