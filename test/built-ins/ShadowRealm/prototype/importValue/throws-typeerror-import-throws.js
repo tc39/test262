@@ -10,7 +10,7 @@ info: |
     ...
     17. Return ! PerformPromiseThen(innerCapability.[[Promise]], onFulfilled, callerRealm.[[Intrinsics]].[[%ThrowTypeError%]], promiseCapability).
 
-flags: [async, module]
+flags: [async]
 features: [ShadowRealm]
 ---*/
 
@@ -22,10 +22,10 @@ assert.sameValue(
 
 const r = new ShadowRealm();
 
-r.importValue('./import-value_FIXTURE_throws.js', 'y')
+r.importValue('./import-value_throws_FIXTURE.js', 'y')
   .then(
     () => {
-      throw "(unreachable)";
+      throw new Test262Error("unreachable");
     },
     err => {
       assert.sameValue(Object.getPrototypeOf(err), TypeError.prototype, 'should be rejected with TypeError');
