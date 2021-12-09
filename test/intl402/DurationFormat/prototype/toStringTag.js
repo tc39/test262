@@ -11,20 +11,9 @@ features: [Intl.DurationFormat, Symbol.toStringTag]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(
-  Object.prototype.toString.call(Intl.DurationFormat.prototype),
-  '[object Intl.DurationFormat]',
-  'prototype - Initial value of @@toStringTag is not Intl.DurationFormat',
-);
-
-assert.sameValue(
-  Object.prototype.toString.call(new Intl.DurationFormat()),
-  '[object Intl.DurationFormat]',
-  'new call - Initial value of @@toStringTag is not Intl.DurationFormat',
-);
-
-const durationFormat = new Intl.DurationFormat();
-
-verifyNotEnumerable(durationFormat, Symbol.toStringTag);
-verifyNotWritable(durationFormat, Symbol.toStringTag);
-verifyConfigurable(durationFormat, Symbol.toStringTag);
+verifyProperty(Intl.DurationFormat.prototype, Symbol.toStringTag, {
+  value: "Intl.DurationFormat",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
