@@ -10,7 +10,7 @@ info: |
     ...
     17. Return ! PerformPromiseThen(innerCapability.[[Promise]], onFulfilled, callerRealm.[[Intrinsics]].[[%ThrowTypeError%]], promiseCapability).
 
-flags: [async]
+flags: [async, module]
 features: [ShadowRealm]
 ---*/
 
