@@ -34,7 +34,7 @@ info: |
     If hasOwn is false, throw a TypeError exception.
     ...
 
-flags: [async]
+flags: [async, module]
 features: [ShadowRealm]
 ---*/
 
