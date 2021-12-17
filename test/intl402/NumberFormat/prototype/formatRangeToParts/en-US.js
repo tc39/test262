@@ -18,14 +18,20 @@ function* zip(a, b) {
 
 function compare(actual, expected) {
   for (const [i, actualEntry, expectedEntry] of zip(actual, expected)) {
+
+    //  1.1.25_4.a  Let O be ObjectCreate(%ObjectPrototype%).
+    assert.sameValue(Object.getPrototypeOf(actualEntry), Object.prototype, `prototype for entry ${i}`);
+    //  1.1.25_4.b Perform ! CreateDataPropertyOrThrow(O, "type", part.[[Type]])
+    verifyProperty(actualEntry, 'type', {  enumerable: true, writable: true, configurable: true });
+    //  1.1.25_4.c Perform ! CreateDataPropertyOrThrow(O, "value", part.[[Value]]).
+    verifyProperty(actualEntry, 'value', {  enumerable: true, writable: true, configurable: true });
+    //  1.1.25_4.d Perform ! CreateDataPropertyOrThrow(O, "source", part.[[Source]]).
+    verifyProperty(actualEntry, 'source', {  enumerable: true, writable: true, configurable: true });
+
     // assertions
     assert.sameValue(actualEntry.type, expectedEntry.type, `type for entry ${i}`);
     assert.sameValue(actualEntry.value, expectedEntry.value, `value for entry ${i}`);
     assert.sameValue(actualEntry.source, expectedEntry.source, `source for entry ${i}`);
-    // checking prop-desc
-    verifyProperty(actualEntry, 'type', {  enumerable: true, writable: true, configurable: true });
-    verifyProperty(actualEntry, 'value', {  enumerable: true, writable: true, configurable: true });
-    verifyProperty(actualEntry, 'source', {  enumerable: true, writable: true, configurable: true });
   }
 }
 
