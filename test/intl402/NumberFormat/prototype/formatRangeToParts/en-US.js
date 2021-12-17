@@ -22,11 +22,10 @@ function compare(actual, expected) {
     assert.sameValue(actualEntry.type, expectedEntry.type, `type for entry ${i}`);
     assert.sameValue(actualEntry.value, expectedEntry.value, `value for entry ${i}`);
     assert.sameValue(actualEntry.source, expectedEntry.source, `source for entry ${i}`);
-
     // checking prop-desc
-    verifyProperty(actualEntry.type , {  enumerable: true, writable: true, configurable: true }, `prop desc - type for entry ${i}`);
-    verifyProperty(actualEntry.value , {  enumerable: true, writable: true, configurable: true }, `prop desc - value for entry ${i}`);
-    verifyProperty(actualEntry.source , {  enumerable: true, writable: true, configurable: true }, `prop desc - source for entry ${i}`);
+    verifyProperty(actualEntry, 'type', {  enumerable: true, writable: true, configurable: true });
+    verifyProperty(actualEntry, 'value', {  enumerable: true, writable: true, configurable: true });
+    verifyProperty(actualEntry, 'source', {  enumerable: true, writable: true, configurable: true });
   }
 }
 
