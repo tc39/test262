@@ -12,6 +12,7 @@ info: |
   3. Let len be ? LengthOfArrayLike(O).
   ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 assert.deepEqual(Array.prototype.toSorted.call({ length: "2", 0: 4, 1: 0, 2: 1 }), [0, 4]);

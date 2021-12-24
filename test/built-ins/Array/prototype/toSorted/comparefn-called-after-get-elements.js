@@ -20,6 +20,7 @@ info: |
      SortCompare or steps in this algorithm and return that completion.
   ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var getCalls = [];

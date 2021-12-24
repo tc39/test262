@@ -17,6 +17,7 @@ info: |
     b. Let kValue be ? Get(O, Pk).
     ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [0, 1, 2];

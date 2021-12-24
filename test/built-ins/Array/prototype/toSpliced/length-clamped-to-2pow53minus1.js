@@ -55,7 +55,8 @@ info: |
   2. If len ≤ 0, return +0𝔽.
   3. Return 𝔽(min(len, 253 - 1))
 
-includes: [compareArray.js]
+features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arrayLike = {

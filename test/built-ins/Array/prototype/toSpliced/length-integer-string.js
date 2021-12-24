@@ -12,6 +12,7 @@ info: |
   2. Let len be ? LengthOfArrayLike(O).
   ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 assert.deepEqual(Array.prototype.toSpliced.call({ length: "2", 0: 0, 1: 1, 2: 2 }, 0, 0), [0, 1]);

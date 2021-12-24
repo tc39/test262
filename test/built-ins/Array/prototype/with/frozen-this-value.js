@@ -6,6 +6,7 @@ esid: sec-array.prototype.with
 description: >
   Array.prototype.with works on frozen objects
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = Object.freeze([0, 1, 2]);

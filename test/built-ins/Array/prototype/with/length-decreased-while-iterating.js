@@ -18,6 +18,7 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     e. Set k to k + 1.
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [0, 1, 2, 3, 4];

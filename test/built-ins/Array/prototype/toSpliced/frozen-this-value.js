@@ -6,6 +6,7 @@ esid: sec-array.prototype.toSpliced
 description: >
   Array.prototype.toSpliced works on frozen objects
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = Object.freeze([2, 0, 1]);

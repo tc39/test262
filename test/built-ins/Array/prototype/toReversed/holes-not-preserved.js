@@ -18,6 +18,7 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [0, /* hole */, 2, /* hole */, 4];

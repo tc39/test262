@@ -11,6 +11,8 @@ info: |
   9. Else if deleteCount is not present, then
     a. Let actualDeleteCount be len - actualStart.
   ...
+features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var result = ["first", "second", "third"].toSpliced(1);

@@ -23,6 +23,7 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     e. Set k to k + 1.
   ...
+includes: [deepEqual.js]
 features: [change-array-by-copy]
 ---*/
 

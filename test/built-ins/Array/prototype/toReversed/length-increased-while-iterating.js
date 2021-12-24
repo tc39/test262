@@ -16,6 +16,7 @@ info: |
     c. Let fromValue be ? Get(O, from).
     ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [0, 1, 2];

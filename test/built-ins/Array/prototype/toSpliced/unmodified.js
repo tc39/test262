@@ -6,6 +6,7 @@ esid: sec-array.prototype.toSpliced
 description: >
   Array.prototype.toSpliced returns a new array even if it the result is equal to the original array
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [1, 2, 3];

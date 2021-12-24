@@ -6,6 +6,7 @@ esid: sec-array.prototype.toSpliced
 description: >
   Array.prototype.toSpliced does not mutate its this value
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [2, 0, 1];

@@ -12,6 +12,8 @@ info: |
     a. Let actualDeleteCount be len - actualStart.
     b. Let actualDeleteCount be the result of clamping dc between 0 and len - actualStart.
   ...
+features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 assert.deepEqual(

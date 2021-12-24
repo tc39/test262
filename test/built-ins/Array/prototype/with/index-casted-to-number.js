@@ -15,6 +15,7 @@ info: |
   5. Else, let actualIndex be len + relativeIndex.
   ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [0, 4, 16];

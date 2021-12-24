@@ -19,6 +19,7 @@ info: |
     d. Set k to k + 1.
   ...
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var arr = [3, /* hole */, 4, /* hole */, 1];

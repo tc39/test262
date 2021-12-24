@@ -6,6 +6,7 @@ esid: sec-array.prototype.toSorted
 description: >
   Array.prototype.toSorted returns a new array even if it has zero or one elements
 features: [change-array-by-copy]
+includes: [deepEqual.js]
 ---*/
 
 var zero = [];
