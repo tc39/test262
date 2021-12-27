@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-%typedarray%.prototype.toSpliced
-description: %TypedArray%.prototype.toSpliced returns a copy of the TypedArray if called with zero arguments
+description: '%TypedArray%.prototype.toSpliced returns a copy of the TypedArray if called with zero arguments'
 info: |
   22.1.3.25 %TypedArray%.prototype.toSpliced (start, deleteCount , ...items )
 
@@ -18,7 +18,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-withTypedArrayConstructors((TA) => {
+testWithTypedArrayConstructors((TA) => {
   var result = new TA([1, 2, 3]).toSpliced();
 
   assert.compareArray(result, [1, 2, 3]);

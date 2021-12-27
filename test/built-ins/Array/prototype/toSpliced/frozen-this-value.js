@@ -14,4 +14,4 @@ arr.toSpliced();
 
 var arrayLike = Object.freeze({ length: 3, 0: 0, 1: 1, 2: 2 });
 
-assert.deepEqual(Array.prototype.toSpliced.call(1, 1, 4, 5), [0, 4, 5, 2]);
+assert.deepEqual(Array.prototype.toSpliced.call(arrayLike, 1, 1, 4, 5), [0, 4, 5, 2]);

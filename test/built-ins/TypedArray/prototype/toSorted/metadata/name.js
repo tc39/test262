@@ -4,9 +4,9 @@
 /*---
 esid: sec-typedarray.prototype.toSorted
 description: >
-  TypedTypedArray.prototype.toSorted.name is "toSorted".
+  TypedArray.prototype.toSorted.name is "toSorted".
 info: |
-  TypedTypedArray.prototype.toSorted ( comparefn )
+  TypedArray.prototype.toSorted ( comparefn )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, that is not
@@ -20,7 +20,7 @@ includes: [propertyHelper.js, testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-verifyProperty(TypedTypedArray.prototype.toSorted, "name", {
+verifyProperty(TypedArray.prototype.toSorted, "name", {
   value: "toSorted",
   writable: false,
   enumerable: false,

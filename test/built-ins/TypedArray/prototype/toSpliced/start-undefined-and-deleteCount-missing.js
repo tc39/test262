@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-%typedarray%.prototype.toSpliced
-description: %TypedArray%.prototype.toSpliced(undefined) returns an empty array
+description: '%TypedArray%.prototype.toSpliced(undefined) returns an empty array'
 info: |
   22.1.3.25 %TypedArray%.prototype.toSpliced ( start, deleteCount , ...items )
 
@@ -23,7 +23,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-withTypedArrayConstructors((TA) => {
+testWithTypedArrayConstructors((TA) => {
   var result = new TA([1, 2, 3]).toSpliced(undefined);
   assert.compareArray(result, []);
 });

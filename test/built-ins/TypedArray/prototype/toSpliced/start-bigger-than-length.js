@@ -19,7 +19,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-withTypedArrayConstructors((TA) => {
+testWithTypedArrayConstructors((TA) => {
   var result = new TA([0, 1, 2, 3, 4]).toSpliced(10, 1, 5, 6);
-  assert.compareArray(result, [5, 6]);
+  assert.compareArray(result, [0, 1, 2, 3, 4, 5, 6]);
 });

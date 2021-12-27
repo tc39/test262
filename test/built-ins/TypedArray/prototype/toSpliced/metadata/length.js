@@ -18,7 +18,7 @@ info: |
   Unless otherwise specified, the length property of a built-in function object
   has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
-includes: [testTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, propertyHelper.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 

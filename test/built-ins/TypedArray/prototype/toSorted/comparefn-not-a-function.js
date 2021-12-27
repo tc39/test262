@@ -22,6 +22,6 @@ testWithTypedArrayConstructors(TA => {
   for (var i = 0; i < invalidComparators.length; i++) {
     assert.throws(TypeError, function() {
       ta.toSorted(invalidComparators[i]);
-    }, invalidComparators[i]);
+    }, String(invalidComparators[i]));
   }
 });

@@ -4,7 +4,7 @@
 /*---
 esid: sec-typedarray.prototype.toSorted
 description: >
-  The "length" property of TypedTypedArray.prototype.toSorted
+  The "length" property of TypedArray.prototype.toSorted
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,7 +22,7 @@ includes: [propertyHelper.js, testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-verifyProperty(TypedTypedArray.prototype.toSorted, "length", {
+verifyProperty(TypedArray.prototype.toSorted, "length", {
   value: 1,
   writable: false,
   enumerable: false,

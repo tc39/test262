@@ -15,10 +15,10 @@ includes: [propertyHelper.js, testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-assert.sameValue(typeof TypedTypedArray.prototype.toReversed, "function", "typeof");
+assert.sameValue(typeof TypedArray.prototype.toReversed, "function", "typeof");
 
 verifyProperty(TypedArray.prototype, "toReversed", {
-  value: TypedTypedArray.prototype.toReversed,
+  value: TypedArray.prototype.toReversed,
   writable: true,
   enumerable: false,
   configurable: true,

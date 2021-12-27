@@ -11,7 +11,7 @@ info: |
   Every other data property described in clauses 18 through 26 and in Annex B.2
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
     [[Configurable]]: true } unless otherwise specified.
-includes: [testTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, propertyHelper.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 

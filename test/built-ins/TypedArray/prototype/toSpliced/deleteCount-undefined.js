@@ -17,9 +17,10 @@ info: |
     a. Let insertCount be 0.
     b. Let actualDeleteCount be len - actualStart.
   ...
+includes: [testTypedArray.js, compareArray.js]
 ---*/
 
-withTypedArrayConstructors((TA) => {
+testWithTypedArrayConstructors((TA) => {
   assert.compareArray(
     new TA([1, 2, 3]).toSpliced(1, undefined),
     [1, 2, 3]

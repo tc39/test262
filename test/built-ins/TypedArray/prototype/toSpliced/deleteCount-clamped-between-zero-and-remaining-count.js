@@ -17,7 +17,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-withTypedArrayConstructors((TA) => {
+testWithTypedArrayConstructors((TA) => {
   assert.compareArray(
     new TA([0, 1, 2, 3, 4, 5]).toSpliced(2, -1),
     [0, 1, 2, 3, 4, 5]

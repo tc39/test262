@@ -11,7 +11,7 @@ info: |
   ...
   4. Let len be O.[[ArrayLength]].
   ...
-includes: [testTypedArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 

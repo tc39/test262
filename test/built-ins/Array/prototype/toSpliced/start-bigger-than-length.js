@@ -20,4 +20,4 @@ includes: [deepEqual.js]
 ---*/
 
 var result = [0, 1, 2, 3, 4].toSpliced(10, 1, 5, 6);
-assert.deepEqual(result, [5, 6]);
+assert.deepEqual(result, [0, 1, 2, 3, 4, 5, 6]);

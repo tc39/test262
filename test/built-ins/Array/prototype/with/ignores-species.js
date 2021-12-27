@@ -14,13 +14,13 @@ info: |
 features: [change-array-by-copy]
 ---*/
 
-var a = [];
+var a = [1, 2, 3];
 a.constructor = {};
 a.constructor[Symbol.species] = function () {}
 
 assert.sameValue(Object.getPrototypeOf(a.with(0, 0)), Array.prototype);
 
-var b = [];
+var b = [1, 2, 3];
 Object.defineProperty(b, "constructor", {
   get() {
     throw new Test262Error("Should not get .constructor");

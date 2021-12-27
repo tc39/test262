@@ -25,9 +25,9 @@ var invalidComparators = [null, true, false, "", /a/g, 42, [], {}, Symbol()];
 for (var i = 0; i < invalidComparators.length; i++) {
   assert.throws(TypeError, function() {
     [1].toSorted(invalidComparators[i]);
-  }, invalidComparators[i]);
+  }, String(invalidComparators[i]));
 
   assert.throws(TypeError, function() {
     Array.prototype.toSorted.call(getLengthThrow, invalidComparators[i]);
-  }, invalidComparators[i]);
+  }, String(invalidComparators[i]));
 }

@@ -20,17 +20,17 @@ features: [TypedArray, change-array-by-copy]
 
 function StopToSorted() {}
 
-var called = false;
-
 testWithTypedArrayConstructors(TA => {
-  var called = false;
+  var calls = 0;
   var ta = new TA([3, 1, 2]);
-  ta.toSorted(() => {
-    if (first) {
-      first = false;
-      throw new StopToSorted();
-    }
-    called = true;
-  });
-  assert.sameValue(called, false, "compareFn is not called after an error");
+  try {
+    ta.toSorted(() => {
+      if (calls === 0) {
+        calls++;
+        throw new StopToSorted();
+      }
+      calls++;
+    });
+  } catch (e) {}
+  assert.sameValue(calls, 1, "compareFn is not called after an error");
 });

@@ -4,9 +4,9 @@
 /*---
 esid: sec-typedarray.prototype.toReversed
 description: >
-  TypedTypedArray.prototype.toReversed.name is "toReversed".
+  TypedArray.prototype.toReversed.name is "toReversed".
 info: |
-  TypedTypedArray.prototype.toReversed ( )
+  TypedArray.prototype.toReversed ( )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, that is not
@@ -20,7 +20,7 @@ includes: [propertyHelper.js, testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-verifyProperty(TypedTypedArray.prototype.toReversed, "name", {
+verifyProperty(TypedArray.prototype.toReversed, "name", {
   value: "toReversed",
   writable: false,
   enumerable: false,

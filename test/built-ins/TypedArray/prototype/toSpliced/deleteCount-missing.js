@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-%typedarray%.prototype.toSpliced
-description: %TypedArray%.prototype.toSpliced deletes the elements after start when called with one argument
+description: '%TypedArray%.prototype.toSpliced deletes the elements after start when called with one argument'
 info: |
   22.1.3.25 %TypedArray%.prototype.toSpliced (start, deleteCount , ...items )
 
@@ -16,7 +16,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-withTypedArrayConstructors((TA) => {
+testWithTypedArrayConstructors((TA) => {
   assert.compareArray(
     new TA([1, 2, 3]).toSpliced(1),
     [1]

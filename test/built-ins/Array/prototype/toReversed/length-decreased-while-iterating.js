@@ -20,13 +20,13 @@ includes: [deepEqual.js]
 ---*/
 
 var arr = [0, 1, 2, 3, 4];
-Array.prototype[4] = 5;
+Array.prototype[1] = 5;
 
-Object.defineProperty(arr, "2", {
+Object.defineProperty(arr, "3", {
   get() {
     arr.length = 1;
-    return 2;
+    return 3;
   }
 });
 
-assert.deepEqual(arr.toReversed(), [5, undefined, 2, 1, 0]);
+assert.deepEqual(arr.toReversed(), [4, 3, undefined, 5, 0]);

@@ -4,7 +4,7 @@
 /*---
 esid: sec-typedarray.prototype.toReversed
 description: >
-  The "length" property of TypedTypedArray.prototype.toReversed
+  The "length" property of TypedArray.prototype.toReversed
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,7 +22,7 @@ includes: [propertyHelper.js, testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-verifyProperty(TypedTypedArray.prototype.toReversed, "length", {
+verifyProperty(TypedArray.prototype.toReversed, "length", {
   value: 0,
   writable: false,
   enumerable: false,
