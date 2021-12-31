@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.toReversed
 description: >
-  Array.prototype.toReversed limits the length to 2 ** 53 - 1
+  Array.prototype.toReversed limits the length to 2 ** 32 - 1
 info: |
   Array.prototype.toReversed ( )
 
@@ -15,7 +15,7 @@ info: |
 
   ArrayCreate ( length [, proto ] )
 
-  1. If length > 2 ** 31 - 1, throw a RangeError exception.
+  1. If length > 2 ** 32 - 1, throw a RangeError exception.
 features: [change-array-by-copy]
 ---*/
 
@@ -24,15 +24,15 @@ var arrayLike = {
   get "0"() {
     throw new Test262Error("Get 0");
   },
-  get "2147483647" () { // 2 ** 31 - 1
+  get "4294967295" () { // 2 ** 32 - 1
     throw new Test262Error("Get 2147483648");
   },
-  get "2147483648" () { // 2 ** 31
+  get "4294967296" () { // 2 ** 32
     throw new Test262Error("Get 2147483648");
   },
-  length: 2 ** 31
+  length: 2 ** 32
 };
 
-assert.throws(TypeError, function() {
+assert.throws(RangeError, function() {
   Array.prototype.toReversed.call(arrayLike);
 });
