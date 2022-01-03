@@ -28,7 +28,7 @@ var arrayLike = {
   length: 2 ** 53 + 20,
 };
 
-var result = Array.prototype.toSpliced.call(arrayLike, 0, 2 ** 53 - 4);
+var result = Array.prototype.toSpliced.call(arrayLike, 0, 2 ** 53 - 3);
 
 assert.sameValue(result.length, 2);
 assert.deepEqual(result, [2 ** 53 - 3, 2 ** 53 - 2]);
