@@ -23,9 +23,5 @@ testWithTypedArrayConstructors(TA => {
 
   assert.compareArray(arr.with(-1, 4), [0, 1, 4]);
   assert.compareArray(arr.with(-3, 4), [4, 1, 2]);
-
-  // -0 is disallowed as TypedArray index
-  assert.throws(RangeError, function() {
-    arr.with(-0, 7);
-  });
+  assert.compareArray(arr.with(-0, 4), [4, 1, 2]);
 });
