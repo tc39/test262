@@ -15,15 +15,15 @@ info: |
   5. Else, let actualIndex be len + relativeIndex.
   ...
 features: [TypedArray, change-array-by-copy]
-includes: [testTypedArray.js, deepEqual.js]
+includes: [testTypedArray.js, compareArray.js]
 ---*/
 
 testWithTypedArrayConstructors(TA => {
   var arr = new TA([0, 4, 16]);
 
-  assert.deepEqual(arr.with(1.2, 7), [0, 7, 16]);
-  assert.deepEqual(arr.with("1", 3), [0, 3, 16]);
-  assert.deepEqual(arr.with("-1", 5), [1, 5, 6]);
-  assert.deepEqual(arr.with(NaN, 2), [2, 4, 16]);
-  assert.deepEqual(arr.with("dog", "cat"), ["cat", 4, 16]);
+  assert.compareArray(arr.with(1.2, 7), [0, 7, 16]);
+  assert.compareArray(arr.with("1", 3), [0, 3, 16]);
+  assert.compareArray(arr.with("-1", 5), [0, 4, 5]);
+  assert.compareArray(arr.with(NaN, 2), [2, 4, 16]);
+  assert.compareArray(arr.with("dog", 33), [33, 4, 16]);
 });

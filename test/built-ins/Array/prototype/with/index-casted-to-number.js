@@ -22,6 +22,6 @@ var arr = [0, 4, 16];
 
 assert.deepEqual(arr.with(1.2, 7), [0, 7, 16]);
 assert.deepEqual(arr.with("1", 3), [0, 3, 16]);
-assert.deepEqual(arr.with("-1", 5), [1, 5, 6]);
+assert.deepEqual(arr.with("-1", 5), [0, 4, 5]);
 assert.deepEqual(arr.with(NaN, 2), [2, 4, 16]);
 assert.deepEqual(arr.with("dog", "cat"), ["cat", 4, 16]);
