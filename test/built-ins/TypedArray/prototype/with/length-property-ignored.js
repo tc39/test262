@@ -18,11 +18,13 @@ features: [TypedArray, change-array-by-copy]
 testWithTypedArrayConstructors(TA => {
   var ta = new TA([3, 1, 2]);
   Object.defineProperty(ta, "length", { value: 2 })
-  assert.compareArray(ta.with(0, 0), [1, 2, 3]);
+  var res = ta.with(0, 0);
+  assert.compareArray([res[0], res[1], res[2], res[3]], [0, 1, 2, undefined]);
 
   ta = new TA([3, 1, 2]);
   Object.defineProperty(ta, "length", { value: 5 });
-  assert.compareArray(ta.with(0, 0), [1, 2, 3]);
+  res = ta.with(0, 0);
+  assert.compareArray([res[0], res[1], res[2], res[3]], [0, 1, 2, undefined]);
 });
 
 var length;
@@ -34,8 +36,10 @@ testWithTypedArrayConstructors(TA => {
   var ta = new TA([3, 1, 2]);
 
   length = 2;
-  assert.compareArray(ta.with(0, 0), [1, 2, 3]);
+  var res = ta.with(0, 0);
+  assert.compareArray([res[0], res[1], res[2], res[3]], [0, 1, 2, undefined]);
 
   length = 5;
-  assert.compareArray(ta.with(0, 0), [1, 2, 3]);
+  res = ta.with(0, 0);
+  assert.compareArray([res[0], res[1], res[2], res[3]], [0, 1, 2, undefined]);
 });
