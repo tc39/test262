@@ -37,9 +37,17 @@ class CheckIncludes(Check):
                 return True
         return False
 
+    @staticmethod
+    def _get_includes_flow_list(source):
+        match = re.search(r"includes:\s+\[(?P<includes>.+)\]", source)
+        return [inc.strip() for inc in match.group('includes').split(',') if inc] if match else []
+
     def run(self, name, meta, source):
         if not meta or 'includes' not in meta:
             return
+
+        if meta['includes'] != CheckIncludes._get_includes_flow_list(source):
+            return 'If present, the `includes` tag must use flow style, eg. includes: [include1.js, include2.js]'
 
         harness_files = [self._load(name) for name in meta['includes']]
 

@@ -178,8 +178,14 @@ negative:
 `includes: [file-list]`
 
 This key names a list of files in the `harness/` directory that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
-
+Includes should use flow style without line break (separating items by commas and enclosing them in square brackets), block style (one line for each item, each line starting with a dash) isn't allowed.
 When some code is used repeatedly across a group of tests, it may be appropriate to define it in a harness file. This practice increases test complexity, so it should be applied sparingly.
+
+For example:
+
+```
+includes: [include1.js, include2.js]
+```
 
 #### author
 `author: [string]`
