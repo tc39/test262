@@ -15,13 +15,13 @@ var numberingSystems = ['arab', 'latn', 'thai', 'hanidec'];
 testNumberFormat(
   locales,
   numberingSystems,
-  {roundingIncrement: 5000, maximumFractionDigits: 4},
+  {roundingIncrement: 5000, maximumFractionDigits: 4, minimumFractionDigits: 1},
   {
     '1.500': '1.5',
     '1.625': '1.5',
-    '1.750': '2',
-    '1.875': '2',
-    '2.000': '2',
+    '1.750': '2.0',
+    '1.875': '2.0',
+    '2.000': '2.0',
   }
 );
 
