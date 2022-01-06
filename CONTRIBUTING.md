@@ -159,10 +159,10 @@ single line comment syntax.
 #### negative
 `negative: [dictionary containing "phase" and "type" keys]`
 
-This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
+This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported. The **phase** field must precede the **type** field.
 
-- **type** - If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
 - **phase** - Negative tests whose **phase** value is "parse" must produce the specified error prior to executing code. The value "resolution" indicates that the error is expected to result while performing ES2015 module resolution. The value "runtime" dictates that the error is expected to be produced as a result of executing the test code.
+- **type** - If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
 
 For best practices on how to use the negative key please see [Handling Errors and Negative Test Cases](#handling-errors-and-negative-test-cases), below.
 

@@ -5,8 +5,8 @@
 esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
 negative:
-  type: ReferenceError
   phase: runtime
+  type: ReferenceError
 ---*/
 
 x;
