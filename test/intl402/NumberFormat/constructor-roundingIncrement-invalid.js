@@ -11,10 +11,6 @@ assert.throws(RangeError, function() {
 }, '0');
 
 assert.throws(RangeError, function() {
-  new Intl.NumberFormat([], {roundingIncrement: 1.1});
-}, '1.1');
-
-assert.throws(RangeError, function() {
   new Intl.NumberFormat([], {roundingIncrement: 3});
 }, '3');
 
