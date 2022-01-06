@@ -34,7 +34,7 @@ for (const [value, expected] of values) {
   const nf = new Intl.NumberFormat([], {
     get notation() {
       callOrder.push("notation");
-      return "compact";
+      return "standard";
     },
     get roundingIncrement() {
       callOrder.push("roundingIncrement");
