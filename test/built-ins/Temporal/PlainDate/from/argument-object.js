@@ -16,6 +16,6 @@ const badFields = { year: 2019, month: 1, day: 32 };
 assert.throws(RangeError, () => Temporal.PlainDate.from(badFields, { overflow: "reject" }),
   "bad fields with reject");
 TemporalHelpers.assertPlainDate(Temporal.PlainDate.from(badFields),
-  plainDate, 2019, 1, "M01", 31, "bad fields with missing overflow");
+  2019, 1, "M01", 31, "bad fields with missing overflow");
 TemporalHelpers.assertPlainDate(Temporal.PlainDate.from(badFields, { overflow: "constrain" }),
-  plainDate, 2019, 1, "M01", 31, "bad fields with constrain");
+  2019, 1, "M01", 31, "bad fields with constrain");
