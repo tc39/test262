@@ -15,7 +15,7 @@ var numberingSystems = ['arab', 'latn', 'thai', 'hanidec'];
 testNumberFormat(
   locales,
   numberingSystems,
-  {roundingIncrement: 2500, maximumFractionDigits: 4},
+  {roundingIncrement: 2500, maximumFractionDigits: 4, minimumFractionDigits: 1},
   {
     '1.2500': '1.25',
     '1.3125': '1.25',
