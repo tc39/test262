@@ -18,7 +18,7 @@ var numberingSystems = ['arab', 'latn', 'thai', 'hanidec'];
 testNumberFormat(
   locales,
   numberingSystems,
-  {useGrouping: false, roundingPriority: 'lessPrecision', minimumSignificantDigits: 2, minimumFractionDigitsDigits: 2},
+  {useGrouping: false, roundingPriority: 'lessPrecision', minimumSignificantDigits: 2, minimumFractionDigits: 2},
   {'1': '1.0'}
 );
 
@@ -26,7 +26,7 @@ testNumberFormat(
 testNumberFormat(
   locales,
   numberingSystems,
-  {useGrouping: false, roundingPriority: 'lessPrecision', minimumSignificantDigits: 3, minimumFractionDigitsDigits: 2},
+  {useGrouping: false, roundingPriority: 'lessPrecision', minimumSignificantDigits: 3, minimumFractionDigits: 1},
   {'1': '1.0'}
 );
 
@@ -34,7 +34,7 @@ testNumberFormat(
 testNumberFormat(
   locales,
   numberingSystems,
-  {useGrouping: false, roundingPriority: 'lessPrecision', maximumSignificantDigits: 2, maximumFractionDigitsDigits: 2},
+  {useGrouping: false, roundingPriority: 'lessPrecision', maximumSignificantDigits: 2, maximumFractionDigits: 2},
   {'1.23': '1.2'}
 );
 
@@ -42,6 +42,6 @@ testNumberFormat(
 testNumberFormat(
   locales,
   numberingSystems,
-  {useGrouping: false, roundingPriority: 'lessPrecision', maximumSignificantDigits: 3, maximumFractionDigitsDigits: 1},
+  {useGrouping: false, roundingPriority: 'lessPrecision', maximumSignificantDigits: 3, maximumFractionDigits: 1},
   {'1.234': '1.2'}
 );
