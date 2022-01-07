@@ -6,6 +6,7 @@ esid: sec-Intl.NumberFormat-formatRangeToParts
 description: Basic tests for the en-US output of formatRangeToParts()
 locale: [en-US]
 features: [Intl.NumberFormat-v3]
+includes: [propertyHelper.js]
 ---*/
 
 // Utils functions
