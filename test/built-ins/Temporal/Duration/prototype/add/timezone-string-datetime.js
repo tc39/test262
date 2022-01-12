@@ -18,9 +18,9 @@ assert.throws(RangeError, () => instance.add(new Temporal.Duration(1), { relativ
 [
   "2021-08-19T17:30Z",
   "2021-08-19T17:30-07:00",
-  "2021-08-19T17:30[America/Vancouver]",
-  "2021-08-19T17:30Z[America/Vancouver]",
-  "2021-08-19T17:30-07:00[America/Vancouver]",
+  "2021-08-19T17:30[UTC]",
+  "2021-08-19T17:30Z[UTC]",
+  "2021-08-19T17:30-07:00[UTC]",
 ].forEach((timeZone) => {
   instance.add(new Temporal.Duration(1), { relativeTo: { year: 2000, month: 5, day: 2, timeZone } });
   instance.add(new Temporal.Duration(1), { relativeTo: { year: 2000, month: 5, day: 2, timeZone: { timeZone } } });
