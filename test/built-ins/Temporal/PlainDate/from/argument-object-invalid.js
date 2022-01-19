@@ -4,13 +4,9 @@
 /*---
 esid: sec-temporal.plaindate.from
 description: Property bag is correctly converted into PlainDate
-includes: [compareArray.js, temporalHelpers.js]
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
-
-const dateTimeFields = { year: 2019, month: 10, monthCode: "M10", day: 1, hour: 14, minute: 20, second: 36 };
-const plainDate = Temporal.PlainDate.from(dateTimeFields);
-TemporalHelpers.assertPlainDate(plainDate, 2019, 10, "M10", 1);
 
 const badFields = { year: 2019, month: 1, day: 32 };
 assert.throws(RangeError, () => Temporal.PlainDate.from(badFields, { overflow: "reject" }),
@@ -19,3 +15,27 @@ TemporalHelpers.assertPlainDate(Temporal.PlainDate.from(badFields),
   2019, 1, "M01", 31, "bad fields with missing overflow");
 TemporalHelpers.assertPlainDate(Temporal.PlainDate.from(badFields, { overflow: "constrain" }),
   2019, 1, "M01", 31, "bad fields with constrain");
+
+assert.throws(RangeError,
+  () => Temporal.PlainDate.from({ year: 1976, month: 11, monthCode: "M12", day: 18 }),
+  "month and monthCode must agree");
+
+assert.throws(TypeError,
+  () => Temporal.PlainDate.from({ year: 2019, day: 15 }),
+  "missing month");
+
+assert.throws(TypeError,
+  () => Temporal.PlainDate.from({}),
+  "no properties");
+
+assert.throws(TypeError,
+  () => Temporal.PlainDate.from({ month: 12 }),
+  "missing year, day");
+
+assert.throws(TypeError,
+  () => Temporal.PlainDate.from({ year: 1976, months: 11, day: 18 }),
+  "misspelled month");
+
+assert.throws(TypeError,
+  () => Temporal.PlainDate.from({ year: undefined, month: 11, day: 18 }),
+  "year undefined");
