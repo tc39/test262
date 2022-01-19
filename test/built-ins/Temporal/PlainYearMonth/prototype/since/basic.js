@@ -17,4 +17,4 @@ TemporalHelpers.assertDurationsEqual(feb21.since(feb20), oneYear, 'Returns year 
 TemporalHelpers.assertDurationsEqual(feb21.since(feb20,  { largestUnit: 'auto' }), oneYear, 'Returns year by default');
 
 TemporalHelpers.assertDurationsEqual(feb21.since(feb20, { largestUnit: 'years' }), oneYear, 'Returns year explicitly');
-TemporalHelpers.assertDurationsEqual(feb21.since(feb20, { largestUnit: 'months' }), twelveMonths, 'Returns months when requested.')
+TemporalHelpers.assertDurationsEqual(feb21.since(feb20, { largestUnit: 'months' }), twelveMonths, 'Returns months when requested.');
