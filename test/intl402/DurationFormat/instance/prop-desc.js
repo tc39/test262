@@ -25,6 +25,8 @@ features: [Intl.DurationFormat]
 includes: [propertyHelper.js]
 ---*/
 
-verifyNotEnumerable(Intl, "DurationFormat");
-verifyWritable(Intl, "DurationFormat");
-verifyConfigurable(Intl, "DurationFormat");
+verifyProperty(Intl, 'DurationFormat', {
+  enumerable: false,
+  writable: true,
+  configurable: true
+});
