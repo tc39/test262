@@ -28,5 +28,7 @@ const validValues = [
   "2000-05",
 ];
 validValues.forEach((value) => {
-  assert.throws(RangeError, () => Temporal.PlainYearMonth.from(value, { overflow: "other string" }));
+  ["", "CONSTRAIN", "balance", "other string", "constra\u0131n", 3, null].forEach((overflow) => {
+    assert.throws(RangeError, () => Temporal.PlainYearMonth.from(value, { overflow }));
+  });
 });
