@@ -23,6 +23,8 @@ includes: [propertyHelper.js]
 
 assert.sameValue(Intl.DurationFormat.name, "DurationFormat");
 
-verifyNotEnumerable(Intl.DurationFormat, "name");
-verifyNotWritable(Intl.DurationFormat, "name");
-verifyConfigurable(Intl.DurationFormat, "name");
+verifyProperty(Intl.DurationFormat, 'name', {
+  enumerable: false,
+  writable: false,
+  configurable: true
+});

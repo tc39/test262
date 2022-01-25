@@ -21,6 +21,7 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 
+features: [Intl.DurationFormat]
 includes: [propertyHelper.js]
 ---*/
 
