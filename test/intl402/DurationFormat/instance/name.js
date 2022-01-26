@@ -21,9 +21,8 @@ features: [Intl.DurationFormat]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Intl.DurationFormat.name, "DurationFormat");
-
 verifyProperty(Intl.DurationFormat, 'name', {
+  value: 'DurationFormat',
   enumerable: false,
   writable: false,
   configurable: true
