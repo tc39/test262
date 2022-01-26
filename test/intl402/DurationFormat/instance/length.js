@@ -28,6 +28,7 @@ includes: [propertyHelper.js]
 assert.sameValue(Intl.DurationFormat.length, 0);
 
 verifyProperty(Intl.DurationFormat, 'length', {
+  value: 0,
   enumerable: false,
   writable: false,
   configurable: true
