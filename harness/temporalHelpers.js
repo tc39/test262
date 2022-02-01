@@ -1035,6 +1035,44 @@ var TemporalHelpers = {
   },
 
   /*
+   * A custom calendar that asserts its ...FromFields() methods are called with
+   * the options parameter having the value undefined.
+   */
+  calendarFromFieldsUndefinedOptions() {
+    class CalendarFromFieldsUndefinedOptions extends Temporal.Calendar {
+      constructor() {
+        super("iso8601");
+        this.dateFromFieldsCallCount = 0;
+        this.monthDayFromFieldsCallCount = 0;
+        this.yearMonthFromFieldsCallCount = 0;
+      }
+
+      toString() {
+        return "from-fields-undef-options";
+      }
+
+      dateFromFields(fields, options) {
+        this.dateFromFieldsCallCount++;
+        assert.sameValue(options, undefined, "dateFromFields shouldn't be called with options");
+        return super.dateFromFields(fields, options);
+      }
+
+      yearMonthFromFields(fields, options) {
+        this.yearMonthFromFieldsCallCount++;
+        assert.sameValue(options, undefined, "yearMonthFromFields shouldn't be called with options");
+        return super.yearMonthFromFields(fields, options);
+      }
+
+      monthDayFromFields(fields, options) {
+        this.monthDayFromFieldsCallCount++;
+        assert.sameValue(options, undefined, "monthDayFromFields shouldn't be called with options");
+        return super.monthDayFromFields(fields, options);
+      }
+    }
+    return new CalendarFromFieldsUndefinedOptions();
+  },
+
+  /*
    * A custom calendar that modifies the fields object passed in to
    * dateFromFields, sabotaging its time properties.
    */
