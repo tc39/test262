@@ -20,3 +20,8 @@ TemporalHelpers.assertDuration(earlier.until(later, {}),
   1, 1, 0, 0, 0, 0, 0, 0, 0, 0, "default largestUnit is year (implicit, pos)");
 TemporalHelpers.assertDuration(later.until(earlier, {}),
   -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, "default largestUnit is year (implicit, neg)");
+
+TemporalHelpers.assertDuration(earlier.until(later, () => {}),
+  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, "default largestUnit is year (arrow function, pos)");
+TemporalHelpers.assertDuration(later.until(earlier, () => {}),
+  -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, "default largestUnit is year (arrow function, neg)");
