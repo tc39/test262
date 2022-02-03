@@ -1312,10 +1312,10 @@ var TemporalHelpers = {
         if (this._shiftNanoseconds > 0) {
           if (this._isBeforeShift(instant)) return [instant];
           if (instant.epochNanoseconds < this._epoch2) return [];
-          return [instant.add(this._shift)];
+          return [instant.subtract(this._shift)];
         }
         if (instant.epochNanoseconds < this._epoch2) return [instant];
-        const shifted = instant.add(this._shift);
+        const shifted = instant.subtract(this._shift);
         if (this._isBeforeShift(instant)) return [instant, shifted];
         return [shifted];
       }
