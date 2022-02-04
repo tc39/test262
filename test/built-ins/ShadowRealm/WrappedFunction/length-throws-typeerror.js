@@ -23,7 +23,7 @@ assert.sameValue(
 
 const r = new ShadowRealm();
 
-assert.throws(TypeError, r.evaluate(`
+assert.throws(TypeError, () => r.evaluate(`
 function fn() {}
 Object.defineProperty(fn, 'length', {
   get: () => {
