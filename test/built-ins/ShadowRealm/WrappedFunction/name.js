@@ -63,18 +63,20 @@ verifyProperty(wrapped, "name", {
 });
 
 // The value of fn.name is not a string.
-wrapped = r.evaluate(`
+for (const name of [null, undefined, 0, '1n', false, NaN, Infinity, 'Symbol()', '[]', '{}']) {
+  wrapped = r.evaluate(`
 function fn() {}
 Object.defineProperty(fn, 'name', {
-  get: () => 1,
+  value: ${String(name)},
   enumerable: false,
   configurable: true,
 });
 fn;
 `);
-verifyProperty(wrapped, "name", {
-  value: "",
-  enumerable: false,
-  writable: false,
-  configurable: true,
-});
+  verifyProperty(wrapped, "name", {
+    value: "",
+    enumerable: false,
+    writable: false,
+    configurable: true,
+  });
+}
