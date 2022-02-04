@@ -33,6 +33,7 @@ info: |
   ...
   2. Return ! DefinePropertyOrThrow(F, "length", PropertyDescriptor { [[Value]]: 𝔽(length), [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: true }).
 
+includes: [propertyHelper.js]
 features: [ShadowRealm]
 ---*/
 
