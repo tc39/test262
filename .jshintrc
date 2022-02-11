@@ -1,3 +1,4 @@
 {
-    "predef": ["Intl"]
+    "predef": ["Intl"],
+    "esversion": 6
 }
