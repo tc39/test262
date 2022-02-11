@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.compare
-description: Unbalancing handles DST days with more than hours
+description: Unbalancing handles DST days with more than 24 hours
 features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
