@@ -1,0 +1,16 @@
+// Copyright 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+template: default
+desc: Compound left-shift assignment with target being a private reference
+---*/
+
+//- lhs
+0b0110
+//- operator
+<<=
+//- rhs
+4
+//- result
+0b01100000

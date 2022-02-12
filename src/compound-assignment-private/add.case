@@ -1,0 +1,16 @@
+// Copyright 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+template: default
+desc: Compound addition assignment with target being a private reference
+---*/
+
+//- lhs
+1
+//- operator
++=
+//- rhs
+2
+//- result
+3
