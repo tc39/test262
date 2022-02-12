@@ -1,0 +1,16 @@
+// Copyright 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+template: default
+desc: Compound exponentiation assignment with target being a private reference
+---*/
+
+//- lhs
+10
+//- operator
+**=
+//- rhs
+3
+//- result
+1000
