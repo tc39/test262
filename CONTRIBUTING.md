@@ -394,7 +394,7 @@ The Body of a test template matches that of a non-generated test in which an arb
 Expected [Frontmatter](#frontmatter) keys:
 Key | Description
 ------|-------------
-`path` | location within the published test hierarchy to output files created from this template, each with a path formed by appending the name of the corresponding test case file. For example, a template with `path` "/test/language/template1-" used by test case file case1.js will generate a test file for that case at "/test/language/template1-case1.js".
+`path` | location within the published test hierarchy to output files created from this template, each with a path formed by appending the name of the corresponding test case file. For example, a template with `path` "language/template1-" used by test case file case1.js will generate a test file for that case at "language/template1-case1.js".
 `name` | human-readable name of the syntactic form described by this template. Each generated test will have a `description` that is the result of appending the test template `name`, in parentheses, to the test case `desc` field.
 `esid` | see the general definition of the [`esid` frontmatter key](#esid).
 `info` | see the general definition of the [`info` frontmatter key](#info). Each generated test will have `info` that is the concatenation of the test template `info` field and the test case `info` field.
