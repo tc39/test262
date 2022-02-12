@@ -34,6 +34,9 @@ Guidance for contributing to Test262 can be found in [CONTRIBUTING.md](./CONTRIB
 
 Guidance for running Test262 and explanations of how a test file must be interpreted by a test runner is in [INTERPRETING](./INTERPRETING.md)
 
+### Rationale
+
+This project offers an explanation for many of its design decisions and maintenance practices--see [rationale.md](./docs/rationale.md).
 
 ### Test262 Runners
 
