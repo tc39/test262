@@ -10,14 +10,14 @@ features: [Temporal]
 // "Etc/GMT-0" through "Etc/GMT-14" are OK
 
 assert.sameValue(
-  Temporal.TimeZone.from("Etc/GMT-0").toString(),
+  (new Temporal.TimeZone("Etc/GMT-0")).toString(),
   "UTC", // if the offset is -0, we say "UTC" rather than "GMT"
   "Etc/GMT-0 is a valid timezone"
 );
 
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14].forEach((n) => {
   let tz = "Etc/GMT-" + n;
-  let instance = Temporal.TimeZone.from(tz);
+  let instance = new Temporal.TimeZone(tz);
   assert.sameValue(
     instance.toString(),
     tz,
@@ -25,12 +25,19 @@ assert.sameValue(
   );
 });
 
+let gmtMinus15TZ = "Etc/GMT-15";
+assert.throws(
+  RangeError,
+  () => { new Temporal.TimeZone(gmtMinus15TZ); },
+  gmtMinus15TZ + " is an invalid timezone"
+);
+
 // "Etc/GMT-0N" is not OK (1 ≤ N ≤ 9)
 [1,2,3,4,5,6,7,8,9].forEach((n) => {
   let tz = "Etc/GMT-0" + n;
   assert.throws(
     RangeError,
-    () => { Temporal.TimeZone.from(tz); },
+    () => { new Temporal.TimeZone(tz); },
     tz + " is an invalid timezone"
   );
 });
@@ -40,26 +47,35 @@ assert.sameValue(
   let tz = "Etc/GMT+0" + n;
   assert.throws(
     RangeError,
-    () => { Temporal.TimeZone.from(tz); },
+    () => { new Temporal.TimeZone(tz); },
     tz + " is an invalid timezone"
     );
 });
 
-// Etc/GMT+0" through "Etc/GMT+9" are OK
+// Etc/GMT+0" through "Etc/GMT+12" are OK
 
-// zero is handled in its own way:
+// zero is handled in its own way (say "UTC" rather than "GMT"):
 assert.sameValue(
-  Temporal.TimeZone.from("Etc/GMT+0").toString(),
+  (new Temporal.TimeZone("Etc/GMT+0")).toString(),
   "UTC", // if the offset is +0, we say "UTC" rather than "GMT"
   "Etc/GMT+0 is a valid timezone"
 );
 
 [1,2,3,4,5,6,7,8,9, 10, 11, 12].forEach((n) => {
   let tz = "Etc/GMT+" + n;
-  let instance = Temporal.TimeZone.from(tz);
+  let instance = new Temporal.TimeZone(tz);
   assert.sameValue(
     instance.toString(),
     tz,
     tz + " is a valid timezone"
   );
 });
+
+// "Etc/GMT+13" is not OK
+
+let gmtPlus13TZ = "Etc/GMT+13";
+assert.throws(
+  RangeError,
+  () => { new Temporal.TimeZone(gmtPlus13TZ); },
+  gmtPlus13TZ + " is an invalid timezone"
+);
