@@ -1,21 +1,12 @@
 // This file was procedurally generated from the following sources:
-// - src/compound-assignment-private/and.case
-// - src/compound-assignment-private/default/data-property.template
+// - src/logical-assignment-private/or.case
+// - src/logical-assignment-private/default/data-property-short-circuit.template
 /*---
-description: Compound logical-and assignment with target being a private reference (to a field)
+description: Logical-or assignment with target being a private reference (to a field (short-circuit version))
 esid: sec-assignment-operators-runtime-semantics-evaluation
-features: [class-fields-private]
+features: [class-fields-private, logical-assignment-operators]
 flags: [generated]
 info: |
-    sec-assignment-operators-runtime-semantics-evaluation
-    AssignmentExpression : LeftHandSideExpression AssignmentOperator AssignmentExpression
-      1. Let _lref_ be the result of evaluating |LeftHandSideExpression|.
-      2. Let _lval_ be ? GetValue(_lref_).
-      ...
-      7. Let _r_ be ApplyStringOrNumericBinaryOperator(_lval_, _opText_, _rval_).
-      8. Perform ? PutValue(_lref_, _r_).
-      9. Return _r_.
-
     sec-property-accessors-runtime-semantics-evaluation
     MemberExpression : MemberExpression `.` PrivateIdentifier
 
@@ -34,13 +25,27 @@ info: |
       3. If _entry_.[[Kind]] is ~field~, then
         a. Set _entry_.[[Value]] to _value_.
 
+
+    sec-assignment-operators-runtime-semantics-evaluation
+    AssignmentExpression : LeftHandSideExpression ||= AssignmentExpression
+      1. Let _lref_ be the result of evaluating |LeftHandSideExpression|.
+      2. Let _lval_ be ? GetValue(_lref_).
+      3. Let _lbool_ be ! ToBoolean(_lval_).
+      4. If _lbool_ is *true*, return _lval_.
+      ...
+      7. Perform ? PutValue(_lref_, _rval_).
+      8. Return _rval_.
 ---*/
 
+
+function doNotCall() {
+  throw new Test262Error("The right-hand side should not be evaluated");
+}
 
 class C {
   #field = true;
   compoundAssignment() {
-    return this.#field &&= false;
+    return this.#field ||= doNotCall();
   }
   fieldValue() {
     return this.#field;
@@ -48,5 +53,4 @@ class C {
 }
 
 const o = new C();
-assert.sameValue(o.compoundAssignment(), false, "The expression should evaluate to the result");
-assert.sameValue(o.fieldValue(), false, "PutValue should store the result in the private reference");
+assert.sameValue(o.compoundAssignment(), true, "The expression should evaluate to the short-circuit value");

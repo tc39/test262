@@ -1,0 +1,35 @@
+// Copyright 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+templates:
+  - default/data-property.template
+  - default/data-property-short-circuit.template
+  - default/getter-setter.template
+  - default/getter-setter-short-circuit.template
+  - default/getter.template
+  - default/getter-short-circuit.template
+  - default/method-short-circuit.template
+desc: Logical-or assignment with target being a private reference
+info: |
+  sec-assignment-operators-runtime-semantics-evaluation
+  AssignmentExpression : LeftHandSideExpression ||= AssignmentExpression
+    1. Let _lref_ be the result of evaluating |LeftHandSideExpression|.
+    2. Let _lval_ be ? GetValue(_lref_).
+    3. Let _lbool_ be ! ToBoolean(_lval_).
+    4. If _lbool_ is *true*, return _lval_.
+    ...
+    7. Perform ? PutValue(_lref_, _rval_).
+    8. Return _rval_.
+---*/
+
+//- lhs
+false
+//- operator
+||=
+//- rhs
+true
+//- result
+true
+//- short-circuit-lhs
+true

@@ -1,0 +1,39 @@
+// Copyright 2021 the V8 project authors; 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/logical-assignment/left-hand-side-private-reference-readonly-accessor-property-
+esid: sec-assignment-operators-runtime-semantics-evaluation
+info: |
+  sec-property-accessors-runtime-semantics-evaluation
+  MemberExpression : MemberExpression `.` PrivateIdentifier
+
+    1. Let _baseReference_ be the result of evaluating |MemberExpression|.
+    2. Let _baseValue_ be ? GetValue(_baseReference_).
+    3. Let _fieldNameString_ be the StringValue of |PrivateIdentifier|.
+    4. Return ! MakePrivateReference(_baseValue_, _fieldNameString_).
+
+  PutValue (V, W)
+    ...
+    5.b. If IsPrivateReference(_V_) is *true*, then
+      i. Return ? PrivateSet(_baseObj_, _V_.[[ReferencedName]], _W_).
+
+  PrivateSet (O, P, value)
+    ...
+    5.a. Assert: _entry_.[[Kind]] is ~accessor~.
+    b. If _entry_.[[Set]] is *undefined*, throw a *TypeError* exception.
+name: to an accessor property with getter
+features: [class-fields-private, logical-assignment-operators]
+---*/
+
+class C {
+  get #field() {
+    return /*{lhs}*/;
+  }
+  compoundAssignment() {
+    return this.#field /*{operator}*/ /*{rhs}*/;
+  }
+}
+
+const o = new C();
+assert.throws(TypeError, () => o.compoundAssignment(), "PutValue throws when storing the result if no setter");
