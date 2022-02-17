@@ -1,0 +1,44 @@
+// Copyright 2021 the V8 project authors; 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/logical-assignment/left-hand-side-private-reference-method-short-circuit-
+esid: sec-assignment-operators-runtime-semantics-evaluation
+info: |
+  sec-property-accessors-runtime-semantics-evaluation
+  MemberExpression : MemberExpression `.` PrivateIdentifier
+
+    1. Let _baseReference_ be the result of evaluating |MemberExpression|.
+    2. Let _baseValue_ be ? GetValue(_baseReference_).
+    3. Let _fieldNameString_ be the StringValue of |PrivateIdentifier|.
+    4. Return ! MakePrivateReference(_baseValue_, _fieldNameString_).
+
+  PutValue (V, W)
+    ...
+    5.b. If IsPrivateReference(_V_) is *true*, then
+      i. Return ? PrivateSet(_baseObj_, _V_.[[ReferencedName]], _W_).
+
+  PrivateSet (O, P, value)
+    ...
+    4. Else if _entry_.[[Kind]] is ~method~, then
+      a. Throw a *TypeError* exception.
+name: to a private method (short-circuit version)
+features: [class-fields-private, logical-assignment-operators]
+---*/
+
+function doNotCall() {
+  throw new Test262Error("The right-hand side should not be evaluated");
+}
+
+class C {
+  #privateMethod() {}
+  compoundAssignment() {
+    return this.#privateMethod /*{operator}*/ doNotCall();
+  }
+  getPrivateMethodFunctionObject() {
+    return this.#privateMethod;
+  }
+}
+
+const o = new C();
+assert.sameValue(o.compoundAssignment(), o.getPrivateMethodFunctionObject(), "The expression should evaluate to the short-circuit value");

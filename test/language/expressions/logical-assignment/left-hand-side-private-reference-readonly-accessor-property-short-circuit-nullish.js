@@ -1,21 +1,12 @@
 // This file was procedurally generated from the following sources:
-// - src/compound-assignment-private/nullish.case
-// - src/compound-assignment-private/default/getter.template
+// - src/logical-assignment-private/nullish.case
+// - src/logical-assignment-private/default/getter-short-circuit.template
 /*---
-description: Compound nullish-coalescing assignment with target being a private reference (to an accessor property with getter)
+description: Nullish-coalescing assignment with target being a private reference (to an accessor property with getter (short-circuit version))
 esid: sec-assignment-operators-runtime-semantics-evaluation
-features: [class-fields-private]
+features: [class-fields-private, logical-assignment-operators]
 flags: [generated]
 info: |
-    sec-assignment-operators-runtime-semantics-evaluation
-    AssignmentExpression : LeftHandSideExpression AssignmentOperator AssignmentExpression
-      1. Let _lref_ be the result of evaluating |LeftHandSideExpression|.
-      2. Let _lval_ be ? GetValue(_lref_).
-      ...
-      7. Let _r_ be ApplyStringOrNumericBinaryOperator(_lval_, _opText_, _rval_).
-      8. Perform ? PutValue(_lref_, _r_).
-      9. Return _r_.
-
     sec-property-accessors-runtime-semantics-evaluation
     MemberExpression : MemberExpression `.` PrivateIdentifier
 
@@ -34,17 +25,30 @@ info: |
       5.a. Assert: _entry_.[[Kind]] is ~accessor~.
       b. If _entry_.[[Set]] is *undefined*, throw a *TypeError* exception.
 
+
+    sec-assignment-operators-runtime-semantics-evaluation
+    AssignmentExpression : LeftHandSideExpression ??= AssignmentExpression
+      1. Let _lref_ be the result of evaluating |LeftHandSideExpression|.
+      2. Let _lval_ be ? GetValue(_lref_).
+      3. If _lval_ is neither *undefined* nor *null*, return _lval_.
+      ...
+      6. Perform ? PutValue(_lref_, _rval_).
+      7. Return _rval_.
 ---*/
 
+
+function doNotCall() {
+  throw new Test262Error("The right-hand side should not be evaluated");
+}
 
 class C {
   get #field() {
     return 1;
   }
   compoundAssignment() {
-    return this.#field ??= 1;
+    return this.#field ??= doNotCall();
   }
 }
 
 const o = new C();
-assert.throws(TypeError, () => o.compoundAssignment(), "PutValue throws when storing the result if no setter");
+assert.sameValue(o.compoundAssignment(), 1, "The expression should evaluate to the short-circuit value");
