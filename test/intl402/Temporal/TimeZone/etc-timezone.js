@@ -71,11 +71,9 @@ assert.sameValue(
   );
 });
 
-// "Etc/GMT+13" is not OK
-
-let gmtPlus13TZ = "Etc/GMT+13";
+let gmtPlus24TZ = "Etc/GMT+24";
 assert.throws(
   RangeError,
-  () => { new Temporal.TimeZone(gmtPlus13TZ); },
-  gmtPlus13TZ + " is an invalid timezone"
+  () => { new Temporal.TimeZone(gmtPlus24TZ); },
+  gmtPlus24TZ + " is an invalid timezone"
 );
