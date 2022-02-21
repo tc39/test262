@@ -7,8 +7,8 @@ esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
 flags: [module]
 negative:
-  type: SyntaxError
   phase: resolution
+  type: SyntaxError
 ---*/
 
 import 'non-existent-module.js';

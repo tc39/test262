@@ -1,0 +1,16 @@
+// Copyright 2022 Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+template: default
+desc: Compound bitwise-or assignment with target being a private reference
+---*/
+
+//- lhs
+0b0101
+//- operator
+|=
+//- rhs
+0b1010
+//- result
+0b1111

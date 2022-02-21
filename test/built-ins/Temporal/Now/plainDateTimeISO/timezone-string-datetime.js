@@ -1,5 +1,6 @@
 // Copyright (C) 2021 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
 esid: sec-temporal.now.plaindatetimeiso
 description: Conversion of ISO date-time strings to Temporal.TimeZone instances
@@ -19,14 +20,14 @@ assert.throws(RangeError, () => Temporal.Now.plainDateTimeISO({ timeZone }), "ba
   "2021-08-19T1730-07:00",
   "2021-08-19T17:30-0700",
   "2021-08-19T1730-0700",
-  "2021-08-19T17:30[America/Vancouver]",
-  "2021-08-19T1730[America/Vancouver]",
-  "2021-08-19T17:30Z[America/Vancouver]",
-  "2021-08-19T1730Z[America/Vancouver]",
-  "2021-08-19T17:30-07:00[America/Vancouver]",
-  "2021-08-19T1730-07:00[America/Vancouver]",
-  "2021-08-19T17:30-0700[America/Vancouver]",
-  "2021-08-19T1730-0700[America/Vancouver]",
+  "2021-08-19T17:30[UTC]",
+  "2021-08-19T1730[UTC]",
+  "2021-08-19T17:30Z[UTC]",
+  "2021-08-19T1730Z[UTC]",
+  "2021-08-19T17:30-07:00[UTC]",
+  "2021-08-19T1730-07:00[UTC]",
+  "2021-08-19T17:30-0700[UTC]",
+  "2021-08-19T1730-0700[UTC]",
 ].forEach((timeZone) => {
   Temporal.Now.plainDateTimeISO(timeZone);
   Temporal.Now.plainDateTimeISO({ timeZone });

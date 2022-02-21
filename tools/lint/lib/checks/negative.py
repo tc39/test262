@@ -1,4 +1,5 @@
 import re
+import yaml
 from ..check import Check
 
 _THROW_STMT = re.compile(
@@ -39,3 +40,13 @@ class CheckNegative(Check):
                     return 'Negative tests of type "early" must include a `throw` statement'
             elif not _THROW_STMT.search(source):
                 return 'Negative tests of type "early" must include a $DONOTEVALUATE() call'
+
+        for event in meta.parsing_events:
+            if isinstance(event, yaml.ScalarEvent):
+                if event.value == 'type':
+                    line_type = event.start_mark.line
+                elif event.value == 'phase':
+                    line_phase = event.start_mark.line
+
+        if line_phase > line_type:
+            return '"phase" field must precede "type" field'

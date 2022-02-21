@@ -6,8 +6,8 @@ NEGATIVE
 esid: sec-assignment-operators-static-semantics-early-errors
 description: Minimal test
 negative:
-  type: SyntaxError
   phase: parse
+  type: SyntaxError
 ---*/
 
 $DONOTEVALUATE(1);

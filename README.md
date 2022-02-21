@@ -32,10 +32,10 @@ Guidance for contributing to Test262 can be found in [CONTRIBUTING.md](./CONTRIB
 
 ### Running Test262
 
-Guidance for running Test262 and explanations of how a test file is interpreted by a test runner is in [INTERPRETING](./INTERPRETING.md)
+Guidance for running Test262 and explanations of how a test file must be interpreted by a test runner is in [INTERPRETING](./INTERPRETING.md)
 
 
-### Test262 Runners & Harnesses
+### Test262 Runners
 
 Volunteer-maintained projects that may be used to execute Test262 in various ECMAScript hosts:
 

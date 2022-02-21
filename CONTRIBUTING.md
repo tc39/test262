@@ -159,10 +159,10 @@ single line comment syntax.
 #### negative
 `negative: [dictionary containing "phase" and "type" keys]`
 
-This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
+This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported. The **phase** field must precede the **type** field.
 
-- **type** - If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
 - **phase** - Negative tests whose **phase** value is "parse" must produce the specified error prior to executing code. The value "resolution" indicates that the error is expected to result while performing ES2015 module resolution. The value "runtime" dictates that the error is expected to be produced as a result of executing the test code.
+- **type** - If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
 
 For best practices on how to use the negative key please see [Handling Errors and Negative Test Cases](#handling-errors-and-negative-test-cases), below.
 
@@ -177,9 +177,15 @@ negative:
 #### includes
 `includes: [file-list]`
 
-This key names a list of helper files that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
+This key names a list of files in the `harness/` directory that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
+Includes should use flow style without line break (separating items by commas and enclosing them in square brackets), block style (one line for each item, each line starting with a dash) isn't allowed.
+When some code is used repeatedly across a group of tests, it may be appropriate to define it in a harness file. This practice increases test complexity, so it should be applied sparingly.
 
-The helper files are found in the `harness/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
+For example:
+
+```
+includes: [include1.js, include2.js]
+```
 
 #### author
 `author: [string]`
@@ -195,8 +201,8 @@ This key is for boolean properties associated with the test.
 - **noStrict** - only run the test in "sloppy" mode
 - **module** - interpret the source text as
   [module code](https://tc39.github.io/ecma262/#sec-modules)
-- **raw** - execute the test without any modification (no helpers will be
-  available); necessary to test the behavior of directive prologue; implies
+- **raw** - execute the test without any modification (no harness files will be
+  included); necessary to test the behavior of directive prologue; implies
   `noStrict`
 - **async** - defer interpretation of test results until after the invocation
   of the global `$DONE` function
@@ -238,7 +244,9 @@ Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wi
 
 ## Test Environment
 
-Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.  The test harness code is loaded before the test is run unless the test file has the `raw` flag.  The test harness defines the following helper functions:
+Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.
+
+Before the test is executed (and unless the test uses the `raw` frontmatter flag), the test runner will evaluate a number of files in the `harness/` directory. At a minimum, this procedure will define the following functions:
 
 Function | Purpose
 ---------|--------
@@ -281,7 +289,7 @@ $DONOTEVALUATE();
 var var = var;
 ```
 
-If the test case has the `raw` flag, this disallows the test to load any harness file including `$DONOTEVALUATE`. In this case, include a direct `throw "Test262: This statement should not be evaluated.";` statement:
+If the test case has the `raw` flag, the test runner will not load any harness file including the file which defines `$DONOTEVALUATE`. In this case, include a direct `throw "Test262: This statement should not be evaluated.";` statement:
 
 ```javascript
 /*---
@@ -386,7 +394,7 @@ The Body of a test template matches that of a non-generated test in which an arb
 Expected [Frontmatter](#frontmatter) keys:
 Key | Description
 ------|-------------
-`path` | location within the published test hierarchy to output files created from this template, each with a path formed by appending the name of the corresponding test case file. For example, a template with `path` "/test/language/template1-" used by test case file case1.js will generate a test file for that case at "/test/language/template1-case1.js".
+`path` | location within the published test hierarchy to output files created from this template, each with a path formed by appending the name of the corresponding test case file. For example, a template with `path` "language/template1-" used by test case file case1.js will generate a test file for that case at "language/template1-case1.js".
 `name` | human-readable name of the syntactic form described by this template. Each generated test will have a `description` that is the result of appending the test template `name`, in parentheses, to the test case `desc` field.
 `esid` | see the general definition of the [`esid` frontmatter key](#esid).
 `info` | see the general definition of the [`info` frontmatter key](#info). Each generated test will have `info` that is the concatenation of the test template `info` field and the test case `info` field.

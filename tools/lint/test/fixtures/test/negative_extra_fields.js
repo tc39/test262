@@ -7,8 +7,8 @@ esid: sec-assignment-operators-static-semantics-early-errors
 description: Extraneous field in "negative" frontmatter
 negative:
   flags: strict
-  type: ReferenceError
   phase: runtime
+  type: ReferenceError
 ---*/
 
 x;
