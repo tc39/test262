@@ -25,11 +25,11 @@ assert.sameValue(
   );
 });
 
-let gmtMinus15TZ = "Etc/GMT-15";
+let gmtMinus24TZ = "Etc/GMT-24";
 assert.throws(
   RangeError,
-  () => { new Temporal.TimeZone(gmtMinus15TZ); },
-  gmtMinus15TZ + " is an invalid timezone"
+  () => { new Temporal.TimeZone(gmtMinus24TZ); },
+  gmtMinus24TZ + " is an invalid timezone"
 );
 
 // "Etc/GMT-0N" is not OK (1 ≤ N ≤ 9)
