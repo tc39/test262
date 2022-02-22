@@ -25,7 +25,7 @@ Object.entries(instances).forEach(([typeName, instance]) => {
       assert.throws(
         TypeError,
         () => { us.formatRange(instance, anotherInstance); },
-        'different types argument is bad (' + typeName + ' and ' + anotherTypeName
+        'formatRange: bad arguments (' + typeName + ' and ' + anotherTypeName + ')'
       );
     }
   });
