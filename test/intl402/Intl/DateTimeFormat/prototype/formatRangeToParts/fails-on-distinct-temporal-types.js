@@ -12,7 +12,6 @@ const us = new Intl.DateTimeFormat('en-US');
 const instances = {
   date: new Date(1580527800000),
   instant: new Temporal.Instant(0n),
-  number: 1580527800000,
   plaindate: new Temporal.PlainDate(2000, 5, 2),
   plaindatetime: new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321),
   plainmonthday: new Temporal.PlainMonthDay(5, 2),
