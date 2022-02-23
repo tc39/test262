@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.instant
-description: formatRange fails if given arguments of different types
+esid: sec-intl.datetimeformat.prototype.formatRange
+description: formatRange fails if given arguments of different Temporal types
 features: [Temporal]
 ---*/
 
@@ -11,6 +11,7 @@ const us = new Intl.DateTimeFormat('en-US');
 
 const instances = {
   instant: new Temporal.Instant(0n),
+  number: new Date.UTC(2000, 5, 2),
   plaindate: new Temporal.PlainDate(2000, 5, 2),
   plaindatetime: new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321),
   plainmonthday: new Temporal.PlainMonthDay(5, 2),
