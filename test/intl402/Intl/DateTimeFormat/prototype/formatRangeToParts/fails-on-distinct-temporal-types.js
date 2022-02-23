@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-intl.datetimeformat.prototype.formatRange
+esid: sec-intl.datetimeformat.prototype.formatRangeToParts
 description: formatRange fails if given arguments of different Temporal types
 features: [Temporal]
 ---*/
@@ -26,7 +26,7 @@ Object.entries(instances).forEach(([typeName, instance]) => {
     if (typeName !== anotherTypeName) {
       assert.throws(
         TypeError,
-        () => { us.formatRange(instance, anotherInstance); },
+        () => { us.formatRangeToParts(instance, anotherInstance); },
         'formatRange: bad arguments (' + typeName + ' and ' + anotherTypeName + ')'
       );
     }
