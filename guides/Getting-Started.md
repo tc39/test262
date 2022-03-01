@@ -5,7 +5,7 @@ Rough outline...
 
 
 - Why do we test?
-- What do we test? 
+- What do we test?
   - Similar to https://github.com/tc39/test262/blob/main/CONTRIBUTING.md#acceptable-tests and https://github.com/tc39/test262/blob/main/CONTRIBUTING.md#unacceptable-tests
 - Anatomy of a test
   - frontmatter
@@ -21,6 +21,9 @@ Rough outline...
     - Create test plan
       - This can be a super minimal version of the usual test plans, but will help to show how we work
         - Write a checklist (we'll give a 2-3 point example to work from)
+          - Examples:
+            - https://github.com/tc39/test262/issues/2511
+            - https://github.com/tc39/test262/issues/1237
       - Does it need a new feature tag?
     - Share test plan
   - Writing our first test
