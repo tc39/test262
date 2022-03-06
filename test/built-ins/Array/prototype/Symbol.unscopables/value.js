@@ -25,7 +25,7 @@ info: |
     16. Assert: Each of the above calls returns true.
     17. Return unscopableList.
 includes: [propertyHelper.js]
-features: [Symbol.unscopables, array-find-from-last]
+features: [Symbol.unscopables, array-find-from-last, array-grouping]
 ---*/
 
 var unscopables = Array.prototype[Symbol.unscopables];
