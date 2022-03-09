@@ -28,7 +28,7 @@ Rough outline...
     - Share test plan
   - Writing our first test
     - Git stuff
-      - Pull test272 repo
+      - Pull test262 repo
       - Create a branch
       - What else?
     - Create a new file
