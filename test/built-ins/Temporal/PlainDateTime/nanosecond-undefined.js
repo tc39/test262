@@ -10,14 +10,14 @@ includes: [temporalHelpers.js]
 
 const args = [2000, 5, 2, 12, 34, 56, 123, 456];
 
-const explicit = new Temporal.PlainDateTime(...args, undefined);
-
 TemporalHelpers.assertPlainTimesEqual(
-  explicit,
+  new Temporal.PlainDateTime(...args, undefined),
   2000, 5, "M05", 2, 12, 34, 56, 123, 456, 0,
   "nanosecond default argument (argument present)"
 );
 
-const implicit = new Temporal.PlainDateTime(...args);
-
-TemporalHelpers.assertPlainDateTimesEqual(explicit, implicit, "nanosecond default argument (argument missing)");
+TemporalHelpers.assertPlainTimesEqual(
+  new Temporal.PlainDateTime(...args),
+  2000, 5, "M05", 2, 12, 34, 56, 123, 456, 0,
+  "nanosecond default argument (argument missing)"
+);
