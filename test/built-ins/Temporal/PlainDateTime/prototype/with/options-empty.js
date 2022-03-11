@@ -8,15 +8,16 @@ features: [Temporal]
 ---*/
 
 const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
+const expected = "1976-11-05T15:23:30.123456789";
 
 assert.sameValue(
   `${datetime.with({ day: 5 }, {})}`,
-  '1976-11-05T15:23:30.123456789',
-  'options may be empty object'
+  expected,
+  "options may be empty object"
 );
 
 assert.sameValue(
   `${datetime.with({ day: 5 }, () => {})}`,
-  '1976-11-05T15:23:30.123456789',
-  'options may be a function that returns an empty object'
+  expected,
+  "options may be a function that returns an empty object"
 );
