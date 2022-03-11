@@ -1,24 +1,77 @@
-// Copyright (C) 2021 Igalia, S.L. All rights reserved.
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Throws if any value in the property bag is Infinity or -Infinity
+description: A variety of "normal" (non-throwing, non-boundary case, non-null, etc.) arguments
 esid: sec-temporal.plaindatetime.prototype.with
-includes: [compareArray.js, temporalHelpers.js]
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321);
+const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
 
-[Infinity, -Infinity].forEach((inf) => {
-  ["year", "month", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((prop) => {
-    ["constrain", "reject"].forEach((overflow) => {
-      assert.throws(RangeError, () => instance.with({ [prop]: inf }, { overflow }), `${prop} property cannot be ${inf} (overflow ${overflow}`);
+assert.sameValue(
+  `${datetime.with({ year: 2019 })}`,
+  "2019-11-18T15:23:30.123456789",
+  "with year works"
+);
 
-      const calls = [];
-      const obj = TemporalHelpers.toPrimitiveObserver(calls, inf, prop);
-      assert.throws(RangeError, () => instance.with({ [prop]: obj }, { overflow }));
-      assert.compareArray(calls, [`get ${prop}.valueOf`, `call ${prop}.valueOf`], "it fails after fetching the primitive value");
-    });
-  });
-});
+assert.sameValue(
+  `${datetime.with({ month: 5 })}`,
+  "1976-05-18T15:23:30.123456789",
+  "with month works"
+);
+
+assert.sameValue(
+  `${datetime.with({ monthCode: "M05" })}`,
+  "1976-05-18T15:23:30.123456789",
+  "with month code works"
+);
+
+assert.sameValue(
+  `${datetime.with({ day: 5 })}`,
+  "1976-11-05T15:23:30.123456789",
+  "with day works"
+);
+
+assert.sameValue(
+  `${datetime.with({ hour: 5 })}`,
+  "1976-11-18T05:23:30.123456789",
+  "with hour works"
+);
+
+assert.sameValue(
+  `${datetime.with({ minute: 5 })}`,
+  "1976-11-18T15:05:30.123456789",
+  "with minute works"
+);
+
+assert.sameValue(
+  `${datetime.with({ second: 5 })}`,
+  "1976-11-18T15:23:05.123456789",
+  "with second works"
+);
+
+assert.sameValue(
+  `${datetime.with({ millisecond: 5 })}`,
+  "1976-11-18T15:23:30.005456789",
+  "with millisecond works"
+);
+
+assert.sameValue(
+  `${datetime.with({ microsecond: 5 })}`,
+  "1976-11-18T15:23:30.123005789",
+  "with microsecond works"
+);
+
+assert.sameValue(
+  `${datetime.with({ nanosecond: 5 })}`,
+  "1976-11-18T15:23:30.123456005",
+  "with nanosecond works"
+);
+
+assert.sameValue(
+  `${datetime.with({ month: 5, second: 15 })}`,
+  "1976-05-18T15:23:15.123456789",
+  "with month and second works"
+);
