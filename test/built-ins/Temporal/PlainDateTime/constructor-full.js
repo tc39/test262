@@ -13,9 +13,7 @@ const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 
 
 TemporalHelpers.assertPlainDateTime(datetime,
   1976, 11, 'M11', 18, 15, 23, 30, 123, 456, 789,
-  "check instance (all arguments supplied)",
-  undefined,
-  undefined
+  "check instance (all arguments supplied)"
 );
 
 assert.sameValue(
