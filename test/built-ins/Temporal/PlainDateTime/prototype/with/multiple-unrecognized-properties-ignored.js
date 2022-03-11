@@ -16,7 +16,7 @@ units.forEach((unit) => {
   arg[plural] = 1;
   assert.sameValue(
     `${datetime.with(arg)}`,
-    '1976-12-18T15:23:30.123456789',
+    "1976-12-18T15:23:30.123456789",
     `unrecognized property (${plural}) gets ignored`
   );
 });

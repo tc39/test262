@@ -2,15 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Throws if an empty object is supplied
+description: Throws if a timezone is supplied
 esid: sec-temporal.plaindatetime.prototype.with
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321);
+const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
 
 assert.throws(
   TypeError,
-  () => instance.with({}),
-  "empty object not acceptable"
+  () => datetime.with({ year: 2021, timeZone: 'UTC' }),
+  'throws with timezone property'
 );
