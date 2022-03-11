@@ -29,7 +29,7 @@ assert.sameValue(datetime.daysInWeek, 7, "check number of days in week");
 assert.sameValue(datetime.monthsInYear, 12, "check number of months in year");
 
 assert.sameValue(
-  `${datetime}`,
+  datetime.toString(),
   "1976-11-18T15:23:30.123456789",
   "check string value"
 );
