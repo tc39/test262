@@ -19,5 +19,5 @@ assert.sameValue(
 assert.sameValue(
   `${datetime.with({ day: 5 }, () => {})}`,
   expected,
-  "options may be a function that returns an empty object"
+  "read empty options from function object"
 );
