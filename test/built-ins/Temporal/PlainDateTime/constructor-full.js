@@ -22,11 +22,11 @@ assert.sameValue(
   'calendar supplied in constructor can be extracted and is unchanged'
 );
 
-assert.compareArray(
-  [datetime.dayOfWeek, datetime.dayOfYear, datetime.weekOfYear, datetime.daysInWeek, datetime.monthsInYear],
-  [4, 323, 47, 7, 12],
-  'check information derived from calendar'
-);
+assert.sameValue(datetime.dayOfWeek, 4, 'check day of week information');
+assert.sameValue(datetime.dayOfYear, 323, 'check day of year information');
+assert.sameValue(datetime.weekOfYear, 47, 'check week of year information');
+assert.sameValue(datetime.daysInWeek, 7, 'check number of days in week');
+assert.sameValue(datetime.monthsInYear, 12, 'check number of months in year');
 
 assert.sameValue(
   `${datetime}`,
