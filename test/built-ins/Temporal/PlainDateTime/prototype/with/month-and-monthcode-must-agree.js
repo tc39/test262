@@ -11,6 +11,6 @@ const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 
 
 assert.throws(
   RangeError,
-  () => datetime.with({ month: 5, monthCode: 'M06' }),
-  'month and monthCode must agree'
+  () => datetime.with({ month: 5, monthCode: "M06" }),
+  "month and monthCode must agree"
 );
