@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindatetime
 description: Checking an explicitly constructed instance with all arguments
 features: [Temporal]
-includes: [compareArray.js, temporalHelpers.js]
+includes: [temporalHelpers.js]
 ---*/
 
 const calendar = Temporal.Calendar.from("iso8601");
