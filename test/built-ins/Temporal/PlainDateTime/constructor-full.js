@@ -22,12 +22,6 @@ assert.sameValue(
   "calendar supplied in constructor can be extracted and is unchanged"
 );
 
-assert.sameValue(datetime.dayOfWeek, 4, "check day of week information");
-assert.sameValue(datetime.dayOfYear, 323, "check day of year information");
-assert.sameValue(datetime.weekOfYear, 47, "check week of year information");
-assert.sameValue(datetime.daysInWeek, 7, "check number of days in week");
-assert.sameValue(datetime.monthsInYear, 12, "check number of months in year");
-
 assert.sameValue(
   datetime.toString(),
   "1976-11-18T15:23:30.123456789",
