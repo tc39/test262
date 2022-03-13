@@ -4,7 +4,6 @@
 /*---
 description: A variety of "normal" (non-throwing, non-boundary case, non-null, etc.) arguments
 esid: sec-temporal.plaindatetime.prototype.with
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
