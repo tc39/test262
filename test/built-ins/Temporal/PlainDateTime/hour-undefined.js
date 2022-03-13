@@ -16,8 +16,6 @@ TemporalHelpers.assertPlainDateTime(
   "hour default argument (argument present)"
 );
 
-const implicit = new Temporal.PlainDateTime(...args);
-
 TemporalHelpers.assertPlainDateTime(
   new Temporal.PlainDateTime(...args),
   2000, 5, "M05", 2, 0, 0, 0, 0, 0, 0,

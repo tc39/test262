@@ -11,6 +11,6 @@ const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 
 
 assert.throws(
   TypeError,
-  () => datetime.with({ year: 2021, timeZone: 'UTC' }),
-  'throws with timezone property'
+  () => datetime.with({ year: 2021, timeZone: "UTC" }),
+  "throws with timezone property"
 );
