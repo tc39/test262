@@ -10,7 +10,7 @@ features: [Temporal]
 
 const dt = new Temporal.PlainDateTime(2015, 12, 7, 3, 24, 30, 0, 3, 500);
 
-assert.assertPlainDateTime(
+TemporalHelpers.assertPlainDateTime(
   dt.withPlainTime(),
   2015,
   12,
@@ -22,5 +22,5 @@ assert.assertPlainDateTime(
   0,
   0,
   0,
-  'no argument defaults to midnight'
+  "no argument defaults to midnight"
 );
