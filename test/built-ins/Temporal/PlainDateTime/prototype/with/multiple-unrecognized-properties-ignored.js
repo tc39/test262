@@ -5,6 +5,7 @@
 description: Unrecognized units are ignored
 esid: sec-temporal.plaindatetime.prototype.with
 features: [Temporal]
+includes: [temporalHelpers.js]
 ---*/
 
 const datetime = new PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
@@ -14,9 +15,9 @@ units.forEach((unit) => {
   let plural = `${unit}s`;
   let arg = { month: 12 };
   arg[plural] = 1;
-  assert.sameValue(
-    `${datetime.with(arg)}`,
-    "1976-12-18T15:23:30.123456789",
+  TemporalHelpers.assertPlainDateTime(
+    datetime.with(arg),
+    1976, 12, "M12", 18, 15, 23, 30, 123, 456, 789,
     `unrecognized property (${plural}) gets ignored`
   );
 });

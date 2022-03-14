@@ -5,6 +5,7 @@
 esid: sec-temporal.plaindatetime.prototype.withplaintime
 description: A plain object can be used as an argument
 features: [Temporal]
+includes: [temporalHelpers.js]
 ---*/
 
 const dt = new Temporal.PlainDateTime(2015, 12, 7, 3, 24, 30, 0, 3, 500);
@@ -15,9 +16,9 @@ assert.throws(
   "empty object not an acceptable argument"
 );
 
-assert.sameValue(
-  `${dt.withPlainTime({ hour: 10 })}`,
-  "2015-12-07T10:00:00",
+TemporalHelpers.assertPlainDateTime(
+  dt.withPlainTime({ hour: 10 }),
+  2015, 12, "M12", 7, 10, 0, 0, 0, 0, 0,
   "plain object (hour) works"
 );
 
@@ -27,9 +28,8 @@ assert.throws(
   "plain object with a single unrecognized property fails"
 );
 
-assert.sameValue(
-  `${dt.withPlainTime({ hour: 10, seconds: 123 })}`,
-  "2015-12-07T10:00:00",
+TemporalHelpers.assertPlainDateTime(
+  dt.withPlainTime({ hour: 10, seconds: 123 }),
+  2015, 12, "M12", 7, 10, 0, 0, 0, 0, 0,
   "unrecognized properties are ignored if at least one recognized property is present"
 );
-
