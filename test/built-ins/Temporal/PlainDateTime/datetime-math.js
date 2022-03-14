@@ -10,7 +10,7 @@ includes: [temporalHelpers.js]
 
 const earlier = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
 const later = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102);
-const units = ['years', 'months', 'weeks', 'days', 'hours', 'minutes', 'seconds'];
+const units = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"];
 
 units.forEach((largestUnit) => {
   const diff = later.since(earlier, { largestUnit });
@@ -37,11 +37,11 @@ units.forEach((largestUnit) => {
   assert.sameValue(
     earlier.subtract(diff.negated()).equals(later),
     true,
-    'symmetrical with regard to negative durations (1)'
+    "symmetrical with regard to negative durations (1)"
   );
   assert.sameValue(
     later.add(diff.negated()).equals(earlier),
     true,
-    'symmetrical with regard to negative durations (2)'
+    "symmetrical with regard to negative durations (2)"
   );
 });

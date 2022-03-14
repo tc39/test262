@@ -12,6 +12,6 @@ const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
 
 assert.throws(
   RangeError,
-  () => dt.withCalendar('gregory').withPlainDate('2008-09-06[u-ca=japanese]'),
-  'throws if both `this` and `other` have a non-ISO calendar'
+  () => dt.withCalendar("gregory").withPlainDate("2008-09-06[u-ca=japanese]"),
+  "throws if both `this` and `other` have a non-ISO calendar"
 );

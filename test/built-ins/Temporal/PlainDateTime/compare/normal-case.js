@@ -13,17 +13,17 @@ const dt2 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102);
 assert.sameValue(
   Temporal.PlainDateTime.compare(dt1, dt1),
   0,
-  'equal'
+  "equal"
 );
 
 assert.sameValue(
   Temporal.PlainDateTime.compare(dt1, dt2),
   -1,
-  'smaller/larger'
+  "smaller/larger"
 );
 
 assert.sameValue(
   Temporal.PlainDateTime.compare(dt2, dt1),
   1,
-  'larger/smaller'
+  "larger/smaller"
 );

@@ -13,5 +13,5 @@ const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
 assert.throws(
   TypeError,
   () => dt.withPlainDate({}),
-  'empty object not acceptable'
+  "empty object not acceptable"
 );

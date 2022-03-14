@@ -13,26 +13,26 @@ const dt2 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102);
 assert.sameValue(
   dt1.equals({ year: 1976, month: 11, day: 18, hour: 15 }),
   true,
-  'casts argument (plain object, positive)'
+  "casts argument (plain object, positive)"
 );
 
 
 assert.sameValue(
   dt2.equals({ year: 1976, month: 11, day: 18, hour: 15 }),
   false,
-  'casts argument (plain object, negative)'
+  "casts argument (plain object, negative)"
 );
 
 assert.sameValue(
-  dt1.equals('1976-11-18T15:23:30.123456789'),
+  dt1.equals("1976-11-18T15:23:30.123456789"),
   true,
-  'casts argument (string, positive)'
+  "casts argument (string, positive)"
 );
 
 assert.sameValue(
-  dt2.equals('1976-11-18T15:23:30.123456789'),
+  dt2.equals("1976-11-18T15:23:30.123456789"),
   false,
-  'casts argument (string, negative)'
+  "casts argument (string, negative)"
 );
 
 

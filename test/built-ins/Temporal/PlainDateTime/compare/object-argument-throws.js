@@ -13,11 +13,11 @@ const dt2 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102);
 assert.throws(
   TypeError,
   () => PlainDateTime.compare({ year: 1976 }, dt2),
-  'object must contain at least the required properties (first arg)'
+  "object must contain at least the required properties (first arg)"
 );
 
 assert.throws(
   TypeError,
   () => PlainDateTime.compare(dt1, { year: 2019 }),
-  'object must contain at least the required properties (second arg)'
+  "object must contain at least the required properties (second arg)"
 );

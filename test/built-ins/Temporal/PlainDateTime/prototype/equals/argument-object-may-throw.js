@@ -12,5 +12,5 @@ const dt = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102);
 assert.throws(
   TypeError,
   () => dt.equals({ year: 1976 }),
-  'object must contain at least the required properties'
+  "object must contain at least the required properties"
 );

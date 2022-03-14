@@ -8,9 +8,16 @@ features: [Temporal]
 ---*/
 
 const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
+const shifted = dt.withCalendar("japanese").withPlainDate("2008-09-06");
+
+TemporalHelpers.assertPlainDateTime(
+  shifted,
+  2008, 9, "M09", 6, 3, 24, 30, 0, 0, 0,
+  "result contains a non-ISO calendar if present in the input (1)"
+);
 
 assert.sameValue(
-  `${dt.withCalendar('japanese').withPlainDate('2008-09-06')}`,
-  '2008-09-06T03:24:30[u-ca=japanese]',
-  'result contains a non-ISO calendar if present in the input'
+  shifted.calendar.toString(),
+  "japanese",
+  "result contains a non-ISO calendar if present in the input (1)"
 );
