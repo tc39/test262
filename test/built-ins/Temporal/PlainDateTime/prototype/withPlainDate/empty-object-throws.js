@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.withplaindate
 description: Empty object not acceptable
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
