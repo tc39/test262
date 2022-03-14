@@ -5,19 +5,19 @@
 esid: sec-temporal.plaindatetime.prototype.with
 description: Verify that undefined options are handled correctly.
 features: [Temporal]
+includes: [temporalHelpers.js]
 ---*/
 
 const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
-const expected = "1976-11-05T15:23:30.123456789";
 
-assert.sameValue(
-  `${datetime.with({ day: 5 }, {})}`,
-  expected,
+TemporalHelpers.assertPlainDateTime(
+  datetime.with({ day: 5 }, {}),
+  1976, 11, "M11", 5, 15, 23, 30, 123, 456, 789,
   "options may be empty object"
 );
 
-assert.sameValue(
-  `${datetime.with({ day: 5 }, () => {})}`,
-  expected,
+TemporalHelpers.assertPlainDateTime(
+  datetime.with({ day: 5 }, () => {}),
+  1976, 11, "M11", 5, 15, 23, 30, 123, 456, 789,
   "read empty options from function object"
 );
