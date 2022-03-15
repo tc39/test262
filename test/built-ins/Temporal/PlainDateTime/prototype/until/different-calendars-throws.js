@@ -3,8 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.until
-description: Weeks and months are mutually exclusive
-includes: [temporalHelpers.js]
+description: Using different calendars is not acceptable
 features: [Temporal]
 ---*/
 

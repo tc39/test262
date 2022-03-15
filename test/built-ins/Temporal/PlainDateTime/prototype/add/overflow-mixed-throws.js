@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.prototype.add
 description: Positive and negative values in overthrow are not acceptable
-includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
