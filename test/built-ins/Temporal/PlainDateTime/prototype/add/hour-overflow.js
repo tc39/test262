@@ -13,7 +13,7 @@ const earlier = new Temporal.PlainDateTime(2020, 5, 31, 23, 12, 38, 271, 986, 10
 TemporalHelpers.assertPlainDateTime(
   earlier.add({ hours: 2 }),
   2020, 6, "M06", 1, 1, 12, 38, 271, 986, 102,
-  "hours overflow"
+  "hours overflow (push to next day)"
 );
 
 const later = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102);
@@ -21,5 +21,5 @@ const later = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102
 TemporalHelpers.assertPlainDateTime(
   later.add({ hours: -12 }),
   2019, 10, "M10", 28, 22, 46, 38, 271, 986, 102,
-  "symmetrical with regard to negative durations"
+  "hours overflow (push to previous day)"
 );

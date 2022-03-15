@@ -21,9 +21,3 @@ assert.sameValue(
   calendar,
   "calendar supplied in constructor can be extracted and is unchanged"
 );
-
-assert.sameValue(
-  datetime.toString(),
-  "1976-11-18T15:23:30.123456789",
-  "check string value"
-);
