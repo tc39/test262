@@ -18,19 +18,19 @@ const later = feb20.add({
 });
 
 TemporalHelpers.assertDuration(
-  feb20.until(later, { largestUnit: 'milliseconds' }),
+  feb20.until(later, { largestUnit: "milliseconds" }),
   0, 0, 0, 0, 0, 0, 0, 86400250, 250, 250,
   "can return subseconds (millisecond precision)"
 );
 
 TemporalHelpers.assertDuration(
-  feb20.until(later, { largestUnit: 'microseconds' }),
+  feb20.until(later, { largestUnit: "microseconds" }),
   0, 0, 0, 0, 0, 0, 0, 0, 86400250250, 250,
   "can return subseconds (microsecond precision)"
 );
 
 TemporalHelpers.assertDuration(
-  feb20.until(later, { largestUnit: 'nanoseconds' }),
+  feb20.until(later, { largestUnit: "nanoseconds" }),
   0, 0, 0, 0, 0, 0, 0, 0, 0, 86400250250250,
   "can return subseconds (nanosecond precision)"
 );

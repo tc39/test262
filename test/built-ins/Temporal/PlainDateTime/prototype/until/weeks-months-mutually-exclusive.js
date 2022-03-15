@@ -12,13 +12,13 @@ const dt = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
 const laterDateTime = dt.add({ days: 42, hours: 3 });
 
 TemporalHelpers.assertDuration(
-  dt.until(laterDateTime, { largestUnit: 'weeks' }),
+  dt.until(laterDateTime, { largestUnit: "weeks" }),
   0, 0, 1, 0, 0, 0, 0, 0, 0,
   "weeks and months mutually exclusive (1)"
 );
 
 TemporalHelpers.assertDuration(
-  dt.until(laterDateTime, { largestUnit: 'months' }),
+  dt.until(laterDateTime, { largestUnit: "months" }),
   0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
   "weeks and months mutually exclusive (2)"
 );

@@ -10,7 +10,7 @@ features: [Temporal]
 
 const jan31 = new Temporal.PlainDateTime(2020, 1, 31, 15, 0);
 
-['constrain', 'reject'].forEach((overflow) => {
+["constrain", "reject"].forEach((overflow) => {
   assert.throws(
     RangeError,
     () => jan31.subtract({ hours: 1, minutes: -30 }, { overflow }),

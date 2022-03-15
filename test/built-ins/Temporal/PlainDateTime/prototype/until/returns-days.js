@@ -14,31 +14,31 @@ const feb21 = new Temporal.PlainDateTime(2021, 2, 1, 0, 0);
 TemporalHelpers.assertDuration(
   feb20.until(feb21),
   0, 0, 0, 366, 0, 0, 0, 0, 0, 0,
-  'defaults to returning days (no options)'
+  "defaults to returning days (no options)"
 );
 
 TemporalHelpers.assertDuration(
-  feb20.until(feb21, { largestUnit: 'auto' }),
+  feb20.until(feb21, { largestUnit: "auto" }),
   0, 0, 0, 366, 0, 0, 0, 0, 0, 0,
-  'defaults to returning days (largest unit = auto)'
+  "defaults to returning days (largest unit = auto)"
 );
 
 TemporalHelpers.assertDuration(
-  feb20.until(feb21, { largestUnit: 'days' }),
+  feb20.until(feb21, { largestUnit: "days" }),
   0, 0, 0, 366, 0, 0, 0, 0, 0, 0,
-  'defaults to returning days (largest unit = days)'
+  "defaults to returning days (largest unit = days)"
 );
 
 TemporalHelpers.assertDuration(
   feb20.until(new Temporal.PlainDateTime(2021, 2, 1, 0, 0, 0, 0, 0, 1)),
   0, 0, 0, 366, 0, 0, 0, 0, 0, 1,
-  'returns nanoseconds if argument is PDT with non-zero nanoseconds'
+  "returns nanoseconds if argument is PDT with non-zero nanoseconds"
 );
 
-const dt = PlainDateTime.from('2020-02-01T00:00:00.000000001');
+const dt = PlainDateTime.from("2020-02-01T00:00:00.000000001");
 
 TemporalHelpers.assertDuration(
   dt.until(feb21),
   0, 0, 0, 365, 23, 59, 59, 999, 999, 999,
-  'one nanosecond away from one year away'
+  "one nanosecond away from one year away"
 );
