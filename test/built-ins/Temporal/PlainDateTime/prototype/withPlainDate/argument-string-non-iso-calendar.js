@@ -19,5 +19,5 @@ TemporalHelpers.assertPlainDateTime(
 assert.sameValue(
   shifted.calendar.toString(),
   "japanese",
-  "result contains a non-ISO calendar if present in the input (1)"
+  "result contains a non-ISO calendar if present in the input (2)"
 );
