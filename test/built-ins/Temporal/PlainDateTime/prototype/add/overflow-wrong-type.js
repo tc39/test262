@@ -25,3 +25,12 @@ TemporalHelpers.checkStringOptionWrongType("overflow", "constrain",
   (overflow) => datetime.add(duration, { overflow }),
   (result, descr) => TemporalHelpers.assertPlainDateTime(result, 2003, 8, "M08", 5, 15, 0, 0, 0, 0, 0, descr),
 );
+
+const badOverflows = ['', 'CONSTRAIN', 'balance', 3, null];
+badOverflows.forEach((overflow) => {
+  assert.throws(
+    RangeError,
+    () => datetime.add({ months: 1 }, { overflow }),
+    `invalid overflow (${typeof overflow})`
+  );
+});
