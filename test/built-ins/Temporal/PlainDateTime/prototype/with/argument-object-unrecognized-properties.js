@@ -5,6 +5,7 @@
 description: Unrecognized properties (incl. plurals of recognized units) are ignored
 esid: sec-temporal.plaindatetime.prototype.with
 features: [Temporal]
+includes: [temporalHelpers.js]
 ---*/
 
 const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321);
@@ -36,6 +37,6 @@ assert.throws(
 
 TemporalHelpers.assertPlainDateTime(
   instance.with({year: 1965, nonsense: true}),
-  1965, 5, "M05", 12, 34, 56, 987, 654, 321,
+  1965, 5, "M05", 2, 12, 34, 56, 987, 654, 321,
   "unrecognized properties ignored & does not throw if recognized properties present)"
 );

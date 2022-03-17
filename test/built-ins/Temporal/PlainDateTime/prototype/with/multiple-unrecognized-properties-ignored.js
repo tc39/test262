@@ -8,7 +8,7 @@ features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
-const datetime = new PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
+const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789);
 const units = ["year", "month", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"];
 
 units.forEach((unit) => {

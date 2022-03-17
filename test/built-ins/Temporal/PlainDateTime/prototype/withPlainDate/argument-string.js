@@ -5,6 +5,7 @@
 esid: sec-temporal.plaindatetime.prototype.withplaindate
 description: PlainDate-like string argument is acceptable
 features: [Temporal]
+includes: [temporalHelpers.js]
 ---*/
 
 const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);

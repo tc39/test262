@@ -35,7 +35,7 @@ TemporalHelpers.assertDuration(
   "returns nanoseconds if argument is PDT with non-zero nanoseconds"
 );
 
-const dt = PlainDateTime.from("2020-02-01T00:00:00.000000001");
+const dt = new Temporal.PlainDateTime(2020, 2, 1, 0, 0, 0, 0, 0, 1);
 
 TemporalHelpers.assertDuration(
   dt.until(feb21),

@@ -12,13 +12,13 @@ const jan31 = new Temporal.PlainDateTime(2020, 1, 31, 15, 0);
 
 TemporalHelpers.assertPlainDateTime(
   jan31.add({ months: 1 }),
-  2020, 2, "M02", 29, 15, 0, 0, 0, 0, 0, 0,
+  2020, 2, "M02", 29, 15, 0, 0, 0, 0, 0,
   "constrain when ambiguous result (overflow options not supplied)"
 );
 
 TemporalHelpers.assertPlainDateTime(
   jan31.add({ months: 1 }, { overflow: "constrain" }),
-  2020, 2, "M02", 29, 15, 0, 0, 0, 0, 0, 0,
+  2020, 2, "M02", 29, 15, 0, 0, 0, 0, 0,
   "constrain when ambiguous result (overflow options supplied)"
 );
 

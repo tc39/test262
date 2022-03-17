@@ -5,14 +5,15 @@
 esid: sec-temporal.plaindatetime.prototype.until
 description: Do not return Durations with unnecessary units
 features: [Temporal]
+includes: [temporalHelpers.js]
 ---*/
 
-const lastFeb20 = PlainDateTime.from("2020-02-29T00:00");
-const lastFeb21 = PlainDateTime.from("2021-02-28T00:00");
+const lastFeb20 = new Temporal.PlainDateTime(2020, 2, 29, 0, 0);
+const lastFeb21 = new Temporal.PlainDateTime(2021, 2, 28, 0, 0);
 
 TemporalHelpers.assertDuration(
   lastFeb20.until(lastFeb21),
-  0, 365, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 365, 0, 0, 0, 0, 0, 0,
   "does not include higher units than necessary (no largest unit)"
 );
 

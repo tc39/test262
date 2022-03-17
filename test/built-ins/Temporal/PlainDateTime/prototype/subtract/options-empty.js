@@ -12,12 +12,12 @@ const jan31 = new Temporal.PlainDateTime(2020, 1, 31, 15, 0);
 
 TemporalHelpers.assertPlainDateTime(
   jan31.subtract({ years: 1 }, {}),
-  2021, 1, "M01", 31, 15, 0, 0, 0, 0, 0,
+  2019, 1, "M01", 31, 15, 0, 0, 0, 0, 0,
   "options may be empty object"
 );
 
 TemporalHelpers.assertPlainDateTime(
   jan31.subtract({ years: 1 }, () => {}),
-  2021, 1, "M01", 31, 15, 0, 0, 0, 0, 0,
+  2019, 1, "M01", 31, 15, 0, 0, 0, 0, 0,
   "options may be function object"
 );

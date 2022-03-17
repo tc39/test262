@@ -24,7 +24,7 @@ assert.throws(
 
 assert.throws(
   TypeError,
-  () => instance.with({nonsense: true}),
+  () => dt.with({nonsense: true}),
   "no recognized properties (clearly won't work)"
 );
 

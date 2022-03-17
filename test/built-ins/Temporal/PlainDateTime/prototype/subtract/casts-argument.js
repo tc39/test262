@@ -10,14 +10,17 @@ includes: [temporalHelpers.js]
 
 const jan31 = new Temporal.PlainDateTime(2020, 1, 31, 15, 0);
 
+const subtractWithDuration = jan31.subtract(new Temporal.Duration(0, 1, 0, 0, 0, 1));
+const subtractWithString = jan31.subtract("P1MT1S");
+
 TemporalHelpers.assertPlainDateTime(
-  jan31.subtract(new Temporal.Duration("P1MT1S")),
-  2020, 2, "M02", 29, 15, 0, 1, 0, 0, 0,
+  subtractWithDuration,
+  2019, 12, "M12", 31, 14, 59, 0, 0, 0, 0,
   "Duration argument"
 );
 
 TemporalHelpers.assertPlainDateTime(
-  jan31.subtract("P1MT1S"),
-  2020, 2, "M02", 29, 15, 0, 1, 0, 0, 0,
+  subtractWithString,
+  2019, 12, "M12", 31, 14, 59, 59, 0, 0, 0,
   "Duration-like string argument"
 );

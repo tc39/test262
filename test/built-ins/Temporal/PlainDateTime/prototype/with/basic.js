@@ -30,7 +30,7 @@ TemporalHelpers.assertPlainDateTime(
 
 TemporalHelpers.assertPlainDateTime(
   datetime.with({ day: 5 }),
-  1976, 11, "M11", 18, 15, 23, 30, 123, 456, 789,
+  1976, 11, "M11", 5, 15, 23, 30, 123, 456, 789,
   "with day works"
 );
 

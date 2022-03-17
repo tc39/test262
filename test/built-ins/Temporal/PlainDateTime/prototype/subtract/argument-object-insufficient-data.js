@@ -30,6 +30,6 @@ assert.throws(
 
 TemporalHelpers.assertPlainDateTime(
   jan31.subtract({ nonsense: 1, days: 1 }),
-  2020, 2, "M02", 1, 15, 0, 0, 0, 0, 0,
+  2020, 1, "M01", 30, 15, 0, 0, 0, 0, 0,
   "unrecognized properties ignored provided at least one recognized property is present"
 );
