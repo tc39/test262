@@ -18,6 +18,6 @@ TemporalHelpers.assertDuration(
 
 TemporalHelpers.assertDuration(
   datetime.until("2019-10-29T10:46:38.271986102"),
-  0, 0, 0, 15684, 19, 23, 8,148, 529, 313,
+  0, 0, 0, 15684, 19, 23, 8, 148, 529, 313,
   "string argument gets cast"
 );
