@@ -11,8 +11,6 @@ includes: [temporalHelpers.js]
 const jan31 = new Temporal.PlainDateTime(2020, 1, 31, 15, 0);
 
 const subtractWithDuration = jan31.subtract(new Temporal.Duration(0, 1, 0, 0, 0, 1));
-const subtractWithString = jan31.subtract("P1MT1S");
-
 TemporalHelpers.assertPlainDateTime(
   subtractWithDuration,
   2019, 12, "M12", 31, 14, 59, 0, 0, 0, 0,
