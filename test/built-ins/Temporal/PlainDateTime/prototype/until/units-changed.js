@@ -24,6 +24,12 @@ TemporalHelpers.assertDuration(
 );
 
 TemporalHelpers.assertDuration(
+  feb20.until(feb21, { largestUnit: "weeks" }),
+  0, 0, 52, 2, 0, 0, 0, 0, 0, 0,
+  "can return lower or higher units (weeks)"
+);
+
+TemporalHelpers.assertDuration(
   feb20.until(feb21, { largestUnit: "hours" }),
   0, 0, 0, 0, 8784, 0, 0,0, 0, 0,
   "can return lower or higher units (hours)"
@@ -39,4 +45,22 @@ TemporalHelpers.assertDuration(
   feb20.until(feb21, { largestUnit: "seconds" }),
   0, 0, 0, 0, 0, 0, 31622400, 0, 0, 0,
   "can return lower or higher units (seconds)"
+);
+
+TemporalHelpers.assertDuration(
+  feb20.until(feb21, { largestUnit: "milliseconds" }),
+  0, 0, 0, 0, 0, 0, 0, 31622400000, 0, 0,
+  "can return lower or higher units (milliseconds)"
+);
+
+TemporalHelpers.assertDuration(
+  feb20.until(feb21, { largestUnit: "microseconds" }),
+  0, 0, 0, 0, 0, 0, 0, 0, 31622400000000, 0,
+  "can return lower or higher units (microseconds)"
+);
+
+TemporalHelpers.assertDuration(
+  feb20.until(feb21, { largestUnit: "nanoseconds" }),
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 31622400000000000,
+  "can return lower or higher units (nanoseconds)"
 );
