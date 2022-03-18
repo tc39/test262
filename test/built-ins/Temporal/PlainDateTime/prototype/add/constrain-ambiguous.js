@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.add
-description: Ambiguous addition works but throws if ambiguity is to be rejected
+description: Ambiguous addition is handled according to the overflow option
 features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
