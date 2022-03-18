@@ -12,12 +12,6 @@ const feb20 = new Temporal.PlainDateTime(2020, 2, 1, 0, 0);
 const feb21 = new Temporal.PlainDateTime(2021, 2, 1, 0, 0);
 
 TemporalHelpers.assertDuration(
-  feb20.until(feb21),
-  0, 0, 0, 366, 0, 0, 0, 0, 0, 0,
-  "defaults to returning days (no options)"
-);
-
-TemporalHelpers.assertDuration(
   feb20.until(feb21, { largestUnit: "auto" }),
   0, 0, 0, 366, 0, 0, 0, 0, 0, 0,
   "defaults to returning days (largest unit = auto)"
