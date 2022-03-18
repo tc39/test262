@@ -30,7 +30,7 @@ TemporalHelpers.assertPlainDateTime(
 );
 
 assert.sameValue(
-  shifted.calendar.toString(),
-  "this is a string",
+  shifted.calendar,
+  cal,
   "calendar is unchanged if input has ISO calendar (2)"
 );
