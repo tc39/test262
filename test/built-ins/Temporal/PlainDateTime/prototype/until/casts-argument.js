@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.until
-description: String argument gets cast
+description: String and object arguments get cast
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
