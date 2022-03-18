@@ -8,7 +8,6 @@ features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
-const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
 const cal = {
   id: 'thisisnotiso',
   era() { return "the era"; },
@@ -19,7 +18,8 @@ const cal = {
   monthCode() { return "M09"; },
   day() { return 6; }
 };
-const shifted = dt.withCalendar(cal).withPlainDate("2008-09-06");
+const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30, 0, 0, 0, cal);
+const shifted = dt.withPlainDate("2010-11-12");
 
 TemporalHelpers.assertPlainDateTime(
   shifted,
