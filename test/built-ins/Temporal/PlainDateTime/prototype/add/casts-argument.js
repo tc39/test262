@@ -15,9 +15,3 @@ TemporalHelpers.assertPlainDateTime(
   2020, 2, "M02", 29, 15, 0, 1, 0, 0, 0,
   "Duration argument"
 );
-
-TemporalHelpers.assertPlainDateTime(
-  jan31.add("P1MT1S"),
-  2020, 2, "M02", 29, 15, 0, 1, 0, 0, 0,
-  "Duration-like string argument"
-);

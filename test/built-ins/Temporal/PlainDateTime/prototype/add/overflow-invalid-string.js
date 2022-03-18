@@ -20,4 +20,12 @@ features: [Temporal]
 
 const datetime = new Temporal.PlainDateTime(2000, 5, 2, 12);
 const duration = new Temporal.Duration(3, 3, 0, 3, 3);
-assert.throws(RangeError, () => datetime.add(duration, { overflow: "other string" }));
+
+const badOverflows = ['', 'CONSTRAIN', 'balance', "other string"];
+badOverflows.forEach((overflow) => {
+  assert.throws(
+    RangeError,
+    () => datetime.add({ months: 1 }, { overflow }),
+    `invalid overflow (${typeof overflow})`
+  );
+});

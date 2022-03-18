@@ -26,7 +26,7 @@ TemporalHelpers.checkStringOptionWrongType("overflow", "constrain",
   (result, descr) => TemporalHelpers.assertPlainDateTime(result, 2003, 8, "M08", 5, 15, 0, 0, 0, 0, 0, descr),
 );
 
-const badOverflows = ['', 'CONSTRAIN', 'balance', 3, null];
+const badOverflows = ['', 'CONSTRAIN', 'balance'];
 badOverflows.forEach((overflow) => {
   assert.throws(
     RangeError,
