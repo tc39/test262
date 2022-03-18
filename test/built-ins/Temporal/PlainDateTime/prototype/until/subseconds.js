@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.until
-description: String argument gets cast
+description: Largest unit is respected
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
