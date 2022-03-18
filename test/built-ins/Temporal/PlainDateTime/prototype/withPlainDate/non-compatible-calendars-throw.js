@@ -19,8 +19,11 @@ const anotherCal = {
   toString() { return "this is another string"; },
 };
 
+const date = new Temporal.PlainDate(2008, 9, 6, anotherCal);
+const dtWithNewCalendar = dt.withCalendar(cal);
+
 assert.throws(
   RangeError,
-  () => dt.withCalendar(cal).withPlainDate(new Temporal.PlainDate(2008, 9, 6, anotherCal)),
+  () => dtWithNewCalendar.withPlainDate(date),
   "throws if both `this` and `other` have a non-ISO calendar"
 );
