@@ -13,15 +13,6 @@ const date = new Temporal.PlainDate(2020, 1, 23);
 
 TemporalHelpers.assertPlainDateTime(
   dt.withPlainDate(date),
-  2020,
-  1,
-  "M01",
-  23,
-  3,
-  24,
-  30,
-  0,
-  0,
-  0,
+  2020, 1, "M01", 23, 3, 24, 30, 0, 0, 0,
   "PlainDate argument works"
 );
