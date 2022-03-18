@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.withplaintime
-description: IF no argument is given, default to midnight
+description: If no argument is given, default to midnight
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
@@ -16,7 +16,7 @@ TemporalHelpers.assertPlainDateTime(
   12,
   "M12",
   7,
-    0,
+  0,
   0,
   0,
   0,
