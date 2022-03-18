@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.withplaindate
-description: Plain object may be acceptable
+description: PlainDate object is acceptable
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
