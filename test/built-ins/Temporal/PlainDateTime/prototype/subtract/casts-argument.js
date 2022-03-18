@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.subtract
-description: Duration and Duration-like string arguments are handled
+description: Duration object arguments are handled
 features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
