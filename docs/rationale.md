@@ -14,7 +14,7 @@ For instance:
 
 - tests which expression expectations with `throw` statements inside of
   conditional statements rather than the assertion API implemented by the
-  harness files (though this explicitness will always been desirable when
+  harness files (though this explicitness will always be desirable when
   asserting the semantics of conditional statements and `throw` statements
   themselves)
 - tests with file names derived from section numbers in the 5th edition of
@@ -54,10 +54,43 @@ assessment will likely always be a challenge, but strong conventions around
 file organization can help.
 
 Tests for syntax-derived operations are organized according to the language
-grammar, with directories used to describe non-terminals. Tests for built-in
-APIs are organized according to the identifiers by which they can be accessed,
-with directories used to describe the sequence of properties that can be used
-from the global scope.
+grammar, with directories used to describe non-terminals. For example, tests
+for example, tests for [the `if`
+statement](https://tc39.es/ecma262/#sec-if-statement) are located in [the
+`tests/language/statements/if`
+directory](https://github.com/tc39/test262/tree/main/test/language/statements/if),
+and tests for [the `instanceof`
+operator](https://tc39.es/ecma262/#sec-relational-operators) are located in
+[the `tests/language/expressions/instanceof`
+directory](https://github.com/tc39/test262/tree/main/test/language/expressions/instanceof).
+
+Tests for built-in APIs are organized within [the `tests/built-ins`
+directory](https://github.com/tc39/test262/tree/main/test/intl402) according to
+the identifiers by which they can be accessed. There, directories describe the
+sequence of properties that can be used from the global scope. For example,
+tests for [the `Array.prototype.reduce`
+method](https://tc39.es/ecma262/#sec-array.prototype.reduce) are located in
+[the `tests/built-ins/Array/prototype/reduce`
+directory](https://github.com/tc39/test262/tree/main/test/built-ins/Array/prototype/reduce),
+while tests for [the `isNaN`
+function](https://tc39.es/ecma262/#sec-isnan-number) are located in [the
+`tests/built-ins/isNan`
+directory(https://github.com/tc39/test262/tree/main/test/built-ins/isNaN)].
+Built-ins which are defined only in [the ECMA-402
+specification](https://tc39.es/ecma402/) follow a similar naming convention
+within [the `tests/intl402`
+directory](https://github.com/tc39/test262/tree/main/test/intl402).
+
+[The `tests/annexB`
+directory](https://github.com/tc39/test262/tree/main/test/annexB) holds tests
+for the semantics described by [Annex B of
+ECMA262](https://tc39.es/ecma262/#sec-additional-ecmascript-features-for-web-browsers).
+The conventions for syntax-derived operations and built-in APIs as described
+above are also applied within this directory.
+
+[The `tests/harness`
+directory](https://github.com/tc39/test262/tree/main/test/harness) stores tests
+for the "harness" files which Test262 maintains to assist in test writing.
 
 Directories are not generally applied beyond these limits; further
 differentiation is instead achieved through structured file names which follow
