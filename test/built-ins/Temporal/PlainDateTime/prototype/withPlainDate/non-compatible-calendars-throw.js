@@ -9,8 +9,18 @@ features: [Temporal]
 
 const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
 
+const cal = {
+  id: 'foo',
+  toString() { return "this is a string"; },
+};
+
+const anotherCal = {
+  id: 'bar',
+  toString() { return "this is another string"; },
+};
+
 assert.throws(
   RangeError,
-  () => dt.withCalendar("gregory").withPlainDate("2008-09-06[u-ca=japanese]"),
+  () => dt.withCalendar(cal).withPlainDate(new Temporal.PlainDate(2008, 9, 6, anotherCal)),
   "throws if both `this` and `other` have a non-ISO calendar"
 );
