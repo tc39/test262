@@ -11,13 +11,13 @@ includes: [temporalHelpers.js]
 const jan31 = new Temporal.PlainDateTime(2020, 1, 31, 15, 0);
 
 TemporalHelpers.assertPlainDateTime(
-  jan31.subtract({ years: 1 }, {}),
-  2019, 1, "M01", 31, 15, 0, 0, 0, 0, 0,
+  jan31.subtract({ months: 2 }, {}),
+  2019, 11, "M11", 30, 15, 0, 0, 0, 0, 0,
   "options may be empty object"
 );
 
 TemporalHelpers.assertPlainDateTime(
-  jan31.subtract({ years: 1 }, () => {}),
-  2019, 1, "M01", 31, 15, 0, 0, 0, 0, 0,
+  jan31.subtract({ months: 2 }, () => {}),
+  2019, 11, "M11", 30, 15, 0, 0, 0, 0, 0,
   "options may be function object"
 );
