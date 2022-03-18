@@ -12,7 +12,7 @@ const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 
 
 TemporalHelpers.assertDuration(
   datetime.until({ year: 2019, month: 10, day: 29, hour: 10 }),
-  0, 0, 0, 15684, 18, 36, 29,876, 543, 211,
+  0, 0, 0, 15684, 18, 36, 29, 876, 543, 211,
   "plain object argument"
 );
 
