@@ -44,5 +44,3 @@ assert.sameValue(
   false,
   "casts argument (string, negative)"
 );
-
-
