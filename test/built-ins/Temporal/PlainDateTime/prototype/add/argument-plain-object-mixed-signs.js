@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.add
-description: Positive and negative values in overflow are not acceptable
+description: Positive and negative values in the temporalDurationLike argument are not acceptable
 features: [Temporal]
 ---*/
 
