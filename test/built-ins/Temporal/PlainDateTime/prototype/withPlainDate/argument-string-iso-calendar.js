@@ -9,18 +9,28 @@ includes: [temporalHelpers.js]
 ---*/
 
 const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
-const shifted = dt.withPlainDate("2008-09-06[u-ca=japanese]");
+const cal = {
+  id: 'thisisnotiso',
+  era() { return "the era"; },
+  eraYear() { return 1909; },
+  toString() { return "this is a string"; },
+  year() { return 2008; },
+  month() { return 9; },
+  monthCode() { return "M09"; },
+  day() { return 6; }
+};
+const shifted = dt.withCalendar(cal).withPlainDate("2008-09-06");
 
 TemporalHelpers.assertPlainDateTime(
   shifted,
   2008, 9, "M09", 6, 3, 24, 30, 0, 0, 0,
   "calendar is unchanged if input has ISO calendar (1)",
-  "heisei",
-  20
+  "the era",
+  1909
 );
 
 assert.sameValue(
   shifted.calendar.toString(),
-  "japanese",
+  "this is a string",
   "calendar is unchanged if input has ISO calendar (2)"
 );
