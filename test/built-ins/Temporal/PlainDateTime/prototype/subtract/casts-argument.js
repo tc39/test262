@@ -16,9 +16,3 @@ TemporalHelpers.assertPlainDateTime(
   2019, 12, "M12", 31, 14, 59, 0, 0, 0, 0,
   "Duration argument"
 );
-
-TemporalHelpers.assertPlainDateTime(
-  subtractWithString,
-  2019, 12, "M12", 31, 14, 59, 59, 0, 0, 0,
-  "Duration-like string argument"
-);
