@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.withplaindate
+esid: sec-temporal.plaindatetime.prototype.withplaindate
 description: Unrecognized properties of plain object ignored
 includes: [temporalHelpers.js]
 features: [Temporal]
