@@ -26,6 +26,6 @@ badOverflows.forEach((overflow) => {
   assert.throws(
     RangeError,
     () => datetime.add({ months: 1 }, { overflow }),
-    `invalid overflow (${typeof overflow})`
+    `invalid overflow ("${overflow}")`
   );
 });
