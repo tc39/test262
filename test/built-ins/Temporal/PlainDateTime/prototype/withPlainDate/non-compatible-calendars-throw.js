@@ -7,12 +7,12 @@ description: If two non-ISO calendars are involved, an error is raised
 features: [Temporal]
 ---*/
 
-const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30);
-
 const cal = {
   id: 'foo',
   toString() { return "this is a string"; },
 };
+
+const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30, 0, 0, 0, cal);
 
 const anotherCal = {
   id: 'bar',
@@ -20,10 +20,9 @@ const anotherCal = {
 };
 
 const date = new Temporal.PlainDate(2008, 9, 6, anotherCal);
-const dtWithNewCalendar = dt.withCalendar(cal);
 
 assert.throws(
   RangeError,
-  () => dtWithNewCalendar.withPlainDate(date),
+  () => dt.withPlainDate(date),
   "throws if both `this` and `other` have a non-ISO calendar"
 );
