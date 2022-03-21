@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.until
-description: Units may be changed
+description: Largest unit is respected
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
