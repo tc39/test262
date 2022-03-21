@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.subtract
-description: Positive and negative values in overthrow are not acceptable
+description: Positive and negative values in the temporalDurationLike argument are not acceptable
 features: [Temporal]
 ---*/
 
