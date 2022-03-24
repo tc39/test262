@@ -24,3 +24,4 @@ assert.sameValue(
 );
 
 assert.sameValue(Number("abc"), NaN, 'Number("abc") returns NaN');
+assert.sameValue(Number("INFINITY"), NaN, 'Number("INFINITY") returns NaN');
