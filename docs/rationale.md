@@ -26,7 +26,7 @@ For instance:
 
 Since existing tests do not necessarily reflect the project's current
 best-practices, it's especially important for test authors to familiarize
-themselves with the contribution guidelines.
+themselves with [the contribution guidelines](CONTRIBUTING.md).
 
 ## Test generation
 
@@ -134,20 +134,14 @@ to learn.
 When testing a syntactic feature of the language, it can be tempting to write
 tests which verify that some bit of source text does *not* produce a syntax
 error. Contributors should try to push beyond verifying only the lack of a
-syntax error because almost all such tests also have observable semantics. It's
-often better for a test to assert that the expected semantics are followed,
-even when they may already be covered elsewhere.
+syntax error because such tests also have observable semantics. It's better for
+a test to assert that the expected semantics are followed.
 
-However, this is not always desirable because verifying semantics invariably
-requires inserting still more code, and that additional code may degrade the
-tests' precision for verifying syntax.
-
-When considering this tension, be aware that TC39 maintains [a separate project
-called test262-parser-tests](https://github.com/tc39/test262-parser-tests).
-This project was partially motivated by a desire to offer test material that
-isn't (and perhaps cannot be) related to any specific grammar production. The
-availability of that project may inform decisions about if, where, and how to
-include tests for syntax in Test262.
+However, verifying semantics invariably requires inserting still more code, and
+that additional code may degrade the tests' precision for verifying syntax. For
+cases where this trade-off is significant, contributors may consider submitting
+simplified tests to [the test262-parser-tests
+project](https://github.com/tc39/test262-parser-tests).
 
 ## Avoiding abstraction
 
