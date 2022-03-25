@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.prototype.until
-description: Using different calendars is not acceptable
+esid: sec-temporal.plaindatetime.prototype.since
+description: Fail if the argument is a PlainDateTime with a different calendar
 features: [Temporal]
 ---*/
 
@@ -12,6 +12,6 @@ const dt2 = new Temporal.PlainDateTime(2000, 1, 1, 0, 0, 0, 0, 0, 0, {});
 
 assert.throws(
   RangeError,
-  () => dt1.until(dt2),
-  "cannot use until with PDTs having different calendars"
+  () => dt1.since(dt2),
+  "different calendars not allowed"
 );
