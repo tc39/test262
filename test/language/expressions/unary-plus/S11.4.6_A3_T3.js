@@ -26,3 +26,8 @@ if (isNaN(+"x") !== true) {
 if (isNaN(+"INFINITY") !== true) {
   throw new Test262Error('#4: +"INFINITY" === Not-a-Number. Actual: ' + (+"INFINITY"));
 }
+
+//CHECK#5
+if (isNaN(+"infinity") !== true) {
+  throw new Test262Error('#5: +"infinity" === Not-a-Number. Actual: ' + (+"infinity"));
+}
