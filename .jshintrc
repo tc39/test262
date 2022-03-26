@@ -1,4 +1,4 @@
 {
     "predef": ["Intl"],
-    "esversion": 6
+    "esversion": 11
 }
