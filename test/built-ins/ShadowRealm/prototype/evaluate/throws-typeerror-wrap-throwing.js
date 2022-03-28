@@ -3,7 +3,7 @@
 /*---
 esid: sec-wrappedfunctioncreate
 description: >
-  	WrappedFunctionCreate throws a TypeError if the accessing target's property may throw.
+    WrappedFunctionCreate throws a TypeError if the accessing target's property may throw.
 
 info: |
   WrappedFunctionCreate ( callerRealm: a Realm Record, Target: a function object, )

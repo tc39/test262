@@ -3,7 +3,7 @@
 /*---
 esid: sec-wrapped-function-exotic-objects-call-thisargument-argumentslist
 description: >
-  	WrappedFunctionCreate throws a TypeError the target is a revoked proxy.
+    WrappedFunctionCreate throws a TypeError the target is a revoked proxy.
 
 info: |
   WrappedFunctionCreate ( callerRealm: a Realm Record, Target: a function object, )
