@@ -45,7 +45,27 @@ assert.throws(RangeError, function() {
   Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
 });
 
+arrayLike.length = 2 ** 32;
+assert.throws(RangeError, function() {
+  Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
+});
+
+arrayLike.length = 2 ** 32 + 1;
+assert.throws(RangeError, function() {
+  Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
+});
+
 arrayLike.length = 2 ** 53 - 1;
+assert.throws(TypeError, function() {
+  Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
+});
+
+arrayLike.length = 2 ** 53;
+assert.throws(TypeError, function() {
+  Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
+});
+
+arrayLike.length = 2 ** 53 + 1;
 assert.throws(TypeError, function() {
   Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
 });
