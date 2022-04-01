@@ -8,4 +8,7 @@ features: [Temporal]
 ---*/
 
 const duration = new Temporal.Duration(0, 0, 0, 0, 12, 34, 56, 123, 987, 500);
-assert.throws(RangeError, () => duration.toString({ smallestUnit: "other string" }));
+const values = ["eras", "years", "months", "weeks", "days", "hours", "minutes", "nonsense", "other string", "mill\u0131seconds", "SECONDS"];
+for (const smallestUnit of values) {
+  assert.throws(RangeError, () => duration.toString({ smallestUnit }));
+}
