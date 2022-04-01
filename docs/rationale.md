@@ -95,7 +95,9 @@ for the "harness" files which Test262 maintains to assist in test writing.
 Directories are not generally applied beyond these limits; further
 differentiation is instead achieved through structured file names which follow
 ad-hoc conventions. This organization balances the need to group tests
-logically with the need to discover tests.
+logically with the need to discover tests. See, for example, [the tests for
+template
+literals](https://github.com/tc39/test262/tree/main/test/language/expressions/template-literal).
 
 Many consumers use file names as a way to compare test results across revisions
 and between implementations. For this reason, tests files are rarely
@@ -111,6 +113,13 @@ and tests which disallow arbitrary extraneous behavior can degrade those
 qualities. Because Test262 is not maintained as a repository of regression
 tests, contributions which include these kinds of tests will be weighed against
 their likelihood of identifying error in a plurality of implementations.
+
+For example, assume that some runtime spuriously accesses the `toJSON` property
+of the value passed to
+[`String.prototype.repeat`](https://tc39.es/ecma262/#sec-string.prototype.repeat).
+While the maintainers of the engine may decide to include a regression test
+which disallows that behavior in their project, the maintainers of Test262
+would not necessarily accept such a test.
 
 ## Large tests
 
