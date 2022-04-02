@@ -28,10 +28,10 @@ var arrayLike = {
     throw new Test262Error("Get 0");
   },
   get "4294967295" () { // 2 ** 32 - 1
-    throw new Test262Error("Get 2147483648");
+    throw new Test262Error("Get 4294967295");
   },
   get "4294967296" () { // 2 ** 32
-    throw new Test262Error("Get 2147483648");
+    throw new Test262Error("Get 4294967296");
   },
   length: 2 ** 32
 };
@@ -51,6 +51,11 @@ assert.throws(RangeError, function() {
 });
 
 arrayLike.length = 2 ** 32 + 1;
+assert.throws(RangeError, function() {
+  Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
+});
+
+arrayLike.length = 2 ** 52 - 2;
 assert.throws(RangeError, function() {
   Array.prototype.toSpliced.call(arrayLike, 0, 0, 1);
 });
