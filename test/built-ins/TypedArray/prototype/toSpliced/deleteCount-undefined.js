@@ -18,6 +18,7 @@ info: |
     b. Let actualDeleteCount be len - actualStart.
   ...
 includes: [testTypedArray.js, compareArray.js]
+features: [TypedArray, change-array-by-copy]
 ---*/
 
 testWithTypedArrayConstructors((TA) => {
