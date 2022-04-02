@@ -28,7 +28,10 @@ for (var __key in __obj){
 	
 }
 
-assert.sameValue(__accum, "aa1ca3");
+assert(
+	__accum === "aa1ca3" || __accum === "ca3aa1",
+	"Unexpected value: '" + __accum + "'"
+);
 
 // erasator is the hash map terminator
 function erasator_T_1000(hash_map, charactr){
