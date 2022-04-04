@@ -14,7 +14,7 @@ info: |
   4. If index >= 0, let actualIndex be relativeIndex.
   5. Else, let actualIndex be len + relativeIndex.
   ...
-features: [change-array-by-copy]
+features: [TypedArray, change-array-by-copy]
 includes: [testTypedArray.js, compareArray.js]
 ---*/
 

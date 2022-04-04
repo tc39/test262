@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [change-array-by-copy]
+features: [change-array-by-copy, Reflect.construct]
 ---*/
 
 assert.sameValue(
