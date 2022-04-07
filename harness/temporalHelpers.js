@@ -239,39 +239,6 @@ var TemporalHelpers = {
   },
 
   /*
-   * checkFractionalSecondDigitsOptionWrongType(temporalObject):
-   *
-   * Checks the string-or-number type handling of the fractionalSecondDigits
-   * option to the various types' toString() methods. temporalObject is an
-   * instance of the Temporal type under test.
-   */
-  checkFractionalSecondDigitsOptionWrongType(temporalObject) {
-    // null is not a number, and converts to the string "null", which is an invalid string value
-    assert.throws(RangeError, () => temporalObject.toString({ fractionalSecondDigits: null }), "null");
-    // Booleans are not numbers, and convert to the strings "true" or "false", which are invalid
-    assert.throws(RangeError, () => temporalObject.toString({ fractionalSecondDigits: true }), "true");
-    assert.throws(RangeError, () => temporalObject.toString({ fractionalSecondDigits: false }), "false");
-    // Symbols are not numbers and cannot convert to strings
-    assert.throws(TypeError, () => temporalObject.toString({ fractionalSecondDigits: Symbol() }), "symbol");
-    // BigInts are not numbers and convert to strings which are invalid
-    assert.throws(RangeError, () => temporalObject.toString({ fractionalSecondDigits: 2n }), "bigint");
-
-    // Objects are not numbers and prefer their toString() methods when converting to a string
-    assert.throws(RangeError, () => temporalObject.toString({ fractionalSecondDigits: {} }), "plain object");
-
-    const toStringExpected = temporalObject.toString({ fractionalSecondDigits: 'auto' });
-    const expected = [
-      "get fractionalSecondDigits.toString",
-      "call fractionalSecondDigits.toString",
-    ];
-    const actual = [];
-    const observer = TemporalHelpers.toPrimitiveObserver(actual, "auto", "fractionalSecondDigits");
-    const result = temporalObject.toString({ fractionalSecondDigits: observer });
-    assert.sameValue(result, toStringExpected, "object with toString");
-    assert.compareArray(actual, expected, "order of operations");
-  },
-
-  /*
    * checkPlainDateTimeConversionFastPath(func):
    *
    * ToTemporalDate and ToTemporalTime should both, if given a
