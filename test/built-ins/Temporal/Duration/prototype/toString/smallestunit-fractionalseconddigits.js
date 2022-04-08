@@ -2,29 +2,28 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaintime.prototype.tostring
+esid: sec-temporal.duration.prototype.tostring
 description: fractionalSecondDigits option is not used with smallestUnit present
 features: [Temporal]
 ---*/
 
-const time = new Temporal.PlainTime(12, 34, 56, 789, 999, 999);
+const duration = new Temporal.Duration(1, 2, 3, 4, 5, 6, 7, 789, 999, 999);
 const tests = [
-  ["minute", "12:34"],
-  ["second", "12:34:56"],
-  ["millisecond", "12:34:56.789"],
-  ["microsecond", "12:34:56.789999"],
-  ["nanosecond", "12:34:56.789999999"],
+  ["second", "P1Y2M3W4DT5H6M7S"],
+  ["millisecond", "P1Y2M3W4DT5H6M7.789S"],
+  ["microsecond", "P1Y2M3W4DT5H6M7.789999S"],
+  ["nanosecond", "P1Y2M3W4DT5H6M7.789999999S"],
 ];
 
 for (const [smallestUnit, expected] of tests) {
-  const string = time.toString({
+  const string = duration.toString({
     smallestUnit,
     get fractionalSecondDigits() { throw new Test262Error("should not get fractionalSecondDigits") }
   });
   assert.sameValue(string, expected, `smallestUnit: "${smallestUnit}" overrides fractionalSecondDigits`);
 }
 
-assert.throws(RangeError, () => time.toString({
+assert.throws(RangeError, () => duration.toString({
   smallestUnit: "hour",
   get fractionalSecondDigits() { throw new Test262Error("should not get fractionalSecondDigits") }
 }), "hour is an invalid smallestUnit but still overrides fractionalSecondDigits");
