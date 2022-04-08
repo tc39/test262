@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.instant.prototype.round
+esid: sec-temporal.plaintime.prototype.round
 description: TypeError thrown when options argument is missing or a non-string primitive
 features: [BigInt, Symbol, Temporal]
 ---*/
@@ -16,7 +16,7 @@ const badOptions = [
   2n,
 ];
 
-const instance = new Temporal.Instant(0n);
+const instance = new Temporal.PlainTime();
 assert.throws(TypeError, () => instance.round(), "TypeError on missing options argument");
 for (const value of badOptions) {
   assert.throws(TypeError, () => instance.round(value),
