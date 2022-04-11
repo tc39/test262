@@ -64,3 +64,27 @@ assert.sameValue(
   true,
   'globalThis.constructor is Object'
 );
+
+assert.sameValue(
+  r.evaluate(`
+    let result;
+    try {
+      globalThis.__proto__ = {x: 2};
+      result = true;
+    } catch (e) {
+      result = false;
+    }
+    result;
+  `),
+  true,
+  'Can assign to globalThis.__proto__ directly'
+);
+
+assert.sameValue(
+  r.evaluate(`
+    Reflect.set(globalThis.__proto__, {x: 1}) &&
+    Reflect.setPrototypeOf(globalThis.__proto__, {x: 2});
+  `),
+  true,
+  'Can set an ordinary globalThis.__proto__'
+);
