@@ -82,7 +82,7 @@ assert.sameValue(
 
 assert.sameValue(
   r.evaluate(`
-    Reflect.set(globalThis.__proto__, {x: 1}) &&
+    Reflect.set(globalThis, '__proto__', {x: 1}) &&
     Reflect.setPrototypeOf(globalThis.__proto__, {x: 2});
   `),
   true,
