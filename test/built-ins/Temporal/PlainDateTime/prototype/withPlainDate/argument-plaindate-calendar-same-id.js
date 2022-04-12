@@ -3,12 +3,15 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.withplaindate
-description: Original PDT calendar is preserved with ISO string
+description: PlainDate calendar is preserved when both calendars have the same id
 features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
-const cal = {
+const cal1 = {
+  toString() { return "this is a string"; },
+};
+const cal2 = {
   id: 'thisisnotiso',
   era() { return "the era"; },
   eraYear() { return 1909; },
@@ -18,19 +21,20 @@ const cal = {
   monthCode() { return "M09"; },
   day() { return 6; }
 };
-const dt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30, 0, 0, 0, cal);
-const shifted = dt.withPlainDate("2010-11-12");
+const pdt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30, 0, 0, 0, cal1);
+const pd = new Temporal.PlainDate(2010, 11, 12, cal2);
+const shifted = pdt.withPlainDate(pd);
 
 TemporalHelpers.assertPlainDateTime(
   shifted,
   2008, 9, "M09", 6, 3, 24, 30, 0, 0, 0,
-  "calendar is unchanged if input has ISO calendar (1)",
+  "calendar is changed with same id (1)",
   "the era",
   1909
 );
 
 assert.sameValue(
   shifted.calendar,
-  cal,
-  "calendar is unchanged if input has ISO calendar (2)"
+  cal2,
+  "calendar is changed with same id (2)"
 );
