@@ -5,12 +5,12 @@
 esid: sec-asyncgenerator-prototype-return
 description: >
   A broken promise should reject the returned promise of
-  AsyncGenerator.prototype.return.
+  AsyncGenerator.prototype.return when the generator's state is suspendedStart.
 info: |
   AsyncGenerator.prototype.return ( value )
   ...
-  8. If _state_ is either ~suspendedStart~ or ~completed~, then
-    a. Set _generator_.[[AsyncGeneratorState]] to ~awaiting-return~.
+  8. If state is either suspendedStart or completed, then
+    a. Set generator.[[AsyncGeneratorState]] to awaiting-return.
     b. Perform AsyncGeneratorAwaitReturn(_generator_).
   ...
 

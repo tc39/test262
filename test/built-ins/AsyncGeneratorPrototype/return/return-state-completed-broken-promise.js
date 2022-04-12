@@ -31,9 +31,11 @@ features: [async-iteration]
 ---*/
 
 let unblock;
-let blocking = new Promise(res => { unblock = res; });
+let blocking = new Promise(resolve => { unblock = resolve; });
+let unblocked = false;
 var g = async function*() {
   await blocking;
+  unblocked = true;
 };
 
 var it = g();
@@ -51,6 +53,7 @@ it.return(brokenPromise)
       throw new Test262Error("Expected rejection");
     },
     err => {
+      assert(unblocked, false, 'return should be rejected before generator is resumed');
       assert.sameValue(err.message, 'broken promise');
     }
   )

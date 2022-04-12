@@ -5,7 +5,7 @@
 esid: sec-asyncgenerator-prototype-return
 description: >
   A broken promise should resume the generator and reject with
-  the exception.
+  the exception when the generator's state is suspendedYield.
 info: |
   AsyncGenerator.prototype.return ( value )
   ...
@@ -38,11 +38,11 @@ features: [async-iteration]
 
 var g = async function*() {
   try {
-    yield 0;
-    return 1;
+    yield;
+    return 'this is never returned';
   } catch (err) {
     assert.sameValue(err.message, 'broken promise');
-    return 2;
+    return 1;
   }
 };
 
@@ -57,6 +57,6 @@ var it = g();
 it.next().then(() => {
   return gen.return(brokenPromise)
 }).then(ret => {
-  assert.sameValue(ret.value, 2, 'returned value');
-  assert.sameValue(ret.done, true, 'returned value');
+  assert.sameValue(ret.value, 1, 'returned value');
+  assert.sameValue(ret.done, true, 'iterator is closed');
 }).then($DONE, $DONE);
