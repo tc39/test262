@@ -24,11 +24,6 @@ const expected = [1976, 11, "M11", 18, 0, 0, 0, 0, 0, 0];
 
 Object.entries(units).forEach(([unit, expected]) => {
   TemporalHelpers.assertPlainDateTime(
-    dt.round({ roundingmode: "halfExpand", smallestUnit: unit }),
-    ...expected,
-    `halfExpand is the default (smallest unit = ${unit}, rounding mode present)`
-  );
-  TemporalHelpers.assertPlainDateTime(
     dt.round({ smallestUnit: unit }),
     ...expected,
     `halfExpand is the default (smallest unit = ${unit}, rounding mode absent)`
