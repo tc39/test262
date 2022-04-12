@@ -27,10 +27,10 @@ actual.splice(0, actual.length);  // empty it for the next check
 assert.sameValue(dt1.equals(dt3), false, "different calendar string");
 assert.compareArray(actual, ["get calendar1.toString", "call calendar1.toString", "get calendar3.toString", "call calendar3.toString"]);
 
-const calendar4 = { toString() { throw new Test262Error("should not call calendar1.toString") } };
-const calendar5 = { toString() { throw new Test262Error("should not call calendar2.toString") } };
-const dt4 = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, calendar1);
-const dt5 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102, calendar1);
-const dt6 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102, calendar2);
+const calendar4 = { toString() { throw new Test262Error("should not call calendar4.toString") } };
+const calendar5 = { toString() { throw new Test262Error("should not call calendar5.toString") } };
+const dt4 = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, calendar4);
+const dt5 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102, calendar4);
+const dt6 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102, calendar5);
 assert.sameValue(dt4.equals(dt5), false, "not equal same calendar");
 assert.sameValue(dt4.equals(dt6), false, "not equal different calendar");
