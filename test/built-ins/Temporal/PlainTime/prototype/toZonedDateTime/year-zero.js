@@ -12,6 +12,6 @@ const instance = new Temporal.PlainTime(12, 34, 56, 987, 654, 321);
 
 assert.throws(
     RangeError,
-    () => { instance.toZonedDateTime({ plainDate: arg }); },
+    () => { instance.toZonedDateTime({ plainDate: arg, timeZone: "UTC" }); },
     "reject minus zero as extended year"
 );
