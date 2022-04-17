@@ -36,12 +36,13 @@ flags: [async]
 features: [async-iteration]
 ---*/
 
+let caughtErr;
 var g = async function*() {
   try {
     yield;
     return 'this is never returned';
   } catch (err) {
-    assert.sameValue(err.message, 'broken promise');
+    caughtErr = err;
     return 1;
   }
 };
@@ -55,8 +56,9 @@ Object.defineProperty(brokenPromise, 'constructor', {
 
 var it = g();
 it.next().then(() => {
-  return gen.return(brokenPromise)
+  return it.return(brokenPromise);
 }).then(ret => {
+  assert.sameValue(caughtErr.message, 'broken promise');
   assert.sameValue(ret.value, 1, 'returned value');
   assert.sameValue(ret.done, true, 'iterator is closed');
 }).then($DONE, $DONE);
