@@ -2,14 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainyearmonth.prototype.equals
+esid: sec-temporal.plainyearmonth.compare
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
   or property bag for PlainYearMonth
 features: [BigInt, Symbol, Temporal]
 ---*/
-
-const instance = new Temporal.PlainYearMonth(2000, 5);
 
 const rangeErrorTests = [
   [undefined, "undefined"],
@@ -21,7 +19,8 @@ const rangeErrorTests = [
 ];
 
 for (const [arg, description] of rangeErrorTests) {
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string`);
+  assert.throws(RangeError, () => Temporal.PlainYearMonth.compare(arg, new Temporal.PlainYearMonth(2019, 6)), `${description} does not convert to a valid ISO string (first argument)`);
+  assert.throws(RangeError, () => Temporal.PlainYearMonth.compare(new Temporal.PlainYearMonth(2019, 6), arg), `${description} does not convert to a valid ISO string (second argument)`);
 }
 
 const typeErrorTests = [
@@ -32,5 +31,6 @@ const typeErrorTests = [
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.equals(arg), `${description} is not a valid property bag and does not convert to a string`);
+  assert.throws(TypeError, () => Temporal.PlainYearMonth.compare(arg, new Temporal.PlainYearMonth(2019, 6)), `${description} is not a valid property bag and does not convert to a string (first argument)`);
+  assert.throws(TypeError, () => Temporal.PlainYearMonth.compare(new Temporal.PlainYearMonth(2019, 6), arg), `${description} is not a valid property bag and does not convert to a string (second argument)`);
 }

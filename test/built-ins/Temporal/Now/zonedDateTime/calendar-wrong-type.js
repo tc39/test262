@@ -2,17 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaintime.prototype.equals
+esid: sec-temporal.now.zoneddatetime
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
-  or property bag for PlainTime
+  or object for Calendar
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.PlainTime(12, 34, 56, 987, 654, 321);
-
 const rangeErrorTests = [
-  [undefined, "undefined"],
   [null, "null"],
   [true, "boolean"],
   ["", "empty string"],
@@ -21,16 +18,13 @@ const rangeErrorTests = [
 ];
 
 for (const [arg, description] of rangeErrorTests) {
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string`);
+  assert.throws(RangeError, () => Temporal.Now.zonedDateTime(arg), `${description} does not convert to a valid ISO string`);
 }
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [{}, "plain object"],
-  [Temporal.PlainTime, "Temporal.PlainTime, object"],
-  [Temporal.PlainTime.prototype, "Temporal.PlainTime.prototype, object"],
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.equals(arg), `${description} is not a valid property bag and does not convert to a string`);
+  assert.throws(TypeError, () => Temporal.Now.zonedDateTime(arg), `${description} is not a valid object and does not convert to a string`);
 }
