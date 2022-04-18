@@ -2,16 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainyearmonth.from
+esid: sec-temporal.plainyearmonth.prototype.equals
 description: A number is converted to a string, then to Temporal.PlainYearMonth
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
+const instance = new Temporal.PlainYearMonth(2019, 6);
+
 const arg = 201906;
 
-const result = Temporal.PlainYearMonth.from(arg);
-TemporalHelpers.assertPlainYearMonth(result, 2019, 6, "M06", "201906 is a valid ISO string for PlainYearMonth");
+const result = instance.equals(arg);
+assert.sameValue(result, true, "201906 is a valid ISO string for PlainYearMonth");
 
 const numbers = [
   1,
@@ -22,7 +23,7 @@ const numbers = [
 for (const arg of numbers) {
   assert.throws(
     RangeError,
-    () => Temporal.PlainYearMonth.from(arg),
+    () => instance.equals(arg),
     `Number ${arg} does not convert to a valid ISO string for PlainYearMonth`
   );
 }

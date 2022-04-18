@@ -2,16 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.from
+esid: sec-temporal.zoneddatetime.prototype.withplaindate
 description: A number is converted to a string, then to Temporal.PlainDate
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
+const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC");
+
 const arg = 19761118;
 
-const result = Temporal.PlainDate.from(arg);
-TemporalHelpers.assertPlainDate(result, 1976, 11, "M11", 18, "19761118 is a valid ISO string for PlainDate");
+const result = instance.withPlainDate(arg);
+assert.sameValue(result.epochNanoseconds, 217_129_600_000_000_000n, "19761118 is a valid ISO string for PlainDate");
 
 const numbers = [
   1,
@@ -22,7 +23,7 @@ const numbers = [
 for (const arg of numbers) {
   assert.throws(
     RangeError,
-    () => Temporal.PlainDate.from(arg),
+    () => instance.withPlainDate(arg),
     `Number ${arg} does not convert to a valid ISO string for PlainDate`
   );
 }
