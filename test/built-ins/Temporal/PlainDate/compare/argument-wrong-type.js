@@ -2,14 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.equals
+esid: sec-temporal.plaindate.compare
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
   or property bag for PlainDate
 features: [BigInt, Symbol, Temporal]
 ---*/
-
-const instance = new Temporal.PlainDate(2000, 5, 2);
 
 const rangeErrorTests = [
   [undefined, "undefined"],
@@ -21,7 +19,8 @@ const rangeErrorTests = [
 ];
 
 for (const [arg, description] of rangeErrorTests) {
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string`);
+  assert.throws(RangeError, () => Temporal.PlainDate.compare(arg, new Temporal.PlainDate(1976, 11, 18)), `${description} does not convert to a valid ISO string (first argument)`);
+  assert.throws(RangeError, () => Temporal.PlainDate.compare(new Temporal.PlainDate(1976, 11, 18), arg), `${description} does not convert to a valid ISO string (second argument)`);
 }
 
 const typeErrorTests = [
@@ -32,5 +31,6 @@ const typeErrorTests = [
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.equals(arg), `${description} is not a valid property bag and does not convert to a string`);
+  assert.throws(TypeError, () => Temporal.PlainDate.compare(arg, new Temporal.PlainDate(1976, 11, 18)), `${description} is not a valid property bag and does not convert to a string (first argument)`);
+  assert.throws(TypeError, () => Temporal.PlainDate.compare(new Temporal.PlainDate(1976, 11, 18), arg), `${description} is not a valid property bag and does not convert to a string (second argument)`);
 }

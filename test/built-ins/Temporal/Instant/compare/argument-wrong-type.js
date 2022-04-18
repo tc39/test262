@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.instant.prototype.equals
+esid: sec-temporal.instant.compare
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
   for Instant
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.Instant(0n);
+const other = new Temporal.Instant(0n);
 
 const rangeErrorTests = [
   [undefined, "undefined"],
@@ -24,7 +24,8 @@ const rangeErrorTests = [
 ];
 
 for (const [arg, description] of rangeErrorTests) {
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string`);
+  assert.throws(RangeError, () => Temporal.Instant.compare(arg, other), `${description} does not convert to a valid ISO string (first argument)`);
+  assert.throws(RangeError, () => Temporal.Instant.compare(other, arg), `${description} does not convert to a valid ISO string (second argument)`);
 }
 
 const typeErrorTests = [
@@ -33,5 +34,6 @@ const typeErrorTests = [
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.equals(arg), `${description} does not convert to a string`);
+  assert.throws(TypeError, () => Temporal.Instant.compare(arg, other), `${description} does not convert to a string (first argument)`);
+  assert.throws(TypeError, () => Temporal.Instant.compare(other, arg), `${description} does not convert to a string (second argument)`);
 }

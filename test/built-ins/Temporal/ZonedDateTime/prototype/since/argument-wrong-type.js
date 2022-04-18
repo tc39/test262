@@ -2,14 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.instant.prototype.equals
+esid: sec-temporal.zoneddatetime.prototype.since
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
-  for Instant
+  or property bag for ZonedDateTime
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.Instant(0n);
+const timeZone = new Temporal.TimeZone("UTC");
+const instance = new Temporal.ZonedDateTime(0n, timeZone);
 
 const rangeErrorTests = [
   [undefined, "undefined"],
@@ -19,19 +20,19 @@ const rangeErrorTests = [
   [1, "number that doesn't convert to a valid ISO string"],
   [19761118, "number that would convert to a valid ISO string in other contexts"],
   [1n, "bigint"],
-  [{}, "plain object"],
-  [Temporal.Instant, "Temporal.Instant, object"],
 ];
 
 for (const [arg, description] of rangeErrorTests) {
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string`);
+  assert.throws(RangeError, () => instance.since(arg), `${description} does not convert to a valid ISO string`);
 }
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [Temporal.Instant.prototype, "Temporal.Instant.prototype, object"],  // fails brand check in toString()
+  [{}, "plain object"],
+  [Temporal.ZonedDateTime, "Temporal.ZonedDateTime, object"],
+  [Temporal.ZonedDateTime.prototype, "Temporal.ZonedDateTime.prototype, object"],
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.equals(arg), `${description} does not convert to a string`);
+  assert.throws(TypeError, () => instance.since(arg), `${description} is not a valid property bag and does not convert to a string`);
 }
