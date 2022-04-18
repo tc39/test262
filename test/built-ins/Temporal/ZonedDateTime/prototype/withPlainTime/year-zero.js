@@ -8,8 +8,8 @@ features: [Temporal, arrow-function]
 ---*/
 
 const invalidStrings = [
-  '-000000-12-07T03:24:30',
-  '-000000-12-07T03:24:30+01:00[UTC]'
+  "-000000-12-07T03:24:30",
+  "-000000-12-07T03:24:30+01:00[UTC]"
 ];
 const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC");
 invalidStrings.forEach((arg) => {
