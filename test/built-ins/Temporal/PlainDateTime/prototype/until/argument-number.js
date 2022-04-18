@@ -2,16 +2,18 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.from
+esid: sec-temporal.plaindatetime.prototype.until
 description: A number is converted to a string, then to Temporal.PlainDateTime
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
+const instance = new Temporal.PlainDateTime(1976, 11, 18);
+
 let arg = 19761118;
 
-const result = Temporal.PlainDateTime.from(arg);
-TemporalHelpers.assertPlainDateTime(result, 1976, 11, "M11", 18, 0, 0, 0, 0, 0, 0, "19761118 is a valid ISO string for PlainDateTime");
+const result = instance.until(arg);
+TemporalHelpers.assertDuration(result, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "19761118 is a valid ISO string for PlainDateTime");
 
 const numbers = [
   1,
@@ -22,7 +24,7 @@ const numbers = [
 for (const arg of numbers) {
   assert.throws(
     RangeError,
-    () => Temporal.PlainDateTime.from(arg),
+    () => instance.until(arg),
     `Number ${arg} does not convert to a valid ISO string for PlainDateTime`
   );
 }

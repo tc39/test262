@@ -2,15 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.from
+esid: sec-temporal.calendar.prototype.dateadd
 description: A number is converted to a string, then to Temporal.PlainDate
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
+const instance = new Temporal.Calendar("iso8601");
+
 const arg = 19761118;
 
-const result = Temporal.PlainDate.from(arg);
+const result = instance.dateAdd(arg, new Temporal.Duration());
 TemporalHelpers.assertPlainDate(result, 1976, 11, "M11", 18, "19761118 is a valid ISO string for PlainDate");
 
 const numbers = [
@@ -22,7 +24,7 @@ const numbers = [
 for (const arg of numbers) {
   assert.throws(
     RangeError,
-    () => Temporal.PlainDate.from(arg),
+    () => instance.dateAdd(arg, new Temporal.Duration()),
     `Number ${arg} does not convert to a valid ISO string for PlainDate`
   );
 }
