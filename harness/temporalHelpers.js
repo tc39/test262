@@ -151,20 +151,21 @@ var TemporalHelpers = {
   },
 
   /*
-   * assertPlainYearMonth(yearMonth, year, month, monthCode[, description[, era, eraYear]]):
+   * assertPlainYearMonth(yearMonth, year, month, monthCode[, description[, era, eraYear, referenceISODay]]):
    *
    * Shorthand for asserting that each field of a Temporal.PlainYearMonth is
    * equal to an expected value. (Except the `calendar` property, since callers
    * may want to assert either object equality with an object they put in there,
    * or the result of yearMonth.calendar.toString().)
    */
-  assertPlainYearMonth(yearMonth, year, month, monthCode, description = "", era = undefined, eraYear = undefined) {
+  assertPlainYearMonth(yearMonth, year, month, monthCode, description = "", era = undefined, eraYear = undefined, referenceISODay = 1) {
     assert(yearMonth instanceof Temporal.PlainYearMonth, `${description} instanceof`);
     assert.sameValue(yearMonth.era, era, `${description} era result`);
     assert.sameValue(yearMonth.eraYear, eraYear, `${description} eraYear result`);
     assert.sameValue(yearMonth.year, year, `${description} year result`);
     assert.sameValue(yearMonth.month, month, `${description} month result`);
     assert.sameValue(yearMonth.monthCode, monthCode, `${description} monthCode result`);
+    assert.sameValue(yearMonth.getISOFields().isoDay, referenceISODay, `${description} referenceISODay result`);
   },
 
   /*
