@@ -8,6 +8,7 @@ defines:
   - floatArrayConstructors
   - intArrayConstructors
   - TypedArray
+  - createTypedArrayVariations
   - testWithTypedArrayConstructors
   - testWithAtomicsFriendlyTypedArrayConstructors
   - testWithNonAtomicsFriendlyTypedArrayConstructors
@@ -119,4 +120,28 @@ function testTypedArrayConversions(byteConversionValues, fn) {
       fn(TA, value, exp, initial);
     });
   });
+}
+
+function createTypedArrayVariations(TA, values) {
+  const rab = new ArrayBuffer(4 * TA.BYTES_PER_ELEMENT, { maxByteLength: 8 * TA.BYTES_PER_ELEMENT });
+
+  let nonresizable = new TA(values);
+  let fixedLength = new TA(rab, 0, values.length);
+  let lengthTracking = new TA(rab, 0);
+  let fixedLengthWithOffset = new TA(rab, 2 * TA.BYTES_PER_ELEMENT, (values.length / 2));
+  let lengthTrackingWithOffset = new TA(rab, 2 * TA.BYTES_PER_ELEMENT);
+
+  // Writes data to the buffer backing all the arrays
+  let ta_write = new TA(rab);
+  for (let i = 0; i < values.length; ++i) {
+    ta_write[i] = values[i];
+  }
+
+  return {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset,
+  }
 }
