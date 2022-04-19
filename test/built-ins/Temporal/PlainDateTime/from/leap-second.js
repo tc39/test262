@@ -3,33 +3,38 @@
 
 /*---
 esid: sec-temporal.plaindatetime.from
-description: Leap seconds may be accepted or rejected
-features: [Temporal]
+description: Leap second is a valid ISO string for PlainDateTime
 includes: [temporalHelpers.js]
+features: [Temporal]
 ---*/
 
+let arg = "2016-12-31T23:59:60";
+
+const result1 = Temporal.PlainDateTime.from(arg);
 TemporalHelpers.assertPlainDateTime(
-  Temporal.PlainDateTime.from("2016-12-31T23:59:60"),
+  result1,
   2016, 12, "M12", 31, 23, 59, 59, 0, 0, 0,
-  "ISO string with leap second is constrained"
+  "leap second is a valid ISO string for PlainDateTime"
 );
 
+const result2 = Temporal.PlainDateTime.from(arg);
 TemporalHelpers.assertPlainDateTime(
-  Temporal.PlainDateTime.from("2016-12-31T23:59:60", {overflow: "reject"}),
+  result2,
   2016, 12, "M12", 31, 23, 59, 59, 0, 0, 0,
-  "ISO string with leap second is constrained (overflow = reject)"
+  "leap second is a valid ISO string for PlainDateTime even with overflow: reject"
 );
 
-const leap = {year: 2016, month: 12, day: 31, hour: 23, minute: 59, second: 60};
+arg = { year: 2016, month: 12, day: 31, hour: 23, minute: 59, second: 60 };
 
+const result3 = Temporal.PlainDateTime.from(arg);
 TemporalHelpers.assertPlainDateTime(
-  Temporal.PlainDateTime.from(leap),
+  result3,
   2016, 12, "M12", 31, 23, 59, 59, 0, 0, 0,
-  "constrain leap second"
+  "second: 60 is constrained in property bag for PlainDateTime"
 );
 
 assert.throws(
   RangeError,
-  () => Temporal.PlainDateTime.from(leap, {overflow: "reject"}),
-  "reject leap second (plain object argument)"
+  () => Temporal.PlainDateTime.from(arg, { overflow: "reject" }),
+  "second: 60 is rejected in property bag for PlainDateTime with overflow: reject"
 );
