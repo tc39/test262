@@ -3,21 +3,22 @@
 
 /*---
 esid: sec-temporal.plaindatetime.from
-description: A Temporal PlainDateTime object is an acceptable argument
-features: [Temporal]
+description: A PlainDateTime object is copied, not returned directly
 includes: [temporalHelpers.js]
+features: [Temporal]
 ---*/
 
 const orig = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 20, 123, 456, 789);
+const result = Temporal.PlainDateTime.from(orig);
 
 TemporalHelpers.assertPlainDateTime(
-  Temporal.PlainDateTime.from(orig),
+  result,
   1976, 11, "M11", 18, 15, 23, 20, 123, 456, 789,
   "PlainDateTime is copied"
 );
 
 assert.notSameValue(
-  Temporal.PlainDateTime.from(orig),
+  result,
   orig,
   "When a PlainDateTime is given, the returned value is not the original PlainDateTime"
 );
