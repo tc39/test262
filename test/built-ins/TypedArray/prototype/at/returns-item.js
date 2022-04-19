@@ -56,5 +56,4 @@ testWithTypedArrayConstructors(TA => {
     assert.sameValue(contents.at(0), 3, `contents.at(0) must return 3 in ${name}`)
     assert.sameValue(contents.at(1), 4, `contents.at(1) must return 4 in ${name}`)
   })
-
 });
