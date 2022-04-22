@@ -10,7 +10,7 @@ features: [BigInt, Symbol, Temporal]
 ---*/
 
 const timeZone = new Temporal.TimeZone("UTC");
-const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC");
+const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, timeZone);
 
 const rangeErrorTests = [
   [null, "null"],

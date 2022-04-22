@@ -7,7 +7,8 @@ description: A number as calendar in a property bag is converted to a string, th
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC");
+const timeZone = new Temporal.TimeZone("UTC");
+const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, timeZone);
 
 const calendar = 19970327;
 
