@@ -15,13 +15,13 @@ info: |
   5. Else, let actualIndex be len + relativeIndex.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, 1, 2];
 
-assert.deepEqual(arr.with(-1, 4), [0, 1, 4]);
-assert.deepEqual(arr.with(-3, 4), [4, 1, 2]);
+assert.compareArray(arr.with(-1, 4), [0, 1, 4]);
+assert.compareArray(arr.with(-3, 4), [4, 1, 2]);
 
 // -0 is not < 0
-assert.deepEqual(arr.with(-0, 4), [4, 1, 2]);
+assert.compareArray(arr.with(-0, 4), [4, 1, 2]);

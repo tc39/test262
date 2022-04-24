@@ -17,7 +17,7 @@ info: |
     b. Let kValue be ? Get(O, Pk).
     ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [5, 0, 3];
@@ -28,4 +28,4 @@ Object.defineProperty(arr, "0", {
   }
 });
 
-assert.deepEqual(arr.toSorted(), [0, 3, 5]);
+assert.compareArray(arr.toSorted(), [0, 3, 5]);

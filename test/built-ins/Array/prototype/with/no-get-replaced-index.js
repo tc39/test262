@@ -16,7 +16,7 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     e. Set k to k + 1.
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, 1, 2, 3];
@@ -27,4 +27,4 @@ Object.defineProperty(arr, "2", {
 });
 
 var result = arr.with(2, 6);
-assert.deepEqual(result, [0, 1, 6, 3]);
+assert.compareArray(result, [0, 1, 6, 3]);

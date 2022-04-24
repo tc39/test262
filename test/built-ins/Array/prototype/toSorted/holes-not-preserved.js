@@ -19,12 +19,12 @@ info: |
     d. Set k to k + 1.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [3, /* hole */, 4, /* hole */, 1];
 Array.prototype[3] = 2;
 
 var sorted = arr.toSorted();
-assert.deepEqual(sorted, [1, 2, 3, 4, undefined]);
+assert.compareArray(sorted, [1, 2, 3, 4, undefined]);
 assert(sorted.hasOwnProperty(4));

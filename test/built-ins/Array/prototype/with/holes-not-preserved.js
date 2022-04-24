@@ -18,13 +18,13 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     e. Set k to k + 1.
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, /* hole */, 2, /* hole */, 4];
 Array.prototype[3] = 3;
 
 var result = arr.with(2, 6);
-assert.deepEqual(result, [0, undefined, 6, 3, 4]);
+assert.compareArray(result, [0, undefined, 6, 3, 4]);
 assert(result.hasOwnProperty(1));
 assert(result.hasOwnProperty(3));

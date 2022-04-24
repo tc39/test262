@@ -23,7 +23,7 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     e. Set k to k + 1.
   ...
-includes: [deepEqual.js]
+includes: [compareArray.js]
 features: [change-array-by-copy]
 ---*/
 
@@ -31,9 +31,9 @@ var arr = [0, /* hole */, 2, /* hole */, 4];
 Array.prototype[3] = 3;
 
 var spliced = arr.toSpliced(0, 0);
-assert.deepEqual(spliced, [0, undefined, 2, 3, 4]);
+assert.compareArray(spliced, [0, undefined, 2, 3, 4]);
 assert(spliced.hasOwnProperty(1));
 assert(spliced.hasOwnProperty(3));
 
 spliced = arr.toSpliced(0, 0, -1);
-assert.deepEqual(spliced, [-1, 0, undefined, 2, 3, 4]);
+assert.compareArray(spliced, [-1, 0, undefined, 2, 3, 4]);

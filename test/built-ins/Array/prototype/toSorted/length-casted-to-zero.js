@@ -12,9 +12,9 @@ info: |
   3. Let len be ? LengthOfArrayLike(O).
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
-assert.deepEqual(Array.prototype.toSorted.call({ length: -2 }), []);
-assert.deepEqual(Array.prototype.toSorted.call({ length: "dog" }), []);
-assert.deepEqual(Array.prototype.toSorted.call({ length: NaN }), []);
+assert.compareArray(Array.prototype.toSorted.call({ length: -2 }), []);
+assert.compareArray(Array.prototype.toSorted.call({ length: "dog" }), []);
+assert.compareArray(Array.prototype.toSorted.call({ length: NaN }), []);

@@ -18,7 +18,7 @@ info: |
     a. Let actualDeleteCount be len - actualStart.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var order = [];
@@ -32,6 +32,6 @@ var arrayLike = {
 };
 
 var result = Array.prototype.toSpliced.call(arrayLike, 2, 1);
-assert.deepEqual(result, ["a", "b", "c"]);
+assert.compareArray(result, ["a", "b", "c"]);
 
-assert.deepEqual(order, [0, 1, 3]);
+assert.compareArray(order, [0, 1, 3]);

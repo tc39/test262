@@ -16,9 +16,9 @@ info: |
     a. Let actualDeleteCount be 0.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var result = ["first", "second", "third"].toSpliced();
 
-assert.deepEqual(result, ["first", "second", "third"]);
+assert.compareArray(result, ["first", "second", "third"]);

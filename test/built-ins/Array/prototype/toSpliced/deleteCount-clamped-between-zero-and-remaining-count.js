@@ -13,25 +13,25 @@ info: |
     b. Let actualDeleteCount be the result of clamping dc between 0 and len - actualStart.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
-assert.deepEqual(
+assert.compareArray(
   [0, 1, 2, 3, 4, 5].toSpliced(2, -1),
   [0, 1, 2, 3, 4, 5]
 );
 
-assert.deepEqual(
+assert.compareArray(
   [0, 1, 2, 3, 4, 5].toSpliced(-4, -1),
   [0, 1, 2, 3, 4, 5]
 );
 
-assert.deepEqual(
+assert.compareArray(
   [0, 1, 2, 3, 4, 5].toSpliced(2, 6),
   [0, 1]
 );
 
-assert.deepEqual(
+assert.compareArray(
   [0, 1, 2, 3, 4, 5].toSpliced(-4, 6),
   [0, 1]
 );

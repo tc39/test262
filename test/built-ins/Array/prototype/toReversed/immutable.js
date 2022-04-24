@@ -6,10 +6,10 @@ esid: sec-array.prototype.toReversed
 description: >
   Array.prototype.toReversed does not mutate its this value
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, 1, 2];
 arr.toReversed();
 
-assert.deepEqual(arr, [0, 1, 2]);
+assert.compareArray(arr, [0, 1, 2]);

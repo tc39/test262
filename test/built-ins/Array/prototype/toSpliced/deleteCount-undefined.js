@@ -18,9 +18,9 @@ info: |
     a. Let actualDeleteCount be len - actualStart.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var result = ["first", "second", "third"].toSpliced(1, undefined);
 
-assert.deepEqual(result, ["first", "second", "third"]);
+assert.compareArray(result, ["first", "second", "third"]);

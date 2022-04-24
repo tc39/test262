@@ -12,11 +12,11 @@ info: |
   2. Let len be ? LengthOfArrayLike(O).
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arrayLike = { length: "2", 0: 1, 1: 2, 2: 3 };
-assert.deepEqual(Array.prototype.with.call(arrayLike, 0, 4), [4, 2]);
+assert.compareArray(Array.prototype.with.call(arrayLike, 0, 4), [4, 2]);
 
 var arrayLike = {
   length: {
@@ -27,4 +27,4 @@ var arrayLike = {
   2: 3,
 };
 
-assert.deepEqual(Array.prototype.with.call(arrayLike, 0, 4), [4, 2]);
+assert.compareArray(Array.prototype.with.call(arrayLike, 0, 4), [4, 2]);

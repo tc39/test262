@@ -16,7 +16,7 @@ info: |
     c. Let fromValue be ? Get(O, from).
     ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, 1, 2, 3, 4];
@@ -29,4 +29,4 @@ Object.defineProperty(arr, "3", {
   }
 });
 
-assert.deepEqual(arr.toReversed(), [4, 3, undefined, 5, 0]);
+assert.compareArray(arr.toReversed(), [4, 3, undefined, 5, 0]);

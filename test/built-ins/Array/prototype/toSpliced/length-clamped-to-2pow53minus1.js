@@ -16,7 +16,7 @@ info: |
   2. If len ≤ 0, return +0𝔽.
   3. Return 𝔽(min(len, 2^53 - 1))
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arrayLike = {
@@ -31,4 +31,4 @@ var arrayLike = {
 var result = Array.prototype.toSpliced.call(arrayLike, 0, 2 ** 53 - 3);
 
 assert.sameValue(result.length, 2);
-assert.deepEqual(result, [2 ** 53 - 3, 2 ** 53 - 2]);
+assert.compareArray(result, [2 ** 53 - 3, 2 ** 53 - 2]);

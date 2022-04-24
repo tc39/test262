@@ -16,8 +16,8 @@ info: |
   6. Else, let actualStart be min(relativeStart, len).
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var result = [0, 1, 2, 3, 4].toSpliced(10, 1, 5, 6);
-assert.deepEqual(result, [0, 1, 2, 3, 4, 5, 6]);
+assert.compareArray(result, [0, 1, 2, 3, 4, 5, 6]);

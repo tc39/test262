@@ -28,7 +28,7 @@ info: |
     e. Set k to k + 1.
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, 1, 2, 3, 4, 5];
@@ -41,4 +41,4 @@ Object.defineProperty(arr, "2", {
   }
 });
 
-assert.deepEqual(arr.toSpliced(0, 0), [0, 1, 2, 6, undefined, undefined]);
+assert.compareArray(arr.toSpliced(0, 0), [0, 1, 2, 6, undefined, undefined]);

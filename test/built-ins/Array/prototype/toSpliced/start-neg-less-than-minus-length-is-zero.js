@@ -15,8 +15,8 @@ info: |
   5. Else if relativeStart < 0, let actualStart be max(len + relativeStart, 0).
   ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var result = [0, 1, 2, 3, 4].toSpliced(-20, 2);
-assert.deepEqual(result, [2, 3, 4]);
+assert.compareArray(result, [2, 3, 4]);

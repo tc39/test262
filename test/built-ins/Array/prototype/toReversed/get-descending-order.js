@@ -17,7 +17,7 @@ info: |
     c. Let fromValue be ? Get(O, from).
     ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var order = [];
@@ -36,4 +36,4 @@ var arrayLike = {
 
 Array.prototype.toReversed.call(arrayLike);
 
-assert.deepEqual(order, [2, 1, 0]);
+assert.compareArray(order, [2, 1, 0]);

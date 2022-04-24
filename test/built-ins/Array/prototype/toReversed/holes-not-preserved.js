@@ -18,12 +18,12 @@ info: |
     d. Perform ? CreateDataPropertyOrThrow(A, Pk, fromValue).
     ...
 features: [change-array-by-copy]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 var arr = [0, /* hole */, 2, /* hole */, 4];
 Array.prototype[3] = 3;
 
 var reversed = arr.toReversed();
-assert.deepEqual(reversed, [4, 3, 2, undefined, 0]);
+assert.compareArray(reversed, [4, 3, 2, undefined, 0]);
 assert(reversed.hasOwnProperty(3));
