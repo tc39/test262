@@ -2,16 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.toReversed
+esid: sec-array.prototype.with
 description: >
-  Array.prototype.toReversed limits the length to 2 ** 32 - 1
+  Array.prototype.with limits the length to 2 ** 32 - 1
 info: |
-  Array.prototype.toReversed ( )
+  Array.prototype.with ( index, value )
 
   ...
   2. Let len be ? LengthOfArrayLike(O).
   ...
-  8. Let A be ? ArrayCreate(𝔽(len)).
+  7. Let A be ? ArrayCreate(𝔽(len)).
   ...
 
   ArrayCreate ( length [, proto ] )
@@ -26,10 +26,10 @@ var arrayLike = {
     throw new Test262Error("Get 0");
   },
   get "4294967295" () { // 2 ** 32 - 1
-    throw new Test262Error("Get 2147483648");
+    throw new Test262Error("Get 4294967295");
   },
   get "4294967296" () { // 2 ** 32
-    throw new Test262Error("Get 2147483648");
+    throw new Test262Error("Get 4294967296");
   },
   length: 2 ** 32
 };

@@ -18,8 +18,6 @@ info: |
 features: [change-array-by-copy]
 ---*/
 
-var arr = [0, 1, 2];
-
 [0, 1, 2].with(-3, 7);
 
 assert.throws(RangeError, function() {
