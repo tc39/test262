@@ -24,7 +24,7 @@ const tests = [
 ];
 
 const errorTests = [
-  [["en-GB-oed"], "Grandfathered"],
+  [["en-GB-oed"], "Legacy value"],
   [["x-private"], "Private", ["lookup"]],
 ];
 
