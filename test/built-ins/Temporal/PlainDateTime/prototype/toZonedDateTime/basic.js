@@ -12,4 +12,4 @@ const zdt = dt.toZonedDateTime("UTC");
 
 assert.sameValue(zdt.epochNanoseconds, 1577836800000000000n, "nanoseconds");
 assert.sameValue(zdt.calendar.toString(), "iso8601", "calendar");
-assert.sameValue(zdt.timeZone, "UTC", "timezone");
+assert.sameValue(zdt.timeZone.toString(), "UTC", "timezone");
