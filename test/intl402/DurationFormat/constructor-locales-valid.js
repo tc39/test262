@@ -13,6 +13,8 @@ features: [Intl.DurationFormat]
 
 const defaultLocale = new Intl.DurationFormat().resolvedOptions().locale;
 
+const matchers = ["lookup", "best fit"]
+
 const tests = [
   [undefined, defaultLocale, "undefined"],
   ["EN", "en", "Single value"],
@@ -23,22 +25,10 @@ const tests = [
   [{ 0: "DE", length: 1 }, "de", "Object with length"],
 ];
 
-const errorTests = [
-  [["en-GB-oed"], "Legacy value"],
-  [["x-private"], "Private", ["lookup"]],
-];
 
-for (const [locales, expected, name, matchers = ["lookup", "best fit"]] of tests) {
-  for (const matcher of matchers) {
-    const rtf = new Intl.DurationFormat(locales, {localeMatcher: matcher});
-    assert.sameValue(rtf.resolvedOptions().locale, expected, name);
-  }
-}
-
-for (const [locales, name, matchers = ["lookup", "best fit"]] of errorTests) {
-  for (const matcher of matchers) {
-    assert.throws(RangeError, function() {
-      new Intl.DurationFormat(locales, {localeMatcher: matcher})
-    }, name);
-  }
-}
+for (const [locales, expected, name] of tests) {
+  matchers.forEach((matcher)=>{
+    const drf = new Intl.DurationFormat(locales, {localeMatcher: matcher});
+    assert.sameValue(drf.resolvedOptions().locale, expected, name);
+  });
+};

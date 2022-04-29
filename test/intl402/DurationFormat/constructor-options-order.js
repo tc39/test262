@@ -1,55 +1,41 @@
-// Copyright 2018 Igalia, S.L. All rights reserved.
+// Copyright 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-Intl.DurationFormat
 description: Checks the order of operations on the options argument to the DurationFormat constructor.
 info: |
-    InitializeDurationFormat (DurationFormat, locales, options)
-    7. Let matcher be ? GetOption(options, "localeMatcher", "string", «"lookup", "best fit"», "best fit").
-    14. Let s be ? GetOption(options, "style", "string", «"long", "short", "narrow"», "long").
-    16. Let numeric be ? GetOption(options, "numeric", "string", «"always", "auto"», "always").
+    Intl.DurationFormat ( [ locales [ , options ] ] )
+    (...)
+    5. Let matcher be ? GetOption(options, "localeMatcher", "string", « "lookup", "best fit" », "best fit").
+    6. Let numberingSystem be ? GetOption(options, "numberingSystem", "string", undefined, undefined).
+    13. Let style be ? GetOption(options, "style", "string", « "long", "short", "narrow", "digital" », "long").
 includes: [compareArray.js]
 features: [Intl.DurationFormat]
 ---*/
 
-const callOrder = [];
+var actual = [];
 
-new Intl.DurationFormat([], {
+const options = {
   get localeMatcher() {
-    callOrder.push("localeMatcher");
-    return {
-      toString() {
-        callOrder.push("localeMatcher toString");
-        return "best fit";
-      }
-    };
+    actual.push("localeMatcher");
+    return undefined;
   },
   get numberingSystem() {
-    callOrder.push("numberingSystem");
-    return {
-      toString() {
-        callOrder.push("numberingSystem toString");
-        return "latn";
-      }
-    };
+    actual.push("numberingSystem");
+    return undefined;
   },
   get style() {
-    callOrder.push("style");
-    return {
-      toString() {
-        callOrder.push("style toString");
-        return "long";
-      }
-    };
+    actual.push("style");
+    return undefined;
   },
-});
+};
 
-assert.compareArray(callOrder, [
+const expected = [
   "localeMatcher",
-  "localeMatcher toString",
   "numberingSystem",
-  "numberingSystem toString",
-  "style",
-  "style toString"
-]);
+  "style"
+];
+
+let nf = new Intl.DurationFormat(undefined, options);
+assert.compareArray(actual, expected);
