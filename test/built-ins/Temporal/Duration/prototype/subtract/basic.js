@@ -61,3 +61,6 @@ TemporalHelpers.assertDuration(d1.subtract({ minutes: 122 }),
 const d2 = Temporal.Duration.from({ hours: 1, seconds: 3721 });
 TemporalHelpers.assertDuration(d2.subtract({ minutes: 61, nanoseconds: 3722000000001 }),
   0, 0, 0, 0, 0, -1, -1, 0, 0, -1);
+TemporalHelpers.assertDuration(duration.subtract({ month: 1, days: 1 }),
+  0, 0, 0, 2, 1, 10, 0, 0, 0, 0,
+  "incorrectly-spelled properties are ignored");
