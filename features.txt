@@ -272,6 +272,10 @@ Intl.DurationFormat
 # https://github.com/tc39/proposal-regexp-set-notation
 regexp-v-flag
 
+# Decorators
+# https://github.com/tc39/proposal-decorators
+decorators
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
