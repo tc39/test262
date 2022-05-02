@@ -16,4 +16,4 @@ const requestedLocales = [defaultLocale, notSupported];
 
 const supportedLocales = Intl.DurationFormat.supportedLocalesOf(requestedLocales);
 assert.sameValue(supportedLocales.length, 1, "The length of the supported locales list should be 1");
-assert.sameValue(supportedLocales[0], defaultLocale, "The default locale is not returned in the supported list.");
+assert.sameValue(supportedLocales[0], defaultLocale, "The default locale is returned in the supported list.");
