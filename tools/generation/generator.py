@@ -9,6 +9,11 @@ import glob, os, sys
 from lib.expander import Expander
 from lib.test import Test
 
+# base name of the files to be ignored
+ignored_files = [
+    '.DS_Store',
+]
+
 def print_error(*values):
     print('ERROR:', *values, file=sys.stderr)
 
@@ -35,6 +40,8 @@ def find_cases(location):
 def clean(args):
     for (subdir, _, fileNames) in os.walk(args.directory):
         for fileName in map(lambda x: os.path.join(subdir, x), fileNames):
+            if os.path.basename(fileName) in ignored_files:
+                continue
             test = Test(fileName)
             test.load()
             if test.is_generated():
