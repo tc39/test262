@@ -3,7 +3,7 @@
 /*---
 esid: sec-shadowrealm.prototype.importvalue
 description: >
-  ShadowRealm.prototype.importValue coerces exportName to string.
+  ShadowRealm.prototype.importValue throws if exportName is not a string.
 features: [ShadowRealm]
 ---*/
 
@@ -23,8 +23,8 @@ const exportName = {
   }
 };
 
-assert.throws(Test262Error, () => {
+assert.throws(TypeError, () => {
   r.importValue('', exportName);
 });
 
-assert.sameValue(count, 1);
+assert.sameValue(count, 0);
