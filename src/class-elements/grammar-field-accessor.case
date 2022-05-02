@@ -1,0 +1,21 @@
+// Copyright (C) 2022 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Valid accessor FieldDefinition, ClassElementName, PropertyName Syntax
+info: |
+  FieldDefinition[Yield, Await] :
+    ClassElementName[?Yield, ?Await] Initializer[+In, ?Yield, ?Await]opt
+    accessor [no LineTerminator here] ClassElementName[?Yield, ?Await] Initializer[+In, ?Yield, ?Await]opt
+
+template: syntax/valid
+features: [decorators]
+---*/
+
+//- elements
+accessor $;
+accessor _;
+accessor \u{6F};
+accessor \u2118;
+accessor ZW_\u200C_NJ;
+accessor ZW_\u200D_J;

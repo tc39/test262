@@ -1,0 +1,30 @@
+// Copyright (C) 2022 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: prod-ClassDeclaration
+name: Valid syntax for decorator on class declaration in class body.
+path: language/statements/class/decorator/syntax/class-valid/
+info: |
+  ClassDeclaration[Yield, Await, Default] :
+    DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await] ClassTail[?Yield, ?Await]
+    [+Default] DecoratorList[?Yield, ?Await]opt class ClassTail[?Yield, ?Await]
+
+  DecoratorList[Yield, Await] :
+    DecoratorList[?Yield, ?Await]opt Decorator[?Yield, ?Await]
+
+  Decorator[Yield, Await] :
+    @ DecoratorMemberExpression[?Yield, ?Await]
+    @ DecoratorParenthesizedExpression[?Yield, ?Await]
+    @ DecoratorCallExpression[?Yield, ?Await]
+
+  ...
+features: [class, decorators]
+---*/
+
+class C {
+  /*{ elements }*/
+  static {
+    /*{ decorators }*/ class C {}
+  }
+}
