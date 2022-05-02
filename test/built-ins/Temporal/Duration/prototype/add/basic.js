@@ -26,3 +26,6 @@ TemporalHelpers.assertDuration(duration3.add({ minutes: 122 }),
 const duration4 = Temporal.Duration.from({ hours: -1, seconds: -3721 });
 TemporalHelpers.assertDuration(duration4.add({ minutes: 61, nanoseconds: 3722000000001 }),
   0, 0, 0, 0, 0, 1, 1, 0, 0, 1, "balancing flipped sign 2");
+TemporalHelpers.assertDuration(duration1.add({ month: 1, days: 1 }),
+  0, 0, 0, 2, 0, 5, 0, 0, 0, 0,
+  "incorrectly-spelled properties are ignored");
