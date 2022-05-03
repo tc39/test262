@@ -26,9 +26,8 @@ const shifted = pdt.withPlainDate(pd);
 TemporalHelpers.assertPlainDateTime(
   shifted,
   2008, 9, "M09", 6, 3, 24, 30, 0, 0, 0,
-  "calendar is changed if receiver has ISO calendar (1)",
-  "the era",
-  1909
+  "calendar is changed if receiver has ISO calendar (1)"
+  // Testing of era and eraYear should only be coded under intl402
 );
 
 assert.sameValue(
