@@ -10,8 +10,6 @@ includes: [temporalHelpers.js]
 
 const cal = {
   id: "thisisnotiso",
-  era() { return "the era"; },
-  eraYear() { return 1909; },
   toString() { return "this is a string"; },
   year() { return 2008; },
   month() { return 9; },

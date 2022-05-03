@@ -11,8 +11,6 @@ includes: [temporalHelpers.js]
 let calls = 0;
 const cal = {
   id: 'thisisnotiso',
-  era() { return "the era"; },
-  eraYear() { return 1909; },
   toString() {
     ++calls;
     return "this is a string";
