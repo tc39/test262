@@ -13,8 +13,6 @@ const cal1 = {
 };
 const cal2 = {
   id: 'thisisnotiso',
-  era() { return "the era"; },
-  eraYear() { return 1909; },
   toString() { return "this is a string"; },
   year() { return 2008; },
   month() { return 9; },
@@ -28,9 +26,8 @@ const shifted = pdt.withPlainDate(pd);
 TemporalHelpers.assertPlainDateTime(
   shifted,
   2008, 9, "M09", 6, 3, 24, 30, 0, 0, 0,
-  "calendar is changed with same id (1)",
-  "the era",
-  1909
+  "calendar is changed with same id (1)"
+  // Testing of era and eraYear should only be coded under intl402
 );
 
 assert.sameValue(
