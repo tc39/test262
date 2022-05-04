@@ -8,73 +8,88 @@
   includes: [testIntl.js]
   ---*/
 
-  var locales = [new Intl.NumberFormat().resolvedOptions().locale, "ar", "de", "th", "ja"];
+  const locales = [new Intl.NumberFormat().resolvedOptions().locale, 'ar', 'de', 'th', 'ja'];
 
-  var numberingSystems =  ['arab', 'latn', 'thai', 'hanidec'];
+  const numberingSystems =  ['arab', 'latn', 'thai', 'hanidec'];
 
-  var expectedResults = {
-    'auto' : [
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' }
-      ]
+  const expectedResults = {
+    'auto' : {
+      'same-minimums': { '1': '1.0', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' },
+      'same-maximums' : { '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'minSd-larger-minFd' : { '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'minSd-smaller-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' },
+      'minSd-smaller-maxFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' },
+      'minSd-larger-maxFd': { '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'maxSd-larger-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.63', '1.750': '1.75', '1.875': '1.88', '2.000': '2' },
+      'maxSd-smaller-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' }, //
+      'maxSd-smaller-maxFd':  { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' }, //
+      'maxSd-larger-maxFd' : { '1': '1', '1.500': '1.5', '1.625': '1.63', '1.750': '1.75', '1.875': '1.88', '2.000': '2' },
+      'minSd-maxSd-smaller-minFd-maxFd' :{ '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'minSd-maxSd-larger-minFd-maxFd' :{ '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'same-minimums-maxFd-larger-maxSd': { '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'same-minimums-maxFd-smaller-maxSd': { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' }
+    }
     ,
-    'lessPrecision' : [
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' }
-    ],
-    'morePrecision' : [
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' },
-      { '1': '1.0', '1.500': '1.5', '1.625': '1.6', '1.750': '2.0', '1.875': '2.0', '2.000': '2.0' }
-    ]
+    'lessPrecision' : {
+      'same-minimums': { '1': '1.0', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' },
+      'same-maximums' : { '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'minSd-larger-minFd' : { '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'minSd-smaller-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' },
+      'minSd-smaller-maxFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' },
+      'minSd-larger-maxFd': { '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'maxSd-larger-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.63', '1.750': '1.75', '1.875': '1.88', '2.000': '2' },
+      'maxSd-smaller-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' }, //
+      'maxSd-smaller-maxFd':  { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' }, //
+      'maxSd-larger-maxFd' : { '1': '1', '1.500': '1.5', '1.625': '1.63', '1.750': '1.75', '1.875': '1.88', '2.000': '2' },
+      'minSd-maxSd-smaller-minFd-maxFd' :{ '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'minSd-maxSd-larger-minFd-maxFd' :{ '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'same-minimums-maxFd-larger-maxSd': { '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'same-minimums-maxFd-smaller-maxSd': { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' }
+      },
+    'morePrecision' : {
+      'same-minimums': { '1': '1.0', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' },
+      'same-maximums' : { '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'minSd-larger-minFd' : { '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'minSd-smaller-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' },
+      'minSd-smaller-maxFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' },
+      'minSd-larger-maxFd': { '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'maxSd-larger-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.63', '1.750': '1.75', '1.875': '1.88', '2.000': '2' },
+      'maxSd-smaller-minFd' : { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' }, //
+      'maxSd-smaller-maxFd':  { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.0' }, //
+      'maxSd-larger-maxFd' : { '1': '1', '1.500': '1.5', '1.625': '1.63', '1.750': '1.75', '1.875': '1.88', '2.000': '2' },
+      'minSd-maxSd-smaller-minFd-maxFd' :{ '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'minSd-maxSd-larger-minFd-maxFd' :{ '1': '1.00', '1.500': '1.50', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2.00' },
+      'same-minimums-maxFd-larger-maxSd': { '1': '1', '1.500': '1.5', '1.625': '1.6', '1.750': '1.8', '1.875': '1.9', '2.000': '2' },
+      'same-minimums-maxFd-smaller-maxSd': { '1': '1', '1.500': '1.5', '1.625': '1.625', '1.750': '1.75', '1.875': '1.875', '2.000': '2' }
+      }
   }
 
-  var optionsMatrix = [
-    { useGrouping: false, minimumSignificantDigits: 2, minimumFractionDigits: 2},
-    { useGrouping: false, minimumSignificantDigits: 3, minimumFractionDigits: 1},
-    { useGrouping: false, maximumSignificantDigits: 2, minimumFractionDigits: 2},
-    { useGrouping: false, maximumSignificantDigits: 3, minimumFractionDigits: 1},
-    { useGrouping: false, minimumSignificantDigits: 2, maximumFractionDigits: 2},
-    { useGrouping: false, minimumSignificantDigits: 3, maximumFractionDigits: 1},
-    { useGrouping: false, minimumFractionDigits: 1, maximumFractionDigits: 4, minimumSignificantDigits: 1, maximumSignificantDigits: 2 },
-    { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 4, minimumSignificantDigits: 1, maximumSignificantDigits: 2 },
-    { useGrouping: false, minimumFractionDigits: 2, maximumFractionDigits: 4, minimumSignificantDigits: 2, maximumSignificantDigits: 3 },
-    { useGrouping: false, minimumFractionDigits: 1, maximumFractionDigits: 2, minimumSignificantDigits: 1, maximumSignificantDigits: 4 },
-    { useGrouping: false, minimumFractionDigits: 1, maximumFractionDigits: 2, minimumSignificantDigits: 2, maximumSignificantDigits: 4 },
-  ];
-
-  function testPrecision(mode){
-    optionsMatrix.forEach((nfTestOptions)=>{
-      Object.keys(expectedResults[mode]).forEach((i)=>{
-        testNumberFormat(locales, numberingSystems , {...nfTestOptions  , roundingIncrement: mode },  expectedResults[mode][i]);
-      })
-    })
+  const optionsMatrix = {
+   'same-minimums' :{ minimumSignificantDigits: 2, minimumFractionDigits: 2},
+   'same-maximums' :{ maximumSignificantDigits: 2, maximumFractionDigits: 2},
+   'minSd-larger-minFd' :{ minimumSignificantDigits: 3, minimumFractionDigits: 1},
+   'minSd-smaller-minFd' :{ minimumSignificantDigits: 1, minimumFractionDigits: 3},
+   'minSd-smaller-maxFd' :{ minimumSignificantDigits: 1, maximumFractionDigits: 3},
+   'minSd-larger-maxFd' :{ minimumSignificantDigits: 3, maximumFractionDigits: 1},
+   'maxSd-larger-minFd' :{ maximumSignificantDigits: 3, minimumFractionDigits: 1},
+   //'maxSd-smaller-minFd' :{ maximumSignificantDigits: 1, minimumFractionDigits: 3},
+   //'maxSd-smaller-maxFd' :{ maximumSignificantDigits: 1, maximumFractionDigits: 3},
+   'maxSd-larger-maxFd' :{ maximumSignificantDigits: 3, maximumFractionDigits: 1},
+   'minSd-maxSd-smaller-minFd-maxFd' :{ minimumSignificantDigits: 1, maximumSignificantDigits: 2 , minimumFractionDigits: 3, maximumFractionDigits: 4 },
+   'minSd-maxSd-larger-minFd-maxFd' :{ minimumSignificantDigits: 3, maximumSignificantDigits: 4 , minimumFractionDigits: 1, maximumFractionDigits: 2 },
+   'same-minimums-maxFd-larger-maxSd' :{ minimumSignificantDigits: 1, maximumSignificantDigits: 2 , minimumFractionDigits: 1, maximumFractionDigits: 4 },
+   'same-minimums-maxFd-smaller-maxSd' :{ minimumSignificantDigits: 1, maximumSignificantDigits: 4 , minimumFractionDigits: 1, maximumFractionDigits: 2 },
   }
 
-  ['auto' , 'lessPrecision' , 'morePrecision'].forEach(testPrecision);
+  function testPrecision(mode) {
+    Object.keys(optionsMatrix).forEach((key) => {
+      testNumberFormat(
+        locales,
+        numberingSystems,
+        { ...optionsMatrix[key], roundingIncrement: mode, userGrouping: false },
+        expectedResults[mode][key]
+      );
+    });
+  }
+
+['auto' , 'lessPrecision' , 'morePrecision'].forEach(testPrecision);
