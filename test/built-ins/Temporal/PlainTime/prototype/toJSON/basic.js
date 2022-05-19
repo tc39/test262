@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaintime.prototype.tostring
-description: auto value for fractionalSecondDigits option
+esid: sec-temporal.plaintime.prototype.tojson
+description: Basic behavior for toJSON
 features: [Temporal]
 ---*/
 
@@ -14,7 +14,10 @@ const tests = [
   [new Temporal.PlainTime(15, 23, 30, 123, 400), "15:23:30.1234"],
 ];
 
+const options = new Proxy({}, {
+  get() { throw new Test262Error("should not get properties off argument") }
+});
 for (const [time, expected] of tests) {
-  assert.sameValue(time.toString(), expected, "default is to emit seconds and drop trailing zeroes");
-  assert.sameValue(time.toString({ fractionalSecondDigits: "auto" }), expected, "auto is the default");
+  assert.sameValue(time.toJSON(), expected, "toJSON without argument");
+  assert.sameValue(time.toJSON(options), expected, "toJSON with argument");
 }
