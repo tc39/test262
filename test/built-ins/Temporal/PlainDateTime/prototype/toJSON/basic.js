@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.prototype.tostring
-description: auto value for fractionalSecondDigits option
+esid: sec-temporal.plaindatetime.prototype.tojson
+description: Basic behavior for toJSON
 features: [Temporal]
 ---*/
 
@@ -14,7 +14,10 @@ const tests = [
   [new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 400), "1976-11-18T15:23:30.1234"],
 ];
 
+const options = new Proxy({}, {
+  get() { throw new Test262Error("should not get properties off argument") }
+});
 for (const [datetime, expected] of tests) {
-  assert.sameValue(datetime.toString(), expected, "default is to emit seconds and drop trailing zeroes");
-  assert.sameValue(datetime.toString({ fractionalSecondDigits: "auto" }), expected, "auto is the default");
+  assert.sameValue(datetime.toJSON(), expected, "toJSON without argument");
+  assert.sameValue(datetime.toJSON(options), expected, "toJSON with argument");
 }
