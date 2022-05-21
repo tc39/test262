@@ -2,24 +2,26 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.from
+esid: sec-temporal.plaintime.prototype.toplaindatetime
 description: Time separator in string argument can vary
 features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
 const tests = [
-  ["1976-11-18T15:23", "uppercase T"],
-  ["1976-11-18t15:23", "lowercase T"],
-  ["1976-11-18 15:23", "space between date and time"],
+  ["2000-05-02T15:23", "uppercase T"],
+  ["2000-05-02t15:23", "lowercase T"],
+  ["2000-05-02 15:23", "space between date and time"],
 ];
 
+const instance = new Temporal.PlainTime(12, 34, 56, 987, 654, 321);
+
 tests.forEach(([arg, description]) => {
-  const result = Temporal.PlainDateTime.from(arg);
+  const result = instance.toPlainDateTime(arg);
 
   TemporalHelpers.assertPlainDateTime(
     result,
-    1976, 11, "M11", 18, 15, 23, 0, 0, 0, 0,
+    2000, 5, "M05", 2, 12, 34, 56, 987, 654, 321,
     `variant time separators (${description})`
   );
 });
