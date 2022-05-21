@@ -2,10 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.from
+esid: sec-temporal.timezone.prototype.getinstantfor
 description: Time separator in string argument can vary
 features: [Temporal]
-includes: [temporalHelpers.js]
 ---*/
 
 const tests = [
@@ -14,12 +13,14 @@ const tests = [
   ["1976-11-18 15:23", "space between date and time"],
 ];
 
-tests.forEach(([arg, description]) => {
-  const result = Temporal.PlainDateTime.from(arg);
+const instance = new Temporal.TimeZone("UTC");
 
-  TemporalHelpers.assertPlainDateTime(
-    result,
-    1976, 11, "M11", 18, 15, 23, 0, 0, 0, 0,
+tests.forEach(([arg, description]) => {
+  const result = instance.getInstantFor(arg);
+
+  assert.sameValue(
+    result.epochNanoseconds,
+    217_178_580_000_000_000n,
     `variant time separators (${description})`
   );
 });
