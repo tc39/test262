@@ -14,4 +14,6 @@ testWithTypedArrayConstructors(TA => {
   ta.with(0, 2);
 
   assert.compareArray(ta, [3, 1, 2]);
+  assert.notSameValue(ta.with(0, 2), ta);
+  assert.notSameValue(ta.with(0, 3), ta);
 });

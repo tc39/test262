@@ -14,4 +14,6 @@ testWithTypedArrayConstructors(TA => {
   ta.toSpliced(0, 2);
 
   assert.compareArray(ta, [3, 1, 2]);
+  assert.notSameValue(ta.toSpliced(0, 2), ta);
+  assert.notSameValue(ta.toSpliced(0, 0), ta);
 });

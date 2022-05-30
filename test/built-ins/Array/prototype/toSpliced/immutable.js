@@ -13,3 +13,5 @@ var arr = [2, 0, 1];
 arr.toSpliced(0, 0, -1);
 
 assert.compareArray(arr, [2, 0, 1]);
+assert.notSameValue(arr.toSpliced(0, 0, -1), arr);
+assert.notSameValue(arr.toSpliced(0, 1, -1), arr);

@@ -13,3 +13,5 @@ var arr = [0, 1, 2];
 arr.with(1, 3);
 
 assert.compareArray(arr, [0, 1, 2]);
+assert.notSameValue(arr.with(1, 3), arr);
+assert.notSameValue(arr.with(1, 1), arr);

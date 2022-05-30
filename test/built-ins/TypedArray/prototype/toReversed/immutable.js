@@ -14,4 +14,5 @@ testWithTypedArrayConstructors(TA => {
   ta.toReversed();
 
   assert.compareArray(ta, [0, 1, 2]);
+  assert.notSameValue(ta.toReversed(), ta);
 });

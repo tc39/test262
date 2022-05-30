@@ -13,3 +13,4 @@ var arr = [0, 1, 2];
 arr.toReversed();
 
 assert.compareArray(arr, [0, 1, 2]);
+assert.notSameValue(arr.toReversed(), arr);
