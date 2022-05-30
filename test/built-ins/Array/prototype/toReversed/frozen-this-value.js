@@ -9,7 +9,9 @@ features: [change-array-by-copy]
 ---*/
 
 var arr = Object.freeze([0, 1, 2]);
-arr.toReversed();
+var result = arr.toReversed();
+assert.compareArray(result, [2, 1, 0]);
 
 var arrayLike = Object.freeze({ length: 3, 0: 0, 1: 1, 2: 2 });
-Array.prototype.toReversed.call(arrayLike);
+result = Array.prototype.toReversed.call(arrayLike);
+assert.compareArray(result, [2, 1, 0]);

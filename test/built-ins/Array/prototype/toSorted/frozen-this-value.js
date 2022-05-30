@@ -9,7 +9,9 @@ features: [change-array-by-copy]
 ---*/
 
 var arr = Object.freeze([2, 0, 1]);
-arr.toSorted();
+var result = arr.toSorted();
+assert.compareArray(result, [0, 1, 2]);
 
 var arrayLike = Object.freeze({ length: 3, 0: 2, 1: 0, 2: 1 });
-Array.prototype.toSorted.call(arrayLike);
+result = Array.prototype.toSorted.call(arrayLike);
+assert.compareArray(result, [0, 1, 2]);
