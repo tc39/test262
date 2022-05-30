@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.toSorted
 description: >
-  Array.prototype.toSorted doesn't call copmareFn if there is an error
+  Array.prototype.toSorted doesn't call compareFn if there is an error
 info: |
   Array.prototype.toSorted ( compareFn )
 
@@ -17,15 +17,13 @@ info: |
 features: [change-array-by-copy]
 ---*/
 
-function StopToSorted() {}
-
 var arrayLike = {
   length: 1,
-  get 0() { throw new StopToSorted(); },
+  get 0() { throw new Test262Error(); },
 };
 
 var called = false;
-assert.throws(StopToSorted, function() {
+assert.throws(Test262Error, function() {
   Array.prototype.toSorted.call(arrayLike, () => {
     called = true;
   });
@@ -33,12 +31,12 @@ assert.throws(StopToSorted, function() {
 assert.sameValue(called, false);
 
 called = false;
-assert.throws(StopToSorted, function() {
+assert.throws(Test262Error, function() {
   var first = true;
   [1, 2, 3].toSorted(() => {
     if (first) {
       first = false;
-      throw new StopToSorted();
+      throw new Test262Error();
     }
     called = true;
   });

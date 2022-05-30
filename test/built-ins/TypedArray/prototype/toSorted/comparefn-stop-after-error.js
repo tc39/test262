@@ -18,8 +18,6 @@ includes: [testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-function StopToSorted() {}
-
 testWithTypedArrayConstructors(TA => {
   var calls = 0;
   var ta = new TA([3, 1, 2]);
@@ -27,7 +25,7 @@ testWithTypedArrayConstructors(TA => {
     ta.toSorted(() => {
       if (calls === 0) {
         calls++;
-        throw new StopToSorted();
+        throw new Test262Error();
       }
       calls++;
     });

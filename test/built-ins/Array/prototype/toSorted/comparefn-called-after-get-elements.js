@@ -33,11 +33,9 @@ var arrayLike = {
 
 }
 
-function StopToSorted() {}
-
-assert.throws(StopToSorted, function() {
+assert.throws(Test262Error, function() {
   Array.prototype.toSorted.call(arrayLike, () => {
-    throw new StopToSorted();
+    throw new Test262Error();
   });
 });
 
