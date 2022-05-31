@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.calendar
 description: Test for Temporal.Calendar subclassing.
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomCalendar extends Temporal.Calendar {

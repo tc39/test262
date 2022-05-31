@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.zoneddatetime
 description: Test for Temporal.ZonedDateTime subclassing.
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomZonedDateTime extends Temporal.ZonedDateTime {

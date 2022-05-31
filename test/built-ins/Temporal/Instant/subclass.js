@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.instant
 description: Test for Temporal.Instant subclassing.
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomInstant extends Temporal.Instant {
