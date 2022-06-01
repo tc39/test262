@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.timezone
 description: Test for Temporal.TimeZone subclassing.
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomTimeZone extends Temporal.TimeZone {

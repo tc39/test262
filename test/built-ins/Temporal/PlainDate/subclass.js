@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindate
 description: Test for Temporal.PlainDate subclassing.
 includes: [temporalHelpers.js]
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomPlainDate extends Temporal.PlainDate {

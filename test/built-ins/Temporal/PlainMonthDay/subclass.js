@@ -5,7 +5,7 @@
 esid: sec-temporal.plainmonthday
 description: Test for Temporal.PlainMonthDay subclassing.
 includes: [temporalHelpers.js]
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomPlainMonthDay extends Temporal.PlainMonthDay {

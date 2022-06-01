@@ -5,7 +5,7 @@
 esid: sec-temporal.duration
 description: Test for Temporal.Duration subclassing.
 includes: [temporalHelpers.js]
-flags: [Temporal]
+features: [Temporal]
 ---*/
 
 class CustomDuration extends Temporal.Duration {
