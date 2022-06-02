@@ -128,8 +128,16 @@ function createTypedArrayVariations(TA, values) {
   let nonresizable = new TA(values);
   let fixedLength = new TA(rab, 0, values.length);
   let lengthTracking = new TA(rab, 0);
-  let fixedLengthWithOffset = new TA(rab, 2 * TA.BYTES_PER_ELEMENT, (values.length / 2));
-  let lengthTrackingWithOffset = new TA(rab, 2 * TA.BYTES_PER_ELEMENT);
+
+  let fixedLengthWithOffset = {
+    name: fixedLengthWithOffset,
+    contents: new TA(rab, 2 * TA.BYTES_PER_ELEMENT, (values.length / 2))
+  };
+
+  let lengthTrackingWithOffset = {
+    name: lengthTrackingWithOffset,
+    contents: new TA(rab, 2 * TA.BYTES_PER_ELEMENT)
+  };
 
   // Writes data to the buffer backing all the arrays
   let ta_write = new TA(rab);

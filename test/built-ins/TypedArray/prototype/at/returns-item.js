@@ -58,3 +58,32 @@ testWithTypedArrayConstructors(TA => {
   })
 
 });
+
+
+
+testWithTypedArrayVariants(TA => {
+  assert.sameValue(typeof TA.prototype.at, 'function', 'The value of `typeof TA.prototype.at` is "function"');
+
+  const values = [1, 2, 3, 4];
+
+  /*
+    Works for non-offset ...
+  */
+
+  testWithTypedArrayVariants(TA, values, (case) => {
+    /*
+      I updated this to refer to the values array instead of the
+      explicit value because really they should have both been
+      written this way — it makes the connection clear.
+    */
+    assert.sameValue(a.at(0), values[0], 'a.at(0) must return 1');
+    assert.sameValue(a.at(1), values[1], 'a.at(1) must return 2');
+    assert.sameValue(a.at(2), values[2], 'a.at(2) must return 3');
+    assert.sameValue(a.at(3), values[3], 'a.at(3) must return 4');
+  });
+
+  /*
+    ... and then what  do we do for the offsets?
+  */
+
+});
