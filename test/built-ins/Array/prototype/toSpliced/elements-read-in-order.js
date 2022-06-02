@@ -35,3 +35,14 @@ var result = Array.prototype.toSpliced.call(arrayLike, 2, 1);
 assert.compareArray(result, ["a", "b", "c"]);
 
 assert.compareArray(order, [0, 1, 3]);
+
+order = [];
+var arr = [0, 1, "none", 3];
+Object.defineProperty(arr, 0, { get: function() { order.push(0); return "a" } });
+Object.defineProperty(arr, 1, { get: function() { order.push(1); return "b" } });
+Object.defineProperty(arr, 3, { get: function() { order.push(3); return "c" } });
+
+result = Array.prototype.toSpliced.call(arr, 2, 1);
+assert.compareArray(result, ["a", "b", "c"]);
+
+assert.compareArray(order, [0, 1, 3]);

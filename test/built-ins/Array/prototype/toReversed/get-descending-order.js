@@ -37,3 +37,13 @@ var arrayLike = {
 Array.prototype.toReversed.call(arrayLike);
 
 assert.compareArray(order, [2, 1, 0]);
+
+order = [];
+var arr = [0, 1, 2];
+Object.defineProperty(arr, 0, { get: function() { order.push(0); } });
+Object.defineProperty(arr, 1, { get: function() { order.push(1); } });
+Object.defineProperty(arr, 2, { get: function() { order.push(2); } });
+
+Array.prototype.toReversed.call(arr);
+
+assert.compareArray(order, [2, 1, 0]);
