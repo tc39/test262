@@ -24,6 +24,7 @@ info: |
     CoverParenthesizedExpressionAndArrowParameterList[?Yield, ?Await]
 
 template: syntax/valid
+flags: [noStrict]
 ---*/
 
 //- setup

@@ -5,7 +5,7 @@
 description: Decorator @ DecoratorParenthesizedExpression (Valid syntax for decorator on class.)
 esid: prod-ClassDeclaration
 features: [class, decorators]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     ClassDeclaration[Yield, Await, Default] :
       DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await] ClassTail[?Yield, ?Await]

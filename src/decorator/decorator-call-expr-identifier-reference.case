@@ -19,6 +19,7 @@ info: |
     [~Await] await
 
 template: syntax/valid
+flags: [noStrict]
 ---*/
 
 //- setup

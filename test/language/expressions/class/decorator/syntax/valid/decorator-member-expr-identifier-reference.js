@@ -5,7 +5,7 @@
 description: Decorator @ DecoratorMemberExpression (Valid syntax for decorator on class expression)
 esid: prod-ClassExpression
 features: [class, decorators]
-flags: [generated]
+flags: [generated, noStrict]
 info: |
     ClassExpression[Yield, Await] :
       DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await]opt ClassTail[?Yield, ?Await]
