@@ -5,7 +5,7 @@
 description: Decorator @ DecoratorParenthesizedExpression (Valid syntax for decorator on class.)
 esid: prod-ClassDeclaration
 features: [class, decorators]
-flags: [generated, noStrict]
+flags: [generated]
 info: |
     ClassDeclaration[Yield, Await, Default] :
       DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await] ClassTail[?Yield, ?Await]
@@ -47,7 +47,6 @@ function \u{6F}() {}
 function \u2118() {}
 function ZW_\u200C_NJ() {}
 function ZW_\u200D_J() {}
-function yield() {}
 function await() {}
 
 
@@ -58,5 +57,4 @@ function await() {}
 @(\u2118)
 @(ZW_\u200C_NJ)
 @(ZW_\u200D_J)
-@(yield)
 @(await) class C {}

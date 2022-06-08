@@ -5,7 +5,7 @@
 description: Decorator @ DecoratorCallExpression (Valid syntax for decorator on class expression)
 esid: prod-ClassExpression
 features: [class, decorators]
-flags: [generated, noStrict]
+flags: [generated]
 info: |
     ClassExpression[Yield, Await] :
       DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await]opt ClassTail[?Yield, ?Await]
@@ -43,7 +43,6 @@ var \u{6F} = decorator;
 var \u2118 = decorator;
 var ZW_\u200C_NJ = decorator;
 var ZW_\u200D_J = decorator;
-var yield = decorator;
 var await = decorator;
 
 
@@ -54,5 +53,4 @@ var C = @$()
 @\u2118()
 @ZW_\u200C_NJ()
 @ZW_\u200D_J()
-@yield()
 @await() class {};
