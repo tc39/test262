@@ -6,26 +6,14 @@ desc: >
   Decorator @ DecoratorMemberExpression
 info: |
   IdentifierReference[Yield, Await] :
-    Identifier
     [~Yield] yield
-    [~Await] await
+    ...
 template: syntax/valid
+flags: [noStrict]
 ---*/
 
 //- setup
-function $() {}
-function _() {}
-function \u{6F}() {}
-function \u2118() {}
-function ZW_\u200C_NJ() {}
-function ZW_\u200D_J() {}
-function await() {}
+function yield() {}
 
 //- decorators
-@$
-@_
-@\u{6F}
-@\u2118
-@ZW_\u200C_NJ
-@ZW_\u200D_J
-@await
+@yield
