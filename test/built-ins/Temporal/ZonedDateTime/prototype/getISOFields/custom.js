@@ -3,29 +3,12 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.prototype.getisofields
-description: Properties added in correct order to object returned from getISOFields
+description: getISOFields does not call into user code.
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-class CustomCalendar extends Temporal.Calendar {
-  constructor() {
-    super("iso8601");
-  }
-  year() {
-    throw new Test262Error("Should not call 'year' method");
-  }
-  month() {
-    throw new Test262Error("Should not call 'month' method");
-  }
-  monthCode() {
-    throw new Test262Error("Should not call 'monthCode' method");
-  }
-  day() {
-    throw new Test262Error("Should not call 'day' method");
-  }
-}
-
-const calendar = new CustomCalendar();
+const calendar = TemporalHelpers.calendarThrowEverything();
 const instance = new Temporal.ZonedDateTime(1_000_086_400_987_654_321n, "UTC", calendar);
 const result = instance.getISOFields();
 
