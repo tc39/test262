@@ -12,7 +12,7 @@ assert.sameValue(
   Temporal.PlainDate.compare(zdt, new Temporal.PlainDate(1970, 1, 1)),
   0, "same date, ZDT first");
 assert.sameValue(
-  Temporal.PlainDate.compare(zdt, new Temporal.PlainDate(1970, 1, 1)),
+  Temporal.PlainDate.compare(new Temporal.PlainDate(1970, 1, 1), zdt),
   0, "same date, ZDT second");
 assert.sameValue(
   Temporal.PlainDate.compare(zdt, new Temporal.PlainDate(1976, 11, 18)),
