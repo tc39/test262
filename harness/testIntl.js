@@ -2096,7 +2096,7 @@ function allCollations() {
  * Returns an array of all known numbering systems.
  */
 function allNumberingSystems() {
-  // source: CLDR file common/bcp47/number.xml; version CLDR 39.
+  // source: CLDR file common/bcp47/number.xml; version CLDR 40 & new in Unicode 14.0
   // https://github.com/unicode-org/cldr/blob/master/common/bcp47/number.xml
   return [
     "adlm",
@@ -2178,6 +2178,7 @@ function allNumberingSystems() {
     "talu",
     "taml",
     "tamldec",
+    "tnsa",
     "telu",
     "thai",
     "tirh",
