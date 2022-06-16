@@ -6,6 +6,7 @@ esid: sec-temporal.timezone.prototype.constructor
 description: Test for Temporal.TimeZone.prototype.constructor.
 info: The initial value of Temporal.TimeZone.prototype.constructor is %Temporal.TimeZone%.
 includes: [propertyHelper.js]
+features: [Temporal]
 ---*/
 
 verifyProperty(Temporal.TimeZone.prototype, "constructor", {
