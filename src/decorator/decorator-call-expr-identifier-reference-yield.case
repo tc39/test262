@@ -1,0 +1,31 @@
+// Copyright (C) 2022 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+  Decorator @ DecoratorCallExpression
+info: |
+  DecoratorCallExpression[Yield, Await] :
+    DecoratorMemberExpression[?Yield, ?Await] Arguments[?Yield, ?Await]
+
+  DecoratorMemberExpression[Yield, Await] :
+    IdentifierReference[?Yield, ?Await]
+    PrivateIdentifier
+    DecoratorMemberExpression[?Yield, ?Await] . IdentifierName
+
+  IdentifierReference[Yield, Await] :
+    [~Yield] yield
+    ...
+
+template: syntax/valid
+flags: [noStrict]
+---*/
+
+//- setup
+function decorator() {
+  return () => {};
+}
+var yield = decorator;
+
+//- decorators
+@yield()

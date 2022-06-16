@@ -46,7 +46,6 @@ function \u{6F}() {}
 function \u2118() {}
 function ZW_\u200C_NJ() {}
 function ZW_\u200D_J() {}
-function yield() {}
 function await() {}
 
 
@@ -57,5 +56,4 @@ var C = @($)
 @(\u2118)
 @(ZW_\u200C_NJ)
 @(ZW_\u200D_J)
-@(yield)
 @(await) class {};

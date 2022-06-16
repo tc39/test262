@@ -43,7 +43,6 @@ var \u{6F} = decorator;
 var \u2118 = decorator;
 var ZW_\u200C_NJ = decorator;
 var ZW_\u200D_J = decorator;
-var yield = decorator;
 var await = decorator;
 
 
@@ -54,5 +53,4 @@ var C = @$()
 @\u2118()
 @ZW_\u200C_NJ()
 @ZW_\u200D_J()
-@yield()
 @await() class {};
