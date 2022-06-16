@@ -6,6 +6,7 @@ esid: sec-temporal.calendar.prototype.constructor
 description: Test for Temporal.Calendar.prototype.constructor.
 info: The initial value of Temporal.Calendar.prototype.constructor is %Temporal.Calendar%.
 includes: [propertyHelper.js]
+features: [Temporal]
 ---*/
 
 verifyProperty(Temporal.Calendar.prototype, "constructor", {
