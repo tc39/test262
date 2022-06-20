@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.until
-description: Throw when the returned value from the calendar's dateUntil method is not a PlainDate.
+description: Throw when the returned value from the calendar's dateUntil method is not a Duration.
 features: [Temporal]
 ---*/
 
