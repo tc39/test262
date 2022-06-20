@@ -27,5 +27,5 @@ TemporalHelpers.assertPlainDateTime(plainDateTime, 2000, 5, "M05", 2, 11, 30, 23
 assert.sameValue(plainDateTime.calendar, date.calendar, "PlainDateTime calendar");
 
 const zonedDateTime = date.toPlainDateTime(Temporal.ZonedDateTime.from("1999-07-14T11:30:23Z[UTC]"));
-TemporalHelpers.assertPlainDateTime(zonedDateTime, 2000, 5, "M05", 2, 11, 30, 23, 0, 0, 0, "PlainZonedTime");
-assert.sameValue(zonedDateTime.calendar, date.calendar, "PlainZonedTime calendar");
+TemporalHelpers.assertPlainDateTime(zonedDateTime, 2000, 5, "M05", 2, 11, 30, 23, 0, 0, 0, "ZonedDateTime");
+assert.sameValue(zonedDateTime.calendar, date.calendar, "ZonedDateTime calendar");
