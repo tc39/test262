@@ -11,12 +11,14 @@ const toZonedDateTime = Temporal.PlainTime.prototype.toZonedDateTime;
 
 assert.sameValue(typeof toZonedDateTime, "function");
 
-assert.throws(TypeError, () => toZonedDateTime.call(undefined, { plainDate: "2022-05-19", timeZone: "UTC" }), "undefined");
-assert.throws(TypeError, () => toZonedDateTime.call(null, { plainDate: "2022-05-19", timeZone: "UTC" }), "null");
-assert.throws(TypeError, () => toZonedDateTime.call(true, { plainDate: "2022-05-19", timeZone: "UTC" }), "true");
-assert.throws(TypeError, () => toZonedDateTime.call("", { plainDate: "2022-05-19", timeZone: "UTC" }), "empty string");
-assert.throws(TypeError, () => toZonedDateTime.call(Symbol(), { plainDate: "2022-05-19", timeZone: "UTC" }), "symbol");
-assert.throws(TypeError, () => toZonedDateTime.call(1, { plainDate: "2022-05-19", timeZone: "UTC" }), "1");
-assert.throws(TypeError, () => toZonedDateTime.call({}, { plainDate: "2022-05-19", timeZone: "UTC" }), "plain object");
-assert.throws(TypeError, () => toZonedDateTime.call(Temporal.PlainTime, { plainDate: "2022-05-19", timeZone: "UTC" }), "Temporal.PlainTime");
-assert.throws(TypeError, () => toZonedDateTime.call(Temporal.PlainTime.prototype, { plainDate: "2022-05-19", timeZone: "UTC" }), "Temporal.PlainTime.prototype");
+const args = [{ plainDate: "2022-05-19", timeZone: "UTC" }];
+
+assert.throws(TypeError, () => toZonedDateTime.apply(undefined, args), "undefined");
+assert.throws(TypeError, () => toZonedDateTime.apply(null, args), "null");
+assert.throws(TypeError, () => toZonedDateTime.apply(true, args), "true");
+assert.throws(TypeError, () => toZonedDateTime.apply("", args), "empty string");
+assert.throws(TypeError, () => toZonedDateTime.apply(Symbol(), args), "symbol");
+assert.throws(TypeError, () => toZonedDateTime.apply(1, args), "1");
+assert.throws(TypeError, () => toZonedDateTime.apply({}, args), "plain object");
+assert.throws(TypeError, () => toZonedDateTime.apply(Temporal.PlainTime, args), "Temporal.PlainTime");
+assert.throws(TypeError, () => toZonedDateTime.apply(Temporal.PlainTime.prototype, args), "Temporal.PlainTime.prototype");
