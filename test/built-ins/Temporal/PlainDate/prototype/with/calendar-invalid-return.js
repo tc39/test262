@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.with
-description: Throw when the returned value is not a PlainDate.
+description: Throw when the returned value from the calendar's dateFromFields method is not a PlainDate.
 features: [Temporal]
 ---*/
 
