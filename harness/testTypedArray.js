@@ -123,27 +123,42 @@ function testTypedArrayConversions(byteConversionValues, fn) {
 }
 
 function createTypedArrayVariations(TA, values) {
-  const rab = new ArrayBuffer(4 * TA.BYTES_PER_ELEMENT, { maxByteLength: 8 * TA.BYTES_PER_ELEMENT });
 
-  let nonresizable = new TA(values);
-  let fixedLength = new TA(rab, 0, values.length);
-  let lengthTracking = new TA(rab, 0);
+  const rab = () => {
+    let buffer = new ArrayBuffer(4 * TA.BYTES_PER_ELEMENT, { maxByteLength: 8 * TA.BYTES_PER_ELEMENT });
+    let ta_write = new TA(buffer);
 
-  let fixedLengthWithOffset = {
-    name: fixedLengthWithOffset,
-    contents: new TA(rab, 2 * TA.BYTES_PER_ELEMENT, (values.length / 2))
-  };
+    for (let i = 0; i < values.length; ++i) {
+      ta_write[i] = values[i];
+    }
 
-  let lengthTrackingWithOffset = {
-    name: lengthTrackingWithOffset,
-    contents: new TA(rab, 2 * TA.BYTES_PER_ELEMENT)
-  };
-
-  // Writes data to the buffer backing all the arrays
-  let ta_write = new TA(rab);
-  for (let i = 0; i < values.length; ++i) {
-    ta_write[i] = values[i];
+    return buffer;
   }
+
+  const nonresizable = {
+    name: 'non-resizable',
+    contents: new TA(values)
+  };
+
+  const fixedLength = {
+    name: 'fixed length',
+    contents: new TA(rab(), 0, values.length)
+  };
+
+  const lengthTracking =   {
+    name: 'length tracking',
+    contents: new TA(rab(), 0)
+  };
+
+  const fixedLengthWithOffset = {
+    name: 'fixed length with offset',
+    contents: new TA(rab(), 2 * TA.BYTES_PER_ELEMENT, (values.length / 2))
+  };
+
+  const lengthTrackingWithOffset = {
+    name: 'length tracking with offset',
+    contents: new TA(rab(), 2 * TA.BYTES_PER_ELEMENT)
+  };
 
   return {
     nonresizable,
