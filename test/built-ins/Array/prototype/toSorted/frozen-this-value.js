@@ -6,6 +6,7 @@ esid: sec-array.prototype.toSorted
 description: >
   Array.prototype.toSorted works on frozen objects
 features: [change-array-by-copy]
+includes: [compareArray.js]
 ---*/
 
 var arr = Object.freeze([2, 0, 1]);

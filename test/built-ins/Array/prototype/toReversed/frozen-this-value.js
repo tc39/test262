@@ -6,6 +6,7 @@ esid: sec-array.prototype.toReversed
 description: >
   Array.prototype.toReversed works on frozen objects
 features: [change-array-by-copy]
+includes: [compareArray.js]
 ---*/
 
 var arr = Object.freeze([0, 1, 2]);
