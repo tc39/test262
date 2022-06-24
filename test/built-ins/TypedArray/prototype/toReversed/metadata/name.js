@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-typedarray.prototype.toReversed
+esid: sec-%typedarray%.prototype.toReversed
 description: >
-  TypedArray.prototype.toReversed.name is "toReversed".
+  %TypedArray%.prototype.toReversed.name is "toReversed".
 info: |
-  TypedArray.prototype.toReversed ( )
+  %TypedArray%.prototype.toReversed ( )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, that is not

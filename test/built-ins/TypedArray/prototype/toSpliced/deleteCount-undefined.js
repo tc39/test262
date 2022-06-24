@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.toSpliced
-description: Array.prototype.toSpliced(number, undefined) returns a copy of the original array
+esid: sec-%typedarray%.prototype.toSpliced
+description: %TypedArray%.prototype.toSpliced(number, undefined) returns a copy of the original array
 info: |
-  22.1.3.25 Array.prototype.toSpliced (start, deleteCount , ...items )
+  22.1.3.25 %TypedArray%.prototype.toSpliced (start, deleteCount , ...items )
 
   ...
   4. Let relativeStart be ? ToIntegerOrInfinity(start).

@@ -4,9 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.toReversed
 description: >
-  TypedArray.prototype.toReversed creates an empty array if the this value .length is not a positive integer.
+  %TypedArray%.prototype.toReversed creates an empty array if the this value .length is not a positive integer.
 info: |
-  TypedArray.prototype.toReversed ( )
+  %TypedArray%.prototype.toReversed ( )
 
   ...
   3. Let len be O.[[ArrayLength]].

@@ -4,9 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.toSorted
 description: >
-  TypedArray.prototype.toSorted creates an empty array if the this value .length is not a positive integer.
+  %TypedArray%.prototype.toSorted creates an empty array if the this value .length is not a positive integer.
 info: |
-  TypedArray.prototype.toSorted ( comparefn )
+  %TypedArray%.prototype.toSorted ( comparefn )
 
   ...
   4. Let len be O.[[ArrayLength]].

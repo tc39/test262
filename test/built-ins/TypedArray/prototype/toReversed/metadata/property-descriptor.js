@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-typedarray.prototype.toReversed
+esid: sec-%typedarray%.prototype.toReversed
 description: >
-  "toReversed" property of TypedArray.prototype
+  "toReversed" property of %TypedArray%.prototype
 info: |
   17 ECMAScript Standard Built-in Objects
 

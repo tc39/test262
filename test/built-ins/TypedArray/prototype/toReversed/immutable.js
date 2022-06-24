@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.toReversed
 description: >
-  TypedArray.prototype.toReversed does not mutate its this value
+  %TypedArray%.prototype.toReversed does not mutate its this value
 includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/

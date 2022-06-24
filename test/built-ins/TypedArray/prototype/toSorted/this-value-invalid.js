@@ -4,9 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.toSorted
 description: >
-  TypedArray.prototype.toSorted throws if the receiver is null or undefined
+  %TypedArray%.prototype.toSorted throws if the receiver is null or undefined
 info: |
-  TypedArray.prototype.toSorted ( )
+  %TypedArray%.prototype.toSorted ( )
 
   1. Let O be the this value.
   2. Perform ? ValidateTypedArray(O).

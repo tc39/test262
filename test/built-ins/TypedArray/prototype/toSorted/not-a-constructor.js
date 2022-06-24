@@ -4,7 +4,7 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  TypedArray.prototype.toSorted does not implement [[Construct]], is not new-able
+  %TypedArray%.prototype.toSorted does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 

@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.with
+esid: sec-%typedarray%.prototype.with
 description: >
-  Array.prototype.with adds length to index if it's negative.
+  %TypedArray%.prototype.with adds length to index if it's negative.
 info: |
-  Array.prototype.with ( index, value )
+  %TypedArray%.prototype.with ( index, value )
 
   ...
   2. Let len be ? LengthOfArrayLike(O).

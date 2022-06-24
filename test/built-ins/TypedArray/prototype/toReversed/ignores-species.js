@@ -4,9 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.toReversed
 description: >
-  TypedArray.prototype.toReversed ignores @@species
+  %TypedArray%.prototype.toReversed ignores @@species
 info: |
-  TypedArray.prototype.toReversed ( )
+  %TypedArray%.prototype.toReversed ( )
 
   ...
   5. Let A be ? TypedArraySpeciesCreate(O, « 𝔽(len) », true).

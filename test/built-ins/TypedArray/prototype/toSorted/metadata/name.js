@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-typedarray.prototype.toSorted
+esid: sec-%typedarray%.prototype.toSorted
 description: >
-  TypedArray.prototype.toSorted.name is "toSorted".
+  %TypedArray%.prototype.toSorted.name is "toSorted".
 info: |
-  TypedArray.prototype.toSorted ( comparefn )
+  %TypedArray%.prototype.toSorted ( comparefn )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, that is not

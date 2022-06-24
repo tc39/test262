@@ -4,9 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.toReversed
 description: >
-  TypedArray.prototype.toReversed throws if the receiver is null or undefined
+  %TypedArray%.prototype.toReversed throws if the receiver is null or undefined
 info: |
-  TypedArray.prototype.toReversed ( )
+  %TypedArray%.prototype.toReversed ( )
 
   1. Let O be the this value.
   2. Perform ? ValidateTypedArray(O).

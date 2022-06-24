@@ -4,9 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.toSpliced
 description: >
-  TypedArray.prototype.toSpliced reads the TypedArray length ignoring the .length property
+  %TypedArray%.prototype.toSpliced reads the TypedArray length ignoring the .length property
 info: |
-  TypedArray.prototype.toSpliced (  start, deleteCount, ...items )
+  %TypedArray%.prototype.toSpliced (  start, deleteCount, ...items )
 
   ...
   4. Let len be O.[[ArrayLength]].

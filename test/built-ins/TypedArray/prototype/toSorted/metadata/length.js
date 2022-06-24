@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-typedarray.prototype.toSorted
+esid: sec-%typedarray%.prototype.toSorted
 description: >
-  The "length" property of TypedArray.prototype.toSorted
+  The "length" property of %TypedArray%.prototype.toSorted
 info: |
   17 ECMAScript Standard Built-in Objects
 
