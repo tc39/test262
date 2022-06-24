@@ -20,16 +20,47 @@ assert.sameValue(
 
 testWithTypedArrayConstructors(TA => {
   assert.sameValue(typeof TA.prototype.at, 'function', 'The value of `typeof TA.prototype.at` is "function"');
-  let valueOfCallCount = 0;
-  let index = {
-    valueOf() {
-      valueOfCallCount++;
-      return 1;
-    }
-  };
 
-  let a = new TA([0,1,2,3]);
+  const {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  } = createTypedArrayVariations(TA, [0, 1, 2, 3]);
 
-  assert.sameValue(a.at(index), 1, 'a.at({valueOf() {valueOfCallCount++; return 1;}}) must return 1');
-  assert.sameValue(valueOfCallCount, 1, 'The value of `valueOfCallCount` is 1');
+  [
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+  ].forEach(({ name, contents }) => {
+
+    let valueOfCallCount = 0;
+    let index = {
+      valueOf() {
+        valueOfCallCount++;
+        return 1;
+      }
+    };
+
+    assert.sameValue(contents.at(index), 1, `contents.at({valueOf() {valueOfCallCount++; return 1;}}) must return 1 in ${name}`);
+    assert.sameValue(valueOfCallCount, 1, `The value of 'alueOfCallCount' is 1 in ${name}`);
+  });
+
+  [
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  ].forEach(({ name, contents }) => {
+
+    let valueOfCallCount = 0;
+    let index = {
+      valueOf() {
+        valueOfCallCount++;
+        return 1;
+      }
+    };
+
+    assert.sameValue(contents.at(index), 3, `contents.at({valueOf() {valueOfCallCount++; return 1;}}) must return 1 in ${name}`);
+    assert.sameValue(valueOfCallCount, 1, `The value of 'valueOfCallCount' is 1 in ${name}`);
+  });
 });

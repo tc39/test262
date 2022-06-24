@@ -125,7 +125,7 @@ function testTypedArrayConversions(byteConversionValues, fn) {
 function createTypedArrayVariations(TA, values) {
 
   const rab = () => {
-    let buffer = new ArrayBuffer(4 * TA.BYTES_PER_ELEMENT, { maxByteLength: 8 * TA.BYTES_PER_ELEMENT });
+    let buffer = new ArrayBuffer(values.length * TA.BYTES_PER_ELEMENT, { maxByteLength: values.length * 2 * TA.BYTES_PER_ELEMENT });
     let ta_write = new TA(buffer);
 
     for (let i = 0; i < values.length; ++i) {
@@ -152,7 +152,9 @@ function createTypedArrayVariations(TA, values) {
 
   const fixedLengthWithOffset = {
     name: 'fixed length with offset',
-    contents: new TA(rab(), 2 * TA.BYTES_PER_ELEMENT, (values.length / 2))
+    // Using Math.ceil ensures both offset buffers are the same length when
+    // values.length is odd 
+    contents: new TA(rab(), 2 * TA.BYTES_PER_ELEMENT, Math.ceil(values.length / 2))
   };
 
   const lengthTrackingWithOffset = {
