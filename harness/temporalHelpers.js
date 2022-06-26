@@ -896,6 +896,31 @@ var TemporalHelpers = {
   },
 
   /*
+   * A custom calendar used in prototype pollution checks. Verifies that methods
+   * are always called with a null-prototype options object.
+   */
+  calendarCheckOptionsPrototypePollution() {
+    class CalendarCheckOptionsPrototypePollution extends Temporal.Calendar {
+      constructor() {
+        super("iso8601");
+        this.dateUntilCallCount = 0;
+      }
+
+      toString() {
+        return "options-null-proto";
+      }
+
+      dateUntil(one, two, options) {
+        this.dateUntilCallCount++;
+        assert.sameValue(Object.getPrototypeOf(options), null, "dateUntil should be called with null-prototype options");
+        return super.dateUntil(one, two, options);
+      }
+    }
+
+    return new CalendarCheckOptionsPrototypePollution();
+  },
+
+  /*
    * A custom calendar that asserts its dateAdd() method is called with the
    * options parameter having the value undefined.
    */
