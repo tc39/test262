@@ -896,6 +896,44 @@ var TemporalHelpers = {
   },
 
   /*
+   * A custom calendar used in prototype pollution checks. Verifies that the
+   * fromFields methods are always called with a null-prototype fields object.
+   */
+  calendarCheckFieldsPrototypePollution() {
+    class CalendarCheckFieldsPrototypePollution extends Temporal.Calendar {
+      constructor() {
+        super("iso8601");
+        this.dateFromFieldsCallCount = 0;
+        this.yearMonthFromFieldsCallCount = 0;
+        this.monthDayFromFieldsCallCount = 0;
+      }
+
+      // toString must remain "iso8601", so that some methods don't throw due to
+      // incompatible calendars
+
+      dateFromFields(fields, options = {}) {
+        this.dateFromFieldsCallCount++;
+        assert.sameValue(Object.getPrototypeOf(fields), null, "dateFromFields should be called with null-prototype fields object");
+        return super.dateFromFields(fields, options);
+      }
+
+      yearMonthFromFields(fields, options = {}) {
+        this.yearMonthFromFieldsCallCount++;
+        assert.sameValue(Object.getPrototypeOf(fields), null, "yearMonthFromFields should be called with null-prototype fields object");
+        return super.yearMonthFromFields(fields, options);
+      }
+
+      monthDayFromFields(fields, options = {}) {
+        this.monthDayFromFieldsCallCount++;
+        assert.sameValue(Object.getPrototypeOf(fields), null, "monthDayFromFields should be called with null-prototype fields object");
+        return super.monthDayFromFields(fields, options);
+      }
+    }
+
+    return new CalendarCheckFieldsPrototypePollution();
+  },
+
+  /*
    * A custom calendar used in prototype pollution checks. Verifies that methods
    * are always called with a null-prototype options object.
    */
