@@ -934,6 +934,32 @@ var TemporalHelpers = {
   },
 
   /*
+   * A custom calendar used in prototype pollution checks. Verifies that the
+   * mergeFields() method is always called with null-prototype fields objects.
+   */
+  calendarCheckMergeFieldsPrototypePollution() {
+    class CalendarCheckMergeFieldsPrototypePollution extends Temporal.Calendar {
+      constructor() {
+        super("iso8601");
+        this.mergeFieldsCallCount = 0;
+      }
+
+      toString() {
+        return "merge-fields-null-proto";
+      }
+
+      mergeFields(fields, additionalFields) {
+        this.mergeFieldsCallCount++;
+        assert.sameValue(Object.getPrototypeOf(fields), null, "mergeFields should be called with null-prototype fields object (first argument)");
+        assert.sameValue(Object.getPrototypeOf(additionalFields), null, "mergeFields should be called with null-prototype fields object (second argument)");
+        return super.mergeFields(fields, additionalFields);
+      }
+    }
+
+    return new CalendarCheckMergeFieldsPrototypePollution();
+  },
+
+  /*
    * A custom calendar used in prototype pollution checks. Verifies that methods
    * are always called with a null-prototype options object.
    */
