@@ -903,11 +903,18 @@ var TemporalHelpers = {
     class CalendarCheckOptionsPrototypePollution extends Temporal.Calendar {
       constructor() {
         super("iso8601");
+        this.yearMonthFromFieldsCallCount = 0;
         this.dateUntilCallCount = 0;
       }
 
       toString() {
         return "options-null-proto";
+      }
+
+      yearMonthFromFields(fields, options) {
+        this.yearMonthFromFieldsCallCount++;
+        assert.sameValue(Object.getPrototypeOf(options), null, "yearMonthFromFields should be called with null-prototype options");
+        return super.yearMonthFromFields(fields, options);
       }
 
       dateUntil(one, two, options) {
