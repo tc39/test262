@@ -19,16 +19,15 @@ const testValuesByLength = [
   ["example.es , example.com they from era .com", 14],
   ["124.13 1231,23", 3],
   ["#test262, #TC39", 6],
+  ["my@mail.com", 3],
   ["my@mail.com sending message to my@mail.org", 13],
   ["it's a @decorator", 6],
 ];
 
 const testValuesByResult = [
   ["example.es", "example.es"],
-  ["my@mail.com", "my@mail.com"],
   ["mail.com", "mail.com"],
-  ["#test262", "#test262"],
-  ["https://example.com", "https://example.com"],
+  ["www.wikipedia.org", "www.wikipedia.org"],
 ];
 
 // test word segmentation based on word count
