@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.toReversed
 description: >
-  %TypedArray%.prototype.toReversed creates an empty array if the this value .length is not a positive integer.
+  %TypedArray%.prototype.toReversed does not read a "length" property
 info: |
   %TypedArray%.prototype.toReversed ( )
 

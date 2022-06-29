@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.toSorted
 description: >
-  %TypedArray%.prototype.toSorted creates an empty array if the this value .length is not a positive integer.
+  %TypedArray%.prototype.toSorted does not read a "length" property
 info: |
   %TypedArray%.prototype.toSorted ( comparefn )
 
