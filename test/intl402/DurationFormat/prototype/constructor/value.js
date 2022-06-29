@@ -1,4 +1,4 @@
-// Copyright 2012 Google Inc.  All rights reserved.
+// Copyright 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---

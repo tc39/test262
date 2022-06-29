@@ -17,5 +17,6 @@ const df = new Intl.DurationFormat();
 let f = df['formatToParts'];
 
 assert.sameValue(typeof f, 'function');
-assert.throws(TypeError, () => { f('PT12.3456S') });
-
+assert.throws(TypeError, () => {
+  f({ hours: 1, minutes: 46, seconds: 40 });
+});
