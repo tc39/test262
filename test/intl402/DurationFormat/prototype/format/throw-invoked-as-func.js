@@ -13,7 +13,6 @@ features: [Intl.DurationFormat]
 
 const df = new Intl.DurationFormat();
 
-// Perform ? RequireInternalSlot(df, [[InitializedDurationFormat]]).
 let f = df["format"];
 
 assert.sameValue(typeof f, "function");
