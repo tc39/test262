@@ -25,8 +25,6 @@ features: [Intl.DurationFormat]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Intl.DurationFormat.prototype.format.length, 1);
-
 verifyProperty(Intl.DurationFormat.prototype.format, "length", {
   value: 1,
   writable: false,
