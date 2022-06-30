@@ -11,7 +11,7 @@ const formatToParts = Intl.DurationFormat.prototype.formatToParts;
 
 assert.sameValue(typeof formatToParts, "function");
 
-assert.throws(TypeError, () => formatToParts.call(undefined), "undefined");
+assert.throws(TypeError, () => formatToParts.call(undefined, { years : 2 }), "undefined");
 assert.throws(TypeError, () => formatToParts.call(null), "null");
 assert.throws(TypeError, () => formatToParts.call(true), "true");
 assert.throws(TypeError, () => formatToParts.call(""), "empty string");

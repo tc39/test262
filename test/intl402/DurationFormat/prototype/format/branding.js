@@ -11,7 +11,7 @@ const format = Intl.DurationFormat.prototype.format;
 
 assert.sameValue(typeof format, "function");
 
-assert.throws(TypeError, () => format.call(undefined), "undefined");
+assert.throws(TypeError, () => format.call(undefined, { years : 2 }), "undefined");
 assert.throws(TypeError, () => format.call(null), "null");
 assert.throws(TypeError, () => format.call(true), "true");
 assert.throws(TypeError, () => format.call(""), "empty string");

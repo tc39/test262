@@ -21,5 +21,7 @@ assert.throws(TypeError, () => { df.formatToParts(-12n) }, "-12n");
 assert.throws(TypeError, () => { df.formatToParts(1) }, "1");
 assert.throws(TypeError, () => { df.formatToParts(2n) }, "2n");
 assert.throws(TypeError, () => { df.formatToParts({}) }, "plain object");
+assert.throws(TypeError, () => { df.formatToParts({ year: 1 }) }, "unsuported property");
+assert.throws(TypeError, () => { df.formatToParts({ years: undefined }) }, "supported property set undefined");
 assert.throws(TypeError, () => { df.formatToParts(Symbol())}, "symbol");
 assert.throws(TypeError, () => { df.formatToParts("bad string")}, "bad string");
