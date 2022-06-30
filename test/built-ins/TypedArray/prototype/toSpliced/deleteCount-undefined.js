@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-%typedarray%.prototype.toSpliced
-description: %TypedArray%.prototype.toSpliced(number, undefined) returns a copy of the original array
+description: '%TypedArray%.prototype.toSpliced(number, undefined) returns a copy of the original array'
 info: |
   22.1.3.25 %TypedArray%.prototype.toSpliced (start, deleteCount , ...items )
 
