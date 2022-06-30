@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-intl.DurationFormat.prototype.format
+esid: sec-Intl.DurationFormat.prototype.format
 description: >
   Intl.DurationFormat.prototype.format.length is 1.
 info: |
