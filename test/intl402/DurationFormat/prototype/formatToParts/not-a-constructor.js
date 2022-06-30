@@ -4,7 +4,7 @@
 /*---
 esid: sec-Intl.DurationFormat.prototype.formatToParts
 description: >
-  Intl.DurationFormat.prototype.format does not implement [[Construct]], is not new-able
+  Intl.DurationFormat.prototype.formatToParts does not implement [[Construct]], is not new-able
 info: |
     Built-in function objects that are not identified as constructors do not implement the
     [[Construct]] internal method unless otherwise specified in the description of a particular
