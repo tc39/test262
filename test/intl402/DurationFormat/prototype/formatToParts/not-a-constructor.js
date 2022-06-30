@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-Intl.DurationFormat.prototype.format
+esid: sec-Intl.DurationFormat.prototype.formatToParts
 description: >
   Intl.DurationFormat.prototype.format does not implement [[Construct]], is not new-able
 info: |
