@@ -1,13 +1,13 @@
-// Copyright (C) 2020 Igalia, S.L. All rights reserved.
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainyearmonth.prototype.subtract
+esid: sec-temporal.duration.prototype.subtract
 description: Passing a primitive other than string to subtract() throws
 features: [Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.PlainYearMonth(2000, 5);
+const instance = new Temporal.Duration(0, 0, 0, 1, 2, 3, 4, 987, 654, 321);
 assert.throws(RangeError, () => instance.subtract(undefined), "undefined");
 assert.throws(RangeError, () => instance.subtract(null), "null");
 assert.throws(RangeError, () => instance.subtract(true), "boolean");

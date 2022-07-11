@@ -1,13 +1,13 @@
-// Copyright (C) 2020 Igalia, S.L. All rights reserved.
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaintime.prototype.add
+esid: sec-temporal.instant.prototype.add
 description: Passing a primitive other than string to add() throws
 features: [Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.PlainTime(15, 30, 45, 987, 654, 321);
+const instance = new Temporal.Instant(1_000_000_000_000_000_000n);
 assert.throws(RangeError, () => instance.add(undefined), "undefined");
 assert.throws(RangeError, () => instance.add(null), "null");
 assert.throws(RangeError, () => instance.add(true), "boolean");
