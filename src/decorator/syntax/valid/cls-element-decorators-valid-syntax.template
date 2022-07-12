@@ -1,0 +1,34 @@
+// Copyright (C) 2022 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: prod-ClassDeclaration
+name: Valid syntax for decorator on class.
+path: language/statements/class/decorator/syntax/valid/
+info: |
+  ClassElement[Yield, Await] :
+    DecoratorList[?Yield, ?Await]opt MethodDefinition[?Yield, ?Await]
+    DecoratorList[?Yield, ?Await]opt static MethodDefinition[?Yield, ?Await]
+    DecoratorList[?Yield, ?Await]opt FieldDefinition[?Yield, ?Await] ;
+    DecoratorList[?Yield, ?Await]opt static FieldDefinition[?Yield, ?Await] ;
+    ClassStaticBlock
+    ;
+
+  DecoratorList[Yield, Await] :
+    DecoratorList[?Yield, ?Await]opt Decorator[?Yield, ?Await]
+
+  Decorator[Yield, Await] :
+    @ DecoratorMemberExpression[?Yield, ?Await]
+    @ DecoratorParenthesizedExpression[?Yield, ?Await]
+    @ DecoratorCallExpression[?Yield, ?Await]
+
+  ...
+features: [class, decorators]
+---*/
+
+class C {
+  /*{ decorators }*/ method() {}
+  /*{ decorators }*/ static method() {}
+  /*{ decorators }*/ field;
+  /*{ decorators }*/ static field;
+}

@@ -1,0 +1,31 @@
+// Copyright (C) 2022 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+  Decorator @ DecoratorMemberExpression
+info: |
+  IdentifierReference[Yield, Await] :
+    Identifier
+    [~Yield] yield
+    [~Await] await
+template: syntax/valid
+---*/
+
+//- setup
+function $() {}
+function _() {}
+function \u{6F}() {}
+function \u2118() {}
+function ZW_\u200C_NJ() {}
+function ZW_\u200D_J() {}
+function await() {}
+
+//- decorators
+@$
+@_
+@\u{6F}
+@\u2118
+@ZW_\u200C_NJ
+@ZW_\u200D_J
+@await

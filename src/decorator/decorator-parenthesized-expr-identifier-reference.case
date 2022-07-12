@@ -1,0 +1,45 @@
+// Copyright (C) 2022 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+  Decorator @ DecoratorParenthesizedExpression
+info: |
+  DecoratorParenthesizedExpression[Yield, Await] :
+    ( Expression[+In, ?Yield, ?Await] )
+
+  PrimaryExpression[Yield, Await] :
+    this
+    IdentifierReference[?Yield, ?Await]
+    Literal
+    ArrayLiteral[?Yield, ?Await]
+    ObjectLiteral[?Yield, ?Await]
+    FunctionExpression
+    ClassExpression[?Yield, ?Await]
+    GeneratorExpression
+    AsyncFunctionExpression
+    AsyncGeneratorExpression
+    RegularExpressionLiteral
+    TemplateLiteral[?Yield, ?Await, ~Tagged]
+    CoverParenthesizedExpressionAndArrowParameterList[?Yield, ?Await]
+
+template: syntax/valid
+---*/
+
+//- setup
+function $() {}
+function _() {}
+function \u{6F}() {}
+function \u2118() {}
+function ZW_\u200C_NJ() {}
+function ZW_\u200D_J() {}
+function await() {}
+
+//- decorators
+@($)
+@(_)
+@(\u{6F})
+@(\u2118)
+@(ZW_\u200C_NJ)
+@(ZW_\u200D_J)
+@(await)
