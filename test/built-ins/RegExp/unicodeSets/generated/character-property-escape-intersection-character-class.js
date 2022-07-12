@@ -35,7 +35,6 @@ testExtendedCharacterClass({
     "A",
     "B",
     "C",
-    "C",
     "D",
     "E",
     "F",

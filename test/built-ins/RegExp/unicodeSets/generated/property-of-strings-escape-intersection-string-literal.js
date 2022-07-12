@@ -30,7 +30,6 @@ testExtendedCharacterClass({
     "4\uFE0F\u20E3",
     "5\uFE0F\u20E3",
     "6\uFE0F\u20E3",
-    "6\uFE0F\u20E3",
     "7",
     "7\uFE0F\u20E3",
     "8\uFE0F\u20E3",
