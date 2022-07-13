@@ -9,6 +9,7 @@ info: |
   Intl.DurationFormat.prototype.formatToParts(duration)
   (...)
   3. Let record be ? ToDurationRecord(duration)
+features: [Intl.DurationFormat]
 ---*/
 
 const df = new Intl.DurationFormat();
