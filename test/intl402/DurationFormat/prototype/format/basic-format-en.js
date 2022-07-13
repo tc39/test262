@@ -21,6 +21,6 @@ const duration = {
   nanoseconds: 9,
 };
 
-const df = new Intl.DurationFormat('pt');
+const df = new Intl.DurationFormat('en');
 
 assert.sameValue(df.format(duration), "1 year, 2 months, 3 weeks, 3 days, 4 hours, 5 minutes, 6 seconds, 7 milliseconds, 8 microseconds, and 9 nanoseconds");
