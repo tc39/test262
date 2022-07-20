@@ -32,6 +32,6 @@ const duration = {
 for (const style in testData) {
    const df = new Intl.DurationFormat("en", {style});
    const expected = testData[style];
-   assert.sameValue(df.format(duration), expected);
+   assert.sameValue(df.format(duration), expected, `Assert DurationFormat format output using ${style} style option`);
 }
 
