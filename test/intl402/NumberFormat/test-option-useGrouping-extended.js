@@ -7,10 +7,7 @@ esid: sec-initializenumberformat
 description: Tests that the option useGrouping is processed correctly.
 info: |
   The "Intl.NumberFormat v3" proposal contradicts the behavior required by the
-  latest revision of ECMA402. Likewise, this test contradicts
-  test-option-useGrouping.js. Until the proposal is included in a published
-  standard (when the tests' discrepancies can be resolved), implementations
-  should only expect to pass one of these two tests.
+  latest revision of ECMA402.
 features: [Intl.NumberFormat-v3]
 ---*/
 
