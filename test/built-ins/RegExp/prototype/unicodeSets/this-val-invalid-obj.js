@@ -28,3 +28,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   unicodeSets.call(arguments);
 }, 'arguments object');
+
+assert.throws(TypeError, function() {
+  unicodeSets.call(() => {});
+}, 'function object');

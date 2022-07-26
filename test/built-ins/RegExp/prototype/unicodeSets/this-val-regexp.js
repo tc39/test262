@@ -47,5 +47,5 @@ assert.sameValue(new RegExp(".", "vg").unicodeSets, true, "new RegExp('.', 'vg')
 assert.sameValue(new RegExp(".", "vi").unicodeSets, true, "new RegExp('.', 'vi').unicodeSets");
 assert.sameValue(new RegExp(".", "vm").unicodeSets, true, "new RegExp('.', 'vm').unicodeSets");
 assert.sameValue(new RegExp(".", "vs").unicodeSets, true, "new RegExp('.', 'vs').unicodeSets");
-// Note: `new RegExp(pattern, 'vu')` throws an early parse error and is tested separately.
+// Note: `new RegExp(pattern, 'vu')` throws a runtime error and is tested separately.
 assert.sameValue(new RegExp(".", "vy").unicodeSets, true, "new RegExp('.', 'vy').unicodeSets");
