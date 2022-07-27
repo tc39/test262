@@ -78,13 +78,6 @@ test(-3n, 10n, {
   halfExpand: 0n,
 });
 
-// Test negative divisor (dayLengthNs).
-test(3n, -10n, {
-  ceil: 0n,
-  floor: -oneDay,
-  trunc: 0n,
-  halfExpand: 0n,
-});
 test(-3n, -10n, {
   ceil: oneDay,
   floor: 0n,
@@ -96,12 +89,6 @@ test(-3n, -10n, {
 test(3n, /*INT64_MAX=*/ 9223372036854775807n, {
   ceil: oneDay,
   floor: 0n,
-  trunc: 0n,
-  halfExpand: 0n,
-});
-test(3n, /*INT64_MIN=*/ -9223372036854775808n, {
-  ceil: 0n,
-  floor: -oneDay,
   trunc: 0n,
   halfExpand: 0n,
 });
