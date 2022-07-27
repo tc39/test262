@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.toSpliced
+esid: sec-%typedarray%.prototype.with
 description: >
-  The "length" property of %TypedArray%.prototype.toSpliced
+  The "length" property of %TypedArray%.prototype.with
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,7 +22,7 @@ includes: [testTypedArray.js, propertyHelper.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-verifyProperty(TypedArray.prototype.toSpliced, "length", {
+verifyProperty(TypedArray.prototype.with, "length", {
   value: 2,
   writable: false,
   enumerable: false,
