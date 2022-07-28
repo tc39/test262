@@ -29,8 +29,6 @@ info: |
 
   27.6.3.8 AsyncGeneratorYield ( value )
     ...
-    5. Set value to ? Await(value).
-    ...
     12. If queue is not empty, then
       ...
     13. Else,
@@ -87,14 +85,11 @@ var expected = [
   // `Await(innerResult)` promise resolved.
   "tick 1",
 
-  // `Await(value)` promise resolved.
-  "tick 2",
-
   // "then" of `resumptionValue.[[Value]]` accessed.
   "get then",
 
   // `Await(resumptionValue.[[Value]])` promise resolved.
-  "tick 3",
+  "tick 2",
 
   // Get iterator "return" method.
   "get return",
@@ -103,7 +98,7 @@ var expected = [
   "get then",
 
   // `Await(received.[[Value]])` promise resolved.
-  "tick 4",
+  "tick 3",
 ];
 
 var actual = [];
@@ -132,7 +127,6 @@ Promise.resolve(0)
   .then(() => actual.push("tick 1"))
   .then(() => actual.push("tick 2"))
   .then(() => actual.push("tick 3"))
-  .then(() => actual.push("tick 4"))
   .then(() => {
     assert.compareArray(actual, expected, "Ticks for return with thenable getter");
 }).then($DONE, $DONE);
