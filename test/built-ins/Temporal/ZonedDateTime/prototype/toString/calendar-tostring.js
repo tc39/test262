@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.protoype.tostring
+esid: sec-temporal.zoneddatetime.protoype.tostring
 description: Should call 'toString' on the calendar once unless calendarName == 'never'.
 features: [Temporal]
 ---*/
@@ -14,12 +14,12 @@ const customCalendar = {
     return "custom";
   }
 };
-const date = new Temporal.PlainDate(2000, 5, 2, customCalendar);
+const date = new Temporal.ZonedDateTime(3661_987_654_321n, "UTC", customCalendar);
 [
-  ["always", "2000-05-02[u-ca=custom]", 1],
-  ["auto", "2000-05-02[u-ca=custom]", 1],
-  ["never", "2000-05-02", 0],
-  [undefined, "2000-05-02[u-ca=custom]", 1],
+  ["always", "1970-01-01T01:01:01.987654321+00:00[UTC][u-ca=custom]", 1],
+  ["auto", "1970-01-01T01:01:01.987654321+00:00[UTC][u-ca=custom]", 1],
+  ["never", "1970-01-01T01:01:01.987654321+00:00[UTC]", 0],
+  [undefined, "1970-01-01T01:01:01.987654321+00:00[UTC][u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {
   calls = 0;
   const result = date.toString({ calendarName });

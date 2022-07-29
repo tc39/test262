@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.protoype.tostring
+esid: sec-temporal.plaindatetime.protoype.tostring
 description: Should call 'toString' on the calendar once unless calendarName == 'never'.
 features: [Temporal]
 ---*/
@@ -14,12 +14,12 @@ const customCalendar = {
     return "custom";
   }
 };
-const date = new Temporal.PlainDate(2000, 5, 2, customCalendar);
+const date = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, customCalendar);
 [
-  ["always", "2000-05-02[u-ca=custom]", 1],
-  ["auto", "2000-05-02[u-ca=custom]", 1],
-  ["never", "2000-05-02", 0],
-  [undefined, "2000-05-02[u-ca=custom]", 1],
+  ["always", "2000-05-02T12:34:56.987654321[u-ca=custom]", 1],
+  ["auto", "2000-05-02T12:34:56.987654321[u-ca=custom]", 1],
+  ["never", "2000-05-02T12:34:56.987654321", 0],
+  [undefined, "2000-05-02T12:34:56.987654321[u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {
   calls = 0;
   const result = date.toString({ calendarName });
