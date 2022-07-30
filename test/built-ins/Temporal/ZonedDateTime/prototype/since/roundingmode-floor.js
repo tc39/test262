@@ -2,18 +2,26 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainyearmonth.prototype.since
+esid: sec-temporal.zoneddatetime.prototype.since
 description: Tests calculations with roundingMode "floor".
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const earlier = new Temporal.PlainYearMonth(2019, 1);
-const later = new Temporal.PlainYearMonth(2021, 9);
+const earlier = new Temporal.ZonedDateTime(1546935756_123_456_789n, "UTC");
+const later = new Temporal.ZonedDateTime(1631018380_987_654_321n, "UTC");
 
 const expected = [
   ["years", [2], [-3]],
-  ["months", [2, 8], [-2, -8]],
+  ["months", [0, 31], [0, -32]],
+  ["weeks", [0, 0, 139], [0, 0, -140]],
+  ["days", [0, 0, 0, 973], [0, 0, 0, -974]],
+  ["hours", [0, 0, 0, 0, 23356], [0, 0, 0, 0, -23357]],
+  ["minutes", [0, 0, 0, 0, 23356, 17], [0, 0, 0, 0, -23356, -18]],
+  ["seconds", [0, 0, 0, 0, 23356, 17, 4], [0, 0, 0, 0, -23356, -17, -5]],
+  ["milliseconds", [0, 0, 0, 0, 23356, 17, 4, 864], [0, 0, 0, 0, -23356, -17, -4, -865]],
+  ["microseconds", [0, 0, 0, 0, 23356, 17, 4, 864, 197], [0, 0, 0, 0, -23356, -17, -4, -864, -198]],
+  ["nanoseconds", [0, 0, 0, 0, 23356, 17, 4, 864, 197, 532], [0, 0, 0, 0, -23356, -17, -4, -864, -197, -532]],
 ];
 
 const roundingMode = "floor";
