@@ -276,6 +276,10 @@ regexp-v-flag
 # https://github.com/tc39/proposal-decorators
 decorators
 
+# Duplicate named capturing groups
+# https://github.com/tc39/proposal-duplicate-named-capturing-groups
+regexp-duplicate-named-groups
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
