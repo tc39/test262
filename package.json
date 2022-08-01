@@ -13,7 +13,7 @@
   "private": true,
   "homepage": "https://github.com/tc39/test262#readme",
   "devDependencies": {
-    "esvu": "^1.0.0",
+    "esvu": "^1.2.9",
     "test262-harness": "^8.0.0"
   },
   "scripts": {
