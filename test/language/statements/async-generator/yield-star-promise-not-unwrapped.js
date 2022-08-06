@@ -1,4 +1,4 @@
-// Copyright (C) 2022 André Bargull. All rights reserved.
+// Copyright (C) 2022 Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
