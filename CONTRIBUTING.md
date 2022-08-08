@@ -15,6 +15,10 @@ Interchange Syntax](https://ecma-international.org/publications/standards/Ecma-4
 
 Any test that restricts potentially valid extensions to the ECMAScript Language will not be accepted. Implementations are allowed to extend the language in any way that does not contradict the normative grammar specification, nor violate the specification's [Forbidden Extensions](https://tc39.es/ecma262/#sec-forbidden-extensions) section, which clearly lists the only exceptions to this rule.
 
+## Verifying Tests
+
+Existing implementations will usually fail new tests for a TC39 proposal or pull request because they have not yet made the changes necessary to support it, which can make verifying correctness of the tests difficult.
+Authors may find it convenient to evaluate their tests using engine262, which is designed to be easily modified and [run against test262](https://github.com/engine262/engine262#testing-engine262).
 
 ## Test Case Names
 
