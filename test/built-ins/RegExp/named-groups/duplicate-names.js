@@ -19,4 +19,4 @@ assert.compareArray(["aabb", undefined, "bb"], matchResult);
 assert.sameValue(matchResult.groups.x, "bb");
 
 let notMatched = "abab".match(/(?:(?:(?<x>a)|(?<x>b))\k<x>){2}/);
-assert.sameValue(null, notMatched);
+assert.sameValue(notMatched, null);
