@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal-duration-objects
-description: Temporal.Duration.prototype.round() works as expected 
+description: Temporal.Duration.prototype.round() works as expected
 features: [Temporal]
 ---*/
 
@@ -39,7 +39,7 @@ var hours12 = new Temporal.Duration(0, 0, 0, 0, 12);
 
 // relativeTo affects days if ZonedDateTime, and duration encompasses DST change"
 
-// start inside repeated hour, end after", 
+// start inside repeated hour, end after",
 assert.sameValue(`${ hours25.round({
   largestUnit: "days",
   relativeTo: inRepeatedHour
@@ -49,7 +49,7 @@ assert.sameValue(`${ oneDay.round({
   relativeTo: inRepeatedHour
 }) }`, "PT25H");
 
-// start after repeated hour, end inside (negative)", 
+// start after repeated hour, end inside (negative)",
 var relativeTo = Temporal.ZonedDateTime.from("2019-11-04T01:00[America/Vancouver]");
 assert.sameValue(`${ hours25.negated().round({
   largestUnit: "days",
@@ -60,7 +60,7 @@ assert.sameValue(`${ oneDay.negated().round({
   relativeTo
 }) }`, "-PT25H");
 
-// start inside repeated hour, end in skipped hour", 
+// start inside repeated hour, end in skipped hour",
 assert.sameValue(`${ Temporal.Duration.from({
   days: 126,
   hours: 1
@@ -76,7 +76,7 @@ assert.sameValue(`${ Temporal.Duration.from({
   relativeTo: inRepeatedHour
 }) }`, "PT3026H");
 
-// start in normal hour, end in skipped hour", 
+// start in normal hour, end in skipped hour",
 var relativeTo = Temporal.ZonedDateTime.from("2019-03-09T02:30[America/Vancouver]");
 assert.sameValue(`${ hours25.round({
   largestUnit: "days",
@@ -87,7 +87,7 @@ assert.sameValue(`${ oneDay.round({
   relativeTo
 }) }`, "PT24H");
 
-// start before skipped hour, end >1 day after", 
+// start before skipped hour, end >1 day after",
 assert.sameValue(`${ hours25.round({
   largestUnit: "days",
   relativeTo: skippedHourDay
@@ -97,7 +97,7 @@ assert.sameValue(`${ oneDay.round({
   relativeTo: skippedHourDay
 }) }`, "PT23H");
 
-// start after skipped hour, end >1 day before (negative)", 
+// start after skipped hour, end >1 day before (negative)",
 var relativeTo = Temporal.ZonedDateTime.from("2019-03-11T00:00[America/Vancouver]");
 assert.sameValue(`${ hours25.negated().round({
   largestUnit: "days",
@@ -108,20 +108,20 @@ assert.sameValue(`${ oneDay.negated().round({
   relativeTo
 }) }`, "-PT23H");
 
-// start before skipped hour, end <1 day after", 
+// start before skipped hour, end <1 day after",
 assert.sameValue(`${ hours12.round({
   largestUnit: "days",
   relativeTo: skippedHourDay
 }) }`, "PT12H");
 
-// start after skipped hour, end <1 day before (negative)", 
+// start after skipped hour, end <1 day before (negative)",
 var relativeTo = Temporal.ZonedDateTime.from("2019-03-10T12:00[America/Vancouver]");
 assert.sameValue(`${ hours12.negated().round({
   largestUnit: "days",
   relativeTo
 }) }`, "-PT12H");
 
-// start before repeated hour, end >1 day after", 
+// start before repeated hour, end >1 day after",
 assert.sameValue(`${ hours25.round({
   largestUnit: "days",
   relativeTo: repeatedHourDay
@@ -131,7 +131,7 @@ assert.sameValue(`${ oneDay.round({
   relativeTo: repeatedHourDay
 }) }`, "PT25H");
 
-// start after repeated hour, end >1 day before (negative)", 
+// start after repeated hour, end >1 day before (negative)",
 var relativeTo = Temporal.ZonedDateTime.from("2019-11-04T00:00[America/Vancouver]");
 assert.sameValue(`${ hours25.negated().round({
   largestUnit: "days",
@@ -142,20 +142,20 @@ assert.sameValue(`${ oneDay.negated().round({
   relativeTo
 }) }`, "-PT25H");
 
-// start before repeated hour, end <1 day after", 
+// start before repeated hour, end <1 day after",
 assert.sameValue(`${ hours12.round({
   largestUnit: "days",
   relativeTo: repeatedHourDay
 }) }`, "PT12H");
 
-// start after repeated hour, end <1 day before (negative)", 
+// start after repeated hour, end <1 day before (negative)",
 var relativeTo = Temporal.ZonedDateTime.from("2019-11-03T12:00[America/Vancouver]");
 assert.sameValue(`${ hours12.negated().round({
   largestUnit: "days",
   relativeTo
 }) }`, "-PT12H");
 
-// Samoa skipped 24 hours", 
+// Samoa skipped 24 hours",
 var relativeTo = Temporal.ZonedDateTime.from("2011-12-29T12:00-10:00[Pacific/Apia]");
 assert.sameValue(`${ hours25.round({
   largestUnit: "days",
@@ -423,36 +423,6 @@ for (var [largestUnit, entry] of Object.entries(balanceLosePrecisionResults)) {
         relativeTo
       }) }`.startsWith("PT174373505.005"));
   }
-}
-var roundingModeResults = {
-  halfExpand: [
-    "P6Y",
-    "-P6Y"
-  ],
-  ceil: [
-    "P6Y",
-    "-P5Y"
-  ],
-  floor: [
-    "P5Y",
-    "-P6Y"
-  ],
-  trunc: [
-    "P5Y",
-    "-P5Y"
-  ]
-};
-for (var [roundingMode, [posResult, negResult]] of Object.entries(roundingModeResults)) {
-    assert.sameValue(`${ d.round({
-      smallestUnit: "years",
-      relativeTo,
-      roundingMode
-    }) }`, posResult);
-    assert.sameValue(`${ d.negated().round({
-      smallestUnit: "years",
-      relativeTo,
-      roundingMode
-    }) }`, negResult);
 }
 
 // halfExpand is the default
