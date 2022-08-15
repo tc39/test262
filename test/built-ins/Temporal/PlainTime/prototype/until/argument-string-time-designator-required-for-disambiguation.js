@@ -38,16 +38,22 @@ ambiguousStrings.forEach((string) => {
 
 // None of these should throw without a T prefix, because they are unambiguously time strings:
 const unambiguousStrings = [
-  "2021-13",  // 13 is not a month
-  "202113",   //   ditto
-  "0000-00",  // 0 is not a month
-  "000000",   //   ditto
-  "1314",     // 13 is not a month
-  "13-14",    //   ditto
-  "1232",     // 32 is not a day
-  "0230",     // 30 is not a day in February
-  "0631",     // 31 is not a day in June
-  "0000",     // 0 is neither a month nor a day
-  "00-00",    //   ditto
+  "2021-13",          // 13 is not a month
+  "202113",           //   ditto
+  "2021-13[-13:00]",  //   ditto
+  "202113[-13:00]",   //   ditto
+  "0000-00",          // 0 is not a month
+  "000000",           //   ditto
+  "0000-00[UTC]",     //   ditto
+  "000000[UTC]",      //   ditto
+  "1314",             // 13 is not a month
+  "13-14",            //   ditto
+  "1232",             // 32 is not a day
+  "0230",             // 30 is not a day in February
+  "0631",             // 31 is not a day in June
+  "0000",             // 0 is neither a month nor a day
+  "00-00",            //   ditto
+  "2021-12[-12:00]",  // HHMM-UU is ambiguous with YYYY-MM, but TZ disambiguates
+  "202112[UTC]",      // HHMMSS is ambiguous with YYYYMM, but TZ disambiguates
 ];
 unambiguousStrings.forEach((arg) => instance.until(arg));
