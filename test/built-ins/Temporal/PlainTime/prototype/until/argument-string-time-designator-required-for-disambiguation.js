@@ -16,6 +16,14 @@ const ambiguousStrings = [
   "1130",     //   ditto, including DD that doesn't occur in every month
   "12-14",    // ambiguity between MM-DD and HH-UU
   "202112",   // ambiguity between YYYYMM and HHMMSS
+  // same strings as above but with a calendar annotation, which must not cause
+  // disambiguation in favour of time
+  "2021-12[u-ca=iso8601]",
+  "1214[u-ca=iso8601]",
+  "0229[u-ca=iso8601]",
+  "1130[u-ca=iso8601]",
+  "12-14[u-ca=iso8601]",
+  "202112[u-ca=iso8601]",
 ];
 ambiguousStrings.forEach((string) => {
   let arg = string;
