@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.groupBy
-description: Array.prototype.groupBy populates Map with correct keys and values
+esid: sec-array.prototype.group
+description: Array.prototype.group populates object with correct keys and values
 info: |
-  22.1.3.14 Array.prototype.groupBy ( callbackfn [ , thisArg ] )
+  22.1.3.14 Array.prototype.group ( callbackfn [ , thisArg ] )
 
   ...
 
@@ -15,9 +15,14 @@ info: |
     b. Perform ! CreateDataPropertyOrThrow(obj, g.[[Key]], elements).
 
   ...
-
+features: [Array.prototype.group]
 ---*/
 
-const obj = [].groupBy(i=>i);
+const original = [];
 
+const obj = original.group(() => {
+  throw new Test262Error('callback function should not be called')
+});
+
+assert.notSameValue(original, obj, 'group returns a object');
 assert.sameValue(Object.keys(obj).length, 0);
