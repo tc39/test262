@@ -7,7 +7,7 @@ description: Calendar names are case-insensitive
 features: [Temporal]
 ---*/
 
-const arg = "jApAnEsE";
+const arg = "iSo8601";
 
 const result = new Temporal.PlainMonthDay(12, 15, arg, 1972);
-assert.sameValue(result.calendar.id, "japanese", "Calendar is case-insensitive");
+assert.sameValue(result.calendar.id, "iso8601", "Calendar is case-insensitive");

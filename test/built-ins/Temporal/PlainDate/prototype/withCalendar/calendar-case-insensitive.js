@@ -9,6 +9,6 @@ features: [Temporal]
 
 const instance = new Temporal.PlainDate(1976, 11, 18, { id: "replace-me" });
 
-const arg = "jApAnEsE";;
+const arg = "iSo8601";;
 const result = instance.withCalendar(arg);
-assert.sameValue(result.calendar.id, "japanese", "Calendar is case-insensitive");
+assert.sameValue(result.calendar.id, "iso8601", "Calendar is case-insensitive");

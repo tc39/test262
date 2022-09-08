@@ -2,12 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.calendar.prototype.from
+esid: sec-temporal.calendar constructor
 description: Calendar names are case-insensitive
 features: [Temporal]
 ---*/
 
-const arg = "iSo8601";
-
-const result = Temporal.Calendar.from(arg);
-assert.sameValue(result.id, "iso8601", "Calendar is case-insensitive");
+const result = new Temporal.Calendar("jApAnEsE");
+assert.sameValue(result.toString(), "japanese", "Calendar is case-insensitive");
