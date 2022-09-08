@@ -9,6 +9,6 @@ features: [Temporal]
 
 const instance = new Temporal.TimeZone("UTC");
 
-const arg = "jApAnEsE";;
+const arg = "iSo8601";;
 const result = instance.getPlainDateTimeFor(new Temporal.Instant(0n), arg);
-assert.sameValue(result.calendar.id, "japanese", "Calendar is case-insensitive");
+assert.sameValue(result.calendar.id, "iso8601", "Calendar is case-insensitive");

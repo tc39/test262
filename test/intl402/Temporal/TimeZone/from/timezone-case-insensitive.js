@@ -7,6 +7,6 @@ description: Time zone names are case insensitive
 features: [Temporal]
 ---*/
 
-const timeZone = 'UtC';
+const timeZone = 'eTc/gMt+1';
 const result = Temporal.TimeZone.from(timeZone);
-assert.sameValue(result.id, 'UTC', `Time zone created from string "${timeZone}"`);
+assert.sameValue(result.id, 'Etc/GMT+1', `Time zone created from string "${timeZone}"`);
