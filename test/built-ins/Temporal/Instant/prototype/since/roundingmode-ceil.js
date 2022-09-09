@@ -8,8 +8,8 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const earlier = new Temporal.Instant(217178610_123_456_789n);
-const later = new Temporal.Instant(1572345998_271_986_102n);
+const earlier = new Temporal.Instant(217178610_123_456_789n /* 1976-11-18T15:23:30.123456789Z */);
+const later = new Temporal.Instant(1572345998_271_986_289n /* 2019-10-29T10:46:38.271986289Z */);
 
 const expected = [
   ["hours", [0, 0, 0, 0, 376436], [0, 0, 0, 0, -376435]],
@@ -17,7 +17,7 @@ const expected = [
   ["seconds", [0, 0, 0, 0, 376435, 23, 9], [0, 0, 0, 0, -376435, -23, -8]],
   ["milliseconds", [0, 0, 0, 0, 376435, 23, 8, 149], [0, 0, 0, 0, -376435, -23, -8, -148]],
   ["microseconds", [0, 0, 0, 0, 376435, 23, 8, 148, 530], [0, 0, 0, 0, -376435, -23, -8, -148, -529]],
-  ["nanoseconds", [0, 0, 0, 0, 376435, 23, 8, 148, 529, 313], [0, 0, 0, 0, -376435, -23, -8, -148, -529, -313]],
+  ["nanoseconds", [0, 0, 0, 0, 376435, 23, 8, 148, 529, 500], [0, 0, 0, 0, -376435, -23, -8, -148, -529, -500]],
 ];
 
 const roundingMode = "ceil";
