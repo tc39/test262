@@ -8,8 +8,8 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const earlier = new Temporal.ZonedDateTime(1546935756_123_456_789n, "UTC");
-const later = new Temporal.ZonedDateTime(1631018380_987_654_321n, "UTC");
+const earlier = new Temporal.ZonedDateTime(1546935756_123_456_789n /* 2019-01-08T08:22:36.123456789+00:00 */, "UTC");
+const later = new Temporal.ZonedDateTime(1631018380_987_654_289n /* 2021-09-07T12:39:40.987654289+00:00 */, "UTC");
 
 const expected = [
   ["years", [3], [-3]],
@@ -20,8 +20,8 @@ const expected = [
   ["minutes", [0, 0, 0, 0, 23356, 17], [0, 0, 0, 0, -23356, -17]],
   ["seconds", [0, 0, 0, 0, 23356, 17, 5], [0, 0, 0, 0, -23356, -17, -5]],
   ["milliseconds", [0, 0, 0, 0, 23356, 17, 4, 864], [0, 0, 0, 0, -23356, -17, -4, -864]],
-  ["microseconds", [0, 0, 0, 0, 23356, 17, 4, 864, 198], [0, 0, 0, 0, -23356, -17, -4, -864, -198]],
-  ["nanoseconds", [0, 0, 0, 0, 23356, 17, 4, 864, 197, 532], [0, 0, 0, 0, -23356, -17, -4, -864, -197, -532]],
+  ["microseconds", [0, 0, 0, 0, 23356, 17, 4, 864, 197], [0, 0, 0, 0, -23356, -17, -4, -864, -197]],
+  ["nanoseconds", [0, 0, 0, 0, 23356, 17, 4, 864, 197, 500], [0, 0, 0, 0, -23356, -17, -4, -864, -197, -500]],
 ];
 
 const roundingMode = "halfTrunc";

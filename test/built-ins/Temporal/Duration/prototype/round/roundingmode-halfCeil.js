@@ -8,7 +8,7 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.Duration(5, 6, 7, 8, 40, 30, 20, 123, 500, 987);
+const instance = new Temporal.Duration(5, 6, 7, 8, 40, 30, 20, 123, 987, 500);
 const relativeTo = new Temporal.PlainDate(2020, 1, 1);
 
 const expected = [
@@ -20,8 +20,8 @@ const expected = [
   ["minutes", [5, 6, 7, 9, 16, 30], [-5, -6, -7, -9, -16, -30]],
   ["seconds", [5, 6, 7, 9, 16, 30, 20], [-5, -6, -7, -9, -16, -30, -20]],
   ["milliseconds", [5, 6, 7, 9, 16, 30, 20, 124], [-5, -6, -7, -9, -16, -30, -20, -124]],
-  ["microseconds", [5, 6, 7, 9, 16, 30, 20, 123, 501], [-5, -6, -7, -9, -16, -30, -20, -123, -501]],
-  ["nanoseconds", [5, 6, 7, 9, 16, 30, 20, 123, 500, 987], [-5, -6, -7, -9, -16, -30, -20, -123, -500, -987]],
+  ["microseconds", [5, 6, 7, 9, 16, 30, 20, 123, 988], [-5, -6, -7, -9, -16, -30, -20, -123, -987]],
+  ["nanoseconds", [5, 6, 7, 9, 16, 30, 20, 123, 987, 500], [-5, -6, -7, -9, -16, -30, -20, -123, -987, -500]],
 ];
 
 const roundingMode = "halfCeil";

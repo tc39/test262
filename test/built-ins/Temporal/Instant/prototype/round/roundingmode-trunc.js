@@ -7,15 +7,15 @@ description: Tests calculations with roundingMode "trunc".
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.Instant(217175010_123_456_789n /* 1976-11-18T14:23:30.123456789Z */);
+const instance = new Temporal.Instant(217175010_123_987_500n /* 1976-11-18T14:23:30.1239875Z */);
 
 const expected = [
   ["hour", 217173600_000_000_000n /* 1976-11-18T14:00:00Z */],
   ["minute", 217174980_000_000_000n /* 1976-11-18T14:23:00Z */],
   ["second", 217175010_000_000_000n /* 1976-11-18T14:23:30Z */],
   ["millisecond", 217175010_123_000_000n /* 1976-11-18T14:23:30.123Z */],
-  ["microsecond", 217175010_123_456_000n /* 1976-11-18T14:23:30.123456Z */],
-  ["nanosecond", 217175010_123_456_789n /* 1976-11-18T14:23:30.123456789Z */],
+  ["microsecond", 217175010_123_987_000n /* 1976-11-18T14:23:30.123987Z */],
+  ["nanosecond", 217175010_123_987_500n /* 1976-11-18T14:23:30.1239875Z */],
 ];
 
 const roundingMode = "trunc";

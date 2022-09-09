@@ -8,15 +8,15 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.PlainTime(13, 46, 23, 123, 456, 789);
+const instance = new Temporal.PlainTime(13, 46, 23, 123, 987, 500);
 
 const expected = [
   ["hour", [14]],
   ["minute", [13, 46]],
   ["second", [13, 46, 23]],
-  ["millisecond", [13, 46, 23, 123]],
-  ["microsecond", [13, 46, 23, 123, 457]],
-  ["nanosecond", [13, 46, 23, 123, 456, 789]],
+  ["millisecond", [13, 46, 23, 124]],
+  ["microsecond", [13, 46, 23, 123, 988]],
+  ["nanosecond", [13, 46, 23, 123, 987, 500]],
 ];
 
 const roundingMode = "halfEven";

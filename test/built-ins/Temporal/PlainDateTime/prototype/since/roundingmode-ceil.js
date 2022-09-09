@@ -9,7 +9,7 @@ features: [Temporal]
 ---*/
 
 const earlier = new Temporal.PlainDateTime(2019, 1, 8, 8, 22, 36, 123, 456, 789);
-const later = new Temporal.PlainDateTime(2021, 9, 7, 12, 39, 40, 987, 654, 321);
+const later = new Temporal.PlainDateTime(2021, 9, 7, 12, 39, 40, 987, 654, 289);
 
 const expected = [
   ["years", [3], [-2]],
@@ -21,7 +21,7 @@ const expected = [
   ["seconds", [0, 0, 0, 973, 4, 17, 5], [0, 0, 0, -973, -4, -17, -4]],
   ["milliseconds", [0, 0, 0, 973, 4, 17, 4, 865], [0, 0, 0, -973, -4, -17, -4, -864]],
   ["microseconds", [0, 0, 0, 973, 4, 17, 4, 864, 198], [0, 0, 0, -973, -4, -17, -4, -864, -197]],
-  ["nanoseconds", [0, 0, 0, 973, 4, 17, 4, 864, 197, 532], [0, 0, 0, -973, -4, -17, -4, -864, -197, -532]],
+  ["nanoseconds", [0, 0, 0, 973, 4, 17, 4, 864, 197, 500], [0, 0, 0, -973, -4, -17, -4, -864, -197, -500]],
 ];
 
 const roundingMode = "ceil";
