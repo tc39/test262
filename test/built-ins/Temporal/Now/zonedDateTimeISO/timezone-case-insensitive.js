@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.now.prototype.zoneddatetimeiso
+esid: sec-temporal.now.zoneddatetimeiso
 description: Time zone names are case insensitive
 features: [Temporal]
 ---*/

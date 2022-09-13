@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.constructor
+esid: sec-temporal.plaindate
 description: Calendar names are case-insensitive
 features: [Temporal]
 ---*/

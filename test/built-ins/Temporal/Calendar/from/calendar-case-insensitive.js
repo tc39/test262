@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.calendar.prototype.from
+esid: sec-temporal.calendar.from
 description: Calendar names are case-insensitive
 features: [Temporal]
 ---*/

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.prototype.from
+esid: sec-temporal.timezone.from
 description: Time zone names are case insensitive
 features: [Temporal]
 ---*/
