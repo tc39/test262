@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainmonthday.prototype.from
+esid: sec-temporal.plainmonthday.from
 description: The calendar name is case-insensitive
 includes: [temporalHelpers.js]
 features: [Temporal]

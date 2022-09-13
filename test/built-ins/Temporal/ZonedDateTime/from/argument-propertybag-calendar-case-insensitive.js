@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.zoneddatetime.prototype.from
+esid: sec-temporal.zoneddatetime.from
 description: The calendar name is case-insensitive
 features: [Temporal]
 ---*/
