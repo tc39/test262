@@ -292,6 +292,11 @@ change-array-by-copy
 # https://tc39.es/proposal-array-from-async/
 Array.fromAsync
 
+# Well-formed Unicode strings
+# https://github.com/tc39/proposal-is-usv-string
+String.prototype.isWellFormed
+String.prototype.toWellFormed
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
