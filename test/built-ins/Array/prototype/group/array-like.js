@@ -24,7 +24,7 @@ const arrayLike = {0: 1, 1: 2, 2: 3, 3: 4, length: 3 };
 
 let calls = 0;
 
-const obj = Array.prototype.group.call(arrayLike, i => { calls++; return i % 2 === 0 ? 'even' : 'odd'; });
+const obj = Array.prototype.group.call(arrayLike, function (i) { calls++; return i % 2 === 0 ? 'even' : 'odd'; });
 
 assert.sameValue(calls, 3, 'only calls length times');
 assert.compareArray(Object.keys(obj), ['odd', 'even']);

@@ -31,7 +31,7 @@ const stringable = {
 
 const array = [1, '1', stringable];
 
-const obj = array.group(v => v);
+const obj = array.group(function (v) { return v; });
 
 assert.compareArray(Object.keys(obj), ['1']);
 assert.compareArray(obj['1'], [1, '1', stringable]);

@@ -20,7 +20,7 @@ features: [array-grouping]
 
 const original = [];
 
-const map = original.groupToMap(() => {
+const map = original.groupToMap(function () {
   throw new Test262Error('callback function should not be called')
 });
 

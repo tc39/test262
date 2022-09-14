@@ -17,14 +17,14 @@ info: |
 
   ...
 includes: [compareArray.js]
-features: [array-grouping]
+features: [array-grouping, Map, Symbol.iterator]
 ---*/
 
 const arrayLike = {0: 1, 1: 2, 2: 3, 3: 4, length: 3 };
 
 let calls = 0;
 
-const map = Array.prototype.groupToMap.call(arrayLike, i => {
+const map = Array.prototype.groupToMap.call(arrayLike, function (i) {
   calls++;
   return i % 2 === 0 ? 'even' : 'odd';
 });

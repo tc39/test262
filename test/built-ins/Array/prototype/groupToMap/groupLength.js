@@ -16,12 +16,12 @@ info: |
 
   ...
 includes: [compareArray.js]
-features: [array-grouping]
+features: [array-grouping, Map, Symbol.iterator]
 ---*/
 
 const arr = ['hello', 'test', 'world'];
 
-const map = arr.groupToMap(i => i.length);
+const map = arr.groupToMap(function (i) { return i.length; });
 
 assert.compareArray(Array.from(map.keys()), [5, 4]);
 assert.compareArray(map.get(5), ['hello', 'world']);

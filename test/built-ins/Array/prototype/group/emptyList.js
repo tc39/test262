@@ -20,7 +20,7 @@ features: [array-grouping]
 
 const original = [];
 
-const obj = original.group(() => {
+const obj = original.group(function () {
   throw new Test262Error('callback function should not be called')
 });
 

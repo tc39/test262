@@ -14,12 +14,12 @@ info: |
   9. Return map.
 
   ...
-features: [array-grouping]
+features: [array-grouping, Map]
 ---*/
 
 const array = [1, 2, 3];
 
-const map = array.groupToMap(i => {
+const map = array.groupToMap(function (i) {
   return i % 2 === 0 ? 'even' : 'odd';
 });
 

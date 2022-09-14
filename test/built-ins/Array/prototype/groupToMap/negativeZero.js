@@ -13,13 +13,13 @@ info: |
 
   ...
 includes: [compareArray.js]
-features: [array-grouping]
+features: [array-grouping, Map]
 ---*/
 
 
 const arr = [-0, +0];
 
-const map = arr.groupToMap(i => i);
+const map = arr.groupToMap(function (i) { return i; });
 
 assert.sameValue(map.size, 1);
 assert.compareArray(map.get(0), [-0, 0]);

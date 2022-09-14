@@ -23,7 +23,7 @@ features: [array-grouping]
 let calls = 0;
 const array = [, , ,];
 
-const obj = array.group(() => {
+const obj = array.group(function () {
   calls++;
   return 'key';
 });

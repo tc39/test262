@@ -15,7 +15,7 @@ info: |
     c. Let key be ? Call(callbackfn, thisArg, « kValue, 𝔽(k), O »).
     e. Perform ! AddValueToKeyedGroup(groups, key, kValue).
   ...
-features: [array-grouping]
+features: [array-grouping, Map]
 ---*/
 
 
@@ -23,7 +23,7 @@ const arr = [-0, 0, 1, 2, 3];
 
 let calls = 0;
 
-arr.groupToMap((n, i, testArr) => {
+arr.groupToMap(function (n, i, testArr) {
   calls++;
   assert.sameValue(n, arr[i], "selected element aligns with index");
   assert.sameValue(testArr, arr, "original array is passed as final argument");

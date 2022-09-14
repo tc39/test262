@@ -14,7 +14,7 @@ info: |
 
   ...
 flags: [noStrict]
-features: [array-grouping]
+features: [array-grouping, Map]
 ---*/
 
 

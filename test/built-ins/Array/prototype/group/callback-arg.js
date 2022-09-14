@@ -25,7 +25,7 @@ const arr = [-0, 0, 1, 2, 3];
 
 let calls = 0;
 
-const map = arr.group((n, i, testArr) => {
+const map = arr.group(function (n, i, testArr) {
   calls++;
   assert.sameValue(n, arr[i], "selected element aligns with index");
   assert.sameValue(testArr, arr, "original array is passed as final argument");

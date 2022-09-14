@@ -21,7 +21,7 @@ features: [array-grouping]
 
 const arr = ['hello', 'test', 'world'];
 
-const obj = arr.group(i => i.length);
+const obj = arr.group(function (i) { return i.length; });
 
 assert.compareArray(Object.keys(obj), ['4', '5']);
 assert.compareArray(obj['5'], ['hello', 'world']);

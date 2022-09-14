@@ -16,12 +16,12 @@ info: |
 
   ...
 includes: [compareArray.js]
-features: [array-grouping]
+features: [array-grouping, Map, Symbol.iterator]
 ---*/
 
 const array = [1, 2, 3];
 
-const map = array.groupToMap(i => {
+const map = array.groupToMap(function (i) {
   return i % 2 === 0 ? 'even' : 'odd';
 });
 

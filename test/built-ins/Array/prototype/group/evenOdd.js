@@ -21,7 +21,7 @@ features: [array-grouping]
 
 const array = [1, 2, 3];
 
-const obj = array.group(i => {
+const obj = array.group(function (i) {
   return i % 2 === 0 ? 'even' : 'odd';
 });
 

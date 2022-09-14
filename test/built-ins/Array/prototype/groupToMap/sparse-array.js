@@ -17,13 +17,13 @@ info: |
 
   ...
 includes: [compareArray.js]
-features: [array-grouping]
+features: [array-grouping, Map]
 ---*/
 
 let calls = 0;
 const array = [, , ,];
 
-const map = array.groupToMap(() => {
+const map = array.groupToMap(function () {
   calls++;
   return 'key';
 });

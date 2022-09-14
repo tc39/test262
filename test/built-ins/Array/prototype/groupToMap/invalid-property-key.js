@@ -14,7 +14,7 @@ info: |
 
   ...
 includes: [compareArray.js]
-features: [array-grouping]
+features: [array-grouping, Map, Symbol.iterator]
 ---*/
 
 const key = {
