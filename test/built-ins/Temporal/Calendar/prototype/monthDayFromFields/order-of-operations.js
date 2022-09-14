@@ -9,9 +9,6 @@ features: [Temporal]
 ---*/
 
 const expected = [
-  "get options.overflow",
-  "get options.overflow.toString",
-  "call options.overflow.toString",
   "get fields.day",
   "get fields.day.valueOf",
   "call fields.day.valueOf",
@@ -24,6 +21,9 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
+  "get options.overflow",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
 ];
 const actual = [];
 
