@@ -167,7 +167,7 @@ for (let ctor of ctors) {
     }
   };
   assert.throws(RangeError, () => {
-    lengthTracking.subarray(evil);
+    lengthTracking.subarray(evil, lengthTracking.length);
   });
 }
 
