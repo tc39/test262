@@ -7,6 +7,23 @@ defines: [TemporalHelpers]
 features: [Symbol.species, Symbol.iterator, Temporal]
 ---*/
 
+function formatPropertyName(propertyKey, objectName = "") {
+  switch (typeof propertyKey) {
+    case "symbol":
+      if (Symbol.keyFor(propertyKey) !== undefined) {
+        return `${objectName}[Symbol.for('${Symbol.keyFor(propertyKey)}')]`;
+      } else if (propertyKey.description.startsWith('Symbol.')) {
+        return `${objectName}[${propertyKey.description}]`;
+      } else {
+        return `${objectName}[Symbol('${propertyKey.description}')]`
+      }
+    case "number":
+      return `${objectName}[${propertyKey}]`;
+    default:
+      return objectName ? `${objectName}.${propertyKey}` : propertyKey;
+  }
+}
+
 var TemporalHelpers = {
   /*
    * assertDuration(duration, years, ...,  nanoseconds[, description]):
@@ -262,15 +279,15 @@ var TemporalHelpers = {
     ["year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
       Object.defineProperty(datetime, property, {
         get() {
-          actual.push(`get ${property}`);
+          actual.push(`get ${formatPropertyName(property)}`);
           const value = prototypeDescrs[property].get.call(this);
           return {
             toString() {
-              actual.push(`toString ${property}`);
+              actual.push(`toString ${formatPropertyName(property)}`);
               return value.toString();
             },
             valueOf() {
-              actual.push(`valueOf ${property}`);
+              actual.push(`valueOf ${formatPropertyName(property)}`);
               return value;
             },
           };
@@ -870,7 +887,7 @@ var TemporalHelpers = {
     ["year", "month", "monthCode", "day"].forEach((property) => {
       Object.defineProperty(date, property, {
         get() {
-          actual.push(`get ${property}`);
+          actual.push(`get ${formatPropertyName(property)}`);
           const value = prototypeDescrs[property].get.call(this);
           return TemporalHelpers.toPrimitiveObserver(actual, value, property);
         },
@@ -879,7 +896,7 @@ var TemporalHelpers = {
     ["hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
       Object.defineProperty(date, property, {
         get() {
-          actual.push(`get ${property}`);
+          actual.push(`get ${formatPropertyName(property)}`);
           return undefined;
         },
       });
@@ -1292,24 +1309,14 @@ var TemporalHelpers = {
    * Defines an own property @object.@propertyName with value @value, that
    * will log any calls to its accessors to the array @calls.
    */
-  observeProperty(calls, object, propertyName, value) {
-    let displayName = propertyName;
-    if (typeof propertyName === 'symbol') {
-      if (Symbol.keyFor(propertyName) !== undefined) {
-        displayName = `[Symbol.for('${Symbol.keyFor(propertyName)}')]`;
-      } else if (propertyName.description.startsWith('Symbol.')) {
-        displayName = `[${propertyName.description}]`;
-      } else {
-        displayName = `[Symbol('${propertyName.description}')]`
-      }
-    }
+  observeProperty(calls, object, propertyName, value, objectName = "") {
     Object.defineProperty(object, propertyName, {
       get() {
-        calls.push(`get ${displayName}`);
+        calls.push(`get ${formatPropertyName(propertyName, objectName)}`);
         return value;
       },
       set(v) {
-        calls.push(`set ${displayName}`);
+        calls.push(`set ${formatPropertyName(propertyName, objectName)}`);
       }
     });
   },
