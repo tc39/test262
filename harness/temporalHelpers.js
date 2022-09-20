@@ -1445,6 +1445,41 @@ var TemporalHelpers = {
   },
 
   /*
+   * propertyBagObserver():
+   * Returns an object that behaves like the given propertyBag but tracks Get
+   * and Has operations on any of its properties, by appending messages to an
+   * array. If the value of a property in propertyBag is a primitive, the value
+   * of the returned object's property will additionally be a
+   * TemporalHelpers.toPrimitiveObserver that will track calls to its toString
+   * and valueOf methods in the same array. This is for the purpose of testing
+   * order of operations that are observable from user code. objectName is used
+   * in the log.
+   */
+  propertyBagObserver(calls, propertyBag, objectName) {
+    return new Proxy(propertyBag, {
+      ownKeys(target) {
+        calls.push(`ownKeys ${objectName}`);
+        return Reflect.ownKeys(target);
+      },
+      get(target, key, receiver) {
+        calls.push(`get ${formatPropertyName(key, objectName)}`);
+        const result = Reflect.get(target, key, receiver);
+        if (result === undefined) {
+          return undefined;
+        }
+        if (typeof result === "object") {
+          return result;
+        }
+        return TemporalHelpers.toPrimitiveObserver(calls, result, `${formatPropertyName(key, objectName)}`);
+      },
+      has(target, key) {
+        calls.push(`has ${formatPropertyName(key, objectName)}`);
+        return Reflect.has(target, key);
+      },
+    });
+  },
+
+  /*
    * specificOffsetTimeZone():
    *
    * This returns an instance of a custom time zone class, which returns a
