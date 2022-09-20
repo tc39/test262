@@ -1636,6 +1636,44 @@ var TemporalHelpers = {
   },
 
   /*
+   * timeZoneObserver:
+   * A custom calendar that behaves exactly like the UTC time zone but tracks
+   * calls to any of its methods, and Get/Has operations on its properties, by
+   * appending messages to an array. This is for the purpose of testing order of
+   * operations that are observable from user code. objectName is used in the
+   * log. methodOverrides is an optional object containing properties with the
+   * same name as Temporal.TimeZone methods. If the property value is a function
+   * it will be called with the proper arguments instead of the UTC method.
+   * Otherwise, the property value will be returned directly.
+   */
+  timeZoneObserver(calls, objectName, methodOverrides = {}) {
+    const utc = new Temporal.TimeZone("UTC");
+    const trackingMethods = {};
+    // Automatically generate the methods
+    ["getOffsetNanosecondsFor", "getPossibleInstantsFor", "toString"].forEach((methodName) => {
+      trackingMethods[methodName] = function (...args) {
+        actual.push(`call ${formatPropertyName(methodName, objectName)}`);
+        if (methodName in methodOverrides) {
+          const value = methodOverrides[methodName];
+          return typeof value === "function" ? value(...args) : value;
+        }
+        return utc[methodName](...args);
+      };
+    });
+    return new Proxy(trackingMethods, {
+      get(target, key, receiver) {
+        const result = Reflect.get(target, key, receiver);
+        actual.push(`get ${formatPropertyName(key, objectName)}`);
+        return result;
+      },
+      has(target, key) {
+        actual.push(`has ${formatPropertyName(key, objectName)}`);
+        return Reflect.has(target, key);
+      },
+    });
+  },
+
+  /*
    * Returns an object that will append logs of any Gets or Calls of its valueOf
    * or toString properties to the array calls. Both valueOf and toString will
    * return the actual primitiveValue. propertyName is used in the log.
