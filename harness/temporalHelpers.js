@@ -1382,6 +1382,97 @@ var TemporalHelpers = {
   },
 
   /*
+   * calendarObserver:
+   * A custom calendar that behaves exactly like the ISO 8601 calendar but
+   * tracks calls to any of its methods, and Get/Has operations on its
+   * properties, by appending messages to an array. This is for the purpose of
+   * testing order of operations that are observable from user code.
+   * objectName is used in the log.
+   */
+  calendarObserver(calls, objectName, methodOverrides = {}) {
+    const iso8601 = new Temporal.Calendar("iso8601");
+    const trackingMethods = {
+      dateFromFields(...args) {
+        calls.push(`call ${objectName}.dateFromFields`);
+        if ('dateFromFields' in methodOverrides) {
+          const value = methodOverrides.dateFromFields;
+          return typeof value === "function" ? value(...args) : value;
+        }
+        const originalResult = iso8601.dateFromFields(...args);
+        // Replace the calendar in the result with the call-tracking calendar
+        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
+        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
+        // Remove the HasProperty check resulting from the above constructor call
+        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
+        return result;
+      },
+      yearMonthFromFields(...args) {
+        calls.push(`call ${objectName}.yearMonthFromFields`);
+        if ('yearMonthFromFields' in methodOverrides) {
+          const value = methodOverrides.yearMonthFromFields;
+          return typeof value === "function" ? value(...args) : value;
+        }
+        const originalResult = iso8601.yearMonthFromFields(...args);
+        // Replace the calendar in the result with the call-tracking calendar
+        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
+        const result = new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
+        // Remove the HasProperty check resulting from the above constructor call
+        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
+        return result;
+      },
+      monthDayFromFields(...args) {
+        calls.push(`call ${objectName}.monthDayFromFields`);
+        if ('monthDayFromFields' in methodOverrides) {
+          const value = methodOverrides.monthDayFromFields;
+          return typeof value === "function" ? value(...args) : value;
+        }
+        const originalResult = iso8601.monthDayFromFields(...args);
+        // Replace the calendar in the result with the call-tracking calendar
+        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
+        const result = new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
+        // Remove the HasProperty check resulting from the above constructor call
+        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
+        return result;
+      },
+      dateAdd(...args) {
+        calls.push(`call ${objectName}.dateAdd`);
+        if ('dateAdd' in methodOverrides) {
+          const value = methodOverrides.dateAdd;
+          return typeof value === "function" ? value(...args) : value;
+        }
+        const originalResult = iso8601.dateAdd(...args);
+        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
+        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
+        // Remove the HasProperty check resulting from the above constructor call
+        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
+        return result;
+      }
+    };
+    // Automatically generate the other methods that don't need any custom code
+    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "fields", "mergeFields"].forEach((methodName) => {
+      trackingMethods[methodName] = function (...args) {
+        actual.push(`call ${formatPropertyName(methodName, objectName)}`);
+        if (methodName in methodOverrides) {
+          const value = methodOverrides[methodName];
+          return typeof value === "function" ? value(...args) : value;
+        }
+        return iso8601[methodName](...args);
+      };
+    });
+    return new Proxy(trackingMethods, {
+      get(target, key, receiver) {
+        const result = Reflect.get(target, key, receiver);
+        actual.push(`get ${formatPropertyName(key, objectName)}`);
+        return result;
+      },
+      has(target, key) {
+        actual.push(`has ${formatPropertyName(key, objectName)}`);
+        return Reflect.has(target, key);
+      },
+    });
+  },
+
+  /*
    * A custom calendar that does not allow any of its methods to be called, for
    * the purpose of asserting that a particular operation does not call into
    * user code.
