@@ -127,7 +127,8 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.compareArray(ToNumbers(lengthTracking.subarray(evil)), [
+  assert.compareArray(
+    ToNumbers(lengthTracking.subarray(evil, lengthTracking.length)), [
     0,
     2,
     4,
