@@ -39,7 +39,7 @@ execution_steps: &execution_steps
 jobs:
   "Test262: verify tools; build & lint tests (Python 2)":
     docker:
-      - image: circleci/python:2.7
+      - image: cimg/python:2.7
     working_directory: ~/test262
     steps:
       - checkout
@@ -66,7 +66,7 @@ jobs:
       #     command: ./tools/scripts/deploy.sh
   "Test262: verify tools; build & lint tests (Python 3)":
     docker:
-      - image: circleci/python:3.7.4
+      - image: cimg/python:3.7.4
     working_directory: ~/test262
     steps:
       - checkout
