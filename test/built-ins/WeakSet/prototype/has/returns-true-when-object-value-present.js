@@ -3,14 +3,11 @@
 /*---
 esid: sec-weakset.prototype.has
 description: >
-  Returns true when value is present in the WeakSet entries list.
+  Returns true when an Object value is present in the WeakSet entries list.
 info: |
-  WeakSet.prototype.has ( value )
-
-  ...
-  6. Repeat for each e that is an element of entries,
-    a. If e is not empty and SameValue(e, value) is true, return true.
-  ...
+  WeakSet.prototype.has ( _value_ )
+  5. For each element _e_ of _entries_, do
+    a. If _e_ is not ~empty~ and SameValue(_e_, _value_) is *true*, return *true*.
 features: [WeakSet]
 ---*/
 

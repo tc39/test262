@@ -3,19 +3,15 @@
 /*---
 esid: sec-weakmap.prototype.get
 description: >
-  Returns undefined when key is not on the WeakMap object.
+  Returns undefined when an Object key is not on the WeakMap object.
 info: |
-  WeakMap.prototype.get ( key )
-
-  4. Let entries be the List that is the value of M’s [[WeakMapData]] internal
-  slot.
-  5. If Type(key) is not Object, return undefined.
-  6. Repeat for each Record {[[key]], [[value]]} p that is an element of
-  entries,
-    a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, return
-    p.[[value]].
-  7. Return undefined.
-  ...
+  WeakMap.prototype.get ( _key_ )
+  3. Let _entries_ be the List that is _M_.[[WeakMapData]].
+  4. If CanBeHeldWeakly(_key_) is *false*, return *undefined*.
+  5. For each Record {[[Key]], [[Value]]} _p_ of _entries_, do
+    a. If _p_.[[Key]] is not empty and SameValue(_p_.[[Key]], _key_) is *true*,
+      return _p_.[[Value]].
+  6. Return *undefined*.
 features: [WeakMap]
 ---*/
 

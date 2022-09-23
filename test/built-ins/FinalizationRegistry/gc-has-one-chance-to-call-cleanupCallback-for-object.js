@@ -4,27 +4,26 @@
 /*---
 esid: sec-finalization-registry-target
 description: >
-  cleanupCallback has only one optional chance to be called for a GC that cleans up
-  a registered target.
+  cleanupCallback has only one optional chance to be called for a GC that cleans
+  up a registered Object target.
 info: |
-  FinalizationRegistry ( cleanupCallback )
-
-  FinalizationRegistry.prototype.cleanupSome ( [ callback ] )
-
-  ...
-  4. If callback is not undefined and IsCallable(callback) is false, throw a TypeError exception.
-  5. Perform ? CleanupFinalizationRegistry(finalizationRegistry, callback).
-  6. Return undefined.
+  FinalizationRegistry.prototype.cleanupSome ( [ _callback_ ] )
+  3. If _callback_ is present and IsCallable(_callback_) is *false*, throw a
+    *TypeError* exception.
+  4. Perform ? CleanupFinalizationRegistry(_finalizationRegistry_, _callback_).
+  5. Return *undefined*.
 
   Execution
 
-  At any time, if an object obj is not live, an ECMAScript implementation may perform the following steps atomically:
+  At any time, if a set of objects and/or symbols _S_ is not live, an ECMAScript
+  implementation may perform the following steps atomically:
 
-  1. For each WeakRef ref such that ref.[[Target]] is obj,
-    a. Set ref.[[Target]] to empty.
-  2. For each FinalizationRegistry finalizationRegistry such that finalizationRegistry.[[Cells]] contains cell, such that cell.[[Target]] is obj,
-    a. Set cell.[[Target]] to empty.
-    b. Optionally, perform ! HostCleanupFinalizationRegistry(finalizationRegistry).
+  1. For each element _value_ of _S_, do
+    ...
+    b. For each FinalizationRegistry _fg_ such that _fg_.[[Cells]] contains a
+      Record _cell_ such that _cell_.[[WeakRefTarget]] is _value_,
+      i. Set _cell_.[[WeakRefTarget]] to ~empty~.
+      ii. Optionally, perform HostEnqueueFinalizationRegistryCleanupJob(_fg_).
 features: [FinalizationRegistry.prototype.cleanupSome, FinalizationRegistry, async-functions, host-gc-required]
 flags: [async, non-deterministic]
 includes: [async-gc.js, compareArray.js]
@@ -65,7 +64,7 @@ emptyCells().then(async function() {
   // optional. Although, we can finally assert it's not gonna be called anymore
   // for the other executions of the Garbage Collector.
   // The chance of having it called only happens right after the
-  // cell.[[Target]] is set to empty.
+  // cell.[[WeakRefTarget]] is set to empty.
   assert(cleanupCallback >= 0, 'cleanupCallback might be 0');
   assert(cleanupCallback <= 1, 'cleanupCallback might be 1');
 

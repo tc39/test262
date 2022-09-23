@@ -3,14 +3,20 @@
 /*---
 esid: sec-weakmap-iterable
 description: >
-  Returns the new WeakMap adding the objects from the iterable parameter.
+  Returns the new WeakMap adding entries from the iterable parameter, with
+  Object keys.
 info: |
-  WeakMap ( [ iterable ] )
+  WeakMap ( [ _iterable_ ] )
+  5. Let _adder_ be ? Get(_map_, *"set"*).
+  6. Return ? AddEntriesFromIterable(_map_, _iterable_, _adder_).
 
-  ...
-  9. Repeat
-    k. Let status be Call(adder, map, «k.[[value]], v.[[value]]»).
-    l. If status is an abrupt completion, return IteratorClose(iter, status).
+  AddEntriesFromIterable:
+  3. Repeat,
+    i. Let _status_ be Completion(Call(_adder_, _target_, « _k_, _v_ »)).
+
+  WeakMap.prototype.set( _key_, _value_ ):
+  6. Let _p_ be the Record {[[Key]]: _key_, [[Value]]: _value_}.
+  7. Append _p_ as the last element of _entries_.
 features: [WeakMap]
 ---*/
 

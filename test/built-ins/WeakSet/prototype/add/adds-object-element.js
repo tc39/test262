@@ -3,13 +3,10 @@
 /*---
 esid: sec-weakset.prototype.add
 description: >
-  Appends value as the last element of entries.
+  Adds an Object value.
 info: |
-  WeakSet.prototype.add ( value )
-
-  ...
-  7. Append value as the last element of entries.
-  ...
+  WeakSet.prototype.add ( _value_ )
+  6. Append _value_ as the last element of _entries_.
 features: [WeakSet]
 ---*/
 

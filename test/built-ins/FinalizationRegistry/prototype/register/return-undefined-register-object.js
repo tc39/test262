@@ -3,20 +3,21 @@
 
 /*---
 esid: sec-finalization-registry.prototype.register
-description: Return undefined after registering
+description: Return undefined after registering an Object
 info: |
-  FinalizationRegistry.prototype.register ( target , holdings [, unregisterToken ] )
-
-  1. Let finalizationRegistry be the this value.
-  2. If Type(finalizationRegistry) is not Object, throw a TypeError exception.
-  3. If Type(target) is not Object, throw a TypeError exception.
-  4. If finalizationRegistry does not have a [[Cells]] internal slot, throw a TypeError exception.
-  5. If Type(unregisterToken) is not Object,
-    a. If unregisterToken is not undefined, throw a TypeError exception.
-    b. Set unregisterToken to empty.
-  6. Let cell be the Record { [[Target]] : target, [[Holdings]]: holdings, [[UnregisterToken]]: unregisterToken }.
-  7. Append cell to finalizationRegistry.[[Cells]].
-  8. Return undefined.
+  FinalizationRegistry.prototype.register ( _target_ , _heldValue_ [, _unregisterToken_ ] )
+  1. Let _finalizationRegistry_ be the *this* value.
+  2. Perform ? RequireInternalSlot(_finalizationRegistry_, [[Cells]]).
+  3. If CanBeHeldWeakly(_target_) is *false*, throw a *TypeError* exception.
+  4. If SameValue(_target_, _heldValue_) is *true*, throw a *TypeError*
+    exception.
+  5. If CanBeHeldWeakly(_unregisterToken_) is *false*,
+    a. If _unregisterToken_ is not *undefined*, throw a *TypeError* exception.
+    b. Set _unregisterToken_ to ~empty~.
+  6. Let _cell_ be the Record { [[WeakRefTarget]]: _target_, [[HeldValue]]:
+    _heldValue_, [[UnregisterToken]]: _unregisterToken_ }.
+  7. Append _cell_ to _finalizationRegistry_.[[Cells]].
+  8. Return *undefined*.
 features: [FinalizationRegistry]
 ---*/
 
@@ -24,7 +25,7 @@ var fn = function() {};
 var finalizationRegistry = new FinalizationRegistry(fn);
 
 var target = {};
-assert.sameValue(finalizationRegistry.register(target), undefined, 'Register a targer');
+assert.sameValue(finalizationRegistry.register(target), undefined, 'Register a target');
 assert.sameValue(finalizationRegistry.register(target), undefined, 'Register the same target again');
 assert.sameValue(finalizationRegistry.register(target), undefined, 'Register the same target again and again');
 
