@@ -13,6 +13,7 @@ info: |
     a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, return
     true.
   ...
+features: [WeakMap]
 ---*/
 
 var foo = {};

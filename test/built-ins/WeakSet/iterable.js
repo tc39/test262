@@ -11,6 +11,7 @@ info: |
   9. Repeat
     f. Let status be Call(adder, set, «nextValue»).
     g. If status is an abrupt completion, return IteratorClose(iter, status).
+features: [WeakSet]
 ---*/
 
 var first = {};

@@ -9,7 +9,7 @@ info: |
 
   ...
   7. Return false.
-
+features: [WeakMap]
 ---*/
 
 var foo = {};

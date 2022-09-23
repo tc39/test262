@@ -16,7 +16,7 @@ info: |
       i. Let error be Completion{[[type]]: throw, [[value]]: a newly created
       TypeError object, [[target]]:empty}.
       ii. Return IteratorClose(iter, error).
-features: [Symbol]
+features: [Symbol, WeakMap]
 ---*/
 
 assert.throws(TypeError, function() {

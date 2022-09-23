@@ -11,6 +11,7 @@ info: |
   6. Repeat for each e that is an element of entries,
     a. If e is not empty and SameValue(e, value) is true, return true.
   ...
+features: [WeakSet]
 ---*/
 
 var foo = {};

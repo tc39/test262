@@ -16,7 +16,7 @@ info: |
     value is empty.
     ii. Return true.
   ...
-
+features: [WeakSet]
 ---*/
 
 var foo = {};

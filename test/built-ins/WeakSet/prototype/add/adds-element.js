@@ -10,6 +10,7 @@ info: |
   ...
   7. Append value as the last element of entries.
   ...
+features: [WeakSet]
 ---*/
 
 var s = new WeakSet();

@@ -7,7 +7,7 @@ info: |
   WeakSet.prototype.add ( value )
 
   4. If Type(value) is not Object, throw a TypeError exception.
-features: [Symbol]
+features: [Symbol, WeakSet]
 ---*/
 
 var s = new WeakSet();

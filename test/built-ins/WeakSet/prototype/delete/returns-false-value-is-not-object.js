@@ -8,7 +8,7 @@ info: |
   WeakSet.prototype.delete ( value )
 
   4. If Type(value) is not Object, return false.
-features: [Symbol]
+features: [Symbol, WeakSet]
 ---*/
 
 var s = new WeakSet();
