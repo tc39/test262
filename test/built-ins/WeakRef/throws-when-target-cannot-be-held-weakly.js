@@ -4,13 +4,10 @@
 /*---
 esid: sec-weak-ref-target
 description: >
-  Throws a TypeError if target is not Object
+  Throws a TypeError if target cannot be held weakly
 info: |
-  WeakRef ( target )
-
-  1. If NewTarget is undefined, throw a TypeError exception.
-  2. If Type(target) is not Object, throw a TypeError exception.
-  ...
+  WeakRef ( _target_ )
+  2. If CanBeHeldWeakly(_target_) is *false*, throw a *TypeError* exception.
 features: [WeakRef]
 ---*/
 
@@ -39,10 +36,10 @@ assert.throws(TypeError, function() {
   new WeakRef('Object');
 }, 'string');
 
-var s = Symbol();
+var s = Symbol.for('registered symbol');
 assert.throws(TypeError, function() {
   new WeakRef(s);
-}, 'symbol');
+}, 'registered symbol');
 
 assert.throws(TypeError, function() {
   new WeakRef(true);

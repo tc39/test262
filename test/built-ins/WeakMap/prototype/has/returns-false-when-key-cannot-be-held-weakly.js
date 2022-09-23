@@ -3,11 +3,10 @@
 /*---
 esid: sec-weakmap.prototype.has
 description: >
-  Returns false if value is not an Object.
+  Returns false if the key cannot be held weakly
 info: |
-  WeakMap.prototype.has ( value )
-
-  5. If Type(key) is not Object, return false.
+  WeakMap.prototype.has ( _key_ )
+  4. If CanBeHeldWeakly(_key_) is *false*, return *false*.
 features: [Symbol, WeakMap]
 ---*/
 
@@ -18,4 +17,4 @@ assert.sameValue(map.has(''), false);
 assert.sameValue(map.has(null), false);
 assert.sameValue(map.has(undefined), false);
 assert.sameValue(map.has(true), false);
-assert.sameValue(map.has(Symbol()), false);
+assert.sameValue(map.has(Symbol.for('registered symbol')), false, 'Registered symbol not allowed as key');

@@ -3,15 +3,10 @@
 
 /*---
 esid: sec-finalization-registry.prototype.unregister
-description: Throws a TypeError if unregisterToken is not an Object
+description: Throws a TypeError if unregisterToken cannot be held weakly
 info: |
-  FinalizationRegistry.prototype.unregister ( unregisterToken )
-
-  1. Let finalizationRegistry be the this value.
-  2. If Type(finalizationRegistry) is not Object, throw a TypeError exception.
-  3. If finalizationRegistry does not have a [[Cells]] internal slot, throw a TypeError exception.
-  4. If Type(unregisterToken) is not Object, throw a TypeError exception.
-  ...
+  FinalizationRegistry.prototype.unregister ( _unregisterToken_ )
+  3. If CanBeHeldWeakly(_unregisterToken_) is *false*, throw a *TypeError* exception.
 features: [FinalizationRegistry]
 ---*/
 
@@ -43,7 +38,7 @@ assert.throws(TypeError, function() {
   finalizationRegistry.unregister('object');
 }, 'string');
 
-var s = Symbol();
+var s = Symbol.for('registered symbol');
 assert.throws(TypeError, function() {
   finalizationRegistry.unregister(s);
-}, 'symbol');
+}, 'registered symbol');

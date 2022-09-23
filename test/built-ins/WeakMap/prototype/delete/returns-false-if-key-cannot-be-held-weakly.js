@@ -3,11 +3,10 @@
 /*---
 esid: sec-weakmap.prototype.delete
 description: >
-  Return false if value is not an Object.
+  Return false if the key cannot be held weakly.
 info: |
-  WeakMap.prototype.delete ( value )
-
-  5. If Type(key) is not Object, return false.
+  WeakMap.prototype.delete ( _key_ )
+  5. If CanBeHeldWeakly(_key_) is *false*, return *false*.
 features: [Symbol, WeakMap]
 ---*/
 
@@ -19,4 +18,4 @@ assert.sameValue(map.delete(NaN), false);
 assert.sameValue(map.delete(null), false);
 assert.sameValue(map.delete(undefined), false);
 assert.sameValue(map.delete(true), false);
-assert.sameValue(map.delete(Symbol()), false);
+assert.sameValue(map.delete(Symbol.for('registered symbol')), false, 'registered symbol');
