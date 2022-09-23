@@ -3,12 +3,10 @@
 /*---
 esid: sec-weakmap.prototype.has
 description: >
-  Return false when value is not present in the WeakMap entries.
+  Return false when an Object key is not present in the WeakMap entries.
 info: |
-  WeakMap.prototype.has ( value )
-
-  ...
-  7. Return false.
+  WeakMap.prototype.has ( _key_ )
+  6. Return *false*.
 features: [WeakMap]
 ---*/
 

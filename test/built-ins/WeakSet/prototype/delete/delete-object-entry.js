@@ -3,19 +3,15 @@
 /*---
 esid: sec-weakset.prototype.delete
 description: >
-  Delete an entry.
+  Delete an entry that is an Object
 info: |
-  WeakSet.prototype.delete ( value )
-
-  ...
-  5. Let entries be the List that is the value of S’s [[WeakSetData]] internal
-  slot.
-  6. Repeat for each e that is an element of entries,
-    a. If e is not empty and SameValue(e, value) is true, then
-    i. Replace the element of entries whose value is e with an element whose
-    value is empty.
-    ii. Return true.
-  ...
+  WeakSet.prototype.delete ( _value_ )
+  4. Let _entries_ be the List that is _S_.[[WeakSetData]].
+  5. For each element _e_ of _entries_, do
+    a. If _e_ is not ~empty~ and SameValue(_e_, _value_) is *true*, then
+      i. Replace the element of _entries_ whose value is _e_ with an element
+        whose value is ~empty~.
+      ii. Return *true*.
 features: [WeakSet]
 ---*/
 

@@ -3,12 +3,10 @@
 /*---
 esid: sec-weakset.prototype.has
 description: >
-  Return false when value is not present in the WeakSet entries.
+  Return false when an Object value is not present in the WeakSet entries.
 info: |
-  WeakSet.prototype.has ( value )
-
-  ...
-  7. Return false.
+  WeakSet.prototype.has ( _value_ )
+  6. Return *false*.
 features: [WeakSet]
 ---*/
 

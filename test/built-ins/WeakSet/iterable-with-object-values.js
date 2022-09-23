@@ -3,14 +3,14 @@
 /*---
 esid: sec-weakset-iterable
 description: >
-  Returns the new WeakSet adding the objects from the iterable parameter.
+  Returns the new WeakSet adding Object values from the iterable parameter.
 info: |
-  WeakSet ( [ iterable ] )
+  WeakSet ( [ _iterable_ ] )
+  8. Repeat,
+    d. Let _status_ be Completion(Call(_adder_, _set_, « _nextValue_ »)).
 
-  ...
-  9. Repeat
-    f. Let status be Call(adder, set, «nextValue»).
-    g. If status is an abrupt completion, return IteratorClose(iter, status).
+  WeakSet.prototype.add ( _value_ ):
+  6. Append _value_ as the last element of _entries_.
 features: [WeakSet]
 ---*/
 

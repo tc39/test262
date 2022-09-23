@@ -3,16 +3,16 @@
 
 /*---
 esid: sec-weak-ref.prototype.deref
-description: Return target if weakRef.[[Target]] is not empty
+description: Return an Object target if weakRef.[[Target]] is not empty
 info: |
   WeakRef.prototype.deref ()
+  3. Return WeakRefDeref(_weakRef_).
 
-  ...
-  4. Let target be the value of weakRef.[[Target]].
-  5. If target is not empty,
-    a. Perform ! KeepDuringJob(target).
-    b. Return target.
-  6. Return undefined.
+  WeakRefDeref( _weakRef_ ):
+  1. Let _target_ be _weakRef_.[[WeakRefTarget]].
+  2. If _target_ is not ~empty~,
+    a. Perform AddToKeptObjects(_target_).
+    b. Return _target_.
 features: [WeakRef]
 ---*/
 

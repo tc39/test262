@@ -3,20 +3,18 @@
 
 /*---
 esid: sec-finalization-registry.prototype.unregister
-description: Return boolean values indicating unregistering of values from given token
+description: >
+  Return boolean values indicating unregistering of values with Object token
 info: |
-  FinalizationRegistry.prototype.unregister ( unregisterToken )
-
-  1. Let finalizationRegistry be the this value.
-  2. If Type(finalizationRegistry) is not Object, throw a TypeError exception.
-  3. If finalizationRegistry does not have a [[Cells]] internal slot, throw a TypeError exception.
-  4. If Type(unregisterToken) is not Object, throw a TypeError exception.
-  5. Let removed be false.
-  6. For each Record { [[Target]], [[Holdings]], [[UnregisterToken]] } cell that is an element of finalizationRegistry.[[Cells]], do
-    a. If SameValue(cell.[[UnregisterToken]], unregisterToken) is true, then
-      i. Remove cell from finalizationRegistry.[[Cells]].
-      ii. Set removed to true.
-  7. Return removed.
+  FinalizationRegistry.prototype.unregister ( _unregisterToken_ )
+  4. Let _removed_ be *false*.
+  5. For each Record { [[WeakRefTarget]], [[HeldValue]], [[UnregisterToken]] }
+    _cell_ of _finalizationRegistry_.[[Cells]], do
+    a. If _cell_.[[UnregisterToken]] is not ~empty~ and
+      SameValue(_cell_.[[UnregisterToken]], _unregisterToken_) is *true*, then
+      i. Remove _cell_ from _finalizationRegistry_.[[Cells]].
+      ii. Set _removed_ to *true*.
+  6. Return _removed_.
 features: [FinalizationRegistry]
 ---*/
 

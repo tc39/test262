@@ -3,14 +3,11 @@
 /*---
 esid: sec-weakmap.prototype.set
 description: >
-  Appends value as the last element of entries.
+  Adds a value with an Object key.
 info: |
-  WeakMap.prototype.set ( key, value )
-
-  ...
-  7. Let p be the Record {[[key]]: key, [[value]]: value}.
-  8. Append p as the last element of entries.
-  ...
+  WeakMap.prototype.set ( _key_, _value_ )
+  6. Let _p_ be the Record {[[Key]]: _key_, [[Value]]: _value_}.
+  7. Append _p_ as the last element of _entries_.
 features: [WeakMap]
 ---*/
 

@@ -3,16 +3,12 @@
 /*---
 esid: sec-weakmap.prototype.has
 description: >
-  Returns true when value is present in the WeakMap entries list.
+  Returns true when an Object key is present in the WeakMap entries list.
 info: |
-  WeakMap.prototype.has ( value )
-
-  ...
-  6. Repeat for each Record {[[key]], [[value]]} p that is an element of
-  entries,
-    a. If p.[[key]] is not empty and SameValue(p.[[key]], key) is true, return
-    true.
-  ...
+  WeakMap.prototype.has ( _key_ )
+  5. For each Record {[[Key]], [[Value]]} _p_ of _entries_, do
+    a. If _p_.[[Key]] is not ~empty~ and SameValue(_p_.[[Key]], _key_) is
+      *true*, return *true*.
 features: [WeakMap]
 ---*/
 

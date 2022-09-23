@@ -3,13 +3,10 @@
 /*---
 esid: sec-weakmap.prototype.delete
 description: >
-  Return false if entry is not in the WeakMap.
+  Return false if an Object key is not in the WeakMap.
 info: |
-  WeakMap.prototype.delete ( value )
-
-  ...
-  7. Return false.
-
+  WeakMap.prototype.delete ( _key_ )
+  6. Return *false*.
 features: [WeakMap]
 ---*/
 
