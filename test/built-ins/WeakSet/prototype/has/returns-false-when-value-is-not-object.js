@@ -8,7 +8,7 @@ info: |
   WeakSet.prototype.has ( value )
 
   5. If Type(value) is not Object, return false.
-features: [Symbol]
+features: [Symbol, WeakSet]
 ---*/
 
 var s = new WeakSet();

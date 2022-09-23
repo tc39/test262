@@ -7,7 +7,7 @@ info: |
   WeakMap.prototype.set ( key, value )
 
   5. If Type(key) is not Object, throw a TypeError exception.
-features: [Symbol]
+features: [Symbol, WeakMap]
 ---*/
 
 var s = new WeakMap();

@@ -11,6 +11,7 @@ info: |
   7. Let p be the Record {[[key]]: key, [[value]]: value}.
   8. Append p as the last element of entries.
   ...
+features: [WeakMap]
 ---*/
 
 var map = new WeakMap();

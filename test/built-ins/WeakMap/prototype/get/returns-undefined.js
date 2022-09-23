@@ -16,6 +16,7 @@ info: |
     p.[[value]].
   7. Return undefined.
   ...
+features: [WeakMap]
 ---*/
 
 var map = new WeakMap();

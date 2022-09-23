@@ -8,7 +8,7 @@ info: |
   WeakMap.prototype.delete ( value )
 
   5. If Type(key) is not Object, return false.
-features: [Symbol]
+features: [Symbol, WeakMap]
 ---*/
 
 var map = new WeakMap();

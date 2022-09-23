@@ -18,6 +18,7 @@ info: |
       ii. Set p.[[value]] to empty.
       iii. Return true.
   ...
+features: [WeakMap]
 ---*/
 
 var foo = {};
