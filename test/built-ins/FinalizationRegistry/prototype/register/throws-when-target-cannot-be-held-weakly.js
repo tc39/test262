@@ -3,18 +3,10 @@
 
 /*---
 esid: sec-finalization-registry.prototype.register
-description: Throws a TypeError if target is not an Object
+description: Throws a TypeError if target cannot be held weakly
 info: |
-  FinalizationRegistry.prototype.register ( target , holdings [, unregisterToken ] )
-
-  1. Let finalizationRegistry be the this value.
-  2. If Type(finalizationRegistry) is not Object, throw a TypeError exception.
-  3. If Type(target) is not Object, throw a TypeError exception.
-  4. If finalizationRegistry does not have a [[Cells]] internal slot, throw a TypeError exception.
-  5. If Type(unregisterToken) is not Object,
-    a. If unregisterToken is not undefined, throw a TypeError exception.
-    b. Set unregisterToken to empty.
-  ...
+  FinalizationRegistry.prototype.register ( _target_ , _heldValue_ [, _unregisterToken_ ] )
+  3. If CanBeHeldWeakly(_target_) is *false*, throw a *TypeError* exception.
 features: [FinalizationRegistry]
 ---*/
 
@@ -46,7 +38,7 @@ assert.throws(TypeError, function() {
   finalizationRegistry.register('object');
 }, 'string');
 
-var s = Symbol();
+var s = Symbol.for('registered symbol');
 assert.throws(TypeError, function() {
   finalizationRegistry.register(s);
-}, 'symbol');
+}, 'registered symbol');

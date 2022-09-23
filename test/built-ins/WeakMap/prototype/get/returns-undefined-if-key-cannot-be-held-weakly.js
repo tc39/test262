@@ -3,15 +3,10 @@
 /*---
 esid: sec-weakmap.prototype.get
 description: >
-  Returns undefined when key is not an Object.
+  Returns undefined when key cannot be held weakly.
 info: |
-  WeakMap.prototype.get ( key )
-
-  ...
-  4. Let entries be the List that is the value of M’s [[WeakMapData]] internal
-  slot.
-  5. If Type(key) is not Object, return undefined.
-  ...
+  WeakMap.prototype.get ( _key_ )
+  4. If CanBeHeldWeakly(_key_) is *false*, return *undefined*.
 features: [Symbol, WeakMap]
 ---*/
 
@@ -37,6 +32,6 @@ assert.sameValue(
 );
 
 assert.sameValue(
-  map.get(Symbol()), undefined,
-  'Returns undefined if key is a Symbol'
+  map.get(Symbol.for('registered symbol')), undefined,
+  'Returns undefined if key is a registered Symbol'
 );

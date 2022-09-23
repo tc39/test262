@@ -2,11 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-weakset.prototype.add
-description: Throws TypeError if `value` is not Object.
+description: Throws TypeError if value cannot be held weakly.
 info: |
-  WeakSet.prototype.add ( value )
-
-  4. If Type(value) is not Object, throw a TypeError exception.
+  WeakSet.prototype.add ( _value_ )
+  3. If CanBeHeldWeakly(_value_) is *false*, throw a *TypeError* exception.
 features: [Symbol, WeakSet]
 ---*/
 
@@ -33,5 +32,5 @@ assert.throws(TypeError, function() {
 });
 
 assert.throws(TypeError, function() {
-  s.add(Symbol());
-});
+  s.add(Symbol.for('registered symbol'));
+}, 'Registered symbol not allowed as WeakSet value');
