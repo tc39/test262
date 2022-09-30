@@ -4,6 +4,7 @@
 /*---
 esid: sec-temporal-zoneddatetime-objects
 description: Temporal.ZonedDateTime.prototype.round()
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -212,25 +213,27 @@ var bal = Temporal.ZonedDateTime.from("1976-11-18T23:59:59.999999999+01:00[+01:0
   assert.sameValue(`${ bal.round({ smallestUnit }) }`, "1976-11-19T00:00:00+01:00[+01:00]");
 });
 
+var timeZone = TemporalHelpers.springForwardFallBackTimeZone();
+
 // rounds correctly to a 25-hour day
 var roundTo = { smallestUnit: "day" };
-var roundMeDown = Temporal.ZonedDateTime.from("2020-11-01T12:29:59-08:00[America/Vancouver]");
-assert.sameValue(`${ roundMeDown.round(roundTo) }`, "2020-11-01T00:00:00-07:00[America/Vancouver]");
-var roundMeUp = Temporal.ZonedDateTime.from("2020-11-01T12:30:01-08:00[America/Vancouver]");
-assert.sameValue(`${ roundMeUp.round(roundTo) }`, "2020-11-02T00:00:00-08:00[America/Vancouver]");
+var roundMeDown = Temporal.PlainDateTime.from("2000-10-29T12:29:59").toZonedDateTime(timeZone);
+assert.sameValue(`${ roundMeDown.round(roundTo) }`, "2000-10-29T00:00:00-07:00[Custom/Spring_Fall]");
+var roundMeUp = Temporal.PlainDateTime.from("2000-10-29T12:30:01").toZonedDateTime(timeZone);
+assert.sameValue(`${ roundMeUp.round(roundTo) }`, "2000-10-30T00:00:00-08:00[Custom/Spring_Fall]");
 
 // rounds correctly to a 23-hour day
 var roundTo = { smallestUnit: "day" };
-var roundMeDown = Temporal.ZonedDateTime.from("2020-03-08T11:29:59-07:00[America/Vancouver]");
-assert.sameValue(`${ roundMeDown.round(roundTo) }`, "2020-03-08T00:00:00-08:00[America/Vancouver]");
-var roundMeUp = Temporal.ZonedDateTime.from("2020-03-08T11:30:01-07:00[America/Vancouver]");
-assert.sameValue(`${ roundMeUp.round(roundTo) }`, "2020-03-09T00:00:00-07:00[America/Vancouver]");
+var roundMeDown = Temporal.PlainDateTime.from("2000-04-02T11:29:59").toZonedDateTime(timeZone);
+assert.sameValue(`${ roundMeDown.round(roundTo) }`, "2000-04-02T00:00:00-08:00[Custom/Spring_Fall]");
+var roundMeUp = Temporal.PlainDateTime.from("2000-04-02T11:30:01").toZonedDateTime(timeZone);
+assert.sameValue(`${ roundMeUp.round(roundTo) }`, "2000-04-03T00:00:00-07:00[Custom/Spring_Fall]");
 
 // rounding up to a nonexistent wall-clock time
-var almostSkipped = Temporal.ZonedDateTime.from("2018-11-03T23:59:59.999999999-03:00[America/Sao_Paulo]");
+var almostSkipped = Temporal.PlainDateTime.from("2000-04-02T01:59:59.999999999").toZonedDateTime(timeZone);
 var rounded = almostSkipped.round({
   smallestUnit: "microsecond",
   roundingMode: "halfExpand"
 });
-assert.sameValue(`${ rounded }`, "2018-11-04T01:00:00-02:00[America/Sao_Paulo]");
+assert.sameValue(`${ rounded }`, "2000-04-02T03:00:00-07:00[Custom/Spring_Fall]");
 assert.sameValue(rounded.epochNanoseconds - almostSkipped.epochNanoseconds, 1n);
