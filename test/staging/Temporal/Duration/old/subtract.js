@@ -53,7 +53,8 @@ assert.sameValue(`${ twoDays.subtract(hours24, { relativeTo: repeatedHourDay }) 
 assert.sameValue(`${ hours24.subtract(twoDays, { relativeTo: repeatedHourDay }) }`, "-P1DT1H");
 
 // Samoa skipped 24 hours
-var relativeTo = Temporal.ZonedDateTime.from("2011-12-29T12:00-10:00[Pacific/Apia]");
+var fakeSamoa = TemporalHelpers.crossDateLineTimeZone();
+var relativeTo = Temporal.PlainDateTime.from("2011-12-29T12:00").toZonedDateTime(fakeSamoa);
 assert.sameValue(`${ twoDays.subtract(Temporal.Duration.from({ hours: 48 }), { relativeTo }) }`, "-P1D");
 assert.sameValue(`${ Temporal.Duration.from({ hours: 48 }).subtract(twoDays, { relativeTo }) }`, "P2D");
 

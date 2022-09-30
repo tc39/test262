@@ -44,7 +44,7 @@ var undo = added.subtract(diff);
 assert.sameValue(`${ undo }`, `${ hourBeforeDstStart }`);
 
 // Samoa date line change (add): 10:00PM 29 Dec 2011 -> 11:00PM 31 Dec 2011
-var timeZone = Temporal.TimeZone.from("Pacific/Apia");
+var timeZone = TemporalHelpers.crossDateLineTimeZone();
 var dayBeforeSamoaDateLineChangeAbs = timeZone.getInstantFor(new Temporal.PlainDateTime(2011, 12, 29, 22));
 var start = dayBeforeSamoaDateLineChangeAbs.toZonedDateTimeISO(timeZone);
 var added = start.add({
@@ -60,7 +60,6 @@ var undo = added.subtract(diff);
 assert.sameValue(`${ undo }`, `${ start }`);
 
 // Samoa date line change (subtract): 11:00PM 31 Dec 2011 -> 10:00PM 29 Dec 2011
-var timeZone = Temporal.TimeZone.from("Pacific/Apia");
 var dayAfterSamoaDateLineChangeAbs = timeZone.getInstantFor(new Temporal.PlainDateTime(2011, 12, 31, 23));
 var start = dayAfterSamoaDateLineChangeAbs.toZonedDateTimeISO(timeZone);
 var skipped = start.subtract({

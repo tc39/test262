@@ -1304,6 +1304,66 @@ var TemporalHelpers = {
   },
 
   /*
+   * crossDateLineTimeZone():
+   *
+   * This returns an instance of a custom time zone class that implements one
+   * single transition where the time zone moves from one side of the
+   * International Date Line to the other, for the purpose of testing time zone
+   * calculations without depending on system time zone data.
+   *
+   * The transition occurs at epoch second 1325239200 and goes from offset
+   * -10:00 to +14:00. In other words, the time zone skips the whole calendar
+   * day of 2011-12-30. This is the same as the real-life transition in the
+   * Pacific/Apia time zone.
+   */
+  crossDateLineTimeZone() {
+    const { compare } = Temporal.PlainDateTime;
+    const skippedDay = new Temporal.PlainDate(2011, 12, 30);
+    const transitionEpoch = 1325239200_000_000_000n;
+    const beforeOffset = new Temporal.TimeZone("-10:00");
+    const afterOffset = new Temporal.TimeZone("+14:00");
+
+    class CrossDateLineTimeZone extends Temporal.TimeZone {
+      constructor() {
+        super("+14:00");
+      }
+
+      getOffsetNanosecondsFor(instant) {
+        if (instant.epochNanoseconds < transitionEpoch) {
+          return beforeOffset.getOffsetNanosecondsFor(instant);
+        }
+        return afterOffset.getOffsetNanosecondsFor(instant);
+      }
+
+      getPossibleInstantsFor(datetime) {
+        const comparison = Temporal.PlainDate.compare(datetime.toPlainDate(), skippedDay);
+        if (comparison === 0) {
+          return [];
+        }
+        if (comparison < 0) {
+          return [beforeOffset.getInstantFor(datetime)];
+        }
+        return [afterOffset.getInstantFor(datetime)];
+      }
+
+      getPreviousTransition(instant) {
+        if (instant.epochNanoseconds > transitionEpoch) return new Temporal.Instant(transitionEpoch);
+        return null;
+      }
+
+      getNextTransition(instant) {
+        if (instant.epochNanoseconds < transitionEpoch) return new Temporal.Instant(transitionEpoch);
+        return null;
+      }
+
+      toString() {
+        return "Custom/Date_Line";
+      }
+    }
+    return new CrossDateLineTimeZone();
+  },
+
+  /*
    * observeProperty(calls, object, propertyName, value):
    *
    * Defines an own property @object.@propertyName with value @value, that
