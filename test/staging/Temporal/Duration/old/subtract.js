@@ -4,6 +4,7 @@
 /*---
 esid: sec-temporal-duration-objects
 description: Temporal.Duration.prototype.subtract() works as expected
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -17,29 +18,21 @@ assert.sameValue(`${ oneDay.subtract(hours24, { relativeTo }) }`, "PT0S");
 // relativeTo does not affect days if ZonedDateTime, and duration encompasses no DST change
 var relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[+04:30]");
 assert.sameValue(`${ oneDay.subtract(hours24, { relativeTo }) }`, "PT0S");
-var skippedHourDay = Temporal.ZonedDateTime.from("2019-03-10T00:00[America/Vancouver]");
-var repeatedHourDay = Temporal.ZonedDateTime.from("2019-11-03T00:00[America/Vancouver]");
-var inRepeatedHour = Temporal.ZonedDateTime.from("2019-11-03T01:00-07:00[America/Vancouver]");
+
+// relativeTo affects days if ZonedDateTime, and duration encompasses DST change
+var timeZone = TemporalHelpers.springForwardFallBackTimeZone();
+var skippedHourDay = Temporal.PlainDateTime.from("2000-04-02").toZonedDateTime(timeZone);
+var repeatedHourDay = Temporal.PlainDateTime.from("2000-10-29").toZonedDateTime(timeZone);
+var inRepeatedHour = new Temporal.ZonedDateTime(972806400_000_000_000n, timeZone);
 var twoDays = new Temporal.Duration(0, 0, 0, 2);
 var threeDays = new Temporal.Duration(0, 0, 0, 3);
-// relativeTo affects days if ZonedDateTime, and duration encompasses DST change
-   
-// start inside repeated hour, end after"
+
+// start inside repeated hour, end after
 assert.sameValue(`${ hours24.subtract(oneDay, { relativeTo: inRepeatedHour }) }`, "-PT1H");
 assert.sameValue(`${ oneDay.subtract(hours24, { relativeTo: inRepeatedHour }) }`, "PT1H");
 
-// start inside repeated hour, end in skipped hour
-assert.sameValue(`${ Temporal.Duration.from({
-  days: 127,
-  hours: 1
-}).subtract(oneDay, { relativeTo: inRepeatedHour }) }`, "P126DT1H");
-assert.sameValue(`${ Temporal.Duration.from({
-  days: 127,
-  hours: 1
-}).subtract(hours24, { relativeTo: inRepeatedHour }) }`, "P126D");
-
 // start in normal hour, end in skipped hour
-var relativeTo = Temporal.ZonedDateTime.from("2019-03-09T02:30[America/Vancouver]");
+var relativeTo = Temporal.PlainDateTime.from("2000-04-01T02:30").toZonedDateTime(timeZone);
 assert.sameValue(`${ hours24.subtract(oneDay, { relativeTo }) }`, "PT1H");
 assert.sameValue(`${ oneDay.subtract(hours24, { relativeTo }) }`, "PT0S");
 
@@ -65,13 +58,12 @@ assert.sameValue(`${ twoDays.subtract(Temporal.Duration.from({ hours: 48 }), { r
 assert.sameValue(`${ Temporal.Duration.from({ hours: 48 }).subtract(twoDays, { relativeTo }) }`, "P2D");
 
 // casts relativeTo to ZonedDateTime if possible
-assert.sameValue(`${ oneDay.subtract(hours24, { relativeTo: "2019-11-03T00:00[America/Vancouver]" }) }`, "PT1H");
 assert.sameValue(`${ oneDay.subtract(hours24, {
   relativeTo: {
-    year: 2019,
-    month: 11,
-    day: 3,
-    timeZone: "America/Vancouver"
+    year: 2000,
+    month: 10,
+    day: 29,
+    timeZone
   }
 }) }`, "PT1H");
 

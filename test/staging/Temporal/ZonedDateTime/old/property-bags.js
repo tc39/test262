@@ -4,6 +4,7 @@
 /*---
 esid: sec-temporal-zoneddatetime-objects
 description: property bags
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -119,11 +120,11 @@ var obj = {
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj));
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { offset: "reject" }));
 
-var cali = Temporal.TimeZone.from("America/Los_Angeles");
+var cali = TemporalHelpers.springForwardFallBackTimeZone();
 var date = {
-year: 2020,
-month: 11,
-day: 1,
+year: 2000,
+month: 10,
+day: 29,
 timeZone: cali
 };
 // { offset: 'prefer' } if offset matches time zone (first 1:30 when DST ends)
@@ -133,7 +134,7 @@ var obj = {
   minute: 30,
   offset: "-07:00"
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "prefer" }) }`, "2020-11-01T01:30:00-07:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "prefer" }) }`, "2000-10-29T01:30:00-07:00[Custom/Spring_Fall]");
 
 // { offset: 'prefer' } if offset matches time zone (second 1:30 when DST ends)
 var obj = {
@@ -142,7 +143,7 @@ var obj = {
   minute: 30,
   offset: "-08:00"
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "prefer" }) }`, "2020-11-01T01:30:00-08:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "prefer" }) }`, "2000-10-29T01:30:00-08:00[Custom/Spring_Fall]");
 
 // { offset: 'prefer' } if offset does not match time zone"
 var obj = {
@@ -150,7 +151,7 @@ var obj = {
   hour: 4,
   offset: "-07:00"
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "prefer" }) }`, "2020-11-01T04:00:00-08:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "prefer" }) }`, "2000-10-29T04:00:00-08:00[Custom/Spring_Fall]");
 
 // { offset: 'ignore' } uses time zone only
 var obj = {
@@ -158,7 +159,7 @@ var obj = {
   hour: 4,
   offset: "-12:00"
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "ignore" }) }`, "2020-11-01T04:00:00-08:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "ignore" }) }`, "2000-10-29T04:00:00-08:00[Custom/Spring_Fall]");
 
 // { offset: 'use' } uses offset only
 var obj = {
@@ -166,93 +167,89 @@ var obj = {
   hour: 4,
   offset: "-07:00"
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "use" }) }`, "2020-11-01T03:00:00-08:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset: "use" }) }`, "2000-10-29T03:00:00-08:00[Custom/Spring_Fall]");
 
 // Disambiguation options
 
-// plain datetime with multiple instants - Fall DST in Brazil
-var brazil = Temporal.TimeZone.from("America/Sao_Paulo");
+// plain datetime with multiple instants - Fall DST
 var obj = {
-  year: 2019,
-  month: 2,
-  day: 16,
-  hour: 23,
+  year: 2000,
+  month: 10,
+  day: 29,
+  hour: 1,
   minute: 45,
-  timeZone: brazil
+  timeZone: cali
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj) }`, "2019-02-16T23:45:00-02:00[America/Sao_Paulo]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "compatible" }) }`, "2019-02-16T23:45:00-02:00[America/Sao_Paulo]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "earlier" }) }`, "2019-02-16T23:45:00-02:00[America/Sao_Paulo]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "later" }) }`, "2019-02-16T23:45:00-03:00[America/Sao_Paulo]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj) }`, "2000-10-29T01:45:00-07:00[Custom/Spring_Fall]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "compatible" }) }`, "2000-10-29T01:45:00-07:00[Custom/Spring_Fall]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "earlier" }) }`, "2000-10-29T01:45:00-07:00[Custom/Spring_Fall]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "later" }) }`, "2000-10-29T01:45:00-08:00[Custom/Spring_Fall]");
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { disambiguation: "reject" }));
 
-// plain datetime with multiple instants - Spring DST in Los Angeles
-var cali = Temporal.TimeZone.from("America/Los_Angeles");
+// plain datetime with multiple instants - Spring DST
 var obj = {
-  year: 2020,
-  month: 3,
-  day: 8,
+  year: 2000,
+  month: 4,
+  day: 2,
   hour: 2,
   minute: 30,
   timeZone: cali
 };
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "compatible" }) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "earlier" }) }`, "2020-03-08T01:30:00-08:00[America/Los_Angeles]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "later" }) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "compatible" }) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "earlier" }) }`, "2000-04-02T01:30:00-08:00[Custom/Spring_Fall]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { disambiguation: "later" }) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { disambiguation: "reject" }));
 
 // uses disambiguation if offset is ignored
-var cali = Temporal.TimeZone.from("America/Los_Angeles");
 var obj = {
-  year: 2020,
-  month: 3,
-  day: 8,
+  year: 2000,
+  month: 4,
+  day: 2,
   hour: 2,
   minute: 30,
   timeZone: cali
 };
 var offset = "ignore";
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset }) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset }) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "compatible"
-}) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+}) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "earlier"
-}) }`, "2020-03-08T01:30:00-08:00[America/Los_Angeles]");
+}) }`, "2000-04-02T01:30:00-08:00[Custom/Spring_Fall]");
 assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "later"
-}) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+}) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { disambiguation: "reject" }));
 
 // uses disambiguation if offset is wrong and option is prefer
-var cali = Temporal.TimeZone.from("America/Los_Angeles");
 var obj = {
-  year: 2020,
-  month: 3,
-  day: 8,
+  year: 2000,
+  month: 4,
+  day: 2,
   hour: 2,
   minute: 30,
   offset: "-23:59",
   timeZone: cali
 };
 var offset = "prefer";
-assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset }) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, { offset }) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "compatible"
-}) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+}) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "earlier"
-}) }`, "2020-03-08T01:30:00-08:00[America/Los_Angeles]");
+}) }`, "2000-04-02T01:30:00-08:00[Custom/Spring_Fall]");
 assert.sameValue(`${ Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "later"
-}) }`, "2020-03-08T03:30:00-07:00[America/Los_Angeles]");
+}) }`, "2000-04-02T03:30:00-07:00[Custom/Spring_Fall]");
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, {
   offset,
   disambiguation: "reject"
