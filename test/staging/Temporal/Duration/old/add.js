@@ -87,8 +87,9 @@ var relativeTo = Temporal.PlainDateTime.from("2000-10-29T12:00").toZonedDateTime
 assert.sameValue(`${ hours12.negated().add(oneDay.negated(), { relativeTo }) }`, "-P1DT11H");
 assert.sameValue(`${ oneDay.negated().add(hours12.negated(), { relativeTo }) }`, "-P1DT12H");
 
-// Samoa skipped 24 hours", 
-var relativeTo = Temporal.ZonedDateTime.from("2011-12-29T12:00-10:00[Pacific/Apia]");
+// Samoa skipped 24 hours
+var fakeSamoa = TemporalHelpers.crossDateLineTimeZone();
+var relativeTo = Temporal.PlainDateTime.from("2011-12-29T12:00").toZonedDateTime(fakeSamoa);
 assert.sameValue(`${ hours25.add(oneDay, { relativeTo }) }`, "P3DT1H");
 assert.sameValue(`${ oneDay.add(hours25, { relativeTo }) }`, "P3DT1H");
 

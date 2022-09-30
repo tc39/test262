@@ -27,8 +27,9 @@ var start = dayBeforeDstStart.startOfDay();
 assert.sameValue(`${ start.toPlainDate() }`, `${ dayBeforeDstStart.toPlainDate() }`);
 assert.sameValue(`${ start.toPlainTime() }`, "00:00:00");
 
-var dayAfterSamoaDateLineChange = Temporal.ZonedDateTime.from("2011-12-31T22:00+14:00[Pacific/Apia]");
-var dayBeforeSamoaDateLineChange = Temporal.ZonedDateTime.from("2011-12-29T22:00-10:00[Pacific/Apia]");
+var samoa = TemporalHelpers.crossDateLineTimeZone();
+var dayAfterSamoaDateLineChange = Temporal.PlainDateTime.from("2011-12-31T22:00").toZonedDateTime(samoa);
+var dayBeforeSamoaDateLineChange = Temporal.PlainDateTime.from("2011-12-29T22:00").toZonedDateTime(samoa);
 
 // startOfDay works after Samoa date line change
 var start = dayAfterSamoaDateLineChange.startOfDay();

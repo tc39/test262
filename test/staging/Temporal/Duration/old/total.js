@@ -373,8 +373,9 @@ var totalDays = hours12.negated().total({
 });
 assert(Math.abs(totalDays - -12 / 25) < Number.EPSILON);
 
-// Samoa skipped 24 hours",  
-var relativeTo = Temporal.ZonedDateTime.from("2011-12-29T12:00-10:00[Pacific/Apia]");
+// Samoa skipped 24 hours
+var fakeSamoa = TemporalHelpers.crossDateLineTimeZone();
+var relativeTo = Temporal.PlainDateTime.from("2011-12-29T12:00").toZonedDateTime(fakeSamoa);
 var totalDays = hours25.total({
   unit: "days",
   relativeTo
