@@ -26,7 +26,7 @@ assert.sameValue(`${ hours25.round({
 }) }`, "P1DT1H");
 
 // days are 24 hours if relativeTo is ZonedDateTime, and duration encompasses no DST change
-var relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[America/Montevideo]");
+var relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[+04:30]");
 assert.sameValue(`${ hours25.round({
   largestUnit: "days",
   relativeTo
@@ -215,13 +215,13 @@ assert.sameValue(`${ hours25.round({
 // throws on wrong offset for ZonedDateTime relativeTo string
 assert.throws(RangeError, () => d.round({
   smallestUnit: "seconds",
-  relativeTo: "1971-01-01T00:00+02:00[Africa/Monrovia]"
+  relativeTo: "1971-01-01T00:00+02:00[-00:44:30]"
 }));
 
 // does not throw on HH:MM rounded offset for ZonedDateTime relativeTo string
 assert.sameValue(`${ d.round({
   smallestUnit: "seconds",
-  relativeTo: "1971-01-01T00:00-00:45[Africa/Monrovia]"
+  relativeTo: "1971-01-01T00:00-00:45[-00:44:30]"
 }) }`, "P5Y5M5W5DT5H5M5S");
 
 // throws on HH:MM rounded offset for ZonedDateTime relativeTo property bag
@@ -232,7 +232,7 @@ assert.throws(RangeError, () => d.round({
     month: 1,
     day: 1,
     offset: "-00:45",
-    timeZone: "Africa/Monrovia"
+    timeZone: "-00:44:30"
   }
 }));
 

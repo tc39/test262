@@ -7,7 +7,7 @@ description: property bags
 features: [Temporal]
 ---*/
 
-var lagos = Temporal.TimeZone.from("Africa/Lagos");
+var lagos = Temporal.TimeZone.from("+01:00");
 
 // can be constructed with monthCode and without month
 assert.sameValue(`${ Temporal.ZonedDateTime.from({
@@ -15,7 +15,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   monthCode: "M11",
   day: 18,
   timeZone: lagos
-}) }`, "1976-11-18T00:00:00+01:00[Africa/Lagos]");
+}) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
 // can be constructed with month and without monthCode
 assert.sameValue(`${ Temporal.ZonedDateTime.from({
@@ -23,7 +23,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   month: 11,
   day: 18,
   timeZone: lagos
-}) }`, "1976-11-18T00:00:00+01:00[Africa/Lagos]");
+}) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
 // month and monthCode must agree
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from({
@@ -53,7 +53,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   day: 18,
   timeZone: lagos
 }, () => {
-}) }`, "1976-11-18T00:00:00+01:00[Africa/Lagos]");
+}) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
 // object must contain at least the required correctly-spelled properties
 assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
@@ -70,7 +70,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   day: 18,
   timeZone: lagos,
   hours: 12
-}) }`, "1976-11-18T00:00:00+01:00[Africa/Lagos]");
+}) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
 // casts offset property
 var zdt = Temporal.ZonedDateTime.from({
@@ -90,12 +90,12 @@ var bad = {
   timeZone: lagos
 };
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(bad, { overflow: "reject" }));
-assert.sameValue(`${ Temporal.ZonedDateTime.from(bad) }`, "2019-01-31T00:00:00+01:00[Africa/Lagos]");
-assert.sameValue(`${ Temporal.ZonedDateTime.from(bad, { overflow: "constrain" }) }`, "2019-01-31T00:00:00+01:00[Africa/Lagos]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(bad) }`, "2019-01-31T00:00:00+01:00[+01:00]");
+assert.sameValue(`${ Temporal.ZonedDateTime.from(bad, { overflow: "constrain" }) }`, "2019-01-31T00:00:00+01:00[+01:00]");
 
 // Offset options
 
-// { offset: 'reject' } throws if offset does not match offset time zone 
+// { offset: 'reject' } throws if offset does not match offset time zone
 var obj = {
   year: 2020,
   month: 3,
@@ -107,14 +107,14 @@ var obj = {
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj));
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { offset: "reject" }));
 
-// { offset: 'reject' } throws if offset does not match IANA time zone 
+// { offset: 'reject' } throws if offset does not match IANA time zone
 var obj = {
   year: 2020,
   month: 3,
   day: 8,
   hour: 1,
   offset: "-04:00",
-  timeZone: "America/Chicago"
+  timeZone: "UTC"
 };
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj));
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { offset: "reject" }));
@@ -266,17 +266,17 @@ assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, {
   3,
   null
 ].forEach(disambiguation => {
-  assert.throws(RangeError, () => Temporal.ZonedDateTime.from("2020-11-01T04:00[America/Los_Angeles]", { disambiguation }));
+  assert.throws(RangeError, () => Temporal.ZonedDateTime.from("2020-11-01T04:00[UTC]", { disambiguation }));
 });
 
 // sub-minute time zone offsets
 
-// does not truncate offset property to minutes 
+// does not truncate offset property to minutes
 var zdt = Temporal.ZonedDateTime.from({
   year: 1971,
   month: 1,
   day: 1,
   hour: 12,
-  timeZone: "Africa/Monrovia"
+  timeZone: "-00:44:30"
 });
 assert.sameValue(zdt.offset, "-00:44:30");

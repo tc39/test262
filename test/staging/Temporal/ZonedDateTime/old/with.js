@@ -240,7 +240,7 @@ assert.sameValue(`${ zdt.with({
 // throws if timeZone is included
 assert.throws(TypeError, () => zdt.with({
   month: 2,
-  timeZone: "Asia/Ulaanbaatar"
+  timeZone: "UTC"
 }));
 
 // throws if given a Temporal object with a time zone
@@ -249,7 +249,7 @@ assert.throws(TypeError, () => zdt.with(dstStartDay));
 // throws if calendarName is included
 assert.throws(TypeError, () => zdt.with({
   month: 2,
-  calendar: "japanese"
+  calendar: "iso8601"
 }));
 
 // throws if given a Temporal object with a calendar
