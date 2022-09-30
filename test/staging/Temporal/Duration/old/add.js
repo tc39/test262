@@ -15,7 +15,7 @@ var relativeTo = Temporal.PlainDate.from("2017-01-01");
 assert.sameValue(`${ oneDay.add(hours24, { relativeTo }) }`, "P2D");
 
 // relativeTo does not affect days if ZonedDateTime, and duration encompasses no DST change
-var relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[America/Montevideo]");
+var relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[+04:30]");
 assert.sameValue(`${ oneDay.add(hours24, { relativeTo }) }`, "P2D");
 var skippedHourDay = Temporal.ZonedDateTime.from("2019-03-10T00:00[America/Vancouver]");
 var repeatedHourDay = Temporal.ZonedDateTime.from("2019-11-03T00:00[America/Vancouver]");
@@ -112,10 +112,10 @@ assert.sameValue(`${ oneDay.add(hours24, {
 }) }`, "P2D");
 
 // throws on wrong offset for ZonedDateTime relativeTo string
-assert.throws(RangeError, () => oneDay.add(hours24, { relativeTo: "1971-01-01T00:00+02:00[Africa/Monrovia]" }));
+assert.throws(RangeError, () => oneDay.add(hours24, { relativeTo: "1971-01-01T00:00+02:00[-00:44:30]" }));
 
 // does not throw on HH:MM rounded offset for ZonedDateTime relativeTo string
-assert.sameValue(`${ oneDay.add(hours24, { relativeTo: "1971-01-01T00:00-00:45[Africa/Monrovia]" }) }`, "P2D");
+assert.sameValue(`${ oneDay.add(hours24, { relativeTo: "1971-01-01T00:00-00:45[-00:44:30]" }) }`, "P2D");
 
 // throws on HH:MM rounded offset for ZonedDateTime relativeTo property bag
 assert.throws(RangeError, () => oneDay.add(hours24, {
@@ -124,7 +124,7 @@ assert.throws(RangeError, () => oneDay.add(hours24, {
     month: 1,
     day: 1,
     offset: "-00:45",
-    timeZone: "Africa/Monrovia"
+    timeZone: "-00:44:30"
   }
 }));
 

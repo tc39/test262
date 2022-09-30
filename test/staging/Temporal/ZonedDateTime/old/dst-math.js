@@ -243,8 +243,8 @@ var diff = start.until(end, { largestUnit: "days" });
 assert.sameValue(`${ diff }`, "P1DT19H");
 
 // Rounding up to hours causes one more day of overflow (positive)
-var start = Temporal.ZonedDateTime.from("2020-01-01T00:00-08:00[America/Los_Angeles]");
-var end = Temporal.ZonedDateTime.from("2020-01-03T23:59-08:00[America/Los_Angeles]");
+var start = Temporal.ZonedDateTime.from("2020-01-01T00:00-08:00[-08:00]");
+var end = Temporal.ZonedDateTime.from("2020-01-03T23:59-08:00[-08:00]");
 var diff = start.until(end, {
   largestUnit: "days",
   smallestUnit: "hours",
@@ -253,8 +253,8 @@ var diff = start.until(end, {
 assert.sameValue(`${ diff }`, "P3D");
 
 // Rounding up to hours causes one more day of overflow (negative)
-var start = Temporal.ZonedDateTime.from("2020-01-01T00:00-08:00[America/Los_Angeles]");
-var end = Temporal.ZonedDateTime.from("2020-01-03T23:59-08:00[America/Los_Angeles]");
+var start = Temporal.ZonedDateTime.from("2020-01-01T00:00-08:00[-08:00]");
+var end = Temporal.ZonedDateTime.from("2020-01-03T23:59-08:00[-08:00]");
 var diff = end.until(start, {
   largestUnit: "days",
   smallestUnit: "hours",

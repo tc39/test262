@@ -40,5 +40,5 @@ assert.deepEqual(tz.getPossibleInstantsFor({
 assert.deepEqual(tz.getPossibleInstantsFor("2019-02-16T23:45:30").map(a => `${ a }`), ["2019-02-16T20:15:30Z"]);
 
 // object must contain at least the required properties
-var tz = Temporal.TimeZone.from("Europe/Amsterdam");
+var tz = Temporal.TimeZone.from("UTC");
 assert.throws(TypeError, () => tz.getPossibleInstantsFor({ year: 2019 }));
