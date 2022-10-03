@@ -64,7 +64,7 @@ function test(todayInstant, tomorrowInstant, expected) {
   let zdt = new Temporal.ZonedDateTime(0n, timeZone);
   let zdt_hoursInDay = zdt.hoursInDay;
 
-  assert.sameValue(zdt_hoursInDay, expected);
+  assert.sameValue(zdt_hoursInDay, expected, "hoursInDay return value");
 
   // Ensure the |expected| value is actually correctly rounded.
 
