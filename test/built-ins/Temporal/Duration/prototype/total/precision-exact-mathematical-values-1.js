@@ -85,12 +85,12 @@ let total = duration.total({unit: "hours"});
 // is 4000.0000000000005.
 
 const expected = 4000.0000000000005;
-assert.sameValue(expected, 4000.0000000000002777);
+assert.sameValue(expected, 4000.0000000000002777, "the float representation of the result is 4000.0000000000005");
 
 // The next Number in direction -Infinity is less precise.
-assert.sameValue(nextDown(expected), 4000);
+assert.sameValue(nextDown(expected), 4000, "the next Number in direction -Infinity is less precise");
 
 // The next Number in direction +Infinity is less precise.
-assert.sameValue(nextUp(expected), 4000.000000000001);
+assert.sameValue(nextUp(expected), 4000.000000000001, "the next Number in direction +Infinity is less precise");
 
-assert.sameValue(total, expected);
+assert.sameValue(total, expected, "return value of total()");
