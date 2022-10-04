@@ -37,3 +37,5 @@ assert(spliced.hasOwnProperty(3));
 
 spliced = arr.toSpliced(0, 0, -1);
 assert.compareArray(spliced, [-1, 0, undefined, 2, 3, 4]);
+assert(spliced.hasOwnProperty(1));
+assert(spliced.hasOwnProperty(3));
