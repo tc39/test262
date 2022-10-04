@@ -6,7 +6,7 @@ esid: sec-%typedarray%.prototype.with
 description: >
   %TypedArray%.prototype.with throws if the receiver is null or undefined
 info: |
-  %TypedArray%.prototype.with ( start, deleteCount , ...items )
+  %TypedArray%.prototype.with ( index, value )
 
   1. Let O be the this value.
   2. Perform ? ValidateTypedArray(O).
