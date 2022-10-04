@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-get-temporal.plaindate.prototype.daysinyear
-description: Custom calendar tests for daysInYear().
+esid: sec-get-temporal.plainyearmonth.prototype.daysinmonth
+description: Custom calendar tests for daysInMonth().
 includes: [compareArray.js]
 features: [Temporal]
 ---*/
@@ -13,15 +13,15 @@ class CustomCalendar extends Temporal.Calendar {
   constructor() {
     super("iso8601");
   }
-  daysInYear(...args) {
+  daysInMonth(...args) {
     ++calls;
-    assert.compareArray(args, [pd], "daysInYear arguments");
+    assert.compareArray(args, [instance], "daysInMonth arguments");
     return 7;
   }
 }
 
 const calendar = new CustomCalendar();
-const pd = new Temporal.PlainDate(1830, 8, 25, calendar);
-const result = pd.daysInYear;
+const instance = new Temporal.PlainYearMonth(1830, 8, calendar);
+const result = instance.daysInMonth;
 assert.sameValue(result, 7, "result");
 assert.sameValue(calls, 1, "calls");
