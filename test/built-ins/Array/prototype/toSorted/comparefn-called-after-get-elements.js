@@ -6,18 +6,19 @@ esid: sec-array.prototype.toSorted
 description: >
   Array.prototype.toSorted reads all the array elements before calling compareFn
 info: |
-  Array.prototype.toSorted ( compareFn )
+  SortIndexedProperties ( obj, len, SortCompare, skipHoles )
 
   ...
-  6. Repeat, while k < len,
+  3. Repeat, while k < len,
     a. Let Pk be ! ToString(𝔽(k)).
-    b. Let kValue be ? Get(O, Pk).
-    c. Append kValue to items.
-    d. Set k to k + 1.
-  7. Sort items using an implementation-defined sequence of
+    ...
+      i. Let kValue be ? Get(O, Pk).
+    ...
+  4. Sort items using an implementation-defined sequence of
      calls to SortCompare. If any such call returns an abrupt
      completion, stop before performing any further calls to
-     SortCompare or steps in this algorithm and return that completion.
+     SortCompare or steps in this algorithm and return that
+     Completion Record.
   ...
 features: [change-array-by-copy]
 includes: [compareArray.js]
