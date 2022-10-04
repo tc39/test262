@@ -9,7 +9,7 @@ info: |
 
   ...
   10. Else,
-    a. Let actualDeleteCount be len - actualStart.
+    a. Let dc be ? ToIntegerOrInfinity(deleteCount).
     b. Let actualDeleteCount be the result of clamping dc between 0 and len - actualStart.
   ...
 features: [change-array-by-copy]
