@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-array.prototype.toSpliced
-description: Array.prototype.toSpliced(undefined, undefined) returns a copy of the original array
+description: Array.prototype.toSpliced reads the items of the original array in order
 info: |
   22.1.3.25 Array.prototype.toSpliced (start, deleteCount , ...items )
 
