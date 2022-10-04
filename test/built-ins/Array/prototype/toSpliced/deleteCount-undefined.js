@@ -14,8 +14,11 @@ info: |
   ...
   8. If start is not present, then
     a. Let actualDeleteCount be 0.
-  8. Else if deleteCount is not present, then
+  9. Else if deleteCount is not present, then
     a. Let actualDeleteCount be len - actualStart.
+  10. Else,
+    a. Let dc be ? ToIntegerOrInfinity(deleteCount).
+    b. Let actualDeleteCount be the result of clamping dc between 0 and len - actualStart.
   ...
 features: [change-array-by-copy]
 includes: [compareArray.js]
