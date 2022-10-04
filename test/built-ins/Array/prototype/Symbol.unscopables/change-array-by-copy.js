@@ -8,9 +8,9 @@ info: |
     22.1.3.32 Array.prototype [ @@unscopables ]
 
     ...
-    11. Perform ! CreateDataPropertyOrThrow(unscopableList, "toReversed", true).
-    12. Perform ! CreateDataPropertyOrThrow(unscopableList, "toSorted", true).
-    13. Perform ! CreateDataPropertyOrThrow(unscopableList, "toSpliced", true).
+    12. Perform ! CreateDataPropertyOrThrow(unscopableList, "toReversed", true).
+    13. Perform ! CreateDataPropertyOrThrow(unscopableList, "toSorted", true).
+    14. Perform ! CreateDataPropertyOrThrow(unscopableList, "toSpliced", true).
     ...
 includes: [propertyHelper.js]
 features: [Symbol.unscopables, change-array-by-copy]
