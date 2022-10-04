@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.toReversed
 description: >
-  Array.prototype.toReversed throws if the receiver is null or undefined
+  Array.prototype.toReversed converts booleans to objects
 info: |
   Array.prototype.toReversed ( )
 
@@ -15,5 +15,15 @@ features: [change-array-by-copy]
 includes: [compareArray.js]
 ---*/
 
+assert.compareArray(Array.prototype.toReversed.call(true), []);
+assert.compareArray(Array.prototype.toReversed.call(false), []);
+
+/* Add length and indexed properties to `Boolean.prototype` */
+Boolean.prototype.length = function () { return 42; }
+assert.compareArray(Array.prototype.toReversed.call(true), []);
+assert.compareArray(Array.prototype.toReversed.call(false), []);
+delete Boolean.prototype.length;
+Boolean.prototype[0] = "monkeys";
+Boolean.prototype[2] = "bogus";
 assert.compareArray(Array.prototype.toReversed.call(true), []);
 assert.compareArray(Array.prototype.toReversed.call(false), []);
