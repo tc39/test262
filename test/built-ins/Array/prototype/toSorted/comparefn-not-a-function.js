@@ -20,7 +20,7 @@ var getLengthThrow = {
   }
 };
 
-var invalidComparators = [null, true, false, "", /a/g, 42, [], {}, Symbol()];
+var invalidComparators = [null, true, false, "", /a/g, 42, 42n, [], {}, Symbol()];
 
 for (var i = 0; i < invalidComparators.length; i++) {
   assert.throws(TypeError, function() {
