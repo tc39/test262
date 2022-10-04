@@ -23,5 +23,6 @@ testWithTypedArrayConstructors(TA => {
 
   assert.compareArray(arr.with(-1, 4), [0, 1, 4]);
   assert.compareArray(arr.with(-3, 4), [4, 1, 2]);
+  // -0 is not negative.
   assert.compareArray(arr.with(-0, 4), [4, 1, 2]);
 });
