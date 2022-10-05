@@ -18,19 +18,12 @@ features: [Symbol.unscopables, change-array-by-copy]
 
 var unscopables = Array.prototype[Symbol.unscopables];
 
-assert.sameValue(unscopables.toReversed, true, '`toReversed` property value');
-verifyEnumerable(unscopables, 'toReversed');
-verifyWritable(unscopables, 'toReversed');
-verifyConfigurable(unscopables, 'toReversed');
-
-assert.sameValue(unscopables.toSorted, true, '`toSorted` property value');
-verifyEnumerable(unscopables, 'toSorted');
-verifyWritable(unscopables, 'toSorted');
-verifyConfigurable(unscopables, 'toSorted');
-
-assert.sameValue(unscopables.toSpliced, true, "`toSpliced` property value");
-verifyEnumerable(unscopables, "toSpliced");
-verifyWritable(unscopables, "toSpliced");
-verifyConfigurable(unscopables, "toSpliced");
+for (unscopable of ["toReversed", "toSorted", "toSpliced"]) {
+    verifyProperty(unscopables, unscopable, {
+        value: true,
+        writable: true,
+        configurable: true
+    })
+};
 
 assert.sameValue(Object.hasOwnProperty.call(unscopables, "with"), false, "does not have `with`");
