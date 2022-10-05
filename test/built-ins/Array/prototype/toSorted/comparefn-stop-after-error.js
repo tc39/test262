@@ -30,15 +30,13 @@ assert.throws(Test262Error, function() {
 });
 assert.sameValue(called, false);
 
-called = false;
+called = 0;
 assert.throws(Test262Error, function() {
-  var first = true;
   [1, 2, 3].toSorted(() => {
-    if (first) {
-      first = false;
+    ++called;
+    if (called === 1) {
       throw new Test262Error();
     }
-    called = true;
   });
 });
-assert.sameValue(called, false);
+assert.sameValue(called, 1);
