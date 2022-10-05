@@ -15,7 +15,7 @@ includes: [testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-var invalidComparators = [null, true, false, "", /a/g, 42, [], {}, Symbol()];
+var invalidComparators = [null, true, false, "", /a/g, 42, 42n, [], {}, Symbol()];
 
 testWithTypedArrayConstructors(TA => {
   const ta = new TA([1]);
