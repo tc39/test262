@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.toSpliced
 description: >
-  Array.prototype.toSpliced throws if the receiver is null or undefined
+  Array.prototype.toSpliced ignores @@species
 info: |
   Array.prototype.toSpliced ( start, deleteCount, ...items )
 
