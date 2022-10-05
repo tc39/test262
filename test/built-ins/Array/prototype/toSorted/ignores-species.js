@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.toSorted
 description: >
-  Array.prototype.toSorted throws if the receiver is null or undefined
+  Array.prototype.toSorted ignores @@species
 info: |
   Array.prototype.toSorted ( compareFn )
 
