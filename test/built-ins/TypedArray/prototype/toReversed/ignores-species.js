@@ -12,10 +12,9 @@ info: |
   4. Let A be ? TypedArrayCreateSameType(O, « 𝔽(length) »).
   ...
 
-  TypedArraySpeciesCreate ( exemplar, argumentList [ , noSpeciesOverride ] )
+  TypedArrayCreateSameType ( exemplar, argumentList )
   ...
-  2. Let defaultConstructor be the intrinsic object listed in column one of Table 63 for exemplar.[[TypedArrayName]].
-  3. If noSpeciesOverride is true, let constructor be defaultConstructor.
+  2. Let constructor be the intrinsic object listed in column one of Table 63 for exemplar.[[TypedArrayName]].
   ...
 includes: [testTypedArray.js]
 features: [TypedArray, change-array-by-copy]

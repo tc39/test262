@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.toReversed
 description: >
-  %TypedArray%.prototype.toReversed throws if the receiver is null or undefined
+  %TypedArray%.prototype.toReversed throws if the receiver is not a valid TypedArray
 info: |
   %TypedArray%.prototype.toReversed ( )
 
