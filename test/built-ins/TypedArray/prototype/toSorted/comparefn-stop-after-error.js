@@ -23,11 +23,10 @@ testWithTypedArrayConstructors(TA => {
   var ta = new TA([3, 1, 2]);
   try {
     ta.toSorted(() => {
-      if (calls === 0) {
-        calls++;
+      ++calls;
+      if (calls === 1) {
         throw new Test262Error();
       }
-      calls++;
     });
   } catch (e) {}
   assert.sameValue(calls, 1, "compareFn is not called after an error");
