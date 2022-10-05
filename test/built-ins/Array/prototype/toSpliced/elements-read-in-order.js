@@ -7,16 +7,8 @@ description: Array.prototype.toSpliced reads the items of the original array in 
 info: |
   22.1.3.25 Array.prototype.toSpliced (start, deleteCount , ...items )
 
-  ...
-  3. Let relativeStart be ? ToIntegerOrInfinity(start).
-  ...
-  6. Else, let actualStart be min(relativeStart, len).
-  ...
-  8. If start is not present, then
-    a. Let actualDeleteCount be 0.
-  8. Else if deleteCount is not present, then
-    a. Let actualDeleteCount be len - actualStart.
-  ...
+  Steps 14-18
+
 features: [change-array-by-copy]
 includes: [compareArray.js]
 ---*/
