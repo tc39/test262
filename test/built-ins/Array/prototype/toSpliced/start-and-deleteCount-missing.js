@@ -19,6 +19,9 @@ features: [change-array-by-copy]
 includes: [compareArray.js]
 ---*/
 
-var result = ["first", "second", "third"].toSpliced();
+let arr = ["first", "second", "third"];
+let result = arr.toSpliced();
 
-assert.compareArray(result, ["first", "second", "third"]);
+assert.compareArray(result, arr);
+assert.notSameValue(result, arr);
+
