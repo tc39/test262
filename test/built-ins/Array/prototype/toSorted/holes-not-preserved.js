@@ -9,14 +9,9 @@ info: |
   Array.prototype.toSorted ( compareFn )
 
   ...
-  2. Let len be ? LengthOfArrayLike(O).
-  4. Let items be a new empty List.
-  5. Let k be 0.
-  6. Repeat, while k < len,
-    a. Let Pk be ! ToString(𝔽(k)).
-    b. Let kValue be ? Get(O, Pk).
-    c. Append kValue to items.
-    d. Set k to k + 1.
+  8. Repeat, while j < len,
+    a. Perform ! CreateDataPropertyOrThrow(A, ! ToString(𝔽(j)), sortedList[j]).
+    b. Set j to j + 1.
   ...
 features: [change-array-by-copy]
 includes: [compareArray.js]
