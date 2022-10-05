@@ -9,7 +9,7 @@ info: |
   %TypedArray%.prototype.toSorted ( comparefn )
 
   ...
-  5. Let A be ? TypedArraySpeciesCreate(O, « 𝔽(len) », true).
+  6. Let A be ? TypedArrayCreateSameType(O, « 𝔽(len) »).
   ...
 
   TypedArraySpeciesCreate ( exemplar, argumentList [ , noSpeciesOverride ] )
