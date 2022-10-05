@@ -4,7 +4,8 @@
 /*---
 esid: sec-array.prototype.toSpliced
 description: >
-  Array.prototype.toSpliced creates an empty array if the this value .length is not a positive integer.
+  Array.prototype.toSpliced treats its `this` value's `length` property as zero if the
+  property's value is not a positive integer.
 info: |
   Array.prototype.toSpliced ( start, deleteCount, ...items )
 
