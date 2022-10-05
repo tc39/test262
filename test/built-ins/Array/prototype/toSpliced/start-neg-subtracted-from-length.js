@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.toSpliced
 description: >
-  Array.prototype.toSpliced converts the this value length to a number.
+  Array.prototype.toSpliced treats a negative start as relative to the end.
 info: |
   Array.prototype.toSpliced ( start, deleteCount, ...items )
 
