@@ -25,11 +25,20 @@ var invalidValues = {
   '[1, 2, 3]': [1, 2, 3],
   '{ 0: 1, 1: 2, 2: 3, length: 3 }': { 0: 1, 1: 2, 2: 3, length: 3 },
   'Uint8Array.prototype': Uint8Array.prototype,
+  '1n': 1n,
 };
 
-Object.keys(invalidValues).forEach(desc => {
-  var value = invalidValues[desc];
+Object.entries(invalidValues).forEach(value => {
   assert.throws(TypeError, () => {
-    TypedArray.prototype.toSorted.call(value);
-  }, `${desc} is not a valid TypedArray`);
+    TypedArray.prototype.toSorted.call(value[1]);
+  }, `${value[0]} is not a valid TypedArray`);
+});
+
+testWithTypedArrayConstructors(function(TA) {
+  let buffer = new ArrayBuffer(8);
+  let sample = new TA(buffer, 0, 1);
+  $DETACHBUFFER(sample.buffer);
+    assert.throws(TypeError, () => {
+      sample.toSorted();
+    }, `array has a detached buffer`);
 });

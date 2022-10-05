@@ -19,27 +19,33 @@ testWithTypedArrayConstructors(TA => {
   var ta = new TA([3, 1, 2]);
   Object.defineProperty(ta, "length", { value: 2 })
   var res = ta.toSorted()
-  assert.compareArray([res[0], res[1], res[2], res[3]], [1, 2, 3, undefined]);
+  assert.compareArray(res, [1, 2, 3]);
+  assert.sameValue(res.length, 3);
 
   ta = new TA([3, 1, 2]);
   Object.defineProperty(ta, "length", { value: 5 });
-  res = ta.toSorted()
-  assert.compareArray([res[0], res[1], res[2], res[3]], [1, 2, 3, undefined]);
+  res = ta.toSorted();
+  assert.compareArray(res, [1, 2, 3]);
+  assert.sameValue(res.length, 3);
 });
 
-var length;
-Object.defineProperty(TypedArray.prototype, "length", {
-  get: () => length,
-});
+function setLength(length) {
+    Object.defineProperty(TypedArray.prototype, "length", {
+        get: () => length,
+    });
+}
 
 testWithTypedArrayConstructors(TA => {
   var ta = new TA([3, 1, 2]);
 
-  length = 2;
-  var res = ta.toSorted()
-  assert.compareArray([res[0], res[1], res[2], res[3]], [1, 2, 3, undefined]);
+  setLength(2);
+  var res = ta.toSorted();
+  setLength(3);
+  assert.compareArray(res, [1, 2, 3]);
 
-  length = 5;
-  res = ta.toSorted()
-  assert.compareArray([res[0], res[1], res[2], res[3]], [1, 2, 3, undefined]);
+  setLength(5);
+  res = ta.toSorted();
+  setLength(3);
+
+  assert.compareArray(res, [1, 2, 3]);
 });
