@@ -6,10 +6,10 @@ esid: sec-%typedarray%.prototype.toSorted
 description: >
   %TypedArray%.prototype.toSorted throws if the receiver is null or undefined
 info: |
-  %TypedArray%.prototype.toSorted ( )
+  %TypedArray%.prototype.toSorted ( comparefn )
 
-  1. Let O be the this value.
-  2. Perform ? ValidateTypedArray(O).
+  2. Let O be the this value.
+  3. Perform ? ValidateTypedArray(O).
   ...
 includes: [testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
