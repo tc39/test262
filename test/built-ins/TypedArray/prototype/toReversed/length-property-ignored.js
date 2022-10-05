@@ -9,7 +9,7 @@ info: |
   %TypedArray%.prototype.toReversed ( )
 
   ...
-  3. Let len be O.[[ArrayLength]].
+  3. Let length be O.[[ArrayLength]].
   ...
 includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
