@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.with
+esid: sec-array.prototype.with
 description: >
-  %TypedArray%.prototype.with throws if the index is bigger than or equal to the array length.
+  Array.prototype.with throws if the index is bigger than or equal to the array length.
 info: |
-  %TypedArray%.prototype.with ( index, value )
+  Array.prototype.with ( index, value )
 
   ...
   2. Let len be ? LengthOfArrayLike(O).
