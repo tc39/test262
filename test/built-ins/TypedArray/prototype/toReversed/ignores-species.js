@@ -9,7 +9,7 @@ info: |
   %TypedArray%.prototype.toReversed ( )
 
   ...
-  5. Let A be ? TypedArraySpeciesCreate(O, « 𝔽(len) », true).
+  4. Let A be ? TypedArrayCreateSameType(O, « 𝔽(length) »).
   ...
 
   TypedArraySpeciesCreate ( exemplar, argumentList [ , noSpeciesOverride ] )
