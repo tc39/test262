@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.toSorted
 description: >
-  %TypedArray%.prototype.toSorted throws if the receiver is null or undefined
+  %TypedArray%.prototype.toSorted throws if the receiver is not a valid TypedArray
 info: |
   %TypedArray%.prototype.toSorted ( comparefn )
 

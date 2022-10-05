@@ -11,11 +11,9 @@ info: |
   ...
   3. Let len be ? LengthOfArrayLike(O).
   ...
-  5. Let k be 0.
-  6. Repeat, while k < len,
-    a. Let Pk be ! ToString(𝔽(k)).
-    b. Let kValue be ? Get(O, Pk).
-    ...
+  6. Let sortedList be ? SortIndexedProperties(obj, len, SortCompare, false).
+  ...
+
 features: [change-array-by-copy]
 includes: [compareArray.js]
 ---*/
