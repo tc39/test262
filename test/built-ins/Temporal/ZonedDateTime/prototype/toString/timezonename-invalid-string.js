@@ -15,4 +15,12 @@ features: [Temporal]
 ---*/
 
 const datetime = new Temporal.ZonedDateTime(1_000_000_000_987_64_321n, "UTC");
-assert.throws(RangeError, () => datetime.toString({ timeZoneName: "other string" }));
+const invalidValues = ["NEVER", "sometimes", "other string", "auto\0"];
+
+for (const timeZoneName of invalidValues) {
+  assert.throws(
+    RangeError,
+    () => datetime.toString({ timeZoneName }),
+    `${timeZoneName} is an invalid value for timeZoneName option`
+  );
+}
