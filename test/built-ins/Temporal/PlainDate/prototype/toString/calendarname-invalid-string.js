@@ -15,8 +15,12 @@ features: [Temporal]
 ---*/
 
 const date = new Temporal.PlainDate(2000, 5, 2);
-const values = ["ALWAYS", "sometimes", "other string", "auto\0"];
+const invalidValues = ["ALWAYS", "sometimes", "other string", "auto\0"];
 
-for (const calendarName of values) {
-  assert.throws(RangeError, () => date.toString({ calendarName }));
+for (const calendarName of invalidValues) {
+  assert.throws(
+    RangeError,
+    () => date.toString({ calendarName }),
+    `${calendarName} is an invalid value for calendarName option`
+  );
 }
