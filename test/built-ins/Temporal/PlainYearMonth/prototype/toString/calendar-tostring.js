@@ -18,6 +18,7 @@ const yearmonth = new Temporal.PlainYearMonth(2000, 5, customCalendar);
 [
   ["always", "2000-05-01[u-ca=custom]", 1],
   ["auto", "2000-05-01[u-ca=custom]", 1],
+  ["critical", "2000-05-01[!u-ca=custom]", 1],
   ["never", "2000-05-01", 1],
   [undefined, "2000-05-01[u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {

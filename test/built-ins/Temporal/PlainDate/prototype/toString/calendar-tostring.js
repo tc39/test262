@@ -18,6 +18,7 @@ const date = new Temporal.PlainDate(2000, 5, 2, customCalendar);
 [
   ["always", "2000-05-02[u-ca=custom]", 1],
   ["auto", "2000-05-02[u-ca=custom]", 1],
+  ["critical", "2000-05-02[!u-ca=custom]", 1],
   ["never", "2000-05-02", 0],
   [undefined, "2000-05-02[u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {

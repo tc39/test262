@@ -18,6 +18,7 @@ const date = new Temporal.ZonedDateTime(1_000_000_000_987_654_321n, "UTC", custo
 [
   ["always", "2001-09-09T01:46:40.987654321+00:00[UTC][u-ca=custom]", 1],
   ["auto", "2001-09-09T01:46:40.987654321+00:00[UTC][u-ca=custom]", 1],
+  ["critical", "2001-09-09T01:46:40.987654321+00:00[UTC][!u-ca=custom]", 1],
   ["never", "2001-09-09T01:46:40.987654321+00:00[UTC]", 0],
   [undefined, "2001-09-09T01:46:40.987654321+00:00[UTC][u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {

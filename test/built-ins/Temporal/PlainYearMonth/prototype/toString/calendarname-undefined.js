@@ -8,7 +8,7 @@ info: |
     sec-getoption step 3:
       3. If _value_ is *undefined*, return _fallback_.
     sec-temporal-toshowcalendaroption step 1:
-      1. Return ? GetOption(_normalizedOptions_, *"calendarName"*, « String », « *"auto"*, *"always"*, *"never"* », *"auto"*).
+      1. Return ? GetOption(_normalizedOptions_, *"calendarName"*, « *"string"* », « *"auto"*, *"always"*, *"never"*, *"critical"* », *"auto"*).
     sec-temporal.plainyearmonth.protoype.tostring step 4:
       4. Let _showCalendar_ be ? ToShowCalendarOption(_options_).
 features: [Temporal]
