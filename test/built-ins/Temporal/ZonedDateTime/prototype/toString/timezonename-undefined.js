@@ -19,4 +19,4 @@ const datetime = new Temporal.ZonedDateTime(1_000_000_000_987_654_321n, "UTC");
 const explicit = datetime.toString({ timeZoneName: undefined });
 assert.sameValue(explicit, "2001-09-09T01:46:40.987654321+00:00[UTC]", "default timeZoneName option is auto");
 
-// See options-undefined.js for {}
+// See options-object.js for {} and options-undefined.js for absent

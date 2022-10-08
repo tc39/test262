@@ -11,12 +11,6 @@ features: [Temporal]
 var zdt1 = Temporal.ZonedDateTime.from("1976-11-18T15:23+00:00[UTC]");
 var fakeGregorian = { toString() { return "gregory" }};
 
-// shows time zone if timeZoneName = auto
-assert.sameValue(zdt1.toString({ timeZoneName: "auto" }), "1976-11-18T15:23:00+00:00[UTC]");
-
-// omits time zone if timeZoneName = never
-assert.sameValue(zdt1.toString({ timeZoneName: "never" }), "1976-11-18T15:23:00+00:00");
-
 // shows offset if offset = auto
 assert.sameValue(zdt1.toString({ offset: "auto" }), "1976-11-18T15:23:00+00:00[UTC]");
 
