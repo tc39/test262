@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.protoype.tostring
+esid: sec-temporal.plainmonthday.protoype.tostring
 description: Number of observable 'toString' calls on the calendar for each value of calendarName
 features: [Temporal]
 ---*/
@@ -14,15 +14,15 @@ const customCalendar = {
     return "custom";
   }
 };
-const date = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, customCalendar);
+const monthday = new Temporal.PlainMonthDay(5, 2, customCalendar);
 [
-  ["always", "2000-05-02T12:34:56.987654321[u-ca=custom]", 1],
-  ["auto", "2000-05-02T12:34:56.987654321[u-ca=custom]", 1],
-  ["never", "2000-05-02T12:34:56.987654321", 0],
-  [undefined, "2000-05-02T12:34:56.987654321[u-ca=custom]", 1],
+  ["always", "1972-05-02[u-ca=custom]", 1],
+  ["auto", "1972-05-02[u-ca=custom]", 1],
+  ["never", "1972-05-02", 1],
+  [undefined, "1972-05-02[u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {
   calls = 0;
-  const result = date.toString({ calendarName });
+  const result = monthday.toString({ calendarName });
   assert.sameValue(result, expectedResult, `toString output for calendarName = ${calendarName}`);
   assert.sameValue(calls, expectedCalls, `calls to toString for calendarName = ${calendarName}`);
 });

@@ -15,6 +15,12 @@ features: [Temporal]
 ---*/
 
 const yearmonth = new Temporal.PlainYearMonth(2000, 5);
-for (const calendarName of ["ALWAYS", "sometimes", "other string"]) {
-  assert.throws(RangeError, () => yearmonth.toString({ calendarName }));
+const invalidValues = ["ALWAYS", "sometimes", "other string", "auto\0"];
+
+for (const calendarName of invalidValues) {
+  assert.throws(
+    RangeError,
+    () => yearmonth.toString({ calendarName }),
+    `${calendarName} is an invalid value for calendarName option`
+  );
 }
