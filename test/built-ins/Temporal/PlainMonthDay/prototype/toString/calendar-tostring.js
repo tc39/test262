@@ -18,6 +18,7 @@ const monthday = new Temporal.PlainMonthDay(5, 2, customCalendar);
 [
   ["always", "1972-05-02[u-ca=custom]", 1],
   ["auto", "1972-05-02[u-ca=custom]", 1],
+  ["critical", "1972-05-02[!u-ca=custom]", 1],
   ["never", "1972-05-02", 1],
   [undefined, "1972-05-02[u-ca=custom]", 1],
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {
