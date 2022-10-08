@@ -8,7 +8,7 @@ info: |
     sec-getoption step 10:
       10. If _values_ is not *undefined* and _values_ does not contain an element equal to _value_, throw a *RangeError* exception.
     sec-temporal-toshowtimezonenameoption step 1:
-      1. Return ? GetOption(_normalizedOptions_, *"timeZoneName"*, « String », « *"auto"*, *"never"* », *"auto"*).
+      1. Return ? GetOption(_normalizedOptions_, *"timeZoneName"*, « *"string"* », « *"auto"*, *"never"*, *"critical"* », *"auto"*).
     sec-temporal.zoneddatetime.protoype.tostring step 7:
       7. Let _showTimeZone_ be ? ToShowTimeZoneNameOption(_options_).
 features: [Temporal]
