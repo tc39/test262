@@ -202,9 +202,6 @@ assert.compareArray(actual, expectedOpsForMonthToYearBalancing, "order of operat
 actual.splice(0, actual.length); // clear
 
 const expectedOpsForDayToMonthBalancing = expected.concat([
-  // UnbalanceDurationRelative
-  "get options.relativeTo.calendar.dateAdd",     // 9.b
-  "get options.relativeTo.calendar.dateUntil",   // 9.c
   // BalanceDurationRelative
   "get options.relativeTo.calendar.dateAdd",     // 11.a
   "call options.relativeTo.calendar.dateAdd",    // 11.b MoveRelativeDate
@@ -216,8 +213,6 @@ assert.compareArray(actual, expectedOpsForDayToMonthBalancing, "order of operati
 actual.splice(0, actual.length); // clear
 
 const expectedOpsForDayToWeekBalancing = expected.concat([
-  // UnbalanceDurationRelative
-  "get options.relativeTo.calendar.dateAdd",   // 10.b
   // BalanceDurationRelative
   "get options.relativeTo.calendar.dateAdd",   // 12.b
   "call options.relativeTo.calendar.dateAdd",  // 12.c MoveRelativeDate
