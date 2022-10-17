@@ -21,3 +21,19 @@ Boolean.prototype[1] = 1;
 
 assert.compareArray(Array.prototype.with.call(true, 0, 2), [2, 1]);
 assert.compareArray(Array.prototype.with.call(false, 0, 2), [2, 1]);
+
+/* Add length and indexed properties to `Boolean.prototype` */
+Boolean.prototype.length = 3;
+delete Boolean.prototype[0];
+delete Boolean.prototype[1];
+assert.compareArray(Array.prototype.with.call(true, 0, 2), [2, undefined, undefined]);
+assert.compareArray(Array.prototype.with.call(false, 0, 2), [2, undefined, undefined]);
+delete Boolean.prototype.length;
+Boolean.prototype[0] = "monkeys";
+Boolean.prototype[2] = "bogus";
+assert.throws(RangeError,
+              () => compareArray(Array.prototype.with.call(true, 0, 2)),
+              "Array.prototype.with on object with undefined length");
+assert.throws(RangeError,
+              () => compareArray(Array.prototype.with.call(false, 0, 2)),
+              "Array.prototype.with on object with undefined length");

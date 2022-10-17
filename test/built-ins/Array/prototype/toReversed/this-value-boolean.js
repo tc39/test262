@@ -19,9 +19,9 @@ assert.compareArray(Array.prototype.toReversed.call(true), []);
 assert.compareArray(Array.prototype.toReversed.call(false), []);
 
 /* Add length and indexed properties to `Boolean.prototype` */
-Boolean.prototype.length = function () { return 42; }
-assert.compareArray(Array.prototype.toReversed.call(true), []);
-assert.compareArray(Array.prototype.toReversed.call(false), []);
+Boolean.prototype.length = 3;
+assert.compareArray(Array.prototype.toReversed.call(true), [undefined, undefined, undefined]);
+assert.compareArray(Array.prototype.toReversed.call(false), [undefined, undefined, undefined]);
 delete Boolean.prototype.length;
 Boolean.prototype[0] = "monkeys";
 Boolean.prototype[2] = "bogus";

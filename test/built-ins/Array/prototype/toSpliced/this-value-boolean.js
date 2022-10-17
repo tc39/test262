@@ -17,3 +17,13 @@ includes: [compareArray.js]
 
 assert.compareArray(Array.prototype.toSpliced.call(true, 0, 0), []);
 assert.compareArray(Array.prototype.toSpliced.call(false, 0, 0), []);
+
+/* Add length and indexed properties to `Boolean.prototype` */
+Boolean.prototype.length = 3;
+assert.compareArray(Array.prototype.toSpliced.call(true, 0, 0), [undefined, undefined, undefined]);
+assert.compareArray(Array.prototype.toSpliced.call(false, 0, 0), [undefined, undefined, undefined]);
+delete Boolean.prototype.length;
+Boolean.prototype[0] = "monkeys";
+Boolean.prototype[2] = "bogus";
+assert.compareArray(Array.prototype.toSpliced.call(true, 0, 0), []);
+assert.compareArray(Array.prototype.toSpliced.call(false, 0, 0), []);
