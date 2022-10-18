@@ -7,7 +7,26 @@ description: Array.prototype.toSpliced reads the items of the original array in 
 info: |
   22.1.3.25 Array.prototype.toSpliced (start, deleteCount , ...items )
 
-  Steps 14-18
+  ...
+  14. Let i be 0.
+  15. Let r be actualStart + actualDeleteCount.
+  16. Repeat, while i < actualStart,
+    a. Let Pi be ! ToString(𝔽(i)).
+    b. Let iValue be ? Get(O, Pi).
+    c. Perform ! CreateDataPropertyOrThrow(A, Pi, iValue).
+    d. Set i to i + 1.
+  17. For each element E of items, do
+    a. Let Pi be ! ToString(𝔽(i)).
+    b. Perform ! CreateDataPropertyOrThrow(A, Pi, E).
+    c. Set i to i + 1.
+  18. Repeat, while i < newLen,
+    a. Let Pi be ! ToString(𝔽(i)).
+    b. Let from be ! ToString(𝔽(r)).
+    c. Let fromValue be ? Get(O, from).
+    d. Perform ! CreateDataPropertyOrThrow(A, Pi, fromValue).
+    e. Set i to i + 1.
+    f. Set r to r + 1.
+  ...
 
 features: [change-array-by-copy]
 includes: [compareArray.js]
