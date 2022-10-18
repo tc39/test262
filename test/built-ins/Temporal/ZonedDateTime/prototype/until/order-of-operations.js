@@ -122,12 +122,17 @@ const expectedOpsForCalendarDifference = [
   "get other.timeZone[Symbol.toPrimitive]",
   "get other.timeZone.toString",
   "call other.timeZone.toString",
-  // MergeLargestUnitOption
+  // CopyDataProperties
   "ownKeys options",
+  "getOwnPropertyDescriptor options.roundingIncrement",
   "get options.roundingIncrement",
+  "getOwnPropertyDescriptor options.roundingMode",
   "get options.roundingMode",
+  "getOwnPropertyDescriptor options.largestUnit",
   "get options.largestUnit",
+  "getOwnPropertyDescriptor options.smallestUnit",
   "get options.smallestUnit",
+  "getOwnPropertyDescriptor options.additional",
   "get options.additional",
   // DifferenceZonedDateTime
   "get this.timeZone.getOffsetNanosecondsFor",

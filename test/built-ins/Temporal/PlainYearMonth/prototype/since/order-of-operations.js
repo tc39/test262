@@ -60,12 +60,17 @@ const expected = [
   "call this.calendar.year",
   "get this.calendar.dateFromFields",
   "call this.calendar.dateFromFields",
-  // MergeLargestUnitOption
+  // CopyDataProperties
   "ownKeys options",
+  "getOwnPropertyDescriptor options.roundingIncrement",
   "get options.roundingIncrement",
+  "getOwnPropertyDescriptor options.roundingMode",
   "get options.roundingMode",
+  "getOwnPropertyDescriptor options.largestUnit",
   "get options.largestUnit",
+  "getOwnPropertyDescriptor options.smallestUnit",
   "get options.smallestUnit",
+  "getOwnPropertyDescriptor options.additional",
   "get options.additional",
   // CalendarDateUntil
   "get this.calendar.dateUntil",
