@@ -18,7 +18,7 @@ features: [Symbol.unscopables, change-array-by-copy]
 
 var unscopables = Array.prototype[Symbol.unscopables];
 
-for (unscopable of ["toReversed", "toSorted", "toSpliced"]) {
+for (const unscopable of ["toReversed", "toSorted", "toSpliced"]) {
     verifyProperty(unscopables, unscopable, {
         value: true,
         writable: true,
