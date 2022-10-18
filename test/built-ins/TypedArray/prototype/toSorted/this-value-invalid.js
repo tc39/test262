@@ -11,7 +11,7 @@ info: |
   2. Let O be the this value.
   3. Perform ? ValidateTypedArray(O).
   ...
-includes: [testTypedArray.js]
+includes: [detachArrayBuffer.js, testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
