@@ -4,7 +4,7 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.mergefields
-description: Only string keys from the arguments are merged
+description: Both string and symbol keys from the arguments are merged
 info: |
   1. Let calendar be the this value.
   2. Perform ? RequireInternalSlot(calendar, [[InitializedTemporalCalendar]]).
@@ -50,6 +50,6 @@ const foo = Symbol("foo");
 const bar = Symbol("bar");
 assertEntriesEqual(
   cal.mergeFields({ [foo]: 1 }, { [bar]: 2 }),
-  [],
-  "symbol keys are not merged"
+  [[foo, 1], [bar, 2]],
+  "symbol keys are also merged"
 );
