@@ -38,7 +38,7 @@ testWithTypedArrayConstructors(function(TA) {
   let buffer = new ArrayBuffer(8);
   let sample = new TA(buffer, 0, 1);
   $DETACHBUFFER(sample.buffer);
-    assert.throws(TypeError, () => {
-      sample.toSorted();
-    }, `array has a detached buffer`);
+  assert.throws(TypeError, () => {
+    sample.toSorted();
+  }, `array has a detached buffer`);
 });
