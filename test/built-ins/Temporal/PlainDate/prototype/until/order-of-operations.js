@@ -48,12 +48,17 @@ const expected = [
   "get options.roundingIncrement",
   "get options.roundingIncrement.valueOf",
   "call options.roundingIncrement.valueOf",
-  // MergeLargestUnitOption
+  // CopyDataProperties
   "ownKeys options",
+  "getOwnPropertyDescriptor options.roundingIncrement",
   "get options.roundingIncrement",
+  "getOwnPropertyDescriptor options.roundingMode",
   "get options.roundingMode",
+  "getOwnPropertyDescriptor options.largestUnit",
   "get options.largestUnit",
+  "getOwnPropertyDescriptor options.smallestUnit",
   "get options.smallestUnit",
+  "getOwnPropertyDescriptor options.additional",
   "get options.additional",
   // CalendarDateUntil
   "get this.calendar.dateUntil",

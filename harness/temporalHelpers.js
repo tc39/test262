@@ -1612,6 +1612,10 @@ var TemporalHelpers = {
         calls.push(`ownKeys ${objectName}`);
         return Reflect.ownKeys(target);
       },
+      getOwnPropertyDescriptor(target, key) {
+        calls.push(`getOwnPropertyDescriptor ${formatPropertyName(key, objectName)}`);
+        return Reflect.getOwnPropertyDescriptor(target, key);
+      },
       get(target, key, receiver) {
         calls.push(`get ${formatPropertyName(key, objectName)}`);
         const result = Reflect.get(target, key, receiver);
