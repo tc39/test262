@@ -444,6 +444,7 @@ Tests expressed with this convention are built automatically following the sourc
 
 - [ChakraCore](https://github.com/microsoft/ChakraCore/issues/new)
 - [engine262](https://github.com/engine262/engine262/issues/new)
+- [GraalJS](https://github.com/oracle/graal/issues/new?labels=bug&template=5_issues_other.md&title=)
 - [Hermes](https://github.com/facebook/hermes/issues/new?labels%5B%5D=need+triage&labels%5B%5D=bug&template=01_bug_report.md&title=)
 - [JavaScriptCore](https://bugs.webkit.org/enter_bug.cgi?product=WebKit&component=JavaScriptCore)
 - [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)
