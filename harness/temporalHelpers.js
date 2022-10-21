@@ -1799,6 +1799,47 @@ var TemporalHelpers = {
    */
   ISO: {
     /*
+     * PlainMonthDay strings that are not valid.
+     */
+    plainMonthDayStringsInvalid() {
+      return [
+        "11-18junk",
+      ];
+    },
+
+    /*
+     * PlainMonthDay strings that are valid and that should produce October 1st.
+     */
+    plainMonthDayStringsValid() {
+      return [
+        "10-01",
+        "1001",
+        "1965-10-01",
+        "1976-10-01T152330.1+00:00",
+        "19761001T15:23:30.1+00:00",
+        "1976-10-01T15:23:30.1+0000",
+        "1976-10-01T152330.1+0000",
+        "19761001T15:23:30.1+0000",
+        "19761001T152330.1+00:00",
+        "19761001T152330.1+0000",
+        "+001976-10-01T152330.1+00:00",
+        "+0019761001T15:23:30.1+00:00",
+        "+001976-10-01T15:23:30.1+0000",
+        "+001976-10-01T152330.1+0000",
+        "+0019761001T15:23:30.1+0000",
+        "+0019761001T152330.1+00:00",
+        "+0019761001T152330.1+0000",
+        "1976-10-01T15:23:00",
+        "1976-10-01T15:23",
+        "1976-10-01T15",
+        "1976-10-01",
+        "--10-01",
+        "--1001",
+        1001,
+      ];
+    },
+
+    /*
      * PlainTime strings that may be mistaken for PlainMonthDay or
      * PlainYearMonth strings, and so require a time designator.
      */
@@ -1842,6 +1883,58 @@ var TemporalHelpers = {
         "2021-12[-12:00]",  // HHMM-UU is ambiguous with YYYY-MM, but TZ disambiguates
         "202112[UTC]",      // HHMMSS is ambiguous with YYYYMM, but TZ disambiguates
       ];
-    }
+    },
+
+    /*
+     * PlainYearMonth-like strings that are not valid.
+     */
+    plainYearMonthStringsInvalid() {
+      return [
+        "2020-13",
+      ];
+    },
+
+    /*
+     * PlainYearMonth-like strings that are valid and should produce November
+     * 1976 in the ISO 8601 calendar.
+     */
+    plainYearMonthStringsValid() {
+      return [
+        "1976-11",
+        "1976-11-10",
+        "1976-11-01T09:00:00+00:00",
+        "1976-11-01T00:00:00+05:00",
+        "197611",
+        "+00197611",
+        "1976-11-18T15:23:30.1\u221202:00",
+        "1976-11-18T152330.1+00:00",
+        "19761118T15:23:30.1+00:00",
+        "1976-11-18T15:23:30.1+0000",
+        "1976-11-18T152330.1+0000",
+        "19761118T15:23:30.1+0000",
+        "19761118T152330.1+00:00",
+        "19761118T152330.1+0000",
+        "+001976-11-18T152330.1+00:00",
+        "+0019761118T15:23:30.1+00:00",
+        "+001976-11-18T15:23:30.1+0000",
+        "+001976-11-18T152330.1+0000",
+        "+0019761118T15:23:30.1+0000",
+        "+0019761118T152330.1+00:00",
+        "+0019761118T152330.1+0000",
+        "1976-11-18T15:23",
+        "1976-11-18T15",
+        "1976-11-18",
+      ];
+    },
+
+    /*
+     * PlainYearMonth-like strings that are valid and should produce November of
+     * the ISO year -9999.
+     */
+    plainYearMonthStringsValidNegativeYear() {
+      return [
+        "\u2212009999-11",
+      ];
+    },
   }
 };
