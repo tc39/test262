@@ -46,11 +46,15 @@ const expected = [
   "call other.year.valueOf",
   "get other.timeZone",
   "get other.offset",
+  "get other.offset.toString",
+  "call other.offset.toString",
   "has other.timeZone.timeZone",
   "get other.calendar.dateFromFields",
   "call other.calendar.dateFromFields",
   "get other.timeZone.getPossibleInstantsFor",
   "call other.timeZone.getPossibleInstantsFor",
+  "get other.timeZone.getOffsetNanosecondsFor",
+  "call other.timeZone.getOffsetNanosecondsFor",
   // CalendarEquals
   "get this.calendar[Symbol.toPrimitive]",
   "get this.calendar.toString",
@@ -89,6 +93,7 @@ const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   millisecond: 250,
   microsecond: 500,
   nanosecond: 750,
+  offset: "+00:00",
   calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
   timeZone: TemporalHelpers.timeZoneObserver(actual, "other.timeZone"),
 }, "other");
