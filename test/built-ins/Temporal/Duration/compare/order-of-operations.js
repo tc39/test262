@@ -112,8 +112,12 @@ const expected = [
   "get options.relativeTo.offset",
   "get options.relativeTo.timeZone",
   "has options.relativeTo.timeZone.timeZone",
+  "get options.relativeTo.offset.toString",
+  "call options.relativeTo.offset.toString",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // CalculateOffsetShift on first argument
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
@@ -152,6 +156,7 @@ const relativeTo = TemporalHelpers.propertyBagObserver(actual, {
   millisecond: 987,
   microsecond: 654,
   nanosecond: 321,
+  offset: "+00:00",
   calendar: TemporalHelpers.calendarObserver(actual, "options.relativeTo.calendar"),
   timeZone: TemporalHelpers.timeZoneObserver(actual, "options.relativeTo.timeZone"),
 }, "options.relativeTo");
