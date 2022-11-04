@@ -22,6 +22,10 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
+  // inside Calendar.p.monthDayFromFields
+  "get options.overflow",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
 ];
 const actual = [];
 const fields = TemporalHelpers.propertyBagObserver(actual, {
@@ -30,7 +34,8 @@ const fields = TemporalHelpers.propertyBagObserver(actual, {
   monthCode: "M01",
   day: 1.7,
 }, "fields");
-const result = Temporal.PlainMonthDay.from(fields);
-TemporalHelpers.assertPlainMonthDay(result, "M01", 1);
-assert.sameValue(result.calendar.id, "iso8601", "calendar result");
+
+const options = TemporalHelpers.propertyBagObserver(actual, { overflow: "constrain" }, "options");
+
+Temporal.PlainMonthDay.from(fields, options);
 assert.compareArray(actual, expected, "order of operations");

@@ -40,6 +40,17 @@ const expected = [
   "get fields.years",
   "get fields.years.valueOf",
   "call fields.years.valueOf",
+  // CopyDataProperties
+  "ownKeys options",
+  "getOwnPropertyDescriptor options.overflow",
+  "get options.overflow",
+  // inside Calendar.p.dateAdd
+  "get options.overflow",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
+  // inside Calendar.p.yearMonthFromFields
+  "get options.overflow.toString",
+  "call options.overflow.toString",
 ];
 const actual = [];
 const fields = TemporalHelpers.propertyBagObserver(actual, {
@@ -54,7 +65,8 @@ const fields = TemporalHelpers.propertyBagObserver(actual, {
   microseconds: 1,
   nanoseconds: 1,
 }, "fields");
-const result = instance.subtract(fields);
-TemporalHelpers.assertPlainYearMonth(result, 1999, 4, "M04");
-assert.sameValue(result.calendar.id, "iso8601", "calendar result");
+
+const options = TemporalHelpers.propertyBagObserver(actual, { overflow: "constrain" }, "options");
+
+instance.subtract(fields, options);
 assert.compareArray(actual, expected, "order of operations");
