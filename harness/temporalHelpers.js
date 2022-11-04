@@ -1449,7 +1449,7 @@ var TemporalHelpers = {
       }
     };
     // Automatically generate the other methods that don't need any custom code
-    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "fields", "mergeFields"].forEach((methodName) => {
+    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "daysInMonth", "fields", "mergeFields"].forEach((methodName) => {
       trackingMethods[methodName] = function (...args) {
         actual.push(`call ${formatPropertyName(methodName, objectName)}`);
         if (methodName in methodOverrides) {
