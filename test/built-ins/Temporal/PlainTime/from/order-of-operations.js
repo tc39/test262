@@ -13,6 +13,9 @@ const expected = [
   "get options.overflow.toString",
   "call options.overflow.toString",
   "get fields.calendar",
+  "get fields.calendar.toString",
+  "call fields.calendar.toString",
+  // ToTemporalTimeRecord
   "get fields.hour",
   "get fields.hour.valueOf",
   "call fields.hour.valueOf",
@@ -33,6 +36,7 @@ const expected = [
   "call fields.second.valueOf",
 ];
 const actual = [];
+
 const fields = TemporalHelpers.propertyBagObserver(actual, {
   hour: 1.7,
   minute: 1.7,
@@ -40,6 +44,7 @@ const fields = TemporalHelpers.propertyBagObserver(actual, {
   millisecond: 1.7,
   microsecond: 1.7,
   nanosecond: 1.7,
+  calendar: "iso8601",
 }, "fields");
 
 const options = TemporalHelpers.propertyBagObserver(actual, {
