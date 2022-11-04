@@ -9,6 +9,9 @@ features: [Temporal]
 ---*/
 
 const expected = [
+  "get options.overflow",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
   "get fields.calendar",
   "get fields.hour",
   "get fields.hour.valueOf",
@@ -38,7 +41,10 @@ const fields = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 1.7,
   nanosecond: 1.7,
 }, "fields");
-const result = Temporal.PlainTime.from(fields);
-TemporalHelpers.assertPlainTime(result, 1, 1, 1, 1, 1, 1);
-assert.sameValue(result.calendar.id, "iso8601", "calendar result");
+
+const options = TemporalHelpers.propertyBagObserver(actual, {
+  overflow: "constrain",
+}, "options");
+
+const result = Temporal.PlainTime.from(fields, options);
 assert.compareArray(actual, expected, "order of operations");
