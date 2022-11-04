@@ -10,6 +10,12 @@ features: [Temporal]
 
 const expected = [
   "get fields.calendar",
+  // ToTemporalCalendarWithISODefault
+  "has fields.calendar.calendar",
+  // CalendarFields
+  "get fields.calendar.fields",
+  "call fields.calendar.fields",
+  // PrepareTemporalFields
   "get fields.day",
   "get fields.day.valueOf",
   "call fields.day.valueOf",
@@ -22,17 +28,22 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
+  // CalendarMonthDayFromFields
+  "get fields.calendar.monthDayFromFields",
+  "call fields.calendar.monthDayFromFields",
   // inside Calendar.p.monthDayFromFields
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
 ];
 const actual = [];
+
 const fields = TemporalHelpers.propertyBagObserver(actual, {
   year: 1.7,
   month: 1.7,
   monthCode: "M01",
   day: 1.7,
+  calendar: TemporalHelpers.calendarObserver(actual, "fields.calendar"),
 }, "fields");
 
 const options = TemporalHelpers.propertyBagObserver(actual, { overflow: "constrain" }, "options");

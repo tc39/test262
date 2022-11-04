@@ -9,7 +9,13 @@ features: [Temporal]
 ---*/
 
 const expected = [
+  // GetTemporalCalendarWithISODefault
   "get fields.calendar",
+  "has fields.calendar.calendar",
+  // CalendarFields
+  "get fields.calendar.fields",
+  "call fields.calendar.fields",
+  // PrepareTemporalFields
   "get fields.day",
   "get fields.day.valueOf",
   "call fields.day.valueOf",
@@ -44,12 +50,15 @@ const expected = [
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
+  "get fields.calendar.dateFromFields",
+  "call fields.calendar.dateFromFields",
   // inside Calendar.p.dateFromFields
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
 ];
 const actual = [];
+
 const fields = TemporalHelpers.propertyBagObserver(actual, {
   year: 1.7,
   month: 1.7,
@@ -61,6 +70,7 @@ const fields = TemporalHelpers.propertyBagObserver(actual, {
   millisecond: 1.7,
   microsecond: 1.7,
   nanosecond: 1.7,
+  calendar: TemporalHelpers.calendarObserver(actual, "fields.calendar"),
 }, "fields");
 
 const options = TemporalHelpers.propertyBagObserver(actual, { overflow: "constrain" }, "options");
