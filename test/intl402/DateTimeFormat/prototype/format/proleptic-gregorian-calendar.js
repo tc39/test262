@@ -24,8 +24,8 @@ dates.forEach(function (date) {
     var year = new Date(date).getUTCFullYear();
     var expectedYear = year <= 0 ? 1 - year : year;
     var expectedYearString = expectedYear.toLocaleString(["en-US"], {useGrouping: false});
-    var expectedEra = year <= 0 ? "BC" : "AD";
+    var expectedEra = year <= 0 ? /BC/ : /AD|(?:^|[^B])CE/;
     var dateString = format.format(date);
     assert.notSameValue(dateString.indexOf(expectedYearString), -1, "Formatted year doesn't contain expected year – expected " + expectedYearString + ", got " + dateString + ".");
-    assert.notSameValue(dateString.indexOf(expectedEra), -1, "Formatted year doesn't contain expected era – expected " + expectedEra + ", got " + dateString + ".");
+    assert(expectedEra.test(dateString), "Formatted year doesn't contain expected era – expected " + expectedEra + ", got " + dateString + ".");
 });
