@@ -2,7 +2,7 @@
 
 - Feature Name: `async-helpers`
 - Start Date: 2022-11-16
-- RFC PR: [tc39/test262#0000](https://github.com/tc39/test262/pull/0000)
+- RFC PR: [tc39/test262#3724](https://github.com/tc39/test262/pull/3724)
 
 ## Summary
 
