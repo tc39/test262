@@ -181,7 +181,7 @@ Although it would introduce even more convenience for test writers, this design 
 I expect that with Array.fromAsync() and iterator helpers, we'd see a proliferation in future contributions of ad-hoc implementations of what this RFC proposes, that would require effort from the maintainers to keep consistent with each other.
 Since asynchronous programming is difficult to reason about, it's likely some of these ad-hoc implementations would be incorrect, or correct but incomplete.
 
-To a certain extent, we have this proliferation of incorrect or incomplete ad-hoc implementations already in the tests for dynamic import expressions.
+To a certain extent, we have this proliferation of ad-hoc implementations already in the tests for dynamic import expressions.
 For example, many of the existing tests in [`test/language/expressions/dynamic-import/catch`](https://github.com/tc39/test262/tree/main/test/language/expressions/dynamic-import/catch) use the following pattern:
 ```js
 let f = () => {
@@ -191,7 +191,8 @@ let f = () => {
 };
 f();
 ```
-Tests written like this will correctly pass if the import Promise is rejected, but will incorrectly pass if the import succeeds.
+Tests written like this will correctly pass if the import Promise is rejected, and will correctly fail if the import succeeds (due to the imported module object being passed to `$DONE`.)
+However, at a first glance, it's not immediately clear that the test is correct in the case of the import succeeding; in fact in an earlier draft of this RFC I thought the test was incorrect.
 
 Others, such as [`test/language/expressions/dynamic-import/2nd-param-non-object.js`](https://github.com/tc39/test262/blob/main/test/language/expressions/dynamic-import/2nd-param-non-object.js), use a pattern more like what is proposed in this RFC. However, this pattern doesn't format the messages as helpfully in all the edge cases that `assert.throws()` does, such as:
 
