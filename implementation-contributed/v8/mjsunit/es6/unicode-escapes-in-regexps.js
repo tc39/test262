@@ -283,3 +283,12 @@ assertNull(new RegExp("[\ud800\\{udc00}]", "u").exec("\u{10000}"));
 assertNull(/\u{d800}\u{dc00}+/u.exec("\ud800\udc00\udc00"));
 assertNull(/\ud800\u{dc00}+/u.exec("\ud800\udc00\udc00"));
 assertNull(/\u{d800}\udc00+/u.exec("\ud800\udc00\udc00"));
+
+// Non-simple case-insensitive mappings requiring special treatment.
+// https://bugs.chromium.org/p/v8/issues/detail?id=13377
+assertFalse(/[\u0390]/ui.test("\u1fd3"));
+assertFalse(/[\u1fd3]/ui.test("\u0390"));
+assertFalse(/[\u03b0]/ui.test("\u1fe3"));
+assertFalse(/[\u1fe3]/ui.test("\u03b0"));
+assertFalse(/[\ufb05]/ui.test("\ufb06"));
+assertFalse(/[\ufb06]/ui.test("\ufb05"));

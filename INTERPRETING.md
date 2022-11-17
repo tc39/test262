@@ -160,6 +160,15 @@ located at `test/language/import/nested/dep.js`.
 
 Files bearing a name ending in `.json` are intended to be interpreted as JSON.
 
+### Staging
+
+Tests in the `test/staging/` folder are expected to be executed just like all the other tests, in order to promote interoperability as soon as possible.
+
+### Implementations without ECMA-402
+
+Tests in the `test/intl402/` and `test/staging/intl402/` folders assume that the implementation supports [ECMA-402, the ECMAScript Internationalization API Specification](https://tc39.github.io/ecma402/).
+When testing an implementation lacking the capabilities in ECMA-402, the tests in those folders should be skipped.
+
 ## Test Results
 
 By default, tests signal failure by generating an uncaught exception. If

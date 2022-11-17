@@ -12,6 +12,7 @@ info: |
   WeakSet.prototype.add ( _value_ ):
   6. Append _value_ as the last element of _entries_.
 features: [Symbol, WeakSet, symbols-as-weakmap-keys]
+includes: [compareArray.js]
 ---*/
 
 var first = Symbol('a description');
