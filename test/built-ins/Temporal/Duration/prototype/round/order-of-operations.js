@@ -9,20 +9,19 @@ features: [Temporal]
 ---*/
 
 const expected = [
-  "get options.smallestUnit",
-  "get options.smallestUnit.toString",
-  "call options.smallestUnit.toString",
   "get options.largestUnit",
   "get options.largestUnit.toString",
   "call options.largestUnit.toString",
-  "get options.roundingMode",
-  "get options.roundingMode.toString",
-  "call options.roundingMode.toString",
+  "get options.relativeTo",
   "get options.roundingIncrement",
   "get options.roundingIncrement.valueOf",
   "call options.roundingIncrement.valueOf",
-  // ToRelativeTemporalObject
-  "get options.relativeTo",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
 ];
 const actual = [];
 
@@ -43,8 +42,11 @@ instance.round(createOptionsObserver({ smallestUnit: "microseconds" }));
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
-const expectedOpsForPlainRelativeTo = expected.concat([
-  // ToRelativeTemporalObject
+const expectedOpsForPlainRelativeTo = [
+  "get options.largestUnit",
+  "get options.largestUnit.toString",
+  "call options.largestUnit.toString",
+  "get options.relativeTo",
   "get options.relativeTo.calendar",
   "has options.relativeTo.calendar.calendar",
   "get options.relativeTo.calendar.fields",
@@ -63,15 +65,24 @@ const expectedOpsForPlainRelativeTo = expected.concat([
   "get options.relativeTo.monthCode.toString",
   "call options.relativeTo.monthCode.toString",
   "get options.relativeTo.nanosecond",
+  "get options.relativeTo.offset",
   "get options.relativeTo.second",
+  "get options.relativeTo.timeZone",
   "get options.relativeTo.year",
   "get options.relativeTo.year.valueOf",
   "call options.relativeTo.year.valueOf",
   "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
-  "get options.relativeTo.offset",
-  "get options.relativeTo.timeZone",
-]);
+  "get options.roundingIncrement",
+  "get options.roundingIncrement.valueOf",
+  "call options.roundingIncrement.valueOf",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
+];
 
 const plainRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
   year: 2001,
@@ -214,8 +225,11 @@ instance8.round(createOptionsObserver({ largestUnit: "weeks", smallestUnit: "day
 assert.compareArray(actual, expectedOpsForDayToWeekBalancing, "order of operations with largestUnit = weeks, smallestUnit = days");
 actual.splice(0); // clear
 
-const expectedOpsForZonedRelativeTo = expected.concat([
-  // ToRelativeTemporalObject
+const expectedOpsForZonedRelativeTo = [
+  "get options.largestUnit",
+  "get options.largestUnit.toString",
+  "call options.largestUnit.toString",
+  "get options.relativeTo",
   "get options.relativeTo.calendar",
   "has options.relativeTo.calendar.calendar",
   "get options.relativeTo.calendar.fields",
@@ -244,28 +258,37 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "get options.relativeTo.nanosecond",
   "get options.relativeTo.nanosecond.valueOf",
   "call options.relativeTo.nanosecond.valueOf",
+  "get options.relativeTo.offset",
+  "get options.relativeTo.offset.toString",
+  "call options.relativeTo.offset.toString",
   "get options.relativeTo.second",
   "get options.relativeTo.second.valueOf",
   "call options.relativeTo.second.valueOf",
+  "get options.relativeTo.timeZone",
   "get options.relativeTo.year",
   "get options.relativeTo.year.valueOf",
   "call options.relativeTo.year.valueOf",
   "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
-  "get options.relativeTo.offset",
-  "get options.relativeTo.timeZone",
   "has options.relativeTo.timeZone.timeZone",
-  "get options.relativeTo.offset.toString",
-  "call options.relativeTo.offset.toString",
   // InterpretISODateTimeOffset
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "get options.roundingIncrement",
+  "get options.roundingIncrement.valueOf",
+  "call options.roundingIncrement.valueOf",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
   // RoundDuration → ToTemporalDate
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
-]);
+];
 
 const zonedRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
   year: 2001,

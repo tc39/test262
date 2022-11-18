@@ -9,12 +9,18 @@ features: [Temporal]
 ---*/
 
 const expected = [
-  "get options.roundingMode",
-  "get options.roundingMode.toString",
-  "call options.roundingMode.toString",
   "get options.calendarName",
   "get options.calendarName.toString",
   "call options.calendarName.toString",
+  "get options.fractionalSecondDigits",
+  "get options.fractionalSecondDigits.toString",
+  "call options.fractionalSecondDigits.toString",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
   "get this.calendar[Symbol.toPrimitive]",
   "get this.calendar.toString",
   "call this.calendar.toString",
@@ -26,29 +32,33 @@ const instance = new Temporal.PlainDateTime(1990, 11, 3, 15, 54, 37, 123, 456, 7
 // clear observable operations that occurred during the constructor call
 actual.splice(0);
 
-const expectedForSmallestUnit = [
-  "get options.smallestUnit",
-  "get options.smallestUnit.toString",
-  "call options.smallestUnit.toString",
-].concat(expected);
-
 instance.toString(
   TemporalHelpers.propertyBagObserver(actual, {
-    fractionalSecondDigits: 3,
+    fractionalSecondDigits: "auto",
     roundingMode: "halfExpand",
     smallestUnit: "millisecond",
     calendarName: "auto",
   }, "options"),
 );
-assert.compareArray(actual, expectedForSmallestUnit, "order of operations");
+assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// Same as above but without options.smallestUnit.toString
 const expectedForFractionalSecondDigits = [
-  "get options.smallestUnit",
+  "get options.calendarName",
+  "get options.calendarName.toString",
+  "call options.calendarName.toString",
   "get options.fractionalSecondDigits",
   "get options.fractionalSecondDigits.toString",
   "call options.fractionalSecondDigits.toString",
-].concat(expected);
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get this.calendar[Symbol.toPrimitive]",
+  "get this.calendar.toString",
+  "call this.calendar.toString",
+];
 
 instance.toString(
   TemporalHelpers.propertyBagObserver(actual, {

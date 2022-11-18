@@ -11,18 +11,18 @@ features: [Temporal]
 const expected = [
   "get other.toString",
   "call other.toString",
-  "get options.smallestUnit",
-  "get options.smallestUnit.toString",
-  "call options.smallestUnit.toString",
   "get options.largestUnit",
   "get options.largestUnit.toString",
   "call options.largestUnit.toString",
-  "get options.roundingMode",
-  "get options.roundingMode.toString",
-  "call options.roundingMode.toString",
   "get options.roundingIncrement",
   "get options.roundingIncrement.valueOf",
   "call options.roundingIncrement.valueOf",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
 ];
 const actual = [];
 
