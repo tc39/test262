@@ -9,18 +9,24 @@ features: [Temporal]
 ---*/
 
 const expected = [
-  "get options.roundingMode",
-  "get options.roundingMode.toString",
-  "call options.roundingMode.toString",
   "get options.calendarName",
   "get options.calendarName.toString",
   "call options.calendarName.toString",
-  "get options.timeZoneName",
-  "get options.timeZoneName.toString",
-  "call options.timeZoneName.toString",
+  "get options.fractionalSecondDigits",
+  "get options.fractionalSecondDigits.toString",
+  "call options.fractionalSecondDigits.toString",
   "get options.offset",
   "get options.offset.toString",
   "call options.offset.toString",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
+  "get options.timeZoneName",
+  "get options.timeZoneName.toString",
+  "call options.timeZoneName.toString",
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   "get this.timeZone.getOffsetNanosecondsFor",
@@ -40,15 +46,9 @@ const instance = new Temporal.ZonedDateTime(0n, timeZone, calendar);
 // clear observable operations that occurred during the constructor call
 actual.splice(0);
 
-const expectedForSmallestUnit = [
-  "get options.smallestUnit",
-  "get options.smallestUnit.toString",
-  "call options.smallestUnit.toString",
-].concat(expected);
-
 instance.toString(
   TemporalHelpers.propertyBagObserver(actual, {
-    fractionalSecondDigits: 3,
+    fractionalSecondDigits: "auto",
     roundingMode: "halfExpand",
     smallestUnit: "millisecond",
     offset: "auto",
@@ -56,15 +56,38 @@ instance.toString(
     calendarName: "auto",
   }, "options"),
 );
-assert.compareArray(actual, expectedForSmallestUnit, "order of operations");
+assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// Same as above but without accessing options.smallestUnit.toString
 const expectedForFractionalSecondDigits = [
-  "get options.smallestUnit",
+  "get options.calendarName",
+  "get options.calendarName.toString",
+  "call options.calendarName.toString",
   "get options.fractionalSecondDigits",
   "get options.fractionalSecondDigits.toString",
   "call options.fractionalSecondDigits.toString",
-].concat(expected);
+  "get options.offset",
+  "get options.offset.toString",
+  "call options.offset.toString",
+  "get options.roundingMode",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit",
+  "get options.timeZoneName",
+  "get options.timeZoneName.toString",
+  "call options.timeZoneName.toString",
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone[Symbol.toPrimitive]",
+  "get this.timeZone.toString",
+  "call this.timeZone.toString",
+  "get this.calendar[Symbol.toPrimitive]",
+  "get this.calendar.toString",
+  "call this.calendar.toString",
+];
 
 instance.toString(
   TemporalHelpers.propertyBagObserver(actual, {
