@@ -96,15 +96,15 @@ Each one would be accompanied by tests in the `test/harness/` folder to verify t
 Including `asyncHelpers.js` in the frontmatter defines a function `asyncTest` in the global namespace.
 
 - _testFunc_: a function, representing the test body, that takes no arguments and returns a promise.
-- Returns: a promise that always resolves to `undefined`.
+- Returns: a promise that always fulfills with `undefined`.
 
 Including `asyncHelpers.js` in the frontmatter defines a new `asyncTest` property on the global object.
 
 The `asyncTest` function awaits the result of _testFunc_.
-If _testFunc_'s promise resolves, the value it resolves to is discarded, and `$DONE` is called with no argument.
+If _testFunc_'s promise is fulfilled, the fulfillment value is discarded, and `$DONE` is called with no argument.
 If _testFunc_'s promise rejects, `$DONE` is called with the rejection value as its argument.
 
-When the promise returned by `asyncTest` has resolved, then the test body has finished executing, the test has either passed or failed, and `$DONE` has been called exactly once with the appropriate argument.
+When the promise returned by `asyncTest` is fulfilled, then the test body has finished executing, the test has either passed or failed, and `$DONE` has been called exactly once with the appropriate argument.
 
 Before `asyncTest` does anything, it checks whether there is a `$DONE` property on the global object.
 If there isn't, it throws an exception synchronously.
@@ -126,13 +126,13 @@ This way, it's possible to write assertions about an async function just as easi
 
 The returned promise rejects with a Test262Error with an appropriate message, in the following cases:
 - _funcOrPromise_ is a function, and didn't return a promise (a thenable?) when executed.
-- The inner promise resolves.
+- The inner promise is fulfilled.
 - The inner promise rejects with a primitive value.
 - The inner promise rejects with an object whose `constructor` property is not the same value as _expectedErrorConstructor_.
 
 Just as in `assert.throws()`, the Test262Error's message takes into account the case where the inner promise's rejection value is an Error constructor with the same name as _expectedErrorConstructor_ but is not the same value, which can happen when the constructor comes from a different global.
 
-If the inner promise rejects with the appropriate type of error object (constructor is the same value as _expectedErrorConstructor_), the returned promise resolves to `undefined`, so that the resolution value can be passed to `$DONE`.
+If the inner promise rejects with the appropriate type of error object (constructor is the same value as _expectedErrorConstructor_), the returned promise is fulfilled with `undefined`, so that the resolution value can be passed to `$DONE`.
 
 Although `assert.throwsAsync()` is designed to be used with await-style async programming, it can also be used with promise-style, postfixing it with `.then($DONE, $DONE)`.
 Chaining returned promises from `assert.throwsAsync()` works as might be expected: if any of them reject, the rejection value is passed directly to `$DONE()` and the subsequent calls are not made.
@@ -151,9 +151,9 @@ It is true that more helpers means more code to maintain, but I think that is be
 I picked this design because it uses similar conventions to the assertion functions that are already part of the test harness.
 However, I think many other equivalent designs would be just as good (see Prior Art and Unresolved Questions below), and I'm not attached to any particular one, as long as it's easy to use.
 
-Based on other assertion APIs considered below in Prior Art, other possible helpers were considered, for example a helper that asserts that a promise resolves to a certain value.
+Based on other assertion APIs considered below in Prior Art, other possible helpers were considered, for example a helper that asserts that a promise is fulfilled with a certain value.
 However, those use cases seem to be adequately covered by the existing assertion APIs in the test harness.
-For example, although Jasmine has a facility for asserting that a promise resolves to a certain value, it seems easy enough to write such a test with test262's existing facilities without introducing the risk of extra copy-paste boilerplate:
+For example, although Jasmine has a facility for asserting that a promise is fulfilled with a certain value, it seems easy enough to write such a test with test262's existing facilities without introducing the risk of extra copy-paste boilerplate:
 ```javascript
 // Jasmine
 await expectAsync(func()).toBeResolvedTo(true);
