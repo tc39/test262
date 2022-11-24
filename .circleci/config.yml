@@ -37,7 +37,7 @@ execution_steps: &execution_steps
     - run: hostPath=$HOME/.esvu/bin/$hostPath npm run ci
 
 jobs:
-  "Test262: verify tools; build & lint tests (Python 3)":
+  "Test262: verify tools; build & lint tests":
     docker:
       - image: cimg/python:3.7.4
     working_directory: ~/test262
