@@ -611,7 +611,7 @@ x()();
   assertEquals(1, c.c()());
   assertEquals(1, c.d());
   assertEquals(1, c.e());
-  assertFalse(Object.hasOwnProperty(c, 'a'));
+  assertFalse(Object.prototype.hasOwnProperty.call(c, 'a'));
   assertEquals(c.a, c.e);
   assertEquals(undefined, c.f);
 }
