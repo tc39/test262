@@ -23,6 +23,7 @@ function formatPropertyName(propertyKey, objectName = "") {
       return objectName ? `${objectName}.${propertyKey}` : propertyKey;
   }
 }
+const SKIP_SYMBOL = Symbol("Skip");
 
 var TemporalHelpers = {
   /*
@@ -1379,6 +1380,38 @@ var TemporalHelpers = {
         calls.push(`set ${formatPropertyName(propertyName, objectName)}`);
       }
     });
+  },
+
+  /*
+   * Used for substituteMethod to indicate default behavior instead of a
+   * substituted value
+   */
+  SUBSTITUTE_SKIP: SKIP_SYMBOL,
+
+  /*
+   * substituteMethod(object, propertyName, values):
+   *
+   * Defines an own property @object.@propertyName that will, for each
+   * subsequent call to the method previously defined as
+   * @object.@propertyName:
+   *  - Call the method, if no more values remain
+   *  - Call the method, if the value in @values for the corresponding call
+   *    is SUBSTITUTE_SKIP
+   *  - Otherwise, return the corresponding value in @value
+   */
+  substituteMethod(object, propertyName, values) {
+    let calls = 0;
+    const method = object[propertyName];
+    object[propertyName] = function () {
+      if (calls >= values.length) {
+        return method.apply(object, arguments);
+      } else if (values[calls] === SKIP_SYMBOL) {
+        calls++;
+        return method.apply(object, arguments);
+      } else {
+        return values[calls++];
+      }
+    };
   },
 
   /*
