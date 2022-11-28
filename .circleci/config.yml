@@ -146,7 +146,7 @@ workflows:
   version: 2
   Tools:
     jobs:
-      - "Test262: verify tools; build & lint tests (Python 3)"
+      - "Test262: verify tools; build & lint tests"
   Tests execution:
     jobs:
       - "ChakraCore: New or modified tests execution"
