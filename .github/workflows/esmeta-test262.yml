@@ -24,9 +24,8 @@ jobs:
           git clone --branch v0.1.0-rc8 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
           cd "${ESMETA_HOME}" && git submodule update --init --depth 1
       - name: build esmeta
-        run: |
-          cd "${ESMETA_HOME}"
-          sbt assembly
+        working-directory: ${{ env.ESMETA_HOME }}
+        run: sbt assembly
       - name: run test262
         run: |
           git fetch origin main
