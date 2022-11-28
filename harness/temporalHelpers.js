@@ -252,7 +252,7 @@ var TemporalHelpers = {
     Object.entries(expectedLargestUnitCalls).forEach(([largestUnit, expected], index) => {
       func(calendar, largestUnit, index);
       assert.compareArray(actual, expected, `largestUnit passed to calendar.dateUntil() for largestUnit ${largestUnit}`);
-      actual.splice(0, actual.length); // empty it for the next check
+      actual.splice(0); // empty it for the next check
     });
   },
 

@@ -78,7 +78,7 @@ const plainRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
 // basic order of observable operations, without rounding:
 instance.total(createOptionsObserver({ unit: "nanoseconds", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForPlainRelativeTo, "order of operations for PlainDate relativeTo");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest year:
 const expectedOpsForYearRounding = expectedOpsForPlainRelativeTo.concat([
@@ -93,7 +93,7 @@ const expectedOpsForYearRounding = expectedOpsForPlainRelativeTo.concat([
 ]);
 instance.total(createOptionsObserver({ unit: "years", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with unit = years");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through Duration.prototype.total that rounds to the nearest month:
 const expectedOpsForMonthRounding = expectedOpsForPlainRelativeTo.concat([
@@ -111,7 +111,7 @@ const expectedOpsForMonthRounding = expectedOpsForPlainRelativeTo.concat([
 const instance2 = new Temporal.Duration(1, 0, 0, 62);
 instance2.total(createOptionsObserver({ unit: "months", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForMonthRounding, "order of operations with unit = months");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through Duration.prototype.total that rounds to the nearest week:
 const expectedOpsForWeekRounding = expectedOpsForPlainRelativeTo.concat([
@@ -126,7 +126,7 @@ const expectedOpsForWeekRounding = expectedOpsForPlainRelativeTo.concat([
 const instance3 = new Temporal.Duration(1, 1, 0, 15);
 instance3.total(createOptionsObserver({ unit: "weeks", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForWeekRounding, "order of operations with unit = weeks");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through UnbalanceDurationRelative that rounds to the nearest day:
 const expectedOpsForDayRounding = expectedOpsForPlainRelativeTo.concat([
@@ -138,7 +138,7 @@ const expectedOpsForDayRounding = expectedOpsForPlainRelativeTo.concat([
 const instance4 = new Temporal.Duration(1, 1, 1)
 instance4.total(createOptionsObserver({ unit: "days", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForDayRounding, "order of operations with unit = days");
-actual.splice(0, actual.length);  // clear
+actual.splice(0);  // clear
 
 const expectedOpsForZonedRelativeTo = [
   // ToRelativeTemporalObject

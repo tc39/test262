@@ -247,7 +247,7 @@ Temporal.Duration.compare(
   createOptionsObserver(zonedRelativeTo)
 );
 assert.compareArray(actual, expectedOpsForZonedRelativeTo, "order of operations with ZonedDateTime relativeTo and no calendar units");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through UnbalanceDurationRelative that balances higher units down
 // to days:
