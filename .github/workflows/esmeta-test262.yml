@@ -38,4 +38,3 @@ jobs:
           echo New or modified test files:
           echo "$paths"
           "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) $paths
-          
