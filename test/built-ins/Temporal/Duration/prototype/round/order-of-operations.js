@@ -84,7 +84,7 @@ const plainRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
 // basic order of observable operations, without rounding:
 instance.round(createOptionsObserver({ relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForPlainRelativeTo, "order of operations for PlainDate relativeTo");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest year:
 const expectedOpsForYearRounding = expectedOpsForPlainRelativeTo.concat([
@@ -99,7 +99,7 @@ const expectedOpsForYearRounding = expectedOpsForPlainRelativeTo.concat([
 ]);
 instance.round(createOptionsObserver({ smallestUnit: "years", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through Duration.prototype.round that rounds to the nearest month:
 const expectedOpsForMonthRounding = expectedOpsForPlainRelativeTo.concat([
@@ -121,7 +121,7 @@ const expectedOpsForMonthRounding = expectedOpsForPlainRelativeTo.concat([
 const instance2 = new Temporal.Duration(1, 0, 0, 62);
 instance2.round(createOptionsObserver({ largestUnit: "months", smallestUnit: "months", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForMonthRounding, "order of operations with largestUnit = smallestUnit = months");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through Duration.prototype.round that rounds to the nearest week:
 const expectedOpsForWeekRounding = expectedOpsForPlainRelativeTo.concat([
@@ -140,7 +140,7 @@ const expectedOpsForWeekRounding = expectedOpsForPlainRelativeTo.concat([
 const instance3 = new Temporal.Duration(1, 1, 0, 15);
 instance3.round(createOptionsObserver({ largestUnit: "weeks", smallestUnit: "weeks", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForWeekRounding, "order of operations with largestUnit = smallestUnit = weeks");
-actual.splice(0, actual.length);  // clear
+actual.splice(0);  // clear
 
 // code path through UnbalanceDurationRelative that rounds to the nearest day:
 const expectedOpsForDayRounding = expectedOpsForPlainRelativeTo.concat([
@@ -152,7 +152,7 @@ const expectedOpsForDayRounding = expectedOpsForPlainRelativeTo.concat([
 const instance4 = new Temporal.Duration(1, 1, 1)
 instance4.round(createOptionsObserver({ largestUnit: "days", smallestUnit: "days", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForDayRounding, "order of operations with largestUnit = smallestUnit = days");
-actual.splice(0, actual.length);  // clear
+actual.splice(0);  // clear
 
 // code path through BalanceDurationRelative balancing from days up to years:
 const expectedOpsForDayToYearBalancing = expectedOpsForPlainRelativeTo.concat([
@@ -168,7 +168,7 @@ const expectedOpsForDayToYearBalancing = expectedOpsForPlainRelativeTo.concat([
 const instance5 = new Temporal.Duration(0, 0, 0, 0, /* hours = */ 396 * 24);
 instance5.round(createOptionsObserver({ largestUnit: "years", smallestUnit: "days", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForDayToYearBalancing, "order of operations with largestUnit = years, smallestUnit = days");
-actual.splice(0, actual.length);  // clear
+actual.splice(0);  // clear
 
 // code path through Duration.prototype.round balancing from months up to years:
 const expectedOpsForMonthToYearBalancing = expectedOpsForPlainRelativeTo.concat([
@@ -190,7 +190,7 @@ const expectedOpsForMonthToYearBalancing = expectedOpsForPlainRelativeTo.concat(
 const instance6 = new Temporal.Duration(0, 12);
 instance6.round(createOptionsObserver({ largestUnit: "years", smallestUnit: "months", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForMonthToYearBalancing, "order of operations with largestUnit = years, smallestUnit = months");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 const expectedOpsForDayToMonthBalancing = expectedOpsForPlainRelativeTo.concat([
   // BalanceDurationRelative
@@ -201,7 +201,7 @@ const expectedOpsForDayToMonthBalancing = expectedOpsForPlainRelativeTo.concat([
 const instance7 = new Temporal.Duration(0, 0, 0, 0, /* hours = */ 32 * 24);
 instance7.round(createOptionsObserver({ largestUnit: "months", smallestUnit: "days", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForDayToMonthBalancing, "order of operations with largestUnit = months, smallestUnit = days");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 const expectedOpsForDayToWeekBalancing = expectedOpsForPlainRelativeTo.concat([
   // BalanceDurationRelative
@@ -212,7 +212,7 @@ const expectedOpsForDayToWeekBalancing = expectedOpsForPlainRelativeTo.concat([
 const instance8 = new Temporal.Duration(0, 0, 0, 0, /* hours = */ 8 * 24);
 instance8.round(createOptionsObserver({ largestUnit: "weeks", smallestUnit: "days", relativeTo: plainRelativeTo }));
 assert.compareArray(actual, expectedOpsForDayToWeekBalancing, "order of operations with largestUnit = weeks, smallestUnit = days");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 const expectedOpsForZonedRelativeTo = expected.concat([
   // ToRelativeTemporalObject
