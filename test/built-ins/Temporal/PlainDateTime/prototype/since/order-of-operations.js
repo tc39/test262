@@ -66,12 +66,17 @@ const expected = [
   "get options.roundingIncrement",
   "get options.roundingIncrement.valueOf",
   "call options.roundingIncrement.valueOf",
-  // MergeLargestUnitOption
+  // CopyDataProperties
   "ownKeys options",
+  "getOwnPropertyDescriptor options.roundingIncrement",
   "get options.roundingIncrement",
+  "getOwnPropertyDescriptor options.roundingMode",
   "get options.roundingMode",
+  "getOwnPropertyDescriptor options.largestUnit",
   "get options.largestUnit",
+  "getOwnPropertyDescriptor options.smallestUnit",
   "get options.smallestUnit",
+  "getOwnPropertyDescriptor options.additional",
   "get options.additional",
   // CalendarDateUntil
   "get this.calendar.dateUntil",
@@ -109,12 +114,12 @@ function createOptionsObserver({ smallestUnit = "nanoseconds", largestUnit = "au
 }
 
 // clear any observable things that happened while constructing the objects
-actual.splice(0, actual.length);
+actual.splice(0);
 
 // basic order of observable operations, without rounding:
 instance.since(otherDateTimePropertyBag, createOptionsObserver());
 assert.compareArray(actual, expected, "order of operations");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest year:
 const expectedOpsForYearRounding = expected.concat([
@@ -129,7 +134,7 @@ const expectedOpsForYearRounding = expected.concat([
 ]);
 instance.since(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest month:
 const expectedOpsForMonthRounding = expected.concat([
@@ -140,7 +145,7 @@ const expectedOpsForMonthRounding = expected.concat([
 ]);  // (10.n.iii MoveRelativeDate not called because weeks == 0)
 instance.since(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "months" }));
 assert.compareArray(actual, expectedOpsForMonthRounding, "order of operations with smallestUnit = months");
-actual.splice(0, actual.length); // clear
+actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest week:
 const expectedOpsForWeekRounding = expected.concat([
@@ -149,4 +154,3 @@ const expectedOpsForWeekRounding = expected.concat([
 ]);  // (11.g.iii MoveRelativeDate not called because days already balanced)
 instance.since(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "weeks" }));
 assert.compareArray(actual.slice(expected.length), expectedOpsForWeekRounding.slice(expected.length), "order of operations with smallestUnit = weeks");
-actual.slice(0, actual.length); // clear

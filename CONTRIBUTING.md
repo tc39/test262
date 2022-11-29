@@ -246,6 +246,29 @@ This key identifies the section number from the portion of the ES6 standard that
 
 Read the [Test262 Technical Rationale Report](https://github.com/tc39/test262/wiki/Test262-Technical-Rationale-Report,-October-2017#specification-reference-ids) for reasoning behind deprecation.
 
+## Staging
+
+There is a `test/staging/` folder, containing tests that are subject to fewer requirements, in order to get tests running across more than one implementation as early as possible, and promote interoperability of in-progress features.
+
+Tests in staging are not required to be split up into one test per file, or to conform to any particular style as long as they are runnable.
+In particular, mechanically-converted tests from implementations' private test suites are encouraged, as sharing them with other implementations promotes interoperability.
+
+These are the requirements for adding a test to staging:
+
+1. Just as with a test outside of staging, it must test an existing language feature, a Stage 3 TC39 proposal, or a normative pull request.
+2. It is correct.
+3. It is runnable using the usual test262 runner.
+4. It is reviewed by someone with permission to land tests in the staging folder, not necessarily a test262 maintainer.
+5. If it requires the implementation to support ECMA-402, it must be in `test/staging/intl402/` or a subfolder thereof.
+
+Tests are intended to live temporarily in staging.
+Once the feature they test has stabilized, contributors are encouraged to refine them to meet the additional requirements of the main test262 suite, and move them out of the staging folder.
+
+Tests in staging do not count towards the test262 coverage requirement for a TC39 proposal to reach Stage 4.
+
+Implementations may designate a group of people who have permission to review and land tests in the staging folder.
+To add or remove people from this group, please open an issue.
+
 ## Test Environment
 
 Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.
@@ -444,6 +467,7 @@ Tests expressed with this convention are built automatically following the sourc
 
 - [ChakraCore](https://github.com/microsoft/ChakraCore/issues/new)
 - [engine262](https://github.com/engine262/engine262/issues/new)
+- [GraalJS](https://github.com/oracle/graal/issues/new?labels=bug&template=5_issues_other.md&title=)
 - [Hermes](https://github.com/facebook/hermes/issues/new?labels%5B%5D=need+triage&labels%5B%5D=bug&template=01_bug_report.md&title=)
 - [JavaScriptCore](https://bugs.webkit.org/enter_bug.cgi?product=WebKit&component=JavaScriptCore)
 - [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)

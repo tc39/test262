@@ -289,6 +289,9 @@ symbols-as-weakmap-keys
 # https://github.com/tc39/proposal-change-array-by-copy/
 change-array-by-copy
 
+# https://tc39.es/proposal-array-from-async/
+Array.fromAsync
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
