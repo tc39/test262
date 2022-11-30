@@ -4,7 +4,7 @@
 /*---
 esid: prod-ClassDeclaration
 name: Valid syntax for decorator on class.
-path: language/statements/class/decorator/syntax/valid/
+path: language/statements/class/decorator/syntax/valid/class-element-
 info: |
   ClassElement[Yield, Await] :
     DecoratorList[?Yield, ?Await]opt MethodDefinition[?Yield, ?Await]
