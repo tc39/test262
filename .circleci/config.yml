@@ -156,4 +156,4 @@ workflows:
       - "V8 --harmony: New or modified tests execution"
       - "XS: New or modified tests execution"
       - "engine262: New or modified tests execution"
-      # - "GraalJS: New or modified tests execution" - https://github.com/tc39/test262/issues/3703
+      - "GraalJS: New or modified tests execution"
