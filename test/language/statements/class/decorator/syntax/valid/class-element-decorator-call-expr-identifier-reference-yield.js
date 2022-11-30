@@ -1,15 +1,19 @@
 // This file was procedurally generated from the following sources:
 // - src/decorator/decorator-call-expr-identifier-reference-yield.case
-// - src/decorator/syntax/valid/cls-decl-decorators-valid-syntax.template
+// - src/decorator/syntax/valid/cls-element-decorators-valid-syntax.template
 /*---
 description: Decorator @ DecoratorCallExpression (Valid syntax for decorator on class.)
 esid: prod-ClassDeclaration
 features: [class, decorators]
 flags: [generated, noStrict]
 info: |
-    ClassDeclaration[Yield, Await, Default] :
-      DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await] ClassTail[?Yield, ?Await]
-      [+Default] DecoratorList[?Yield, ?Await]opt class ClassTail[?Yield, ?Await]
+    ClassElement[Yield, Await] :
+      DecoratorList[?Yield, ?Await]opt MethodDefinition[?Yield, ?Await]
+      DecoratorList[?Yield, ?Await]opt static MethodDefinition[?Yield, ?Await]
+      DecoratorList[?Yield, ?Await]opt FieldDefinition[?Yield, ?Await] ;
+      DecoratorList[?Yield, ?Await]opt static FieldDefinition[?Yield, ?Await] ;
+      ClassStaticBlock
+      ;
 
     DecoratorList[Yield, Await] :
       DecoratorList[?Yield, ?Await]opt Decorator[?Yield, ?Await]
@@ -42,4 +46,9 @@ var yield = decorator;
 
 
 
-@yield() class C {}
+class C {
+  @yield() method() {}
+  @yield() static method() {}
+  @yield() field;
+  @yield() static field;
+}

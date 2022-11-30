@@ -1,19 +1,15 @@
 // This file was procedurally generated from the following sources:
 // - src/decorator/decorator-parenthesized-expr-identifier-reference.case
-// - src/decorator/syntax/valid/cls-element-decorators-valid-syntax.template
+// - src/decorator/syntax/valid/cls-decl-decorators-valid-syntax.template
 /*---
 description: Decorator @ DecoratorParenthesizedExpression (Valid syntax for decorator on class.)
 esid: prod-ClassDeclaration
 features: [class, decorators]
 flags: [generated]
 info: |
-    ClassElement[Yield, Await] :
-      DecoratorList[?Yield, ?Await]opt MethodDefinition[?Yield, ?Await]
-      DecoratorList[?Yield, ?Await]opt static MethodDefinition[?Yield, ?Await]
-      DecoratorList[?Yield, ?Await]opt FieldDefinition[?Yield, ?Await] ;
-      DecoratorList[?Yield, ?Await]opt static FieldDefinition[?Yield, ?Await] ;
-      ClassStaticBlock
-      ;
+    ClassDeclaration[Yield, Await, Default] :
+      DecoratorList[?Yield, ?Await]opt class BindingIdentifier[?Yield, ?Await] ClassTail[?Yield, ?Await]
+      [+Default] DecoratorList[?Yield, ?Await]opt class ClassTail[?Yield, ?Await]
 
     DecoratorList[Yield, Await] :
       DecoratorList[?Yield, ?Await]opt Decorator[?Yield, ?Await]
@@ -55,33 +51,10 @@ function await() {}
 
 
 
-class C {
-  @($)
-  @(_)
-  @(\u{6F})
-  @(\u2118)
-  @(ZW_\u200C_NJ)
-  @(ZW_\u200D_J)
-  @(await) method() {}
-  @($)
-  @(_)
-  @(\u{6F})
-  @(\u2118)
-  @(ZW_\u200C_NJ)
-  @(ZW_\u200D_J)
-  @(await) static method() {}
-  @($)
-  @(_)
-  @(\u{6F})
-  @(\u2118)
-  @(ZW_\u200C_NJ)
-  @(ZW_\u200D_J)
-  @(await) field;
-  @($)
-  @(_)
-  @(\u{6F})
-  @(\u2118)
-  @(ZW_\u200C_NJ)
-  @(ZW_\u200D_J)
-  @(await) static field;
-}
+@($)
+@(_)
+@(\u{6F})
+@(\u2118)
+@(ZW_\u200C_NJ)
+@(ZW_\u200D_J)
+@(await) class C {}
