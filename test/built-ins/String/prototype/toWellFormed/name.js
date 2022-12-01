@@ -17,5 +17,5 @@ verifyProperty(String.prototype.toWellFormed, 'name', {
   enumerable: false,
   writable: false,
   configurable: true,
-  value: 'isWellFormed'
+  value: 'toWellFormed'
 });
