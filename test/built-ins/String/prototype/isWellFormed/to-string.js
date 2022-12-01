@@ -20,8 +20,8 @@ var obj = {
     }
 };
 
-asserts.throws(
-    function () { String.prototype.isWellFormed.call(obj); },
+assert.throws(
     Test262Error,
+    function () { String.prototype.isWellFormed.call(obj); },
     'coerces the receiver to a string'
 );
