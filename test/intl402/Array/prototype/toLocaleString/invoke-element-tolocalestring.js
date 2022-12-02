@@ -20,6 +20,7 @@ info: |
         ii. Set _R_ to the string-concatenation of _R_ and _S_.
       d. Increase _k_ by 1.
     7. Return _R_.
+includes: [compareArray.js]
 ---*/
 
 const unique = {
@@ -51,12 +52,8 @@ for (const { label, args, expectedArgs } of testCases) {
 for (const { label, args, expectedArgs } of testCases) {
   const spy = {
     toLocaleString(...receivedArgs) {
-      assert.sameValue(receivedArgs.length, 2,
-        `must invoke element toLocaleString with two arguments when provided ${label}`);
-      assert.sameValue(receivedArgs[0], expectedArgs[0],
-        `must invoke element toLocaleString with expected first argument when provided ${label}`);
-      assert.sameValue(receivedArgs[1], expectedArgs[1],
-        `must invoke element toLocaleString with expected second argument when provided ${label}`);
+      assert.compareArray(receivedArgs, expectedArgs,
+        `must invoke element toLocaleString with expected arguments when provided ${label}`);
       return "ok";
     }
   };
