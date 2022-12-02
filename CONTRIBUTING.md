@@ -227,7 +227,7 @@ Some tests require the use of language features that are not directly described 
 #### locale
 `locale: [list]`
 
-Some tests require the use of one or more specific human languages as exposed by [ECMA402](https://tc39.es/ecma402/) as a means to verify semantics which cannot be observed in the abstract. Sch tests must declare their requirements by using this key to define an array of one or more valid language tags or subtags.
+Some tests require the use of one or more specific human languages as exposed by [ECMA402](https://tc39.es/ecma402/) as a means to verify semantics which cannot be observed in the abstract. Such tests must declare their requirements by using this key to define an array of one or more valid language tags or subtags.
 
 #### es5id
 `es5id: [es5-test-id]`
