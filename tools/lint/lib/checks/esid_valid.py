@@ -30,6 +30,7 @@ class CheckEsidValid(Check):
             return
 
         if id.lower() in self.ids:
+            print("XXXX %s" % (id,))
             return 'The `%s` tag should be in lower case: %s' % (key, id)
 
         return 'The `%s` tag is unknown: %s' % (key, id)
