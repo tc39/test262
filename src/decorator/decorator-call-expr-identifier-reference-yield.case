@@ -17,7 +17,10 @@ info: |
     [~Yield] yield
     ...
 
-template: syntax/valid
+templates:
+  - syntax/valid/cls-decl-decorators-valid-syntax.template
+  - syntax/valid/cls-expr-decorators-valid-syntax.template
+
 flags: [noStrict]
 ---*/
 
