@@ -45,10 +45,11 @@ A test file has three sections: Copyright, Frontmatter, and Body.  A test looks 
 ```javascript
 // Copyright (C) $Year $ContributorName. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
+esid: reference to spec section, e.g. "sec-well-known-symbols"
 description: >
     brief description, e.g. "Non-numeric input must be rejected with a TypeError"
-esid: reference to spec section, e.g. "sec-well-known-symbols"
 info: |
     verbose test description, multiple lines OK.
     (info should contain relevant, direct quotes from ECMAScript if possible)
