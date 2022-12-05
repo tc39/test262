@@ -11,7 +11,9 @@ includes: [asyncHelpers.js]
 (async function () {
   var caught = false;
 
-  const p = assert.throwsAsync(Error, Promise.reject(new TypeError()));
+  const p = assert.throwsAsync(Error, function () {
+    return Promise.reject(new TypeError());
+  });
   assert(p instanceof Promise);
   try {
     await p;

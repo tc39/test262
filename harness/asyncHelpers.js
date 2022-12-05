@@ -34,20 +34,16 @@ function asyncTest(testFunc) {
   }
 }
 
-assert.throwsAsync = async function (
-  expectedErrorConstructor,
-  funcOrThenable,
-  message
-) {
+assert.throwsAsync = async function (expectedErrorConstructor, func, message) {
   var innerThenable;
   if (message === undefined) {
     message = "";
   } else {
     message += " ";
   }
-  if (typeof funcOrThenable === "function") {
+  if (typeof func === "function") {
     try {
-      innerThenable = funcOrThenable();
+      innerThenable = func();
       if (
         innerThenable === null ||
         typeof innerThenable !== "object" ||
@@ -66,16 +62,10 @@ assert.throwsAsync = async function (
         " to be thrown asynchronously but an exception was thrown synchronously while obtaining the inner promise";
       throw new Test262Error(message);
     }
-  } else if (
-    funcOrThenable === null ||
-    typeof funcOrThenable !== "object" ||
-    typeof funcOrThenable.then !== "function"
-  ) {
-    message +=
-      "assert.throwsAsync called with an argument that is neither a function nor a thenable";
-    throw new Test262Error(message);
   } else {
-    innerThenable = funcOrThenable;
+    message +=
+      "assert.throwsAsync called with an argument that is not a function";
+    throw new Test262Error(message);
   }
 
   try {
