@@ -29,7 +29,7 @@ function asyncTest(testFunc) {
   }
 }
 
-assert.throwsAsync = function (
+assert.throwsAsync = async function (
   expectedErrorConstructor,
   funcOrThenable,
   message
@@ -52,14 +52,14 @@ assert.throwsAsync = function (
           "Expected to obtain an inner promise that would reject with a" +
           expectedErrorConstructor.name +
           " but result was not a thenable";
-        return Promise.reject(new Test262Error(message));
+        throw new Test262Error(message);
       }
     } catch (thrown) {
       message +=
         "Expected a " +
         expectedErrorConstructor.name +
         " to be thrown asynchronously but an exception was thrown synchronously while obtaining the inner promise";
-      return Promise.reject(new Test262Error(message));
+      throw new Test262Error(message);
     }
   } else if (
     funcOrThenable === null ||
@@ -68,7 +68,7 @@ assert.throwsAsync = function (
   ) {
     message +=
       "assert.throwsAsync called with an argument that is neither a function nor a thenable";
-    return Promise.reject(new Test262Error(message));
+    throw new Test262Error(message);
   } else {
     innerThenable = funcOrThenable;
   }
@@ -117,6 +117,6 @@ assert.throwsAsync = function (
         thrown.constructor.name +
         " was thrown synchronously";
     }
-    return Promise.reject(new Test262Error(message));
+    throw new Test262Error(message);
   }
 };
