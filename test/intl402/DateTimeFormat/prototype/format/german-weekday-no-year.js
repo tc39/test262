@@ -4,6 +4,7 @@
 esid: sec-formatdatetime
 description: >
     Short German weekdays should be followed by a comma.
+locale: [de]
 ---*/
 
 let dtf = new Intl.DateTimeFormat("de", { weekday: "short", day: "numeric", month: "long"});
