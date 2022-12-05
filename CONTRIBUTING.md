@@ -45,10 +45,11 @@ A test file has three sections: Copyright, Frontmatter, and Body.  A test looks 
 ```javascript
 // Copyright (C) $Year $ContributorName. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
+esid: reference to spec section, e.g. "sec-well-known-symbols"
 description: >
     brief description, e.g. "Non-numeric input must be rejected with a TypeError"
-esid: reference to spec section, e.g. "sec-well-known-symbols"
 info: |
     verbose test description, multiple lines OK.
     (info should contain relevant, direct quotes from ECMAScript if possible)
@@ -226,7 +227,7 @@ Some tests require the use of language features that are not directly described 
 #### locale
 `locale: [list]`
 
-Some tests require the use of one or more specific human languages as exposed by [ECMA402](https://tc39.es/ecma402/) as a means to verify semantics which cannot be observed in the abstract. Sch tests must declare their requirements by using this key to define an array of one or more valid language tags or subtags.
+Some tests require the use of one or more specific human languages as exposed by [ECMA402](https://tc39.es/ecma402/) as a means to verify semantics which cannot be observed in the abstract. Such tests must declare their requirements by using this key to define an array of one or more valid language tags or subtags.
 
 #### es5id
 `es5id: [es5-test-id]`
