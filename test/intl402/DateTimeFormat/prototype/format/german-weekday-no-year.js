@@ -1,6 +1,7 @@
 // Copyright (C) 2022 Rudolph Gottesheim. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+esid: sec-formatdatetime
 description: >
     Short German weekdays should be followed by a comma.
 ---*/
