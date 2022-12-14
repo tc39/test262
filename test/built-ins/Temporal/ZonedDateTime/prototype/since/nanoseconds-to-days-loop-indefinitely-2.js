@@ -1,7 +1,8 @@
-// Copyright (C) 2022 André Bargull. All rights reserved.
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-esid: sec-temporal.duration.prototype.round
+esid: sec-temporal.zoneddatetime.prototype.since
 description: >
   NanosecondsToDays can loop infinitely.
 info: |
@@ -23,10 +24,10 @@ features: [Temporal]
 ---*/
 
 const calls = [];
-const duration = Temporal.Duration.from({ days: 1 });
+const dayLengthNs = 86400000000000n;
+const other = new Temporal.ZonedDateTime(dayLengthNs, "UTC", "iso8601");
 
 function createRelativeTo(count) {
-  const dayLengthNs = 86400000000000n;
   const dayInstant = new Temporal.Instant(dayLengthNs);
   const substitutions = [];
   const timeZone = new Temporal.TimeZone("UTC");
@@ -49,24 +50,22 @@ function createRelativeTo(count) {
 
 let zdt = createRelativeTo(200);
 calls.splice(0); // Reset calls list after ZonedDateTime construction
-duration.round({
-  smallestUnit: "days",
-  relativeTo: zdt,
+zdt.since(other, {
+  largestUnit: "day",
 });
 assert.sameValue(
   calls.length,
   200 + 1,
-  "Expected duration.round to call getPossibleInstantsFor correct number of times"
+  "Expected ZonedDateTime.since to call getPossibleInstantsFor correct number of times"
 );
 
 zdt = createRelativeTo(300);
 calls.splice(0); // Reset calls list after previous loop + ZonedDateTime construction
-duration.round({
-  smallestUnit: "days",
-  relativeTo: zdt,
+zdt.since(other, {
+  largestUnit: "day",
 });
 assert.sameValue(
   calls.length,
   300 + 1,
-  "Expected duration.round to call getPossibleInstantsFor correct number of times"
+  "Expected ZonedDateTime.since to call getPossibleInstantsFor correct number of times"
 );
