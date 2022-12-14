@@ -1,7 +1,8 @@
-// Copyright (C) 2022 André Bargull. All rights reserved.
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-esid: sec-temporal.duration.prototype.round
+esid: sec-temporal.duration.prototype.add
 description: >
   NanosecondsToDays can loop infinitely.
 info: |
@@ -49,24 +50,22 @@ function createRelativeTo(count) {
 
 let zdt = createRelativeTo(200);
 calls.splice(0); // Reset calls list after ZonedDateTime construction
-duration.round({
-  smallestUnit: "days",
+duration.add(duration, {
   relativeTo: zdt,
 });
 assert.sameValue(
   calls.length,
   200 + 1,
-  "Expected duration.round to call getPossibleInstantsFor correct number of times"
+  "Expected duration.add to call getPossibleInstantsFor correct number of times"
 );
 
 zdt = createRelativeTo(300);
 calls.splice(0); // Reset calls list after previous loop + ZonedDateTime construction
-duration.round({
-  smallestUnit: "days",
+duration.add(duration, {
   relativeTo: zdt,
 });
 assert.sameValue(
   calls.length,
   300 + 1,
-  "Expected duration.round to call getPossibleInstantsFor correct number of times"
+  "Expected duration.add to call getPossibleInstantsFor correct number of times"
 );

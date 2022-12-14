@@ -1383,6 +1383,20 @@ var TemporalHelpers = {
   },
 
   /*
+   * observeMethod(calls, object, propertyName, value):
+   *
+   * Defines an own property @object.@propertyName with value @value, that
+   * will log any calls of @value to the array @calls.
+   */
+  observeMethod(calls, object, propertyName, objectName = "") {
+    const method = object[propertyName];
+    object[propertyName] = function () {
+      calls.push(`call ${formatPropertyName(propertyName, objectName)}`);
+      return method.apply(object, arguments);
+    };
+  },
+
+  /*
    * Used for substituteMethod to indicate default behavior instead of a
    * substituted value
    */
