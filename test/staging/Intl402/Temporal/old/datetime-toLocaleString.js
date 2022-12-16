@@ -8,7 +8,7 @@ features: [Temporal]
 ---*/
 
 function maybeGetWeekdayOnlyFormat() {
-  const fmt = new Intl.DateTimeFormat("en", { weekday: "long", timeZone: "Europe/Vienna" });
+  const fmt = new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: "Europe/Vienna" });
   if (
     ["era", "year", "month", "day", "hour", "minute", "second", "timeZoneName"].some(
       (prop) => prop in fmt.resolvedOptions()
@@ -21,17 +21,17 @@ function maybeGetWeekdayOnlyFormat() {
 }
 
 var datetime = Temporal.PlainDateTime.from("1976-11-18T15:23:30");
-assert.sameValue(`${datetime.toLocaleString("en", { timeZone: "America/New_York" })}`, "11/18/1976, 3:23:30 PM");
-assert.sameValue(`${datetime.toLocaleString("de", { timeZone: "Europe/Vienna" })}`, "18.11.1976, 15:23:30");
+assert.sameValue(`${datetime.toLocaleString("en-US", { timeZone: "America/New_York" })}`, "11/18/1976, 3:23:30 PM");
+assert.sameValue(`${datetime.toLocaleString("de-AT", { timeZone: "Europe/Vienna" })}`, "18.11.1976, 15:23:30");
 var fmt = maybeGetWeekdayOnlyFormat();
 if (fmt) assert.sameValue(fmt.format(datetime), "Thursday");
 
 // should ignore units not in the data type
-assert.sameValue(datetime.toLocaleString("en", { timeZoneName: "long" }), "11/18/1976, 3:23:30 PM");
+assert.sameValue(datetime.toLocaleString("en-US", { timeZoneName: "long" }), "11/18/1976, 3:23:30 PM");
 
 // should use compatible disambiguation option
 var dstStart = new Temporal.PlainDateTime(2020, 3, 8, 2, 30);
-assert.sameValue(`${dstStart.toLocaleString("en", { timeZone: "America/Los_Angeles" })}`, "3/8/2020, 3:30:00 AM");
+assert.sameValue(`${dstStart.toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}`, "3/8/2020, 3:30:00 AM");
 
 // works when the object's calendar is the same as the locale's calendar
 var dt = Temporal.PlainDateTime.from({
