@@ -9,7 +9,7 @@ defines: [isConstructor]
 
 function isConstructor(f) {
     if (typeof f !== "function") {
-      throw new Test262Error("isConstructor invoked with a non-function vale");
+      throw new Test262Error("isConstructor invoked with a non-function value");
     }
 
     try {
