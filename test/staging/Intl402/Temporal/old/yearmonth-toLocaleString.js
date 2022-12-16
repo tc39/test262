@@ -1,4 +1,3 @@
-
 // Copyright (C) 2018 Bloomberg LP. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
@@ -14,11 +13,14 @@ var yearmonth = Temporal.PlainYearMonth.from({
   month: 11,
   calendar
 });
-assert.sameValue(`${ yearmonth.toLocaleString("en", { timeZone: "America/New_York" }) }`, "11/1976")
-assert.sameValue(`${ yearmonth.toLocaleString("de", {
-  timeZone: "Europe/Vienna",
-  calendar
-}) }`, "11.1976")
+assert.sameValue(`${yearmonth.toLocaleString("en", { timeZone: "America/New_York" })}`, "11/1976");
+assert.sameValue(
+  `${yearmonth.toLocaleString("de", {
+    timeZone: "Europe/Vienna",
+    calendar
+  })}`,
+  "11.1976"
+);
 
 // should ignore units not in the data type
 assert.sameValue(yearmonth.toLocaleString("en", { timeZoneName: "long" }), "11/1976");

@@ -8,27 +8,30 @@ features: [Temporal]
 ---*/
 
 function maybeGetWeekdayOnlyFormat() {
-  const fmt = new Intl.DateTimeFormat('en', { weekday: 'long', timeZone: 'Europe/Vienna' });
+  const fmt = new Intl.DateTimeFormat("en", { weekday: "long", timeZone: "Europe/Vienna" });
   if (
-    ['era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName'].some(
+    ["era", "year", "month", "day", "hour", "minute", "second", "timeZoneName"].some(
       (prop) => prop in fmt.resolvedOptions()
     )
   ) {
-   //no weekday-only format available 
+    // no weekday-only format available
     return null;
   }
   return fmt;
 }
 
 var zdt = Temporal.ZonedDateTime.from("1976-11-18T15:23:30+01:00[Europe/Vienna]");
-assert.sameValue(zdt.toLocaleString("en"), "11/18/1976, 3:23:30 PM GMT+1")
-assert.sameValue(zdt.toLocaleString("de"), "18.11.1976, 15:23:30 MEZ")
+assert.sameValue(zdt.toLocaleString("en"), "11/18/1976, 3:23:30 PM GMT+1");
+assert.sameValue(zdt.toLocaleString("de"), "18.11.1976, 15:23:30 MEZ");
 
 const fmt = maybeGetWeekdayOnlyFormat();
-//uses only the options in resolvedOptions 
-if (fmt) assert.sameValue(fmt.format(zdt), 'Thursday');
+// uses only the options in resolvedOptions
+if (fmt) assert.sameValue(fmt.format(zdt), "Thursday");
 // can override the style of the time zone name
-assert.sameValue(zdt.toLocaleString("en", { timeZoneName: "long" }), "11/18/1976, 3:23:30 PM Central European Standard Time");
+assert.sameValue(
+  zdt.toLocaleString("en", { timeZoneName: "long" }),
+  "11/18/1976, 3:23:30 PM Central European Standard Time"
+);
 
 // works if the time zone given in options agrees with the object's time zone
 assert.sameValue(zdt.toLocaleString("en", { timeZone: "Europe/Vienna" }), "11/18/1976, 3:23:30 PM GMT+1");
