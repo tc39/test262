@@ -8,8 +8,8 @@ features: [Temporal]
 ---*/
 
 var time = Temporal.PlainTime.from("1976-11-18T15:23:30");
-assert.sameValue(`${ time.toLocaleString("en", { timeZone: "America/New_York" }) }`, "3:23:30 PM")
-assert.sameValue(`${ time.toLocaleString("de", { timeZone: "Europe/Vienna" }) }`, "15:23:30")
+assert.sameValue(`${time.toLocaleString("en", { timeZone: "America/New_York" })}`, "3:23:30 PM");
+assert.sameValue(`${time.toLocaleString("de", { timeZone: "Europe/Vienna" })}`, "15:23:30");
 
 // should ignore units not in the data type
 assert.sameValue(time.toLocaleString("en", { timeZoneName: "long" }), "3:23:30 PM");
