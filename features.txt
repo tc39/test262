@@ -297,6 +297,10 @@ Array.fromAsync
 String.prototype.isWellFormed
 String.prototype.toWellFormed
 
+# Regular expression modifiers
+# https://github.com/tc39/proposal-regexp-modifiers
+regexp-modifiers
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
