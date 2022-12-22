@@ -104,6 +104,10 @@ String.prototype.toWellFormed
 # https://github.com/tc39/proposal-json-parse-with-source
 json-parse-with-source
 
+# Regular expression modifiers
+# https://github.com/tc39/proposal-regexp-modifiers
+regexp-modifiers
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
