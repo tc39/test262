@@ -1,0 +1,18 @@
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-patterns-static-semantics-early-errors
+info: |
+  Atom :: ( ? RegularExpressionFlags - RegularExpressionFlags : Disjunction )
+  ...
+path: language/literals/regexp/early-err-arithmetic-modifiers-reverse-
+name: arithmetic regular expression flags
+features: [regexp-modifiers]
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+$DONOTEVALUATE();
+
+/(?/*{ modifiers }*/-/*{ add-modifiers }*/:a)//*{ global-modifiers }*/;
