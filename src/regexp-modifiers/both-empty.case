@@ -1,0 +1,13 @@
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+templates:
+  - flags-syntax-error/arithmetic-modifiers-literal.template
+  - flags-syntax-error/arithmetic-modifiers-constructed.template
+desc: It is a Syntax Error if the source text matched by the first RegularExpressionFlags and the source text matched by the second RegularExpressionFlags are both empty.
+---*/
+
+//- add-modifiers
+//- global-modifiers
+//- modifiers
+
