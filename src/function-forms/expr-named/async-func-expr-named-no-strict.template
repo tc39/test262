@@ -12,6 +12,7 @@ info: |
 
 flags: [async, noStrict]
 features: [async-functions]
+includes: [asyncHelpers.js]
 ---*/
 
 // increment callCount in case "body"
@@ -20,8 +21,8 @@ let ref = async function BindingIdentifier() {
   /*{ body }*/
 };
 
-(async () => {
+asyncTest(async () => {
   assert.sameValue(await ref(), ref);
   assert.sameValue(callCount, 1, 'function invoked exactly once');
-})().then($DONE, $DONE);
+});
 
