@@ -10,17 +10,12 @@ function asyncTest(testFunc) {
   if (!Object.hasOwn(globalThis, "$DONE")) {
     throw new Test262Error("asyncTest called without async flag");
   }
-  const resolveThenable = {
-    then(resolve, reject) {
-      resolve();
-    },
-  };
   if (typeof testFunc !== "function") {
     $DONE(new Test262Error("asyncTest called with non-function argument"));
-    return resolveThenable;
+    return;
   }
   try {
-    return testFunc().then(
+    testFunc().then(
       function () {
         $DONE();
       },
@@ -30,7 +25,6 @@ function asyncTest(testFunc) {
     );
   } catch (syncError) {
     $DONE(syncError);
-    return resolveThenable;
   }
 }
 

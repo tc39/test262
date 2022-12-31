@@ -14,24 +14,35 @@ globalThis.$DONE = function (mustBeDefined) {
 const someObject = {};
 
 (async function () {
-  await asyncTest(function () {
+  asyncTest(function () {
     return Promise.reject(null);
   });
-  await asyncTest(function () {
-    return Promise.reject(someObject);
-  });
-  await asyncTest(function () {
-    return Promise.reject("hi");
-  });
-  await asyncTest(function () {
-    return Promise.reject(10);
-  });
-  await asyncTest(function () {
-    return {
-      then(res, rej) {
-        rej(true);
-      },
-    };
-  });
-  assert.compareArray(rejectionValues, [null, someObject, "hi", 10, true]);
-})().then(realDone, realDone);
+})()
+  .then(() => {
+    asyncTest(function () {
+      return Promise.reject(someObject);
+    });
+  })
+  .then(() => {
+    asyncTest(function () {
+      return Promise.reject("hi");
+    });
+  })
+  .then(() => {
+    asyncTest(function () {
+      return Promise.reject(10);
+    });
+  })
+  .then(() => {
+    asyncTest(function () {
+      return {
+        then(res, rej) {
+          rej(true);
+        },
+      };
+    });
+  })
+  .then(() => {
+    assert.compareArray(rejectionValues, [null, someObject, "hi", 10, true]);
+  })
+  .then(realDone, realDone);
