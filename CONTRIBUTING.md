@@ -344,52 +344,43 @@ Consumers that violate the spec by throwing exceptions for parsing errors at run
 
 ## Writing Asynchronous Tests
 
-An asynchronous test is any test that include the `async` frontmatter flag. When executing such tests, the runner expects that the global `$DONE()` function will be called **exactly once** to signal test completion.
+An asynchronous test is any test that include the `async` frontmatter flag.
+
+For most asynchronous tests, the `asyncHelpers.js` harness file includes an `asyncTest` method that precludes needing to interact with the test runner via the `$DONE` function. `asyncTest` takes an async function and will ensure that `$DONE` is called properly if the async function returns or throws an exception.` For example, a test written using `asyncTest` might look like:
+
+```js
+/*---
+... (other frontmatter) ...
+flags: [async]
+includes: [asyncHelpers.js]
+---*/
+
+asyncTest(async function() {
+  assert.sameValue(true, await someTestCode(1), "someTestCode(1) should return true");
+;
+});
+```
+
+For more complicated asynchronous testing, such as testing Promise or other core asynchronous functionality, the runner expects that the global `$DONE()` function will be called **exactly once** to signal test completion.
 
  * If the argument to `$DONE` is omitted, is `undefined`, or is any other falsy value, the test is considered to have passed.
 
  * If the argument to `$DONE` is a truthy value, the test is considered to have failed and the argument is displayed as the failure reason.
 
-A common idiom when writing asynchronous tests is the following:
-
-```js
-var p = new Promise(function () { /* some test code */ });
-
-p.then(function checkAssertions(arg) {
-  if (!expected_condition) {
-    throw new Test262Error("failure message");
-  }
-
-}).then($DONE, $DONE);
-```
-
-Function `checkAssertions` implicitly returns `undefined` if the expected condition is observed.  The return value of function `checkAssertions` is then used to asynchronously invoke the first function of the final `then` call, resulting in a call to `$DONE(undefined)`, which signals a passing test.
-
-If the expected condition is not observed, function `checkAssertions` throws a `Test262Error`.  This is caught by the Promise and then used to asynchronously invoke the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals a failing test.
-
 ### Checking Exception Type and Message in Asynchronous Tests
 
-This idiom can be extended to check for specific exception types or messages:
+The `asyncHelpers.js` harness file defines `assert.throwsAsync`, analogous in form to `assert.throws`. It requires that the passed function _asynchronously_ throws the specified exception type, and will reject functions that synchronously throw the specified exception type (and presumably summon [Zalgo](https://blog.izs.me/2013/08/designing-apis-for-asynchrony/)).
 
 ```js
-p.then(function () {
-  // some code that is expected to throw a TypeError
+/*---
+... (other frontmatter) ...
+flags: [async]
+includes: [asyncHelpers.js]
+---*/
 
-  return "Expected exception to be thrown";
-}).then($DONE, function (e) {
- if (!(e instanceof TypeError)) {
-  throw new Test262Error("Expected TypeError but got " + e);
- }
-
- if (!/expected message/.test(e.message)) {
-  throw new Test262Error("Expected message to contain 'expected message' but found " + e.message);
- }
-
-}).then($DONE, $DONE);
-
-```
-
-As above, exceptions that are thrown from a `then` clause are passed to a later `$DONE` function and reported asynchronously.
+asyncTest(async function() {
+  await assert.throwsAsync(TypeError, () => Array.fromAsync([], "not a function"), "Array.fromAsync should reject asynchronously");
+});
 
 ## A Note on Python-based tools
 
