@@ -96,43 +96,43 @@ Each one would be accompanied by tests in the `test/harness/` folder to verify t
 Including `asyncHelpers.js` in the frontmatter defines a function `asyncTest` in the global namespace.
 
 - _testFunc_: a function, representing the test body, that takes no arguments and returns a promise.
-- Returns: a promise that always fulfills with `undefined`.
+- Returns: `undefined`.
 
 Including `asyncHelpers.js` in the frontmatter defines a new `asyncTest` property on the global object.
 
-The `asyncTest` function awaits the result of _testFunc_.
-If _testFunc_'s promise is fulfilled, the fulfillment value is discarded, and `$DONE` is called with no argument.
-If _testFunc_'s promise rejects, `$DONE` is called with the rejection value as its argument.
+The `asyncTest` function calls _testFunc_ to obtain a result. If this produces a synchronous error, `$DONE` is called with the error. Otherwise, it awaits the result of _testFunc_.
+If _testFunc_'s thenable is fulfilled, the fulfillment value is discarded, and `$DONE` is called with no argument.
+If _testFunc_'s thenable rejects, `$DONE` is called with the rejection value as its argument.
 
-When the promise returned by `asyncTest` is fulfilled, then the test body has finished executing, the test has either passed or failed, and `$DONE` has been called exactly once with the appropriate argument.
+When `asyncTest` has returned, then the promisef representing the test body has been created, the test will either pass or fail, and `$DONE` will be called exactly once with the appropriate argument.
 
 Before `asyncTest` does anything, it checks whether there is a `$DONE` property on the global object.
 If there isn't, it throws an exception synchronously.
 (The purpose of this is to catch an async test that mistakenly omits the `async` flag.
 For this reason, it's worth departing from the convention that results from a function must be always synchronous or always asynchronous ("summoning Zalgo"); in this case the runtime will be treating the test file as a synchronous test.)
 
-### assert.throwsAsync(_expectedErrorConstructor_, _funcOrPromise_[, _message_])
+### assert.throwsAsync(_expectedErrorConstructor_, _func_[, _message_])
 - _expectedErrorConstructor_: an error constructor, such as `TypeError`.
-- _funcOrPromise_: a function that returns a promise, or a promise.
+- _func_: a function that returns a thenable.
 - _message_ (optional): a string with explanation that will be printed on failure.
-- Returns: a promise (the "returned promise".)
+- Returns: a thenable (the "returned promise".)
 
 Including `asyncHelpers.js` in the frontmatter defines a new `throwsAsync` property on the `assert` object.
 
-If _funcOrPromise_ is a function, it is first executed in order to obtain a promise (the "inner promise".)
-This way, it's possible to write assertions about an async function just as easily as about a promise, without having to either wrap the promise in an async function or replace the async function with an async IIFE.
-
-*[IIFE]: immediately-invoked function expression
+If _func_ is a function, it is first executed in order to obtain a thenable (the "inner thenable".).
 
 The returned promise rejects with a Test262Error with an appropriate message, in the following cases:
-- _funcOrPromise_ is a function, and didn't return a promise (a thenable?) when executed.
-- The inner promise is fulfilled.
-- The inner promise rejects with a primitive value.
-- The inner promise rejects with an object whose `constructor` property is not the same value as _expectedErrorConstructor_.
+- _func_ is not a function.
+- _func_ is a function, and synchronously threw an error when obtaining the inner thenable.
+- _func_ is a function, and didn't return a thenable when executed.
+- The inner thenable throws a synchronous error when invoking `.then`
+- The inner thenable is fulfilled.
+- The inner thenable rejects with a primitive value.
+- The inner thenable rejects with an object whose `constructor` property is not the same value as _expectedErrorConstructor_.
 
-Just as in `assert.throws()`, the Test262Error's message takes into account the case where the inner promise's rejection value is an Error constructor with the same name as _expectedErrorConstructor_ but is not the same value, which can happen when the constructor comes from a different global.
+Just as in `assert.throws()`, the Test262Error's message takes into account the case where the inner thenable's rejection value is an Error constructor with the same name as _expectedErrorConstructor_ but is not the same value, which can happen when the constructor comes from a different global.
 
-If the inner promise rejects with the appropriate type of error object (constructor is the same value as _expectedErrorConstructor_), the returned promise is fulfilled with `undefined`, so that the resolution value can be passed to `$DONE`.
+If the inner thenable rejects with the appropriate type of error object (constructor is the same value as _expectedErrorConstructor_), the returned thenable is fulfilled with `undefined`, so that the resolution value can be passed to `$DONE`.
 
 Although `assert.throwsAsync()` is designed to be used with await-style async programming, it can also be used with promise-style, postfixing it with `.then($DONE, $DONE)`.
 Chaining returned promises from `assert.throwsAsync()` works as might be expected: if any of them reject, the rejection value is passed directly to `$DONE()` and the subsequent calls are not made.
