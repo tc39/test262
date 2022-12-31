@@ -11,6 +11,6 @@ function $DONE(error) {
   assert(error instanceof Test262Error);
 }
 asyncTest(function () {
-  throw new Test262Error("Should not be evaluated");
+  throw new Test262Error("Should not be rethrown");
 });
 assert(called, "asyncTest called $DONE with a synchronously thrown error");

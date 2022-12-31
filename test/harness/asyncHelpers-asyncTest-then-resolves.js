@@ -18,28 +18,39 @@ globalThis.$DONE = function (noError) {
 };
 
 (async function () {
-  await asyncTest(function () {
+  asyncTest(function () {
     return Promise.resolve(null);
   });
-  assert.sameValue(doneCalls, 1, "asyncTest called $DONE with undefined");
-  await asyncTest(function () {
-    return Promise.resolve({});
-  });
-  assert.sameValue(doneCalls, 2, "asyncTest called $DONE with undefined");
-  await asyncTest(function () {
-    return Promise.resolve("hi");
-  });
-  assert.sameValue(doneCalls, 3, "asyncTest called $DONE with undefined");
-  await asyncTest(function () {
-    return Promise.resolve(10);
-  });
-  assert.sameValue(doneCalls, 4, "asyncTest called $DONE with undefined");
-  await asyncTest(function () {
-    return {
-      then(res, rej) {
-        res(true);
-      },
-    };
-  });
-  assert.sameValue(doneCalls, 5, "asyncTest called $DONE with undefined");
-})().then(realDone, realDone);
+})()
+  .then(() => {
+    assert.sameValue(doneCalls, 1, "asyncTest called $DONE with undefined");
+    asyncTest(function () {
+      return Promise.resolve({});
+    });
+  })
+  .then(() => {
+    assert.sameValue(doneCalls, 2, "asyncTest called $DONE with undefined");
+    asyncTest(function () {
+      return Promise.resolve("hi");
+    });
+  })
+  .then(() => {
+    assert.sameValue(doneCalls, 3, "asyncTest called $DONE with undefined");
+    asyncTest(function () {
+      return Promise.resolve(10);
+    });
+  })
+  .then(() => {
+    assert.sameValue(doneCalls, 4, "asyncTest called $DONE with undefined");
+    asyncTest(function () {
+      return {
+        then(res, rej) {
+          res(true);
+        },
+      };
+    });
+  })
+  .then(() => {
+    assert.sameValue(doneCalls, 5, "asyncTest called $DONE with undefined");
+  })
+  .then(realDone, realDone);
