@@ -13,6 +13,9 @@ const badResults = [
   [-Infinity, RangeError],
   [Symbol("foo"), TypeError],
   [7n, TypeError],
+  [NaN, RangeError],
+  ["string", RangeError],
+  [{}, RangeError],
 ];
 
 badResults.forEach(([result, error]) => {
@@ -32,11 +35,8 @@ const convertedResults = [
   [7.1, 7],
   [-7, -7],
   [-0.1, 0],
-  [NaN, 0],
-  ["string", 0],
   ["7", 7],
   ["7.5", 7],
-  [{}, 0],
   [{valueOf() { return 7; }}, 7],
 ];
 
