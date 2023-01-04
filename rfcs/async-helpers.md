@@ -104,7 +104,7 @@ The `asyncTest` function calls _testFunc_ to obtain a result. If this produces a
 If _testFunc_'s thenable is fulfilled, the fulfillment value is discarded, and `$DONE` is called with no argument.
 If _testFunc_'s thenable rejects, `$DONE` is called with the rejection value as its argument.
 
-When `asyncTest` has returned, then the promisef representing the test body has been created, the test will either pass or fail, and `$DONE` will be called exactly once with the appropriate argument.
+When `asyncTest` has returned, then the promise representing the test body has been created, the test will either pass or fail, and `$DONE` will be called exactly once with the appropriate argument.
 
 Before `asyncTest` does anything, it checks whether there is a `$DONE` property on the global object.
 If there isn't, it throws an exception synchronously.
