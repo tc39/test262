@@ -10,6 +10,7 @@ description: >
     Using "with" statement within "for-in" statement, leading to
     completion by break
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

@@ -19,7 +19,7 @@ info: |
             iv. If extensibleTarget is false, throw a TypeError exception.
     ...
 flags: [noStrict]
-features: [Proxy]
+features: [Proxy, with]
 ---*/
 
 var target = {};

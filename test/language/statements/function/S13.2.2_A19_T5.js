@@ -8,6 +8,7 @@ description: >
     Function is declared in the object scope, then an exception is
     thrown and the object is deleted
 flags: [noStrict]
+features: [with]
 ---*/
 
 var a = 1;

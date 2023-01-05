@@ -10,6 +10,7 @@ description: >
     delete operator returns false when deleting the declaration of the environment object
     inside 'with'
 flags: [noStrict]
+features: [with]
 ---*/
 
 var o = new Object();

@@ -7,6 +7,7 @@ description: >
     with statement in strict mode throws SyntaxError (eval, where the
     container function is strict)
 flags: [onlyStrict]
+features: [with]
 ---*/
 
   // wrapping it in eval since this needs to be a syntax error. The

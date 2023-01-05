@@ -11,6 +11,7 @@ info: |
     6. Set the running execution context's LexicalEnvironment to newEnv.
     7. Let C be the result of evaluating Statement.
 flags: [noStrict]
+features: [with]
 ---*/
 
 var x = 0;

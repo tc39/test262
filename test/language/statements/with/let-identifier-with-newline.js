@@ -10,6 +10,7 @@ info: |
     [lookahead ∉ { {, function, async [no LineTerminator here] function, class, let [ }]
     Expression[+In, ?Yield, ?Await] ;
 flags: [noStrict]
+features: [with]
 ---*/
 
 // Wrapped in an if-statement to avoid reference errors at runtime.

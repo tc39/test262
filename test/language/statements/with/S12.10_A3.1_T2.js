@@ -10,6 +10,7 @@ description: >
     Using "with" statement within global context, leading to
     completion by exception
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

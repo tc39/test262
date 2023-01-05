@@ -10,6 +10,7 @@ description: >
     Declaring "with" statement within a function constructor, leading
     to normal completion
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

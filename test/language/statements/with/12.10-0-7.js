@@ -5,6 +5,7 @@
 es5id: 12.10-0-7
 description: with introduces scope - scope removed when exiting with statement
 flags: [noStrict]
+features: [with]
 ---*/
 
   var o = {foo: 1};

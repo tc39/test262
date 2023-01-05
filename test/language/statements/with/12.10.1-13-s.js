@@ -7,6 +7,7 @@ description: >
     Strict Mode - SyntaxError isn't thrown when WithStatement body is
     in strict mode code
 flags: [noStrict]
+features: [with]
 ---*/
 
         with ({}) {

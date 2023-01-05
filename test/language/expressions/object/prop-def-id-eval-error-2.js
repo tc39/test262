@@ -6,7 +6,7 @@ description: >
     Errors thrown during IdentifierReference evaluation are forwarded to the
     runtime.
 flags: [noStrict]
-features: [Proxy]
+features: [Proxy, with]
 ---*/
 
 var p = new Proxy({}, {

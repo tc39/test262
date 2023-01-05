@@ -8,6 +8,7 @@ description: >
     Function is declared in the "object->do-while" scope, then the
     object is deleted and another object with the same name is declared
 flags: [noStrict]
+features: [with]
 ---*/
 
 var a = 1;

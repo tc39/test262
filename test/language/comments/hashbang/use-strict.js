@@ -11,7 +11,7 @@ info: |
     HashbangComment::
       #! SingleLineCommentChars[opt]
 flags: [raw]
-features: [hashbang]
+features: [hashbang, with]
 ---*/
 
 with ({}) {}

@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (async generator function declaration)
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject
-features: [globalThis, Symbol.unscopables, async-iteration]
+features: [globalThis, Symbol.unscopables, async-iteration, with]
 flags: [generated, noStrict, async]
 info: |
     AsyncGeneratorDeclaration : async [no LineTerminator here] function * BindingIdentifier

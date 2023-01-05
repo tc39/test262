@@ -5,6 +5,7 @@ es5id: 10.4.2-1-4
 description: >
     Direct call to eval has context set to local context (with block)
 flags: [noStrict]
+features: [with]
 ---*/
 
 var __10_4_2_1_4 = "str";

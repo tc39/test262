@@ -17,7 +17,7 @@ info: |
   [...]
   6. Let unscopables be ? Get(bindings, @@unscopables).
 flags: [noStrict]
-features: [Symbol.unscopables]
+features: [Symbol.unscopables, with]
 ---*/
 
 var unscopablesGetterCalled = 0;

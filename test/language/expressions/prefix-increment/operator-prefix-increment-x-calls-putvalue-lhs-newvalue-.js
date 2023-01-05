@@ -15,6 +15,7 @@ info: |
   Let stillExists be ? HasProperty(bindings, N).
   If stillExists is false and S is true, throw a ReferenceError exception.
 flags: [noStrict]
+features: [with]
 ---*/
 var count = 0;
 var scope = {

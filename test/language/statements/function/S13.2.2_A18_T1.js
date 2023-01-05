@@ -8,6 +8,7 @@ info: |
 es5id: 13.2.2_A18_T1
 description: "Object is declared with \"var __obj={callee:\"a\"}\""
 flags: [noStrict]
+features: [with]
 ---*/
 
 var callee=0, b;

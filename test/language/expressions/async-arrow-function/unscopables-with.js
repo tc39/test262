@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (async arrow function expression)
 esid: sec-async-arrow-function-definitions
-features: [globalThis, Symbol.unscopables, async-functions]
+features: [globalThis, Symbol.unscopables, async-functions, with]
 flags: [generated, noStrict, async]
 info: |
     14.7 Async Arrow Function Definitions

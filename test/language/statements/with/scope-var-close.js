@@ -12,6 +12,7 @@ info: |
     7. Let C be the result of evaluating Statement.
     8. Set the running execution context's LexicalEnvironment to oldEnv.
 flags: [noStrict]
+features: [with]
 ---*/
 
 var probeBody;

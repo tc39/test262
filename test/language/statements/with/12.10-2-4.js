@@ -6,6 +6,7 @@ info: ToObject conversion from undefined value must throw TypeError
 es5id: 12.10-2-4
 description: Trying to convert undefined to Object
 flags: [noStrict]
+features: [with]
 ---*/
 
 try{

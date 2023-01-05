@@ -12,6 +12,7 @@ description: >
     Binding in surrounding global environment record is not changed.
     Check operator is "x -= y".
 flags: [noStrict]
+features: [with]
 ---*/
 
 var x = 0;

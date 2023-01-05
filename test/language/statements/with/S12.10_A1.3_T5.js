@@ -10,6 +10,7 @@ description: >
     Using "with" statement within function constructor, leading to
     completition by exception
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

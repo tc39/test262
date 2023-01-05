@@ -4,7 +4,7 @@
 /*---
 description: ImportCall trailing comma following second parameter (nested with syntax in the expression position)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [import-assertions, dynamic-import]
+features: [import-assertions, dynamic-import, with]
 flags: [generated, noStrict]
 info: |
     ImportCall :

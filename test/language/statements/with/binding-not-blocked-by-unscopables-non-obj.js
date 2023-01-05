@@ -20,7 +20,7 @@ info: |
     6. Set the withEnvironment flag of newEnv’s EnvironmentRecord to true.
     [...]
 flags: [noStrict]
-features: [Symbol.unscopables]
+features: [Symbol.unscopables, with]
 ---*/
 
 var test262ToString = {};

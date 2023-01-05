@@ -12,7 +12,7 @@ info: |
     10. ReturnIfAbrupt(booleanTrapResult).
     ...
 flags: [noStrict]
-features: [Proxy]
+features: [Proxy, with]
 ---*/
 
 var p = new Proxy({}, {

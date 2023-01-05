@@ -13,6 +13,7 @@ info: |
               let strictCaller be true. Otherwise let strictCaller be false.
           [...]
 flags: [onlyStrict]
+features: [with]
 ---*/
 
 assert.throws(SyntaxError, function() {

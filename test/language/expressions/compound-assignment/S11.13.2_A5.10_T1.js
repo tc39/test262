@@ -12,6 +12,7 @@ description: >
     Binding in surrounding function environment record is not changed.
     Check operator is "x ^= y".
 flags: [noStrict]
+features: [with]
 ---*/
 
 function testFunction() {

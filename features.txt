@@ -383,6 +383,7 @@ Uint32Array
 Uint8ClampedArray
 WeakMap
 WeakSet
+with
 __proto__
 __getter__
 __setter__

@@ -11,6 +11,7 @@ description: >
     completion by break  iteration statement inside with statement -
     break completion
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

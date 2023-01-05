@@ -7,6 +7,7 @@ description: >
     with statement allowed in nested Function even if its container
     Function is strict)
 flags: [onlyStrict]
+features: [with]
 ---*/
 
     Function("\'use strict\'; var f1 = Function( \"var o = {}; with (o) {};\")");

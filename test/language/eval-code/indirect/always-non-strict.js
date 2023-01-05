@@ -8,6 +8,7 @@ info: |
     contains a Use Strict Directive or if the call to eval is a direct eval
     that is contained in strict mode code.
 flags: [onlyStrict]
+features: [with]
 ---*/
 
 var count = 0;

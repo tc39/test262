@@ -22,7 +22,7 @@ info: |
 
 flags: [noStrict]
 includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
-features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
+features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray, with]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {
   let counter = 0;

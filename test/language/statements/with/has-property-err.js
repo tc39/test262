@@ -18,7 +18,7 @@ info: |
   2. Let bindings be the binding object for envRec.
   3. Let foundBinding be ? HasProperty(bindings, N).
 flags: [noStrict]
-features: [Proxy]
+features: [Proxy, with]
 ---*/
 
 var thrower = new Proxy({}, {

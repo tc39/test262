@@ -16,7 +16,7 @@ info: |
             exception.
     ...
 flags: [noStrict]
-features: [Proxy]
+features: [Proxy, with]
 ---*/
 
 var target = {};

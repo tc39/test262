@@ -4,7 +4,7 @@
 /*---
 description: It's a SyntaxError if AssignmentExpression is omitted (nested with syntax in the expression position)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
+features: [dynamic-import, with]
 flags: [generated, noStrict]
 negative:
   phase: parse

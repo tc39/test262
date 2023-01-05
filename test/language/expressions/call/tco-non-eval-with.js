@@ -22,7 +22,7 @@ info: |
     ...
 
 flags: [noStrict]
-features: [tail-call-optimization]
+features: [tail-call-optimization, with]
 includes: [tcoHelper.js]
 ---*/
 

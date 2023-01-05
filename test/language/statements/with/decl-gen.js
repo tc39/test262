@@ -8,7 +8,7 @@ flags: [noStrict]
 negative:
   phase: parse
   type: SyntaxError
-features: [generators]
+features: [generators, with]
 ---*/
 
 $DONOTEVALUATE();

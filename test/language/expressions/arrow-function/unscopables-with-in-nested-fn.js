@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-features: [globalThis, Symbol.unscopables]
+features: [globalThis, Symbol.unscopables, with]
 flags: [generated, noStrict]
 info: |
     ArrowFunction : ArrowParameters => ConciseBody

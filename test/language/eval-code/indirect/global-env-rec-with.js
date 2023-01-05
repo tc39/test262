@@ -6,6 +6,7 @@ description: >
     Indirect call to eval has context set to global context (with
     block)
 flags: [noStrict]
+features: [with]
 ---*/
 
 var __10_4_2_1_4 = "str";

@@ -12,6 +12,7 @@ info: |
     8. Set the running execution context's LexicalEnvironment to oldEnv.
     9. Return Completion(UpdateEmpty(C, undefined)).
 flags: [noStrict]
+features: [with]
 ---*/
 
 assert.sameValue(

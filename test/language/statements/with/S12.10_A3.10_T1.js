@@ -10,6 +10,7 @@ description: >
     Using iteration statement within "with" statement, leading to
     normal completion
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

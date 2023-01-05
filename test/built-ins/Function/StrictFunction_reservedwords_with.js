@@ -14,6 +14,7 @@ info: |
          If strict is true, the Early Error rules for UniqueFormalParameters:FormalParameters are applied.
       ...
     ...
+features: [with]
 ---*/
 
 assert.throws(SyntaxError, function() {

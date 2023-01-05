@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (async function named expression)
 esid: sec-async-function-definitions
-features: [globalThis, Symbol.unscopables, async-functions]
+features: [globalThis, Symbol.unscopables, async-functions, with]
 flags: [generated, noStrict, async]
 info: |
     14.6 Async Function Definitions

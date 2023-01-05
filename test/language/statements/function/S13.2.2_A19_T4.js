@@ -8,6 +8,7 @@ description: >
     Function is declared in the hierarchical object scope and then an
     exception is thrown
 flags: [noStrict]
+features: [with]
 ---*/
 
 var a = 1;

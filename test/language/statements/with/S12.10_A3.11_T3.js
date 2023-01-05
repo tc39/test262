@@ -10,6 +10,7 @@ description: >
     Calling a function within "with" statement declared without the
     statement, leading to normal completion by "return"
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

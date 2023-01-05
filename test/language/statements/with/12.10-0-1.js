@@ -7,6 +7,7 @@ description: >
     with does not change declaration scope - vars in with are visible
     outside
 flags: [noStrict]
+features: [with]
 ---*/
 
   var o = {};

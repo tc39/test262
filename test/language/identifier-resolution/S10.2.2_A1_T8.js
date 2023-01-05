@@ -9,6 +9,7 @@ info: |
 es5id: 10.2.2_A1_T8
 description: Checking scope chain containing function declarations and "with"
 flags: [noStrict]
+features: [with]
 ---*/
 
 var x = 0;

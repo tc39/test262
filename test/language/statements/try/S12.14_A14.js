@@ -8,6 +8,7 @@ info: |
 es5id: 12.14_A14
 description: Using try/catch/finally in With and With in try/catch/finally
 flags: [noStrict]
+features: [with]
 ---*/
 
 var myObj = {p1: 'a',

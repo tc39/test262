@@ -11,6 +11,7 @@ description: >
     itself is declared within the function declaration, leading to
     normal completion by "return"
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

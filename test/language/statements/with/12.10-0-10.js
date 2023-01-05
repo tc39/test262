@@ -5,6 +5,7 @@
 es5id: 12.10-0-10
 description: with introduces scope - name lookup finds function parameter
 flags: [noStrict]
+features: [with]
 ---*/
 
   function f(o) {

@@ -23,7 +23,7 @@ info: |
   5. Set the withEnvironment flag of newEnv’s EnvironmentRecord to true.
   [...]
 flags: [noStrict]
-features: [Symbol.unscopables]
+features: [Symbol.unscopables, with]
 ---*/
 
 var env = { x: 86 };

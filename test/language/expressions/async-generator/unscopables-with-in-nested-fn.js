@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (async generator function expression)
 esid: sec-asyncgenerator-definitions-evaluation
-features: [globalThis, Symbol.unscopables, async-iteration]
+features: [globalThis, Symbol.unscopables, async-iteration, with]
 flags: [generated, noStrict, async]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * ( FormalParameters ) {

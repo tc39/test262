@@ -4,7 +4,7 @@
 /*---
 description: ImportCall is a CallExpression can be nested in other import calls (nested with syntax)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
+features: [dynamic-import, with]
 flags: [generated, noStrict]
 info: |
     ImportCall :

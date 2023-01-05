@@ -6,6 +6,7 @@ info: Changing property using "eval" statement containing "with" statement
 es5id: 12.10_A4_T4
 description: Changing object property
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 'a';

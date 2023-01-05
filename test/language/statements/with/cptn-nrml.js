@@ -13,6 +13,7 @@ info: |
         NormalCompletion(undefined).
     11. Return Completion(C).
 flags: [noStrict]
+features: [with]
 ---*/
 
 assert.sameValue(eval('1; with({}) { }'), undefined);

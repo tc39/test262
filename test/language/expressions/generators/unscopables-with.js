@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-features: [globalThis, Symbol.unscopables, generators]
+features: [globalThis, Symbol.unscopables, generators, with]
 flags: [generated, noStrict]
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }

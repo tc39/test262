@@ -13,6 +13,7 @@ info: |
               let strictCaller be true. Otherwise let strictCaller be false.
           [...]
 flags: [noStrict]
+features: [with]
 ---*/
 
 var count = 0;

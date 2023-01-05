@@ -14,6 +14,7 @@ info: |
   [...]
   8. Return ? EvaluateDirectCall(func, thisValue, Arguments, tailCall).
 flags: [noStrict]
+features: [with]
 ---*/
 
 var viaMember, viaCall;

@@ -4,7 +4,7 @@
 /*---
 description: Symbol.unscopables behavior across scope boundaries (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation
-features: [globalThis, Symbol.unscopables]
+features: [globalThis, Symbol.unscopables, with]
 flags: [generated, noStrict]
 info: |
     FunctionExpression : function ( FormalParameters ) { FunctionBody }

@@ -12,7 +12,7 @@ info: |
 negative:
   phase: parse
   type: SyntaxError
-features: [async-iteration]
+features: [async-iteration, with]
 flags: [noStrict]
 ---*/
 

@@ -10,6 +10,7 @@ description: >
     declarative environment record. PutValue(lref, rval) uses the initially
     created Reference even if a more local binding is available.
 flags: [noStrict]
+features: [with]
 ---*/
 
 function testAssignment() {

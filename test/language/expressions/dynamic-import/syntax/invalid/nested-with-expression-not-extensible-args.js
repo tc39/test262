@@ -4,7 +4,7 @@
 /*---
 description: ImportCall is not extensible - no arguments list (nested with syntax in the expression position)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
+features: [dynamic-import, with]
 flags: [generated, noStrict]
 negative:
   phase: parse

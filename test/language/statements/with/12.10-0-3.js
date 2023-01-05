@@ -5,6 +5,7 @@
 es5id: 12.10-0-3
 description: with introduces scope - that is captured by function expression
 flags: [noStrict]
+features: [with]
 ---*/
 
   var o = {prop: "12.10-0-3 before"};

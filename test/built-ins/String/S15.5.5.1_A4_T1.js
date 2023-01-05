@@ -6,6 +6,7 @@ info: length property has the attributes {ReadOnly}
 es5id: 15.5.5.1_A4_T1
 description: Checking if varying the length property of String fails
 flags: [noStrict]
+features: [with]
 ---*/
 
 var __str__instance = new String("globglob");

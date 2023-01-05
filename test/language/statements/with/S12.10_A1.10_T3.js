@@ -11,6 +11,7 @@ description: >
     completion by exception  iteration statement inside with statement
     - exception completion
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;

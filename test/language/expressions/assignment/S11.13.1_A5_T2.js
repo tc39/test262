@@ -11,6 +11,7 @@ description: >
     created Reference even if the environment binding is no longer present.
     Binding in surrounding global environment record is not changed.
 flags: [noStrict]
+features: [with]
 ---*/
 
 var x = 0;

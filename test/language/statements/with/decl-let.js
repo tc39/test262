@@ -8,6 +8,7 @@ flags: [noStrict]
 negative:
   phase: parse
   type: SyntaxError
+features: [with]
 ---*/
 
 $DONOTEVALUATE();

@@ -12,6 +12,7 @@ info: |
    3. Let rhs be the result of evaluating Initializer.
    [...]
 flags: [noStrict]
+features: [with]
 ---*/
 
 var obj = { test262id: 1 };

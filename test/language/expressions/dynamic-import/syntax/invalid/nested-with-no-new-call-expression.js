@@ -4,7 +4,7 @@
 /*---
 description: ImportCall is a CallExpression, it can't be preceded by the new keyword (nested with syntax)
 esid: sec-import-call-runtime-semantics-evaluation
-features: [dynamic-import]
+features: [dynamic-import, with]
 flags: [generated, noStrict]
 negative:
   phase: parse

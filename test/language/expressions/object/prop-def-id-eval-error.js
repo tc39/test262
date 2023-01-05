@@ -6,7 +6,7 @@ description: >
     Errors thrown during IdentifierReference evaluation are forwarded to the
     runtime.
 flags: [noStrict]
-features: [Symbol, Symbol.unscopables]
+features: [Symbol, Symbol.unscopables, with]
 ---*/
 
 var obj = {

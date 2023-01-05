@@ -7,6 +7,7 @@ description: >
     with statement in strict mode throws SyntaxError (function
     expression, where the container Function is strict)
 flags: [noStrict]
+features: [with]
 ---*/
 
 

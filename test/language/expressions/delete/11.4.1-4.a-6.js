@@ -8,6 +8,7 @@ info: |
 esid: sec-delete-operator-runtime-semantics-evaluation
 description: delete operator returns true when deleting a property inside 'with'
 flags: [noStrict]
+features: [with]
 ---*/
 
 var o = new Object();

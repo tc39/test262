@@ -5,6 +5,7 @@
 description: Capturing closure variables - with
 es6id: 14.2
 flags: [noStrict]
+features: [with]
 ---*/
 
 function foo(){

@@ -10,6 +10,7 @@ description: >
     getRight in statement resolves within with(__obj) scope and
     searchs getRight in __obj first
 flags: [noStrict]
+features: [with]
 ---*/
 
 p1="alert";

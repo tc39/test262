@@ -8,6 +8,7 @@ info: |
 es5id: 12.10_A1.1_T1
 description: Using "with" inside of global context leading to normal completion
 flags: [noStrict]
+features: [with]
 ---*/
 
 this.p1 = 1;
