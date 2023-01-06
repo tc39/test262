@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.now.timezone
-description: Temporal.Now.timeZone does not implement [[Construct]]
+esid: sec-temporal.now.timezoneid
+description: Temporal.Now.timeZoneId does not implement [[Construct]]
 info: |
   ECMAScript Function Objects
 
@@ -14,8 +14,8 @@ includes: [isConstructor.js]
 features: [Reflect.construct, Temporal, arrow-function]
 ---*/
 
-assert.sameValue(isConstructor(Temporal.Now.timeZone), false, 'isConstructor(Temporal.Now.timeZone) must return false');
+assert.sameValue(isConstructor(Temporal.Now.timeZoneId), false, 'isConstructor(Temporal.Now.timeZoneId) must return false');
 
 assert.throws(TypeError, () => {
-  new Temporal.Now.timeZone();
-}, 'new Temporal.Now.timeZone() throws a TypeError exception');
+  new Temporal.Now.timeZoneId();
+}, 'new Temporal.Now.timeZoneId() throws a TypeError exception');
