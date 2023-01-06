@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.now.timezone
-description: Temporal.Now.timeZone.length is 0
+esid: sec-temporal.now.timezoneid
+description: Temporal.Now.timeZoneId.length is 0
 info: |
     Every built-in function object, including constructors, has a "length" property whose value is
     an integer. Unless otherwise specified, this value is equal to the largest number of named
@@ -17,7 +17,7 @@ includes: [propertyHelper.js]
 features: [Temporal]
 ---*/
 
-verifyProperty(Temporal.Now.timeZone, "length", {
+verifyProperty(Temporal.Now.timeZoneId, "length", {
   value: 0,
   writable: false,
   enumerable: false,

@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.now.timezone
-description: Temporal.Now.timeZone.name is "timeZone".
+esid: sec-temporal.now.timezoneid
+description: Temporal.Now.timeZoneId.name is "timeZoneId".
 info: |
   ## 17 ECMAScript Standard Built-in Objects:
   Every built-in Function object, including constructors, that is not
@@ -18,12 +18,12 @@ features: [Temporal]
 ---*/
 
 assert.sameValue(
-  Temporal.Now.timeZone.name,
-  'timeZone',
-  'The value of Temporal.Now.timeZone.name is expected to be "timeZone"'
+  Temporal.Now.timeZoneId.name,
+  'timeZoneId',
+  'The value of Temporal.Now.timeZoneId.name is expected to be "timeZoneId"'
 );
 
-verifyProperty(Temporal.Now.timeZone, 'name', {
+verifyProperty(Temporal.Now.timeZoneId, 'name', {
   enumerable: false,
   writable: false,
   configurable: true
