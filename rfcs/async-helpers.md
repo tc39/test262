@@ -46,11 +46,11 @@ includes: [asyncHelpers.js]
 ---*/
 
 asyncTest(async function () {
-  await assert.throwsAsync(TypeError, Array.fromAsync([], null), "null mapfn");
-  await assert.throwsAsync(TypeError, Array.fromAsync([], {}), "non-callable object mapfn");
-  await assert.throwsAsync(TypeError, Array.fromAsync([], "String"), "string mapfn");
-  await assert.throwsAsync(TypeError, Array.fromAsync([], true), "boolean mapfn");
-  await assert.throwsAsync(TypeError, Array.fromAsync([], 3.1416), "number mapfn");
+  await assert.throwsAsync(TypeError, () => Array.fromAsync([], null), "null mapfn");
+  await assert.throwsAsync(TypeError, () => Array.fromAsync([], {}), "non-callable object mapfn");
+  await assert.throwsAsync(TypeError, () => Array.fromAsync([], "String"), "string mapfn");
+  await assert.throwsAsync(TypeError, () => Array.fromAsync([], true), "boolean mapfn");
+  await assert.throwsAsync(TypeError, () => Array.fromAsync([], 3.1416), "number mapfn");
 });
 ```
 
