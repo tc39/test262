@@ -12,7 +12,7 @@ examples of tests which contradict the preferred patterns.
 
 For instance:
 
-- tests which expression expectations with `throw` statements inside of
+- tests which express expectations with `throw` statements inside of
   conditional statements rather than the assertion API implemented by the
   harness files (though this explicitness will always be desirable when
   asserting the semantics of conditional statements and `throw` statements
@@ -124,7 +124,7 @@ would not necessarily accept such a test.
 ## Large tests
 
 Test262 tests are typically very focused. The vast majority exercise just one
-algorithm step/grammar production, and some are even more granular that that!
+algorithm step/grammar production, and some are even more granular than that!
 
 Some test contributors are uncomfortable splitting their work across files like
 this. It's certainly unlike the practices that are common in modern application
