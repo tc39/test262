@@ -26,7 +26,7 @@ For instance:
 
 Since existing tests do not necessarily reflect the project's current
 best-practices, it's especially important for test authors to familiarize
-themselves with [the contribution guidelines](CONTRIBUTING.md).
+themselves with [the contribution guidelines](../CONTRIBUTING.md).
 
 ## Test generation
 
@@ -55,9 +55,8 @@ file organization can help.
 
 Tests for syntax-derived operations are organized according to the language
 grammar, with directories used to describe non-terminals. For example, tests
-for example, tests for [the `if`
-statement](https://tc39.es/ecma262/#sec-if-statement) are located in [the
-`tests/language/statements/if`
+for [the `if` statement](https://tc39.es/ecma262/#sec-if-statement) are located
+in [the `tests/language/statements/if`
 directory](https://github.com/tc39/test262/tree/main/test/language/statements/if),
 and tests for [the `instanceof`
 operator](https://tc39.es/ecma262/#sec-relational-operators) are located in
@@ -141,10 +140,10 @@ to learn.
 ## Syntax tests
 
 When testing a syntactic feature of the language, it can be tempting to write
-tests which verify that some bit of source text does *not* produce a syntax
-error. Contributors should try to push beyond verifying only the lack of a
-syntax error because such tests also have observable semantics. It's better for
-a test to assert that the expected semantics are followed.
+tests which verify only that some bit of source text does *not* produce a
+syntax error. Contributors should try to push beyond verifying only the lack of
+a syntax error because such tests also have observable semantics. It's better
+for a test to assert that the expected semantics are followed.
 
 However, verifying semantics invariably requires inserting still more code, and
 that additional code may degrade the tests' precision for verifying syntax. For
