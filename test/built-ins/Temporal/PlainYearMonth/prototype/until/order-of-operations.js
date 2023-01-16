@@ -45,19 +45,21 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-  // CalendarFields / PrepareTemporalFields / CalendarDateFromFields
+  // CalendarFields
   "get this.calendar.fields",
   "call this.calendar.fields",
-  "get other.calendar.monthCode",
-  "call other.calendar.monthCode",
-  "get other.calendar.year",
-  "call other.calendar.year",
-  "get this.calendar.dateFromFields",
-  "call this.calendar.dateFromFields",
+  // PrepareTemporalFields / CalendarDateFromFields (receiver)
   "get this.calendar.monthCode",
   "call this.calendar.monthCode",
   "get this.calendar.year",
   "call this.calendar.year",
+  "get this.calendar.dateFromFields",
+  "call this.calendar.dateFromFields",
+  // PrepareTemporalFields / CalendarDateFromFields (argument)
+  "get other.calendar.monthCode",
+  "call other.calendar.monthCode",
+  "get other.calendar.year",
+  "call other.calendar.year",
   "get this.calendar.dateFromFields",
   "call this.calendar.dateFromFields",
   // CopyDataProperties
