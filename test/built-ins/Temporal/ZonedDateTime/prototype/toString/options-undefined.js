@@ -8,7 +8,7 @@ features: [Temporal]
 ---*/
 
 const calendar = {
-  toString() { return "custom"; }
+  id: "custom",
 };
 const datetime1 = new Temporal.ZonedDateTime(957270896_987_650_000n, "UTC");
 const datetime2 = new Temporal.ZonedDateTime(957270896_987_650_000n, "UTC", calendar);

@@ -3,12 +3,12 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.until
-description: RangeError thrown if calendars' toString results do not match
+description: RangeError thrown if calendars' id properties do not match
 features: [Temporal]
 ---*/
 
-const calendar1 = { toString() { return "A"; } };
-const calendar2 = { toString() { return "B"; } };
+const calendar1 = { id: "A" };
+const calendar2 = { id: "B" };
 
 const plainDate1 = new Temporal.PlainDate(2000, 1, 1, calendar1);
 const plainDate2 = new Temporal.PlainDate(2000, 1, 1, calendar2);

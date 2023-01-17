@@ -8,7 +8,7 @@ features: [Temporal]
 ---*/
 
 const calendar = {
-  toString() { return "custom"; }
+  id: "custom",
 };
 const datetime1 = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 650, 0);
 const datetime2 = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 650, 0, calendar);

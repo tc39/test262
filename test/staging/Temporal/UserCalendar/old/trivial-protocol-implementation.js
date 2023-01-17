@@ -37,6 +37,7 @@ function isoToDecimal(date) {
   };
 }
 var obj = {
+  id: 'decimal',
   toString() {
     return "decimal";
   },

@@ -27,7 +27,7 @@ assert.sameValue(`${ zdt.withPlainDate(date) }`, "2020-01-23T03:24:30-08:00[Cust
 assert.sameValue(`${ zdt.withPlainDate("2018-09-15") }`, "2018-09-15T03:24:30-08:00[Custom/Spring_Fall]");
 
 // result contains a non-ISO calendar if present in the input
-var fakeJapanese = { toString() { return "japanese"; }};
+var fakeJapanese = { id: "japanese" };
 assert.sameValue(`${ zdt.withCalendar(fakeJapanese).withPlainDate("2008-09-06") }`, "2008-09-06T03:24:30-08:00[Custom/Spring_Fall][u-ca=japanese]");
 
 // calendar is unchanged if input has ISO calendar
@@ -35,7 +35,7 @@ var date = new Temporal.PlainDate(2008, 9, 6, fakeJapanese);
 assert.sameValue(`${ zdt.withPlainDate(date) }`, "2008-09-06T03:24:30-08:00[Custom/Spring_Fall][u-ca=japanese]");
 
 // throws if both `this` and `other` have a non-ISO calendar
-var fakeGregorian = { toString() { return "gregory"; }};
+var fakeGregorian = { id: "gregory" };
 assert.throws(RangeError, () => zdt.withCalendar(fakeGregorian).withPlainDate(date));
 
 // object must contain at least one correctly-spelled property

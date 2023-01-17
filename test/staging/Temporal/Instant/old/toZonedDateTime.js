@@ -15,7 +15,7 @@ assert.throws(TypeError, () => inst.toZonedDateTime());
 // throws with a string parameter
 assert.throws(TypeError, () => inst.toZonedDateTime("UTC"));
 
-var fakeGregorian = { toString() { return "gregory"; }};
+var fakeGregorian = { id: "gregory" };
 
 // time zone parameter UTC
 var timeZone = Temporal.TimeZone.from("UTC");

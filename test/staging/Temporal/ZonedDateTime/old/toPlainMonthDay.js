@@ -15,6 +15,7 @@ assert.sameValue(`${ zdt.toPlainMonthDay() }`, "10-29");
 
 // preserves the calendar
 var fakeGregorian = {
+  id: 'gregory',
   monthDayFromFields(fields) {
     var md = Temporal.Calendar.from("iso8601").monthDayFromFields(fields);
     var {isoYear, isoMonth, isoDay} = md.getISOFields();
@@ -22,7 +23,6 @@ var fakeGregorian = {
   },
   monthCode(date) { return date.withCalendar("iso8601").monthCode; },
   day(date) { return date.withCalendar("iso8601").day; },
-  toString() { return "gregory"; },
   fields(fieldNames) { return fieldNames; },
 };
 var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTime({

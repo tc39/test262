@@ -14,7 +14,7 @@ var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTim
 assert.sameValue(`${ zdt.toPlainDate() }`, "2019-10-29");
 
 // preserves the calendar
-const fakeGregorian = { toString() { return "gregory" }};
+const fakeGregorian = { id: 'gregory' };
 var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTime({
   timeZone: tz,
   calendar: fakeGregorian

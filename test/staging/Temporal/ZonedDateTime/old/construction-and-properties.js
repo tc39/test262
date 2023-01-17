@@ -66,7 +66,7 @@ var fakeGregorian = {
   daysInYear(date) { return date.withCalendar("iso8601").daysInYear; },
   monthsInYear(date) { return date.withCalendar("iso8601").monthsInYear; },
   inLeapYear(date) { return date.withCalendar("iso8601").inLeapYear; },
-  toString() { return "gregory"; },
+  id: "gregory",
 };
 var fakeVienna = {
   getOffsetNanosecondsFor() { return 3600_000_000_000; },

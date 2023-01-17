@@ -34,9 +34,7 @@ const expected = [
   "get this.timeZone[Symbol.toPrimitive]",
   "get this.timeZone.toString",
   "call this.timeZone.toString",
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
+  "get this.calendar.id",
 ];
 const actual = [];
 
@@ -84,9 +82,7 @@ const expectedForFractionalSecondDigits = [
   "get this.timeZone[Symbol.toPrimitive]",
   "get this.timeZone.toString",
   "call this.timeZone.toString",
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
+  "get this.calendar.id",
 ];
 
 instance.toString(

@@ -9,10 +9,10 @@ features: [Temporal]
 
 const tests = [
   [[], "05-02"],
-  [[{ toString() { return "custom"; } }], "1972-05-02[u-ca=custom]"],
-  [[{ toString() { return "iso8601"; } }], "05-02"],
-  [[{ toString() { return "ISO8601"; } }], "1972-05-02[u-ca=ISO8601]"],
-  [[{ toString() { return "\u0131so8601"; } }], "1972-05-02[u-ca=\u0131so8601]"], // dotless i
+  [[{ id: "custom" }], "1972-05-02[u-ca=custom]"],
+  [[{ id: "iso8601" }], "05-02"],
+  [[{ id: "ISO8601" }], "1972-05-02[u-ca=ISO8601]"],
+  [[{ id: "\u0131so8601" }], "1972-05-02[u-ca=\u0131so8601]"], // dotless i
 ];
 const options = {
   get calendarName() {
