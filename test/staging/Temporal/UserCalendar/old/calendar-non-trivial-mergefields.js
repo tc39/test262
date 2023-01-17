@@ -11,6 +11,9 @@ class CenturyCalendar extends Temporal.Calendar {
   constructor() {
     super("iso8601");
   }
+  get id() {
+    return 'century';
+  }
   toString() {
     return "century";
   }

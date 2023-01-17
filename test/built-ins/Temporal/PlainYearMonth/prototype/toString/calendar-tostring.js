@@ -4,14 +4,18 @@
 /*---
 esid: sec-temporal.plainyearmonth.protoype.tostring
 description: Number of observable 'toString' calls on the calendar for each value of calendarName
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
 let calls;
 const customCalendar = {
-  toString() {
+  get id() {
     ++calls;
     return "custom";
+  },
+  toString() {
+    TemporalHelpers.assertUnreachable('toString should not be called');
   }
 };
 const yearmonth = new Temporal.PlainYearMonth(2000, 5, customCalendar);
@@ -24,6 +28,6 @@ const yearmonth = new Temporal.PlainYearMonth(2000, 5, customCalendar);
 ].forEach(([calendarName, expectedResult, expectedCalls]) => {
   calls = 0;
   const result = yearmonth.toString({ calendarName });
-  assert.sameValue(result, expectedResult, `toString output for calendarName = ${calendarName}`);
-  assert.sameValue(calls, expectedCalls, `calls to toString for calendarName = ${calendarName}`);
+  assert.sameValue(result, expectedResult, `id for calendarName = ${calendarName}`);
+  assert.sameValue(calls, expectedCalls, `calls to id getter for calendarName = ${calendarName}`);
 });

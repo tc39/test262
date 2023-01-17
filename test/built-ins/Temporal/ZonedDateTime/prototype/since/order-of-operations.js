@@ -56,12 +56,8 @@ const expected = [
   "get other.timeZone.getOffsetNanosecondsFor",
   "call other.timeZone.getOffsetNanosecondsFor",
   // CalendarEquals
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
-  "get other.calendar[Symbol.toPrimitive]",
-  "get other.calendar.toString",
-  "call other.calendar.toString",
+  "get this.calendar.id",
+  "get other.calendar.id",
   // CopyDataProperties
   "ownKeys options",
   "getOwnPropertyDescriptor options.roundingIncrement",

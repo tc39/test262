@@ -10,7 +10,10 @@ includes: [temporalHelpers.js]
 
 let calls = 0;
 const cal = {
-  id: 'thisisnotiso',
+  get id() {
+    ++calls;
+    return "thisisnotiso";
+  },
   era() { return "the era"; },
   eraYear() { return 1909; },
   toString() {
@@ -39,4 +42,4 @@ assert.sameValue(
   cal,
   "calendar is unchanged with same calendars (2)"
 );
-assert.sameValue(calls, 0, "should not have called cal.toString()");
+assert.sameValue(calls, 0, "should not have called cal.toString() or accessed cal.id");

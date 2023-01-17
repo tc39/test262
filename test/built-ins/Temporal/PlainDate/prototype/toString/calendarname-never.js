@@ -9,10 +9,10 @@ features: [Temporal]
 
 const tests = [
   [[], "2000-05-02", "built-in ISO"],
-  [[{ toString() { return "custom"; } }], "2000-05-02", "custom"],
-  [[{ toString() { return "iso8601"; } }], "2000-05-02", "custom with iso8601 toString"],
-  [[{ toString() { return "ISO8601"; } }], "2000-05-02", "custom with caps toString"],
-  [[{ toString() { return "\u0131so8601"; } }], "2000-05-02", "custom with dotless i toString"],
+  [[{ id: "custom" }], "2000-05-02", "custom"],
+  [[{ id: "iso8601" }], "2000-05-02", "custom with iso8601 id"],
+  [[{ id: "ISO8601" }], "2000-05-02", "custom with caps id"],
+  [[{ id: "\u0131so8601" }], "2000-05-02", "custom with dotless i id"],
 ];
 
 for (const [args, expected, description] of tests) {

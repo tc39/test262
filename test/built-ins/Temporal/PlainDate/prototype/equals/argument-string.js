@@ -11,5 +11,5 @@ const instance = new Temporal.PlainDate(2000, 5, 2);
 assert.sameValue(instance.equals("2000-05-02"), true, "same date");
 assert.sameValue(instance.equals("2000-05-04"), false, "different date");
 
-const calendar = { toString() { return "a" } };
+const calendar = { id: "a" };
 assert.sameValue(instance.withCalendar(calendar).equals("2000-05-02"), false, "different calendar");

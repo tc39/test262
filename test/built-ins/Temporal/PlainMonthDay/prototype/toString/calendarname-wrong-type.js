@@ -16,7 +16,7 @@ features: [Temporal]
 ---*/
 
 const calendar = {
-  toString() { return "custom"; }
+  id: "custom",
 };
 const monthday = new Temporal.PlainMonthDay(5, 2, calendar);
 

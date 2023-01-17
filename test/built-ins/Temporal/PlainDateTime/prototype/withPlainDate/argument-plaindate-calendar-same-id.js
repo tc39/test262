@@ -9,13 +9,14 @@ includes: [temporalHelpers.js]
 ---*/
 
 const cal1 = {
-  toString() { return "this is a string"; },
+  id: "this is a string",
+  toString() { return "this is another string"; }
 };
 const cal2 = {
-  id: 'thisisnotiso',
+  id: "this is a string",
   era() { return undefined; },
   eraYear() { return undefined; },
-  toString() { return "this is a string"; },
+  toString() { return "thisisnotiso"; },
   year() { return 2008; },
   month() { return 9; },
   monthCode() { return "M09"; },

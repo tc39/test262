@@ -50,7 +50,7 @@ assert.throws(RangeError, () => Temporal.TimeZone.from("2020-05-26T16:02:46.2511
 assert.sameValue(obj.getOffsetStringFor(inst), "-00:00:01.111111111")
 
 // converts to DateTime
-var fakeGregorian = { toString() { return "gregory"; }};
+var fakeGregorian = { id: "gregory" };
 assert.sameValue(`${ obj.getPlainDateTimeFor(inst) }`, "1969-12-31T23:59:58.888888889");
 assert.sameValue(`${ obj.getPlainDateTimeFor(inst, fakeGregorian) }`, "1969-12-31T23:59:58.888888889[u-ca=gregory]");
 

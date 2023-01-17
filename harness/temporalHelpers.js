@@ -1520,7 +1520,8 @@ var TemporalHelpers = {
         // Remove the HasProperty check resulting from the above constructor call
         assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
         return result;
-      }
+      },
+      id: "iso8601",
     };
     // Automatically generate the other methods that don't need any custom code
     ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "daysInMonth", "fields", "mergeFields"].forEach((methodName) => {
