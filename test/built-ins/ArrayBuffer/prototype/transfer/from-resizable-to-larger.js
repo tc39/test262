@@ -42,7 +42,7 @@ assert.throws(TypeError, function() {
   source.slice();
 });
 
-assert.sameValue(dest.resizable, false, 'dest.resizable');
+assert.sameValue(dest.resizable, true, 'dest.resizable');
 assert.sameValue(dest.byteLength, 5, 'dest.byteLength');
 assert.sameValue(dest.maxByteLength, 5, 'dest.maxByteLength');
 
