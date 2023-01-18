@@ -18,9 +18,7 @@ var obj = {
     var epochNs = MakeDate(dayNum, time);
     return [new Temporal.Instant(epochNs)];
   },
-  toString() {
-    return "Etc/Custom/UTC_Protocol";
-  }
+  id: "Etc/Custom/UTC_Protocol",
 };
 var inst = Temporal.Instant.fromEpochNanoseconds(0n);
 

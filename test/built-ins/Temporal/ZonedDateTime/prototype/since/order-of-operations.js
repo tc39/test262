@@ -125,12 +125,8 @@ actual.splice(0); // clear
 // Making largestUnit a calendar unit adds the following observable operations:
 const expectedOpsForCalendarDifference = [
   // TimeZoneEquals
-  "get this.timeZone[Symbol.toPrimitive]",
-  "get this.timeZone.toString",
-  "call this.timeZone.toString",
-  "get other.timeZone[Symbol.toPrimitive]",
-  "get other.timeZone.toString",
-  "call other.timeZone.toString",
+  "get this.timeZone.id",
+  "get other.timeZone.id",
   // DifferenceZonedDateTime
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",

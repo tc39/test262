@@ -9,7 +9,7 @@ features: [Temporal]
 
 var tz = {
   getPossibleInstantsFor(pdt) { return Temporal.TimeZone.from("-05:00").getPossibleInstantsFor(pdt); },
-  toString() { return "America/New_York"; },
+  id: "America/New_York",
 };
 var cal = {
   dateFromFields(...args) { return Temporal.Calendar.from("iso8601").dateFromFields(...args); },
