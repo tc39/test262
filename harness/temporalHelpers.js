@@ -1798,6 +1798,10 @@ var TemporalHelpers = {
         return null;
       }
 
+      get id() {
+        return "Custom/Spring_Fall";
+      }
+
       toString() {
         return "Custom/Spring_Fall";
       }
@@ -1818,7 +1822,9 @@ var TemporalHelpers = {
    */
   timeZoneObserver(calls, objectName, methodOverrides = {}) {
     const utc = new Temporal.TimeZone("UTC");
-    const trackingMethods = {};
+    const trackingMethods = {
+      id: "UTC",
+    };
     // Automatically generate the methods
     ["getOffsetNanosecondsFor", "getPossibleInstantsFor", "toString"].forEach((methodName) => {
       trackingMethods[methodName] = function (...args) {
