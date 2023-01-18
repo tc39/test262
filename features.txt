@@ -248,6 +248,10 @@ json-modules
 # https://github.com/tc39/proposal-resizablearraybuffer
 resizable-arraybuffer
 
+# ArrayBuffer transfer
+# https://github.com/tc39/proposal-arraybuffer-transfer
+arraybuffer-transfer
+
 # Temporal
 # https://github.com/tc39/proposal-temporal
 Temporal
