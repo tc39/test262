@@ -8,10 +8,6 @@ features: [BigInt, Proxy, Temporal]
 ---*/
 const actual = [];
 
-const expected = [
-  'has timeZone.timeZone'
-];
-
 const calendar = function() {};
 
 const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
@@ -29,7 +25,7 @@ Object.defineProperty(Temporal.Calendar, 'from', {
 
 const result = Temporal.Now.zonedDateTime(calendar, timeZone);
 
-assert.compareArray(actual, expected, 'The value of actual is expected to equal the value of expected');
+assert.compareArray(actual, [], 'no observable operations should be invoked');
 
 for (const property of ['hour', 'minute', 'second', 'millisecond', 'microsecond', 'nanosecond']) {
   assert.sameValue(result[property], 0, 'The value of result[property] is expected to be 0');

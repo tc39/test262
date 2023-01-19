@@ -33,13 +33,4 @@ for (const thisValue of thisValues) {
   const fromZdt = Temporal.TimeZone.from.call(thisValue, zdt);
   assert.notSameValue(fromZdt, zdt.getTimeZone(), "from() creates a new object for a string slot value");
   assert.sameValue(fromZdt.id, "Africa/Cairo");
-
-  const tz = new Temporal.TimeZone("Africa/Cairo");
-  const fromPropertyBagObject = Temporal.TimeZone.from.call(thisValue, { timeZone: tz });
-  assert.sameValue(fromPropertyBagObject, tz);
-  assert.sameValue(fromPropertyBagObject.id, "Africa/Cairo");
-
-  const fromPropertyBagString = Temporal.TimeZone.from.call(thisValue, { timeZone: "Africa/Cairo" });
-  assert(fromPropertyBagString instanceof Temporal.TimeZone);
-  assert.sameValue(fromPropertyBagString.id, "Africa/Cairo");
 }

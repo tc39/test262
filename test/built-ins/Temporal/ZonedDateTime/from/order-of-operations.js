@@ -48,7 +48,6 @@ const expected = [
   "get item.year",
   "get item.year.valueOf",
   "call item.year.valueOf",
-  "has item.timeZone.timeZone",
   // InterpretTemporalDateTimeFields
   "get options.disambiguation",
   "get options.disambiguation.toString",

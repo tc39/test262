@@ -9,7 +9,6 @@ features: [BigInt, Proxy, Temporal]
 const actual = [];
 
 const expected = [
-  'has timeZone.timeZone',
   'get timeZone.getOffsetNanosecondsFor',
   'call timeZone.getOffsetNanosecondsFor'
 ];

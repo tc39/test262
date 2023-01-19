@@ -21,7 +21,6 @@ const rangeErrorTests = [
 
 for (const [timeZone, description] of rangeErrorTests) {
   assert.throws(RangeError, () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, timeZone }), `${description} does not convert to a valid ISO string`);
-  assert.throws(RangeError, () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, timeZone: { timeZone } }), `${description} does not convert to a valid ISO string (nested property)`);
 }
 
 const typeErrorTests = [
@@ -30,8 +29,4 @@ const typeErrorTests = [
 
 for (const [timeZone, description] of typeErrorTests) {
   assert.throws(TypeError, () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, timeZone }), `${description} is not a valid object and does not convert to a string`);
-  assert.throws(TypeError, () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, timeZone: { timeZone } }), `${description} is not a valid object and does not convert to a string (nested property)`);
 }
-
-const timeZone = undefined;
-assert.throws(RangeError, () => Temporal.ZonedDateTime.from({ year: 2000, month: 5, day: 2, timeZone: { timeZone } }), `undefined is always a RangeError as nested property`);

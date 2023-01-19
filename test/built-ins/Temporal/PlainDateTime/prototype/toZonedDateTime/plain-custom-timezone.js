@@ -10,7 +10,6 @@ features: [Temporal]
 
 const actual = [];
 const expected = [
-  "has timeZone.timeZone",
   "get options.disambiguation",
   "get options.disambiguation.toString",
   "call options.disambiguation.toString",
