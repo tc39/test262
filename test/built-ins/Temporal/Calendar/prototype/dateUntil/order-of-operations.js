@@ -11,7 +11,6 @@ features: [Temporal]
 const expected = [
   // ToTemporalDate 1 → GetTemporalCalendarWithISODefault
   "get one.calendar",
-  "has one.calendar.calendar",
   // ToTemporalDate 1 → CalendarFields
   "get one.calendar.fields",
   "call one.calendar.fields",
@@ -33,7 +32,6 @@ const expected = [
   "call one.calendar.dateFromFields",
   // ToTemporalDate 2 → GetTemporalCalendarWithISODefault
   "get two.calendar",
-  "has two.calendar.calendar",
   // ToTemporalDate 2 → CalendarFields
   "get two.calendar.fields",
   "call two.calendar.fields",

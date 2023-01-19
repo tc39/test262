@@ -1475,10 +1475,7 @@ var TemporalHelpers = {
         const originalResult = iso8601.dateFromFields(...args);
         // Replace the calendar in the result with the call-tracking calendar
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
+        return new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
       },
       yearMonthFromFields(...args) {
         calls.push(`call ${objectName}.yearMonthFromFields`);
@@ -1489,10 +1486,7 @@ var TemporalHelpers = {
         const originalResult = iso8601.yearMonthFromFields(...args);
         // Replace the calendar in the result with the call-tracking calendar
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
+        return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
       },
       monthDayFromFields(...args) {
         calls.push(`call ${objectName}.monthDayFromFields`);
@@ -1503,10 +1497,7 @@ var TemporalHelpers = {
         const originalResult = iso8601.monthDayFromFields(...args);
         // Replace the calendar in the result with the call-tracking calendar
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
+        return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
       },
       dateAdd(...args) {
         calls.push(`call ${objectName}.dateAdd`);
@@ -1516,10 +1507,7 @@ var TemporalHelpers = {
         }
         const originalResult = iso8601.dateAdd(...args);
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
+        return new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
       },
       id: "iso8601",
     };

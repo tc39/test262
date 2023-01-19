@@ -10,7 +10,6 @@ features: [Temporal]
 
 const expected = [
   "get other.calendar",
-  "has other.calendar.calendar",
   "get other.calendar.fields",
   "call other.calendar.fields",
   // PrepareTemporalFields

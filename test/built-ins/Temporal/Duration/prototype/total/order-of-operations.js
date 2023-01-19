@@ -36,7 +36,6 @@ const expectedOpsForPlainRelativeTo = [
   // ToRelativeTemporalObject
   "get options.relativeTo",
   "get options.relativeTo.calendar",
-  "has options.relativeTo.calendar.calendar",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   "get options.relativeTo.day",
@@ -144,7 +143,6 @@ const expectedOpsForZonedRelativeTo = [
   // ToRelativeTemporalObject
   "get options.relativeTo",
   "get options.relativeTo.calendar",
-  "has options.relativeTo.calendar.calendar",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   "get options.relativeTo.day",

@@ -71,7 +71,6 @@ actual.splice(0); // clear
 const expectedOpsForPlainRelativeTo = expected.concat([
   // ToRelativeTemporalObject
   "get options.relativeTo.calendar",
-  "has options.relativeTo.calendar.calendar",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   // PrepareTemporalFields
@@ -136,7 +135,6 @@ actual.splice(0); // clear
 const expectedOpsForZonedRelativeTo = expected.concat([
   // ToRelativeTemporalObject
   "get options.relativeTo.calendar",
-  "has options.relativeTo.calendar.calendar",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   // PrepareTemporalFields

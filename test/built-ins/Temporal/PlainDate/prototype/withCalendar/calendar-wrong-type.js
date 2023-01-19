@@ -22,7 +22,6 @@ const rangeErrorTests = [
 
 for (const [arg, description] of rangeErrorTests) {
   assert.throws(RangeError, () => instance.withCalendar(arg), `${description} does not convert to a valid ISO string`);
-  assert.throws(RangeError, () => instance.withCalendar({ calendar: arg }), `${description} does not convert to a valid ISO string (in property bag)`);
 }
 
 const typeErrorTests = [
@@ -31,5 +30,4 @@ const typeErrorTests = [
 
 for (const [arg, description] of typeErrorTests) {
   assert.throws(TypeError, () => instance.withCalendar(arg), `${description} is not a valid object and does not convert to a string`);
-  assert.throws(TypeError, () => instance.withCalendar({ calendar: arg }), `${description} is not a valid object and does not convert to a string (in property bag)`);
 }
