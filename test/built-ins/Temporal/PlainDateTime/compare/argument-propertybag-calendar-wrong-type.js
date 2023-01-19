@@ -19,13 +19,9 @@ const rangeErrorTests = [
 ];
 
 for (const [calendar, description] of rangeErrorTests) {
-  let arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(RangeError, () => Temporal.PlainDateTime.compare(arg, new Temporal.PlainDateTime(1976, 11, 18)), `${description} does not convert to a valid ISO string (first argument)`);
   assert.throws(RangeError, () => Temporal.PlainDateTime.compare(new Temporal.PlainDateTime(1976, 11, 18), arg), `${description} does not convert to a valid ISO string (second argument)`);
-
-  arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(RangeError, () => Temporal.PlainDateTime.compare(arg, new Temporal.PlainDateTime(1976, 11, 18)), `${description} does not convert to a valid ISO string (nested property, first argument)`);
-  assert.throws(RangeError, () => Temporal.PlainDateTime.compare(new Temporal.PlainDateTime(1976, 11, 18), arg), `${description} does not convert to a valid ISO string (nested property, second argument)`);
 }
 
 const typeErrorTests = [
@@ -36,15 +32,7 @@ const typeErrorTests = [
 ];
 
 for (const [calendar, description] of typeErrorTests) {
-  let arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(TypeError, () => Temporal.PlainDateTime.compare(arg, new Temporal.PlainDateTime(1976, 11, 18)), `${description} is not a valid property bag and does not convert to a string (first argument)`);
   assert.throws(TypeError, () => Temporal.PlainDateTime.compare(new Temporal.PlainDateTime(1976, 11, 18), arg), `${description} is not a valid property bag and does not convert to a string (second argument)`);
-
-  arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(TypeError, () => Temporal.PlainDateTime.compare(arg, new Temporal.PlainDateTime(1976, 11, 18)), `${description} is not a valid property bag and does not convert to a string (nested property, first argument)`);
-  assert.throws(TypeError, () => Temporal.PlainDateTime.compare(new Temporal.PlainDateTime(1976, 11, 18), arg), `${description} is not a valid property bag and does not convert to a string (nested property, second argument)`);
 }
-
-const arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar: undefined } };
-assert.throws(RangeError, () => Temporal.PlainDateTime.compare(arg, new Temporal.PlainDateTime(1976, 11, 18)), `nested undefined calendar property is always a RangeError (first argument)`);
-assert.throws(RangeError, () => Temporal.PlainDateTime.compare(new Temporal.PlainDateTime(1976, 11, 18), arg), `nested undefined calendar property is always a RangeError (second argument)`);

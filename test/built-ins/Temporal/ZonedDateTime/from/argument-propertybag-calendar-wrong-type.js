@@ -18,11 +18,8 @@ const rangeErrorTests = [
 ];
 
 for (const [calendar, description] of rangeErrorTests) {
-  let arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(RangeError, () => Temporal.ZonedDateTime.from(arg), `${description} does not convert to a valid ISO string`);
-
-  arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(RangeError, () => Temporal.ZonedDateTime.from(arg), `${description} does not convert to a valid ISO string (nested property)`);
 }
 
 const typeErrorTests = [
@@ -33,12 +30,6 @@ const typeErrorTests = [
 ];
 
 for (const [calendar, description] of typeErrorTests) {
-  let arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(TypeError, () => Temporal.ZonedDateTime.from(arg), `${description} is not a valid property bag and does not convert to a string`);
-
-  arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(TypeError, () => Temporal.ZonedDateTime.from(arg), `${description} is not a valid property bag and does not convert to a string (nested property)`);
 }
-
-const arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar: undefined } };
-assert.throws(RangeError, () => Temporal.ZonedDateTime.from(arg), `nested undefined calendar property is always a RangeError`);

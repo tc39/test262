@@ -9,18 +9,10 @@ features: [Temporal]
 
 const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", { id: "replace-me" });
 
-let arg = "2016-12-31T23:59:60";
-const result1 = instance.withCalendar(arg);
+const arg = "2016-12-31T23:59:60";
+const result = instance.withCalendar(arg);
 assert.sameValue(
-  result1.calendarId,
+  result.calendarId,
   "iso8601",
   "leap second is a valid ISO string for Calendar"
-);
-
-arg = { calendar: "2016-12-31T23:59:60" };
-const result2 = instance.withCalendar(arg);
-assert.sameValue(
-  result2.calendarId,
-  "iso8601",
-  "leap second is a valid ISO string for Calendar (nested property)"
 );

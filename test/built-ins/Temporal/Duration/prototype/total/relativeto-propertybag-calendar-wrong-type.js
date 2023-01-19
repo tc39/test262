@@ -22,11 +22,8 @@ const rangeErrorTests = [
 ];
 
 for (const [calendar, description] of rangeErrorTests) {
-  let relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(RangeError, () => instance.total({ unit: "days", relativeTo }), `${description} does not convert to a valid ISO string`);
-
-  relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(RangeError, () => instance.total({ unit: "days", relativeTo }), `${description} does not convert to a valid ISO string (nested property)`);
 }
 
 const typeErrorTests = [
@@ -39,12 +36,6 @@ const typeErrorTests = [
 ];
 
 for (const [calendar, description] of typeErrorTests) {
-  let relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(TypeError, () => instance.total({ unit: "days", relativeTo }), `${description} is not a valid property bag and does not convert to a string`);
-
-  relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(TypeError, () => instance.total({ unit: "days", relativeTo }), `${description} is not a valid property bag and does not convert to a string (nested property)`);
 }
-
-const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar: undefined } };
-assert.throws(RangeError, () => instance.total({ unit: "days", relativeTo }), `nested undefined calendar property is always a RangeError`);

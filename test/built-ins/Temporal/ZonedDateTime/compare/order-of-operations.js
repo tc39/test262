@@ -10,7 +10,6 @@ features: [Temporal]
 
 const expected = [
   "get one.calendar",
-  "has one.calendar.calendar",
   "get one.calendar.fields",
   "call one.calendar.fields",
   // PrepareTemporalFields
@@ -58,7 +57,6 @@ const expected = [
   "call one.timeZone.getOffsetNanosecondsFor",
   // Same set of operations, for the other argument:
   "get two.calendar",
-  "has two.calendar.calendar",
   "get two.calendar.fields",
   "call two.calendar.fields",
   // PrepareTemporalFields

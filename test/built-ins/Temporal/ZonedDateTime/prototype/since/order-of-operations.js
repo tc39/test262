@@ -11,7 +11,6 @@ features: [Temporal]
 const expected = [
   // ToTemporalZonedDateTime
   "get other.calendar",
-  "has other.calendar.calendar",
   "get other.calendar.fields",
   "call other.calendar.fields",
   "get other.day",

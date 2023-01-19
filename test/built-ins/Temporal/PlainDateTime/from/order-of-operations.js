@@ -11,7 +11,6 @@ features: [Temporal]
 const expected = [
   // GetTemporalCalendarWithISODefault
   "get fields.calendar",
-  "has fields.calendar.calendar",
   // CalendarFields
   "get fields.calendar.fields",
   "call fields.calendar.fields",
