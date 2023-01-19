@@ -177,8 +177,6 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   // InterpretTemporalDateTimeFields
   "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
-  // ToRelativeTemporalObject again
-  "has options.relativeTo.timeZone.timeZone",
   // InterpretISODateTimeOffset
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",

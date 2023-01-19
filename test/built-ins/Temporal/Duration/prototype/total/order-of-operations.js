@@ -183,7 +183,6 @@ const expectedOpsForZonedRelativeTo = [
   "call options.relativeTo.year.valueOf",
   "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
-  "has options.relativeTo.timeZone.timeZone",
   // InterpretISODateTimeOffset
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",

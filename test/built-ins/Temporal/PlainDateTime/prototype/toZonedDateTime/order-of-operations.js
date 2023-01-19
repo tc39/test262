@@ -9,8 +9,6 @@ features: [Temporal]
 ---*/
 
 const expected = [
-  // ToTemporalTimeZone
-  "has timeZone.timeZone",
   // ToTemporalDisambiguation
   "get options.disambiguation",
   "get options.disambiguation.toString",

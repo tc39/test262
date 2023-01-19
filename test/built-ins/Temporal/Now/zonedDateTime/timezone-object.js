@@ -8,24 +8,6 @@ features: [BigInt, Proxy, Temporal]
 ---*/
 const actual = [];
 
-const expected = [
-  'has timeZone.timeZone',
-  'get timeZone.timeZone',
-  'has nestedTimeZone.timeZone'
-];
-
-const nestedTimeZone = TemporalHelpers.timeZoneObserver(actual, "nestedTimeZone", {
-  getOffsetNanosecondsFor(instant) {
-    assert.sameValue(
-      instant instanceof Temporal.Instant,
-      true,
-      'The result of evaluating (instant instanceof Temporal.Instant) is expected to be true'
-    );
-
-    return -Number(instant.epochNanoseconds % 86400000000000n);
-  }
-});
-
 const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
   getOffsetNanosecondsFor(instant) {
     assert.sameValue(
@@ -37,7 +19,6 @@ const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
     return -Number(instant.epochNanoseconds % 86400000000000n);
   }
 });
-timeZone.timeZone = nestedTimeZone;
 
 Object.defineProperty(Temporal.TimeZone, 'from', {
   get() {
@@ -47,4 +28,4 @@ Object.defineProperty(Temporal.TimeZone, 'from', {
 });
 
 Temporal.Now.zonedDateTime('iso8601', timeZone);
-assert.compareArray(actual, expected, 'The value of actual is expected to equal the value of expected');
+assert.compareArray(actual, [], 'no observable operations should be invoked');

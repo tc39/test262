@@ -48,7 +48,6 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
-  "has other.timeZone.timeZone",
   "get other.calendar.dateFromFields",
   "call other.calendar.dateFromFields",
   "get other.timeZone.getPossibleInstantsFor",

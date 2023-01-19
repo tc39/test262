@@ -19,7 +19,6 @@ const expected = [
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
   "get options.timeZone",
-  "has options.timeZone.timeZone",
   "get options.timeZone.getOffsetNanosecondsFor",
   "call options.timeZone.getOffsetNanosecondsFor",
   "get options.timeZone.getOffsetNanosecondsFor",

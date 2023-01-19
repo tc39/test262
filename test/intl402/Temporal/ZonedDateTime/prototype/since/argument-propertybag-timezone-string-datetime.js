@@ -11,12 +11,9 @@ const expectedTimeZone = "America/Vancouver";
 const instance = new Temporal.ZonedDateTime(0n, expectedTimeZone);
 let timeZone = "2021-08-19T17:30[America/Vancouver]";
 instance.since({ year: 2020, month: 5, day: 2, timeZone });
-instance.since({ year: 2020, month: 5, day: 2, timeZone: { timeZone } });
 
 timeZone = "2021-08-19T17:30Z[America/Vancouver]";
 instance.since({ year: 2020, month: 5, day: 2, timeZone });
-instance.since({ year: 2020, month: 5, day: 2, timeZone: { timeZone } });
 
 timeZone = "2021-08-19T17:30-07:00[America/Vancouver]";
 instance.since({ year: 2020, month: 5, day: 2, timeZone });
-instance.since({ year: 2020, month: 5, day: 2, timeZone: { timeZone } });
