@@ -23,6 +23,7 @@ function formatPropertyName(propertyKey, objectName = "") {
       return objectName ? `${objectName}.${propertyKey}` : propertyKey;
   }
 }
+const SKIP_SYMBOL = Symbol("Skip");
 
 var TemporalHelpers = {
   /*
@@ -252,7 +253,7 @@ var TemporalHelpers = {
     Object.entries(expectedLargestUnitCalls).forEach(([largestUnit, expected], index) => {
       func(calendar, largestUnit, index);
       assert.compareArray(actual, expected, `largestUnit passed to calendar.dateUntil() for largestUnit ${largestUnit}`);
-      actual.splice(0, actual.length); // empty it for the next check
+      actual.splice(0); // empty it for the next check
     });
   },
 
@@ -1382,6 +1383,52 @@ var TemporalHelpers = {
   },
 
   /*
+   * observeMethod(calls, object, propertyName, value):
+   *
+   * Defines an own property @object.@propertyName with value @value, that
+   * will log any calls of @value to the array @calls.
+   */
+  observeMethod(calls, object, propertyName, objectName = "") {
+    const method = object[propertyName];
+    object[propertyName] = function () {
+      calls.push(`call ${formatPropertyName(propertyName, objectName)}`);
+      return method.apply(object, arguments);
+    };
+  },
+
+  /*
+   * Used for substituteMethod to indicate default behavior instead of a
+   * substituted value
+   */
+  SUBSTITUTE_SKIP: SKIP_SYMBOL,
+
+  /*
+   * substituteMethod(object, propertyName, values):
+   *
+   * Defines an own property @object.@propertyName that will, for each
+   * subsequent call to the method previously defined as
+   * @object.@propertyName:
+   *  - Call the method, if no more values remain
+   *  - Call the method, if the value in @values for the corresponding call
+   *    is SUBSTITUTE_SKIP
+   *  - Otherwise, return the corresponding value in @value
+   */
+  substituteMethod(object, propertyName, values) {
+    let calls = 0;
+    const method = object[propertyName];
+    object[propertyName] = function () {
+      if (calls >= values.length) {
+        return method.apply(object, arguments);
+      } else if (values[calls] === SKIP_SYMBOL) {
+        calls++;
+        return method.apply(object, arguments);
+      } else {
+        return values[calls++];
+      }
+    };
+  },
+
+  /*
    * calendarObserver:
    * A custom calendar that behaves exactly like the ISO 8601 calendar but
    * tracks calls to any of its methods, and Get/Has operations on its
@@ -1449,7 +1496,7 @@ var TemporalHelpers = {
       }
     };
     // Automatically generate the other methods that don't need any custom code
-    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "fields", "mergeFields"].forEach((methodName) => {
+    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "daysInMonth", "fields", "mergeFields"].forEach((methodName) => {
       trackingMethods[methodName] = function (...args) {
         actual.push(`call ${formatPropertyName(methodName, objectName)}`);
         if (methodName in methodOverrides) {
@@ -1799,17 +1846,60 @@ var TemporalHelpers = {
    */
   ISO: {
     /*
+     * PlainMonthDay strings that are not valid.
+     */
+    plainMonthDayStringsInvalid() {
+      return [
+        "11-18junk",
+      ];
+    },
+
+    /*
+     * PlainMonthDay strings that are valid and that should produce October 1st.
+     */
+    plainMonthDayStringsValid() {
+      return [
+        "10-01",
+        "1001",
+        "1965-10-01",
+        "1976-10-01T152330.1+00:00",
+        "19761001T15:23:30.1+00:00",
+        "1976-10-01T15:23:30.1+0000",
+        "1976-10-01T152330.1+0000",
+        "19761001T15:23:30.1+0000",
+        "19761001T152330.1+00:00",
+        "19761001T152330.1+0000",
+        "+001976-10-01T152330.1+00:00",
+        "+0019761001T15:23:30.1+00:00",
+        "+001976-10-01T15:23:30.1+0000",
+        "+001976-10-01T152330.1+0000",
+        "+0019761001T15:23:30.1+0000",
+        "+0019761001T152330.1+00:00",
+        "+0019761001T152330.1+0000",
+        "1976-10-01T15:23:00",
+        "1976-10-01T15:23",
+        "1976-10-01T15",
+        "1976-10-01",
+        "--10-01",
+        "--1001",
+      ];
+    },
+
+    /*
      * PlainTime strings that may be mistaken for PlainMonthDay or
      * PlainYearMonth strings, and so require a time designator.
      */
     plainTimeStringsAmbiguous() {
       const ambiguousStrings = [
         "2021-12",  // ambiguity between YYYY-MM and HHMM-UU
+        "2021-12[-12:00]",  // ditto, TZ does not disambiguate
         "1214",     // ambiguity between MMDD and HHMM
         "0229",     //   ditto, including MMDD that doesn't occur every year
         "1130",     //   ditto, including DD that doesn't occur in every month
         "12-14",    // ambiguity between MM-DD and HH-UU
+        "12-14[-14:00]",  // ditto, TZ does not disambiguate
         "202112",   // ambiguity between YYYYMM and HHMMSS
+        "202112[UTC]",  // ditto, TZ does not disambiguate
       ];
       // Adding a calendar annotation to one of these strings must not cause
       // disambiguation in favour of time.
@@ -1839,9 +1929,59 @@ var TemporalHelpers = {
         "0631",             // 31 is not a day in June
         "0000",             // 0 is neither a month nor a day
         "00-00",            //   ditto
-        "2021-12[-12:00]",  // HHMM-UU is ambiguous with YYYY-MM, but TZ disambiguates
-        "202112[UTC]",      // HHMMSS is ambiguous with YYYYMM, but TZ disambiguates
       ];
-    }
+    },
+
+    /*
+     * PlainYearMonth-like strings that are not valid.
+     */
+    plainYearMonthStringsInvalid() {
+      return [
+        "2020-13",
+      ];
+    },
+
+    /*
+     * PlainYearMonth-like strings that are valid and should produce November
+     * 1976 in the ISO 8601 calendar.
+     */
+    plainYearMonthStringsValid() {
+      return [
+        "1976-11",
+        "1976-11-10",
+        "1976-11-01T09:00:00+00:00",
+        "1976-11-01T00:00:00+05:00",
+        "197611",
+        "+00197611",
+        "1976-11-18T15:23:30.1\u221202:00",
+        "1976-11-18T152330.1+00:00",
+        "19761118T15:23:30.1+00:00",
+        "1976-11-18T15:23:30.1+0000",
+        "1976-11-18T152330.1+0000",
+        "19761118T15:23:30.1+0000",
+        "19761118T152330.1+00:00",
+        "19761118T152330.1+0000",
+        "+001976-11-18T152330.1+00:00",
+        "+0019761118T15:23:30.1+00:00",
+        "+001976-11-18T15:23:30.1+0000",
+        "+001976-11-18T152330.1+0000",
+        "+0019761118T15:23:30.1+0000",
+        "+0019761118T152330.1+00:00",
+        "+0019761118T152330.1+0000",
+        "1976-11-18T15:23",
+        "1976-11-18T15",
+        "1976-11-18",
+      ];
+    },
+
+    /*
+     * PlainYearMonth-like strings that are valid and should produce November of
+     * the ISO year -9999.
+     */
+    plainYearMonthStringsValidNegativeYear() {
+      return [
+        "\u2212009999-11",
+      ];
+    },
   }
 };

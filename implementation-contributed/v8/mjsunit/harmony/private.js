@@ -248,7 +248,7 @@ function TestKeyGet(obj) {
 function TestKeyHas() {
   for (var i in symbols) {
     assertTrue(symbols[i] in obj)
-    assertTrue(Object.hasOwnProperty.call(obj, symbols[i]))
+    assertTrue(Object.prototype.hasOwnProperty.call(obj, symbols[i]))
   }
 }
 

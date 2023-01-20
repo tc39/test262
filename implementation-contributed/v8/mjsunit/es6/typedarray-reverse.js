@@ -48,7 +48,7 @@ for (var constructor of arrayConstructors) {
     var x = { length: 2, 1: 5 };
     a.reverse.call(x);
     assertEquals(2, x.length);
-    assertFalse(Object.hasOwnProperty(x, '1'));
+    assertFalse(Object.prototype.hasOwnProperty.call(x, '1'));
     assertEquals(5, x[0]);
   }
 
