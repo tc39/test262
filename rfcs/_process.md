@@ -25,14 +25,14 @@ You need to follow this process if you intend to make "substantial" changes to t
 What constitutes a "substantial" change is evolving based on community norms, but may include the following.
 
 - Additions or changes to [INTERPRETING.md](https://github.com/tc39/test262/blob/main/INTERPRETING.md) that require consumers of the test suite to make changes to their test runners.
-- Additions to [features.txt](https://github.com/tc39/test262/blob/main/features.txt) that are not new Stage 3 proposals, or removals of feature flags.
-- Substantial changes and new features in the [harness files](https://github.com/tc39/test262/tree/main/harness).
+- Changes and new features in the [harness files](https://github.com/tc39/test262/tree/main/harness) that affect downstream consumers of the test suite.
+- Large changes and new features that may benefit from discussion among test262 stakeholders.
 
 Some changes do not require an RFC:
 
 - Adding test coverage.
 - Bug fixes.
-- Adding features to [features.txt](https://github.com/tc39/test262/blob/main/features.txt) that are new Stage 3 proposals.
+- Adding features to [features.txt](https://github.com/tc39/test262/blob/main/features.txt).
 - Bug fixes to the [harness files](https://github.com/tc39/test262/tree/main/harness).
 
 If you submit a pull request for a "substantial" change without going through the RFC process, it may be closed with a polite request to submit an RFC first.
@@ -42,7 +42,7 @@ If you submit a pull request for a "substantial" change without going through th
 Laying some groundwork ahead of the RFC can make the process smoother.
 Getting people to agree with an RFC often requires some effort towards consensus-building.
 
-The most common preparations for writing and submitting an RFC include talking the idea over on our [Matrix channel](https://matrix.to/#/#test262-maintainers:matrix.org), discussing the topic on our [discussion forum](https://es.discourse.group/c/test262/FIXME), and occasionally posting "pre-RFCs" on the forum.
+The most common preparations for writing and submitting an RFC include talking the idea over on our [Matrix channel](https://matrix.to/#/#test262-maintainers:matrix.org), and opening a "pre-RFC" [issue](https://github.com/tc39/test262/issues) on GitHub.
 
 As a rule of thumb, receiving encouraging feedback from consumers of the test suite or the maintainers is a good indication that the RFC is worth pursuing.
 
@@ -85,10 +85,10 @@ At that point the RFC is "active" and may be implemented with the goal of eventu
     This requires the usual "consensus minus one".
 
 - The FCP lasts 10 calendar days, so that it is open for at least 5 business days, absent holidays.
-  It is also advertised widely, e.g. on the discussion forum and in the [TC39 General](https://matrix.to/#/#tc39-general:matrix.org) Matrix channel.
+  It is advertised in the [TC39 General](https://matrix.to/#/#tc39-general:matrix.org), [TC39 Implementers](https://matrix.to/#/#tc39-implementers:matrix.org), and [Test262 Maintainers](https://matrix.to/#/#test262-maintainers:matrix.org) Matrix channels.
   This way all stakeholders have a chance to lodge any final objections before a decision is reached.
 
-- In most cases, the FCP period is quiet, and the RFC is either merged or closed.
+- In most cases, the FCP is quiet, and the RFC is either merged or closed.
   However, sometimes substantial new arguments or ideas are raised, the FCP is canceled, and the RFC goes back into development mode.
 
 ## The RFC life-cycle
