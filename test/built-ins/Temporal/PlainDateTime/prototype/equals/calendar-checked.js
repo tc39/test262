@@ -11,7 +11,28 @@ features: [Temporal]
 const actual = [];
 
 function makeCalendar(id, objectName) {
-  const calendar = {};
+  const calendar = {
+    dateAdd() {},
+    dateFromFields() {},
+    dateUntil() {},
+    day() {},
+    dayOfWeek() {},
+    dayOfYear() {},
+    daysInMonth() {},
+    daysInWeek() {},
+    daysInYear() {},
+    fields() {},
+    inLeapYear() {},
+    mergeFields() {},
+    month() {},
+    monthCode() {},
+    monthDayFromFields() {},
+    monthsInYear() {},
+    weekOfYear() {},
+    year() {},
+    yearMonthFromFields() {},
+    yearOfWeek() {},
+  };
   TemporalHelpers.observeProperty(actual, calendar, "id", id, objectName);
   return calendar;
 }
@@ -36,10 +57,50 @@ assert.sameValue(dt1.equals(dt3), false, "different calendar string");
 assert.compareArray(actual, ["get calendar1.id", "get calendar3.id"]);
 
 const calendar4 = {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
   get id() { TemporalHelpers.assertUnreachable('should not get calendar4.id'); },
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
 };
 const calendar5 = {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
   get id() { TemporalHelpers.assertUnreachable('should not get calendar5.id'); },
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
 };
 const dt4 = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, calendar4);
 const dt5 = new Temporal.PlainDateTime(2019, 10, 29, 10, 46, 38, 271, 986, 102, calendar4);

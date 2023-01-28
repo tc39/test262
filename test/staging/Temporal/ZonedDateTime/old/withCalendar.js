@@ -10,7 +10,29 @@ features: [Temporal]
 var zdt = Temporal.ZonedDateTime.from("2019-11-18T15:23:30.123456789-08:00[-08:00]");
 
 // zonedDateTime.withCalendar(japanese) works
-var cal = { id: 'japanese', toString() { return 'japanese'; } };
+var cal = {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  id: "japanese",
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
+};
 assert.sameValue(`${ zdt.withCalendar(cal) }`, "2019-11-18T15:23:30.123456789-08:00[-08:00][u-ca=japanese]");
 
 // keeps instant and time zone the same

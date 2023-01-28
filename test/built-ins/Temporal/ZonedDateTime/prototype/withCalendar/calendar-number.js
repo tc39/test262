@@ -7,7 +7,29 @@ description: A number is converted to a string, then to Temporal.Calendar
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", { id: "replace-me" });
+const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  id: "replace-me",
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
+});
 
 const arg = 19761118;
 

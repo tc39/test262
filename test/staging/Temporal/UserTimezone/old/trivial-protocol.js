@@ -30,7 +30,29 @@ var zdt = new Temporal.ZonedDateTime(0n, obj);
 assert.sameValue(zdt.toString(), "1970-01-01T00:00:00+00:00[Etc/Custom/UTC_Protocol]");
 
 // works in Temporal.Now
-var fakeGregorian = { id: "gregory" };
+var fakeGregorian = {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  id: "gregory",
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
+};
 assert(Temporal.Now.plainDateTimeISO(obj) instanceof Temporal.PlainDateTime);
 assert(Temporal.Now.plainDateTime(fakeGregorian, obj) instanceof Temporal.PlainDateTime);
 assert(Temporal.Now.plainDateISO(obj) instanceof Temporal.PlainDate);

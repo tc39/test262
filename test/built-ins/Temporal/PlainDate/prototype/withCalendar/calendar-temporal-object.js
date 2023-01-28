@@ -31,7 +31,29 @@ const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UT
     },
   });
 
-  const instance = new Temporal.PlainDate(1976, 11, 18, { id: "replace-me" });
+  const instance = new Temporal.PlainDate(1976, 11, 18, {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  id: "replace-me",
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
+});
   const result = instance.withCalendar(arg);
   assert.sameValue(result.getISOFields().calendar, calendar, "Temporal object coerced to calendar");
 
