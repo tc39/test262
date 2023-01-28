@@ -47,6 +47,9 @@ const expected = [
   "get one.year",
   "get one.year.valueOf",
   "call one.year.valueOf",
+  "has one.timeZone.getOffsetNanosecondsFor",
+  "has one.timeZone.getPossibleInstantsFor",
+  "has one.timeZone.id",
   // InterpretTemporalDateTimeFields
   "get one.calendar.dateFromFields",
   "call one.calendar.dateFromFields",
@@ -94,6 +97,9 @@ const expected = [
   "get two.year",
   "get two.year.valueOf",
   "call two.year.valueOf",
+  "has two.timeZone.getOffsetNanosecondsFor",
+  "has two.timeZone.getPossibleInstantsFor",
+  "has two.timeZone.id",
   // InterpretTemporalDateTimeFields
   "get two.calendar.dateFromFields",
   "call two.calendar.dateFromFields",

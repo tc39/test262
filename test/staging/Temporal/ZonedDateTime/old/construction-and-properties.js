@@ -70,6 +70,7 @@ var fakeGregorian = {
 };
 var fakeVienna = {
   getOffsetNanosecondsFor() { return 3600_000_000_000; },
+  getPossibleInstantsFor(datetime) { return [datetime.toZonedDateTime("+01:00").toInstant()]; },
   id: "Europe/Vienna",
 }
 var zdt = new Temporal.ZonedDateTime(epochNanos, fakeVienna, fakeGregorian);

@@ -9,6 +9,11 @@ features: [Temporal]
 ---*/
 
 const actual = [];
+const expected = [
+  "has timeZone.getOffsetNanosecondsFor",
+  "has timeZone.getPossibleInstantsFor",
+  "has timeZone.id",
+];
 
 const instant = Temporal.Instant.from("1975-02-02T14:25:36.123456789Z");
 const calendar = Temporal.Calendar.from("iso8601");
@@ -19,4 +24,4 @@ const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
 const result = instant.toZonedDateTime({ timeZone, calendar });
 assert.sameValue(result.epochNanoseconds, instant.epochNanoseconds);
 
-assert.compareArray(actual, []);
+assert.compareArray(actual, expected);

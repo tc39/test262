@@ -47,6 +47,9 @@ const expected = [
   "get item.year",
   "get item.year.valueOf",
   "call item.year.valueOf",
+  "has item.timeZone.getOffsetNanosecondsFor",
+  "has item.timeZone.getPossibleInstantsFor",
+  "has item.timeZone.id",
   // InterpretTemporalDateTimeFields
   "get options.disambiguation",
   "get options.disambiguation.toString",
