@@ -14,7 +14,29 @@ var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTim
 assert.sameValue(`${ zdt.toPlainDate() }`, "2019-10-29");
 
 // preserves the calendar
-const fakeGregorian = { id: 'gregory' };
+const fakeGregorian = {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  id: "gregory",
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
+};
 var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTime({
   timeZone: tz,
   calendar: fakeGregorian

@@ -1464,6 +1464,34 @@ var TemporalHelpers = {
    * objectName is used in the log.
    */
   calendarObserver(calls, objectName, methodOverrides = {}) {
+    function removeExtraHasPropertyChecks(objectName, calls) {
+      // Inserting the tracking calendar into the return values of methods
+      // that we chain up into the ISO calendar for, causes extra HasProperty
+      // checks, which we observe. This removes them so that we don't leak
+      // implementation details of the helper into the test code.
+      assert.sameValue(calls.pop(), `has ${objectName}.yearOfWeek`);
+      assert.sameValue(calls.pop(), `has ${objectName}.yearMonthFromFields`);
+      assert.sameValue(calls.pop(), `has ${objectName}.year`);
+      assert.sameValue(calls.pop(), `has ${objectName}.weekOfYear`);
+      assert.sameValue(calls.pop(), `has ${objectName}.monthsInYear`);
+      assert.sameValue(calls.pop(), `has ${objectName}.monthDayFromFields`);
+      assert.sameValue(calls.pop(), `has ${objectName}.monthCode`);
+      assert.sameValue(calls.pop(), `has ${objectName}.month`);
+      assert.sameValue(calls.pop(), `has ${objectName}.mergeFields`);
+      assert.sameValue(calls.pop(), `has ${objectName}.inLeapYear`);
+      assert.sameValue(calls.pop(), `has ${objectName}.id`);
+      assert.sameValue(calls.pop(), `has ${objectName}.fields`);
+      assert.sameValue(calls.pop(), `has ${objectName}.daysInYear`);
+      assert.sameValue(calls.pop(), `has ${objectName}.daysInWeek`);
+      assert.sameValue(calls.pop(), `has ${objectName}.daysInMonth`);
+      assert.sameValue(calls.pop(), `has ${objectName}.dayOfYear`);
+      assert.sameValue(calls.pop(), `has ${objectName}.dayOfWeek`);
+      assert.sameValue(calls.pop(), `has ${objectName}.day`);
+      assert.sameValue(calls.pop(), `has ${objectName}.dateUntil`);
+      assert.sameValue(calls.pop(), `has ${objectName}.dateFromFields`);
+      assert.sameValue(calls.pop(), `has ${objectName}.dateAdd`);
+    }
+
     const iso8601 = new Temporal.Calendar("iso8601");
     const trackingMethods = {
       dateFromFields(...args) {
@@ -1475,7 +1503,9 @@ var TemporalHelpers = {
         const originalResult = iso8601.dateFromFields(...args);
         // Replace the calendar in the result with the call-tracking calendar
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        return new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
+        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
+        removeExtraHasPropertyChecks(objectName, calls);
+        return result;
       },
       yearMonthFromFields(...args) {
         calls.push(`call ${objectName}.yearMonthFromFields`);
@@ -1486,7 +1516,9 @@ var TemporalHelpers = {
         const originalResult = iso8601.yearMonthFromFields(...args);
         // Replace the calendar in the result with the call-tracking calendar
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
+        const result = new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
+        removeExtraHasPropertyChecks(objectName, calls);
+        return result;
       },
       monthDayFromFields(...args) {
         calls.push(`call ${objectName}.monthDayFromFields`);
@@ -1497,7 +1529,9 @@ var TemporalHelpers = {
         const originalResult = iso8601.monthDayFromFields(...args);
         // Replace the calendar in the result with the call-tracking calendar
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
+        const result = new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
+        removeExtraHasPropertyChecks(objectName, calls);
+        return result;
       },
       dateAdd(...args) {
         calls.push(`call ${objectName}.dateAdd`);
@@ -1507,12 +1541,34 @@ var TemporalHelpers = {
         }
         const originalResult = iso8601.dateAdd(...args);
         const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        return new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
+        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
+        removeExtraHasPropertyChecks(objectName, calls);
+        return result;
       },
       id: "iso8601",
     };
     // Automatically generate the other methods that don't need any custom code
-    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "daysInMonth", "fields", "mergeFields"].forEach((methodName) => {
+    [
+      "dateUntil",
+      "day",
+      "dayOfWeek",
+      "dayOfYear",
+      "daysInMonth",
+      "daysInWeek",
+      "daysInYear",
+      "era",
+      "eraYear",
+      "fields",
+      "inLeapYear",
+      "mergeFields",
+      "month",
+      "monthCode",
+      "monthsInYear",
+      "toString",
+      "weekOfYear",
+      "year",
+      "yearOfWeek",
+    ].forEach((methodName) => {
       trackingMethods[methodName] = function (...args) {
         calls.push(`call ${formatPropertyName(methodName, objectName)}`);
         if (methodName in methodOverrides) {

@@ -86,13 +86,41 @@ var obj = {
     var {days} = isoToDecimal(date);
     return days % 10 + 1;
   },
-  mergeFields(fields, additionalFields) {
-  if ("month" in additionalFields || "monthCode" in additionalFields) {
-    let {month, monthCode, ...rest} = fields;
-    return {...rest, ...additionalFields};
-  }
-  return {...fields, ...additionalFields};
-}
+  dateAdd() {},  // left as an exercise for the reader
+  dateUntil() {},  // ditto
+  dayOfWeek() {
+    throw new Error('no weeks');
+  },
+  dayOfYear(date) {
+    return isoToDecimal(date).days;
+  },
+  daysInMonth() {
+    return 10;
+  },
+  daysInWeek() {
+    throw new Error('no weeks');
+  },
+  daysInYear() {
+    return 100;
+  },
+  fields(fields) {
+    return fields;
+  },
+  inLeapYear() {
+    return false;
+  },
+  mergeFields(fields, additional) {
+    return new Temporal.Calendar("iso8601").mergeFields(fields, additional)
+  },
+  monthsInYear() {
+    return 10;
+  },
+  weekOfYear() {
+    throw new Error('no weeks');
+  },
+  yearOfWeek(date) {
+    throw new Error('no weeks');
+  },
 };
 var date = Temporal.PlainDate.from({
   year: 184,

@@ -16,7 +16,27 @@ const customCalendar = {
   },
   toString() {
     TemporalHelpers.assertUnreachable('toString should not be called');
-  }
+  },
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
 };
 const monthday = new Temporal.PlainMonthDay(5, 2, customCalendar);
 [

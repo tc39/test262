@@ -14,7 +14,28 @@ const expected = [
 ];
 const actual = [];
 const calendar = (id) => {
-  const c = {};
+  const c = {
+    dateAdd() {},
+    dateFromFields() {},
+    dateUntil() {},
+    day() {},
+    dayOfWeek() {},
+    dayOfYear() {},
+    daysInMonth() {},
+    daysInWeek() {},
+    daysInYear() {},
+    fields() {},
+    inLeapYear() {},
+    mergeFields() {},
+    month() {},
+    monthCode() {},
+    monthDayFromFields() {},
+    monthsInYear() {},
+    weekOfYear() {},
+    year() {},
+    yearMonthFromFields() {},
+    yearOfWeek() {},
+  };
   TemporalHelpers.observeProperty(actual, c, "id", id, `calendar ${id}`);
   return c;
 };

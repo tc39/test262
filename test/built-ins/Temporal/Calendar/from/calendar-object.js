@@ -3,9 +3,33 @@
 
 /*---
 esid: sec-temporal.calendar.from
-description: Converting a plain object to Temporal.Calendar gives the same object
+description: >
+  Converting an object implementing the Calendar protocol to Temporal.Calendar
+  gives the same object
 features: [Temporal]
 ---*/
 
-const custom = { id: "custom-calendar" };
+const custom = {
+  dateAdd() {},
+  dateFromFields() {},
+  dateUntil() {},
+  day() {},
+  dayOfWeek() {},
+  dayOfYear() {},
+  daysInMonth() {},
+  daysInWeek() {},
+  daysInYear() {},
+  fields() {},
+  id: "custom-calendar",
+  inLeapYear() {},
+  mergeFields() {},
+  month() {},
+  monthCode() {},
+  monthDayFromFields() {},
+  monthsInYear() {},
+  weekOfYear() {},
+  year() {},
+  yearMonthFromFields() {},
+  yearOfWeek() {},
+};
 assert.sameValue(Temporal.Calendar.from(custom), custom);

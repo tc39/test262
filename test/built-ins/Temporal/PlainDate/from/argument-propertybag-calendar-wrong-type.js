@@ -24,8 +24,9 @@ for (const [calendar, description] of rangeErrorTests) {
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [{}, "plain object"],  // TypeError due to missing dateFromFields()
-  [Temporal.Calendar, "Temporal.Calendar, object"],  // ditto
+  [{}, "plain object that doesn't implement the protocol"],
+  [new Temporal.TimeZone("UTC"), "time zone instance"],
+  [Temporal.Calendar, "Temporal.Calendar, object"],
   [Temporal.Calendar.prototype, "Temporal.Calendar.prototype, object"],  // fails brand check in dateFromFields()
 ];
 

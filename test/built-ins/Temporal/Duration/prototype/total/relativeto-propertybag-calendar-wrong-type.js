@@ -18,7 +18,6 @@ const rangeErrorTests = [
   ["", "empty string"],
   [1, "number that doesn't convert to a valid ISO string"],
   [1n, "bigint"],
-  [new Temporal.TimeZone("UTC"), "time zone instance"],
 ];
 
 for (const [calendar, description] of rangeErrorTests) {
@@ -28,7 +27,8 @@ for (const [calendar, description] of rangeErrorTests) {
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [{}, "plain object"],
+  [{}, "plain object that doesn't implement the protocol"],
+  [new Temporal.TimeZone("UTC"), "time zone instance"],
   [Temporal.PlainDate, "Temporal.PlainDate, object"],
   [Temporal.PlainDate.prototype, "Temporal.PlainDate.prototype, object"],
   [Temporal.ZonedDateTime, "Temporal.ZonedDateTime, object"],
