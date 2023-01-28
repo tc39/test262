@@ -7,6 +7,11 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [BigInt, Proxy, Temporal]
 ---*/
 const actual = [];
+const expected = [
+  "has timeZone.getOffsetNanosecondsFor",
+  "has timeZone.getPossibleInstantsFor",
+  "has timeZone.id",
+];
 
 const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
   getOffsetNanosecondsFor(instant) {
@@ -28,4 +33,4 @@ Object.defineProperty(Temporal.TimeZone, 'from', {
 });
 
 Temporal.Now.zonedDateTimeISO(timeZone);
-assert.compareArray(actual, [], 'no observable operations should be invoked');
+assert.compareArray(actual, expected, 'order of observable operations');

@@ -10,6 +10,9 @@ features: [Temporal]
 
 const actual = [];
 const expected = [
+  "has timeZone.getOffsetNanosecondsFor",
+  "has timeZone.getPossibleInstantsFor",
+  "has timeZone.id",
   "get options.disambiguation",
   "get options.disambiguation.toString",
   "call options.disambiguation.toString",

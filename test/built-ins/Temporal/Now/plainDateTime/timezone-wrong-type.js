@@ -16,7 +16,6 @@ const rangeErrorTests = [
   [1, "number that doesn't convert to a valid ISO string"],
   [19761118, "number that would convert to a valid ISO string in other contexts"],
   [1n, "bigint"],
-  [new Temporal.Calendar("iso8601"), "calendar instance"],
 ];
 
 for (const [timeZone, description] of rangeErrorTests) {
@@ -25,6 +24,8 @@ for (const [timeZone, description] of rangeErrorTests) {
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
+  [{}, "object not implementing time zone protocol"],
+  [new Temporal.Calendar("iso8601"), "calendar instance"],
 ];
 
 for (const [timeZone, description] of typeErrorTests) {

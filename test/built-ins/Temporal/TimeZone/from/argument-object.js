@@ -12,9 +12,7 @@ class CustomTimeZone extends Temporal.TimeZone {}
 const objects = [
   new Temporal.TimeZone("UTC"),
   new CustomTimeZone("UTC"),
-  {},
-  { getPlainDateTimeFor: null },
-  { id: "Etc/Custom" },
+  { id: "Etc/Custom", getPossibleInstantsFor: null, getOffsetNanosecondsFor: null },
 ];
 
 const thisValues = [

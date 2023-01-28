@@ -8,6 +8,7 @@ features: [Temporal]
 ---*/
 
 var tz = {
+  getOffsetNanosecondsFor() { return -5 * 3600_000_000_000; },
   getPossibleInstantsFor(pdt) { return Temporal.TimeZone.from("-05:00").getPossibleInstantsFor(pdt); },
   id: "America/New_York",
 };
