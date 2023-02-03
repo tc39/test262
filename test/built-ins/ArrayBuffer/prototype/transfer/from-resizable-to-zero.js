@@ -44,4 +44,4 @@ assert.throws(TypeError, function() {
 
 assert.sameValue(dest.resizable, true, 'dest.resizable');
 assert.sameValue(dest.byteLength, 0, 'dest.byteLength');
-assert.sameValue(dest.maxByteLength, 0, 'dest.maxByteLength');
+assert.sameValue(dest.maxByteLength, 8, 'dest.maxByteLength');
