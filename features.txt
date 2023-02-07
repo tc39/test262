@@ -7,234 +7,33 @@
 #
 # https://github.com/tc39/process-document
 
-# Missing checks in Proxy internal methods
-# https://github.com/tc39/ecma262/pull/666
-proxy-missing-checks
-
-# Promise.allSettled
-# https://github.com/tc39/proposal-promise-allSettled
-Promise.allSettled
-
 # Hashbang Grammar
 # https://github.com/tc39/proposal-hashbang
 hashbang
-
-# Object.fromEntries
-# https://github.com/tc39/proposal-object-from-entries
-Object.fromEntries
-
-# BigInt
-# https://github.com/tc39/proposal-bigint
-BigInt
-
-# Class Fields
-# https://github.com/tc39/proposal-class-fields
-class-fields-public
-class-fields-private
-
-# Class Static Fields & Methods
-# https://github.com/tc39/proposal-static-class-features/
-class-static-fields-public
-class-static-fields-private
-class-static-methods-private
-
-# Class Private methods and getter/setters
-# https://github.com/tc39/proposal-private-methods
-class-methods-private
-
-# Dynamic Import
-# https://github.com/tc39/proposal-dynamic-import
-dynamic-import
-
-# Array.prototype.flat and Array.prototype.flatMap
-# https://github.com/tc39/proposal-flatMap
-Array.prototype.flat
-Array.prototype.flatMap
-
-# String Trimming
-# https://github.com/tc39/proposal-string-left-right-trim
-# Includes all tests for:
-# String.prototype.{trimStart, trimEnd, trimLeft, trimRight}
-string-trimming
-String.prototype.trimEnd
-String.prototype.trimStart
-
-# Numeric Separator Literal
-# https://github.com/tc39/proposal-numeric-separator
-numeric-separator-literal
-
-# String.prototype.matchAll
-# https://github.com/tc39/proposal-string-matchall
-String.prototype.matchAll
-Symbol.matchAll
-
-# Symbol.prototype.description
-# https://github.com/tc39/proposal-symbol-description
-Symbol.prototype.description
-
-# Well-formed JSON.stringify
-# https://github.com/tc39/proposal-well-formed-stringify
-well-formed-json-stringify
-
-# Intl.ListFormat
-# https://github.com/tc39/proposal-intl-list-format
-Intl.ListFormat
-
-# Intl.Locale
-# https://github.com/tc39/proposal-intl-locale
-Intl.Locale
 
 # Intl.Locale Info
 # https://github.com/tc39/proposal-intl-locale-info
 Intl.Locale-info
 
-# Intl.RelativeTimeFormat
-# https://github.com/tc39/proposal-intl-relative-time
-Intl.RelativeTimeFormat
-
-# Intl.Segmenter
-# https://github.com/tc39/proposal-intl-segmenter
-Intl.Segmenter
-
-# Intl.NumberFormat unified proposal
-# https://github.com/sffc/proposal-unified-intl-numberformat
-Intl.NumberFormat-unified
-
-# Intl.DateTimeFormat: dateStyle and timeStyle options
-# https://github.com/tc39/proposal-intl-datetime-style
-Intl.DateTimeFormat-datetimestyle
-
-# Intl.DateTimeFormat: formatRange and formatRangeToParts functions
-# https://github.com/tc39/proposal-intl-DateTimeFormat-formatRange
-Intl.DateTimeFormat-formatRange
-
-# Intl.DateTimeFormat: add 'dayPeriod' option
-# https://github.com/tc39/ecma402/pull/346
-Intl.DateTimeFormat-dayPeriod
-
 # Intl.DateTimeFormat: add 'quarter' option
 # https://github.com/tc39/ecma402/pull/346
 Intl.DateTimeFormat-quarter
-
-# Intl.DateTimeFormat: add 'fractionalSecondDigits' option
-# https://github.com/tc39/ecma402/pull/347
-Intl.DateTimeFormat-fractionalSecondDigits
-
-# Intl "normative optional"
-# https://tc39.es/ecma402/#legacy-constructor
-intl-normative-optional
-
-# Intl "Intl.DisplayNames v2"
-# https://github.com/tc39/intl-displaynames-v2
-Intl.DisplayNames-v2
-
-# Intl "Extend TimeZoneName Option Proposal"
-# https://github.com/tc39/proposal-intl-extend-timezonename
-Intl.DateTimeFormat-extend-timezonename
-
-# Intl "Enumeration API"
-# https://github.com/tc39/proposal-intl-enumeration
-Intl-enumeration
-
-# Global
-# https://github.com/tc39/proposal-global
-globalThis
-
-# `export * as namespace from module`
-# https://github.com/tc39/ecma262/pull/1174
-export-star-as-namespace-from-module
-
-# import.meta
-# https://github.com/tc39/proposal-import-meta
-import.meta
-
-# WeakRef
-# https://github.com/tc39/proposal-weakref
-WeakRef
-FinalizationRegistry
 
 # FinalizationRegistry#cleanupSome
 # https://github.com/tc39/proposal-cleanup-some
 FinalizationRegistry.prototype.cleanupSome
 
-# Optional Chaining
-# https://github.com/tc39/proposal-optional-chaining
-optional-chaining
-
-# Top Level Await
-# https://github.com/tc39/proposal-top-level-await
-top-level-await
-
-# RegExp Match Array Indices
-# https://github.com/tc39/proposal-regexp-match-indices
-regexp-match-indices
-
-# Nullish Coalesce Expression
-# https://github.com/tc39/proposal-nullish-coalescing
-coalesce-expression
-
-# Intl.DisplayNames
-# https://github.com/tc39-transfer/proposal-intl-displaynames
-Intl.DisplayNames
-
 # Intl.NumberFormat V3
 # https://github.com/tc39/proposal-intl-numberformat-v3
 Intl.NumberFormat-v3
-
-# Promise.any
-# https://github.com/tc39/proposal-promise-any
-Promise.any
-AggregateError
-
-# String.prototype.replaceAll
-# https://github.com/tc39/proposal-string-replaceall
-String.prototype.replaceAll
-
-# Enumeration order for for-in
-# https://github.com/tc39/proposal-for-in-order
-for-in-order
 
 # Legacy RegExp features
 # https://github.com/tc39/proposal-regexp-legacy-features
 legacy-regexp
 
-# Logical Assignment Operators
-# https://github.com/tc39/proposal-logical-assignment
-logical-assignment-operators
-
 # Atomics.waitAsync
 # https://github.com/tc39/proposal-atomics-wait-async
 Atomics.waitAsync
-
-# Item Method
-# https://github.com/tc39/proposal-item-method
-Array.prototype.at
-String.prototype.at
-TypedArray.prototype.at
-
-# Arbitrary module namespace names
-# https://github.com/tc39/ecma262/pull/2154
-arbitrary-module-namespace-names
-
-# Align detached buffer semantics with web reality
-# https://github.com/tc39/ecma262/pull/2164
-align-detached-buffer-semantics-with-web-reality
-
-# Object.hasOwn
-# https://github.com/tc39/proposal-accessible-object-hasownproperty
-Object.hasOwn
-
-# Class static initialization blocks
-# https://github.com/tc39/proposal-class-static-block
-class-static-block
-
-# Ergonomic brand checks for Private Fields
-# https://github.com/tc39/proposal-private-fields-in-in
-class-fields-private-in
-
-# Error cause
-# https://github.com/tc39/proposal-error-cause
-error-cause
 
 # Import Assertions
 # https://github.com/tc39/proposal-import-assertions/
@@ -308,14 +107,30 @@ String.prototype.toWellFormed
 # reasons, though their use for relatively new features (i.e. prior to
 # availability across major implementations) is appreciated.
 
+AggregateError
+align-detached-buffer-semantics-with-web-reality  # https://github.com/tc39/ecma262/pull/2164
+arbitrary-module-namespace-names  # https://github.com/tc39/ecma262/pull/2154
 ArrayBuffer
+Array.prototype.at
+Array.prototype.flat
+Array.prototype.flatMap
 Array.prototype.values
 arrow-function
 async-iteration
 async-functions
 Atomics
+BigInt
 caller
 class
+class-fields-private
+class-fields-private-in
+class-fields-public
+class-methods-private
+class-static-block
+class-static-fields-private
+class-static-fields-public
+class-static-methods-private
+coalesce-expression
 computed-property-names
 const
 cross-realm
@@ -331,38 +146,74 @@ DataView.prototype.setUint8
 default-parameters
 destructuring-assignment
 destructuring-binding
+dynamic-import
+error-cause
+export-star-as-namespace-from-module  # https://github.com/tc39/ecma262/pull/1174
+FinalizationRegistry
+for-in-order
 for-of
 Float32Array
 Float64Array
 generators
+globalThis
+import.meta
 Int8Array
 Int16Array
 Int32Array
+Intl-enumeration
+intl-normative-optional  # https://tc39.es/ecma402/#legacy-constructor
+Intl.DateTimeFormat-datetimestyle
+Intl.DateTimeFormat-dayPeriod  # https://github.com/tc39/ecma402/pull/346
+Intl.DateTimeFormat-extend-timezonename
+Intl.DateTimeFormat-formatRange
+Intl.DateTimeFormat-fractionalSecondDigits  # https://github.com/tc39/ecma402/pull/347
+Intl.DisplayNames
+Intl.DisplayNames-v2
+Intl.ListFormat
+Intl.Locale
+Intl.NumberFormat-unified
+Intl.RelativeTimeFormat
+Intl.Segmenter
 json-superset
 let
+logical-assignment-operators
 Map
 new.target
+numeric-separator-literal
 object-rest
 object-spread
+Object.fromEntries
+Object.hasOwn
 Object.is
 optional-catch-binding
+optional-chaining
 Promise
+Promise.allSettled
+Promise.any
 Promise.prototype.finally
 Proxy
+proxy-missing-checks  # https://github.com/tc39/ecma262/pull/666
 Reflect
 Reflect.construct
 Reflect.set
 Reflect.setPrototypeOf
 regexp-dotall
 regexp-lookbehind
+regexp-match-indices
 regexp-named-groups
 regexp-unicode-property-escapes
 rest-parameters
 Set
 SharedArrayBuffer
+string-trimming
 String.fromCodePoint
+String.prototype.at
 String.prototype.endsWith
 String.prototype.includes
+String.prototype.matchAll
+String.prototype.replaceAll
+String.prototype.trimEnd
+String.prototype.trimStart
 super
 Symbol
 Symbol.asyncIterator
@@ -370,6 +221,8 @@ Symbol.hasInstance
 Symbol.isConcatSpreadable
 Symbol.iterator
 Symbol.match
+Symbol.matchAll
+Symbol.prototype.description
 Symbol.replace
 Symbol.search
 Symbol.species
@@ -379,14 +232,18 @@ Symbol.toStringTag
 Symbol.unscopables
 tail-call-optimization
 template
+top-level-await
 TypedArray
+TypedArray.prototype.at
 u180e
 Uint8Array
 Uint16Array
 Uint32Array
 Uint8ClampedArray
 WeakMap
+WeakRef
 WeakSet
+well-formed-json-stringify
 __proto__
 __getter__
 __setter__
