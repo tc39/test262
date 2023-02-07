@@ -5,6 +5,10 @@
 # dedicated feature flag so that consumers may more easily omit them as
 # necessary.
 #
+# Generally, feature flags should be per proposal, not per individual API
+# that a proposal adds. To filter for specific APIs, use the directory
+# structure.
+#
 # https://github.com/tc39/process-document
 
 # Hashbang Grammar
