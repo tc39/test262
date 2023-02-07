@@ -15,10 +15,6 @@ hashbang
 # https://github.com/tc39/proposal-intl-locale-info
 Intl.Locale-info
 
-# Intl.DateTimeFormat: add 'quarter' option
-# https://github.com/tc39/ecma402/pull/346
-Intl.DateTimeFormat-quarter
-
 # FinalizationRegistry#cleanupSome
 # https://github.com/tc39/proposal-cleanup-some
 FinalizationRegistry.prototype.cleanupSome
