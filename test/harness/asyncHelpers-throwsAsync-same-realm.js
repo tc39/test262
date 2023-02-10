@@ -3,12 +3,12 @@
 /*---
 description: |
     Thenables that reject with instances of the realm specified constructor function
-    satisfy the assertion, without cross realms collisions.
+    do not satisfy the assertion with cross realms collisions.
 flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   var intrinsicTypeError = TypeError;
   var caught = false;
   var realmGlobal = $262.createRealm().global;
@@ -34,4 +34,4 @@ includes: [asyncHelpers.js]
       "assert.throwsAsync did not reject when a different realm's error was thrown"
     );
   }
-})().then($DONE, $DONE);
+});

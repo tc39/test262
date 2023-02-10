@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: |
-    The 'asyncTest' helper when called with async flag always returns to undefined.
+    The 'asyncTest' helper when called with async flag always returns undefined.
 flags: [async]
 includes: [asyncHelpers.js]
 ---*/

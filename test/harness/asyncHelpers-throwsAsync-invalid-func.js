@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: |
-    assert.throwsAsync returns a promise that rejects if funcOrThenable is not a function returning a thenable or a thenable.
+    assert.throwsAsync calls $DONE with a rejecting value if func is not a function returning a thenable.
 flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-async function checkRejects(funcOrThenable) {
+async function checkRejects(func) {
   var caught = false;
-  const p = assert.throwsAsync(Test262Error, funcOrThenable);
+  const p = assert.throwsAsync(Test262Error, func);
   assert(p instanceof Promise, "assert.throwsAsync should return a promise");
   try {
     await p;
@@ -18,28 +18,27 @@ async function checkRejects(funcOrThenable) {
     assert.sameValue(
       e.constructor,
       Test262Error,
-      "throwsAsync should reject improper funcOrThenable with a Test262Error"
+      "throwsAsync should reject improper function with a Test262Error"
     );
   } finally {
     assert(
       caught,
-      "assert.throwsAsync did not reject improper funcOrThenable " +
-        funcOrThenable
+      "assert.throwsAsync did not reject improper function " + func
     );
   }
 }
 
-(async function () {
+asyncTest(async function () {
   await checkRejects(null);
   await checkRejects({});
   await checkRejects("string");
   await checkRejects(10);
   await checkRejects();
-  await checkRejects({ then: null });
-  await checkRejects({ then: {} });
-  await checkRejects({ then: "string" });
-  await checkRejects({ then: 10 });
-  await checkRejects({ then: undefined });
+  await checkRejects({
+    then: function (res, rej) {
+      res(true);
+    },
+  });
   await checkRejects(function () {
     return null;
   });
@@ -68,4 +67,4 @@ async function checkRejects(funcOrThenable) {
   await checkRejects(function () {
     return { then: undefined };
   });
-})().then($DONE, $DONE);
+});

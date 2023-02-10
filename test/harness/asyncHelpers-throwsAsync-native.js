@@ -8,7 +8,7 @@ flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   var p = assert.throwsAsync(Error, async function () {
     throw new Error();
   });
@@ -44,4 +44,4 @@ includes: [asyncHelpers.js]
   });
   assert(p instanceof Promise);
   await p;
-})().then($DONE, $DONE);
+});

@@ -8,7 +8,7 @@ flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   var caught = false;
 
   const p = assert.throwsAsync(Error, function () {
@@ -32,4 +32,4 @@ includes: [asyncHelpers.js]
       "assert.throwsAsync did not reject when a value with incorrect constructor was thrown"
     );
   }
-})().then($DONE, $DONE);
+});

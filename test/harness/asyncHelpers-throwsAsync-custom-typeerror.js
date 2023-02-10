@@ -10,7 +10,7 @@ includes: [asyncHelpers.js]
 
 var intrinsicTypeError = TypeError;
 
-(async function () {
+asyncTest(async function () {
   function TypeError() {}
   var caught = false;
 
@@ -69,4 +69,4 @@ var intrinsicTypeError = TypeError;
       "assert.throwsAsync did not reject a collision of constructor names"
     );
   }
-})().then($DONE, $DONE);
+})
