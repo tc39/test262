@@ -7,7 +7,7 @@ flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   var caught = false;
 
   const p = assert.throwsAsync(
@@ -32,4 +32,4 @@ includes: [asyncHelpers.js]
       "assert.throwsAsync did not reject when the thenable resolved with an error"
     );
   }
-})().then($DONE, $DONE);
+});

@@ -7,7 +7,7 @@ flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   var caught = false;
 
   const p = assert.throwsAsync(Error, async function () {
@@ -31,4 +31,4 @@ includes: [asyncHelpers.js]
       "assert.throwsAsync did not reject when null was thrown"
     );
   }
-})().then($DONE, $DONE);
+});

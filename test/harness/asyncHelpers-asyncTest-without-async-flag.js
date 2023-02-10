@@ -8,7 +8,8 @@ includes: [asyncHelpers.js]
 function makePromise() {
   return {
     then(res, rej) {
-      throw new Test262Error("Should not be evaluated");
+      // Throw a different error than Test262Error to avoid confusion about what is rejecting
+      throw new Error("Should not be evaluated");
     },
   };
 }

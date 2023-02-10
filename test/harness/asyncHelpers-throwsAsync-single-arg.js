@@ -7,7 +7,7 @@ flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   var caught = false;
   const p = assert.throwsAsync(function () {});
   assert(p instanceof Promise);
@@ -28,4 +28,4 @@ includes: [asyncHelpers.js]
       "assert.throwsAsync did not reject when invoked with a single argumemnt"
     );
   }
-})().then($DONE, $DONE);
+});

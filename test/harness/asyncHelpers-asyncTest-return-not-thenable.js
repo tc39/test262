@@ -8,6 +8,7 @@ includes: [asyncHelpers.js, compareArray.js]
 
 const doneValues = [];
 function $DONE(error) {
+  // Will be a TypeError from trying to invoke .then() on non-thenable
   doneValues.push(error instanceof TypeError);
 }
 asyncTest(function () {
