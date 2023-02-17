@@ -10,8 +10,6 @@ features: [Temporal]
 const zdt = Temporal.Now.zonedDateTime("gregory");
 const tz = Temporal.Now.timeZoneId();
 assert(zdt instanceof Temporal.ZonedDateTime);
-assert(zdt.calendar instanceof Temporal.Calendar);
-assert.sameValue(zdt.calendar.id, "gregory");
+assert.sameValue(zdt.calendarId, "gregory");
 assert(zdt.timeZone instanceof Temporal.TimeZone);
 assert.sameValue(zdt.timeZone.id, tz);
-

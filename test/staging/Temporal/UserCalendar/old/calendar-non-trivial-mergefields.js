@@ -92,13 +92,13 @@ var zoned = new Temporal.ZonedDateTime(1568505600000000000n, "UTC", calendar);
 var propDesc = {
   century: {
     get() {
-      return this.calendar.century(this);
+      return this.getCalendar().century(this);
     },
     configurable: true
   },
   centuryYear: {
     get() {
-      return this.calendar.centuryYear(this);
+      return this.getCalendar().centuryYear(this);
     },
     configurable: true
   }

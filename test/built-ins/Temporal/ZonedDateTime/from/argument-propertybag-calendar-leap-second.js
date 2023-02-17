@@ -13,7 +13,7 @@ const calendar = "2016-12-31T23:59:60+00:00[UTC]";
 let arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar };
 const result1 = Temporal.ZonedDateTime.from(arg);
 assert.sameValue(
-  result1.calendar.id,
+  result1.calendarId,
   "iso8601",
   "leap second is a valid ISO string for calendar"
 );
@@ -21,7 +21,7 @@ assert.sameValue(
 arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar: { calendar } };
 const result2 = Temporal.ZonedDateTime.from(arg);
 assert.sameValue(
-  result2.calendar.id,
+  result2.calendarId,
   "iso8601",
   "leap second is a valid ISO string for calendar (nested property)"
 );

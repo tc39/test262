@@ -9,7 +9,6 @@ features: [Temporal]
 
 const zdt = Temporal.Now.zonedDateTimeISO("America/Los_Angeles");
 assert(zdt instanceof Temporal.ZonedDateTime);
-assert(zdt.calendar instanceof Temporal.Calendar);
-assert.sameValue(zdt.calendar.id, "iso8601");
+assert.sameValue(zdt.calendarId, "iso8601");
 assert(zdt.timeZone instanceof Temporal.TimeZone);
 assert.sameValue(zdt.timeZone.id, "America/Los_Angeles");

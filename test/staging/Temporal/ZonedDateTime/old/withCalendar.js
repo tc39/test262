@@ -17,5 +17,5 @@ assert.sameValue(`${ zdt.withCalendar(cal) }`, "2019-11-18T15:23:30.123456789-08
 var zdt = Temporal.ZonedDateTime.from("2019-11-18T15:23:30.123456789+01:00[+01:00][u-ca=iso8601]");
 var zdt2 = zdt.withCalendar(cal);
 assert.sameValue(zdt.epochNanoseconds, zdt2.epochNanoseconds);
-assert.sameValue(zdt2.calendar, cal);
+assert.sameValue(zdt2.getCalendar(), cal);
 assert.sameValue(zdt2.timeZone.id, "+01:00");

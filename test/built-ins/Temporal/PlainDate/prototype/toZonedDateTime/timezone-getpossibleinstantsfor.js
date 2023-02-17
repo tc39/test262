@@ -13,7 +13,7 @@ class CustomTimeZone extends Temporal.TimeZone {
     super("UTC");
   }
   getPossibleInstantsFor(plainDateTime) {
-    assert.sameValue(plainDateTime.calendar, calendar);
+    assert.sameValue(plainDateTime.getCalendar(), calendar);
     return [new Temporal.Instant(987654321_000_000_000n)];
   }
 }
@@ -25,4 +25,4 @@ const result = plainDate.toZonedDateTime({
 });
 assert.sameValue(result.epochNanoseconds, 987654321_000_000_000n);
 assert.sameValue(result.timeZone, timeZone);
-assert.sameValue(result.calendar, calendar);
+assert.sameValue(result.getCalendar(), calendar);

@@ -17,9 +17,5 @@ const tests = [
 tests.forEach(([arg, description]) => {
   const result = Temporal.ZonedDateTime.from(arg);
 
-  assert.sameValue(
-    result.calendar.toString(),
-    "iso8601",
-    `calendar annotation (${description})`
-  );
+  assert.sameValue(result.calendarId, "iso8601", `calendar annotation (${description})`);
 });

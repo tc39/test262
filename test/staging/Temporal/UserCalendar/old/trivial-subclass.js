@@ -151,12 +151,12 @@ assert.sameValue(md2.monthCode, "M02");
 var tz = Temporal.TimeZone.from("UTC");
 var instant = Temporal.Instant.fromEpochSeconds(0);
 var dt = tz.getPlainDateTimeFor(instant, obj);
-assert.sameValue(dt.calendar.id, obj.id);
+assert.sameValue(dt.getCalendar(), obj);
 
 // Temporal.Now.plainDateTime()
 var nowDateTime = Temporal.Now.plainDateTime(obj, "UTC");
-assert.sameValue(nowDateTime.calendar.id, obj.id);
+assert.sameValue(nowDateTime.getCalendar(), obj);
 
 // Temporal.Now.plainDate()
 var nowDate = Temporal.Now.plainDate(obj, "UTC");
-assert.sameValue(nowDate.calendar.id, obj.id);
+assert.sameValue(nowDate.getCalendar(), obj);

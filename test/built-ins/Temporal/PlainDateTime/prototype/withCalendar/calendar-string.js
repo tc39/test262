@@ -12,4 +12,4 @@ const instance = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 
 const arg = "iso8601";
 
 const result = instance.withCalendar(arg);
-assert.sameValue(result.calendar.id, "iso8601", `Calendar created from string "${arg}"`);
+assert.sameValue(result.getISOFields().calendar, "iso8601", `Calendar created from string "${arg}"`);

@@ -34,7 +34,7 @@ TemporalHelpers.assertPlainDateTime(
 );
 
 assert.sameValue(
-  shifted.calendar,
+  shifted.getCalendar(),
   cal,
   "calendar is unchanged with same calendars (2)"
 );

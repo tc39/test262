@@ -19,4 +19,4 @@ var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTim
   timeZone: tz,
   calendar: fakeGregorian
 });
-assert.sameValue(zdt.toPlainDate().calendar, fakeGregorian);
+assert.sameValue(zdt.toPlainDate().getCalendar(), fakeGregorian);
