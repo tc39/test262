@@ -357,7 +357,6 @@ includes: [asyncHelpers.js]
 
 asyncTest(async function() {
   assert.sameValue(true, await someTestCode(1), "someTestCode(1) should return true");
-;
 });
 ```
 
@@ -367,7 +366,7 @@ For more complicated asynchronous testing, such as testing Promise or other core
 
  * If the argument to `$DONE` is a truthy value, the test is considered to have failed and the argument is displayed as the failure reason.
 
-### Checking Exception Type and Message in Asynchronous Tests
+### Checking Exception Type in Asynchronous Tests
 
 The `asyncHelpers.js` harness file defines `assert.throwsAsync`, analogous in form to `assert.throws`. It requires that the passed function _asynchronously_ throws the specified exception type, and will reject functions that synchronously throw the specified exception type (and presumably summon [Zalgo](https://blog.izs.me/2013/08/designing-apis-for-asynchrony/)).
 
