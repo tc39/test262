@@ -25,25 +25,27 @@ class TwoBasedCalendar extends Temporal.Calendar {
       year,
       monthCode: `M${ (month - 1).toString().padStart(2, "0") }`,
       day
-    }, options);
+    }, options).withCalendar(this);
   }
   yearMonthFromFields(fields, options) {
     var {year, month, monthCode} = fields;
     if (month === undefined)
       month = +monthCode.slice(1);
-    return super.yearMonthFromFields({
+    const { isoYear, isoMonth, isoDay } = super.yearMonthFromFields({
       year,
       monthCode: `M${ (month - 1).toString().padStart(2, "0") }`
-    }, options);
+    }, options).getISOFields();
+    return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
   }
   monthDayFromFields(fields, options) {
     var {month, monthCode, day} = fields;
     if (month === undefined)
       month = +monthCode.slice(1);
-    return super.monthDayFromFields({
+    const { isoYear, isoMonth, isoDay } = super.monthDayFromFields({
       monthCode: `M${ (month - 1).toString().padStart(2, "0") }`,
       day
-    }, options);
+    }, options).getISOFields();
+    return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
   }
   month(date) {
     return date.getISOFields().isoMonth + 1;
