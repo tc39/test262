@@ -42,21 +42,23 @@ class CenturyCalendar extends Temporal.Calendar {
     return super.dateFromFields({
       ...fields,
       year: isoYear
-    }, options);
+    }, options).withCalendar(this);
   }
   yearMonthFromFields(fields, options) {
-    var isoYear = this._validateFields(fields);
-    return super.yearMonthFromFields({
+    var year = this._validateFields(fields);
+    const { isoYear, isoMonth, isoDay } = super.yearMonthFromFields({
       ...fields,
-      year: isoYear
-    }, options);
+      year,
+    }, options).getISOFields();
+    return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
   }
   monthDayFromFields(fields, options) {
-    var isoYear = this._validateFields(fields);
-    return super.monthDayFromFields({
+    var year = this._validateFields(fields);
+    const { isoYear, isoMonth, isoDay } = super.monthDayFromFields({
       ...fields,
-      year: isoYear
-    }, options);
+      year,
+    }, options).getISOFields();
+    return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
   }
   fields(fields) {
     fields = fields.slice();

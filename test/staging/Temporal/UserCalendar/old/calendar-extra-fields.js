@@ -35,23 +35,25 @@ class SeasonCalendar extends Temporal.Calendar {
     return super.dateFromFields({
       ...fields,
       monthCode
-    }, options);
+    }, options).withCalendar(this);
   }
   yearMonthFromFields(fields, options) {
     var monthCode = this._isoMonthCode(fields);
     delete fields.month;
-    return super.yearMonthFromFields({
+    const { isoYear, isoMonth, isoDay } = super.yearMonthFromFields({
       ...fields,
       monthCode
-    }, options);
+    }, options).getISOFields();
+    return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
   }
   monthDayFromFields(fields, options) {
     var monthCode = this._isoMonthCode(fields);
     delete fields.month;
-    return super.monthDayFromFields({
+    const { isoYear, isoMonth, isoDay } = super.monthDayFromFields({
       ...fields,
       monthCode
-    }, options);
+    }, options).getISOFields();
+    return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
   }
   fields(fields) {
     fields = fields.slice();

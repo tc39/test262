@@ -840,6 +840,20 @@ var TemporalHelpers = {
         super("iso8601");
       }
 
+      dateFromFields(...args) {
+        return super.dateFromFields(...args).withCalendar(this);
+      }
+
+      monthDayFromFields(...args) {
+        const { isoYear, isoMonth, isoDay } = super.monthDayFromFields(...args).getISOFields();
+        return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
+      }
+
+      yearMonthFromFields(...args) {
+        const { isoYear, isoMonth, isoDay } = super.yearMonthFromFields(...args).getISOFields();
+        return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
+      }
+
       toString() {
         return "fast-path-check";
       }
@@ -1060,13 +1074,17 @@ var TemporalHelpers = {
         return "dateadd-plain-date-instance";
       }
 
+      dateFromFields(...args) {
+        return super.dateFromFields(...args).withCalendar(this);
+      }
+
       dateAdd(date, duration, options) {
         this.dateAddCallCount++;
         assert(date instanceof Temporal.PlainDate, "dateAdd() should be called with a PlainDate instance");
         if (this.dateAddCallCount === 1 && this.specificPlainDate) {
           assert.sameValue(date, this.specificPlainDate, `dateAdd() should be called first with the specific PlainDate instance ${this.specificPlainDate}`);
         }
-        return super.dateAdd(date, duration, options);
+        return super.dateAdd(date, duration, options).withCalendar(this);
       }
     }
     return new CalendarDateAddPlainDateInstance();

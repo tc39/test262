@@ -78,7 +78,7 @@ class CustomCalendar extends Temporal.Calendar {
   }
   dateAdd(date, duration, options) {
     if (duration.months) throw new Error("adding months not implemented in this test");
-    return super.dateAdd(date, duration, options);
+    return super.dateAdd(date, duration, options).withCalendar(this);
   }
   toString() {
     return "thirty-six";
