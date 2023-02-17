@@ -34,7 +34,7 @@ for (const thisValue of thisValues) {
 
   const zdt = new Temporal.ZonedDateTime(0n, "UTC");
   const fromZdt = Temporal.TimeZone.from.call(thisValue, zdt);
-  assert.sameValue(fromZdt, zdt.timeZone);
+  assert.notSameValue(fromZdt, zdt.getTimeZone(), "from() creates a new object from a string slot value");
   assert.sameValue(fromZdt.id, "UTC");
 
   const tz = new Temporal.TimeZone("UTC");

@@ -11,5 +11,5 @@ const instance = new Temporal.Instant(0n);
 
 ["UTC", "+01:30"].forEach((timeZone) => {
   const result = instance.toZonedDateTime({ timeZone, calendar: "iso8601" });
-  assert.sameValue(result.timeZone.id, timeZone, `Time zone created from string "${timeZone}"`);
+  assert.sameValue(result.getISOFields().timeZone, timeZone, `time zone slot should store string "${timeZone}"`);
 });

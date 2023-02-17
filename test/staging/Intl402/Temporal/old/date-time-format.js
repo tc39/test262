@@ -652,7 +652,7 @@ assert.sameValue(
 
 // should work for ZonedDateTime
 var zdt1 = Temporal.ZonedDateTime.from(t1);
-var zdt2 = Temporal.ZonedDateTime.from(t2).withTimeZone(zdt1.timeZone);
+var zdt2 = Temporal.ZonedDateTime.from(t2).withTimeZone(zdt1);
 assert.sameValue(
   us2.formatRange(zdt1, zdt2),
   `11/18/1976, 2:23:30${usDayPeriodSpace}PM UTC${usDateRangeSeparator}2/20/2020, 8:44:56${usDayPeriodSpace}PM UTC`
@@ -987,7 +987,7 @@ assert.deepEqual(at.formatRangeToParts(Temporal.Instant.from(t1), Temporal.Insta
 
 // should work for ZonedDateTime
 var zdt1 = Temporal.ZonedDateTime.from(t1);
-var zdt2 = Temporal.ZonedDateTime.from(t2).withTimeZone(zdt1.timeZone);
+var zdt2 = Temporal.ZonedDateTime.from(t2).withTimeZone(zdt1);
 assert.deepEqual(us2.formatRangeToParts(zdt1, zdt2), [
   {
     type: "month",
