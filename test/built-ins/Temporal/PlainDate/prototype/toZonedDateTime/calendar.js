@@ -16,4 +16,4 @@ const result = plainDate.toZonedDateTime({
 });
 assert.sameValue(result.epochNanoseconds, 957270600_000_000_000n);
 assert.sameValue(result.timeZone.toString(), "UTC");
-assert.sameValue(result.calendar, calendar);
+assert.sameValue(result.getCalendar(), calendar);

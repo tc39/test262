@@ -31,6 +31,6 @@ TemporalHelpers.checkSubclassingIgnored(
     assert.sameValue(result.millisecond, 0, "millisecond result");
     assert.sameValue(result.microsecond, 0, "microsecond result");
     assert.sameValue(result.nanosecond, 10, "nanosecond result");
-    assert.sameValue(result.calendar, customCalendar, "calendar result");
+    assert.sameValue(result.getCalendar(), customCalendar, "calendar result");
   },
 );

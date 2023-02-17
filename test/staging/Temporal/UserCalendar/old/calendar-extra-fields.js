@@ -68,7 +68,7 @@ var monthday = new Temporal.PlainMonthDay(9, 15, calendar);
 var zoned = new Temporal.ZonedDateTime(1568505600000000000n, "UTC", calendar);
 var propDesc = {
   get() {
-    return this.calendar.season(this);
+    return this.getCalendar().season(this);
   },
   configurable: true
 };

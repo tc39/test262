@@ -19,7 +19,7 @@ const cal = {
   day() { return 6; }
 };
 const pdt = new Temporal.PlainDateTime(1995, 12, 7, 3, 24, 30, 0, 0, 0);
-assert.sameValue(pdt.calendar.toString(), "iso8601", "PlainDateTime with ISO calendar");
+assert.sameValue(pdt.calendarId, "iso8601", "PlainDateTime with ISO calendar");
 const pd = new Temporal.PlainDate(2010, 11, 12, cal);
 const shifted = pdt.withPlainDate(pd);
 
@@ -32,7 +32,7 @@ TemporalHelpers.assertPlainDateTime(
 );
 
 assert.sameValue(
-  shifted.calendar,
+  shifted.getCalendar(),
   cal,
   "calendar is changed if receiver has ISO calendar (2)"
 );

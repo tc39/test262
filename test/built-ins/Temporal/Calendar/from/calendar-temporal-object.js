@@ -32,7 +32,7 @@ const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UT
   });
 
   const result = Temporal.Calendar.from(arg);
-  assert.sameValue(result, calendar, "Temporal object coerced to calendar");
+  assert.sameValue(result.id, calendar, "Temporal object coerced to calendar");
 
   assert.compareArray(actual, expected, "calendar getter not called");
 });

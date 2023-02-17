@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-get-temporal.zoneddatetime.prototype.calendar
-description: The "calendar" property of Temporal.ZonedDateTime.prototype
+esid: sec-get-temporal.plaindatetime.prototype.calendarid
+description: The "calendarId" property of Temporal.PlainDateTime.prototype
 features: [Temporal]
 ---*/
 
-const descriptor = Object.getOwnPropertyDescriptor(Temporal.ZonedDateTime.prototype, "calendar");
+const descriptor = Object.getOwnPropertyDescriptor(Temporal.PlainDateTime.prototype, "calendarId");
 assert.sameValue(typeof descriptor.get, "function");
 assert.sameValue(descriptor.set, undefined);
 assert.sameValue(descriptor.enumerable, false);

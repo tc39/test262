@@ -10,7 +10,6 @@ features: [Temporal]
 const zdt = Temporal.Now.zonedDateTimeISO();
 const tz = Temporal.Now.timeZoneId();
 assert(zdt instanceof Temporal.ZonedDateTime);
-assert(zdt.calendar instanceof Temporal.Calendar);
-assert.sameValue(zdt.calendar.id, "iso8601");
+assert.sameValue(zdt.getISOFields().calendar, "iso8601", "calendar slot should store a string");
 assert(zdt.timeZone instanceof Temporal.TimeZone);
 assert.sameValue(zdt.timeZone.id, tz);

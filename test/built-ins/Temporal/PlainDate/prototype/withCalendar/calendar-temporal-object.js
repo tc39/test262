@@ -33,7 +33,7 @@ const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UT
 
   const instance = new Temporal.PlainDate(1976, 11, 18, { id: "replace-me" });
   const result = instance.withCalendar(arg);
-  assert.sameValue(result.calendar, calendar, "Temporal object coerced to calendar");
+  assert.sameValue(result.getISOFields().calendar, calendar, "Temporal object coerced to calendar");
 
   assert.compareArray(actual, expected, "calendar getter not called");
 });

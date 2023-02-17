@@ -11,4 +11,4 @@ const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", {
 
 const arg = "iSo8601";
 const result = instance.withCalendar(arg);
-assert.sameValue(result.calendar.id, "iso8601", "Calendar is case-insensitive");
+assert.sameValue(result.calendarId, "iso8601", "Calendar is case-insensitive");

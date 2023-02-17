@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-get-temporal.plainmonthday.prototype.calendar
-description: The "calendar" property of Temporal.PlainMonthDay.prototype
+esid: sec-get-temporal.plainyearmonth.prototype.calendarid
+description: The "calendarId" property of Temporal.PlainYearMonth.prototype
 features: [Temporal]
 ---*/
 
-const descriptor = Object.getOwnPropertyDescriptor(Temporal.PlainMonthDay.prototype, "calendar");
+const descriptor = Object.getOwnPropertyDescriptor(Temporal.PlainYearMonth.prototype, "calendarId");
 assert.sameValue(typeof descriptor.get, "function");
 assert.sameValue(descriptor.set, undefined);
 assert.sameValue(descriptor.enumerable, false);

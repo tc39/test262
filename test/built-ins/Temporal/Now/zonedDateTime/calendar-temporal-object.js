@@ -6,7 +6,7 @@ esid: sec-temporal.now.zoneddatetime
 description: Fast path for converting other Temporal objects to Temporal.Calendar by reading internal slots
 info: |
     sec-temporal-totemporalcalendar step 1.b:
-      b. If _temporalCalendarLike_ has an [[InitializedTemporalDate]], [[InitializedTemporalDateTime]], [[InitializedTemporalTime]], [[InitializedTemporalMonthDay]], [[InitializedTemporalYearMonth]], or [[InitializedTemporalZonedDateTime]] internal slot, then
+      b. If _temporalCalendarLike_ has an [[InitializedTemporalDate]], [[InitializedTemporalDateTime]], [[InitializedTemporalMonthDay]], [[InitializedTemporalYearMonth]], or [[InitializedTemporalZonedDateTime]] internal slot, then
         i. Return _temporalCalendarLike_.[[Calendar]].
 includes: [compareArray.js]
 features: [Temporal]
@@ -32,7 +32,7 @@ const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UT
   });
 
   const result = Temporal.Now.zonedDateTime(arg);
-  assert.sameValue(result.calendar, calendar, "Temporal object coerced to calendar");
+  assert.sameValue(result.getISOFields().calendar, calendar, "Temporal object coerced to calendar");
 
   assert.compareArray(actual, expected, "calendar getter not called");
 });
