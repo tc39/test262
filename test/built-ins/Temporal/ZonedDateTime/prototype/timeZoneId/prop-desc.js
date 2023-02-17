@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-get-temporal.zoneddatetime.prototype.timezone
-description: The "timeZone" property of Temporal.ZonedDateTime.prototype
+esid: sec-get-temporal.zoneddatetime.prototype.timezoneid
+description: The "timeZoneId" property of Temporal.ZonedDateTime.prototype
 features: [Temporal]
 ---*/
 
-const descriptor = Object.getOwnPropertyDescriptor(Temporal.ZonedDateTime.prototype, "timeZone");
+const descriptor = Object.getOwnPropertyDescriptor(Temporal.ZonedDateTime.prototype, "timeZoneId");
 assert.sameValue(typeof descriptor.get, "function");
 assert.sameValue(descriptor.set, undefined);
 assert.sameValue(descriptor.enumerable, false);

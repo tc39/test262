@@ -24,5 +24,5 @@ const result = plainDate.toZonedDateTime({
   plainTime: { hour: 12, minute: 30 },
 });
 assert.sameValue(result.epochNanoseconds, 987654321_000_000_000n);
-assert.sameValue(result.timeZone, timeZone);
+assert.sameValue(result.getTimeZone(), timeZone);
 assert.sameValue(result.getCalendar(), calendar);

@@ -13,30 +13,30 @@ assert.throws(RangeError, () => Temporal.Now.zonedDateTime("iso8601", { timeZone
 
 timeZone = "2021-08-19T17:30Z";
 const result1 = Temporal.Now.zonedDateTime("iso8601", timeZone);
-assert.sameValue(result1.timeZone.id, "UTC", "date-time + Z is UTC time zone");
+assert.sameValue(result1.timeZoneId, "UTC", "date-time + Z is UTC time zone");
 const result2 = Temporal.Now.zonedDateTime("iso8601", { timeZone });
-assert.sameValue(result2.timeZone.id, "UTC", "date-time + Z is UTC time zone (string in property bag)");
+assert.sameValue(result2.timeZoneId, "UTC", "date-time + Z is UTC time zone (string in property bag)");
 
 timeZone = "2021-08-19T17:30-07:00";
 const result3 = Temporal.Now.zonedDateTime("iso8601", timeZone);
-assert.sameValue(result3.timeZone.id, "-07:00", "date-time + offset is the offset time zone");
+assert.sameValue(result3.timeZoneId, "-07:00", "date-time + offset is the offset time zone");
 const result4 = Temporal.Now.zonedDateTime("iso8601", { timeZone });
-assert.sameValue(result4.timeZone.id, "-07:00", "date-time + offset is the offset time zone (string in property bag)");
+assert.sameValue(result4.timeZoneId, "-07:00", "date-time + offset is the offset time zone (string in property bag)");
 
 timeZone = "2021-08-19T17:30[UTC]";
 const result5 = Temporal.Now.zonedDateTime("iso8601", timeZone);
-assert.sameValue(result5.timeZone.id, "UTC", "date-time + IANA annotation is the IANA time zone");
+assert.sameValue(result5.timeZoneId, "UTC", "date-time + IANA annotation is the IANA time zone");
 const result6 = Temporal.Now.zonedDateTime("iso8601", { timeZone });
-assert.sameValue(result6.timeZone.id, "UTC", "date-time + IANA annotation is the IANA time zone (string in property bag)");
+assert.sameValue(result6.timeZoneId, "UTC", "date-time + IANA annotation is the IANA time zone (string in property bag)");
 
 timeZone = "2021-08-19T17:30Z[UTC]";
 const result7 = Temporal.Now.zonedDateTime("iso8601", timeZone);
-assert.sameValue(result7.timeZone.id, "UTC", "date-time + Z + IANA annotation is the IANA time zone");
+assert.sameValue(result7.timeZoneId, "UTC", "date-time + Z + IANA annotation is the IANA time zone");
 const result8 = Temporal.Now.zonedDateTime("iso8601", { timeZone });
-assert.sameValue(result8.timeZone.id, "UTC", "date-time + Z + IANA annotation is the IANA time zone (string in property bag)");
+assert.sameValue(result8.timeZoneId, "UTC", "date-time + Z + IANA annotation is the IANA time zone (string in property bag)");
 
 timeZone = "2021-08-19T17:30-07:00[UTC]";
 const result9 = Temporal.Now.zonedDateTime("iso8601", timeZone);
-assert.sameValue(result9.timeZone.id, "UTC", "date-time + offset + IANA annotation is the IANA time zone");
+assert.sameValue(result9.timeZoneId, "UTC", "date-time + offset + IANA annotation is the IANA time zone");
 const result10 = Temporal.Now.zonedDateTime("iso8601", { timeZone });
-assert.sameValue(result10.timeZone.id, "UTC", "date-time + offset + IANA annotation is the IANA time zone (string in property bag)");
+assert.sameValue(result10.timeZoneId, "UTC", "date-time + offset + IANA annotation is the IANA time zone (string in property bag)");

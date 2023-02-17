@@ -21,11 +21,11 @@ Object.defineProperty(Temporal.TimeZone, "from", {
 const systemTimeZone = Temporal.Now.timeZoneId();
 
 const resultExplicit = Temporal.Now.zonedDateTimeISO(undefined);
-assert.sameValue(resultExplicit.timeZone.id, systemTimeZone);
+assert.sameValue(resultExplicit.getISOFields().timeZone, systemTimeZone, "time zone slot should store a string");
 
 assert.compareArray(actual, expected, "Temporal.TimeZone.from should not be called");
 
 const resultImplicit = Temporal.Now.zonedDateTimeISO();
-assert.sameValue(resultImplicit.timeZone.id, systemTimeZone);
+assert.sameValue(resultImplicit.getISOFields().timeZone, systemTimeZone, "time zone slot should store a string");
 
 assert.compareArray(actual, expected, "Temporal.TimeZone.from should not be called");

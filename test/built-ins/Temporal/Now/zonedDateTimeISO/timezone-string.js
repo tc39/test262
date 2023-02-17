@@ -9,5 +9,5 @@ features: [Temporal]
 
 ["UTC", "+01:30"].forEach((timeZone) => {
   const result = Temporal.Now.zonedDateTimeISO(timeZone);
-  assert.sameValue(result.timeZone.id, timeZone, `Time zone created from string "${timeZone}"`);
+  assert.sameValue(result.getISOFields().timeZone, timeZone, `Time zone created from string "${timeZone}"`);
 });
