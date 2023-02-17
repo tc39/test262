@@ -11,4 +11,5 @@ const zdt = Temporal.Now.zonedDateTimeISO("America/Los_Angeles");
 assert(zdt instanceof Temporal.ZonedDateTime);
 assert.sameValue(typeof zdt.getISOFields().calendar, "string", "calendar slot should store a string");
 assert.sameValue(zdt.calendarId, "iso8601");
+assert.sameValue(typeof zdt.getISOFields().timeZone, "string", "time zone slot should store a string");
 assert.sameValue(zdt.timeZoneId, "America/Los_Angeles");
