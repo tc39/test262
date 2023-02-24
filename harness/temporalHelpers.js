@@ -1669,7 +1669,7 @@ var TemporalHelpers = {
         if (result === undefined) {
           return undefined;
         }
-        if (typeof result === "object") {
+        if ((result !== null && typeof result === "object") || typeof result === "function") {
           return result;
         }
         return TemporalHelpers.toPrimitiveObserver(calls, result, `${formatPropertyName(key, objectName)}`);
