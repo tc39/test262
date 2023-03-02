@@ -18,16 +18,10 @@ const expected = [
   // PrepareTemporalFields on receiver
   "get this.calendar.day",
   "call this.calendar.day",
-  "get this.hour",
-  "get this.microsecond",
-  "get this.millisecond",
-  "get this.minute",
   "get this.calendar.month",
   "call this.calendar.month",
   "get this.calendar.monthCode",
   "call this.calendar.monthCode",
-  "get this.nanosecond",
-  "get this.second",
   "get this.calendar.year",
   "call this.calendar.year",
   // PrepareTemporalFields on argument
