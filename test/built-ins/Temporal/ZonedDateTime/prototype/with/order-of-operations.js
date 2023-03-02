@@ -12,29 +12,21 @@ const expected = [
   // RejectObjectWithCalendarOrTimeZone
   "get fields.calendar",
   "get fields.timeZone",
+  // GetOffsetNanosecondsFor on receiver
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
   // CalendarFields
   "get this.calendar.fields",
   "call this.calendar.fields",
   // PrepareTemporalFields on receiver
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.day",
   "call this.calendar.day",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.month",
   "call this.calendar.month",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.monthCode",
   "call this.calendar.monthCode",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.year",
   "call this.calendar.year",
-  // GetOffsetNanosecondsFor on receiver
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   // PrepareTemporalFields on argument
   "get fields.day",
   "get fields.day.valueOf",
