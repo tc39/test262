@@ -247,3 +247,7 @@ const expectedOpsForWeekRounding = expected.concat(expectedOpsForCalendarDiffere
 instance.since(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "weeks" }));
 assert.compareArray(actual, expectedOpsForWeekRounding, "order of operations with smallestUnit = weeks");
 actual.splice(0); // clear
+
+instance.since(otherDateTimePropertyBag, createOptionsObserver({ largestUnit: "hours" }));
+assert.compareArray(actual, expected, "order of operations with largestUnit being a time unit");
+actual.splice(0);  // clear
