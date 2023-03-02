@@ -3,7 +3,9 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.protoype.with
-description: TypeError thrown when the offset field of the receiver is broken
+description: >
+  TypeError thrown when the offset field of the argument or the object returned
+  from mergeFields is broken
 info: |
     7. Let _fieldNames_ be ? CalendarFields(_calendar_, « *"day"*, *"month"*, *"monthCode"*, *"year"* »).
     8. Append *"hour"*, *"microsecond"*, *"millisecond"*, *"minute"*, *"nanosecond"*, *"offset"*, and *"second"* to _fieldNames_.
@@ -50,23 +52,5 @@ calendar.resetCalls();
 
 assert.throws(TypeError, () => dateTime.with({ year: 2002 }), "conversion failure on sabotaged return value from mergeFields");
 assert.sameValue(calendar.mergeFieldsCalled, 1, "calendar.mergeFields was called once");
-
-calendar.resetCalls();
-
-// Test throw in step 9
-
-Object.defineProperty(dateTime, "offset", { value: Symbol("can't convert to string"), configurable: true });
-
-assert.throws(TypeError, () => dateTime.with({ year: 2002 }), "conversion failure on sabotaged offset field of receiver");
-assert.sameValue(calendar.mergeFieldsCalled, 0, "calendar.mergeFields should not be called");
-
-calendar.resetCalls();
-
-// Test offset being required in step 9
-
-Object.defineProperty(dateTime, "offset", { value: undefined });
-
-assert.throws(TypeError, () => dateTime.with({ year: 2002 }), "offset property is required on receiver");
-assert.sameValue(calendar.mergeFieldsCalled, 0, "calendar.mergeFields should not be called");
 
 calendar.resetCalls();
