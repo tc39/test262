@@ -327,9 +327,6 @@ const expectedOpsForZonedRelativeTo = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-  // RoundDuration → ToTemporalDate
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
 ];
 
 const zonedRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
@@ -376,6 +373,9 @@ const expectedOpsForYearRoundingZoned = expectedOpsForZonedRelativeTo.concat([
   "call options.relativeTo.calendar.dateAdd",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",   // 10. GetInstantFor
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
+  // ToTemporalDate
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.calendar.dateAdd",     // 9.b
   "call options.relativeTo.calendar.dateAdd",    // 9.c
   "call options.relativeTo.calendar.dateAdd",    // 9.e
