@@ -12,6 +12,16 @@ const expected = [
   // RejectObjectWithCalendarOrTimeZone
   "get fields.calendar",
   "get fields.timeZone",
+  // CopyDataProperties
+  "ownKeys options",
+  "getOwnPropertyDescriptor options.overflow",
+  "get options.overflow",
+  "getOwnPropertyDescriptor options.disambiguation",
+  "get options.disambiguation",
+  "getOwnPropertyDescriptor options.offset",
+  "get options.offset",
+  "getOwnPropertyDescriptor options.extra",
+  "get options.extra",
   // GetOffsetNanosecondsFor on receiver
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
@@ -65,21 +75,14 @@ const expected = [
   "get this.calendar.mergeFields",
   "call this.calendar.mergeFields",
   // InterpretTemporalDateTimeFields
-  "get options.disambiguation",
   "get options.disambiguation.toString",
   "call options.disambiguation.toString",
-  "get options.offset",
   "get options.offset.toString",
   "call options.offset.toString",
-  "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
   "get this.calendar.dateFromFields",
   "call this.calendar.dateFromFields",
-  // Calendar.p.dateFromFields
-  "get options.overflow",
-  "get options.overflow.toString",
-  "call options.overflow.toString",
   // InterpretISODateTimeOffset
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
@@ -112,6 +115,7 @@ const options = TemporalHelpers.propertyBagObserver(actual, {
   overflow: "constrain",
   disambiguation: "compatible",
   offset: "prefer",
+  extra: "property",
 }, "options");
 
 instance.with(fields, options);
