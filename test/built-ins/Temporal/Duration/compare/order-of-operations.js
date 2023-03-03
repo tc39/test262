@@ -353,16 +353,15 @@ actual.splice(0); // clear
 const expectedOpsForDayBalancing = expectedOpsForZonedRelativeTo.concat(
   expectedOpsForCalculateOffsetShift,
   [
-    // UnbalanceDurationRelative
-    "get options.relativeTo.timeZone.getOffsetNanosecondsFor",  // 7.a ToTemporalDate
+    // ToTemporalDate
+    "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
     "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+    // UnbalanceDurationRelative
     "get options.relativeTo.calendar.dateAdd",   // 11.a.ii
     "call options.relativeTo.calendar.dateAdd",  // 11.a.iii.1 MoveRelativeDate
     "call options.relativeTo.calendar.dateAdd",  // 11.a.iv.1 MoveRelativeDate
     "call options.relativeTo.calendar.dateAdd",  // 11.a.v.1 MoveRelativeDate
     // UnbalanceDurationRelative again for the second argument:
-    "get options.relativeTo.timeZone.getOffsetNanosecondsFor",  // 7.a ToTemporalDate
-    "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
     "get options.relativeTo.calendar.dateAdd",   // 11.a.ii
     "call options.relativeTo.calendar.dateAdd",  // 11.a.iii.1 MoveRelativeDate
     "call options.relativeTo.calendar.dateAdd",  // 11.a.iv.1 MoveRelativeDate
