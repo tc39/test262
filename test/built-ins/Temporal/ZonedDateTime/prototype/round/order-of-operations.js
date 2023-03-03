@@ -42,7 +42,7 @@ const actual = [];
 const options = TemporalHelpers.propertyBagObserver(actual, {
   smallestUnit: "nanoseconds",
   roundingMode: "halfExpand",
-  roundingIncrement: 1,
+  roundingIncrement: 2,
 }, "options");
 
 const instance = new Temporal.ZonedDateTime(
