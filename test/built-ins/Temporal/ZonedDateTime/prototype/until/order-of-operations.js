@@ -189,6 +189,9 @@ const expectedOpsForCalendarDifference = [
 ];
 
 const expectedOpsForCalendarRounding = [
+  // ToTemporalDate
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
   // RoundDuration → MoveRelativeZonedDateTime → AddZonedDateTime
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
@@ -211,9 +214,6 @@ const expectedOpsForCalendarRounding = [
   "call this.calendar.dateAdd",
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  // RoundDuration → ToTemporalDate
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
 ];
 
 // code path that skips RoundDuration:

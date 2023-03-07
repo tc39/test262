@@ -352,6 +352,9 @@ actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest year:
 const expectedOpsForYearRoundingZoned = expectedOpsForZonedRelativeTo.concat([
+  // ToTemporalDate
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // NanosecondsToDays
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",  // 7. GetPlainDateTimeFor
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
@@ -373,9 +376,6 @@ const expectedOpsForYearRoundingZoned = expectedOpsForZonedRelativeTo.concat([
   "call options.relativeTo.calendar.dateAdd",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",   // 10. GetInstantFor
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
-  // ToTemporalDate
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.calendar.dateAdd",     // 9.b
   "call options.relativeTo.calendar.dateAdd",    // 9.c
   "call options.relativeTo.calendar.dateAdd",    // 9.e
@@ -390,5 +390,34 @@ assert.compareArray(
   actual,
   expectedOpsForYearRoundingZoned,
   "order of operations with smallestUnit = years and ZonedDateTime relativeTo"
+);
+actual.splice(0); // clear
+
+// code path that hits UnbalanceDateDurationRelative, RoundDuration, and
+// BalanceDateDurationRelative
+const expectedOpsForUnbalanceRoundBalance = expectedOpsForZonedRelativeTo.concat([
+  // ToTemporalDate
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  // No user code calls in UnbalanceDurationRelative
+  // RoundDuration → MoveRelativeZonedDateTime → AddZonedDateTime
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",  // 5. GetPlainDateTimeFor
+  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "get options.relativeTo.calendar.dateAdd",                  // 8.
+  "call options.relativeTo.calendar.dateAdd",
+  "get options.relativeTo.timeZone.getPossibleInstantsFor",   // 10. GetInstantFor
+  "call options.relativeTo.timeZone.getPossibleInstantsFor",
+  // RoundDuration
+  "get options.relativeTo.calendar.dateAdd",   // 8.e.i
+  "call options.relativeTo.calendar.dateAdd",  // 8.g MoveRelativeDate
+  // BalanceDateDurationRelative
+  "get options.relativeTo.calendar.dateAdd",   // 13.a.i
+  "call options.relativeTo.calendar.dateAdd",  // 13.c MoveRelativeDate
+]);
+new Temporal.Duration(0, 1, 1).round(createOptionsObserver({ largestUnit: "months", smallestUnit: "weeks", relativeTo: zonedRelativeTo }));
+assert.compareArray(
+  actual,
+  expectedOpsForUnbalanceRoundBalance,
+  "order of operations with largestUnit = months, smallestUnit = weeks, and ZonedDateTime relativeTo"
 );
 actual.splice(0); // clear
