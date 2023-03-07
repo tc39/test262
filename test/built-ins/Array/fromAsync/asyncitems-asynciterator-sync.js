@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.fromasync
 description: >
-  Array.fromAsync handles a sync iterator returned from @@iterator
+  Array.fromAsync handles a sync iterator returned from @@asyncIterator
 includes: [asyncHelpers.js, compareArray.js, temporalHelpers.js]
 flags: [async]
 features: [Array.fromAsync]

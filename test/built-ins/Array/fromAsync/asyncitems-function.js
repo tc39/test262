@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.fromasync
 description: >
-  Array.fromAsync treats a BigInt as an array-like
+  Array.fromAsync treats a function as an array-like
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [Array.fromAsync]
