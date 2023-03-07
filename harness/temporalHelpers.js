@@ -20,6 +20,7 @@ function formatPropertyName(propertyKey, objectName = "") {
     case "number":
       return `${objectName}[${propertyKey}]`;
     default:
+      // TODO: check if propertyKey is an integer index.
       return objectName ? `${objectName}.${propertyKey}` : propertyKey;
   }
 }
