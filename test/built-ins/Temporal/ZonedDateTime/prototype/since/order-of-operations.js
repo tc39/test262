@@ -245,4 +245,5 @@ const expectedOpsForWeekRounding = expected.concat(expectedOpsForCalendarDiffere
   "call this.calendar.dateAdd",  // 11.d MoveRelativeDate
 ]);  // (11.g.iii MoveRelativeDate not called because days already balanced)
 instance.since(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "weeks" }));
-assert.compareArray(actual.slice(expected.length), expectedOpsForWeekRounding.slice(expected.length), "order of operations with smallestUnit = weeks");
+assert.compareArray(actual, expectedOpsForWeekRounding, "order of operations with smallestUnit = weeks");
+actual.splice(0); // clear
