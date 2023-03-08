@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciterator-constructor
+esid: sec-iteratorprototype.every
 description: >
-  The "name" property of AsyncIterator
+  The "name" property of Iterator.prototype.every
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,8 +22,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.name, 'AsyncIterator', 'The value of AsyncIterator.name is "AsyncIterator"');
+assert.sameValue(Iterator.prototype.every.name, 'every', 'The value of Iterator.prototype.every.name is "every"');
 
-verifyNotEnumerable(AsyncIterator, 'name');
-verifyNotWritable(AsyncIterator, 'name');
-verifyConfigurable(AsyncIterator, 'name');
+verifyNotEnumerable(Iterator.prototype.every, 'name');
+verifyNotWritable(Iterator.prototype.every, 'name');
+verifyConfigurable(Iterator.prototype.every, 'name');

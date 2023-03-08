@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciterator
+esid: sec-iterator
 description: >
-  AsyncIterator is not callable or constructable
+  Iterator is not callable or constructable
 info: |
-  When the AsyncIterator function is called, the following steps are taken:
+  When the Iterator function is called, the following steps are taken:
 
   If NewTarget is undefined or the active function object, throw a TypeError exception.
 
@@ -17,12 +17,12 @@ let count = 0;
 
 assert.throws(TypeError, () => {
   count++;
-  AsyncIterator();
+  Iterator();
 });
 
 assert.throws(TypeError, () => {
   count++;
-  new AsyncIterator();
+  new Iterator();
 });
 
 assert.sameValue(count, 2);

@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciterator-constructor
+esid: sec-iterator-constructor
 description: >
-  Property descriptor of AsyncIterator
+  Property descriptor of Iterator
 info: |
-  The AsyncIterator Constructor
+  The Iterator Constructor
 
-  * is the initial value of the AsyncIterator property of the global object.
+  * is the initial value of the Iterator property of the global object.
 
   17 ECMAScript Standard Built-in Objects
 
@@ -19,15 +19,8 @@ features: [globalThis, iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(this, 'AsyncIterator', {
-  value: AsyncIterator,
-  writable: true,
-  enumerable: false,
-  configurable: true,
-});
-
-verifyProperty(globalThis, 'AsyncIterator', {
-  value: AsyncIterator,
+verifyProperty(globalThis, 'Iterator', {
+  value: Iterator,
   writable: true,
   enumerable: false,
   configurable: true,

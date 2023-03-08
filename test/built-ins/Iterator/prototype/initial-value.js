@@ -2,21 +2,21 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciterator.prototype
+esid: sec-iterator.prototype
 description: >
-  The initial value of AsyncIterator.prototype is %AsyncIterator.prototype%.
+  The initial value of Iterator.prototype is %Iterator.prototype%.
 info: |
-  AsyncIterator.prototype
+  Iterator.prototype
 
-  The initial value of AsyncIterator.prototype is %AsyncIterator.prototype%.
+  The initial value of Iterator.prototype is %Iterator.prototype%.
 
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
 features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(AsyncIterator, 'prototype', {
-  value: AsyncIterator.prototype,
+verifyProperty(Iterator, 'prototype', {
+  value: Iterator.prototype,
   writable: false,
   enumerable: false,
   configurable: false,

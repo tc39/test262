@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciterator-constructor
+esid: sec-iterator-constructor
 description: >
-  AsyncIterator has a "length" property whose value is 0.
+  Iterator has a "length" property whose value is 0.
 info: |
-  The AsyncIterator Constructor
+  The Iterator Constructor
 
-  The length property of the AsyncIterator constructor function is 0.
+  The length property of the Iterator constructor function is 0.
   ...
 
   ES7 section 17: Unless otherwise specified, the length property of a built-in
@@ -18,8 +18,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.length, 0, 'The value of AsyncIterator.length is 0');
+assert.sameValue(Iterator.length, 0, 'The value of Iterator.length is 0');
 
-verifyNotEnumerable(AsyncIterator, 'length');
-verifyNotWritable(AsyncIterator, 'length');
-verifyConfigurable(AsyncIterator, 'length');
+verifyNotEnumerable(Iterator, 'length');
+verifyNotWritable(Iterator, 'length');
+verifyConfigurable(Iterator, 'length');
