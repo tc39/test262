@@ -158,8 +158,6 @@ const expectedOpsForCalendarDifference = [
   "get this.calendar.dateUntil",
   "call this.calendar.dateUntil",
   // AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
   "get this.timeZone.getPossibleInstantsFor",
@@ -173,8 +171,6 @@ const expectedOpsForCalendarDifference = [
   "get this.calendar.dateUntil",
   "call this.calendar.dateUntil",
   // NanosecondsToDays → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
   "get this.timeZone.getPossibleInstantsFor",

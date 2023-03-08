@@ -270,8 +270,6 @@ const expectedOpsForYearRoundingZoned = expectedOpsForZonedRelativeTo.concat([
   "get options.relativeTo.calendar.dateUntil",                // 12. DifferenceISODateTime
   "call options.relativeTo.calendar.dateUntil",
   // BalancePossiblyInfiniteDuration → NanosecondsToDays → AddZonedDateTime
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",  // 5. GetPlainDateTimeFor
-  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.calendar.dateAdd",                  // 8.
   "call options.relativeTo.calendar.dateAdd",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",   // 10. GetInstantFor
