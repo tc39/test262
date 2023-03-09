@@ -24,9 +24,7 @@ const expected = [
   // GetInstantFor on preceding midnight
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  // AddZonedDateTime
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
+  // AddDaysToZonedDateTime
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // InterpretISODateTimeOffset

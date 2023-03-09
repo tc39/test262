@@ -170,16 +170,9 @@ const expectedOpsForCalendarDifference = [
   // NanosecondsToDays → DifferenceISODateTime
   "get this.calendar.dateUntil",
   "call this.calendar.dateUntil",
-  // NanosecondsToDays → AddZonedDateTime
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
+  // NanosecondsToDays → AddDaysToZonedDateTime
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  // BalanceDuration → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ];
@@ -203,11 +196,7 @@ const expectedOpsForCalendarRounding = [
   // RoundDuration → NanosecondsToDays → DifferenceISODateTime
   "get this.calendar.dateUntil",
   "call this.calendar.dateUntil",
-  // RoundDuration → NanosecondsToDays → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
+  // RoundDuration → NanosecondsToDays → AddDaysToZonedDateTime
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ];
