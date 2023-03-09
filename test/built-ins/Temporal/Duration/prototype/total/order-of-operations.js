@@ -277,12 +277,10 @@ const expectedOpsForYearRoundingZoned = expectedOpsForZonedRelativeTo.concat([
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
 ], [
   // code path through RoundDuration that rounds to the nearest year:
-  // MoveRelativeZonedDateTime → AddZonedDateTime
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",  // 5. GetPlainDateTimeFor
+  // MoveRelativeZonedDateTime → AddDaysToZonedDateTime
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  "get options.relativeTo.calendar.dateAdd",                  // 8.
-  "call options.relativeTo.calendar.dateAdd",
-  "get options.relativeTo.timeZone.getPossibleInstantsFor",   // 10. GetInstantFor
+  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   "get options.relativeTo.calendar.dateAdd",     // 9.b
   "call options.relativeTo.calendar.dateAdd",    // 9.c
