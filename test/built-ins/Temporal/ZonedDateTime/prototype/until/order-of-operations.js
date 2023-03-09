@@ -208,14 +208,13 @@ actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest year:
 const expectedOpsForYearRounding = expected.concat(expectedOpsForCalendarDifference, expectedOpsForCalendarRounding, [
-  "get this.calendar.dateAdd",     // 9.b
-  "call this.calendar.dateAdd",    // 9.c
-  "call this.calendar.dateAdd",    // 9.e
-  "call this.calendar.dateAdd",    // 9.j
-  "get this.calendar.dateUntil",   // 9.m
-  "call this.calendar.dateUntil",  // 9.m
-  "call this.calendar.dateAdd",    // 9.r
-  "call this.calendar.dateAdd",    // 9.w MoveRelativeDate
+  "get this.calendar.dateAdd",     // 7.c
+  "call this.calendar.dateAdd",    // 7.d
+  "call this.calendar.dateAdd",    // 7.f
+  "get this.calendar.dateUntil",   // 7.n
+  "call this.calendar.dateUntil",  // 7.n
+  "call this.calendar.dateAdd",    // 7.s
+  "call this.calendar.dateAdd",    // 7.x MoveRelativeDate
 ]);
 instance.until(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");

@@ -53,7 +53,6 @@ const expected = [
   "call this.calendar.dateFromFields",
   "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
   "get this.calendar.day",
   "call this.calendar.day",
   "get this.calendar.dateFromFields",
