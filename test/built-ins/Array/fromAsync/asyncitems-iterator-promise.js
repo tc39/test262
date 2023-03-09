@@ -11,7 +11,7 @@ features: [Array.fromAsync]
 ---*/
 
 asyncTest(async function () {
-  function * syncGen() {
+  function * asyncGen() {
     for (let i = 0; i < 4; i++) {
       yield Promise.resolve(i * 2);
     }
@@ -20,7 +20,7 @@ asyncTest(async function () {
   const actual = [];
   const items = {};
   TemporalHelpers.observeProperty(actual, items, Symbol.asyncIterator, undefined, "items");
-  TemporalHelpers.observeProperty(actual, items, Symbol.iterator, syncGen, "items");
+  TemporalHelpers.observeProperty(actual, items, Symbol.iterator, asyncGen, "items");
   TemporalHelpers.observeProperty(actual, items, "length", 2, "items");
   TemporalHelpers.observeProperty(actual, items, 0, 2, "items");
   TemporalHelpers.observeProperty(actual, items, 1, 1, "items");
