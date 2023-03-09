@@ -15,4 +15,4 @@ assert.sameValue(calendar.dateAddCallCount, 1, "dateAdd called once with positiv
 
 calendar.dateAddCallCount = 0;
 TemporalHelpers.assertPlainYearMonth(instance.add({days: -31}), 1983, 2, 'M02', "Adding -31 days to march in is8601 calendar")
-assert.sameValue(calendar.dateAddCallCount, 3, "dateAdd called 3 times with negative add");
+assert.sameValue(calendar.dateAddCallCount, 2, "dateAdd called 2 times with negative add");
