@@ -18,12 +18,12 @@ asyncTest(async function () {
   }
 
   const actual = [];
-  const items = {};
-  TemporalHelpers.observeProperty(actual, items, Symbol.asyncIterator, asyncGen, "items");
-  TemporalHelpers.observeProperty(actual, items, Symbol.iterator, undefined, "items");
-  TemporalHelpers.observeProperty(actual, items, "length", 2, "items");
-  TemporalHelpers.observeProperty(actual, items, 0, 2, "items");
-  TemporalHelpers.observeProperty(actual, items, 1, 1, "items");
+  const items = TemporalHelpers.propertyBagObserver(actual, {
+    [Symbol.asyncIterator]: asyncGen,
+    length: 2,
+    0: Promise.resolve(2),
+    1: Promise.resolve(1),
+  }, "items");
   const result = await Array.fromAsync(items);
   assert.compareArray(result, [0, 2, 4, 6]);
   assert.compareArray(actual, [
