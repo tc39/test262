@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.every
+esid: sec-iteratorprototype.every
 description: >
-  Property descriptor of AsyncIterator.prototype.every
+  Property descriptor of Iterator.prototype.every
 info: |
-  AsyncIterator.prototype.every
+  Iterator.prototype.every
 
-  * is the initial value of the AsyncIterator.prototype.every property of the global object.
+  * is the initial value of the Iterator.prototype.every property of the global object.
 
   17 ECMAScript Standard Built-in Objects
 
@@ -19,8 +19,8 @@ features: [globalThis, iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(AsyncIterator.prototype, 'every', {
-  value: AsyncIterator.prototype.every,
+verifyProperty(Iterator.prototype, 'every', {
+  value: Iterator.prototype.every,
   writable: true,
   enumerable: false,
   configurable: true,

@@ -2,16 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.every
+esid: sec-iteratorprototype.every
 description: >
-  The value of the [[Prototype]] internal slot of AsyncIterator.prototype.every is the
-  intrinsic object %AsyncFunction%.
+  The value of the [[Prototype]] internal slot of Iterator.prototype.every is the
+  intrinsic object %Function%.
 includes: [hidden-constructors.js]
 features: [iterator-helpers]
 ---*/
 
 assert.sameValue(
-  Object.getPrototypeOf(AsyncIterator.prototype.every),
-  AsyncFunction.prototype,
-  'Object.getPrototypeOf(AsyncIterator.prototype.every) must return the value of AsyncFunction.prototype'
+  Object.getPrototypeOf(Iterator.prototype.every),
+  Function.prototype,
+  'Object.getPrototypeOf(Iterator.prototype.every) must return the value of Function.prototype'
 );

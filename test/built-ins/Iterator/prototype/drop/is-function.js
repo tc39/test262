@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
-  AsyncIterator.prototype.drop is a built-in function
+  Iterator.prototype.drop is a built-in function
 features: [iterator-helpers]
 ---*/
 
-assert.sameValue(typeof AsyncIterator.prototype.drop, 'function', 'The value of `typeof AsyncIterator.prototype.drop` is "function"');
+assert.sameValue(typeof Iterator.prototype.drop, 'function', 'The value of `typeof Iterator.prototype.drop` is "function"');

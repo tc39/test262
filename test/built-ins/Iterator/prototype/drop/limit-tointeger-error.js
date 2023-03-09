@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
   Coerces limit argument to an integer
 info: |
-  %AsyncIterator.prototype%.drop ( limit )
+  %Iterator.prototype%.drop ( limit )
 
   Let iterated be ? GetIteratorDirect(this value).
   Let remaining be ? ToInteger(limit).
@@ -17,7 +17,7 @@ features: [iterator-helpers]
 ---*/
 
 let assertThrowsCount = 0;
-let iterator = new Test262AsyncIterator([1, 2]);
+let iterator = new Test262Iterator([1, 2]);
 assert.throws(Test262Error, () => {
   assertThrowsCount++;
   let limit = {

@@ -2,27 +2,33 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
   Throws a RangeError exception when limit argument is less than 0.
 info: |
-  %AsyncIterator.prototype%.drop ( limit )
-
-  Let iterated be ? GetIteratorDirect(this value).
-  Let remaining be ? ToInteger(limit).
-  If remaining < 0, throw a RangeError exception.
-  ...
+  %Iterator.prototype%.drop ( limit )
 
 includes: [iterators.js]
 features: [iterator-helpers]
 ---*/
 
-let count = 0;
-let iterator = new Test262AsyncIterator([1, 2]);
+let iterator = new Test262Iterator([1, 2]);
+
+iterator.drop(0);
+iterator.drop(null);
 
 assert.throws(RangeError, () => {
-  count++;
   iterator.drop(-1);
-}, '`count++; iterator.drop(-1)` throws a RangeError exception');
+}, '`iterator.drop(-1)` throws a RangeError exception');
 
-assert.sameValue(count, 1, 'The value of `count` is 1');
+assert.throws(RangeError, () => {
+  iterator.drop();
+}, '`iterator.drop()` throws a RangeError exception');
+
+assert.throws(RangeError, () => {
+  iterator.drop(void 0);
+}, '`iterator.drop(undefined)` throws a RangeError exception');
+
+assert.throws(RangeError, () => {
+  iterator.drop(0/0);
+}, '`iterator.drop(NaN)` throws a RangeError exception');

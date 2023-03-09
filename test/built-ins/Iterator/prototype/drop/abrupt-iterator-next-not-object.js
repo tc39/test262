@@ -1,66 +1,32 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
   Returns abrupt when value accessor is abrupt.
 info: |
-  %AsyncIterator.prototype%.drop ( limit )
-
-  Let iterated be ? GetIteratorDirect(this value).
-  Let remaining be ? ToInteger(limit).
-  If remaining < 0, throw a RangeError exception.
-  Let closure be a new Abstract Closure with no parameters that captures iterated and remaining and performs the following steps when called:
-    Repeat, while remaining > 0,
-      Set remaining to remaining - 1.
-      Let next be ? Await(? IteratorNext(iterated)).
-      If ? IteratorComplete(next) is true, return undefined.
-    Let lastValue be undefined.
-    Repeat,
-      Let next be ? Await(? IteratorNext(iterated, lastValue)).
-      ...
-
-  IteratorNext ( iteratorRecord [ , value ] )
-
-    If value is not present, then
-      Let result be ? Call(iteratorRecord.[[NextMethod]], iteratorRecord.[[Iterator]]).
-    Else,
-      Let result be ? Call(iteratorRecord.[[NextMethod]], iteratorRecord.[[Iterator]], « value »).
-    If Type(result) is not Object, throw a TypeError exception.
-    Return result.
-
+  %Iterator.prototype%.drop ( limit )
 
 includes: [iterators.js]
-features: [async-iteration, iterator-helpers]
-flags: [async]
+features: [iterator-helpers]
+flags: []
 ---*/
 let nextCalls = 0;
 
-class Test262AsyncIteratorAbrupt extends Test262AsyncIterator {
-  async next() {
+class Test262IteratorAbrupt extends Test262Iterator {
+   next() {
     nextCalls++;
     return null;
   }
 }
 
-(async () => {
-  let tryCount = 0;
-  let catchCount = 0;
-  let iterator = new Test262AsyncIteratorAbrupt([1, 2]);
-  assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
+let iterator = new Test262IteratorAbrupt([1, 2]);
+assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
-  try {
-    tryCount++;
-
-    for await (const [i, v] of iterator.drop(0)) {
-      $DONE('for await body must not be reachable');
-    }
-  } catch (e) {
-    catchCount++;
-    assert.sameValue(e instanceof TypeError, true, 'The result of evaluating `(e instanceof TypeError)` is true');
+assert.throws(TypeError, function() {
+  for (const [i, v] of iterator.drop(0)) {
+    throw new Test262Error('for body must not be reachable');
   }
+});
 
-  assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');
-  assert.sameValue(tryCount, 1, 'The value of `tryCount` is 1');
-  assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
-})().then($DONE, $DONE);
+assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');

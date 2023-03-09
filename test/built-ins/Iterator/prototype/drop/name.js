@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
-  The "name" property of AsyncIterator.prototype.drop
+  The "name" property of Iterator.prototype.drop
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,8 +22,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.prototype.drop.name, 'drop', 'The value of AsyncIterator.prototype.drop.name is "drop"');
+assert.sameValue(Iterator.prototype.drop.name, 'drop', 'The value of Iterator.prototype.drop.name is "drop"');
 
-verifyNotEnumerable(AsyncIterator.prototype.drop, 'name');
-verifyNotWritable(AsyncIterator.prototype.drop, 'name');
-verifyConfigurable(AsyncIterator.prototype.drop, 'name');
+verifyNotEnumerable(Iterator.prototype.drop, 'name');
+verifyNotWritable(Iterator.prototype.drop, 'name');
+verifyConfigurable(Iterator.prototype.drop, 'name');

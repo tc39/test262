@@ -1,16 +1,16 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
-  AsyncIterator.prototype.drop is callable, but not constructable.
+  Iterator.prototype.drop is callable, but not constructable.
 features: [iterator-helpers]
 ---*/
-async function* g() {}
-AsyncIterator.prototype.drop.call(g());
+function* g() {}
+Iterator.prototype.drop.call(g(), 0);
 let iter = g();
-iter.drop();
+iter.drop(0);
 
 assert.throws(TypeError, () => {
-  new iter.drop();
-}, '`new iter.drop()` throws a TypeError exception');
+  new iter.drop(0);
+}, '`new iter.drop(0)` throws a TypeError exception');

@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.drop
+esid: sec-iteratorprototype.drop
 description: >
-  Property descriptor of AsyncIterator.prototype.drop
+  Property descriptor of Iterator.prototype.drop
 info: |
-  AsyncIterator.prototype.drop
+  Iterator.prototype.drop
 
-  * is the initial value of the AsyncIterator.prototype.drop property of the global object.
+  * is the initial value of the Iterator.prototype.drop property of the global object.
 
   17 ECMAScript Standard Built-in Objects
 
@@ -19,8 +19,8 @@ features: [globalThis, iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(AsyncIterator.prototype, 'drop', {
-  value: AsyncIterator.prototype.drop,
+verifyProperty(Iterator.prototype, 'drop', {
+  value: Iterator.prototype.drop,
   writable: true,
   enumerable: false,
   configurable: true,
