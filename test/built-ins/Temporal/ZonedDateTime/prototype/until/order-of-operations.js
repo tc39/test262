@@ -109,10 +109,10 @@ const ownCalendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
 const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, ownTimeZone, ownCalendar);
 
 const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
-  year: 2001,
+  year: 2004,
   month: 5,
   monthCode: "M05",
-  day: 2,
+  day: 12,
   hour: 1,
   minute: 46,
   second: 40,
@@ -208,14 +208,13 @@ actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest year:
 const expectedOpsForYearRounding = expected.concat(expectedOpsForCalendarDifference, expectedOpsForCalendarRounding, [
-  "get this.calendar.dateAdd",     // 7.c
-  "call this.calendar.dateAdd",    // 7.d
-  "call this.calendar.dateAdd",    // 7.f
-  "get this.calendar.dateUntil",   // 7.n
-  "call this.calendar.dateUntil",  // 7.n
-  "call this.calendar.dateAdd",    // 7.s
-  "call this.calendar.dateAdd",    // 7.x MoveRelativeDate
-]);
+  "get this.calendar.dateAdd",     // 7.c.i
+  "call this.calendar.dateAdd",    // 7.e
+  "call this.calendar.dateAdd",    // 7.g
+  "get this.calendar.dateUntil",   // 7.o
+  "call this.calendar.dateUntil",  // 7.o
+  "call this.calendar.dateAdd",    // 7.y MoveRelativeDate
+]);  // (7.s not called because other units can't add up to >1 year at this point)
 instance.until(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
 actual.splice(0); // clear
