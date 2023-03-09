@@ -12,21 +12,19 @@ features: [Array.fromAsync]
 
 asyncTest(async function () {
   const actual = [];
-  const items = TemporalHelpers.propertyBagObserver(actual, {
-    [Symbol.asyncIterator]: null,
-    length: 2,
-    0: Promise.resolve(2),
-    1: Promise.resolve(1),
-  }, "items");
+  const items = {};
+  TemporalHelpers.observeProperty(actual, items, Symbol.asyncIterator, null, "items");
+  TemporalHelpers.observeProperty(actual, items, Symbol.iterator, undefined, "items");
+  TemporalHelpers.observeProperty(actual, items, "length", 2, "items");
+  TemporalHelpers.observeProperty(actual, items, 0, 2, "items");
+  TemporalHelpers.observeProperty(actual, items, 1, 1, "items");
   const result = await Array.fromAsync(items);
   assert.compareArray(result, [2, 1]);
   assert.compareArray(actual, [
     "get items[Symbol.asyncIterator]",
     "get items[Symbol.iterator]",
     "get items.length",
-    "get items.length.valueOf",
-    "call items.length.valueOf",
-    "get items.0",
-    "get items.1",
+    "get items[0]",
+    "get items[1]",
   ]);
 });
