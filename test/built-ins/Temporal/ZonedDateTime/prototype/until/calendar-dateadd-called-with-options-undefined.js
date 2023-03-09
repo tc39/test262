@@ -36,15 +36,3 @@ calendar.dateAddCallCount = 0;
 
 earlier.until(later1, { smallestUnit: "weeks" });
 assert.sameValue(calendar.dateAddCallCount, 3, "rounding difference with calendar smallestUnit");
-
-// Difference with rounding, with smallestUnit a non-calendar unit, and having
-// the resulting time difference be longer than a calendar day, covering the
-// paths that go through AdjustRoundedDurationDays.
-// The call comes from this path:
-// ZonedDateTime.until() -> AdjustRoundedDurationDays -> AddZonedDateTime ->
-//   BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
-calendar.dateAddCallCount = 0;
-
-const later2 = new Temporal.ZonedDateTime(86_399_999_999_999n, timeZone, calendar);
-earlier.until(later2, { largestUnit: "days", smallestUnit: "hours", roundingMode: "ceil" });
-assert.sameValue(calendar.dateAddCallCount, 1, "rounding difference with non-calendar smallestUnit and time difference longer than a calendar day");

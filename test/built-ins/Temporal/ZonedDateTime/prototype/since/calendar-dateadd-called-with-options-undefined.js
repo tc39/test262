@@ -44,10 +44,10 @@ assert.sameValue(calendar.dateAddCallCount, 3, "rounding difference with calenda
 // test in until() only happens in one direction.)
 // The calls come from this path:
 // ZonedDateTime.since() -> AdjustRoundedDurationDays -> AddZonedDateTime ->
-//   BuiltinTimeZoneGetInstantFor -> calendar.dateAdd() (3x)
+//   BuiltinTimeZoneGetInstantFor -> calendar.dateAdd() (2x)
 
 calendar.dateAddCallCount = 0;
 
 const later2 = new Temporal.ZonedDateTime(86_399_999_999_999n, timeZone, calendar);
 later2.since(earlier, { largestUnit: "days", smallestUnit: "hours", roundingMode: "ceil" });
-assert.sameValue(calendar.dateAddCallCount, 3, "rounding difference with non-calendar smallestUnit and time difference longer than a calendar day");
+assert.sameValue(calendar.dateAddCallCount, 2, "rounding difference with non-calendar smallestUnit and time difference longer than a calendar day");
