@@ -19,17 +19,15 @@ const relativeTo = new Temporal.ZonedDateTime(0n, timeZone, calendar);
 // Duration.round() ->
 //   RoundDuration ->
 //     MoveRelativeZonedDateTime -> AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
-//     NanosecondsToDays -> AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
 //   BalanceDuration ->
 //     AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
-//     NanosecondsToDays -> AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd() (2x)
 //   BalanceDurationRelative ->
 //     MoveRelativeDate -> calendar.dateAdd() (2x)
 //     calendar.dateAdd()
 
 const instance1 = new Temporal.Duration(1, 1, 1, 1, 1);
 instance1.round({ smallestUnit: "days", relativeTo });
-assert.sameValue(calendar.dateAddCallCount, 8, "rounding with calendar smallestUnit");
+assert.sameValue(calendar.dateAddCallCount, 5, "rounding with calendar smallestUnit");
 
 // Rounding with a non-default largestUnit to cover the path in
 // UnbalanceDurationRelative where larger units are converted into smaller
@@ -55,17 +53,13 @@ assert.sameValue(calendar.dateAddCallCount, 8, "rounding with non-default larges
 // AdjustRoundedDurationDays.
 // The calls come from these paths:
 // Duration.round() ->
-//   AdjustRoundedDurationDays ->
-//     AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
-//     AddDuration ->
+//   AdjustRoundedDurationDays -> AddDuration ->
 //       AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
-//       NanosecondsToDays -> AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd() (2x)
 //   BalanceDuration ->
 //     AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd()
-//     NanosecondsToDays -> AddZonedDateTime -> BuiltinTimeZoneGetInstantFor -> calendar.dateAdd() (2x)
 
 calendar.dateAddCallCount = 0;
 
 const instance3 = new Temporal.Duration(0, 0, 0, 0, 23, 59, 59, 999, 999, 999);
 instance3.round({ largestUnit: "days", smallestUnit: "hours", roundingMode: "ceil", relativeTo });
-assert.sameValue(calendar.dateAddCallCount, 7, "rounding with time difference exceeding calendar day");
+assert.sameValue(calendar.dateAddCallCount, 2, "rounding with time difference exceeding calendar day");
