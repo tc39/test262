@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.filter
+esid: sec-iteratorprototype.filter
 description: >
-  The "name" property of AsyncIterator.prototype.filter
+  The "name" property of Iterator.prototype.filter
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,8 +22,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.prototype.filter.name, 'filter', 'The value of AsyncIterator.prototype.filter.name is "filter"');
+assert.sameValue(Iterator.prototype.filter.name, 'filter', 'The value of Iterator.prototype.filter.name is "filter"');
 
-verifyNotEnumerable(AsyncIterator.prototype.filter, 'name');
-verifyNotWritable(AsyncIterator.prototype.filter, 'name');
-verifyConfigurable(AsyncIterator.prototype.filter, 'name');
+verifyNotEnumerable(Iterator.prototype.filter, 'name');
+verifyNotWritable(Iterator.prototype.filter, 'name');
+verifyConfigurable(Iterator.prototype.filter, 'name');

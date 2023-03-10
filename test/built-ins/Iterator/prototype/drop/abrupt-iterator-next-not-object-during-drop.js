@@ -13,14 +13,14 @@ flags: []
 ---*/
 let nextCalls = 0;
 
-class Test262IteratorAbrupt extends Test262Iterator {
+class Test262IteratorCounter extends Test262Iterator {
    next() {
     nextCalls++;
     return null;
   }
 }
 
-let iterator = new Test262IteratorAbrupt([1, 2]);
+let iterator = new Test262IteratorCounter([1, 2]);
 assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
 assert.throws(TypeError, function() {

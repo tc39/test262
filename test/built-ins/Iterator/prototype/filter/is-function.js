@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.filter
+esid: sec-iteratorprototype.filter
 description: >
-  AsyncIterator.prototype.filter is a built-in function
+  Iterator.prototype.filter is a built-in function
 features: [iterator-helpers]
 ---*/
 
-assert.sameValue(typeof AsyncIterator.prototype.filter, 'function', 'The value of `typeof AsyncIterator.prototype.filter` is "function"');
+assert.sameValue(typeof Iterator.prototype.filter, 'function', 'The value of `typeof Iterator.prototype.filter` is "function"');

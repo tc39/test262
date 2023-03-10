@@ -1,14 +1,14 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.filter
+esid: sec-iteratorprototype.filter
 description: >
-  AsyncIterator.prototype.filter is callable, but not constructable.
+  Iterator.prototype.filter is callable, but not constructable.
 features: [iterator-helpers]
 ---*/
-async function* g() {}
+function* g() {}
 let iter = g();
-AsyncIterator.prototype.filter.call(iter, () => {});
+Iterator.prototype.filter.call(iter, () => {});
 iter.filter(() => {});
 
 assert.throws(TypeError, () => {

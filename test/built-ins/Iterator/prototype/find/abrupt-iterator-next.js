@@ -12,14 +12,14 @@ features: [iterator-helpers]
 flags: []
 ---*/
 let nextCalls = 0;
-class Test262IteratorAbrupt extends Test262Iterator {
+class Test262IteratorThrows extends Test262Iterator {
   next() {
     nextCalls++;
     throw new Test262Error();
   }
 }
 
-let iterator = new Test262IteratorAbrupt([1, 2]);
+let iterator = new Test262IteratorThrows([1, 2]);
 assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
 assert.throws(Test262Error, function () {

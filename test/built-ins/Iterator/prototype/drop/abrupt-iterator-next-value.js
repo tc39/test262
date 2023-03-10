@@ -14,7 +14,7 @@ flags: []
 let valueCount = 0;
 let nextCalls = 0;
 
-class Test262IteratorAbrupt extends Test262Iterator {
+class Test262IteratorThrows extends Test262Iterator {
   next() {
     nextCalls++;
 
@@ -27,7 +27,7 @@ class Test262IteratorAbrupt extends Test262Iterator {
   }
 }
 
-let iterator = new Test262IteratorAbrupt([1, 2]).drop(0);
+let iterator = new Test262IteratorThrows([1, 2]).drop(0);
 assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
 assert.throws(Test262Error, function () {

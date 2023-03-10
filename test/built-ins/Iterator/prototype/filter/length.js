@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.filter
+esid: sec-iteratorprototype.filter
 description: >
-  AsyncIterator.prototype.filter has a "length" property whose value is 0.
+  Iterator.prototype.filter has a "length" property whose value is 0.
 info: |
   ECMAScript Standard Built-in Objects
 
@@ -15,8 +15,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.prototype.filter.length, 1, 'The value of AsyncIterator.prototype.filter.length is 1');
+assert.sameValue(Iterator.prototype.filter.length, 1, 'The value of Iterator.prototype.filter.length is 1');
 
-verifyNotEnumerable(AsyncIterator.prototype.filter, 'length');
-verifyNotWritable(AsyncIterator.prototype.filter, 'length');
-verifyConfigurable(AsyncIterator.prototype.filter, 'length');
+verifyNotEnumerable(Iterator.prototype.filter, 'length');
+verifyNotWritable(Iterator.prototype.filter, 'length');
+verifyConfigurable(Iterator.prototype.filter, 'length');
