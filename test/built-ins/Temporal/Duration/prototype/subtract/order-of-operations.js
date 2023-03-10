@@ -229,9 +229,6 @@ const expectedOpsForPlainRelativeToNoCalendarOperations = [
   // InterpretTemporalDateTimeFields
   "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
-  // AddDuration
-  "get options.relativeTo.calendar.dateUntil",
-  "call options.relativeTo.calendar.dateUntil",
 ];
 
 const noCalendarInstance = new Temporal.Duration(0, 0, 0, 4, 5, 6, 7, 987, 654, 321);
@@ -355,9 +352,6 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  // AddDuration → DifferenceZonedDateTime → NanosecondsToDays → DifferenceISODateTime
-  "get options.relativeTo.calendar.dateUntil",
-  "call options.relativeTo.calendar.dateUntil",
   // AddDuration → DifferenceZonedDateTime → NanosecondsToDays → AddZonedDateTime 1
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
