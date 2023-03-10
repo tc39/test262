@@ -37,9 +37,8 @@ var cal = new class extends Temporal.Calendar {
 }("iso8601");
 
 var dt1 = new Temporal.PlainDateTime(1970, 1, 1, 0, 0, 0, 0, 0, 0, cal);
-var dt2 = new Temporal.PlainDateTime(1970, 1, 1, 0, 0, 0, 0, 0, 0, cal);
+var dt2 = new Temporal.PlainDateTime(1970, 1, 2, 0, 0, 0, 0, 0, 0, cal);
 var options = {largestUnit: "nanoseconds"};
 
-assert.throws(RangeError, () => dt1.since(dt1, options));
 assert.throws(RangeError, () => dt1.since(dt2, options));
 assert.throws(RangeError, () => dt2.since(dt1, options));
