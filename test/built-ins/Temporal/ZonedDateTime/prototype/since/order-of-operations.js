@@ -108,6 +108,18 @@ const ownTimeZone = TemporalHelpers.timeZoneObserver(actual, "this.timeZone");
 const ownCalendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
 const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, ownTimeZone, ownCalendar);
 
+const dstTimeZone = TemporalHelpers.springForwardFallBackTimeZone();
+const ownDstTimeZone = TemporalHelpers.timeZoneObserver(actual, "this.timeZone", {
+  getOffsetNanosecondsFor: dstTimeZone.getOffsetNanosecondsFor,
+  getPossibleInstantsFor: dstTimeZone.getPossibleInstantsFor,
+});
+const otherDstTimeZone = TemporalHelpers.timeZoneObserver(actual, "other.timeZone", {
+  getOffsetNanosecondsFor: dstTimeZone.getOffsetNanosecondsFor,
+  getPossibleInstantsFor: dstTimeZone.getPossibleInstantsFor,
+});
+/* 2000-10-29T01:30-07:00, in the middle of the first repeated hour: */
+const fallBackInstance = new Temporal.ZonedDateTime(972808200_000_000_000n, ownDstTimeZone, ownCalendar);
+
 const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   year: 2004,
   month: 5,
@@ -169,6 +181,139 @@ assert.compareArray(actual, expected.concat([
 ]), "order of operations with identical dates and largestUnit a calendar unit");
 actual.splice(0); // clear
 
+// two ZonedDateTimes that denote the same wall-clock time in the time zone can
+// avoid calling some calendar methods:
+const fallBackPropertyBag = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2000,
+  month: 10,
+  monthCode: "M10",
+  day: 29,
+  hour: 1,
+  minute: 30,
+  second: 0,
+  millisecond: 0,
+  microsecond: 0,
+  nanosecond: 0,
+  offset: "-08:00",
+  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
+  timeZone: otherDstTimeZone,
+}, "other");
+fallBackInstance.since(fallBackPropertyBag, createOptionsObserver({ largestUnit: "days" }));
+assert.compareArray(actual, [
+  // ToTemporalZonedDateTime
+  "get other.calendar",
+  "has other.calendar.dateAdd",
+  "has other.calendar.dateFromFields",
+  "has other.calendar.dateUntil",
+  "has other.calendar.day",
+  "has other.calendar.dayOfWeek",
+  "has other.calendar.dayOfYear",
+  "has other.calendar.daysInMonth",
+  "has other.calendar.daysInWeek",
+  "has other.calendar.daysInYear",
+  "has other.calendar.fields",
+  "has other.calendar.id",
+  "has other.calendar.inLeapYear",
+  "has other.calendar.mergeFields",
+  "has other.calendar.month",
+  "has other.calendar.monthCode",
+  "has other.calendar.monthDayFromFields",
+  "has other.calendar.monthsInYear",
+  "has other.calendar.weekOfYear",
+  "has other.calendar.year",
+  "has other.calendar.yearMonthFromFields",
+  "has other.calendar.yearOfWeek",
+  "get other.calendar.fields",
+  "call other.calendar.fields",
+  "get other.day",
+  "get other.day.valueOf",
+  "call other.day.valueOf",
+  "get other.hour",
+  "get other.hour.valueOf",
+  "call other.hour.valueOf",
+  "get other.microsecond",
+  "get other.microsecond.valueOf",
+  "call other.microsecond.valueOf",
+  "get other.millisecond",
+  "get other.millisecond.valueOf",
+  "call other.millisecond.valueOf",
+  "get other.minute",
+  "get other.minute.valueOf",
+  "call other.minute.valueOf",
+  "get other.month",
+  "get other.month.valueOf",
+  "call other.month.valueOf",
+  "get other.monthCode",
+  "get other.monthCode.toString",
+  "call other.monthCode.toString",
+  "get other.nanosecond",
+  "get other.nanosecond.valueOf",
+  "call other.nanosecond.valueOf",
+  "get other.offset",
+  "get other.offset.toString",
+  "call other.offset.toString",
+  "get other.second",
+  "get other.second.valueOf",
+  "call other.second.valueOf",
+  "get other.timeZone",
+  "get other.year",
+  "get other.year.valueOf",
+  "call other.year.valueOf",
+  "has other.timeZone.getOffsetNanosecondsFor",
+  "has other.timeZone.getPossibleInstantsFor",
+  "has other.timeZone.id",
+  "get other.calendar.dateFromFields",
+  "call other.calendar.dateFromFields",
+  "get other.timeZone.getPossibleInstantsFor",
+  "call other.timeZone.getPossibleInstantsFor",
+  "get other.timeZone.getOffsetNanosecondsFor",
+  "call other.timeZone.getOffsetNanosecondsFor",
+  // NOTE: extra because of wall-clock time ambiguity:
+  "get other.timeZone.getOffsetNanosecondsFor",
+  "call other.timeZone.getOffsetNanosecondsFor",
+  // CalendarEquals
+  "get this.calendar.id",
+  "get other.calendar.id",
+  // CopyDataProperties
+  "ownKeys options",
+  "getOwnPropertyDescriptor options.roundingIncrement",
+  "get options.roundingIncrement",
+  "getOwnPropertyDescriptor options.roundingMode",
+  "get options.roundingMode",
+  "getOwnPropertyDescriptor options.largestUnit",
+  "get options.largestUnit",
+  "getOwnPropertyDescriptor options.smallestUnit",
+  "get options.smallestUnit",
+  "getOwnPropertyDescriptor options.additional",
+  "get options.additional",
+  // GetDifferenceSettings
+  "get options.largestUnit.toString",
+  "call options.largestUnit.toString",
+  "get options.roundingIncrement.valueOf",
+  "call options.roundingIncrement.valueOf",
+  "get options.roundingMode.toString",
+  "call options.roundingMode.toString",
+  "get options.smallestUnit.toString",
+  "call options.smallestUnit.toString",
+  // TimeZoneEquals
+  "get this.timeZone.id",
+  "get other.timeZone.id",
+  // DifferenceZonedDateTime
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
+  // NanosecondsToDays
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getOffsetNanosecondsFor",
+  // NanosecondsToDays → AddDaysToZonedDateTime
+  "get this.timeZone.getPossibleInstantsFor",
+  "call this.timeZone.getPossibleInstantsFor",
+], "order of operations with identical wall-clock times and largestUnit a calendar unit");
+actual.splice(0); // clear
+
 // Making largestUnit a calendar unit adds the following observable operations:
 const expectedOpsForCalendarDifference = [
   // TimeZoneEquals
@@ -192,9 +337,6 @@ const expectedOpsForCalendarDifference = [
   "call this.timeZone.getOffsetNanosecondsFor",
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  // NanosecondsToDays → DifferenceISODateTime
-  "get this.calendar.dateUntil",
-  "call this.calendar.dateUntil",
   // NanosecondsToDays → AddDaysToZonedDateTime
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
@@ -218,9 +360,6 @@ const expectedOpsForCalendarRounding = [
   "call this.timeZone.getOffsetNanosecondsFor",
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  // RoundDuration → NanosecondsToDays → DifferenceISODateTime
-  "get this.calendar.dateUntil",
-  "call this.calendar.dateUntil",
   // RoundDuration → NanosecondsToDays → AddDaysToZonedDateTime
   "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",

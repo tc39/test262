@@ -100,8 +100,8 @@ const instance = new Temporal.PlainYearMonth(2000, 5, ownCalendar, 1);
 
 const otherYearMonthPropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   year: 2001,
-  month: 5,
-  monthCode: "M05",
+  month: 6,
+  monthCode: "M06",
   calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
 }, "other");
 
@@ -148,6 +148,23 @@ const expectedOpsForYearRounding = expected.concat([
 ]);  // (7.s not called because other units can't add up to >1 year at this point)
 instance.since(otherYearMonthPropertyBag, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
+actual.splice(0); // clear
+
+// code path through RoundDuration that rounds to the nearest year and skips a DateUntil call
+const otherYearMonthPropertyBagSameMonth = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2001,
+  month: 5,
+  monthCode: "M05",
+  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
+}, "other");
+const expectedOpsForYearRoundingSameMonth = expected.concat([
+  "get this.calendar.dateAdd",     // 7.c.i
+  "call this.calendar.dateAdd",    // 7.e
+  "call this.calendar.dateAdd",    // 7.g
+  "call this.calendar.dateAdd",    // 7.y MoveRelativeDate
+]);  // (7.o not called because months and weeks == 0)
+instance.since(otherYearMonthPropertyBagSameMonth, createOptionsObserver({ smallestUnit: "years" }));
+assert.compareArray(actual, expectedOpsForYearRoundingSameMonth, "order of operations with smallestUnit = years");
 actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest month:

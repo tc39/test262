@@ -86,8 +86,8 @@ const instance = new Temporal.PlainDate(2000, 5, 2, ownCalendar);
 
 const otherDatePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   year: 2001,
-  month: 5,
-  monthCode: 'M05',
+  month: 6,
+  monthCode: "M06",
   day: 2,
   calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
 }, "other");
@@ -107,8 +107,8 @@ function createOptionsObserver({ smallestUnit = "days", largestUnit = "auto", ro
 // clear any observable things that happened while constructing the objects
 actual.splice(0);
 
-// basic order of observable operations, without rounding:
-instance.since(otherDatePropertyBag, createOptionsObserver());
+// basic order of observable operations with calendar call, without rounding:
+instance.since(otherDatePropertyBag, createOptionsObserver({ largestUnit: "years" }));
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
@@ -136,6 +136,24 @@ const expectedOpsForYearRounding = expected.concat([
 ]);  // (7.s not called because other units can't add up to >1 year at this point)
 instance.since(otherDatePropertyBag, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
+actual.splice(0); // clear
+
+// code path through RoundDuration that rounds to the nearest year and skips a DateUntil call:
+const otherDatePropertyBagSameMonth = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2001,
+  month: 5,
+  monthCode: "M05",
+  day: 2,
+  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
+}, "other");
+const expectedOpsForYearRoundingSameMonth = expected.concat([
+  "get this.calendar.dateAdd",     // 7.c.i
+  "call this.calendar.dateAdd",    // 7.e
+  "call this.calendar.dateAdd",    // 7.g
+  "call this.calendar.dateAdd",    // 7.y MoveRelativeDate
+]);  // (7.o not called because months and weeks == 0)
+instance.since(otherDatePropertyBagSameMonth, createOptionsObserver({ smallestUnit: "years" }));
+assert.compareArray(actual, expectedOpsForYearRoundingSameMonth, "order of operations with smallestUnit = years and no excess months/weeks");
 actual.splice(0); // clear
 
 // code path through RoundDuration that rounds to the nearest month:
