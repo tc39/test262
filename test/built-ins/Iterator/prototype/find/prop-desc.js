@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.find
+esid: sec-iteratorprototype.find
 description: >
-  Property descriptor of AsyncIterator.prototype.find
+  Property descriptor of Iterator.prototype.find
 info: |
-  AsyncIterator.prototype.find
+  Iterator.prototype.find
 
-  * is the initial value of the AsyncIterator.prototype.find property of the global object.
+  * is the initial value of the Iterator.prototype.find property of the global object.
 
   17 ECMAScript Standard Built-in Objects
 
@@ -19,8 +19,8 @@ features: [globalThis, iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(AsyncIterator.prototype, 'find', {
-  value: AsyncIterator.prototype.find,
+verifyProperty(Iterator.prototype, 'find', {
+  value: Iterator.prototype.find,
   writable: true,
   enumerable: false,
   configurable: true,

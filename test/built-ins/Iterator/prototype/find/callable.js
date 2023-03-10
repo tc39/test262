@@ -1,40 +1,22 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-asynciteratorprototype.find
+esid: sec-iteratorprototype.find
 description: >
-  AsyncIterator.prototype.find is callable, but not constructable.
+  Iterator.prototype.find is callable, but not constructable.
 features: [iterator-helpers]
-flags: [async]
+flags: []
 ---*/
-(async () => {
-  let tryCount = 0;
-  let catchCount = 0;
-  const nonCallable = {};
-  async function* g() {}
-  let iter = g();
+function* g() {}
+let iter = g();
 
-  try {
-    tryCount++;
-    await AsyncIterator.prototype.find.call(iter, () => {});
-  } catch (e) {
-    catchCount++;
-  }
+Iterator.prototype.find.call(iter, () => {});
 
-  try {
-    tryCount++;
-    await iter.find(() => {});
-  } catch (e) {
-    catchCount++;
-  }
+iter = g();
+iter.find(() => {});
 
-  try {
-    tryCount++;
-    await new iter.find(() => {});
-  } catch (e) {
-    catchCount++;
-  }
+iter = g();
+assert.throws(TypeError, function () {
+  new iter.find(() => {});
+});
 
-  assert.sameValue(tryCount, 3, 'The value of `tryCount` is 3');
-  assert.sameValue(catchCount, 1, 'The value of `catchCount` is 1');
-})().then($DONE, $DONE);

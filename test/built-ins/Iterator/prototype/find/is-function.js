@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.find
+esid: sec-iteratorprototype.find
 description: >
-  AsyncIterator.prototype.find is a built-in function
+  Iterator.prototype.find is a built-in function
 features: [iterator-helpers]
 ---*/
 
-assert.sameValue(typeof AsyncIterator.prototype.find, 'function', 'The value of `typeof AsyncIterator.prototype.find` is "function"');
+assert.sameValue(typeof Iterator.prototype.find, 'function', 'The value of `typeof Iterator.prototype.find` is "function"');

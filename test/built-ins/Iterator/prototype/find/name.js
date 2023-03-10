@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.find
+esid: sec-iteratorprototype.find
 description: >
-  The "name" property of AsyncIterator.prototype.find
+  The "name" property of Iterator.prototype.find
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -22,8 +22,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.prototype.find.name, 'find', 'The value of AsyncIterator.prototype.find.name is "find"');
+assert.sameValue(Iterator.prototype.find.name, 'find', 'The value of Iterator.prototype.find.name is "find"');
 
-verifyNotEnumerable(AsyncIterator.prototype.find, 'name');
-verifyNotWritable(AsyncIterator.prototype.find, 'name');
-verifyConfigurable(AsyncIterator.prototype.find, 'name');
+verifyNotEnumerable(Iterator.prototype.find, 'name');
+verifyNotWritable(Iterator.prototype.find, 'name');
+verifyConfigurable(Iterator.prototype.find, 'name');

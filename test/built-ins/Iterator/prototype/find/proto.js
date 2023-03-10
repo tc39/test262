@@ -2,16 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.find
+esid: sec-iteratorprototype.find
 description: >
-  The value of the [[Prototype]] internal slot of AsyncIterator.prototype.find is the
+  The value of the [[Prototype]] internal slot of Iterator.prototype.find is the
   intrinsic object %FunctionPrototype%.
 features: [iterator-helpers]
 includes: [hidden-constructors.js]
 ---*/
 
 assert.sameValue(
-  Object.getPrototypeOf(AsyncIterator.prototype.find),
-  AsyncFunction.prototype,
-  'Object.getPrototypeOf(AsyncIterator.prototype.find) must return the value of AsyncFunction.prototype'
+  Object.getPrototypeOf(Iterator.prototype.find),
+  Function.prototype,
+  'Object.getPrototypeOf(Iterator.prototype.find) must return the value of Function.prototype'
 );

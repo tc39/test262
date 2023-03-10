@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynciteratorprototype.find
+esid: sec-iteratorprototype.find
 description: >
-  AsyncIterator.prototype.find has a "length" property whose value is 0.
+  Iterator.prototype.find has a "length" property whose value is 0.
 info: |
   ECMAScript Standard Built-in Objects
 
@@ -15,8 +15,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(AsyncIterator.prototype.find.length, 1, 'The value of AsyncIterator.prototype.find.length is 1');
+assert.sameValue(Iterator.prototype.find.length, 1, 'The value of Iterator.prototype.find.length is 1');
 
-verifyNotEnumerable(AsyncIterator.prototype.find, 'length');
-verifyNotWritable(AsyncIterator.prototype.find, 'length');
-verifyConfigurable(AsyncIterator.prototype.find, 'length');
+verifyNotEnumerable(Iterator.prototype.find, 'length');
+verifyNotWritable(Iterator.prototype.find, 'length');
+verifyConfigurable(Iterator.prototype.find, 'length');
