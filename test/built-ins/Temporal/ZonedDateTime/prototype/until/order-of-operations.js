@@ -144,6 +144,31 @@ instance.until(otherDateTimePropertyBag, createOptionsObserver());
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// short-circuit for identical objects will still test TimeZoneEquals if
+// largestUnit is a calendar unit:
+const identicalPropertyBag = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2001,
+  month: 9,
+  monthCode: "M09",
+  day: 9,
+  hour: 1,
+  minute: 46,
+  second: 40,
+  millisecond: 0,
+  microsecond: 0,
+  nanosecond: 0,
+  offset: "+00:00",
+  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
+  timeZone: TemporalHelpers.timeZoneObserver(actual, "other.timeZone"),
+}, "other");
+
+instance.until(identicalPropertyBag, createOptionsObserver({ largestUnit: "years" }));
+assert.compareArray(actual, expected.concat([
+  "get this.timeZone.id",
+  "get other.timeZone.id",
+]), "order of operations with identical dates and largestUnit a calendar unit");
+actual.splice(0); // clear
+
 // Making largestUnit a calendar unit adds the following observable operations:
 const expectedOpsForCalendarDifference = [
   // TimeZoneEquals
