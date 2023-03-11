@@ -8,6 +8,10 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
+  3. If numLimit is NaN, throw a RangeError exception.
+  4. Let integerLimit be ! ToIntegerOrInfinity(numLimit).
+  5. If integerLimit < 0, throw a RangeError exception.
+
 includes: [iterators.js]
 features: [iterator-helpers]
 ---*/

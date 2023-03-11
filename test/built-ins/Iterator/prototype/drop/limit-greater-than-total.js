@@ -26,3 +26,10 @@ flags: []
   assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
   assert.sameValue(done, true, 'The value of `done` is true');
 }
+
+{
+  let iterator = new Test262Iterator([1, 2]).drop(Infinity);
+  let {value, done} = iterator.next();
+  assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
+  assert.sameValue(done, true, 'The value of `done` is true');
+}
