@@ -43,9 +43,9 @@ const expected = [
   // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
   "get this.timeZone.getPossibleInstantsFor",
+  "get this.calendar.dateAdd",
   // AddZonedDateTime
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
   // ... inside Calendar.p.dateAdd
   "get options.overflow",

@@ -33,6 +33,7 @@ const expected = [
   "has plainDateLike.calendar.year",
   "has plainDateLike.calendar.yearMonthFromFields",
   "has plainDateLike.calendar.yearOfWeek",
+  "get plainDateLike.calendar.dateFromFields",
   "get plainDateLike.calendar.fields",
   "call plainDateLike.calendar.fields",
   "get plainDateLike.day",
@@ -47,7 +48,6 @@ const expected = [
   "get plainDateLike.year",
   "get plainDateLike.year.valueOf",
   "call plainDateLike.year.valueOf",
-  "get plainDateLike.calendar.dateFromFields",
   "call plainDateLike.calendar.dateFromFields",
   // lookup
   "get this.timeZone.getOffsetNanosecondsFor",

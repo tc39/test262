@@ -23,12 +23,15 @@ const expected = [
   "getOwnPropertyDescriptor options.extra",
   "get options.extra",
   // lookup
+  "get this.calendar.dateFromFields",
+  "get this.calendar.fields",
+  "get this.calendar.mergeFields",
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
   "get this.timeZone.getPossibleInstantsFor",
   // GetOffsetNanosecondsFor on receiver
   "call this.timeZone.getOffsetNanosecondsFor",
   // CalendarFields
-  "get this.calendar.fields",
   "call this.calendar.fields",
   // PrepareTemporalFields on receiver
   "get this.calendar.day",
@@ -74,7 +77,6 @@ const expected = [
   "get fields.year.valueOf",
   "call fields.year.valueOf",
   // CalendarMergeFields
-  "get this.calendar.mergeFields",
   "call this.calendar.mergeFields",
   // InterpretTemporalDateTimeFields
   "get options.disambiguation.toString",
@@ -83,7 +85,6 @@ const expected = [
   "call options.offset.toString",
   "get options.overflow.toString",
   "call options.overflow.toString",
-  "get this.calendar.dateFromFields",
   "call this.calendar.dateFromFields",
   // InterpretISODateTimeOffset
   "call this.timeZone.getPossibleInstantsFor",

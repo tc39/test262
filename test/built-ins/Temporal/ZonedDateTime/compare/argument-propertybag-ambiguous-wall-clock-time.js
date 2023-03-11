@@ -47,15 +47,16 @@ const expectedOne = [
   "has one.calendar.year",
   "has one.calendar.yearMonthFromFields",
   "has one.calendar.yearOfWeek",
-  // CalendarFields
+  // lookup
+  "get one.calendar.dateFromFields",
   "get one.calendar.fields",
+  // CalendarFields
   "call one.calendar.fields",
   // ToTemporalTimeZoneSlotValue
   "has one.timeZone.getOffsetNanosecondsFor",
   "has one.timeZone.getPossibleInstantsFor",
   "has one.timeZone.id",
   // InterpretTemporalDateTimeFields
-  "get one.calendar.dateFromFields",
   "call one.calendar.dateFromFields",
   // lookup
   "get one.timeZone.getPossibleInstantsFor",
@@ -86,15 +87,16 @@ const expectedTwo = [
   "has two.calendar.year",
   "has two.calendar.yearMonthFromFields",
   "has two.calendar.yearOfWeek",
-  // CalendarFields
+  // lookup
+  "get two.calendar.dateFromFields",
   "get two.calendar.fields",
+  // CalendarFields
   "call two.calendar.fields",
   // ToTemporalTimeZoneSlotValue
   "has two.timeZone.getOffsetNanosecondsFor",
   "has two.timeZone.getPossibleInstantsFor",
   "has two.timeZone.id",
   // InterpretTemporalDateTimeFields
-  "get two.calendar.dateFromFields",
   "call two.calendar.dateFromFields",
   // lookup
   "get two.timeZone.getPossibleInstantsFor",
