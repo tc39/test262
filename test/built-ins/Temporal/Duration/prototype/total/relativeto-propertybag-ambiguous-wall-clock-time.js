@@ -47,11 +47,12 @@ const expected = [
   "has calendar.year",
   "has calendar.yearMonthFromFields",
   "has calendar.yearOfWeek",
-  // CalendarFields
+  // lookup
+  "get calendar.dateFromFields",
   "get calendar.fields",
+  // CalendarFields
   "call calendar.fields",
   // InterpretTemporalDateTimeFields
-  "get calendar.dateFromFields",
   "call calendar.dateFromFields",
   // ToTemporalTimeZoneSlotValue
   "has timeZone.getOffsetNanosecondsFor",

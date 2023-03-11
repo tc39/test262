@@ -92,6 +92,8 @@ const expectedOpsForPlainRelativeTo = expected.concat([
   "has options.relativeTo.calendar.year",
   "has options.relativeTo.calendar.yearMonthFromFields",
   "has options.relativeTo.calendar.yearOfWeek",
+  // lookup
+  "get options.relativeTo.calendar.dateFromFields",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   // PrepareTemporalFields
@@ -116,13 +118,13 @@ const expectedOpsForPlainRelativeTo = expected.concat([
   "get options.relativeTo.year.valueOf",
   "call options.relativeTo.year.valueOf",
   // InterpretTemporalDateTimeFields
-  "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
-  // AddDuration
+  // lookup 2
   "get options.relativeTo.calendar.dateAdd",
-  "call options.relativeTo.calendar.dateAdd",
-  "call options.relativeTo.calendar.dateAdd",
   "get options.relativeTo.calendar.dateUntil",
+  // AddDuration
+  "call options.relativeTo.calendar.dateAdd",
+  "call options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateUntil",
 ]);
 
@@ -203,6 +205,7 @@ const expectedOpsForPlainRelativeToNoCalendarOperations = [
   "has options.relativeTo.calendar.year",
   "has options.relativeTo.calendar.yearMonthFromFields",
   "has options.relativeTo.calendar.yearOfWeek",
+  "get options.relativeTo.calendar.dateFromFields",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   // PrepareTemporalFields
@@ -227,7 +230,6 @@ const expectedOpsForPlainRelativeToNoCalendarOperations = [
   "get options.relativeTo.year.valueOf",
   "call options.relativeTo.year.valueOf",
   // InterpretTemporalDateTimeFields
-  "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
 ];
 
@@ -271,6 +273,8 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "has options.relativeTo.calendar.year",
   "has options.relativeTo.calendar.yearMonthFromFields",
   "has options.relativeTo.calendar.yearOfWeek",
+  // lookup
+  "get options.relativeTo.calendar.dateFromFields",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
   // PrepareTemporalFields
@@ -309,7 +313,6 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "get options.relativeTo.year.valueOf",
   "call options.relativeTo.year.valueOf",
   // InterpretTemporalDateTimeFields
-  "get options.relativeTo.calendar.dateFromFields",
   "call options.relativeTo.calendar.dateFromFields",
   // ToRelativeTemporalObject again
   "has options.relativeTo.timeZone.getOffsetNanosecondsFor",
@@ -320,24 +323,23 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  // lookup 2
+  "get options.relativeTo.calendar.dateAdd",
+  "get options.relativeTo.calendar.dateUntil",
   // AddDuration
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → AddZonedDateTime 1
-  "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → AddZonedDateTime 2
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → DifferenceZonedDateTime
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → DifferenceZonedDateTime → DifferenceISODateTime
-  "get options.relativeTo.calendar.dateUntil",
   "call options.relativeTo.calendar.dateUntil",
   // AddDuration → DifferenceZonedDateTime → AddZonedDateTime
-  "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → DifferenceZonedDateTime → NanosecondsToDays
