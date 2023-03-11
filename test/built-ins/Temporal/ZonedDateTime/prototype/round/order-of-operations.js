@@ -18,19 +18,17 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-  // GetPlainDateTimeFor on receiver's instant
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // GetPlainDateTimeFor on receiver's instant
   "call this.timeZone.getOffsetNanosecondsFor",
   // GetInstantFor on preceding midnight
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // AddDaysToZonedDateTime
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // InterpretISODateTimeOffset
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
 ];
 const actual = [];
@@ -95,25 +93,21 @@ const expectedSkippedDateTime = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-  // GetPlainDateTimeFor on receiver's instant
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // GetPlainDateTimeFor on receiver's instant
   "call this.timeZone.getOffsetNanosecondsFor",
   // GetInstantFor on preceding midnight
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // DisambiguatePossibleInstants
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // AddZonedDateTime
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // InterpretISODateTimeOffset
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
 ];
 
@@ -131,29 +125,24 @@ const expectedSkippedResult = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-  // GetPlainDateTimeFor on receiver's instant
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // GetPlainDateTimeFor on receiver's instant
   "call this.timeZone.getOffsetNanosecondsFor",
   // GetInstantFor on preceding midnight
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // AddDaysToZonedDateTime
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // DisambiguatePossibleInstants
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // InterpretISODateTimeOffset
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // DisambiguatePossibleInstants
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ];
 

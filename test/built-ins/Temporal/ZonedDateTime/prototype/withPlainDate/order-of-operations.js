@@ -49,14 +49,15 @@ const expected = [
   "call plainDateLike.year.valueOf",
   "get plainDateLike.calendar.dateFromFields",
   "call plainDateLike.calendar.dateFromFields",
-  // GetPlainDateTimeFor
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // GetPlainDateTimeFor
   "call this.timeZone.getOffsetNanosecondsFor",
   // ConsolidateCalendars
   "get this.calendar.id",
   "get plainDateLike.calendar.id",
   // GetInstantFor
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ];
 
@@ -103,10 +104,8 @@ const springForwardPlainDateLike = TemporalHelpers.propertyBagObserver(actual, {
 }, "plainDateLike");
 instance.withPlainDate(springForwardPlainDateLike);
 assert.compareArray(actual, expected.concat([
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ]), "order of operations at skipped wall-clock time");
 actual.splice(0); // clear

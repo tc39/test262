@@ -22,8 +22,10 @@ const expected = [
   "get options.offset",
   "getOwnPropertyDescriptor options.extra",
   "get options.extra",
-  // GetOffsetNanosecondsFor on receiver
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // GetOffsetNanosecondsFor on receiver
   "call this.timeZone.getOffsetNanosecondsFor",
   // CalendarFields
   "get this.calendar.fields",
@@ -84,9 +86,7 @@ const expected = [
   "get this.calendar.dateFromFields",
   "call this.calendar.dateFromFields",
   // InterpretISODateTimeOffset
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
 ];
 const actual = [];
@@ -168,7 +168,6 @@ dstInstance.with(springForwardFields, options);
 assert.compareArray(actual, expected.concat([
   // DisambiguatePossibleInstants
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ]), "order of operations at skipped wall-clock time");
 actual.splice(0); // clear

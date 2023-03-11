@@ -260,9 +260,9 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "has options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "has options.relativeTo.timeZone.getPossibleInstantsFor",
   "has options.relativeTo.timeZone.id",
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
 ]);
 
@@ -291,13 +291,10 @@ Temporal.Duration.compare(
 assert.compareArray(
   actual,
   expectedOpsForZonedRelativeTo.concat([
-    "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
     "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
     // AddDaysToZonedDateTime on first argument
-    "get options.relativeTo.timeZone.getPossibleInstantsFor",
     "call options.relativeTo.timeZone.getPossibleInstantsFor",
     // AddDaysToZonedDateTime on second argument
-    "get options.relativeTo.timeZone.getPossibleInstantsFor",
     "call options.relativeTo.timeZone.getPossibleInstantsFor",
   ]),
   "order of operations with ZonedDateTime relativeTo and no calendar units except days"
@@ -326,17 +323,14 @@ Temporal.Duration.compare(
 assert.compareArray(
   actual,
   expectedOpsForZonedRelativeTo.concat([
-    "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
     "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
     // AddZonedDateTime on first argument
     "get options.relativeTo.calendar.dateAdd",
     "call options.relativeTo.calendar.dateAdd",
-    "get options.relativeTo.timeZone.getPossibleInstantsFor",
     "call options.relativeTo.timeZone.getPossibleInstantsFor",
     // AddZonedDateTime on second argument
     "get options.relativeTo.calendar.dateAdd",
     "call options.relativeTo.calendar.dateAdd",
-    "get options.relativeTo.timeZone.getPossibleInstantsFor",
     "call options.relativeTo.timeZone.getPossibleInstantsFor",
   ]),
   "order of operations with ZonedDateTime relativeTo and calendar units"
