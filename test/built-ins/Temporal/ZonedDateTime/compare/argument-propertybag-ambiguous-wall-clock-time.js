@@ -57,6 +57,10 @@ const expectedOne = [
   // InterpretTemporalDateTimeFields
   "get one.calendar.dateFromFields",
   "call one.calendar.dateFromFields",
+  // lookup
+  "get one.timeZone.getPossibleInstantsFor",
+  // InterpretISODateTimeOffset
+  "call one.timeZone.getPossibleInstantsFor",
 ];
 
 const expectedTwo = [
@@ -92,6 +96,10 @@ const expectedTwo = [
   // InterpretTemporalDateTimeFields
   "get two.calendar.dateFromFields",
   "call two.calendar.dateFromFields",
+  // lookup
+  "get two.timeZone.getPossibleInstantsFor",
+  // InterpretISODateTimeOffset
+  "call two.timeZone.getPossibleInstantsFor",
 ];
 
 Temporal.ZonedDateTime.compare(
@@ -100,24 +108,16 @@ Temporal.ZonedDateTime.compare(
 );
 
 const expectedSpringForward = expectedOne.concat([
-  // InterpretISODateTimeOffset
-  "get one.timeZone.getPossibleInstantsFor",
-  "call one.timeZone.getPossibleInstantsFor",
   // DisambiguatePossibleInstants
   "get one.timeZone.getOffsetNanosecondsFor",
   "call one.timeZone.getOffsetNanosecondsFor",
   "call one.timeZone.getOffsetNanosecondsFor",
-  "get one.timeZone.getPossibleInstantsFor",
   "call one.timeZone.getPossibleInstantsFor",
 ], expectedTwo, [
-  // InterpretISODateTimeOffset
-  "get two.timeZone.getPossibleInstantsFor",
-  "call two.timeZone.getPossibleInstantsFor",
   // DisambiguatePossibleInstants
   "get two.timeZone.getOffsetNanosecondsFor",
   "call two.timeZone.getOffsetNanosecondsFor",
   "call two.timeZone.getOffsetNanosecondsFor",
-  "get two.timeZone.getPossibleInstantsFor",
   "call two.timeZone.getPossibleInstantsFor",
 ]);
 assert.compareArray(actual, expectedSpringForward, "order of operations converting property bags at skipped wall-clock time");
@@ -128,14 +128,6 @@ Temporal.ZonedDateTime.compare(
   { year: 2000, month: 10, day: 29, hour: 1, minute: 30, timeZone: timeZone2, calendar: calendar2 },
 );
 
-const expectedFallBack = expectedOne.concat([
-  // InterpretISODateTimeOffset
-  "get one.timeZone.getPossibleInstantsFor",
-  "call one.timeZone.getPossibleInstantsFor",
-], expectedTwo, [
-  // InterpretISODateTimeOffset
-  "get two.timeZone.getPossibleInstantsFor",
-  "call two.timeZone.getPossibleInstantsFor",
-]);
+const expectedFallBack = expectedOne.concat(expectedTwo);
 assert.compareArray(actual, expectedFallBack, "order of operations converting property bags at repeated wall-clock time");
 actual.splice(0); // clear

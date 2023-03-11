@@ -316,27 +316,22 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "has options.relativeTo.timeZone.getPossibleInstantsFor",
   "has options.relativeTo.timeZone.id",
   // InterpretISODateTimeOffset
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → AddZonedDateTime 1
   "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
-  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → AddZonedDateTime 2
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
-  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → DifferenceZonedDateTime
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → DifferenceZonedDateTime → DifferenceISODateTime
   "get options.relativeTo.calendar.dateUntil",
@@ -344,18 +339,13 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   // AddDuration → DifferenceZonedDateTime → AddZonedDateTime
   "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
-  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → DifferenceZonedDateTime → NanosecondsToDays
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → DifferenceZonedDateTime → NanosecondsToDays → AddZonedDateTime 1
-  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → DifferenceZonedDateTime → NanosecondsToDays → AddZonedDateTime 2
-  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
 ]);
 

@@ -57,17 +57,17 @@ const expected = [
   "has timeZone.getOffsetNanosecondsFor",
   "has timeZone.getPossibleInstantsFor",
   "has timeZone.id",
+  // lookup
+  "get timeZone.getOffsetNanosecondsFor",
+  "get timeZone.getPossibleInstantsFor",
+  // InterpretISODateTimeOffset
+  "call timeZone.getPossibleInstantsFor",
 ];
 
 const expectedSpringForward = expected.concat([
-  // InterpretISODateTimeOffset
-  "get timeZone.getPossibleInstantsFor",
-  "call timeZone.getPossibleInstantsFor",
   // DisambiguatePossibleInstants
-  "get timeZone.getOffsetNanosecondsFor",
   "call timeZone.getOffsetNanosecondsFor",
   "call timeZone.getOffsetNanosecondsFor",
-  "get timeZone.getPossibleInstantsFor",
   "call timeZone.getPossibleInstantsFor",
 ]);
 assert.compareArray(
@@ -80,14 +80,9 @@ actual.splice(0); // clear
 relativeTo = { year: 2000, month: 10, day: 29, hour: 1, minute: 30, timeZone: dstTimeZoneObserver, calendar };
 instance.round({ largestUnit: "years", relativeTo });
 
-const expectedFallBack = expected.concat([
-  // InterpretISODateTimeOffset
-  "get timeZone.getPossibleInstantsFor",
-  "call timeZone.getPossibleInstantsFor",
-]);
 assert.compareArray(
-  actual.slice(0, expectedFallBack.length), // ignore operations after ToRelativeTemporalObject
-  expectedFallBack,
+  actual.slice(0, expected.length), // ignore operations after ToRelativeTemporalObject
+  expected,
   "order of operations converting property bag at repeated wall-clock time"
 );
 actual.splice(0); // clear

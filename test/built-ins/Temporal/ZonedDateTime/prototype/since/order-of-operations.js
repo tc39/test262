@@ -297,18 +297,16 @@ assert.compareArray(actual, [
   // TimeZoneEquals
   "get this.timeZone.id",
   "get other.timeZone.id",
+  // lookup
+  "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
   // DifferenceZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   // NanosecondsToDays
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   // NanosecondsToDays → AddDaysToZonedDateTime
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ], "order of operations with identical wall-clock times and largestUnit a calendar unit");
 actual.splice(0); // clear
@@ -318,11 +316,12 @@ const expectedOpsForCalendarDifference = [
   // TimeZoneEquals
   "get this.timeZone.id",
   "get other.timeZone.id",
-  // precalculate PlainDateTime
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // precalculate PlainDateTime
   "call this.timeZone.getOffsetNanosecondsFor",
   // DifferenceZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   // DifferenceISODateTime
   "get this.calendar.dateUntil",
@@ -330,17 +329,12 @@ const expectedOpsForCalendarDifference = [
   // AddZonedDateTime
   "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // NanosecondsToDays
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   // NanosecondsToDays → AddDaysToZonedDateTime
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ];
 
@@ -348,15 +342,11 @@ const expectedOpsForCalendarRounding = [
   // RoundDuration → MoveRelativeZonedDateTime → AddZonedDateTime
   "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
   // RoundDuration → NanosecondsToDays
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   // RoundDuration → NanosecondsToDays → AddDaysToZonedDateTime
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
 ];
 
