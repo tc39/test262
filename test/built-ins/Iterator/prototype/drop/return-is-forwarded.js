@@ -3,14 +3,19 @@
 /*---
 esid: sec-iteratorprototype.drop
 description: >
-  Underlying iterator return is never called when result iterator is closed
+  Underlying iterator return is called when result iterator is closed
 info: |
   %Iterator.prototype%.drop ( limit )
+
+  6.c.iii. Let completion be Completion(Yield(? IteratorValue(next))).
+  6.c.iv. IfAbruptCloseIterator(completion, iterated).
 
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
+let returnCount = 0;
+
 class TestIterator extends Iterator {
   next() {
     return {
@@ -19,12 +24,22 @@ class TestIterator extends Iterator {
     };
   }
   return() {
-    throw new Error;
+    ++returnCount;
+    return {};
   }
 }
 
 let iterator = new TestIterator().drop(0);
+assert.sameValue(returnCount, 0);
 iterator.return();
+assert.sameValue(returnCount, 1);
 
 iterator = new TestIterator().drop(1);
+assert.sameValue(returnCount, 1);
 iterator.return();
+assert.sameValue(returnCount, 2);
+
+iterator = new TestIterator().drop(1).drop(1).drop(1).drop(1).drop(1);
+assert.sameValue(returnCount, 2);
+iterator.return();
+assert.sameValue(returnCount, 3);
