@@ -1,11 +1,13 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.every
 description: >
   Iterator.prototype.every coerces predicate return value to boolean
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  4.f. If ToBoolean(result) is false, return ? IteratorClose(iterated, NormalCompletion(false)).
 
 includes: [iterators.js]
 features: [iterator-helpers]

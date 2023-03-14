@@ -1,6 +1,5 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-iteratorprototype.drop
 description: >

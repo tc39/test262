@@ -3,9 +3,11 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Returns abrupt when next accessor is abrupt.
+  Iterator has throwing next getter
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  1. Let iterated be ? GetIteratorDirect(this value).
 
 includes: [iterators.js]
 features: [iterator-helpers]

@@ -7,6 +7,12 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
+    6.b.ii. Let next be ? IteratorStep(iterated).
+    6.b.iii. If next is false, return undefined.
+  6.c. Repeat,
+    6.c.i. Let next be ? IteratorStep(iterated).
+    6.c.ii. If next is false, return undefined.
+
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []

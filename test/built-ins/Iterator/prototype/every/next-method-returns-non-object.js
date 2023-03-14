@@ -5,7 +5,9 @@ esid: sec-iteratorprototype.every
 description: >
   Underlying iterator next returns non-object
 info: |
-  %Iterator.prototype%.every ( limit )
+  %Iterator.prototype%.every ( predicate )
+
+  4.a. Let next be ? IteratorStep(iterated).
 
 includes: [iterators.js]
 features: [iterator-helpers]

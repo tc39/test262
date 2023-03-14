@@ -5,7 +5,9 @@ esid: sec-iteratorprototype.every
 description: >
   Iterator has throwing return getter
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  4.f. If ToBoolean(result) is false, return ? IteratorClose(iterated, NormalCompletion(false)).
 
 includes: [iterators.js]
 features: [iterator-helpers]

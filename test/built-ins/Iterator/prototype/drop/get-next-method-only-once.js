@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
+  1. Let iterated be ? GetIteratorDirect(this value).
+
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []

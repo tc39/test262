@@ -1,11 +1,11 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-iteratorprototype.every
+esid: sec-iteratorprototype.drop
 description: >
-  Iterator.prototype.every supports a this value that does not inherit from Iterator.prototype but implements the iterator protocol
+  Iterator.prototype.drop supports a this value that does not inherit from Iterator.prototype but implements the iterator protocol
 info: |
-  %Iterator.prototype%.every ( predicate )
+  %Iterator.prototype%.drop ( limit )
 
   1. Let iterated be ? GetIteratorDirect(this value).
 
@@ -25,11 +25,10 @@ let iter = {
   },
 }
 
-let predicateCalls = 0;
-let result = Iterator.prototype.every.call(iter, function(v) {
-  ++predicateCalls;
-  return v;
-});
+let limitCalls = 0;
+let dropIter = Iterator.prototype.drop.call(iter, 1);
 
-assert.sameValue(result, false);
-assert.sameValue(predicateCalls, 3);
+let { done, value } = dropIter.next();
+
+assert.sameValue(done, false);
+assert.sameValue(value, 1);

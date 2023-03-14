@@ -1,11 +1,11 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.every
 description: >
   Closes iterator and throws when predicate throws
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
 
   4.d. Let result be Completion(Call(predicate, undefined, « value, 𝔽(counter) »)).
   4.e. IfAbruptCloseIterator(result, iterated).

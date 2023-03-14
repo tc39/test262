@@ -1,6 +1,5 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-iteratorprototype.drop
 description: >
@@ -13,7 +12,6 @@ info: |
 includes: [iterators.js]
 features: [iterator-helpers]
 ---*/
-
 let iterator = new Test262Iterator([1, 2]);
 
 assert.throws(Test262Error, () => {

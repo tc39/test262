@@ -7,6 +7,10 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
+  6.b.ii. Let next be ? IteratorStep(iterated).
+
+  6.c.i. Let next be ? IteratorStep(iterated).
+
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []

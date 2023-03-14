@@ -5,7 +5,9 @@ esid: sec-iteratorprototype.every
 description: >
   Underlying iterator next returns object with throwing done getter
 info: |
-  %Iterator.prototype%.every ( limit )
+  %Iterator.prototype%.every ( predicate )
+
+  4.c. Let value be ? IteratorValue(next).
 
 includes: [iterators.js]
 features: [iterator-helpers]

@@ -3,24 +3,31 @@
 /*---
 esid: sec-iteratorprototype.drop
 description: >
-  Underlying iterator has throwing next getter
+  Underlying iterator return is throwing getter
 info: |
   %Iterator.prototype%.drop ( limit )
-
-  1. Let iterated be ? GetIteratorDirect(this value).
 
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-class ThrowingIterator extends Iterator {
-  get next() {
+let returnCount = 0;
+
+class TestIterator extends Iterator {
+  next() {
+    return {
+      done: false,
+      value: 1
+    };
+  }
+  get return() {
     throw new Test262Error;
   }
 }
 
-let iterator = new ThrowingIterator;
+let iterator = new TestIterator().drop(1);
+iterator.next();
 
-assert.throws(Test262Error, function () {
-  iterator.drop(0);
+assert.throws(Test262Error, function() {
+  iterator.return();
 });

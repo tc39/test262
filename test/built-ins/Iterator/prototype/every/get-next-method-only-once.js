@@ -1,11 +1,13 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.every
 description: >
   Gets the next method from the iterator only once
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  1. Let iterated be ? GetIteratorDirect(this value).
 
 includes: [iterators.js]
 features: [iterator-helpers]

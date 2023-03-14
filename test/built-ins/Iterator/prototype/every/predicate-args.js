@@ -5,7 +5,9 @@ esid: sec-iteratorprototype.every
 description: >
   Iterator.prototype.every predicate is passed the yielded value and a counter as arguments
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  4.d. Let result be Completion(Call(predicate, undefined, « value, 𝔽(counter) »)).
 
 includes: [iterators.js]
 features: [iterator-helpers]

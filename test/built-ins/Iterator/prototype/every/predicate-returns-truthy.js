@@ -5,7 +5,9 @@ esid: sec-iteratorprototype.every
 description: >
   Iterator.prototype.every returns true when the predicate returns truthy for all iterated values
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  4.b. If next is false, return true.
 
 includes: [iterators.js]
 features: [iterator-helpers]

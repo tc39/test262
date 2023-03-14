@@ -1,11 +1,13 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.every
 description: >
   Iterator next throws
 info: |
-  %Iterator.prototype%.every ( fn )
+  %Iterator.prototype%.every ( predicate )
+
+  4.a. Let next be ? IteratorStep(iterated).
 
 includes: [iterators.js]
 features: [iterator-helpers]

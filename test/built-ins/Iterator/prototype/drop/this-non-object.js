@@ -1,11 +1,11 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-iteratorprototype.every
+esid: sec-iteratorprototype.drop
 description: >
-  Iterator.prototype.every throws TypeError when its this value is an object with a non-callable next
+  Iterator.prototype.drop throws TypeError when its this value is a non-object
 info: |
-  %Iterator.prototype%.every ( predicate )
+  %Iterator.prototype%.drop ( limit )
 
   1. Let iterated be ? GetIteratorDirect(this value).
 
@@ -14,5 +14,5 @@ features: [iterator-helpers]
 flags: []
 ---*/
 assert.throws(TypeError, function() {
-  Iterator.prototype.every.call({ next: 0 }, () => {});
+  Iterator.prototype.drop.call(null, 1);
 });

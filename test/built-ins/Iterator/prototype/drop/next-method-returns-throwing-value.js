@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
+  6.c.iii. Let completion be Completion(Yield(? IteratorValue(next))).
+
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
