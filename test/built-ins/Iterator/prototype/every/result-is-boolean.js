@@ -1,13 +1,11 @@
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Iterator.prototype.every is callable
+  Iterator.prototype.every returns a boolean
 features: [iterator-helpers]
 ---*/
 function* g() {}
-Iterator.prototype.every.call(g(), () => {});
-
 let iter = g();
-iter.every(() => {});
+assert.sameValue(typeof iter.every(() => {}), 'boolean');

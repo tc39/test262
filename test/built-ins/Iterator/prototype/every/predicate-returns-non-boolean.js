@@ -3,19 +3,27 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Iterator.prototype.every returns false when the predicate returns false
+  Iterator.prototype.every coerces predicate return value to boolean
 info: |
+  %Iterator.prototype%.every ( fn )
 
 includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = new Test262Iterator([1, 2]);
-let result = iterator.every(value => !value);
+function* g() {
+  for (let i = 4; i >= 0; --i) {
+    yield i;
+  }
+}
+
+let iter = g();
+
+let predicateCalls = 0;
+let result = iter.every(v => {
+  ++predicateCalls;
+  return v;
+});
 
 assert.sameValue(result, false, 'The value of `result` is false');
-
-let {value, done} = iterator.next();
-
-assert.sameValue(value, 2, 'The value of `value` is 2');
-assert.sameValue(done, false, 'The value of `done` is false');
+assert.sameValue(predicateCalls, 5);

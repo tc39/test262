@@ -3,11 +3,12 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Iterator.prototype.every is callable
+  Iterator.prototype.every is not constructible.
 features: [iterator-helpers]
 ---*/
 function* g() {}
-Iterator.prototype.every.call(g(), () => {});
-
 let iter = g();
-iter.every(() => {});
+
+assert.throws(TypeError, () => {
+  new iter.every(() => {});
+}, '`new iter.every(() => {})` throws a TypeError exception');

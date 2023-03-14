@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Returns abrupt when next call is abrupt.
+  Iterator has throwing return
 info: |
   %Iterator.prototype%.every ( fn )
 
@@ -11,18 +11,14 @@ includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let nextCalls = 0;
 class Test262IteratorThrows extends Test262Iterator {
-   next() {
-    nextCalls++;
+  return() {
     throw new Test262Error();
   }
 }
 
 let iterator = new Test262IteratorThrows([1, 2]);
-assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
 assert.throws(Test262Error, function() {
-  iterator.every(() => true);
+  iterator.every(() => false);
 });
-assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');

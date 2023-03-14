@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Iterator.prototype.every expects to be called with a function argument.
+  Iterator.prototype.every throws TypeError when its this value is a non-object
 info: |
   %Iterator.prototype%.every ( fn )
 
@@ -11,10 +11,6 @@ includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let nonCallable = {};
-let iterator = new Test262Iterator([1, 2]);
-
 assert.throws(TypeError, function() {
-  iterator.every(nonCallable);
+  Iterator.prototype.every.call(null, () => {});
 });
-

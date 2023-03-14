@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Returns abrupt when done accessor is abrupt.
+  Iterator has throwing return getter
 info: |
   %Iterator.prototype%.every ( fn )
 
@@ -11,28 +11,14 @@ includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let doneGets = 0;
-let nextCalls = 0;
 class Test262IteratorThrows extends Test262Iterator {
-   next() {
-    nextCalls++;
-    return {
-      get done() {
-        doneGets++;
-        throw new Test262Error();
-      },
-
-      value: 1
-    };
+  get return() {
+    throw new Test262Error();
   }
 }
 
 let iterator = new Test262IteratorThrows([1, 2]);
-assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
 
 assert.throws(Test262Error, function() {
-  iterator.every(() => true);
+  iterator.every(() => false);
 });
-
-assert.sameValue(doneGets, 1, 'The value of `doneGets` is 1');
-assert.sameValue(nextCalls, 1, 'The value of `nextCalls` is 1');
