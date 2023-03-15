@@ -3,20 +3,8 @@
 /*---
 esid: sec-arraybuffer.prototype.transfertofixedlength
 description: >
-  Throws a RangeError the newLength value is too large to create a new
-  ArrayBuffer.
-info: |
-  ArrayBuffer.prototype.transferToFixedLength ( [ newLength ] )
-
-  1. Let O be the this value.
-  2. Perform ? RequireInternalSlot(O, [[ArrayBufferData]]).
-  3. If IsSharedArrayBuffer(O) is true, throw a TypeError exception.
-  4. If IsDetachedBuffer(O) is true, throw a TypeError exception.
-  5. If newLength is undefined, let newByteLength be
-     O.[[ArrayBufferByteLength]].
-  6. Else, let newByteLength be ? ToIntegerOrInfinity(newLength).
-  7. Let new be ? Construct(%ArrayBuffer%, « 𝔽(newByteLength) »).
-  [...]
+  Throws a RangeError if the newLength is larger than 2^53 - 1 due to clamping
+  in ToIndex.
 features: [resizable-arraybuffer, arraybuffer-transfer]
 ---*/
 
