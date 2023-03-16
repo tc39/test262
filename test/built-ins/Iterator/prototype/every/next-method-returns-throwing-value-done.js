@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Underlying iterator next returns object with throwing value getter
+  Underlying iterator next returns object with throwing value getter, but is already done
 info: |
   %Iterator.prototype%.every ( predicate )
 
@@ -16,7 +16,7 @@ flags: []
 class ThrowingIterator extends Iterator {
   next() {
     return {
-      done: false,
+      done: true,
       get value() { throw new Test262Error; }
     };
   }
@@ -26,7 +26,4 @@ class ThrowingIterator extends Iterator {
 }
 
 let iterator = new ThrowingIterator;
-
-assert.throws(Test262Error, function () {
-  iterator.every(() => {});
-});
+iterator.every(() => {});

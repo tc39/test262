@@ -3,11 +3,11 @@
 /*---
 esid: sec-iteratorprototype.drop
 description: >
-  Underlying iterator next returns object with throwing value getter
+  Underlying iterator next returns object with throwing value getter, but is already done
 info: |
   %Iterator.prototype%.drop ( limit )
 
-  6.c.iii. Let completion be Completion(Yield(? IteratorValue(next))).
+  6.c.ii. If next is false, return undefined.
 
 includes: [iterators.js]
 features: [iterator-helpers]
@@ -16,7 +16,7 @@ flags: []
 class ThrowingIterator extends Iterator {
   next() {
     return {
-      done: false,
+      done: true,
       get value() { throw new Test262Error; }
     };
   }
@@ -26,13 +26,7 @@ class ThrowingIterator extends Iterator {
 }
 
 let iterator = new ThrowingIterator().drop(0);
-
-assert.throws(Test262Error, function () {
-  iterator.next();
-});
+iterator.next();
 
 iterator = new ThrowingIterator().drop(1);
-
-assert.throws(Test262Error, function () {
-  iterator.next();
-});
+iterator.next();
