@@ -25,7 +25,6 @@ let iter = {
   },
 }
 
-let limitCalls = 0;
 let dropIter = Iterator.prototype.drop.call(iter, 1);
 
 let { done, value } = dropIter.next();

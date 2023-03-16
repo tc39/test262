@@ -16,3 +16,10 @@ flags: []
 assert.throws(TypeError, function() {
   Iterator.prototype.drop.call(null, 1);
 });
+
+Object.defineProperty(Number.prototype, 'next', {
+  get: function() { throw new Test262Error; }
+});
+assert.throws(TypeError, function() {
+  Iterator.prototype.drop.call(0, 1);
+});

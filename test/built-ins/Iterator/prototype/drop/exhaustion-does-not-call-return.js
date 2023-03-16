@@ -17,8 +17,6 @@ includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let returnCount = 0;
-
 class TestIterator extends Iterator {
   constructor() {
     super();
