@@ -1,6 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 esid: sec-iteratorprototype.filter
 description: >
@@ -8,7 +7,7 @@ description: >
 info: |
   17 ECMAScript Standard Built-in Objects
 
-  Every built-in Function object, including constructors, that is not
+  filter built-in Function object, including constructors, that is not
   identified as an anonymous function has a name property whose value is a
   String. Unless otherwise specified, this value is the name that is given to
   the function in this specification.

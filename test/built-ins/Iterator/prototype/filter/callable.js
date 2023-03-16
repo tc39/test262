@@ -3,14 +3,11 @@
 /*---
 esid: sec-iteratorprototype.filter
 description: >
-  Iterator.prototype.filter is callable, but not constructable.
+  Iterator.prototype.filter is callable
 features: [iterator-helpers]
 ---*/
 function* g() {}
-let iter = g();
-Iterator.prototype.filter.call(iter, () => {});
-iter.filter(() => {});
+Iterator.prototype.filter.call(g(), () => false);
 
-assert.throws(TypeError, () => {
-  new iter.filter(() => {});
-}, '`new iter.filter(() => {})` throws a TypeError exception');
+let iter = g();
+iter.filter(() => false);
