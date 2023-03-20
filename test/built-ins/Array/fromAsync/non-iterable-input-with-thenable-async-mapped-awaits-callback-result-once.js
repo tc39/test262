@@ -1,15 +1,15 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-array.fromasync
 description: Non-iterable input with thenable result with async mapped awaits each callback result once.
-includes: [compareArray.js, asyncHelpers.js]
+includes: [asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   let awaitCounter = 0;
   const input = {
     length: 3,
@@ -29,4 +29,4 @@ features: [Array.fromAsync]
     };
   });
   assert.sameValue(awaitCounter, 3);
-})().then($DONE, $DONE);
+});

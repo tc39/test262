@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -10,14 +10,11 @@ features: [Array.fromAsync]
 includes: [asyncHelpers.js]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   async function *generateInput () {
     throw new Test262Error('This error should be propagated.');
   }
-
   const input = generateInput();
   const outputPromise = Array.fromAsync(input);
-
-  await assert.throwsAsync(Test262Error, outputPromise);
-
-})().then($DONE, $DONE);
+  await assert.throwsAsync(Test262Error, () => outputPromise);
+});

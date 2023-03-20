@@ -1,14 +1,15 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-array.fromasync
 description: Non-iterable input does not use Array.prototype
-includes: [compareArray.js]
+includes: [compareArray.js, asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]
 ---*/
-(async function () {
+
+asyncTest(async function () {
 const arrayIterator = [].values();
 const IntrinsicArrayIteratorPrototype =
 Object.getPrototypeOf(arrayIterator);
@@ -42,4 +43,4 @@ finally {
 IntrinsicArrayIteratorPrototype.next =
   intrinsicArrayIteratorPrototypeNext;
 }
-})().then($DONE, $DONE);
+});

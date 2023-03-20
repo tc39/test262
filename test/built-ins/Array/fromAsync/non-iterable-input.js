@@ -1,16 +1,16 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-array.fromasync
 description: >
   Non iterable input without thenables is dumped.
-includes: [compareArray.js]
+includes: [compareArray.js, asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]
 ---*/
 
-(async function () {
+asyncTest(async function () {
   const expected = [ 0, 1, 2 ];
   const input = {
     length: 3,
@@ -21,4 +21,4 @@ features: [Array.fromAsync]
   };
   const output = await Array.fromAsync(input);
   assert.compareArray(output, expected);
-})().then($DONE, $DONE);
+});
