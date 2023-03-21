@@ -40,9 +40,9 @@ const duration = {
 const style = "digital";
 const expected = [
     { type: "integer", value: "7", unit: "hour" },
-    { type: "literal", value: ":", unit: "hour" },
+    { type: "literal", value: ":"},
     { type: "integer", value: "08", unit: "minute" },
-    { type: "literal", value: ":", unit: "minute" },
+    { type: "literal", value: ":"},
     { type: "integer", value: "09", unit: "second" },
   ];
 
