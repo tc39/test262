@@ -28,5 +28,4 @@ assert.throws(TypeError, function() {
 });
 
 assert.compareArray(effects, [
-  'get next',
 ]);

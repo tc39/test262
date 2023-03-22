@@ -31,6 +31,6 @@ Iterator.prototype.drop.call(
 );
 
 assert.compareArray(effects, [
+  'ToNumber limit',
   'get next',
-  'ToNumber limit'
 ]);
