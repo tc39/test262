@@ -9,6 +9,7 @@ info: |
   UpdateExpression ** ExponentiationExpression
   Static Semantics AssignmentTargetType, Return invalid.
 template: invalid
+features: [exponentiation]
 negative: 
   phase: parse
   type: SyntaxError

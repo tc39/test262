@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal-intl
 description: Non-ISO Calendars
-features: [Temporal]
+features: [Temporal, Array.prototype.includes]
 ---*/
 
 var testChineseData = new Date("2001-02-01T00:00Z").toLocaleString("en-US-u-ca-chinese", {
