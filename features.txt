@@ -114,6 +114,7 @@ ArrayBuffer
 Array.prototype.at
 Array.prototype.flat
 Array.prototype.flatMap
+Array.prototype.includes
 Array.prototype.values
 arrow-function
 async-iteration
@@ -148,6 +149,7 @@ destructuring-assignment
 destructuring-binding
 dynamic-import
 error-cause
+exponentiation
 export-star-as-namespace-from-module  # https://github.com/tc39/ecma262/pull/1174
 FinalizationRegistry
 for-in-order

@@ -380,6 +380,7 @@ includes: [asyncHelpers.js]
 asyncTest(async function() {
   await assert.throwsAsync(TypeError, () => Array.fromAsync([], "not a function"), "Array.fromAsync should reject asynchronously");
 });
+```
 
 ## A Note on Python-based tools
 

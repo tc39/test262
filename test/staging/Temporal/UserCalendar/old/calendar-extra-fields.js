@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal-zoneddatetime-objects
 description: calendar with extra fields
-features: [Temporal]
+features: [Temporal, Array.prototype.includes]
 ---*/
 
 class SeasonCalendar extends Temporal.Calendar {
