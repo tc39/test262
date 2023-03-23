@@ -6,7 +6,9 @@ desc: >
   Decorator @ DecoratorMemberExpression
 info: |
   DecoratorMemberExpression[Yield, Await] :
-    PrivateIdentifier
+    IdentifierReference[?Yield, ?Await]
+    DecoratorMemberExpression[?Yield, ?Await] . IdentifierName
+    DecoratorMemberExpression[?Yield, ?Await] . PrivateIdentifier
 
   PrivateIdentifier ::
     # IdentifierName
@@ -25,11 +27,11 @@ static #yield() {}
 static #await() {}
 
 //- decorators
-@#$
-@#_
-@#\u{6F}
-@#\u2118
-@#ZW_\u200C_NJ
-@#ZW_\u200D_J
-@#yield
-@#await
+@C.#$
+@C.#_
+@C.#\u{6F}
+@C.#\u2118
+@C.#ZW_\u200C_NJ
+@C.#ZW_\u200D_J
+@C.#yield
+@C.#await
