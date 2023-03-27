@@ -100,6 +100,10 @@ Array.fromAsync
 String.prototype.isWellFormed
 String.prototype.toWellFormed
 
+# JSON.parse with source
+# https://github.com/tc39/proposal-json-parse-with-source
+json-parse-with-source
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
