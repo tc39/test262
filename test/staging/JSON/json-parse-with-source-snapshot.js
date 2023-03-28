@@ -1,6 +1,7 @@
 // Copyright (C) 2023 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: V8 mjsunit test for JSON.parse with source snapshotting
 includes: [deepEqual.js]
 features: [json-parse-with-source]
 ---*/
