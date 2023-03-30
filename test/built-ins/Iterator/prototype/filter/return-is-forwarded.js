@@ -30,3 +30,5 @@ let iterator = new TestIterator().filter(() => false);
 assert.sameValue(returnCount, 0);
 iterator.return();
 assert.sameValue(returnCount, 1);
+iterator.return();
+assert.sameValue(returnCount, 1);

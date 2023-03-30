@@ -33,13 +33,19 @@ let iterator = new TestIterator().drop(0);
 assert.sameValue(returnCount, 0);
 iterator.return();
 assert.sameValue(returnCount, 1);
+iterator.return();
+assert.sameValue(returnCount, 1);
 
 iterator = new TestIterator().drop(1);
 assert.sameValue(returnCount, 1);
 iterator.return();
 assert.sameValue(returnCount, 2);
+iterator.return();
+assert.sameValue(returnCount, 2);
 
 iterator = new TestIterator().drop(1).drop(1).drop(1).drop(1).drop(1);
 assert.sameValue(returnCount, 2);
+iterator.return();
+assert.sameValue(returnCount, 3);
 iterator.return();
 assert.sameValue(returnCount, 3);
