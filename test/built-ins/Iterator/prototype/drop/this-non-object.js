@@ -17,6 +17,10 @@ assert.throws(TypeError, function() {
   Iterator.prototype.drop.call(null, 1);
 });
 
+assert.throws(TypeError, function() {
+  Iterator.prototype.drop.call(null, { valueOf: function() { throw new Test262Error; } });
+});
+
 Object.defineProperty(Number.prototype, 'next', {
   get: function() { throw new Test262Error; }
 });
