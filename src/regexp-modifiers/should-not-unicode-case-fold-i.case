@@ -10,3 +10,5 @@ desc: Code points other than "i", "m", "s" should not be case-folded to "i", "m"
 iu
 //- modifiers codepoints
 0130
+//- subpattern-remove-modifiers codepoints
+0130

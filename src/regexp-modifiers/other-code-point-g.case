@@ -9,3 +9,5 @@ desc: It is a Syntax Error if the source text matched by RegularExpressionFlags 
 //- global-modifiers
 //- modifiers
 g
+//- subpattern-remove-modifiers
+g

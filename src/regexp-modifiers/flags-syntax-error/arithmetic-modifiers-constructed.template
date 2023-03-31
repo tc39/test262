@@ -11,5 +11,5 @@ features: [regexp-modifiers]
 ---*/
 
 assert.throws(SyntaxError, function () {
-  RegExp("(?/*{ add-modifiers }*/-/*{ modifiers }*/:a)", "/*{ global-modifiers }*/");
-}, 'RegExp("(?/*{ add-modifiers }*/-/*{ modifiers }*/:a)", "/*{ global-modifiers }*/"): ');
+  RegExp("(?/*{ subpattern-add-modifiers }*/-/*{ subpattern-remove-modifiers }*/:a)", "/*{ global-modifiers }*/");
+}, 'RegExp("(?/*{ subpattern-add-modifiers }*/-/*{ subpattern-remove-modifiers }*/:a)", "/*{ global-modifiers }*/"): ');

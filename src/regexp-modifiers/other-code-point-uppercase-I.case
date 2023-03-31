@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 template: flags-syntax-error
-desc: It is a Syntax Error if the source text matched by RegularExpressionFlags contains any code point other than i, m, or s, or if it contains the same code point more than once. 
+desc: It is a Syntax Error if the source text matched by RegularExpressionFlags contains any code point other than i, m, or s, or if it contains the same code point more than once.
 ---*/
 
 //- add-modifiers
 //- global-modifiers
 //- modifiers
-ii
+I
 //- subpattern-remove-modifiers
-ii
+I
