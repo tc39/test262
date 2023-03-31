@@ -2,7 +2,7 @@
 // - src/regexp-modifiers/should-not-case-fold-m.case
 // - src/regexp-modifiers/flags-syntax-error/modifiers-constructed.template
 /*---
-description: Contain code points other than "i", "m", "s" (Regular expression flags)
+description: Code points other than "i", "m", "s" should not be case folded to "i", "m", or "s" (regular expression flags)
 esid: sec-patterns-static-semantics-early-errors
 features: [regexp-modifiers]
 flags: [generated]
