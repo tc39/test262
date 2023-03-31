@@ -1,9 +1,9 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-iteratorprototype.filter
+esid: sec-iteratorprototype.flatMap
 description: >
-  The "name" property of Iterator.prototype.filter
+  The "name" property of Iterator.prototype.flatMap
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -21,8 +21,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.prototype.filter.name, 'filter', 'The value of Iterator.prototype.filter.name is "filter"');
+assert.sameValue(Iterator.prototype.flatMap.name, 'flatMap', 'The value of Iterator.prototype.flatMap.name is "flatMap"');
 
-verifyNotEnumerable(Iterator.prototype.filter, 'name');
-verifyNotWritable(Iterator.prototype.filter, 'name');
-verifyConfigurable(Iterator.prototype.filter, 'name');
+verifyNotEnumerable(Iterator.prototype.flatMap, 'name');
+verifyNotWritable(Iterator.prototype.flatMap, 'name');
+verifyConfigurable(Iterator.prototype.flatMap, 'name');

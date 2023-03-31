@@ -14,5 +14,5 @@ features: [iterator-helpers]
 flags: []
 ---*/
 assert.throws(TypeError, function() {
-  Iterator.prototype.filter.call({ next: 0 }, 1);
+  Iterator.prototype.filter.call({ next: 0 }, () => true);
 });

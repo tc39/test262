@@ -18,5 +18,5 @@ assert.throws(TypeError, () => {
 }, '`new Iterator.prototype.filter(() => true)` throws a TypeError exception');
 
 assert.throws(TypeError, () => {
-  new (class extends Iterator {}).filter(() => {});
+  new (class extends Iterator {}).filter(() => true);
 }, '`new (new class extends Iterator {}).filter(() => true)` throws a TypeError exception');
