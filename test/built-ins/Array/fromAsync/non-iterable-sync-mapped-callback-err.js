@@ -3,18 +3,16 @@
 
 /*---
 esid: sec-array.fromasync
-description: Non iterable input with non-promise thenables works.
-includes: [compareArray.js, asyncHelpers.js]
+description: Non iterable input with thenables awaits each input once without mapping callback
+includes: [asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]
 ---*/
 
 asyncTest(async function () {
   const expectedValue = {};
-  let awaitCounter = 0;
   const inputThenable = {
     then (resolve, reject) {
-      awaitCounter ++;
       resolve(expectedValue);
     },
   };

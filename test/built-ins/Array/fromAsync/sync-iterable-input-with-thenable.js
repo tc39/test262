@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-array.fromasync
-description: Sync-iterable input with thenables is dumped.
+description: Sync-iterable input with thenables is transferred to the output array.
 includes: [compareArray.js, asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]

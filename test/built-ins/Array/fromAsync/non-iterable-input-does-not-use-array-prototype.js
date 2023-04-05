@@ -21,7 +21,7 @@ try {
 // “next” method. Just like Array.from, the fromAsync function should
 // still work on non-iterable arraylike arguments.
 IntrinsicArrayIteratorPrototype.next = function fakeNext () {
-  t.fail(
+  throw new Test262Error(
     'This fake next function should not be called; ' +
     'instead, each element should have been directly accessed.',
   );

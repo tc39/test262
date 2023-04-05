@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.fromasync
 description: >
-  Non-iterable input with thenables awaits each input once without mapping callback
+  Non-iterable input with thenables awaits each input once with mapping callback
 includes: [asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]

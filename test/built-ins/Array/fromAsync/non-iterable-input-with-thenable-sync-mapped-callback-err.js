@@ -3,8 +3,7 @@
 
 /*---
 esid: sec-array.fromasync
-description: >
-  Non iterable input with thenables is dumped.
+description: Non iterable result promise rejects if sync map function callback throws.
 includes: [asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]

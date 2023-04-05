@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-array.fromasync
-description: Non-iterable input with thenable result promise rejects if thenable element rejects.
+description: Non-iterable input with thenable result promise rejects if async map function callback throws. 
 includes: [asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]
@@ -11,16 +11,17 @@ features: [Array.fromAsync]
 
 asyncTest(async function () {
   const expectedValue = {};
-  const expected = [ expectedValue ];
   const inputThenable = {
     then (resolve, reject) {
-      reject(new Test262Error);
+      resolve(expectedValue);
     },
   };
   const input = {
     length: 1,
     0: inputThenable,
   };
-  const output = Array.fromAsync(input);
-  await assert.throwsAsync(Test262Error, () => output);
+  const outputPromise = Array.fromAsync(input, async v => {
+    throw new Test262Error;
+  });
+  assert.throwsAsync(Test262Error, () => outputPromise);
 });

@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.fromasync
 description: >
-  Async-iterable input is dumped.
+  Async-iterable input is transferred to the output array.
 includes: [compareArray.js, asyncHelpers.js]
 flags: [async]
 features: [Array.fromAsync]
