@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.tozoneddatetime
-description: Conversion of ISO date-time strings to Temporal.TimeZone instances (with Intl time zones)
+description: Conversion of ISO date-time strings to Temporal.TimeZone instances (with IANA time zones)
 features: [Temporal]
 ---*/
 
