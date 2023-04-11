@@ -346,7 +346,7 @@ Consumers that violate the spec by throwing exceptions for parsing errors at run
 
 An asynchronous test is any test that include the `async` frontmatter flag.
 
-For most asynchronous tests, the `asyncHelpers.js` harness file includes an `asyncTest` method that precludes needing to interact with the test runner via the `$DONE` function. `asyncTest` takes an async function and will ensure that `$DONE` is called properly if the async function returns or throws an exception.` For example, a test written using `asyncTest` might look like:
+For most asynchronous tests, the `asyncHelpers.js` harness file includes an `asyncTest` method that precludes needing to interact with the test runner via the `$DONE` function. `asyncTest` takes an async function and will ensure that `$DONE` is called properly if the async function returns or throws an exception. For example, a test written using `asyncTest` might look like:
 
 ```js
 /*---
