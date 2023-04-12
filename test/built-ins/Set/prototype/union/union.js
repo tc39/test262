@@ -2,9 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: >
-    Set.prototype.union ( value )
-
+description: Set.prototype.union combines Sets
 includes: [propertyHelper.js]
 ---*/
 
