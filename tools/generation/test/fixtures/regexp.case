@@ -10,3 +10,5 @@ info: case info
 import("./make sure that a slash in a string doesn't open a regexp literal")
 //- flags
 g
+//- subst
+bar

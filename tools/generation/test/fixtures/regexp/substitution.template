@@ -1,0 +1,44 @@
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+name: RegExp template
+path: regexp/substitution-
+esid: sec-regexp
+info: template info
+placeholder-prefix: ' %%'
+placeholder-suffix: '%% '
+---*/
+
+// Normal substitution comments are not expanded inside a RegExp literal:
+
+/foo/*{ nosubst }*/baz/;
+//*{ nosubst }*//;
+
+// Use placeholder-prefix and placeholder-suffix for those cases:
+
+/foo %%{ subst }%% baz/;
+/ %%{ subst }%% /;
+
+// Two substitutions in one line should work:
+
+/foo %%{ subst }%%  %%{ subst }%% baz/;
+
+// placeholder-prefix and placeholder-suffix work everywhere,
+// regardless of syntax:
+
+ %%{ subst }%% ;
+' %%{ subst }%% ';
+// %%{ subst }%% ...in a comment
+/* %%{ subst }%% ...in a block comment */
+
+// Leading and trailing spaces in the delimiters are significant, i.e. these
+// are not substituted:
+%%{ subst }%%;
+%%{ subst }%% ;
+ %%{ subst }%%;
+/foo%%{ subst }%%bar/;
+
+// The delimiter pair must occur on one line, this is not substituted:
+
+/ %%{ subst
+}%% /;
