@@ -16,3 +16,4 @@ combined.forEach(function (value) {
 
 assert.sameValue(expects.length, 0, "The value of expects.length is 0");
 assert.sameValue(combined.size, 2, "The combined set size is 2");
+assert.sameValue(combined instanceof Set, true, "The returned object is a Set");
