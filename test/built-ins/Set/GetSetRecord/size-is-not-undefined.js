@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: If the Set-like object has a size of 'undefined' an error is thrown
+description: GetSetRecord if the Set-like object has a size of 'undefined' an error is thrown
 info: |
     2. Let rawSize be ? Get(obj, "size").
     3. Let numSize be ? ToNumber(rawSize).
