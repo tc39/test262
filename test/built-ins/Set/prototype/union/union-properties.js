@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: Set.prototype.union combines Sets
+description: Set.prototype.union properties
 includes: [propertyHelper.js]
 ---*/
 
@@ -12,6 +12,8 @@ assert.sameValue(
   "`typeof Set.prototype.union` is `'function'`"
 );
 
-verifyNotEnumerable(Set.prototype, "union");
-verifyWritable(Set.prototype, "union");
-verifyConfigurable(Set.prototype, "union");
+verifyProperty(Set.prototype, "union", {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});

@@ -13,7 +13,7 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union(1);
   },
-  "Set.prototype.union must be called with an object"
+  "number"
 );
 
 assert.throws(
@@ -22,7 +22,7 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union("");
   },
-  "Set.prototype.union must be called with an object"
+  "string"
 );
 
 assert.throws(
@@ -31,7 +31,7 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union(1n);
   },
-  "Set.prototype.union must be called with an object"
+  "bigint"
 );
 
 assert.throws(
@@ -40,7 +40,7 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union(false);
   },
-  "Set.prototype.union must be called with an object"
+  "boolean"
 );
 
 assert.throws(
@@ -49,7 +49,7 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union(undefined);
   },
-  "Set.prototype.union must be called with an object"
+  "undefined"
 );
 
 assert.throws(
@@ -58,7 +58,7 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union(null);
   },
-  "Set.prototype.union must be called with an object"
+  "null"
 );
 
 assert.throws(
@@ -67,5 +67,5 @@ assert.throws(
     const s1 = new Set([1]);
     s1.union(Symbol("test"));
   },
-  "Set.prototype.union must be called with an object"
+  "symbol"
 );
