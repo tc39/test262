@@ -7,6 +7,8 @@ defines: [TemporalHelpers]
 features: [Symbol.species, Symbol.iterator, Temporal]
 ---*/
 
+const IDENTIFIER = /^[$_\p{ID_Start}][$\u200C\u200D\p{ID_Continue}]*$/u;
+
 function formatPropertyName(propertyKey, objectName = "") {
   switch (typeof propertyKey) {
     case "symbol":
@@ -17,13 +19,20 @@ function formatPropertyName(propertyKey, objectName = "") {
       } else {
         return `${objectName}[Symbol('${propertyKey.description}')]`
       }
-    case "number":
-      return `${objectName}[${propertyKey}]`;
+    case "string":
+      if (propertyKey !== String(Number(propertyKey))) {
+        if (IDENTIFIER.test(propertyKey)) {
+          return objectName ? `${objectName}.${propertyKey}` : propertyKey;
+        }
+        return `${objectName}['${propertyKey.replace(/'/g, "\\'")}']`
+      }
+      // fall through
     default:
-      // TODO: check if propertyKey is an integer index.
-      return objectName ? `${objectName}.${propertyKey}` : propertyKey;
+      // integer or string integer-index
+      return `${objectName}[${propertyKey}]`;
   }
 }
+
 const SKIP_SYMBOL = Symbol("Skip");
 
 var TemporalHelpers = {
