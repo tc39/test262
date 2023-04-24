@@ -2,17 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%iteratorprototype%-@@iterator
-description: Return value of @@iterator on IteratorPrototype
+description: Return value of @@iterator on %IteratorPrototype%
 info: |
   %IteratorPrototype% [ @@iterator ] ( )
     1. Return the this value.
 features: [Symbol.iterator]
 ---*/
 
-const IteratorPrototype = Object.getPrototypeOf(
-  Object.getPrototypeOf([][Symbol.iterator]())
-);
-const getIterator = IteratorPrototype[Symbol.iterator];
+const getIterator = Iterator.prototype[Symbol.iterator];
 
 const thisValues = [
     {},

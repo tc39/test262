@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 25.1.2.1
-description: Length of IteratorPrototype[ @@iterator ]
+description: Length of %IteratorPrototype%[ @@iterator ]
 info: |
     ES6 Section 17:
     Every built-in Function object, including constructors, has a length
