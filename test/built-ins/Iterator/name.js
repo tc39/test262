@@ -22,8 +22,9 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.name, 'Iterator', 'The value of Iterator.name is "Iterator"');
-
-verifyNotEnumerable(Iterator, 'name');
-verifyNotWritable(Iterator, 'name');
-verifyConfigurable(Iterator, 'name');
+verifyProperty(Iterator, 'name', {
+  value: 'Iterator',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

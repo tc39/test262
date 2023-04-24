@@ -14,8 +14,9 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.prototype.flatMap.length, 1, 'The value of Iterator.prototype.flatMap.length is 1');
-
-verifyNotEnumerable(Iterator.prototype.flatMap, 'length');
-verifyNotWritable(Iterator.prototype.flatMap, 'length');
-verifyConfigurable(Iterator.prototype.flatMap, 'length');
+verifyProperty(Iterator.prototype.flatMap, 'length', {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

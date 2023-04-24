@@ -22,8 +22,9 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.prototype.find.name, 'find', 'The value of Iterator.prototype.find.name is "find"');
-
-verifyNotEnumerable(Iterator.prototype.find, 'name');
-verifyNotWritable(Iterator.prototype.find, 'name');
-verifyConfigurable(Iterator.prototype.find, 'name');
+verifyProperty(Iterator.prototype.find, 'name', {
+  value: 'find',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

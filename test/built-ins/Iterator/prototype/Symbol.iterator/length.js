@@ -19,12 +19,9 @@ features: [Symbol.iterator]
 includes: [propertyHelper.js]
 ---*/
 
-var IteratorPrototype = Object.getPrototypeOf(
-  Object.getPrototypeOf([][Symbol.iterator]())
-);
-
-assert.sameValue(IteratorPrototype[Symbol.iterator].length, 0);
-
-verifyNotEnumerable(IteratorPrototype[Symbol.iterator], 'length');
-verifyNotWritable(IteratorPrototype[Symbol.iterator], 'length');
-verifyConfigurable(IteratorPrototype[Symbol.iterator], 'length');
+verifyProperty(Iterator.prototype[Symbol.iterator], 'length', {
+  value: 0,
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

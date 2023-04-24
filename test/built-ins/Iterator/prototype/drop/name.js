@@ -21,8 +21,9 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.prototype.drop.name, 'drop', 'The value of Iterator.prototype.drop.name is "drop"');
-
-verifyNotEnumerable(Iterator.prototype.drop, 'name');
-verifyNotWritable(Iterator.prototype.drop, 'name');
-verifyConfigurable(Iterator.prototype.drop, 'name');
+verifyProperty(Iterator.prototype.drop, 'name', {
+  value: 'drop',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

@@ -14,8 +14,9 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.prototype.every.length, 1, 'The value of Iterator.prototype.every.length is 1');
-
-verifyNotEnumerable(Iterator.prototype.every, 'length');
-verifyNotWritable(Iterator.prototype.every, 'length');
-verifyConfigurable(Iterator.prototype.every, 'length');
+verifyProperty(Iterator.prototype.every, 'length', {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

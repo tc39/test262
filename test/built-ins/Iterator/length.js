@@ -18,8 +18,9 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Iterator.length, 0, 'The value of Iterator.length is 0');
-
-verifyNotEnumerable(Iterator, 'length');
-verifyNotWritable(Iterator, 'length');
-verifyConfigurable(Iterator, 'length');
+verifyProperty(Iterator, 'length', {
+  value: 0,
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});

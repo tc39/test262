@@ -13,11 +13,10 @@ features: [Symbol.iterator]
 includes: [propertyHelper.js]
 ---*/
 
-var IteratorPrototype = Object.getPrototypeOf(
-  Object.getPrototypeOf([][Symbol.iterator]())
-);
+assert.sameValue(typeof Iterator.prototype[Symbol.iterator], 'function');
 
-assert.sameValue(typeof IteratorPrototype[Symbol.iterator], 'function');
-verifyNotEnumerable(IteratorPrototype, Symbol.iterator);
-verifyWritable(IteratorPrototype, Symbol.iterator);
-verifyConfigurable(IteratorPrototype, Symbol.iterator);
+verifyProperty(Iterator.prototype, Symbol.iterator, {
+  writable: true,
+  enumerable: false,
+  configurable: true,
+});
