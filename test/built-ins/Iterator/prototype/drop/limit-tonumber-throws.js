@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.drop
 description: >
-  Throws a RangeError exception when limit argument is less than 0.
+  Throws a RangeError exception when limit argument valueOf throws.
 info: |
   %Iterator.prototype%.drop ( limit )
 

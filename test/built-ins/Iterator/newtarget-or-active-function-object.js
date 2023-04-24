@@ -13,16 +13,10 @@ info: |
 features: [iterator-helpers]
 ---*/
 
-let count = 0;
-
 assert.throws(TypeError, () => {
-  count++;
   Iterator();
 });
 
 assert.throws(TypeError, () => {
-  count++;
-  new Iterator();
+  new Iterator;
 });
-
-assert.sameValue(count, 2);

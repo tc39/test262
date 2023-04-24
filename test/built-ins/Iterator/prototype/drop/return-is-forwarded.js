@@ -36,16 +36,20 @@ assert.sameValue(returnCount, 1);
 iterator.return();
 assert.sameValue(returnCount, 1);
 
+returnCount = 0;
+
 iterator = new TestIterator().drop(1);
+assert.sameValue(returnCount, 0);
+iterator.return();
 assert.sameValue(returnCount, 1);
 iterator.return();
-assert.sameValue(returnCount, 2);
-iterator.return();
-assert.sameValue(returnCount, 2);
+assert.sameValue(returnCount, 1);
+
+returnCount = 0;
 
 iterator = new TestIterator().drop(1).drop(1).drop(1).drop(1).drop(1);
-assert.sameValue(returnCount, 2);
+assert.sameValue(returnCount, 0);
 iterator.return();
-assert.sameValue(returnCount, 3);
+assert.sameValue(returnCount, 1);
 iterator.return();
-assert.sameValue(returnCount, 3);
+assert.sameValue(returnCount, 1);

@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.drop
 description: >
-  Throws a RangeError exception when limit argument is less than 0.
+  Throws a RangeError exception when limit argument is NaN or less than 0.
 info: |
   %Iterator.prototype%.drop ( limit )
 
@@ -17,6 +17,7 @@ features: [iterator-helpers]
 let iterator = new Test262Iterator([1, 2]);
 
 iterator.drop(0);
+iterator.drop(-0.5);
 iterator.drop(null);
 
 assert.throws(RangeError, () => {
