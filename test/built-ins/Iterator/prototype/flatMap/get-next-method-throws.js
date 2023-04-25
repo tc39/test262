@@ -7,7 +7,7 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

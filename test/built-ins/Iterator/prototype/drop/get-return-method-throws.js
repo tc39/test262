@@ -7,7 +7,7 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

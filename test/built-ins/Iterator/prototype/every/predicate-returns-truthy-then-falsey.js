@@ -9,7 +9,7 @@ info: |
 
   4.f. If ToBoolean(result) is false, return ? IteratorClose(iterated, NormalCompletion(false)).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

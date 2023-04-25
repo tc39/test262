@@ -10,7 +10,7 @@ info: |
   3.b.i. Let next be ? IteratorStep(iterated).
   3.b.ii. If next is false, return undefined.
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

@@ -9,7 +9,7 @@ info: |
 
   4.a. Let next be ? IteratorStep(iterated).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

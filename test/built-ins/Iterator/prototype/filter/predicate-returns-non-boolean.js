@@ -9,7 +9,7 @@ info: |
 
   3.b.vi. If ToBoolean(selected) is true, then
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

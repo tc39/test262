@@ -9,7 +9,7 @@ info: |
 
   3.b.iii. Let value be ? IteratorValue(next).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

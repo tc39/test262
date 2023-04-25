@@ -7,7 +7,7 @@ description: >
 info: |
   %Iterator.prototype%.every ( predicate )
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

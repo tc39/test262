@@ -7,7 +7,7 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
-includes: [iterators.js, compareArray.js]
+includes: [compareArray.js]
 features: [iterator-helpers]
 flags: []
 ---*/

@@ -7,7 +7,7 @@ description: >
 info: |
   %Iterator.prototype%.filter ( predicate )
 
-includes: [iterators.js, compareArray.js]
+includes: [compareArray.js]
 features: [iterator-helpers]
 flags: []
 ---*/

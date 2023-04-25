@@ -9,7 +9,7 @@ info: |
 
   6.c.ii. If next is false, return undefined.
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

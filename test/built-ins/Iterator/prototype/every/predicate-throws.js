@@ -10,7 +10,7 @@ info: |
   4.d. Let result be Completion(Call(predicate, undefined, « value, 𝔽(counter) »)).
   4.e. IfAbruptCloseIterator(result, iterated).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

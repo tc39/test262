@@ -9,7 +9,7 @@ info: |
 
   3.b.iv. Let selected be Completion(Call(predicate, undefined, « value, 𝔽(counter) »)).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

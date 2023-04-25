@@ -9,7 +9,7 @@ info: |
 
   3.b.v. IfAbruptCloseIterator(selected, iterated).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

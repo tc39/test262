@@ -9,7 +9,7 @@ info: |
 
   4.d. Let result be Completion(Call(predicate, undefined, « value, 𝔽(counter) »)).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

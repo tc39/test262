@@ -9,7 +9,7 @@ info: |
 
   1. Let iterated be ? GetIteratorDirect(this value).
 
-includes: [iterators.js]
+includes: []
 features: [iterator-helpers]
 flags: []
 ---*/
