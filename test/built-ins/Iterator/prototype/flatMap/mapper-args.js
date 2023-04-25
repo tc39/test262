@@ -15,6 +15,8 @@ function* g() {
   yield 'a';
   yield 'b';
   yield 'c';
+  yield 'd';
+  yield 'e';
 }
 
 let assertionCount = 0;
@@ -22,22 +24,31 @@ let iter = g().flatMap((v, count) => {
   switch (v) {
     case 'a':
       assert.sameValue(count, 0);
-      break;
+      ++assertionCount;
+      return [0];
     case 'b':
       assert.sameValue(count, 1);
-      break;
+      ++assertionCount;
+      return [0];
     case 'c':
       assert.sameValue(count, 2);
-      break;
+      ++assertionCount;
+      return [1, 2];
+    case 'd':
+      assert.sameValue(count, 3);
+      ++assertionCount;
+      return [3, 4, 5];
+    case 'e':
+      assert.sameValue(count, 4);
+      ++assertionCount;
+      return [6, 7, 8, 9];
     default:
       throw new Error;
   }
-  ++assertionCount;
-  return [v];
 });
 
 assert.sameValue(assertionCount, 0);
 
 for (let i of iter);
 
-assert.sameValue(assertionCount, 3);
+assert.sameValue(assertionCount, 5);
