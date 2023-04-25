@@ -31,6 +31,10 @@ assert.throws(Test262Error, function () {
 iterator.next();
 iterator.return();
 
+iterator = new TestIterator().filter(() => true);
+iterator.next();
+iterator.return();
+
 iterator = new TestIterator().filter(() => true).filter(() => true).filter(() => true);
 assert.throws(Test262Error, function () {
   iterator.return();

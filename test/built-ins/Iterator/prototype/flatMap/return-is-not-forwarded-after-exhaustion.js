@@ -31,6 +31,10 @@ assert.throws(Test262Error, function () {
 iterator.next();
 iterator.return();
 
+iterator = new TestIterator().flatMap(x => [x]);
+iterator.next();
+iterator.return();
+
 iterator = new TestIterator().flatMap(x => [x]).flatMap(x => [x]).flatMap(x => [x]);
 assert.throws(Test262Error, function () {
   iterator.return();

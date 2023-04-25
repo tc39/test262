@@ -34,3 +34,37 @@ assert.compareArray(effects, [
   'ToNumber limit',
   'get next',
 ]);
+
+effects = [];
+
+assert.throws(TypeError, function () {
+  Iterator.prototype.drop.call(
+    null,
+    {
+      valueOf() {
+        effects.push('ToNumber limit');
+        return 0;
+      }
+    }
+  );
+});
+
+assert.compareArray(effects, []);
+
+effects = [];
+
+assert.throws(RangeError, function () {
+  Iterator.prototype.drop.call(
+    {
+      get next() {
+        effects.push('get next');
+        return function() {
+          return { done: true, value: undefined };
+        };
+      }
+    },
+    NaN
+  );
+});
+
+assert.compareArray(effects, []);

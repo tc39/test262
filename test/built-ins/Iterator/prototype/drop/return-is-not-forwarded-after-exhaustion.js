@@ -32,6 +32,10 @@ iterator.next();
 iterator.return();
 
 iterator = new TestIterator().drop(1);
+iterator.next();
+iterator.return();
+
+iterator = new TestIterator().drop(1);
 assert.throws(Test262Error, function () {
   iterator.return();
 });
@@ -39,13 +43,6 @@ iterator.next();
 iterator.return();
 
 iterator = new TestIterator().drop(1).drop(1).drop(1).drop(1).drop(1);
-assert.throws(Test262Error, function () {
-  iterator.return();
-});
-iterator.next();
-iterator.return();
-
-iterator = new TestIterator().drop(10);
 assert.throws(Test262Error, function () {
   iterator.return();
 });
