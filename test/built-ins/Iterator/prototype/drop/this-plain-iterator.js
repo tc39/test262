@@ -9,7 +9,6 @@ info: |
 
   1. Let iterated be ? GetIteratorDirect(this value).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

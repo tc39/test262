@@ -9,7 +9,6 @@ info: |
 
   4.c. Let value be ? IteratorValue(next).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

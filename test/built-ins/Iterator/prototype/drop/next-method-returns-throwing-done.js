@@ -11,7 +11,6 @@ info: |
 
   6.c.i. Let next be ? IteratorStep(iterated).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

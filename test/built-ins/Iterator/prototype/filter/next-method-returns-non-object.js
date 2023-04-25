@@ -9,7 +9,6 @@ info: |
 
   3.b.i. Let next be ? IteratorStep(iterated).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

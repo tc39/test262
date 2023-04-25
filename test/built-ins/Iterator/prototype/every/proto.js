@@ -5,7 +5,6 @@ esid: sec-iteratorprototype.every
 description: >
   The value of the [[Prototype]] internal slot of Iterator.prototype.every is the
   intrinsic object %Function%.
-includes: []
 features: [iterator-helpers]
 ---*/
 

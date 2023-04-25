@@ -10,7 +10,6 @@ info: |
   4.d. Let result be Completion(Call(predicate, undefined, « value, 𝔽(counter) »)).
   4.e. IfAbruptCloseIterator(result, iterated).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

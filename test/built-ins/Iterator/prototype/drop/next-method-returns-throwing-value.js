@@ -9,7 +9,6 @@ info: |
 
   6.c.iii. Let completion be Completion(Yield(? IteratorValue(next))).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

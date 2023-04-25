@@ -7,7 +7,6 @@ description: >
 info: |
   %Iterator.prototype%.filter ( predicate )
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

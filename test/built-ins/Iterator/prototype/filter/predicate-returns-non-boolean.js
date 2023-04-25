@@ -9,7 +9,6 @@ info: |
 
   3.b.vi. If ToBoolean(selected) is true, then
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

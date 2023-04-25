@@ -9,7 +9,6 @@ info: |
 
   3.b.v. IfAbruptCloseIterator(selected, iterated).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

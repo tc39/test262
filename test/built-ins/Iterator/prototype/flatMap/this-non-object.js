@@ -7,7 +7,6 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/

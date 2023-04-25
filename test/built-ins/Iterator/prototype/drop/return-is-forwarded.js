@@ -10,7 +10,6 @@ info: |
   6.c.iii. Let completion be Completion(Yield(? IteratorValue(next))).
   6.c.iv. IfAbruptCloseIterator(completion, iterated).
 
-includes: []
 features: [iterator-helpers]
 flags: []
 ---*/
