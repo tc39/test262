@@ -8,7 +8,8 @@ description: >
 features: [Temporal]
 ---*/
 
-var duration1 = Temporal.Duration.from({days: Number.MAX_VALUE});
-var duration2 = Temporal.Duration.from({days: -Number.MAX_VALUE});
+// Math.trunc(Number.MAX_SAFE_INTEGER / 86400) === 104249991374
+var duration1 = Temporal.Duration.from({days: 104249991374});
+var duration2 = Temporal.Duration.from({days: -104249991374});
 
 assert.throws(RangeError, () => duration1.subtract(duration2));
