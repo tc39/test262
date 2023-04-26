@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  5.b.v. IfAbruptCloseIterator(mapped, iterated).
+
 features: [iterator-helpers]
 flags: []
 ---*/

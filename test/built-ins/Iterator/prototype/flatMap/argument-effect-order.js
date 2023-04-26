@@ -7,6 +7,11 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  1. Let O be the this value.
+  2. If O is not an Object, throw a TypeError exception.
+  3. If IsCallable(mapper) is false, throw a TypeError exception.
+  4. Let iterated be ? GetIteratorDirect(O).
+
 includes: [compareArray.js]
 features: [iterator-helpers]
 flags: []
@@ -23,9 +28,13 @@ assert.throws(TypeError, function() {
         };
       }
     },
-    null
+    {
+      valueOf() {
+        effects.push('valueOf mapper');
+        return function() { return []; };
+      }
+    }
   );
 });
 
-assert.compareArray(effects, [
-]);
+assert.compareArray(effects, []);

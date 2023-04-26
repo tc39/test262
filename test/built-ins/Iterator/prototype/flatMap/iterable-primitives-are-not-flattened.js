@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  5.b.vi. Let innerIterator be Completion(GetIteratorFlattenable(mapped)).
+
 includes: [compareArray.js]
 features: [iterator-helpers]
 flags: []

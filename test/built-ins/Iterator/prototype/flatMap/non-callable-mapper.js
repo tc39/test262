@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  3. If IsCallable(mapper) is false, throw a TypeError exception.
+
 features: [iterator-helpers]
 flags: []
 ---*/

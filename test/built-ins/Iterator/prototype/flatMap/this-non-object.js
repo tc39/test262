@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  2. If O is not an Object, throw a TypeError exception.
+
 features: [iterator-helpers]
 flags: []
 ---*/

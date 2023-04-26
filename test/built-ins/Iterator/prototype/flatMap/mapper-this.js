@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  5.b.iv. Let mapped be Completion(Call(mapper, undefined, « value, 𝔽(counter) »)).
+
 features: [iterator-helpers]
 flags: []
 ---*/

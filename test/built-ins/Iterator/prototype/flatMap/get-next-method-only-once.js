@@ -7,6 +7,8 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
+  4. Let iterated be ? GetIteratorDirect(O).
+
 features: [iterator-helpers]
 flags: []
 ---*/
