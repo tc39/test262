@@ -9,17 +9,22 @@ info: |
 
   4.f. If ToBoolean(result) is false, return ? IteratorClose(iterated, NormalCompletion(false)).
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-class Test262IteratorThrows extends Test262Iterator {
+class IteratorThrows extends Iterator {
+  next() {
+    return {
+      done: false,
+      value: 0
+    };
+  }
   return() {
-    throw new Test262Error();
+    throw new Test262Error;
   }
 }
 
-let iterator = new Test262IteratorThrows([1, 2]);
+let iterator = new IteratorThrows;
 
 assert.throws(Test262Error, function() {
   iterator.every(() => false);

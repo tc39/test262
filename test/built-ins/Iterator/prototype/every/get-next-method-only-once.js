@@ -9,13 +9,12 @@ info: |
 
   1. Let iterated be ? GetIteratorDirect(this value).
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
 let nextGets = 0;
 
-class TestIterator extends Test262Iterator {
+class TestIterator extends Iterator {
   get next() {
     nextGets++;
     let counter = 5;

@@ -7,12 +7,11 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
 let nonCallable = {};
-let iterator = new Test262Iterator([1, 2]);
+let iterator = function*(){}();
 
 assert.throws(TypeError, function() {
   iterator.flatMap(nonCallable);

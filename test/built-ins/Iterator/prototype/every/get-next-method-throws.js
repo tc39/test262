@@ -9,17 +9,16 @@ info: |
 
   1. Let iterated be ? GetIteratorDirect(this value).
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-class Test262IteratorThrows extends Test262Iterator {
+class IteratorThrows extends Iterator {
   get next() {
-    throw new Test262Error();
+    throw new Test262Error;
   }
 }
 
-let iterator = new Test262IteratorThrows([1, 2]);
+let iterator = new IteratorThrows;
 
 assert.throws(Test262Error, function() {
   iterator.every(() => {});

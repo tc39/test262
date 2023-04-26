@@ -7,11 +7,15 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = (new Test262Iterator([1, 2])).drop(1);
+function* g() {
+  yield 1;
+  yield 2;
+}
+
+let iterator = g().drop(1);
 
 {
   let {value, done} = iterator.next();

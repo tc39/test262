@@ -7,12 +7,15 @@ description: >
 info: |
   %Iterator.prototype%.drop ( limit )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
+function* g() {
+  yield 1;
+  yield 2;
+}
 
-let iterator = new Test262Iterator([1, 2]).drop(2);
+let iterator = g().drop(2);
 let {value, done} = iterator.next();
 
 assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');

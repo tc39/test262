@@ -7,17 +7,22 @@ description: >
 info: |
   %Iterator.prototype%.filter ( predicate )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-class Test262IteratorThrows extends Test262Iterator {
+class IteratorThrows extends Iterator {
+  next() {
+    return {
+      done: false,
+      value: 0
+    };
+  }
   return() {
-    throw new Test262Error();
+    throw new Test262Error;
   }
 }
 
-let iterator = new Test262IteratorThrows([1, 2]).filter(() => false);
+let iterator = new IteratorThrows().filter(() => false);
 
 assert.throws(Test262Error, function() {
   iterator.return();

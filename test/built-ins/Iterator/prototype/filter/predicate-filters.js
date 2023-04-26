@@ -7,16 +7,25 @@ description: >
 info: |
   %Iterator.prototype%.filter ( filterer )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = new Test262Iterator([1, 0, 2, 0, 3, 0, 4]);
+function* g() {
+  yield 1;
+  yield 0;
+  yield 2;
+  yield 0;
+  yield 3;
+  yield 0;
+  yield 4;
+}
+
+let iterator = g();
 
 let predicateCalls = 0;
 iterator = iterator.filter(value => {
   ++predicateCalls;
-  return !!value;
+  return value !== 0;
 });
 
 let resultCount = 0;

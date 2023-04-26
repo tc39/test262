@@ -9,10 +9,9 @@ info: |
 
   2. Let numLimit be ? ToNumber(limit).
 
-includes: [iterators.js]
 features: [iterator-helpers]
 ---*/
-let iterator = new Test262Iterator([1, 2]);
+let iterator = function*(){}();
 
 assert.throws(Test262Error, () => {
   iterator.drop({ valueOf: function () { throw new Test262Error; } });

@@ -9,11 +9,16 @@ info: |
 
   4.b. If next is false, return true.
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = new Test262Iterator([0, 1, 2, 3, 4]);
+function* g() {
+  yield 0;
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+}
 
-let result = iterator.every(() => true);
+let result = g().every(() => true);
 assert.sameValue(result, true, 'The value of `result` is true');

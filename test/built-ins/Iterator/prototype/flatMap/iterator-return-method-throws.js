@@ -7,17 +7,22 @@ description: >
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-class Test262IteratorThrows extends Test262Iterator {
+class IteratorThrows extends Iterator {
+  next() {
+    return {
+      done: false,
+      value: 0
+    };
+  }
   return() {
-    throw new Test262Error();
+    throw new Test262Error;
   }
 }
 
-let iterator = new Test262IteratorThrows([1, 2]).flatMap(() => []);
+let iterator = new IteratorThrows().flatMap(() => []);
 
 assert.throws(Test262Error, function() {
   iterator.return();

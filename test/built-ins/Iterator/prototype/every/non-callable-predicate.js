@@ -9,12 +9,11 @@ info: |
 
   2. If IsCallable(predicate) is false, throw a TypeError exception.
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
 let nonCallable = {};
-let iterator = new Test262Iterator([1, 2]);
+let iterator = function* () { yield 1; }();
 
 assert.throws(TypeError, function() {
   iterator.every(nonCallable);

@@ -10,11 +10,10 @@ info: |
   3.b.i. Let next be ? IteratorStep(iterated).
   3.b.ii. If next is false, return undefined.
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = new Test262Iterator([]);
+let iterator = function*(){}();
 
 let {value, done} = iterator.next();
 assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');

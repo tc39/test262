@@ -11,10 +11,9 @@ info: |
   5. Let integerLimit be ! ToIntegerOrInfinity(numLimit).
   6. If integerLimit < 0, throw a RangeError exception.
 
-includes: [iterators.js]
 features: [iterator-helpers]
 ---*/
-let iterator = new Test262Iterator([1, 2]);
+let iterator = function*(){}();
 
 iterator.take(0);
 iterator.take(-0.5);

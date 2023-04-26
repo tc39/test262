@@ -3,22 +3,21 @@
 /*---
 esid: sec-iteratorprototype.find
 description: >
-  Iterator.prototype.find returns only items for which the predicate returned true.
+  Iterator.prototype.find returns the first item for which the predicate returned truthy.
 info: |
   %Iterator.prototype%.find ( fn )
 
-includes: [iterators.js]
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = new Test262Iterator([1, 0, 2, 0, 3, 0, 4]);
-let found = iterator.find(value => value % 2);
+function* g() {
+  yield 0;
+  yield 1;
+  yield 2;
+  yield 3;
+}
 
-let {
-  value,
-  done
-} = iterator.next();
+let iterator = g();
+let found = iterator.find(value => value === 2);
 
-assert.sameValue(found, 1, 'The value of `found` is 1');
-assert.sameValue(value, 0, 'The value of `value` is 0');
-assert.sameValue(done, false, 'The value of `done` is false');
+assert.sameValue(found, 2, 'The value of `found` is 2');
