@@ -3,7 +3,6 @@
 /*---
 esid: pending
 description: Tests that Set.prototype.union meets the requirements for built-in objects
-includes: [isConstructor.js]
 ---*/
 
 assert.sameValue(
