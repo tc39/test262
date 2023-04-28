@@ -12,15 +12,18 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+class ReturnCalledError extends Error {}
+class ValueGetterError extends Error {}
+
 class ThrowingIterator extends Iterator {
   next() {
     return {
       done: true,
-      get value() { throw new Test262Error; }
+      get value() { throw new ValueGetterError; }
     };
   }
   return() {
-    throw new Error;
+    throw new ReturnCalledError;
   }
 }
 

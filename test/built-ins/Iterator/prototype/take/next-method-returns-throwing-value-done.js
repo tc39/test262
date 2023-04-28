@@ -26,9 +26,9 @@ class ThrowingIterator extends Iterator {
 }
 
 let iterator = new ThrowingIterator().take(0);
-
-iterator.next();
+assert.throws(ReturnCalledError, function() {
+  iterator.next();
+});
 
 iterator = new ThrowingIterator().take(1);
-
 iterator.next();
