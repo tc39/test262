@@ -27,5 +27,4 @@ assert.throws(TypeError, function() {
   );
 });
 
-assert.compareArray(effects, [
-]);
+assert.compareArray(effects, []);
