@@ -24,7 +24,6 @@ const tests = [
   ["12:34:56.987654321[u-ca=unknown]", "calendar annotation ignored even if unknown calendar"],
   ["12:34:56.987654321[!u-ca=unknown]", "calendar annotation ignored even if unknown calendar with !"],
   ["1970-01-01T12:34:56.987654321[u-ca=iso8601][u-ca=discord]", "second annotation ignored"],
-  ["1970-01-01T12:34:56.987654321[u-ca=iso8601][!u-ca=discord]", "second annotation ignored even with !"],
 ];
 
 const instance = new Temporal.PlainDate(2000, 5, 2);
