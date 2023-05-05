@@ -39,11 +39,11 @@ assert.throws(DummyError, function() {
   var base = undefined;
   var prop = {
     toString: function() {
-      throw new Test262Error("property key evaluated");
+      throw new DummyError();
     }
   };
   var expr = function() {
-    throw new DummyError();
+    throw new Test262Error("right-hand side expression evaluated");
   };
 
   base[prop] = expr();

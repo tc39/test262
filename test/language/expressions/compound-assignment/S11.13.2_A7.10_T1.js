@@ -24,11 +24,11 @@ assert.throws(DummyError, function() {
   base[prop()] ^= expr();
 });
 
-assert.throws(TypeError, function() {
+assert.throws(DummyError, function() {
   var base = null;
   var prop = {
     toString: function() {
-      throw new Test262Error("property key evaluated");
+      throw new DummyError();
     }
   };
   var expr = function() {
