@@ -1,9 +1,9 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-iteratorprototype.some
+esid: sec-iteratorprototype.forEach
 description: >
-  The "name" property of Iterator.prototype.some
+  The "name" property of Iterator.prototype.forEach
 info: |
   17 ECMAScript Standard Built-in Objects
 
@@ -21,8 +21,8 @@ features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(Iterator.prototype.some, 'name', {
-  value: 'some',
+verifyProperty(Iterator.prototype.forEach, 'name', {
+  value: 'forEach',
   writable: false,
   enumerable: false,
   configurable: true,

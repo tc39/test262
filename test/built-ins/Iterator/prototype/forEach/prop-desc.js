@@ -1,13 +1,13 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-iteratorprototype.some
+esid: sec-iteratorprototype.forEach
 description: >
-  Property descriptor of Iterator.prototype.some
+  Property descriptor of Iterator.prototype.forEach
 info: |
-  Iterator.prototype.some
+  Iterator.prototype.forEach
 
-  * is the initial value of the Iterator.prototype.some property of the global object.
+  * is the initial value of the Iterator.prototype.forEach property of the global object.
 
   17 ECMAScript Standard Built-in Objects
 
@@ -18,8 +18,8 @@ features: [globalThis, iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(Iterator.prototype, 'some', {
-  value: Iterator.prototype.some,
+verifyProperty(Iterator.prototype, 'forEach', {
+  value: Iterator.prototype.forEach,
   writable: true,
   enumerable: false,
   configurable: true,
