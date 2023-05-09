@@ -5,6 +5,7 @@ esid: pending
 description: Set.prototype.union appends new values to a copy of the original Set
 info: |
     7.b.iii.1 Append nextValue to resultSetData.
+features: [Set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

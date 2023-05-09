@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.prototype.union can combine Sets that have the same content
+features: [Set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

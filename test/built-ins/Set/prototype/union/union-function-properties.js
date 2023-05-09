@@ -6,6 +6,7 @@ description: Set.prototype.union function properties
 info: |
     Set.prototype.union ( other )]
 includes: [propertyHelper.js]
+features: [Set-methods]
 ---*/
 assert.sameValue(typeof Set.prototype.union, "function");
 

@@ -5,6 +5,7 @@ esid: pending
 description: Set.prototype.union RequireInternalSlot
 info: |
     2. Perform ? RequireInternalSlot(O, [[SetData]])
+features: [Set-methods]
 ---*/
 
 const union = Set.prototype.union;

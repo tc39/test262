@@ -6,6 +6,7 @@ description: GetSetRecord if the Set-like object's 'has' property is not callabl
 info: |
     9. Let keys be ? Get(obj, "keys").
     10. If IsCallable(keys) is false, throw a TypeError exception.
+features: [Set-methods]
 ---*/
 
 assert.throws(

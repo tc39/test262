@@ -4,7 +4,7 @@
 esid: pending
 description: Set.prototype.union does not implement [[Construct]], is not new-able
 includes: [isConstructor.js]
-features: [Reflect.construct]
+features: [Reflect.construct, Set-methods]
 ---*/
 
 assert.sameValue(

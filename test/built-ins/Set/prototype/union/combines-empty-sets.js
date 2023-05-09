@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.prototype.union can combine empty Sets
+features: [Set-methods]
 ---*/
 
 const s1 = new Set([]);

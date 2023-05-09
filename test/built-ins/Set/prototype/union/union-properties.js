@@ -4,6 +4,7 @@
 esid: pending
 description: Set.prototype.union properties
 includes: [propertyHelper.js]
+features: [Set-methods]
 ---*/
 
 assert.sameValue(

@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.prototype.union combines with Map
+features: [Set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

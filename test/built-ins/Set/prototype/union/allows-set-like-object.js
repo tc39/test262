@@ -10,6 +10,7 @@ info: |
     7. Let has be ? Get(obj, "has").
     ...
     9. Let keys be ? Get(obj, "keys").
+features: [Set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

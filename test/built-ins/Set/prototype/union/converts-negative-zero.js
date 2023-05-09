@@ -5,6 +5,7 @@ esid: pending
 description: Set.prototype.union converts -0𝔽 to +0𝔽
 info: |
     7.b.ii. If nextValue is -0𝔽, set nextValue to +0𝔽.
+features: [Set-methods]
 ---*/
 
 const s1 = new Set([1]);

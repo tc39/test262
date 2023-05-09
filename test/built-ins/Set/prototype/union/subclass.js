@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.union works on subclasses of Set, but returns an instance of Set
+features: [Set-methods]
 ---*/
 
 class MySet extends Set {}

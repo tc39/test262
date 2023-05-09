@@ -5,6 +5,7 @@ esid: pending
 description: GetSetRecord throws if obj is not an object
 info: |
     1. If obj is not an Object, throw a TypeError exception.
+features: [Set-methods]
 ---*/
 
 assert.throws(

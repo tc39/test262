@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.union works on subclasses of Set, but never calls the receiver's size/has/keys methods
+features: [Set-methods]
 ---*/
 
 let sizeCount = 0;

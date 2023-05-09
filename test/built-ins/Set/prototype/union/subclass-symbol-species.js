@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.union works on subclasses of Set, but returns an instance of Set even when Symbol.species is overridden.
+features: [Set-methods]
 ---*/
 var count = 0;
 class MySet extends Set {

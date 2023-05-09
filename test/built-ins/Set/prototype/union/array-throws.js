@@ -3,6 +3,7 @@
 /*---
 esid: pending
 description: Set.prototype.union doesn't work with arrays
+features: [Set-methods]
 ---*/
 
 assert.throws(
