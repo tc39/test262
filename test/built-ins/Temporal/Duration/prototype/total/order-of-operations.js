@@ -129,9 +129,9 @@ actual.splice(0); // clear
 
 // code path through Duration.prototype.total that rounds to the nearest month:
 const expectedOpsForMonthRounding = expectedOpsForPlainRelativeTo.concat([
-  // UnbalanceDurationRelative
-  "call options.relativeTo.calendar.dateAdd",    // 9.d.i
-  "call options.relativeTo.calendar.dateUntil",  // 9.d.iv
+  // UnbalanceDateDurationRelative
+  "call options.relativeTo.calendar.dateAdd",    // 3.f
+  "call options.relativeTo.calendar.dateUntil",  // 3.i
   // RoundDuration
   "call options.relativeTo.calendar.dateAdd",    // 10.c
   "call options.relativeTo.calendar.dateAdd",    // 10.e
@@ -144,9 +144,8 @@ actual.splice(0); // clear
 
 // code path through Duration.prototype.total that rounds to the nearest week:
 const expectedOpsForWeekRounding = expectedOpsForPlainRelativeTo.concat([
-  // UnbalanceDurationRelative
-  "call options.relativeTo.calendar.dateAdd",  // 10.c.i MoveRelativeDate
-  "call options.relativeTo.calendar.dateAdd",  // 10.d.i MoveRelativeDate
+  // UnbalanceDateDurationRelative
+  "call options.relativeTo.calendar.dateAdd",  // 4.e
   // RoundDuration
   "call options.relativeTo.calendar.dateAdd",  // 11.d MoveRelativeDate
 ], Array(58).fill("call options.relativeTo.calendar.dateAdd"));  // 58× 11.g.iii MoveRelativeDate (52 + 4 + 2)
@@ -155,11 +154,9 @@ instance3.total(createOptionsObserver({ unit: "weeks", relativeTo: plainRelative
 assert.compareArray(actual, expectedOpsForWeekRounding, "order of operations with unit = weeks");
 actual.splice(0); // clear
 
-// code path through UnbalanceDurationRelative that rounds to the nearest day:
+// code path through UnbalanceDateDurationRelative that rounds to the nearest day:
 const expectedOpsForDayRounding = expectedOpsForPlainRelativeTo.concat([
-  "call options.relativeTo.calendar.dateAdd",  // 11.a.iii.1 MoveRelativeDate
-  "call options.relativeTo.calendar.dateAdd",  // 11.a.iv.1 MoveRelativeDate
-  "call options.relativeTo.calendar.dateAdd",  // 11.a.v.1 MoveRelativeDate
+  "call options.relativeTo.calendar.dateAdd",  // 10
 ]);
 const instance4 = new Temporal.Duration(1, 1, 1)
 instance4.total(createOptionsObserver({ unit: "days", relativeTo: plainRelativeTo }));

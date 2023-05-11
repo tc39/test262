@@ -181,14 +181,8 @@ actual.splice(0); // clear
 // to days:
 const expectedOpsForPlainDayBalancing = expectedOpsForPlainRelativeTo.concat(
   [
-    // UnbalanceDurationRelative
-    "call options.relativeTo.calendar.dateAdd",  // 11.a.iii.1 MoveRelativeDate
-    "call options.relativeTo.calendar.dateAdd",  // 11.a.iv.1 MoveRelativeDate
-    "call options.relativeTo.calendar.dateAdd",  // 11.a.v.1 MoveRelativeDate
-    // UnbalanceDurationRelative again for the second argument:
-    "call options.relativeTo.calendar.dateAdd",  // 11.a.iii.1 MoveRelativeDate
-    "call options.relativeTo.calendar.dateAdd",  // 11.a.iv.1 MoveRelativeDate
-    "call options.relativeTo.calendar.dateAdd",  // 11.a.v.1 MoveRelativeDate
+    "call options.relativeTo.calendar.dateAdd",  // UnbalanceDateDurationRelative on 1st argument
+    "call options.relativeTo.calendar.dateAdd",  // UnbalanceDateDurationRelative on 2nd argument
   ]
 );
 Temporal.Duration.compare(
