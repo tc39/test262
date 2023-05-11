@@ -10,19 +10,25 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-// One path, through UnbalanceDurationRelative, calls dateUntil() in a loop for
-// each year in the duration
-
 const actual = [];
+
+class CalendarDateUntilObservable extends Temporal.Calendar {
+  dateUntil(...args) {
+    actual.push("call dateUntil");
+    const returnValue = super.dateUntil(...args);
+    TemporalHelpers.observeProperty(actual, returnValue, "months", Infinity);
+    return returnValue;
+  }
+}
+
+const calendar = new CalendarDateUntilObservable("iso8601");
+const relativeTo = new Temporal.PlainDate(2018, 10, 12, calendar);
+
+// One path, through UnbalanceDateDurationRelative, calls dateUntil()
+
 const expected1 = [
   "call dateUntil",
-  "call dateUntil",
 ];
-const duration = new Temporal.Duration(0, 12);
-TemporalHelpers.observeProperty(actual, duration, "months", 1);
-
-const calendar = TemporalHelpers.calendarDateUntilObservable(actual, duration);
-const relativeTo = new Temporal.PlainDateTime(2018, 10, 12, 0, 0, 0, 0, 0, 0, calendar);
 
 const years = new Temporal.Duration(2);
 const result1 = years.round({ largestUnit: "months", relativeTo });
