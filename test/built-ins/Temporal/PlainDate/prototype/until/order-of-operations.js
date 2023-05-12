@@ -139,11 +139,9 @@ const expectedOpsForYearRounding = expected.concat([
   "call this.calendar.dateUntil",  // 7.o
   "call this.calendar.dateAdd",    // 7.y MoveRelativeDate
   // (7.s not called because other units can't add up to >1 year at this point)
-  // BalanceDurationRelative
-  "call this.calendar.dateAdd",    // 11.c MoveRelativeDate
-  "call this.calendar.dateAdd",    // 11.g MoveRelativeDate
-  "call this.calendar.dateAdd",    // 11.k
-  "call this.calendar.dateUntil"   // 11.n
+  // BalanceDateDurationRelative
+  "call this.calendar.dateAdd",    // 9.c
+  "call this.calendar.dateUntil"   // 9.d
 ]);
 instance.until(otherDatePropertyBag, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
@@ -168,11 +166,9 @@ const expectedOpsForYearRoundingSameMonth = expected.concat([
   "call this.calendar.dateAdd",    // 7.g
   "call this.calendar.dateAdd",    // 7.y MoveRelativeDate
   // (7.o not called because months and weeks == 0)
-  // BalanceDurationRelative
-  "call this.calendar.dateAdd",    // 11.c MoveRelativeDate
-  "call this.calendar.dateAdd",    // 11.g MoveRelativeDate
-  "call this.calendar.dateAdd",    // 11.k
-  "call this.calendar.dateUntil"   // 11.n
+  // BalanceDateDurationRelative
+  "call this.calendar.dateAdd",    // 9.c
+  "call this.calendar.dateUntil"   // 9.d
 ]);
 instance.until(otherDatePropertyBagSameMonth, createOptionsObserver({ smallestUnit: "years" }));
 assert.compareArray(actual, expectedOpsForYearRoundingSameMonth, "order of operations with smallestUnit = years and no excess months/weeks");
@@ -190,8 +186,9 @@ const expectedOpsForMonthRounding = expected.concat([
   "call this.calendar.dateAdd",    // 10.e
   "call this.calendar.dateAdd",    // 10.k MoveRelativeDate
   // (10.n.iii MoveRelativeDate not called because weeks == 0)
-  // BalanceDurationRelative
-  "call this.calendar.dateAdd",    // 12.b MoveRelativeDate
+  // BalanceDateDurationRelative
+  "call this.calendar.dateAdd",    // 10.d
+  "call this.calendar.dateUntil"   // 10.e
 ]);
 instance.until(otherDatePropertyBag, createOptionsObserver({ smallestUnit: "months" }));
 assert.compareArray(actual, expectedOpsForMonthRounding, "order of operations with smallestUnit = months");
@@ -207,8 +204,9 @@ const expectedOpsForWeekRounding = expected.concat([
   // RoundDuration
   "call this.calendar.dateAdd",  // 11.d MoveRelativeDate
   // (11.g.iii MoveRelativeDate not called because days already balanced)
-  // BalanceDurationRelative
-  "call this.calendar.dateAdd",    // 13.c MoveRelativeDate
+  // BalanceDateDurationRelative
+  "call this.calendar.dateAdd",    // 16
+  "call this.calendar.dateUntil"   // 17
 ]);
 instance.until(otherDatePropertyBag, createOptionsObserver({ smallestUnit: "weeks" }));
 assert.compareArray(actual, expectedOpsForWeekRounding, "order of operations with smallestUnit = weeks");

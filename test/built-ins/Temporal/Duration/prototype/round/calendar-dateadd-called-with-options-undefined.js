@@ -20,13 +20,11 @@ const relativeTo = new Temporal.ZonedDateTime(0n, timeZone, calendar);
 //   RoundDuration ->
 //     MoveRelativeZonedDateTime -> AddZonedDateTime -> calendar.dateAdd()
 //     MoveRelativeDate -> calendar.dateAdd()
-//   BalanceDurationRelative ->
-//     MoveRelativeDate -> calendar.dateAdd() (2x)
-//     calendar.dateAdd()
+//   BalanceDateDurationRelative -> calendar.dateAdd()
 
 const instance1 = new Temporal.Duration(1, 1, 1, 1, 1);
 instance1.round({ smallestUnit: "weeks", relativeTo });
-assert.sameValue(calendar.dateAddCallCount, 5, "rounding with calendar smallestUnit");
+assert.sameValue(calendar.dateAddCallCount, 3, "rounding with calendar smallestUnit");
 
 // Rounding with a non-default largestUnit to cover the path in
 // UnbalanceDurationRelative where larger units are converted into smaller
@@ -37,8 +35,7 @@ assert.sameValue(calendar.dateAddCallCount, 5, "rounding with calendar smallestU
 //   UnbalanceDurationRelative -> MoveRelativeDate -> calendar.dateAdd()
 //   RoundDuration ->
 //     MoveRelativeDate -> calendar.dateAdd() (5x)
-//   BalanceDurationRelative
-//     MoveRelativeDate -> calendar.dateAdd()
+//   BalanceDateDurationRelative -> calendar.dateAdd()
 //   MoveRelativeZonedDateTime -> AddZonedDateTime -> calendar.dateAdd()
 
 calendar.dateAddCallCount = 0;
@@ -52,12 +49,10 @@ assert.sameValue(calendar.dateAddCallCount, 8, "rounding with non-default larges
 // Duration.round() ->
 //   RoundDuration ->
 //     MoveRelativeZonedDateTime -> AddZonedDateTime -> calendar.dateAdd()
-//   BalanceDurationRelative ->
-//     MoveRelativeDate -> calendar.dateAdd() (2x)
-//     calendar.dateAdd()
+//   BalanceDateDurationRelative -> calendar.dateAdd()
 
 calendar.dateAddCallCount = 0;
 
 const instance3 = new Temporal.Duration(1, 1, 1, 1, 1);
 instance3.round({ smallestUnit: "days", relativeTo });
-assert.sameValue(calendar.dateAddCallCount, 4, "rounding with days smallestUnit");
+assert.sameValue(calendar.dateAddCallCount, 2, "rounding with days smallestUnit");

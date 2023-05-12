@@ -74,8 +74,8 @@ features: [Temporal]
 // should result in one call to dateUntil() originating from
 // AdjustRoundedDurationDays, with largestUnit equal to the largest unit in
 // the duration higher than "day".
-// Additionally one call with largestUnit: "month" in BalanceDurationRelative
-// when the largestUnit given to round() is "year".
+// Additionally one call in BalanceDateDurationRelative with the same
+// largestUnit.
 // Other calls have largestUnit: "day" so the difference is taken in ISO
 // calendar space.
 
@@ -99,9 +99,9 @@ TemporalHelpers.checkCalendarDateUntilLargestUnitSingular(
     duration.round({ largestUnit, roundingIncrement: 2, roundingMode: 'ceil', relativeTo });
   },
   {
-    years: ["year", "month"],
-    months: ["month"],
-    weeks: ["week"],
+    years: ["year", "year"],
+    months: ["month", "month"],
+    weeks: ["week", "week"],
     days: [],
     hours: [],
     minutes: [],
@@ -122,9 +122,9 @@ TemporalHelpers.checkCalendarDateUntilLargestUnitSingular(
     duration.round({ largestUnit, relativeTo });
   },
   {
-    years: ["month", "month", "month", "month", "month", "month"],
-    months: ["month"],
-    weeks: [],
+    years: ["year"],
+    months: ["month", "month"],
+    weeks: ["week"],
     days: [],
     hours: [],
     minutes: [],
@@ -147,8 +147,8 @@ TemporalHelpers.checkCalendarDateUntilLargestUnitSingular(
     duration.round({ largestUnit, smallestUnit: largestUnit, relativeTo });
   }, {
     years: ["year"],
-    months: [],
-    weeks: [],
+    months: ["month"],
+    weeks: ["week"],
     days: []
   }
 );
