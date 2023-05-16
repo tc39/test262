@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Ecma International.  All rights reserved.
+// Copyright (c) 2023 Veera Sivarajan Ecma International.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -8,15 +8,15 @@ description: >
 info: |
   sec-static-semantics-assignmenttargettype
 
-  PrimaryExpression : this 
+    PrimaryExpression: this 
 
-  Return invalid.
+    Return invalid.
 
   sec-update-expressions-static-semantics-early-errors
 
-  UpdateExpression: LeftHandSideExpression ++
+    UpdateExpression: LeftHandSideExpression ++
 
-  It is an early Syntax Error if AssignmentTargetType of LeftHandSideExpression is not simple.
+    It is an early Syntax Error if AssignmentTargetType of LeftHandSideExpression is not simple.
 negative:
   phase: parse
   type: SyntaxError
