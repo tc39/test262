@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-  esid: sec-update-expressions-static-semantics-early-errors
+esid: sec-update-expressions-static-semantics-early-errors
 description: >
   It is an early Syntax Error if AssignmentTargetType of UnaryExpression is not simple. (this)
 info: |
