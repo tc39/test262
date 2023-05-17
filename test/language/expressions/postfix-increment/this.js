@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Veera Sivarajan Ecma International.  All rights reserved.
+// Copyright (C) 2023 Veera Sivarajan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
