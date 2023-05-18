@@ -101,8 +101,8 @@ TemporalHelpers.checkCalendarDateUntilLargestUnitSingular(
   },
   {
     years: ["year", "year", "year"],
-    months: ["month", "month"],
-    weeks: ["week", "week"],
+    months: ["month", "month", "month"],
+    weeks: ["week", "week", "week"],
     days: [],
     hours: [],
     minutes: [],
