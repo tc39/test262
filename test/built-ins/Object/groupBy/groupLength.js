@@ -1,19 +1,18 @@
-// Copyright (c) 2021 Ecma International.  All rights reserved.
+// Copyright (c) 2023 Ecma International.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.group
+esid: sec-object.groupby
 description: Callback can return numbers that are converted to property keys
 info: |
-  22.1.3.14 Array.prototype.group ( callbackfn [ , thisArg ] )
+  Object.groupBy ( items, callbackfn )
 
   ...
+  GroupBy ( items, callbackfn, coercion )
 
-  8. For each Record { [[Key]], [[Elements]] } g of groups, do
-
-    a. Let elements be ! CreateArrayFromList(g.[[Elements]]).
-    b. Perform ! CreateDataPropertyOrThrow(obj, g.[[Key]], elements).
-
+  6. Repeat,
+    c. If next is false, then
+      i. Return groups.
   ...
 includes: [compareArray.js]
 features: [array-grouping]
@@ -21,7 +20,7 @@ features: [array-grouping]
 
 const arr = ['hello', 'test', 'world'];
 
-const obj = arr.group(function (i) { return i.length; });
+const obj = Object.groupBy(arr, function (i) { return i.length; });
 
 assert.compareArray(Object.keys(obj), ['4', '5']);
 assert.compareArray(obj['5'], ['hello', 'world']);
