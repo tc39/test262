@@ -63,7 +63,7 @@ ShadowRealm
 # https://github.com/tc39/proposal-array-find-from-last
 array-find-from-last
 
-# Array.prototype.group & Array.prototype.groupToMap
+# Array.groupBy & Map.groupBy
 # https://github.com/tc39/proposal-array-grouping
 array-grouping
 
