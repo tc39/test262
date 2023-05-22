@@ -12,6 +12,10 @@ function* g() {}
 let iter = g();
 
 assert.throws(TypeError, () => {
+  new iter.every;
+}, '`new iter.every` throws a TypeError exception');
+
+assert.throws(TypeError, () => {
   new iter.every(() => {});
 }, '`new iter.every(() => {})` throws a TypeError exception');
 

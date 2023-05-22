@@ -12,6 +12,10 @@ function* g() {}
 let iter = g();
 
 assert.throws(TypeError, () => {
+  new iter.filter;
+}, '`new iter.filter` throws a TypeError exception');
+
+assert.throws(TypeError, () => {
   new iter.filter(() => true);
 }, '`new iter.filter(() => true)` throws a TypeError exception');
 

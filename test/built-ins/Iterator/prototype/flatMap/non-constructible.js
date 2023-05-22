@@ -12,6 +12,10 @@ function* g() {}
 let iter = g();
 
 assert.throws(TypeError, () => {
+  new iter.flatMap;
+}, '`new iter.flatMap` throws a TypeError exception');
+
+assert.throws(TypeError, () => {
   new iter.flatMap(() => []);
 }, '`new iter.flatMap(() => [])` throws a TypeError exception');
 

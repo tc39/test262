@@ -12,6 +12,10 @@ function* g() {}
 let iter = g();
 
 assert.throws(TypeError, () => {
+  new iter.drop;
+}, '`new iter.drop` throws a TypeError exception');
+
+assert.throws(TypeError, () => {
   new iter.drop(0);
 }, '`new iter.drop(0)` throws a TypeError exception');
 
