@@ -4,6 +4,8 @@
 esid: sec-iteratorprototype.every
 description: >
   Iterator.prototype.every is not constructible.
+
+  Built-in function objects that are not identified as constructors do not implement the [[Construct]] internal method unless otherwise specified in the description of a particular function.
 features: [iterator-helpers]
 ---*/
 function* g() {}
