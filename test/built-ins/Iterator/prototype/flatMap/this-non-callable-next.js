@@ -10,6 +10,8 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+let iter = Iterator.prototype.flatMap.call({ next: 0 }, () => []);
+
 assert.throws(TypeError, function() {
-  Iterator.prototype.flatMap.call({ next: 0 }, () => []);
+  iter.next();
 });

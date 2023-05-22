@@ -10,6 +10,8 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+let iter = Iterator.prototype.map.call({ next: 0 }, () => 0);
+
 assert.throws(TypeError, function() {
-  Iterator.prototype.map.call({ next: 0 }, () => 0);
+  iter.next();
 });
