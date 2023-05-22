@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.flatMap
 description: >
-  Iterator.prototype.flatMap falls back to treating mapper return values as iterators if the Symbol.iterator property is not callable
+  Iterator.prototype.flatMap falls back to treating mapper return values as iterators if the Symbol.iterator property is null/undefined
 info: |
   %Iterator.prototype%.flatMap ( mapper )
 
@@ -28,6 +28,28 @@ let iter = g().flatMap(v => {
   let n = h();
   return {
     [Symbol.iterator]: 0,
+    next: () => n.next()
+  };
+});
+
+assert.throws(TypeError, function() {
+  iter.next();
+});
+
+iter = g().flatMap(v => {
+  let n = h();
+  return {
+    [Symbol.iterator]: null,
+    next: () => n.next()
+  };
+});
+
+assert.compareArray(Array.from(iter), [0, 1, 2]);
+
+iter = g().flatMap(v => {
+  let n = h();
+  return {
+    [Symbol.iterator]: undefined,
     next: () => n.next()
   };
 });
