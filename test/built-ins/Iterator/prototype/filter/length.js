@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.filter
 description: >
-  Iterator.prototype.filter has a "length" property whose value is 0.
+  Iterator.prototype.filter has a "length" property whose value is 1.
 info: |
   ECMAScript Standard Built-in Objects
 

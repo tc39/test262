@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.every
 description: >
-  Iterator.prototype.every has a "length" property whose value is 0.
+  Iterator.prototype.every has a "length" property whose value is 1.
 info: |
   ECMAScript Standard Built-in Objects
 

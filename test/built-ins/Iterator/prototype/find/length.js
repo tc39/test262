@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.find
 description: >
-  Iterator.prototype.find has a "length" property whose value is 0.
+  Iterator.prototype.find has a "length" property whose value is 1.
 info: |
   ECMAScript Standard Built-in Objects
 

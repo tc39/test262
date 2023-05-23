@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.map
 description: >
-  Iterator.prototype.map has a "length" property whose value is 0.
+  Iterator.prototype.map has a "length" property whose value is 1.
 info: |
   ECMAScript Standard Built-in Objects
 
