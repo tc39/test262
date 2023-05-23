@@ -7,7 +7,7 @@ description: >
 info: |
   17 ECMAScript Standard Built-in Objects
 
-  every built-in Function object, including constructors, that is not
+  Every built-in Function object, including constructors, that is not
   identified as an anonymous function has a name property whose value is a
   String. Unless otherwise specified, this value is the name that is given to
   the function in this specification.

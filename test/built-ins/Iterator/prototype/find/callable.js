@@ -3,8 +3,11 @@
 /*---
 esid: sec-iteratorprototype.find
 description: >
-  Iterator.prototype.find is a built-in function
+  Iterator.prototype.find is callable
 features: [iterator-helpers]
 ---*/
+function* g() {}
+Iterator.prototype.find.call(g(), () => {});
 
-assert.sameValue(typeof Iterator.prototype.find, 'function', 'The value of `typeof Iterator.prototype.find` is "function"');
+let iter = g();
+iter.find(() => {});
