@@ -13,16 +13,16 @@ let iter = g();
 
 assert.throws(TypeError, () => {
   new iter.forEach;
-}, '`new iter.forEach` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new iter.forEach(() => {});
-}, '`new iter.forEach(() => {})` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new Iterator.prototype.forEach(() => {});
-}, '`new Iterator.prototype.forEach(() => {})` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new (class extends Iterator {}).forEach(() => {});
-}, '`new (new class extends Iterator {}).forEach(() => {})` throws a TypeError exception');
+});

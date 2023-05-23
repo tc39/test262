@@ -7,4 +7,4 @@ description: >
 features: [iterator-helpers]
 ---*/
 
-assert.sameValue(typeof Iterator.prototype.flatMap, 'function', 'The value of `typeof Iterator.prototype.flatMap` is "function"');
+assert.sameValue(typeof Iterator.prototype.flatMap, 'function');

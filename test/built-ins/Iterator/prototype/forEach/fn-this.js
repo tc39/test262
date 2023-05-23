@@ -24,5 +24,5 @@ let result = iter.forEach(function (v, count) {
   ++assertionCount;
 });
 
-assert.sameValue(result, undefined, 'The value of `result` is true');
+assert.sameValue(result, undefined);
 assert.sameValue(assertionCount, 1);

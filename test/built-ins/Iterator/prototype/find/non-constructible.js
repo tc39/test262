@@ -13,16 +13,16 @@ let iter = g();
 
 assert.throws(TypeError, () => {
   new iter.find;
-}, '`new iter.find` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new iter.find(() => {});
-}, '`new iter.find(() => {})` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new Iterator.prototype.find(() => {});
-}, '`new Iterator.prototype.find(() => {})` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new (class extends Iterator {}).find(() => {});
-}, '`new (new class extends Iterator {}).find(() => {})` throws a TypeError exception');
+});

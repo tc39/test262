@@ -21,4 +21,4 @@ function* g() {
 }
 
 let result = g().every(() => true);
-assert.sameValue(result, true, 'The value of `result` is true');
+assert.sameValue(result, true);

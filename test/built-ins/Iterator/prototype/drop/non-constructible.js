@@ -13,16 +13,16 @@ let iter = g();
 
 assert.throws(TypeError, () => {
   new iter.drop;
-}, '`new iter.drop` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new iter.drop(0);
-}, '`new iter.drop(0)` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new Iterator.prototype.drop(0);
-}, '`new Iterator.prototype.drop(0)` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new (class extends Iterator {}).drop(0);
-}, '`new (new class extends Iterator {}).drop(0)` throws a TypeError exception');
+});

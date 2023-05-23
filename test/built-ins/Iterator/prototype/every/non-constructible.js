@@ -13,16 +13,16 @@ let iter = g();
 
 assert.throws(TypeError, () => {
   new iter.every;
-}, '`new iter.every` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new iter.every(() => {});
-}, '`new iter.every(() => {})` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new Iterator.prototype.every(() => {});
-}, '`new Iterator.prototype.every(() => {})` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new (class extends Iterator {}).every(() => {});
-}, '`new (new class extends Iterator {}).every(() => {})` throws a TypeError exception');
+});

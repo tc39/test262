@@ -25,7 +25,7 @@ let result = iter.every(v => {
   return false;
 });
 
-assert.sameValue(result, false, 'The value of `result` is false');
+assert.sameValue(result, false);
 assert.sameValue(predicateCalls, 1);
 
 let { done, value } = iter.next();

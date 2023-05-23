@@ -21,16 +21,16 @@ iterator.take(null);
 
 assert.throws(RangeError, () => {
   iterator.take(-1);
-}, '`iterator.take(-1)` throws a RangeError exception');
+});
 
 assert.throws(RangeError, () => {
   iterator.take();
-}, '`iterator.take()` throws a RangeError exception');
+});
 
 assert.throws(RangeError, () => {
   iterator.take(undefined);
-}, '`iterator.take(undefined)` throws a RangeError exception');
+});
 
 assert.throws(RangeError, () => {
   iterator.take(NaN);
-}, '`iterator.take(NaN)` throws a RangeError exception');
+});

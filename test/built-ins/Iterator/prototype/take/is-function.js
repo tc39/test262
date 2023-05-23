@@ -7,4 +7,4 @@ description: >
 features: [iterator-helpers]
 ---*/
 
-assert.sameValue(typeof Iterator.prototype.take, 'function', 'The value of `typeof Iterator.prototype.take` is "function"');
+assert.sameValue(typeof Iterator.prototype.take, 'function');

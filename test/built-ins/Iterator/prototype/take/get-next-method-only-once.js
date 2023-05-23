@@ -32,10 +32,10 @@ class CountingIterator extends Iterator {
 
 let iterator = new CountingIterator;
 
-assert.sameValue(nextGets, 0, 'The value of `nextGets` is 0');
-assert.sameValue(nextCalls, 0, 'The value of `nextCalls` is 0');
+assert.sameValue(nextGets, 0);
+assert.sameValue(nextCalls, 0);
 
 for (const value of iterator.take(2));
 
-assert.sameValue(nextGets, 1, 'The value of `nextGets` is 1');
-assert.sameValue(nextCalls, 2, 'The value of `nextCalls` is 2');
+assert.sameValue(nextGets, 1);
+assert.sameValue(nextCalls, 2);

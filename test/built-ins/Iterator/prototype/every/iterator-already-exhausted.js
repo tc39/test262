@@ -16,11 +16,11 @@ flags: []
 let iterator = function*(){}();
 
 let {value, done} = iterator.next();
-assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
-assert.sameValue(done, true, 'The value of `done` is true');
+assert.sameValue(value, undefined);
+assert.sameValue(done, true);
 
 let result = iterator.every(() => true);
-assert.sameValue(result, true, 'The value of `result` is true');
+assert.sameValue(result, true);
 
 result = iterator.every(() => false);
-assert.sameValue(result, true, 'The value of `result` is true');
+assert.sameValue(result, true);

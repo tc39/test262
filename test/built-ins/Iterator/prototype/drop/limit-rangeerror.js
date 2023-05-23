@@ -21,16 +21,16 @@ iterator.drop(null);
 
 assert.throws(RangeError, () => {
   iterator.drop(-1);
-}, '`iterator.drop(-1)` throws a RangeError exception');
+});
 
 assert.throws(RangeError, () => {
   iterator.drop();
-}, '`iterator.drop()` throws a RangeError exception');
+});
 
 assert.throws(RangeError, () => {
   iterator.drop(undefined);
-}, '`iterator.drop(undefined)` throws a RangeError exception');
+});
 
 assert.throws(RangeError, () => {
   iterator.drop(NaN);
-}, '`iterator.drop(NaN)` throws a RangeError exception');
+});

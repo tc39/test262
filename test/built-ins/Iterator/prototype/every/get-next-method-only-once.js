@@ -30,6 +30,6 @@ class TestIterator extends Iterator {
 
 let iterator = new TestIterator;
 
-assert.sameValue(nextGets, 0, 'The value of `nextGets` is 0');
+assert.sameValue(nextGets, 0);
 assert.sameValue(iterator.every(() => true), true);
-assert.sameValue(nextGets, 1, 'The value of `nextGets` is 1');
+assert.sameValue(nextGets, 1);

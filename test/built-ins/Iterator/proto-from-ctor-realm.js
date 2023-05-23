@@ -14,24 +14,24 @@ let ai;
 
 newTarget.prototype = undefined;
 ai = Reflect.construct(Iterator, [1], newTarget);
-assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype, 'Object.getPrototypeOf("Reflect.construct(Iterator, [1], newTarget)") must return the value of other.Iterator.prototype');
+assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype);
 
 newTarget.prototype = null;
 ai = Reflect.construct(Iterator, [1], newTarget);
-assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype, 'Object.getPrototypeOf("Reflect.construct(Iterator, [1], newTarget)") must return the value of other.Iterator.prototype');
+assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype);
 
 newTarget.prototype = true;
 ai = Reflect.construct(Iterator, [1], newTarget);
-assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype, 'Object.getPrototypeOf("Reflect.construct(Iterator, [1], newTarget)") must return the value of other.Iterator.prototype');
+assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype);
 
 newTarget.prototype = '';
 ai = Reflect.construct(Iterator, [1], newTarget);
-assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype, 'Object.getPrototypeOf("Reflect.construct(Iterator, [1], newTarget)") must return the value of other.Iterator.prototype');
+assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype);
 
 newTarget.prototype = Symbol();
 ai = Reflect.construct(Iterator, [1], newTarget);
-assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype, 'Object.getPrototypeOf("Reflect.construct(Iterator, [1], newTarget)") must return the value of other.Iterator.prototype');
+assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype);
 
 newTarget.prototype = 0;
 ai = Reflect.construct(Iterator, [1], newTarget);
-assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype, 'Object.getPrototypeOf("Reflect.construct(Iterator, [1], newTarget)") must return the value of other.Iterator.prototype');
+assert.sameValue(Object.getPrototypeOf(ai), other.Iterator.prototype);

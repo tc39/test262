@@ -13,16 +13,16 @@ let iter = g();
 
 assert.throws(TypeError, () => {
   new iter.filter;
-}, '`new iter.filter` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new iter.filter(() => true);
-}, '`new iter.filter(() => true)` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new Iterator.prototype.filter(() => true);
-}, '`new Iterator.prototype.filter(() => true)` throws a TypeError exception');
+});
 
 assert.throws(TypeError, () => {
   new (class extends Iterator {}).filter(() => true);
-}, '`new (new class extends Iterator {}).filter(() => true)` throws a TypeError exception');
+});

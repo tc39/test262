@@ -19,12 +19,12 @@ let iterator = g().drop(1);
 
 {
   let {value, done} = iterator.next();
-  assert.sameValue(value, 2, 'The value of `value` is 2');
-  assert.sameValue(done, false, 'The value of `done` is false');
+  assert.sameValue(value, 2);
+  assert.sameValue(done, false);
 }
 
 {
   let {value, done} = iterator.next();
-  assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
-  assert.sameValue(done, true, 'The value of `done` is true');
+  assert.sameValue(value, undefined);
+  assert.sameValue(done, true);
 }

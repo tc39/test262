@@ -25,5 +25,5 @@ let result = iter.some(function (v, count) {
   return true;
 });
 
-assert.sameValue(result, true, 'The value of `result` is true');
+assert.sameValue(result, true);
 assert.sameValue(assertionCount, 1);

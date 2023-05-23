@@ -31,10 +31,10 @@ iterator = iterator.filter(value => {
 let resultCount = 0;
 for (let value of iterator) {
   resultCount++;
-  assert.sameValue(value, resultCount, 'The value of `value` is expected to equal the value of resultCount');
+  assert.sameValue(value, resultCount);
 }
 assert.sameValue(resultCount, 4);
 
 let { value, done } = iterator.next();
-assert.sameValue(value, undefined, 'The value of `value` is expected to equal `undefined`');
-assert.sameValue(done, true, 'The value of `done` is true');
+assert.sameValue(value, undefined);
+assert.sameValue(done, true);
