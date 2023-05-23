@@ -19,7 +19,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(Iterator.prototype, 'map', {
-  value: Iterator.prototype.map,
   writable: true,
   enumerable: false,
   configurable: true,

@@ -19,7 +19,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(Iterator.prototype, 'filter', {
-  value: Iterator.prototype.filter,
   writable: true,
   enumerable: false,
   configurable: true,

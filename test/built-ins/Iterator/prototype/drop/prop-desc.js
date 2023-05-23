@@ -19,7 +19,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(Iterator.prototype, 'drop', {
-  value: Iterator.prototype.drop,
   writable: true,
   enumerable: false,
   configurable: true,

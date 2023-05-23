@@ -19,7 +19,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(Iterator.prototype, 'flatMap', {
-  value: Iterator.prototype.flatMap,
   writable: true,
   enumerable: false,
   configurable: true,

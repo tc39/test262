@@ -19,7 +19,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(Iterator.prototype, 'forEach', {
-  value: Iterator.prototype.forEach,
   writable: true,
   enumerable: false,
   configurable: true,

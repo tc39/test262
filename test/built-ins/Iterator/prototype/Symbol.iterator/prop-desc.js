@@ -13,8 +13,6 @@ features: [Symbol.iterator]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(typeof Iterator.prototype[Symbol.iterator], 'function');
-
 verifyProperty(Iterator.prototype, Symbol.iterator, {
   writable: true,
   enumerable: false,

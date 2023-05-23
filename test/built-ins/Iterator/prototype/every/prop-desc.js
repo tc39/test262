@@ -19,7 +19,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyProperty(Iterator.prototype, 'every', {
-  value: Iterator.prototype.every,
   writable: true,
   enumerable: false,
   configurable: true,
