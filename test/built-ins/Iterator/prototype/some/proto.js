@@ -8,8 +8,4 @@ description: >
 features: [iterator-helpers]
 ---*/
 
-assert.sameValue(
-  Object.getPrototypeOf(Iterator.prototype.some),
-  Function.prototype,
-  'Object.getPrototypeOf(Iterator.prototype.some) must return the value of Function.prototype'
-);
+assert.sameValue(Object.getPrototypeOf(Iterator.prototype.some), Function.prototype);
