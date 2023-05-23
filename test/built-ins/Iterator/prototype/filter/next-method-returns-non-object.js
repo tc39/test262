@@ -21,5 +21,5 @@ class NonObjectIterator extends Iterator {
 let iterator = new NonObjectIterator().filter(() => true);
 
 assert.throws(TypeError, function () {
-  iterator.next()
+  iterator.next();
 });

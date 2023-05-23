@@ -13,26 +13,17 @@ let iter = {
       done: true,
       value: undefined,
     };
-  }
+  },
 };
 
 const WrapForValidIteratorPrototype = Object.getPrototypeOf(Iterator.from(iter));
 
-assert.sameValue(
-  Object.getPrototypeOf(WrapForValidIteratorPrototype),
-  Iterator.prototype
-);
+assert.sameValue(Object.getPrototypeOf(WrapForValidIteratorPrototype), Iterator.prototype);
 
 class SubIterator extends Iterator {}
-assert.sameValue(
-  Object.getPrototypeOf(SubIterator.from(iter)),
-  WrapForValidIteratorPrototype
-);
+assert.sameValue(Object.getPrototypeOf(SubIterator.from(iter)), WrapForValidIteratorPrototype);
 
 function* g() {}
 const GeneratorPrototype = Object.getPrototypeOf(g());
 
-assert.sameValue(
-  Object.getPrototypeOf(Iterator.from(g())),
-  GeneratorPrototype
-);
+assert.sameValue(Object.getPrototypeOf(Iterator.from(g())), GeneratorPrototype);

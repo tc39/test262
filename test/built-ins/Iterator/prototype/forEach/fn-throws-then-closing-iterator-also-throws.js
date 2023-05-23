@@ -14,18 +14,18 @@ class TestIterator extends Iterator {
   next() {
     return {
       done: false,
-      value: 1
+      value: 1,
     };
   }
   return() {
-    throw new Error;
+    throw new Error();
   }
 }
 
-let iterator = new TestIterator;
+let iterator = new TestIterator();
 
-assert.throws(Test262Error, function() {
+assert.throws(Test262Error, function () {
   iterator.forEach(() => {
-    throw new Test262Error;
+    throw new Test262Error();
   });
 });

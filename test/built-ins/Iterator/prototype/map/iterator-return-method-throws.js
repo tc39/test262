@@ -14,16 +14,16 @@ class IteratorThrows extends Iterator {
   next() {
     return {
       done: false,
-      value: 0
+      value: 0,
     };
   }
   return() {
-    throw new Test262Error;
+    throw new Test262Error();
   }
 }
 
 let iterator = new IteratorThrows().map(() => 0);
 
-assert.throws(Test262Error, function() {
+assert.throws(Test262Error, function () {
   iterator.return();
 });

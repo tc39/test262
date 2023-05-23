@@ -18,13 +18,13 @@ function* g() {
 let iterator = g().drop(1);
 
 {
-  let {value, done} = iterator.next();
+  let { value, done } = iterator.next();
   assert.sameValue(value, 2);
   assert.sameValue(done, false);
 }
 
 {
-  let {value, done} = iterator.next();
+  let { value, done } = iterator.next();
   assert.sameValue(value, undefined);
   assert.sameValue(done, true);
 }

@@ -18,7 +18,7 @@ class TestIterator extends Iterator {
   next() {
     return {
       done: false,
-      value: 1
+      value: 1,
     };
   }
   return() {
@@ -30,10 +30,10 @@ class TestIterator extends Iterator {
 let callbackCalls = 0;
 let iterator = new TestIterator().map(() => {
   callbackCalls++;
-  throw new Test262Error;
+  throw new Test262Error();
 });
 
-assert.throws(Test262Error, function() {
+assert.throws(Test262Error, function () {
   iterator.next();
 });
 

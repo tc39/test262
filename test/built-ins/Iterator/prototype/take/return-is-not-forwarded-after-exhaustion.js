@@ -16,11 +16,11 @@ class TestIterator extends Iterator {
   next() {
     return {
       done: true,
-      value: undefined
+      value: undefined,
     };
   }
   return() {
-    throw new Test262Error;
+    throw new Test262Error();
   }
 }
 

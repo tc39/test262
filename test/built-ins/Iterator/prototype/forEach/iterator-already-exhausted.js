@@ -10,11 +10,13 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = function*(){}();
+let iterator = (function* () {})();
 
-let {value, done} = iterator.next();
+let { value, done } = iterator.next();
 assert.sameValue(value, undefined);
 assert.sameValue(done, true);
 
-let result = iterator.forEach(() => { throw new Error });
+let result = iterator.forEach(() => {
+  throw new Error();
+});
 assert.sameValue(result, undefined);

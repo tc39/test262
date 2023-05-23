@@ -13,9 +13,9 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = function*(){}();
+let iterator = (function* () {})();
 
-let {value, done} = iterator.next();
+let { value, done } = iterator.next();
 assert.sameValue(value, undefined);
 assert.sameValue(done, true);
 

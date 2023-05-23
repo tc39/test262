@@ -15,17 +15,15 @@ flags: []
 let iter = {
   get next() {
     let count = 3;
-    return function() {
+    return function () {
       --count;
-      return count >= 0
-        ? { done: false, value: count }
-        : { done: true, value: undefined };
-    }
+      return count >= 0 ? { done: false, value: count } : { done: true, value: undefined };
+    };
   },
-}
+};
 
 let predicateCalls = 0;
-let result = Iterator.prototype.every.call(iter, function(v) {
+let result = Iterator.prototype.every.call(iter, function (v) {
   ++predicateCalls;
   return v;
 });

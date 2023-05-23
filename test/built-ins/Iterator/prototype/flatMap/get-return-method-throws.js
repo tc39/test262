@@ -14,17 +14,17 @@ class TestIterator extends Iterator {
   next() {
     return {
       done: false,
-      value: 1
+      value: 1,
     };
   }
   get return() {
-    throw new Test262Error;
+    throw new Test262Error();
   }
 }
 
 let iterator = new TestIterator().flatMap(x => [x]);
 iterator.next();
 
-assert.throws(Test262Error, function() {
+assert.throws(Test262Error, function () {
   iterator.return();
 });

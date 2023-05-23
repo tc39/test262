@@ -28,11 +28,11 @@ let iter = g().flatMap(v => {
   let n = h();
   return {
     [Symbol.iterator]: 0,
-    next: () => n.next()
+    next: () => n.next(),
   };
 });
 
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   iter.next();
 });
 
@@ -40,7 +40,7 @@ iter = g().flatMap(v => {
   let n = h();
   return {
     [Symbol.iterator]: null,
-    next: () => n.next()
+    next: () => n.next(),
   };
 });
 
@@ -50,7 +50,7 @@ iter = g().flatMap(v => {
   let n = h();
   return {
     [Symbol.iterator]: undefined,
-    next: () => n.next()
+    next: () => n.next(),
   };
 });
 

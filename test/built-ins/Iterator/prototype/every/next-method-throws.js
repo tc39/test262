@@ -14,11 +14,11 @@ flags: []
 ---*/
 class ThrowingIterator extends Iterator {
   next() {
-    throw new Test262Error;
+    throw new Test262Error();
   }
 }
 
-let iterator = new ThrowingIterator;
+let iterator = new ThrowingIterator();
 
 assert.throws(Test262Error, function () {
   iterator.every(() => {});

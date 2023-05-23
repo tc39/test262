@@ -30,7 +30,7 @@ Number.prototype[Symbol.iterator] = function* () {
 assert.compareArray(Array.from(5), [0, 1, 2, 3, 4]);
 
 assert.throws(TypeError, function () {
-  for(let unused of g().flatMap(v => 5));
+  for (let unused of g().flatMap(v => 5));
 });
 
 let iter = g().flatMap(v => new Number(5));

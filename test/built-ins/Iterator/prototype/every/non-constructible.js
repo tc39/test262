@@ -12,7 +12,7 @@ function* g() {}
 let iter = g();
 
 assert.throws(TypeError, () => {
-  new iter.every;
+  new iter.every();
 });
 
 assert.throws(TypeError, () => {
@@ -24,5 +24,5 @@ assert.throws(TypeError, () => {
 });
 
 assert.throws(TypeError, () => {
-  new (class extends Iterator {}).every(() => {});
+  new class extends Iterator {}.every(() => {});
 });

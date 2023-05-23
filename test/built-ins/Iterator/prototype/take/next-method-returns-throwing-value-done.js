@@ -17,16 +17,18 @@ class ThrowingIterator extends Iterator {
   next() {
     return {
       done: true,
-      get value() { throw new ValueGetterError; }
+      get value() {
+        throw new ValueGetterError();
+      },
     };
   }
   return() {
-    throw new ReturnCalledError;
+    throw new ReturnCalledError();
   }
 }
 
 let iterator = new ThrowingIterator().take(0);
-assert.throws(ReturnCalledError, function() {
+assert.throws(ReturnCalledError, function () {
   iterator.next();
 });
 

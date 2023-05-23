@@ -19,7 +19,9 @@ function* g() {
 
 let closed = g();
 closed.return();
-closed.return = function() { throw new Test262Error; };
+closed.return = function () {
+  throw new Test262Error();
+};
 
 let iter = g().flatMap(v => closed);
 let { value, done } = iter.next();

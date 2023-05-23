@@ -8,5 +8,11 @@ features: [iterator-helpers]
 ---*/
 function* g() {}
 let iter = g();
-assert.sameValue(iter.forEach(() => {}), undefined);
-assert.sameValue(iter.forEach(() => 0), undefined);
+assert.sameValue(
+  iter.forEach(() => {}),
+  undefined
+);
+assert.sameValue(
+  iter.forEach(() => 0),
+  undefined
+);

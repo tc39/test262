@@ -11,19 +11,8 @@ features: [Symbol.iterator]
 
 const getIterator = Iterator.prototype[Symbol.iterator];
 
-const thisValues = [
-    {},
-    Symbol(),
-    4,
-    4n,
-    true,
-    undefined,
-    null,
-];
+const thisValues = [{}, Symbol(), 4, 4n, true, undefined, null];
 
 for (const thisValue of thisValues) {
-    assert.sameValue(
-        getIterator.call(thisValue),
-        thisValue
-    );
+  assert.sameValue(getIterator.call(thisValue), thisValue);
 }

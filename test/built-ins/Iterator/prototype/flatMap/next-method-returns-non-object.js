@@ -19,5 +19,5 @@ class NonObjectIterator extends Iterator {
 let iterator = new NonObjectIterator().flatMap(x => [x]);
 
 assert.throws(TypeError, function () {
-  iterator.next()
+  iterator.next();
 });

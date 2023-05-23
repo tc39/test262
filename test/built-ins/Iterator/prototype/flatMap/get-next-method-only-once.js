@@ -18,11 +18,11 @@ let nextCalls = 0;
 class CountingIterator extends Iterator {
   get next() {
     nextGets++;
-    let iter = function* () {
+    let iter = (function* () {
       for (let i = 1; i < 5; ++i) {
         yield i;
       }
-    }();
+    })();
     return function () {
       nextCalls++;
       return iter.next();
@@ -30,7 +30,7 @@ class CountingIterator extends Iterator {
   }
 }
 
-let iterator = new CountingIterator;
+let iterator = new CountingIterator();
 
 assert.sameValue(nextGets, 0);
 assert.sameValue(nextCalls, 0);

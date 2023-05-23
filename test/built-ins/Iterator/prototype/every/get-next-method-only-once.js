@@ -18,7 +18,7 @@ class TestIterator extends Iterator {
   get next() {
     nextGets++;
     let counter = 5;
-    return function() {
+    return function () {
       if (counter < 0) {
         return { done: true, value: undefined };
       } else {
@@ -28,8 +28,11 @@ class TestIterator extends Iterator {
   }
 }
 
-let iterator = new TestIterator;
+let iterator = new TestIterator();
 
 assert.sameValue(nextGets, 0);
-assert.sameValue(iterator.every(() => true), true);
+assert.sameValue(
+  iterator.every(() => true),
+  true
+);
 assert.sameValue(nextGets, 1);

@@ -19,11 +19,13 @@ class ThrowingIterator extends Iterator {
   next() {
     return {
       done: true,
-      get value() { throw new ValueGetterError; }
+      get value() {
+        throw new ValueGetterError();
+      },
     };
   }
   return() {
-    throw new ReturnCalledError;
+    throw new ReturnCalledError();
   }
 }
 

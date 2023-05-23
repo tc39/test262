@@ -8,7 +8,4 @@ description: >
 features: [iterator-helpers]
 ---*/
 
-assert(
-  function*(){}().take(0) instanceof Iterator,
-  'function*(){}().take(0) must return an Iterator'
-);
+assert((function* () {})().take(0) instanceof Iterator, 'function*(){}().take(0) must return an Iterator');

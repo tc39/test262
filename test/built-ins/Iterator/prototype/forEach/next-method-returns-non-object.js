@@ -16,7 +16,7 @@ class NonObjectIterator extends Iterator {
   }
 }
 
-let iterator = new NonObjectIterator;
+let iterator = new NonObjectIterator();
 
 assert.throws(TypeError, function () {
   iterator.forEach(() => {});

@@ -11,7 +11,7 @@ features: [iterator-helpers]
 flags: []
 ---*/
 function* g() {
-  yield "";
+  yield '';
   yield null;
   yield undefined;
   yield 0;

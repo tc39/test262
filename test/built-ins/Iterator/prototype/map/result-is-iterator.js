@@ -8,7 +8,4 @@ description: >
 features: [iterator-helpers]
 ---*/
 
-assert(
-  function*(){}().map(() => 0) instanceof Iterator,
-  'function*(){}().map(() => 0) must return an Iterator'
-);
+assert((function* () {})().map(() => 0) instanceof Iterator, 'function*(){}().map(() => 0) must return an Iterator');

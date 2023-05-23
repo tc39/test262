@@ -18,7 +18,13 @@ function* g() {
 
 {
   let iterator = g();
-  let { value, done } = iterator.drop({ valueOf: function () { return 1; } }).next();
+  let { value, done } = iterator
+    .drop({
+      valueOf: function () {
+        return 1;
+      },
+    })
+    .next();
   assert.sameValue(value, 2);
   assert.sameValue(done, false);
 }

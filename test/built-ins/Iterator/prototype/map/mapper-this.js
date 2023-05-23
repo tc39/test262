@@ -18,7 +18,9 @@ function* g() {
 
 let iter = g();
 
-let expectedThis = function(){ return this; }.call(undefined);
+let expectedThis = function () {
+  return this;
+}.call(undefined);
 
 let assertionCount = 0;
 iter = iter.map(function (v, count) {

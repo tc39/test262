@@ -18,5 +18,5 @@ assert.throws(TypeError, () => {
 });
 
 assert.throws(TypeError, () => {
-  new Iterator;
+  new Iterator();
 });

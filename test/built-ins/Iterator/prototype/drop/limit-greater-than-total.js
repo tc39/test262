@@ -17,21 +17,21 @@ function* g() {
 
 {
   let iterator = g().drop(3);
-  let {value, done} = iterator.next();
+  let { value, done } = iterator.next();
   assert.sameValue(value, undefined);
   assert.sameValue(done, true);
 }
 
 {
   let iterator = g().drop(Number.MAX_SAFE_INTEGER);
-  let {value, done} = iterator.next();
+  let { value, done } = iterator.next();
   assert.sameValue(value, undefined);
   assert.sameValue(done, true);
 }
 
 {
   let iterator = g().drop(Infinity);
-  let {value, done} = iterator.next();
+  let { value, done } = iterator.next();
   assert.sameValue(value, undefined);
   assert.sameValue(done, true);
 }

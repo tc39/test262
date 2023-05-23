@@ -19,7 +19,7 @@ function* g() {
 }
 
 assert.throws(TypeError, function () {
-  for(let unused of g().flatMap(v => 'string'));
+  for (let unused of g().flatMap(v => 'string'));
 });
 
 let iter = g().flatMap(v => new String('string'));

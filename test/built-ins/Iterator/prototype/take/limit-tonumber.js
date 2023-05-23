@@ -18,8 +18,44 @@ function* g() {
   yield 2;
 }
 
-assert.compareArray(Array.from(g().take({ valueOf: function () { return 0; } })), []);
-assert.compareArray(Array.from(g().take({ valueOf: function () { return 1; } })), [0]);
-assert.compareArray(Array.from(g().take({ valueOf: function () { return 2; } })), [0, 1]);
+assert.compareArray(
+  Array.from(
+    g().take({
+      valueOf: function () {
+        return 0;
+      },
+    })
+  ),
+  []
+);
+assert.compareArray(
+  Array.from(
+    g().take({
+      valueOf: function () {
+        return 1;
+      },
+    })
+  ),
+  [0]
+);
+assert.compareArray(
+  Array.from(
+    g().take({
+      valueOf: function () {
+        return 2;
+      },
+    })
+  ),
+  [0, 1]
+);
 assert.compareArray(Array.from(g().take([1])), [0]);
-assert.compareArray(Array.from(g().take({ toString: function () { return '1'; } })), [0]);
+assert.compareArray(
+  Array.from(
+    g().take({
+      toString: function () {
+        return '1';
+      },
+    })
+  ),
+  [0]
+);

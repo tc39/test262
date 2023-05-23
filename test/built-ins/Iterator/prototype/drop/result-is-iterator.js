@@ -8,7 +8,4 @@ description: >
 features: [iterator-helpers]
 ---*/
 
-assert(
-  function*(){}().drop(0) instanceof Iterator,
-  'function*(){}().drop(0) must return an Iterator'
-);
+assert((function* () {})().drop(0) instanceof Iterator, 'function*(){}().drop(0) must return an Iterator');

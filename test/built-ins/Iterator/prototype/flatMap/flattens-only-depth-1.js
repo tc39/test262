@@ -14,15 +14,15 @@ flags: []
 
 let arr = [
   {
-    [Symbol.iterator]: function() {
-      throw new Test262Error;
-    }
+    [Symbol.iterator]: function () {
+      throw new Test262Error();
+    },
   },
   {
-    next: function() {
-      throw new Test262Error;
-    }
-  }
+    next: function () {
+      throw new Test262Error();
+    },
+  },
 ];
 
 function* g() {

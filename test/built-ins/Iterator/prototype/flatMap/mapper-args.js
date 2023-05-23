@@ -44,7 +44,7 @@ let iter = g().flatMap((v, count) => {
       ++assertionCount;
       return [6, 7, 8, 9];
     default:
-      throw new Error;
+      throw new Error();
   }
 });
 

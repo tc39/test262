@@ -12,17 +12,23 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   Iterator.prototype.drop.call(null, 1);
 });
 
-assert.throws(TypeError, function() {
-  Iterator.prototype.drop.call(null, { valueOf: function() { throw new Test262Error; } });
+assert.throws(TypeError, function () {
+  Iterator.prototype.drop.call(null, {
+    valueOf: function () {
+      throw new Test262Error();
+    },
+  });
 });
 
 Object.defineProperty(Number.prototype, 'next', {
-  get: function() { throw new Test262Error; }
+  get: function () {
+    throw new Test262Error();
+  },
 });
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   Iterator.prototype.drop.call(0, 1);
 });

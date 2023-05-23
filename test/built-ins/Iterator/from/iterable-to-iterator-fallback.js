@@ -18,34 +18,34 @@ function* g() {
   yield 2;
 }
 
-let iter = (function() {
+let iter = (function () {
   let n = g();
   return {
     [Symbol.iterator]: 0,
-    next: () => n.next()
+    next: () => n.next(),
   };
-}());
+})();
 
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   Iterator.from(iter);
 });
 
-iter = (function() {
+iter = (function () {
   let n = g();
   return {
     [Symbol.iterator]: null,
-    next: () => n.next()
+    next: () => n.next(),
   };
-}());
+})();
 
 assert.compareArray(Array.from(Iterator.from(iter)), [0, 1, 2]);
 
-iter = (function() {
+iter = (function () {
   let n = g();
   return {
     [Symbol.iterator]: undefined,
-    next: () => n.next()
+    next: () => n.next(),
   };
-}());
+})();
 
 assert.compareArray(Array.from(Iterator.from(iter)), [0, 1, 2]);

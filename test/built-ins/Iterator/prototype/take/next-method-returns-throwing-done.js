@@ -18,12 +18,14 @@ class DoneGetterError extends Error {}
 class ThrowingIterator extends Iterator {
   next() {
     return {
-      get done() { throw new DoneGetterError; },
-      value: 1
+      get done() {
+        throw new DoneGetterError();
+      },
+      value: 1,
     };
   }
   return() {
-    throw new ReturnCalledError;
+    throw new ReturnCalledError();
   }
 }
 

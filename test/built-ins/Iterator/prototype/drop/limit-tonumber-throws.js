@@ -11,8 +11,12 @@ info: |
 
 features: [iterator-helpers]
 ---*/
-let iterator = function*(){}();
+let iterator = (function* () {})();
 
 assert.throws(Test262Error, () => {
-  iterator.drop({ valueOf: function () { throw new Test262Error; } });
+  iterator.drop({
+    valueOf: function () {
+      throw new Test262Error();
+    },
+  });
 });

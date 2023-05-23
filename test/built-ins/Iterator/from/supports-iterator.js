@@ -23,7 +23,7 @@ let n = g();
 let iter = {
   next() {
     return n.next();
-  }
+  },
 };
 
 assert.compareArray(Array.from(Iterator.from(iter)), [0, 1, 2, 3]);

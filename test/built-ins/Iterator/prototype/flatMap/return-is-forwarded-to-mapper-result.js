@@ -20,13 +20,13 @@ let iter = g().flatMap(v => ({
   next() {
     return {
       done: false,
-      value: 1
+      value: 1,
     };
   },
   return() {
     ++returnCount;
     return {};
-  }
+  },
 }));
 
 assert.sameValue(returnCount, 0);

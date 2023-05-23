@@ -12,6 +12,6 @@ flags: []
 ---*/
 let iter = Iterator.prototype.flatMap.call({ next: 0 }, () => []);
 
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   iter.next();
 });

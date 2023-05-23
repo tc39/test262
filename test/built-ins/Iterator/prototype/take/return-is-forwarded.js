@@ -16,7 +16,7 @@ class TestIterator extends Iterator {
   next() {
     return {
       done: false,
-      value: 1
+      value: 1,
     };
   }
   return() {

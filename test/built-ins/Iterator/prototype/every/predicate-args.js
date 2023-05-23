@@ -33,7 +33,7 @@ let result = iter.every((v, count) => {
       assert.sameValue(count, 2);
       break;
     default:
-      throw new Error;
+      throw new Error();
   }
   ++assertionCount;
   return true;

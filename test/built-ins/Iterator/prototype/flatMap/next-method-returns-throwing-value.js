@@ -14,11 +14,13 @@ class ThrowingIterator extends Iterator {
   next() {
     return {
       done: false,
-      get value() { throw new Test262Error; }
+      get value() {
+        throw new Test262Error();
+      },
     };
   }
   return() {
-    throw new Error;
+    throw new Error();
   }
 }
 

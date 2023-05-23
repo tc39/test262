@@ -11,7 +11,7 @@ features: [iterator-helpers]
 function* g() {}
 
 assert.throws(TypeError, () => {
-  new Iterator.from;
+  new Iterator.from();
 });
 
 assert.throws(TypeError, () => {

@@ -10,11 +10,11 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
-let iterator = function* () {
+let iterator = (function* () {
   for (let i = 0; i < 5; i++) {
     yield i;
   }
-}();
+})();
 
 let filtered = iterator.filter(() => true);
 

@@ -9,6 +9,6 @@ features: [iterator-helpers]
 ---*/
 
 assert(
-  function*(){}().flatMap(() => []) instanceof Iterator,
+  (function* () {})().flatMap(() => []) instanceof Iterator,
   'function*(){}().flatMap(() => []) must return an Iterator'
 );

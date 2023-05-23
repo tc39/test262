@@ -16,7 +16,7 @@ function* g() {
 }
 
 let iterator = g().drop(2);
-let {value, done} = iterator.next();
+let { value, done } = iterator.next();
 
 assert.sameValue(value, undefined);
 assert.sameValue(done, true);

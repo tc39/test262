@@ -22,7 +22,14 @@ function* g() {
 assert.compareArray(Array.from(g()), [0, 1, 2, 3, 4]);
 assert.compareArray(Array.from(g().map(x => x)), [0, 1, 2, 3, 4]);
 assert.compareArray(Array.from(g().map(() => 0)), [0, 0, 0, 0, 0]);
-assert.compareArray(Array.from(g().map(() => 0).map((v, c) => c)), [0, 1, 2, 3, 4]);
+assert.compareArray(
+  Array.from(
+    g()
+      .map(() => 0)
+      .map((v, c) => c)
+  ),
+  [0, 1, 2, 3, 4]
+);
 assert.compareArray(Array.from(g().map(x => x * 2)), [0, 2, 4, 6, 8]);
 
 let obj = {};

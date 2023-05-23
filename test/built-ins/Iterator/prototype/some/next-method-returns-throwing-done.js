@@ -13,16 +13,18 @@ flags: []
 class ThrowingIterator extends Iterator {
   next() {
     return {
-      get done() { throw new Test262Error; },
-      value: 1
+      get done() {
+        throw new Test262Error();
+      },
+      value: 1,
     };
   }
   return() {
-    throw new Error;
+    throw new Error();
   }
 }
 
-let iterator = new ThrowingIterator;
+let iterator = new ThrowingIterator();
 
 assert.throws(Test262Error, function () {
   iterator.some(() => {});

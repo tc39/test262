@@ -13,7 +13,7 @@ info: |
 
 features: [iterator-helpers]
 ---*/
-let iterator = function*(){}();
+let iterator = (function* () {})();
 
 iterator.take(0);
 iterator.take(-0.5);

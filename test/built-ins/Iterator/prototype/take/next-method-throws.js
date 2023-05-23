@@ -14,7 +14,7 @@ flags: []
 ---*/
 class ThrowingIterator extends Iterator {
   next() {
-    throw new Test262Error;
+    throw new Test262Error();
   }
 }
 

@@ -27,7 +27,7 @@ iter = iter.flatMap(v => {
 
 assert.sameValue(mapperCalls, 0);
 
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   iter.next();
 });
 

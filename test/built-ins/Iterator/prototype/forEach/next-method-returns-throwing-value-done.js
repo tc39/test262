@@ -14,13 +14,15 @@ class ThrowingIterator extends Iterator {
   next() {
     return {
       done: true,
-      get value() { throw new Test262Error; }
+      get value() {
+        throw new Test262Error();
+      },
     };
   }
   return() {
-    throw new Error;
+    throw new Error();
   }
 }
 
-let iterator = new ThrowingIterator;
+let iterator = new ThrowingIterator();
 iterator.forEach(() => {});

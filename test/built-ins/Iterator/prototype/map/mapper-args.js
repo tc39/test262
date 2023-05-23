@@ -44,7 +44,7 @@ let iter = g().map((v, count) => {
       ++assertionCount;
       return 4;
     default:
-      throw new Error;
+      throw new Error();
   }
 });
 

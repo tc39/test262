@@ -13,9 +13,8 @@ features: [iterator-helpers]
 flags: []
 ---*/
 let nonCallable = {};
-let iterator = function*(){}();
+let iterator = (function* () {})();
 
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   iterator.filter(nonCallable);
 });
-

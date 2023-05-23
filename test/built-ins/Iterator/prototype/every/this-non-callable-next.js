@@ -12,6 +12,6 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   Iterator.prototype.every.call({ next: 0 }, () => true);
 });

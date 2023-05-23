@@ -10,6 +10,6 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   Iterator.prototype.some.call({ next: 0 }, () => true);
 });

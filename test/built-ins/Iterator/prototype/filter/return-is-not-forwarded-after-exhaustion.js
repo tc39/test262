@@ -16,11 +16,11 @@ class TestIterator extends Iterator {
   next() {
     return {
       done: true,
-      value: undefined
+      value: undefined,
     };
   }
   return() {
-    throw new Test262Error;
+    throw new Test262Error();
   }
 }
 
@@ -35,7 +35,10 @@ iterator = new TestIterator().filter(() => true);
 iterator.next();
 iterator.return();
 
-iterator = new TestIterator().filter(() => true).filter(() => true).filter(() => true);
+iterator = new TestIterator()
+  .filter(() => true)
+  .filter(() => true)
+  .filter(() => true);
 assert.throws(Test262Error, function () {
   iterator.return();
 });

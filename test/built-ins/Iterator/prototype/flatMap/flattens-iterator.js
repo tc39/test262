@@ -24,20 +24,20 @@ function* g() {
 let iter = g().flatMap((v, count) => {
   let i = 0;
   return {
-    next: function() {
+    next: function () {
       if (i < v) {
         ++i;
         return {
           value: v,
-          done: false
+          done: false,
         };
       } else {
         return {
           value: undefined,
-          done: true
+          done: true,
         };
       }
-    }
+    },
   };
 });
 

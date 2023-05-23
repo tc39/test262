@@ -18,21 +18,23 @@ flags: []
 ---*/
 let effects = [];
 
-assert.throws(TypeError, function() {
+assert.throws(TypeError, function () {
   Iterator.prototype.flatMap.call(
     {
       get next() {
         effects.push('get next');
-        return function() {
+        return function () {
           return { done: true, value: undefined };
         };
-      }
+      },
     },
     {
       valueOf() {
         effects.push('valueOf mapper');
-        return function() { return []; };
-      }
+        return function () {
+          return [];
+        };
+      },
     }
   );
 });

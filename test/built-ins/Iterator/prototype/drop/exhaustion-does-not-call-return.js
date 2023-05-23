@@ -25,24 +25,24 @@ class TestIterator extends Iterator {
     if (this._remaining > 0) {
       return {
         done: false,
-        value: this._remaining--
+        value: this._remaining--,
       };
     } else {
       return {
         done: true,
-        value: undefined
+        value: undefined,
       };
     }
   }
   return() {
     if (this._remaining <= 0) {
-      throw new Test262Error;
+      throw new Test262Error();
     }
     return {};
   }
 }
 
-let iterator = new TestIterator;
+let iterator = new TestIterator();
 iterator = iterator.drop(0);
 iterator.next();
 iterator.next();
@@ -50,19 +50,19 @@ iterator.next();
 iterator.next();
 iterator.next();
 
-iterator = new TestIterator;
+iterator = new TestIterator();
 iterator = iterator.drop(1);
 iterator.next();
 iterator.next();
 iterator.next();
 iterator.next();
 
-iterator = new TestIterator;
+iterator = new TestIterator();
 iterator = iterator.drop(1).drop(1).drop(1).drop(1).drop(1);
 iterator.next();
 iterator.next();
 
-iterator = new TestIterator;
+iterator = new TestIterator();
 iterator = iterator.drop(10);
 iterator.next();
 iterator.next();
