@@ -3,7 +3,7 @@
 /*---
 esid: sec-iteratorprototype.toArray
 description: >
-  Iterator.prototype.toArray returns undefined when the iterator has already been exhausted
+  Iterator.prototype.toArray returns an empty array when the iterator has already been exhausted
 info: |
   %Iterator.prototype%.toArray ( )
 

@@ -13,29 +13,21 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+function* g() {
+  yield 0;
+  yield 1;
+  yield 2;
+}
+
 class TestIterator extends Iterator {
-  constructor() {
-    super();
-    this._remaining = 3;
-  }
-  next() {
-    if (this._remaining > 0) {
-      return {
-        done: false,
-        value: this._remaining--,
-      };
-    } else {
-      return {
-        done: true,
-        value: undefined,
-      };
-    }
+  get next() {
+    let n = g();
+    return function() {
+      return n.next();
+    };
   }
   return() {
-    if (this._remaining <= 0) {
-      throw new Test262Error();
-    }
-    return {};
+    throw new Test262Error();
   }
 }
 
