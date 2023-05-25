@@ -10,6 +10,8 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+let returnCalls = 0;
+
 class TestIterator extends Iterator {
   next() {
     return {
@@ -18,6 +20,7 @@ class TestIterator extends Iterator {
     };
   }
   return() {
+    ++returnCalls;
     throw new Error();
   }
 }
@@ -29,3 +32,5 @@ assert.throws(Test262Error, function () {
     throw new Test262Error();
   });
 });
+
+assert.sameValue(returnCalls, 1);

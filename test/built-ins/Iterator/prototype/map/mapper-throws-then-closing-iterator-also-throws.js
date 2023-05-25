@@ -12,6 +12,8 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+let returnCalls = 0;
+
 class TestIterator extends Iterator {
   next() {
     return {
@@ -20,6 +22,7 @@ class TestIterator extends Iterator {
     };
   }
   return() {
+    ++returnCalls;
     throw new Error();
   }
 }
@@ -28,6 +31,10 @@ let iterator = new TestIterator().map(() => {
   throw new Test262Error();
 });
 
+assert.sameValue(returnCalls, 0);
+
 assert.throws(Test262Error, function () {
   iterator.next();
 });
+
+assert.sameValue(returnCalls, 1);
