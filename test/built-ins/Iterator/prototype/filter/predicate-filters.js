@@ -30,7 +30,7 @@ iterator = iterator.filter(value => {
 
 let resultCount = 0;
 for (let value of iterator) {
-  resultCount++;
+  ++resultCount;
   assert.sameValue(value, resultCount);
 }
 assert.sameValue(resultCount, 4);

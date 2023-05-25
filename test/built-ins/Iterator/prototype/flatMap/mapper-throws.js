@@ -29,7 +29,7 @@ class TestIterator extends Iterator {
 
 let callbackCalls = 0;
 let iterator = new TestIterator().flatMap(() => {
-  callbackCalls++;
+  ++callbackCalls;
   throw new Test262Error();
 });
 

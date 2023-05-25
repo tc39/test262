@@ -31,7 +31,7 @@ let callbackCalls = 0;
 
 assert.throws(Test262Error, function () {
   iterator.forEach(() => {
-    callbackCalls++;
+    ++callbackCalls;
     throw new Test262Error();
   });
 });

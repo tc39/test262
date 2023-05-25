@@ -16,7 +16,7 @@ let nextGets = 0;
 
 class TestIterator extends Iterator {
   get next() {
-    nextGets++;
+    ++nextGets;
     let counter = 5;
     return function () {
       if (counter < 0) {

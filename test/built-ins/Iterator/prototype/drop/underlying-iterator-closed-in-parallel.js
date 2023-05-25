@@ -11,7 +11,7 @@ features: [iterator-helpers]
 flags: []
 ---*/
 let iterator = (function* () {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; ++i) {
     yield i;
   }
 })();

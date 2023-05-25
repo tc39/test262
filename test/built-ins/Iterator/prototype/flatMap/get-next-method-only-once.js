@@ -17,14 +17,14 @@ let nextCalls = 0;
 
 class CountingIterator extends Iterator {
   get next() {
-    nextGets++;
+    ++nextGets;
     let iter = (function* () {
       for (let i = 1; i < 5; ++i) {
         yield i;
       }
     })();
     return function () {
-      nextCalls++;
+      ++nextCalls;
       return iter.next();
     };
   }
