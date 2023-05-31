@@ -4,7 +4,6 @@
 /*---
 esid: sec-iterator
 description: Default [[Prototype]] value derived from realm of the NewTarget.
-info: |
 features: [cross-realm, iterator-helpers, Reflect, Symbol]
 ---*/
 
