@@ -18,8 +18,11 @@ info: |
 features: [Symbol.iterator]
 includes: [propertyHelper.js]
 ---*/
+const IteratorPrototype = Object.getPrototypeOf(
+  Object.getPrototypeOf([][Symbol.iterator]())
+);
 
-verifyProperty(Iterator.prototype[Symbol.iterator], 'length', {
+verifyProperty(IteratorPrototype[Symbol.iterator], 'length', {
   value: 0,
   writable: false,
   enumerable: false,

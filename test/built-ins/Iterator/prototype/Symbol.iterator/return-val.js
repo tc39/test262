@@ -8,8 +8,11 @@ info: |
     1. Return the this value.
 features: [Symbol.iterator]
 ---*/
+const IteratorPrototype = Object.getPrototypeOf(
+  Object.getPrototypeOf([][Symbol.iterator]())
+);
 
-const getIterator = Iterator.prototype[Symbol.iterator];
+const getIterator = IteratorPrototype[Symbol.iterator];
 
 const thisValues = [{}, Symbol(), 4, 4n, true, undefined, null];
 

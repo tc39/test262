@@ -21,6 +21,9 @@ info: |
 features: [Symbol.iterator]
 includes: [propertyHelper.js]
 ---*/
+const IteratorPrototype = Object.getPrototypeOf(
+  Object.getPrototypeOf([][Symbol.iterator]())
+);
 
 verifyProperty(Iterator.prototype[Symbol.iterator], 'name', {
   value: '[Symbol.iterator]',
