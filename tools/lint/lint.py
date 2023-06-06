@@ -5,7 +5,6 @@
 from __future__ import print_function
 
 import argparse
-import inflect
 import os
 try:
     from pip._internal import main as pip
@@ -15,7 +14,14 @@ except ImportError:
     from pip.req import parse_requirements, InstallRequirement
 import sys
 
-ie = inflect.engine()
+try:
+    import inflect
+    ie = inflect.engine()
+except ImportError:
+    class InflectMock:
+        def plural(self, name, count):
+            return name
+    ie = InflectMock()
 
 try:
     __import__('yaml')
