@@ -22,6 +22,6 @@ for (const relativeTo of numbers) {
   assert.throws(
     TypeError,
     () => instance.round({ largestUnit: "years", relativeTo }),
-    `Number ${relativeTo} does not convert to a valid ISO string for relativeTo`
+    `A number (${relativeTo}) is not a valid ISO string for relativeTo`
   );
 }
