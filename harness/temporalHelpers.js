@@ -7,7 +7,7 @@ defines: [TemporalHelpers]
 features: [Symbol.species, Symbol.iterator, Temporal]
 ---*/
 
-const IDENTIFIER = /^[$_\p{ID_Start}][$\u200C\u200D\p{ID_Continue}]*$/u;
+const ASCII_IDENTIFIER = /^[$_a-zA-Z][$_a-zA-Z0-9]*$/u;
 
 function formatPropertyName(propertyKey, objectName = "") {
   switch (typeof propertyKey) {
@@ -21,7 +21,7 @@ function formatPropertyName(propertyKey, objectName = "") {
       }
     case "string":
       if (propertyKey !== String(Number(propertyKey))) {
-        if (IDENTIFIER.test(propertyKey)) {
+        if (ASCII_IDENTIFIER.test(propertyKey)) {
           return objectName ? `${objectName}.${propertyKey}` : propertyKey;
         }
         return `${objectName}['${propertyKey.replace(/'/g, "\\'")}']`
