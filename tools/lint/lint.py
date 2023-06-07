@@ -15,15 +15,6 @@ except ImportError:
 import sys
 
 try:
-    import inflect
-    ie = inflect.engine()
-except ImportError:
-    class InflectMock:
-        def plural(self, name, count):
-            return name
-    ie = InflectMock()
-
-try:
     __import__('yaml')
 except ImportError:
     for item in parse_requirements("./tools/lint/requirements.txt", session="test262"):
@@ -103,7 +94,7 @@ if __name__ == '__main__':
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
-    print('Linting %s %s' % (file_count, ie.plural('file', file_count)))
+    print('Linting %s file(s)' % (file_count))
 
     all_errors = lint(files)
     unexpected_errors = dict(all_errors)
@@ -115,7 +106,7 @@ if __name__ == '__main__':
             del unexpected_errors[file_name]
 
     error_count = len(unexpected_errors)
-    print('Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count)))
+    print('Linting complete. %s error(s) found.' % (error_count))
 
     if error_count == 0:
         sys.exit(0)
