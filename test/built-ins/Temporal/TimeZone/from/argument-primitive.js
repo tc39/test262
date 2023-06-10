@@ -37,7 +37,7 @@ const thisValues = [
 
 for (const thisValue of thisValues) {
   for (const primitive of primitives) {
-    assert.throws(RangeError, () => Temporal.TimeZone.from.call(thisValue, primitive));
+    assert.throws(typeof primitive === 'string' ? RangeError : TypeError, () => Temporal.TimeZone.from.call(thisValue, primitive));
   }
 
   const symbol = Symbol();
