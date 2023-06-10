@@ -73,15 +73,29 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   hours: 12
 }) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
-// casts offset property
-var zdt = Temporal.ZonedDateTime.from({
-  year: 1976,
-  month: 11,
-  day: 18,
-  offset: -1030,
-  timeZone: Temporal.TimeZone.from("-10:30")
+// does not accept non-string offset property
+[
+  null,
+  true,
+  1000,
+  1000n,
+  Symbol(),
+  {}
+].forEach(offset => {
+  assert.throws(
+    typeof offset === "string" || (typeof offset === "object" && offset !== null) || typeof offset === "function"
+      ? RangeError
+      : TypeError,
+    () => Temporal.ZonedDateTime.from({
+      year: 1976,
+      month: 11,
+      day: 18,
+      offset: offset,
+      timeZone: Temporal.TimeZone.from("+10:00")
+    })
+  )
 });
-assert.sameValue(`${ zdt }`, "1976-11-18T00:00:00-10:30[-10:30]");
+
 
 // overflow options
 var bad = {

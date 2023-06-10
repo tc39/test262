@@ -194,11 +194,11 @@ assert.sameValue(`${ hours25.round({
   }
 }) }`, "P1DT1H");
 
-// accepts datetime string equivalents or fields for relativeTo
+// accepts datetime strings or fields for relativeTo
 [
   "2020-01-01",
+  "20200101",
   "2020-01-01T00:00:00.000000000",
-  20200101n,
   {
     year: 2020,
     month: 1,
@@ -209,6 +209,18 @@ assert.sameValue(`${ hours25.round({
     smallestUnit: "seconds",
     relativeTo
   }) }`, "P5Y5M5W5DT5H5M5S");
+});
+
+// does not accept non-string primitives for relativeTo
+[
+  20200101,
+  20200101n,
+  null,
+  true,
+].forEach(relativeTo => {
+  assert.throws(
+    TypeError, () => d.round({ smallestUnit: "seconds", relativeTo})
+  );
 });
 
 // throws on wrong offset for ZonedDateTime relativeTo string
