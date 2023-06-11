@@ -19,6 +19,7 @@ info: |
       a. If typeName is not "Int8Array", "Uint8Array", "Int16Array", "Uint16Array", "Int32Array",
          or "Uint32Array", throw a TypeError exception.
     ...
+includes: [testTypedArray.js]
 features: [Atomics, TypedArray]
 ---*/
 
@@ -28,10 +29,7 @@ var value = {
   }
 };
 
-var badArrayTypes = [
-  Int8Array, Uint8Array, Int16Array, Uint16Array, Uint32Array,
-  Uint8ClampedArray, Float32Array, Float64Array
-];
+var badArrayTypes = typedArrayConstructors.filter(function(TA) { return TA !== Int32Array; });
 
 for (var badArrayType of badArrayTypes) {
   var typedArray = new badArrayType(new SharedArrayBuffer(8));

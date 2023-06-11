@@ -44,6 +44,11 @@ var expected = {
 };
 
 testWithTypedArrayConstructors(function(TA) {
+  if (typeof Float16Array !== 'undefined' && TA === Float16Array) {
+    // TODO(bakkot) work out bit patterns here
+    return;
+  }
+
   var other = TA === Float32Array ? Float64Array : Float32Array;
 
   var sample = new TA([1, 2, 3, 4, 5, 6, 7, 8]);
