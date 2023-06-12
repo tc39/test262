@@ -25,7 +25,7 @@ const IteratorPrototype = Object.getPrototypeOf(
   Object.getPrototypeOf([][Symbol.iterator]())
 );
 
-verifyProperty(Iterator.prototype[Symbol.iterator], 'name', {
+verifyProperty(IteratorPrototype[Symbol.iterator], 'name', {
   value: '[Symbol.iterator]',
   writable: false,
   enumerable: false,
