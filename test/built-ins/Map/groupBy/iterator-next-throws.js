@@ -15,10 +15,13 @@ info: |
     b. Let next be ? IteratorStep(iteratorRecord).
 
   ...
-features: [array-grouping, Map]
+features: [array-grouping, Map, Symbol.iterator]
 ---*/
 
 const throwingIterator = {
+  [Symbol.iterator]: function () {
+    return this;
+  },
   next: function next() {
     throw new Test262Error('next() method was called');
   }
