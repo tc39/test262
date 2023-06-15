@@ -11,17 +11,15 @@ info: |
   15. Let tag be ? Get(O, @@toStringTag).
   16. If Type(tag) is not String, set tag to builtinTag.
   17. Return the string-concatenation of "[object ", tag, and "]".
-features: [Symbol.toStringTag]
+features: [Symbol.toStringTag, Symbol.iterator]
 ---*/
 
 var toString = Object.prototype.toString;
 
-delete Symbol.prototype[Symbol.toStringTag];
-assert.sameValue(toString.call(Symbol('desc')), '[object Object]');
+var arrIter = [][Symbol.iterator]();
+var arrIterProto = Object.getPrototypeOf(arrIter);
 
-Object.defineProperty(Math, Symbol.toStringTag, {value: Symbol()});
-assert.sameValue(toString.call(Math), '[object Object]');
+assert.sameValue(toString.call(arrIter), '[object Array Iterator]');
 
-delete JSON[Symbol.toStringTag];
-assert.sameValue(toString.call(JSON), '[object Object]');
-
+Object.defineProperty(arrIterProto, Symbol.toStringTag, {configurable: true, value: null});
+assert.sameValue(toString.call(arrIter), '[object Object]');
