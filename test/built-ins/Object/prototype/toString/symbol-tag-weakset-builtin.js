@@ -11,17 +11,11 @@ info: |
   15. Let tag be ? Get(O, @@toStringTag).
   16. If Type(tag) is not String, set tag to builtinTag.
   17. Return the string-concatenation of "[object ", tag, and "]".
-features: [Symbol.toStringTag]
+features: [Symbol.toStringTag, WeakSet]
 ---*/
 
 var toString = Object.prototype.toString;
 
-delete Symbol.prototype[Symbol.toStringTag];
-assert.sameValue(toString.call(Symbol('desc')), '[object Object]');
-
-Object.defineProperty(Math, Symbol.toStringTag, {value: Symbol()});
-assert.sameValue(toString.call(Math), '[object Object]');
-
-delete JSON[Symbol.toStringTag];
-assert.sameValue(toString.call(JSON), '[object Object]');
-
+var wm = new WeakSet();
+delete WeakSet.prototype[Symbol.toStringTag];
+assert.sameValue(toString.call(wm), '[object Object]');

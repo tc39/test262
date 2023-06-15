@@ -11,17 +11,20 @@ info: |
   15. Let tag be ? Get(O, @@toStringTag).
   16. If Type(tag) is not String, set tag to builtinTag.
   17. Return the string-concatenation of "[object ", tag, and "]".
-features: [Symbol.toStringTag]
+features: [Symbol.toStringTag, Symbol.iterator, generators]
 ---*/
 
 var toString = Object.prototype.toString;
 
-delete Symbol.prototype[Symbol.toStringTag];
-assert.sameValue(toString.call(Symbol('desc')), '[object Object]');
+var genFn = function* () {};
+assert.sameValue(toString.call(gen), '[object GeneratorFunction]');
 
-Object.defineProperty(Math, Symbol.toStringTag, {value: Symbol()});
-assert.sameValue(toString.call(Math), '[object Object]');
+var gen = genFn();
+assert.sameValue(toString.call(gen), '[object Generator]');
 
-delete JSON[Symbol.toStringTag];
-assert.sameValue(toString.call(JSON), '[object Object]');
-
+var genProto = Object.getPrototypeOf(gen);
+Object.defineProperty(genProto, Symbol.toStringTag, {
+  configurable: true,
+  get: function() { return {}; },
+});
+assert.sameValue(toString.call(gen), '[object Object]');
