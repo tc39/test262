@@ -22,7 +22,7 @@ const maxCases = [
 
 for (const [arg, descr] of maxCases) {
   const result = instance.subtract(arg);
-  assert.sameValue(result.total("seconds"), -9007199254740991.999999999, `operation succeeds with ${descr}`);
+  assert.sameValue(result.with({ years: 0, months: 0, weeks: 0 }).total("seconds"), -9007199254740991.999999999, `operation succeeds with ${descr}`);
 }
 
 const minCases = [
@@ -38,5 +38,5 @@ const minCases = [
 
 for (const [arg, descr] of minCases) {
   const result = instance.subtract(arg);
-  assert.sameValue(result.total("seconds"), 9007199254740991.999999999, `operation succeeds with ${descr}`);
+  assert.sameValue(result.with({ years: 0, months: 0, weeks: 0 }).total("seconds"), 9007199254740991.999999999, `operation succeeds with ${descr}`);
 }
