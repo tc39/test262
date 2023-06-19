@@ -7,6 +7,14 @@ description: Various arguments to the Duration constructor that are out of range
 features: [Temporal]
 ---*/
 
+// 2^32 = 4294967296
+assert.throws(RangeError, () => new Temporal.Duration(4294967296), "years > max");
+assert.throws(RangeError, () => new Temporal.Duration(-4294967296), "years < min");
+assert.throws(RangeError, () => new Temporal.Duration(0, 4294967296), "months > max");
+assert.throws(RangeError, () => new Temporal.Duration(0, -4294967296), "months < min");
+assert.throws(RangeError, () => new Temporal.Duration(0, 0, 4294967296), "days > max");
+assert.throws(RangeError, () => new Temporal.Duration(0, 0, -4294967296), "days < min");
+
 // ceil(max safe integer / 86400) = 104249991375
 assert.throws(RangeError, () => new Temporal.Duration(0, 0, 0, 104249991375), "days > max");
 assert.throws(RangeError, () => new Temporal.Duration(0, 0, 0, 104249991374, 24), "hours balance into days > max");

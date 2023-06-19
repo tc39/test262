@@ -11,6 +11,12 @@ features: [Temporal]
 const instance = new Temporal.PlainTime();
 
 const maxCases = [
+  ["P4294967295Y104249991374DT7H36M31.999999999S", "string with max years"],
+  [{ years: 4294967295, days: 104249991374, nanoseconds: 27391999999999 }, "property bag with max years"],
+  ["P4294967295M104249991374DT7H36M31.999999999S", "string with max weeks"],
+  [{ months: 4294967295, days: 104249991374, nanoseconds: 27391999999999 }, "property bag with max months"],
+  ["P4294967295W104249991374DT7H36M31.999999999S", "string with max weeks"],
+  [{ weeks: 4294967295, days: 104249991374, nanoseconds: 27391999999999 }, "property bag with max weeks"],
   ["P104249991374DT7H36M31.999999999S", "string with max days"],
   [{ days: 104249991374, nanoseconds: 27391999999999 }, "property bag with max days"],
   ["PT2501999792983H36M31.999999999S", "string with max hours"],
@@ -27,6 +33,12 @@ for (const [arg, descr] of maxCases) {
 }
 
 const minCases = [
+  ["-P4294967295Y104249991374DT7H36M31.999999999S", "string with min years"],
+  [{ years: -4294967295, days: -104249991374, nanoseconds: -27391999999999 }, "property bag with min years"],
+  ["-P4294967295M104249991374DT7H36M31.999999999S", "string with min months"],
+  [{ months: -4294967295, days: -104249991374, nanoseconds: -27391999999999 }, "property bag with min months"],
+  ["-P4294967295W104249991374DT7H36M31.999999999S", "string with min weeks"],
+  [{ weeks: -4294967295, days: -104249991374, nanoseconds: -27391999999999 }, "property bag with min weeks"],
   ["-P104249991374DT7H36M31.999999999S", "string with min days"],
   [{ days: -104249991374, nanoseconds: -27391999999999 }, "property bag with min days"],
   ["-PT2501999792983H36M31.999999999S", "string with min hours"],

@@ -4,6 +4,7 @@
 /*---
 esid: sec-temporal.duration
 description: Maximum values of arguments to the Duration constructor
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -21,3 +22,9 @@ const cases = [
 for (const [d, descr, expected] of cases) {
   assert.sameValue(d.total("seconds"), expected, descr);
 }
+
+// 2^32 - 1 = 4294967295
+const max = new Temporal.Duration(4294967295, 4294967295, 4294967295, 104249991374, 7, 36, 31, 999, 999, 999);
+TemporalHelpers.assertDuration(max, 4294967295, 4294967295, 4294967295, 104249991374, 7, 36, 31, 999, 999, 999);
+const min = new Temporal.Duration(-4294967295, -4294967295, -4294967295, -104249991374, -7, -36, -31, -999, -999, -999);
+TemporalHelpers.assertDuration(min, -4294967295, -4294967295, -4294967295, -104249991374, -7, -36, -31, -999, -999, -999);
