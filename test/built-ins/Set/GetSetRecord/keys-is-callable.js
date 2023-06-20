@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: pending
-description: GetSetRecord if the Set-like object's 'has' property is not callable an error is thrown
+description: GetSetRecord if the Set-like object's 'keys' property is not callable an error is thrown
 info: |
     9. Let keys be ? Get(obj, "keys").
     10. If IsCallable(keys) is false, throw a TypeError exception.
