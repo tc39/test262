@@ -7,12 +7,12 @@ description: >
   RangeErrors.
 info: |
   NormalizedTimeDurationToDays ( norm, zonedRelativeTo, timeZoneRec [ , precalculatedPlainDateTime ] )
-    22. If days < 0 and sign = 1, throw a RangeError exception.
-    23. If days > 0 and sign = -1, throw a RangeError exception.
+    23. If days < 0 and sign = 1, throw a RangeError exception.
+    24. If days > 0 and sign = -1, throw a RangeError exception.
     ...
-    25. If NormalizedTimeDurationSign(_norm_) = 1 and sign = -1, throw a RangeError exception.
+    26. If NormalizedTimeDurationSign(_norm_) = 1 and sign = -1, throw a RangeError exception.
     ...
-    28. If dayLength ≥ 2⁵³, throw a RangeError exception.
+    29. If dayLength ≥ 2⁵³, throw a RangeError exception.
 features: [Temporal, BigInt]
 includes: [temporalHelpers.js]
 ---*/
@@ -41,7 +41,7 @@ const oneZDT = new Temporal.ZonedDateTime(1n, "UTC");
 const epochInstant = new Temporal.Instant(0n);
 const options = { largestUnit: "days" };
 
-// Step 22: days < 0 and sign = 1
+// Step 23: days < 0 and sign = 1
 let start = new Temporal.ZonedDateTime(
   0n, // Sets DifferenceZonedDateTime _ns1_
   timeZoneSubstituteValues(
@@ -62,7 +62,7 @@ assert.throws(RangeError, () =>
   )
 );
 
-// Step 23: days > 0 and sign = -1
+// Step 24: days > 0 and sign = -1
 start = new Temporal.ZonedDateTime(
   1n, // Sets DifferenceZonedDateTime _ns1_
   timeZoneSubstituteValues(
@@ -83,7 +83,7 @@ assert.throws(RangeError, () =>
   )
 );
 
-// Step 25: nanoseconds > 0 and sign = -1
+// Step 26: nanoseconds > 0 and sign = -1
 start = new Temporal.ZonedDateTime(
   1n, // Sets DifferenceZonedDateTime _ns1_
   timeZoneSubstituteValues(
@@ -104,12 +104,12 @@ assert.throws(RangeError, () =>
   )
 );
 
-// Step 28: day length is an unsafe integer
+// Step 29: day length is an unsafe integer
 start = new Temporal.ZonedDateTime(
   0n,
   timeZoneSubstituteValues(
     // Not called in step 16 because _days_ = 0
-    // Returned in step 21.a, making _oneDayFarther_ 2^53 ns later than _relativeResult_
+    // Returned in step 19, making _oneDayFarther_ 2^53 ns later than _relativeResult_
     [[new Temporal.Instant(2n ** 53n)]],
     []
   )
