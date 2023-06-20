@@ -7,7 +7,7 @@ features: [Set-methods]
 ---*/
 
 class MySetLike {
-  constructor(...args) {
+  constructor() {
     this.size = 2;
     this.has = () => {};
     this.keys = function* keys() {
