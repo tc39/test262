@@ -7,12 +7,14 @@ features: [Set-methods]
 ---*/
 
 class MySetLike {
-  size = 2;
-  has = () => {};
-  keys = function* keys() {
-    yield 2;
-    yield 3;
-  };
+  constructor(...args) {
+    this.size = 2;
+    this.has = () => {};
+    this.keys = function* keys() {
+      yield 2;
+      yield 3;
+    };
+  }
 }
 
 assert.throws(
