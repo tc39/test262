@@ -4,6 +4,7 @@
 esid: pending
 description: Set.prototype.union maintains values even when a custom Set-like class mutates the receiver
 features: [Set-methods]
+includes: [compareArray.js]
 ---*/
 
 const baseSet = new Set(["a", "b", "c", "d", "e"]);
@@ -35,22 +36,7 @@ const evilSetLike = {
 
 const combined = baseSet.union(evilSetLike);
 const expectedCombined = ["a", "b", "c", "d", "e", "x", "y"];
-
-combined.forEach(function (value) {
-  assert.sameValue(value, expectedCombined.shift());
-});
-assert.sameValue(
-  expectedCombined.length,
-  0,
-  "The value of expectedCombined.length is 0"
-);
+assert.compareArray([...combined], expectedCombined);
 
 const expectedNewBase = ["a", "d", "e", "b"];
-baseSet.forEach(function (value) {
-  assert.sameValue(value, expectedNewBase.shift());
-});
-assert.sameValue(
-  expectedNewBase.length,
-  0,
-  "The value of expectedNewBase.length is 0"
-);
+assert.compareArray([...baseSet], expectedNewBase);

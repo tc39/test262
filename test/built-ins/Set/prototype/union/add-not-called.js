@@ -4,6 +4,7 @@
 esid: pending
 description: Set.prototype.union should not call Set.prototype.add
 features: [Set-methods]
+includes: [compareArray.js]
 ---*/
 
 const s1 = new Set([1, 2]);
@@ -19,12 +20,7 @@ Set.prototype.add = function (...rest) {
 
 const combined = s1.union(s2);
 
-combined.forEach(function (value) {
-  assert.sameValue(value, expects.shift());
-});
-
-assert.sameValue(expects.length, 0, "The value of expects.length is 0");
-assert.sameValue(combined.size, 3, "The combined set size is 3");
+assert.compareArray([...combined], expects);
 assert.sameValue(combined instanceof Set, true, "The returned object is a Set");
 assert.sameValue(count, 0, "Add is never called");
 

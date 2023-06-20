@@ -4,6 +4,7 @@
 esid: pending
 description: Set.union works on subclasses of Set, but never calls the receiver's size/has/keys methods
 features: [Set-methods]
+includes: [compareArray.js]
 ---*/
 
 let sizeCount = 0;
@@ -32,12 +33,7 @@ const s2 = new Set([2, 3]);
 const expects = [1, 2, 3];
 const combined = s1.union(s2);
 
-combined.forEach(function (value) {
-  assert.sameValue(value, expects.shift());
-});
-
-assert.sameValue(expects.length, 0, "The value of expects.length is 0");
-assert.sameValue(combined.size, 3, "The combined set size is 3");
+assert.compareArray([...combined], expects);
 assert.sameValue(combined instanceof Set, true, "The returned object is a Set");
 assert.sameValue(
   combined instanceof MySet,
