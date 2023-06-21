@@ -11,7 +11,7 @@ info: |
   15. Let tag be ? Get(O, @@toStringTag).
   16. If Type(tag) is not String, set tag to builtinTag.
   17. Return the string-concatenation of "[object ", tag, and "]".
-features: [Symbol.toStringTag, Symbol.iterator, Map]
+features: [Symbol.toStringTag, Symbol.iterator, Map, iterator-helpers]
 ---*/
 
 var toString = Object.prototype.toString;
@@ -28,3 +28,6 @@ Object.defineProperty(mapIterProto, Symbol.toStringTag, {
   get: function() { return new String('ShouldNotBeUnwrapped'); },
 });
 assert.sameValue(toString.call(mapIter), '[object Object]');
+
+delete mapIterProto[Symbol.toStringTag];
+assert.sameValue(toString.call(mapIter), '[object Iterator]');
