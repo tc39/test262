@@ -12,19 +12,19 @@ let hasCount = 0;
 let keysCount = 0;
 
 class MySet extends Set {
-  size = function (...rest) {
+  size(...rest) {
     sizeCount++;
-    super.size(...rest);
+    return super.size(...rest);
   };
 
-  has = function (...rest) {
+  has(...rest) {
     hasCount++;
-    super.has(...rest);
+    return super.has(...rest);
   };
 
-  keys = function (...rest) {
+  keys(...rest) {
     keysCount++;
-    super.keys(...rest);
+    return super.keys(...rest);
   };
 }
 
