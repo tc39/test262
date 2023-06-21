@@ -18,3 +18,6 @@ var toString = Object.prototype.toString;
 
 var promise = new Promise(function () {});
 assert.sameValue(toString.call(promise), '[object Promise]');
+
+delete Promise.prototype[Symbol.toStringTag];
+assert.sameValue(toString.call(promise), '[object Object]');
