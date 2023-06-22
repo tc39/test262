@@ -15,7 +15,7 @@ const originalAdd = Set.prototype.add;
 let count = 0;
 Set.prototype.add = function (...rest) {
   count++;
-  originalAdd.apply(this, rest);
+  return originalAdd.apply(this, rest);
 };
 
 const combined = s1.union(s2);
