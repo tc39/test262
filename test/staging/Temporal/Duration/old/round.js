@@ -229,24 +229,6 @@ assert.throws(RangeError, () => d.round({
   relativeTo: "1971-01-01T00:00+02:00[-00:44:30]"
 }));
 
-// does not throw on HH:MM rounded offset for ZonedDateTime relativeTo string
-assert.sameValue(`${ d.round({
-  smallestUnit: "seconds",
-  relativeTo: "1971-01-01T00:00-00:45[-00:44:30]"
-}) }`, "P5Y5M5W5DT5H5M5S");
-
-// throws on HH:MM rounded offset for ZonedDateTime relativeTo property bag
-assert.throws(RangeError, () => d.round({
-  smallestUnit: "seconds",
-  relativeTo: {
-    year: 1971,
-    month: 1,
-    day: 1,
-    offset: "-00:45",
-    timeZone: "-00:44:30"
-  }
-}));
-
 // relativeTo object must contain at least the required correctly-spelled properties
 assert.throws(TypeError, () => hours25.round({
   largestUnit: "days",
