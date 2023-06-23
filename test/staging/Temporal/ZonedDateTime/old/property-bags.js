@@ -288,6 +288,6 @@ var zdt = Temporal.ZonedDateTime.from({
   month: 1,
   day: 1,
   hour: 12,
-  timeZone: "-00:44:30"
+  timeZone: TemporalHelpers.specificOffsetTimeZone(-2.67e12) // -00:44:30 in nanoseconds
 });
 assert.sameValue(zdt.offset, "-00:44:30");
