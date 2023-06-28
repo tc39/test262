@@ -13,7 +13,7 @@ info: |
     Annex B.2 has the attributes { [[Writable]]: true, [[Enumerable]]: false,
     [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
-features: [resizable-arraybuffer, arraybuffer-transfer]
+features: [arraybuffer-transfer]
 ---*/
 
 verifyProperty(ArrayBuffer.prototype, 'transferToFixedLength', {
