@@ -57,6 +57,26 @@ var TemporalHelpers = {
   },
 
   /*
+   * assertDateDuration(duration, years, months, weeks, days, [, description]):
+   *
+   * Shorthand for asserting that each date field of a Temporal.Duration is
+   * equal to an expected value.
+   */
+  assertDateDuration(duration, years, months, weeks, days, description = "") {
+    assert(duration instanceof Temporal.Duration, `${description} instanceof`);
+    assert.sameValue(duration.years, years, `${description} years result`);
+    assert.sameValue(duration.months, months, `${description} months result`);
+    assert.sameValue(duration.weeks, weeks, `${description} weeks result`);
+    assert.sameValue(duration.days, days, `${description} days result`);
+    assert.sameValue(duration.hours, 0, `${description} hours result should be zero`);
+    assert.sameValue(duration.minutes, 0, `${description} minutes result should be zero`);
+    assert.sameValue(duration.seconds, 0, `${description} seconds result should be zero`);
+    assert.sameValue(duration.milliseconds, 0, `${description} milliseconds result should be zero`);
+    assert.sameValue(duration.microseconds, 0, `${description} microseconds result should be zero`);
+    assert.sameValue(duration.nanoseconds, 0, `${description} nanoseconds result should be zero`);
+  },
+
+  /*
    * assertDurationsEqual(actual, expected[, description]):
    *
    * Shorthand for asserting that each field of a Temporal.Duration is equal to
@@ -1784,8 +1804,14 @@ var TemporalHelpers = {
         return this._offsetValue;
       }
 
-      getPossibleInstantsFor() {
-        return [];
+      getPossibleInstantsFor(dt) {
+        if (typeof this._offsetValue !== 'number' || Math.abs(this._offsetValue) >= 86400e9 || isNaN(this._offsetValue)) return [];
+        const zdt = dt.toZonedDateTime("UTC").add({ nanoseconds: -this._offsetValue });
+        return [zdt.toInstant()];
+      }
+
+      get id() {
+        return this.getOffsetStringFor(new Temporal.Instant(0n));
       }
     }
     return new SpecificOffsetTimeZone(offsetValue);
