@@ -108,6 +108,10 @@ json-parse-with-source
 # https://github.com/tc39/proposal-iterator-helpers
 iterator-helpers
 
+# Promise.withResolvers
+# https://github.com/tc30/proposal-promise-with-resolvers
+promise-with-resolvers
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
