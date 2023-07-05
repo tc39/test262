@@ -4,7 +4,7 @@
 /*---
 description: Promise.withResolvers result is an object with keys "promise", "reject", and "resolve"
 esid: sec-promise.withresolvers
-features: [promise-with-resolvers]
+features: [promise-with-resolvers, Object.hasOwn]
 ---*/
 
 
