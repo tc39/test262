@@ -1,0 +1,11 @@
+// Copyright (C) 2023 Peter Klecha. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+description: Promise.withResolvers errors when the reciever is not a constructor
+features: [promise-with-resolvers]
+---*/
+
+assert.throws(TypeError, function() {
+  Promise.withResolvers.call(eval);
+});
