@@ -3,6 +3,7 @@
 
 /*---
 description: Promise.withResolvers return value has properties called "resolve" and "reject" which are unary functions
+esid: sec-promise.withresolvers
 features: [promise-with-resolvers]
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 description: Promise.withResolvers produces instances of the reciever
+esid: sec-promise.withresolvers
 features: [promise-with-resolvers]
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 description: Promise.withResolvers errors when the receiver is not an object
+esid: sec-promise.withresolvers
 features: [promise-with-resolvers]
 ---*/
 
