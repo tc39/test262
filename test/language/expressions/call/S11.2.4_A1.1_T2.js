@@ -12,16 +12,10 @@ function f_arg(x,y) {
 }
 
 //CHECK#1
-if (f_arg().length !== 0) {
-  throw new Test262Error('#1: function f_arg(x,y) {return arguments;} f_arg().length === 0. Actual: ' + (f_arg().length));
-}
+assert.sameValue(f_arg().length, 0, '#1: function f_arg(x,y) {return arguments;} f_arg().length === 0');
 
 //CHECK#2
-if (f_arg()[0] !== undefined) {
-  throw new Test262Error('#2: function f_arg(x,y) {return arguments;} f_arg()[0] === undefined. Actual: ' + (f_arg()[0]));
-}
+assert.sameValue(f_arg()[0], undefined, '#2: function f_arg(x,y) {return arguments;} f_arg()[0] === undefined');
 
 //CHECK#3
-if (f_arg.length !== 2) {
-  throw new Test262Error('#3: function f_arg(x,y) {return arguments;} f_arg.length === 2. Actual: ' + (f_arg.length));
-}
+assert.sameValue(f_arg.length, 2, '#3: function f_arg(x,y) {return arguments;} f_arg.length === 2');

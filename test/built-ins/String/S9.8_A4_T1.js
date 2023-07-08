@@ -11,9 +11,7 @@ description: Some strings convert to String with explicit transformation
 
 // CHECK#1
 var x1 = "abc";
-if (String(x1) !== x1) {
-  throw new Test262Error('#1: String("abc") === "abc". Actual: ' + (String("abc")));
-}
+assert.sameValue(String(x1), x1, '#1: String("abc") === "abc"');
 
 // CHECK#2
 var x2 = "abc";

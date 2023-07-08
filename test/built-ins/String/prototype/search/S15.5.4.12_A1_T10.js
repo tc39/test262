@@ -18,9 +18,7 @@ var __str = "ssABB\u0041BABAB";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__str.search(__obj) !== 2) {
-  throw new Test262Error('#1: var __obj = {toString:function(){return "\u0041B";}}; var __str = "ssABB\u0041BABAB"; __str.search(__obj) ===2. Actual: ' + __str.search(__obj));
-}
+assert.sameValue(__str.search(__obj), 2, '#1: var __obj = {toString:function(){return "\u0041B";}}; var __str = "ssABB\u0041BABAB"; __str.search(__obj) ===2');
 //
 //////////////////////////////////////////////////////////////////////////////
 

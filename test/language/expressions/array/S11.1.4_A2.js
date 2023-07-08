@@ -22,14 +22,10 @@ if (array instanceof Array !== true) {
 }
 
 //CHECK#3
-if (array.toString !== Array.prototype.toString) {
-  throw new Test262Error('#3: var array = [[1,2], [3], []]; array.toString === Array.prototype.toString. Actual: ' + (array.toString));
-}
+assert.sameValue(array.toString, Array.prototype.toString, '#3: var array = [[1,2], [3], []]; array.toString === Array.prototype.toString');
 
 //CHECK#4
-if (array.length !== 3) {
-  throw new Test262Error('#4: var array = [[1,2], [3], []]; array.length === 3. Actual: ' + (array.length));
-}
+assert.sameValue(array.length, 3, '#4: var array = [[1,2], [3], []]; array.length === 3');
 
 var subarray = array[0];
 
@@ -44,24 +40,16 @@ if (subarray instanceof Array !== true) {
 }
 
 //CHECK#7
-if (subarray.toString !== Array.prototype.toString) {
-  throw new Test262Error('#7: var array = [[1,2], [3], []]; var subarray = array[0]; subarray.toString === Array.prototype.toString. Actual: ' + (subarray.toString));
-}
+assert.sameValue(subarray.toString, Array.prototype.toString, '#7: var array = [[1,2], [3], []]; var subarray = array[0]; subarray.toString === Array.prototype.toString');
 
 //CHECK#8
-if (subarray.length !== 2) {
-  throw new Test262Error('#8: var array = [[1,2], [3], []]; var subarray = array[0]; subarray.length === 2. Actual: ' + (subarray.length));
-}
+assert.sameValue(subarray.length, 2, '#8: var array = [[1,2], [3], []]; var subarray = array[0]; subarray.length === 2');
 
 //CHECK#9
-if (subarray[0] !== 1) {
-  throw new Test262Error('#9: var array = [[1,2], [3], []]; var subarray = array[0]; subarray[0] === 1. Actual: ' + (subarray[0]));
-}
+assert.sameValue(subarray[0], 1, '#9: var array = [[1,2], [3], []]; var subarray = array[0]; subarray[0] === 1');
 
 //CHECK#10
-if (subarray[1] !== 2) {
-  throw new Test262Error('#10: var array = [[1,2], [3], []]; var subarray = array[1]; subarray[1] === 2. Actual: ' + (subarray[1]));
-}
+assert.sameValue(subarray[1], 2, '#10: var array = [[1,2], [3], []]; var subarray = array[1]; subarray[1] === 2');
 
 var subarray = array[1];
 
@@ -113,16 +101,10 @@ throw new Test262Error('#19: var array = [[1,2], [3], []]; var subarray = array[
 }
 
 //CHECK#20
-if (array[0][0] !== 1) {
-  throw new Test262Error('#20: var array = [[1,2], [3], []]; array[0][0] === 1. Actual: ' + (array[0][0]));
-}
+assert.sameValue(array[0][0], 1, '#20: var array = [[1,2], [3], []]; array[0][0] === 1');
 
 //CHECK#21
-if (array[0][1] !== 2) {
-  throw new Test262Error('#21: var array = [[1,2], [3], []]; array[0][1] === 2. Actual: ' + (array[0][1]));
-}
+assert.sameValue(array[0][1], 2, '#21: var array = [[1,2], [3], []]; array[0][1] === 2');
 
 //CHECK#22
-if (array[1][0] !== 3) {
-  throw new Test262Error('#722: var array = [[1,2], [3], []]; array[1][0] === 3. Actual: ' + (array[1][0]));
-}
+assert.sameValue(array[1][0], 3, '#722: var array = [[1,2], [3], []]; array[1][0] === 3');

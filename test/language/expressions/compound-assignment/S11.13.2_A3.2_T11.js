@@ -10,15 +10,11 @@ description: Checking Expression and Variable statements for x |= y
 //CHECK#1
 var x = 0;
 var x1 = (x |= 1);
-if (x1 !== 1) {
-  throw new Test262Error('#1: var x = 0; var x1 = (x |= 1); x1 === 1. Actual: ' + (x1));
-}
+assert.sameValue(x1, 1, '#1: var x = 0; var x1 = (x |= 1); x1 === 1');
 
 //CHECK#2
 var y;
 var y1;
 y = 1;
 y1 = (y |= 0);
-if (y1 !== 1) {
-  throw new Test262Error('#2: y = 1; y1 = (y |= 0); y1 === 1. Actual: ' + (y1));
-}
+assert.sameValue(y1, 1, '#2: y = 1; y1 = (y |= 0); y1 === 1');

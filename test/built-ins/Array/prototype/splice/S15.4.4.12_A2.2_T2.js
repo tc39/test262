@@ -15,18 +15,10 @@ if (arr.getClass() !== "[object " + "Array" + "]") {
   throw new Test262Error('#0: var x = [0,1]; var arr = x.splice(0,NaN); arr is Array object. Actual: ' + (arr.getClass()));
 }
 
-if (arr.length !== 0) {
-  throw new Test262Error('#1: var x = [0,1]; var arr = x.splice(0,NaN); arr.length === 0. Actual: ' + (arr.length));
-}
+assert.sameValue(arr.length, 0, '#1: var x = [0,1]; var arr = x.splice(0,NaN); arr.length === 0');
 
-if (x.length !== 2) {
-  throw new Test262Error('#2: var x = [0,1]; var arr = x.splice(0,NaN); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#2: var x = [0,1]; var arr = x.splice(0,NaN); x.length === 2');
 
-if (x[0] !== 0) {
-  throw new Test262Error('#3: var x = [0,1]; var arr = x.splice(0,NaN); x[0] === 0. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 0, '#3: var x = [0,1]; var arr = x.splice(0,NaN); x[0] === 0');
 
-if (x[1] !== 1) {
-  throw new Test262Error('#4: var x = [0,1]; var arr = x.splice(0,NaN); x[1] === 1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], 1, '#4: var x = [0,1]; var arr = x.splice(0,NaN); x[1] === 1');

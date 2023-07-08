@@ -11,8 +11,6 @@ var __reg = new RegExp("77");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if ("ABB\u0041BABAB\u0037\u0037BBAA".search(__reg) !== 9) {
-  throw new Test262Error('#1: var __reg = new RegExp("77"); "ABB\\u0041BABAB\\u0037\\u0037BBAA".search(__reg) === 9. Actual: ' + ("ABB\u0041BABAB\u0037\u0037BBAA".search(__reg)));
-}
+assert.sameValue("ABB\u0041BABAB\u0037\u0037BBAA".search(__reg), 9, '#1: var __reg = new RegExp("77"); "ABB\\u0041BABAB\\u0037\\u0037BBAA".search(__reg) === 9');
 //
 //////////////////////////////////////////////////////////////////////////////

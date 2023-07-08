@@ -14,61 +14,37 @@ description: >
 ---*/
 
 // CHECK#1
-if (String(0.0000001) !== "1e-7") {
-  throw new Test262Error('#1: String(0.0000001) === "1e-7". Actual: ' + (String(0.0000001)));
-}
+assert.sameValue(String(0.0000001), "1e-7", '#1: String(0.0000001) === "1e-7"');
 
 // CHECK#2
-if (String(0.000000000100000000000) !== "1e-10") {
-  throw new Test262Error('#2: String(0.000000000100000000000) === "1e-10". Actual: ' + (String(0.000000000100000000000)));
-}
+assert.sameValue(String(0.000000000100000000000), "1e-10", '#2: String(0.000000000100000000000) === "1e-10"');
 
 // CHECK#3
-if (String(1e-7) !== "1e-7") {
-  throw new Test262Error('#3: String(1e-7) === "1e-7". Actual: ' + (String(1e-7)));
-}
+assert.sameValue(String(1e-7), "1e-7", '#3: String(1e-7) === "1e-7"');
 
 // CHECK#4
-if (String(1.0e-10) !== "1e-10") {
-  throw new Test262Error('#4: String(1.0e-10) === "1e-10". Actual: ' + (String(1.0e-10)));
-}
+assert.sameValue(String(1.0e-10), "1e-10", '#4: String(1.0e-10) === "1e-10"');
 
 // CHECK#5
-if (String(1E-7) !== "1e-7") {
-  throw new Test262Error('#5: String(1E-7) === "1e-7". Actual: ' + (String(1E-7)));
-}
+assert.sameValue(String(1E-7), "1e-7", '#5: String(1E-7) === "1e-7"');
 
 // CHECK#6
-if (String(1.0E-10) !== "1e-10") {
-  throw new Test262Error('#6: String(1.0E-10) === "1e-10". Actual: ' + (String(1.0E-10)));
-}
+assert.sameValue(String(1.0E-10), "1e-10", '#6: String(1.0E-10) === "1e-10"');
 
 // CHECK#7
-if (String(-0.0000001) !== "-1e-7") {
-  throw new Test262Error('#7: String(-0.0000001) === "1e-7". Actual: ' + (String(-0.0000001)));
-}
+assert.sameValue(String(-0.0000001), "-1e-7", '#7: String(-0.0000001) === "1e-7"');
 
 // CHECK#8
-if (String(-0.000000000100000000000) !== "-1e-10") {
-  throw new Test262Error('#8: String(-0.000000000100000000000) === "1e-10". Actual: ' + (String(-0.000000000100000000000)));
-}
+assert.sameValue(String(-0.000000000100000000000), "-1e-10", '#8: String(-0.000000000100000000000) === "1e-10"');
 
 // CHECK#9
-if (String(-1e-7) !== "-1e-7") {
-  throw new Test262Error('#9: String(-1e-7) === "-1e-7". Actual: ' + (String(-1e-7)));
-}
+assert.sameValue(String(-1e-7), "-1e-7", '#9: String(-1e-7) === "-1e-7"');
 
 // CHECK#10
-if (String(-1.0e-10) !== "-1e-10") {
-  throw new Test262Error('#10: String(-1.0e-10) === "-1e-10". Actual: ' + (String(-1.0e-10)));
-}
+assert.sameValue(String(-1.0e-10), "-1e-10", '#10: String(-1.0e-10) === "-1e-10"');
 
 // CHECK#11
-if (String(-1E-7) !== "-1e-7") {
-  throw new Test262Error('#11: String(-1E-7) === "-1e-7". Actual: ' + (String(-1E-7)));
-}
+assert.sameValue(String(-1E-7), "-1e-7", '#11: String(-1E-7) === "-1e-7"');
 
 // CHECK#12
-if (String(-1.0E-10) !== "-1e-10") {
-  throw new Test262Error('#12: String(-1.0E-10) === "-1e-10". Actual: ' + (String(-1.0E-10)));
-}
+assert.sameValue(String(-1.0E-10), "-1e-10", '#12: String(-1.0E-10) === "-1e-10"');

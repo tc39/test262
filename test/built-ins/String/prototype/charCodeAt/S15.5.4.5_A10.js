@@ -26,8 +26,6 @@ verifyNotWritable(String.prototype.charCodeAt, "length", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.charCodeAt.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.charCodeAt.length; String.prototype.charCodeAt.length = function(){return "shifted";}; String.prototype.charCodeAt.length === __obj. Actual: ' + String.prototype.charCodeAt.length);
-}
+assert.sameValue(String.prototype.charCodeAt.length, __obj, '#2: __obj = String.prototype.charCodeAt.length; String.prototype.charCodeAt.length = function(){return "shifted";}; String.prototype.charCodeAt.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

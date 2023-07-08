@@ -8,11 +8,9 @@ description: Type(x) is Object object or Function object
 ---*/
 
 //CHECK#1
-if (~({}) !== -1) {
-  throw new Test262Error('#1: ~({}) === -1. Actual: ' + (~({})));
-}
+assert.sameValue(~({}), -1, '#1: ~({}) === -1');
 
-//CHECK#2  
+//CHECK#2
 if (~(function(){return 1}) !== -1) {
   throw new Test262Error('#2: ~(function(){return 1}) === -1. Actual: ' + (~(function(){return 1})));
 }

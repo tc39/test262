@@ -14,27 +14,19 @@ var x;
 //CHECK#1
 x = "1";
 x += undefined;
-if (x !== "1undefined") {
-  throw new Test262Error('#1: x = "1"; x += undefined; x === "1undefined". Actual: ' + (x));
-}
+assert.sameValue(x, "1undefined", '#1: x = "1"; x += undefined; x === "1undefined"');
 
 //CHECK#2
 x = undefined;
 x += "1";
-if (x !== "undefined1") {
-  throw new Test262Error('#2: x = undefined; x += "1"; x === "undefined1". Actual: ' + (x));
-}
+assert.sameValue(x, "undefined1", '#2: x = undefined; x += "1"; x === "undefined1"');
 
 //CHECK#3
 x = new String("1");
 x += undefined;
-if (x !== "1undefined") {
-  throw new Test262Error('#3: x = new String("1"); x += undefined; x === "1undefined". Actual: ' + (x));
-}
+assert.sameValue(x, "1undefined", '#3: x = new String("1"); x += undefined; x === "1undefined"');
 
 //CHECK#4
 x = undefined;
 x += new String("1");
-if (x !== "undefined1") {
-  throw new Test262Error('#4: x = undefined; x += new String("1"); x === "undefined1". Actual: ' + (x));
-}
+assert.sameValue(x, "undefined1", '#4: x = undefined; x += new String("1"); x === "undefined1"');

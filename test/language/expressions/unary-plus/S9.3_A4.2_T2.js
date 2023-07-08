@@ -13,44 +13,34 @@ description: >
 ---*/
 
 // CHECK#1
-if (isNaN(+(Number.NaN)) !== true) {
-  throw new Test262Error('#1: +(NaN) === Not-a-Number. Actual: ' + (+(NaN))); 
-}
+assert.sameValue(isNaN(+(Number.NaN)), true, '#1: +(NaN) === Not-a-Number');
 
 // CHECK#2
 if (+(+0) !== +0) {
-  throw new Test262Error('#2.1: +(+0) === 0. Actual: ' + (+(+0))); 
+  throw new Test262Error('#2.1: +(+0) === 0. Actual: ' + (+(+0)));
 } else {
   if (1/+(+0) !== Number.POSITIVE_INFINITY) {
     throw new Test262Error('#2.2: +(+0) === +0. Actual: -0');
-  }	
+  }
 }
 
 // CHECK#3
 if (+(-0) !== -0) {
-  throw new Test262Error('#3.1: +(-0) === 0. Actual: ' + (+(-0))); 
+  throw new Test262Error('#3.1: +(-0) === 0. Actual: ' + (+(-0)));
 } else {
   if (1/+(-0) !== Number.NEGATIVE_INFINITY) {
     throw new Test262Error('#3.2: +(-0) === -0. Actual: +0');
-  }	
+  }
 }
 
 // CHECK#4
-if (+(Number.POSITIVE_INFINITY) !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#4: +(+Infinity) === +Infinity. Actual: ' + (+(+Infinity))); 
-}
+assert.sameValue(+(Number.POSITIVE_INFINITY), Number.POSITIVE_INFINITY, '#4: +(+Infinity) === +Infinity');
 
 // CHECK#5
-if (+(Number.NEGATIVE_INFINITY) !== Number.NEGATIVE_INFINITY) {
-  throw new Test262Error('#5: +(-Infinity) === -Infinity. Actual: ' + (+(-Infinity))); 
-}
+assert.sameValue(+(Number.NEGATIVE_INFINITY), Number.NEGATIVE_INFINITY, '#5: +(-Infinity) === -Infinity');
 
 // CHECK#6
-if (+(Number.MAX_VALUE) !== Number.MAX_VALUE) {
-  throw new Test262Error('#6: +(Number.MAX_VALUE) === Number.MAX_VALUE. Actual: ' + (+(Number.MAX_VALUE))); 
-}
+assert.sameValue(+(Number.MAX_VALUE), Number.MAX_VALUE, '#6: +(Number.MAX_VALUE) === Number.MAX_VALUE');
 
 // CHECK#7
-if (+(Number.MIN_VALUE) !== Number.MIN_VALUE) {
-  throw new Test262Error('#7: +(Number.MIN_VALUE) === Number.MIN_VALUE. Actual: ' + (+(Number.MIN_VALUE))); 
-}
+assert.sameValue(+(Number.MIN_VALUE), Number.MIN_VALUE, '#7: +(Number.MIN_VALUE) === Number.MIN_VALUE');

@@ -11,8 +11,6 @@ Number.prototype.toUpperCase = String.prototype.toUpperCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if ((Number.NEGATIVE_INFINITY).toUpperCase() !== "-INFINITY") {
-  throw new Test262Error('#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; (Number.NEGATIVE_INFINITY).toUpperCase() === "-INFINITY". Actual: ' + (Number.NEGATIVE_INFINITY).toUpperCase());
-}
+assert.sameValue((Number.NEGATIVE_INFINITY).toUpperCase(), "-INFINITY", '#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; (Number.NEGATIVE_INFINITY).toUpperCase() === "-INFINITY"');
 //
 //////////////////////////////////////////////////////////////////////////////

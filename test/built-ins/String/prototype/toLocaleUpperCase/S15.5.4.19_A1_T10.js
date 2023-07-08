@@ -18,8 +18,6 @@ __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__obj.toLocaleUpperCase() !== "AB") {
-  throw new Test262Error('#1: var __obj = {toString:function(){return "\u0041b";}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase() ==="AB". Actual: ' + __obj.toLocaleUpperCase());
-}
+assert.sameValue(__obj.toLocaleUpperCase(), "AB", '#1: var __obj = {toString:function(){return "\u0041b";}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase() ==="AB"');
 //
 //////////////////////////////////////////////////////////////////////////////

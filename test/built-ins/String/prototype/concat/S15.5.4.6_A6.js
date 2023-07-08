@@ -9,8 +9,6 @@ description: Checking String.prototype.concat.prototype
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.concat.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.concat.prototype === undefined. Actual: ' + String.prototype.concat.prototype);
-}
+assert.sameValue(String.prototype.concat.prototype, undefined, '#1: String.prototype.concat.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////

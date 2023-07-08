@@ -26,38 +26,20 @@ if (arr.getClass() !== "[object " + "Array" + "]") {
   throw new Test262Error('#1: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr is Array object. Actual: ' + (arr.getClass()));
 }
 
-if (arr.length !== 3) {
-  throw new Test262Error('#2: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr.length === 3. Actual: ' + (arr.length));
-}
+assert.sameValue(arr.length, 3, '#2: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr.length === 3');
 
-if (arr[0] !== 0) {
-  throw new Test262Error('#3: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr[0] === 0. Actual: ' + (arr[0]));
-}
+assert.sameValue(arr[0], 0, '#3: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr[0] === 0');
 
-if (arr[1] !== 1) {
-  throw new Test262Error('#4: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr[1] === 1. Actual: ' + (arr[1]));
-}
+assert.sameValue(arr[1], 1, '#4: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr[1] === 1');
 
-if (arr[2] !== 2) {
-  throw new Test262Error('#5: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr[2] === 2. Actual: ' + (arr[2]));
-}
+assert.sameValue(arr[2], 2, '#5: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); arr[2] === 2');
 
-if (obj.length !== 3) {
-  throw new Test262Error('#6: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj.length === 3. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 3, '#6: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj.length === 3');
 
-if (obj[0] !== 4) {
-  throw new Test262Error('#7: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[0] === 4. Actual: ' + (obj[0]));
-}
+assert.sameValue(obj[0], 4, '#7: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[0] === 4');
 
-if (obj[1] !== 5) {
-  throw new Test262Error('#8: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[1] === 5. Actual: ' + (obj[1]));
-}
+assert.sameValue(obj[1], 5, '#8: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[1] === 5');
 
-if (obj[2] !== 3) {
-  throw new Test262Error('#9: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[2] === 3. Actual: ' + (obj[2]));
-}
+assert.sameValue(obj[2], 3, '#9: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[2] === 3');
 
-if (obj[3] !== undefined) {
-  throw new Test262Error('#10: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[3] === undefined. Actual: ' + (obj[3]));
-}
+assert.sameValue(obj[3], undefined, '#10: var obj = {0:0,1:1,2:2,3:3}; obj.length = 4; obj.splice = Array.prototype.splice; var arr = obj.splice(-4,3,4,5); obj[3] === undefined');

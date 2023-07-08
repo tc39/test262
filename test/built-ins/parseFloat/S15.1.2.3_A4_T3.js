@@ -10,81 +10,49 @@ description: StrDecimalLiteral not contain HexIntegerLiteral
 ---*/
 
 //CHECK#0
-if (parseFloat("0x0") !== 0) {
-  throw new Test262Error('#0: parseFloat("0x0") === 0. Actual: ' + (parseFloat("0x0")));
-}
+assert.sameValue(parseFloat("0x0"), 0, '#0: parseFloat("0x0") === 0');
 
 //CHECK#1
-if (parseFloat("0x1") !== 0) {
-  throw new Test262Error('#1: parseFloat("0x1") === 0. Actual: ' + (parseFloat("0x1")));
-}
+assert.sameValue(parseFloat("0x1"), 0, '#1: parseFloat("0x1") === 0');
 
 //CHECK#2
-if (parseFloat("0x2") !== 0) {
-  throw new Test262Error('#2: parseFloat("0x2") === 0. Actual: ' + (parseFloat("0x2")));
-}
+assert.sameValue(parseFloat("0x2"), 0, '#2: parseFloat("0x2") === 0');
 
 //CHECK#3
-if (parseFloat("0x3") !== 0) {
-  throw new Test262Error('#3: parseFloat("0x3") === 0. Actual: ' + (parseFloat("0x3")));
-}
+assert.sameValue(parseFloat("0x3"), 0, '#3: parseFloat("0x3") === 0');
 
 //CHECK#4
-if (parseFloat("0x4") !== 0) {
-  throw new Test262Error('#4: parseFloat("0x4") === 0. Actual: ' + (parseFloat("0x4")));
-}
+assert.sameValue(parseFloat("0x4"), 0, '#4: parseFloat("0x4") === 0');
 
 //CHECK#5
-if (parseFloat("0x5") !== 0) {
-  throw new Test262Error('#5: parseFloat("0x5") === 0. Actual: ' + (parseFloat("0x5")));
-}
+assert.sameValue(parseFloat("0x5"), 0, '#5: parseFloat("0x5") === 0');
 
 //CHECK#6
-if (parseFloat("0x6") !== 0) {
-  throw new Test262Error('#6: parseFloat("0x6") === 0. Actual: ' + (parseFloat("0x6")));
-}
+assert.sameValue(parseFloat("0x6"), 0, '#6: parseFloat("0x6") === 0');
 
 //CHECK#7
-if (parseFloat("0x7") !== 0) {
-  throw new Test262Error('#7: parseFloat("0x7") === 0. Actual: ' + (parseFloat("0x7")));
-}
+assert.sameValue(parseFloat("0x7"), 0, '#7: parseFloat("0x7") === 0');
 
 //CHECK#8
-if (parseFloat("0x8") !== 0) {
-  throw new Test262Error('#8: parseFloat("0x8") === 0. Actual: ' + (parseFloat("0x8")));
-}
+assert.sameValue(parseFloat("0x8"), 0, '#8: parseFloat("0x8") === 0');
 
 //CHECK#9
-if (parseFloat("0x9") !== 0) {
-  throw new Test262Error('#9: parseFloat("0x9") === 0. Actual: ' + (parseFloat("0x9")));
-}
+assert.sameValue(parseFloat("0x9"), 0, '#9: parseFloat("0x9") === 0');
 
 //CHECK#A
-if (parseFloat("0xA") !== 0) {
-  throw new Test262Error('#A: parseFloat("0xA") === 0. Actual: ' + (parseFloat("0xA")));
-}
+assert.sameValue(parseFloat("0xA"), 0, '#A: parseFloat("0xA") === 0');
 
 //CHECK#B
-if (parseFloat("0xB") !== 0) {
-  throw new Test262Error('#B: parseFloat("0xB") === 0. Actual: ' + (parseFloat("0xB")));
-}
+assert.sameValue(parseFloat("0xB"), 0, '#B: parseFloat("0xB") === 0');
 
 //CHECK#C
-if (parseFloat("0xC") !== 0) {
-  throw new Test262Error('#C: parseFloat("0xC") === 0. Actual: ' + (parseFloat("0xC")));
-}
+assert.sameValue(parseFloat("0xC"), 0, '#C: parseFloat("0xC") === 0');
 
 //CHECK#D
-if (parseFloat("0xD") !== 0) {
-  throw new Test262Error('#D: parseFloat("0xD") === 0. Actual: ' + (parseFloat("0xD")));
-}
+assert.sameValue(parseFloat("0xD"), 0, '#D: parseFloat("0xD") === 0');
 
 //CHECK#E
-if (parseFloat("0xE") !== 0) {
-  throw new Test262Error('#E: parseFloat("0xE") === 0. Actual: ' + (parseFloat("0xE")));
-}
+assert.sameValue(parseFloat("0xE"), 0, '#E: parseFloat("0xE") === 0');
 
 //CHECK#F
-if (parseFloat("0xF") !== 0) {
-  throw new Test262Error('#F: parseFloat("0xF") === 0. Actual: ' + (parseFloat("0xF")));
-}
+assert.sameValue(parseFloat("0xF"), 0, '#F: parseFloat("0xF") === 0');

@@ -8,13 +8,9 @@ description: Type(x) is undefined or null
 ---*/
 
 //CHECK#1
-var x; 
-if (isNaN(++x) !== true) {
-  throw new Test262Error('#1: var x; ++x === Not-a-Number. Actual: ' + (++x));
-}
+var x;
+assert.sameValue(isNaN(++x), true, '#1: var x; ++x === Not-a-Number');
 
 //CHECK#2
 var x = null;
-if (++x !== 1) {
-  throw new Test262Error('#2: var x = null; ++x === 1. Actual: ' + (++x));
-}
+assert.sameValue(++x, 1, '#2: var x = null; ++x === 1');

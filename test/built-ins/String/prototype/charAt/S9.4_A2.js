@@ -12,11 +12,7 @@ description: >
 ---*/
 
 // CHECK#1
-if ("abc".charAt(0.0) !== "a") {
-  throw new Test262Error('#1: "abc".charAt(0.0) === "a". Actual: ' + ("abc".charAt(0.0)));
-}
+assert.sameValue("abc".charAt(0.0), "a", '#1: "abc".charAt(0.0) === "a"');
 
 // CHECK#2
-if ("abc".charAt(-0.0) !== "a") {
-  throw new Test262Error('#2: "abc".charAt(-0.0) === "a". Actual: ' + ("abc".charAt(-0.0)));
-}
+assert.sameValue("abc".charAt(-0.0), "a", '#2: "abc".charAt(-0.0) === "a"');

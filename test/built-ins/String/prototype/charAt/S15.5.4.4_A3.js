@@ -13,8 +13,6 @@ var __instance = new String("ABC");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.charAt(3) !== "") {
-  throw new Test262Error('#1: __instance = new String("ABC"); __instance.charAt(3) === "". Actual: __instance.charAt(3) ===' + __instance.charAt(3));
-}
+assert.sameValue(__instance.charAt(3), "", '#1: __instance = new String("ABC"); __instance.charAt(3) === ""');
 //
 //////////////////////////////////////////////////////////////////////////////

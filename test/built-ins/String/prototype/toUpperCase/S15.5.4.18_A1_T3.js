@@ -9,8 +9,6 @@ description: Checking by using eval
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (eval("\"bj\"").toUpperCase() !== "BJ") {
-  throw new Test262Error('#1: eval("\\"bj\\"").toUpperCase() === "BJ". Actual: ' + eval("\"bj\"").toUpperCase());
-}
+assert.sameValue(eval("\"bj\"").toUpperCase(), "BJ", '#1: eval("\\"bj\\"").toUpperCase() === "BJ"');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -12,8 +12,6 @@ description: >
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since ToString() evaluates to "" lastIndexOf() evaluates to lastIndexOf("",0)
-if ("".lastIndexOf() !== -1) {
-  throw new Test262Error('#1: "".lastIndexOf() === -1. Actual: ' + ("".lastIndexOf()));
-}
+assert.sameValue("".lastIndexOf(), -1, '#1: "".lastIndexOf() === -1');
 //
 //////////////////////////////////////////////////////////////////////////////

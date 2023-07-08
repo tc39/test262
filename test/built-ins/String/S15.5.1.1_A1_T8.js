@@ -30,8 +30,6 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "__ARRAY__") {
-  throw new Test262Error('#2: Array.prototype.toString=function(){return "__ARRAY__";}; __str = String(new Array); __str === "__ARRAY__". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "__ARRAY__", '#2: Array.prototype.toString=function(){return "__ARRAY__";}; __str = String(new Array); __str === "__ARRAY__"');
 //
 //////////////////////////////////////////////////////////////////////////////

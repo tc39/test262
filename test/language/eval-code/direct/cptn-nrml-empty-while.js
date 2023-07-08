@@ -10,6 +10,4 @@ description: do-while statement
 ---*/
 
 //CHECK#1
-if (eval("while(false);") !== undefined) {
-  throw new Test262Error('#1: eval("while(false);") === undefined. Actual: ' + (eval("while(false);")));
-}
+assert.sameValue(eval("while(false);"), undefined, '#1: eval("while(false);") === undefined');

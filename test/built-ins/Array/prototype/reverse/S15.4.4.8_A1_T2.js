@@ -18,89 +18,47 @@ x[8] = "NaN";
 x[9] = "-1";
 
 var reverse = x.reverse();
-if (reverse !== x) {
-  throw new Test262Error('#1: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse() === x. Actual: ' + (reverse));
-}
+assert.sameValue(reverse, x, '#1: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse() === x');
 
-if (x[0] !== "-1") {
-  throw new Test262Error('#2: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[0] === "-1". Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], "-1", '#2: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[0] === "-1"');
 
-if (x[1] !== "NaN") {
-  throw new Test262Error('#3: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[1] === "NaN". Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], "NaN", '#3: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[1] === "NaN"');
 
-if (x[2] !== undefined) {
-  throw new Test262Error('#4: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[2] === undefined. Actual: ' + (x[2]));
-}
+assert.sameValue(x[2], undefined, '#4: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[2] === undefined');
 
-if (x[3] !== undefined) {
-  throw new Test262Error('#5: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[3] === undefined. Actual: ' + (x[3]));
-}
+assert.sameValue(x[3], undefined, '#5: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[3] === undefined');
 
-if (x[4] !== undefined) {
-  throw new Test262Error('#6: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[4] === undefined. Actual: ' + (x[4]));
-}
+assert.sameValue(x[4], undefined, '#6: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[4] === undefined');
 
-if (x[5] !== undefined) {
-  throw new Test262Error('#7: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[5] === undefined. Actual: ' + (x[5]));
-}
+assert.sameValue(x[5], undefined, '#7: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[5] === undefined');
 
-if (x[6] !== undefined) {
-  throw new Test262Error('#8: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[6] === undefined. Actual: ' + (x[6]));
-}
+assert.sameValue(x[6], undefined, '#8: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[6] === undefined');
 
-if (x[7] !== Infinity) {
-  throw new Test262Error('#9: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[7] === Infinity. Actual: ' + (x[7]));
-}
+assert.sameValue(x[7], Infinity, '#9: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[7] === Infinity');
 
-if (x[8] !== undefined) {
-  throw new Test262Error('#10: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[8] === undefined. Actual: ' + (x[8]));
-}
+assert.sameValue(x[8], undefined, '#10: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[8] === undefined');
 
-if (x[9] !== true) {
-  throw new Test262Error('#11: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[9] === true. Actual: ' + (x[9]));
-}
+assert.sameValue(x[9], true, '#11: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x[9] === true');
 
 x.length = 9;
 
 var reverse = x.reverse();
-if (reverse !== x) {
-  throw new Test262Error('#1: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse() === x. Actual: ' + (reverse));
-}
+assert.sameValue(reverse, x, '#1: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse() === x');
 
-if (x[0] !== undefined) {
-  throw new Test262Error('#12: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[0] === undefined. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], undefined, '#12: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[0] === undefined');
 
-if (x[1] !== Infinity) {
-  throw new Test262Error('#13: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[1] === Infinity. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], Infinity, '#13: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[1] === Infinity');
 
-if (x[2] !== undefined) {
-  throw new Test262Error('#14: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[2] === undefined. Actual: ' + (x[2]));
-}
+assert.sameValue(x[2], undefined, '#14: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[2] === undefined');
 
-if (x[3] !== undefined) {
-  throw new Test262Error('#15: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[3] === undefined. Actual: ' + (x[3]));
-}
+assert.sameValue(x[3], undefined, '#15: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[3] === undefined');
 
-if (x[4] !== undefined) {
-  throw new Test262Error('#16: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[4] === undefined. Actual: ' + (x[4]));
-}
+assert.sameValue(x[4], undefined, '#16: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[4] === undefined');
 
-if (x[5] !== undefined) {
-  throw new Test262Error('#17: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[5] === undefined. Actual: ' + (x[5]));
-}
+assert.sameValue(x[5], undefined, '#17: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[5] === undefined');
 
-if (x[6] !== undefined) {
-  throw new Test262Error('#18: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[6] === undefined. Actual: ' + (x[6]));
-}
+assert.sameValue(x[6], undefined, '#18: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[6] === undefined');
 
-if (x[7] !== "NaN") {
-  throw new Test262Error('#19: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[7] === "NaN". Actual: ' + (x[7]));
-}
+assert.sameValue(x[7], "NaN", '#19: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[7] === "NaN"');
 
-if (x[8] !== "-1") {
-  throw new Test262Error('#20: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[8] === "-1". Actual: ' + (x[8]));
-}
+assert.sameValue(x[8], "-1", '#20: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[8] === "-1"');

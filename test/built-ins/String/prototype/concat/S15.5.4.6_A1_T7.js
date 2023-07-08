@@ -12,8 +12,6 @@ description: >
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since ToString(undefined) evaluates to "undefined" concat(undefined) evaluates to concat("undefined")
-if (String("lego").concat(undefined) !== "legoundefined") {
-  throw new Test262Error('#1: String("lego").concat(undefined) === "legoundefined". Actual: ' + String("lego").concat(undefined));
-}
+assert.sameValue(String("lego").concat(undefined), "legoundefined", '#1: String("lego").concat(undefined) === "legoundefined"');
 //
 //////////////////////////////////////////////////////////////////////////////

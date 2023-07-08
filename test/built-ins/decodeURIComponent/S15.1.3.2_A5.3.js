@@ -11,6 +11,4 @@ includes: [propertyHelper.js]
 //CHECK#1
 var x = decodeURIComponent.length;
 verifyNotWritable(decodeURIComponent, "length", null, Infinity);
-if (decodeURIComponent.length !== x) {
-  throw new Test262Error('#1: x = decodeURIComponent.length; decodeURIComponent.length = Infinity; decodeURIComponent.length === x. Actual: ' + (decodeURIComponent.length));
-}
+assert.sameValue(decodeURIComponent.length, x, '#1: x = decodeURIComponent.length; decodeURIComponent.length = Infinity; decodeURIComponent.length === x');

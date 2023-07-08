@@ -14,58 +14,42 @@ var x;
 //CHECK#1
 x = "1";
 x += 1;
-if (x !== "11") {
-  throw new Test262Error('#1: x = "1"; x += 1; x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#1: x = "1"; x += 1; x === "11"');
 
 //CHECK#2
 x = 1;
 x += "1";
-if (x !== "11") {
-  throw new Test262Error('#2: x = 1; x += "1"; x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#2: x = 1; x += "1"; x === "11"');
 
 //CHECK#3
 x = new String("1");
 x += 1;
-if (x !== "11") {
-  throw new Test262Error('#3: x = new String("1"); x += 1; x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#3: x = new String("1"); x += 1; x === "11"');
 
 //CHECK#4
 x = 1;
 x += new String("1");
-if (x !== "11") {
-  throw new Test262Error('#4: x = 1; x += new String("1"); x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#4: x = 1; x += new String("1"); x === "11"');
 
 //CHECK#5
 x = "1";
 x += new Number(1);
-if (x !== "11") {
-  throw new Test262Error('#5: x = "1"; x += new Number(1); x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#5: x = "1"; x += new Number(1); x === "11"');
 
 //CHECK#6
 x = new Number(1);
 x += "1";
-if (x !== "11") {
-  throw new Test262Error('#6: x = new Number(1); x += "1"; x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#6: x = new Number(1); x += "1"; x === "11"');
 
 //CHECK#7
 x = new String("1");
 x += new Number(1);
-if (x !== "11") {
-  throw new Test262Error('#7: x = new String("1"); x += new Number(1); x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#7: x = new String("1"); x += new Number(1); x === "11"');
 
 //CHECK#8
 x = new Number(1);
 x += new String("1");
-if (x !== "11") {
-  throw new Test262Error('#8: x = new Number(1); x += new String("1"); x === "11". Actual: ' + (x));
-}
+assert.sameValue(x, "11", '#8: x = new Number(1); x += new String("1"); x === "11"');
 
 //CHECK#9
 if ("x" + 1 !=="x1") {
@@ -75,6 +59,4 @@ if ("x" + 1 !=="x1") {
 //CHECK#10
 x = 1;
 x += "x";
-if (x !== "1x") {
-  throw new Test262Error('#10: x = 1; x += "x"; x === "1x". Actual: ' + (x));
-}
+assert.sameValue(x, "1x", '#10: x = 1; x += "x"; x === "1x"');

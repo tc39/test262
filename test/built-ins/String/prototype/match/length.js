@@ -32,9 +32,7 @@ if (!(String.prototype.match.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.match.length !== 1) {
-  throw new Test262Error('#2: String.prototype.match.length === 1. Actual: ' + String.prototype.match.length);
-}
+assert.sameValue(String.prototype.match.length, 1, '#2: String.prototype.match.length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////
 

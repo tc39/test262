@@ -19,32 +19,24 @@ Number.prototype.match = String.prototype.match;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__num.match(__re)[0] !== "02") {
-  throw new Test262Error('#1: __num.match(__re)[0]=== "02". Actual: ' + __num.match(__re)[0]);
-}
+assert.sameValue(__num.match(__re)[0], "02", '#1: __num.match(__re)[0]=== "02"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__num.match(__re).length !== 1) {
-  throw new Test262Error('#2: __num.match(__re).length ===1. Actual: ' + __num.match(__re).length);
-}
+assert.sameValue(__num.match(__re).length, 1, '#2: __num.match(__re).length ===1');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__num.match(__re).index !== 1) {
-  throw new Test262Error('#3: __num.match(__re).index ===1. Actual: ' + __num.match(__re).index);
-}
+assert.sameValue(__num.match(__re).index, 1, '#3: __num.match(__re).index ===1');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__num.match(__re).input !== String(__num)) {
-  throw new Test262Error('#4: __num.match(__re).input ===String(__num). Actual: ' + __num.match(__re).input);
-}
+assert.sameValue(__num.match(__re).input, String(__num), '#4: __num.match(__re).input ===String(__num)');
 //
 //////////////////////////////////////////////////////////////////////////////

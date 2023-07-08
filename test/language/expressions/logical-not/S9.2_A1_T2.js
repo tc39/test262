@@ -10,9 +10,7 @@ description: >
 ---*/
 
 // CHECK#1
-if (!(undefined) !== true) {
-  throw new Test262Error('#1: !(undefined) === true. Actual: ' + (!(undefined)));
-}
+assert.sameValue(!(undefined), true, '#1: !(undefined) === true');
 
 // CHECK#2
 if (!(void 0) !== true) {

@@ -8,9 +8,7 @@ description: Either Expression is not Reference or GetBase is not null
 ---*/
 
 //CHECK#1
-if ((1,2) !== 2) {
-  throw new Test262Error('#1: (1,2) === 2. Actual: ' + ((1,2)));
-}
+assert.sameValue((1,2), 2, '#1: (1,2) === 2');
 
 //CHECK#2
 var x = 1;
@@ -47,5 +45,5 @@ if ((objectx.prop = false, objecty.prop) !== objecty.prop) {
 } else {
   if (objectx.prop !== false) {
     throw new Test262Error('#6: var objectx = new Object(); var objecty = new Object(); objectx.prop = true; objecty.prop = 1; objectx.prop = false, objecty.prop; objectx.prop === false');
-  } 
+  }
 }

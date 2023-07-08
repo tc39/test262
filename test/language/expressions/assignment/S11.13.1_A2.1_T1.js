@@ -9,29 +9,21 @@ description: Either AssigmentExpression is not Reference or GetBase is not null
 
 //CHECK#1
 x = 1;
-if (x !== 1) {
-  throw new Test262Error('#1: x = 1; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#1: x = 1; x === 1');
 
 //CHECK#2
 var x = 1;
-if (x !== 1) {
-  throw new Test262Error('#2: var x = 1; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#2: var x = 1; x === 1');
 
 //CHECK#3
 y = 1;
 x = y;
-if (x !== 1) {
-  throw new Test262Error('#3: y = 1; x = y; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#3: y = 1; x = y; x === 1');
 
 //CHECK#4
 var y = 1;
 var x = y;
-if (x !== 1) {
-  throw new Test262Error('#4: var y = 1; var x = y; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#4: var y = 1; var x = y; x === 1');
 
 //CHECK#5
 var objectx = new Object();
@@ -43,5 +35,5 @@ if (objectx.prop !== objecty.prop) {
 } else {
   if (objectx === objecty) {
     throw new Test262Error('#5: var objectx = new Object(); var objecty = new Object(); objecty.prop = 1; objectx.prop = objecty.prop; objectx !== objecty');
-  } 
+  }
 }

@@ -8,9 +8,7 @@ description: Use typeof, isNaN, isFinite
 ---*/
 
 // CHECK#1
-if (typeof(undefined) !== "undefined") {
-  throw new Test262Error('#1: typeof(undefined) === "undefined". Actual: ' + (typeof(undefined)));
-}
+assert.sameValue(typeof(undefined), "undefined", '#1: typeof(undefined) === "undefined"');
 
 // CHECK#2
 if (undefined !== void 0) {

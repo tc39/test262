@@ -10,13 +10,9 @@ description: Type(x) is boolean primitive or Boolean object
 //CHECK#1
 var x = false;
 var y = x++;
-if (y !== 0) {
-  throw new Test262Error('#1: var x = false; var y = x++; y === 0. Actual: ' + (y));
-}
+assert.sameValue(y, 0, '#1: var x = false; var y = x++; y === 0');
 
 //CHECK#2
 var x = new Boolean(true);
 var y = x++;
-if (y !== 1) {
-  throw new Test262Error('#2: var x = new Boolean(true); var y = x++; y === 1. Actual: ' + (y));
-}
+assert.sameValue(y, 1, '#2: var x = new Boolean(true); var y = x++; y === 1');

@@ -10,8 +10,6 @@ description: Argument is undefined, and instance is new String
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since ToString(undefined) evaluates to "undefined" search(undefined) evaluates to search("undefined")
-if (String("undefined").search(undefined) !== 0) {
-  throw new Test262Error('#1: String("undefined").search(undefined) === 0. Actual: ' + String("undefined").search(undefined));
-}
+assert.sameValue(String("undefined").search(undefined), 0, '#1: String("undefined").search(undefined) === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

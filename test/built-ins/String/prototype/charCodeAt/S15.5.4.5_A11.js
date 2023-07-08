@@ -17,8 +17,6 @@ if (!(String.prototype.charCodeAt.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.charCodeAt.length !== 1) {
-  throw new Test262Error('#2: String.prototype.charCodeAt.length === 1. Actual: ' + String.prototype.charCodeAt.length);
-}
+assert.sameValue(String.prototype.charCodeAt.length, 1, '#2: String.prototype.charCodeAt.length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

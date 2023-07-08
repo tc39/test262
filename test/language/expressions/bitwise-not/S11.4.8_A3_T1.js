@@ -8,9 +8,7 @@ description: Type(x) is boolean primitive or Boolean object
 ---*/
 
 //CHECK#1
-if (~false !== -1) {
-  throw new Test262Error('#1: ~false === -1. Actual: ' + (~false));
-}
+assert.sameValue(~false, -1, '#1: ~false === -1');
 
 //CHECK#2
 if (~new Boolean(true) !== -2) {

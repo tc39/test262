@@ -32,28 +32,16 @@ if (obj.length !== undefined) {
 
 obj.length = undefined;
 var unshift = obj.unshift(-4);
-if (unshift !== 1) {
-  throw new Test262Error('#4: var obj = {}; obj.length = undefined; obj.unshift = Array.prototype.unshift; obj.unshift(-4) === 1. Actual: ' + (unshift));
-}
+assert.sameValue(unshift, 1, '#4: var obj = {}; obj.length = undefined; obj.unshift = Array.prototype.unshift; obj.unshift(-4) === 1');
 
-if (obj.length !== 1) {
-  throw new Test262Error('#5: var obj = {}; obj.length = undefined; obj.unshift = Array.prototype.unshift; obj.unshift(-4); obj.length === 1. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 1, '#5: var obj = {}; obj.length = undefined; obj.unshift = Array.prototype.unshift; obj.unshift(-4); obj.length === 1');
 
-if (obj["0"] !== -4) {
-  throw new Test262Error('#6: var obj = {}; obj.length = undefined; obj.unshift = Array.prototype.unshift; obj.unshift(-4); obj["0"] === -4. Actual: ' + (obj["0"]));
-}
+assert.sameValue(obj["0"], -4, '#6: var obj = {}; obj.length = undefined; obj.unshift = Array.prototype.unshift; obj.unshift(-4); obj["0"] === -4');
 
 obj.length = null
 var unshift = obj.unshift(-7);
-if (unshift !== 1) {
-  throw new Test262Error('#7: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7) === 1. Actual: ' + (unshift));
-}
+assert.sameValue(unshift, 1, '#7: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7) === 1');
 
-if (obj.length !== 1) {
-  throw new Test262Error('#8: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7); obj.length === 1. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 1, '#8: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7); obj.length === 1');
 
-if (obj["0"] !== -7) {
-  throw new Test262Error('#9: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7); obj["0"] === -7. Actual: ' + (obj["0"]));
-}
+assert.sameValue(obj["0"], -7, '#9: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7); obj["0"] === -7');

@@ -11,9 +11,7 @@ description: Checking this use new Array() and []
 
 var x = new Array(0, 1, 2, 3);
 var pop = x.pop();
-if (pop !== 3) {
-  throw new Test262Error('#1: x = new Array(0,1,2,3); x.pop() === 3. Actual: ' + (pop));
-}
+assert.sameValue(pop, 3, '#1: x = new Array(0,1,2,3); x.pop() === 3');
 
 if (x.length !== 3) {
   throw new Test262Error('#2: x = new Array(0,1,2,3); x.pop(); x.length == 3');
@@ -31,9 +29,7 @@ x = [];
 x[0] = 0;
 x[3] = 3;
 var pop = x.pop();
-if (pop !== 3) {
-  throw new Test262Error('#5: x = []; x[0] = 0; x[3] = 3; x.pop() === 3. Actual: ' + (pop));
-}
+assert.sameValue(pop, 3, '#5: x = []; x[0] = 0; x[3] = 3; x.pop() === 3');
 
 if (x.length !== 3) {
   throw new Test262Error('#6: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length == 3');
@@ -49,10 +45,6 @@ if (x[2] !== undefined) {
 
 x.length = 1;
 var pop = x.pop();
-if (pop !== 0) {
-  throw new Test262Error('#9: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop() === 0. Actual: ' + (pop));
-}
+assert.sameValue(pop, 0, '#9: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop() === 0');
 
-if (x.length !== 0) {
-  throw new Test262Error('#10: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop(); x.length === 0. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 0, '#10: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop(); x.length === 0');

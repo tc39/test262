@@ -26,8 +26,6 @@ verifyNotWritable(String.prototype.concat, "length", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.concat.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.concat.length; String.prototype.concat.length = function(){return "shifted";}; String.prototype.concat.length === __obj. Actual: ' + String.prototype.concat.length);
-}
+assert.sameValue(String.prototype.concat.length, __obj, '#2: __obj = String.prototype.concat.length; String.prototype.concat.length = function(){return "shifted";}; String.prototype.concat.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

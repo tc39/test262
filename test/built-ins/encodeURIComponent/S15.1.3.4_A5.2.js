@@ -10,16 +10,12 @@ description: Checking use hasOwnProperty, delete
 ---*/
 
 //CHECK#1
-if (encodeURIComponent.hasOwnProperty('length') !== true) {
-  throw new Test262Error('#1: encodeURIComponent.hasOwnProperty(\'length\') === true. Actual: ' + (encodeURIComponent.hasOwnProperty('length')));
-}
+assert.sameValue(encodeURIComponent.hasOwnProperty('length'), true, '#1: encodeURIComponent.hasOwnProperty(\'length\') === true');
 
 delete encodeURIComponent.length;
 
 //CHECK#2
-if (encodeURIComponent.hasOwnProperty('length') !== false) {
-  throw new Test262Error('#2: delete encodeURIComponent.length; encodeURIComponent.hasOwnProperty(\'length\') === false. Actual: ' + (encodeURIComponent.hasOwnProperty('length')));
-}
+assert.sameValue(encodeURIComponent.hasOwnProperty('length'), false, '#2: delete encodeURIComponent.length; encodeURIComponent.hasOwnProperty(\'length\') === false');
 
 //CHECK#3
 if (encodeURIComponent.length === undefined) {

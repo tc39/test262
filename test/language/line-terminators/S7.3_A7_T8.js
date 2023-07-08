@@ -17,9 +17,7 @@ y
 <
 z
 ;
-if (x !== true) {
-  throw new Test262Error('#1: var\\nx\\n=\\ny\\n<\\nz\\n; x === true. Actual: ' + (x));
-}
+assert.sameValue(x, true, '#1: var\\nx\\n=\\ny\\n<\\nz\\n; x === true');
 x=0;
 
 // CHECK#2
@@ -32,9 +30,7 @@ y
 <
 z
 ;
-if (x !== true) {
-  throw new Test262Error('#2: var\\nx\\n=\\ny\\n<\\nz\\n; x === true. Actual: ' + (x));
-}
+assert.sameValue(x, true, '#2: var\\nx\\n=\\ny\\n<\\nz\\n; x === true');
 x=0;
 
 // CHECK#3
@@ -42,15 +38,11 @@ var result;
 var y=2;
 var z=3;
 eval("\u2028var\u2028x\u2028=\u2028y\u2028<\u2028z\u2028; result = x;");
-if (result !== true) {
-  throw new Test262Error('#3: eval("\\u2028var\\u2028x\\u2028=\\u2028y\\u2028<\\u2028z\\u2028; result = x;"); result === true. Actual: ' + (result));
-}
+assert.sameValue(result, true, '#3: eval("\\u2028var\\u2028x\\u2028=\\u2028y\\u2028<\\u2028z\\u2028; result = x;"); result === true');
 result=0;
 
 // CHECK#4
 var y=2;
 var z=3;
 eval("\u2029var\u2029x\u2029=\u2029y\u2029<\u2029z\u2029; result = x;");
-if (result !== true) {
-  throw new Test262Error('#4: eval("\\u2029var\\u2029x\\u2029=\\u2029y\\u2029<\\u2029z\\u2029; result = x;"); result === true. Actual: ' + (result));
-}
+assert.sameValue(result, true, '#4: eval("\\u2029var\\u2029x\\u2029=\\u2029y\\u2029<\\u2029z\\u2029; result = x;"); result === true');

@@ -15,26 +15,14 @@ if (arr.getClass() !== "[object " + "Array" + "]") {
   throw new Test262Error('#1: var x = [0,1,2,3]; var arr = x.splice(1,undefined); arr is Array object. Actual: ' + (arr.getClass()));
 }
 
-if (arr.length !== 0) {
-  throw new Test262Error('#2: var x = [0,1,2,3]; var arr = x.splice(1,undefined); arr.length === 0. Actual: ' + (arr.length));
-}
+assert.sameValue(arr.length, 0, '#2: var x = [0,1,2,3]; var arr = x.splice(1,undefined); arr.length === 0');
 
-if (x.length !== 4) {
-  throw new Test262Error('#3: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x.length === 4. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 4, '#3: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x.length === 4');
 
-if (x[0] !== 0) {
-  throw new Test262Error('#4: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[0] === 0. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 0, '#4: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[0] === 0');
 
-if (x[1] !== 1) {
-  throw new Test262Error('#5: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[1] === 1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], 1, '#5: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[1] === 1');
 
-if (x[2] !== 2) {
-  throw new Test262Error('#6: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[2] === 2. Actual: ' + (x[2]));
-}
+assert.sameValue(x[2], 2, '#6: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[2] === 2');
 
-if (x[3] !== 3) {
-  throw new Test262Error('#7: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[3] === 3. Actual: ' + (x[3]));
-}
+assert.sameValue(x[3], 3, '#7: var x = [0,1,2,3]; var arr = x.splice(1,undefined); x[3] === 3');

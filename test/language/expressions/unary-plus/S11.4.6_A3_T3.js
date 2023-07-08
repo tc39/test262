@@ -8,9 +8,7 @@ description: Type(x) is string primitive or String object
 ---*/
 
 //CHECK#1
-if (+"1" !== 1) {
-  throw new Test262Error('#1: +"1" === 1. Actual: ' + (+"1"));
-}
+assert.sameValue(+"1", 1, '#1: +"1" === 1');
 
 //CHECK#2
 if (+new Number("-1") !== -1) {
@@ -18,16 +16,10 @@ if (+new Number("-1") !== -1) {
 }
 
 //CHECK#3
-if (isNaN(+"x") !== true) {
-  throw new Test262Error('#3: +"x" === Not-a-Number. Actual: ' + (+"x"));
-}
+assert.sameValue(isNaN(+"x"), true, '#3: +"x" === Not-a-Number');
 
 //CHECK#4
-if (isNaN(+"INFINITY") !== true) {
-  throw new Test262Error('#4: +"INFINITY" === Not-a-Number. Actual: ' + (+"INFINITY"));
-}
+assert.sameValue(isNaN(+"INFINITY"), true, '#4: +"INFINITY" === Not-a-Number');
 
 //CHECK#5
-if (isNaN(+"infinity") !== true) {
-  throw new Test262Error('#5: +"infinity" === Not-a-Number. Actual: ' + (+"infinity"));
-}
+assert.sameValue(isNaN(+"infinity"), true, '#5: +"infinity" === Not-a-Number');

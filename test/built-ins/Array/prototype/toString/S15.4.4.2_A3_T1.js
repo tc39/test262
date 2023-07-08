@@ -11,6 +11,4 @@ description: "[[Prototype]] of Array instance is Array.prototype"
 Array.prototype[1] = 1;
 var x = [0];
 x.length = 2;
-if (x.toString() !== "0,1") {
-  throw new Test262Error('#1: Array.prototype[1] = 1; x = [0]; x.length = 2; x.toString() === "0,1". Actual: ' + (x.toString()));
-}
+assert.sameValue(x.toString(), "0,1", '#1: Array.prototype[1] = 1; x = [0]; x.length = 2; x.toString() === "0,1"');

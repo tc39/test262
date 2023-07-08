@@ -21,9 +21,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "undefined") {
-  throw new Test262Error('#2: var x; __str = String(x); __str === "undefined". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "undefined", '#2: var x; __str = String(x); __str === "undefined"');
 //
 //////////////////////////////////////////////////////////////////////////////
 

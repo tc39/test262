@@ -17,8 +17,6 @@ if (!(String.prototype.slice.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.slice.length !== 2) {
-  throw new Test262Error('#2: String.prototype.slice.length === 2. Actual: ' + String.prototype.slice.length);
-}
+assert.sameValue(String.prototype.slice.length, 2, '#2: String.prototype.slice.length === 2');
 //
 //////////////////////////////////////////////////////////////////////////////

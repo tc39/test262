@@ -24,22 +24,12 @@ if (arr.getClass() !== "[object " + "Array" + "]") {
   throw new Test262Error('#1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr is Array object. Actual: ' + (arr.getClass()));
 }
 
-if (arr.length !== 3) {
-  throw new Test262Error('#2: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr.length === 3. Actual: ' + (arr.length));
-}
+assert.sameValue(arr.length, 3, '#2: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr.length === 3');
 
-if (arr[0] !== 2) {
-  throw new Test262Error('#3: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[0] === 2. Actual: ' + (arr[0]));
-}
+assert.sameValue(arr[0], 2, '#3: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[0] === 2');
 
-if (arr[1] !== 3) {
-  throw new Test262Error('#4: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[1] === 3. Actual: ' + (arr[1]));
-}
+assert.sameValue(arr[1], 3, '#4: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[1] === 3');
 
-if (arr[2] !== 4) {
-  throw new Test262Error('#5: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[2] === 4. Actual: ' + (arr[2]));
-}
+assert.sameValue(arr[2], 4, '#5: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[2] === 4');
 
-if (arr[3] !== undefined) {
-  throw new Test262Error('#6: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[3] === undefined. Actual: ' + (arr[3]));
-}
+assert.sameValue(arr[3], undefined, '#6: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[3] === undefined');

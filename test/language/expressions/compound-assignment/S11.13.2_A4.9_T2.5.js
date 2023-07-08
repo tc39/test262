@@ -14,55 +14,39 @@ var x;
 //CHECK#1
 x = true;
 x &= "1";
-if (x !== 1) {
-  throw new Test262Error('#1: x = true; x &= "1"; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#1: x = true; x &= "1"; x === 1');
 
 //CHECK#2
 x = "1";
 x &= true;
-if (x !== 1) {
-  throw new Test262Error('#2: x = "1"; x &= true; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#2: x = "1"; x &= true; x === 1');
 
 //CHECK#3
 x = new Boolean(true);
 x &= "1";
-if (x !== 1) {
-  throw new Test262Error('#3: x = new Boolean(true); x &= "1"; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#3: x = new Boolean(true); x &= "1"; x === 1');
 
 //CHECK#4
 x = "1";
 x &= new Boolean(true);
-if (x !== 1) {
-  throw new Test262Error('#4: x = "1"; x &= new Boolean(true); x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#4: x = "1"; x &= new Boolean(true); x === 1');
 
 //CHECK#5
 x = true;
 x &= new String("1");
-if (x !== 1) {
-  throw new Test262Error('#5: x = true; x &= new String("1"); x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#5: x = true; x &= new String("1"); x === 1');
 
 //CHECK#6
 x = new String("1");
 x &= true;
-if (x !== 1) {
-  throw new Test262Error('#6: x = new String("1"); x &= true; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#6: x = new String("1"); x &= true; x === 1');
 
 //CHECK#7
 x = new Boolean(true);
 x &= new String("1");
-if (x !== 1) {
-  throw new Test262Error('#7: x = new Boolean(true); x &= new String("1"); x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#7: x = new Boolean(true); x &= new String("1"); x === 1');
 
 //CHECK#8
 x = new String("1");
 x &= new Boolean(true);
-if (x !== 1) {
-  throw new Test262Error('#8: x = new String("1"); x &= new Boolean(true); x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#8: x = new String("1"); x &= new Boolean(true); x === 1');

@@ -11,8 +11,6 @@ var aString = new String("test string");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (aString.search("string") !== 5) {
-  throw new Test262Error('#1: var aString = new String("test string"); aString.search("string")=== 5. Actual: ' + aString.search("string"));
-}
+assert.sameValue(aString.search("string"), 5, '#1: var aString = new String("test string"); aString.search("string")=== 5');
 //
 //////////////////////////////////////////////////////////////////////////////

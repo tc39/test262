@@ -12,6 +12,4 @@ description: eval("x = 1", "x = 2"), x equal 1, not 2
 //CHECK#1
 var x;
 eval("x = 1", "x = 2");
-if (x !== 1) {
-  throw new Test262Error('#1: eval("x = 1", "x = 2"); x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#1: eval("x = 1", "x = 2"); x === 1');

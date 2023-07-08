@@ -10,11 +10,7 @@ description: True and false convert to String by explicit transformation
 ---*/
 
 // CHECK#1
-if (String(false) !== "false") {
-  throw new Test262Error('#1: String(false) === "false". Actual: ' + (String(false)));
-}
+assert.sameValue(String(false), "false", '#1: String(false) === "false"');
 
 // CHECK#2
-if (String(true) !== "true") {
-  throw new Test262Error('#2: String(true) === "true". Actual: ' + (String(true)));
-}
+assert.sameValue(String(true), "true", '#2: String(true) === "true"');

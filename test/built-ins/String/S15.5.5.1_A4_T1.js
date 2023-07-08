@@ -20,9 +20,7 @@ if (!(__str__instance.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str__instance.length !== 8) {
-  throw new Test262Error('#2: var __str__instance = new String("globglob"); __str__instance.length === 8. Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 8, '#2: var __str__instance = new String("globglob"); __str__instance.length === 8');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -30,9 +28,7 @@ __str__instance.length = -1;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__str__instance.length !== 8) {
-  throw new Test262Error('#3: var __str__instance = new String("globglob"); __str__instance.length=-1; __str__instance.length === 8(after redefine length property). Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 8, '#3: var __str__instance = new String("globglob"); __str__instance.length=-1; __str__instance.length === 8(after redefine length property)');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -41,9 +37,7 @@ length = 0;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__str__instance.length !== 8) {
-  throw new Test262Error('#4: var __str__instance = new String("globglob"); with(__str__instance) length = 0; __str__instance.length === 8(after redefine length property with using "with"). Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 8, '#4: var __str__instance = new String("globglob"); with(__str__instance) length = 0; __str__instance.length === 8(after redefine length property with using "with")');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -51,8 +45,6 @@ __str__instance.length++;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5
-if (__str__instance.length !== 8) {
-  throw new Test262Error('#5: var __str__instance = new String("globglob"); __str__instance.length++; __str__instance.length === 8(after redefine length property with using "++"). Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 8, '#5: var __str__instance = new String("globglob"); __str__instance.length++; __str__instance.length === 8(after redefine length property with using "++")');
 //
 //////////////////////////////////////////////////////////////////////////////

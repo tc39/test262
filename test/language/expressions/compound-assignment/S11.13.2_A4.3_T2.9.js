@@ -14,27 +14,19 @@ var x;
 //CHECK#1
 x = true;
 x %= null;
-if (isNaN(x) !== true) {
-  throw new Test262Error('#1: x = true; x %= null; x === Not-a-Number. Actual: ' + (x));
-}
+assert.sameValue(isNaN(x), true, '#1: x = true; x %= null; x === Not-a-Number');
 
 //CHECK#2
 x = null;
 x %= true;
-if (x !== 0) {
-  throw new Test262Error('#2: x = null; x %= true; x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#2: x = null; x %= true; x === 0');
 
 //CHECK#3
 x = new Boolean(true);
 x %= null;
-if (isNaN(x) !== true) {
-  throw new Test262Error('#3: x = new Boolean(true); x %= null; x === Not-a-Number. Actual: ' + (x));
-}
+assert.sameValue(isNaN(x), true, '#3: x = new Boolean(true); x %= null; x === Not-a-Number');
 
 //CHECK#4
 x = null;
 x %= new Boolean(true);
-if (x !== 0) {
-  throw new Test262Error('#4: x = null; x %= new Boolean(true); x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#4: x = null; x %= new Boolean(true); x === 0');

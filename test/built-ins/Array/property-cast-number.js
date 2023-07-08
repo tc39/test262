@@ -16,23 +16,15 @@ assert.sameValue(x["4294967296"], 1, 'The value of x["4294967296"] is expected t
 
 var y = [];
 y[4294967297] = 1;
-if (y[1] !== undefined) {
-  throw new Test262Error('#3: y = []; y[4294967297] = 1; y[1] === undefined. Actual: ' + (y[1]));
-}
+assert.sameValue(y[1], undefined, '#3: y = []; y[4294967297] = 1; y[1] === undefined');
 
 //CHECK#4
-if (y["4294967297"] !== 1) {
-  throw new Test262Error('#4: y = []; y[4294967297] = 1; y["4294967297"] === 1. Actual: ' + (y["4294967297"]));
-}
+assert.sameValue(y["4294967297"], 1, '#4: y = []; y[4294967297] = 1; y["4294967297"] === 1');
 
 //CHECK#5
 var z = [];
 z[1.1] = 1;
-if (z[1] !== undefined) {
-  throw new Test262Error('#5: z = []; z[1.1] = 1; z[1] === undefined. Actual: ' + (z[1]));
-}
+assert.sameValue(z[1], undefined, '#5: z = []; z[1.1] = 1; z[1] === undefined');
 
 //CHECK#6
-if (z["1.1"] !== 1) {
-  throw new Test262Error('#6: z = []; z[1.1] = 1; z["1.1"] === 1. Actual: ' + (z["1.1"]));
-}
+assert.sameValue(z["1.1"], 1, '#6: z = []; z[1.1] = 1; z["1.1"] === 1');

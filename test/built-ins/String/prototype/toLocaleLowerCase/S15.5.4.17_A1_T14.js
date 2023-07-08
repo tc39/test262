@@ -12,8 +12,6 @@ __reg.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__reg.toLocaleLowerCase() !== "/abc/") {
-  throw new Test262Error('#1: var __reg = new RegExp("ABC"); __reg.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __reg.toLocaleLowerCase() === "/abc/". Actual: ' + __reg.toLocaleLowerCase());
-}
+assert.sameValue(__reg.toLocaleLowerCase(), "/abc/", '#1: var __reg = new RegExp("ABC"); __reg.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __reg.toLocaleLowerCase() === "/abc/"');
 //
 //////////////////////////////////////////////////////////////////////////////

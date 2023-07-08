@@ -8,9 +8,7 @@ description: Undefined convert to Number by implicit transformation
 ---*/
 
 // CHECK#1
-if (isNaN(+(undefined)) !== true) {
-  throw new Test262Error('#1: +(undefined) === Not-a-Number. Actual: ' + (+(undefined)));
-}
+assert.sameValue(isNaN(+(undefined)), true, '#1: +(undefined) === Not-a-Number');
 
 // CHECK#2
 if (isNaN(+(void 0)) !== true) {

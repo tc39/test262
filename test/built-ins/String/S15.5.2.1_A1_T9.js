@@ -25,9 +25,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#1.5: __str = new String(function(){return [1,2,3]}()); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#1.5: __str = new String(function(){return [1,2,3]}()); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 

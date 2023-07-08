@@ -9,8 +9,6 @@ description: Checking String.prototype.toLocaleLowerCase.prototype
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.toLocaleLowerCase.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.toLocaleLowerCase.prototype === undefined. Actual: ' + String.prototype.toLocaleLowerCase.prototype);
-}
+assert.sameValue(String.prototype.toLocaleLowerCase.prototype, undefined, '#1: String.prototype.toLocaleLowerCase.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -12,8 +12,6 @@ description: >
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since ToString() evaluates to "" indexOf() evaluates to indexOf("",0)
-if ("".indexOf() !== -1) {
-  throw new Test262Error('#1: "".indexOf() === -1. Actual: ' + ("".indexOf()));
-}
+assert.sameValue("".indexOf(), -1, '#1: "".indexOf() === -1');
 //
 //////////////////////////////////////////////////////////////////////////////
