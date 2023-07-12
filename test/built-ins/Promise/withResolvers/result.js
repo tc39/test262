@@ -12,6 +12,7 @@ var instance = Promise.withResolvers();
 
 assert.sameValue(typeof instance, "object");
 assert.notSameValue(instance, null);
+assert(instance intanceof Object);
 assert(Object.hasOwn(instance, "promise"));
 assert(Object.hasOwn(instance, "resolve"));
 assert(Object.hasOwn(instance, "reject"));
