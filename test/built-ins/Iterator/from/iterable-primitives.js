@@ -41,7 +41,7 @@ assert.compareArray(Array.from(Iterator.from('string')), ['s', 't', 'r', 'i', 'n
 const originalStringIterator = String.prototype[Symbol.iterator];
 let observedType;
 Object.defineProperty(String.prototype, Symbol.iterator, {
-  get(){
+  get() {
     'use strict';
     observedType = typeof this;
     return originalStringIterator;
