@@ -1361,6 +1361,25 @@ var TemporalHelpers = {
   },
 
   /*
+   * A custom calendar whose fields() method returns the same value as the
+   * iso8601 calendar, with the addition of extraFields provided as parameter.
+   */
+  calendarWithExtraFields(fields) {
+    class CalendarWithExtraFields extends Temporal.Calendar {
+      constructor(extraFields) {
+        super("iso8601");
+        this._extraFields = extraFields;
+      }
+
+      fields(fieldNames) {
+        return super.fields(fieldNames).concat(this._extraFields);
+      }
+    }
+
+    return new CalendarWithExtraFields(fields);
+  },
+
+  /*
    * crossDateLineTimeZone():
    *
    * This returns an instance of a custom time zone class that implements one
