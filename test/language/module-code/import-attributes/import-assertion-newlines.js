@@ -37,7 +37,7 @@ import x from './import-assertion-1_FIXTURE.js' with
   ''
 
   };
-import './import-assertion-2_FIXTURE.js' assert
+import './import-assertion-2_FIXTURE.js'
 with
   {
 
@@ -48,7 +48,7 @@ with
   ''
 
   };
-export * from './import-assertion-3_FIXTURE.js' assert
+export * from './import-assertion-3_FIXTURE.js' with
 
   {
 
