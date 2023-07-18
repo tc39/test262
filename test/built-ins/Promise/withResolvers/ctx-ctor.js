@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Promise.withResolvers produces instances of the reciever
+description: Promise.withResolvers produces instances of the receiver
 esid: sec-promise.withresolvers
 features: [promise-with-resolvers]
 ---*/
