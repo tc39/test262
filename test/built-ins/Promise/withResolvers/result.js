@@ -4,7 +4,8 @@
 /*---
 description: Promise.withResolvers result is an object with keys "promise", "reject", and "resolve"
 esid: sec-promise.withresolvers
-features: [promise-with-resolvers, Object.hasOwn]
+includes: [propertyHelper.js]
+features: [promise-with-resolvers]
 ---*/
 
 
@@ -13,7 +14,21 @@ var instance = Promise.withResolvers();
 assert.sameValue(typeof instance, "object");
 assert.notSameValue(instance, null);
 assert(instance instanceof Object);
-assert(Object.hasOwn(instance, "promise"));
-assert(Object.hasOwn(instance, "resolve"));
-assert(Object.hasOwn(instance, "reject"));
 
+verifyProperty(instance, "promise", {
+    writable: true,
+    configurable: true,
+    enumerable: true,
+})
+
+verifyProperty(instance, "resolve", {
+    writable: true,
+    configurable: true,
+    enumerable: true,
+})
+
+verifyProperty(instance, "reject", {
+    writable: true,
+    configurable: true,
+    enumerable: true,
+})

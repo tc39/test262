@@ -19,14 +19,14 @@ assert.throws(TypeError, function() {
   Promise.withResolvers.call(86);
 });
   
-  assert.throws(TypeError, function() {
-    Promise.withResolvers.call('string');
-  });
-  
-  assert.throws(TypeError, function() {
-    Promise.withResolvers.call(true);
-  });
-  
-  assert.throws(TypeError, function() {
-    Promise.withResolvers.call(Symbol());
-  });
+assert.throws(TypeError, function() {
+  Promise.withResolvers.call('string');
+});
+
+assert.throws(TypeError, function() {
+  Promise.withResolvers.call(true);
+});
+
+assert.throws(TypeError, function() {
+  Promise.withResolvers.call(Symbol());
+});
