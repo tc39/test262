@@ -5,7 +5,7 @@
 esid: sec-asynccontext-variable-constructor
 description: The AsyncContext.Variable constructor implements [[Construct]]
 includes: [isConstructor.js]
-features: [AsyncContext]
+features: [AsyncContext, Reflect.construct]
 ---*/
 
 assert.sameValue(isConstructor(AsyncContext.Variable), true, 'isConstructor(AsyncContext.Variable) must return true');

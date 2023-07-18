@@ -5,7 +5,7 @@
 esid: sec-asynccontext-snapshot-constructor
 description: The AsyncContext.Snapshot constructor implements [[Construct]]
 includes: [isConstructor.js]
-features: [AsyncContext]
+features: [AsyncContext, Reflect.construct]
 ---*/
 
 assert.sameValue(isConstructor(AsyncContext.Snapshot), true, 'isConstructor(AsyncContext.Snapshot) must return true');
