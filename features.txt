@@ -108,6 +108,10 @@ json-parse-with-source
 # https://github.com/tc39/proposal-iterator-helpers
 iterator-helpers
 
+# AsyncContext
+# https://github.com/tc39/proposal-async-context
+AsyncContext
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
