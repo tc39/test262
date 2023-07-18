@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Promise.withResolvers errors when the reciever is not a constructor
+description: Promise.withResolvers errors when the receiver is not a constructor
 esid: sec-promise.withresolvers
 features: [promise-with-resolvers]
 ---*/
