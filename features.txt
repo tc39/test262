@@ -109,7 +109,7 @@ json-parse-with-source
 iterator-helpers
 
 # Promise.withResolvers
-# https://github.com/tc30/proposal-promise-with-resolvers
+# https://github.com/tc39/proposal-promise-with-resolvers
 promise-with-resolvers
 
 ## Standard language features
