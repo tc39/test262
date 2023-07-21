@@ -8,11 +8,6 @@ includes: [compareArray.js]
 ---*/
 
 const expected = [
-  // ToDateTimeOptions step 4.
-  "weekday", "year", "month", "day",
-  // ToDateTimeOptions step 5.
-  "hour", "minute", "second",
-
   // InitializeDateTimeFormat step 4.
   "localeMatcher",
   // InitializeDateTimeFormat step 6.

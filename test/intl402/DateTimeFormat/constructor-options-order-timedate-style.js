@@ -11,15 +11,6 @@ features: [Intl.DateTimeFormat-datetimestyle]
 // To be merged into constructor-options-order.js when the feature is removed.
 
 const expected = [
-  // ToDateTimeOptions step 4.
-  "weekday", "year", "month", "day",
-  // ToDateTimeOptions step 5.
-  "hour", "minute", "second",
-  // ToDateTimeOptions step 6.
-  "dateStyle",
-  // ToDateTimeOptions step 7.
-  "timeStyle",
-
   // InitializeDateTimeFormat step 4.
   "localeMatcher",
   // InitializeDateTimeFormat step 6.

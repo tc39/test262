@@ -6,12 +6,7 @@
 esid: sec-initializedatetimeformat
 description: Checks the order of getting options of 'fractionalSecondDigits' for the DateTimeFormat constructor.
 info: |
-  ToDateTimeOptions ( options, required, defaults )
-  5. If required is "time" or "any", then
-    a. For each of the property names "hour", "minute", "second", "fractionalSecondDigits", do
-
   InitializeDateTimeFormat ( dateTimeFormat, locales, options )
-  2. Let options be ? ToDateTimeOptions(options, "any", "date").
   4. Let matcher be ? GetOption(options, "localeMatcher", "string", «  "lookup", "best fit" », "best fit").
   22. For each row of Table 5, except the header row, do
     a. Let value be ? GetOption(options, prop, "string", « the strings given in the Values column of the row », undefined).
@@ -25,9 +20,6 @@ features: [Intl.DateTimeFormat-fractionalSecondDigits]
 // between second and localeMatcher the first time and
 // between timeZoneName and formatMatcher the second time.
 const expected = [
-  // InitializeDateTimeFormat step 2.
-  //  ToDateTimeOptions step 5.
-  "second", "fractionalSecondDigits",
   // InitializeDateTimeFormat step 4.
   "localeMatcher",
   // InitializeDateTimeFormat step 22.
