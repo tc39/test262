@@ -12,6 +12,9 @@ const instance = new Temporal.Instant(0n);
 let timeZone = "2021-08-19T17:30";
 assert.throws(RangeError, () => instance.toZonedDateTime({ timeZone, calendar: "iso8601" }), "bare date-time string is not a time zone");
 
+timeZone = "2021-08-19T17:30-07:00:01";
+assert.throws(RangeError, () => instance.toZonedDateTime({ timeZone, calendar: "iso8601" }), "ISO string sub-minute offset is not OK as time zone");
+
 timeZone = "2021-08-19T17:30Z";
 const result1 = instance.toZonedDateTime({ timeZone, calendar: "iso8601" });
 assert.sameValue(result1.timeZoneId, "UTC", "date-time + Z is UTC time zone");
