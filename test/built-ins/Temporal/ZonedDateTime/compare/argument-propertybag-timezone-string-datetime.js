@@ -13,6 +13,10 @@ let timeZone = "2021-08-19T17:30";
 assert.throws(RangeError, () => Temporal.ZonedDateTime.compare({ year: 2000, month: 5, day: 2, timeZone }, instance), "bare date-time string is not a time zone (arg 1)");
 assert.throws(RangeError, () => Temporal.ZonedDateTime.compare(instance, { year: 2000, month: 5, day: 2, timeZone }), "bare date-time string is not a time zone (arg 2)");
 
+timeZone = "2021-08-19T17:30-07:00:01";
+assert.throws(RangeError, () => Temporal.ZonedDateTime.compare({ year: 2000, month: 5, day: 2, timeZone }, instance), "ISO string sub-minute offset is not OK as time zone (arg 1)");
+assert.throws(RangeError, () => Temporal.ZonedDateTime.compare(instance, { year: 2000, month: 5, day: 2, timeZone }), "ISO string sub-minute offset is not OK as time zone (arg 2)");
+
 // The following are all valid strings so should not throw:
 
 [

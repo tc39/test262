@@ -10,6 +10,9 @@ features: [Temporal]
 let timeZone = "2021-08-19T17:30";
 assert.throws(RangeError, () => Temporal.Now.zonedDateTime("iso8601", timeZone), "bare date-time string is not a time zone");
 
+timeZone = "2021-08-19T17:30-07:00:01";
+assert.throws(RangeError, () => Temporal.Now.zonedDateTime("iso8601", timeZone), "ISO string sub-minute offset is not OK as time zone");
+
 timeZone = "2021-08-19T17:30Z";
 const result1 = Temporal.Now.zonedDateTime("iso8601", timeZone);
 assert.sameValue(result1.timeZoneId, "UTC", "date-time + Z is UTC time zone");

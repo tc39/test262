@@ -12,6 +12,9 @@ const instance = new Temporal.Duration(1);
 let timeZone = "2021-08-19T17:30";
 assert.throws(RangeError, () => instance.subtract(new Temporal.Duration(1), { relativeTo: { year: 2000, month: 5, day: 2, timeZone } }), "bare date-time string is not a time zone");
 
+timeZone = "2021-08-19T17:30-07:00:01";
+assert.throws(RangeError, () => instance.subtract(new Temporal.Duration(1), { relativeTo: { year: 2000, month: 5, day: 2, timeZone } }), "ISO string sub-minute offset is not OK as time zone");
+
 // The following are all valid strings so should not throw:
 
 [
