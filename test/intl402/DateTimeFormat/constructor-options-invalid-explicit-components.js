@@ -16,12 +16,6 @@ info: |
 
         a. If hasExplicitFormatComponents is true, then
             i. Throw a TypeError exception.
-        b. If required is date and timeStyle is not undefined, then
-            i. Throw a TypeError exception.
-        c. If required is time and dateStyle is not undefined, then
-            i. Throw a TypeError exception.
-        d. Let styles be dataLocaleData.[[styles]].[[<resolvedCalendar>]].
-        e. Let bestFormat be DateTimeStyleFormat(dateStyle, timeStyle, styles).
 ---*/
 
 function optionsThrow(options, testName){
