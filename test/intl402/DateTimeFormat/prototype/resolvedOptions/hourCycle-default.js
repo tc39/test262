@@ -24,7 +24,7 @@ info: |
 locale: [en, fr, it, ja, zh, ko, ar, hi, en-u-hc-h24]
 ---*/
 
-let locales = ["en", "fr", "it", "ja", "zh", "ko", "ar", "hi"];
+let locales = ["en", "fr", "it", "ja", "ja-u-hc-h11", "zh", "ko", "ar", "hi", "en-u-hc-h24"];
 
 locales.forEach(function(locale) {
   let hcDefault = new Intl.DateTimeFormat(locale, { hour: "numeric" }).resolvedOptions().hourCycle;
@@ -34,10 +34,12 @@ locales.forEach(function(locale) {
     // no locale has "h24" as a default. see https://github.com/tc39/ecma402/pull/758#issue-1622377292
     assert.sameValue(new Intl.DateTimeFormat(locale, { hour: "numeric", hour12: false }).resolvedOptions().hourCycle, "h23");
   }
+
+  // however, "h24" can be set via locale extension.
   if (hcDefault === "h23" || hcDefault === "h24") {
     assert.sameValue(new Intl.DateTimeFormat(locale, { hour: "numeric", hour12: false }).resolvedOptions().hourCycle, hcDefault);
-
-    let hcHour12 = new Intl.DateTimeFormat(locale, { hour: "numeric", hour12: true }).resolvedOptions().hourCycle;
-    assert((hcHour12 === "h11" || hcHour12 === "h12"), "Expected `hourCycle` to be in ['h11', 'h12']");
   }
+
+  let hcHour12 = new Intl.DateTimeFormat(locale, { hour: "numeric", hour12: true }).resolvedOptions().hourCycle;
+  assert(hcHour12 === "h11" || hcHour12 === "h12", "Expected `hourCycle`: " + hcHour12 + " to be in [\"h11\", \"h12\"]");
 });
