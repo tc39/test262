@@ -24,6 +24,7 @@ function optionsThrow(options, testName){
   }, testName + ":");
 }
 
+optionsThrow({dateStyle: "full", weekday: "long"}, "dateStyle-weekday");
 optionsThrow({dateStyle: "full", era: "long"}, "dateStyle-era");
 optionsThrow({dateStyle: "full", year: "numeric"}, "dateStyle-year");
 optionsThrow({dateStyle: "full", month: "numeric"}, "dateStyle-month");
@@ -35,7 +36,7 @@ optionsThrow({dateStyle: "full", second: "numeric"}, "dateStyle-second");
 optionsThrow({dateStyle: "full", fractionalSecondDigits: 1}, "dateStyle-fractionalSecondDigits");
 optionsThrow({dateStyle: "full", timeZoneName: "short"}, "dateStyle-timeZoneName");
 
-
+optionsThrow({timeStyle: "full", weekday: "long"}, "timeStyle-weekday");
 optionsThrow({timeStyle: "full", era: "long"}, "timeStyle-era");
 optionsThrow({timeStyle: "full", year: "numeric"}, "timeStyle-year");
 optionsThrow({timeStyle: "full", month: "numeric"}, "timeStyle-month");
