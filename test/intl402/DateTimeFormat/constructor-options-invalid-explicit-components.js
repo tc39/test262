@@ -6,7 +6,7 @@ esid: sec-createdatetimeformat
 description: >
   Verifies that constructor throws when dateStyle is combined with explicit format components.
 info: |
-    InitializeDateTimeFormat ( dateTimeFormat, locales, options )
+    CreateDateTimeFormat ( newTarget, locales, options, required, defaults )
     ...
     39. Let dateStyle be ? GetOption(options, "dateStyle", string, « "full", "long", "medium", "short" », undefined).
     40. Set dateTimeFormat.[[DateStyle]] to dateStyle.
