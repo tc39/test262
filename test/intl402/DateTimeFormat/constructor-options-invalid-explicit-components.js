@@ -27,28 +27,28 @@ info: |
 function optionsThrow(options, testName){
   assert.throws(TypeError, function() {
     new Intl.DateTimeFormat(undefined, options);
-  }, testName);
+  }, testName + ":");
 }
 
-optionsThrow({dateStyle: "full", era: "long"}, "dateStyle-era: ");
-optionsThrow({dateStyle: "full", year: "numeric"}, "dateStyle-year: ");
-optionsThrow({dateStyle: "full", month: "numeric"}, "dateStyle-month: ");
-optionsThrow({dateStyle: "full", day: "numeric"}, "dateStyle-day: ");
-optionsThrow({dateStyle: "full", dayPeriod: "long"}, "dateStyle-dayPeriod: ");
-optionsThrow({dateStyle: "full", hour: "numeric"}, "dateStyle-hour: ");
-optionsThrow({dateStyle: "full", minute: "numeric"}, "dateStyle-minute: ");
-optionsThrow({dateStyle: "full", second: "numeric"}, "dateStyle-second: ");
-optionsThrow({dateStyle: "full", fractionalSecondDigits: 1}, "dateStyle-fractionalSecondDigits: ");
-optionsThrow({dateStyle: "full", timeZoneName: "short"}, "dateStyle-timeZoneName: ");
+optionsThrow({dateStyle: "full", era: "long"}, "dateStyle-era");
+optionsThrow({dateStyle: "full", year: "numeric"}, "dateStyle-year");
+optionsThrow({dateStyle: "full", month: "numeric"}, "dateStyle-month");
+optionsThrow({dateStyle: "full", day: "numeric"}, "dateStyle-day");
+optionsThrow({dateStyle: "full", dayPeriod: "long"}, "dateStyle-dayPeriod");
+optionsThrow({dateStyle: "full", hour: "numeric"}, "dateStyle-hour");
+optionsThrow({dateStyle: "full", minute: "numeric"}, "dateStyle-minute");
+optionsThrow({dateStyle: "full", second: "numeric"}, "dateStyle-second");
+optionsThrow({dateStyle: "full", fractionalSecondDigits: 1}, "dateStyle-fractionalSecondDigits");
+optionsThrow({dateStyle: "full", timeZoneName: "short"}, "dateStyle-timeZoneName");
 
 
-optionsThrow({timeStyle: "full", era: "long"}, "timeStyle-era: ");
-optionsThrow({timeStyle: "full", year: "numeric"}, "timeStyle-year: ");
-optionsThrow({timeStyle: "full", month: "numeric"}, "timeStyle-month: ");
-optionsThrow({timeStyle: "full", day: "numeric"}, "timeStyle-day: ");
-optionsThrow({timeStyle: "full", dayPeriod: "long"}, "timeStyle-dayPeriod: ");
-optionsThrow({timeStyle: "full", hour: "numeric"}, "timeStyle-hour: ");
-optionsThrow({timeStyle: "full", minute: "numeric"}, "timeStyle-minute: ");
-optionsThrow({timeStyle: "full", second: "numeric"}, "timeStyle-second: ");
-optionsThrow({timeStyle: "full", fractionalSecondDigits: 1}, "timeStyle-fractionalSecondDigits: ");
-optionsThrow({timeStyle: "full", timeZoneName: "short"}, "timeStyle-timeZoneName: ");
+optionsThrow({timeStyle: "full", era: "long"}, "timeStyle-era");
+optionsThrow({timeStyle: "full", year: "numeric"}, "timeStyle-year");
+optionsThrow({timeStyle: "full", month: "numeric"}, "timeStyle-month");
+optionsThrow({timeStyle: "full", day: "numeric"}, "timeStyle-day");
+optionsThrow({timeStyle: "full", dayPeriod: "long"}, "timeStyle-dayPeriod");
+optionsThrow({timeStyle: "full", hour: "numeric"}, "timeStyle-hour");
+optionsThrow({timeStyle: "full", minute: "numeric"}, "timeStyle-minute");
+optionsThrow({timeStyle: "full", second: "numeric"}, "timeStyle-second");
+optionsThrow({timeStyle: "full", fractionalSecondDigits: 1}, "timeStyle-fractionalSecondDigits");
+optionsThrow({timeStyle: "full", timeZoneName: "short"}, "timeStyle-timeZoneName");
