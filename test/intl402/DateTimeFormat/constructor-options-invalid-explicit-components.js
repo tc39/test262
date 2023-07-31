@@ -18,7 +18,7 @@ info: |
             i. Throw a TypeError exception.
 ---*/
 
-function optionsThrow(options, testName){
+function optionsThrow(options, testName) {
   assert.throws(TypeError, function() {
     new Intl.DateTimeFormat(undefined, options);
   }, testName + ":");
