@@ -3,7 +3,9 @@
 
 /*---
 description: TODO
+flags: [async]
 features: [AsyncContext]
+includes: [asyncHelpers.js]
 ---*/
 
 // TODO: This test tests the behavior in
@@ -11,19 +13,23 @@ features: [AsyncContext]
 
 const asyncVar = new AsyncContext.Variable();
 
-function* gen() {
+async function* gen() {
+  await Promise.resolve();
   assert.sameValue(asyncVar.get(), "init");
   yield;
+  await Promise.resolve();
   assert.sameValue(asyncVar.get(), "init");
 }
 
-let g;
-asyncVar.run('init', () => {
-  g = gen();
-});
-asyncVar.run('first iter', () => {
-  g.next();
-});
-asyncVar.run('second iter', () => {
-  g.next();
+asyncTest(async () => {
+  let g;
+  asyncVar.run('init', () => {
+    g = gen();
+  });
+  await asyncVar.run('first iter', async () => {
+    await g.next();
+  });
+  await asyncVar.run('second iter', async () => {
+    await g.next();
+  });
 });

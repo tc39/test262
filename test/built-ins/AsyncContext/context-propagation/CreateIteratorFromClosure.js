@@ -11,19 +11,15 @@ features: [AsyncContext]
 
 const asyncVar = new AsyncContext.Variable();
 
-function* gen() {
-  assert.sameValue(asyncVar.get(), "init");
-  yield;
-  assert.sameValue(asyncVar.get(), "init");
-}
+const array = [];
+Object.defineProperty(array, 0, {
+  get() {
+    assert.sameValue(asyncVar.get(), "foo");
+  }
+});
 
-let g;
-asyncVar.run('init', () => {
-  g = gen();
-});
-asyncVar.run('first iter', () => {
-  g.next();
-});
-asyncVar.run('second iter', () => {
-  g.next();
+const iter = asyncVar.run("foo", () => array.values());
+
+asyncVar.run("bar", () => {
+  iter.next();
 });

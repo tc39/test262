@@ -13,7 +13,11 @@ const asyncVar = new AsyncContext.Variable();
 
 function* gen() {
   assert.sameValue(asyncVar.get(), "init");
-  yield;
+  yield* asyncVar.run("nested-gen", function* () {
+    assert.sameValue(asyncVar.get(), "nested-gen");
+    yield;
+    assert.sameValue(asyncVar.get(), "nested-gen");
+  });
   assert.sameValue(asyncVar.get(), "init");
 }
 
