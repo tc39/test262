@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.prototype.subtract
-description: A number as relativeTo option is converted to a string, then to Temporal.PlainDate
+description: A number cannot be used in place of a relativeTo
 features: [Temporal]
 ---*/
 
