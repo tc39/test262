@@ -9,8 +9,6 @@ features: [Temporal]
 
 const instance = new Temporal.Duration(1, 0, 0, 0, 24);
 
-const relativeTo = 20191101;
-
 const numbers = [
   1,
   20191101,
