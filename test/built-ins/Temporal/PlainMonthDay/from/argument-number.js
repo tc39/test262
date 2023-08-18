@@ -7,8 +7,6 @@ description: A number is invalid in place of an ISO string for Temporal.PlainMon
 features: [Temporal]
 ---*/
 
-const arg = 1118;
-
 const numbers = [
   1,
   1118,
