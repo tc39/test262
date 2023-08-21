@@ -17,7 +17,7 @@ var displayNames = new Intl.DisplayNames(undefined, {type: 'region'});
 
 assert.throws(RangeError, function() {
   displayNames.of('00');
-}, 'insufficient length, digit');
+}, 'insufficient length, numeric');
 
 assert.throws(RangeError, function() {
   displayNames.of('a');
@@ -29,11 +29,27 @@ assert.throws(RangeError, function() {
 
 assert.throws(RangeError, function() {
   displayNames.of('1111');
-}, 'excessive length, digit');
+}, 'excessive length, numeric');
 
 assert.throws(RangeError, function() {
   displayNames.of('');
 }, 'empty string');
+
+assert.throws(RangeError, function() {
+  displayNames.of('a01');
+}, 'mixed alphanumeric (alpha first, length 3)');
+
+assert.throws(RangeError, function() {
+  displayNames.of('a1');
+}, 'mixed alphanumeric (alpha first, length 2)');
+
+assert.throws(RangeError, function() {
+  displayNames.of('1a');
+}, 'mixed alphanumeric (numeric first, length 2)');
+
+assert.throws(RangeError, function() {
+  displayNames.of('1a1');
+}, 'mixed alphanumeric (numeric first, length 3)');
 
 assert.throws(RangeError, function() {
   displayNames.of('-111');
