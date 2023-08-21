@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.calendar.prototype.monthdayfromfields
 description: Errors due to missing properties on fields object are thrown in the correct order
-includes: [temporalHelpers.js]
+includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -23,20 +23,21 @@ const missingDay = {
 };
 assert.throws(TypeError, () => instance.monthDayFromFields(missingDay), "day should be checked before year and month");
 
-let getMonthCode = false;
-let getYear = false;
-const monthWithoutYear = {
-  day: 1,
-  month: 5,
-  get monthCode() {
-    getMonthCode = true;
-  },
+let got = [];
+const fieldsSpy = {
   get year() {
-    getYear = true;
+    got.push("year");
+  },
+  get month() {
+    got.push("month");
+  },
+  get monthCode() {
+    got.push("monthCode");
+  },
+  get day() {
+    got.push("day");
+    return 1;
   },
 };
-assert.throws(TypeError, () => instance.monthDayFromFields(monthWithoutYear), "year/month should be checked after fetching but before resolving the month code");
-assert(getMonthCode, "year/month is checked after fetching monthCode");
-assert(getYear, "year/month is fetched after fetching month");
-
-assert.throws(TypeError, () => instance.monthDayFromFields({ day: 1 }), "month should be resolved last");
+assert.throws(TypeError, () => instance.monthDayFromFields(fieldsSpy), "incomplete fields should be rejected (but after reading all non-required fields)");
+assert.compareArray(got, ["day", "month", "monthCode", "year"], "fields should be read in alphabetical order");
