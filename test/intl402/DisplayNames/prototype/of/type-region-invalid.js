@@ -4,7 +4,7 @@
 esid: sec-Intl.DisplayNames.prototype.of
 description: Throws a RangeError for invalid `region` codes
 info: |
-  12.3.3 Intl.DisplayNames.prototype.of ( code )
+  12.5.1 CanonicalCodeForDisplayNames ( type, code )
 
   ...
   2. If type is "region", then
@@ -64,7 +64,7 @@ assert.throws(RangeError, function() {
 }, 'trailing separator (dash)');
 
 assert.throws(RangeError, function() {
-  displayNames.of('111-');
+  displayNames.of('111_');
 }, 'trailing separator (underscore)');
 
 assert.throws(RangeError, function() {

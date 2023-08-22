@@ -4,14 +4,14 @@
 esid: sec-Intl.DisplayNames.prototype.of
 description: Throws a RangeError for invalid `currency` codes
 info: |
-  12.3.3 Intl.DisplayNames.prototype.of ( code )
+  12.5.1 CanonicalCodeForDisplayNames ( type, code )
 
   ...
   6. Assert: type is "currency".
   7. If ! IsWellFormedCurrencyCode(code) is false, throw a RangeError exception.
   8. Return the ASCII-uppercase of code.
 
-  6.3.1 IsWellFormedCurrencyCode ( code )
+  IsWellFormedCurrencyCode ( code )
     1. If the length of currency is not 3, return false.
     2. Let normalized be the ASCII-uppercase of currency.
     3. If normalized contains any code unit outside of 0x0041 through 0x005A (corresponding to Unicode characters LATIN CAPITAL LETTER A through LATIN CAPITAL LETTER Z), return false.
@@ -52,10 +52,6 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   displayNames.of('_aaa');
 }, 'leading separator (underscore)');
-
-assert.throws(RangeError, function() {
-  displayNames.of('aaa-');
-}, 'trailing separator (dash)');
 
 assert.throws(RangeError, function() {
   displayNames.of('aaa_');

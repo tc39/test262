@@ -4,7 +4,7 @@
 esid: sec-Intl.DisplayNames.prototype.of
 description: Returns string value for valid `region` codes
 info: |
-  12.3.3 Intl.DisplayNames.prototype.of ( code )
+  12.5.1 CanonicalCodeForDisplayNames ( type, code )
 
   ...
   2. If type is "region", then

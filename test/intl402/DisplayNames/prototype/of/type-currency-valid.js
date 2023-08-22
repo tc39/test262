@@ -4,14 +4,14 @@
 esid: sec-Intl.DisplayNames.prototype.of
 description: Returns string value for valid `currency` codes
 info: |
-  12.3.3 Intl.DisplayNames.prototype.of ( code )
+  12.5.1 CanonicalCodeForDisplayNames ( type, code )
 
   ...
   6. Assert: type is "currency".
   7. If ! IsWellFormedCurrencyCode(code) is false, throw a RangeError exception.
   8. Return the ASCII-uppercase of code.
 
-  6.3.1 IsWellFormedCurrencyCode ( code )
+  IsWellFormedCurrencyCode ( code )
 
     1. If the length of currency is not 3, return false.
     2. Let normalized be the ASCII-uppercase of currency.

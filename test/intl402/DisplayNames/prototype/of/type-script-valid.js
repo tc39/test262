@@ -4,7 +4,8 @@
 esid: sec-Intl.DisplayNames.prototype.of
 description: Returns string value for valid `script` codes
 info: |
-  12.3.3 Intl.DisplayNames.prototype.of ( code )
+  12.5.1 CanonicalCodeForDisplayNames ( type, code )
+
   ...
   3. If type is "script", then
     a. If code cannot be matched by the unicode_script_subtag Unicode locale nonterminal, throw a RangeError exception.

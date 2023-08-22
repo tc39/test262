@@ -4,7 +4,7 @@
 esid: sec-Intl.DisplayNames.prototype.of
 description: Throws a RangeError for invalid `script` codes
 info: |
-  12.3.3 Intl.DisplayNames.prototype.of ( code )
+  12.5.1 CanonicalCodeForDisplayNames ( type, code )
   ...
   3. If type is "script", then
     a. If code cannot be matched by the unicode_script_subtag Unicode locale nonterminal, throw a RangeError exception.
@@ -21,7 +21,6 @@ var displayNames = new Intl.DisplayNames(undefined, {type: 'script'});
 assert.throws(RangeError, function() {
   displayNames.of('aaa');
 }, 'insufficient length');
-
 
 assert.throws(RangeError, function() {
   displayNames.of('aaaaa');
@@ -41,15 +40,15 @@ assert.throws(RangeError, function() {
 
 assert.throws(RangeError, function() {
   displayNames.of('aaaa-');
-}, 'trailing separator, -');
+}, 'trailing separator (dash)');
 
 assert.throws(RangeError, function() {
   displayNames.of('_aaaa');
-}, 'leading separator, _');
+}, 'leading separator (underscore)');
 
 assert.throws(RangeError, function() {
   displayNames.of('aaaa_');
-}, 'trailing separator, _');
+}, 'trailing separator (underscore)');
 
 assert.throws(RangeError, function() {
   displayNames.of('aa a');
