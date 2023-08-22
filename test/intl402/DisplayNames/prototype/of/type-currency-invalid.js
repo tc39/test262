@@ -15,7 +15,9 @@ info: |
     1. If the length of currency is not 3, return false.
     2. Let normalized be the ASCII-uppercase of currency.
     3. If normalized contains any code unit outside of 0x0041 through 0x005A (corresponding to Unicode characters LATIN CAPITAL LETTER A through LATIN CAPITAL LETTER Z), return false.
-    4. Return true.  features: [Intl.DisplayNames] ---*/
+    4. Return true.
+features: [Intl.DisplayNames]
+---*/
 
 var displayNames = new Intl.DisplayNames(undefined, {type: 'currency'});
 
