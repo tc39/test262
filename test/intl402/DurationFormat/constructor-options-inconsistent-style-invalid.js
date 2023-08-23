@@ -23,13 +23,23 @@ info: |
 features: [Intl.DurationFormat]
 ---*/
 
-var numericStyles = ['numeric', '2-digit'];
+/*
 
-for (var style of numericStyles){
+var durationUnits = ['minutes', 'seconds', 'milliseconds', 'microseconds'];
+var duration = { hours: 1, minutes: 2, seconds: 3, milliseconds: 456, microseconds: 789, nanoseconds: 101};
+
+for (var durationUnit of durationUnits){
   assert.throws(RangeError, function() {
-    new Intl.DurationFormat(undefined, { hours: style, minutes: "long"});
+    new Intl.DurationFormat(undefined, {style: "digital", [durationUnit]: "long"}.format(duration));
   });
+}
+
+*/
+
+let timeUnits = ['minutes', 'seconds', 'milliseconds', 'microseconds'];
+
+for (var timeUnit of timeUnits){
   assert.throws(RangeError, function() {
-    new Intl.DurationFormat(undefined, { minutes: style, milliseconds: "long"});
+    new Intl.DurationFormat(undefined, {hours: "numeric", [timeUnit]: "long"}).format({hours: 1, minutes: 2, seconds: 3, milliseconds: 4, microseconds: 5, nanoseconds: 6});
   });
 }
