@@ -1734,7 +1734,7 @@ var TemporalHelpers = {
       }
 
       getPossibleInstantsFor(plainDateTime) {
-        this.getPossibleInstantsForCalledWith.push(plainDateTime.toString());
+        this.getPossibleInstantsForCalledWith.push(plainDateTime.toString({ calendarName: "never" }));
         const [instant] = super.getPossibleInstantsFor(plainDateTime);
         if (this._shiftNanoseconds > 0) {
           if (this._isBeforeShift(instant)) return [instant];
