@@ -51,6 +51,6 @@ class C {
     @C.#ZW_\u200C_NJ
     @C.#ZW_\u200D_J
     @C.#yield
-    @C.#await class D {}
+    @C.#await class C {}
   }
 }
