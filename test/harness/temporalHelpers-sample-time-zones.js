@@ -9,13 +9,12 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-function checkTimeZoneArithmetic(shiftInstant, shiftNs, realTimeZoneName, shiftWallTime) {
+function checkTimeZoneArithmetic(shiftInstant, testWallTime, testWallDuration, tz, realTimeZoneName) {
   // No need to test this on hosts that don't provide an Intl object. It's
   // sufficient that the logic is tested on at least one host.
   if (typeof globalThis.Intl === "undefined")
     return;
 
-  const tz = TemporalHelpers.oneShiftTimeZone(shiftInstant, shiftNs);
   const realTz = new Temporal.TimeZone(realTimeZoneName);
 
   assert.sameValue(
@@ -37,44 +36,56 @@ function checkTimeZoneArithmetic(shiftInstant, shiftNs, realTimeZoneName, shiftW
   );
 
   assert.compareArray(
-    tz.getPossibleInstantsFor(shiftWallTime).map((i) => i.epochNanoseconds),
-    realTz.getPossibleInstantsFor(shiftWallTime).map((i) => i.epochNanoseconds),
+    tz.getPossibleInstantsFor(testWallTime).map((i) => i.epochNanoseconds),
+    realTz.getPossibleInstantsFor(testWallTime).map((i) => i.epochNanoseconds),
     'possible instants for wall time'
   );
-  const before1 = shiftWallTime.subtract({ hours: 1 });
+  const before1 = testWallTime.subtract(testWallDuration);
   assert.compareArray(
     tz.getPossibleInstantsFor(before1).map((i) => i.epochNanoseconds),
     realTz.getPossibleInstantsFor(before1).map((i) => i.epochNanoseconds),
-    'possible instants for 1 hour before wall time'
+    'possible instants before wall time'
   );
-  const after1 = shiftWallTime.add({ hours: 1 });
+  const after1 = testWallTime.add(testWallDuration);
   assert.compareArray(
     tz.getPossibleInstantsFor(after1).map((i) => i.epochNanoseconds),
     realTz.getPossibleInstantsFor(after1).map((i) => i.epochNanoseconds),
-    'possible instants for 1 hour after wall time'
+    'possible instants after wall time'
   );
 }
 
 // Check a positive DST shift from +00:00 to +01:00
 checkTimeZoneArithmetic(
   new Temporal.Instant(1616893200000000000n),
-  3600e9,
+  new Temporal.PlainDateTime(2021, 3, 28, 1),
+  { hours: 1 },
+  TemporalHelpers.oneShiftTimeZone(new Temporal.Instant(1616893200000000000n), 3600e9),
   'Europe/London',
-  new Temporal.PlainDateTime(2021, 3, 28, 1)
 );
 
 // Check a negative DST shift from +00:00 to -01:00
 checkTimeZoneArithmetic(
   new Temporal.Instant(1635642000000000000n),
-  -3600e9,
+  new Temporal.PlainDateTime(2021, 10, 31, 1),
+  { hours: 1 },
+  TemporalHelpers.oneShiftTimeZone(new Temporal.Instant(1635642000000000000n), -3600e9),
   'Atlantic/Azores',
-  new Temporal.PlainDateTime(2021, 10, 31, 1)
 );
 
 // Check the no-shift case
 checkTimeZoneArithmetic(
   new Temporal.Instant(0n),
-  0,
+  new Temporal.PlainDateTime(1970, 1, 1),
+  { hours: 1 },
+  TemporalHelpers.oneShiftTimeZone(new Temporal.Instant(0n), 0),
   'UTC',
-  new Temporal.PlainDateTime(1970, 1, 1)
+);
+
+// Check the cross-date-line sample time zone
+checkTimeZoneArithmetic(
+  Temporal.Instant.from('2011-12-30T10:00:00Z'),
+  Temporal.PlainDateTime.from("2011-12-30T12:00"),
+  { days: 1 },
+  TemporalHelpers.crossDateLineTimeZone(),
+  'Pacific/Apia',
 );
