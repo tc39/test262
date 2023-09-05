@@ -89,3 +89,21 @@ checkTimeZoneArithmetic(
   TemporalHelpers.crossDateLineTimeZone(),
   'Pacific/Apia',
 );
+
+// Check the spring-forward transition of the DST sample time zone
+checkTimeZoneArithmetic(
+  new Temporal.Instant(954669600_000_000_000n),
+  new Temporal.PlainDateTime(2000, 4, 2, 2),
+  { minutes: 30 },
+  TemporalHelpers.springForwardFallBackTimeZone(),
+  'America/Vancouver',
+);
+
+// Check the fall-back transition of the DST sample time zone
+checkTimeZoneArithmetic(
+  new Temporal.Instant(972810000_000_000_000n),
+  new Temporal.PlainDateTime(2000, 10, 29, 2),
+  { minutes: 30 },
+  TemporalHelpers.springForwardFallBackTimeZone(),
+  'America/Vancouver',
+);
