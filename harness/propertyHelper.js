@@ -113,23 +113,10 @@ function isConfigurable(obj, name) {
 }
 
 function isEnumerable(obj, name) {
-  var stringCheck = false;
-
-  if (typeof name === "string") {
-    for (var x in obj) {
-      if (x === name) {
-        stringCheck = true;
-        break;
-      }
-    }
-  } else {
-    // skip it if name is not string, works for Symbol names.
-    stringCheck = true;
-  }
-
-  return stringCheck &&
+  return (
     Object.prototype.hasOwnProperty.call(obj, name) &&
-    Object.prototype.propertyIsEnumerable.call(obj, name);
+    Object.prototype.propertyIsEnumerable.call(obj, name)
+  );
 }
 
 function isSameValue(a, b) {
