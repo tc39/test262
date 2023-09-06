@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.zoneddatetime.prototype.equals
-description: Properties on objects passed to equals() are accessed in the correct order
+esid: sec-temporal.zoneddatetime.prototype.round
+description: Properties on objects passed to round() are accessed in the correct order
 includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
