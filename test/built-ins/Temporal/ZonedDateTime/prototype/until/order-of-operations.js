@@ -269,7 +269,6 @@ assert.compareArray(actual, [
   "get other.timeZone.getOffsetNanosecondsFor",
   "call other.timeZone.getOffsetNanosecondsFor",
   // NOTE: extra because of wall-clock time ambiguity:
-  "get other.timeZone.getOffsetNanosecondsFor",
   "call other.timeZone.getOffsetNanosecondsFor",
   // CalendarEquals
   "get this.calendar.id",
