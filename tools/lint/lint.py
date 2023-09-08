@@ -5,7 +5,6 @@
 from __future__ import print_function
 
 import argparse
-import inflect
 import os
 try:
     from pip._internal import main as pip
@@ -14,8 +13,6 @@ except ImportError:
     from pip import main as pip
     from pip.req import parse_requirements, InstallRequirement
 import sys
-
-ie = inflect.engine()
 
 try:
     __import__('yaml')
@@ -97,7 +94,7 @@ if __name__ == '__main__':
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
-    print('Linting %s %s' % (file_count, ie.plural('file', file_count)))
+    print('Linting %s file(s)' % (file_count))
 
     all_errors = lint(files)
     unexpected_errors = dict(all_errors)
@@ -109,7 +106,7 @@ if __name__ == '__main__':
             del unexpected_errors[file_name]
 
     error_count = len(unexpected_errors)
-    print('Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count)))
+    print('Linting complete. %s error(s) found.' % (error_count))
 
     if error_count == 0:
         sys.exit(0)
