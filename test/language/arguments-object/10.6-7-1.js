@@ -6,6 +6,7 @@ es5id: 10.6-7-1
 description: >
     Arguments Object has length as its own property and does not
     invoke the setter defined on Object.prototype.length (Step 7)
+includes: [propertyHelper.js]
 ---*/
 
             var data = "data";
@@ -23,27 +24,13 @@ description: >
                 configurable: true
             });
 
-            var verifyValue = false;
             var argObj = (function () { return arguments })();
-            verifyValue = (argObj.length === 0);
 
-            var verifyWritable = false;
-            argObj.length = 1001;
-            verifyWritable = (argObj.length === 1001);
+verifyProperty(argObj, "length", {
+    value: 0,
+    writable: true,
+    enumerable: false,
+    configurable: true,
+});
 
-            var verifyEnumerable = false;
-            for (var p in argObj) {
-                if (p === "length") {
-                    verifyEnumerable = true;
-                }
-            }
-
-            var verifyConfigurable = false;
-            delete argObj.length;
-            verifyConfigurable = argObj.hasOwnProperty("length");
-
-assert(verifyValue, 'verifyValue !== true');
-assert(verifyWritable, 'verifyWritable !== true');
-assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
-assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
 assert.sameValue(data, "data", 'data');
