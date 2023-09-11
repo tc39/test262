@@ -7,6 +7,7 @@ description: >
     Arguments Object has index property '0' as its own property, it
     shoulde be writable, enumerable, configurable and does not invoke
     the setter defined on Object.prototype[0] (Step 11.b)
+includes: [propertyHelper.js]
 ---*/
 
             var data = "data";
@@ -26,26 +27,11 @@ description: >
 
             var argObj = (function () { return arguments })(1);
 
-            var verifyValue = false;
-            verifyValue = (argObj[0] === 1);
+verifyProperty(argObj, "0", {
+    value: 1,
+    writable: true,
+    enumerable: true,
+    configurable: true,
+});
 
-            var verifyEnumerable = false;
-            for (var p in argObj) {
-                if (p === "0" && argObj.hasOwnProperty("0")) {
-                    verifyEnumerable = true;
-                }
-            }
-
-            var verifyWritable = false;
-            argObj[0] = 1001;
-            verifyWritable = (argObj[0] === 1001);
-
-            var verifyConfigurable = false;
-            delete argObj[0];
-            verifyConfigurable = argObj.hasOwnProperty("0");
-
-assert(verifyValue, 'verifyValue !== true');
-assert(verifyWritable, 'verifyWritable !== true');
-assert(verifyEnumerable, 'verifyEnumerable !== true');
-assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
 assert.sameValue(data, "data", 'data');
