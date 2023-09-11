@@ -68,6 +68,9 @@ function verifyProperty(obj, name, desc, options) {
     if (!isSameValue(desc.value, originalDesc.value)) {
       failures.push("descriptor value should be " + desc.value);
     }
+    if (!isSameValue(desc.value, obj[name])) {
+      failures.push(failures, "object value should be " + desc.value);
+    }
   }
 
   if (Object.prototype.hasOwnProperty.call(desc, 'enumerable')) {
