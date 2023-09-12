@@ -28,7 +28,6 @@ let validOffsetTimeZones = {
 };
 Object.keys(validOffsetTimeZones).forEach((timeZone) => {
     let df = new Intl.DateTimeFormat(undefined, {timeZone});
-    let actual = df.resolvedOptions().timeZone;
     let expected = validOffsetTimeZones[timeZone];
-    assert.sameValue(expected, actual);
+    assert.sameValue(df.resolvedOptions().timeZone, expected, timeZone);
 });

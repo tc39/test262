@@ -20,10 +20,9 @@ let validOffsetTimeZones = [
 ];
 validOffsetTimeZones.forEach((timeZone) => {
     let df = new Intl.DateTimeFormat(undefined, {timeZone});
-    let actual = df.resolvedOptions().timeZone;
     let expected = timeZone;
     if (expected.length == 3) {
         expected += ":00";
     }
-    assert.sameValue(expected, actual, timeZone);
+    assert.sameValue(df.resolvedOptions().timeZone, expected, timeZone);
 });

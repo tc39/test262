@@ -25,6 +25,6 @@ Object.keys(tests).forEach((timeZone) => {
     let hour = res.filter((t) => t.type=="hour")[0].value
     let minute = res.filter((t) => t.type=="minute")[0].value
     let expected = tests[timeZone];
-    assert.sameValue(expected.hour, hour, "hour in TimeZone:" + timeZone);
-    assert.sameValue(expected.minute, minute, "minute in TimeZone:" + timeZone);
+    assert.sameValue(hour, expected.hour, "hour in TimeZone:" + timeZone);
+    assert.sameValue(minute, expected.minute, "minute in TimeZone:" + timeZone);
 });
