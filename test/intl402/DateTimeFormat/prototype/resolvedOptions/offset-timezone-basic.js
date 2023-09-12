@@ -21,5 +21,9 @@ let validOffsetTimeZones = [
 validOffsetTimeZones.forEach((timeZone) => {
     let df = new Intl.DateTimeFormat(undefined, {timeZone});
     let actual = df.resolvedOptions().timeZone;
-    assert.sameValue(timeZone, actual);
+    let expected = timeZone;
+    if (expected.length == 3) {
+        expected += ":00";
+    }
+    assert.sameValue(expected, actual, timeZone);
 });
