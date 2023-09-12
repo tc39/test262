@@ -21,6 +21,7 @@ optionKeys.forEach((property) =>
     }));
 let p = new Intl.DurationFormat(undefined, opt);
 assert.sameValue(
+    readKeys.toString(),
     'numberingSystem,' +
     'style,' +
     'years,' +
@@ -42,5 +43,4 @@ assert.sameValue(
     'microseconds,' +
     'microsecondsDisplay,' +
     'nanoseconds,' +
-    'nanosecondsDisplay',
-    readKeys.toString());
+    'nanosecondsDisplay');

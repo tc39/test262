@@ -7,6 +7,7 @@ features: [Intl.DurationFormat]
 ---*/
 
 assert.sameValue(
+    Object.keys((new Intl.DurationFormat()).resolvedOptions()).toString(),
     'locale,' +
     'numberingSystem,' +
     'style,' +
@@ -29,5 +30,4 @@ assert.sameValue(
     'microseconds,' +
     'microsecondsDisplay,' +
     'nanoseconds,' +
-    'nanosecondsDisplay',
-    Object.keys((new Intl.DurationFormat()).resolvedOptions()).toString());
+    'nanosecondsDisplay');
