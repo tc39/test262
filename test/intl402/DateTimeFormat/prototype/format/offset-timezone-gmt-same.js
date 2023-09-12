@@ -2,8 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-createdatetimeformat
-description: test offset timezone format the same value as the equivalent
-  Etc/GMT offset timezone
+description: >
+  Test offset timezone format the same value as the equivalent
+  Etc/GMT offset timezone.
 ---*/
 let offsetTimeZones = {
     '+0300': 'Etc/GMT-3',

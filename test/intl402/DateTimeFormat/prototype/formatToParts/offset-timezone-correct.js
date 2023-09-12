@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-createdatetimeformat
-description: test offset timezone generate the correct hour and minute
+description: >
+  Test offset timezone generate the correct hour and minute
   base on the offset timezone value.
 ---*/
 let date = new Date('1995-12-17T03:24:56Z');
