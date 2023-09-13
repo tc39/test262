@@ -1,7 +1,9 @@
 // Copyright (C) 2021 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: Reports abrupt completions produced by attributes enumeration
+description: >
+  Follows the semantics of the EnumerableOwnPropertyNames abstract operation
+  during attributes enumeration
 esid: sec-import-call-runtime-semantics-evaluation
 info: |
   2.1.1.1 EvaluateImportCall ( specifierExpression [ , optionsExpression ] )
@@ -19,25 +21,40 @@ info: |
            i. If Type(assertionsObj) is not Object,
               [...]
            ii. Let keys be EnumerableOwnPropertyNames(assertionsObj, key).
-           iii. IfAbruptRejectPromise(keys, promiseCapability).
     [...]
-features: [dynamic-import, import-assertions, Proxy]
+features: [dynamic-import, import-assertions, json-modules, Symbol, Proxy]
+includes: [compareArray.js]
 flags: [async]
 ---*/
 
-var thrown = new Test262Error();
+var symbol = Symbol('');
+var target = {
+  type: "json"
+};
+var descriptors = {
+  type: {configurable: true, enumerable: true}
+};
+var log = [];
+
 var options = {
   assert: new Proxy({}, {
     ownKeys: function() {
-      throw thrown;
+      return ["type"];
+    },
+    get(_, name) {
+      log.push(name);
+      return "json";
+    },
+    getOwnPropertyDescriptor(target, name) {
+      return {configurable: true, enumerable: true, value: "json"};
     },
   })
 };
 
-import('./2nd-param_FIXTURE.js', options)
-  .then(function() {
-    throw new Test262Error('Expected promise to be rejected, but promise was fulfilled.');
-  }, function(error) {
-    assert.sameValue(error, thrown);
+import('./2nd-param_FIXTURE.json', options)
+  .then(function(module) {
+    assert.sameValue(module.default, 262);
   })
   .then($DONE, $DONE);
+
+assert.compareArray(log, ['type']);
