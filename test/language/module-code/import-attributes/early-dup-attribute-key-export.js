@@ -8,7 +8,7 @@ info: |
 
   - It is a Syntax Error if WithClauseToAttributes of WithClause has two
     entries a and b such that a.[[Key]] is b.[[Key]].
-features: [import-assertions]
+features: [import-attributes]
 flags: [module]
 negative:
   phase: parse
@@ -17,7 +17,7 @@ negative:
 
 $DONOTEVALUATE();
 
-export * from './import-assertion-3_FIXTURE.js' assert {
+export * from './import-attribute-3_FIXTURE.js' with {
   type: 'json',
   'typ\u0065': ''
 };

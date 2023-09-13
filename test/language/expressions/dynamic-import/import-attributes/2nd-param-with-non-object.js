@@ -23,7 +23,7 @@ info: |
                  newly created TypeError object »).
               2. Return promiseCapability.[[Promise]].
     [...]
-features: [dynamic-import, import-assertions, Symbol, BigInt]
+features: [dynamic-import, import-attributes, Symbol, BigInt]
 flags: [async]
 ---*/
 
@@ -36,12 +36,12 @@ function test(promise, valueType) {
 }
 
 Promise.all([
-    test(import('./2nd-param_FIXTURE.js', {assert:null}), 'null'),
-    test(import('./2nd-param_FIXTURE.js', {assert:false}), 'boolean'),
-    test(import('./2nd-param_FIXTURE.js', {assert:23}), 'number'),
-    test(import('./2nd-param_FIXTURE.js', {assert:''}), 'string'),
-    test(import('./2nd-param_FIXTURE.js', {assert:Symbol('')}), 'symbol'),
-    test(import('./2nd-param_FIXTURE.js', {assert:23n}), 'bigint')
+    test(import('./2nd-param_FIXTURE.js', {with:null}), 'null'),
+    test(import('./2nd-param_FIXTURE.js', {with:false}), 'boolean'),
+    test(import('./2nd-param_FIXTURE.js', {with:23}), 'number'),
+    test(import('./2nd-param_FIXTURE.js', {with:''}), 'string'),
+    test(import('./2nd-param_FIXTURE.js', {with:Symbol('')}), 'symbol'),
+    test(import('./2nd-param_FIXTURE.js', {with:23n}), 'bigint')
   ])
   .then(function() {})
   .then($DONE, $DONE);

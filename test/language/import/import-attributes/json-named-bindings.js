@@ -9,7 +9,7 @@ info: |
   This was ultimately rejected, so attempting to import in this way should
   produce a SyntaxError.
 flags: [module]
-features: [import-assertions, json-modules]
+features: [import-attributes, json-modules]
 negative:
   phase: parse
   type: SyntaxError
@@ -17,4 +17,4 @@ negative:
 
 $DONOTEVALUATE();
 
-import {name} from './json-named-bindings_FIXTURE.json' assert { type: 'json' };
+import {name} from './json-named-bindings_FIXTURE.json' with { type: 'json' };

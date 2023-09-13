@@ -16,7 +16,7 @@ info: |
            i. Perform ! Call(promiseCapability.[[Reject]], undefined, « a newly created TypeError object »).
            ii. Return promiseCapability.[[Promise]].
     [...]
-features: [dynamic-import, import-assertions, Symbol, BigInt]
+features: [dynamic-import, import-attributes, Symbol, BigInt]
 flags: [async]
 ---*/
 

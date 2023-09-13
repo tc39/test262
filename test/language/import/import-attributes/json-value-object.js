@@ -17,10 +17,10 @@ info: |
   of JSON's so-called "whitespace" token) both before and after the "value."
 flags: [module]
 includes: [propertyHelper.js]
-features: [import-assertions, json-modules]
+features: [import-attributes, json-modules]
 ---*/
 
-import value from './json-value-object_FIXTURE.json' assert { type: 'json' };
+import value from './json-value-object_FIXTURE.json' with { type: 'json' };
 
 assert.sameValue(Object.getPrototypeOf(value), Object.prototype);
 assert.sameValue(Object.getOwnPropertyNames(value).length, 6);

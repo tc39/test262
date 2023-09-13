@@ -22,7 +22,7 @@ info: |
               [...]
            ii. Let keys be EnumerableOwnPropertyNames(assertionsObj, key).
     [...]
-features: [dynamic-import, import-assertions, Symbol, Proxy]
+features: [dynamic-import, import-attributes, Symbol, Proxy]
 flags: [async]
 ---*/
 
@@ -38,7 +38,7 @@ var descriptors = {
 };
 
 var options = {
-  assert: new Proxy({}, {
+  with: new Proxy({}, {
     ownKeys: function() {
       return [symbol, 'nonEnumerable', 'absent'];
     },
