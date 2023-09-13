@@ -9,8 +9,8 @@ info: |
     import ModuleSpecifier[no LineTerminator here] WithClause;
 
   WithClause:
-    assert {}
-    assert {WithEntries ,opt}
+    AttributesKeyword {}
+    AttributesKeyword {WithEntries ,opt}
 
   WithEntries:
     AttributeKey : StringLiteral
@@ -22,7 +22,7 @@ info: |
 negative:
   phase: resolution
   type: SyntaxError
-features: [import-assertions]
+features: [import-attributes]
 flags: [module]
 ---*/
 
@@ -30,8 +30,8 @@ $DONOTEVALUATE();
 
 import "./ensure-linking-error_FIXTURE.js";
 
-import x from './import-assertion-1_FIXTURE.js' assert {if:''};
-import './import-assertion-2_FIXTURE.js' assert {if:''};
-export * from './import-assertion-3_FIXTURE.js' assert {if:''};
+import x from './import-attribute-1_FIXTURE.js' with {if:''};
+import './import-attribute-2_FIXTURE.js' with {if:''};
+export * from './import-attribute-3_FIXTURE.js' with {if:''};
 
 assert.sameValue(x, 262.1);

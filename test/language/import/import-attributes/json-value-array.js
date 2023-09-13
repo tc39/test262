@@ -16,10 +16,10 @@ info: |
   module record includes non-printable characters (specifically, all four forms
   of JSON's so-called "whitespace" token) both before and after the "value."
 flags: [module]
-features: [import-assertions, json-modules]
+features: [import-attributes, json-modules]
 ---*/
 
-import value from './json-value-array_FIXTURE.json' assert { type: 'json' };
+import value from './json-value-array_FIXTURE.json' with { type: 'json' };
 
 assert(Array.isArray(value), 'the exported value is an array');
 assert.sameValue(

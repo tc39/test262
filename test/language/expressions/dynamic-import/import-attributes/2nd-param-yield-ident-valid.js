@@ -8,7 +8,7 @@ info: |
   ImportCall[Yield, Await]:
     import ( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
     import ( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
-features: [dynamic-import, import-assertions]
+features: [dynamic-import, import-attributes]
 flags: [async, noStrict]
 ---*/
 

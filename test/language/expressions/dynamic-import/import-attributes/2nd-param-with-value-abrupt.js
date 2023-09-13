@@ -19,13 +19,13 @@ info: |
               1. Let value be Get(assertionsObj, key).
               2. IfAbruptRejectPromise(value, promiseCapability).
     [...]
-features: [dynamic-import, import-assertions]
+features: [dynamic-import, import-attributes]
 flags: [async]
 ---*/
 
 var thrown = new Test262Error();
 
-import('./2nd-param_FIXTURE.js', {assert:{get ''() { throw thrown; }}})
+import('./2nd-param_FIXTURE.js', {with:{get ''() { throw thrown; }}})
   .then(function() {
     throw new Test262Error('Expected promise to be rejected, but it was fulfilled');
   }, function(error) {

@@ -12,7 +12,7 @@ info: |
        a. Let optionsRef be the result of evaluating optionsExpression.
        b. Let options be ? GetValue(optionsRef).
     [...]
-features: [dynamic-import, import-assertions]
+features: [dynamic-import, import-attributes]
 ---*/
 
 var log = [];

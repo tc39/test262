@@ -12,7 +12,7 @@ info: |
   1. Let json be ? Call(%JSON.parse%, undefined, « source »).
   2. Return CreateDefaultExportSyntheticModule(json).
 flags: [module]
-features: [import-assertions, json-modules]
+features: [import-attributes, json-modules]
 negative:
   phase: parse
   type: SyntaxError
@@ -20,4 +20,4 @@ negative:
 
 $DONOTEVALUATE();
 
-import value from './json-invalid_FIXTURE.json' assert { type: 'json' };
+import value from './json-invalid_FIXTURE.json' with { type: 'json' };

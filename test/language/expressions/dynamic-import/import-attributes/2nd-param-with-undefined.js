@@ -21,13 +21,13 @@ info: |
                  newly created TypeError object »).
               2. Return promiseCapability.[[Promise]].
     [...]
-features: [dynamic-import, import-assertions, Symbol, BigInt]
+features: [dynamic-import, import-attributes, Symbol, BigInt]
 flags: [async]
 ---*/
 
 Promise.all([
     import('./2nd-param_FIXTURE.js', {}),
-    import('./2nd-param_FIXTURE.js', {assert:undefined}),
+    import('./2nd-param_FIXTURE.js', {with:undefined}),
   ])
   .then(function(values) {
     assert.sameValue(values[0].default, 262);

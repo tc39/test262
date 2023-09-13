@@ -21,13 +21,13 @@ info: |
            ii. Let keys be EnumerableOwnPropertyNames(assertionsObj, key).
            iii. IfAbruptRejectPromise(keys, promiseCapability).
     [...]
-features: [dynamic-import, import-assertions, Proxy]
+features: [dynamic-import, import-attributes, Proxy]
 flags: [async]
 ---*/
 
 var thrown = new Test262Error();
 var options = {
-  assert: new Proxy({}, {
+  with: new Proxy({}, {
     ownKeys: function() {
       throw thrown;
     },

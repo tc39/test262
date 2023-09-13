@@ -16,13 +16,13 @@ info: |
         b. Let assertionsObj be Get(options, "assert").
         c. IfAbruptRejectPromise(assertionsObj, promiseCapability).
     [...]
-features: [dynamic-import, import-assertions]
+features: [dynamic-import, import-attributes]
 flags: [async]
 ---*/
 
 var thrown = new Test262Error();
 var options = {
-  get assert() {
+  get with() {
     throw thrown;
   }
 };
