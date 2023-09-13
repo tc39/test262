@@ -7,21 +7,41 @@ features: [Intl.NumberFormat-v3]
 includes: [compareArray.js]
 ---*/
 
-let expected = [
+const allKeys = [
     'locale',
     'numberingSystem',
     'style',
+    'currency',
+    'currencyDisplay',
+    'currencySign',
+    'unit',
+    'unitDisplay',
     'minimumIntegerDigits',
     'minimumFractionDigits',
     'maximumFractionDigits',
+    'minimumSignificantDigits',
+    'maximumSignificantDigits',
     'useGrouping',
     'notation',
+    'compactDisplay',
     'signDisplay',
     'roundingIncrement',
     'roundingMode',
     'roundingPriority',
     'trailingZeroDisplay'
 ];
-assert.compareArray(
-    Object.keys((new Intl.NumberFormat()).resolvedOptions()), expected,
-    "keys of resolvedOptions() should be in the correct order");
+
+const optionsBase = { notation: 'compact' };
+const optionsExtensions = [
+    { style: 'currency', currency: 'XTS' },
+    { style: 'unit', unit: 'percent' },
+];
+optionsExtensions.forEach((optionsExtension) => {
+    const options = Object.assign({}, optionsBase, optionsExtension);
+    const nf = new Intl.NumberFormat(undefined, options);
+    const resolved = nf.resolvedOptions();
+    const resolvedKeys = Reflect.ownKeys(resolved);
+    const expectedKeys = allKeys.filter(key => key in resolved);
+    assert.compareArray(resolvedKeys, expectedKeys,
+        'resolvedOptions() property key order with options ' + JSON.stringify(options));
+});
