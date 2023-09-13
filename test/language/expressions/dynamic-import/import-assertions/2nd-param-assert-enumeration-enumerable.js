@@ -23,8 +23,7 @@ info: |
            ii. Let keys be EnumerableOwnPropertyNames(assertionsObj, key).
     [...]
 features: [dynamic-import, import-assertions, json-modules, Symbol, Proxy]
-includes:
-  - compareArray.js
+includes: [compareArray.js]
 flags: [async]
 ---*/
 
