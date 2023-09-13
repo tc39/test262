@@ -13,5 +13,5 @@ function testcase() {
     enumerable: false,
     configurable: true,
   });
- }
+}
 testcase();

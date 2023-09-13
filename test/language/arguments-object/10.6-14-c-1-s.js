@@ -8,9 +8,9 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var argObj = function () {
-            return arguments;
-        } ();
+var argObj = function () {
+    return arguments;
+} ();
 
 verifyProperty(argObj, "callee", {
     enumerable: false,

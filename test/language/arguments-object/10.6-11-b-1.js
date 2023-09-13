@@ -10,22 +10,22 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-            var data = "data";
-            var getFunc = function () {
-                return data;
-            };
+var data = "data";
+var getFunc = function () {
+    return data;
+};
 
-            var setFunc = function (value) {
-                data = value;
-            };
+var setFunc = function (value) {
+    data = value;
+};
 
-            Object.defineProperty(Object.prototype, "0", {
-                get: getFunc,
-                set: setFunc,
-                configurable: true
-            });
+Object.defineProperty(Object.prototype, "0", {
+    get: getFunc,
+    set: setFunc,
+    configurable: true
+});
 
-            var argObj = (function () { return arguments })(1);
+var argObj = (function () { return arguments })(1);
 
 verifyProperty(argObj, "0", {
     value: 1,
