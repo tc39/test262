@@ -17,13 +17,12 @@ let tests = {
     '−10:03': {hour: "5", minute: "21"},
     '−0509': {hour: "10", minute: "15"},
 };
-Object.keys(tests).forEach((timeZone) => {
+Object.entries(tests).forEach(([timeZone, expected]) => {
     let df = new Intl.DateTimeFormat("en",
         {timeZone, timeStyle: "short"});
     let res = df.formatToParts(date);
-    let hour = res.filter((t) => t.type=="hour")[0].value
-    let minute = res.filter((t) => t.type=="minute")[0].value
-    let expected = tests[timeZone];
-    assert.sameValue(hour, expected.hour, "hour in TimeZone:" + timeZone);
-    assert.sameValue(minute, expected.minute, "minute in TimeZone:" + timeZone);
+    let hour = res.filter((t) => t.type === "hour")[0].value
+    let minute = res.filter((t) => t.type === "minute")[0].value
+    assert.sameValue(hour, expected.hour, `hour in ${timeZone} time zone:`);
+    assert.sameValue(minute, expected.minute, `minute in ${timeZone} time zone:`);
 });
