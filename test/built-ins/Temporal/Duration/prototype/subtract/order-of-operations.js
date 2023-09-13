@@ -320,9 +320,10 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  // AddDuration → AddZonedDateTime 1
+  // AddDuration
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  // AddDuration → AddZonedDateTime 1
   "get options.relativeTo.calendar.dateAdd",
   "call options.relativeTo.calendar.dateAdd",
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
@@ -335,8 +336,6 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration → DifferenceZonedDateTime
-  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
-  "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → DifferenceZonedDateTime → DifferenceISODateTime

@@ -318,9 +318,10 @@ const expectedOpsForCalendarDifference = [
   // TimeZoneEquals
   "get this.timeZone.id",
   "get other.timeZone.id",
-  // DifferenceZonedDateTime
+  // precalculate PlainDateTime
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
+  // DifferenceZonedDateTime
   "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
   // DifferenceISODateTime
@@ -344,12 +345,7 @@ const expectedOpsForCalendarDifference = [
 ];
 
 const expectedOpsForCalendarRounding = [
-  // ToTemporalDate
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   // RoundDuration → MoveRelativeZonedDateTime → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
   "get this.calendar.dateAdd",
   "call this.calendar.dateAdd",
   "get this.timeZone.getPossibleInstantsFor",
