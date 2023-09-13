@@ -10,24 +10,24 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var desc = Object.getOwnPropertyDescriptor(Object.prototype, "constructor");
+var desc = Object.getOwnPropertyDescriptor(Object.prototype, "constructor");
 
-            var getFunc = function () {
-                return 100;
-            };
+var getFunc = function () {
+    return 100;
+};
 
-            var data = "data";
-            var setFunc = function (value) {
-                data = value;
-            };
+var data = "data";
+var setFunc = function (value) {
+    data = value;
+};
 
-            Object.defineProperty(Object.prototype, "constructor", {
-                get: getFunc,
-                set: setFunc,
-                configurable: true
-            });
+Object.defineProperty(Object.prototype, "constructor", {
+    get: getFunc,
+    set: setFunc,
+    configurable: true
+});
 
-            var fun = function () {};
+var fun = function () {};
 
 assert.sameValue(typeof fun.prototype.constructor, "function");
 

@@ -10,13 +10,13 @@ includes: [propertyHelper.js]
 flags: [noStrict]
 ---*/
 
-            Object.defineProperty(Object.prototype, "callee", {
-                value: 1,
-                writable: false,
-                configurable: true
-            });
+Object.defineProperty(Object.prototype, "callee", {
+    value: 1,
+    writable: false,
+    configurable: true
+});
 
-            var argObj = (function () { return arguments })();
+var argObj = (function () { return arguments })();
 
 assert.sameValue(typeof argObj.callee, "function");
 
