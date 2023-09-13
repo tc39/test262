@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-createdatetimeformat
-description: test offset timezone with sign sync with resolvedOptions().timeZone.
+description: Tests that offset time zones are correctly normalized in resolvedOptions() output.
 ---*/
 let validOffsetTimeZones = {
     '-00': '+00:00',
