@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-createdatetimeformat
-description: test invalid offset timezone will throw.
+description: Tests that invalid offset time zones are rejected.
 ---*/
 let invalidOffsetTimeZones = [
     '+3',
