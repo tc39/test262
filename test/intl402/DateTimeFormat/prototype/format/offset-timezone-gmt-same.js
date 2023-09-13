@@ -18,10 +18,10 @@ let offsetTimeZones = {
     '−0500': 'Etc/GMT+5',
 };
 let date = new Date('1995-12-17T03:24:56Z');
-Object.keys(offsetTimeZones).forEach((timeZone) => {
+Object.entries(offsetTimeZones).forEach(([offsetZone, gmtZone]) => {
     let offsetDf = new Intl.DateTimeFormat("en",
-        {timeZone, dateStyle: "short", timeStyle: "short"});
+        {timeZone: offsetZone, dateStyle: "short", timeStyle: "short"});
     let gmtDf = new Intl.DateTimeFormat("en",
-        {timeZone: offsetTimeZones[timeZone], dateStyle: "short", timeStyle: "short"});
-    assert.sameValue(offsetDf.format(date), gmtDf.format(date));
+        {timeZone: gmtZone, dateStyle: "short", timeStyle: "short"});
+    assert.sameValue(offsetDf.format(date), gmtDf.format(date), `${offsetZone} vs. ${gmtZone}:`);
 });
