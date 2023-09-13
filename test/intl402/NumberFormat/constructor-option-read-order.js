@@ -28,9 +28,9 @@ let optionKeys = [
         "maximumFractionDigits",
         "minimumSignificantDigits",
         "maximumSignificantDigits",
-        "roundingPriority",
         "roundingIncrement",
         "roundingMode",
+        "roundingPriority",
         "trailingZeroDisplay",
     // End of SetNumberFormatDigitOptions
     // Back to InitializeNumberFormat
