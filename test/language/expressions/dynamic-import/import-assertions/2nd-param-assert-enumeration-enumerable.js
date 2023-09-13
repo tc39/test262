@@ -23,6 +23,8 @@ info: |
            ii. Let keys be EnumerableOwnPropertyNames(assertionsObj, key).
     [...]
 features: [dynamic-import, import-assertions, json-modules, Symbol, Proxy]
+includes:
+  - compareArray.js
 flags: [async]
 ---*/
 
@@ -56,5 +58,4 @@ import('./2nd-param_FIXTURE.json', options)
   })
   .then($DONE, $DONE);
 
-assert.sameValue(log.length, 1);
-assert.sameValue(log[0], "type")
+assert.compareArray(log, ['type']);
