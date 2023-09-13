@@ -3,8 +3,7 @@
 /*---
 esid: sec-createdatetimeformat
 description: >
-  Test offset timezone generate the correct hour and minute
-  base on the offset timezone value.
+  Tests that formatted hour and minute are correct for offset time zones.
 ---*/
 let date = new Date('1995-12-17T03:24:56Z');
 let tests = {
