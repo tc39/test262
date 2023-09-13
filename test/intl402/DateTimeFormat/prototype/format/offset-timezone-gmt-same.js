@@ -3,8 +3,8 @@
 /*---
 esid: sec-createdatetimeformat
 description: >
-  Test offset timezone format the same value as the equivalent
-  Etc/GMT offset timezone.
+  Tests that date and time formatting in an offset time zone
+  matches that in the equivalent Etc/GMT±n time zone.
 ---*/
 let offsetTimeZones = {
     '+0300': 'Etc/GMT-3',
