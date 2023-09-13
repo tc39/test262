@@ -4,17 +4,22 @@
 esid: sec-intl.pluralrules.prototype.resolvedoptions
 description: order of property keys for the object returned by resolvedOptions()
 features: [Intl.NumberFormat-v3]
+includes: [compareArray.js]
 ---*/
 
-assert.sameValue(
-    'locale,' +
-    'type,' +
-    'minimumIntegerDigits,' +
-    'minimumFractionDigits,' +
-    'maximumFractionDigits,' +
-    'pluralCategories,' +
-    'roundingIncrement,' +
-    'roundingMode,' +
-    'roundingPriority,' +
-    'trailingZeroDisplay',
-    Object.keys((new Intl.PluralRules()).resolvedOptions()).toString());
+let expected = [
+    "locale",
+    "type",
+    "minimumIntegerDigits",
+    "minimumFractionDigits",
+    "maximumFractionDigits",
+    "pluralCategories",
+    "roundingIncrement",
+    "roundingMode",
+    "roundingPriority",
+    "trailingZeroDisplay"
+];
+assert.compareArray(
+    Object.keys((new Intl.PluralRules()).resolvedOptions()),
+    expected,
+    "keys of resolvedOptions() should be in the correct order");

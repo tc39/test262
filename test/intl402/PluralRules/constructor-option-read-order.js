@@ -5,13 +5,42 @@
 esid: sec-initializepluralrules
 description: Checks the order of option read.
 features: [Intl.NumberFormat-v3]
+includes: [compareArray.js]
 ---*/
 
-let optionKeys =  Object.keys((new Intl.PluralRules()).resolvedOptions());
-let opt = {};
+let optionKeys = [
+    // Inside InitializePluralRules
+    "localeMatcher",
+    "type",
+    // Inside SetNumberFormatDigitOptions
+        "minimumIntegerDigits",
+        "minimumFractionDigits",
+        "maximumFractionDigits",
+        "minimumSignificantDigits",
+        "maximumSignificantDigits",
+        "roundingPriority",
+        "roundingIncrement",
+        "roundingMode",
+        "trailingZeroDisplay",
+    // End of SetNumberFormatDigitOptions
+];
+let expected = [
+    "localeMatcher",
+    "type",
+    "minimumIntegerDigits",
+    "minimumFractionDigits",
+    "maximumFractionDigits",
+    "minimumSignificantDigits",
+    "maximumSignificantDigits",
+    "roundingIncrement",
+    "roundingMode",
+    "roundingPriority",
+    "trailingZeroDisplay"
+];
 let readKeys = new Array();
 // For each item returned by resolvedOptions of default, add a getter
 // to track the reading order.
+let opt = {};
 optionKeys.forEach((property) =>
     Object.defineProperty(opt, property, {
         get() {
@@ -20,13 +49,5 @@ optionKeys.forEach((property) =>
         },
     }));
 let p = new Intl.PluralRules(undefined, opt);
-assert.sameValue(
-    'type,' +
-    'minimumIntegerDigits,' +
-    'minimumFractionDigits,' +
-    'maximumFractionDigits,' +
-    'roundingIncrement,' +
-    'roundingMode,' +
-    'roundingPriority,' +
-    'trailingZeroDisplay',
-    readKeys.toString());
+assert.compareArray(readKeys, expected,
+    "GetOption should be called in the correct order");
