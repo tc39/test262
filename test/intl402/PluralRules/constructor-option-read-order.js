@@ -24,30 +24,18 @@ let optionKeys = [
         "trailingZeroDisplay",
     // End of SetNumberFormatDigitOptions
 ];
-let expected = [
-    "localeMatcher",
-    "type",
-    "minimumIntegerDigits",
-    "minimumFractionDigits",
-    "maximumFractionDigits",
-    "minimumSignificantDigits",
-    "maximumSignificantDigits",
-    "roundingIncrement",
-    "roundingMode",
-    "roundingPriority",
-    "trailingZeroDisplay"
-];
-let readKeys = new Array();
-// For each item returned by resolvedOptions of default, add a getter
-// to track the reading order.
-let opt = {};
-optionKeys.forEach((property) =>
-    Object.defineProperty(opt, property, {
+
+// Use getters to track the order of reading known properties.
+// TODO: Should we use a Proxy to detect *unexpected* property reads?
+let reads = new Array();
+let options = {};
+optionKeys.forEach((key) => {
+    Object.defineProperty(options, key, {
         get() {
-            readKeys[readKeys.length] = property;
+            reads.push(key);
             return undefined;
         },
-    }));
-let p = new Intl.PluralRules(undefined, opt);
-assert.compareArray(readKeys, expected,
-    "GetOption should be called in the correct order");
+    });
+});
+new Intl.PluralRules(undefined, options);
+assert.compareArray(reads, optionKeys, "Intl.PluralRules options read order");
