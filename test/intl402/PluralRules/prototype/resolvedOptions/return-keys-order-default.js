@@ -21,9 +21,17 @@ const allKeys = [
     'roundingPriority',
     'trailingZeroDisplay'
 ];
-const nf = new Intl.PluralRules(undefined);
-const resolved = nf.resolvedOptions();
-const resolvedKeys = Reflect.ownKeys(resolved);
-const expectedKeys = allKeys.filter(key => key in resolved);
-assert.compareArray(resolvedKeys, expectedKeys,
-    'resolvedOptions() property key order');
+
+const options = [
+    { },
+    { minimumSignificantDigits: 3 },
+    { minimumFractionDigits: 3 },
+];
+options.forEach((option) => {
+    const nf = new Intl.PluralRules(undefined, option);
+    const resolved = nf.resolvedOptions();
+    const resolvedKeys = Reflect.ownKeys(resolved);
+    const expectedKeys = allKeys.filter(key => key in resolved);
+    assert.compareArray(resolvedKeys, expectedKeys,
+        'resolvedOptions() property key order with options ' + JSON.stringify(options));
+});
