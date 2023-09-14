@@ -7,19 +7,23 @@ features: [Intl.NumberFormat-v3]
 includes: [compareArray.js]
 ---*/
 
-let expected = [
-    "locale",
-    "type",
-    "minimumIntegerDigits",
-    "minimumFractionDigits",
-    "maximumFractionDigits",
-    "pluralCategories",
-    "roundingIncrement",
-    "roundingMode",
-    "roundingPriority",
-    "trailingZeroDisplay"
+const allKeys = [
+    'locale',
+    'type',
+    'minimumIntegerDigits',
+    'minimumFractionDigits',
+    'maximumFractionDigits',
+    'minimumSignificantDigits',
+    'maximumSignificantDigits',
+    'pluralCategories',
+    'roundingIncrement',
+    'roundingMode',
+    'roundingPriority',
+    'trailingZeroDisplay'
 ];
-assert.compareArray(
-    Object.keys((new Intl.PluralRules()).resolvedOptions()),
-    expected,
-    "keys of resolvedOptions() should be in the correct order");
+const nf = new Intl.PluralRules(undefined);
+const resolved = nf.resolvedOptions();
+const resolvedKeys = Reflect.ownKeys(resolved);
+const expectedKeys = allKeys.filter(key => key in resolved);
+assert.compareArray(resolvedKeys, expectedKeys,
+    'resolvedOptions() property key order');
