@@ -61,7 +61,6 @@ asyncTest(async function () {
   // Note https://github.com/tc39/proposal-array-from-async/issues/35
   const expectedCallsForArrayLike = [
     "construct MyArray",
-    "construct MyArray",
     "defineProperty A[0]",
     "defineProperty A[1]",
     "set A.length"
