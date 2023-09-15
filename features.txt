@@ -63,7 +63,7 @@ ShadowRealm
 # https://github.com/tc39/proposal-array-find-from-last
 array-find-from-last
 
-# Array.prototype.group & Array.prototype.groupToMap
+# Array.groupBy & Map.groupBy
 # https://github.com/tc39/proposal-array-grouping
 array-grouping
 
@@ -103,6 +103,14 @@ String.prototype.toWellFormed
 # JSON.parse with source
 # https://github.com/tc39/proposal-json-parse-with-source
 json-parse-with-source
+
+# Iterator Helpers
+# https://github.com/tc39/proposal-iterator-helpers
+iterator-helpers
+
+# Promise.withResolvers
+# https://github.com/tc39/proposal-promise-with-resolvers
+promise-with-resolvers
 
 ## Standard language features
 #

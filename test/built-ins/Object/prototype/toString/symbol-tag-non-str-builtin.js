@@ -11,7 +11,7 @@ info: |
   15. Let tag be ? Get(O, @@toStringTag).
   16. If Type(tag) is not String, set tag to builtinTag.
   17. Return the string-concatenation of "[object ", tag, and "]".
-features: [Symbol.toStringTag, Symbol.iterator, generators, WeakMap]
+features: [Symbol.toStringTag, Symbol.iterator, generators, WeakMap, iterator-helpers]
 ---*/
 
 var toString = Object.prototype.toString;
@@ -26,7 +26,7 @@ var strIter = ''[Symbol.iterator]();
 var strIterProto = Object.getPrototypeOf(strIter);
 assert.sameValue(toString.call(strIter), '[object String Iterator]');
 delete strIterProto[Symbol.toStringTag];
-assert.sameValue(toString.call(strIter), '[object Object]');
+assert.sameValue(toString.call(strIter), '[object Iterator]');
 
 var arrIter = [][Symbol.iterator]();
 var arrIterProto = Object.getPrototypeOf(arrIter)
