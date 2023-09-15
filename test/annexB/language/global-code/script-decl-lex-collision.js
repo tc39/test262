@@ -7,6 +7,7 @@ info: |
   [...]
   3. For each element name of lexNames, do
     a. If env.HasVarDeclaration(name) is true, throw a SyntaxError exception.
+flags: [noStrict]
 ---*/
 
 if (true) {
