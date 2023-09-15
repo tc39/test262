@@ -1948,6 +1948,30 @@ var TemporalHelpers = {
   },
 
   /*
+   * A custom time zone that does not allow any of its methods to be called, for
+   * the purpose of asserting that a particular operation does not call into
+   * user code.
+   */
+  timeZoneThrowEverything() {
+    class TimeZoneThrowEverything extends Temporal.TimeZone {
+      constructor() {
+        super("UTC");
+      }
+      getOffsetNanosecondsFor() {
+        TemporalHelpers.assertUnreachable("getOffsetNanosecondsFor should not be called");
+      }
+      getPossibleInstantsFor() {
+        TemporalHelpers.assertUnreachable("getPossibleInstantsFor should not be called");
+      }
+      toString() {
+        TemporalHelpers.assertUnreachable("toString should not be called");
+      }
+    }
+
+    return new TimeZoneThrowEverything();
+  },
+
+  /*
    * Returns an object that will append logs of any Gets or Calls of its valueOf
    * or toString properties to the array calls. Both valueOf and toString will
    * return the actual primitiveValue. propertyName is used in the log.
