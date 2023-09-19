@@ -9,11 +9,6 @@ features: [Symbol.species, Symbol.iterator, Temporal]
 
 const ASCII_IDENTIFIER = /^[$_a-zA-Z][$_a-zA-Z0-9]*$/u;
 
-let nonDefaultCalendarId = undefined;
-try {
-  nonDefaultCalendarId = Temporal.Calendar.from("hebrew").id;
-} catch (err) {}
-
 function formatPropertyName(propertyKey, objectName = "") {
   switch (typeof propertyKey) {
     case "symbol":
@@ -41,8 +36,6 @@ function formatPropertyName(propertyKey, objectName = "") {
 const SKIP_SYMBOL = Symbol("Skip");
 
 var TemporalHelpers = {
-  nonDefaultCalendarId,
-
   /*
    * Codes and maximum lengths of months in the ISO 8601 calendar.
    */
