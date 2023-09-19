@@ -2025,6 +2025,8 @@ var TemporalHelpers = {
     plainMonthDayStringsInvalid() {
       return [
         "11-18junk",
+        "11-18[u-ca=gregory]",
+        "11-18[u-ca=hebrew]",
       ];
     },
 
