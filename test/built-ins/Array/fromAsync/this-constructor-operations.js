@@ -58,7 +58,6 @@ asyncTest(async function () {
 
   actualCalls.splice(0);  // reset
 
-  // Note https://github.com/tc39/proposal-array-from-async/issues/35
   const expectedCallsForArrayLike = [
     "construct MyArray",
     "defineProperty A[0]",
