@@ -39,8 +39,3 @@ assert.throws(TypeError, () => md.with({ months: 12 }), "with({months})");
 
 TemporalHelpers.assertPlainMonthDay(md.with({ monthCode: "M12", days: 1 }),
   "M12", 15, "with({monthCode, days})");
-
-if (TemporalHelpers.nonDefaultCalendarId) {
-  const calendarMonthDay = Temporal.PlainMonthDay.from({ year: 2021, month: 1, day: 15, calendar: TemporalHelpers.nonDefaultCalendarId });
-  assert.throws(TypeError, () => calendarMonthDay.with({ month: 12 }), "nonIso8601MonthDay.with({month})");
-}
