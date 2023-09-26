@@ -78,7 +78,7 @@ info: |
   6. Return result.
 ---*/
 
-var str = "foo-x-bar";
+var str = 'foo-x-bar';
 
 var re0 = /x/;
 var re1 = /(x)/;
