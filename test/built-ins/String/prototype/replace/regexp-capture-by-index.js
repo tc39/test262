@@ -97,6 +97,28 @@ assert.sameValue(str.replace(re1x, '|$0|'), 'foo-|$0|-bar',
 assert.sameValue(str.replace(re10, '|$0|'), 'foo-|$0|-bar',
   '`$0` is not a capture index in ' + String(re10));
 
+assert.sameValue(str.replace(x, '|$00|'), 'foo-|$00|-bar',
+  '`$00` is not a capture index for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$00|'), 'foo-|$00|-bar',
+  '`$00` is not a capture index in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$00|'), 'foo-|$00|-bar',
+  '`$00` is not a capture index in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$00|'), 'foo-|$00|-bar',
+  '`$00` is not a capture index in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$00|'), 'foo-|$00|-bar',
+  '`$00` is not a capture index in ' + String(re10));
+
+assert.sameValue(str.replace(x, '|$000|'), 'foo-|$000|-bar',
+  '`$00` before `0` is not a capture index for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$000|'), 'foo-|$000|-bar',
+  '`$00` before `0` is not a capture index in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$000|'), 'foo-|$000|-bar',
+  '`$00` before `0` is not a capture index in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$000|'), 'foo-|$000|-bar',
+  '`$00` before `0` is not a capture index in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$000|'), 'foo-|$000|-bar',
+  '`$00` before `0` is not a capture index in ' + String(re10));
+
 assert.sameValue(str.replace(x, '|$1|'), 'foo-|$1|-bar',
   '`$1` is not a capture index for string "' + x + '"');
 assert.sameValue(str.replace(re0, '|$1|'), 'foo-|$1|-bar',
@@ -107,6 +129,28 @@ assert.sameValue(str.replace(re1x, '|$1|'), 'foo-|x|-bar',
   '`$1` is a capture index in ' + String(re1x));
 assert.sameValue(str.replace(re10, '|$1|'), 'foo-|x|-bar',
   '`$1` is a capture index in ' + String(re10));
+
+assert.sameValue(str.replace(x, '|$01|'), 'foo-|$01|-bar',
+  '`$01` is not a capture index for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$01|'), 'foo-|$01|-bar',
+  '`$01` is not a capture index in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$01|'), 'foo-|x|-bar',
+  '`$01` is a capture index in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$01|'), 'foo-|x|-bar',
+  '`$01` is a capture index in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$01|'), 'foo-|x|-bar',
+  '`$01` is a capture index in ' + String(re10));
+
+assert.sameValue(str.replace(x, '|$010|'), 'foo-|$010|-bar',
+  '`$01` before `0` is not a capture index for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$010|'), 'foo-|$010|-bar',
+  '`$01` before `0` is not a capture index in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$010|'), 'foo-|x0|-bar',
+  '`$01` before `0` is a capture index in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$010|'), 'foo-|x0|-bar',
+  '`$01` before `0` is a capture index in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$010|'), 'foo-|x0|-bar',
+  '`$01` before `0` is a capture index in ' + String(re10));
 
 assert.sameValue(str.replace(x, '|$2|'), 'foo-|$2|-bar',
   '`$2` is not a capture index for string "' + x + '"');
@@ -119,6 +163,28 @@ assert.sameValue(str.replace(re1x, '|$2|'), 'foo-||-bar',
 assert.sameValue(str.replace(re10, '|$2|'), 'foo-|x|-bar',
   '`$2` is a capture index in ' + String(re10));
 
+assert.sameValue(str.replace(x, '|$02|'), 'foo-|$02|-bar',
+  '`$02` is not a capture index for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$02|'), 'foo-|$02|-bar',
+  '`$02` is not a capture index in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$02|'), 'foo-|$02|-bar',
+  '`$02` is not a capture index in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$02|'), 'foo-||-bar',
+  '`$02` is a failed capture index in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$02|'), 'foo-|x|-bar',
+  '`$02` is a capture index in ' + String(re10));
+
+assert.sameValue(str.replace(x, '|$020|'), 'foo-|$020|-bar',
+  '`$02` before `0` is not a capture index for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$020|'), 'foo-|$020|-bar',
+  '`$02` before `0` is not a capture index in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$020|'), 'foo-|$020|-bar',
+  '`$02` before `0` is not a capture index in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$020|'), 'foo-|0|-bar',
+  '`$02` before `0` is a failed capture index in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$020|'), 'foo-|x0|-bar',
+  '`$02` before `0` is a capture index in ' + String(re10));
+
 assert.sameValue(str.replace(x, '|$10|'), 'foo-|$10|-bar',
   '`$10` is not a capture index (nor is `$1`) for string "' + x + '"');
 assert.sameValue(str.replace(re0, '|$10|'), 'foo-|$10|-bar',
@@ -130,6 +196,17 @@ assert.sameValue(str.replace(re1x, '|$10|'), 'foo-|x0|-bar',
 assert.sameValue(str.replace(re10, '|$10|'), 'foo-|x|-bar',
   '`$10` is a capture index in ' + String(re10));
 
+assert.sameValue(str.replace(x, '|$100|'), 'foo-|$100|-bar',
+  '`$10` before `0` is not a capture index (nor is `$1`) for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$100|'), 'foo-|$100|-bar',
+  '`$10` before `0` is not a capture index (nor is `$1`) in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$100|'), 'foo-|x00|-bar',
+  '`$10` before `0` is not a capture index (but `$1` is) in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$100|'), 'foo-|x00|-bar',
+  '`$10` before `0` is not a capture index (but `$1` is) in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$100|'), 'foo-|x0|-bar',
+  '`$10` before `0` is a capture index in ' + String(re10));
+
 assert.sameValue(str.replace(x, '|$20|'), 'foo-|$20|-bar',
   '`$20` is not a capture index (nor is `$2`) for string "' + x + '"');
 assert.sameValue(str.replace(re0, '|$20|'), 'foo-|$20|-bar',
@@ -140,3 +217,14 @@ assert.sameValue(str.replace(re1x, '|$20|'), 'foo-|0|-bar',
   '`$20` is not a capture index (but `$2` is a failed capture index) in ' + String(re1x));
 assert.sameValue(str.replace(re10, '|$20|'), 'foo-|x0|-bar',
   '`$20` is not a capture index (but `$2` is) in ' + String(re10));
+
+assert.sameValue(str.replace(x, '|$200|'), 'foo-|$200|-bar',
+  '`$20` before `0` is not a capture index (nor is `$2`) for string "' + x + '"');
+assert.sameValue(str.replace(re0, '|$200|'), 'foo-|$200|-bar',
+  '`$20` before `0` is not a capture index (nor is `$2`) in ' + String(re0));
+assert.sameValue(str.replace(re1, '|$200|'), 'foo-|$200|-bar',
+  '`$20` before `0` is not a capture index (nor is `$2`) in ' + String(re1));
+assert.sameValue(str.replace(re1x, '|$200|'), 'foo-|00|-bar',
+  '`$20` before `0` is not a capture index (but `$2` is a failed capture index) in ' + String(re1x));
+assert.sameValue(str.replace(re10, '|$200|'), 'foo-|x00|-bar',
+  '`$20` before `0` is not a capture index (but `$2` is) in ' + String(re10));
