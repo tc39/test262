@@ -1,0 +1,28 @@
+// Copyright (C) 2023 Peter Klecha. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-promise.withresolvers
+description: >
+  Promise.withResolvers does not implement [[Construct]], is not new-able
+info: |
+  ECMAScript Function Objects
+
+  Built-in function objects that are not identified as constructors do not
+  implement the [[Construct]] internal method unless otherwise specified in
+  the description of a particular function.
+
+  sec-evaluatenew
+
+  ...
+  7. If IsConstructor(constructor) is false, throw a TypeError exception.
+  ...
+includes: [isConstructor.js]
+features: [promise-with-resolvers, Reflect.construct, arrow-function]
+---*/
+
+assert.sameValue(isConstructor(Promise.withResolvers), false, 'isConstructor(Promise.withResolvers) must return false');
+
+assert.throws(TypeError, () => {
+  new Promise.withResolvers();
+}, '`new Promise.withResolvers()` throws TypeError');
+
