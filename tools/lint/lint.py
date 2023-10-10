@@ -52,30 +52,34 @@ parser.add_argument('--exceptions',
 parser.add_argument('path',
         nargs='+',
         help='file name or directory of files to lint')
+parser.add_argument('--features',
+        help='File containing all known features usable in tests',
+        default='features.txt')
 
-checks = [
-    CheckEsid(),
-    CheckFileName(),
-    CheckFrontmatter(),
-    CheckFeatures('features.txt'),
-    CheckHarnessFeatures(),
-    CheckHarness(),
-    CheckIncludes(),
-    CheckLicense(),
-    CheckNegative(),
-    CheckNoPadding(),
-    CheckFlags(),
-    CheckPosix(),
-]
+def checks(features):
+    return [
+        CheckEsid(),
+        CheckFileName(),
+        CheckFrontmatter(),
+        CheckFeatures(features),
+        CheckHarnessFeatures(),
+        CheckHarness(),
+        CheckIncludes(),
+        CheckLicense(),
+        CheckNegative(),
+        CheckNoPadding(),
+        CheckFlags(),
+        CheckPosix(),
+    ]
 
-def lint(file_names):
+def lint(file_names, features):
     errors = dict()
 
     for file_name in file_names:
         with open(file_name, 'r') as f:
             content = f.read()
         meta = lib.frontmatter.parse(content)
-        for check in checks:
+        for check in checks(features):
             error = check.run(file_name, meta, content)
 
             if error is not None:
@@ -96,7 +100,7 @@ if __name__ == '__main__':
     file_count = len(files)
     print('Linting %s file(s)' % (file_count))
 
-    all_errors = lint(files)
+    all_errors = lint(files, args.features)
     unexpected_errors = dict(all_errors)
 
     for file_name, failures in all_errors.items():
