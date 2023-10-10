@@ -25,6 +25,6 @@ features: [class, decorators]
 class C {
   /*{ elements }*/
   static {
-    /*{ decorators }*/ class C {}
+    /*{ decorators }*/ class D {}
   }
 }

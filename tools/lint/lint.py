@@ -76,6 +76,9 @@ def lint(file_names, features):
     errors = dict()
 
     for file_name in file_names:
+        if not file_name.endswith((".js", ".json")):
+            continue
+
         with open(file_name, 'r') as f:
             content = f.read()
         meta = lib.frontmatter.parse(content)

@@ -6,4 +6,4 @@
 // It can be used to assert that there is a linking error, which means
 // that there are no parsing errors.
 
-import { nonExistent } from "./import-assertion-ensure-resolution-error_FIXTURE.js";
+import { nonExistent } from "./ensure-linking-error_FIXTURE.js";
