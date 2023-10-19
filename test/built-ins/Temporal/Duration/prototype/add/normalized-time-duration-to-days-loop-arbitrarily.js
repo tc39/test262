@@ -4,18 +4,19 @@
 /*---
 esid: sec-temporal.duration.prototype.add
 description: >
-  NanosecondsToDays can loop infinitely.
+  NormalizedTimeDurationToDays can loop arbitrarily up to max safe integer
 info: |
-  NanosecondsToDays ( nanoseconds, relativeTo )
-
+  NormalizedTimeDurationToDays ( norm, zonedRelativeTo, timeZoneRec [ , precalculatedPlainDatetime ] )
   ...
-  18. Repeat, while done is false,
-    a. Let oneDayFartherNs be ℝ(? AddZonedDateTime(ℤ(intermediateNs), relativeTo.[[TimeZone]],
-       relativeTo.[[Calendar]], 0, 0, 0, sign, 0, 0, 0, 0, 0, 0)).
-    b. Set dayLengthNs to oneDayFartherNs - intermediateNs.
-    c. If (nanoseconds - dayLengthNs) × sign ≥ 0, then
-        i. Set nanoseconds to nanoseconds - dayLengthNs.
-        ii. Set intermediateNs to oneDayFartherNs.
+  21. Repeat, while done is false,
+    a. Let oneDayFarther be ? AddDaysToZonedDateTime(relativeResult.[[Instant]],
+      relativeResult.[[DateTime]], timeZoneRec, zonedRelativeTo.[[Calendar]], sign).
+    b. Set dayLengthNs to NormalizedTimeDurationFromEpochNanosecondsDifference(oneDayFarther.[[EpochNanoseconds]],
+      relativeResult.[[EpochNanoseconds]]).
+    c. Let oneDayLess be ? SubtractNormalizedTimeDuration(norm, dayLengthNs).
+    c. If NormalizedTimeDurationSign(oneDayLess) × sign ≥ 0, then
+        i. Set norm to oneDayLess.
+        ii. Set relativeResult to oneDayFarther.
         iii. Set days to days + sign.
     d. Else,
         i. Set done to true.
@@ -48,24 +49,27 @@ function createRelativeTo(count) {
   return new Temporal.ZonedDateTime(0n, timeZone);
 }
 
-let zdt = createRelativeTo(200);
+let zdt = createRelativeTo(50);
 calls.splice(0); // Reset calls list after ZonedDateTime construction
 duration.add(duration, {
   relativeTo: zdt,
 });
 assert.sameValue(
   calls.length,
-  200 + 1,
+  50 + 1,
   "Expected duration.add to call getPossibleInstantsFor correct number of times"
 );
 
-zdt = createRelativeTo(300);
+zdt = createRelativeTo(100);
 calls.splice(0); // Reset calls list after previous loop + ZonedDateTime construction
 duration.add(duration, {
   relativeTo: zdt,
 });
 assert.sameValue(
   calls.length,
-  300 + 1,
+  100 + 1,
   "Expected duration.add to call getPossibleInstantsFor correct number of times"
 );
+
+zdt = createRelativeTo(107);
+assert.throws(RangeError, () => duration.add(duration, { relativeTo: zdt }), "107-2 days > 2⁵³ ns");

@@ -3,13 +3,16 @@
 /*---
 esid: sec-temporal.duration.prototype.round
 description: >
-  Called abstract operation NanosecondsToDays can throw three different RangeErrors when paired with a ZonedDateTime.
+  Abstract operation NormalizedTimeDurationToDays can throw four different
+  RangeErrors.
 info: |
-  6.5.7 NanosecondsToDays ( nanoseconds, relativeTo )
-    19. If days < 0 and sign = 1, throw a RangeError exception.
-    20. If days > 0 and sign = -1, throw a RangeError exception.
+  NormalizedTimeDurationToDays ( norm, zonedRelativeTo, timeZoneRec [ , precalculatedPlainDateTime ] )
+    22. If days < 0 and sign = 1, throw a RangeError exception.
+    23. If days > 0 and sign = -1, throw a RangeError exception.
     ...
-    22. If nanoseconds > 0 and sign = -1, throw a RangeError exception.
+    25. If NormalizedTimeDurationSign(_norm_) = 1 and sign = -1, throw a RangeError exception.
+    ...
+    28. If dayLength ≥ 2⁵³, throw a RangeError exception.
 features: [Temporal, BigInt]
 includes: [temporalHelpers.js]
 ---*/
@@ -37,15 +40,15 @@ function timeZoneSubstituteValues(
   return tz;
 }
 
-// NanosecondsToDays.19: days < 0 and sign = 1
+// Step 22: days < 0 and sign = 1
 let zdt = new Temporal.ZonedDateTime(
   0n, // Sets _startNs_ to 0
   timeZoneSubstituteValues(
-    [[epochInstant]], // Returned for NanosecondsToDays step 14, setting _intermediateNs_
+    [[epochInstant]], // Returned in step 16, setting _relativeResult_
     [
       TemporalHelpers.SUBSTITUTE_SKIP, // Pre-conversion in Duration.p.round
-      dayNs - 1, // Returned for NanosecondsToDays step 7, setting _startDateTime_
-      -dayNs + 1, // Returned for NanosecondsToDays step 11, setting _endDateTime_
+      dayNs - 1, // Returned in step 8, setting _startDateTime_
+      -dayNs + 1, // Returned in step 9, setting _endDateTime_
     ]
   )
 );
@@ -58,15 +61,15 @@ assert.throws(RangeError, () =>
   "RangeError when days < 0 and sign = 1"
 );
 
-// NanosecondsToDays.20: days > 0 and sign = -1
+// Step 23: days > 0 and sign = -1
 zdt = new Temporal.ZonedDateTime(
   0n, // Sets _startNs_ to 0
   timeZoneSubstituteValues(
-    [[epochInstant]], // Returned for NanosecondsToDays step 14, setting _intermediateNs_
+    [[epochInstant]], // Returned in step 16, setting _relativeResult_
     [
       TemporalHelpers.SUBSTITUTE_SKIP, // Pre-conversion in Duration.p.round
-      -dayNs + 1, // Returned for NanosecondsToDays step 7, setting _startDateTime_
-      dayNs - 1, // Returned for NanosecondsToDays step 11, setting _endDateTime_
+      -dayNs + 1, // Returned in step 8, setting _startDateTime_
+      dayNs - 1, // Returned in step 9, setting _endDateTime_
     ]
   )
 );
@@ -79,18 +82,18 @@ assert.throws(RangeError, () =>
   "RangeError when days > 0 and sign = -1"
 );
 
-// NanosecondsToDays.22: nanoseconds > 0 and sign = -1
+// Step 25: nanoseconds > 0 and sign = -1
 zdt = new Temporal.ZonedDateTime(
   0n, // Sets _startNs_ to 0
   timeZoneSubstituteValues(
     [
-      [new Temporal.Instant(-2n)], // Returned for NanosecondsToDays step 14, setting _intermediateNs_
-      [new Temporal.Instant(-4n)], // Returned for NanosecondsToDays step 18.a, setting _oneDayFartherNs_
+      [new Temporal.Instant(-2n)], // Returned in step 16, setting _relativeResult_
+      [new Temporal.Instant(-4n)], // Returned in step 21.a, setting _oneDayFarther_
     ],
     [
       TemporalHelpers.SUBSTITUTE_SKIP, // Pre-conversion in Duration.p.round
-      dayNs - 1, // Returned for NanosecondsToDays step 7, setting _startDateTime_
-      -dayNs + 1, // Returned for NanosecondsToDays step 11, setting _endDateTime_
+      dayNs - 1, // Returned in step 8, setting _startDateTime_
+      -dayNs + 1, // Returned in step 9, setting _endDateTime_
     ]
   )
 );
@@ -101,4 +104,22 @@ assert.throws(RangeError, () =>
     smallestUnit: "days",
   }),
   "RangeError when nanoseconds > 0 and sign = -1"
+);
+
+// Step 28: day length is an unsafe integer
+zdt = new Temporal.ZonedDateTime(
+  0n,
+  timeZoneSubstituteValues(
+    // Not called in step 16 because _days_ = 0
+    // Returned in step 21.a, making _oneDayFarther_ 2^53 ns later than _relativeResult_
+    [[new Temporal.Instant(2n ** 53n)]],
+    []
+  )
+);
+assert.throws(RangeError, () =>
+  oneNsDuration.round({
+    relativeTo: zdt,
+    smallestUnit: "days",
+  }),
+  "Should throw RangeError when time zone calculates an outrageous day length"
 );
