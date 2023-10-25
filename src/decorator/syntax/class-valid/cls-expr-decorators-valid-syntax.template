@@ -21,9 +21,9 @@ info: |
 features: [class, decorators]
 ---*/
 
-var C = class {
+class C {
   /*{ elements }*/
   static {
-    var C = /*{ decorators }*/ class {}
+    var D = /*{ decorators }*/ class {}
   }
 };

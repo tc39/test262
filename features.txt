@@ -11,10 +11,6 @@
 #
 # https://github.com/tc39/process-document
 
-# Hashbang Grammar
-# https://github.com/tc39/proposal-hashbang
-hashbang
-
 # Intl.Locale Info
 # https://github.com/tc39/proposal-intl-locale-info
 Intl.Locale-info
@@ -59,10 +55,6 @@ Temporal
 # https://github.com/tc39/proposal-realms
 ShadowRealm
 
-# Array.prototype.findLast & Array.prototype.findLastIndex
-# https://github.com/tc39/proposal-array-find-from-last
-array-find-from-last
-
 # Array.groupBy & Map.groupBy
 # https://github.com/tc39/proposal-array-grouping
 array-grouping
@@ -83,15 +75,6 @@ decorators
 # https://github.com/tc39/proposal-duplicate-named-capturing-groups
 regexp-duplicate-named-groups
 
-# Symbols as WeakMap keys
-# https://github.com/tc39/proposal-symbols-as-weakmap-keys
-symbols-as-weakmap-keys
-
-# Array.prototype.toReversed, Array.prototype.toSorted, Array.prototype.toSpliced,
-# Array.prototype.with and the equivalent TypedArray methods.
-# https://github.com/tc39/proposal-change-array-by-copy/
-change-array-by-copy
-
 # https://tc39.es/proposal-array-from-async/
 Array.fromAsync
 
@@ -108,6 +91,10 @@ json-parse-with-source
 # https://github.com/tc39/proposal-iterator-helpers
 iterator-helpers
 
+# Promise.withResolvers
+# https://github.com/tc39/proposal-promise-with-resolvers
+promise-with-resolvers
+
 # AsyncContext
 # https://github.com/tc39/proposal-async-context
 AsyncContext
@@ -123,6 +110,7 @@ AggregateError
 align-detached-buffer-semantics-with-web-reality  # https://github.com/tc39/ecma262/pull/2164
 arbitrary-module-namespace-names  # https://github.com/tc39/ecma262/pull/2154
 ArrayBuffer
+array-find-from-last
 Array.prototype.at
 Array.prototype.flat
 Array.prototype.flatMap
@@ -134,6 +122,7 @@ async-functions
 Atomics
 BigInt
 caller
+change-array-by-copy
 class
 class-fields-private
 class-fields-private-in
@@ -170,6 +159,7 @@ Float32Array
 Float64Array
 generators
 globalThis
+hashbang
 import.meta
 Int8Array
 Int16Array
@@ -230,6 +220,7 @@ String.prototype.trimEnd
 String.prototype.trimStart
 super
 Symbol
+symbols-as-weakmap-keys
 Symbol.asyncIterator
 Symbol.hasInstance
 Symbol.isConcatSpreadable

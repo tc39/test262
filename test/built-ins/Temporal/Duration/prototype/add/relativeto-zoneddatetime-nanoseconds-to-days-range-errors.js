@@ -46,8 +46,7 @@ let zdt = new Temporal.ZonedDateTime(
       [epochInstant], // Returned for NanosecondsToDays step 14, setting _intermediateNs_
     ],
     [
-      // Behave normally in 4 calls made prior to NanosecondsToDays
-      TemporalHelpers.SUBSTITUTE_SKIP,
+      // Behave normally in 3 calls made prior to NanosecondsToDays
       TemporalHelpers.SUBSTITUTE_SKIP,
       TemporalHelpers.SUBSTITUTE_SKIP,
       TemporalHelpers.SUBSTITUTE_SKIP,
@@ -60,7 +59,8 @@ assert.throws(RangeError, () =>
   // Adding day to day sets largestUnit to 'day', avoids having any week/month/year components in differences
   dayDuration.add(dayDuration, {
     relativeTo: zdt,
-  })
+  }),
+  "days < 0 and sign = 1"
 );
 
 // NanosecondsToDays.20: days > 0 and sign = -1
@@ -73,8 +73,7 @@ zdt = new Temporal.ZonedDateTime(
       [epochInstant], // Returned for NanosecondsToDays step 14, setting _intermediateNs_
     ],
     [
-      // Behave normally in 4 calls made prior to NanosecondsToDays
-      TemporalHelpers.SUBSTITUTE_SKIP,
+      // Behave normally in 3 calls made prior to NanosecondsToDays
       TemporalHelpers.SUBSTITUTE_SKIP,
       TemporalHelpers.SUBSTITUTE_SKIP,
       TemporalHelpers.SUBSTITUTE_SKIP,
@@ -87,7 +86,8 @@ assert.throws(RangeError, () =>
   // Adding day to day sets largestUnit to 'day', avoids having any week/month/year components in differences
   dayDuration.add(dayDuration, {
     relativeTo: zdt,
-  })
+  }),
+  "days > 0 and sign = -1"
 );
 
 // NanosecondsToDays.22: nanoseconds > 0 and sign = -1
@@ -101,8 +101,7 @@ zdt = new Temporal.ZonedDateTime(
       [new Temporal.Instant(-4n)], // Returned for NanosecondsToDays step 18.a, setting _oneDayFartherNs_
     ],
     [
-      // Behave normally in 4 calls made prior to NanosecondsToDays
-      TemporalHelpers.SUBSTITUTE_SKIP,
+      // Behave normally in 3 calls made prior to NanosecondsToDays
       TemporalHelpers.SUBSTITUTE_SKIP,
       TemporalHelpers.SUBSTITUTE_SKIP,
       TemporalHelpers.SUBSTITUTE_SKIP,
@@ -115,5 +114,6 @@ assert.throws(RangeError, () =>
   // Adding day to day sets largestUnit to 'day', avoids having any week/month/year components in differences
   dayDuration.add(dayDuration, {
     relativeTo: zdt,
-  })
+  }),
+  "nanoseconds > 0 and sign = -1"
 );
