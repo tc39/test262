@@ -20,9 +20,25 @@ assert.sameValue(
 
 testWithTypedArrayConstructors(TA => {
   assert.sameValue(typeof TA.prototype.at, 'function', 'The value of `typeof TA.prototype.at` is "function"');
-  let a = new TA([0,1,2,3]);
 
-  assert.throws(TypeError, () => {
-    a.at(Symbol());
-  }, '`a.at(Symbol())` throws TypeError');
+  const {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  } = createTypedArrayVariations(TA, [0, 1, 2, 3]);
+
+  [
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  ].forEach(({ name, contents }) => {
+    assert.throws(TypeError, () => {
+      contents.at(Symbol());
+    }, `'contents.at(Symbol())' throws TypeError in ${name}`);
+  });
+
 });

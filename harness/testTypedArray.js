@@ -8,6 +8,7 @@ defines:
   - floatArrayConstructors
   - intArrayConstructors
   - TypedArray
+  - createTypedArrayVariations
   - testWithTypedArrayConstructors
   - testWithAtomicsFriendlyTypedArrayConstructors
   - testWithNonAtomicsFriendlyTypedArrayConstructors
@@ -119,4 +120,53 @@ function testTypedArrayConversions(byteConversionValues, fn) {
       fn(TA, value, exp, initial);
     });
   });
+}
+
+function createTypedArrayVariations(TA, values) {
+
+  const rab = () => {
+    let buffer = new ArrayBuffer(values.length * TA.BYTES_PER_ELEMENT, { maxByteLength: values.length * 2 * TA.BYTES_PER_ELEMENT });
+    let ta_write = new TA(buffer);
+
+    for (let i = 0; i < values.length; ++i) {
+      ta_write[i] = values[i];
+    }
+
+    return buffer;
+  }
+
+  const nonresizable = {
+    name: 'non-resizable',
+    contents: new TA(values)
+  };
+
+  const fixedLength = {
+    name: 'fixed length',
+    contents: new TA(rab(), 0, values.length)
+  };
+
+  const lengthTracking =   {
+    name: 'length tracking',
+    contents: new TA(rab(), 0)
+  };
+
+  const fixedLengthWithOffset = {
+    name: 'fixed length with offset',
+    // Using Math.ceil ensures both offset buffers are the same length when
+    // values.length is odd 
+    contents: new TA(rab(), 2 * TA.BYTES_PER_ELEMENT, Math.ceil(values.length / 2))
+  };
+
+  const lengthTrackingWithOffset = {
+    name: 'length tracking with offset',
+    contents: new TA(rab(), 2 * TA.BYTES_PER_ELEMENT)
+  };
+
+  return {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset,
+  }
 }

@@ -20,9 +20,23 @@ assert.sameValue(
 
 testWithTypedArrayConstructors(TA => {
   assert.sameValue(typeof TA.prototype.at, 'function', 'The value of `typeof TA.prototype.at` is "function"');
-  let a = new TA([]);
 
-  assert.sameValue(a.at(-2), undefined, 'a.at(-2) must return undefined'); // wrap around the end
-  assert.sameValue(a.at(0), undefined, 'a.at(0) must return undefined');
-  assert.sameValue(a.at(1), undefined, 'a.at(1) must return undefined');
+  const {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  } = createTypedArrayVariations(TA, [1, 2, 3, 4]);
+
+  [
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  ].forEach(({ contents, name }) => {
+    assert.sameValue(contents.at(-5), undefined, `contents.at(-5) must return undefined in ${name}`); // go past the start
+    assert.sameValue(contents.at(4), undefined, `contents.at(4) must return undefined in ${name}`);
+  });
 });

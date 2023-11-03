@@ -28,23 +28,40 @@ assert.sameValue(
 );
 
 testWithTypedArrayConstructors(TA => {
-  let a = new TA([0, 1, , 3, 4, , 6]);
-  let filler = 0;
-  if (TA.name.startsWith('Float')) {
-    filler = NaN;
-  }
-  assert.sameValue(a.at(0), 0, 'a.at(0) must return 0');
-  assert.sameValue(a.at(1), 1, 'a.at(1) must return 1');
-  assert.sameValue(a.at(2), filler, 'a.at(2) must return the value of filler');
-  assert.sameValue(a.at(3), 3, 'a.at(3) must return 3');
-  assert.sameValue(a.at(4), 4, 'a.at(4) must return 4');
-  assert.sameValue(a.at(5), filler, 'a.at(5) must return the value of filler');
-  assert.sameValue(a.at(6), 6, 'a.at(6) must return 6');
-  assert.sameValue(a.at(-0), 0, 'a.at(-0) must return 0');
-  assert.sameValue(a.at(-1), 6, 'a.at(-1) must return 6');
-  assert.sameValue(a.at(-2), filler, 'a.at(-2) must return the value of filler');
-  assert.sameValue(a.at(-3), 4, 'a.at(-3) must return 4');
-  assert.sameValue(a.at(-4), 3, 'a.at(-4) must return 3');
-  assert.sameValue(a.at(-5), filler, 'a.at(-5) must return the value of filler');
-  assert.sameValue(a.at(-6), 1, 'a.at(-6) must return 1');
+
+  const {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  } = createTypedArrayVariations(TA, [0, 1, , 3, 4, , 6]);
+
+  const filler = TA.name.startsWith('Float') ? 0 : NaN;
+
+  [
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  ].forEach(({ contents, name }) => {
+
+    assert.sameValue(contents.at(0), 0, 'contents.at(0) must return 0');
+    assert.sameValue(contents.at(1), 1, 'contents.at(1) must return 1');
+    assert.sameValue(contents.at(2), filler, 'contents.at(2) must return the value of filler');
+    assert.sameValue(contents.at(3), 3, 'contents.at(3) must return 3');
+    assert.sameValue(contents.at(4), 4, 'contents.at(4) must return 4');
+    assert.sameValue(contents.at(5), filler, 'contents.at(5) must return the value of filler');
+    assert.sameValue(contents.at(6), 6, 'contents.at(6) must return 6');
+    assert.sameValue(contents.at(-0), 0, 'contents.at(-0) must return 0');
+    assert.sameValue(contents.at(-1), 6, 'contents.at(-1) must return 6');
+    assert.sameValue(contents.at(-2), filler, 'contents.at(-2) must return the value of filler');
+    assert.sameValue(contents.at(-3), 4, 'contents.at(-3) must return 4');
+    assert.sameValue(contents.at(-4), 3, 'contents.at(-4) must return 3');
+    assert.sameValue(contents.at(-5), filler, 'contents.at(-5) must return the value of filler');
+    assert.sameValue(contents.at(-6), 1, 'contents.at(-6) must return 1');
+
+  });
+
 });

@@ -29,10 +29,31 @@ assert.sameValue(
 
 testWithTypedArrayConstructors(TA => {
   assert.sameValue(typeof TA.prototype.at, 'function', 'The value of `typeof TA.prototype.at` is "function"');
-  let a = new TA([1, 2, 3, 4]);
 
-  assert.sameValue(a.at(0), 1, 'a.at(0) must return 1');
-  assert.sameValue(a.at(1), 2, 'a.at(1) must return 2');
-  assert.sameValue(a.at(2), 3, 'a.at(2) must return 3');
-  assert.sameValue(a.at(3), 4, 'a.at(3) must return 4');
+  const {
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  } = createTypedArrayVariations(TA, [1, 2, 3, 4]);
+
+  [
+    nonresizable,
+    fixedLength,
+    lengthTracking,
+  ].forEach(({ name, contents }) => {
+    assert.sameValue(contents.at(0), 1, `contents.at(0) must return 1 in ${name}`)
+    assert.sameValue(contents.at(1), 2, `contents.at(1) must return 2 in ${name}`)
+    assert.sameValue(contents.at(2), 3, `contents.at(2) must return 3 in ${name}`)
+    assert.sameValue(contents.at(3), 4, `contents.at(3) must return 4 in ${name}`)
+  });
+
+  [
+    fixedLengthWithOffset,
+    lengthTrackingWithOffset
+  ].forEach(({ name, contents }) => {
+    assert.sameValue(contents.at(0), 3, `contents.at(0) must return 3 in ${name}`)
+    assert.sameValue(contents.at(1), 4, `contents.at(1) must return 4 in ${name}`)
+  })
 });
