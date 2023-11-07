@@ -13,6 +13,10 @@ info: |
 features: [Intl.DisplayNames]
 ---*/
 
+
+// https://unicode.org/reports/tr35/#unicode_region_subtag
+// unicode_region_subtag	= (alpha{2} | digit{3}) ;
+
 var displayNames = new Intl.DisplayNames(undefined, {type: 'region'});
 
 assert.throws(RangeError, function() {
