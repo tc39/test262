@@ -17,8 +17,10 @@ const expected = [
   "get options.disambiguation",
   "get options.disambiguation.toString",
   "call options.disambiguation.toString",
-  // BuiltinTimeZoneGetInstantFor
+  // lookup in PlainDateTime.p.toZonedDateTime
+  "get timeZone.getOffsetNanosecondsFor",
   "get timeZone.getPossibleInstantsFor",
+  // GetInstantFor
   "call timeZone.getPossibleInstantsFor",
 ];
 const actual = [];
@@ -48,7 +50,6 @@ actual.splice(0); // clear
 
 springForwardInstance.toZonedDateTime(timeZone, options);
 assert.compareArray(actual, expected.concat([
-  "get timeZone.getOffsetNanosecondsFor",
   "call timeZone.getOffsetNanosecondsFor",
   "call timeZone.getOffsetNanosecondsFor",
   "call timeZone.getPossibleInstantsFor",
