@@ -109,7 +109,6 @@ const expectedOpsForPlainRelativeTo = expected.concat([
   "has options.relativeTo.calendar.year",
   "has options.relativeTo.calendar.yearMonthFromFields",
   "has options.relativeTo.calendar.yearOfWeek",
-  // lookup
   "get options.relativeTo.calendar.dateFromFields",
   "get options.relativeTo.calendar.fields",
   "call options.relativeTo.calendar.fields",
@@ -134,6 +133,8 @@ const expectedOpsForPlainRelativeTo = expected.concat([
   "get options.relativeTo.year.valueOf",
   "call options.relativeTo.year.valueOf",
   "call options.relativeTo.calendar.dateFromFields",
+  // lookup in Duration.compare
+  "get options.relativeTo.calendar.dateAdd",
 ]);
 
 const plainRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
@@ -176,7 +177,6 @@ actual.splice(0); // clear
 // to days:
 const expectedOpsForPlainDayBalancing = expectedOpsForPlainRelativeTo.concat(
   [
-    "get options.relativeTo.calendar.dateAdd",
     // UnbalanceDurationRelative
     "call options.relativeTo.calendar.dateAdd",  // 11.a.iii.1 MoveRelativeDate
     "call options.relativeTo.calendar.dateAdd",  // 11.a.iv.1 MoveRelativeDate
@@ -264,6 +264,8 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   "get options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getPossibleInstantsFor",
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  // lookup in Duration.compare
+  "get options.relativeTo.calendar.dateAdd",
 ]);
 
 const zonedRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
@@ -323,7 +325,6 @@ Temporal.Duration.compare(
 assert.compareArray(
   actual,
   expectedOpsForZonedRelativeTo.concat([
-    "get options.relativeTo.calendar.dateAdd",
     "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
     // AddZonedDateTime on first argument
     "call options.relativeTo.calendar.dateAdd",

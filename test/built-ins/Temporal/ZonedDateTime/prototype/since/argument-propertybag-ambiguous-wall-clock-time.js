@@ -48,7 +48,7 @@ const expected = [
   "has calendar.year",
   "has calendar.yearMonthFromFields",
   "has calendar.yearOfWeek",
-  // lookup
+  // lookup in ToTemporalZonedDateTime
   "get calendar.dateFromFields",
   "get calendar.fields",
   // CalendarFields

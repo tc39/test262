@@ -105,6 +105,7 @@ actual.splice(0);
 instance.until(otherDatePropertyBag, createOptionsObserver({ largestUnit: "years" }));
 assert.compareArray(actual, expected.concat([
   // lookup
+  "get this.calendar.dateAdd",
   "get this.calendar.dateUntil",
   // CalendarDateUntil
   "call this.calendar.dateUntil",
