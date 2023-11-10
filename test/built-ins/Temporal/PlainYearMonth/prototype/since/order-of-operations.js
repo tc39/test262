@@ -123,28 +123,7 @@ actual.splice(0);
 
 // code path that skips RoundDuration:
 instance.since(otherYearMonthPropertyBag, createOptionsObserver({ smallestUnit: "months", roundingIncrement: 1 }));
-assert.compareArray(actual, expectedMinimal.concat([
-  // lookup
-  "get this.calendar.dateFromFields",
-  "get this.calendar.dateUntil",
-  "get this.calendar.fields",
-  // CalendarFields
-  "call this.calendar.fields",
-  // PrepareTemporalFields / CalendarDateFromFields (receiver)
-  "get this.calendar.monthCode",
-  "call this.calendar.monthCode",
-  "get this.calendar.year",
-  "call this.calendar.year",
-  "call this.calendar.dateFromFields",
-  // PrepareTemporalFields / CalendarDateFromFields (argument)
-  "get other.calendar.monthCode",
-  "call other.calendar.monthCode",
-  "get other.calendar.year",
-  "call other.calendar.year",
-  "call this.calendar.dateFromFields",
-  // CalendarDateUntil
-  "call this.calendar.dateUntil",
-]), "order of operations with no rounding");
+assert.compareArray(actual, expected, "order of operations with no rounding");
 actual.splice(0); // clear
 
 // short-circuit for identical objects:
