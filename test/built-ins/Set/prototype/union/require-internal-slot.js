@@ -1,7 +1,7 @@
 // Copyright (C) 2023 Anthony Frehner. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
+esid: sec-set.prototype.union
 description: Set.prototype.union RequireInternalSlot
 info: |
     2. Perform ? RequireInternalSlot(O, [[SetData]])
@@ -18,6 +18,8 @@ assert.throws(TypeError, () => union.call(true), "true");
 assert.throws(TypeError, () => union.call(""), "empty string");
 assert.throws(TypeError, () => union.call(Symbol()), "symbol");
 assert.throws(TypeError, () => union.call(1), "1");
+assert.throws(TypeError, () => union.call(1n), "1n");
 assert.throws(TypeError, () => union.call({}), "plain object");
 assert.throws(TypeError, () => union.call([]), "array");
 assert.throws(TypeError, () => union.call(new Map()), "map");
+assert.throws(TypeError, () => union.call(Set.prototype), "Set.prototype");

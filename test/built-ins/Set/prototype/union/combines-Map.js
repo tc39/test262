@@ -1,7 +1,7 @@
 // Copyright (C) 2023 Anthony Frehner. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
+esid: sec-set.prototype.union
 description: Set.prototype.union combines with Map
 features: [Set-methods]
 includes: [compareArray.js]
@@ -12,8 +12,8 @@ const m1 = new Map([
   [2, "two"],
   [3, "three"],
 ]);
-const expects = [1, 2, 3];
+const expected = [1, 2, 3];
 const combined = s1.union(m1);
 
-assert.compareArray([...combined], expects);
+assert.compareArray([...combined], expected);
 assert.sameValue(combined instanceof Set, true, "The returned object is a Set");

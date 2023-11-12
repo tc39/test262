@@ -1,0 +1,72 @@
+// Copyright (C) 2023 Anthony Frehner. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+esid: sec-getsetrecord
+description: GetSetRecord if the Set-like object has a size of 'undefined' an error is thrown
+info: |
+    2. Let rawSize be ? Get(obj, "size").
+    3. Let numSize be ? ToNumber(rawSize).
+    4. NOTE: If rawSize is undefined, then numSize will be NaN.
+    5. If numSize is NaN, throw a TypeError exception.
+features: [Set-methods]
+---*/
+
+const s1 = new Set([1, 2]);
+const s2 = {
+  size: undefined,
+  has: () => {},
+  keys: function* keys() {
+    yield 2;
+    yield 3;
+  },
+};
+assert.throws(
+  TypeError,
+  function () {
+    s1.union(s2);
+  },
+  "GetSetRecord throws an error when size is undefined"
+);
+
+s2.size = NaN;
+assert.throws(
+  TypeError,
+  function () {
+    s1.union(s2);
+  },
+  "GetSetRecord throws an error when size is NaN"
+);
+
+let coercionCalls = 0;
+s2.size = {
+  valueOf: function() {
+    ++coercionCalls;
+    return NaN;
+  },
+};
+assert.throws(
+  TypeError,
+  function () {
+    s1.union(s2);
+  },
+  "GetSetRecord throws an error when size coerces to NaN"
+);
+assert.sameValue(coercionCalls, 1, "GetSetRecord coerces size");
+
+s2.size = 0n;
+assert.throws(
+  TypeError,
+  function () {
+    s1.union(s2);
+  },
+  "GetSetRecord throws an error when size is a BigInt"
+);
+
+s2.size = "string";
+assert.throws(
+  TypeError,
+  function () {
+    s1.union(s2);
+  },
+  "GetSetRecord throws an error when size is a non-numeric string"
+);

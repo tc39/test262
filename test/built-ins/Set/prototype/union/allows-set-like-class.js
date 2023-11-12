@@ -1,7 +1,7 @@
 // Copyright (C) 2023 Anthony Frehner. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
+esid: sec-set.prototype.union
 description: GetSetRecord allows Set-like objects
 info: |
     1. If obj is not an Object, throw a TypeError exception.
@@ -14,19 +14,19 @@ features: [Set-methods]
 includes: [compareArray.js]
 ---*/
 
-class MySetLike {
-  size = 2;
-  has = () => {};
-  keys = function* keys() {
+const s1 = new Set([1, 2]);
+const s2 = {
+  size: 2,
+  has: function () {
+    throw new Test262Error("Set.prototype.union should not invoke .has on its argument");
+  },
+  keys: function* keys() {
     yield 2;
     yield 3;
-  };
-}
-
-const s1 = new Set([1, 2]);
-const s2 = new MySetLike();
-const expects = [1, 2, 3];
+  },
+};
+const expected = [1, 2, 3];
 const combined = s1.union(s2);
 
-assert.compareArray([...combined], expects);
+assert.compareArray([...combined], expected);
 assert.sameValue(combined instanceof Set, true, "The returned object is a Set");

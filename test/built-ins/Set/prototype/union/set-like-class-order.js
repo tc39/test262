@@ -1,7 +1,7 @@
 // Copyright (C) 2023 Kevin Gibbons, Anthony Frehner. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
+esid: sec-set.prototype.union
 description: Set.prototype.union calls a Set-like class's methods in order
 features: [Set-methods]
 includes: [compareArray.js]
@@ -10,6 +10,7 @@ includes: [compareArray.js]
 const observedOrder = [];
 const expectedOrder = [
   "getting size",
+  "ToNumber(size)",
   "getting has",
   "getting keys",
   "calling keys",
@@ -53,11 +54,18 @@ function observableIterator() {
 class MySetLike {
   get size() {
     observedOrder.push("getting size");
-    return 2;
+    return {
+      valueOf: function () {
+        observedOrder.push("ToNumber(size)");
+        return 2;
+      },
+    };
   }
   get has() {
     observedOrder.push("getting has");
-    return function () {};
+    return function () {
+      throw new Test262Error("Set.prototype.union should not invoke .has on its argument");
+    };
   }
   get keys() {
     observedOrder.push("getting keys");

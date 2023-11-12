@@ -1,7 +1,7 @@
 // Copyright (C) 2023 Kevin Gibbons, Anthony Frehner. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
+esid: sec-set.prototype.union
 description: Set.prototype.union maintains values even when a custom Set-like class mutates the receiver
 features: [Set-methods]
 includes: [compareArray.js]
