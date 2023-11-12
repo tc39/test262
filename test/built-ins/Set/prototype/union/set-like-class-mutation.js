@@ -7,7 +7,7 @@ features: [Set-methods]
 includes: [compareArray.js]
 ---*/
 
-const baseSet = new Set(["a", "b", "c", "d", "e"]);
+const baseSet = new Set(["a", "b", "c", "d", "e", "q"]);
 
 function mutatingIterator() {
   let index = 0;
@@ -28,7 +28,12 @@ function mutatingIterator() {
 
 const evilSetLike = {
   size: 2,
-  has() {},
+  get has() {
+    baseSet.add("q");
+    return function () {
+      throw new Test262Error("Set.prototype.union should not invoke .has on its argument");
+    };
+  },
   keys() {
     return mutatingIterator();
   },
