@@ -85,7 +85,7 @@ Temporal.Duration.compare(
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
-const expectedOpsForPlainRelativeTo = expected.concat([
+const baseExpectedOpsWithRelativeTo = expected.concat([
   // ToRelativeTemporalObject
   "get options.relativeTo.calendar",
   "has options.relativeTo.calendar.dateAdd",
@@ -116,6 +116,10 @@ const expectedOpsForPlainRelativeTo = expected.concat([
   "get options.relativeTo.day.valueOf",
   "call options.relativeTo.day.valueOf",
   "get options.relativeTo.hour",
+]);
+
+const expectedOpsForPlainRelativeTo = baseExpectedOpsWithRelativeTo.concat([
+  // ToRelativeTemporalObject, continued
   "get options.relativeTo.microsecond",
   "get options.relativeTo.millisecond",
   "get options.relativeTo.minute",
@@ -195,37 +199,8 @@ Temporal.Duration.compare(
 assert.compareArray(actual, expectedOpsForPlainDayBalancing, "order of operations with PlainDate relativeTo and calendar units");
 actual.splice(0); // clear
 
-const expectedOpsForZonedRelativeTo = expected.concat([
-  // ToRelativeTemporalObject
-  "get options.relativeTo.calendar",
-  "has options.relativeTo.calendar.dateAdd",
-  "has options.relativeTo.calendar.dateFromFields",
-  "has options.relativeTo.calendar.dateUntil",
-  "has options.relativeTo.calendar.day",
-  "has options.relativeTo.calendar.dayOfWeek",
-  "has options.relativeTo.calendar.dayOfYear",
-  "has options.relativeTo.calendar.daysInMonth",
-  "has options.relativeTo.calendar.daysInWeek",
-  "has options.relativeTo.calendar.daysInYear",
-  "has options.relativeTo.calendar.fields",
-  "has options.relativeTo.calendar.id",
-  "has options.relativeTo.calendar.inLeapYear",
-  "has options.relativeTo.calendar.mergeFields",
-  "has options.relativeTo.calendar.month",
-  "has options.relativeTo.calendar.monthCode",
-  "has options.relativeTo.calendar.monthDayFromFields",
-  "has options.relativeTo.calendar.monthsInYear",
-  "has options.relativeTo.calendar.weekOfYear",
-  "has options.relativeTo.calendar.year",
-  "has options.relativeTo.calendar.yearMonthFromFields",
-  "has options.relativeTo.calendar.yearOfWeek",
-  "get options.relativeTo.calendar.dateFromFields",
-  "get options.relativeTo.calendar.fields",
-  "call options.relativeTo.calendar.fields",
-  "get options.relativeTo.day",
-  "get options.relativeTo.day.valueOf",
-  "call options.relativeTo.day.valueOf",
-  "get options.relativeTo.hour",
+const expectedOpsForZonedRelativeTo = baseExpectedOpsWithRelativeTo.concat([
+  // ToRelativeTemporalObject, continued
   "get options.relativeTo.hour.valueOf",
   "call options.relativeTo.hour.valueOf",
   "get options.relativeTo.microsecond",
