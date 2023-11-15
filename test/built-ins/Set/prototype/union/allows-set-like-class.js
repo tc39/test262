@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-set.prototype.union
-description: GetSetRecord allows Set-like objects
+description: GetSetRecord allows instances of Set-like classes
 info: |
     1. If obj is not an Object, throw a TypeError exception.
     2. Let rawSize be ? Get(obj, "size").
@@ -15,15 +15,17 @@ includes: [compareArray.js]
 ---*/
 
 const s1 = new Set([1, 2]);
-const s2 = {
-  size: 2,
-  has: function () {
+const s2 = new class {
+  get size() {
+    return 2;
+  }
+  has() {
     throw new Test262Error("Set.prototype.union should not invoke .has on its argument");
-  },
-  keys: function* keys() {
+  }
+  * keys() {
     yield 2;
     yield 3;
-  },
+  }
 };
 const expected = [1, 2, 3];
 const combined = s1.union(s2);

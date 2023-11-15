@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-getsetrecord
-description: GetSetRecord if the Set-like object has a size of 'undefined' an error is thrown
+description: GetSetRecord throws an exception if the Set-like object has a size that is coerced to NaN
 info: |
     2. Let rawSize be ? Get(obj, "size").
     3. Let numSize be ? ToNumber(rawSize).

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-set.prototype.union
-description: Set.prototype.union name properties
+description: Set.prototype.union name property
 info: |
     Set.prototype.union ( other )]
 includes: [propertyHelper.js]

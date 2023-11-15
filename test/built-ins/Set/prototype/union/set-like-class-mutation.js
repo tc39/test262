@@ -7,7 +7,7 @@ features: [Set-methods]
 includes: [compareArray.js]
 ---*/
 
-const baseSet = new Set(["a", "b", "c", "d", "e", "q"]);
+const baseSet = new Set(["a", "b", "c", "d", "e"]);
 
 function mutatingIterator() {
   let index = 0;
@@ -40,8 +40,8 @@ const evilSetLike = {
 };
 
 const combined = baseSet.union(evilSetLike);
-const expectedCombined = ["a", "b", "c", "d", "e", "x", "y"];
+const expectedCombined = ["a", "b", "c", "d", "e", "q", "x", "y"];
 assert.compareArray([...combined], expectedCombined);
 
-const expectedNewBase = ["a", "d", "e", "b"];
+const expectedNewBase = ["a", "d", "e", "q", "b"];
 assert.compareArray([...baseSet], expectedNewBase);

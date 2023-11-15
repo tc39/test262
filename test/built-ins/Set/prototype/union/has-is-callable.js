@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-getsetrecord
-description: GetSetRecord if the Set-like object's 'has' property is not callable an error is thrown
+description: GetSetRecord throws an exception if the Set-like object's 'has' property is not callable
 info: |
     7. Let has be ? Get(obj, "has").
     8. If IsCallable(has) is false, throw a TypeError exception.
@@ -23,7 +23,7 @@ assert.throws(
   function () {
     s1.union(s2);
   },
-  "GetSetRecord throws an error when has is not callable"
+  "GetSetRecord throws an error when has is undefined"
 );
 
 s2.has = {};
