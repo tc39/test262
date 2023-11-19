@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union works on subclasses of Set, but returns an instance of Set even when Symbol.species is overridden.
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 var count = 0;

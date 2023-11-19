@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union works on subclasses of Set, but never calls the receiver's size/has/keys methods
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

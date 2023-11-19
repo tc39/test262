@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union works on subclasses of Set, but returns an instance of Set
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

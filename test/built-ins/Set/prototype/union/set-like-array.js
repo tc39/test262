@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union consumes a set-like array as a set-like, not an array
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

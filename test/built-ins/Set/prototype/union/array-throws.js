@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union doesn't work with arrays
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

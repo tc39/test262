@@ -6,7 +6,7 @@ description: GetSetRecord throws an exception if the Set-like object's 'has' pro
 info: |
     7. Let has be ? Get(obj, "has").
     8. If IsCallable(has) is false, throw a TypeError exception.
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

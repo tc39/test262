@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union calls a Set-like class's methods in order
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 
