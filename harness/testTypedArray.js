@@ -127,3 +127,31 @@ function testTypedArrayConversions(byteConversionValues, fn) {
     });
   });
 }
+
+/**
+ * Checks if the given argument is one of the float-based TypedArray constructors.
+ *
+ * @param {constructor} ctor - the value to check
+ * @returns {boolean}
+ */
+function isFloatTypedArrayConstructor(arg) {
+  return floatArrayConstructors.indexOf(arg) !== -1;
+}
+
+/**
+ * Determines the precision of the given float-based TypedArray constructor.
+ *
+ * @param {constructor} ctor - the value to check
+ * @returns {string} "half", "single", or "double" for Float16Array, Float32Array, and Float64Array respectively.
+ */
+function floatTypedArrayConstructorPrecision(FA) {
+  if (typeof Float16Array !== "undefined" && FA === Float16Array) {
+    return "half";
+  } else if (FA === Float32Array) {
+    return "single";
+  } else if (FA === Float64Array) {
+    return "double";
+  } else {
+    throw new Error("Malformed test - floatTypedArrayConstructorPrecision called with non-float TypedArray");
+  }
+}
