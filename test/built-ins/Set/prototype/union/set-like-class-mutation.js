@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union maintains values even when a custom Set-like class mutates the receiver
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

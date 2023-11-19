@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union should not call Set.prototype.add
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

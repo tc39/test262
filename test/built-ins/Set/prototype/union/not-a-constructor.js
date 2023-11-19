@@ -4,7 +4,7 @@
 esid: sec-set.prototype.union
 description: Set.prototype.union does not implement [[Construct]], is not new-able
 includes: [isConstructor.js]
-features: [Reflect.construct, Set-methods]
+features: [Reflect.construct, set-methods]
 ---*/
 
 assert.sameValue(

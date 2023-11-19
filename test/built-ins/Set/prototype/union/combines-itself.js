@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union is successful when called on itself
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

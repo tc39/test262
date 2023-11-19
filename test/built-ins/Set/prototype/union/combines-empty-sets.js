@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union can combine empty Sets
-features: [Set-methods]
+features: [set-methods]
 includes: [compareArray.js]
 ---*/
 

@@ -101,6 +101,10 @@ iterator-helpers
 # https://github.com/tc39/proposal-promise-with-resolvers
 promise-with-resolvers
 
+# Set methods
+# https://github.com/tc39/proposal-set-methods
+set-methods
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
@@ -210,7 +214,6 @@ regexp-named-groups
 regexp-unicode-property-escapes
 rest-parameters
 Set
-Set-methods
 SharedArrayBuffer
 string-trimming
 String.fromCodePoint
@@ -264,7 +267,3 @@ __setter__
 
 IsHTMLDDA
 host-gc-required
-
-# Set methods
-# https://github.com/tc39/proposal-set-methods
-set-methods

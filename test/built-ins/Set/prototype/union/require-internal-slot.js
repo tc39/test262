@@ -5,7 +5,7 @@ esid: sec-set.prototype.union
 description: Set.prototype.union RequireInternalSlot
 info: |
     2. Perform ? RequireInternalSlot(O, [[SetData]])
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 const union = Set.prototype.union;

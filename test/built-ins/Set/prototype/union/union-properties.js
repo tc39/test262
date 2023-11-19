@@ -4,7 +4,7 @@
 esid: sec-set.prototype.union
 description: Set.prototype.union properties
 includes: [propertyHelper.js]
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 assert.sameValue(

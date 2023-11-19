@@ -5,7 +5,7 @@ esid: sec-getsetrecord
 description: GetSetRecord throws if obj is not an object
 info: |
     1. If obj is not an Object, throw a TypeError exception.
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 let s1 = new Set([1]);

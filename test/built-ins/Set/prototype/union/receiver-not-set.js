@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Set.prototype.union throws when receiver is not a Set
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 class MySetLike {

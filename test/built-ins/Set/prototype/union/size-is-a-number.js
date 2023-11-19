@@ -8,7 +8,7 @@ info: |
     3. Let numSize be ? ToNumber(rawSize).
     4. NOTE: If rawSize is undefined, then numSize will be NaN.
     5. If numSize is NaN, throw a TypeError exception.
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);

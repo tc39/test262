@@ -3,7 +3,7 @@
 /*---
 esid: sec-set.prototype.union
 description: Tests that Set.prototype.union meets the requirements for built-in objects
-features: [Set-methods]
+features: [set-methods]
 ---*/
 
 assert.sameValue(
