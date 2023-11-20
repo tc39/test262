@@ -43,4 +43,4 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 },
-floatArrayConstructors);
+intArrayConstructors);
