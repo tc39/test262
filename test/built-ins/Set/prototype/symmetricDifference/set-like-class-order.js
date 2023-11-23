@@ -1,8 +1,8 @@
-// Copyright (C) 2023 Kevin Gibbons, Anthony Frehner. All rights reserved.
+// Copyright (C) 2023 Anthony Frehner and Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-set.prototype.union
-description: Set.prototype.union calls a Set-like class's methods in order
+esid: sec-set.prototype.symmetricdifference
+description: Set.prototype.symmetricDifference calls a Set-like class's methods in order
 features: [set-methods]
 includes: [compareArray.js]
 ---*/
@@ -29,7 +29,7 @@ const expectedOrder = [
 ];
 
 function observableIterator() {
-  let values = ["a", "b"];
+  let values = [2, 4];
   let index = 0;
   return {
     get next() {
@@ -64,7 +64,7 @@ class MySetLike {
   get has() {
     observedOrder.push("getting has");
     return function () {
-      throw new Test262Error("Set.prototype.union should not invoke .has on its argument");
+      throw new Test262Error("Set.prototype.symmetricDifference should not call its argument's has method when this.size > arg.size");
     };
   }
   get keys() {
@@ -76,9 +76,9 @@ class MySetLike {
   }
 }
 
-const s1 = new Set([1, 2]);
+const s1 = new Set([1, 2, 3]);
 const s2 = new MySetLike();
-const combined = s1.union(s2);
+const combined = s1.symmetricDifference(s2);
 
-assert.compareArray([...combined], [1, 2, "a", "b"]);
+assert.compareArray([...combined], [1, 3, 4]);
 assert.compareArray(observedOrder, expectedOrder);
