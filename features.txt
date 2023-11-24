@@ -31,8 +31,14 @@ legacy-regexp
 # https://github.com/tc39/proposal-atomics-wait-async
 Atomics.waitAsync
 
-# Import Assertions
-# https://github.com/tc39/proposal-import-assertions/
+# Import Attributes
+# https://github.com/tc39/proposal-import-attributes/
+import-attributes
+
+# Import Assertions (Normative Optional, Deprecated)
+# This feature should not be implemented, but if it is it must
+# respect the specified behavior
+# https://github.com/tc39/proposal-import-attributes/
 import-assertions
 
 # JSON modules
@@ -94,6 +100,10 @@ iterator-helpers
 # Promise.withResolvers
 # https://github.com/tc39/proposal-promise-with-resolvers
 promise-with-resolvers
+
+# Set methods
+# https://github.com/tc39/proposal-set-methods
+set-methods
 
 # AsyncContext
 # https://github.com/tc39/proposal-async-context
