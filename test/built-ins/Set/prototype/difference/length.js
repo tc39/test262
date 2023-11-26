@@ -4,7 +4,7 @@
 esid: sec-set.prototype.difference
 description: Set.prototype.difference length property
 info: |
-    Set.prototype.difference ( other )]
+    Set.prototype.difference ( other )
 includes: [propertyHelper.js]
 features: [set-methods]
 ---*/

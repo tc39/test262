@@ -1,18 +1,18 @@
 // Copyright (C) 2023 Anthony Frehner and Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-set.prototype.difference
-description: Set.prototype.difference name property
+esid: sec-set.prototype.isdisjointfrom
+description: Set.prototype.isDisjointFrom length property
 info: |
-    Set.prototype.difference ( other )
+    Set.prototype.isDisjointFrom ( other )
 includes: [propertyHelper.js]
 features: [set-methods]
 ---*/
-assert.sameValue(typeof Set.prototype.difference, "function");
+assert.sameValue(typeof Set.prototype.isDisjointFrom, "function");
 
-verifyProperty(Set.prototype.difference, "name", {
+verifyProperty(Set.prototype.isDisjointFrom, "length", {
   enumerable: false,
   writable: false,
   configurable: true,
-  value: "difference",
+  value: 1,
 });

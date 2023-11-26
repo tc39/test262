@@ -4,7 +4,7 @@
 esid: sec-set.prototype.symmetricdifference
 description: Set.prototype.symmetricDifference name property
 info: |
-    Set.prototype.symmetricDifference ( other )]
+    Set.prototype.symmetricDifference ( other )
 includes: [propertyHelper.js]
 features: [set-methods]
 ---*/

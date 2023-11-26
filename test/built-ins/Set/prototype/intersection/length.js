@@ -4,7 +4,7 @@
 esid: sec-set.prototype.intersection
 description: Set.prototype.intersection length property
 info: |
-    Set.prototype.intersection ( other )]
+    Set.prototype.intersection ( other )
 includes: [propertyHelper.js]
 features: [set-methods]
 ---*/
