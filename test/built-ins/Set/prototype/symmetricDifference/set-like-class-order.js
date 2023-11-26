@@ -7,29 +7,10 @@ features: [set-methods]
 includes: [compareArray.js]
 ---*/
 
-const observedOrder = [];
-const expectedOrder = [
-  "getting size",
-  "ToNumber(size)",
-  "getting has",
-  "getting keys",
-  "calling keys",
-  "getting next",
-  // first iteration, has value
-  "calling next",
-  "getting done",
-  "getting value",
-  // second iteration, has value
-  "calling next",
-  "getting done",
-  "getting value",
-  // third iteration, no value; ends
-  "calling next",
-  "getting done",
-];
+let observedOrder = [];
 
 function observableIterator() {
-  let values = [2, 4];
+  let values = ["a", "b", "c"];
   let index = 0;
   return {
     get next() {
@@ -64,7 +45,7 @@ class MySetLike {
   get has() {
     observedOrder.push("getting has");
     return function () {
-      throw new Test262Error("Set.prototype.symmetricDifference should not call its argument's has method when this.size > arg.size");
+      throw new Test262Error("Set.prototype.symmetricDifference should not invoke .has on its argument");
     };
   }
   get keys() {
@@ -76,9 +57,110 @@ class MySetLike {
   }
 }
 
-const s1 = new Set([1, 2, 3]);
-const s2 = new MySetLike();
-const combined = s1.symmetricDifference(s2);
+// this is smaller than argument
+{
+  observedOrder = [];
 
-assert.compareArray([...combined], [1, 3, 4]);
-assert.compareArray(observedOrder, expectedOrder);
+  const s1 = new Set(["a", "d"]);
+  const s2 = new MySetLike();
+  const combined = s1.symmetricDifference(s2);
+
+  const expectedOrder = [
+    "getting size",
+    "ToNumber(size)",
+    "getting has",
+    "getting keys",
+    "calling keys",
+    "getting next",
+    // first iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // second iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // third iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // fourth iteration, no value; ends
+    "calling next",
+    "getting done",
+  ];
+
+  assert.compareArray([...combined], ["d", "b", "c"]);
+  assert.compareArray(observedOrder, expectedOrder);
+}
+
+// this is same size as argument
+{
+  observedOrder = [];
+
+  const s1 = new Set(["a", "b", "d"]);
+  const s2 = new MySetLike();
+  const combined = s1.symmetricDifference(s2);
+
+  const expectedOrder = [
+    "getting size",
+    "ToNumber(size)",
+    "getting has",
+    "getting keys",
+    "calling keys",
+    "getting next",
+    // first iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // second iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // third iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // fourth iteration, no value; ends
+    "calling next",
+    "getting done",
+  ];
+
+  assert.compareArray([...combined], ["d", "c"]);
+  assert.compareArray(observedOrder, expectedOrder);
+}
+
+// this is larger than argument
+{
+  observedOrder = [];
+
+  const s1 = new Set(["a", "b", "d", "e"]);
+  const s2 = new MySetLike();
+  const combined = s1.symmetricDifference(s2);
+
+  const expectedOrder = [
+    "getting size",
+    "ToNumber(size)",
+    "getting has",
+    "getting keys",
+    "calling keys",
+    "getting next",
+    // first iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // second iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // third iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // fourth iteration, no value; ends
+    "calling next",
+    "getting done",
+  ];
+
+  assert.compareArray([...combined], ["d", "e", "c"]);
+  assert.compareArray(observedOrder, expectedOrder);
+}

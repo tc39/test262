@@ -7,29 +7,10 @@ features: [set-methods]
 includes: [compareArray.js]
 ---*/
 
-const observedOrder = [];
-const expectedOrder = [
-  "getting size",
-  "ToNumber(size)",
-  "getting has",
-  "getting keys",
-  "calling keys",
-  "getting next",
-  // first iteration, has value
-  "calling next",
-  "getting done",
-  "getting value",
-  // second iteration, has value
-  "calling next",
-  "getting done",
-  "getting value",
-  // third iteration, no value; ends
-  "calling next",
-  "getting done",
-];
+let observedOrder = [];
 
 function observableIterator() {
-  let values = [2, 4];
+  let values = ["a", "b", "c"];
   let index = 0;
   return {
     get next() {
@@ -57,14 +38,15 @@ class MySetLike {
     return {
       valueOf: function () {
         observedOrder.push("ToNumber(size)");
-        return 2;
+        return 3;
       },
     };
   }
   get has() {
     observedOrder.push("getting has");
-    return function () {
-      throw new Test262Error("Set.prototype.intersection should not call its argument's has method when this.size > arg.size");
+    return function (v) {
+      observedOrder.push("calling has");
+      return ["a", "b", "c"].indexOf(v) !== -1;
     };
   }
   get keys() {
@@ -76,9 +58,83 @@ class MySetLike {
   }
 }
 
-const s1 = new Set([1, 2, 3]);
-const s2 = new MySetLike();
-const combined = s1.intersection(s2);
+// this is smaller than argument
+{
+  observedOrder = [];
 
-assert.compareArray([...combined], [2]);
-assert.compareArray(observedOrder, expectedOrder);
+  const s1 = new Set(["a", "d"]);
+  const s2 = new MySetLike();
+  const combined = s1.intersection(s2);
+
+  const expectedOrder = [
+    "getting size",
+    "ToNumber(size)",
+    "getting has",
+    "getting keys",
+    // two calls to has
+    "calling has",
+    "calling has",
+  ];
+
+  assert.compareArray([...combined], ["a"]);
+  assert.compareArray(observedOrder, expectedOrder);
+}
+
+// this is same size as argument
+{
+  observedOrder = [];
+
+  const s1 = new Set(["a", "b", "d"]);
+  const s2 = new MySetLike();
+  const combined = s1.intersection(s2);
+
+  const expectedOrder = [
+    "getting size",
+    "ToNumber(size)",
+    "getting has",
+    "getting keys",
+    // three calls to has
+    "calling has",
+    "calling has",
+    "calling has",
+  ];
+
+  assert.compareArray([...combined], ["a", "b"]);
+  assert.compareArray(observedOrder, expectedOrder);
+}
+
+// this is larger than argument
+{
+  observedOrder = [];
+
+  const s1 = new Set(["a", "b", "c", "d"]);
+  const s2 = new MySetLike();
+  const combined = s1.intersection(s2);
+
+  const expectedOrder = [
+    "getting size",
+    "ToNumber(size)",
+    "getting has",
+    "getting keys",
+    "calling keys",
+    "getting next",
+    // first iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // second iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // third iteration, has value
+    "calling next",
+    "getting done",
+    "getting value",
+    // fourth iteration, no value; ends
+    "calling next",
+    "getting done",
+  ];
+
+  assert.compareArray([...combined], ["a", "b", "c"]);
+  assert.compareArray(observedOrder, expectedOrder);
+}
