@@ -12,14 +12,16 @@ const difference = Set.prototype.difference;
 
 assert.sameValue(typeof difference, "function");
 
-assert.throws(TypeError, () => difference.call(undefined), "undefined");
-assert.throws(TypeError, () => difference.call(null), "null");
-assert.throws(TypeError, () => difference.call(true), "true");
-assert.throws(TypeError, () => difference.call(""), "empty string");
-assert.throws(TypeError, () => difference.call(Symbol()), "symbol");
-assert.throws(TypeError, () => difference.call(1), "1");
-assert.throws(TypeError, () => difference.call(1n), "1n");
-assert.throws(TypeError, () => difference.call({}), "plain object");
-assert.throws(TypeError, () => difference.call([]), "array");
-assert.throws(TypeError, () => difference.call(new Map()), "map");
-assert.throws(TypeError, () => difference.call(Set.prototype), "Set.prototype");
+const realSet = new Set([]);
+
+assert.throws(TypeError, () => difference.call(undefined, realSet), "undefined");
+assert.throws(TypeError, () => difference.call(null, realSet), "null");
+assert.throws(TypeError, () => difference.call(true, realSet), "true");
+assert.throws(TypeError, () => difference.call("", realSet), "empty string");
+assert.throws(TypeError, () => difference.call(Symbol(, realSet)), "symbol");
+assert.throws(TypeError, () => difference.call(1, realSet), "1");
+assert.throws(TypeError, () => difference.call(1n, realSet), "1n");
+assert.throws(TypeError, () => difference.call({}, realSet), "plain object");
+assert.throws(TypeError, () => difference.call([], realSet), "array");
+assert.throws(TypeError, () => difference.call(new Map(, realSet)), "map");
+assert.throws(TypeError, () => difference.call(Set.prototype, realSet), "Set.prototype");

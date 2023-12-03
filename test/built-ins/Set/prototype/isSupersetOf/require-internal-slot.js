@@ -12,14 +12,16 @@ const isSupersetOf = Set.prototype.isSupersetOf;
 
 assert.sameValue(typeof isSupersetOf, "function");
 
-assert.throws(TypeError, () => isSupersetOf.call(undefined), "undefined");
-assert.throws(TypeError, () => isSupersetOf.call(null), "null");
-assert.throws(TypeError, () => isSupersetOf.call(true), "true");
-assert.throws(TypeError, () => isSupersetOf.call(""), "empty string");
-assert.throws(TypeError, () => isSupersetOf.call(Symbol()), "symbol");
-assert.throws(TypeError, () => isSupersetOf.call(1), "1");
-assert.throws(TypeError, () => isSupersetOf.call(1n), "1n");
-assert.throws(TypeError, () => isSupersetOf.call({}), "plain object");
-assert.throws(TypeError, () => isSupersetOf.call([]), "array");
-assert.throws(TypeError, () => isSupersetOf.call(new Map()), "map");
-assert.throws(TypeError, () => isSupersetOf.call(Set.prototype), "Set.prototype");
+const realSet = new Set([]);
+
+assert.throws(TypeError, () => isSupersetOf.call(undefined, realSet), "undefined");
+assert.throws(TypeError, () => isSupersetOf.call(null, realSet), "null");
+assert.throws(TypeError, () => isSupersetOf.call(true, realSet), "true");
+assert.throws(TypeError, () => isSupersetOf.call("", realSet), "empty string");
+assert.throws(TypeError, () => isSupersetOf.call(Symbol(, realSet)), "symbol");
+assert.throws(TypeError, () => isSupersetOf.call(1, realSet), "1");
+assert.throws(TypeError, () => isSupersetOf.call(1n, realSet), "1n");
+assert.throws(TypeError, () => isSupersetOf.call({}, realSet), "plain object");
+assert.throws(TypeError, () => isSupersetOf.call([], realSet), "array");
+assert.throws(TypeError, () => isSupersetOf.call(new Map(, realSet)), "map");
+assert.throws(TypeError, () => isSupersetOf.call(Set.prototype, realSet), "Set.prototype");

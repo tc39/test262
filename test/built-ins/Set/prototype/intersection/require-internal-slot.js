@@ -12,14 +12,16 @@ const intersection = Set.prototype.intersection;
 
 assert.sameValue(typeof intersection, "function");
 
-assert.throws(TypeError, () => intersection.call(undefined), "undefined");
-assert.throws(TypeError, () => intersection.call(null), "null");
-assert.throws(TypeError, () => intersection.call(true), "true");
-assert.throws(TypeError, () => intersection.call(""), "empty string");
-assert.throws(TypeError, () => intersection.call(Symbol()), "symbol");
-assert.throws(TypeError, () => intersection.call(1), "1");
-assert.throws(TypeError, () => intersection.call(1n), "1n");
-assert.throws(TypeError, () => intersection.call({}), "plain object");
-assert.throws(TypeError, () => intersection.call([]), "array");
-assert.throws(TypeError, () => intersection.call(new Map()), "map");
-assert.throws(TypeError, () => intersection.call(Set.prototype), "Set.prototype");
+const realSet = new Set([]);
+
+assert.throws(TypeError, () => intersection.call(undefined, realSet), "undefined");
+assert.throws(TypeError, () => intersection.call(null, realSet), "null");
+assert.throws(TypeError, () => intersection.call(true, realSet), "true");
+assert.throws(TypeError, () => intersection.call("", realSet), "empty string");
+assert.throws(TypeError, () => intersection.call(Symbol(, realSet)), "symbol");
+assert.throws(TypeError, () => intersection.call(1, realSet), "1");
+assert.throws(TypeError, () => intersection.call(1n, realSet), "1n");
+assert.throws(TypeError, () => intersection.call({}, realSet), "plain object");
+assert.throws(TypeError, () => intersection.call([], realSet), "array");
+assert.throws(TypeError, () => intersection.call(new Map(, realSet)), "map");
+assert.throws(TypeError, () => intersection.call(Set.prototype, realSet), "Set.prototype");

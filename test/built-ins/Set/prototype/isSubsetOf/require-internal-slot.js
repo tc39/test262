@@ -12,14 +12,16 @@ const isSubsetOf = Set.prototype.isSubsetOf;
 
 assert.sameValue(typeof isSubsetOf, "function");
 
-assert.throws(TypeError, () => isSubsetOf.call(undefined), "undefined");
-assert.throws(TypeError, () => isSubsetOf.call(null), "null");
-assert.throws(TypeError, () => isSubsetOf.call(true), "true");
-assert.throws(TypeError, () => isSubsetOf.call(""), "empty string");
-assert.throws(TypeError, () => isSubsetOf.call(Symbol()), "symbol");
-assert.throws(TypeError, () => isSubsetOf.call(1), "1");
-assert.throws(TypeError, () => isSubsetOf.call(1n), "1n");
-assert.throws(TypeError, () => isSubsetOf.call({}), "plain object");
-assert.throws(TypeError, () => isSubsetOf.call([]), "array");
-assert.throws(TypeError, () => isSubsetOf.call(new Map()), "map");
-assert.throws(TypeError, () => isSubsetOf.call(Set.prototype), "Set.prototype");
+const realSet = new Set([]);
+
+assert.throws(TypeError, () => isSubsetOf.call(undefined, realSet), "undefined");
+assert.throws(TypeError, () => isSubsetOf.call(null, realSet), "null");
+assert.throws(TypeError, () => isSubsetOf.call(true, realSet), "true");
+assert.throws(TypeError, () => isSubsetOf.call("", realSet), "empty string");
+assert.throws(TypeError, () => isSubsetOf.call(Symbol(, realSet)), "symbol");
+assert.throws(TypeError, () => isSubsetOf.call(1, realSet), "1");
+assert.throws(TypeError, () => isSubsetOf.call(1n, realSet), "1n");
+assert.throws(TypeError, () => isSubsetOf.call({}, realSet), "plain object");
+assert.throws(TypeError, () => isSubsetOf.call([], realSet), "array");
+assert.throws(TypeError, () => isSubsetOf.call(new Map(, realSet)), "map");
+assert.throws(TypeError, () => isSubsetOf.call(Set.prototype, realSet), "Set.prototype");

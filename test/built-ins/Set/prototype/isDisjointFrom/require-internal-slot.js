@@ -12,14 +12,16 @@ const isDisjointFrom = Set.prototype.isDisjointFrom;
 
 assert.sameValue(typeof isDisjointFrom, "function");
 
-assert.throws(TypeError, () => isDisjointFrom.call(undefined), "undefined");
-assert.throws(TypeError, () => isDisjointFrom.call(null), "null");
-assert.throws(TypeError, () => isDisjointFrom.call(true), "true");
-assert.throws(TypeError, () => isDisjointFrom.call(""), "empty string");
-assert.throws(TypeError, () => isDisjointFrom.call(Symbol()), "symbol");
-assert.throws(TypeError, () => isDisjointFrom.call(1), "1");
-assert.throws(TypeError, () => isDisjointFrom.call(1n), "1n");
-assert.throws(TypeError, () => isDisjointFrom.call({}), "plain object");
-assert.throws(TypeError, () => isDisjointFrom.call([]), "array");
-assert.throws(TypeError, () => isDisjointFrom.call(new Map()), "map");
-assert.throws(TypeError, () => isDisjointFrom.call(Set.prototype), "Set.prototype");
+const realSet = new Set([]);
+
+assert.throws(TypeError, () => isDisjointFrom.call(undefined, realSet), "undefined");
+assert.throws(TypeError, () => isDisjointFrom.call(null, realSet), "null");
+assert.throws(TypeError, () => isDisjointFrom.call(true, realSet), "true");
+assert.throws(TypeError, () => isDisjointFrom.call("", realSet), "empty string");
+assert.throws(TypeError, () => isDisjointFrom.call(Symbol(, realSet)), "symbol");
+assert.throws(TypeError, () => isDisjointFrom.call(1, realSet), "1");
+assert.throws(TypeError, () => isDisjointFrom.call(1n, realSet), "1n");
+assert.throws(TypeError, () => isDisjointFrom.call({}, realSet), "plain object");
+assert.throws(TypeError, () => isDisjointFrom.call([], realSet), "array");
+assert.throws(TypeError, () => isDisjointFrom.call(new Map(, realSet)), "map");
+assert.throws(TypeError, () => isDisjointFrom.call(Set.prototype, realSet), "Set.prototype");
