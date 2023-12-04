@@ -49,6 +49,7 @@ assert.sameValue(get.call(), Iterator);
 
 // 1. Else,
 //   1. Perform ? Set(_this_, _p_, _v_, *true*).
+Object.freeze(IteratorPrototype);
 GeneratorPrototype.constructor = sentinel;
 assert.sameValue(GeneratorPrototype.constructor, sentinel);
 
