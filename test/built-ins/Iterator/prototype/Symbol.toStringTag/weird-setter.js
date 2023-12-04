@@ -23,11 +23,13 @@ let { get, set } = Object.getOwnPropertyDescriptor(Iterator.prototype, Symbol.to
 assert.sameValue(Iterator.prototype[Symbol.toStringTag], 'Iterator');
 assert.sameValue(get.call(), 'Iterator');
 
-// 1. Let _O_ be ? RequireObjectCoercible(*this* value).
+// 1. If _this_ is not an Object, then
+//   1. Throw a *TypeError* exception.
 assert.throws(() => set.call(undefined, ''));
 assert.throws(() => set.call(null, ''));
+assert.throws(() => set.call(true, ''));
 
-// 1. If _O_ is _home_, then
+// 1. If _this_ is _home_, then
 //   1. NOTE: Throwing here emulates assignment to a non-writable data property on the _home_ object in strict mode code.
 //   1. Throw a *TypeError* exception.
 assert.throws(() => set.call(IteratorPrototype, ''));
@@ -37,7 +39,7 @@ assert.sameValue(Iterator.prototype[Symbol.toStringTag], 'Iterator');
 assert.sameValue(get.call(), 'Iterator');
 
 // 1. If _desc_ is *undefined*, then
-//   1. Perform ? CreateDataPropertyOrThrow(_O_, _p_, _v_).
+//   1. Perform ? CreateDataPropertyOrThrow(_this_, _p_, _v_).
 let o = {};
 set.call(o, sentinel);
 assert.sameValue(o[Symbol.toStringTag], sentinel);
@@ -46,7 +48,7 @@ assert.sameValue(Iterator.prototype[Symbol.toStringTag], 'Iterator');
 assert.sameValue(get.call(), 'Iterator');
 
 // 1. Else,
-//   1. Perform ? Set(_O_, _p_, _v_, *true*).
+//   1. Perform ? Set(_this_, _p_, _v_, *true*).
 GeneratorPrototype[Symbol.toStringTag] = sentinel;
 assert.sameValue(GeneratorPrototype[Symbol.toStringTag], sentinel);
 
