@@ -1,6 +1,7 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+esid: sec-set-iteratorprototype-@@tostringtag
 description: weird setter
 info: |
   The value of the [[Get]] attribute is a built-in function that requires no arguments. It performs the following steps when called:

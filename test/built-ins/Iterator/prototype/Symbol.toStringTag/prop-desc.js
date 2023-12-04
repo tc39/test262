@@ -1,6 +1,7 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+esid: sec-iteratorprototype-@@tostringtag
 description: Property descriptor
 info: |
   `Iterator.prototype[@@toStringTag]` is an accessor property with attributes { [[Enumerable]]: *false*, [[Configurable]]: *true* }
