@@ -7,10 +7,10 @@ info: |
 features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
-verifyConfigurable(Iterator.prototype, Symbol.toStringTag);
-verifyNotEnumerable(Iterator.prototype, Symbol.toStringTag);
+verifyConfigurable(Iterator.prototype, 'constructor');
+verifyNotEnumerable(Iterator.prototype, 'constructor');
 
-let desc = Object.getOwnPropertyDescriptor(Iterator.prototype, Symbol.toStringTag);
+let desc = Object.getOwnPropertyDescriptor(Iterator.prototype, 'constructor');
 assert.sameValue(typeof desc.get, 'function');
 assert.sameValue(typeof desc.set, 'function');
 assert.sameValue(desc.value, undefined);
