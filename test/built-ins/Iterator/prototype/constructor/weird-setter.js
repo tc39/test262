@@ -10,7 +10,6 @@ info: |
     1. Perform ? SetterThatIgnoresPrototypeProperties(%Iterator.prototype%, *"constructor"*, _v_).
     2. Return *undefined*.
 features: [iterator-helpers]
-includes: []
 ---*/
 
 let IteratorPrototype = Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]()))
