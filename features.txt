@@ -77,6 +77,10 @@ regexp-v-flag
 # https://github.com/tc39/proposal-decorators
 decorators
 
+# Decorator Metadata
+# https://github.com/tc39/proposal-decorator-metadata
+decorator-metadata
+
 # Duplicate named capturing groups
 # https://github.com/tc39/proposal-duplicate-named-capturing-groups
 regexp-duplicate-named-groups
