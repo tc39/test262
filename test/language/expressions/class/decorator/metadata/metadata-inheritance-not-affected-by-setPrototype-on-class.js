@@ -23,10 +23,11 @@ info: |
       c. Set metadataObj to OrdinaryObjectCreate(metadataParent).
     [...]
     41. If metadataObj is not empty, then
-      a. Let setMetadataResult be Completion(DefinePropertyOrThrow(F, @@metadata, PropertyDescriptor { [[Value]]: metadataObj, [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true })).
-          1. If _setMetadataResult_ is an abrupt completion, then
-            1. Set the running execution context's PrivateEnvironment to _outerPrivateEnvironment_.
-            1. Return ? _setMetadataResult_.
+      a. Let setMetadataResult be Completion(DefinePropertyOrThrow(F, @@metadata, PropertyDescriptor {
+        [[Value]]: metadataObj, [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true })).
+        i. If _setMetadataResult_ is an abrupt completion, then
+          1. Set the running execution context's PrivateEnvironment to _outerPrivateEnvironment_.
+          2. Return ? _setMetadataResult_.
     [...]
 features: [decorators, decorator-metadata]
 ---*/
