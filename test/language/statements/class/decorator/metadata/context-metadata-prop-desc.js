@@ -20,6 +20,8 @@ function dec(_, context) {
 
 @dec class C {}
 assert.sameValue(typeof contextObj.metadata, "object");
-verifyNotEnumerable(contextObj, "metadata");
-verifyWritable(contextObj, "metadata");
-verifyConfigurable(contextObj, "metadata");
+verifyProperty(contextObj, 'metadata', {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});

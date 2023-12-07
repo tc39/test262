@@ -12,6 +12,9 @@ features: [decorator-metadata]
 ---*/
 
 assert.sameValue(typeof Symbol.metadata, 'symbol');
-verifyNotEnumerable(Symbol, 'metadata');
-verifyNotWritable(Symbol, 'metadata');
-verifyNotConfigurable(Symbol, 'metadata');
+verifyProperty(Symbol, 'metadata', {
+    writable: false,
+    enumerable: false,
+    configurable: false,
+});
+

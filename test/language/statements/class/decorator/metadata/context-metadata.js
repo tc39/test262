@@ -14,6 +14,7 @@ features: [decorators, decorator-metadata]
 ---*/
 
 var kinds = {
+    __proto__: null,
     "class": false,
     "public method": false,
     "public getter": false,

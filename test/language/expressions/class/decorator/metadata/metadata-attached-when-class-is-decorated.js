@@ -35,9 +35,11 @@ function dec() {}
 
 let C1 = @dec class C1 {};
 assert.sameValue(typeof C1[Symbol.metadata], "object");
+assert.notSameValue(C1[Symbol.metadata], null);
 
 let C2 = class C2 { @dec method() {} };
 assert.sameValue(typeof C2[Symbol.metadata], "object");
+assert.notSameValue(C2[Symbol.metadata], null);
 
 let C3 = class C3 {};
-assert.sameValue(typeof C3[Symbol.metadata], "undefined");
+assert.sameValue(C3[Symbol.metadata], null); // inherited from Function.prototype[Symbol.metadata]
