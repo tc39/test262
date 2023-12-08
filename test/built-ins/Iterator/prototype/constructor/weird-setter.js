@@ -14,7 +14,6 @@ features: [iterator-helpers]
 ---*/
 
 let IteratorPrototype = Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]()))
-let GeneratorPrototype = Object.getPrototypeOf(function*(){}.prototype);
 
 let sentinel = {};
 
@@ -40,18 +39,19 @@ assert.sameValue(get.call(), Iterator);
 
 // 1. If _desc_ is *undefined*, then
 //   1. Perform ? CreateDataPropertyOrThrow(_this_, _p_, _v_).
-let o = {};
-set.call(o, sentinel);
-assert.sameValue(o.constructor, sentinel);
+let FakeGeneratorPrototype = Object.create(IteratorPrototype);
+Object.freeze(IteratorPrototype);
+FakeGeneratorPrototype.constructor = sentinel;
+assert.sameValue(FakeGeneratorPrototype.constructor, sentinel);
 
 assert.sameValue(Iterator.prototype.constructor, Iterator);
 assert.sameValue(get.call(), Iterator);
 
 // 1. Else,
 //   1. Perform ? Set(_this_, _p_, _v_, *true*).
-Object.freeze(IteratorPrototype);
-GeneratorPrototype.constructor = sentinel;
-assert.sameValue(GeneratorPrototype.constructor, sentinel);
+let o = { constructor: sentinel + 'a' };
+set.call(o, sentinel);
+assert.sameValue(o.constructor, sentinel);
 
 assert.sameValue(Iterator.prototype.constructor, Iterator);
 assert.sameValue(get.call(), Iterator);
