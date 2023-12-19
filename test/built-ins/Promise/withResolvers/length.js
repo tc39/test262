@@ -21,6 +21,8 @@ includes: [propertyHelper.js]
 
 assert.sameValue(Promise.withResolvers.length, 0);
 
-verifyNotEnumerable(Promise.withResolvers, 'length');
-verifyNotWritable(Promise.withResolvers, 'length');
-verifyConfigurable(Promise.withResolvers, 'length');
+verifyProperty(Promise.withResolvers, 'length', {
+    enumerable: false,
+    writable: false,
+    configurable: true,
+})

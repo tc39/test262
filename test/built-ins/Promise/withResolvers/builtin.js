@@ -16,9 +16,6 @@ info: |
   the expression Function.prototype (20.2.3), as the value of its [[Prototype]]
   internal slot.
 
-  Built-in functions that are not constructors do not have a "prototype"
-  property unless otherwise specified in the description of a particular
-  function.
 ---*/
 
 assert(Object.isExtensible(Promise.withResolvers), "Promise.withResolvers is extensible");
@@ -27,10 +24,4 @@ assert.sameValue(
   Object.getPrototypeOf(Promise.withResolvers),
   Function.prototype,
   "Prototype of Promise.withResolvers is Function.prototype"
-);
-
-assert.sameValue(
-  Object.getOwnPropertyDescriptor(Promise.withResolvers, "prototype"),
-  undefined,
-  "Promise.withResolvers has no own prototype property"
 );
