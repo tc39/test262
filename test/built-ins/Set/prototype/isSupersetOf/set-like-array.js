@@ -7,7 +7,7 @@ features: [set-methods]
 ---*/
 
 const s1 = new Set([1, 2]);
-const s2 = [5, 6];
+const s2 = [1];
 s2.size = 3;
 s2.has = function (v) {
   if (v === 1) return true;
@@ -18,4 +18,4 @@ s2.keys = function () {
   throw new Test262Error("Set.prototype.isSupersetOf should not call its argument's keys iterator when this.size ≤ arg.size");
 };
 
-assert.sameValue(s1.isSupersetOf(s2), true);
+assert.sameValue(s1.isSupersetOf(s2), false);
