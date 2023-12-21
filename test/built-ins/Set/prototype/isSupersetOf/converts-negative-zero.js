@@ -9,7 +9,7 @@ features: [set-methods]
 const setlikeWithMinusZero = {
   size: 1,
   has: function () {
-    throw new Test262Error("Set.prototype.isSupersetOf should not call its argument's has method when this.size > arg.size");
+    throw new Test262Error("Set.prototype.isSupersetOf should not call its argument's has method");
   },
   keys: function () {
     // we use an array here because the Set constructor would normalize away -0
