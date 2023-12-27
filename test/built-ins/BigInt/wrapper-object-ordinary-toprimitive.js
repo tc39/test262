@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Alexey Shvayka. All rights reserved.
+ test/built-ins/BigInt/wrapper-object-ordinary-toprimitive.js// Copyright (C) 2021 Alexey Shvayka. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-toprimitive
