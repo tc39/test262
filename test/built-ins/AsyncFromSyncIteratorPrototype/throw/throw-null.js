@@ -10,11 +10,12 @@ info: |
   %AsyncFromSyncIteratorPrototype%.throw ( value )
 
   [...]
-  5. Let throw be GetMethod(syncIterator, "throw").
+  6. Let throw be GetMethod(syncIterator, "throw").
   [...]
-  7. If throw is undefined, then
-    a. Perform ! Call(promiseCapability.[[Reject]], undefined, « value »).
-    b. Return promiseCapability.[[Promise]].
+  8. If throw is undefined, then
+    ...
+    g. Perform ! Call(promiseCapability.[[Reject]], undefined, « a newly created TypeError object »).
+    h. Return promiseCapability.[[Promise]].
 
   GetMethod ( V, P )
 
@@ -51,7 +52,9 @@ asyncIterator.next().then(function() {
 }).then(function(result) {
   throw new Test262Error("Promise should be rejected, got: " + result.value);
 }, function(err) {
-  assert.sameValue(err, thrownError);
+  assert.sameValue(err.constructor, TypeError, "TypeError");
+  assert.sameValue(err.message, 'The iterator does not provide a throw method');
+
   return asyncIterator.next().then(function(result) {
     assert.sameValue(result.value, undefined);
     assert.sameValue(result.done, true);
