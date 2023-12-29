@@ -43,7 +43,7 @@ iter.next().then(function(result) {
     },
     function (err) {
       assert.sameValue(err.constructor, TypeError, "TypeError");
-      assert.sameValue(err.message, 'The iterator does not provide a throw method');
+      assert.sameValue(err instanceof TypeError, true);
 
       iter.next().then(({ done, value }) => {
         assert.sameValue(done, true, 'the iterator is completed');

@@ -53,7 +53,7 @@ asyncIterator.next().then(function() {
   throw new Test262Error("Promise should be rejected, got: " + result.value);
 }, function(err) {
   assert.sameValue(err.constructor, TypeError, "TypeError");
-  assert.sameValue(err.message, 'The iterator does not provide a throw method');
+  assert.sameValue(err instanceof TypeError, true);
 
   return asyncIterator.next().then(function(result) {
     assert.sameValue(result.value, undefined);

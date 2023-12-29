@@ -67,21 +67,21 @@ async function* wrapper() {
 
 var iter = wrapper();
 
-iter.next().then(function(result) {
+iter.next().then(function (result) {
   iter.throw().then(
     function (result) {
       throw new Test262Error("Promise should be rejected, got: " + result.value);
     },
     function (err) {
       assert.sameValue(err.constructor, TypeError, "TypeError");
-      assert.sameValue(err.message, '2 is not an object');
+      assert.sameValue(err instanceof TypeError, true);
       assert.sameValue(returnCount, 1, 'iterator closed properly');
 
-      iter.next().then(({ done, value }) => {
-        assert.sameValue(done, true, 'the iterator is completed');
-        assert.sameValue(value, undefined, 'value is undefined');
+      iter.next().then(function (result) {
+        assert.sameValue(result.done, true, 'the iterator is completed');
+        assert.sameValue(result.value, undefined, 'value is undefined');
       }).then($DONE, $DONE);
     }
-  ).catch($DONE);
+  ).then($DONE, $DONE);
 
-}).catch($DONE);
+}).then($DONE, $DONE);

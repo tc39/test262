@@ -66,15 +66,15 @@ iter.next().then(function(result) {
     },
     function (err) {
       assert.sameValue(err.constructor, TypeError, "TypeError");
-      assert.sameValue(err.message, 'The iterator does not provide a throw method');
+      assert.sameValue(err instanceof TypeError, true);
       assert.sameValue(returnCount, 1, 'iterator closed properly');
 
-      iter.next().then(({ done, value }) => {
-        assert.sameValue(done, true, 'the iterator is completed');
-        assert.sameValue(value, undefined, 'value is undefined');
+      iter.next().then(function (result) {
+        assert.sameValue(result.done, true, 'the iterator is completed');
+        assert.sameValue(result.value, undefined, 'value is undefined');
       }).then($DONE, $DONE);
     }
-  ).catch($DONE);
+  ).then($DONE, $DONE);
 
-}).catch($DONE);
+}).then($DONE, $DONE);
 

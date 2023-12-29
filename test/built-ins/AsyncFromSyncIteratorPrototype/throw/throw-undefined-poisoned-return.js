@@ -72,11 +72,11 @@ iter.next().then(function(result) {
       assert.sameValue(err, thrownError, "Promise should be rejected with thrown error");
       assert.sameValue(returnCount, 1, 'iterator closed properly');
 
-      iter.next().then(({ done, value }) => {
-        assert.sameValue(done, true, 'the iterator is completed');
-        assert.sameValue(value, undefined, 'value is undefined');
+      iter.next().then(function (result) {
+        assert.sameValue(result.done, true, 'the iterator is completed');
+        assert.sameValue(result.value, undefined, 'value is undefined');
       }).then($DONE, $DONE);
     }
-  ).catch($DONE);
+  ).then($DONE, $DONE);
 
-}).catch($DONE);
+}).then($DONE, $DONE);
