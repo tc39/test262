@@ -107,6 +107,7 @@ properties of the global scope prior to test execution.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
     - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
+    - **`AbstractModuleSource`** - a reference to the `%AbstractModuleSource%` constructor which does not appear as a property of the global object.
 
 In addition, consumers may choose to override any of [the functions defined by test harness files](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
 
@@ -159,6 +160,12 @@ Implementers should attempt to resolve this module specifier by loading a file
 located at `test/language/import/nested/dep.js`.
 
 Files bearing a name ending in `.json` are intended to be interpreted as JSON.
+
+Implementers should resolve the specifier `<module source>` to a module that
+provides a valid [Module Source](https://tc39.es/proposal-source-phase-imports/#sec-module-source-objects),
+such as a [WebAssembly module](https://webassembly.github.io/esm-integration/js-api/index.html#webassembly-module-record).
+Tests use `<module source>` specifier should be guarded with a feature flag
+`source-phase-imports-module-source`.
 
 ### Staging
 

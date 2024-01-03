@@ -1,0 +1,12 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Calling import.source('')
+template: syntax/valid
+features: [source-phase-imports, source-phase-imports-module-source]
+---*/
+
+//- import
+import.source('<module source>')

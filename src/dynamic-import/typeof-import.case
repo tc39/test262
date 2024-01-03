@@ -1,0 +1,13 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: It's a SyntaxError if '()' is omitted
+template: syntax/invalid
+info: |
+  ImportCall[Yield, Await] :
+      import . source ( AssignmentExpression[+In, ?Yield, ?Await] )
+---*/
+//- import
+typeof import
+//- teardown
+/* The params region intentionally empty */
