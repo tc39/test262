@@ -57,4 +57,4 @@ Test262 runs CI tests against every PR and commit. The only tests that are requi
 
 ### Where did `website/` go?
 
-It's been removed. If you need to access the code that contained in that directory, you can find the PR [here](https://github.com/tc39/test262/pull/2677).
+It's been removed. If you need to access the code that contained in that directory, you can find the PR which removed it [here](https://github.com/tc39/test262/pull/2677).
