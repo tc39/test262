@@ -19,7 +19,7 @@ info: |
       a. If typeName is not "Int8Array", "Uint8Array", "Int16Array", "Uint16Array", "Int32Array",
          or "Uint32Array", throw a TypeError exception.
     ...
-features: [Atomics]
+features: [Atomics, TypedArray]
 ---*/
 
 var timeout = {

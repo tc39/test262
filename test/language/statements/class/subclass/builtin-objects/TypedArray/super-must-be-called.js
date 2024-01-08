@@ -14,6 +14,7 @@ info: |
   call to the TypedArray constructor to create and initialize the subclass
   instance with the internal state necessary to support the
   %TypedArray%.prototype built-in methods.
+features: [TypedArray]
 ---*/
 
 [
