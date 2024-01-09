@@ -57,4 +57,4 @@ Test262 runs CI tests against every PR and commit. The only tests that are requi
 
 ### Where did `website/` go?
 
-It's been removed. If you need to access the code that contained in that directory, we've preserved it in a branch, [available here](https://github.com/tc39/test262/tree/preserved-website-directory).
+It's been removed. If you need to access the code that contained in that directory, you can find it [here](https://github.com/tc39/test262/tree/3fac29109a4e86142796ec89c4c381c5ca255e94/website).
