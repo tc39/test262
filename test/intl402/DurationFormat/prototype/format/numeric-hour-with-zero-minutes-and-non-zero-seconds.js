@@ -4,8 +4,9 @@
 /*---
 esid: sec-Intl.DurationFormat.prototype.format
 description: >
-  Minutes with numeric or 2-digit style are included in the output when between displayed hours and seconds, even when the minutes value is zero.
+  The correct separator is used for numeric hours with zero minutes and non-zero seconds.
 locale: [en]
+includes: [testIntl.js]
 features: [Intl.DurationFormat]
 ---*/
 
@@ -20,7 +21,7 @@ const duration = {
   seconds: 3,
 };
 
-const expected = "1:00:03"
+const expected = formatDurationFormatPattern(df, duration);
 
 assert.sameValue(
   df.format(duration),
