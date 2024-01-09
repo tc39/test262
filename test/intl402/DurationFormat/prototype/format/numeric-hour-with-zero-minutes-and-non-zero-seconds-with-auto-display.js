@@ -1,11 +1,11 @@
-// Copyright (C) 2023 André Bargull. All rights reserved.
+// Copyright (C) 2024 André Bargull. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-Intl.DurationFormat.prototype.format
 description: >
-  The correct separator is used for numeric hours with zero minutes and non-zero seconds.
-locale: [en]
+  The correct separator is used for numeric hours with zero minutes and non-zero (sub-)seconds.
+locale: [en-US]
 includes: [testIntl.js]
 features: [Intl.DurationFormat]
 ---*/
@@ -13,6 +13,10 @@ features: [Intl.DurationFormat]
 const df = new Intl.DurationFormat("en", {
   // hours must be numeric, so that a time separator is used for the following units.
   hours: "numeric",
+
+  // Use "auto" display for sub-hours units.
+  minutesDisplay: "auto",
+  secondsDisplay: "auto",
 });
 
 const durations = [
