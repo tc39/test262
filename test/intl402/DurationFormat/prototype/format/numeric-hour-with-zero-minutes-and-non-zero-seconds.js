@@ -6,17 +6,13 @@ esid: sec-Intl.DurationFormat.prototype.format
 description: >
   The correct separator is used for numeric hours with zero minutes and non-zero seconds.
 locale: [en-US]
+includes: [testIntl.js]
 features: [Intl.DurationFormat]
 ---*/
 
 const df = new Intl.DurationFormat("en", {
   // hours must be numeric, so that a time separator is used for the following units.
   hours: "numeric",
-});
-
-const lf = new Intl.ListFormat("en", {
-  type: "unit",
-  style: "short",
 });
 
 const duration = {
@@ -29,10 +25,7 @@ const duration = {
   seconds: 3,
 };
 
-const expected = lf.format([
-  new Intl.NumberFormat("en", {minimumIntegerDigits: 1}).format(duration.hours),
-  new Intl.NumberFormat("en", {minimumIntegerDigits: 2}).format(duration.seconds),
-]);
+const expected = formatDurationFormatPattern(df, duration);
 
 assert.sameValue(
   df.format(duration),
