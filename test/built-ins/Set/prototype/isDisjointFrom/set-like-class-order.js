@@ -93,8 +93,6 @@ class MySetLike {
     "ToNumber(size)",
     "getting has",
     "getting keys",
-    "calling keys",
-    "getting next",
     // two calls to has
     "calling has",
     "calling has",
@@ -117,8 +115,6 @@ class MySetLike {
     "ToNumber(size)",
     "getting has",
     "getting keys",
-    "calling keys",
-    "getting next",
     // three calls to has
     "calling has",
     "calling has",

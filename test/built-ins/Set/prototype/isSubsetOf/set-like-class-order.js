@@ -47,7 +47,7 @@ class MySetLike {
     "ToNumber(size)",
     "getting has",
     "getting keys",
-    // one calls to has
+    // one call to has
     "calling has",
   ];
 
