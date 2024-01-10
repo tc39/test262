@@ -26,8 +26,7 @@ var intArrayConstructors = [
   Int8Array,
   Uint32Array,
   Uint16Array,
-  Uint8Array,
-  Uint8ClampedArray
+  Uint8Array
 ];
 
 // Float16Array is a newer feature
@@ -40,7 +39,7 @@ if (typeof Float16Array !== 'undefined') {
  * Array containing every non-bigint typed array constructor.
  */
 
-var typedArrayConstructors = floatArrayConstructors.concat(intArrayConstructors);
+var typedArrayConstructors = floatArrayConstructors.concat(intArrayConstructors, [Uint8ClampedArray]);
 
 /**
  * The %TypedArray% intrinsic constructor function.
