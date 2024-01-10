@@ -4,7 +4,7 @@
 esid: sec-set.prototype.union
 description: Set.prototype.union name property
 info: |
-    Set.prototype.union ( other )]
+    Set.prototype.union ( other )
 includes: [propertyHelper.js]
 features: [set-methods]
 ---*/
