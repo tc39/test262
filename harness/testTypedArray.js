@@ -5,6 +5,7 @@ description: |
     Collection of functions used to assert the correctness of TypedArray objects.
 defines:
   - floatArrayConstructors
+  - nonClampedIntArrayConstructors
   - intArrayConstructors
   - typedArrayConstructors
   - TypedArray
