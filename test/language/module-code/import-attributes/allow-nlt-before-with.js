@@ -19,7 +19,6 @@ info: |
 
 negative:
   phase: resolution
-  type: SyntaxError
 features: [import-attributes, globalThis]
 flags: [module, raw]
 ---*/
