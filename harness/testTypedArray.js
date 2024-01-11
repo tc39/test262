@@ -5,6 +5,7 @@ description: |
     Collection of functions used to assert the correctness of TypedArray objects.
 defines:
   - floatArrayConstructors
+  - nonClampedIntArrayConstructors
   - intArrayConstructors
   - typedArrayConstructors
   - TypedArray
@@ -20,15 +21,16 @@ var floatArrayConstructors = [
   Float32Array
 ];
 
-var intArrayConstructors = [
+var nonClampedIntArrayConstructors = [
   Int32Array,
   Int16Array,
   Int8Array,
   Uint32Array,
   Uint16Array,
-  Uint8Array,
-  Uint8ClampedArray
+  Uint8Array
 ];
+
+var intArrayConstructors = nonClampedIntArrayConstructors.concat([Uint8ClampedArray]);
 
 // Float16Array is a newer feature
 // adding it to this list unconditionally would cause implementations lacking it to fail every test which uses it
