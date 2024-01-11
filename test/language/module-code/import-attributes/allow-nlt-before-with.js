@@ -19,6 +19,7 @@ info: |
 
 negative:
   phase: resolution
+  type: SyntaxError
 features: [import-attributes, globalThis]
 flags: [module, raw]
 ---*/
@@ -29,4 +30,4 @@ import "./ensure-linking-error_FIXTURE.js";
 
 import * as x from './import-attribute-1_FIXTURE.js'
 with
-{ type: 'foo' };
+{};
