@@ -1,17 +1,17 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-iteratorprototype-@@tostringtag
+esid: sec-iteratorprototype.constructor
 description: Property descriptor
 info: |
-  `Iterator.prototype[@@toStringTag]` is an accessor property with attributes { [[Enumerable]]: *false*, [[Configurable]]: *true* }
+  `Iterator.prototype.constructor` is an accessor property with attributes { [[Enumerable]]: *false*, [[Configurable]]: *true* }
 features: [iterator-helpers]
 includes: [propertyHelper.js]
 ---*/
-verifyConfigurable(Iterator.prototype, Symbol.toStringTag);
-verifyNotEnumerable(Iterator.prototype, Symbol.toStringTag);
+verifyConfigurable(Iterator.prototype, 'constructor');
+verifyNotEnumerable(Iterator.prototype, 'constructor');
 
-let desc = Object.getOwnPropertyDescriptor(Iterator.prototype, Symbol.toStringTag);
+let desc = Object.getOwnPropertyDescriptor(Iterator.prototype, 'constructor');
 assert.sameValue(typeof desc.get, 'function');
 assert.sameValue(typeof desc.set, 'function');
 assert.sameValue(desc.value, undefined);
