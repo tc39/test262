@@ -41,10 +41,12 @@ info: |
 
 flags: [async]
 features: [async-iteration]
+includes: [asyncHelpers.js]
 ---*/
 
 var returnCount = 0;
-var thrownError = new Error("Catch me.");
+function CatchError() {}
+var thrownError = new CatchError();
 var uncaughtError = new Error("Don't catch me");
 
 const obj = {
@@ -76,19 +78,13 @@ async function* asyncg() {
 
 let iter = asyncg();
 
-iter.next().then(function () {
-  return iter.throw(uncaughtError).then(
-    function () {
-      throw new Test262Error("Resolving promise should throw.");
-    },
-    function (err) {
-      assert.sameValue(err, thrownError, "Resolving promise should be rejected with thrown error");
-      assert.sameValue(returnCount, 1);
-
-      return iter.next().then(function (result) {
-        assert.sameValue(result.done, true, 'the iterator is completed');
-        assert.sameValue(result.value, undefined, 'value is undefined');
-      })
-    }
-  );
-}).then($DONE, $DONE);
+asyncTest(async function () {
+  await assert.throwsAsync(CatchError, async () => {
+    await iter.next();
+    return iter.throw(uncaughtError);
+  }, "Promise should be rejected");
+  assert.sameValue(returnCount, 1, 'iterator closed properly');
+  const result = await iter.next();
+  assert(result.done, "the iterator is completed");
+  assert.sameValue(result.value, undefined, "value is undefined");
+})

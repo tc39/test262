@@ -36,10 +36,12 @@ info: |
 
 flags: [async]
 features: [async-iteration]
+includes: [asyncHelpers.js]
 ---*/
 
 var returnCount = 0;
-var thrownError = new Error("Catch me.");
+function CatchError() {}
+var thrownError = new CatchError();
 
 const obj = {
   [Symbol.iterator]() {
@@ -64,12 +66,7 @@ async function* iter() {
   yield* obj;
 }
 
-iter().next().then(
-  function (result) {
-    throw new Test262Error("Resolving promise should throw.");
-  },
-  function (err) {
-    assert.sameValue(err, thrownError, "Resolving promise should be rejected with thrown error");
-    assert.sameValue(returnCount, 1);
-  }
-).then($DONE, $DONE);
+asyncTest(async function () {
+  await assert.throwsAsync(CatchError, async () => iter().next(), "Promise should be rejected");
+  assert.sameValue(returnCount, 1, 'iterator closed properly');
+})
