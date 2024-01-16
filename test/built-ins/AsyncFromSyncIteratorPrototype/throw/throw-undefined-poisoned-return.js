@@ -38,10 +38,12 @@ info: |
 
 flags: [async]
 features: [async-iteration]
+includes: [asyncHelpers.js]
 ---*/
 
 var returnCount = 0;
-var thrownError = new Error("Catch me.");
+function CatchError() {}
+var thrownError = new CatchError();
 
 const obj = {
   [Symbol.iterator]() {
@@ -63,20 +65,13 @@ async function* wrapper() {
 
 var iter = wrapper();
 
-iter.next().then(function(result) {
-  iter.throw().then(
-    function (result) {
-      throw new Test262Error("Promise should be rejected, got: " + result.value);
-    },
-    function (err) {
-      assert.sameValue(err, thrownError, "Promise should be rejected with thrown error");
-      assert.sameValue(returnCount, 1, 'iterator closed properly');
-
-      iter.next().then(function (result) {
-        assert.sameValue(result.done, true, 'the iterator is completed');
-        assert.sameValue(result.value, undefined, 'value is undefined');
-      }).then($DONE, $DONE);
-    }
-  ).then($DONE, $DONE);
-
-}).then($DONE, $DONE);
+asyncTest(async function () {
+  await assert.throwsAsync(CatchError, async () => {
+    await iter.next();
+    return iter.throw();
+  }, "Promise should be rejected");
+  assert.sameValue(returnCount, 1, 'iterator closed properly');
+  const result = await iter.next();
+  assert(result.done, "the iterator is completed");
+  assert.sameValue(result.value, undefined, "value is undefined");
+})

@@ -24,6 +24,7 @@ info: |
   3. If func is either undefined or null, return undefined.
 flags: [async]
 features: [async-iteration]
+includes: [asyncHelpers.js]
 ---*/
 
 var throwGets = 0;
@@ -47,16 +48,12 @@ async function* asyncGenerator() {
 var asyncIterator = asyncGenerator();
 var thrownError = { name: "err" };
 
-asyncIterator.next().then(function() {
-  return asyncIterator.throw(thrownError);
-}).then(function(result) {
-  throw new Test262Error("Promise should be rejected, got: " + result.value);
-}, function(err) {
-  assert.sameValue(err.constructor, TypeError, "TypeError");
-  assert.sameValue(err instanceof TypeError, true);
-
-  return asyncIterator.next().then(function(result) {
-    assert.sameValue(result.value, undefined);
-    assert.sameValue(result.done, true);
-  });
-}).then($DONE, $DONE);
+asyncTest(async function () {
+  await assert.throwsAsync(TypeError, async () => {
+    await asyncIterator.next();
+    return asyncIterator.throw(thrownError);
+  }, "Promise should be rejected");
+  const result = await asyncIterator.next();
+  assert(result.done, "the iterator is completed");
+  assert.sameValue(result.value, undefined, "value is undefined");
+})
