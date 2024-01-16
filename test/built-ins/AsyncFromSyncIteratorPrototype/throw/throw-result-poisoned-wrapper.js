@@ -76,21 +76,19 @@ async function* asyncg() {
 
 let iter = asyncg();
 
-iter.next().then(
-  function (result) {
-    iter.throw(uncaughtError).then(
-      function (result) {
-        throw new Test262Error("Resolving promise should throw.");
-      },
-      function (err) {
-        assert.sameValue(err, thrownError, "Resolving promise should be rejected with thrown error");
-        assert.sameValue(returnCount, 1);
+iter.next().then(function () {
+  return iter.throw(uncaughtError).then(
+    function () {
+      throw new Test262Error("Resolving promise should throw.");
+    },
+    function (err) {
+      assert.sameValue(err, thrownError, "Resolving promise should be rejected with thrown error");
+      assert.sameValue(returnCount, 1);
 
-        iter.next().then(function (result) {
-          assert.sameValue(result.done, true, 'the iterator is completed');
-          assert.sameValue(result.value, undefined, 'value is undefined');
-        }).then($DONE, $DONE);
-      }
-    ).then($DONE, $DONE);
-  }
-).then($DONE, $DONE);
+      return iter.next().then(function (result) {
+        assert.sameValue(result.done, true, 'the iterator is completed');
+        assert.sameValue(result.value, undefined, 'value is undefined');
+      })
+    }
+  );
+}).then($DONE, $DONE);
