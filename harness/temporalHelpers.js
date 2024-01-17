@@ -1404,7 +1404,7 @@ var TemporalHelpers = {
    * Pacific/Apia time zone.
    */
   crossDateLineTimeZone() {
-    const { compare } = Temporal.PlainDateTime;
+    const { compare } = Temporal.PlainDate;
     const skippedDay = new Temporal.PlainDate(2011, 12, 30);
     const transitionEpoch = 1325239200_000_000_000n;
     const beforeOffset = new Temporal.TimeZone("-10:00");
@@ -1423,7 +1423,7 @@ var TemporalHelpers = {
       }
 
       getPossibleInstantsFor(datetime) {
-        const comparison = Temporal.PlainDate.compare(datetime.toPlainDate(), skippedDay);
+        const comparison = compare(datetime.toPlainDate(), skippedDay);
         if (comparison === 0) {
           return [];
         }
