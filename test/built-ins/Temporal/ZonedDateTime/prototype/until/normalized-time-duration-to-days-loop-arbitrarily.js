@@ -30,12 +30,14 @@ const timeZone = new class extends Temporal.TimeZone {
 }("UTC");
 
 const zdt = new Temporal.ZonedDateTime(0n, timeZone);
-const other = new Temporal.ZonedDateTime(dayLengthNs, "UTC", "iso8601");
+const other = new Temporal.ZonedDateTime(dayLengthNs * 2n, "UTC", "iso8601");
 
-assert.throws(RangeError, () => zdt.until(other, { largestUnit: "day" }), "indefinite loop is prevented");
-assert.sameValue(calls, 3, "getPossibleInstantsFor is not called indefinitely");
+assert.throws(RangeError, () => zdt.until(other, { largestUnit: "day", smallestUnit: "second" }), "indefinite loop is prevented");
+assert.sameValue(calls, 4, "getPossibleInstantsFor is not called indefinitely");
   // Expected calls:
-  // DifferenceZonedDateTime -> NormalizedTimeDurationToDays ->
-  //     AddDaysToZonedDateTime (3, step 12)
-  //     AddDaysToZonedDateTime (4, step 15)
-  //     AddDaysToZonedDateTime (5, step 18.d)
+  // DifferenceTemporalZonedDateTime ->
+  //     DifferenceZonedDateTime -> GetInstantFor (1) 
+  //     NormalizedTimeDurationToDays ->
+  //       AddDaysToZonedDateTime (2, step 12)
+  //       AddDaysToZonedDateTime (3, step 15)
+  //       AddDaysToZonedDateTime (4, step 18.d)
