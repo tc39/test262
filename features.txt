@@ -131,6 +131,10 @@ source-phase-imports
 ## test262 special specifier
 source-phase-imports-module-source
 
+# Uint8Array Base64
+# https://github.com/tc39/proposal-arraybuffer-base64
+uint8array-base64
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
