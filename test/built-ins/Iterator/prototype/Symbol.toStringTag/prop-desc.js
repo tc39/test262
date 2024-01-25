@@ -6,7 +6,6 @@ description: Property descriptor
 info: |
   `Iterator.prototype[@@toStringTag]` is an accessor property with attributes { [[Enumerable]]: *false*, [[Configurable]]: *true* }
 features: [iterator-helpers]
-includes: [propertyHelper.js]
 ---*/
 let desc = Object.getOwnPropertyDescriptor(Iterator.prototype, Symbol.toStringTag);
 assert.sameValue(typeof desc.get, 'function');

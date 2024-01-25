@@ -6,7 +6,6 @@ description: Property descriptor
 info: |
   `Iterator.prototype.constructor` is an accessor property with attributes { [[Enumerable]]: *false*, [[Configurable]]: *true* }
 features: [iterator-helpers]
-includes: [propertyHelper.js]
 ---*/
 let desc = Object.getOwnPropertyDescriptor(Iterator.prototype, 'constructor');
 assert.sameValue(typeof desc.get, 'function');
