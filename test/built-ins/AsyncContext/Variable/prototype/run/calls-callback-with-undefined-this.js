@@ -16,5 +16,6 @@ features: [AsyncContext]
 const asyncVar = new AsyncContext.Variable();
 
 asyncVar.run("foo", function () {
+  "use strict";
   assert.sameValue(this, undefined);
 });

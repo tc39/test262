@@ -16,5 +16,6 @@ features: [AsyncContext]
 const asyncSnapshot = new AsyncContext.Snapshot();
 
 asyncSnapshot.run(function () {
+  "use strict";
   assert.sameValue(this, undefined);
 });
