@@ -24,15 +24,15 @@ assert.sameValue(get.call(), 'Iterator');
 
 // 1. If _this_ is not an Object, then
 //   1. Throw a *TypeError* exception.
-assert.throws(() => set.call(undefined, ''));
-assert.throws(() => set.call(null, ''));
-assert.throws(() => set.call(true, ''));
+assert.throws(TypeError, () => set.call(undefined, ''));
+assert.throws(TypeError, () => set.call(null, ''));
+assert.throws(TypeError, () => set.call(true, ''));
 
 // 1. If _this_ is _home_, then
 //   1. NOTE: Throwing here emulates assignment to a non-writable data property on the _home_ object in strict mode code.
 //   1. Throw a *TypeError* exception.
-assert.throws(() => set.call(IteratorPrototype, ''));
-assert.throws(() => IteratorPrototype[Symbol.toStringTag] = '');
+assert.throws(TypeError, () => set.call(IteratorPrototype, ''));
+assert.throws(TypeError, () => IteratorPrototype[Symbol.toStringTag] = '');
 
 assert.sameValue(Iterator.prototype[Symbol.toStringTag], 'Iterator');
 assert.sameValue(get.call(), 'Iterator');
