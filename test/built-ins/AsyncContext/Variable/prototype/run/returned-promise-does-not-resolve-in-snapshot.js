@@ -16,16 +16,20 @@ const asyncVar = new AsyncContext.Variable();
 
 let resolve;
 
-asyncVar.run("foo", async () => {
-  assert.sameValue(asyncVar.get(), "foo");
+asyncVar.run("foo", () => {
 
-  await new Promise(resolveFn => {
-    resolve = resolveFn;
-  });
+  asyncVar.run("bar", async () => {
+    assert.sameValue(asyncVar.get(), "bar");
 
-  assert.sameValue(asyncVar.get(), "foo");
-}).then(() => {
-  assert.sameValue(asyncVar.get(), undefined);
-}).then($DONE, $DONE);
+    await new Promise(resolveFn => {
+      resolve = resolveFn;
+    });
+
+    assert.sameValue(asyncVar.get(), "bar");
+  }).then(() => {
+    assert.sameValue(asyncVar.get(), "foo");
+  }).then($DONE, $DONE);
+
+});
 
 resolve();
