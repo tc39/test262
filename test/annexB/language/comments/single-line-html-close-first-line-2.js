@@ -19,4 +19,16 @@ info: |
 
     HTMLCloseComment ::
       WhiteSpaceSequence[opt] SingleLineDelimitedCommentSequence[opt] --> SingleLineCommentChars[opt]
+negative:
+  phase: runtime
+  type: Test262Error
 ---*/
+
+// Because this test concerns the interpretation of non-executable character
+// sequences within ECMAScript source code, special care must be taken to
+// ensure that executable code is evaluated as expected.
+//
+// Express the intended behavior by intentionally throwing an error; this
+// guarantees that test runners will only consider the test "passing" if
+// executable sequences are correctly interpreted as such.
+throw new Test262Error("This is not in a comment");
