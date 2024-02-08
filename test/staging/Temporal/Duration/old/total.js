@@ -286,7 +286,7 @@ var totalDays = hours25.total({
   unit: "days",
   relativeTo
 });
-assert(Math.abs(totalDays - (1 + 1 / 24)) < Number.EPSILON);
+assert(Math.abs(totalDays - (1 + 1 / 23)) < Number.EPSILON);
 assert.sameValue(oneDay.total({
   unit: "hours",
   relativeTo

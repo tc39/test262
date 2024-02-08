@@ -53,4 +53,4 @@ const relativeTo = { year: 2000, month: 5, day: 2, timeZone, calendar: nonBuilti
 const instance = new Temporal.Duration(1, 0, 0, 0, 24);
 instance.round({ largestUnit: "years", relativeTo });
 
-assert.sameValue(timeZone.calls, 8, "getPossibleInstantsFor should have been called 8 times");
+assert.sameValue(timeZone.calls, 6, "getPossibleInstantsFor should have been called 6 times");

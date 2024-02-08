@@ -324,7 +324,7 @@ var roundAndBalanceResults = {
   years: {
     years: "P6Y",
     months: "P5Y6M",
-    weeks: "P5Y5M6W",
+    weeks: "P5Y6M1W",
     days: "P5Y6M10D",
     hours: "P5Y6M10DT5H",
     minutes: "P5Y6M10DT5H5M",
@@ -335,7 +335,7 @@ var roundAndBalanceResults = {
   },
   months: {
     months: "P66M",
-    weeks: "P65M6W",
+    weeks: "P66M1W",
     days: "P66M10D",
     hours: "P66M10DT5H",
     minutes: "P66M10DT5H5M",
