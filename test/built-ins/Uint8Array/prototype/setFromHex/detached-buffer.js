@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-uint8array.prototype.setfromhex
-description: Uint8Array.prototype.setFromHex does not write to or error on detatched buffers
+description: Uint8Array.prototype.setFromHex throws on detatched buffers
 includes: [detachArrayBuffer.js]
 features: [uint8array-base64]
 ---*/
 
 var target = new Uint8Array([255, 255, 255]);
 $DETACHBUFFER(target.buffer);
-var result = target.setFromHex('aa');
-assert.sameValue(result.read, 0);
-assert.sameValue(result.written, 0);
+assert.throws(TypeError, function() {
+  target.setFromHex('aa');
+});
