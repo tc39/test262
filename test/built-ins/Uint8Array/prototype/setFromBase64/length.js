@@ -1,15 +1,15 @@
 // Copyright (C) 2024 Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-uint8array.frombase64into
+esid: sec-uint8array.prototype.setfrombase64
 description: >
-  Uint8Array.fromBase64Into.name is "fromBase64Into".
+  Uint8Array.prototype.setFromBase64.length is 1.
 includes: [propertyHelper.js]
 features: [uint8array-base64]
 ---*/
 
-verifyProperty(Uint8Array.fromBase64Into, 'name', {
-  value: 'fromBase64Into',
+verifyProperty(Uint8Array.prototype.setFromBase64, 'length', {
+  value: 1,
   enumerable: false,
   writable: false,
   configurable: true

@@ -1,8 +1,8 @@
 // Copyright (C) 2024 Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-uint8array.frombase64into
-description: Uint8Array.fromBase64Into triggers effects of the "alphabet" and "lastChunkHandling" getters, but does not perform toString on the results
+esid: sec-uint8array.prototype.setfrombase64
+description: Uint8Array.prototype.setFromBase64 triggers effects of the "alphabet" and "lastChunkHandling" getters, but does not perform toString on the results
 includes: [compareArray.js]
 features: [uint8array-base64]
 ---*/
@@ -16,13 +16,13 @@ var throwyToString = {
 };
 assert.throws(TypeError, function() {
   var target = new Uint8Array([255, 255, 255]);
-  Uint8Array.fromBase64Into("Zg==", target, { alphabet: throwyToString });
+  target.setFromBase64("Zg==", { alphabet: throwyToString });
 });
 assert.sameValue(toStringCalls, 0);
 
 assert.throws(TypeError, function() {
   var target = new Uint8Array([255, 255, 255]);
-  Uint8Array.fromBase64Into("Zg==", target, { lastChunkHandling: throwyToString });
+  target.setFromBase64("Zg==", { lastChunkHandling: throwyToString });
 });
 assert.sameValue(toStringCalls, 0);
 
@@ -36,7 +36,7 @@ Object.defineProperty(base64UrlOptions, "alphabet", {
   }
 });
 var target = new Uint8Array([255, 255, 255, 255]);
-var result = Uint8Array.fromBase64Into("x-_y", target, base64UrlOptions);
+var result = target.setFromBase64("x-_y", base64UrlOptions);
 assert.sameValue(result.read, 4);
 assert.sameValue(result.written, 3);
 assert.compareArray(target, [199, 239, 242, 255]);
@@ -51,7 +51,7 @@ Object.defineProperty(strictOptions, "lastChunkHandling", {
   }
 });
 var target = new Uint8Array([255, 255, 255, 255]);
-var result = Uint8Array.fromBase64Into("Zg==", target, strictOptions);
+var result = target.setFromBase64("Zg==", strictOptions);
 assert.sameValue(result.read, 4);
 assert.sameValue(result.written, 1);
 assert.compareArray(target, [102, 255, 255, 255]);

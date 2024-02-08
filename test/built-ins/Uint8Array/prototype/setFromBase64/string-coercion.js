@@ -1,8 +1,8 @@
 // Copyright (C) 2024 Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-uint8array.frombase64into
-description: Uint8Array.fromBase64Into throws if its first argument is not a string
+esid: sec-uint8array.prototype.setfrombase64
+description: Uint8Array.prototype.setFromBase64 throws if its first argument is not a string
 features: [uint8array-base64]
 ---*/
 
@@ -16,7 +16,7 @@ var throwyToString = {
 
 assert.throws(TypeError, function() {
   var target = new Uint8Array(10);
-  Uint8Array.fromBase64Into(throwyToString, target);
+  target.setFromBase64(throwyToString);
 });
 assert.sameValue(toStringCalls, 0);
 
@@ -37,7 +37,7 @@ Object.defineProperty(touchyOptions, "lastChunkHandling", {
 });
 assert.throws(TypeError, function() {
   var target = new Uint8Array(10);
-  Uint8Array.fromBase64Into(throwyToString, target, touchyOptions);
+  target.setFromBase64(throwyToString, touchyOptions);
 });
 assert.sameValue(toStringCalls, 0);
 assert.sameValue(optionAccesses, 0);

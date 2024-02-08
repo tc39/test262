@@ -1,8 +1,8 @@
 // Copyright (C) 2024 Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-uint8array.fromhexinto
-description: Uint8Array.fromHexInto throws if its first argument is not a string
+esid: sec-uint8array.prototype.setfromhex
+description: Uint8Array.prototype.setFromHex throws if its first argument is not a string
 features: [uint8array-base64]
 ---*/
 
@@ -16,6 +16,6 @@ var throwyToString = {
 
 assert.throws(TypeError, function() {
   var target = new Uint8Array(10);
-  Uint8Array.fromHexInto(throwyToString, target);
+  target.setFromHex(throwyToString);
 });
 assert.sameValue(toStringCalls, 0);

@@ -1,8 +1,8 @@
 // Copyright (C) 2024 Kevin Gibbons. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-uint8array.frombase64into
-description: Uint8Array.fromBase64 throws a SyntaxError when input has non-base64, non-ascii-whitespace characters
+esid: sec-uint8array.prototype.setfrombase64
+description: Uint8Array.prototype.setFromBase64 throws a SyntaxError when input has non-base64, non-ascii-whitespace characters
 features: [uint8array-base64]
 ---*/
 
@@ -19,6 +19,6 @@ var illegal = [
 illegal.forEach(function(value) {
   assert.throws(SyntaxError, function() {
     var target = new Uint8Array([255, 255, 255, 255, 255]);
-    Uint8Array.fromBase64Into(value, target);
+    target.setFromBase64(value);
   });
 });
