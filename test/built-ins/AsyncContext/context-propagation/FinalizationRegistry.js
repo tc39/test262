@@ -12,24 +12,27 @@ flags: [async, non-deterministic]
 features: [AsyncContext, FinalizationRegistry, host-gc-required]
 ---*/
 
+// TODO: This test tests the behavior in
+// https://github.com/tc39/proposal-async-context/pull/61
+
 const asyncVar = new AsyncContext.Variable();
 
 function cleanupCallback() {
   try {
-    assert.sameValue(asyncVar.get(), 42);
+    assert.sameValue(asyncVar.get(), "bar");
     $DONE();
   } catch (err) {
     $DONE(err);
   }
 }
 
-const registry = asyncVar.run(42, () => {
+const registry = asyncVar.run("foo", () => {
   return new FinalizationRegistry(cleanupCallback);
 });
 
-{
+asyncVar.run("bar", () => {
   let target = {};
   registry.register(target);
-}
+});
 
-$262.gc();
+asyncVar.run("baz", () => $262.gc());

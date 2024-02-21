@@ -8,9 +8,6 @@ features: [AsyncContext]
 includes: [asyncHelpers.js]
 ---*/
 
-// TODO: This test tests the behavior in
-// https://github.com/tc39/proposal-async-context/pull/61
-
 const asyncVar = new AsyncContext.Variable();
 
 async function* gen() {

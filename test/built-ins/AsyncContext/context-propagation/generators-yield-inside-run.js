@@ -6,9 +6,6 @@ description: TODO
 features: [AsyncContext]
 ---*/
 
-// TODO: This test tests the behavior in
-// https://github.com/tc39/proposal-async-context/pull/61
-
 const asyncVar = new AsyncContext.Variable();
 
 function* gen() {

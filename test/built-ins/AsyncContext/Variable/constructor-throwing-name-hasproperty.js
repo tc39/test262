@@ -18,8 +18,11 @@ features: [AsyncContext]
 function CustomError() { }
 
 const options = new Proxy({}, {
-    has() {
-        throw new CustomError();
+    has(target, prop) {
+        if (target === options && prop === "name") {
+            throw new CustomError();
+        }
+        return false;
     }
 });
 

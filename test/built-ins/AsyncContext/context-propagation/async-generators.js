@@ -8,15 +8,14 @@ features: [AsyncContext]
 includes: [asyncHelpers.js]
 ---*/
 
-// TODO: This test tests the behavior in
-// https://github.com/tc39/proposal-async-context/pull/61
-
 const asyncVar = new AsyncContext.Variable();
 
 async function* gen() {
+  assert.sameValue(asyncVar.get(), "init");
   await Promise.resolve();
   assert.sameValue(asyncVar.get(), "init");
   yield;
+  assert.sameValue(asyncVar.get(), "init");
   await Promise.resolve();
   assert.sameValue(asyncVar.get(), "init");
 }
