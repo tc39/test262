@@ -1,4 +1,4 @@
-// Copyright (C) 2023 Igalia, S. L. All rights reserved.
+// Copyright (C) 2024 Igalia, S. L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -11,6 +11,8 @@ includes: [propertyHelper.js]
 features: [AsyncContext]
 ---*/
 
-verifyNotEnumerable(AsyncContext.Snapshot, 'prototype');
-verifyNotWritable(AsyncContext.Snapshot, 'prototype');
-verifyNotConfigurable(AsyncContext.Snapshot, 'prototype');
+verifyProperty(AsyncContext.Snapshot, 'prototype', {
+  writable: false,
+  enumerable: false,
+  configurable: false
+});

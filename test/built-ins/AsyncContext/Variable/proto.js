@@ -1,16 +1,18 @@
-// Copyright (C) 2023 Igalia, S. L. All rights reserved.
+// Copyright (C) 2024 Igalia, S. L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-asynccontext-object
+esid: sec-properties-of-the-asynccontext-variable-constructor
 description: >
-    The prototype of AsyncContext is Object.prototype
+  The prototype of AsyncContext.Variable is %Function.prototype%
 info: |
-    The AsyncContext Object has a [[Prototype]] internal slot whose value is
-    %Object.prototype%.
+  The value of the [[Prototype]] internal slot of the AsyncContext.Variable
+  constructor is the intrinsic object %Function.prototype%.
 features: [AsyncContext]
 ---*/
 
-const proto = Object.getPrototypeOf(AsyncContext);
-
-assert.sameValue(proto, Object.prototype);
+assert.sameValue(
+  Object.getPrototypeOf(AsyncContext.Variable),
+  Function.prototype,
+  'Object.getPrototypeOf(AsyncContext.Variable) returns the value of `Function.prototype`'
+);
