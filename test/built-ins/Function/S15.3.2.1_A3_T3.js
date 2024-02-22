@@ -3,31 +3,29 @@
 
 /*---
 info: |
-    When the Function constructor is called with arguments p, body the following steps are taken:
-    i) Let Result(i) be the first argument
-    ii) Let P be ToString(Result(i))
-    iii) Call ToString(body)
-    iv) If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception
-    v) If body is not parsable as FunctionBody then throw a SyntaxError exception
-    vi) Create a new Function object as specified in 13.2 with parameters specified by parsing P as a FormalParameterListopt and body specified by parsing body as a FunctionBody
-    Pass in a scope chain consisting of the global object as the Scope parameter
-    vii) Return Result(vi)
+    The abstract operation CreateDynamicFunction ... performs the following steps when called:
+    ...
+    7. Let bodyString be ? ToString(bodyArg).
+    8. Let parameterStrings be a new empty List.
+    9. For each element arg of parameterArgs, do
+        a. Append ? ToString(arg) to parameterStrings.
+    ...
 es5id: 15.3.2.1_A3_T3
 description: >
     Values of the function constructor arguments are
-    "{toString:function(){p=1;return "a";}}" and
-    "{toString:function(){throw "body";}}"
+    "{toString:function(){throw "a";}}" and
+    "{toString:function(){body=1;return "body";}}"
 ---*/
 
 var p = {
   toString: function() {
-    p = 1;
-    return "a";
+    throw "a";
   }
 };
 var body = {
   toString: function() {
-    throw "body";
+    body = 1;
+    return "body";
   }
 };
 
@@ -35,7 +33,7 @@ try {
   var f = new Function(p, body);
   throw new Test262Error('#1: test failed');
 } catch (e) {
-  assert.sameValue(e, "body", 'The value of e is expected to be "body"');
+  assert.sameValue(e, "a", 'The value of e is expected to be "a"');
 }
 
-assert.sameValue(p, 1, 'The value of p is expected to be 1');
+assert.sameValue(body, 1, 'The value of body is expected to be 1');

@@ -3,30 +3,28 @@
 
 /*---
 info: |
-    When the Function constructor is called with arguments p, body the following steps are taken:
-    i) Let Result(i) be the first argument
-    ii) Let P be ToString(Result(i))
-    iii) Call ToString(body)
-    iv) If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception
-    v) If body is not parsable as FunctionBody then throw a SyntaxError exception
-    vi) Create a new Function object as specified in 13.2 with parameters specified by parsing P as a FormalParameterListopt and body specified by parsing body as a FunctionBody
-    Pass in a scope chain consisting of the global object as the Scope parameter
-    vii) Return Result(vi)
+    The abstract operation CreateDynamicFunction ... performs the following steps when called:
+    ...
+    7. Let bodyString be ? ToString(bodyArg).
+    8. Let parameterStrings be a new empty List.
+    9. For each element arg of parameterArgs, do
+        a. Append ? ToString(arg) to parameterStrings.
+    ...
 es5id: 15.3.2.1_A3_T1
 description: >
     Values of the function constructor arguments are
-    "{toString:function(){throw 1;}}" and "{toString:function(){throw
-    'body';}}"
+    "{toString:function(){throw "a";}}" and
+    "{toString:function(){throw 1;}}"
 ---*/
 
 var p = {
   toString: function() {
-    throw 1;
+    throw "a";
   }
 };
 var body = {
   toString: function() {
-    throw "body";
+    throw 1;
   }
 };
 
