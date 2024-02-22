@@ -22,11 +22,16 @@ const expected = [
   "get options.offset",
   "getOwnPropertyDescriptor options.extra",
   "get options.extra",
-  // GetOffsetNanosecondsFor on receiver
+  // lookup
+  "get this.calendar.dateFromFields",
+  "get this.calendar.fields",
+  "get this.calendar.mergeFields",
+  // lookup
   "get this.timeZone.getOffsetNanosecondsFor",
+  "get this.timeZone.getPossibleInstantsFor",
+  // GetOffsetNanosecondsFor on receiver
   "call this.timeZone.getOffsetNanosecondsFor",
   // CalendarFields
-  "get this.calendar.fields",
   "call this.calendar.fields",
   // PrepareTemporalFields on receiver
   "get this.calendar.day",
@@ -72,7 +77,6 @@ const expected = [
   "get fields.year.valueOf",
   "call fields.year.valueOf",
   // CalendarMergeFields
-  "get this.calendar.mergeFields",
   "call this.calendar.mergeFields",
   // InterpretTemporalDateTimeFields
   "get options.disambiguation.toString",
@@ -81,12 +85,9 @@ const expected = [
   "call options.offset.toString",
   "get options.overflow.toString",
   "call options.overflow.toString",
-  "get this.calendar.dateFromFields",
   "call this.calendar.dateFromFields",
   // InterpretISODateTimeOffset
-  "get this.timeZone.getPossibleInstantsFor",
   "call this.timeZone.getPossibleInstantsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
 ];
 const actual = [];
@@ -120,3 +121,54 @@ const options = TemporalHelpers.propertyBagObserver(actual, {
 
 instance.with(fields, options);
 assert.compareArray(actual, expected, "order of operations");
+actual.splice(0); // clear
+
+const dstTimeZone = TemporalHelpers.springForwardFallBackTimeZone();
+const dstTimeZoneObserver = TemporalHelpers.timeZoneObserver(actual, "this.timeZone", {
+  getOffsetNanosecondsFor: dstTimeZone.getOffsetNanosecondsFor,
+  getPossibleInstantsFor: dstTimeZone.getPossibleInstantsFor,
+});
+
+const dstInstance = new Temporal.ZonedDateTime(37800_000_000_000n /* 1970-01-01T02:30-08:00 */, dstTimeZoneObserver, calendar);
+actual.splice(0); // clear calls that happened in constructor
+
+const fallBackFields = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2000,
+  month: 10,
+  monthCode: "M10",
+  day: 29,
+  hour: 1,
+  minute: 30,
+  second: 0,
+  millisecond: 0,
+  microsecond: 0,
+  nanosecond: 0,
+  offset: "+00:00", // ignored
+}, "fields");
+dstInstance.with(fallBackFields, options);
+assert.compareArray(actual, expected.concat([
+  // extra call in InterpretISODateTimeOffset
+  "call this.timeZone.getOffsetNanosecondsFor",
+]), "order of operations at repeated wall-clock time");
+actual.splice(0); // clear
+
+const springForwardFields = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2000,
+  month: 4,
+  monthCode: "M04",
+  day: 2,
+  hour: 2,
+  minute: 30,
+  second: 0,
+  millisecond: 0,
+  microsecond: 0,
+  nanosecond: 0,
+  offset: "+00:00", // ignored
+}, "fields");
+dstInstance.with(springForwardFields, options);
+assert.compareArray(actual, expected.concat([
+  // DisambiguatePossibleInstants
+  "call this.timeZone.getOffsetNanosecondsFor",
+  "call this.timeZone.getPossibleInstantsFor",
+]), "order of operations at skipped wall-clock time");
+actual.splice(0); // clear

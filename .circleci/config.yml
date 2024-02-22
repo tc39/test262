@@ -9,8 +9,8 @@ references:
     v1-dependency-js-deps-{{ checksum "package.json" }}
   js_deps_backup_cache_key: &js_deps_backup_cache_key
     v1-dependency-js-deps
-  node_latest: &node_latest
-    circleci/node:lts
+  node_image: &node_image
+    cimg/node:lts
 
 restore_cache: &restore_cache
   restore_cache:
@@ -66,7 +66,7 @@ jobs:
       #     command: ./tools/scripts/deploy.sh
   "V8: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -78,7 +78,7 @@ jobs:
     <<: [*execution_steps]
   "V8 --harmony: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
     working_directory: ~/test262
     environment:
       hostType: d8
@@ -88,7 +88,7 @@ jobs:
     <<: [*execution_steps]
   "SpiderMonkey: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
     working_directory: ~/test262
     environment:
       hostType: jsshell
@@ -97,7 +97,7 @@ jobs:
     <<: [*execution_steps]
   "ChakraCore: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
     working_directory: ~/test262
     environment:
       hostType: ch
@@ -106,7 +106,7 @@ jobs:
     <<: [*execution_steps]
   "JSC: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
     working_directory: ~/test262
     environment:
       LANG: C
@@ -116,7 +116,7 @@ jobs:
     <<: [*execution_steps]
   "XS: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
     working_directory: ~/test262
     environment:
       hostType: xs
@@ -125,7 +125,7 @@ jobs:
     <<: [*execution_steps]
   "engine262: New or modified tests execution":
     docker:
-      - image: *node_latest
+      - image: *node_image
     working_directory: ~/test262
     environment:
       hostType: engine262

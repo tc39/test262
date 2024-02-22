@@ -1,0 +1,14 @@
+// Copyright (C) 2021 V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall trailing comma following second parameter
+template: syntax/valid
+info: |
+  ImportCall :
+      import( AssignmentExpression[+In, ?Yield, ?Await] ,opt )
+      import( AssignmentExpression[+In, ?Yield, ?Await] , AssignmentExpression[+In, ?Yield, ?Await] ,opt )
+features: [import-attributes]
+---*/
+
+//- import
+import('./empty_FIXTURE.js', {},)

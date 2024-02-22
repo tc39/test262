@@ -7,7 +7,7 @@ from __future__ import print_function
 
 import os
 import re
-import imp
+import sys
 
 # Matches trailing whitespace and any following blank lines.
 _BLANK_LINES = r"([ \t]*[\r\n]{1,2})*"
@@ -114,7 +114,9 @@ def importYamlLoad():
     monkeyYaml = loadMonkeyYaml()
     yamlLoad = monkeyYaml.load
 
-def loadMonkeyYaml():
+def loadMonkeyYaml2():
+    import imp
+
     f = None
     try:
         p = os.path.dirname(os.path.realpath(__file__))
@@ -126,3 +128,38 @@ def loadMonkeyYaml():
     finally:
         if f:
             f.close()
+
+def loadMonkeyYaml3():
+    import importlib.machinery
+    import importlib.util
+
+    packaging_dir = os.path.dirname(os.path.realpath(__file__))
+    module_name = "monkeyYaml"
+
+    # Create a FileFinder to load Python source files.
+    loader_details = (
+        importlib.machinery.SourceFileLoader,
+        importlib.machinery.SOURCE_SUFFIXES,
+    )
+    finder = importlib.machinery.FileFinder(packaging_dir, loader_details)
+
+    # Find the module spec.
+    spec = finder.find_spec(module_name)
+    if spec is None:
+        raise RuntimeError("Can't find monkeyYaml module")
+
+    # Create and execute the module.
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    # Return the executed module
+    return module
+
+def loadMonkeyYaml():
+    # The "imp" module is deprecated in Python 3.4 and will be removed in
+    # Python 3.12. Use it only if the current Python version is too old to use
+    # the "importlib" module.
+    if sys.version_info < (3, 4):
+        return loadMonkeyYaml2()
+
+    return loadMonkeyYaml3()

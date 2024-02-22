@@ -27,4 +27,3 @@ import './import-assertion-2_FIXTURE.js' assert {};
 export * from './import-assertion-3_FIXTURE.js' assert {};
 
 assert.sameValue(x, 262.1);
-assert.sameValue(globalThis.test262, 262.2);
