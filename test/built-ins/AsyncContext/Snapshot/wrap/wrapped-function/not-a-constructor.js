@@ -39,4 +39,3 @@ assert.sameValue(
 assert.throws(TypeError, () => {
   new wrapped();
 }, '`new wrapped()` throws TypeError');
-
