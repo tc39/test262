@@ -62,7 +62,8 @@ assert.throws(RangeError, () =>
   start.until(
     oneZDT, // Sets DifferenceZonedDateTime _ns2_
     options
-  )
+  ),
+  "days < 0 and sign = 1"
 );
 
 // Step 24: days > 0 and sign = -1
@@ -86,7 +87,8 @@ assert.throws(RangeError, () =>
   start.until(
     zeroZDT, // Sets DifferenceZonedDateTime _ns2_
     options
-  )
+  ),
+  "days > 0 and sign = -1"
 );
 
 // Step 26: nanoseconds > 0 and sign = -1
@@ -110,7 +112,8 @@ assert.throws(RangeError, () =>
   start.until(
     zeroZDT, // Sets DifferenceZonedDateTime _ns2_
     options
-  )
+  ),
+  "norm > 0 and sign = -1"
 );
 
 // Step 29: day length is an unsafe integer
