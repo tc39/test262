@@ -327,6 +327,8 @@ const expectedOpsForZonedRelativeTo = expected.concat([
   // lookup in AddDurationToOrSubtractDurationFromDuration
   "get options.relativeTo.calendar.dateAdd",
   "get options.relativeTo.calendar.dateUntil",
+  "get options.relativeTo.timeZone.getOffsetNanosecondsFor",
+  "get options.relativeTo.timeZone.getPossibleInstantsFor",
   // AddDuration
   "call options.relativeTo.timeZone.getOffsetNanosecondsFor",
   // AddDuration → AddZonedDateTime 1
