@@ -12,9 +12,6 @@ flags: [async, non-deterministic]
 features: [AsyncContext, FinalizationRegistry, host-gc-required]
 ---*/
 
-// TODO: This test tests the behavior in
-// https://github.com/tc39/proposal-async-context/pull/69
-
 const asyncVar = new AsyncContext.Variable();
 
 function cleanupCallback() {
