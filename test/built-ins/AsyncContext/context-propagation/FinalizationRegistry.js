@@ -13,13 +13,13 @@ features: [AsyncContext, FinalizationRegistry, host-gc-required]
 ---*/
 
 // TODO: This test tests the behavior in
-// https://github.com/tc39/proposal-async-context/pull/61
+// https://github.com/tc39/proposal-async-context/pull/69
 
 const asyncVar = new AsyncContext.Variable();
 
 function cleanupCallback() {
   try {
-    assert.sameValue(asyncVar.get(), "bar");
+    assert.sameValue(asyncVar.get(), "foo");
     $DONE();
   } catch (err) {
     $DONE(err);
