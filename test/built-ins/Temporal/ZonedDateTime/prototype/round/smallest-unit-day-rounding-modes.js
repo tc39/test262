@@ -63,31 +63,32 @@ function test(epochNanoseconds, tomorrowEpochNanoseconds, testCases) {
 
 const oneDay = 24n * 60n * 60n * 1000n * 1000n * 1000n;
 
-// Test positive divisor (dayLengthNs).
 test(3n, 10n, {
-  ceil: oneDay,
+  ceil: 10n, // end-of-day according to TimeZone protocol
   floor: 0n,
   trunc: 0n,
   halfExpand: 0n,
 });
 
 test(-3n, 10n, {
-  ceil: 0n,
+  ceil: 10n, // end-of-day according to TimeZone protocol
   floor: -oneDay,
   trunc: -oneDay,
-  halfExpand: 0n,
+  halfExpand: 10n, // end-of-day according to TimeZone protocol
 });
 
-test(-3n, -10n, {
-  ceil: oneDay,
-  floor: 0n,
-  trunc: 0n,
-  halfExpand: 0n,
-});
+assert.throws(RangeError, () => {
+  test(-3n, -10n, {
+    ceil: oneDay,
+    floor: 0n,
+    trunc: 0n,
+    halfExpand: 0n,
+  });
+}, "instant is after TimeZone protocol's end-of-day")
 
 // Test values at int64 boundaries.
 test(3n, /*INT64_MAX=*/ 9223372036854775807n, {
-  ceil: oneDay,
+  ceil: /*INT64_MAX=*/ 9223372036854775807n, // end-of-day according to TimeZone protocol
   floor: 0n,
   trunc: 0n,
   halfExpand: 0n,
