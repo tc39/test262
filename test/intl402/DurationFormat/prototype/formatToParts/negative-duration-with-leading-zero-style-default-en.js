@@ -1,10 +1,10 @@
-// Copyright (C) 2023 André Bargull. All rights reserved.
+// Copyright (C) 2024 André Bargull. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-Intl.DurationFormat.prototype.formatToParts
 description: >
-  Test formatToParts method with negative duration and default style
+  Test formatToParts method with negative duration and leading zero using the default style.
 locale: [en-US]
 includes: [testIntl.js]
 features: [Intl.DurationFormat]
@@ -29,19 +29,11 @@ function compare(actual, expected, message) {
 }
 
 const duration = {
-  years: -1,
-  months: -2,
-  weeks: -3,
-  days: -4,
-  hours: -5,
-  minutes: -6,
-  seconds: -7,
-  milliseconds: -123,
-  microseconds: -456,
-  nanoseconds: -789,
+  hours: 0,
+  seconds: -1,
 };
 
-const df = new Intl.DurationFormat("en");
+const df = new Intl.DurationFormat("en", {hoursDisplay: "always"});
 
 const expected = partitionDurationFormatPattern(df, duration);
 

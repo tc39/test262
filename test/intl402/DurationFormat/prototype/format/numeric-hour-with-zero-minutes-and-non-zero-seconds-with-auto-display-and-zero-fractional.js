@@ -1,4 +1,4 @@
-// Copyright (C) 2023 André Bargull. All rights reserved.
+// Copyright (C) 2024 André Bargull. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -13,6 +13,13 @@ features: [Intl.DurationFormat]
 const df = new Intl.DurationFormat("en", {
   // hours must be numeric, so that a time separator is used for the following units.
   hours: "numeric",
+
+  // Use "auto" display for sub-hours units.
+  minutesDisplay: "auto",
+  secondsDisplay: "auto",
+
+  // Zero fractional digits to omit sub-second units.
+  fractionalDigits: 0,
 });
 
 const durations = [
@@ -29,6 +36,9 @@ const durations = [
 
   // Additionally test when hours is non-zero and a sub-seconds unit is non-zero,
   // but minutes and seconds are both zero.
+  //
+  // Note: The "fractionalDigits" option is not taken into account when computing
+  // whether the seconds unit should appear in the output.
   {hours: 1, minutes: 0, seconds: 0, milliseconds: 1},
   {hours: 1, minutes: 0, seconds: 0, microseconds: 1},
   {hours: 1, minutes: 0, seconds: 0, nanoseconds: 1},
