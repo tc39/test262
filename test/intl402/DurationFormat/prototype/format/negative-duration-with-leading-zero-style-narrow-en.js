@@ -1,31 +1,23 @@
-// Copyright (C) 2023 André Bargull. All rights reserved.
+// Copyright (C) 2024 André Bargull. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-Intl.DurationFormat.prototype.format
 description: >
-  Test format method with negative duration and "digital" style
+  Test format method with negative duration and leading zero using the "narrow" style.
 locale: [en-US]
 includes: [testIntl.js]
 features: [Intl.DurationFormat]
 ---*/
 
-const style = "digital";
+const style = "narrow";
 
 const duration = {
-  years: -1,
-  months: -2,
-  weeks: -3,
-  days: -3,
-  hours: -4,
-  minutes: -5,
-  seconds: -6,
-  milliseconds: -7,
-  microseconds: -8,
-  nanoseconds: -9,
+  hours: 0,
+  seconds: -1,
 };
 
-const df = new Intl.DurationFormat("en", {style});
+const df = new Intl.DurationFormat("en", {style, hoursDisplay: "always"});
 
 const expected = formatDurationFormatPattern(df, duration);
 
