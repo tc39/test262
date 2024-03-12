@@ -9,8 +9,8 @@ features: [uint8array-base64]
 
 var array = new Uint8Array(2);
 var getterCalls = 0;
-var recevierDetachingOptions = {};
-Object.defineProperty(recevierDetachingOptions, "alphabet", {
+var receiverDetachingOptions = {};
+Object.defineProperty(receiverDetachingOptions, "alphabet", {
   get: function() {
     getterCalls += 1;
     $DETACHBUFFER(array.buffer);
@@ -18,7 +18,7 @@ Object.defineProperty(recevierDetachingOptions, "alphabet", {
   }
 });
 assert.throws(TypeError, function() {
-  array.toBase64(recevierDetachingOptions);
+  array.toBase64(receiverDetachingOptions);
 });
 assert.sameValue(getterCalls, 1);
 

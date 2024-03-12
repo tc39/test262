@@ -31,13 +31,13 @@ assert.sameValue(alphabetAccesses, 1);
 
 // side-effects from the getter on the receiver are reflected in the result
 var array = new Uint8Array([0]);
-var recevierMutatingOptions = {};
-Object.defineProperty(recevierMutatingOptions, "alphabet", {
+var receiverMutatingOptions = {};
+Object.defineProperty(receiverMutatingOptions, "alphabet", {
   get: function() {
     array[0] = 255;
     return "base64";
   }
 });
-var result = array.toBase64(recevierMutatingOptions);
+var result = array.toBase64(receiverMutatingOptions);
 assert.sameValue(result, "/w==");
 assert.sameValue(array[0], 255);

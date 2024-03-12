@@ -26,3 +26,4 @@ var target = new Uint8Array([255, 255, 255]);
 assert.throws(TypeError, function() {
   target.setFromBase64('Zg==', targetDetachingOptions);
 });
+assert.sameValue(getterCalls, 1);
