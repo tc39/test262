@@ -108,7 +108,7 @@ assert.throws(SyntaxError, function() {
 });
 
 
-// malformed padding
+// partial padding
 assert.throws(SyntaxError, function() {
   var target = new Uint8Array([255, 255, 255, 255, 255, 255]);
   target.setFromBase64('ZXhhZg=');
@@ -128,4 +128,26 @@ assert.compareArray(target, [101, 120, 97, 255, 255, 255]);
 assert.throws(SyntaxError, function() {
   var target = new Uint8Array([255, 255, 255, 255, 255, 255]);
   target.setFromBase64('ZXhhZg=', { lastChunkHandling: 'strict' });
+});
+
+
+// excess padding
+assert.throws(SyntaxError, function() {
+  var target = new Uint8Array([255, 255, 255, 255, 255, 255]);
+  target.setFromBase64('ZXhhZg===');
+});
+
+assert.throws(SyntaxError, function() {
+  var target = new Uint8Array([255, 255, 255, 255, 255, 255]);
+  target.setFromBase64('ZXhhZg===', { lastChunkHandling: 'loose' });
+});
+
+assert.throws(SyntaxError, function() {
+  var target = new Uint8Array([255, 255, 255, 255, 255, 255]);
+  target.setFromBase64('ZXhhZg===', { lastChunkHandling: 'stop-before-partial' });
+});
+
+assert.throws(SyntaxError, function() {
+  var target = new Uint8Array([255, 255, 255, 255, 255, 255]);
+  target.setFromBase64('ZXhhZg===', { lastChunkHandling: 'strict' });
 });
