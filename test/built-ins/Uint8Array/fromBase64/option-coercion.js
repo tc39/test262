@@ -7,6 +7,15 @@ includes: [compareArray.js]
 features: [uint8array-base64]
 ---*/
 
+assert.throws(TypeError, function() {
+  Uint8Array.fromBase64("Zg==", { alphabet: Object("base64") });
+});
+
+assert.throws(TypeError, function() {
+  Uint8Array.fromBase64("Zg==", { lastChunkHandling: Object("loose") });
+});
+
+
 var toStringCalls = 0;
 var throwyToString = {
   toString: function() {

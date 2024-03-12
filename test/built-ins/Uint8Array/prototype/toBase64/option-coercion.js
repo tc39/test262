@@ -6,6 +6,11 @@ description: Uint8Array.prototype.toBase64 triggers effects of the "alphabet" ge
 features: [uint8array-base64]
 ---*/
 
+assert.throws(TypeError, function() {
+  (new Uint8Array(2)).toBase64({ alphabet: Object("base64") });
+});
+
+
 var toStringCalls = 0;
 var throwyToString = {
   toString: function() {
