@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.prototype.tobase64
 description: Conversion of Uint8Arrays to base64 strings exercising the alphabet option
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 assert.sameValue((new Uint8Array([199, 239, 242])).toBase64(), "x+/y");

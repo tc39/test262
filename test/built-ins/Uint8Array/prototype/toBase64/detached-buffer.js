@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.tobase64
 description: Uint8Array.prototype.toBase64 checks for detachedness after side-effects are finished
 includes: [detachArrayBuffer.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var array = new Uint8Array(2);

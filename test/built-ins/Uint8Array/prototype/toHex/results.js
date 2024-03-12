@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.prototype.tohex
 description: Conversion of Uint8Arrays to hex strings
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 assert.sameValue((new Uint8Array([])).toHex(), "");

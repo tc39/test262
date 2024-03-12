@@ -4,7 +4,7 @@
 esid: sec-uint8array.frombase64
 description: Uint8Array.fromBase64 triggers effects of the "alphabet" and "lastChunkHandling" getters, but does not perform toString on the results
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 assert.throws(TypeError, function() {

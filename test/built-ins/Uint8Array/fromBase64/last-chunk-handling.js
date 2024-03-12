@@ -4,7 +4,7 @@
 esid: sec-uint8array.frombase64
 description: Handling of final chunks in Uint8Array.fromBase64
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 // padding

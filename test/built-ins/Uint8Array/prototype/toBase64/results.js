@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.prototype.tobase64
 description: Conversion of Uint8Arrays to base64 strings
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 // standard test vectors from https://datatracker.ietf.org/doc/html/rfc4648#section-10

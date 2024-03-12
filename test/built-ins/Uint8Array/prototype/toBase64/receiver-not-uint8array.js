@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.tobase64
 description: Uint8Array.prototype.toBase64 throws if the receiver is not a Uint8Array
 includes: [testTypedArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var toBase64 = Uint8Array.prototype.toBase64;

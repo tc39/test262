@@ -5,7 +5,7 @@ esid: sec-uint8array.prototype.tohex
 description: >
   Uint8Array.prototype.toHex.length is 0.
 includes: [propertyHelper.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 verifyProperty(Uint8Array.prototype.toHex, 'length', {

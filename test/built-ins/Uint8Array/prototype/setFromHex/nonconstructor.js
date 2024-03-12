@@ -5,7 +5,7 @@ esid: sec-uint8array.prototype.setfromhex
 description: >
   Uint8Array.prototype.setFromHex is not a constructor function.
 includes: [isConstructor.js]
-features: [uint8array-base64, Reflect.construct]
+features: [uint8array-base64, TypedArray, Reflect.construct]
 ---*/
 
 assert(!isConstructor(Uint8Array.prototype.setFromHex), "target.setFromHex is not a constructor");

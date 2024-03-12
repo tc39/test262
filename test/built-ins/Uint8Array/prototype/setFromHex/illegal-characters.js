@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.prototype.setfromhex
 description: Uint8Array.prototype.setFromHex throws a SyntaxError when input has non-hex characters
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var illegal = [

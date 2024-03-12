@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.tohex
 description: Uint8Array.prototype.toHex throws if the receiver is not a Uint8Array
 includes: [testTypedArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var toHex = Uint8Array.prototype.toHex;

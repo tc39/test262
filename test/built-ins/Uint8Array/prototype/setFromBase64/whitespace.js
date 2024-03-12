@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.setfrombase64
 description: Uint8Array.prototype.setFromBase64 ignores ASCII whitespace in the input
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var whitespaceKinds = [

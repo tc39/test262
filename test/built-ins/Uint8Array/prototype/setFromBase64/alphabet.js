@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.setfrombase64
 description: Conversion of base64 strings to Uint8Arrays exercising the alphabet option
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var target = new Uint8Array([255, 255, 255, 255]);

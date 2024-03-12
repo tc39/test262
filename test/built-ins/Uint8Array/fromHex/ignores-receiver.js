@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.fromhex
 description: Uint8Array.fromHex ignores its receiver
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var fromHex = Uint8Array.fromHex;

@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.setfromhex
 description: Uint8Array.prototype.setFromHex takes into account the offset of the target Uint8Array
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var base = new Uint8Array([255, 255, 255, 255, 255, 255, 255]);

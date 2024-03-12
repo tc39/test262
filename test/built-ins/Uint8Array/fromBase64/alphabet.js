@@ -4,7 +4,7 @@
 esid: sec-uint8array.frombase64
 description: Conversion of base64 strings to Uint8Arrays exercising the alphabet option
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 assert.compareArray(Uint8Array.fromBase64('x+/y'), [199, 239, 242]);

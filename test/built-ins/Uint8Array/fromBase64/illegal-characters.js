@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.frombase64
 description: Uint8Array.fromBase64 throws a SyntaxError when input has non-base64, non-ascii-whitespace characters
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var illegal = [

@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.prototype.setfromhex
 description: Uint8Array.prototype.setFromHex throws if its first argument is not a string
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var toStringCalls = 0;

@@ -3,7 +3,7 @@
 /*---
 esid: sec-uint8array.prototype.tobase64
 description: Uint8Array.prototype.toBase64 triggers effects of the "alphabet" getter, but does not perform toString on the result
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 assert.throws(TypeError, function() {

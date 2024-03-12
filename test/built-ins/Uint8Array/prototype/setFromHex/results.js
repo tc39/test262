@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.setfromhex
 description: Conversion of hex strings to Uint8Arrays
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 var cases = [

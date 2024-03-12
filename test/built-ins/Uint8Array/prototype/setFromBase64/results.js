@@ -4,7 +4,7 @@
 esid: sec-uint8array.prototype.setfrombase64
 description: Conversion of base64 strings to Uint8Arrays
 includes: [compareArray.js]
-features: [uint8array-base64]
+features: [uint8array-base64, TypedArray]
 ---*/
 
 // standard test vectors from https://datatracker.ietf.org/doc/html/rfc4648#section-10
