@@ -22,5 +22,7 @@ var cases = [
 cases.forEach(function (pair) {
   var arr = Uint8Array.fromHex(pair[0]);
   assert.sameValue(Object.getPrototypeOf(arr), Uint8Array.prototype, "decoding " + pair[0]);
+  assert.sameValue(arr.length, pair[1].length, "decoding " + pair[0]);
+  assert.sameValue(arr.buffer.byteLength, pair[1].length, "decoding " + pair[0]);
   assert.compareArray(arr, pair[1], "decoding " + pair[0]);
 });

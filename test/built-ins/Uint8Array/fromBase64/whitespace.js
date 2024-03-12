@@ -16,5 +16,7 @@ var whitespaceKinds = [
 ];
 whitespaceKinds.forEach(function(pair) {
   var arr = Uint8Array.fromBase64(pair[0]);
+  assert.sameValue(arr.length, 1);
+  assert.sameValue(arr.buffer.byteLength, 1);
   assert.compareArray(arr, [102], "ascii whitespace: " + pair[1]);
 });
