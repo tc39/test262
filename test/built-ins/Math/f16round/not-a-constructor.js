@@ -5,9 +5,8 @@
 esid: sec-ecmascript-standard-built-in-objects
 description: >
   Math.f16round does not implement [[Construct]], is not new-able
-features: [Float16Array]
 includes: [isConstructor.js]
-features: [Reflect.construct]
+features: [Float16Array, Reflect.construct]
 ---*/
 
 assert(!isConstructor(Math.f16round), "Math.f16round is not a constructor");
