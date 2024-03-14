@@ -13,6 +13,7 @@ info: |
   5. Else,
     a. Perform ! CreateDataPropertyOrThrow(nfOpts, "maximumFractionDigits", durationFormat.[[FractionalDigits]]).
     b. Perform ! CreateDataPropertyOrThrow(nfOpts, "minimumFractionDigits", durationFormat.[[FractionalDigits]]).
+locale: [en-US]
 features: [Intl.DurationFormat]
 ---*/
 
