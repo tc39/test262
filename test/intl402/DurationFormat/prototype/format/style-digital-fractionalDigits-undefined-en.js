@@ -13,6 +13,7 @@ info: |
   5. Else,
     a. Perform ! CreateDataPropertyOrThrow(nfOpts, "maximumFractionDigits", durationFormat.[[FractionalDigits]]).
     b. Perform ! CreateDataPropertyOrThrow(nfOpts, "minimumFractionDigits", durationFormat.[[FractionalDigits]]).
+locale: [en-US]
 features: [Intl.DurationFormat]
 ---*/
 
@@ -57,7 +58,7 @@ const durationSevenFractional = {
 };
 
 const style = "digital";
-const df = new Intl.DurationFormat(undefined, {style, fractionalDigits: undefined});
+const df = new Intl.DurationFormat("en", {style, fractionalDigits: undefined});
 
 assert.sameValue(df.format(durationNano), "1:22:33.111222333", `format output with nanosecond digits and fractionalDigits: undefined using ${style} style option`);
 assert.sameValue(df.format(durationMicro), "1:22:33.111222", `format output with microsecond digits and fractionalDigits: undefined using ${style} style option`);

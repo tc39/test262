@@ -13,6 +13,7 @@ info: |
   5. Else,
     a. Perform ! CreateDataPropertyOrThrow(nfOpts, "maximumFractionDigits", durationFormat.[[FractionalDigits]]).
     b. Perform ! CreateDataPropertyOrThrow(nfOpts, "minimumFractionDigits", durationFormat.[[FractionalDigits]]).
+locale: [en-US]
 features: [Intl.DurationFormat]
 ---*/
 
@@ -27,12 +28,12 @@ const duration = {
 
 
 const style = "digital";
-const df = new Intl.DurationFormat(undefined, {style, fractionalDigits: 0});
-const dfMilli = new Intl.DurationFormat(undefined, {style, fractionalDigits: 3});
-const dfFourDigits = new Intl.DurationFormat(undefined, {style, fractionalDigits: 4});
-const dfMicro = new Intl.DurationFormat(undefined, {style, fractionalDigits: 6});
-const dfEightDigits = new Intl.DurationFormat(undefined, {style, fractionalDigits: 8});
-const dfNano = new Intl.DurationFormat(undefined, {style, fractionalDigits: 9});
+const df = new Intl.DurationFormat("en", {style, fractionalDigits: 0});
+const dfMilli = new Intl.DurationFormat("en", {style, fractionalDigits: 3});
+const dfFourDigits = new Intl.DurationFormat("en", {style, fractionalDigits: 4});
+const dfMicro = new Intl.DurationFormat("en", {style, fractionalDigits: 6});
+const dfEightDigits = new Intl.DurationFormat("en", {style, fractionalDigits: 8});
+const dfNano = new Intl.DurationFormat("en", {style, fractionalDigits: 9});
 
 assert.sameValue(df.format(duration), "1:22:33", `format output without sub-second digits using ${style} style option`);
 
