@@ -5,8 +5,8 @@
 info: Assignment Operator evaluates its operands from left to right.
 description: >
     The left-hand side expression is evaluated before the right-hand side.
-    Left-hand side expression is MemberExpression: base[prop]. Evaluating
-    ToPropertyKey(prop) throws an error.
+    Left-hand side expression is MemberExpression: base[prop]. ToPropertyKey(prop)
+    is not called.
 ---*/
 
 function DummyError() { }
@@ -15,11 +15,11 @@ assert.throws(DummyError, function() {
   var base = {};
   var prop = {
     toString: function() {
-      throw new DummyError();
+      throw new Test262Error("property key evaluated");
     }
   };
   var expr = function() {
-    throw new Test262Error("right-hand side expression evaluated");
+    throw new DummyError();
   };
 
   base[prop] = expr();
