@@ -17,6 +17,4 @@ assert.throws(
   TypeError,
   () => {
     new Set.prototype.isSubsetOf();
-  },
-  "`new Set.prototype.isSubsetOf()` throws TypeError"
-);
+  });
