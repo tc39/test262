@@ -17,6 +17,4 @@ assert.throws(
   TypeError,
   () => {
     new Set.prototype.intersection();
-  },
-  "`new Set.prototype.intersection()` throws TypeError"
-);
+  });

@@ -17,6 +17,4 @@ assert.throws(
   TypeError,
   () => {
     new Set.prototype.isDisjointFrom();
-  },
-  "`new Set.prototype.isDisjointFrom()` throws TypeError"
-);
+  });
