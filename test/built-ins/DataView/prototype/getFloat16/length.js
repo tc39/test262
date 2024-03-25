@@ -9,8 +9,9 @@ features: [Float16Array]
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(DataView.prototype.getFloat16.length, 1);
-
-verifyNotEnumerable(DataView.prototype.getFloat16, "length");
-verifyNotWritable(DataView.prototype.getFloat16, "length");
-verifyConfigurable(DataView.prototype.getFloat16, "length");
+verifyProperty(DataView.prototype.getFloat16, "length", {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
