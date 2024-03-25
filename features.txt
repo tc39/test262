@@ -109,6 +109,10 @@ promise-with-resolvers
 # https://github.com/tc39/proposal-set-methods
 set-methods
 
+# Source Phase Imports
+## https://github.com/tc39/proposal-source-phase-imports
+source-phase-imports
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the

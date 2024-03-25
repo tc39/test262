@@ -107,6 +107,7 @@ properties of the global scope prior to test execution.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
     - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
+    - **`AbstractModuleSource`** - a reference to the %AbstractModuleSource% constructor which does not appear as a property of the global object.
 
 In addition, consumers may choose to override any of [the functions defined by test harness files](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
 
