@@ -5,7 +5,7 @@
 esid: sec-Intl.DurationFormat.prototype.format
 description: >
   Minutes with numeric or 2-digit style are included in the output when between displayed hours and seconds, even when the minutes value is zero.
-locale: [en-US]
+locale: [en]
 features: [Intl.DurationFormat]
 ---*/
 
