@@ -19,11 +19,11 @@ assert.throws(DummyError, function() {
   base[prop()]--;
 });
 
-assert.throws(TypeError, function() {
+assert.throws(DummyError, function() {
   var base = undefined;
   var prop = {
     toString: function() {
-      throw new Test262Error("property key evaluated");
+      throw new DummyError();
     }
   };
 
