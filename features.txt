@@ -109,6 +109,10 @@ promise-with-resolvers
 # https://github.com/tc39/proposal-set-methods
 set-methods
 
+# Uint8Array Base64
+# https://github.com/tc39/proposal-arraybuffer-base64
+uint8array-base64
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
