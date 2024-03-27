@@ -15,6 +15,7 @@ defines:
   - CreateRabForTest
   - CollectValuesAndResize
   - TestIterationAndResize
+features: [BigInt]
 ---*/
 
 class MyUint8Array extends Uint8Array {
@@ -40,18 +41,36 @@ const builtinCtors = [
   BigInt64Array
 ];
 
+// BigInt and Float16Array are newer features adding them above unconditionally
+// would cause implementations lacking it to fail every test which uses it.
+if (typeof Float16Array !== 'undefined') {
+  builtinCtors.push(Float16Array);
+}
+
+if (typeof BigInt !== 'undefined') {
+    builtinCtors.push(BigUint64Array);
+    builtinCtors.push(BigInt64Array);
+}
+
 const floatCtors = [
   Float32Array,
   Float64Array,
   MyFloat32Array
 ];
 
+if (typeof Float16Array !== 'undefined') {
+  floatCtors.push(Float16Array);
+}
+
 const ctors = [
   ...builtinCtors,
   MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
+  MyFloat32Array
 ];
+
+if (typeof BigInt !== 'undefined') {
+    ctors.push(MyBigInt64Array);
+}
 
 function CreateResizableArrayBuffer(byteLength, maxByteLength) {
   return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
