@@ -14,55 +14,39 @@ var x;
 //CHECK#1
 x = true;
 x += "1";
-if (x !== "true1") {
-  throw new Test262Error('#1: x = true; x += "1"; x === "true1". Actual: ' + (x));
-}
+assert.sameValue(x, "true1", '#1: x = true; x += "1"; x === "true1"');
 
 //CHECK#2
 x = "1";
 x += true;
-if (x !== "1true") {
-  throw new Test262Error('#2: x = "1"; x += true; x === "1true". Actual: ' + (x));
-}
+assert.sameValue(x, "1true", '#2: x = "1"; x += true; x === "1true"');
 
 //CHECK#3
 x = new Boolean(true);
 x += "1";
-if (x !== "true1") {
-  throw new Test262Error('#3: x = new Boolean(true); x += "1"; x === "true1". Actual: ' + (x));
-}
+assert.sameValue(x, "true1", '#3: x = new Boolean(true); x += "1"; x === "true1"');
 
 //CHECK#4
 x = "1";
 x += new Boolean(true);
-if (x !== "1true") {
-  throw new Test262Error('#4: x = "1"; x += new Boolean(true); x === "1true". Actual: ' + (x));
-}
+assert.sameValue(x, "1true", '#4: x = "1"; x += new Boolean(true); x === "1true"');
 
 //CHECK#5
 x = true;
 x += new String("1");
-if (x !== "true1") {
-  throw new Test262Error('#5: x = true; x += new String("1"); x === "true1". Actual: ' + (x));
-}
+assert.sameValue(x, "true1", '#5: x = true; x += new String("1"); x === "true1"');
 
 //CHECK#6
 x = new String("1");
 x += true;
-if (x !== "1true") {
-  throw new Test262Error('#6: x = new String("1"); x += true; x === "1true". Actual: ' + (x));
-}
+assert.sameValue(x, "1true", '#6: x = new String("1"); x += true; x === "1true"');
 
 //CHECK#7
 x = new Boolean(true);
 x += new String("1");
-if (x !== "true1") {
-  throw new Test262Error('#7: x = new Boolean(true); x += new String("1"); x === "true1". Actual: ' + (x));
-}
+assert.sameValue(x, "true1", '#7: x = new Boolean(true); x += new String("1"); x === "true1"');
 
 //CHECK#8
 x = new String("1");
 x += new Boolean(true);
-if (x !== "1true") {
-  throw new Test262Error('#8: x = new String("1"); x += new Boolean(true); x === "1true". Actual: ' + (x));
-}
+assert.sameValue(x, "1true", '#8: x = new String("1"); x += new Boolean(true); x === "1true"');

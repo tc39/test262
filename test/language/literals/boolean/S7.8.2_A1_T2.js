@@ -8,6 +8,4 @@ description: "BooleanLiteral :: false"
 ---*/
 
 //CHECK#1
-if (Boolean(false) !== false) {
-  throw new Test262Error('#1: Boolean(false) === false. Actual: Boolean(false) === ' + (Boolean(false)));
-}
+assert.sameValue(Boolean(false), false, '#1: Boolean(false) === false');

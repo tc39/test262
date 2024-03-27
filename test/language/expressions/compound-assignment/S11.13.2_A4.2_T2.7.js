@@ -14,27 +14,19 @@ var x;
 //CHECK#1
 x = "1";
 x /= null;
-if (x !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#1: x = "1"; x /= null; x === +Infinity. Actual: ' + (x));
-}
+assert.sameValue(x, Number.POSITIVE_INFINITY, '#1: x = "1"; x /= null; x === +Infinity');
 
 //CHECK#2
 x = null;
 x /= "1";
-if (x !== 0) {
-  throw new Test262Error('#2: x = null; x /= "1"; x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#2: x = null; x /= "1"; x === 0');
 
 //CHECK#3
 x = new String("1");
 x /= null;
-if (x !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#3: x = new String("1"); x /= null; x === +Infinity. Actual: ' + (x));
-}
+assert.sameValue(x, Number.POSITIVE_INFINITY, '#3: x = new String("1"); x /= null; x === +Infinity');
 
 //CHECK#4
 x = null;
 x /= new String("1");
-if (x !== 0) {
-  throw new Test262Error('#4: x = null; x /= new String("1"); x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#4: x = null; x /= new String("1"); x === 0');

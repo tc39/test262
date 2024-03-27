@@ -10,11 +10,7 @@ description: >
 ---*/
 
 // CHECK#1
-if ("abc".charAt(Number.NaN) !== "a") {
-  throw new Test262Error('#1: "abc".charAt(Number.NaN) === "a". Actual: ' + ("abc".charAt(Number.NaN)));
-}
+assert.sameValue("abc".charAt(Number.NaN), "a", '#1: "abc".charAt(Number.NaN) === "a"');
 
 // CHECK#2
-if ("abc".charAt("x") !== "a") {
-  throw new Test262Error('#2: "abc".charAt("x") === "a". Actual: ' + ("abc".charAt("x")));
-}
+assert.sameValue("abc".charAt("x"), "a", '#2: "abc".charAt("x") === "a"');

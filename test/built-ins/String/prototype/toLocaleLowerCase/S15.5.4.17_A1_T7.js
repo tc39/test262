@@ -11,8 +11,6 @@ Number.prototype.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (NaN.toLocaleLowerCase() !== "nan") {
-  throw new Test262Error('#1: Number.prototype.toLocaleLowerCase = String.prototype.toLocaleLowerCase; NaN.toLocaleLowerCase()=== "nan". Actual: ' + NaN.toLocaleLowerCase());
-}
+assert.sameValue(NaN.toLocaleLowerCase(), "nan", '#1: Number.prototype.toLocaleLowerCase = String.prototype.toLocaleLowerCase; NaN.toLocaleLowerCase()=== "nan"');
 //
 //////////////////////////////////////////////////////////////////////////////

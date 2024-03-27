@@ -20,9 +20,7 @@ if (!(__str__instance.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str__instance.length !== 8) {
-  throw new Test262Error('#2: var __str__instance = new String("globglob"); __str__instance.length === 8. Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 8, '#2: var __str__instance = new String("globglob"); __str__instance.length === 8');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -30,8 +28,6 @@ verifyNotWritable(__str__instance, "length", null, -1);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__str__instance.length !== 8) {
-  throw new Test262Error('#3: var __str__instance = new String("globglob"); __str__instance.length=-1; __str__instance.length === 8(after redefine length property). Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 8, '#3: var __str__instance = new String("globglob"); __str__instance.length=-1; __str__instance.length === 8(after redefine length property)');
 //
 //////////////////////////////////////////////////////////////////////////////

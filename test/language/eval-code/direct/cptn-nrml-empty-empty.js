@@ -10,6 +10,4 @@ description: Empty statement
 ---*/
 
 //CHECK#1
-if (eval(";") !== undefined) {
-  throw new Test262Error('#1: eval(";") === undefined. Actual: ' + (eval(";")));
-}
+assert.sameValue(eval(";"), undefined, '#1: eval(";") === undefined');

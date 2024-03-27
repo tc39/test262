@@ -25,9 +25,5 @@ with (scope) {
   x--;
 }
 
-if (scope.x !== 1) {
-  throw new Test262Error('#1: scope.x === 1. Actual: ' + (scope.x));
-}
-if (x !== 0) {
-  throw new Test262Error('#2: x === 0. Actual: ' + (x));
-}
+assert.sameValue(scope.x, 1, '#1: scope.x === 1');
+assert.sameValue(x, 0, '#2: x === 0');

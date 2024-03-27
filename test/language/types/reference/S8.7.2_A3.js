@@ -11,9 +11,7 @@ description: Execute this.x++, where this.x is undefined
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (this.x !== undefined) {
-  throw new Test262Error('#1: this.x === undefined. Actual: ' + (this.x));
-}
+assert.sameValue(this.x, undefined, '#1: this.x === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////
 this.x++;

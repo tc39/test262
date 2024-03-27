@@ -14,27 +14,19 @@ var x;
 //CHECK#1
 x = true;
 x += true;
-if (x !== 2) {
-  throw new Test262Error('#1: x = true; x += true; x === 2. Actual: ' + (x));
-}
+assert.sameValue(x, 2, '#1: x = true; x += true; x === 2');
 
 //CHECK#2
 x = new Boolean(true);
 x += true;
-if (x !== 2) {
-  throw new Test262Error('#2: x = new Boolean(true); x += true; x === 2. Actual: ' + (x));
-}
+assert.sameValue(x, 2, '#2: x = new Boolean(true); x += true; x === 2');
 
 //CHECK#3
 x = true;
 x += new Boolean(true);
-if (x !== 2) {
-  throw new Test262Error('#3: x = true; x += new Boolean(true); x === 2. Actual: ' + (x));
-}
+assert.sameValue(x, 2, '#3: x = true; x += new Boolean(true); x === 2');
 
 //CHECK#4
 x = new Boolean(true);
 x += new Boolean(true);
-if (x !== 2) {
-  throw new Test262Error('#4: x = new Boolean(true); x += new Boolean(true); x === 2. Actual: ' + (x));
-}
+assert.sameValue(x, 2, '#4: x = new Boolean(true); x += new Boolean(true); x === 2');

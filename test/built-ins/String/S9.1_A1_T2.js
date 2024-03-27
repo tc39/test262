@@ -20,9 +20,7 @@ var object = {
     return 1
   }
 };
-if (String(object) !== "1") {
-  throw new Test262Error('#1: var object = {valueOf: function() {return 0}, toString: function() {return 1}}; String(object) === "1". Actual: ' + (String(object)));
-}
+assert.sameValue(String(object), "1", '#1: var object = {valueOf: function() {return 0}, toString: function() {return 1}}; String(object) === "1"');
 
 // CHECK#2
 var object = {
@@ -33,6 +31,4 @@ var object = {
     return {}
   }
 };
-if (String(object) !== "0") {
-  throw new Test262Error('#2: var object = {valueOf: function() {return 0}, toString: function() {return {}}}; String(object) === "0". Actual: ' + (String(object)));
-}
+assert.sameValue(String(object), "0", '#2: var object = {valueOf: function() {return 0}, toString: function() {return {}}}; String(object) === "0"');

@@ -13,9 +13,7 @@ var object = {
     return "^"
   }
 };
-if (encodeURIComponent(object) !== "%5Bobject%20Object%5D") {
-  throw new Test262Error('#1: var object = {valueOf: function() {return "^"}}; encodeURIComponent(object) === %5Bobject%20Object%5D. Actual: ' + (encodeURIComponent(object)));
-}
+assert.sameValue(encodeURIComponent(object), "%5Bobject%20Object%5D", '#1: var object = {valueOf: function() {return "^"}}; encodeURIComponent(object) === %5Bobject%20Object%5D');
 
 //CHECK#2
 var object = {
@@ -26,9 +24,7 @@ var object = {
     return "^"
   }
 };
-if (encodeURIComponent(object) !== "%5E") {
-  throw new Test262Error('#2: var object = {valueOf: function() {return ""}, toString: function() {return "^"}}; encodeURIComponent(object) === "%5E". Actual: ' + (encodeURIComponent(object)));
-}
+assert.sameValue(encodeURIComponent(object), "%5E", '#2: var object = {valueOf: function() {return ""}, toString: function() {return "^"}}; encodeURIComponent(object) === "%5E"');
 
 //CHECK#3
 var object = {
@@ -39,9 +35,7 @@ var object = {
     return {}
   }
 };
-if (encodeURIComponent(object) !== "%5E") {
-  throw new Test262Error('#3: var object = {valueOf: function() {return "^"}, toString: function() {return {}}}; encodeURIComponent(object) === "%5E". Actual: ' + (encodeURIComponent(object)));
-}
+assert.sameValue(encodeURIComponent(object), "%5E", '#3: var object = {valueOf: function() {return "^"}, toString: function() {return {}}}; encodeURIComponent(object) === "%5E"');
 
 //CHECK#4
 try {
@@ -71,9 +65,7 @@ var object = {
     return "^"
   }
 };
-if (encodeURIComponent(object) !== "%5E") {
-  throw new Test262Error('#5: var object = {toString: function() {return "^"}}; encodeURIComponent(object) === "%5E". Actual: ' + (encodeURIComponent(object)));
-}
+assert.sameValue(encodeURIComponent(object), "%5E", '#5: var object = {toString: function() {return "^"}}; encodeURIComponent(object) === "%5E"');
 
 //CHECK#6
 var object = {
@@ -84,9 +76,7 @@ var object = {
     return "^"
   }
 }
-if (encodeURIComponent(object) !== "%5E") {
-  throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return "^"}}; encodeURIComponent(object) === "%5E". Actual: ' + (encodeURIComponent(object)));
-}
+assert.sameValue(encodeURIComponent(object), "%5E", '#6: var object = {valueOf: function() {return {}}, toString: function() {return "^"}}; encodeURIComponent(object) === "%5E"');
 
 //CHECK#7
 try {

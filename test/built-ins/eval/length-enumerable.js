@@ -8,9 +8,7 @@ description: Checking use propertyIsEnumerable, for-in
 ---*/
 
 //CHECK#1
-if (eval.propertyIsEnumerable('length') !== false) {
-  throw new Test262Error('#1: eval.propertyIsEnumerable(\'length\') === false. Actual: ' + (eval.propertyIsEnumerable('length')));
-}
+assert.sameValue(eval.propertyIsEnumerable('length'), false, '#1: eval.propertyIsEnumerable(\'length\') === false');
 
 //CHECK#2
 var result = true;
