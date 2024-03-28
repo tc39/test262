@@ -106,7 +106,7 @@ function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length
   let values = [];
   let resized = false;
   for (const value of ta) {
-    if (value instanceof Array) {
+    if (Array.isArray(value)) {
       values.push([
         value[0],
         Number(value[1])
