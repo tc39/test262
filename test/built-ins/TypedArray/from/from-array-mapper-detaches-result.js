@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.from
 description: >
-  Mapper function detaches result typed array.
+  If the mapper function detaches the result typed array, .from performs Set operation which ignores out-of-bounds indices.
 info: |
   %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 

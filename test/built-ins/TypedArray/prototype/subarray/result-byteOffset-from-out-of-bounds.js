@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.subarray
 description: >
-  Result has correct the byteOffset when input is initially out-of-bounds.
+  Result has the correct byteOffset when input is initially out-of-bounds.
 info: |
   %TypedArray%.prototype.subarray ( start, end )
 
