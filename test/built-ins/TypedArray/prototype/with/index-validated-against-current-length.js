@@ -8,10 +8,15 @@ description: >
 info: |
   %TypedArray%.prototype.with ( index, value )
 
+  1. Let O be the this value.
+  2. Let taRecord be ? ValidateTypedArray(O, SEQ-CST).
+  3. Let len be TypedArrayLength(taRecord).
   ...
   8. Else, let numericValue be ? ToNumber(value).
-  9. If IsValidIntegerIndex(O, 𝔽(actualIndex)) is false, throw a RangeError exception.
   ...
+  10. Let A be ? TypedArrayCreateSameType(O, « 𝔽(len) »).
+  ...
+  13. Return A.
 
 features: [TypedArray, resizable-arraybuffer]
 ---*/
