@@ -305,10 +305,6 @@ assert.compareArray(actual, [
   // DifferenceZonedDateTime
   "call this.timeZone.getOffsetNanosecondsFor",
   "call this.timeZone.getOffsetNanosecondsFor",
-  // NanosecondsToDays
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  // NanosecondsToDays → AddDaysToZonedDateTime
   "call this.timeZone.getPossibleInstantsFor",
 ], "order of operations with identical wall-clock times and largestUnit a calendar unit");
 actual.splice(0); // clear
@@ -327,17 +323,8 @@ const expectedOpsForCalendarDifference = [
   "call this.timeZone.getOffsetNanosecondsFor",
   // DifferenceZonedDateTime
   "call this.timeZone.getOffsetNanosecondsFor",
-  // DifferenceISODateTime
+  "call this.timeZone.getPossibleInstantsFor",
   "call this.calendar.dateUntil",
-  // AddZonedDateTime
-  "call this.calendar.dateAdd",
-  "call this.timeZone.getPossibleInstantsFor",
-  // NanosecondsToDays
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  // NanosecondsToDays → AddDaysToZonedDateTime
-  "call this.timeZone.getPossibleInstantsFor",
-  "call this.timeZone.getPossibleInstantsFor",
 ];
 
 const expectedOpsForCalendarRounding = [

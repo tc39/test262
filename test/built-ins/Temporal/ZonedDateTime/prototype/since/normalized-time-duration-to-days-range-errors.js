@@ -39,13 +39,16 @@ const dayNs = 86_400_000_000_000;
 const zeroZDT = new Temporal.ZonedDateTime(0n, "UTC");
 const oneZDT = new Temporal.ZonedDateTime(1n, "UTC");
 const epochInstant = new Temporal.Instant(0n);
-const options = { largestUnit: "days" };
+const options = { largestUnit: "days", smallestUnit: "seconds", roundingMode: "expand" };
 
 // Step 23: days < 0 and sign = 1
 let start = new Temporal.ZonedDateTime(
   0n, // Sets DifferenceZonedDateTime _ns1_
   timeZoneSubstituteValues(
-    [[epochInstant]], // Returned in step 16, setting _relativeResult_
+    [
+      TemporalHelpers.SUBSTITUTE_SKIP,  // Behave normally in DifferenceZonedDateTime
+      [epochInstant], // Returned in step 16, setting _relativeResult_
+    ],
     [
       // Behave normally in 2 calls made prior to NormalizedTimeDurationToDays
       TemporalHelpers.SUBSTITUTE_SKIP,
@@ -66,7 +69,10 @@ assert.throws(RangeError, () =>
 start = new Temporal.ZonedDateTime(
   1n, // Sets DifferenceZonedDateTime _ns1_
   timeZoneSubstituteValues(
-    [[epochInstant]], // Returned in step 16, setting _relativeResult_
+    [
+      TemporalHelpers.SUBSTITUTE_SKIP,  // Behave normally in DifferenceZonedDateTime
+      [epochInstant], // Returned in step 16, setting _relativeResult_
+    ],
     [
       // Behave normally in 2 calls made prior to NormalizedTimeDurationToDays
       TemporalHelpers.SUBSTITUTE_SKIP,
@@ -87,7 +93,10 @@ assert.throws(RangeError, () =>
 start = new Temporal.ZonedDateTime(
   1n, // Sets DifferenceZonedDateTime _ns1_
   timeZoneSubstituteValues(
-    [[new Temporal.Instant(-1n)]], // Returned in step 16, setting _relativeResult_
+    [
+      TemporalHelpers.SUBSTITUTE_SKIP,  // Behave normally in DifferenceZonedDateTime
+      [new Temporal.Instant(-2_000_000_000n)], // Returned in step 16, setting _relativeResult_
+    ],
     [
       // Behave normally in 2 calls made prior to NormalizedTimeDurationToDays
       TemporalHelpers.SUBSTITUTE_SKIP,
@@ -108,9 +117,12 @@ assert.throws(RangeError, () =>
 start = new Temporal.ZonedDateTime(
   0n,
   timeZoneSubstituteValues(
-    // Not called in step 16 because _days_ = 0
-    // Returned in step 19, making _oneDayFarther_ 2^53 ns later than _relativeResult_
-    [[new Temporal.Instant(2n ** 53n)]],
+    [
+      TemporalHelpers.SUBSTITUTE_SKIP,  // Behave normally in DifferenceZonedDateTime
+      // Not called in step 16 because _days_ = 0
+      // Returned in step 19, making _oneDayFarther_ 2^53 ns later than _relativeResult_
+      [new Temporal.Instant(2n ** 53n)],
+    ],
     []
   )
 );
