@@ -8,14 +8,6 @@ features: [Intl.DateTimeFormat-datetimestyle, Array.prototype.includes]
 locale: [en-US]
 ---*/
 
-// Tolerate implementation variance by expecting consistency without being prescriptive.
-// TODO: can we change tests to be less reliant on CLDR formats while still testing that
-// Temporal and Intl are behaving as expected?
-const usDayPeriodSpace =
-  new Intl.DateTimeFormat("en-US", { timeStyle: "short" })
-    .formatToParts(0)
-    .find((part, i, parts) => part.type === "literal" && parts[i + 1].type === "dayPeriod")?.value || "";
-
 const date = new Date("1886-05-01T14:12:47Z");
 const dateOptions = [
   ["full", "Saturday, May 1, 1886"],
@@ -24,11 +16,12 @@ const dateOptions = [
   ["short", "5/1/86"],
 ];
 
+// Allow any kind of whitespace, due to inconsistency in CLDR.
 const timeOptions = [
-  ["full", `2:12:47${usDayPeriodSpace}PM Coordinated Universal Time`, "14:12:47 Coordinated Universal Time"],
-  ["long", `2:12:47${usDayPeriodSpace}PM UTC`, "14:12:47 UTC"],
-  ["medium", `2:12:47${usDayPeriodSpace}PM`, "14:12:47"],
-  ["short", `2:12${usDayPeriodSpace}PM`, "14:12"],
+  ["full", '2:12:47\\sPM\\sCoordinated\\sUniversal\\sTime', '14:12:47\\sCoordinated\\sUniversal\\sTime'],
+  ["long", '2:12:47\\sPM\\sUTC', '14:12:47\\sUTC'],
+  ["medium", '2:12:47\\sPM', '14:12:47'],
+  ["short", '2:12\\sPM', '14:12'],
 ];
 
 const options12 = [
@@ -66,7 +59,11 @@ for (const [timeStyle, expected12, expected24] of timeOptions) {
     });
 
     const dateString = dtf.format(date);
-    assert.sameValue(dateString, expected, `Result for ${timeStyle} with ${JSON.stringify(options)}`);
+    const expectedWholeString = new RegExp(`^${expected}$`);
+    assert(
+      expectedWholeString.test(dateString),
+      `Result for ${timeStyle} with ${JSON.stringify(options)} is ${dateString} but should have matched ${expectedWholeString}`
+    );
   };
 
   check("en-US", {}, expected12);
@@ -99,14 +96,12 @@ for (const [dateStyle, expectedDate] of dateOptions) {
       timeStyle,
       timeZone: "UTC",
     });
-    const result1 = [expectedDate, ", ", expectedTime].join("");
-    const result2 = [expectedDate, " at ", expectedTime].join("");
+    const expected = new RegExp(`^${expectedDate}(,|\\sat)\\s${expectedTime}$`);
 
     const dateString = dtf.format(date);
-    assert.sameValue(
-      [result1, result2].includes(dateString),
-      true,
-      `Result for date=${dateStyle} and time=${timeStyle}`
+    assert(
+      expected.test(dateString),
+      `Result for date=${dateStyle} and time=${timeStyle} is ${dateString} but should have matched ${expected}`
     );
   }
 }
