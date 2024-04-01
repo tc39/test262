@@ -11,12 +11,12 @@ includes: [compareArray.js]
 features: [array-grouping, Map]
 ---*/
 
-const string = 'abcd';
+const string = '🥰💩🙏😈';
 
 const map = Map.groupBy(string, function (char) {
-  return char < 'c' ? 'before' : 'after';
+  return char < '🙏' ? 'before' : 'after';
 });
 
 assert.compareArray(Array.from(map.keys()), ['before', 'after']);
-assert.compareArray(map.get('before'), ['a', 'b']);
-assert.compareArray(map.get('after'), ['c', 'd']);
+assert.compareArray(map.get('before'), ['💩', '😈']);
+assert.compareArray(map.get('after'), ['🥰', '🙏']);
