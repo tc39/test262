@@ -19,4 +19,4 @@ const map = Map.groupBy(string, function (char) {
 
 assert.compareArray(Array.from(map.keys()), ['before', 'after']);
 assert.compareArray(map.get('before'), ['a', 'b']);
-assert.compareArray(map.get('odd'), ['c', 'd']);
+assert.compareArray(map.get('after'), ['c', 'd']);
