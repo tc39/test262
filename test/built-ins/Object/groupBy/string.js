@@ -18,5 +18,5 @@ const obj = Object.groupBy(string, function (char) {
 });
 
 assert.compareArray(Object.keys(obj), ['before', 'after']);
-assert.compareArray(obj['before'], ['a', 'b']);
-assert.compareArray(obj['after'], ['c', 'd']);
+assert.compareArray(obj.before, ['a', 'b']);
+assert.compareArray(obj.after, ['c', 'd']);
