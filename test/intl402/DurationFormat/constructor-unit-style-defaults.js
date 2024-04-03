@@ -25,9 +25,7 @@ for (const numericLikeStyle of ["numeric", "2-digit"]){
 
   assert.sameValue(opts.minutes, "2-digit", `minutes default value should be '2-digit' when following any ${numericLikeStyle}-styled unit`);
   assert.sameValue(opts.seconds, "2-digit", `seconds default value should be '2-digit' when following any ${numericLikeStyle}-styled unit`);
-  for (const subsecondUnit in ["milliseconds", "microseconds", "nanoseconds"]){
-    assert.sameValue(opts.milliseconds, "numeric", `milliseconds default value should be 'numeric' when following any ${numericLikeStyle}-styled unit`);
-    assert.sameValue(opts.microseconds, "numeric", `microseconds default value should be 'numeric' when following any ${numericLikeStyle}-styled unit`);
-    assert.sameValue(opts.nanoseconds, "numeric", `nanoseconds default value should be 'numeric' when following any ${numericLikeStyle}-styled unit`);
-  }
+  assert.sameValue(opts.milliseconds, "numeric", `milliseconds default value should be 'numeric' when following any ${numericLikeStyle}-styled unit`);
+  assert.sameValue(opts.microseconds, "numeric", `microseconds default value should be 'numeric' when following any ${numericLikeStyle}-styled unit`);
+  assert.sameValue(opts.nanoseconds, "numeric", `nanoseconds default value should be 'numeric' when following any ${numericLikeStyle}-styled unit`);
 }
