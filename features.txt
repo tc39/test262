@@ -61,7 +61,7 @@ Temporal
 # https://github.com/tc39/proposal-realms
 ShadowRealm
 
-# Array.groupBy & Map.groupBy
+# Object.groupBy & Map.groupBy
 # https://github.com/tc39/proposal-array-grouping
 array-grouping
 
