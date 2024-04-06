@@ -93,7 +93,8 @@ function Convert(item) {
 
 function ToNumbers(array) {
   let result = [];
-  for (let item of array) {
+  for (let i = 0; i < array.length; i++) {
+    let item = array[i];
     result.push(Convert(item));
   }
   return result;
@@ -124,7 +125,8 @@ function CollectValuesAndResize(n) {
 function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length) {
   let values = [];
   let resized = false;
-  for (const value of ta) {
+  for (let i = 0; i < ta.length; i++) {
+    let value = ta[i];
     if (Array.isArray(value)) {
       values.push([
         value[0],
