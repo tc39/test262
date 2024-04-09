@@ -330,8 +330,6 @@ var fromWithCases = {
     year1: RangeError
   }
 };
-var logPerf = false;
-var totalNow = 0;
 for (var [id, tests] of Object.entries(fromWithCases)) {
   var dates = {
     year2000: Temporal.PlainDate.from("2000-01-01"),
@@ -341,7 +339,6 @@ for (var [id, tests] of Object.entries(fromWithCases)) {
     var values = tests[name];
     var errorExpected = values === RangeError;
     if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-      var now = globalThis.performance ? globalThis.performance.now() : Date.now();
       if (errorExpected) {
         assert.throws(RangeError, () => {
           var inCal = date.withCalendar(id);
@@ -410,13 +407,8 @@ for (var [id, tests] of Object.entries(fromWithCases)) {
         monthCode: values.monthCode,
         year: values.year
       }));
-      var ms = (globalThis.performance ? globalThis.performance.now() : Date.now()) - now;
-      totalNow += ms;
-      if (logPerf)
-        console.log(`from: ${ id } ${ name }: ${ ms.toFixed(2) }ms, total: ${ totalNow.toFixed(2) }ms`);
     };
     if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-      var now = globalThis.performance ? globalThis.performance.now() : Date.now();
       var inCal = date.withCalendar(id);
       if (errorExpected) {
         assert.throws(RangeError, () => inCal.with({ day: 1 }).year);
@@ -436,10 +428,6 @@ for (var [id, tests] of Object.entries(fromWithCases)) {
       assert.sameValue(`${ t } year: ${ afterWithYear.year }`, `${ t } year: 2220`);
       assert.sameValue(`${ t } month: ${ afterWithYear.month }`, `${ t } month: 1`);
       assert.sameValue(`${ t } day: ${ afterWithYear.day }`, `${ t } day: 1`);
-      var ms = (globalThis.performance ? globalThis.performance.now() : Date.now()) - now;
-      totalNow += ms;
-      if (logPerf)
-        console.log(`with: ${ id } ${ name }: ${ ms.toFixed(2) }ms, total: ${ totalNow.toFixed(2) }ms`);
     };
   }
 }
@@ -665,7 +653,6 @@ for (var id of calendars) {
     var values = results[id];
     duration = Temporal.Duration.from(duration);
     if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-      var now = globalThis.performance ? globalThis.performance.now() : Date.now();
       if (values === RangeError) {
         assert.throws(RangeError, () => Temporal.PlainDate.from({
           ...startDate,
@@ -721,10 +708,6 @@ for (var id of calendars) {
         assert.sameValue(`subtract from end-of-month ${ unit } ${ id } month: ${ startReverseNextDay.month }`, `subtract from end-of-month ${ unit } ${ id } month: ${ start.month }`);
         assert.sameValue(`subtract from end-of-month ${ unit } ${ id } monthCode: ${ startReverseNextDay.monthCode }`, `subtract from end-of-month ${ unit } ${ id } monthCode: ${ start.monthCode }`);
       }
-      var ms = (globalThis.performance ? globalThis.performance.now() : Date.now()) - now;
-      totalNow += ms;
-      if (logPerf)
-        console.log(`${ id } add ${ duration }: ${ ms.toFixed(2) }ms, total: ${ totalNow.toFixed(2) }ms`);
     };
   }
 }
@@ -1097,7 +1080,6 @@ for (var id of calendars) {
     }
   };
   if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-    var now = globalThis.performance ? globalThis.performance.now() : Date.now();
     var {monthsInYear} = date;
     assert.sameValue(monthsInYear, days.length);
     for (var i = monthsInYear, leapMonthIndex = undefined, monthStart = undefined; i >= 1; i--) {
@@ -1141,10 +1123,6 @@ for (var id of calendars) {
       var oneDayPastMonthEnd = monthStart.with({ day: daysInMonth + 1 });
       assert.sameValue(oneDayPastMonthEnd.day, daysInMonth);
     }
-    var ms = (globalThis.performance ? globalThis.performance.now() : Date.now()) - now;
-    totalNow += ms;
-    if (logPerf)
-      console.log(`${ id } months check ${ id }: ${ ms.toFixed(2) }ms, total: ${ totalNow.toFixed(2) }ms`);
   };
 }
 var monthDayCases = [
