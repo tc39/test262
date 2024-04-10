@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-math.sumprecise
-description: "sumPrecise" property of Math
+description: checks the "sumPrecise" property of Math
 includes: [propertyHelper.js]
 features: [Math.sumPrecise]
 ---*/
