@@ -854,8 +854,7 @@ var tests = {
     }
   }
 };
-var calendars = Object.keys(addMonthsCases);
-for (var id of calendars) {
+for (var id of Object.keys(addMonthsCases)) {
   for (var [unit, {duration, results, startDate}] of Object.entries(tests)) {
     var values = results[id];
     duration = Temporal.Duration.from(duration);
@@ -1269,7 +1268,7 @@ var daysInMonthCases = {
   }
 };
 totalNow = 0;
-for (var id of calendars) {
+for (var id of Object.keys(daysInMonthCases)) {
   var {year, leap, days} = daysInMonthCases[id];
   var date = hasOutdatedChineseIcuData && (id === "chinese" || id === "dangi") ? undefined : Temporal.PlainDate.from({
     year,
