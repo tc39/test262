@@ -4,6 +4,7 @@
 esid: sec-math.sumprecise
 description: "sumPrecise" property of Math
 includes: [propertyHelper.js]
+features: [Math.sumPrecise]
 ---*/
 
 verifyProperty(Math, "sumPrecise", {

@@ -4,6 +4,7 @@
 /*---
 esid: sec-math.sumprecise
 description: Math.sumPrecise throws and closes the iterator if any element is not a Number
+features: [Math.sumPrecise]
 ---*/
 
 assert.throws(TypeError, function () {

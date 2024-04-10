@@ -4,6 +4,7 @@
 /*---
 esid: sec-math.sumprecise
 description: Math.sumPrecise performs maximally precise summation of finite values
+features: [Math.sumPrecise]
 ---*/
 
 assert.sameValue(Math.sumPrecise([1, 2, 3]), 6);

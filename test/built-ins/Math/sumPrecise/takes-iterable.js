@@ -4,7 +4,7 @@
 /*---
 esid: sec-math.sumprecise
 description: Math.sumPrecise takes an iterable
-features: [generators]
+features: [generators, Math.sumPrecise]
 ---*/
 
 assert.sameValue(Math.sumPrecise([1, 2]), 3);
