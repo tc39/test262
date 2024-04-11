@@ -35,7 +35,7 @@ const durationMicro = {
   microseconds: 222
 };
 
-const durationMill = {
+const durationMilli = {
   hours: 1,
   minutes: 22,
   seconds: 33,
@@ -46,6 +46,14 @@ const durationNoSubsecond = {
   hours: 1,
   minutes: 22,
   seconds: 33
+};
+
+const durationFiveFractional = {
+  hours: 2,
+  minutes: 30,
+  seconds: 10,
+  milliseconds: 111,
+  microseconds: 220,
 };
 
 const durationSevenFractional = {
@@ -65,5 +73,5 @@ assert.sameValue(df.format(durationMicro), "1:22:33.111222", `format output with
 assert.sameValue(df.format(durationMilli), "1:22:33.111", `format output with millisecond digits and fractionalDigits: undefined using ${style} style option`);
 assert.sameValue(df.format(durationNoSubsecond), "1:22:33", `format output with no subsecond digits and fractionalDigits: undefined using ${style} style option`);
 
-assert.sameValue(df.format(durationFiveFractional), "2:30:11122", `format output with five subsecond digits and fractionalDigits: undefined using ${style} style option`);
-assert.sameValue(df.format(durationSevenFractional), "2:30:1112203", `format output with seven subsecond digits and fractionalDigits: undefined using ${style} style option`);
+assert.sameValue(df.format(durationFiveFractional), "2:30:10.11122", `format output with five subsecond digits and fractionalDigits: undefined using ${style} style option`);
+assert.sameValue(df.format(durationSevenFractional), "2:30:10.1112203", `format output with seven subsecond digits and fractionalDigits: undefined using ${style} style option`);
