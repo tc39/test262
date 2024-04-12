@@ -138,6 +138,10 @@ function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length
       resized = true;
     }
   }
-  assert.compareArray(values.flat(), expected.flat());
+  let len = expected.length;
+  assert(len == values.length);
+  for (let i = 0; i < len; i++) {
+    assert.compareArray(values[i], expected[i]);
+  }
   assert(resized);
 }
