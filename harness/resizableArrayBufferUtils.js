@@ -37,8 +37,6 @@ const builtinCtors = [
   Float32Array,
   Float64Array,
   Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
 ];
 
 // BigInt and Float16Array are newer features adding them above unconditionally
