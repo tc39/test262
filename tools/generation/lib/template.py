@@ -162,7 +162,8 @@ class Template:
         features += self.attribs['meta'].get('features', [])
         features = list(OrderedDict.fromkeys(features))
         if len(features):
-            lines += ['features: ' + re.sub('\n\s*', ' ', yaml.dump(features, default_flow_style=True).strip())]
+            lines += ['features: ' + yaml.dump(features,
+                      default_flow_style=True, width=float('inf')).strip()]
 
         # Reconcile "negative" meta data before "flags"
         if case_values['meta'].get('negative'):
@@ -178,14 +179,16 @@ class Template:
         flags = list(OrderedDict.fromkeys(flags))
         if 'async' in flags and negative and negative.get('phase') == 'parse' and negative.get('type') == 'SyntaxError':
             flags.remove('async')
-        lines += ['flags: ' + re.sub('\n\s*', ' ', yaml.dump(flags, default_flow_style=True).strip())]
+        lines += ['flags: ' + yaml.dump(flags, default_flow_style=True,
+                  width=float('inf')).strip()]
 
         includes = []
         includes += case_values['meta'].get('includes', [])
         includes += self.attribs['meta'].get('includes', [])
         includes = list(OrderedDict.fromkeys(includes))
         if len(includes):
-            lines += ['includes: ' + re.sub('\n\s*', ' ', yaml.dump(includes, default_flow_style=True).strip())]
+            lines += ['includes: ' + yaml.dump(includes,
+                      default_flow_style=True, width=float('inf')).strip()]
 
         if negative:
             lines += ['negative:']
