@@ -10,6 +10,8 @@ info: |
   ToPropertyKey(prop) occurs after both sides are evaluated.
 ---*/
 
+function DummyError() {}
+
 assert.throws(DummyError, function() {
   var prop = function() {
     throw new DummyError();
