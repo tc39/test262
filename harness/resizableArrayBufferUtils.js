@@ -139,9 +139,9 @@ function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length
     }
   }
   let len = expected.length;
-  assert(len == values.length);
+  assert.sameValue(len, values.length, "TestIterationAndResize: length of list of iterated values");
   for (let i = 0; i < len; i++) {
-    assert.compareArray(values[i], expected[i]);
+    assert.compareArray(values[i], expected[i], "TestIterationAndResize: list of iterated values");
   }
-  assert(resized);
+  assert(resized, "TestIterationAndResize: resize condition should have been hit");
 }
