@@ -108,7 +108,7 @@ function CreateRabForTest(ctor) {
   return rab;
 }
 
-function CollectValuesAndResize(n) {
+function CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo) {
   if (typeof n == 'bigint') {
     values.push(Number(n));
   } else {
@@ -120,7 +120,7 @@ function CollectValuesAndResize(n) {
   return true;
 }
 
-function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length) {
+function TestIterationAndResize(ta, expected, rab, resizeAfter, newByteLength) {
   let values = [];
   let resized = false;
   for (let i = 0; i < ta.length; i++) {
@@ -133,8 +133,8 @@ function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length
     } else {
       values.push(Number(value));
     }
-    if (!resized && values.length == resize_after) {
-      rab.resize(new_byte_length);
+    if (!resized && values.length == resizeAfter) {
+      rab.resize(newByteLength);
       resized = true;
     }
   }
