@@ -123,9 +123,11 @@ function CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo) {
 function TestIterationAndResize(ta, expected, rab, resizeAfter, newByteLength) {
   let values = [];
   let resized = false;
-  for (let i = 0; i < ta.length; i++) {
-    let value = ta[i];
+  var arrayValues = false;
+
+  for (const value of ta) {
     if (Array.isArray(value)) {
+      arrayValues = true;
       values.push([
         value[0],
         Number(value[1])
@@ -138,10 +140,12 @@ function TestIterationAndResize(ta, expected, rab, resizeAfter, newByteLength) {
       resized = true;
     }
   }
-  let len = expected.length;
-  assert.sameValue(len, values.length, "TestIterationAndResize: length of list of iterated values");
-  for (let i = 0; i < len; i++) {
-    assert.compareArray([].concat(values[i]), expected[i], "TestIterationAndResize: list of iterated values");
+  if (!arrayValues) {
+      assert.compareArray([].concat(values), expected, "TestIterationAndResize: list of iterated values");
+  } else {
+    for (let i = 0; i < expected.length; i++) {
+      assert.compareArray(values[i], expected[i], "TestIterationAndResize: list of iterated lists of values");
+    }
   }
   assert(resized, "TestIterationAndResize: resize condition should have been hit");
 }
