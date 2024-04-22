@@ -120,12 +120,12 @@ function CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo) {
   return true;
 }
 
-function TestIterationAndResize(ta, expected, rab, resizeAfter, newByteLength) {
+function TestIterationAndResize(iterable, expected, rab, resizeAfter, newByteLength) {
   let values = [];
   let resized = false;
   var arrayValues = false;
 
-  for (const value of ta) {
+  for (const value of iterable) {
     if (Array.isArray(value)) {
       arrayValues = true;
       values.push([
