@@ -44,7 +44,7 @@ let expectedList = [];
 expectedList.push(new Intl.NumberFormat(locale, {style: "unit", unit: "second", unitDisplay: "short"}).format(d.seconds));
 expectedList.push(new Intl.NumberFormat(locale, {style: "unit", unit: "millisecond", unitDisplay: "short", minimumFractionDigits:0, maximumFractionDigits: 9, roundingMode: "trunc"}).format(d.milliseconds.toString() + decimalSeparator + d.microseconds.toString().padStart(3, '0') + d.nanoseconds.toString().padStart(3, '0')));
 
-let expected = new Intl.ListFormat(locale, {style: "short"}).format(expectedList);
+let expected = new Intl.ListFormat(locale, {type: "unit", style: "short"}).format(expectedList);
 let actual = new Intl.DurationFormat(locale, dfOpts).format(d);
 
 assert.sameValue(actual, expected, `DurationFormat output when microseconds first "numeric" unit`);
@@ -56,7 +56,7 @@ expectedList.push(new Intl.NumberFormat(locale, {style: "unit", unit: "second", 
 expectedList.push(new Intl.NumberFormat(locale, {style: "unit", unit: "millisecond", unitDisplay: "short"}).format(d.milliseconds));
 expectedList.push(new Intl.NumberFormat(locale, {style: "unit", unit: "microsecond", unitDisplay: "short", minimumFractionDigits:0, maximumFractionDigits: 9, roundingMode: "trunc"}).format(d.microseconds.toString() + decimalSeparator + d.nanoseconds.toString().padStart(3, '0')));
 
-expected = new Intl.ListFormat(locale, {style: "short"}).format(expectedList);
+expected = new Intl.ListFormat(locale, {type: "unit", style: "short"}).format(expectedList);
 actual = new Intl.DurationFormat(locale, dfOpts).format(d);
 
 assert.sameValue(actual, expected, `DurationFormat output when nanoseconds first "numeric" unit`);
