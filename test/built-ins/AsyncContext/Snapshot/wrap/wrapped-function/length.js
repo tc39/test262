@@ -8,19 +8,33 @@ description: >
 info: |
   AsyncContext.Snapshot.wrap ( fn )
 
-  4. Let length be ? LengthOfArrayLike(fn).
-  ...
-  9. Return CreateBuiltinFunction(closure, length, name, « », realm, prototype, "wrapped").
+  5. Perform ? CopyNameAndLength(wrapped, fn, "wrapped").
 
-  LengthOfArrayLike ( obj )
+  CopyNameAndLength ( F, Target[, prefix[, argCount ] ] )
 
-  1. Return ℝ(? ToLength(? Get(obj, "length"))).
+  1. If argCount is not present, set argCount to 0.
+  2. Let L be 0.
+  3. Let targetHasLength be ? HasOwnProperty(Target, "length").
+  4. If targetHasLength is true, then
+    a. Let targetLen be ? Get(Target, "length").
+    b. If targetLen is a Number, then
+      i. If targetLen is +∞𝔽, then
+        1. Set L to +∞.
+      ii. Else if targetLen is -∞𝔽, then
+        1. Set L to 0.
+      iii. Else,
+        1. Let targetLenAsInt be ! ToIntegerOrInfinity(targetLen).
+        2. Assert: targetLenAsInt is finite.
+        3. Set L to max(targetLenAsInt - argCount, 0).
+  5. Perform SetFunctionLength(F, L).
 
-  CreateBuiltinFunction ( behaviour, length, name, additionalInternalSlotsList [ , realm [ , prototype [ , prefix ] ] ] )
+  ToIntegerOrInfinity ( argument )
 
-  10. Perform SetFunctionLength(func, length).
-  ...
-  13. Return func.
+  1. Let number be ? ToNumber(argument).
+  2. If number is one of NaN, +0𝔽, or -0𝔽, return 0.
+  3. If number is +∞𝔽, return +∞.
+  4. If number is -∞𝔽, return -∞.
+  5. Return truncate(ℝ(number)).
 
   SetFunctionLength ( F, length )
 
@@ -60,17 +74,17 @@ setAndAssertLength(42, 42);
 
 setAndAssertLength(-42, 0);
 
-setAndAssertLength(Number.POSITIVE_INFINITY, Number.MAX_SAFE_INTEGER);
+setAndAssertLength(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY);
 
 setAndAssertLength(Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
-setAndAssertLength(Number.MAX_SAFE_INTEGER + 1, Number.MAX_SAFE_INTEGER);
-
-setAndAssertLength(Number.MAX_SAFE_INTEGER * 120, Number.MAX_SAFE_INTEGER);
-
-setAndAssertLength(Number.MAX_SAFE_INTEGER - 1, Number.MAX_SAFE_INTEGER - 1);
+setAndAssertLength(Number.MAX_SAFE_INTEGER * 120, Number.MAX_SAFE_INTEGER * 120);
 
 setAndAssertLength(-0, 0);
+
+setAndAssertLength(-0.2, 0);
+
+setAndAssertLength(Number.NEGATIVE_INFINITY, 0);
 
 setAndAssertLength(Number.NaN, 0);
 
@@ -80,4 +94,27 @@ setAndAssertLength(7.9, 7);
 
 setAndAssertLength(undefined, 0);
 
-setAndAssertLength("42", 42);
+setAndAssertLength("42", 0);
+
+setAndAssertLength(Symbol(), 0);
+
+setAndAssertLength(42n, 0);
+
+setAndAssertLength(new Number(42), 0);
+
+setAndAssertLength({
+  valueOf() {
+    return 42;
+  }
+}, 0);
+
+delete callback.length;
+assertLength(0);
+
+// Inherited length is ignored
+Object.defineProperty(
+  Object.getPrototypeOf(callback),
+  "length",
+  { value: 2 }
+);
+assertLength(0);

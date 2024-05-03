@@ -4,15 +4,16 @@
 /*---
 esid: sec-asynccontext-snapshot.wrap
 description: >
-  Throws if getting the argument's `length` property throws.
+  Throws if getting the argument's `length` property throws, if the
+  property is inherited.
 info: |
   AsyncContext.Snapshot.wrap ( fn )
 
-  4. Let length be ? LengthOfArrayLike(fn).
+  5. Perform ? CopyNameAndLength(wrapped, fn, "wrapped").
 
-  LengthOfArrayLike ( obj )
+  CopyNameAndLength ( F, Target[, prefix[, argCount ] ] )
 
-  1. Return ℝ(? ToLength(? Get(obj, "length"))).
+  6. Let targetName be ? Get(Target, "name").
 
 features: [AsyncContext]
 ---*/
@@ -20,8 +21,10 @@ features: [AsyncContext]
 function CustomError() { }
 
 function callback() { }
-Object.defineProperty(callback, 'length', {
-  get() {
+delete callback.name;
+
+Object.setPrototypeOf(callback, {
+  get name() {
     throw new CustomError();
   }
 });

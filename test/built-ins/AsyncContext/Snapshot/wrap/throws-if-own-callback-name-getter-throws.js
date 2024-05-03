@@ -4,11 +4,16 @@
 /*---
 esid: sec-asynccontext-snapshot.wrap
 description: >
-  Throws if getting the argument's `name` property throws.
+  Throws if getting the argument's `name` property throws, if it is
+  an own property.
 info: |
   AsyncContext.Snapshot.wrap ( fn )
 
-  5. Let name be ? Get(fn, "name").
+  5. Perform ? CopyNameAndLength(wrapped, fn, "wrapped").
+
+  CopyNameAndLength ( F, Target[, prefix[, argCount ] ] )
+
+  6. Let targetName be ? Get(Target, "name").
 
 features: [AsyncContext]
 ---*/

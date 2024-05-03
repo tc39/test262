@@ -8,18 +8,15 @@ description: >
 info: |
   AsyncContext.Snapshot.wrap ( fn )
 
-  5. Let name be ? Get(fn, "name").
-  6. If name is not a String, set name to the empty String.
+  5. Perform ? CopyNameAndLength(wrapped, fn, "wrapped").
+
+  CopyNameAndLength ( F, Target[, prefix[, argCount ] ] )
+
+  6. Let targetName be ? Get(Target, "name").
+  7. If targetName is not a String, set targetName to the empty String.
+  8. If prefix is present, then
+    a. Perform SetFunctionName(F, targetName, prefix).
   ...
-  9. Return CreateBuiltinFunction(closure, length, name, « », realm, prototype, "wrapped").
-
-  CreateBuiltinFunction ( behaviour, length, name, additionalInternalSlotsList [ , realm [ , prototype [ , prefix ] ] ] )
-
-  11. If prefix is not present, then
-    ...
-  12. Else,
-    a. Perform SetFunctionName(func, name, prefix).
-  13. Return func.
 
   SetFunctionName ( F, name [ , prefix ] )
 
@@ -64,6 +61,13 @@ setAndAssertName(undefined, "wrapped ");
 
 delete callback.name;
 assertName("wrapped ");
+
+Object.defineProperty(
+  Object.getPrototypeOf(callback),
+  "name",
+  { value: "inherited" }
+);
+assertName("wrapped inherited");
 
 setAndAssertName(Symbol(), "wrapped ");
 
