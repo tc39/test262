@@ -6,6 +6,7 @@ esid: sec-%typedarray%.prototype.fill
 description: >
   TypedArray.p.fill behaves correctly on receivers backed by a resizable
   buffer that's resized during argument coercion
+includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
