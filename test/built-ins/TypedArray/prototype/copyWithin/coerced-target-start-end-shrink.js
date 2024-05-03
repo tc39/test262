@@ -5,7 +5,7 @@
 esid: sec-array.prototype.copywithin
 description: >
   TypedArray.p.copyWithin behaves correctly when argument coercion shrinks the receiver
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 

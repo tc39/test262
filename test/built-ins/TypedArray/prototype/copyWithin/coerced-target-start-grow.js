@@ -6,7 +6,7 @@ esid: sec-array.prototype.copywithin
 description: >
   Automatically ported from CopyWithinParameterConversionGrows test
   in V8's mjsunit test typedarray-resizablearraybuffer.js
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
