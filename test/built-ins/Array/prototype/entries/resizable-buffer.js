@@ -6,7 +6,7 @@ esid: sec-array.prototype.entries
 description: >
   Array.p.entries behaves correctly when receiver is backed by resizable
   buffer
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 

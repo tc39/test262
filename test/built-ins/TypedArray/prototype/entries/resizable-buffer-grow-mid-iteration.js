@@ -6,8 +6,8 @@ esid: sec-%typedarray%.prototype.entries
 description: >
   TypedArray.p.entries behaves correctly when receiver is backed by a resizable
   buffer and resized mid-iteration
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
-includes: [compareArray.js]
 ---*/
 
 function EntriesGrowMidIteration() {
