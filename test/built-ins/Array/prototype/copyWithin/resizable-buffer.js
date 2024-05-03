@@ -6,7 +6,7 @@ esid: sec-array.prototype.copywithin
 description: >
   Array.p.copyWithin behaves correctly when the receiver is backed by
   resizable buffer
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 

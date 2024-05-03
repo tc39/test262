@@ -6,6 +6,7 @@ esid: sec-array.prototype.at
 description: >
   Array.p.at behaves correctly on TypedArrays backed by resizable buffers when
   the TypedArray is resized during parameter conversion
+includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
