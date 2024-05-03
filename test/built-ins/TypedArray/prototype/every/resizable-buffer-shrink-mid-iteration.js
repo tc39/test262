@@ -6,7 +6,7 @@ esid: sec-%typedarray%.prototype.every
 description: >
   TypedArray.p.every behaves correctly when receiver is backed by resizable
   buffer that is shrunk mid-iteration
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
