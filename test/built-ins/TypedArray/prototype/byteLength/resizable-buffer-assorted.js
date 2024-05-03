@@ -6,7 +6,7 @@ esid: sec-get-%typedarray%.prototype.bytelength
 description: >
   TypedArray.p.byteLength behaves correctly on assorted kinds of receivers
   backed by resizable buffers
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
