@@ -14,8 +14,6 @@ assert.sameValue(zone.id, `${ zone }`)
 assert.sameValue(zone.getOffsetNanosecondsFor(inst), 3600000000000)
 assert(zone.getPlainDateTimeFor(inst) instanceof Temporal.PlainDateTime)
 assert(zone.getInstantFor(dtm) instanceof Temporal.Instant)
-assert.sameValue(zone.getNextTransition(inst), null)
-assert.sameValue(zone.getPreviousTransition(inst), null)
 
 // wraps around to the next day
 assert.sameValue(`${ zone.getPlainDateTimeFor(Temporal.Instant.from("2020-02-06T23:59Z")) }`, "2020-02-07T00:59:00")
