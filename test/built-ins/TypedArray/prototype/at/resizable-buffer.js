@@ -14,66 +14,51 @@ function TypedArrayAtHelper(ta, index) {
   return Convert(result);
 }
 
-function At(atHelper, oobThrows) {
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const fixedLength = new ctor(rab, 0, 4);
-    const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
-    const lengthTracking = new ctor(rab, 0);
-    const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const fixedLength = new ctor(rab, 0, 4);
+  const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
+  const lengthTracking = new ctor(rab, 0);
+  const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
 
-    // Write some data into the array.
-    let ta_write = new ctor(rab);
-    for (let i = 0; i < 4; ++i) {
-      WriteToTypedArray(ta_write, i, i);
-    }
-    assert.sameValue(atHelper(fixedLength, -1), 3);
-    assert.sameValue(atHelper(lengthTracking, -1), 3);
-    assert.sameValue(atHelper(fixedLengthWithOffset, -1), 3);
-    assert.sameValue(atHelper(lengthTrackingWithOffset, -1), 3);
-
-    // Shrink so that fixed length TAs go out of bounds.
-    rab.resize(3 * ctor.BYTES_PER_ELEMENT);
-    if (oobThrows) {
-      assert.throws(TypeError, () => {
-        atHelper(fixedLength, -1);
-      });
-      assert.throws(TypeError, () => {
-        atHelper(fixedLengthWithOffset, -1);
-      });
-    } else {
-      assert.sameValue(atHelper(fixedLength, -1), undefined);
-      assert.sameValue(atHelper(fixedLengthWithOffset, -1), undefined);
-    }
-    assert.sameValue(atHelper(lengthTracking, -1), 2);
-    assert.sameValue(atHelper(lengthTrackingWithOffset, -1), 2);
-
-    // Shrink so that the TAs with offset go out of bounds.
-    rab.resize(1 * ctor.BYTES_PER_ELEMENT);
-    if (oobThrows) {
-      assert.throws(TypeError, () => {
-        atHelper(fixedLength, -1);
-      });
-      assert.throws(TypeError, () => {
-        atHelper(fixedLengthWithOffset, -1);
-      });
-      assert.throws(TypeError, () => {
-        atHelper(lengthTrackingWithOffset, -1);
-      });
-    } else {
-      assert.sameValue(atHelper(fixedLength, -1), undefined);
-      assert.sameValue(atHelper(fixedLengthWithOffset, -1), undefined);
-      assert.sameValue(atHelper(lengthTrackingWithOffset, -1), undefined);
-    }
-    assert.sameValue(atHelper(lengthTracking, -1), 0);
-
-    // Grow so that all TAs are back in-bounds. New memory is zeroed.
-    rab.resize(6 * ctor.BYTES_PER_ELEMENT);
-    assert.sameValue(atHelper(fixedLength, -1), 0);
-    assert.sameValue(atHelper(lengthTracking, -1), 0);
-    assert.sameValue(atHelper(fixedLengthWithOffset, -1), 0);
-    assert.sameValue(atHelper(lengthTrackingWithOffset, -1), 0);
+  // Write some data into the array.
+  let ta_write = new ctor(rab);
+  for (let i = 0; i < 4; ++i) {
+    WriteToTypedArray(ta_write, i, i);
   }
-}
+  assert.sameValue(TypedArrayAtHelper(fixedLength, -1), 3);
+  assert.sameValue(TypedArrayAtHelper(lengthTracking, -1), 3);
+  assert.sameValue(TypedArrayAtHelper(fixedLengthWithOffset, -1), 3);
+  assert.sameValue(TypedArrayAtHelper(lengthTrackingWithOffset, -1), 3);
 
-At(TypedArrayAtHelper, true);
+  // Shrink so that fixed length TAs go out of bounds.
+  rab.resize(3 * ctor.BYTES_PER_ELEMENT);
+  assert.throws(TypeError, () => {
+    TypedArrayAtHelper(fixedLength, -1);
+  });
+  assert.throws(TypeError, () => {
+    TypedArrayAtHelper(fixedLengthWithOffset, -1);
+  });
+  assert.sameValue(TypedArrayAtHelper(lengthTracking, -1), 2);
+  assert.sameValue(TypedArrayAtHelper(lengthTrackingWithOffset, -1), 2);
+
+  // Shrink so that the TAs with offset go out of bounds.
+  rab.resize(1 * ctor.BYTES_PER_ELEMENT);
+  assert.throws(TypeError, () => {
+    TypedArrayAtHelper(fixedLength, -1);
+  });
+  assert.throws(TypeError, () => {
+    TypedArrayAtHelper(fixedLengthWithOffset, -1);
+  });
+  assert.throws(TypeError, () => {
+    TypedArrayAtHelper(lengthTrackingWithOffset, -1);
+  });
+  assert.sameValue(TypedArrayAtHelper(lengthTracking, -1), 0);
+
+  // Grow so that all TAs are back in-bounds. New memory is zeroed.
+  rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+  assert.sameValue(TypedArrayAtHelper(fixedLength, -1), 0);
+  assert.sameValue(TypedArrayAtHelper(lengthTracking, -1), 0);
+  assert.sameValue(TypedArrayAtHelper(fixedLengthWithOffset, -1), 0);
+  assert.sameValue(TypedArrayAtHelper(lengthTrackingWithOffset, -1), 0);
+}

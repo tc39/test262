@@ -15,30 +15,27 @@ function TypedArrayAtHelper(ta, index) {
   return Convert(result);
 }
 
-function AtParameterConversionResizes(atHelper) {
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const fixedLength = new ctor(rab, 0, 4);
-    let evil = {
-      valueOf: () => {
-        rab.resize(2);
-        return 0;
-      }
-    };
-    assert.sameValue(atHelper(fixedLength, evil), undefined);
-  }
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const lengthTracking = new ctor(rab);
-    let evil = {
-      valueOf: () => {
-        rab.resize(2);
-        return -1;
-      }
-    };
-    // The TypedArray is *not* out of bounds since it's length-tracking.
-    assert.sameValue(atHelper(lengthTracking, evil), undefined);
-  }
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const fixedLength = new ctor(rab, 0, 4);
+  let evil = {
+    valueOf: () => {
+      rab.resize(2);
+      return 0;
+    }
+  };
+  assert.sameValue(TypedArrayAtHelper(fixedLength, evil), undefined);
 }
 
-AtParameterConversionResizes(TypedArrayAtHelper);
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const lengthTracking = new ctor(rab);
+  let evil = {
+    valueOf: () => {
+      rab.resize(2);
+      return -1;
+    }
+  };
+  // The TypedArray is *not* out of bounds since it's length-tracking.
+  assert.sameValue(TypedArrayAtHelper(lengthTracking, evil), undefined);
+}
