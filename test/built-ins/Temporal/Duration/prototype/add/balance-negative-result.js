@@ -11,5 +11,5 @@ features: [Temporal]
 const duration1 = new Temporal.Duration(0, 0, 0, 0, -60);
 const duration2 = new Temporal.Duration(0, 0, 0, -1);
 
-const resultNotRelative = duration1.add(duration2);
-TemporalHelpers.assertDuration(resultNotRelative, 0, 0, 0, -3, -12, 0, 0, 0, 0, 0);
+const result = duration1.add(duration2);
+TemporalHelpers.assertDuration(result, 0, 0, 0, -3, -12, 0, 0, 0, 0, 0);
