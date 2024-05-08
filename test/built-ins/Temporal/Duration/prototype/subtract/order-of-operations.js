@@ -43,7 +43,7 @@ const expected = [
 ];
 const actual = [];
 
-const simpleFields = TemporalHelpers.propertyBagObserver(actual, {
+const fields = TemporalHelpers.propertyBagObserver(actual, {
   years: 0,
   months: 0,
   weeks: 0,
@@ -57,7 +57,7 @@ const simpleFields = TemporalHelpers.propertyBagObserver(actual, {
 }, "fields");
 
 // basic order of observable operations, without any calendar units:
-const simpleInstance = new Temporal.Duration(0, 0, 0, 1, 1, 1, 1, 1, 1, 1);
-simpleInstance.subtract(simpleFields);
+const instance = new Temporal.Duration(0, 0, 0, 1, 1, 1, 1, 1, 1, 1);
+instance.subtract(fields);
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
