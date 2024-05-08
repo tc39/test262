@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.prototype.getprevioustransition
-description: Temporal.TimeZone.prototype.getPreviousTransition.name is "getPreviousTransition".
+esid: sec-temporal.zoneddatetime.prototype.gettimezonetransition
+description: Temporal.ZonedDateTime.prototype.getTimeZoneTransition.name is "getTimeZoneTransition".
 info: |
     Every built-in function object, including constructors, that is not identified as an anonymous
     function has a "name" property whose value is a String. Unless otherwise specified, this value
@@ -15,8 +15,8 @@ includes: [propertyHelper.js]
 features: [Temporal]
 ---*/
 
-verifyProperty(Temporal.TimeZone.prototype.getPreviousTransition, "name", {
-  value: "getPreviousTransition",
+verifyProperty(Temporal.ZonedDateTime.prototype.getTimeZoneTransition, "name", {
+  value: "getTimeZoneTransition",
   writable: false,
   enumerable: false,
   configurable: true,

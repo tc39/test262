@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.prototype.getprevioustransition
+esid: sec-temporal.zoneddatetime.prototype.gettimezonetransition
 description: >
-  Temporal.TimeZone.prototype.getPreviousTransition does not implement [[Construct]], is not new-able
+  Temporal.ZonedDateTime.prototype.getTimeZoneTransition does not implement [[Construct]], is not new-able
 info: |
     Built-in function objects that are not identified as constructors do not implement the
     [[Construct]] internal method unless otherwise specified in the description of a particular
@@ -14,8 +14,8 @@ features: [Reflect.construct, Temporal]
 ---*/
 
 assert.throws(TypeError, () => {
-  new Temporal.TimeZone.prototype.getPreviousTransition();
+  new Temporal.ZonedDateTime.prototype.getTimeZoneTransition();
 }, "Calling as constructor");
 
-assert.sameValue(isConstructor(Temporal.TimeZone.prototype.getPreviousTransition), false,
-  "isConstructor(Temporal.TimeZone.prototype.getPreviousTransition)");
+assert.sameValue(isConstructor(Temporal.ZonedDateTime.prototype.getTimeZoneTransition), false,
+  "isConstructor(Temporal.ZonedDateTime.prototype.getTimeZoneTransition)");

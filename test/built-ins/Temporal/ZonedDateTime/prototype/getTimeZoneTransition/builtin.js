@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.prototype.getnexttransition
+esid: sec-temporal.zoneddatetime.prototype.gettimezonetransition
 description: >
-    Tests that Temporal.TimeZone.prototype.getNextTransition
+    Tests that Temporal.ZonedDateTime.prototype.getTimeZoneTransition
     meets the requirements for built-in objects defined by the
     introduction of chapter 17 of the ECMAScript Language Specification.
 info: |
@@ -20,14 +20,14 @@ info: |
 features: [Temporal]
 ---*/
 
-assert.sameValue(Object.isExtensible(Temporal.TimeZone.prototype.getNextTransition),
+assert.sameValue(Object.isExtensible(Temporal.ZonedDateTime.prototype.getTimeZoneTransition),
   true, "Built-in objects must be extensible.");
 
-assert.sameValue(Object.prototype.toString.call(Temporal.TimeZone.prototype.getNextTransition),
+assert.sameValue(Object.prototype.toString.call(Temporal.ZonedDateTime.prototype.getTimeZoneTransition),
   "[object Function]", "Object.prototype.toString");
 
-assert.sameValue(Object.getPrototypeOf(Temporal.TimeZone.prototype.getNextTransition),
+assert.sameValue(Object.getPrototypeOf(Temporal.ZonedDateTime.prototype.getTimeZoneTransition),
   Function.prototype, "prototype");
 
-assert.sameValue(Temporal.TimeZone.prototype.getNextTransition.hasOwnProperty("prototype"),
+assert.sameValue(Temporal.ZonedDateTime.prototype.getTimeZoneTransition.hasOwnProperty("prototype"),
   false, "prototype property");
