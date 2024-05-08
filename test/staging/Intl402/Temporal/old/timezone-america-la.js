@@ -14,15 +14,3 @@ assert.sameValue(zone.id, `${ zone }`)
 assert.sameValue(zone.getOffsetNanosecondsFor(inst), -8 * 3600000000000)
 assert.sameValue(zone.getOffsetStringFor(inst), "-08:00")
 assert(zone.getInstantFor(dtm) instanceof Temporal.Instant)
-for (var i = 0, txn = inst; i < 4; i++) {
-  var transition = zone.getNextTransition(txn);
-  assert(transition instanceof Temporal.Instant);
-  assert(!transition.equals(txn));
-  txn = transition;
-}
-for (var i = 0, txn = inst; i < 4; i++) {
-  var transition = zone.getPreviousTransition(txn);
-  assert(transition instanceof Temporal.Instant);
-  assert(!transition.equals(txn));
-  txn = transition;
-}
