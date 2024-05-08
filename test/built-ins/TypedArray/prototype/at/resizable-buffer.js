@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.at
 description: >
-  Array.p.at behaves correctly on TypedArrays backed by resizable buffers
+  TypedArray.p.at behaves correctly on TypedArrays backed by resizable buffers
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/

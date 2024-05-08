@@ -11,8 +11,7 @@ features: [resizable-arraybuffer]
 ---*/
 
 function ArrayAtHelper(ta, index) {
-  const result = Array.prototype.at.call(ta, index);
-  return Convert(result);
+  return Array.prototype.at.call(ta, index);
 }
 
 function AtParameterConversionResizes(atHelper) {
