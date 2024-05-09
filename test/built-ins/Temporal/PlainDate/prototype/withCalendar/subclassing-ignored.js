@@ -42,6 +42,6 @@ TemporalHelpers.checkSubclassingIgnored(
   [customCalendar],
   (result) => {
     TemporalHelpers.assertPlainDate(result, 1900, 2, "M02", 5);
-    assert.sameValue(result.getCalendar(), customCalendar, "calendar result");
+    assert.sameValue(result.getISOFields().calendar, customCalendar, "calendar result");
   },
 );
