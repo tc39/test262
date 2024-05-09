@@ -31,6 +31,6 @@ for (const thisValue of thisValues) {
 
   const zdt = new Temporal.ZonedDateTime(0n, "Africa/Cairo");
   const fromZdt = Temporal.TimeZone.from.call(thisValue, zdt);
-  assert.notSameValue(fromZdt, zdt.getTimeZone(), "from() creates a new object for a string slot value");
+  assert.notSameValue(fromZdt, zdt.getISOFields().timeZone, "from() creates a new object for a string slot value");
   assert.sameValue(fromZdt.id, "Africa/Cairo");
 }

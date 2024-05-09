@@ -19,7 +19,7 @@ TemporalHelpers.assertPlainDate(
 );
 
 assert.sameValue(
-  result.getCalendar(),
+  result.getISOFields().calendar,
   calendar,
   "Calendar is copied"
 );

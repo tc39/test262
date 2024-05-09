@@ -217,4 +217,4 @@ assert.sameValue(md2.monthCode, "M01");
 var tz = Temporal.TimeZone.from("UTC");
 var inst = Temporal.Instant.fromEpochMilliseconds(0);
 var dt = tz.getPlainDateTimeFor(inst, obj);
-assert.sameValue(dt.getCalendar(), obj);
+assert.sameValue(dt.getISOFields().calendar, obj);
