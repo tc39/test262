@@ -22,8 +22,6 @@ for (const [options, descr] of noopRoundingOperations) {
   const result = instance.round(options);
   assert.notSameValue(result, instance, "rounding result should be a new object");
   assert.sameValue(result.epochNanoseconds, instance.epochNanoseconds, "instant should be unchanged");
-  assert.sameValue(result.getCalendar(), instance.getCalendar(), "calendar should be preserved");
-  assert.sameValue(result.getTimeZone(), instance.getTimeZone(), "time zone should be preserved");
 }
 
 const notNoopRoundingOperations = [

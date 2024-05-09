@@ -17,7 +17,7 @@ TemporalHelpers.assertPlainDateTime(datetime,
 );
 
 assert.sameValue(
-  datetime.getCalendar(),
+  datetime.getISOFields().calendar,
   calendar,
   "calendar supplied in constructor can be extracted and is unchanged"
 );

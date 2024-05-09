@@ -42,8 +42,8 @@ const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
 
 const result = dateTime.toZonedDateTime(timeZone, options);
 assert.sameValue(result.epochNanoseconds, instant.epochNanoseconds);
-assert.sameValue(result.getTimeZone(), timeZone);
 
 assert.compareArray(actual, expected);
 
+assert.sameValue(result.getISOFields().timeZone, timeZone);
 assert.sameValue(result.getISOFields().calendar, dateTime.getISOFields().calendar);
