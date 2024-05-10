@@ -14,7 +14,7 @@ info: |
 features: [Symbol.toPrimitive]
 ---*/
 
-var d = new Date();
+var d = new Date(1970);
 
 assert.sameValue(typeof d[Symbol.toPrimitive], 'function');
 

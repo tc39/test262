@@ -14,7 +14,7 @@ features: [Symbol.toPrimitive]
 ---*/
 
 var poisonedObject = {};
-var poisonedDate = new Date();
+var poisonedDate = new Date(1970);
 Object.defineProperty(poisonedObject, Symbol.toPrimitive, {
   get: function() {
     throw new Test262Error();
