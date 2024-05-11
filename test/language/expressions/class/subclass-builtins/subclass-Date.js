@@ -9,6 +9,6 @@ flags: [generated]
 
 const Subclass = class extends Date {}
 
-const sub = new Subclass();
+const sub = new Subclass(1970);
 assert(sub instanceof Subclass);
 assert(sub instanceof Date);
