@@ -10,7 +10,7 @@ info: |
      ? ToNumber(date).
 ---*/
 
-var date = new Date();
+var date = new Date(1970);
 var originalValue = date.getTime();
 var obj = {
   valueOf: function() {
