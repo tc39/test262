@@ -7,4 +7,4 @@ es5id: 15.4.3.2-1-9
 description: Array.isArray applied to Date object
 ---*/
 
-assert.sameValue(Array.isArray(new Date()), false, 'Array.isArray(new Date()) must return false');
+assert.sameValue(Array.isArray(new Date(1970)), false, 'Array.isArray(new Date(1970)) must return false');
