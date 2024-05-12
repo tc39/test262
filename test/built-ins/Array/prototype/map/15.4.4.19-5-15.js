@@ -6,7 +6,7 @@ esid: sec-array.prototype.map
 description: Array.prototype.map - Date object can be used as thisArg
 ---*/
 
-var objDate = new Date();
+var objDate = new Date(1970);
 
 function callbackfn(val, idx, obj) {
   return this === objDate;
