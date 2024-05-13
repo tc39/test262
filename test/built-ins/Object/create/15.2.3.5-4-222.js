@@ -10,7 +10,7 @@ description: >
 
 var newObj = Object.create({}, {
   prop: {
-    writable: new Date()
+    writable: new Date(1970)
   }
 });
 var hasProperty = newObj.hasOwnProperty("prop");
