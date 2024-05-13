@@ -2,10 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.prototype.equals
+esid: sec-temporal.zoneddatetime.prototype.equals
 description: Tests that objects can be compared for equality
 features: [Temporal]
 ---*/
+
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 class CustomTimeZone extends Temporal.TimeZone {
   constructor(id) {
@@ -27,7 +29,7 @@ const objectsEqualUTC = [
 const tzUTC = new Temporal.TimeZone("UTC");
 
 for (const object of objectsEqualUTC) {
-  const result = tzUTC.equals(object);
+  const result = instance.withTimeZone(tzUTC).equals(instance.withTimeZone(object));
   assert.sameValue(result, true, `Receiver ${tzUTC.id} should equal argument ${object.id}`);
 }
 
@@ -60,7 +62,7 @@ const tz0000ToTest = [
 
 for (const arg of objectsEqual0000) {
   for (const receiver of tz0000ToTest) {
-    const result = receiver.equals(arg);
+    const result = instance.withTimeZone(receiver).equals(instance.withTimeZone(arg));
     assert.sameValue(result, true, `Receiver ${receiver.id} should equal argument ${arg.id ?? arg}`);
   }
 }
@@ -80,7 +82,7 @@ const customObjectsToTest = [tzUTC, new CustomTimeZone("YouTeeSee"), new CustomT
 for (const arg of objectsNotEqual) {
   for (const receiver of customObjectsToTest) {
     if (arg === "UTC" && receiver === tzUTC) continue;
-    const result = receiver.equals(arg);
+    const result = instance.withTimeZone(receiver).equals(instance.withTimeZone(arg));
     assert.sameValue(result, false, `Receiver ${receiver.id} should not equal argument ${arg.id ?? arg}`);
   }
 }
@@ -97,7 +99,7 @@ const plainObjectDifferentCaseCustomId = {
   getOffsetNanosecondsFor: null
 };
 
-assert.sameValue(classInstanceCustomId.equals(classInstanceSameCaseCustomId), true);
-assert.sameValue(classInstanceCustomId.equals(classInstanceDifferentCaseCustomId), false);
-assert.sameValue(classInstanceCustomId.equals(plainObjectSameCaseCustomId), true);
-assert.sameValue(classInstanceCustomId.equals(plainObjectDifferentCaseCustomId), false);
+assert.sameValue(instance.withTimeZone(classInstanceCustomId).equals(instance.withTimeZone(classInstanceSameCaseCustomId)), true);
+assert.sameValue(instance.withTimeZone(classInstanceCustomId).equals(instance.withTimeZone(classInstanceDifferentCaseCustomId)), false);
+assert.sameValue(instance.withTimeZone(classInstanceCustomId).equals(instance.withTimeZone(plainObjectSameCaseCustomId)), true);
+assert.sameValue(instance.withTimeZone(classInstanceCustomId).equals(instance.withTimeZone(plainObjectDifferentCaseCustomId)), false);

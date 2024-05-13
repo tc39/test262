@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.from
+esid: sec-temporal.zoneddatetime.prototype.equals
 description: Time zone names are compared case-insensitively
-features: [Temporal]
+features: [Temporal, Intl-enumeration]
 ---*/
 
 const timeZoneIdentifiers = [
@@ -618,7 +618,7 @@ const ids = [...new Set([...timeZoneIdentifiers, ...Intl.supportedValuesOf('time
 for (const id of ids) {
   const lower = id.toLowerCase();
   const upper = id.toUpperCase();
-  const tz = new Temporal.TimeZone(id);
-  assert.sameValue(tz.equals(upper), true, `Time zone "${id}" compared to string "${upper}"`);
-  assert.sameValue(tz.equals(lower), true, `Time zone "${id}" compared to string "${lower}"`);
+  const zdt = new Temporal.ZonedDateTime(0n, id);
+  assert(zdt.equals(zdt.withTimeZone(upper)), `Time zone "${id}" compared to string "${upper}"`);
+  assert(zdt.equals(zdt.withTimeZone(lower)), `Time zone "${id}" compared to string "${lower}"`);
 }

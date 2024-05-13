@@ -2,10 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.from
+esid: sec-temporal.zoneddatetime.prototype.equals
 description: Built-in time zones are compared correctly out of valid strings
 features: [Temporal]
 ---*/
+
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 const validsEqual = [
   ["+0330", "+03:30"],
@@ -16,10 +18,8 @@ const validsEqual = [
 ];
 
 for (const [valid, canonical] of validsEqual) {
-  const tzValid = Temporal.TimeZone.from(valid);
-  const tzCanonical = Temporal.TimeZone.from(canonical);
-  assert.sameValue(tzValid.equals(canonical), true);
-  assert.sameValue(tzCanonical.equals(valid), true);
+  assert(instance.withTimeZone(valid).equals(instance.withTimeZone(canonical)), `${valid} time zone equals ${canonical}`);
+  assert(instance.withTimeZone(canonical).equals(instance.withTimeZone(valid)), `${canonical} time zone equals ${valid}`);
 }
 
 const validsNotEqual = [
@@ -30,8 +30,6 @@ const validsNotEqual = [
 ];
 
 for (const [valid, canonical] of validsNotEqual) {
-  const tzValid = Temporal.TimeZone.from(valid);
-  const tzCanonical = Temporal.TimeZone.from(canonical);
-  assert.sameValue(tzValid.equals(canonical), false);
-  assert.sameValue(tzCanonical.equals(valid), false);
+  assert(!instance.withTimeZone(valid).equals(instance.withTimeZone(canonical)), `${valid} time zone does not equal ${canonical}`);
+  assert(!instance.withTimeZone(canonical).equals(instance.withTimeZone(valid)), `${canonical} time zone does not equal ${valid}`);
 }
