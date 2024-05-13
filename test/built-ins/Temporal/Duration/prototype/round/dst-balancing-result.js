@@ -22,3 +22,20 @@ const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
     TemporalHelpers.assertDuration(result, 1, 0, 0, 0, 24, 0, 0, 0, 0, 0,
         "24 hours does not balance to 1 day in 25-hour day");
 }
+
+{
+  const duration = new Temporal.Duration(0, 0, 0, 0, /* hours = */ 24, 0, 0, 0, 0, /* ns = */ 5);
+  const relativeTo = new Temporal.ZonedDateTime(
+    972802800_000_000_000n /* = 2000-10-29T07Z */,
+    timeZone); /* = 2000-10-29T00-07 in local time */
+  
+  const result = duration.round({
+    largestUnit: "days",
+    smallestUnit: "minutes",
+    roundingMode: "expand",
+    roundingIncrement: 30,
+    relativeTo
+  });
+  TemporalHelpers.assertDuration(result, 0, 0, 0, 0, 24, 30, 0, 0, 0, 0,
+    "24 hours does not balance after rounding to 1 day in 25-hour day");
+}
