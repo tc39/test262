@@ -12,7 +12,7 @@ var accessed = false;
 
 var newObj = Object.create({}, {
   prop: {
-    enumerable: new Date()
+    enumerable: new Date(1970)
   }
 });
 for (var property in newObj) {
