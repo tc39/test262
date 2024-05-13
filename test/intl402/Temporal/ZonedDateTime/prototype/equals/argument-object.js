@@ -2,10 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.timezone.from
+esid: sec-temporal.zoneddatetime.prototype.equals
 description: Objects with IANA IDs are compared case-insensitively with their canonical IDs
 features: [Temporal]
 ---*/
+
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 class CustomTimeZone extends Temporal.TimeZone {
   constructor(id) {
@@ -35,10 +37,16 @@ const plainObjectsIANA = [
 
 for (const object1 of classInstancesIANA) {
   for (const object2 of classInstancesIANA) {
-    assert.sameValue(object1.equals(object2), true, `Receiver ${object1.id} should not equal argument ${object2.id}`);
+    assert(
+      instance.withTimeZone(object1).equals(instance.withTimeZone(object2)),
+      `Receiver ${object1.id} should not equal argument ${object2.id}`
+    );
   }
   for (const object2 of plainObjectsIANA) {
-    assert.sameValue(object1.equals(object2), true, `Receiver ${object2.id} should not equal argument ${object1.id}`);
+    assert(
+      instance.withTimeZone(object1).equals(instance.withTimeZone(object2)),
+      `Receiver ${object2.id} should not equal argument ${object1.id}`
+    );
   }
 }
 
@@ -51,14 +59,22 @@ const classInstancesIANADifferentCanonical = [
 
 for (const object1 of classInstancesIANADifferentCanonical) {
   for (const object2 of classInstancesIANA) {
-    assert.sameValue(object1.equals(object2), false, `Receiver ${object1.id} should not equal argument ${object2.id}`);
-    assert.sameValue(object2.equals(object1), false, `Receiver ${object2.id} should not equal argument ${object1.id}`);
+    assert(
+      !instance.withTimeZone(object1).equals(instance.withTimeZone(object2)),
+      `Receiver ${object1.id} should not equal argument ${object2.id}`
+    );
+    assert(
+      !instance.withTimeZone(object2).equals(instance.withTimeZone(object1)),
+      `Receiver ${object2.id} should not equal argument ${object1.id}`
+    );
   }
   for (const object2 of plainObjectsIANA) {
-    assert.sameValue(object1.equals(object2), false, `Receiver ${object1.id} should not equal argument ${object2.id}`);
-    assert.sameValue(
-      object1.equals(object2.id),
-      false,
+    assert(
+      !instance.withTimeZone(object1).equals(instance.withTimeZone(object2)),
+      `Receiver ${object1.id} should not equal argument ${object2.id}`
+    );
+    assert(
+      !instance.withTimeZone(object1).equals(instance.withTimeZone(object2.id)),
       `Receiver ${object1.id} should not equal argument ${object2.id}`
     );
   }
@@ -67,14 +83,22 @@ for (const object1 of classInstancesIANADifferentCanonical) {
 const classInstancesCustomNotIANA = [new CustomTimeZone("Moon/Cheese")];
 for (const object1 of classInstancesCustomNotIANA) {
   for (const object2 of classInstancesIANA) {
-    assert.sameValue(object1.equals(object2), false, `Receiver ${object1.id} should not equal argument ${object2.id}`);
-    assert.sameValue(object2.equals(object1), false, `Receiver ${object2.id} should not equal argument ${object1.id}`);
+    assert(
+      !instance.withTimeZone(object1).equals(instance.withTimeZone(object2)),
+      `Receiver ${object1.id} should not equal argument ${object2.id}`
+    );
+    assert(
+      !instance.withTimeZone(object2).equals(instance.withTimeZone(object1)),
+      `Receiver ${object2.id} should not equal argument ${object1.id}`
+    );
   }
   for (const object2 of plainObjectsIANA) {
-    assert.sameValue(object1.equals(object2), false, `Receiver ${object1.id} should not equal argument ${object2.id}`);
-    assert.sameValue(
-      object1.equals(object2.id),
-      false,
+    assert(
+      !instance.withTimeZone(object1).equals(instance.withTimeZone(object2)),
+      `Receiver ${object1.id} should not equal argument ${object2.id}`
+    );
+    assert(
+      !instance.withTimeZone(object1).equals(instance.withTimeZone(object2.id)),
       `Receiver ${object1.id} should not equal argument ${object2.id}`
     );
   }
