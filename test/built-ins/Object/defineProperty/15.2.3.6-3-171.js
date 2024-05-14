@@ -11,7 +11,7 @@ description: >
 
 var obj = {};
 
-var dateObj = new Date();
+var dateObj = new Date(1970);
 
 dateObj.writable = true;
 

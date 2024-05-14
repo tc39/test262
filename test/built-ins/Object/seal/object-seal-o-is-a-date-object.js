@@ -6,7 +6,7 @@ esid: sec-setintegritylevel
 description: Object.seal - 'O' is a Date object
 ---*/
 
-var dateObj = new Date();
+var dateObj = new Date(1970);
 var preCheck = Object.isExtensible(dateObj);
 Object.seal(dateObj);
 

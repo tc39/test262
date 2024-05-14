@@ -10,7 +10,7 @@ description: >
 ---*/
 
 var data = "data";
-var descObj = new Date();
+var descObj = new Date(1970);
 var setFun = function(value) {
   data = value;
 };

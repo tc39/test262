@@ -9,7 +9,7 @@ description: >
     step 1)
 ---*/
 
-var desc = new Date();
+var desc = new Date(1970);
 
 Object.defineProperty(desc, "foo", {
   value: 12,
