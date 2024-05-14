@@ -10,9 +10,12 @@ es5id: 15.7.4.4_A2_T03
 description: transferring to the Date objects
 ---*/
 
+var s1 = new Date(1970);
+Object.defineProperty(s1, "valueOf", {
+  value: Number.prototype.valueOf,
+  writable: true
+});
 try {
-  var s1 = new Date();
-  s1.valueOf = Number.prototype.valueOf;
   var v1 = s1.valueOf();
   throw new Test262Error('#1: Number.prototype.valueOf on not a Number object should throw TypeError');
 }
@@ -20,9 +23,9 @@ catch (e) {
   assert(e instanceof TypeError, 'The result of evaluating (e instanceof TypeError) is expected to be true');
 }
 
+var s2 = new Date(1970);
+s2.myValueOf = Number.prototype.valueOf;
 try {
-  var s2 = new Date();
-  s2.myValueOf = Number.prototype.valueOf;
   var v2 = s2.myValueOf();
   throw new Test262Error('#2: Number.prototype.valueOf on not a Number object should throw TypeError');
 }
