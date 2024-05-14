@@ -12,7 +12,7 @@ var obj = {};
 
 Object.defineProperties(obj, {
   property: {
-    configurable: new Date()
+    configurable: new Date(1970)
   }
 });
 var preCheck = obj.hasOwnProperty("property");

@@ -7,7 +7,7 @@ description: Object.defineProperties - argument 'Properties' is a Date object
 ---*/
 
 var obj = {};
-var props = new Date();
+var props = new Date(1970);
 var result = false;
 
 Object.defineProperty(props, "prop", {

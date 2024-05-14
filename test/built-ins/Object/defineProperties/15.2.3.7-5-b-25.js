@@ -10,7 +10,7 @@ description: >
 ---*/
 
 var obj = {};
-var descObj = new Date();
+var descObj = new Date(1970);
 var accessed = false;
 
 descObj.enumerable = true;

@@ -10,7 +10,7 @@ includes: [propertyHelper.js]
 ---*/
 
 
-var obj = new Date();
+var obj = new Date(1970);
 
 Object.defineProperty(obj, "prop", {
   value: 11,
