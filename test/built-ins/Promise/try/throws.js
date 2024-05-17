@@ -6,12 +6,15 @@ description: Promise.try returns a Promise that rejects when the function throws
 esid: sec-promise.try
 features: [promise-try]
 flags: [async]
+includes: [asyncHelpers.js]
 ---*/
 
-assert.throwsAsync(
-  Test262Error,
-  function () {
-    Promise.try(function () { throw new Test262Error(); })
-  },
-  "error thrown from callback must become a rejection"
-);
+asyncTest(async function() {
+  await assert.throwsAsync(
+    Test262Error,
+    function () {
+      Promise.try(function () { throw new Test262Error(); })
+    },
+    "error thrown from callback must become a rejection"
+  );
+});
