@@ -11,7 +11,7 @@ description: >
 var obj = {};
 
 Object.defineProperty(obj, "property", {
-  configurable: new Date1970()
+  configurable: new Date(1970)
 });
 
 var beforeDeleted = obj.hasOwnProperty("property");
