@@ -9,8 +9,8 @@ flags: [async]
 includes: [asyncHelpers.js]
 ---*/
 
-asyncTest(async function() {
-  await assert.throwsAsync(
+asyncTest(function () {
+  return assert.throwsAsync(
     Test262Error,
     function () {
       Promise.try(function () { throw new Test262Error(); })
