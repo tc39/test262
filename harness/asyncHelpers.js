@@ -67,7 +67,7 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
       message +=
         "Expected a " +
         expectedErrorConstructor.name +
-        " to be thrown asynchronously but an exception was thrown synchronously while obtaining the inner promise";
+        " to be thrown asynchronously but the function threw synchronously";
       throw new Test262Error(message);
     }
     if (
@@ -76,7 +76,7 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
       typeof innerThenable.then !== "function"
     ) {
       message +=
-        "Expected to obtain an inner promise that would reject with a " +
+        "Expected to obtain a promise that would reject with a " +
         expectedErrorConstructor.name +
         " but result was not a thenable";
       throw new Test262Error(message);
@@ -113,19 +113,10 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
         }
       ));
     } catch (thrown) {
-      if (typeof thrown !== "object" || thrown === null) {
-        message +=
-          "Expected a " +
-          expectedErrorConstructor.name +
-          " to be thrown asynchronously but innerThenable synchronously threw a value that was not an object ";
-      } else {
-        message +=
-          "Expected a " +
-          expectedErrorConstructor.name +
-          " to be thrown asynchronously but a " +
-          thrown.constructor.name +
-          " was thrown synchronously";
-      }
+      message +=
+        "Expected a " +
+        expectedErrorConstructor.name +
+        " to be thrown asynchronously but .then threw synchronously";
       throw new Test262Error(message);
     }
   });
