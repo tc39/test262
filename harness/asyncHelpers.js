@@ -6,6 +6,14 @@ description: |
 defines: [asyncTest]
 ---*/
 
+/**
+ * Defines the **sole** asynchronous test of a file.
+ * @see {@link ../docs/rfcs/async-helpers.md} for background.
+ *
+ * @param {Function} testFunc a callback whose returned promise indicates test results
+ *   (fulfillment for success, rejection for failure)
+ * @returns {void}
+ */
 function asyncTest(testFunc) {
   if (!Object.hasOwn(globalThis, "$DONE")) {
     throw new Test262Error("asyncTest called without async flag");
@@ -28,6 +36,18 @@ function asyncTest(testFunc) {
   }
 }
 
+/**
+ * Asserts that a callback asynchronously throws an instance of a particular
+ * error (i.e., returns a promise whose rejection value is an object referencing
+ * the constructor).
+ *
+ * @param {Function} expectedErrorConstructor the expected constructor of the
+ *   rejection value
+ * @param {Function} func the callback
+ * @param {string} [message] the prefix to use for failure messages
+ * @returns {Promise<void>} fulfills if the expected error is thrown,
+ *   otherwise rejects
+ */
 assert.throwsAsync = function (expectedErrorConstructor, func, message) {
   return new Promise(function (resolve) {
     var innerThenable;
