@@ -76,7 +76,7 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
       typeof innerThenable.then !== "function"
     ) {
       message +=
-        "Expected to obtain an inner promise that would reject with a" +
+        "Expected to obtain an inner promise that would reject with a " +
         expectedErrorConstructor.name +
         " but result was not a thenable";
       throw new Test262Error(message);
