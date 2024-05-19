@@ -209,8 +209,9 @@ This key is for boolean properties associated with the test.
 - **raw** - execute the test without any modification (no harness files will be
   included); necessary to test the behavior of directive prologue; implies
   `noStrict`
-- **async** - defer interpretation of test results until after the invocation
-  of the global `$DONE` function
+- **async** - defer interpretation of test results until settlement of an
+  `asyncTest` callback promise or manual invocation of `$DONE`; refer to
+  [Writing Asynchronous Tests](#writing-asynchronous-tests) for details
 - **generated** - informative flag used to denote test files that were
   created procedurally using the project's test generation tool; refer to
   [Procedurally-generated tests](#procedurally-generated-tests)
@@ -346,7 +347,7 @@ Consumers that violate the spec by throwing exceptions for parsing errors at run
 
 An asynchronous test is any test that include the `async` frontmatter flag.
 
-For most asynchronous tests, the `asyncHelpers.js` harness file includes an `asyncTest` method that precludes needing to interact with the test runner via the `$DONE` function. `asyncTest` takes an async function and will ensure that `$DONE` is called properly if the async function returns or throws an exception. For example, a test written using `asyncTest` might look like:
+Most asynchronous tests should include the `asyncHelpers.js` harness file and call its `asyncTest` function **exactly once**, with a callback returning a promise that indicates test failure via rejection and otherwise fulfills upon test conclusion (such as an async function).
 
 ```js
 /*---
