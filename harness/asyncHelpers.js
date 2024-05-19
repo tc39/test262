@@ -57,29 +57,25 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
       }
       throw new Test262Error(message + " " + detail);
     };
-    var innerThenable;
+    var p;
     if (typeof func !== "function") {
       fail("assert.throwsAsync called with an argument that is not a function");
     }
     try {
-      innerThenable = func();
+      p = func();
     } catch (thrown) {
       fail("Expected a " +
         expectedName +
         " to be thrown asynchronously but the function threw synchronously");
     }
-    if (
-      innerThenable === null ||
-      typeof innerThenable !== "object" ||
-      typeof innerThenable.then !== "function"
-    ) {
+    if (p === null || typeof p !== "object" || typeof p.then !== "function") {
       fail("Expected to obtain a promise that would reject with a" +
         expectedName +
         " but result was not a thenable");
     }
 
     try {
-      resolve(innerThenable.then(
+      resolve(p.then(
         function () {
           fail("Expected a " +
             expectedName +
@@ -87,7 +83,7 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
         },
         function (thrown) {
           var actualName;
-          if (typeof thrown !== "object" || thrown === null) {
+          if (thrown === null || typeof thrown !== "object") {
             fail("Thrown value was not an object!");
           } else if (thrown.constructor !== expectedErrorConstructor) {
             actualName = thrown.constructor.name;
