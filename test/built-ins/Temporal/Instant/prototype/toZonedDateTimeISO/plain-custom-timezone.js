@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.instant.prototype.tozoneddatetime
+esid: sec-temporal.instant.prototype.tozoneddatetimeiso
 description: TimeZone.getPlainDateTimeFor is not called
 includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
@@ -21,7 +21,7 @@ const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
   getPlainDateTimeFor: Temporal.PlainDateTime.from("1963-07-02T12:00:00.987654321"),
 });
 
-const result = instant.toZonedDateTime({ timeZone, calendar });
+const result = instant.toZonedDateTimeISO(timeZone);
 assert.sameValue(result.epochNanoseconds, instant.epochNanoseconds);
 
 assert.compareArray(actual, expected);
