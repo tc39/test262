@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.now.plaindate
+esid: sec-temporal.now.plaindateiso
 description: PlainDateTime.toPlainDate is not observably called
 includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
@@ -33,7 +33,7 @@ const timeZone = TemporalHelpers.timeZoneObserver(actual, "timeZone", {
   },
 });
 
-const result = Temporal.Now.plainDate("iso8601", timeZone);
+const result = Temporal.Now.plainDateISO(timeZone);
 assert.notSameValue(result, undefined);
 assert.sameValue(result instanceof Temporal.PlainDate, true);
 

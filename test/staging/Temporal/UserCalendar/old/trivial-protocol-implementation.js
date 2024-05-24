@@ -218,11 +218,3 @@ var tz = Temporal.TimeZone.from("UTC");
 var inst = Temporal.Instant.fromEpochMilliseconds(0);
 var dt = tz.getPlainDateTimeFor(inst, obj);
 assert.sameValue(dt.getCalendar(), obj);
-
-// Temporal.Now.plainDateTime()
-var nowDateTime = Temporal.Now.plainDateTime(obj, "UTC");
-assert.sameValue(nowDateTime.getCalendar(), obj);
-
-// Temporal.Now.plainDate()
-var nowDate = Temporal.Now.plainDate(obj, "UTC");
-assert.sameValue(nowDate.getCalendar(), obj);
