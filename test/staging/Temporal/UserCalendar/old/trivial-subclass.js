@@ -151,7 +151,7 @@ assert.sameValue(md2.monthCode, "M02");
 
 // timezone.getPlainDateTimeFor()
 var tz = Temporal.TimeZone.from("UTC");
-var instant = Temporal.Instant.fromEpochSeconds(0);
+var instant = Temporal.Instant.fromEpochMilliseconds(0);
 var dt = tz.getPlainDateTimeFor(instant, obj);
 assert.sameValue(dt.getCalendar(), obj);
 
