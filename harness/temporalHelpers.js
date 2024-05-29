@@ -55,6 +55,100 @@ var TemporalHelpers = {
   ],
 
   /*
+   * List of known calendar eras and their possible aliases.
+   *
+   * https://tc39.es/proposal-intl-era-monthcode/#table-eras
+   */
+  CalendarEras: {
+    buddhist: [
+      { era: "buddhist", aliases: ["be"] },
+    ],
+    chinese: [
+      { era: "chinese" },
+    ],
+    coptic: [
+      { era: "coptic" },
+      { era: "coptic-inverse" },
+    ],
+    dangi: [
+      { era: "dangi" },
+    ],
+    ethiopic: [
+      { era: "ethiopic", aliases: ["incar"] },
+      { era: "ethioaa", aliases: ["ethiopic-amete-alem", "mundi"] },
+    ],
+    ethioaa: [
+      { era: "ethioaa", aliases: ["ethiopic-amete-alem", "mundi"] },
+    ],
+    gregory: [
+      { era: "gregory", aliases: ["ce", "ad"] },
+      { era: "gregory-inverse", aliases: ["bc", "bce"] },
+    ],
+    hebrew: [
+      { era: "hebrew", aliases: ["am"] },
+    ],
+    indian: [
+      { era: "indian", aliases: ["saka"] },
+    ],
+    islamic: [
+      { era: "islamic", aliases: ["ah"] },
+    ],
+    "islamic-civil": [
+      { era: "islamic-civil", aliases: ["islamicc", "ah"] },
+    ],
+    "islamic-rgsa": [
+      { era: "islamic-rgsa", aliases: ["ah"] },
+    ],
+    "islamic-tbla": [
+      { era: "islamic-tbla", aliases: ["ah"] },
+    ],
+    "islamic-umalqura": [
+      { era: "islamic-umalqura", aliases: ["ah"] },
+    ],
+    japanese: [
+      { era: "heisei" },
+      { era: "japanese", aliases: ["gregory", "ad", "ce"] },
+      { era: "japanese-inverse", aliases: ["gregory-inverse", "bc", "bce"] },
+      { era: "meiji" },
+      { era: "reiwa" },
+      { era: "showa" },
+      { era: "taisho" },
+    ],
+    persian: [
+      { era: "persian", aliases: ["ap"] },
+    ],
+    roc: [
+      { era: "roc", aliases: ["minguo"] },
+      { era: "roc-inverse", aliases: ["before-roc"] },
+    ],
+  },
+
+  /*
+   * Return the canonical era code.
+   */
+  canonicalizeCalendarEra(calendarId, eraName) {
+    assert.sameValue(typeof calendarId, "string");
+
+    if (calendarId === "iso8601") {
+      assert.sameValue(eraName, undefined);
+      return undefined;
+    }
+    assert(Object.hasOwn(TemporalHelpers.CalendarEras, calendarId));
+
+    if (eraName === undefined) {
+      return undefined;
+    }
+    assert.sameValue(typeof eraName, "string");
+
+    for (let {era, aliases = []} of TemporalHelpers.CalendarEras[calendarId]) {
+      if (era === eraName || aliases.includes(eraName)) {
+        return era;
+      }
+    }
+    throw new Test262Error(`Unsupported era name: ${eraName}`);
+  },
+
+  /*
    * assertDuration(duration, years, ...,  nanoseconds[, description]):
    *
    * Shorthand for asserting that each field of a Temporal.Duration is equal to
@@ -132,7 +226,11 @@ var TemporalHelpers = {
   assertPlainDate(date, year, month, monthCode, day, description = "", era = undefined, eraYear = undefined) {
     const prefix = description ? `${description}: ` : "";
     assert(date instanceof Temporal.PlainDate, `${prefix}instanceof`);
-    assert.sameValue(date.era, era, `${prefix}era result:`);
+    assert.sameValue(
+      TemporalHelpers.canonicalizeCalendarEra(date.calendarId, date.era),
+      TemporalHelpers.canonicalizeCalendarEra(date.calendarId, era),
+      `${prefix}era result:`
+    );
     assert.sameValue(date.eraYear, eraYear, `${prefix}eraYear result:`);
     assert.sameValue(date.year, year, `${prefix}year result:`);
     assert.sameValue(date.month, month, `${prefix}month result:`);
@@ -151,7 +249,11 @@ var TemporalHelpers = {
   assertPlainDateTime(datetime, year, month, monthCode, day, hour, minute, second, millisecond, microsecond, nanosecond, description = "", era = undefined, eraYear = undefined) {
     const prefix = description ? `${description}: ` : "";
     assert(datetime instanceof Temporal.PlainDateTime, `${prefix}instanceof`);
-    assert.sameValue(datetime.era, era, `${prefix}era result:`);
+    assert.sameValue(
+      TemporalHelpers.canonicalizeCalendarEra(datetime.calendarId, datetime.era),
+      TemporalHelpers.canonicalizeCalendarEra(datetime.calendarId, era),
+      `${prefix}era result:`
+    );
     assert.sameValue(datetime.eraYear, eraYear, `${prefix}eraYear result:`);
     assert.sameValue(datetime.year, year, `${prefix}year result:`);
     assert.sameValue(datetime.month, month, `${prefix}month result:`);
@@ -242,7 +344,11 @@ var TemporalHelpers = {
   assertPlainYearMonth(yearMonth, year, month, monthCode, description = "", era = undefined, eraYear = undefined, referenceISODay = 1) {
     const prefix = description ? `${description}: ` : "";
     assert(yearMonth instanceof Temporal.PlainYearMonth, `${prefix}instanceof`);
-    assert.sameValue(yearMonth.era, era, `${prefix}era result:`);
+    assert.sameValue(
+      TemporalHelpers.canonicalizeCalendarEra(yearMonth.calendarId, yearMonth.era),
+      TemporalHelpers.canonicalizeCalendarEra(yearMonth.calendarId, era),
+      `${prefix}era result:`
+    );
     assert.sameValue(yearMonth.eraYear, eraYear, `${prefix}eraYear result:`);
     assert.sameValue(yearMonth.year, year, `${prefix}year result:`);
     assert.sameValue(yearMonth.month, month, `${prefix}month result:`);
