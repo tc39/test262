@@ -4,6 +4,7 @@
 /*---
 esid: sec-temporal-intl
 description: Japanese eras
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -67,7 +68,10 @@ date = Temporal.PlainDate.from({
   calendar: "japanese"
 });
 assert.sameValue(`${date}`, "1000-01-01[u-ca=japanese]");
-assert.sameValue(date.era, "ce");
+assert.sameValue(
+  TemporalHelpers.canonicalizeEraInCalendar(date, date.era),
+  TemporalHelpers.canonicalizeEraInCalendar(date, "ce"),
+);
 assert.sameValue(date.eraYear, 1000);
 
 date = Temporal.PlainDate.from({
@@ -78,5 +82,8 @@ date = Temporal.PlainDate.from({
   calendar: "japanese"
 });
 assert.sameValue(`${date}`, "0000-01-01[u-ca=japanese]");
-assert.sameValue(date.era, "bce");
+assert.sameValue(
+  TemporalHelpers.canonicalizeEraInCalendar(date, date.era),
+  TemporalHelpers.canonicalizeEraInCalendar(date, "bce"),
+);
 assert.sameValue(date.eraYear, 1);
