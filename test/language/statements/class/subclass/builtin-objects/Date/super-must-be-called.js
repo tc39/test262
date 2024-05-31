@@ -23,7 +23,7 @@ class D extends Date {
 }
 
 assert.throws(ReferenceError, function() {
-  new D(1970);
+  new D(0);
 });
 
 class D2 extends Date {
@@ -32,4 +32,4 @@ class D2 extends Date {
   }
 }
 
-new D2(1970);
+new D2(0);
