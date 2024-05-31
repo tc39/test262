@@ -11,10 +11,7 @@ description: transferring to the Date objects
 ---*/
 
 var s1 = new Date(1970);
-Object.defineProperty(s1, "valueOf", {
-  value: Number.prototype.valueOf,
-  writable: true
-});
+Object.defineProperty(s1, "valueOf", {value: Number.prototype.valueOf});
 try {
   var v1 = s1.valueOf();
   throw new Test262Error('#1: Number.prototype.valueOf on not a Number object should throw TypeError');
