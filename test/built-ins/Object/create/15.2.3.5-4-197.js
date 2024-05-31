@@ -9,7 +9,7 @@ description: >
     (8.10.5 step 6.a)
 ---*/
 
-var dateObj = new Date(1970);
+var dateObj = new Date(0);
 
 dateObj.writable = true;
 

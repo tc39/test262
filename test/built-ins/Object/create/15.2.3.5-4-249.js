@@ -9,7 +9,7 @@ description: >
     step 7.a)
 ---*/
 
-var dateObj = new Date(1970);
+var dateObj = new Date(0);
 
 dateObj.get = function() {
   return "VerifyDateObject";

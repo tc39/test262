@@ -9,7 +9,7 @@ description: >
 ---*/
 
 var accessed = false;
-var objDate = new Date(1970);
+var objDate = new Date(0);
 
 function callbackfn(prevVal, curVal, idx, obj) {
   accessed = true;

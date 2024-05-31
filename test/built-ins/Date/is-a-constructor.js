@@ -20,5 +20,5 @@ features: [Reflect.construct]
 ---*/
 
 assert.sameValue(isConstructor(Date), true, 'isConstructor(Date) must return true');
-new Date(1970);
+new Date(0);
   

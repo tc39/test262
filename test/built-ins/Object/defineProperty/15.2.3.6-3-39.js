@@ -12,7 +12,7 @@ description: >
 var obj = {};
 var accessed = false;
 
-var dateObj = new Date(1970);
+var dateObj = new Date(0);
 dateObj.enumerable = true;
 
 Object.defineProperty(obj, "property", dateObj);

@@ -33,4 +33,4 @@ info: |
 
 ---*/
 
-Object.seal(new Date(1970));
+Object.seal(new Date(0));
