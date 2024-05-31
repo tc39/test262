@@ -12,10 +12,7 @@ description: transferring to the Date objects
 ---*/
 
 var s1 = new Date(1970);
-Object.defineProperty(s1, "toString", {
-  value: Boolean.prototype.toString,
-  writable: true
-});
+Object.defineProperty(s1, "toString", {value: Boolean.prototype.toString});
 assert.throws(TypeError, () => {
   s1.toString();
 });

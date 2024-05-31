@@ -11,10 +11,7 @@ description: transferring to the Date objects
 ---*/
 
 var s1 = new Date(1970);
-Object.defineProperty(s1, "toString", {
-  value: Number.prototype.toString,
-  writable: true
-});
+Object.defineProperty(s1, "toString", {value: Number.prototype.toString});
 try {
   var v1 = s1.toString();
   throw new Test262Error('#1: Number.prototype.toString on not a Number object should throw TypeError');
