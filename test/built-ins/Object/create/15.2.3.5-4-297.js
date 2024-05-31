@@ -12,7 +12,7 @@ description: >
 assert.throws(TypeError, function() {
   Object.create({}, {
     prop: {
-      set: new Date(1970)
+      set: new Date(0)
     }
   });
 });

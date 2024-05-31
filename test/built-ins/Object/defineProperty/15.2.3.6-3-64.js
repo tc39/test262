@@ -12,7 +12,7 @@ var obj = {};
 var accessed = false;
 
 Object.defineProperty(obj, "property", {
-  enumerable: new Date(1970)
+  enumerable: new Date(0)
 });
 
 for (var prop in obj) {

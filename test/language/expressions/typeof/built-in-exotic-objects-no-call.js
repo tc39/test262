@@ -56,9 +56,9 @@ assert.sameValue(
 );
 
 assert.sameValue(
-  typeof new Date(1970),
+  typeof new Date(0),
    "object",
-  'typeof new Date() === "object"'
+  'typeof new Date(0) === "object"'
 );
 
 assert.sameValue(

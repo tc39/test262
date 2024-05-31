@@ -12,7 +12,7 @@ info: |
      be ? ToNumber(ms).
 ---*/
 
-var date = new Date(1970);
+var date = new Date(0);
 var originalValue = date.getTime();
 var obj = {
   valueOf: function() {

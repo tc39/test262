@@ -11,13 +11,13 @@ es5id: 15.6.4.2_A2_T3
 description: transferring to the Date objects
 ---*/
 
-var s1 = new Date(1970);
+var s1 = new Date(0);
 Object.defineProperty(s1, "toString", {value: Boolean.prototype.toString});
 assert.throws(TypeError, () => {
   s1.toString();
 });
 
-var s2 = new Date(1970);
+var s2 = new Date(0);
 s2.myToString = Boolean.prototype.toString;
 assert.throws(TypeError, () => {
   s2.myToString();

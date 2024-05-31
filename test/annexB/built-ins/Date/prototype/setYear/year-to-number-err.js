@@ -12,7 +12,7 @@ info: |
 features: [Symbol]
 ---*/
 
-var date = new Date(1970);
+var date = new Date(0);
 var symbol = Symbol('');
 var year = {
   valueOf: function() {

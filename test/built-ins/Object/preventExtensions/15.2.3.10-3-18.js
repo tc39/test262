@@ -9,7 +9,7 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-var obj = new Date(1970);
+var obj = new Date(0);
 
 assert(Object.isExtensible(obj));
 Object.preventExtensions(obj);

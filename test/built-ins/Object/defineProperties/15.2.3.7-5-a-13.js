@@ -9,7 +9,7 @@ description: >
 ---*/
 
 var obj = {};
-var props = new Date(1970);
+var props = new Date(0);
 
 Object.defineProperty(props, "prop", {
   value: {

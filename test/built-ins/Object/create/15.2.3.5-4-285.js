@@ -9,7 +9,7 @@ description: >
     step 8.a)
 ---*/
 
-var dateObj = new Date(1970);
+var dateObj = new Date(0);
 var data = "data";
 dateObj.set = function(value) {
   data = value;
