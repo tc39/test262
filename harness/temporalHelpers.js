@@ -1663,41 +1663,6 @@ var TemporalHelpers = {
   },
 
   /*
-   * specificOffsetTimeZone():
-   *
-   * This returns an instance of a custom time zone class, which returns a
-   * specific custom value from its getOffsetNanosecondsFrom() method. This is
-   * for the purpose of testing the validation of what this method returns.
-   *
-   * It also returns an empty array from getPossibleInstantsFor(), so as to
-   * trigger calls to getOffsetNanosecondsFor() when used from the
-   * BuiltinTimeZoneGetInstantFor operation.
-   */
-  specificOffsetTimeZone(offsetValue) {
-    class SpecificOffsetTimeZone extends Temporal.TimeZone {
-      constructor(offsetValue) {
-        super("UTC");
-        this._offsetValue = offsetValue;
-      }
-
-      getOffsetNanosecondsFor() {
-        return this._offsetValue;
-      }
-
-      getPossibleInstantsFor(dt) {
-        if (typeof this._offsetValue !== 'number' || Math.abs(this._offsetValue) >= 86400e9 || isNaN(this._offsetValue)) return [];
-        const zdt = dt.toZonedDateTime("UTC").add({ nanoseconds: -this._offsetValue });
-        return [zdt.toInstant()];
-      }
-
-      get id() {
-        return this.getOffsetStringFor(new Temporal.Instant(0n));
-      }
-    }
-    return new SpecificOffsetTimeZone(offsetValue);
-  },
-
-  /*
    * timeZoneObserver:
    * A custom calendar that behaves exactly like the UTC time zone but tracks
    * calls to any of its methods, and Get/Has operations on its properties, by

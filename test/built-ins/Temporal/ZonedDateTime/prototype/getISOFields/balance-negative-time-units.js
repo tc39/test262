@@ -31,10 +31,13 @@ features: [Temporal]
 // This code path is encountered if the time zone offset is negative and its
 // absolute value in nanoseconds is greater than the nanosecond field of the
 // ZonedDateTime
-const tz = TemporalHelpers.specificOffsetTimeZone(-2);
-const datetime = new Temporal.ZonedDateTime(1001n, tz);
+const datetime = new Temporal.ZonedDateTime(1001n, "-00:02");
 
 const fields = datetime.getISOFields();
 
-assert.sameValue(fields.isoMicrosecond, 0);
-assert.sameValue(fields.isoNanosecond, 999);
+assert.sameValue(fields.isoHour, 23);
+assert.sameValue(fields.isoMinute, 58);
+assert.sameValue(fields.isoSecond, 0);
+assert.sameValue(fields.isoMillisecond, 0);
+assert.sameValue(fields.isoMicrosecond, 1);
+assert.sameValue(fields.isoNanosecond, 1);
