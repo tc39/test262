@@ -18,9 +18,8 @@ TemporalHelpers.assertPlainYearMonth(
   "reference day is the first of the calendar month even if day is given",
   /* era = */ undefined, /* era year = */ undefined, /* reference day = */ 5
 );
-const isoFields = result4.getISOFields();
-assert.sameValue(isoFields.isoYear, 2021, "Tevet 5782 begins in ISO year 2021");
-assert.sameValue(isoFields.isoMonth, 12, "Tevet 5782 begins in ISO month 12");
+const isoYearMonth = result4.toString().slice(0, 7);
+assert.sameValue(isoYearMonth, "2021-12", "Tevet 5782 begins in ISO 2021-12");
 
 const result5 = Temporal.PlainYearMonth.from({ year: 5783, monthCode: "M05L", calendar: "hebrew" }, { overflow: "constrain" });
 TemporalHelpers.assertPlainYearMonth(

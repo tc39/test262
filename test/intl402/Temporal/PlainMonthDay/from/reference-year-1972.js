@@ -68,5 +68,4 @@ TemporalHelpers.assertPlainMonthDay(
   "reference date should be the later one, if two options exist in ISO year 1972",
   1972
 );
-assert.sameValue(result7.getISOFields().isoMonth, 12, "reference date should be 1972-12-31");
-assert.sameValue(result7.getISOFields().isoDay, 31, "reference date should be 1972-12-31");
+assert.sameValue(result7.toString(), "1972-12-31[u-ca=hebrew]", "reference date");

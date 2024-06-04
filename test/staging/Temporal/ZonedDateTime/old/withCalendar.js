@@ -16,5 +16,5 @@ assert.sameValue(`${ zdt.withCalendar("japanese") }`, "2019-11-18T15:23:30.12345
 var zdt = Temporal.ZonedDateTime.from("2019-11-18T15:23:30.123456789+01:00[+01:00][u-ca=iso8601]");
 var zdt2 = zdt.withCalendar("japanese");
 assert.sameValue(zdt.epochNanoseconds, zdt2.epochNanoseconds);
-assert.sameValue(zdt2.getISOFields().calendar, "japanese");
+assert.sameValue(zdt2.calendarId, "japanese");
 assert.sameValue(zdt2.timeZoneId, "+01:00");

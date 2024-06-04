@@ -20,5 +20,5 @@ for (const arg of [
   "2020-01[u-ca=iso8601]",
 ]) {
   const result = instance.withCalendar(arg);
-  assert.sameValue(result.getISOFields().calendar, "iso8601", `Calendar created from string "${arg}"`);
+  assert.sameValue(result.calendarId, "iso8601", `Calendar created from string "${arg}"`);
 }

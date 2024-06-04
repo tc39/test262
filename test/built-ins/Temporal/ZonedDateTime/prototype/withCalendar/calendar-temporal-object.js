@@ -24,8 +24,6 @@ const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UT
   const actual = [];
   const expected = [];
 
-  const calendar = arg.getISOFields().calendar;
-
   Object.defineProperty(arg, "calendar", {
     get() {
       actual.push("get calendar");
@@ -35,7 +33,7 @@ const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UT
 
   const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", "iso8601");
   const result = instance.withCalendar(arg);
-  assert.sameValue(result.getISOFields().calendar, calendar, "Temporal object coerced to calendar");
+  assert.sameValue(result.calendarId, "iso8601", "Temporal object coerced to calendar");
 
   assert.compareArray(actual, expected, "calendar getter not called");
 });

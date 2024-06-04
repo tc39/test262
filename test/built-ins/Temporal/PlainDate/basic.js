@@ -10,4 +10,4 @@ features: [Temporal]
 
 const plainDate = new Temporal.PlainDate(2020, 12, 24, "iso8601");
 TemporalHelpers.assertPlainDate(plainDate, 2020, 12, "M12", 24, "with string");
-assert.sameValue(plainDate.getISOFields().calendar, "iso8601", "calendar slot should store a string");
+assert.sameValue(plainDate.calendarId, "iso8601", "calendar string is iso8601");
