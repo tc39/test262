@@ -5,11 +5,11 @@
 esid: sec-temporal.zoneddatetime.prototype.until
 description: >
   Appropriate error thrown when a calendar property from a property bag cannot
-  be converted to a calendar object or string
+  be converted to a calendar ID
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const timeZone = new Temporal.TimeZone("UTC");
+const timeZone = "UTC";
 const instance = new Temporal.ZonedDateTime(0n, timeZone);
 
 const primitiveTests = [

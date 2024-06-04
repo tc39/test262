@@ -9,7 +9,6 @@ description: >
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const timeZone = new Temporal.TimeZone("UTC");
 const instance = new Temporal.PlainYearMonth(2000, 5);
 
 const primitiveTests = [

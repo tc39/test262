@@ -7,12 +7,11 @@ description: Construction and properties
 features: [Temporal]
 ---*/
 
-var tz = new Temporal.TimeZone("-08:00");
 var epochMillis = Date.UTC(1976, 10, 18, 15, 23, 30, 123);
 var epochNanos = BigInt(epochMillis) * BigInt(1000000) + BigInt(456789);
 
 // works
-var zdt = new Temporal.ZonedDateTime(epochNanos, tz);
+var zdt = new Temporal.ZonedDateTime(epochNanos, "-08:00");
 assert(zdt instanceof Temporal.ZonedDateTime);
 assert.sameValue(typeof zdt, "object");
 assert.sameValue(zdt.toInstant().epochMilliseconds, Date.UTC(1976, 10, 18, 15, 23, 30, 123), "epochMilliseconds");
