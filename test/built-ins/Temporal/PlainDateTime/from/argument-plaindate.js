@@ -14,8 +14,8 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-TemporalHelpers.checkToTemporalPlainDateTimeFastPath((date, calendar) => {
+TemporalHelpers.checkToTemporalPlainDateTimeFastPath((date) => {
   const result = Temporal.PlainDateTime.from(date);
   TemporalHelpers.assertPlainDateTime(result, 2000, 5, "M05", 2, 0, 0, 0, 0, 0, 0, "midnight is assumed");
-  assert.sameValue(result.getISOFields().calendar, calendar, "calendar result");
+  assert.sameValue(result.getISOFields().calendar, "iso8601", "calendar result");
 });

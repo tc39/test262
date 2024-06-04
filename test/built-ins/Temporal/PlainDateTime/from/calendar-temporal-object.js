@@ -20,7 +20,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-TemporalHelpers.checkToTemporalCalendarFastPath((temporalObject, calendar) => {
+TemporalHelpers.checkToTemporalCalendarFastPath((temporalObject) => {
   const result = Temporal.PlainDateTime.from({ year: 2000, month: 5, day: 2, calendar: temporalObject });
-  assert.sameValue(result.getISOFields().calendar, calendar, "Temporal object coerced to calendar");
+  assert.sameValue(result.getISOFields().calendar, "iso8601", "Temporal object coerced to calendar");
 });

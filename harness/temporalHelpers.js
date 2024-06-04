@@ -332,11 +332,9 @@ var TemporalHelpers = {
    * Temporal.PlainDateTime instance, convert to the desired type by reading the
    * PlainDateTime's internal slots, rather than calling any getters.
    *
-   * func(datetime, calendar) is the actual operation to test, that must
+   * func(datetime) is the actual operation to test, that must
    * internally call the abstract operation ToTemporalDate or ToTemporalTime.
-   * It is passed a Temporal.PlainDateTime instance, as well as the instance's
-   * calendar object (so that it doesn't have to call the calendar getter itself
-   * if it wants to make any assertions about the calendar.)
+   * It is passed a Temporal.PlainDateTime instance.
    */
   checkPlainDateTimeConversionFastPath(func, message = "checkPlainDateTimeConversionFastPath") {
     const actual = [];
@@ -370,7 +368,7 @@ var TemporalHelpers = {
       },
     });
 
-    func(datetime, calendar);
+    func(datetime);
     assert.compareArray(actual, expected, `${message}: property getters not called`);
   },
 
@@ -888,42 +886,13 @@ var TemporalHelpers = {
    * Check that any calendar-carrying Temporal object has its [[Calendar]]
    * internal slot read by ToTemporalCalendar, and does not fetch the calendar
    * by calling getters.
-   * The custom calendar object is passed in to func() so that it can do its
-   * own additional assertions involving the calendar if necessary. (Sometimes
-   * there is nothing to assert as the calendar isn't stored anywhere that can
-   * be asserted about.)
    */
   checkToTemporalCalendarFastPath(func) {
-    class CalendarFastPathCheck extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-
-      dateFromFields(...args) {
-        return super.dateFromFields(...args).withCalendar(this);
-      }
-
-      monthDayFromFields(...args) {
-        const { isoYear, isoMonth, isoDay } = super.monthDayFromFields(...args).getISOFields();
-        return new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
-      }
-
-      yearMonthFromFields(...args) {
-        const { isoYear, isoMonth, isoDay } = super.yearMonthFromFields(...args).getISOFields();
-        return new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
-      }
-
-      toString() {
-        return "fast-path-check";
-      }
-    }
-    const calendar = new CalendarFastPathCheck();
-
-    const plainDate = new Temporal.PlainDate(2000, 5, 2, calendar);
-    const plainDateTime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, calendar);
-    const plainMonthDay = new Temporal.PlainMonthDay(5, 2, calendar);
-    const plainYearMonth = new Temporal.PlainYearMonth(2000, 5, calendar);
-    const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", calendar);
+    const plainDate = new Temporal.PlainDate(2000, 5, 2, "iso8601");
+    const plainDateTime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, "iso8601");
+    const plainMonthDay = new Temporal.PlainMonthDay(5, 2, "iso8601");
+    const plainYearMonth = new Temporal.PlainYearMonth(2000, 5, "iso8601");
+    const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", "iso8601");
 
     [plainDate, plainDateTime, plainMonthDay, plainYearMonth, zonedDateTime].forEach((temporalObject) => {
       const actual = [];
@@ -936,7 +905,7 @@ var TemporalHelpers = {
         },
       });
 
-      func(temporalObject, calendar);
+      func(temporalObject);
       assert.compareArray(actual, expected, "calendar getter not called");
     });
   },
@@ -986,11 +955,11 @@ var TemporalHelpers = {
     Object.defineProperty(date, "calendar", {
       get() {
         actual.push("get calendar");
-        return calendar;
+        return "iso8601";
       },
     });
 
-    func(date, calendar);
+    func(date);
     assert.compareArray(actual, expected, "property getters not called");
   },
 
