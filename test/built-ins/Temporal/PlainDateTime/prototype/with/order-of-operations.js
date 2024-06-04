@@ -13,26 +13,9 @@ const expected = [
   "get fields.calendar",
   "get fields.timeZone",
   // CopyDataProperties
-  "ownKeys options",
-  "getOwnPropertyDescriptor options.overflow",
   "get options.overflow",
-  "getOwnPropertyDescriptor options.extra",
-  "get options.extra",
-  // lookup
-  "get this.calendar.dateFromFields",
-  "get this.calendar.fields",
-  "get this.calendar.mergeFields",
-  // CalendarFields
-  "call this.calendar.fields",
-  // PrepareTemporalFields on receiver
-  "get this.calendar.day",
-  "call this.calendar.day",
-  "get this.calendar.month",
-  "call this.calendar.month",
-  "get this.calendar.monthCode",
-  "call this.calendar.monthCode",
-  "get this.calendar.year",
-  "call this.calendar.year",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
   // PrepareTemporalFields on argument
   "get fields.day",
   "get fields.day.valueOf",
@@ -64,12 +47,6 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
-  // CalendarMergeFields
-  "call this.calendar.mergeFields",
-  // InterpretTemporalDateTimeFields
-  "get options.overflow.toString",
-  "call options.overflow.toString",
-  "call this.calendar.dateFromFields",
 ];
 const actual = [];
 
