@@ -5,10 +5,9 @@
 esid: sec-temporal.plaindatetime.prototype.tozoneddatetime
 description: Checking disambiguation options for daylight savings time changes
 features: [Temporal]
-includes: [temporalHelpers.js]
 ---*/
 
-const tz = TemporalHelpers.springForwardFallBackTimeZone();
+const tz = "America/Vancouver";
 
 const dt1 = new Temporal.PlainDateTime(2000, 4, 2, 2);
 

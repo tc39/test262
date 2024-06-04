@@ -16,13 +16,11 @@ info: |
         ...
         d. Return ...
       3. Return ? ToTemporalZonedDateTime(_item_, _options_).
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
-const springForwardFields = { timeZone, year: 2000, month: 4, day: 2, hour: 2, minute: 30 };
-const fallBackFields = { timeZone, year: 2000, month: 10, day: 29, hour: 1, minute: 30 };
+const springForwardFields = { timeZone: "America/Vancouver", year: 2000, month: 4, day: 2, hour: 2, minute: 30 };
+const fallBackFields = { timeZone: "America/Vancouver", year: 2000, month: 10, day: 29, hour: 1, minute: 30 };
 
 [
   [springForwardFields, 954671400_000_000_000n],

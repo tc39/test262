@@ -4,13 +4,11 @@
 /*---
 esid: sec-temporal-zoneddatetime-objects
 description: math around DST
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-var tz = TemporalHelpers.springForwardFallBackTimeZone();
-var hourBeforeDstStart = new Temporal.PlainDateTime(2000, 4, 2, 1).toZonedDateTime(tz);
-var dayBeforeDstStart = new Temporal.PlainDateTime(2000, 4, 1, 2, 30).toZonedDateTime(tz);
+var hourBeforeDstStart = new Temporal.PlainDateTime(2000, 4, 2, 1).toZonedDateTime("America/Vancouver");
+var dayBeforeDstStart = new Temporal.PlainDateTime(2000, 4, 1, 2, 30).toZonedDateTime("America/Vancouver");
 
 // add 1 hour to get to DST start
 var added = hourBeforeDstStart.add({ hours: 1 });
@@ -44,9 +42,7 @@ var undo = added.subtract(diff);
 assert.sameValue(`${ undo }`, `${ hourBeforeDstStart }`);
 
 // Samoa date line change (add): 10:00PM 29 Dec 2011 -> 11:00PM 31 Dec 2011
-var timeZone = TemporalHelpers.crossDateLineTimeZone();
-var dayBeforeSamoaDateLineChangeAbs = timeZone.getInstantFor(new Temporal.PlainDateTime(2011, 12, 29, 22));
-var start = dayBeforeSamoaDateLineChangeAbs.toZonedDateTimeISO(timeZone);
+var start = new Temporal.PlainDateTime(2011, 12, 29, 22).toZonedDateTime("Pacific/Apia");
 var added = start.add({
   days: 1,
   hours: 1
@@ -60,8 +56,7 @@ var undo = added.subtract(diff);
 assert.sameValue(`${ undo }`, `${ start }`);
 
 // Samoa date line change (subtract): 11:00PM 31 Dec 2011 -> 10:00PM 29 Dec 2011
-var dayAfterSamoaDateLineChangeAbs = timeZone.getInstantFor(new Temporal.PlainDateTime(2011, 12, 31, 23));
-var start = dayAfterSamoaDateLineChangeAbs.toZonedDateTimeISO(timeZone);
+var start = new Temporal.PlainDateTime(2011, 12, 31, 23).toZonedDateTime("Pacific/Apia");
 var skipped = start.subtract({
   days: 1,
   hours: 1
@@ -147,16 +142,16 @@ var undo = added.subtract(diff);
 assert.sameValue(`${ undo }`, `${ start }`);
 
 // Difference can return day length > 24 hours
-var start = Temporal.PlainDateTime.from("2000-10-27T01:45").toZonedDateTime(tz);
-var end = Temporal.PlainDateTime.from("2000-10-30T01:15").toZonedDateTime(tz);
+var start = Temporal.PlainDateTime.from("2000-10-27T01:45").toZonedDateTime("America/Vancouver");
+var end = Temporal.PlainDateTime.from("2000-10-30T01:15").toZonedDateTime("America/Vancouver");
 var diff = start.until(end, { largestUnit: "days" });
 assert.sameValue(`${ diff }`, "P2DT24H30M");
 var undo = start.add(diff);
 assert.sameValue(`${ undo }`, `${ end }`);
 
 // Difference rounding (nearest day) is DST-aware
-var start = Temporal.PlainDateTime.from("2000-04-04T02:30").toZonedDateTime(tz);
-var end = Temporal.PlainDateTime.from("2000-04-01T14:15").toZonedDateTime(tz);
+var start = Temporal.PlainDateTime.from("2000-04-04T02:30").toZonedDateTime("America/Vancouver");
+var end = Temporal.PlainDateTime.from("2000-04-01T14:15").toZonedDateTime("America/Vancouver");
 var diff = start.until(end, {
   smallestUnit: "days",
   roundingMode: "halfExpand"
@@ -217,14 +212,14 @@ var diff = start.until(end, {
 assert.sameValue(`${ diff }`, "-P2DT13H");
 
 // Difference when date portion ends inside a DST-skipped period
-var start = Temporal.PlainDateTime.from("2000-04-01T02:30").toZonedDateTime(tz);
-var end = Temporal.PlainDateTime.from("2000-04-02T03:15").toZonedDateTime(tz);
+var start = Temporal.PlainDateTime.from("2000-04-01T02:30").toZonedDateTime("America/Vancouver");
+var end = Temporal.PlainDateTime.from("2000-04-02T03:15").toZonedDateTime("America/Vancouver");
 var diff = start.until(end, { largestUnit: "days" });
 assert.sameValue(`${ diff }`, "PT23H45M");
 
 // Difference when date portion ends inside day skipped by Samoa's 24hr 2011 transition
-var end = Temporal.PlainDateTime.from("2011-12-31T05:00").toZonedDateTime(timeZone);
-var start = Temporal.PlainDateTime.from("2011-12-28T10:00").toZonedDateTime(timeZone);
+var end = Temporal.PlainDateTime.from("2011-12-31T05:00").toZonedDateTime("Pacific/Apia");
+var start = Temporal.PlainDateTime.from("2011-12-28T10:00").toZonedDateTime("Pacific/Apia");
 var diff = start.until(end, { largestUnit: "days" });
 assert.sameValue(`${ diff }`, "P1DT19H");
 

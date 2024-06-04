@@ -3,14 +3,13 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.tozoneddatetime
-includes: [temporalHelpers.js]
 description: Verify that undefined options are handled correctly.
 features: [BigInt, Temporal]
 ---*/
 
 const datetimeEarlier = new Temporal.PlainDateTime(2000, 10, 29, 1, 34, 56, 987, 654, 321);
 const datetimeLater = new Temporal.PlainDateTime(2000, 4, 2, 2, 34, 56, 987, 654, 321);
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
+const timeZone = "America/Vancouver";
 
 [
   [datetimeEarlier, 972808496987654321n],
