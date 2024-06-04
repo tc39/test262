@@ -35,8 +35,8 @@ for (const [timeZone, description] of primitiveTests) {
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [{}, "object not implementing time zone protocol"],
-  [new Temporal.Calendar("iso8601"), "calendar instance"],
+  [{}, "object"],
+  [new Temporal.Duration(), "duration instance"],
 ];
 
 for (const [timeZone, description] of typeErrorTests) {
