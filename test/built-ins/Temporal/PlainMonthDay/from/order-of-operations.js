@@ -68,8 +68,8 @@ const fields = TemporalHelpers.propertyBagObserver(actual, {
   month: 1.7,
   monthCode: "M01",
   day: 1.7,
-  calendar: TemporalHelpers.calendarObserver(actual, "fields.calendar"),
-}, "fields");
+  calendar: "iso8601",
+}, "fields", ["calendar"]);
 
 const options = TemporalHelpers.propertyBagObserver(actual, {
   overflow: "constrain",

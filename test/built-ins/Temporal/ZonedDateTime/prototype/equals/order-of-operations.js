@@ -101,18 +101,11 @@ const other = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "other.timeZone"),
-}, "other");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "other", ["calendar", "timeZone"]);
 
-const instance = new Temporal.ZonedDateTime(
-  988786472_987_654_321n,  /* 2001-05-02T06:54:32.987654321Z */
-  TemporalHelpers.timeZoneObserver(actual, "this.timeZone"),
-  TemporalHelpers.calendarObserver(actual, "this.calendar"),
-);
-// clear any observable operations that happen due to time zone or calendar
-// calls on the constructor
-actual.splice(0);
+const instance = new Temporal.ZonedDateTime(988786472_987_654_321n,  /* 2001-05-02T06:54:32.987654321Z */ "UTC");
 
 instance.equals(other);
 assert.compareArray(actual, expected, "order of operations");

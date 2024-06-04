@@ -34,8 +34,8 @@ instance.toString(
     fractionalSecondDigits: "auto",
     roundingMode: "halfExpand",
     smallestUnit: "millisecond",
-    timeZone: TemporalHelpers.timeZoneObserver(actual, "options.timeZone"),
-  }, "options"),
+    timeZone: "UTC",
+  }, "options", ["timeZone"]),
 );
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
