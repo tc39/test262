@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.compare
 description: Calendar is not taken into account for the comparison.
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
