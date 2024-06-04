@@ -7,7 +7,7 @@ description: The calendar name is case-insensitive
 features: [Temporal]
 ---*/
 
-const timeZone = new Temporal.TimeZone("UTC");
+const timeZone = "UTC";
 const datetime = new Temporal.ZonedDateTime(0n, timeZone);
 
 const arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar: "IsO8601" };

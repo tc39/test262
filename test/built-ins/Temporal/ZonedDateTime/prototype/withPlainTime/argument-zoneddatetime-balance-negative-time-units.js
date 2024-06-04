@@ -38,8 +38,7 @@ features: [Temporal]
 const tz = TemporalHelpers.specificOffsetTimeZone(-2);
 const datetime = new Temporal.ZonedDateTime(3661_001_001_001n, tz);
 
-const otherTimeZone = new Temporal.TimeZone("UTC"); // should not be used to convert datetime -> PlainTime
-const zdt = new Temporal.ZonedDateTime(86400_000_000_000n, otherTimeZone);
+const zdt = new Temporal.ZonedDateTime(86400_000_000_000n, "UTC"); // UTC should not be used to convert datetime -> PlainTime
 const newzdt = zdt.withPlainTime(datetime);
 
 assert.sameValue(newzdt.microsecond, 0);

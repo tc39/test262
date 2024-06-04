@@ -13,16 +13,14 @@ features: [Temporal]
 includes: [deepEqual.js]
 ---*/
 
-const timeZone = new Temporal.TimeZone("UTC");
-const calendar = new Temporal.Calendar("iso8601");
-const datetime = new Temporal.ZonedDateTime(-13849764_999_999_999n, timeZone, calendar);
+const datetime = new Temporal.ZonedDateTime(-13849764_999_999_999n, "UTC");
 
 // This code path shows up anywhere we convert an exact time, before the Unix
 // epoch, with nonzero microseconds or nanoseconds, into a wall time.
 
 const result = datetime.getISOFields();
 assert.deepEqual(result, {
-  calendar,
+  calendar: "iso8601",
   isoDay: 24,
   isoHour: 16,
   isoMicrosecond: 0,
@@ -33,5 +31,5 @@ assert.deepEqual(result, {
   isoSecond: 35,
   isoYear: 1969,
   offset: "+00:00",
-  timeZone,
+  timeZone: "UTC"
 });

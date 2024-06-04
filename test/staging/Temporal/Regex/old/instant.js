@@ -10,8 +10,7 @@ features: [Temporal]
 function test(isoString, components) {
   var [y, mon, d, h = 0, min = 0, s = 0, ms = 0, µs = 0, ns = 0] = components;
   var instant = Temporal.Instant.from(isoString);
-  var utc = Temporal.TimeZone.from("UTC");
-  var datetime = utc.getPlainDateTimeFor(instant);
+  var datetime = instant.toZonedDateTimeISO("UTC");
   assert.sameValue(datetime.year, y);
   assert.sameValue(datetime.month, mon);
   assert.sameValue(datetime.day, d);
