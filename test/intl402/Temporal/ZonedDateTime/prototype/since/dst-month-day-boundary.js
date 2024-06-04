@@ -12,10 +12,8 @@ features: [Temporal]
 
 // Based on a test case by Adam Shaw
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
-
-const d1 = new Temporal.ZonedDateTime(957258000_000_000_000n /* = 2000-05-02T02:00-07:00 */, timeZone);
-const d2 = new Temporal.ZonedDateTime(954669600_000_000_000n /* = 2000-04-02T03:00-07:00 */, timeZone);
+const d1 = new Temporal.ZonedDateTime(957258000_000_000_000n /* = 2000-05-02T02:00-07:00 */, "America/Vancouver");
+const d2 = new Temporal.ZonedDateTime(954669600_000_000_000n /* = 2000-04-02T03:00-07:00 */, "America/Vancouver");
 // NOTE: nonexistent hour just before d2
 
 const result = d1.since(d2, { largestUnit: "months" });

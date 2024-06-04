@@ -11,13 +11,11 @@ info: |
       1. Return ? GetOption(_normalizedOptions_, *"disambiguation"*, « String », « *"compatible"*, *"earlier"*, *"later"*, *"reject"* », *"compatible"*).
     sec-temporal.zoneddatetime.protoype.with step 14:
       14. Let _disambiguation_ be ? ToTemporalDisambiguation(_options_).
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
-const springForwardDatetime = new Temporal.ZonedDateTime(954702001_000_000_000n, timeZone);
-const fallBackDatetime = new Temporal.ZonedDateTime(972849601_000_000_000n, timeZone);
+const springForwardDatetime = new Temporal.ZonedDateTime(954702001_000_000_000n, "America/Vancouver");
+const fallBackDatetime = new Temporal.ZonedDateTime(972849601_000_000_000n, "America/Vancouver");
 const offset = "ignore";
 
 [

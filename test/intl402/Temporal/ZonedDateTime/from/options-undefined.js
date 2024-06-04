@@ -3,7 +3,6 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.from
-includes: [temporalHelpers.js]
 description: Verify that undefined options are handled correctly.
 features: [Temporal]
 ---*/
@@ -19,7 +18,7 @@ assert.sameValue(overflowPropertyImplicit.month, 12, "default overflow is constr
 const overflowImplicit = Temporal.ZonedDateTime.from(overflowFields);
 assert.sameValue(overflowImplicit.month, 12, "default overflow is constrain");
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
+const timeZone = "America/Vancouver";
 const disambiguationEarlierFields = { timeZone, year: 2000, month: 10, day: 29, hour: 1, minute: 34, second: 56, millisecond: 987, microsecond: 654, nanosecond: 321 };
 const disambiguationLaterFields = { timeZone, year: 2000, month: 4, day: 2, hour: 2, minute: 34, second: 56, millisecond: 987, microsecond: 654, nanosecond: 321 };
 

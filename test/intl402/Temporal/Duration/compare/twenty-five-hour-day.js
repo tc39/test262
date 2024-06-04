@@ -5,17 +5,14 @@
 esid: sec-temporal.duration.compare
 description: Unbalancing handles DST days with more than 24 hours
 features: [Temporal]
-includes: [temporalHelpers.js]
 ---*/
-
-const tz = TemporalHelpers.springForwardFallBackTimeZone();
 
 // 2000-10-29 is a 25-hour day according to this time zone...
 
-const relativeTo = new Temporal.ZonedDateTime(941187600_000_000_000n, tz);
+const relativeTo = new Temporal.ZonedDateTime(941184000_000_000_000n, "America/Vancouver");
 
 // confirm that we have rewound one year and one day:
-assert.sameValue('1999-10-29T01:00:00-08:00[Custom/Spring_Fall]', relativeTo.toString());
+assert.sameValue('1999-10-29T01:00:00-07:00[America/Vancouver]', relativeTo.toString());
 
 const d1 = new Temporal.Duration(1, 0, 0, 1);
 const d2 = new Temporal.Duration(1, 0, 0, 0, 25);

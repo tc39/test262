@@ -9,14 +9,12 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
-
 // Based on a test case by Adam Shaw
 {
     const duration = new Temporal.Duration(1, 0, 0, 0, 24);
     const relativeTo = new Temporal.ZonedDateTime(
         941184000_000_000_000n /* = 1999-10-29T08Z */,
-        timeZone); /* = 1999-10-29T00-08 in local time */
+        "America/Vancouver"); /* = 1999-10-29T00-08 in local time */
 
     const result = duration.round({ largestUnit: "years", relativeTo });
     TemporalHelpers.assertDuration(result, 1, 0, 0, 0, 24, 0, 0, 0, 0, 0,
@@ -27,7 +25,7 @@ const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
   const duration = new Temporal.Duration(0, 0, 0, 0, /* hours = */ 24, 0, 0, 0, 0, /* ns = */ 5);
   const relativeTo = new Temporal.ZonedDateTime(
     972802800_000_000_000n /* = 2000-10-29T07Z */,
-    timeZone); /* = 2000-10-29T00-07 in local time */
+    "America/Vancouver"); /* = 2000-10-29T00-07 in local time */
   
   const result = duration.round({
     largestUnit: "days",

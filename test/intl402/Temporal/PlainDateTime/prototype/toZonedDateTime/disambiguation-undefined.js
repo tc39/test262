@@ -11,11 +11,10 @@ info: |
       1. Return ? GetOption(_normalizedOptions_, *"disambiguation"*, « String », « *"compatible"*, *"earlier"*, *"later"*, *"reject"* », *"compatible"*).
     sec-temporal.plaindatetime.prototype.tozoneddatetime step 5:
       5. Let _disambiguation_ be ? ToTemporalDisambiguation(_options_).
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
+const timeZone = "America/Vancouver";
 const springForwardDatetime = new Temporal.PlainDateTime(2000, 4, 2, 2, 30);
 const fallBackDatetime = new Temporal.PlainDateTime(2000, 10, 29, 1, 30);
 
