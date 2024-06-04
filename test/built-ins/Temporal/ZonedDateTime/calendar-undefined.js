@@ -7,12 +7,6 @@ description: Calendar argument defaults to the built-in ISO 8601 calendar
 features: [BigInt, Temporal]
 ---*/
 
-
-Object.defineProperty(Temporal.Calendar, "from", {
-  get() {
-    throw new Test262Error("Should not get Calendar.from");
-  },
-});
 const args = [957270896987654321n, "UTC"];
 
 const explicit = new Temporal.ZonedDateTime(...args, undefined);
