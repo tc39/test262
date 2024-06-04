@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.prototype.tozoneddatetime
 description: Time zone IDs are valid input for a time zone
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -12,5 +11,5 @@ const instance = new Temporal.PlainDateTime(2000, 5, 2);
 
 ["UTC", "+01:30"].forEach((timeZone) => {
   const result = instance.toZonedDateTime(timeZone);
-  assert.sameValue(result.getISOFields().timeZone, timeZone, `time zone slot should store string "${timeZone}"`);
+  assert.sameValue(result.timeZoneId, timeZone, `time zone slot should store string "${timeZone}"`);
 });

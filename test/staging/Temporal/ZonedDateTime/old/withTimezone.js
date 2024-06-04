@@ -11,6 +11,6 @@ features: [Temporal]
 var zdt = Temporal.ZonedDateTime.from("2019-11-18T15:23:30.123456789+01:00[+01:00]").withCalendar("gregory");
 var zdt2 = zdt.withTimeZone("-08:00");
 assert.sameValue(zdt.epochNanoseconds, zdt2.epochNanoseconds);
-assert.sameValue(zdt2.getISOFields().calendar, "gregory");
+assert.sameValue(zdt2.calendarId, "gregory");
 assert.sameValue(zdt2.timeZoneId, "-08:00");
 assert.notSameValue(`${ zdt.toPlainDateTime() }`, `${ zdt2.toPlainDateTime() }`);

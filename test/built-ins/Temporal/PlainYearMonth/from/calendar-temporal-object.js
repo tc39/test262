@@ -22,5 +22,5 @@ features: [Temporal]
 
 TemporalHelpers.checkToTemporalCalendarFastPath((temporalObject) => {
   const result = Temporal.PlainYearMonth.from({ year: 2000, month: 5, calendar: temporalObject });
-  assert.sameValue(result.getISOFields().calendar, "iso8601", "Temporal object coerced to calendar");
+  assert.sameValue(result.calendarId, "iso8601", "Temporal object coerced to calendar");
 });

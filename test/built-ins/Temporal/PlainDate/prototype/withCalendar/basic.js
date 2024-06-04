@@ -14,4 +14,4 @@ const calendar = "iso8601";
 const stringResult = plainDate.withCalendar("iso8601");
 assert.notSameValue(stringResult, plainDate, "string: new object");
 TemporalHelpers.assertPlainDate(stringResult, 1976, 11, "M11", 18, "string");
-assert.sameValue(stringResult.getISOFields().calendar, "iso8601", "string: calendar slot stores a string");
+assert.sameValue(stringResult.calendarId, "iso8601", "string: calendar is iso8601");

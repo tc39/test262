@@ -178,8 +178,8 @@ var TemporalHelpers = {
     assert(actual instanceof Temporal.PlainDateTime, `${prefix}instanceof`);
     assert(actual.equals(expected), `${prefix}equals method`);
     assert.sameValue(
-      actual.getISOFields().calendar,
-      expected.getISOFields().calendar,
+      actual.calendarId,
+      expected.calendarId,
       `${prefix}calendar same value:`
     );
   },
@@ -197,7 +197,8 @@ var TemporalHelpers = {
     assert(monthDay instanceof Temporal.PlainMonthDay, `${prefix}instanceof`);
     assert.sameValue(monthDay.monthCode, monthCode, `${prefix}monthCode result:`);
     assert.sameValue(monthDay.day, day, `${prefix}day result:`);
-    assert.sameValue(monthDay.getISOFields().isoYear, referenceISOYear, `${prefix}referenceISOYear result:`);
+    const isoYear = Number(monthDay.toString({ calendarName: "always" }).split("-")[0]);
+    assert.sameValue(isoYear, referenceISOYear, `${prefix}referenceISOYear result:`);
   },
 
   /*
@@ -246,7 +247,8 @@ var TemporalHelpers = {
     assert.sameValue(yearMonth.year, year, `${prefix}year result:`);
     assert.sameValue(yearMonth.month, month, `${prefix}month result:`);
     assert.sameValue(yearMonth.monthCode, monthCode, `${prefix}monthCode result:`);
-    assert.sameValue(yearMonth.getISOFields().isoDay, referenceISODay, `${prefix}referenceISODay result:`);
+    const isoDay = Number(yearMonth.toString({ calendarName: "always" }).slice(1).split('-')[2].slice(0, 2));
+    assert.sameValue(isoDay, referenceISODay, `${prefix}referenceISODay result:`);
   },
 
   /*
@@ -263,8 +265,8 @@ var TemporalHelpers = {
     assert(actual.equals(expected), `${prefix}equals method`);
     assert.sameValue(actual.timeZone, expected.timeZone, `${prefix}time zone same value:`);
     assert.sameValue(
-      actual.getISOFields().calendar,
-      expected.getISOFields().calendar,
+      actual.calendarId,
+      expected.calendarId,
       `${prefix}calendar same value:`
     );
   },

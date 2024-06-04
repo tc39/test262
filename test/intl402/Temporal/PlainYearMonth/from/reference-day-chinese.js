@@ -78,7 +78,6 @@ for (const [monthCode, relatedYear, month, referenceISODay, isoYear = relatedYea
     `Date of sample Chinese intercalary month ${monthCode}`,
     /* era = */ undefined, /* era year = */ undefined, referenceISODay
   );
-  const isoFields = result.getISOFields();
-  assert.sameValue(isoFields.isoYear, isoYear, `${year}-${monthCode} starts in ISO year ${isoYear}`);
-  assert.sameValue(isoFields.isoMonth, isoMonth, `${year}-${monthCode} starts in ISO month ${isoMonth}`);
+  const isoYearMonth = result.toString().slice(0, 7);
+  assert.sameValue(isoYearMonth, `${isoYear}-${String(isoMonth).padStart(2, '0')}`, `${year}-${monthCode} starts in ISO month ${isoYear}-${isoMonth}`);
 }

@@ -19,4 +19,4 @@ TemporalHelpers.assertPlainDateTime(
   "works"
 );
 
-assert.sameValue(result.getISOFields().calendar, calendar, "underlying calendar is unchanged");
+assert.sameValue(result.calendarId, calendar, "underlying calendar is unchanged");
