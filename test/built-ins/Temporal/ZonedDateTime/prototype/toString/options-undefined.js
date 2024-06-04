@@ -7,35 +7,12 @@ description: Verify that undefined options are handled correctly.
 features: [Temporal]
 ---*/
 
-const calendar = {
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  day() {},
-  dayOfWeek() {},
-  dayOfYear() {},
-  daysInMonth() {},
-  daysInWeek() {},
-  daysInYear() {},
-  fields() {},
-  id: "custom",
-  inLeapYear() {},
-  mergeFields() {},
-  month() {},
-  monthCode() {},
-  monthDayFromFields() {},
-  monthsInYear() {},
-  weekOfYear() {},
-  year() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-};
 const datetime1 = new Temporal.ZonedDateTime(957270896_987_650_000n, "UTC");
-const datetime2 = new Temporal.ZonedDateTime(957270896_987_650_000n, "UTC", calendar);
+const datetime2 = new Temporal.ZonedDateTime(957270896_987_650_000n, "UTC", "gregory");
 
 [
   [datetime1, "2000-05-02T12:34:56.98765+00:00[UTC]"],
-  [datetime2, "2000-05-02T12:34:56.98765+00:00[UTC][u-ca=custom]"],
+  [datetime2, "2000-05-02T12:34:56.98765+00:00[UTC][u-ca=gregory]"],
 ].forEach(([datetime, expected]) => {
   const explicit = datetime.toString(undefined);
   assert.sameValue(explicit, expected, "default show options are auto, precision is auto, and no rounding");

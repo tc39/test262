@@ -48,36 +48,7 @@ assert.sameValue(`${ zdt }`, "1976-11-18T15:23:30.123456789+00:00[UTC]");
 
 // Temporal.ZonedDateTime with non-UTC time zone and non-ISO calendar
 // can be constructed
-var fakeGregorian = {
-  era() { return "ce"; },
-  year(date) { return date.withCalendar("iso8601").year; },
-  month(date) { return date.withCalendar("iso8601").month; },
-  monthCode(date) { return date.withCalendar("iso8601").monthCode; },
-  day(date) { return date.withCalendar("iso8601").day; },
-  dayOfWeek(date) { return date.withCalendar("iso8601").dayOfWeek; },
-  dayOfYear(date) { return date.withCalendar("iso8601").dayOfYear; },
-  weekOfYear(date) { return date.withCalendar("iso8601").weekOfYear; },
-  daysInWeek(date) { return date.withCalendar("iso8601").daysInWeek; },
-  daysInMonth(date) { return date.withCalendar("iso8601").daysInMonth; },
-  daysInYear(date) { return date.withCalendar("iso8601").daysInYear; },
-  monthsInYear(date) { return date.withCalendar("iso8601").monthsInYear; },
-  inLeapYear(date) { return date.withCalendar("iso8601").inLeapYear; },
-  id: "gregory",
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  fields() {},
-  mergeFields() {},
-  monthDayFromFields() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-};
-var fakeVienna = {
-  getOffsetNanosecondsFor() { return 3600_000_000_000; },
-  getPossibleInstantsFor(datetime) { return [datetime.toZonedDateTime("+01:00").toInstant()]; },
-  id: "Europe/Vienna",
-}
-var zdt = new Temporal.ZonedDateTime(epochNanos, fakeVienna, fakeGregorian);
+var zdt = new Temporal.ZonedDateTime(epochNanos, "Europe/Vienna", "gregory");
 assert(zdt instanceof Temporal.ZonedDateTime);
 assert.sameValue(typeof zdt, "object");
 

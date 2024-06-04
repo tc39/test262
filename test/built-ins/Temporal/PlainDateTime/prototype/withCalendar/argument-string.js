@@ -8,31 +8,7 @@ features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
-const calendar = {
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  day() {},
-  dayOfWeek() {},
-  dayOfYear() {},
-  daysInMonth() {},
-  daysInWeek() {},
-  daysInYear() {},
-  fields() {},
-  id: "something special",
-  inLeapYear() {},
-  mergeFields() {},
-  month() {},
-  monthCode() {},
-  monthDayFromFields() {},
-  monthsInYear() {},
-  toString() { return "something special"; },
-  weekOfYear() {},
-  year() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-};
-const dt = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, calendar);
+const dt = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, "gregory");
 const result = dt.withCalendar("iso8601");
 
 TemporalHelpers.assertPlainDateTime(

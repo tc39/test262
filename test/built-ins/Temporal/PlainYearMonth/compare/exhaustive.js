@@ -8,7 +8,7 @@ features: [Temporal]
 ---*/
 
 const cal1 = "iso8601";
-const cal2 = new (class extends Temporal.Calendar { id = "custom"; })("iso8601");
+const cal2 = "gregory";
 
 assert.sameValue(
   Temporal.PlainYearMonth.compare(new Temporal.PlainYearMonth(2000, 5, cal1), new Temporal.PlainYearMonth(1987, 5, cal2)),
