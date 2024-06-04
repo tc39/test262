@@ -10,30 +10,6 @@ features: [Temporal]
 
 const expected = [
   "get other.calendar",
-  "has other.calendar.dateAdd",
-  "has other.calendar.dateFromFields",
-  "has other.calendar.dateUntil",
-  "has other.calendar.day",
-  "has other.calendar.dayOfWeek",
-  "has other.calendar.dayOfYear",
-  "has other.calendar.daysInMonth",
-  "has other.calendar.daysInWeek",
-  "has other.calendar.daysInYear",
-  "has other.calendar.fields",
-  "has other.calendar.id",
-  "has other.calendar.inLeapYear",
-  "has other.calendar.mergeFields",
-  "has other.calendar.month",
-  "has other.calendar.monthCode",
-  "has other.calendar.monthDayFromFields",
-  "has other.calendar.monthsInYear",
-  "has other.calendar.weekOfYear",
-  "has other.calendar.year",
-  "has other.calendar.yearMonthFromFields",
-  "has other.calendar.yearOfWeek",
-  "get other.calendar.dateFromFields",
-  "get other.calendar.fields",
-  "call other.calendar.fields",
   // PrepareTemporalFields
   "get other.day",
   "get other.day.valueOf",
@@ -69,23 +45,6 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
-  "has other.timeZone.getOffsetNanosecondsFor",
-  "has other.timeZone.getPossibleInstantsFor",
-  "has other.timeZone.id",
-  // InterpretTemporalDateTimeFields
-  "call other.calendar.dateFromFields",
-  // lookup in ToTemporalZonedDateTime
-  "get other.timeZone.getOffsetNanosecondsFor",
-  "get other.timeZone.getPossibleInstantsFor",
-  // InterpretISODateTimeOffset
-  "call other.timeZone.getPossibleInstantsFor",
-  "call other.timeZone.getOffsetNanosecondsFor",
-  // TimeZoneEquals
-  "get this.timeZone.id",
-  "get other.timeZone.id",
-  // CalendarEquals
-  "get this.calendar.id",
-  "get other.calendar.id",
 ];
 const actual = [];
 

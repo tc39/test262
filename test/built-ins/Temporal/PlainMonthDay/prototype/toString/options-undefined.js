@@ -7,35 +7,9 @@ description: Verify that undefined options are handled correctly.
 features: [Temporal]
 ---*/
 
-const calendarMethods = {
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  day() {},
-  dayOfWeek() {},
-  dayOfYear() {},
-  daysInMonth() {},
-  daysInWeek() {},
-  daysInYear() {},
-  fields() {},
-  inLeapYear() {},
-  mergeFields() {},
-  month() {},
-  monthCode() {},
-  monthDayFromFields() {},
-  monthsInYear() {},
-  weekOfYear() {},
-  year() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-};
-
 const tests = [
   [[], "05-02"],
-  [[{ id: "custom", ...calendarMethods }], "1972-05-02[u-ca=custom]"],
-  [[{ id: "iso8601", ...calendarMethods }], "05-02"],
-  [[{ id: "ISO8601", ...calendarMethods }], "1972-05-02[u-ca=ISO8601]"],
-  [[{ id: "\u0131so8601", ...calendarMethods }], "1972-05-02[u-ca=\u0131so8601]"], // dotless i
+  [["gregory"], "1972-05-02[u-ca=gregory]"],
 ];
 
 for (const [args, expected] of tests) {

@@ -10,7 +10,7 @@ features: [Temporal]
 const tz1 = "UTC";
 const tz2 = "-00:30";
 const cal1 = "iso8601";
-const cal2 = new (class extends Temporal.Calendar { id = "custom"; })("iso8601");
+const cal2 = "gregory";
 
 assert.sameValue(
   Temporal.ZonedDateTime.compare(new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, tz1, cal1), new Temporal.ZonedDateTime(500_000_000_000_000_000n, tz2, cal2)),

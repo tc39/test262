@@ -7,35 +7,12 @@ description: Verify that undefined options are handled correctly.
 features: [Temporal]
 ---*/
 
-const calendar = {
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  day() {},
-  dayOfWeek() {},
-  dayOfYear() {},
-  daysInMonth() {},
-  daysInWeek() {},
-  daysInYear() {},
-  fields() {},
-  id: "custom",
-  inLeapYear() {},
-  mergeFields() {},
-  month() {},
-  monthCode() {},
-  monthDayFromFields() {},
-  monthsInYear() {},
-  weekOfYear() {},
-  year() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-};
 const date1 = new Temporal.PlainDate(2000, 5, 2);
-const date2 = new Temporal.PlainDate(2000, 5, 2, calendar);
+const date2 = new Temporal.PlainDate(2000, 5, 2, "gregory");
 
 [
   [date1, "2000-05-02"],
-  [date2, "2000-05-02[u-ca=custom]"],
+  [date2, "2000-05-02[u-ca=gregory]"],
 ].forEach(([date, expected]) => {
   const explicit = date.toString(undefined);
   assert.sameValue(explicit, expected, "default calendarName option is auto");

@@ -111,30 +111,7 @@ assert.throws(TypeError, () => Temporal.ZonedDateTime.compare(zdt1, {
 assert.sameValue(Temporal.ZonedDateTime.compare(zdt1, zdt1.withTimeZone("+05:30")), 0);
 
 // disregards calendar IDs if exact times and time zones are equal
-var fakeJapanese = {
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  day() {},
-  dayOfWeek() {},
-  dayOfYear() {},
-  daysInMonth() {},
-  daysInWeek() {},
-  daysInYear() {},
-  fields() {},
-  id: "japanese",
-  inLeapYear() {},
-  mergeFields() {},
-  month() {},
-  monthCode() {},
-  monthDayFromFields() {},
-  monthsInYear() {},
-  weekOfYear() {},
-  year() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-};
-assert.sameValue(Temporal.ZonedDateTime.compare(zdt1, zdt1.withCalendar(fakeJapanese)), 0);
+assert.sameValue(Temporal.ZonedDateTime.compare(zdt1, zdt1.withCalendar("japanese")), 0);
 
 // compares exact time, not clock time
 var clockBefore = Temporal.ZonedDateTime.from("1999-12-31T23:30-08:00[-08:00]");

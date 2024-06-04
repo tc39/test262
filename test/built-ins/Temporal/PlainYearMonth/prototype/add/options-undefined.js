@@ -8,23 +8,16 @@ features: [Temporal]
 ---*/
 
 // overflow option has no effect on addition in the ISO calendar, so verify this
-// with a custom calendar
-class CheckedAdd extends Temporal.Calendar {
-  constructor() {
-    super("iso8601");
-  }
-  dateAdd(date, duration, options, constructor) {
-    this.called = true;
-    assert.notSameValue(options, undefined, "options not undefined");
-    return super.dateAdd(date, duration, options, constructor);
-  }
-}
-const calendar = new CheckedAdd();
+// with a lunisolar calendar. Default overflow is "constrain" so this should not
+// throw.
 
-const yearmonth = new Temporal.PlainYearMonth(2000, 1, calendar);
-const duration = { months: 1 };
+const yearmonth = Temporal.PlainYearMonth.from({
+  year: 5779,
+  monthCode: "M05L",
+  calendar: "hebrew"
+});
+const duration = { years: 1 };
 
 yearmonth.add(duration, undefined);
-yearmonth.add(duration);
 
-assert(calendar.called);
+yearmonth.add(duration);

@@ -8,29 +8,7 @@ features: [Temporal]
 ---*/
 
 const dt1 = new Temporal.PlainDateTime(2000, 1, 1, 0, 0, 0, 0, 0, 0);
-const dt2 = new Temporal.PlainDateTime(2000, 1, 1, 0, 0, 0, 0, 0, 0, {
-  dateAdd() {},
-  dateFromFields() {},
-  dateUntil() {},
-  day() {},
-  dayOfWeek() {},
-  dayOfYear() {},
-  daysInMonth() {},
-  daysInWeek() {},
-  daysInYear() {},
-  fields() {},
-  id: "custom",
-  inLeapYear() {},
-  mergeFields() {},
-  month() {},
-  monthCode() {},
-  monthDayFromFields() {},
-  monthsInYear() {},
-  weekOfYear() {},
-  year() {},
-  yearMonthFromFields() {},
-  yearOfWeek() {},
-});
+const dt2 = new Temporal.PlainDateTime(2000, 1, 1, 0, 0, 0, 0, 0, 0, "gregory");
 
 assert.throws(
   RangeError,
