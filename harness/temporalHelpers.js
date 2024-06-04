@@ -1590,63 +1590,6 @@ var TemporalHelpers = {
   },
 
   /*
-   * A custom calendar that does not allow any of its methods to be called, for
-   * the purpose of asserting that a particular operation does not call into
-   * user code.
-   */
-  calendarThrowEverything() {
-    class CalendarThrowEverything extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-      toString() {
-        TemporalHelpers.assertUnreachable("toString should not be called");
-      }
-      dateFromFields() {
-        TemporalHelpers.assertUnreachable("dateFromFields should not be called");
-      }
-      yearMonthFromFields() {
-        TemporalHelpers.assertUnreachable("yearMonthFromFields should not be called");
-      }
-      monthDayFromFields() {
-        TemporalHelpers.assertUnreachable("monthDayFromFields should not be called");
-      }
-      dateAdd() {
-        TemporalHelpers.assertUnreachable("dateAdd should not be called");
-      }
-      dateUntil() {
-        TemporalHelpers.assertUnreachable("dateUntil should not be called");
-      }
-      era() {
-        TemporalHelpers.assertUnreachable("era should not be called");
-      }
-      eraYear() {
-        TemporalHelpers.assertUnreachable("eraYear should not be called");
-      }
-      year() {
-        TemporalHelpers.assertUnreachable("year should not be called");
-      }
-      month() {
-        TemporalHelpers.assertUnreachable("month should not be called");
-      }
-      monthCode() {
-        TemporalHelpers.assertUnreachable("monthCode should not be called");
-      }
-      day() {
-        TemporalHelpers.assertUnreachable("day should not be called");
-      }
-      fields() {
-        TemporalHelpers.assertUnreachable("fields should not be called");
-      }
-      mergeFields() {
-        TemporalHelpers.assertUnreachable("mergeFields should not be called");
-      }
-    }
-
-    return new CalendarThrowEverything();
-  },
-
-  /*
    * oneShiftTimeZone(shiftInstant, shiftNanoseconds):
    *
    * In the case of a spring-forward time zone offset transition (skipped time),
@@ -1824,30 +1767,6 @@ var TemporalHelpers = {
         return Reflect.has(target, key);
       },
     });
-  },
-
-  /*
-   * A custom time zone that does not allow any of its methods to be called, for
-   * the purpose of asserting that a particular operation does not call into
-   * user code.
-   */
-  timeZoneThrowEverything() {
-    class TimeZoneThrowEverything extends Temporal.TimeZone {
-      constructor() {
-        super("UTC");
-      }
-      getOffsetNanosecondsFor() {
-        TemporalHelpers.assertUnreachable("getOffsetNanosecondsFor should not be called");
-      }
-      getPossibleInstantsFor() {
-        TemporalHelpers.assertUnreachable("getPossibleInstantsFor should not be called");
-      }
-      toString() {
-        TemporalHelpers.assertUnreachable("toString should not be called");
-      }
-    }
-
-    return new TimeZoneThrowEverything();
   },
 
   /*
