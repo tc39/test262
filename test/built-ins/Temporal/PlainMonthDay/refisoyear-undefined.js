@@ -10,7 +10,9 @@ features: [Temporal]
 const args = [5, 2, "iso8601"];
 
 const dateExplicit = new Temporal.PlainMonthDay(...args, undefined);
-assert.sameValue(dateExplicit.getISOFields().isoYear, 1972, "default referenceISOYear is 1972");
+const isoYearExplicit = Number(dateExplicit.toString({ calendarName: "always" }).slice(0, 4));
+assert.sameValue(isoYearExplicit, 1972, "default referenceISOYear is 1972");
 
 const dateImplicit = new Temporal.PlainMonthDay(...args);
-assert.sameValue(dateImplicit.getISOFields().isoYear, 1972, "default referenceISOYear is 1972");
+const isoYearImplicit = Number(dateImplicit.toString({ calendarName: "always" }).slice(0, 4));
+assert.sameValue(isoYearImplicit, 1972, "default referenceISOYear is 1972");

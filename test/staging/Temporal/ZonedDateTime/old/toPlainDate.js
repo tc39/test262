@@ -13,4 +13,4 @@ assert.sameValue(`${ zdt.toPlainDate() }`, "2019-10-29");
 
 // preserves the calendar
 var zdt = Temporal.Instant.from("2019-10-29T09:46:38.271986102Z").toZonedDateTimeISO("-07:00").withCalendar("gregory");
-assert.sameValue(zdt.toPlainDate().getISOFields().calendar, "gregory");
+assert.sameValue(zdt.toPlainDate().calendarId, "gregory");

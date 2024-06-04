@@ -17,11 +17,7 @@ TemporalHelpers.assertPlainDateTime(
   "'iso8601' is a recognizable calendar"
 );
 
-assert.sameValue(
-  result.getISOFields().calendar,
-  "iso8601",
-  "underlying calendar has changed and calendar slot stores a string"
-);
+assert.sameValue(result.calendarId, "iso8601", "underlying calendar has changed");
 
 assert.throws(
   RangeError,

@@ -24,6 +24,6 @@ TemporalHelpers.checkSubclassingIgnored(
     assert.sameValue(result.millisecond, 0, "millisecond result");
     assert.sameValue(result.microsecond, 0, "microsecond result");
     assert.sameValue(result.nanosecond, 10, "nanosecond result");
-    assert.sameValue(result.getISOFields().calendar, "iso8601", "calendar result");
+    assert.sameValue(result.calendarId, "iso8601", "calendar result");
   },
 );
