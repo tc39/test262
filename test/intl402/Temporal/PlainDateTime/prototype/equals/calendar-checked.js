@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.prototype.equals
 description: Calendar is taken into account if the ISO data is equal
-includes: [compareArray.js,temporalHelpers.js]
 features: [Temporal]
 ---*/
 
