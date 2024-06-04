@@ -31,8 +31,7 @@ for (const [calendar, description] of primitiveTests) {
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [{}, "plain object that doesn't implement the protocol"],
-  [new Temporal.TimeZone("UTC"), "time zone instance"],
+  [{}, "object"],
   [Temporal.PlainDate, "Temporal.PlainDate, object"],
   [Temporal.PlainDate.prototype, "Temporal.PlainDate.prototype, object"],
   [Temporal.ZonedDateTime, "Temporal.ZonedDateTime, object"],
