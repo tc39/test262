@@ -8,8 +8,7 @@ features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
-const calendar = Temporal.Calendar.from("iso8601");
-const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, calendar);
+const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, "iso8601");
 
 TemporalHelpers.assertPlainDateTime(datetime,
   1976, 11, "M11", 18, 15, 23, 30, 123, 456, 789,
@@ -18,6 +17,6 @@ TemporalHelpers.assertPlainDateTime(datetime,
 
 assert.sameValue(
   datetime.getISOFields().calendar,
-  calendar,
+  "iso8601",
   "calendar supplied in constructor can be extracted and is unchanged"
 );

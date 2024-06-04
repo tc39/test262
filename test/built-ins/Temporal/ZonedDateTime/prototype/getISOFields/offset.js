@@ -8,8 +8,7 @@ features: [BigInt, Temporal]
 ---*/
 
 function test(timeZoneIdentifier, expectedOffsetString, description) {
-  const timeZone = new Temporal.TimeZone(timeZoneIdentifier);
-  const datetime = new Temporal.ZonedDateTime(0n, timeZone);
+  const datetime = new Temporal.ZonedDateTime(0n, timeZoneIdentifier);
   const fields = datetime.getISOFields();
   assert.sameValue(fields.offset, expectedOffsetString, description);
 }

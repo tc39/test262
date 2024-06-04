@@ -8,14 +8,12 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-var lagos = Temporal.TimeZone.from("+01:00");
-
 // can be constructed with monthCode and without month
 assert.sameValue(`${ Temporal.ZonedDateTime.from({
   year: 1976,
   monthCode: "M11",
   day: 18,
-  timeZone: lagos
+  timeZone: "+01:00"
 }) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
 // can be constructed with month and without monthCode
@@ -23,7 +21,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   year: 1976,
   month: 11,
   day: 18,
-  timeZone: lagos
+  timeZone: "+01:00"
 }) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
 // month and monthCode must agree
@@ -32,7 +30,7 @@ assert.throws(RangeError, () => Temporal.ZonedDateTime.from({
   month: 11,
   monthCode: "M12",
   day: 18,
-  timeZone: lagos
+  timeZone: "+01:00"
 }));
 
 // Temporal.ZonedDateTime.from({}) throws
@@ -44,7 +42,7 @@ assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
   month: undefined,
   monthCode: undefined,
   day: 18,
-  timeZone: lagos
+  timeZone: "+01:00"
 }))
 
 // options may be a function object
@@ -52,7 +50,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   year: 1976,
   month: 11,
   day: 18,
-  timeZone: lagos
+  timeZone: "+01:00"
 }, () => {
 }) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
@@ -61,7 +59,7 @@ assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
   years: 1976,
   months: 11,
   days: 18,
-  timeZone: lagos
+  timeZone: "+01:00"
 }));
 
 // incorrectly-spelled properties are ignored
@@ -69,7 +67,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
   year: 1976,
   month: 11,
   day: 18,
-  timeZone: lagos,
+  timeZone: "+01:00",
   hours: 12
 }) }`, "1976-11-18T00:00:00+01:00[+01:00]");
 
@@ -91,7 +89,7 @@ assert.sameValue(`${ Temporal.ZonedDateTime.from({
       month: 11,
       day: 18,
       offset: offset,
-      timeZone: Temporal.TimeZone.from("+10:00")
+      timeZone: "+10:00"
     })
   )
 });
@@ -102,7 +100,7 @@ var bad = {
   year: 2019,
   month: 1,
   day: 32,
-  timeZone: lagos
+  timeZone: "+01:00"
 };
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(bad, { overflow: "reject" }));
 assert.sameValue(`${ Temporal.ZonedDateTime.from(bad) }`, "2019-01-31T00:00:00+01:00[+01:00]");

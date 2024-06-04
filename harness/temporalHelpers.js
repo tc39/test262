@@ -342,7 +342,7 @@ var TemporalHelpers = {
     const actual = [];
     const expected = [];
 
-    const calendar = new Temporal.Calendar("iso8601");
+    const calendar = "iso8601";
     const datetime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, calendar);
     const prototypeDescrs = Object.getOwnPropertyDescriptors(Temporal.PlainDateTime.prototype);
     ["year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
@@ -964,8 +964,7 @@ var TemporalHelpers = {
     const actual = [];
     const expected = [];
 
-    const calendar = new Temporal.Calendar("iso8601");
-    const date = new Temporal.PlainDate(2000, 5, 2, calendar);
+    const date = new Temporal.PlainDate(2000, 5, 2, "iso8601");
     const prototypeDescrs = Object.getOwnPropertyDescriptors(Temporal.PlainDate.prototype);
     ["year", "month", "monthCode", "day"].forEach((property) => {
       Object.defineProperty(date, property, {

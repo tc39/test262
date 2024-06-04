@@ -9,7 +9,7 @@ description: >
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.ZonedDateTime(0n, new Temporal.TimeZone("UTC"));
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 const primitiveTests = [
   [null, "null"],

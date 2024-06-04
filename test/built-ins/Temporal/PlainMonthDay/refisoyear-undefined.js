@@ -7,8 +7,7 @@ description: referenceISOYear argument defaults to 1972 if not given
 features: [Temporal]
 ---*/
 
-const calendar = new Temporal.Calendar("iso8601");
-const args = [5, 2, calendar];
+const args = [5, 2, "iso8601"];
 
 const dateExplicit = new Temporal.PlainMonthDay(...args, undefined);
 assert.sameValue(dateExplicit.getISOFields().isoYear, 1972, "default referenceISOYear is 1972");

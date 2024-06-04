@@ -5,11 +5,11 @@
 esid: sec-temporal.zoneddatetime.prototype.withtimezone
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
-  or object for TimeZone
+  for time zone
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.ZonedDateTime(0n, new Temporal.TimeZone("UTC"));
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 const primitiveTests = [
   [null, "null"],
