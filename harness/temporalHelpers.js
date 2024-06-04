@@ -272,8 +272,7 @@ var TemporalHelpers = {
   /*
    * assertUnreachable(description):
    *
-   * Helper for asserting that code is not executed. This is useful for
-   * assertions that methods of user calendars and time zones are not called.
+   * Helper for asserting that code is not executed.
    */
   assertUnreachable(description) {
     let message = "This code should not be executed";
