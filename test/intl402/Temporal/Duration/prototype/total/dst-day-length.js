@@ -5,7 +5,6 @@ esid: sec-temporal.duration.prototype.total
 description: >
     ZonedDateTime relativeTo affects day length when the duration encompasses a
     DST change
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -17,38 +16,36 @@ const hours25 = new Temporal.Duration(0, 0, 0, 0, 25);
 const hours25Neg = new Temporal.Duration(0, 0, 0, 0, -25);
 const hours48 = new Temporal.Duration(0, 0, 0, 0, 48);
 
-const timeZone = TemporalHelpers.springForwardFallBackTimeZone();
-
 const skippedHourDay = new Temporal.ZonedDateTime(
   954662400_000_000_000n /* = 2000-04-02T08Z */,
-  timeZone); /* = 2000-04-02T00-08 in local time */
+  "America/Vancouver"); /* = 2000-04-02T00-08 in local time */
 const repeatedHourDay = new Temporal.ZonedDateTime(
   972802800_000_000_000n /* = 2000-10-29T07Z */,
-  timeZone); /* = 2000-10-29T00-07 in local time */
+  "America/Vancouver"); /* = 2000-10-29T00-07 in local time */
 const inRepeatedHour = new Temporal.ZonedDateTime(
   972806400_000_000_000n /* = 2000-10-29T08Z */,
-  timeZone); /* = 2000-10-29T01-07 in local time */
+  "America/Vancouver"); /* = 2000-10-29T01-07 in local time */
 const oneDayAfterRepeatedHour = new Temporal.ZonedDateTime(
   972896400_000_000_000n /* = 2000-10-30T09Z */,
-  timeZone); /* = 2000-10-30T01-08 in local time */
+  "America/Vancouver"); /* = 2000-10-30T01-08 in local time */
 const beforeSkippedHour = new Temporal.ZonedDateTime(
   954585000_000_000_000n /* = 2000-04-01T10:30Z */,
-  timeZone); /* = 2000-04-01T02:30-08 in local time */
+  "America/Vancouver"); /* = 2000-04-01T02:30-08 in local time */
 const dayAfterSkippedHour = new Temporal.ZonedDateTime(
   954745200_000_000_000n /* = 2000-04-03T07Z */,
-  timeZone); /* = 2000-04-03T00-07 in local time */
+  "America/Vancouver"); /* = 2000-04-03T00-07 in local time */
 const afterSkippedHour = new Temporal.ZonedDateTime(
   954702000_000_000_000n /* = 2000-04-02T19Z */,
-  timeZone); /* = 2000-04-02T12-07 in local time */
+  "America/Vancouver"); /* = 2000-04-02T12-07 in local time */
 const afterRepeatedHour = new Temporal.ZonedDateTime(
   972892800_000_000_000n /* = 2000-10-30T08Z */,
-  timeZone); /* = 2000-10-30T00-08 in local time */
+  "America/Vancouver"); /* = 2000-10-30T00-08 in local time */
 const afterRepeatedHourSameDay = new Temporal.ZonedDateTime(
   972849600_000_000_000n /* = 2000-10-29T20Z */,
-  timeZone); /* = 2000-10-29T12-08 in local time */
+  "America/Vancouver"); /* = 2000-10-29T12-08 in local time */
 const beforeRepeatedHour = new Temporal.ZonedDateTime(
   972716400_000_000_000n /* = 2000-10-28T07Z */,
-  timeZone); /* = 2000-10-28T00-07 in local time */
+  "America/Vancouver"); /* = 2000-10-28T00-07 in local time */
 
 assert.sameValue(hours25.total({
   unit: "days",
