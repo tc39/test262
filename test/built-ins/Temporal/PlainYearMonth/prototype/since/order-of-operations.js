@@ -96,15 +96,14 @@ const expected = expectedMinimal.concat([
 ]);
 const actual = [];
 
-const ownCalendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.PlainYearMonth(2000, 5, ownCalendar, 1);
+const instance = new Temporal.PlainYearMonth(2000, 5, "iso8601", 1);
 
 const otherYearMonthPropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   year: 2001,
   month: 6,
   monthCode: "M06",
-  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
-}, "other");
+  calendar: "iso8601",
+}, "other", ["calendar"]);
 
 function createOptionsObserver({ smallestUnit = "months", largestUnit = "auto", roundingMode = "halfExpand", roundingIncrement = 1 } = {}) {
   return TemporalHelpers.propertyBagObserver(actual, {

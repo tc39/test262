@@ -112,9 +112,9 @@ const from = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "item.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "item.timeZone"),
-}, "item");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "item", ["calendar", "timeZone"]);
 
 function createOptionsObserver({ overflow = "constrain", disambiguation = "compatible", offset = "reject" } = {}) {
   return TemporalHelpers.propertyBagObserver(actual, {

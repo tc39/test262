@@ -165,9 +165,9 @@ const one = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "one.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "one.timeZone"),
-}, "one");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "one", ["calendar", "timeZone"]);
 
 const two = TemporalHelpers.propertyBagObserver(actual, {
   year: 2014,
@@ -181,9 +181,9 @@ const two = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 456,
   nanosecond: 789,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "two.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "two.timeZone"),
-}, "two");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "two", ["calendar", "timeZone"]);
 
 Temporal.ZonedDateTime.compare(one, two);
 assert.compareArray(actual, expected, "order of operations");

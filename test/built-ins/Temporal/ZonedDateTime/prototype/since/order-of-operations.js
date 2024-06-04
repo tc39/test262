@@ -104,8 +104,6 @@ const expected = [
 ];
 const actual = [];
 
-const ownTimeZone = TemporalHelpers.timeZoneObserver(actual, "this.timeZone");
-const ownCalendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
 const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, ownTimeZone, ownCalendar);
 
 const dstTimeZone = TemporalHelpers.springForwardFallBackTimeZone();
@@ -132,9 +130,9 @@ const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 500,
   nanosecond: 750,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "other.timeZone"),
-}, "other");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "other", ["calendar", "timeZone"]);
 
 function createOptionsObserver({ smallestUnit = "nanoseconds", largestUnit = "auto", roundingMode = "halfExpand", roundingIncrement = 1 } = {}) {
   return TemporalHelpers.propertyBagObserver(actual, {

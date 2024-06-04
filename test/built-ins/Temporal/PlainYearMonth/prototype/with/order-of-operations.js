@@ -51,10 +51,7 @@ const expected = [
 ];
 const actual = [];
 
-const calendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.PlainYearMonth(2000, 5, calendar);
-// clear observable operations that occurred during the constructor call
-actual.splice(0);
+const instance = new Temporal.PlainYearMonth(2000, 5);
 
 const fields = TemporalHelpers.propertyBagObserver(actual, {
   year: 1.7,

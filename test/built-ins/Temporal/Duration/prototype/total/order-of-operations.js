@@ -95,8 +95,8 @@ const plainRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
   month: 5,
   monthCode: "M05",
   day: 2,
-  calendar: TemporalHelpers.calendarObserver(actual, "options.relativeTo.calendar"),
-}, "options.relativeTo");
+  calendar: "iso8601",
+}, "options.relativeTo", ["calendar"]);
 
 // basic order of observable operations, without rounding:
 instance.total(createOptionsObserver({ unit: "nanoseconds", relativeTo: plainRelativeTo }));
@@ -254,9 +254,9 @@ const zonedRelativeTo = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "options.relativeTo.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "options.relativeTo.timeZone"),
-}, "options.relativeTo");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "options.relativeTo", ["calendar", "timeZone"]);
 
 // basic order of observable operations, without rounding:
 instance.total(createOptionsObserver({ unit: "nanoseconds", relativeTo: zonedRelativeTo }));
