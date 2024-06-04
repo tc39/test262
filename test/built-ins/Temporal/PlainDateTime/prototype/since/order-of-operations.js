@@ -93,8 +93,7 @@ const expected = [
 ];
 const actual = [];
 
-const ownCalendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, ownCalendar);
+const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, "iso8601");
 
 const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   year: 2001,
@@ -107,8 +106,8 @@ const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   millisecond: 250,
   microsecond: 500,
   nanosecond: 750,
-  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
-}, "other");
+  calendar: "iso8601",
+}, "other", ["calendar"]);
 
 function createOptionsObserver({ smallestUnit = "nanoseconds", largestUnit = "auto", roundingMode = "halfExpand", roundingIncrement = 1 } = {}) {
   return TemporalHelpers.propertyBagObserver(actual, {

@@ -58,14 +58,13 @@ const expected = [
 ];
 const actual = [];
 
-const calendar = TemporalHelpers.calendarObserver(actual, "fields.calendar");
 const fields = TemporalHelpers.propertyBagObserver(actual, {
   year: 1.7,
   month: 1.7,
   monthCode: "M01",
   day: 1.7,
-  calendar,
-}, "fields");
+  calendar: "iso8601",
+}, "fields", ["calendar"]);
 
 const options = TemporalHelpers.propertyBagObserver(actual, {
   overflow: "constrain",

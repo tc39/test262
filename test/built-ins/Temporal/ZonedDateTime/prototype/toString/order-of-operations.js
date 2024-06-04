@@ -34,11 +34,7 @@ const expected = [
 ];
 const actual = [];
 
-const timeZone = TemporalHelpers.timeZoneObserver(actual, "this.timeZone");
-const calendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.ZonedDateTime(0n, timeZone, calendar);
-// clear observable operations that occurred during the constructor call
-actual.splice(0);
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 instance.toString(
   TemporalHelpers.propertyBagObserver(actual, {

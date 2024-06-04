@@ -1422,142 +1422,6 @@ var TemporalHelpers = {
   },
 
   /*
-   * calendarObserver:
-   * A custom calendar that behaves exactly like the ISO 8601 calendar but
-   * tracks calls to any of its methods, and Get/Has operations on its
-   * properties, by appending messages to an array. This is for the purpose of
-   * testing order of operations that are observable from user code.
-   * objectName is used in the log.
-   */
-  calendarObserver(calls, objectName, methodOverrides = {}) {
-    function removeExtraHasPropertyChecks(objectName, calls) {
-      // Inserting the tracking calendar into the return values of methods
-      // that we chain up into the ISO calendar for, causes extra HasProperty
-      // checks, which we observe. This removes them so that we don't leak
-      // implementation details of the helper into the test code.
-      assert.sameValue(calls.pop(), `has ${objectName}.yearOfWeek`);
-      assert.sameValue(calls.pop(), `has ${objectName}.yearMonthFromFields`);
-      assert.sameValue(calls.pop(), `has ${objectName}.year`);
-      assert.sameValue(calls.pop(), `has ${objectName}.weekOfYear`);
-      assert.sameValue(calls.pop(), `has ${objectName}.monthsInYear`);
-      assert.sameValue(calls.pop(), `has ${objectName}.monthDayFromFields`);
-      assert.sameValue(calls.pop(), `has ${objectName}.monthCode`);
-      assert.sameValue(calls.pop(), `has ${objectName}.month`);
-      assert.sameValue(calls.pop(), `has ${objectName}.mergeFields`);
-      assert.sameValue(calls.pop(), `has ${objectName}.inLeapYear`);
-      assert.sameValue(calls.pop(), `has ${objectName}.id`);
-      assert.sameValue(calls.pop(), `has ${objectName}.fields`);
-      assert.sameValue(calls.pop(), `has ${objectName}.daysInYear`);
-      assert.sameValue(calls.pop(), `has ${objectName}.daysInWeek`);
-      assert.sameValue(calls.pop(), `has ${objectName}.daysInMonth`);
-      assert.sameValue(calls.pop(), `has ${objectName}.dayOfYear`);
-      assert.sameValue(calls.pop(), `has ${objectName}.dayOfWeek`);
-      assert.sameValue(calls.pop(), `has ${objectName}.day`);
-      assert.sameValue(calls.pop(), `has ${objectName}.dateUntil`);
-      assert.sameValue(calls.pop(), `has ${objectName}.dateFromFields`);
-      assert.sameValue(calls.pop(), `has ${objectName}.dateAdd`);
-    }
-
-    const iso8601 = new Temporal.Calendar("iso8601");
-    const trackingMethods = {
-      dateFromFields(...args) {
-        calls.push(`call ${objectName}.dateFromFields`);
-        if ('dateFromFields' in methodOverrides) {
-          const value = methodOverrides.dateFromFields;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.dateFromFields(...args);
-        // Replace the calendar in the result with the call-tracking calendar
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
-        removeExtraHasPropertyChecks(objectName, calls);
-        return result;
-      },
-      yearMonthFromFields(...args) {
-        calls.push(`call ${objectName}.yearMonthFromFields`);
-        if ('yearMonthFromFields' in methodOverrides) {
-          const value = methodOverrides.yearMonthFromFields;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.yearMonthFromFields(...args);
-        // Replace the calendar in the result with the call-tracking calendar
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
-        removeExtraHasPropertyChecks(objectName, calls);
-        return result;
-      },
-      monthDayFromFields(...args) {
-        calls.push(`call ${objectName}.monthDayFromFields`);
-        if ('monthDayFromFields' in methodOverrides) {
-          const value = methodOverrides.monthDayFromFields;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.monthDayFromFields(...args);
-        // Replace the calendar in the result with the call-tracking calendar
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
-        removeExtraHasPropertyChecks(objectName, calls);
-        return result;
-      },
-      dateAdd(...args) {
-        calls.push(`call ${objectName}.dateAdd`);
-        if ('dateAdd' in methodOverrides) {
-          const value = methodOverrides.dateAdd;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.dateAdd(...args);
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
-        removeExtraHasPropertyChecks(objectName, calls);
-        return result;
-      },
-      id: "iso8601",
-    };
-    // Automatically generate the other methods that don't need any custom code
-    [
-      "dateUntil",
-      "day",
-      "dayOfWeek",
-      "dayOfYear",
-      "daysInMonth",
-      "daysInWeek",
-      "daysInYear",
-      "era",
-      "eraYear",
-      "fields",
-      "inLeapYear",
-      "mergeFields",
-      "month",
-      "monthCode",
-      "monthsInYear",
-      "toString",
-      "weekOfYear",
-      "year",
-      "yearOfWeek",
-    ].forEach((methodName) => {
-      trackingMethods[methodName] = function (...args) {
-        calls.push(`call ${formatPropertyName(methodName, objectName)}`);
-        if (methodName in methodOverrides) {
-          const value = methodOverrides[methodName];
-          return typeof value === "function" ? value(...args) : value;
-        }
-        return iso8601[methodName](...args);
-      };
-    });
-    return new Proxy(trackingMethods, {
-      get(target, key, receiver) {
-        const result = Reflect.get(target, key, receiver);
-        calls.push(`get ${formatPropertyName(key, objectName)}`);
-        return result;
-      },
-      has(target, key) {
-        calls.push(`has ${formatPropertyName(key, objectName)}`);
-        return Reflect.has(target, key);
-      },
-    });
-  },
-
-  /*
    * oneShiftTimeZone(shiftInstant, shiftNanoseconds):
    *
    * In the case of a spring-forward time zone offset transition (skipped time),
@@ -1633,8 +1497,11 @@ var TemporalHelpers = {
    * and valueOf methods in the same array. This is for the purpose of testing
    * order of operations that are observable from user code. objectName is used
    * in the log.
+   * If skipToPrimitive is given, it must be an array of property keys. Those
+   * properties will not have a TemporalHelpers.toPrimitiveObserver returned,
+   * and instead just be returned directly.
    */
-  propertyBagObserver(calls, propertyBag, objectName) {
+  propertyBagObserver(calls, propertyBag, objectName, skipToPrimitive) {
     return new Proxy(propertyBag, {
       ownKeys(target) {
         calls.push(`ownKeys ${objectName}`);
@@ -1653,47 +1520,10 @@ var TemporalHelpers = {
         if ((result !== null && typeof result === "object") || typeof result === "function") {
           return result;
         }
-        return TemporalHelpers.toPrimitiveObserver(calls, result, `${formatPropertyName(key, objectName)}`);
-      },
-      has(target, key) {
-        calls.push(`has ${formatPropertyName(key, objectName)}`);
-        return Reflect.has(target, key);
-      },
-    });
-  },
-
-  /*
-   * timeZoneObserver:
-   * A custom calendar that behaves exactly like the UTC time zone but tracks
-   * calls to any of its methods, and Get/Has operations on its properties, by
-   * appending messages to an array. This is for the purpose of testing order of
-   * operations that are observable from user code. objectName is used in the
-   * log. methodOverrides is an optional object containing properties with the
-   * same name as Temporal.TimeZone methods. If the property value is a function
-   * it will be called with the proper arguments instead of the UTC method.
-   * Otherwise, the property value will be returned directly.
-   */
-  timeZoneObserver(calls, objectName, methodOverrides = {}) {
-    const utc = new Temporal.TimeZone("UTC");
-    const trackingMethods = {
-      id: "UTC",
-    };
-    // Automatically generate the methods
-    ["getOffsetNanosecondsFor", "getPossibleInstantsFor", "toString"].forEach((methodName) => {
-      trackingMethods[methodName] = function (...args) {
-        calls.push(`call ${formatPropertyName(methodName, objectName)}`);
-        if (methodName in methodOverrides) {
-          const value = methodOverrides[methodName];
-          return typeof value === "function" ? value(...args) : value;
+        if (skipToPrimitive && skipToPrimitive.indexOf(key) >= 0) {
+          return result;
         }
-        return utc[methodName](...args);
-      };
-    });
-    return new Proxy(trackingMethods, {
-      get(target, key, receiver) {
-        const result = Reflect.get(target, key, receiver);
-        calls.push(`get ${formatPropertyName(key, objectName)}`);
-        return result;
+        return TemporalHelpers.toPrimitiveObserver(calls, result, `${formatPropertyName(key, objectName)}`);
       },
       has(target, key) {
         calls.push(`has ${formatPropertyName(key, objectName)}`);

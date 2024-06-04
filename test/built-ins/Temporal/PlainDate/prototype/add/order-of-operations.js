@@ -50,8 +50,7 @@ const expected = [
 ];
 const actual = [];
 
-const calendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.PlainDate(2000, 5, 2, calendar);
+const instance = new Temporal.PlainDate(2000, 5, 2, "iso8601");
 // clear observable operations that occurred during the constructor call
 actual.splice(0);
 

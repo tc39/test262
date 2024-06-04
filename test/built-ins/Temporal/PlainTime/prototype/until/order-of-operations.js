@@ -62,7 +62,7 @@ const other = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 1.7,
   nanosecond: 1.7,
   calendar: "iso8601",
-}, "other");
+}, "other", ["calendar"]);
 
 const options = TemporalHelpers.propertyBagObserver(actual, {
   roundingIncrement: 1,
