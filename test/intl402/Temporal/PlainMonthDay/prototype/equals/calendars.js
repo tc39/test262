@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plainmonthday.prototype.equals
 description: Basic tests for equals() calendar handling
-includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 

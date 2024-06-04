@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plainyearmonth.prototype.equals
 description: equals() takes the calendar into account
-includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
