@@ -1,0 +1,31 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/setter/public/static/
+name: public static setter decorator behavior in class declaration
+features: [class, decorators]
+esid: prod-MethodDefinition
+---*/
+
+/*{ decorators }*/
+class C {
+  static internalValue = 123;
+
+  /*{ application }*/
+  static set element(value) {
+    this.internalValue = value;
+  }
+
+  static getElement() {
+    return this.internalValue;
+  }
+
+  static setElement(value) {
+    this.element = value;
+  }
+}
+
+var classOrInstance = C;
+
+/*{ assertions }*/

@@ -1,0 +1,31 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-runtime-semantics-classdefinitionevaluation
+desc: Order of decorator application for elements without initializers
+templates:
+  - class/standard
+  - getters/standard
+  - methods/standard/**/*
+  - setters/standard
+features: [decorators]
+---*/
+
+//- decorators
+var ord = [];
+
+function pushOrd(applyOrd, extraInitOrd) {
+  return (value, context) => {
+    ord.push(applyOrd);
+    context.addInitializer(() => ord.push(extraInitOrd));
+  }
+}
+
+//- application
+@pushOrd(1, 3)
+@pushOrd(0, 2)
+
+//- assertions
+assert.sameValue(ord.length, 4);
+ord.forEach(assert.sameValue);
