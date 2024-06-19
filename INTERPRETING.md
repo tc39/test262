@@ -164,7 +164,7 @@ Files bearing a name ending in `.json` are intended to be interpreted as JSON.
 Implementers should resolve the specifier `<module source>` to a module that
 provides a valid [Module Source](https://tc39.es/proposal-source-phase-imports/#sec-module-source-objects),
 such as a [WebAssembly module](https://webassembly.github.io/esm-integration/js-api/index.html#webassembly-module-record).
-Tests use `<module source>` specifier should be guarded with a feature flag
+Tests use `<module source>` specifier are guarded with a feature flag
 `source-phase-imports-module-source`.
 
 ### Staging
