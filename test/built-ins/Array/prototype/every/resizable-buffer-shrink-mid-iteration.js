@@ -21,16 +21,12 @@ const ArrayEveryHelper = (ta, values, rab, resizeAfter, resizeTo) => {
 //                    [4, 6] << fixedLengthWithOffset
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
-let values;
-let rab;
-let resizeAfter;
-let resizeTo;
 for (let ctor of ctors) {
-  rab = CreateRabForTest(ctor);
+  const rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
-  values = [];
-  resizeAfter = 2;
-  resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
+  const values = [];
+  const resizeAfter = 2;
+  const resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
   assert(ArrayEveryHelper(fixedLength, values, rab, resizeAfter, resizeTo));
   assert.compareArray(values, [
     0,
@@ -38,20 +34,20 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
-  rab = CreateRabForTest(ctor);
+  const rab = CreateRabForTest(ctor);
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
-  values = [];
-  resizeAfter = 1;
-  resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
+  const values = [];
+  const resizeAfter = 1;
+  const resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
   assert(ArrayEveryHelper(fixedLengthWithOffset, values, rab, resizeAfter, resizeTo));
   assert.compareArray(values, [4]);
 }
 for (let ctor of ctors) {
-  rab = CreateRabForTest(ctor);
+  const rab = CreateRabForTest(ctor);
   const lengthTracking = new ctor(rab, 0);
-  values = [];
-  resizeAfter = 2;
-  resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
+  const values = [];
+  const resizeAfter = 2;
+  const resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
   assert(ArrayEveryHelper(lengthTracking, values, rab, resizeAfter, resizeTo));
   assert.compareArray(values, [
     0,
@@ -60,11 +56,11 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
-  rab = CreateRabForTest(ctor);
+  const rab = CreateRabForTest(ctor);
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
-  values = [];
-  resizeAfter = 1;
-  resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
+  const values = [];
+  const resizeAfter = 1;
+  const resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
   assert(ArrayEveryHelper(lengthTrackingWithOffset, values, rab, resizeAfter, resizeTo));
   assert.compareArray(values, [4]);
 }
