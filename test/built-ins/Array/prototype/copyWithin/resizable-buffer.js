@@ -74,9 +74,14 @@ for (let ctor of ctors) {
   //              [0, 1, 2, ...] << lengthTracking
   //                    [2, ...] << lengthTrackingWithOffset
 
+  assert.compareArray(ToNumbers(fixedLength), []);
+  assert.compareArray(ToNumbers(fixedLengthWithOffset), []);
+
   ArrayCopyWithinHelper(fixedLength, 0, 1);
   ArrayCopyWithinHelper(fixedLengthWithOffset, 0, 1);
   // We'll check below that these were no-op.
+  assert.compareArray(ToNumbers(fixedLength), []);
+  assert.compareArray(ToNumbers(fixedLengthWithOffset), []);
 
   assert.compareArray(ToNumbers(lengthTracking), [
     0,

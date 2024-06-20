@@ -4,8 +4,7 @@
 /*---
 esid: sec-array.prototype.copywithin
 description: >
-  Automatically ported from CopyWithinParameterConversionGrows test
-  in V8's mjsunit test typedarray-resizablearraybuffer.js
+  TypedArray.p.copyWithin behaves correctly when argument coercion shrinks the receiver
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
