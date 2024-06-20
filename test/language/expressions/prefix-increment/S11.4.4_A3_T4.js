@@ -8,15 +8,11 @@ description: Type(x) is undefined or null
 ---*/
 
 //CHECK#1
-var x; 
-++x; 
-if (isNaN(x) !== true) {
-  throw new Test262Error('#1: var x; ++x; x === Not-a-Number. Actual: ' + (x));
-}
+var x;
+++x;
+assert.sameValue(isNaN(x), true, '#1: var x; ++x; x === Not-a-Number');
 
 //CHECK#2
-var x = null; 
+var x = null;
 ++x;
-if (x !== 1) {
-  throw new Test262Error('#2: var x = null; ++x; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#2: var x = null; ++x; x === 1');

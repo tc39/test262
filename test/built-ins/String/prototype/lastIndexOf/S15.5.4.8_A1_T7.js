@@ -12,8 +12,6 @@ description: >
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since ToString(undefined) evaluates to "undefined" lastIndexOf(undefined) evaluates to lastIndexOf("undefined",0)
-if (String("undefined").lastIndexOf(undefined) !== 0) {
-  throw new Test262Error('#1: String("undefined").lastIndexOf(undefined) === 0. Actual: ' + String("undefined").lastIndexOf(undefined));
-}
+assert.sameValue(String("undefined").lastIndexOf(undefined), 0, '#1: String("undefined").lastIndexOf(undefined) === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

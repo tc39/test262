@@ -9,15 +9,11 @@ description: Checking Expression and Variable statements for x >>= y
 
 //CHECK#1
 var x = 4;
-x >>= 1; 
-if (x !== 2) {
-  throw new Test262Error('#1: var x = 4; x >>= 1; x === 2. Actual: ' + (x));
-}
+x >>= 1;
+assert.sameValue(x, 2, '#1: var x = 4; x >>= 1; x === 2');
 
 //CHECK#2
 var y;
 y = 4;
 y >>= 1;
-if (y !== 2) {
-  throw new Test262Error('#2: y = 4; y >>= 1; y === 2. Actual: ' + (y));
-}
+assert.sameValue(y, 2, '#2: y = 4; y >>= 1; y === 2');

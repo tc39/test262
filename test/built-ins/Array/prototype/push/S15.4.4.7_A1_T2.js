@@ -11,40 +11,22 @@ description: Checking case when push is given many arguments
 ---*/
 
 var x = [];
-if (x.length !== 0) {
-  throw new Test262Error('#1: x = []; x.length === 0. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 0, '#1: x = []; x.length === 0');
 
 x[0] = 0;
 var push = x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1);
-if (push !== 6) {
-  throw new Test262Error('#2: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1) === 6. Actual: ' + (push));
-}
+assert.sameValue(push, 6, '#2: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1) === 6');
 
-if (x[0] !== 0) {
-  throw new Test262Error('#3: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[0] === 0. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 0, '#3: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[0] === 0');
 
-if (x[1] !== true) {
-  throw new Test262Error('#4: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[1] === true. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], true, '#4: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[1] === true');
 
-if (x[2] !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#5: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[2] === Number.POSITIVE_INFINITY. Actual: ' + (x[2]));
-}
+assert.sameValue(x[2], Number.POSITIVE_INFINITY, '#5: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[2] === Number.POSITIVE_INFINITY');
 
-if (x[3] !== "NaN") {
-  throw new Test262Error('#6: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[3] === "NaN". Actual: ' + (x[3]));
-}
+assert.sameValue(x[3], "NaN", '#6: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[3] === "NaN"');
 
-if (x[4] !== "1") {
-  throw new Test262Error('#7: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[4] === "1". Actual: ' + (x[4]));
-}
+assert.sameValue(x[4], "1", '#7: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[4] === "1"');
 
-if (x[5] !== -1) {
-  throw new Test262Error('#8: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[5] === -1. Actual: ' + (x[5]));
-}
+assert.sameValue(x[5], -1, '#8: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x[5] === -1');
 
-if (x.length !== 6) {
-  throw new Test262Error('#9: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x.length === 6. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 6, '#9: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x.length === 6');

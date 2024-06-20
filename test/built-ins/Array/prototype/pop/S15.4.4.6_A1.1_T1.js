@@ -11,21 +11,13 @@ description: Checking this algorithm
 
 var x = new Array();
 var pop = x.pop();
-if (pop !== undefined) {
-  throw new Test262Error('#1: var x = new Array(); x.pop() === undefined. Actual: ' + (pop));
-}
+assert.sameValue(pop, undefined, '#1: var x = new Array(); x.pop() === undefined');
 
-if (x.length !== 0) {
-  throw new Test262Error('#2: var x = new Array(); x.pop(); x.length === 0. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 0, '#2: var x = new Array(); x.pop(); x.length === 0');
 
 var x = Array(1, 2, 3);
 x.length = 0;
 var pop = x.pop();
-if (pop !== undefined) {
-  throw new Test262Error('#2: var x = Array(1,2,3); x.length = 0; x.pop() === undefined. Actual: ' + (pop));
-}
+assert.sameValue(pop, undefined, '#2: var x = Array(1,2,3); x.length = 0; x.pop() === undefined');
 
-if (x.length !== 0) {
-  throw new Test262Error('#4: var x = new Array(1,2,3); x.length = 0; x.pop(); x.length === 0. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 0, '#4: var x = new Array(1,2,3); x.length = 0; x.pop(); x.length === 0');

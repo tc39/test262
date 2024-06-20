@@ -21,9 +21,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "true") {
-  throw new Test262Error('#2: __str = String(true); __str === "true". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "true", '#2: __str = String(true); __str === "true"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -39,9 +37,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__str !== "false") {
-  throw new Test262Error('#4: __str = String(false); __str === "false". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "false", '#4: __str = String(false); __str === "false"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -57,9 +53,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#6
-if (__str !== "true") {
-  throw new Test262Error('#6: __str = String(Boolean(true)); __str === "true". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "true", '#6: __str = String(Boolean(true)); __str === "true"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -75,8 +69,6 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#8
-if (__str !== "false") {
-  throw new Test262Error('#8: __str = String(Boolean(false)); __str === "false". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "false", '#8: __str = String(Boolean(false)); __str === "false"');
 //
 //////////////////////////////////////////////////////////////////////////////

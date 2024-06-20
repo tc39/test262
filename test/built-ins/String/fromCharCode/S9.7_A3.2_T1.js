@@ -10,11 +10,7 @@ description: >
 ---*/
 
 // CHECK#1
-if (String.fromCharCode(1.2345).charCodeAt(0) !== 1) {
-  throw new Test262Error('#1: String.fromCharCode(1.2345).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(1.2345).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(1.2345).charCodeAt(0), 1, '#1: String.fromCharCode(1.2345).charCodeAt(0) === 1');
 
 // CHECK#2
-if (String.fromCharCode(-5.4321).charCodeAt(0) !== 65531) {
-  throw new Test262Error('#2: String.fromCharCode(-5.4321).charCodeAt(0) === 65531. Actual: ' + (String.fromCharCode(-5.4321).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(-5.4321).charCodeAt(0), 65531, '#2: String.fromCharCode(-5.4321).charCodeAt(0) === 65531');

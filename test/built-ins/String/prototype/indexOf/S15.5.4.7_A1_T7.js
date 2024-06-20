@@ -12,8 +12,6 @@ description: >
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since ToString(undefined) evaluates to "undefined" indexOf(undefined) evaluates to indexOf("undefined",0)
-if (String("undefined").indexOf(undefined) !== 0) {
-  throw new Test262Error('#1: String("undefined").indexOf(undefined) === 0. Actual: ' + String("undefined").indexOf(undefined));
-}
+assert.sameValue(String("undefined").indexOf(undefined), 0, '#1: String("undefined").indexOf(undefined) === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

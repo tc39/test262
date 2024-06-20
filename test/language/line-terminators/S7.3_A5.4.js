@@ -13,6 +13,4 @@ eval("/*\u2029 multi line \u2029 comment \u2029*/");
 //CHECK#2
 var x = 0;
 eval("/*\u2029 multi line \u2029 comment \u2029 x = 1;*/");
-if (x !== 0) {
-  throw new Test262Error('#1: var x = 0; eval("/*\\u2029 multi line \\u2029 comment \\u2029 x = 1;*/"); x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#1: var x = 0; eval("/*\\u2029 multi line \\u2029 comment \\u2029 x = 1;*/"); x === 0');

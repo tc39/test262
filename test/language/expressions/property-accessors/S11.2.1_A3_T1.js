@@ -11,14 +11,10 @@ description: Checking Boolean case
 ---*/
 
 //CHECK#1
-if (true.toString() !== "true") {
-  throw new Test262Error('#1: true.toString() === "true". Actual: ' + (true.toString()));
-}
+assert.sameValue(true.toString(), "true", '#1: true.toString() === "true"');
 
 //CHECK#2
-if (false["toString"]() !== "false") {
-  throw new Test262Error('#2: false["toString"]() === "false". Actual: ' + (false["toString"]()));
-}
+assert.sameValue(false["toString"](), "false", '#2: false["toString"]() === "false"');
 
 //CHECK#3
 if (new Boolean(true).toString() !== "true") {

@@ -8,15 +8,11 @@ description: Type(x) is Object object or Function object
 ---*/
 
 //CHECK#1
-var x = {}; 
-x--; 
-if (isNaN(x) !== true) {
-  throw new Test262Error('#1: var x = {}; x--; x === Not-a-Number. Actual: ' + (x));
-}
+var x = {};
+x--;
+assert.sameValue(isNaN(x), true, '#1: var x = {}; x--; x === Not-a-Number');
 
 //CHECK#2
-var x = function(){return 1}; 
-x--; 
-if (isNaN(x) !== true) {
-  throw new Test262Error('#2: var x = function(){return 1}; x--; x === Not-a-Number. Actual: ' + (x));
-}
+var x = function(){return 1};
+x--;
+assert.sameValue(isNaN(x), true, '#2: var x = function(){return 1}; x--; x === Not-a-Number');
