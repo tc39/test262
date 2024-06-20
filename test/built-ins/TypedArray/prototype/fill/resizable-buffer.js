@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.fill
 description: >
-  Array.p.fill behaves correctly when the receiver is backed by
+  TypedArray.p.fill behaves correctly when the receiver is backed by
   resizable buffer
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]

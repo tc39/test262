@@ -5,6 +5,7 @@
 esid: sec-array.prototype.fill
 description: >
   Array.p.fill called on a TypedArray backed by a resizable buffer
+  that goes out of bounds during evaluation of the arguments
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
