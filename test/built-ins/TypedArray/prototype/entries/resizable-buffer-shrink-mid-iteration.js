@@ -10,10 +10,6 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayEntriesHelper(ta) {
-  return ta.entries();
-}
-
 // Orig. array: [0, 2, 4, 6]
 //              [0, 2, 4, 6] << fixedLength
 //                    [4, 6] << fixedLengthWithOffset
@@ -26,7 +22,7 @@ for (let ctor of ctors) {
 
   // The fixed length array goes out of bounds when the RAB is resized.
   assert.throws(TypeError, () => {
-    TestIterationAndResize(TypedArrayEntriesHelper(fixedLength), null, rab, 2, 3 * ctor.BYTES_PER_ELEMENT);
+    TestIterationAndResize(fixedLength.entries(), null, rab, 2, 3 * ctor.BYTES_PER_ELEMENT);
   });
 }
 for (let ctor of ctors) {
@@ -35,13 +31,13 @@ for (let ctor of ctors) {
 
   // The fixed length array goes out of bounds when the RAB is resized.
   assert.throws(TypeError, () => {
-    TestIterationAndResize(TypedArrayEntriesHelper(fixedLengthWithOffset), null, rab, 1, 3 * ctor.BYTES_PER_ELEMENT);
+    TestIterationAndResize(fixedLengthWithOffset.entries(), null, rab, 1, 3 * ctor.BYTES_PER_ELEMENT);
   });
 }
 for (let ctor of ctors) {
   const rab = CreateRabForTest(ctor);
   const lengthTracking = new ctor(rab, 0);
-  TestIterationAndResize(TypedArrayEntriesHelper(lengthTracking), [
+  TestIterationAndResize(lengthTracking.entries(), [
     [
       0,
       0
@@ -59,7 +55,7 @@ for (let ctor of ctors) {
 for (let ctor of ctors) {
   const rab = CreateRabForTest(ctor);
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
-  TestIterationAndResize(TypedArrayEntriesHelper(lengthTrackingWithOffset), [
+  TestIterationAndResize(lengthTrackingWithOffset.entries(), [
     [
       0,
       4

@@ -10,15 +10,11 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayEntriesHelper(ta) {
-  return ta.entries();
-}
-
 function ValuesFromTypedArrayEntries(ta) {
   let result = [];
   let expectedKey = 0;
   for (let [key, value] of ta.entries()) {
-    assert.sameValue(key, expectedKey);
+    assert.sameValue(key, expectedKey, 'TypedArray method .entries should return `expectedKey`.');
     ++expectedKey;
     result.push(Number(value));
   }
@@ -76,17 +72,17 @@ for (let ctor of ctors) {
   // called. Array.prototype.{entries, keys, values} don't throw, but when
   // we try to iterate the returned ArrayIterator, that throws.
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(fixedLength);
+    fixedLength.entries();
   });
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(fixedLengthWithOffset);
+    fixedLengthWithOffset.entries();
   });
 
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(fixedLength));
+    Array.from(fixedLength.entries());
   });
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(fixedLengthWithOffset));
+    Array.from(fixedLengthWithOffset.entries());
   });
   assert.compareArray(ValuesFromTypedArrayEntries(lengthTracking), [
     0,
@@ -98,46 +94,46 @@ for (let ctor of ctors) {
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(fixedLength);
+    fixedLength.entries();
   });
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(fixedLengthWithOffset);
+    fixedLengthWithOffset.entries();
   });
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(lengthTrackingWithOffset);
+    lengthTrackingWithOffset.entries();
   });
 
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(fixedLength));
+    Array.from(fixedLength.entries());
   });
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(fixedLengthWithOffset));
+    Array.from(fixedLengthWithOffset.entries());
   });
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(lengthTrackingWithOffset));
+    Array.from(lengthTrackingWithOffset.entries());
   });
   assert.compareArray(ValuesFromTypedArrayEntries(lengthTracking), [0]);
 
   // Shrink to zero.
   rab.resize(0);
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(fixedLength);
+    fixedLength.entries();
   });
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(fixedLengthWithOffset);
+    fixedLengthWithOffset.entries();
   });
   assert.throws(TypeError, () => {
-    TypedArrayEntriesHelper(lengthTrackingWithOffset);
+    lengthTrackingWithOffset.entries();
   });
 
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(fixedLength));
+    Array.from(fixedLength.entries());
   });
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(fixedLengthWithOffset));
+    Array.from(fixedLengthWithOffset.entries());
   });
   assert.throws(TypeError, () => {
-    Array.from(TypedArrayEntriesHelper(lengthTrackingWithOffset));
+    Array.from(lengthTrackingWithOffset.entries());
   });
   assert.compareArray(ValuesFromTypedArrayEntries(lengthTracking), []);
 

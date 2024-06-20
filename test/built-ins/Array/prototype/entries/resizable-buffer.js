@@ -18,7 +18,7 @@ function ValuesFromArrayEntries(ta) {
   let result = [];
   let expectedKey = 0;
   for (let [key, value] of Array.prototype.entries.call(ta)) {
-    assert.sameValue(key, expectedKey);
+    assert.sameValue(key, expectedKey, 'TypedArray method .entries should return `expectedKey`.');
     ++expectedKey;
     result.push(Number(value));
   }
