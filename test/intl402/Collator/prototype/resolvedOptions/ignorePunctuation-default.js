@@ -10,7 +10,7 @@ assert.sameValue(
   false, "English default ignorePunctuation to false");
 assert.sameValue(
   (new Intl.Collator("th")).resolvedOptions().ignorePunctuation,
-  true, "English default ignorePunctuation to true");
+  true, "Thai default ignorePunctuation to true");
 assert.sameValue(
   (new Intl.Collator("ja")).resolvedOptions().ignorePunctuation,
   false, "English default ignorePunctuation to false");
