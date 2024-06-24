@@ -13,4 +13,4 @@ assert.sameValue(
   true, "Thai default ignorePunctuation to true");
 assert.sameValue(
   (new Intl.Collator("ja")).resolvedOptions().ignorePunctuation,
-  false, "English default ignorePunctuation to false");
+  false, "Japanese default ignorePunctuation to false");
