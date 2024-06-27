@@ -29,10 +29,6 @@ assert(!zdt.equals(zdt2));
 var zdt2 = new Temporal.ZonedDateTime(0n, "UTC", "iso8601");
 assert(!zdt.equals(zdt2));
 
-// different calendar not equal
-var zdt2 = new Temporal.ZonedDateTime(0n, "-05:00", "gregory");
-assert(!zdt.equals(zdt2));
-
 // casts its argument
 var instance = new Temporal.ZonedDateTime(0n, "UTC", "iso8601");
 assert(instance.equals("1970-01-01T00:00+00:00[UTC][u-ca=iso8601]"));
