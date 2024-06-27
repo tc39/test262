@@ -29,7 +29,6 @@ info: |
       15. Perform ! CreateDataPropertyOrThrow(nfOpts, "roundingMode", "trunc").
       (...)
 locale: [en]
-includes: [testIntl.js]
 features: [Intl.DurationFormat]
 ---*/
 
@@ -37,6 +36,7 @@ const durations = [
   // 1
   {
     fractionalDigits: 0,
+    numericValue: 1.5,
     duration: {
       seconds: 1,
       milliseconds: 500,
@@ -45,6 +45,7 @@ const durations = [
   // 0.001
   {
     fractionalDigits: 3,
+    numericValue: 0.0015,
     duration: {
       milliseconds: 1,
       microseconds: 500,
@@ -53,6 +54,7 @@ const durations = [
   // 0.000001
   {
     fractionalDigits: 6,
+    numericValue: 0.0000015,
     duration: {
       microseconds: 1,
       nanoseconds: 500
@@ -60,8 +62,9 @@ const durations = [
   }
 ];
 
-for (const { fractionalDigits, duration } of durations) {
+for (const { numericValue, fractionalDigits, duration } of durations) {
   const df = new Intl.DurationFormat("en", { seconds: "numeric", fractionalDigits });
-  const expected = formatDurationFormatPattern(df, duration);
-  assert.sameValue(df.format(duration), expected);
+  const nf = new Intl.NumberFormat("en", { maximumFractionDigits: fractionalDigits, roundingMode: "trunc" });
+  const expected = nf.format(numericValue);
+  sameValue(df.format(duration), expected);
 }
