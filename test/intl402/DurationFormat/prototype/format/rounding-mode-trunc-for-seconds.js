@@ -66,5 +66,5 @@ for (const { numericValue, fractionalDigits, duration } of durations) {
   const df = new Intl.DurationFormat("en", { seconds: "numeric", fractionalDigits });
   const nf = new Intl.NumberFormat("en", { maximumFractionDigits: fractionalDigits, roundingMode: "trunc" });
   const expected = nf.format(numericValue);
-  sameValue(df.format(duration), expected);
+  assert.sameValue(df.format(duration), expected, 'Intl.DurationFormat should format seconds, milliseconds and microseconds with `roundingMode: "trunc"`');
 }
