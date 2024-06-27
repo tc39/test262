@@ -45,35 +45,3 @@ assert.sameValue(zdt.inLeapYear, true);
 assert.sameValue(zdt.offset, "+00:00");
 assert.sameValue(zdt.offsetNanoseconds, 0);
 assert.sameValue(`${ zdt }`, "1976-11-18T15:23:30.123456789+00:00[UTC]");
-
-// Temporal.ZonedDateTime with non-UTC time zone and non-ISO calendar
-// can be constructed
-var zdt = new Temporal.ZonedDateTime(epochNanos, "Europe/Vienna", "gregory");
-assert(zdt instanceof Temporal.ZonedDateTime);
-assert.sameValue(typeof zdt, "object");
-
-assert.sameValue(zdt.era, "ce");
-assert.sameValue(zdt.year, 1976);
-assert.sameValue(zdt.month, 11);
-assert.sameValue(zdt.monthCode, "M11");
-assert.sameValue(zdt.day, 18);
-assert.sameValue(zdt.hour, 16);
-assert.sameValue(zdt.minute, 23);
-assert.sameValue(zdt.second, 30);
-assert.sameValue(zdt.millisecond, 123);
-assert.sameValue(zdt.microsecond, 456);
-assert.sameValue(zdt.nanosecond, 789);
-assert.sameValue(zdt.epochMilliseconds, 217178610123);
-assert.sameValue(zdt.epochNanoseconds, 217178610123456789n);
-assert.sameValue(zdt.dayOfWeek, 4);
-assert.sameValue(zdt.dayOfYear, 323);
-assert.sameValue(zdt.weekOfYear, 47);
-assert.sameValue(zdt.daysInWeek, 7);
-assert.sameValue(zdt.daysInMonth, 30);
-assert.sameValue(zdt.daysInYear, 366);
-assert.sameValue(zdt.monthsInYear, 12);
-assert.sameValue(zdt.inLeapYear, true);
-assert.sameValue(zdt.offset, "+01:00");
-assert.sameValue(zdt.offsetNanoseconds, 3600000000000);
-assert.sameValue(`${ zdt }`, "1976-11-18T16:23:30.123456789+01:00[Europe/Vienna][u-ca=gregory]");
-
