@@ -1,0 +1,16 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: It's a SyntaxError if AssignmentExpression is omitted
+template: syntax/invalid
+info: |
+  ImportCall[Yield, Await] :
+      import . source ( AssignmentExpression[+In, ?Yield, ?Await] )
+features: [source-phase-imports]
+---*/
+//- import
+import.source()
+//- teardown
+/* The params region intentionally empty */
