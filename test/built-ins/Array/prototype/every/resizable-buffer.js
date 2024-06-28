@@ -42,14 +42,14 @@ for (let ctor of ctors) {
   function over10(n) {
     return Number(n) > 10;
   }
-  assert(!everyHelper(fixedLength, div3));
-  assert(everyHelper(fixedLength, even));
-  assert(!everyHelper(fixedLengthWithOffset, div3));
-  assert(everyHelper(fixedLengthWithOffset, even));
-  assert(!everyHelper(lengthTracking, div3));
-  assert(everyHelper(lengthTracking, even));
-  assert(!everyHelper(lengthTrackingWithOffset, div3));
-  assert(everyHelper(lengthTrackingWithOffset, even));
+  assert(!ArrayEveryHelper(fixedLength, div3));
+  assert(ArrayEveryHelper(fixedLength, even));
+  assert(!ArrayEveryHelper(fixedLengthWithOffset, div3));
+  assert(ArrayEveryHelper(fixedLengthWithOffset, even));
+  assert(!ArrayEveryHelper(lengthTracking, div3));
+  assert(ArrayEveryHelper(lengthTracking, even));
+  assert(!ArrayEveryHelper(lengthTrackingWithOffset, div3));
+  assert(ArrayEveryHelper(lengthTrackingWithOffset, even));
 
   // Shrink so that fixed length TAs go out of bounds.
   rab.resize(3 * ctor.BYTES_PER_ELEMENT);
@@ -59,33 +59,33 @@ for (let ctor of ctors) {
   //                    [4, ...] << lengthTrackingWithOffset
 
   // Calling .every on an out of bounds TA doesn't throw.
-  assert(everyHelper(fixedLength, div3));
-  assert(everyHelper(fixedLengthWithOffset, div3));
+  assert(ArrayEveryHelper(fixedLength, div3));
+  assert(ArrayEveryHelper(fixedLengthWithOffset, div3));
 
-  assert(!everyHelper(lengthTracking, div3));
-  assert(everyHelper(lengthTracking, even));
-  assert(!everyHelper(lengthTrackingWithOffset, div3));
-  assert(everyHelper(lengthTrackingWithOffset, even));
+  assert(!ArrayEveryHelper(lengthTracking, div3));
+  assert(ArrayEveryHelper(lengthTracking, even));
+  assert(!ArrayEveryHelper(lengthTrackingWithOffset, div3));
+  assert(ArrayEveryHelper(lengthTrackingWithOffset, even));
 
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   // Calling .every on an out of bounds TA doesn't throw.
-  assert(everyHelper(fixedLength, div3));
-  assert(everyHelper(fixedLengthWithOffset, div3));
-  assert(everyHelper(lengthTrackingWithOffset, div3));
+  assert(ArrayEveryHelper(fixedLength, div3));
+  assert(ArrayEveryHelper(fixedLengthWithOffset, div3));
+  assert(ArrayEveryHelper(lengthTrackingWithOffset, div3));
 
-  assert(everyHelper(lengthTracking, div3));
-  assert(everyHelper(lengthTracking, even));
+  assert(ArrayEveryHelper(lengthTracking, div3));
+  assert(ArrayEveryHelper(lengthTracking, even));
 
   // Shrink to zero.
   rab.resize(0);
   // Calling .every on an out of bounds TA doesn't throw.
-  assert(everyHelper(fixedLength, div3));
-  assert(everyHelper(fixedLengthWithOffset, div3));
-  assert(everyHelper(lengthTrackingWithOffset, div3));
+  assert(ArrayEveryHelper(fixedLength, div3));
+  assert(ArrayEveryHelper(fixedLengthWithOffset, div3));
+  assert(ArrayEveryHelper(lengthTrackingWithOffset, div3));
 
-  assert(everyHelper(lengthTracking, div3));
-  assert(everyHelper(lengthTracking, even));
+  assert(ArrayEveryHelper(lengthTracking, div3));
+  assert(ArrayEveryHelper(lengthTracking, even));
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
@@ -99,12 +99,12 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
   //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
 
-  assert(!everyHelper(fixedLength, div3));
-  assert(everyHelper(fixedLength, even));
-  assert(!everyHelper(fixedLengthWithOffset, div3));
-  assert(everyHelper(fixedLengthWithOffset, even));
-  assert(!everyHelper(lengthTracking, div3));
-  assert(everyHelper(lengthTracking, even));
-  assert(!everyHelper(lengthTrackingWithOffset, div3));
-  assert(everyHelper(lengthTrackingWithOffset, even));
+  assert(!ArrayEveryHelper(fixedLength, div3));
+  assert(ArrayEveryHelper(fixedLength, even));
+  assert(!ArrayEveryHelper(fixedLengthWithOffset, div3));
+  assert(ArrayEveryHelper(fixedLengthWithOffset, even));
+  assert(!ArrayEveryHelper(lengthTracking, div3));
+  assert(ArrayEveryHelper(lengthTracking, even));
+  assert(!ArrayEveryHelper(lengthTrackingWithOffset, div3));
+  assert(ArrayEveryHelper(lengthTrackingWithOffset, even));
 }
