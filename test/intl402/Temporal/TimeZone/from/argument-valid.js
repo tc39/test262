@@ -18,8 +18,6 @@ const valids = [
   ["etc/gmt", "Etc/GMT"],
   ["1994-11-05T08:15:30-05:00[America/New_York]", "America/New_York"],
   ["1994-11-05T08:15:30-05[America/New_York]", "America/New_York"],
-  ["1994-11-05T08:15:30\u221205:00[America/New_York]", "America/New_York"],
-  ["1994-11-05T08:15:30\u221205[America/New_York]", "America/New_York"],
 ];
 
 for (const [valid, canonical = valid] of valids) {
