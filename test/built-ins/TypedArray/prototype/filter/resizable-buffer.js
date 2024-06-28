@@ -6,181 +6,115 @@ esid: sec-%typedarray%.prototype.filter
 description: >
   TypedArray.p.filter behaves correctly on receivers backed by resizable
   buffers
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
-flags: [onlyStrict]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const fixedLength = new ctor(rab, 0, 4);
+  const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
+  const lengthTracking = new ctor(rab, 0);
+  const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
 
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
+  // Write some data into the array.
+  const taWrite = new ctor(rab);
+  for (let i = 0; i < 4; ++i) {
+    WriteToTypedArray(taWrite, i, i);
   }
-}
 
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
+  // Orig. array: [0, 1, 2, 3]
+  //              [0, 1, 2, 3] << fixedLength
+  //                    [2, 3] << fixedLengthWithOffset
+  //              [0, 1, 2, 3, ...] << lengthTracking
+  //                    [2, 3, ...] << lengthTrackingWithOffset
+
+  function isEven(n) {
+    return n != undefined && Number(n) % 2 == 0;
   }
-  return item;
-}
+  assert.compareArray(ToNumbers(fixedLength.filter(isEven)), [
+    0,
+    2
+  ]);
+  assert.compareArray(ToNumbers(fixedLengthWithOffset.filter(isEven)), [2]);
+  assert.compareArray(ToNumbers(lengthTracking.filter(isEven)), [
+    0,
+    2
+  ]);
+  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(isEven)), [2]);
 
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
+  // Shrink so that fixed length TAs go out of bounds.
+  rab.resize(3 * ctor.BYTES_PER_ELEMENT);
+
+  // Orig. array: [0, 1, 2]
+  //              [0, 1, 2, ...] << lengthTracking
+  //                    [2, ...] << lengthTrackingWithOffset
+
+  assert.throws(TypeError, () => {
+    fixedLength.filter(isEven);
+  });
+  assert.throws(TypeError, () => {
+    fixedLengthWithOffset.filter(isEven);
+  });
+
+  assert.compareArray(ToNumbers(lengthTracking.filter(isEven)), [
+    0,
+    2
+  ]);
+  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(isEven)), [2]);
+
+  // Shrink so that the TAs with offset go out of bounds.
+  rab.resize(1 * ctor.BYTES_PER_ELEMENT);
+  assert.throws(TypeError, () => {
+    fixedLength.filter(isEven);
+  });
+  assert.throws(TypeError, () => {
+    fixedLengthWithOffset.filter(isEven);
+  });
+  assert.throws(TypeError, () => {
+    lengthTrackingWithOffset.filter(isEven);
+  });
+
+  assert.compareArray(ToNumbers(lengthTracking.filter(isEven)), [0]);
+
+  // Shrink to zero.
+  rab.resize(0);
+  assert.throws(TypeError, () => {
+    fixedLength.filter(isEven);
+  });
+  assert.throws(TypeError, () => {
+    fixedLengthWithOffset.filter(isEven);
+  });
+  assert.throws(TypeError, () => {
+    lengthTrackingWithOffset.filter(isEven);
+  });
+
+  assert.compareArray(ToNumbers(lengthTracking.filter(isEven)), []);
+
+  // Grow so that all TAs are back in-bounds.
+  rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+  for (let i = 0; i < 6; ++i) {
+    WriteToTypedArray(taWrite, i, i);
   }
-  return result;
+
+  // Orig. array: [0, 1, 2, 3, 4, 5]
+  //              [0, 1, 2, 3] << fixedLength
+  //                    [2, 3] << fixedLengthWithOffset
+  //              [0, 1, 2, 3, 4, 5, ...] << lengthTracking
+  //                    [2, 3, 4, 5, ...] << lengthTrackingWithOffset
+
+  assert.compareArray(ToNumbers(fixedLength.filter(isEven)), [
+    0,
+    2
+  ]);
+  assert.compareArray(ToNumbers(fixedLengthWithOffset.filter(isEven)), [2]);
+  assert.compareArray(ToNumbers(lengthTracking.filter(isEven)), [
+    0,
+    2,
+    4
+  ]);
+  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(isEven)), [
+    2,
+    4
+  ]);
 }
-
-const TypedArrayFilterHelper = (ta, ...rest) => {
-  return ta.filter(...rest);
-};
-
-function TestFilter() {
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const fixedLength = new ctor(rab, 0, 4);
-    const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
-    const lengthTracking = new ctor(rab, 0);
-    const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
-
-    // Write some data into the array.
-    const taWrite = new ctor(rab);
-    for (let i = 0; i < 4; ++i) {
-      WriteToTypedArray(taWrite, i, i);
-    }
-
-    // Orig. array: [0, 1, 2, 3]
-    //              [0, 1, 2, 3] << fixedLength
-    //                    [2, 3] << fixedLengthWithOffset
-    //              [0, 1, 2, 3, ...] << lengthTracking
-    //                    [2, 3, ...] << lengthTrackingWithOffset
-
-    function isEven(n) {
-      return n != undefined && Number(n) % 2 == 0;
-    }
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(fixedLength, isEven)), [
-      0,
-      2
-    ]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(fixedLengthWithOffset, isEven)), [2]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTracking, isEven)), [
-      0,
-      2
-    ]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTrackingWithOffset, isEven)), [2]);
-
-    // Shrink so that fixed length TAs go out of bounds.
-    rab.resize(3 * ctor.BYTES_PER_ELEMENT);
-
-    // Orig. array: [0, 1, 2]
-    //              [0, 1, 2, ...] << lengthTracking
-    //                    [2, ...] << lengthTrackingWithOffset
-
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(fixedLength, isEven);
-    });
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(fixedLengthWithOffset, isEven);
-    });
-
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTracking, isEven)), [
-      0,
-      2
-    ]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTrackingWithOffset, isEven)), [2]);
-
-    // Shrink so that the TAs with offset go out of bounds.
-    rab.resize(1 * ctor.BYTES_PER_ELEMENT);
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(fixedLength, isEven);
-    });
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(fixedLengthWithOffset, isEven);
-    });
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(lengthTrackingWithOffset, isEven);
-    });
-
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTracking, isEven)), [0]);
-
-    // Shrink to zero.
-    rab.resize(0);
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(fixedLength, isEven);
-    });
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(fixedLengthWithOffset, isEven);
-    });
-    assert.throws(TypeError, () => {
-      TypedArrayFilterHelper(lengthTrackingWithOffset, isEven);
-    });
-
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTracking, isEven)), []);
-
-    // Grow so that all TAs are back in-bounds.
-    rab.resize(6 * ctor.BYTES_PER_ELEMENT);
-    for (let i = 0; i < 6; ++i) {
-      WriteToTypedArray(taWrite, i, i);
-    }
-
-    // Orig. array: [0, 1, 2, 3, 4, 5]
-    //              [0, 1, 2, 3] << fixedLength
-    //                    [2, 3] << fixedLengthWithOffset
-    //              [0, 1, 2, 3, 4, 5, ...] << lengthTracking
-    //                    [2, 3, 4, 5, ...] << lengthTrackingWithOffset
-
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(fixedLength, isEven)), [
-      0,
-      2
-    ]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(fixedLengthWithOffset, isEven)), [2]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTracking, isEven)), [
-      0,
-      2,
-      4
-    ]);
-    assert.compareArray(ToNumbers(TypedArrayFilterHelper(lengthTrackingWithOffset, isEven)), [
-      2,
-      4
-    ]);
-  }
-}
-
-TestFilter();
