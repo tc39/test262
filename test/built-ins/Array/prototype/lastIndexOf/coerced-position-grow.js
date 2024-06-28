@@ -6,52 +6,11 @@ esid: sec-array.prototype.lastindexof
 description: >
   Array.p.lastIndexOf behaves correctly when receiver is grown
   by argument coercion
+includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function ArrayLastIndexOfHelper(ta, n, fromIndex) {
+function ArrayLastIndexOfNumOrBigInt(ta, n, fromIndex) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
     if (fromIndex == undefined) {
       return Array.prototype.lastIndexOf.call(ta, BigInt(n));
@@ -64,43 +23,39 @@ function ArrayLastIndexOfHelper(ta, n, fromIndex) {
   return Array.prototype.lastIndexOf.call(ta, n, fromIndex);
 }
 
-function LastIndexOfParameterConversionGrows() {
-  // Growing + length-tracking TA.
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const lengthTracking = new ctor(rab);
-    for (let i = 0; i < 4; ++i) {
-      WriteToTypedArray(lengthTracking, i, 1);
+// Growing + length-tracking TA.
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const lengthTracking = new ctor(rab);
+  for (let i = 0; i < 4; ++i) {
+    WriteToTypedArray(lengthTracking, i, 1);
+  }
+  let evil = {
+    valueOf: () => {
+      rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+      return -1;
     }
-    let evil = {
-      valueOf: () => {
-        rab.resize(6 * ctor.BYTES_PER_ELEMENT);
-        return -1;
-      }
-    };
-    assert.sameValue(ArrayLastIndexOfHelper(lengthTracking, 0), -1);
-    // Because lastIndexOf iterates from the given index downwards, it's not
-    // possible to test that "we only look at the data until the original
-    // length" without also testing that the index conversion happening with the
-    // original length.
-    assert.sameValue(ArrayLastIndexOfHelper(lengthTracking, 0, evil), -1);
-  }
-
-  // Growing + length-tracking TA, index conversion.
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const lengthTracking = new ctor(rab);
-    let evil = {
-      valueOf: () => {
-        rab.resize(6 * ctor.BYTES_PER_ELEMENT);
-        return -4;
-      }
-    };
-    assert.sameValue(ArrayLastIndexOfHelper(lengthTracking, 0, -4), 0);
-    // The TA grew but the start index conversion is done based on the original
-    // length.
-    assert.sameValue(ArrayLastIndexOfHelper(lengthTracking, 0, evil), 0);
-  }
+  };
+  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0), -1);
+  // Because lastIndexOf iterates from the given index downwards, it's not
+  // possible to test that "we only look at the data until the original
+  // length" without also testing that the index conversion happening with the
+  // original length.
+  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0, evil), -1);
 }
 
-LastIndexOfParameterConversionGrows();
+// Growing + length-tracking TA, index conversion.
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const lengthTracking = new ctor(rab);
+  let evil = {
+    valueOf: () => {
+      rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+      return -4;
+    }
+  };
+  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0, -4), 0);
+  // The TA grew but the start index conversion is done based on the original
+  // length.
+  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0, evil), 0);
+}
