@@ -10,6 +10,20 @@ includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
+let values;
+let rab;
+let resizeAfter;
+let resizeTo;
+// Collects the view of the resizable array buffer "rab" into "values", with an
+// iteration during which, after "resizeAfter" steps, "rab" is resized to length
+// "resizeTo". To be called by a method of the view being collected.
+// Note that "rab", "values", "resizeAfter", and "resizeTo" may need to be reset
+// before calling this.
+function ResizeBufferMidIteration(n) {
+  // Returns true by default.
+  return CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
+}
+
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
   const fixedLength = new ctor(rab, 0, 4);

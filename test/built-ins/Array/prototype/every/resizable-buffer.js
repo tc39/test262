@@ -10,9 +10,19 @@ includes: [resizableArrayBufferUtils.js ]
 features: [resizable-arraybuffer]
 ---*/
 
-const ArrayEveryHelper = (ta, ...rest) => {
-  return Array.prototype.every.call(ta, ...rest);
-};
+let values;
+let rab;
+let resizeAfter;
+let resizeTo;
+// Collects the view of the resizable array buffer "rab" into "values", with an
+// iteration during which, after "resizeAfter" steps, "rab" is resized to length
+// "resizeTo". To be called by a method of the view being collected.
+// Note that "rab", "values", "resizeAfter", and "resizeTo" may need to be reset
+// before calling this.
+function ResizeBufferMidIteration(n) {
+  // Returns true by default.
+  return CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
+}
 
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -42,14 +52,14 @@ for (let ctor of ctors) {
   function over10(n) {
     return Number(n) > 10;
   }
-  assert(!ArrayEveryHelper(fixedLength, div3));
-  assert(ArrayEveryHelper(fixedLength, even));
-  assert(!ArrayEveryHelper(fixedLengthWithOffset, div3));
-  assert(ArrayEveryHelper(fixedLengthWithOffset, even));
-  assert(!ArrayEveryHelper(lengthTracking, div3));
-  assert(ArrayEveryHelper(lengthTracking, even));
-  assert(!ArrayEveryHelper(lengthTrackingWithOffset, div3));
-  assert(ArrayEveryHelper(lengthTrackingWithOffset, even));
+  assert(!Array.prototype.every.call(fixedLength, div3));
+  assert(Array.prototype.every.call(fixedLength, even));
+  assert(!Array.prototype.every.call(fixedLengthWithOffset, div3));
+  assert(Array.prototype.every.call(fixedLengthWithOffset, even));
+  assert(!Array.prototype.every.call(lengthTracking, div3));
+  assert(Array.prototype.every.call(lengthTracking, even));
+  assert(!Array.prototype.every.call(lengthTrackingWithOffset, div3));
+  assert(Array.prototype.every.call(lengthTrackingWithOffset, even));
 
   // Shrink so that fixed length TAs go out of bounds.
   rab.resize(3 * ctor.BYTES_PER_ELEMENT);
@@ -59,33 +69,33 @@ for (let ctor of ctors) {
   //                    [4, ...] << lengthTrackingWithOffset
 
   // Calling .every on an out of bounds TA doesn't throw.
-  assert(ArrayEveryHelper(fixedLength, div3));
-  assert(ArrayEveryHelper(fixedLengthWithOffset, div3));
+  assert(Array.prototype.every.call(fixedLength, div3));
+  assert(Array.prototype.every.call(fixedLengthWithOffset, div3));
 
-  assert(!ArrayEveryHelper(lengthTracking, div3));
-  assert(ArrayEveryHelper(lengthTracking, even));
-  assert(!ArrayEveryHelper(lengthTrackingWithOffset, div3));
-  assert(ArrayEveryHelper(lengthTrackingWithOffset, even));
+  assert(!Array.prototype.every.call(lengthTracking, div3));
+  assert(Array.prototype.every.call(lengthTracking, even));
+  assert(!Array.prototype.every.call(lengthTrackingWithOffset, div3));
+  assert(Array.prototype.every.call(lengthTrackingWithOffset, even));
 
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   // Calling .every on an out of bounds TA doesn't throw.
-  assert(ArrayEveryHelper(fixedLength, div3));
-  assert(ArrayEveryHelper(fixedLengthWithOffset, div3));
-  assert(ArrayEveryHelper(lengthTrackingWithOffset, div3));
+  assert(Array.prototype.every.call(fixedLength, div3));
+  assert(Array.prototype.every.call(fixedLengthWithOffset, div3));
+  assert(Array.prototype.every.call(lengthTrackingWithOffset, div3));
 
-  assert(ArrayEveryHelper(lengthTracking, div3));
-  assert(ArrayEveryHelper(lengthTracking, even));
+  assert(Array.prototype.every.call(lengthTracking, div3));
+  assert(Array.prototype.every.call(lengthTracking, even));
 
   // Shrink to zero.
   rab.resize(0);
   // Calling .every on an out of bounds TA doesn't throw.
-  assert(ArrayEveryHelper(fixedLength, div3));
-  assert(ArrayEveryHelper(fixedLengthWithOffset, div3));
-  assert(ArrayEveryHelper(lengthTrackingWithOffset, div3));
+  assert(Array.prototype.every.call(fixedLength, div3));
+  assert(Array.prototype.every.call(fixedLengthWithOffset, div3));
+  assert(Array.prototype.every.call(lengthTrackingWithOffset, div3));
 
-  assert(ArrayEveryHelper(lengthTracking, div3));
-  assert(ArrayEveryHelper(lengthTracking, even));
+  assert(Array.prototype.every.call(lengthTracking, div3));
+  assert(Array.prototype.every.call(lengthTracking, even));
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
@@ -99,12 +109,12 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
   //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
 
-  assert(!ArrayEveryHelper(fixedLength, div3));
-  assert(ArrayEveryHelper(fixedLength, even));
-  assert(!ArrayEveryHelper(fixedLengthWithOffset, div3));
-  assert(ArrayEveryHelper(fixedLengthWithOffset, even));
-  assert(!ArrayEveryHelper(lengthTracking, div3));
-  assert(ArrayEveryHelper(lengthTracking, even));
-  assert(!ArrayEveryHelper(lengthTrackingWithOffset, div3));
-  assert(ArrayEveryHelper(lengthTrackingWithOffset, even));
+  assert(!Array.prototype.every.call(fixedLength, div3));
+  assert(Array.prototype.every.call(fixedLength, even));
+  assert(!Array.prototype.every.call(fixedLengthWithOffset, div3));
+  assert(Array.prototype.every.call(fixedLengthWithOffset, even));
+  assert(!Array.prototype.every.call(lengthTracking, div3));
+  assert(Array.prototype.every.call(lengthTracking, even));
+  assert(!Array.prototype.every.call(lengthTrackingWithOffset, div3));
+  assert(Array.prototype.every.call(lengthTrackingWithOffset, even));
 }

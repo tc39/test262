@@ -10,10 +10,19 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-const TypedArrayEveryHelper = (ta, values, rab, resizeAfter, resizeTo) => {
-  return ta.every(
-    (n) => CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo));
-};
+let values;
+let rab;
+let resizeAfter;
+let resizeTo;
+// Collects the view of the resizable array buffer "rab" into "values", with an
+// iteration during which, after "resizeAfter" steps, "rab" is resized to length
+// "resizeTo". To be called by a method of the view being collected.
+// Note that "rab", "values", "resizeAfter", and "resizeTo" may need to be reset
+// before calling this.
+function ResizeBufferMidIteration(n) {
+  // Returns true by default.
+  return CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
+}
 
 // Orig. array: [0, 2, 4, 6]
 //              [0, 2, 4, 6] << fixedLength
@@ -21,12 +30,12 @@ const TypedArrayEveryHelper = (ta, values, rab, resizeAfter, resizeTo) => {
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
 for (let ctor of ctors) {
-  const rab = CreateRabForTest(ctor);
+  rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
-  const values = [];
-  const resizeAfter = 2;
-  const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert(TypedArrayEveryHelper(fixedLength, values, rab, resizeAfter, resizeTo));
+  values = [];
+  resizeAfter = 2;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  assert(fixedLength.every(ResizeBufferMidIteration));
   assert.compareArray(values, [
     0,
     2,
@@ -35,24 +44,24 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
-  const rab = CreateRabForTest(ctor);
+  rab = CreateRabForTest(ctor);
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
-  const values = [];
-  const resizeAfter = 1;
-  const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert(TypedArrayEveryHelper(fixedLengthWithOffset, values, rab, resizeAfter, resizeTo));
+  values = [];
+  resizeAfter = 1;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  assert(fixedLengthWithOffset.every(ResizeBufferMidIteration));
   assert.compareArray(values, [
     4,
     6
   ]);
 }
 for (let ctor of ctors) {
-  const rab = CreateRabForTest(ctor);
+  rab = CreateRabForTest(ctor);
   const lengthTracking = new ctor(rab, 0);
-  const values = [];
-  const resizeAfter = 2;
-  const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert(TypedArrayEveryHelper(lengthTracking, values, rab, resizeAfter, resizeTo));
+  values = [];
+  resizeAfter = 2;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  assert(lengthTracking.every(ResizeBufferMidIteration));
   assert.compareArray(values, [
     0,
     2,
@@ -61,12 +70,12 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
-  const rab = CreateRabForTest(ctor);
+  rab = CreateRabForTest(ctor);
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
-  const values = [];
-  const resizeAfter = 1;
-  const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert(TypedArrayEveryHelper(lengthTrackingWithOffset, values, rab, resizeAfter, resizeTo));
+  values = [];
+  resizeAfter = 1;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  assert(lengthTrackingWithOffset.every(ResizeBufferMidIteration));
   assert.compareArray(values, [
     4,
     6
