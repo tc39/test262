@@ -37,7 +37,7 @@ for (let ctor of ctors) {
 }
 for (let ctor of ctors) {
   const rab = CreateRabForTest(ctor);
-  const const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
+  const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
   const values = [];
   const resizeAfter = 1;
   const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
@@ -49,7 +49,7 @@ for (let ctor of ctors) {
 }
 for (let ctor of ctors) {
   const rab = CreateRabForTest(ctor);
-  const const lengthTracking = new ctor(rab, 0);
+  const lengthTracking = new ctor(rab, 0);
   const values = [];
   const resizeAfter = 2;
   const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
@@ -63,7 +63,7 @@ for (let ctor of ctors) {
 }
 for (let ctor of ctors) {
   const rab = CreateRabForTest(ctor);
-  const const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
+  const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   const values = [];
   const resizeAfter = 1;
   const resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
