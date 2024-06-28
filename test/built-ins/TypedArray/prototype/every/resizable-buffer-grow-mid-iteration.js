@@ -14,10 +14,10 @@ let values;
 let rab;
 let resizeAfter;
 let resizeTo;
-// Collects the view of the resizable array buffer "rab" into "values", with an
-// iteration during which, after "resizeAfter" steps, "rab" is resized to length
-// "resizeTo". To be called by a method of the view being collected.
-// Note that "rab", "values", "resizeAfter", and "resizeTo" may need to be reset
+// Collects the view of the resizable array buffer rab into values, with an
+// iteration during which, after resizeAfter steps, rab is resized to length
+// resizeTo. To be called by a method of the view being collected.
+// Note that rab, values, resizeAfter, and resizeTo may need to be reset
 // before calling this.
 function ResizeBufferMidIteration(n) {
   // Returns true by default.
