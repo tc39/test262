@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.from
+esid: sec-temporal.plainmonthday.from
 description: Non-ASCII minus sign is not acceptable
 features: [Temporal]
 ---*/
@@ -15,7 +15,7 @@ const invalidStrings = [
 invalidStrings.forEach((arg) => {
   assert.throws(
     RangeError,
-    () => Temporal.PlainDateTime.from(arg),
+    () => Temporal.PlainMonthDay.from(arg),
     `variant minus sign: ${arg}`
   );
 });
