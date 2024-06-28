@@ -68,6 +68,10 @@ Array.fromAsync
 # https://github.com/tc39/proposal-json-parse-with-source
 json-parse-with-source
 
+# RegExp.escape
+# https://github.com/tc39/proposal-regex-escaping
+RegExp.escape
+
 # Regular expression modifiers
 # https://github.com/tc39/proposal-regexp-modifiers
 regexp-modifiers
