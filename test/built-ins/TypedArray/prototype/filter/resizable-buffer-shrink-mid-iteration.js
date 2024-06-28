@@ -6,65 +6,22 @@ esid: sec-%typedarray%.prototype.filter
 description: >
   TypedArray.p.filter behaves correctly when receiver is backed by resizable
   buffer that is shrunk mid-iteration
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
+let values;
+let rab;
+let resizeAfter;
+let resizeTo;
+// Collects the view of the resizable array buffer rab into values, with an
+// iteration during which, after resizeAfter steps, rab is resized to length
+// resizeTo. To be called by a method of the view being collected.
+// Note that rab, values, resizeAfter, and resizeTo may need to be reset
+// before calling this.
+function ResizeBufferMidIteration(n) {
+  CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
+  return false;
 }
 
 // Orig. array: [0, 2, 4, 6]
@@ -72,37 +29,14 @@ function ToNumbers(array) {
 //                    [4, 6] << fixedLengthWithOffset
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
-function CreateRabForTest(ctor) {
-  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-  // Write some data into the array.
-  const taWrite = new ctor(rab);
-  for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(taWrite, i, 2 * i);
-  }
-  return rab;
-}
-let values;
-let rab;
-let resizeAfter;
-let resizeTo;
-function CollectValuesAndResize(n) {
-  if (typeof n == 'bigint') {
-    values.push(Number(n));
-  } else {
-    values.push(n);
-  }
-  if (values.length == resizeAfter) {
-    rab.resize(resizeTo);
-  }
-  return false;
-}
+
 for (let ctor of ctors) {
   rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
   values = [];
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(fixedLength.filter(CollectValuesAndResize)), []);
+  assert.compareArray(ToNumbers(fixedLength.filter(ResizeBufferMidIteration)),[]);
   assert.compareArray(values, [
     0,
     2,
@@ -116,7 +50,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(fixedLengthWithOffset.filter(CollectValuesAndResize)), []);
+  assert.compareArray(ToNumbers(fixedLengthWithOffset.filter(ResizeBufferMidIteration)),[]);
   assert.compareArray(values, [
     4,
     undefined
@@ -128,7 +62,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(lengthTracking.filter(CollectValuesAndResize)), []);
+  assert.compareArray(ToNumbers(lengthTracking.filter(ResizeBufferMidIteration)),[]);
   assert.compareArray(values, [
     0,
     2,
@@ -142,9 +76,10 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(CollectValuesAndResize)), []);
+  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(ResizeBufferMidIteration)),[]);
   assert.compareArray(values, [
     4,
     undefined
   ]);
 }
+
