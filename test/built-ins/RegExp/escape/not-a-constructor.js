@@ -18,11 +18,11 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [RegExp.escape, Reflect.construct, arrow-function]
+features: [RegExp.escape, Reflect.construct]
 ---*/
 
 assert.sameValue(isConstructor(RegExp.escape), false, 'isConstructor(RegExp.escape) must return false');
 
-assert.throws(TypeError, () => {
+assert.throws(TypeError, function () {
   new RegExp.escape();
 });
