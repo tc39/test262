@@ -19,7 +19,7 @@ info: |
 features: [RegExp.escape]
 ---*/
 
-const controlCharacters = '\b\t\n\v\f\r';
-const expectedEscapedCharacters = '\\b\\t\\n\\v\\f\\r';
+const controlCharacters = '\t\n\v\f\r';
+const expectedEscapedCharacters = '\\t\\n\\v\\f\\r';
 
 assert.sameValue(RegExp.escape(controlCharacters), expectedEscapedCharacters, 'Control characters are correctly escaped');
