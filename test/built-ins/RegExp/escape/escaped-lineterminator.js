@@ -41,8 +41,8 @@ info: |
 features: [RegExp.escape]
 ---*/
 
-assert.sameValue(RegExp.escape('\u2028'), '\\u2028', `line terminator \\u2028 is escaped correctly to \\u2028`);
-assert.sameValue(RegExp.escape('\u2029'), '\\u2029', `line terminator \\u2029 is escaped correctly to \\u2029`); 
+assert.sameValue(RegExp.escape('\u2028'), '\\u2028', 'line terminator \\u2028 is escaped correctly to \\u2028');
+assert.sameValue(RegExp.escape('\u2029'), '\\u2029', 'line terminator \\u2029 is escaped correctly to \\u2029'); 
 
-assert.sameValue(RegExp.escape('\u2028\u2029'), '\\u2028\\u2029', `line terminators are escaped correctly`);
-assert.sameValue(RegExp.escape('\u2028a\u2029a'), '\\u2028a\\u2029a', `mixed line terminators are escaped correctly`);
+assert.sameValue(RegExp.escape('\u2028\u2029'), '\\u2028\\u2029', 'line terminators are escaped correctly');
+assert.sameValue(RegExp.escape('\u2028a\u2029a'), '\\u2028a\\u2029a', 'mixed line terminators are escaped correctly');
