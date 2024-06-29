@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.from
+esid: sec-temporal.plaintime.compare
 description: Non-ASCII minus sign is not acceptable
 features: [Temporal]
 ---*/
@@ -15,7 +15,13 @@ const invalidStrings = [
 invalidStrings.forEach((arg) => {
   assert.throws(
     RangeError,
-    () => Temporal.PlainDateTime.from(arg),
-    `variant minus sign: ${arg}`
+    () => Temporal.PlainTime.compare(arg, new Temporal.PlainTime(12, 34, 56, 987, 654, 321)),
+    `variant minus sign: ${arg} (first argument)`
+  );
+
+  assert.throws(
+    RangeError,
+    () => Temporal.PlainTime.compare(new Temporal.PlainTime(12, 34, 56, 987, 654, 321), arg),
+    `variant minus sign: ${arg} (second argument)`
   );
 });
