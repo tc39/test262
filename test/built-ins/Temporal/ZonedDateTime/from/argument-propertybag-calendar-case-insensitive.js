@@ -9,7 +9,7 @@ features: [Temporal]
 
 const calendar = "IsO8601";
 
-const timeZone = new Temporal.TimeZone("UTC");
+const timeZone = "UTC";
 const arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar };
 const result = Temporal.ZonedDateTime.from(arg);
 assert.sameValue(result.calendarId, "iso8601", "Calendar is case-insensitive");
