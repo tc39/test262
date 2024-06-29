@@ -47,9 +47,9 @@ features: [RegExp.escape]
 
 const WhiteSpace = '\uFEFF\u0020\u00A0\u202F';
 
-assert.sameValue(RegExp.escape('\uFEFF'), '\\uFEFF', `whitespace \\uFEFF is escaped correctly to \\uFEFF`);
+assert.sameValue(RegExp.escape('\uFEFF'), '\\ufeff', `whitespace \\uFEFF is escaped correctly to \\uFEFF`);
 assert.sameValue(RegExp.escape('\u0020'), '\\x20', `whitespace \\u0020 is escaped correctly to \\x20`);
-assert.sameValue(RegExp.escape('\u00A0'), '\\xA0', `whitespace \\u00A0 is escaped correctly to \\xA0`);
-assert.sameValue(RegExp.escape('\u202F'), '\\u202F', `whitespace \\u202F is escaped correctly to \\u202F`);
+assert.sameValue(RegExp.escape('\u00A0'), '\\xa0', `whitespace \\u00A0 is escaped correctly to \\xA0`);
+assert.sameValue(RegExp.escape('\u202F'), '\\u202f', `whitespace \\u202F is escaped correctly to \\u202F`);
 
-assert.sameValue(RegExp.escape(WhiteSpace), '\\uFEFF\\x20\\xA0\\u202F', `whitespaces are escaped correctly`);
+assert.sameValue(RegExp.escape(WhiteSpace), '\\ufeff\\x20\\xa0\\u202f', `whitespaces are escaped correctly`);
