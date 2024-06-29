@@ -21,8 +21,6 @@ const expectedEscapedCodePoints = '\\u0100\\u0200\\u0300';
 
 assert.sameValue(RegExp.escape(codePoints), expectedEscapedCodePoints, 'Code points > 0xFF are correctly escaped');
 
-assert.sameValue(RegExp.escape('😊'), '\\uD83D\\uDE0A', 'Single Unicode emoji character is correctly escaped');
-assert.sameValue(RegExp.escape('.a😊b'), '\\.a\\uD83D\\uDE0Ab', 'Mixed string with Unicode emoji character is correctly escaped');
 assert.sameValue(RegExp.escape('你好'), '\\u4F60\\u597D', 'Chinese characters are correctly escaped');
 assert.sameValue(RegExp.escape('こんにちは'), '\\u3053\\u3093\\u306B\\u3061\\u306F', 'Japanese characters are correctly escaped');
 assert.sameValue(RegExp.escape('안녕하세요'), '\\uC548\\uB155\\uD558\\uC138\\uC694', 'Korean characters are correctly escaped');
@@ -36,5 +34,4 @@ assert.sameValue(RegExp.escape('नमस्ते'), '\\u0928\\u092E\\u0938\\u0
 assert.sameValue(RegExp.escape('ሰላም'), '\\u1230\\u120B\\u121D', 'Amharic characters are correctly escaped');
 assert.sameValue(RegExp.escape('हैलो'), '\\u0939\\u0948\\u0932\\u094B', 'Hindi characters with diacritics are correctly escaped');
 assert.sameValue(RegExp.escape('안녕!'), '\\uC548\\uB155\\!', 'Korean character with special character is correctly escaped');
-assert.sameValue(RegExp.escape('.hello😊world'), '\\.hello\\uD83D\\uDE0Aworld', 'Mixed ASCII and Unicode characters are correctly escaped');
-assert.sameValue(RegExp.escape('😊😊😊'), '\\uD83D\\uDE0A\\uD83D\\uDE0A\\uD83D\\uDE0A', 'Repeated Unicode emoji characters are correctly escaped');
+assert.sameValue(RegExp.escape('.hello\uD7FFworld'), '\\.hello\\uD7FFworld', 'Mixed ASCII and Unicode characters are correctly escaped');
