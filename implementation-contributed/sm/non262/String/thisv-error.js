@@ -1,0 +1,49 @@
+// Copyright (C) 2024 Mozilla Corporation. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+includes:
+- non262-String-shell.js
+- non262-shell.js
+- shell.js
+flags:
+- noStrict
+description: |
+  pending
+esid: pending
+---*/function testName(thisv) {
+  var failures = [
+    // Not a function
+    "length",
+    // TODO: Different implementation
+    "toString",
+    "toSource",
+    "valueOf",
+    // Aliases
+    "trimLeft",
+    "trimRight",
+    // Returns empty string
+    "constructor"
+  ]
+
+  var keys = Object.getOwnPropertyNames(String.prototype);
+  for (var key of keys) {
+    if (failures.includes(key)) {
+      assert.throws(TypeError, () => String.prototype[key].call(thisv), key);
+    } else {
+      var expected = `String.prototype.${key} called on incompatible ${thisv}`;
+      assertThrowsInstanceOfWithMessage(() => String.prototype[key].call(thisv), TypeError, expected, key)
+    }
+  }
+}
+testName(null);
+testName(undefined);
+
+// On-off test for Symbol.iterator
+function testIterator(thisv) {
+  assertThrowsInstanceOfWithMessage(() => String.prototype[Symbol.iterator].call(thisv), TypeError,
+  `String.prototype[Symbol.iterator] called on incompatible ${thisv}`);
+}
+testIterator(null);
+testIterator(undefined);
+
