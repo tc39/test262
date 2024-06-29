@@ -15,8 +15,8 @@ features: [RegExp.escape]
 // Avoids a false positive when the feature is not supported
 assert.sameValue(typeof RegExp.escape, 'function', 'RegExp.escape is a function');
 
-assert.throws(TypeError, () => RegExp.escape(123), 'non-string input (number) throws TypeError');
-assert.throws(TypeError, () => RegExp.escape({}), 'non-string input (object) throws TypeError');
-assert.throws(TypeError, () => RegExp.escape([]), 'non-string input (array) throws TypeError');
-assert.throws(TypeError, () => RegExp.escape(null), 'non-string input (null) throws TypeError');
-assert.throws(TypeError, () => RegExp.escape(undefined), 'non-string input (undefined) throws TypeError');
+assert.throws(TypeError, function () { RegExp.escape(123); }, 'non-string input (number) throws TypeError');
+assert.throws(TypeError, function () { RegExp.escape({}); }, 'non-string input (object) throws TypeError');
+assert.throws(TypeError, function () { RegExp.escape([]); }, 'non-string input (array) throws TypeError');
+assert.throws(TypeError, function () { RegExp.escape(null); }, 'non-string input (null) throws TypeError');
+assert.throws(TypeError, function () { RegExp.escape(undefined); }, 'non-string input (undefined) throws TypeError');
