@@ -14,4 +14,4 @@ features: [RegExp.escape]
 
 assert.sameValue(RegExp.escape('.a/b'), '\\.a\\/b', 'mixed string with solidus character is escaped correctly');
 assert.sameValue(RegExp.escape('/./'), '\\/\\.\\/', 'solidus character is escaped correctly - regexp similar');
-assert.sameValue(RegExp.escape('./a\\/*b+c?d^e$f|g{2}h[i]j\\k'), '\\.\\/a\\\\/\\*b\\+c\\?d\\^e\\$f\\|g\\{2\\}h\\[i\\]j\\\\k', 'complex string with multiple special characters is escaped correctly');
+assert.sameValue(RegExp.escape('./a\\/*b+c?d^e$f|g{2}h[i]j\\k'), '\\.\\/a\\\\\\/\\*b\\+c\\?d\\^e\\$f\\|g\\{2\\}h\\[i\\]j\\\\k', 'complex string with multiple special characters is escaped correctly');
