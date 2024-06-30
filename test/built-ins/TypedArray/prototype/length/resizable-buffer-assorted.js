@@ -4,45 +4,11 @@
 /*---
 esid: sec-get-%typedarray%.prototype.length
 description: >
-  TypedArray.p.length behaves when the underlying resizable buffer is
-  backed by resizable buffers
-includes: [compareArray.js]
+  TypedArray.p.length behaves correctly on TypedArrays backed by resizable
+  buffers.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
 
 const rab = CreateResizableArrayBuffer(40, 80);
 for (let ctor of ctors) {

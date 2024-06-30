@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-get-%typedarray%.prototype.length
+esid: sec-get-%typedarray%.prototype.byteLength
 description: >
-  TypedArray.p.length behaves correctly when the underlying resizable buffer is
-  resized such that the TypedArray becomes out of bounds.
+  TypedArray.p.byteLength behaves correctly when the underlying resizable buffer
+  is resized such that the TypedArray becomes out of bounds.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
@@ -22,18 +22,18 @@ for (let ctor of ctors) {
   ]);
 }
 for (let [ta, length] of tas_and_lengths) {
-  assert.sameValue(ta.length, length);
+  assert.sameValue(ta.byteLength, length * ta.BYTES_PER_ELEMENT);
 }
 rab.resize(2);
 for (let [ta, length] of tas_and_lengths) {
-  assert.sameValue(ta.length, 0);
+  assert.sameValue(ta.byteLength, 0);
 }
 // Resize the rab so that it just barely covers the needed 8 bytes.
 rab.resize(8);
 for (let [ta, length] of tas_and_lengths) {
-  assert.sameValue(ta.length, length);
+  assert.sameValue(ta.byteLength, length * ta.BYTES_PER_ELEMENT);
 }
 rab.resize(40);
 for (let [ta, length] of tas_and_lengths) {
-  assert.sameValue(ta.length, length);
+  assert.sameValue(ta.byteLength, length * ta.BYTES_PER_ELEMENT);
 }

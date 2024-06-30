@@ -4,51 +4,17 @@
 /*---
 esid: sec-get-%typedarray%.prototype.length
 description: >
-  TypedArray.p.length behaves when the underlying resizable buffer is
-  resized such that the receiver becomes out of bounds
-includes: [compareArray.js]
+  TypedArray.p.length behaves correctly when the underlying resizable buffer is
+  resized such that the TypedArray becomes out of bounds.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-// typed-array-length-when-resized-out-of-bounds-1 but with offsets.
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
+// Like resized-out-of-bounds-1.js but with offsets.
 
 const rab = CreateResizableArrayBuffer(20, 40);
 
-// Create TAs which cover the bytes 8-15.
+// Create TAs with offset, which cover the bytes 8-15.
 let tas_and_lengths = [];
 for (let ctor of ctors) {
   const length = 8 / ctor.BYTES_PER_ELEMENT;
@@ -59,25 +25,17 @@ for (let ctor of ctors) {
 }
 for (let [ta, length] of tas_and_lengths) {
   assert.sameValue(ta.length, length);
-  assert.sameValue(ta.byteLength, length * ta.BYTES_PER_ELEMENT);
-  assert.sameValue(ta.byteOffset, 8);
 }
 rab.resize(10);
 for (let [ta, length] of tas_and_lengths) {
   assert.sameValue(ta.length, 0);
-  assert.sameValue(ta.byteLength, 0);
-  assert.sameValue(ta.byteOffset, 0);
 }
 // Resize the rab so that it just barely covers the needed 8 bytes.
 rab.resize(16);
 for (let [ta, length] of tas_and_lengths) {
   assert.sameValue(ta.length, length);
-  assert.sameValue(ta.byteLength, length * ta.BYTES_PER_ELEMENT);
-  assert.sameValue(ta.byteOffset, 8);
 }
 rab.resize(40);
 for (let [ta, length] of tas_and_lengths) {
   assert.sameValue(ta.length, length);
-  assert.sameValue(ta.byteLength, length * ta.BYTES_PER_ELEMENT);
-  assert.sameValue(ta.byteOffset, 8);
 }
