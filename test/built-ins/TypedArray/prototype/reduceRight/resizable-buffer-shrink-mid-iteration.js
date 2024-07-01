@@ -4,52 +4,23 @@
 /*---
 esid: sec-%typedarray%.prototype.reduceright
 description: >
-  TypedArray.p.reduceRight behaves correctly when receiver is backed by resizable
+  TypedArray.p.reduceRight behaves correctly on TypedArrays backed by resizable
   buffer that is shrunk mid-iteration
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
+let values;
+let rab;
+let resizeAfter;
+let resizeTo;
+// Collects the view of the resizable array buffer rab into values, with an
+// iteration during which, after resizeAfter steps, rab is resized to length
+// resizeTo. To be called by a method of the view being collected.
+// Note that rab, values, resizeAfter, and resizeTo may need to be reset before
+// calling this.
+function ResizeMidIteration(acc, n) {
+  return CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
 }
 
 // Orig. array: [0, 2, 4, 6]
@@ -57,46 +28,17 @@ function WriteToTypedArray(array, index, value) {
 //                    [4, 6] << fixedLengthWithOffset
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
-function CreateRabForTest(ctor) {
-  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-  // Write some data into the array.
-  const taWrite = new ctor(rab);
-  for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(taWrite, i, 2 * i);
-  }
-  return rab;
-}
-let values;
-let rab;
-let resizeAfter;
-let resizeTo;
-function CollectValuesAndResize(n) {
-  if (typeof n == 'bigint') {
-    values.push(Number(n));
-  } else {
-    values.push(n);
-  }
-  if (values.length == resizeAfter) {
-    rab.resize(resizeTo);
-  }
-  return true;
-}
-function ReduceRightHelper(array) {
-  values = [];
-  array.reduceRight((acc, n) => {
-    CollectValuesAndResize(n);
-  }, 'initial value');
-  return values;
-}
 
 // Tests for reduceRight.
 
 for (let ctor of ctors) {
+  values = [];
   rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ReduceRightHelper(fixedLength), [
+  fixedLength.reduceRight(ResizeMidIteration, 'initial value');
+  assert.compareArray(values, [
     6,
     4,
     undefined,
@@ -104,22 +46,26 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
+  values = [];
   rab = CreateRabForTest(ctor);
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ReduceRightHelper(fixedLengthWithOffset), [
+  fixedLengthWithOffset.reduceRight(ResizeMidIteration, 'initial value');
+  assert.compareArray(values, [
     6,
     undefined
   ]);
 }
 for (let ctor of ctors) {
+  values = [];
   rab = CreateRabForTest(ctor);
   const lengthTracking = new ctor(rab, 0);
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
   // Unaffected by the shrinking, since we've already iterated past the point.
-  assert.compareArray(ReduceRightHelper(lengthTracking), [
+  lengthTracking.reduceRight(ResizeMidIteration, 'initial value');
+  assert.compareArray(values, [
     6,
     4,
     2,
@@ -127,11 +73,13 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
+  values = [];
   rab = CreateRabForTest(ctor);
   const lengthTracking = new ctor(rab, 0);
   resizeAfter = 1;
   resizeTo = 2 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ReduceRightHelper(lengthTracking), [
+  lengthTracking.reduceRight(ResizeMidIteration, 'initial value');
+  assert.compareArray(values, [
     6,
     undefined,
     2,
@@ -139,12 +87,14 @@ for (let ctor of ctors) {
   ]);
 }
 for (let ctor of ctors) {
+  values = [];
   rab = CreateRabForTest(ctor);
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
   // Unaffected by the shrinking, since we've already iterated past the point.
-  assert.compareArray(ReduceRightHelper(lengthTrackingWithOffset), [
+  lengthTrackingWithOffset.reduceRight(ResizeMidIteration, 'initial value');
+  assert.compareArray(values, [
     6,
     4
   ]);

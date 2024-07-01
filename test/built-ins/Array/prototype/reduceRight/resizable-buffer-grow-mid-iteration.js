@@ -4,142 +4,80 @@
 /*---
 esid: sec-array.prototype.reduceright
 description: >
-  Array.p.reduceRight behaves correctly when receiver is backed by resizable
-  buffer that is grown mid-iteration
-includes: [compareArray.js]
+  Array.p.reduceRight behaves correctly on TypedArrays backed by resizable
+  buffers that are grown mid-iteration.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
+let values;
+let rab;
+let resizeAfter;
+let resizeTo;
+// Collects the view of the resizable array buffer rab into values, with an
+// iteration during which, after resizeAfter steps, rab is resized to length
+// resizeTo. To be called by a method of the view being collected.
+// Note that rab, values, resizeAfter, and resizeTo may need to be reset before
+// calling this.
+function ResizeBufferMidIteration(acc, n) {
+  return CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
 }
 
-class MyFloat32Array extends Float32Array {
+// Orig. array: [0, 2, 4, 6]
+//              [0, 2, 4, 6] << fixedLength
+//                    [4, 6] << fixedLengthWithOffset
+//              [0, 2, 4, 6, ...] << lengthTracking
+//                    [4, 6, ...] << lengthTrackingWithOffset
+
+for (let ctor of ctors) {
+  values = [];
+  rab = CreateRabForTest(ctor);
+  const fixedLength = new ctor(rab, 0, 4);
+  resizeAfter = 2;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  Array.prototype.reduceRight.call(fixedLength, ResizeBufferMidIteration, 'initial value');
+  assert.compareArray(values, [
+    6,
+    4,
+    2,
+    0
+  ]);
 }
-
-class MyBigInt64Array extends BigInt64Array {
+for (let ctor of ctors) {
+  values = [];
+  rab = CreateRabForTest(ctor);
+  const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
+  resizeAfter = 1;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  Array.prototype.reduceRight.call(fixedLengthWithOffset, ResizeBufferMidIteration, 'initial value');
+  assert.compareArray(values, [
+    6,
+    4
+  ]);
 }
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
+for (let ctor of ctors) {
+  values = [];
+  rab = CreateRabForTest(ctor);
+  const lengthTracking = new ctor(rab, 0);
+  resizeAfter = 2;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  Array.prototype.reduceRight.call(lengthTracking, ResizeBufferMidIteration, 'initial value');
+  assert.compareArray(values, [
+    6,
+    4,
+    2,
+    0
+  ]);
 }
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
+for (let ctor of ctors) {
+  values = [];
+  rab = CreateRabForTest(ctor);
+  const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
+  resizeAfter = 1;
+  resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
+  Array.prototype.reduceRight.call(lengthTrackingWithOffset, ResizeBufferMidIteration, 'initial value');
+  assert.compareArray(values, [
+    6,
+    4
+  ]);
 }
-
-const ArrayReduceRightHelper = (ta, ...rest) => {
-  return Array.prototype.reduceRight.call(ta, ...rest);
-};
-
-function TestReduceRight() {
-  // Orig. array: [0, 2, 4, 6]
-  //              [0, 2, 4, 6] << fixedLength
-  //                    [4, 6] << fixedLengthWithOffset
-  //              [0, 2, 4, 6, ...] << lengthTracking
-  //                    [4, 6, ...] << lengthTrackingWithOffset
-  function CreateRabForTest(ctor) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    // Write some data into the array.
-    const taWrite = new ctor(rab);
-    for (let i = 0; i < 4; ++i) {
-      WriteToTypedArray(taWrite, i, 2 * i);
-    }
-    return rab;
-  }
-  let values;
-  let rab;
-  let resizeAfter;
-  let resizeTo;
-  function CollectValuesAndResize(n) {
-    if (typeof n == 'bigint') {
-      values.push(Number(n));
-    } else {
-      values.push(n);
-    }
-    if (values.length == resizeAfter) {
-      rab.resize(resizeTo);
-    }
-    return true;
-  }
-  function ReduceRightHelper(array) {
-    values = [];
-    ArrayReduceRightHelper(array, (acc, n) => {
-      CollectValuesAndResize(n);
-    }, 'initial value');
-    return values;
-  }
-
-  // Test for reduceRight.
-
-  for (let ctor of ctors) {
-    rab = CreateRabForTest(ctor);
-    const fixedLength = new ctor(rab, 0, 4);
-    resizeAfter = 2;
-    resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-    assert.compareArray(ReduceRightHelper(fixedLength), [
-      6,
-      4,
-      2,
-      0
-    ]);
-  }
-  for (let ctor of ctors) {
-    rab = CreateRabForTest(ctor);
-    const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
-    resizeAfter = 1;
-    resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-    assert.compareArray(ReduceRightHelper(fixedLengthWithOffset), [
-      6,
-      4
-    ]);
-  }
-  for (let ctor of ctors) {
-    rab = CreateRabForTest(ctor);
-    const lengthTracking = new ctor(rab, 0);
-    resizeAfter = 2;
-    resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-    assert.compareArray(ReduceRightHelper(lengthTracking), [
-      6,
-      4,
-      2,
-      0
-    ]);
-  }
-  for (let ctor of ctors) {
-    rab = CreateRabForTest(ctor);
-    const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
-    resizeAfter = 1;
-    resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-    assert.compareArray(ReduceRightHelper(lengthTrackingWithOffset), [
-      6,
-      4
-    ]);
-  }
-}
-
-TestReduceRight();
