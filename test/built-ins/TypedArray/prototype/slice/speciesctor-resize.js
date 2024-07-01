@@ -4,71 +4,14 @@
 /*---
 esid: sec-%typedarray%.prototype.slice
 description: >
-  TypedArray.p.slice behaves correctly when the receiver is backed by
-  a resizable buffer and the species constructor resizes it
-includes: [compareArray.js]
+  TypedArray.p.slice behaves correctly on TypedArrays backed by resizable buffers
+  which the species constructor resizes.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
 // The corresponding test for Array.prototype.slice is not possible, since it
 // doesn't call the species constructor if the "original array" is not an Array.
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
 
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
