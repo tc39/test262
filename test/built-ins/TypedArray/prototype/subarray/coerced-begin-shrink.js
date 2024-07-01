@@ -4,81 +4,16 @@
 /*---
 esid: sec-%typedarray%.prototype.subarray
 description: >
-  TypedArray.p.subarray behaves correctly when the receiver is backed by
-  resizable buffer that is shrunk by argument coercion
-includes: [compareArray.js]
+  TypedArray.p.subarray behaves correctly on TypedArrays backed by resizable
+  buffers that are shrunk by argument coercion.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
 
 // Orig. array: [0, 2, 4, 6]
 //              [0, 2, 4, 6] << fixedLength
 //              [0, 2, 4, 6, ...] << lengthTracking
-function CreateRabForTest(ctor) {
-  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-  // Write some data into the array.
-  const taWrite = new ctor(rab);
-  for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(taWrite, i, 2 * i);
-  }
-  return rab;
-}
+
 
 // Fixed-length TA + first parameter conversion shrinks. The old length is
 // used in the length computation, and the subarray construction fails.
