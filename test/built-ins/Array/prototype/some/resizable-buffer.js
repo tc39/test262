@@ -4,149 +4,99 @@
 /*---
 esid: sec-array.prototype.some
 description: >
-  Array.p.some behaves correctly when the receiver is backed by
-  resizable buffer
+  Array.p.some behaves correctly on TypedArrays backed by resizable buffers.
+includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const fixedLength = new ctor(rab, 0, 4);
+  const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
+  const lengthTracking = new ctor(rab, 0);
+  const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
 
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
+  // Write some data into the array.
+  const taWrite = new ctor(rab);
+  for (let i = 0; i < 4; ++i) {
+    WriteToTypedArray(taWrite, i, 2 * i);
   }
-}
 
-const ArraySomeHelper = (ta, ...rest) => {
-  return Array.prototype.some.call(ta, ...rest);
-};
+  // Orig. array: [0, 2, 4, 6]
+  //              [0, 2, 4, 6] << fixedLength
+  //                    [4, 6] << fixedLengthWithOffset
+  //              [0, 2, 4, 6, ...] << lengthTracking
+  //                    [4, 6, ...] << lengthTrackingWithOffset
 
-function TestSome() {
-  for (let ctor of ctors) {
-    const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
-    const fixedLength = new ctor(rab, 0, 4);
-    const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
-    const lengthTracking = new ctor(rab, 0);
-    const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
-
-    // Write some data into the array.
-    const taWrite = new ctor(rab);
-    for (let i = 0; i < 4; ++i) {
-      WriteToTypedArray(taWrite, i, 2 * i);
-    }
-
-    // Orig. array: [0, 2, 4, 6]
-    //              [0, 2, 4, 6] << fixedLength
-    //                    [4, 6] << fixedLengthWithOffset
-    //              [0, 2, 4, 6, ...] << lengthTracking
-    //                    [4, 6, ...] << lengthTrackingWithOffset
-
-    function div3(n) {
-      return Number(n) % 3 == 0;
-    }
-    function even(n) {
-      return Number(n) % 2 == 0;
-    }
-    function over10(n) {
-      return Number(n) > 10;
-    }
-    assert(ArraySomeHelper(fixedLength, div3));
-    assert(!ArraySomeHelper(fixedLength, over10));
-    assert(ArraySomeHelper(fixedLengthWithOffset, div3));
-    assert(!ArraySomeHelper(fixedLengthWithOffset, over10));
-    assert(ArraySomeHelper(lengthTracking, div3));
-    assert(!ArraySomeHelper(lengthTracking, over10));
-    assert(ArraySomeHelper(lengthTrackingWithOffset, div3));
-    assert(!ArraySomeHelper(lengthTrackingWithOffset, over10));
-
-    // Shrink so that fixed length TAs go out of bounds.
-    rab.resize(3 * ctor.BYTES_PER_ELEMENT);
-
-    // Orig. array: [0, 2, 4]
-    //              [0, 2, 4, ...] << lengthTracking
-    //                    [4, ...] << lengthTrackingWithOffset
-
-    assert(!ArraySomeHelper(fixedLength, div3));
-    assert(!ArraySomeHelper(fixedLengthWithOffset, div3));
-
-    assert(ArraySomeHelper(lengthTracking, div3));
-    assert(!ArraySomeHelper(lengthTracking, over10));
-    assert(!ArraySomeHelper(lengthTrackingWithOffset, div3));
-    assert(!ArraySomeHelper(lengthTrackingWithOffset, over10));
-
-    // Shrink so that the TAs with offset go out of bounds.
-    rab.resize(1 * ctor.BYTES_PER_ELEMENT);
-    assert(!ArraySomeHelper(fixedLength, div3));
-    assert(!ArraySomeHelper(fixedLengthWithOffset, div3));
-    assert(!ArraySomeHelper(lengthTrackingWithOffset, div3));
-
-    assert(ArraySomeHelper(lengthTracking, div3));
-    assert(!ArraySomeHelper(lengthTracking, over10));
-
-    // Shrink to zero.
-    rab.resize(0);
-    assert(!ArraySomeHelper(fixedLength, div3));
-    assert(!ArraySomeHelper(fixedLengthWithOffset, div3));
-    assert(!ArraySomeHelper(lengthTrackingWithOffset, div3));
-
-    assert(!ArraySomeHelper(lengthTracking, div3));
-    assert(!ArraySomeHelper(lengthTracking, over10));
-
-    // Grow so that all TAs are back in-bounds.
-    rab.resize(6 * ctor.BYTES_PER_ELEMENT);
-    for (let i = 0; i < 6; ++i) {
-      WriteToTypedArray(taWrite, i, 2 * i);
-    }
-
-    // Orig. array: [0, 2, 4, 6, 8, 10]
-    //              [0, 2, 4, 6] << fixedLength
-    //                    [4, 6] << fixedLengthWithOffset
-    //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
-    //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
-
-    assert(ArraySomeHelper(fixedLength, div3));
-    assert(!ArraySomeHelper(fixedLength, over10));
-    assert(ArraySomeHelper(fixedLengthWithOffset, div3));
-    assert(!ArraySomeHelper(fixedLengthWithOffset, over10));
-    assert(ArraySomeHelper(lengthTracking, div3));
-    assert(!ArraySomeHelper(lengthTracking, over10));
-    assert(ArraySomeHelper(lengthTrackingWithOffset, div3));
-    assert(!ArraySomeHelper(lengthTrackingWithOffset, over10));
+  function div3(n) {
+    return Number(n) % 3 == 0;
   }
-}
+  function even(n) {
+    return Number(n) % 2 == 0;
+  }
+  function over10(n) {
+    return Number(n) > 10;
+  }
+  assert(Array.prototype.some.call(fixedLength, div3));
+  assert(!Array.prototype.some.call(fixedLength, over10));
+  assert(Array.prototype.some.call(fixedLengthWithOffset, div3));
+  assert(!Array.prototype.some.call(fixedLengthWithOffset, over10));
+  assert(Array.prototype.some.call(lengthTracking, div3));
+  assert(!Array.prototype.some.call(lengthTracking, over10));
+  assert(Array.prototype.some.call(lengthTrackingWithOffset, div3));
+  assert(!Array.prototype.some.call(lengthTrackingWithOffset, over10));
 
-TestSome();
+  // Shrink so that fixed length TAs go out of bounds.
+  rab.resize(3 * ctor.BYTES_PER_ELEMENT);
+
+  // Orig. array: [0, 2, 4]
+  //              [0, 2, 4, ...] << lengthTracking
+  //                    [4, ...] << lengthTrackingWithOffset
+
+  assert(!Array.prototype.some.call(fixedLength, div3));
+  assert(!Array.prototype.some.call(fixedLengthWithOffset, div3));
+
+  assert(Array.prototype.some.call(lengthTracking, div3));
+  assert(!Array.prototype.some.call(lengthTracking, over10));
+  assert(!Array.prototype.some.call(lengthTrackingWithOffset, div3));
+  assert(!Array.prototype.some.call(lengthTrackingWithOffset, over10));
+
+  // Shrink so that the TAs with offset go out of bounds.
+  rab.resize(1 * ctor.BYTES_PER_ELEMENT);
+  assert(!Array.prototype.some.call(fixedLength, div3));
+  assert(!Array.prototype.some.call(fixedLengthWithOffset, div3));
+  assert(!Array.prototype.some.call(lengthTrackingWithOffset, div3));
+
+  assert(Array.prototype.some.call(lengthTracking, div3));
+  assert(!Array.prototype.some.call(lengthTracking, over10));
+
+  // Shrink to zero.
+  rab.resize(0);
+  assert(!Array.prototype.some.call(fixedLength, div3));
+  assert(!Array.prototype.some.call(fixedLengthWithOffset, div3));
+  assert(!Array.prototype.some.call(lengthTrackingWithOffset, div3));
+
+  assert(!Array.prototype.some.call(lengthTracking, div3));
+  assert(!Array.prototype.some.call(lengthTracking, over10));
+
+  // Grow so that all TAs are back in-bounds.
+  rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+  for (let i = 0; i < 6; ++i) {
+    WriteToTypedArray(taWrite, i, 2 * i);
+  }
+
+  // Orig. array: [0, 2, 4, 6, 8, 10]
+  //              [0, 2, 4, 6] << fixedLength
+  //                    [4, 6] << fixedLengthWithOffset
+  //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
+  //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
+
+  assert(Array.prototype.some.call(fixedLength, div3));
+  assert(!Array.prototype.some.call(fixedLength, over10));
+  assert(Array.prototype.some.call(fixedLengthWithOffset, div3));
+  assert(!Array.prototype.some.call(fixedLengthWithOffset, over10));
+  assert(Array.prototype.some.call(lengthTracking, div3));
+  assert(!Array.prototype.some.call(lengthTracking, over10));
+  assert(Array.prototype.some.call(lengthTrackingWithOffset, div3));
+  assert(!Array.prototype.some.call(lengthTrackingWithOffset, over10));
+}
