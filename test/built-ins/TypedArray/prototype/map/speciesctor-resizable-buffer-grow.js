@@ -4,80 +4,32 @@
 /*---
 esid: sec-%typedarray%.prototype.map
 description: >
-  TypedArray.p.map behaves correctly when the receiver is grown by the
-  species constructor
-includes: [compareArray.js]
+  TypedArray.p.map behaves correctly on TypedArrays backed by resizable buffers
+  that are grown by the species constructor.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function IsBigIntTypedArray(ta) {
-  return ta instanceof BigInt64Array || ta instanceof BigUint64Array;
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
+// Returns a function that collects an appropriate typed array into values. Such
+// a result can be used as an argument to .map.
+function CollectWithUndefined(values) {
+  return (n, ix, ta) => {
+    if (typeof n == 'bigint') {
+      values.push(Number(n));
+    } else {
+      values.push(n);
+    }
+    if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
+      // We still need to return a valid BigInt / non-BigInt, even if
+      // n is `undefined`.
+      return 0n;
+    }
+    return 0;
   }
 }
 
-let values;
-let rab;
-function CollectValues(n, ix, ta) {
-  if (typeof n == 'bigint') {
-    values.push(Number(n));
-  } else {
-    values.push(n);
-  }
-  // We still need to return a valid BigInt / non-BigInt, even if
-  // n is `undefined`.
-  if (IsBigIntTypedArray(ta)) {
-    return 0n;
-  }
-  return 0;
-}
-function Helper(array) {
-  values = [];
-  array.map(CollectValues);
-  return values;
-}
 for (let ctor of ctors) {
-  rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
   const taWrite = new ctor(rab);
   for (let i = 0; i < 4; ++i) {
     WriteToTypedArray(taWrite, i, i);
@@ -93,7 +45,9 @@ for (let ctor of ctors) {
   };
   const fixedLength = new MyArray(rab, 0, 4);
   resizeWhenConstructorCalled = true;
-  assert.compareArray(Helper(fixedLength), [
+  const values = [];
+  fixedLength.map(CollectWithUndefined(values));
+  assert.compareArray(values, [
     0,
     1,
     2,
@@ -102,7 +56,7 @@ for (let ctor of ctors) {
   assert.sameValue(rab.byteLength, 6 * ctor.BYTES_PER_ELEMENT);
 }
 for (let ctor of ctors) {
-  rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
   const taWrite = new ctor(rab);
   for (let i = 0; i < 4; ++i) {
     WriteToTypedArray(taWrite, i, i);
@@ -119,7 +73,9 @@ for (let ctor of ctors) {
   ;
   const lengthTracking = new MyArray(rab);
   resizeWhenConstructorCalled = true;
-  assert.compareArray(Helper(lengthTracking), [
+  const values = [];
+  lengthTracking.map(CollectWithUndefined(values));
+  assert.compareArray(values, [
     0,
     1,
     2,
