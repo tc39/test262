@@ -4,75 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.set
 description: >
-  TypedArray.p.set behaves correctly when the source argument is a
-  TypedArray backed by a resizable buffer
-includes: [compareArray.js]
+  TypedArray.p.set behaves correctly on TypedArrays backed by resizable buffers.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
 
 function IsBigIntTypedArray(ta) {
   return ta instanceof BigInt64Array || ta instanceof BigUint64Array;
 }
 
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
-
-function SetHelper(target, source, offset) {
-  if (target instanceof BigInt64Array || target instanceof BigUint64Array) {
+function SetNumOrBigInt(target, source, offset) {
+  if (IsBigIntTypedArray(target)) {
     const bigIntSource = [];
     for (const s of source) {
       bigIntSource.push(BigInt(s));
@@ -115,7 +57,7 @@ for (let targetIsResizable of [
         // Can't mix BigInt and non-BigInt types.
         continue;
       }
-      SetHelper(target, fixedLength);
+      SetNumOrBigInt(target, fixedLength);
       assert.compareArray(ToNumbers(target), [
         1,
         2,
@@ -124,7 +66,7 @@ for (let targetIsResizable of [
         0,
         0
       ]);
-      SetHelper(target, fixedLengthWithOffset);
+      SetNumOrBigInt(target, fixedLengthWithOffset);
       assert.compareArray(ToNumbers(target), [
         3,
         4,
@@ -133,7 +75,7 @@ for (let targetIsResizable of [
         0,
         0
       ]);
-      SetHelper(target, lengthTracking, 1);
+      SetNumOrBigInt(target, lengthTracking, 1);
       assert.compareArray(ToNumbers(target), [
         3,
         1,
@@ -142,7 +84,7 @@ for (let targetIsResizable of [
         4,
         0
       ]);
-      SetHelper(target, lengthTrackingWithOffset, 1);
+      SetNumOrBigInt(target, lengthTrackingWithOffset, 1);
       assert.compareArray(ToNumbers(target), [
         3,
         3,
@@ -160,10 +102,10 @@ for (let targetIsResizable of [
       //                    [3, ...] << lengthTrackingWithOffset
 
       assert.throws(TypeError, () => {
-        SetHelper(target, fixedLength);
+        SetNumOrBigInt(target, fixedLength);
       });
       assert.throws(TypeError, () => {
-        SetHelper(target, fixedLengthWithOffset);
+        SetNumOrBigInt(target, fixedLengthWithOffset);
       });
       assert.compareArray(ToNumbers(target), [
         3,
@@ -173,7 +115,7 @@ for (let targetIsResizable of [
         4,
         0
       ]);
-      SetHelper(target, lengthTracking);
+      SetNumOrBigInt(target, lengthTracking);
       assert.compareArray(ToNumbers(target), [
         1,
         2,
@@ -182,7 +124,7 @@ for (let targetIsResizable of [
         4,
         0
       ]);
-      SetHelper(target, lengthTrackingWithOffset);
+      SetNumOrBigInt(target, lengthTrackingWithOffset);
       assert.compareArray(ToNumbers(target), [
         3,
         2,
@@ -195,15 +137,15 @@ for (let targetIsResizable of [
       // Shrink so that the TAs with offset go out of bounds.
       rab.resize(1 * sourceCtor.BYTES_PER_ELEMENT);
       assert.throws(TypeError, () => {
-        SetHelper(target, fixedLength);
+        SetNumOrBigInt(target, fixedLength);
       });
       assert.throws(TypeError, () => {
-        SetHelper(target, fixedLengthWithOffset);
+        SetNumOrBigInt(target, fixedLengthWithOffset);
       });
       assert.throws(TypeError, () => {
-        SetHelper(target, lengthTrackingWithOffset);
+        SetNumOrBigInt(target, lengthTrackingWithOffset);
       });
-      SetHelper(target, lengthTracking, 3);
+      SetNumOrBigInt(target, lengthTracking, 3);
       assert.compareArray(ToNumbers(target), [
         3,
         2,
@@ -216,15 +158,15 @@ for (let targetIsResizable of [
       // Shrink to zero.
       rab.resize(0);
       assert.throws(TypeError, () => {
-        SetHelper(target, fixedLength);
+        SetNumOrBigInt(target, fixedLength);
       });
       assert.throws(TypeError, () => {
-        SetHelper(target, fixedLengthWithOffset);
+        SetNumOrBigInt(target, fixedLengthWithOffset);
       });
       assert.throws(TypeError, () => {
-        SetHelper(target, lengthTrackingWithOffset);
+        SetNumOrBigInt(target, lengthTrackingWithOffset);
       });
-      SetHelper(target, lengthTracking, 4);
+      SetNumOrBigInt(target, lengthTracking, 4);
       assert.compareArray(ToNumbers(target), [
         3,
         2,
@@ -246,7 +188,7 @@ for (let targetIsResizable of [
       //              [1, 2, 3, 4, 5, 6, ...] << lengthTracking
       //                    [3, 4, 5, 6, ...] << lengthTrackingWithOffset
 
-      SetHelper(target, fixedLength);
+      SetNumOrBigInt(target, fixedLength);
       assert.compareArray(ToNumbers(target), [
         1,
         2,
@@ -255,7 +197,7 @@ for (let targetIsResizable of [
         4,
         0
       ]);
-      SetHelper(target, fixedLengthWithOffset);
+      SetNumOrBigInt(target, fixedLengthWithOffset);
       assert.compareArray(ToNumbers(target), [
         3,
         4,
@@ -264,7 +206,7 @@ for (let targetIsResizable of [
         4,
         0
       ]);
-      SetHelper(target, lengthTracking, 0);
+      SetNumOrBigInt(target, lengthTracking, 0);
       assert.compareArray(ToNumbers(target), [
         1,
         2,
@@ -273,7 +215,7 @@ for (let targetIsResizable of [
         5,
         6
       ]);
-      SetHelper(target, lengthTrackingWithOffset, 1);
+      SetNumOrBigInt(target, lengthTrackingWithOffset, 1);
       assert.compareArray(ToNumbers(target), [
         1,
         3,

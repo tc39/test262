@@ -4,62 +4,12 @@
 /*---
 esid: sec-%typedarray%.prototype.set
 description: >
-  TypedArray.p.set behaves correctly when the receiver is backed by
-  resizable buffer
-includes: [compareArray.js]
+  TypedArray.p.set behaves correctly on TypedArrays backed by resizable buffers.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
-
-function SetHelper(target, source, offset) {
+function SetNumOrBigInt(target, source, offset) {
   if (target instanceof BigInt64Array || target instanceof BigUint64Array) {
     const bigIntSource = [];
     for (const s of source) {
@@ -94,7 +44,7 @@ for (let ctor of ctors) {
       throw new Error('Called getter for ' + prop);
     }
   });
-  SetHelper(fixedLength, [
+  SetNumOrBigInt(fixedLength, [
     1,
     2
   ]);
@@ -104,7 +54,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  SetHelper(fixedLength, [
+  SetNumOrBigInt(fixedLength, [
     3,
     4
   ], 1);
@@ -115,7 +65,7 @@ for (let ctor of ctors) {
     0
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(fixedLength, [
+    SetNumOrBigInt(fixedLength, [
       0,
       0,
       0,
@@ -124,7 +74,7 @@ for (let ctor of ctors) {
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(fixedLength, [
+    SetNumOrBigInt(fixedLength, [
       0,
       0,
       0,
@@ -137,7 +87,7 @@ for (let ctor of ctors) {
     4,
     0
   ]);
-  SetHelper(fixedLengthWithOffset, [
+  SetNumOrBigInt(fixedLengthWithOffset, [
     5,
     6
   ]);
@@ -147,7 +97,7 @@ for (let ctor of ctors) {
     5,
     6
   ]);
-  SetHelper(fixedLengthWithOffset, [7], 1);
+  SetNumOrBigInt(fixedLengthWithOffset, [7], 1);
   assert.compareArray(ToNumbers(taFull), [
     1,
     3,
@@ -155,14 +105,14 @@ for (let ctor of ctors) {
     7
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(fixedLengthWithOffset, [
+    SetNumOrBigInt(fixedLengthWithOffset, [
       0,
       0,
       0
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(fixedLengthWithOffset, [
+    SetNumOrBigInt(fixedLengthWithOffset, [
       0,
       0
     ], 1);
@@ -173,7 +123,7 @@ for (let ctor of ctors) {
     5,
     7
   ]);
-  SetHelper(lengthTracking, [
+  SetNumOrBigInt(lengthTracking, [
     8,
     9
   ]);
@@ -183,7 +133,7 @@ for (let ctor of ctors) {
     5,
     7
   ]);
-  SetHelper(lengthTracking, [
+  SetNumOrBigInt(lengthTracking, [
     10,
     11
   ], 1);
@@ -194,7 +144,7 @@ for (let ctor of ctors) {
     7
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [
+    SetNumOrBigInt(lengthTracking, [
       0,
       0,
       0,
@@ -203,7 +153,7 @@ for (let ctor of ctors) {
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [
+    SetNumOrBigInt(lengthTracking, [
       0,
       0,
       0,
@@ -216,7 +166,7 @@ for (let ctor of ctors) {
     11,
     7
   ]);
-  SetHelper(lengthTrackingWithOffset, [
+  SetNumOrBigInt(lengthTrackingWithOffset, [
     12,
     13
   ]);
@@ -226,7 +176,7 @@ for (let ctor of ctors) {
     12,
     13
   ]);
-  SetHelper(lengthTrackingWithOffset, [14], 1);
+  SetNumOrBigInt(lengthTrackingWithOffset, [14], 1);
   assert.compareArray(ToNumbers(taFull), [
     8,
     10,
@@ -234,14 +184,14 @@ for (let ctor of ctors) {
     14
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(lengthTrackingWithOffset, [
+    SetNumOrBigInt(lengthTrackingWithOffset, [
       0,
       0,
       0
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTrackingWithOffset, [
+    SetNumOrBigInt(lengthTrackingWithOffset, [
       0,
       0
     ], 1);
@@ -261,17 +211,17 @@ for (let ctor of ctors) {
   //                     [12, ...] << lengthTrackingWithOffset
 
   assert.throws(TypeError, () => {
-    SetHelper(fixedLength, throwingProxy);
+    SetNumOrBigInt(fixedLength, throwingProxy);
   });
   assert.throws(TypeError, () => {
-    SetHelper(fixedLengthWithOffset, throwingProxy);
+    SetNumOrBigInt(fixedLengthWithOffset, throwingProxy);
   });
   assert.compareArray(ToNumbers(taFull), [
     8,
     10,
     12
   ]);
-  SetHelper(lengthTracking, [
+  SetNumOrBigInt(lengthTracking, [
     15,
     16
   ]);
@@ -280,7 +230,7 @@ for (let ctor of ctors) {
     16,
     12
   ]);
-  SetHelper(lengthTracking, [
+  SetNumOrBigInt(lengthTracking, [
     17,
     18
   ], 1);
@@ -290,7 +240,7 @@ for (let ctor of ctors) {
     18
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [
+    SetNumOrBigInt(lengthTracking, [
       0,
       0,
       0,
@@ -298,7 +248,7 @@ for (let ctor of ctors) {
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [
+    SetNumOrBigInt(lengthTracking, [
       0,
       0,
       0
@@ -309,20 +259,20 @@ for (let ctor of ctors) {
     17,
     18
   ]);
-  SetHelper(lengthTrackingWithOffset, [19]);
+  SetNumOrBigInt(lengthTrackingWithOffset, [19]);
   assert.compareArray(ToNumbers(taFull), [
     15,
     17,
     19
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(lengthTrackingWithOffset, [
+    SetNumOrBigInt(lengthTrackingWithOffset, [
       0,
       0
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTrackingWithOffset, [0], 1);
+    SetNumOrBigInt(lengthTrackingWithOffset, [0], 1);
   });
   assert.compareArray(ToNumbers(taFull), [
     15,
@@ -333,31 +283,31 @@ for (let ctor of ctors) {
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    SetHelper(fixedLength, throwingProxy);
+    SetNumOrBigInt(fixedLength, throwingProxy);
   });
   assert.throws(TypeError, () => {
-    SetHelper(fixedLengthWithOffset, throwingProxy);
+    SetNumOrBigInt(fixedLengthWithOffset, throwingProxy);
   });
   assert.throws(TypeError, () => {
-    SetHelper(lengthTrackingWithOffset, throwingProxy);
+    SetNumOrBigInt(lengthTrackingWithOffset, throwingProxy);
   });
   assert.compareArray(ToNumbers(taFull), [15]);
-  SetHelper(lengthTracking, [20]);
+  SetNumOrBigInt(lengthTracking, [20]);
   assert.compareArray(ToNumbers(taFull), [20]);
 
   // Shrink to zero.
   rab.resize(0);
   assert.throws(TypeError, () => {
-    SetHelper(fixedLength, throwingProxy);
+    SetNumOrBigInt(fixedLength, throwingProxy);
   });
   assert.throws(TypeError, () => {
-    SetHelper(fixedLengthWithOffset, throwingProxy);
+    SetNumOrBigInt(fixedLengthWithOffset, throwingProxy);
   });
   assert.throws(TypeError, () => {
-    SetHelper(lengthTrackingWithOffset, throwingProxy);
+    SetNumOrBigInt(lengthTrackingWithOffset, throwingProxy);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [0]);
+    SetNumOrBigInt(lengthTracking, [0]);
   });
   assert.compareArray(ToNumbers(taFull), []);
 
@@ -369,7 +319,7 @@ for (let ctor of ctors) {
   //                    [0, 0] << fixedLengthWithOffset
   //              [0, 0, 0, 0, 0, 0, ...] << lengthTracking
   //                    [0, 0, 0, 0, ...] << lengthTrackingWithOffset
-  SetHelper(fixedLength, [
+  SetNumOrBigInt(fixedLength, [
     21,
     22
   ]);
@@ -381,7 +331,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  SetHelper(fixedLength, [
+  SetNumOrBigInt(fixedLength, [
     23,
     24
   ], 1);
@@ -394,7 +344,7 @@ for (let ctor of ctors) {
     0
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(fixedLength, [
+    SetNumOrBigInt(fixedLength, [
       0,
       0,
       0,
@@ -403,7 +353,7 @@ for (let ctor of ctors) {
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(fixedLength, [
+    SetNumOrBigInt(fixedLength, [
       0,
       0,
       0,
@@ -418,7 +368,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  SetHelper(fixedLengthWithOffset, [
+  SetNumOrBigInt(fixedLengthWithOffset, [
     25,
     26
   ]);
@@ -430,7 +380,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  SetHelper(fixedLengthWithOffset, [27], 1);
+  SetNumOrBigInt(fixedLengthWithOffset, [27], 1);
   assert.compareArray(ToNumbers(taFull), [
     21,
     23,
@@ -440,14 +390,14 @@ for (let ctor of ctors) {
     0
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(fixedLengthWithOffset, [
+    SetNumOrBigInt(fixedLengthWithOffset, [
       0,
       0,
       0
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(fixedLengthWithOffset, [
+    SetNumOrBigInt(fixedLengthWithOffset, [
       0,
       0
     ], 1);
@@ -460,7 +410,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  SetHelper(lengthTracking, [
+  SetNumOrBigInt(lengthTracking, [
     28,
     29,
     30,
@@ -476,7 +426,7 @@ for (let ctor of ctors) {
     32,
     33
   ]);
-  SetHelper(lengthTracking, [
+  SetNumOrBigInt(lengthTracking, [
     34,
     35,
     36,
@@ -492,7 +442,7 @@ for (let ctor of ctors) {
     38
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [
+    SetNumOrBigInt(lengthTracking, [
       0,
       0,
       0,
@@ -503,7 +453,7 @@ for (let ctor of ctors) {
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTracking, [
+    SetNumOrBigInt(lengthTracking, [
       0,
       0,
       0,
@@ -520,7 +470,7 @@ for (let ctor of ctors) {
     37,
     38
   ]);
-  SetHelper(lengthTrackingWithOffset, [
+  SetNumOrBigInt(lengthTrackingWithOffset, [
     39,
     40,
     41,
@@ -534,7 +484,7 @@ for (let ctor of ctors) {
     41,
     42
   ]);
-  SetHelper(lengthTrackingWithOffset, [
+  SetNumOrBigInt(lengthTrackingWithOffset, [
     43,
     44,
     45
@@ -548,7 +498,7 @@ for (let ctor of ctors) {
     45
   ]);
   assert.throws(RangeError, () => {
-    SetHelper(lengthTrackingWithOffset, [
+    SetNumOrBigInt(lengthTrackingWithOffset, [
       0,
       0,
       0,
@@ -557,7 +507,7 @@ for (let ctor of ctors) {
     ]);
   });
   assert.throws(RangeError, () => {
-    SetHelper(lengthTrackingWithOffset, [
+    SetNumOrBigInt(lengthTrackingWithOffset, [
       0,
       0,
       0,
