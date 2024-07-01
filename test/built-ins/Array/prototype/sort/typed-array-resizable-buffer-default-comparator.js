@@ -4,74 +4,13 @@
 /*---
 esid: sec-array.prototype.sort
 description: >
-  Array.p.sort behaves correctly on TypedArrays backed by resizable buffers
-includes: [compareArray.js]
+  Array.p.sort behaves correctly on TypedArrays backed by resizable buffers.
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 
 ---*/
 
 // The default comparison function for Array.prototype.sort is the string sort.
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
-
-const ArraySortHelper = (ta, ...rest) => {
-  Array.prototype.sort.call(ta, ...rest);
-};
 
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -93,7 +32,7 @@ for (let ctor of ctors) {
   //                     [6, 4, ...] << lengthTrackingWithOffset
 
   WriteUnsortedData();
-  ArraySortHelper(fixedLength);
+  Array.prototype.sort.call(fixedLength);
   assert.compareArray(ToNumbers(taFull), [
     10,
     4,
@@ -101,7 +40,7 @@ for (let ctor of ctors) {
     8
   ]);
   WriteUnsortedData();
-  ArraySortHelper(fixedLengthWithOffset);
+  Array.prototype.sort.call(fixedLengthWithOffset);
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
@@ -109,7 +48,7 @@ for (let ctor of ctors) {
     6
   ]);
   WriteUnsortedData();
-  ArraySortHelper(lengthTracking);
+  Array.prototype.sort.call(lengthTracking);
   assert.compareArray(ToNumbers(taFull), [
     10,
     4,
@@ -117,7 +56,7 @@ for (let ctor of ctors) {
     8
   ]);
   WriteUnsortedData();
-  ArraySortHelper(lengthTrackingWithOffset);
+  Array.prototype.sort.call(lengthTrackingWithOffset);
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
@@ -133,26 +72,26 @@ for (let ctor of ctors) {
   //                     [6, ...] << lengthTrackingWithOffset
 
   WriteUnsortedData();
-  ArraySortHelper(fixedLength);  // OOB -> NOOP
+  Array.prototype.sort.call(fixedLength);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
     6
   ]);
-  ArraySortHelper(fixedLengthWithOffset);  // OOB -> NOOP
+  Array.prototype.sort.call(fixedLengthWithOffset);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
     6
   ]);
-  ArraySortHelper(lengthTracking);
+  Array.prototype.sort.call(lengthTracking);
   assert.compareArray(ToNumbers(taFull), [
     10,
     6,
     8
   ]);
   WriteUnsortedData();
-  ArraySortHelper(lengthTrackingWithOffset);
+  Array.prototype.sort.call(lengthTrackingWithOffset);
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
@@ -162,24 +101,24 @@ for (let ctor of ctors) {
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   WriteUnsortedData();
-  ArraySortHelper(fixedLength);  // OOB -> NOOP
+  Array.prototype.sort.call(fixedLength);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), [10]);
-  ArraySortHelper(fixedLengthWithOffset);  // OOB -> NOOP
+  Array.prototype.sort.call(fixedLengthWithOffset);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), [10]);
-  ArraySortHelper(lengthTrackingWithOffset);   // OOB -> NOOP
+  Array.prototype.sort.call(lengthTrackingWithOffset);   // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), [10]);
-  ArraySortHelper(lengthTracking);
+  Array.prototype.sort.call(lengthTracking);
   assert.compareArray(ToNumbers(taFull), [10]);
 
   // Shrink to zero.
   rab.resize(0);
-  ArraySortHelper(fixedLength);  // OOB -> NOOP
+  Array.prototype.sort.call(fixedLength);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), []);
-  ArraySortHelper(fixedLengthWithOffset);  // OOB -> NOOP
+  Array.prototype.sort.call(fixedLengthWithOffset);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), []);
-  ArraySortHelper(lengthTrackingWithOffset);  // OOB -> NOOP
+  Array.prototype.sort.call(lengthTrackingWithOffset);  // OOB -> NOOP
   assert.compareArray(ToNumbers(taFull), []);
-  ArraySortHelper(lengthTracking);
+  Array.prototype.sort.call(lengthTracking);
   assert.compareArray(ToNumbers(taFull), []);
 
   // Grow so that all TAs are back in-bounds.
@@ -192,7 +131,7 @@ for (let ctor of ctors) {
   //                     [6, 4, 2, 0, ...] << lengthTrackingWithOffset
 
   WriteUnsortedData();
-  ArraySortHelper(fixedLength);
+  Array.prototype.sort.call(fixedLength);
   assert.compareArray(ToNumbers(taFull), [
     10,
     4,
@@ -202,7 +141,7 @@ for (let ctor of ctors) {
     0
   ]);
   WriteUnsortedData();
-  ArraySortHelper(fixedLengthWithOffset);
+  Array.prototype.sort.call(fixedLengthWithOffset);
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
@@ -212,7 +151,7 @@ for (let ctor of ctors) {
     0
   ]);
   WriteUnsortedData();
-  ArraySortHelper(lengthTracking);
+  Array.prototype.sort.call(lengthTracking);
   assert.compareArray(ToNumbers(taFull), [
     0,
     10,
@@ -222,7 +161,7 @@ for (let ctor of ctors) {
     8
   ]);
   WriteUnsortedData();
-  ArraySortHelper(lengthTrackingWithOffset);
+  Array.prototype.sort.call(lengthTrackingWithOffset);
   assert.compareArray(ToNumbers(taFull), [
     10,
     8,
