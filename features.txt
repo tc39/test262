@@ -105,6 +105,10 @@ iterator-helpers
 # https://github.com/tc39/proposal-promise-with-resolvers
 promise-with-resolvers
 
+# Promise.try
+# https://github.com/tc39/proposal-promise-try
+promise-try
+
 # Set methods
 # https://github.com/tc39/proposal-set-methods
 set-methods
@@ -121,6 +125,11 @@ Float16Array
 # https://github.com/tc39/proposal-math-sum
 Math.sumPrecise
 
+# Source Phase Imports
+## https://github.com/tc39/proposal-source-phase-imports
+source-phase-imports
+## test262 special specifier
+source-phase-imports-module-source
 
 ## Standard language features
 #
