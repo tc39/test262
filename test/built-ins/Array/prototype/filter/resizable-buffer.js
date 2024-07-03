@@ -8,7 +8,6 @@ description: >
   buffers
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
-flags: [onlyStrict]
 ---*/
 
 for (let ctor of ctors) {
