@@ -10,8 +10,13 @@ features: [Temporal]
 const timeZone = new Temporal.TimeZone("UTC");
 const instance = new Temporal.ZonedDateTime(0n, timeZone);
 
-const calendar = "IsO8601";
-
-const arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar };
+const arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar: "IsO8601" };
 const result = instance.equals(arg);
 assert.sameValue(result, true, "Calendar is case-insensitive");
+
+arg.calendar = "\u0130SO8601";
+assert.throws(
+  RangeError,
+  () => instance.equals(arg),
+  "calendar ID is capital dotted I is not lowercased"
+);

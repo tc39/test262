@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal-intl
-description: Islamic calendars (note there are 6 variants)
+description: Islamic calendars (note there are 5 variants)
 features: [Temporal]
 ---*/
 
@@ -30,15 +30,6 @@ const tests = [
   },
   {
     calendar: "islamic-civil",
-    inLeapYear: true,
-    daysInYear: 355,
-    daysInMonth12: 30,
-    isoYear: 2023,
-    isoMonth: 7,
-    isoDay: 19
-  },
-  {
-    calendar: "islamicc", // deprecated version of islamic-civil
     inLeapYear: true,
     daysInYear: 355,
     daysInMonth12: 30,
