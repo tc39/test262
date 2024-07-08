@@ -22,4 +22,4 @@ target = new Uint8Array([255, 255, 255, 255, 255]);
 assert.throws(SyntaxError, function() {
   target.setFromBase64("MjYyZg===");
 }, "extra characters after padding");
-assert.compareArray(target, [50, 54, 50, 255, 255], "decoding from MjYyZg=== should not write the last chunk because it has extra padding ");
+assert.compareArray(target, [50, 54, 50, 255, 255], "decoding from MjYyZg=== should not write the last chunk because it has extra padding");
