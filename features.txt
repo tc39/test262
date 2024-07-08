@@ -121,11 +121,19 @@ explicit-resource-management
 # https://github.com/tc39/proposal-float16array
 Float16Array
 
+# Math.sumPrecise
+# https://github.com/tc39/proposal-math-sum
+Math.sumPrecise
+
 # Source Phase Imports
 ## https://github.com/tc39/proposal-source-phase-imports
 source-phase-imports
 ## test262 special specifier
 source-phase-imports-module-source
+
+# Uint8Array Base64
+# https://github.com/tc39/proposal-arraybuffer-base64
+uint8array-base64
 
 ## Standard language features
 #
