@@ -5,7 +5,7 @@
 esid: sec-%typedarray%.prototype.includes
 description: >
   TypedArray.p.includes behaves correctly for special float values when
-  receiver is a float TypedArray backed by a resizable buffer
+  receiver is a float TypedArray backed by a resizable buffer.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer, Array.prototype.includes]
 ---*/
