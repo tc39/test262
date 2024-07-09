@@ -4,12 +4,10 @@
 /*---
 esid: sec-array.prototype.foreach
 description: >
-  Array.p.forEach behaves correctly when receiver is backed by resizable
-  buffer
+  Array.p.forEach behaves correctly on TypedArrays backed by resizable buffers.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
 
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);

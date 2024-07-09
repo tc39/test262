@@ -4,8 +4,8 @@
 /*---
 esid: sec-%typedarray%.prototype.foreach
 description: >
-  TypedArray.p.forEach behaves correctly when receiver is backed by resizable
-  buffer
+  TypedArray.p.forEach behaves correctly when on TypedArrays backed by resizable
+  buffers.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/

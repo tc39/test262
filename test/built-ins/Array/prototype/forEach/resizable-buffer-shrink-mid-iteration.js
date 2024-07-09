@@ -4,8 +4,8 @@
 /*---
 esid: sec-%typedarray%.prototype.foreach
 description: >
-  TypedArray.p.forEach behaves correctly on TypedArrays backed by resizable
-  buffers that are shrunk mid-iteration.
+  Array.p.forEach behaves correctly on TypedArrays backed by resizable buffers
+  that are shrunk mid-iteration.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
@@ -30,18 +30,18 @@ function ResizeMidIteration(n) {
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
 
+// Test for forEach.
+
 for (let ctor of ctors) {
   values = [];
   rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  fixedLength.forEach(ResizeMidIteration);
+  Array.prototype.forEach.call(fixedLength, ResizeMidIteration);
   assert.compareArray(values, [
     0,
-    2,
-    undefined,
-    undefined
+    2
   ]);
 }
 for (let ctor of ctors) {
@@ -50,10 +50,9 @@ for (let ctor of ctors) {
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  fixedLengthWithOffset.forEach(ResizeMidIteration);
+  Array.prototype.forEach.call(fixedLengthWithOffset, ResizeMidIteration);
   assert.compareArray(values, [
-    4,
-    undefined
+    4
   ]);
 }
 for (let ctor of ctors) {
@@ -62,12 +61,11 @@ for (let ctor of ctors) {
   const lengthTracking = new ctor(rab, 0);
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  lengthTracking.forEach(ResizeMidIteration);
+  Array.prototype.forEach.call(lengthTracking, ResizeMidIteration);
   assert.compareArray(values, [
     0,
     2,
-    4,
-    undefined
+    4
   ]);
 }
 for (let ctor of ctors) {
@@ -76,9 +74,8 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  lengthTrackingWithOffset.forEach(ResizeMidIteration);
+  Array.prototype.forEach.call(lengthTrackingWithOffset, ResizeMidIteration);
   assert.compareArray(values, [
-    4,
-    undefined
+    4
   ]);
 }

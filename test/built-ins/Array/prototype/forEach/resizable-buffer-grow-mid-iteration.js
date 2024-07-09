@@ -19,7 +19,7 @@ let resizeTo;
 // resizeTo. To be called by a method of the view being collected.
 // Note that rab, values, resizeAfter, and resizeTo may need to be reset before
 // calling this.
-function ResizeBufferMidIteration(n) {
+function ResizeMidIteration(n) {
   CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
   return false;
 }
@@ -39,7 +39,7 @@ for (let ctor of ctors) {
   const fixedLength = new ctor(rab, 0, 4);
   resizeAfter = 2;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  fixedLength.forEach(ResizeBufferMidIteration);
+  Array.prototype.forEach.call(fixedLength, ResizeMidIteration);
   assert.compareArray(values, [
     0,
     2,
@@ -53,7 +53,7 @@ for (let ctor of ctors) {
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
   resizeAfter = 1;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  fixedLengthWithOffset.forEach(ResizeBufferMidIteration);
+  Array.prototype.forEach.call(fixedLengthWithOffset, ResizeMidIteration);
   assert.compareArray(values, [
     4,
     6
@@ -65,7 +65,7 @@ for (let ctor of ctors) {
   const lengthTracking = new ctor(rab, 0);
   resizeAfter = 2;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  lengthTracking.forEach(ResizeBufferMidIteration);
+  Array.prototype.forEach.call(lengthTracking, ResizeMidIteration);
   assert.compareArray(values, [
     0,
     2,
@@ -79,7 +79,7 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   resizeAfter = 1;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  lengthTrackingWithOffset.forEach(ResizeBufferMidIteration);
+  Array.prototype.forEach.call(lengthTrackingWithOffset, ResizeMidIteration);
   assert.compareArray(values, [
     4,
     6

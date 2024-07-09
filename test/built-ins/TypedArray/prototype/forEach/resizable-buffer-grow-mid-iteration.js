@@ -4,8 +4,8 @@
 /*---
 esid: sec-%typedarray%.prototype.foreach
 description: >
-  TypedArray.p.forEach behaves correctly when receiver is backed by resizable
-  buffer that is grown mid-iteration
+  TypedArray.p.forEach behaves correctly on TypedArrays backed by resizable
+  buffers that are grown mid-iteration.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
@@ -19,14 +19,10 @@ let resizeTo;
 // resizeTo. To be called by a method of the view being collected.
 // Note that rab, values, resizeAfter, and resizeTo may need to be reset before
 // calling this.
-function ResizeBufferMidIteration(n) {
+function ResizeMidIteration(n) {
   CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
   return false;
 }
-
-const TypedArrayForEachHelper = (ta, ...rest) => {
-  return ta.forEach(...rest);
-};
 
 // Orig. array: [0, 2, 4, 6]
 //              [0, 2, 4, 6] << fixedLength
@@ -34,15 +30,13 @@ const TypedArrayForEachHelper = (ta, ...rest) => {
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
 
-// Test for forEach.
-
 for (let ctor of ctors) {
   values = [];
   rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
   resizeAfter = 2;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  fixedLength.forEach(ResizeBufferMidIteration);
+  fixedLength.forEach(ResizeMidIteration);
   assert.compareArray(values, [
     0,
     2,
@@ -56,7 +50,7 @@ for (let ctor of ctors) {
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
   resizeAfter = 1;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  fixedLengthWithOffset.forEach(ResizeBufferMidIteration);
+  fixedLengthWithOffset.forEach(ResizeMidIteration);
   assert.compareArray(values, [
     4,
     6
@@ -68,7 +62,7 @@ for (let ctor of ctors) {
   const lengthTracking = new ctor(rab, 0);
   resizeAfter = 2;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  lengthTracking.forEach(ResizeBufferMidIteration);
+  lengthTracking.forEach(ResizeMidIteration);
   assert.compareArray(values, [
     0,
     2,
@@ -82,7 +76,7 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   resizeAfter = 1;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  lengthTrackingWithOffset.forEach(ResizeBufferMidIteration);
+  lengthTrackingWithOffset.forEach(ResizeMidIteration);
   assert.compareArray(values, [
     4,
     6
