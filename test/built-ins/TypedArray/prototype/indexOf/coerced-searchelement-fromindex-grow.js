@@ -4,23 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.indexof
 description: >
-  TypedArray.p.indexOf behaves correctly when the receiver is grown during
-  argument coercion
+  TypedArray.p.indexOf behaves correctly when the backing resizable buffer is
+  grown during argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return ta.indexOf(BigInt(n));
-    }
-    return ta.indexOf(BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return ta.indexOf(n);
-  }
-  return ta.indexOf(n, fromIndex);
+  return n;
 }
 
 // Growing + length-tracking TA.
@@ -36,9 +30,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(lengthTracking, 0), -1);
+  let n0 = MayNeedBigInt(lengthTracking, 0);
+  assert.sameValue(lengthTracking.indexOf(n0), -1);
   // The TA grew but we only look at the data until the original length.
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(lengthTracking, 0, evil), -1);
+  assert.sameValue(lengthTracking.indexOf(n0, evil), -1);
 }
 
 // Growing + length-tracking TA, index conversion.
@@ -52,8 +47,9 @@ for (let ctor of ctors) {
       return -4;
     }
   };
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(lengthTracking, 1, -4), 0);
+  let n1 = MayNeedBigInt(lengthTracking, 1);
+  assert.sameValue(lengthTracking.indexOf(n1, -4), 0);
   // The TA grew but the start index conversion is done based on the original
   // length.
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(lengthTracking, 1, evil), 0);
+  assert.sameValue(lengthTracking.indexOf(n1, evil), 0);
 }

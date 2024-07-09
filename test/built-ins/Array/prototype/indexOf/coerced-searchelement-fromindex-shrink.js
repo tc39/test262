@@ -4,23 +4,17 @@
 /*---
 esid: sec-array.prototype.indexof
 description: >
-  Array.p.indexOf behaves correctly when the receiver is shrunk
-  during argument coercion
+  Array.p.indexOf behaves correctly when the backing resizable buffer is shrunk
+  during argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function ArrayIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return Array.prototype.indexOf.call(ta, BigInt(n));
-    }
-    return Array.prototype.indexOf.call(ta, BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return Array.prototype.indexOf.call(ta, n);
-  }
-  return Array.prototype.indexOf.call(ta, n, fromIndex);
+  return n;
 }
 
 // Shrinking + fixed-length TA.
@@ -33,9 +27,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(ArrayIndexOfNumOrBigInt(fixedLength, 0), 0);
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(Array.prototype.indexOf.call(fixedLength, n0), 0);
   // The TA is OOB so indexOf returns -1.
-  assert.sameValue(ArrayIndexOfNumOrBigInt(fixedLength, 0, evil), -1);
+  assert.sameValue(Array.prototype.indexOf.call(fixedLength, n0, evil), -1);
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -46,9 +41,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(ArrayIndexOfNumOrBigInt(fixedLength, 0), 0);
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(Array.prototype.indexOf.call(fixedLength, n0), 0);
   // The TA is OOB so indexOf returns -1, also for undefined).
-  assert.sameValue(ArrayIndexOfNumOrBigInt(fixedLength, undefined, evil), -1);
+  assert.sameValue(Array.prototype.indexOf.call(fixedLength, undefined, evil), -1);
 }
 
 // Shrinking + length-tracking TA.
@@ -64,7 +60,8 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(ArrayIndexOfNumOrBigInt(lengthTracking, 2), 2);
+  let n2 = MayNeedBigInt(lengthTracking, 2);
+  assert.sameValue(Array.prototype.indexOf.call(lengthTracking, n2), 2);
   // 2 no longer found.
-  assert.sameValue(ArrayIndexOfNumOrBigInt(lengthTracking, 2, evil), -1);
+  assert.sameValue(Array.prototype.indexOf.call(lengthTracking, n2, evil), -1);
 }

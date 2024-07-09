@@ -4,23 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.indexof
 description: >
-  TypedArray.p.indexOf behaves correctly when the receiver is shrunk
+  TypedArray.p.indexOf behaves correctly when receiver is shrunk
   during argument coercion
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return ta.indexOf(BigInt(n));
-    }
-    return ta.indexOf(BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return ta.indexOf(n);
-  }
-  return ta.indexOf(n, fromIndex);
+  return n;
 }
 
 // Shrinking + fixed-length TA.
@@ -33,9 +27,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(fixedLength, 0), 0);
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(fixedLength.indexOf(n0), 0);
   // The TA is OOB so indexOf returns -1.
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(fixedLength, 0, evil), -1);
+  assert.sameValue(fixedLength.indexOf(n0, evil), -1);
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -46,9 +41,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(fixedLength, 0), 0);
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(fixedLength.indexOf(n0), 0);
   // The TA is OOB so indexOf returns -1, also for undefined).
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(fixedLength, undefined, evil), -1);
+  assert.sameValue(fixedLength.indexOf(undefined, evil), -1);
 }
 
 // Shrinking + length-tracking TA.
@@ -64,7 +60,8 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(lengthTracking, 2), 2);
+  let n2 = MayNeedBigInt(lengthTracking, 2);
+  assert.sameValue(lengthTracking.indexOf(n2), 2);
   // 2 no longer found.
-  assert.sameValue(TypedArrayIndexOfNumOrBigInt(lengthTracking, 2, evil), -1);
+  assert.sameValue(lengthTracking.indexOf(n2, evil), -1);
 }
