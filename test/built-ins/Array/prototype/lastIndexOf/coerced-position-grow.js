@@ -4,23 +4,17 @@
 /*---
 esid: sec-array.prototype.lastindexof
 description: >
-  Array.p.lastIndexOf behaves correctly when receiver is grown
-  by argument coercion
+  Array.p.lastIndexOf behaves correctly when the resizable buffer is grown by
+  argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function ArrayLastIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return Array.prototype.lastIndexOf.call(ta, BigInt(n));
-    }
-    return Array.prototype.lastIndexOf.call(ta, BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return Array.prototype.lastIndexOf.call(ta, n);
-  }
-  return Array.prototype.lastIndexOf.call(ta, n, fromIndex);
+  return n;
 }
 
 // Growing + length-tracking TA.
@@ -36,12 +30,13 @@ for (let ctor of ctors) {
       return -1;
     }
   };
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0), -1);
+  let n0 = MayNeedBigInt(lengthTracking, 0);
+  assert.sameValue(Array.prototype.lastIndexOf.call(lengthTracking, n0), -1);
   // Because lastIndexOf iterates from the given index downwards, it's not
   // possible to test that "we only look at the data until the original
   // length" without also testing that the index conversion happening with the
   // original length.
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0, evil), -1);
+  assert.sameValue(Array.prototype.lastIndexOf.call(lengthTracking, n0, evil), -1);
 }
 
 // Growing + length-tracking TA, index conversion.
@@ -54,8 +49,9 @@ for (let ctor of ctors) {
       return -4;
     }
   };
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0, -4), 0);
+  let n0 = MayNeedBigInt(lengthTracking, 0);
+  assert.sameValue(Array.prototype.lastIndexOf.call(lengthTracking, n0, -4), 0);
   // The TA grew but the start index conversion is done based on the original
   // length.
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 0, evil), 0);
+  assert.sameValue(Array.prototype.lastIndexOf.call(lengthTracking, n0, evil), 0);
 }

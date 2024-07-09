@@ -4,23 +4,17 @@
 /*---
 esid: sec-array.prototype.lastindexof
 description: >
-  Array.p.lastIndexOf behaves correctly when receiver is shrunk
-  by argument coercion
+  Array.p.lastIndexOf behaves correctly when the resizable buffer is shrunk by
+  argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function ArrayLastIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return Array.prototype.lastIndexOf.call(ta, BigInt(n));
-    }
-    return Array.prototype.lastIndexOf.call(ta, BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return Array.prototype.lastIndexOf.call(ta, n);
-  }
-  return Array.prototype.lastIndexOf.call(ta, n, fromIndex);
+  return n;
 }
 
 // Shrinking + fixed-length TA.
@@ -33,9 +27,10 @@ for (let ctor of ctors) {
       return 2;
     }
   };
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(fixedLength, 0), 3);
+  let n = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(Array.prototype.lastIndexOf.call(fixedLength, n), 3);
   // The TA is OOB so lastIndexOf returns -1.
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(fixedLength, 0, evil), -1);
+  assert.sameValue(Array.prototype.lastIndexOf.call(fixedLength, n, evil), -1);
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -46,9 +41,9 @@ for (let ctor of ctors) {
       return 2;
     }
   };
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(fixedLength, 0), 3);
+  assert.sameValue(Array.prototype.lastIndexOf.call(fixedLength, MayNeedBigInt(fixedLength, 0)), 3);
   // The TA is OOB so lastIndexOf returns -1, also for undefined).
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(fixedLength, undefined, evil), -1);
+  assert.sameValue(Array.prototype.lastIndexOf.call(fixedLength, undefined, evil), -1);
 }
 
 // Shrinking + length-tracking TA.
@@ -64,7 +59,8 @@ for (let ctor of ctors) {
       return 2;
     }
   };
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 2), 2);
+  let n = MayNeedBigInt(lengthTracking, 2);
+  assert.sameValue(Array.prototype.lastIndexOf.call(lengthTracking, n), 2);
   // 2 no longer found.
-  assert.sameValue(ArrayLastIndexOfNumOrBigInt(lengthTracking, 2, evil), -1);
+  assert.sameValue(Array.prototype.lastIndexOf.call(lengthTracking, n, evil), -1);
 }

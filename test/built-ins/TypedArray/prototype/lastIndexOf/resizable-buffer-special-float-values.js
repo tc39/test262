@@ -4,8 +4,8 @@
 /*---
 esid: sec-%typedarray%.prototype.lastindexof
 description: >
-  TypedArray.p.lastIndexOf behaves correctly for special float values when
-  receiver is a float TypedArray backed by a resizable buffer
+  TypedArray.p.lastIndexOf behaves correctly for special float values on float
+  TypedArrays backed by resizable buffers.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer, Array.prototype.includes]
 ---*/

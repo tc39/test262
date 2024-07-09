@@ -4,23 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.lastindexof
 description: >
-  TypedArray.p.lastIndexOf behaves correctly when receiver is grown
-  by argument coercion
+  TypedArray.p.lastIndexOf behaves correctly on TypedArrays backed by resizable
+  buffers that are grown by argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayLastIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return ta.lastIndexOf(BigInt(n));
-    }
-    return ta.lastIndexOf(BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return ta.lastIndexOf(n);
-  }
-  return ta.lastIndexOf(n, fromIndex);
+  return n;
 }
 
 // Growing + length-tracking TA.
@@ -36,12 +30,13 @@ for (let ctor of ctors) {
       return -1;
     }
   };
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0), -1);
+  let n0 = MayNeedBigInt(lengthTracking, 0);
+  assert.sameValue(lengthTracking.lastIndexOf(n0), -1);
   // Because lastIndexOf iterates from the given index downwards, it's not
   // possible to test that "we only look at the data until the original
   // length" without also testing that the index conversion happening with the
   // original length.
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0, evil), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n0, evil), -1);
 }
 
 // Growing + length-tracking TA, index conversion.
@@ -54,8 +49,9 @@ for (let ctor of ctors) {
       return -4;
     }
   };
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0, -4), 0);
+  let n0 = MayNeedBigInt(lengthTracking, 0);
+  assert.sameValue(lengthTracking.lastIndexOf(n0, -4), 0);
   // The TA grew but the start index conversion is done based on the original
   // length.
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0, evil), 0);
+  assert.sameValue(lengthTracking.lastIndexOf(n0, evil), 0);
 }

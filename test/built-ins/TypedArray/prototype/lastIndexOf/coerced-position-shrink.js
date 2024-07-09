@@ -4,23 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.lastindexof
 description: >
-  TypedArray.p.lastIndexOf behaves correctly when receiver is shrunk
-  by argument coercion
+  TypedArray.p.lastIndexOf behaves correctly on TypedArrays backed by resizable
+  buffers that are shrunk by argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayLastIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return ta.lastIndexOf(BigInt(n));
-    }
-    return ta.lastIndexOf(BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return ta.lastIndexOf(n);
-  }
-  return ta.lastIndexOf(n, fromIndex);
+  return n;
 }
 
 // Shrinking + fixed-length TA.
@@ -33,9 +27,10 @@ for (let ctor of ctors) {
       return 2;
     }
   };
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0), 3);
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(fixedLength.lastIndexOf(n0), 3);
   // The TA is OOB so lastIndexOf returns -1.
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0, evil), -1);
+  assert.sameValue(fixedLength.lastIndexOf(n0, evil), -1);
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -46,9 +41,10 @@ for (let ctor of ctors) {
       return 2;
     }
   };
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0), 3);
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert.sameValue(fixedLength.lastIndexOf(n0), 3);
   // The TA is OOB so lastIndexOf returns -1, also for undefined).
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, undefined, evil), -1);
+  assert.sameValue(fixedLength.lastIndexOf(undefined, evil), -1);
 }
 
 // Shrinking + length-tracking TA.
@@ -64,7 +60,8 @@ for (let ctor of ctors) {
       return 2;
     }
   };
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 2), 2);
+  let n2 = MayNeedBigInt(lengthTracking, 2);
+  assert.sameValue(lengthTracking.lastIndexOf(n2), 2);
   // 2 no longer found.
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 2, evil), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n2, evil), -1);
 }

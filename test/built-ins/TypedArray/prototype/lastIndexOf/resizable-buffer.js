@@ -4,23 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.lastindexof
 description: >
-  TypedArray.p.lastIndexOf behaves correctly when receiver is backed by resizable
-  buffer
+  TypedArray.p.lastIndexOf behaves correctly on TypedArrays backed by resizable
+  buffers.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function TypedArrayLastIndexOfNumOrBigInt(ta, n, fromIndex) {
+function MayNeedBigInt(ta, n) {
   if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
-    if (fromIndex == undefined) {
-      return ta.lastIndexOf(BigInt(n));
-    }
-    return ta.lastIndexOf(BigInt(n), fromIndex);
+    return BigInt(n);
   }
-  if (fromIndex == undefined) {
-    return ta.lastIndexOf(n);
-  }
-  return ta.lastIndexOf(n, fromIndex);
+  return n;
 }
 
 for (let ctor of ctors) {
@@ -42,33 +36,37 @@ for (let ctor of ctors) {
   //              [0, 0, 1, 1, ...] << lengthTracking
   //                    [1, 1, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0, 1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0, 2), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0, -2), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0, -3), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 1, 1), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 1, -2), 2);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 1, -3), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 0), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 1, -2), 0);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 1, -1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0, 2), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0, -3), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 1, 1), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 1, 2), 2);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 1, -3), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 0), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 1, 1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 1, -2), 0);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 1, -1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, undefined), -1);
+  // If fixedLength is a BigInt array, they all are BigInt Arrays.
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  let n1 = MayNeedBigInt(fixedLength, 1);
+
+  assert.sameValue(fixedLength.lastIndexOf(n0), 1);
+  assert.sameValue(fixedLength.lastIndexOf(n0, 1), 1);
+  assert.sameValue(fixedLength.lastIndexOf(n0, 2), 1);
+  assert.sameValue(fixedLength.lastIndexOf(n0, -2), 1);
+  assert.sameValue(fixedLength.lastIndexOf(n0, -3), 1);
+  assert.sameValue(fixedLength.lastIndexOf(n1, 1), -1);
+  assert.sameValue(fixedLength.lastIndexOf(n1, -2), 2);
+  assert.sameValue(fixedLength.lastIndexOf(n1, -3), -1);
+  assert.sameValue(fixedLength.lastIndexOf(undefined), -1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n0), -1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n1), 1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n1, -2), 0);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n1, -1), 1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(undefined), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n0), 1);
+  assert.sameValue(lengthTracking.lastIndexOf(n0, 2), 1);
+  assert.sameValue(lengthTracking.lastIndexOf(n0, -3), 1);
+  assert.sameValue(lengthTracking.lastIndexOf(n1, 1), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n1, 2), 2);
+  assert.sameValue(lengthTracking.lastIndexOf(n1, -3), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(undefined), -1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n0), -1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n1), 1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n1, 1), 1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n1, -2), 0);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n1, -1), 1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(undefined), -1);
 
   // Shrink so that fixed length TAs go out of bounds.
   rab.resize(3 * ctor.BYTES_PER_ELEMENT);
@@ -78,46 +76,46 @@ for (let ctor of ctors) {
   //                    [1, ...] << lengthTrackingWithOffset
 
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(fixedLength, 1);
+    fixedLength.lastIndexOf(n1);
   });
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 1);
+    fixedLengthWithOffset.lastIndexOf(n1);
   });
 
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 0), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 1), 0);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, undefined), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n0), 1);
+  assert.sameValue(lengthTracking.lastIndexOf(undefined), -1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n0), -1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n1), 0);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(undefined), -1);
 
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0);
+    fixedLength.lastIndexOf(n0);
   });
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 0);
+    fixedLengthWithOffset.lastIndexOf(n0);
   });
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 0);
+    lengthTrackingWithOffset.lastIndexOf(n0);
   });
 
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0), 0);
+  assert.sameValue(lengthTracking.lastIndexOf(n0), 0);
 
   // Shrink to zero.
   rab.resize(0);
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(fixedLength, 0);
+    fixedLength.lastIndexOf(n0);
   });
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 0);
+    fixedLengthWithOffset.lastIndexOf(n0);
   });
   assert.throws(TypeError, () => {
-    TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 0);
+    lengthTrackingWithOffset.lastIndexOf(n0);
   });
 
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 0), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, undefined), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n0), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(undefined), -1);
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
@@ -131,18 +129,20 @@ for (let ctor of ctors) {
   //              [0, 0, 1, 1, 2, 2, ...] << lengthTracking
   //                    [1, 1, 2, 2, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 1), 3);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, 2), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLength, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 0), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, 2), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(fixedLengthWithOffset, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 1), 3);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, 2), 5);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTracking, undefined), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 0), -1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 1), 1);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, 2), 3);
-  assert.sameValue(TypedArrayLastIndexOfNumOrBigInt(lengthTrackingWithOffset, undefined), -1);
+  let n2 = MayNeedBigInt(fixedLength, 2);
+
+  assert.sameValue(fixedLength.lastIndexOf(n1), 3);
+  assert.sameValue(fixedLength.lastIndexOf(n2), -1);
+  assert.sameValue(fixedLength.lastIndexOf(undefined), -1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n0), -1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n1), 1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(n2), -1);
+  assert.sameValue(fixedLengthWithOffset.lastIndexOf(undefined), -1);
+  assert.sameValue(lengthTracking.lastIndexOf(n1), 3);
+  assert.sameValue(lengthTracking.lastIndexOf(n2), 5);
+  assert.sameValue(lengthTracking.lastIndexOf(undefined), -1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n0), -1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n1), 1);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(n2), 3);
+  assert.sameValue(lengthTrackingWithOffset.lastIndexOf(undefined), -1);
 }
