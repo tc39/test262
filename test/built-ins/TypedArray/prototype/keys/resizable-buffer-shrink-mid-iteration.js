@@ -15,7 +15,7 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 //                    [4, 6] << fixedLengthWithOffset
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
-// Iterating with keys() (the 4 loops below).
+
 for (let ctor of ctors) {
   const rab = CreateRabForTest(ctor);
   const fixedLength = new ctor(rab, 0, 4);
