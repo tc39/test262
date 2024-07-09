@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.foreach
+esid: sec-%array%.prototype.foreach
 description: >
   Array.p.forEach behaves correctly on TypedArrays backed by resizable buffers
   that are shrunk mid-iteration.
@@ -29,8 +29,6 @@ function ResizeMidIteration(n) {
 //                    [4, 6] << fixedLengthWithOffset
 //              [0, 2, 4, 6, ...] << lengthTracking
 //                    [4, 6, ...] << lengthTrackingWithOffset
-
-// Test for forEach.
 
 for (let ctor of ctors) {
   values = [];
