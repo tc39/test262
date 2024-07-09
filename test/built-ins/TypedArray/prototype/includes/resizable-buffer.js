@@ -4,17 +4,17 @@
 /*---
 esid: sec-%typedarray%.prototype.includes
 description: >
-  TypedArray.p.includes behaves correctly when receiver is backed by resizable
-  buffer
+  TypedArray.p.includes behaves correctly on TypedArrays backed by resizable
+  buffers.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer, Array.prototype.includes]
 ---*/
 
-function TypedArrayIncludesNumOrBigInt(array, n, fromIndex) {
-  if (typeof n == 'number' && (array instanceof BigInt64Array || array instanceof BigUint64Array)) {
-    return array.includes(BigInt(n), fromIndex);
+function MayNeedBigInt(ta, n) {
+  if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
+    return BigInt(n);
   }
-  return array.includes(n, fromIndex);
+  return n;
 }
 
 for (let ctor of ctors) {
@@ -36,32 +36,36 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, ...] << lengthTracking
   //                    [4, 6, ...] << lengthTrackingWithOffset
 
-  assert(TypedArrayIncludesNumOrBigInt(fixedLength, 2));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLength, undefined));
-  assert(TypedArrayIncludesNumOrBigInt(fixedLength, 2, 1));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLength, 2, 2));
-  assert(TypedArrayIncludesNumOrBigInt(fixedLength, 2, -3));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLength, 2, -2));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 2));
-  assert(TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 4));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, undefined));
-  assert(TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 4, 0));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 4, 1));
-  assert(TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 4, -2));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 4, -1));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTracking, 2));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, undefined));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTracking, 2, 1));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, 2, 2));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTracking, 2, -3));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, 2, -2));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 2));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, undefined));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4, 0));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4, 1));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4, -2));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4, -1));
+  // If fixedLength is a BigInt array, they all are BigInt Arrays.
+  let n2 = MayNeedBigInt(fixedLength, 2);
+  let n4 = MayNeedBigInt(fixedLength, 4);
+
+  assert(fixedLength.includes(n2));
+  assert(!fixedLength.includes(undefined));
+  assert(fixedLength.includes(n2, 1));
+  assert(!fixedLength.includes(n2, 2));
+  assert(fixedLength.includes(n2, -3));
+  assert(!fixedLength.includes(n2, -2));
+  assert(!fixedLengthWithOffset.includes(n2));
+  assert(fixedLengthWithOffset.includes(n4));
+  assert(!fixedLengthWithOffset.includes(undefined));
+  assert(fixedLengthWithOffset.includes(n4, 0));
+  assert(!fixedLengthWithOffset.includes(n4, 1));
+  assert(fixedLengthWithOffset.includes(n4, -2));
+  assert(!fixedLengthWithOffset.includes(n4, -1));
+  assert(lengthTracking.includes(n2));
+  assert(!lengthTracking.includes(undefined));
+  assert(lengthTracking.includes(n2, 1));
+  assert(!lengthTracking.includes(n2, 2));
+  assert(lengthTracking.includes(n2, -3));
+  assert(!lengthTracking.includes(n2, -2));
+  assert(!lengthTrackingWithOffset.includes(n2));
+  assert(lengthTrackingWithOffset.includes(n4));
+  assert(!lengthTrackingWithOffset.includes(undefined));
+  assert(lengthTrackingWithOffset.includes(n4, 0));
+  assert(!lengthTrackingWithOffset.includes(n4, 1));
+  assert(lengthTrackingWithOffset.includes(n4, -2));
+  assert(!lengthTrackingWithOffset.includes(n4, -1));
 
   // Shrink so that fixed length TAs go out of bounds.
   rab.resize(3 * ctor.BYTES_PER_ELEMENT);
@@ -71,43 +75,43 @@ for (let ctor of ctors) {
   //                    [4, ...] << lengthTrackingWithOffset
 
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(fixedLength, 2);
+    fixedLength.includes(n2);
   });
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 2);
+    fixedLengthWithOffset.includes(n2);
   });
 
-  assert(TypedArrayIncludesNumOrBigInt(lengthTracking, 2));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, undefined));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 2));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, undefined));
+  assert(lengthTracking.includes(n2));
+  assert(!lengthTracking.includes(undefined));
+  assert(!lengthTrackingWithOffset.includes(n2));
+  assert(lengthTrackingWithOffset.includes(n4));
+  assert(!lengthTrackingWithOffset.includes(undefined));
 
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(fixedLength, 2);
+    fixedLength.includes(n2);
   });
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 2);
+    fixedLengthWithOffset.includes(n2);
   });
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 2);
+    lengthTrackingWithOffset.includes(n2);
   });
 
   // Shrink to zero.
   rab.resize(0);
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(fixedLength, 2);
+    fixedLength.includes(n2);
   });
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 2);
+    fixedLengthWithOffset.includes(n2);
   });
   assert.throws(TypeError, () => {
-    TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 2);
+    lengthTrackingWithOffset.includes(n2);
   });
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, 2));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, undefined));
+  assert(!lengthTracking.includes(n2));
+  assert(!lengthTracking.includes(undefined));
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
@@ -121,18 +125,20 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
   //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
 
-  assert(TypedArrayIncludesNumOrBigInt(fixedLength, 2));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLength, undefined));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLength, 8));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 2));
-  assert(TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 4));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, undefined));
-  assert(!TypedArrayIncludesNumOrBigInt(fixedLengthWithOffset, 8));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTracking, 2));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTracking, undefined));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTracking, 8));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 2));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 4));
-  assert(!TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, undefined));
-  assert(TypedArrayIncludesNumOrBigInt(lengthTrackingWithOffset, 8));
+  let n8 = MayNeedBigInt(fixedLength, 8);
+
+  assert(fixedLength.includes(n2));
+  assert(!fixedLength.includes(undefined));
+  assert(!fixedLength.includes(n8));
+  assert(!fixedLengthWithOffset.includes(n2));
+  assert(fixedLengthWithOffset.includes(n4));
+  assert(!fixedLengthWithOffset.includes(undefined));
+  assert(!fixedLengthWithOffset.includes(n8));
+  assert(lengthTracking.includes(n2));
+  assert(!lengthTracking.includes(undefined));
+  assert(lengthTracking.includes(n8));
+  assert(!lengthTrackingWithOffset.includes(n2));
+  assert(lengthTrackingWithOffset.includes(n4));
+  assert(!lengthTrackingWithOffset.includes(undefined));
+  assert(lengthTrackingWithOffset.includes(n8));
 }

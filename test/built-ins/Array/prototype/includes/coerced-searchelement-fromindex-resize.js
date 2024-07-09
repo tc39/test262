@@ -4,17 +4,17 @@
 /*---
 esid: sec-array.prototype.includes
 description: >
-  Array.p.includes behaves correctly when the receiver is resized during
-  argument coercion
+  Array.p.includes behaves correctly on TypedArrays backed by resizable buffers
+  that are resized during argument coercion.
 includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer, Array.prototype.includes]
 ---*/
 
-function ArrayIncludesNumOrBigInt(array, n, fromIndex) {
-  if (typeof n == 'number' && (array instanceof BigInt64Array || array instanceof BigUint64Array)) {
-    return Array.prototype.includes.call(array, BigInt(n), fromIndex);
+function MayNeedBigInt(ta, n) {
+  if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
+    return BigInt(n);
   }
-  return Array.prototype.includes.call(array, n, fromIndex);
+  return n;
 }
 
 for (let ctor of ctors) {
@@ -26,9 +26,9 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert(!ArrayIncludesNumOrBigInt(fixedLength, undefined));
+  assert(!Array.prototype.includes.call(fixedLength, undefined));
   // The TA is OOB so it includes only "undefined".
-  assert(ArrayIncludesNumOrBigInt(fixedLength, undefined, evil));
+  assert(Array.prototype.includes.call(fixedLength, undefined, evil));
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -39,9 +39,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert(ArrayIncludesNumOrBigInt(fixedLength, 0));
+  let n0 = MayNeedBigInt(fixedLength, 0);
+  assert(Array.prototype.includes.call(fixedLength, n0));
   // The TA is OOB so it includes only "undefined".
-  assert(!ArrayIncludesNumOrBigInt(fixedLength, 0, evil));
+  assert(!Array.prototype.includes.call(fixedLength, n0, evil));
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -52,9 +53,9 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert(!ArrayIncludesNumOrBigInt(lengthTracking, undefined));
+  assert(!Array.prototype.includes.call(lengthTracking, undefined));
   // "includes" iterates until the original length and sees "undefined"s.
-  assert(ArrayIncludesNumOrBigInt(lengthTracking, undefined, evil));
+  assert(Array.prototype.includes.call(lengthTracking, undefined, evil));
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -68,9 +69,10 @@ for (let ctor of ctors) {
       return 0;
     }
   };
-  assert(!ArrayIncludesNumOrBigInt(lengthTracking, 0));
+  let n0 = MayNeedBigInt(lengthTracking, 0);
+  assert(!Array.prototype.includes.call(lengthTracking, n0));
   // The TA grew but we only look at the data until the original length.
-  assert(!ArrayIncludesNumOrBigInt(lengthTracking, 0, evil));
+  assert(!Array.prototype.includes.call(lengthTracking, n0, evil));
 }
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -82,8 +84,9 @@ for (let ctor of ctors) {
       return -4;
     }
   };
-  assert(ArrayIncludesNumOrBigInt(lengthTracking, 1, -4));
+  let n1 = MayNeedBigInt(lengthTracking, 1);
+  assert(Array.prototype.includes.call(lengthTracking, n1, -4));
   // The TA grew but the start index conversion is done based on the original
   // length.
-  assert(ArrayIncludesNumOrBigInt(lengthTracking, 1, evil));
+  assert(Array.prototype.includes.call(lengthTracking, n1, evil));
 }
