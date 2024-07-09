@@ -10,10 +10,6 @@ includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-const ArrayJoinHelper = (ta, ...rest) => {
-  return Array.prototype.join.call(ta, ...rest);
-};
-
 // Growing + fixed-length TA.
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -24,7 +20,7 @@ for (let ctor of ctors) {
       return '.';
     }
   };
-  assert.sameValue(ArrayJoinHelper(fixedLength, evil), '0.0.0.0');
+  assert.sameValue(Array.prototype.join.call(fixedLength, evil), '0.0.0.0');
 }
 
 // Growing + length-tracking TA.
@@ -38,5 +34,5 @@ for (let ctor of ctors) {
     }
   };
   // We iterate 4 elements, since it was the starting length.
-  assert.sameValue(ArrayJoinHelper(lengthTracking, evil), '0.0.0.0');
+  assert.sameValue(Array.prototype.join.call(lengthTracking, evil), '0.0.0.0');
 }

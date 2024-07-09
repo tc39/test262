@@ -10,10 +10,6 @@ includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-const ArrayJoinHelper = (ta, ...rest) => {
-  return Array.prototype.join.call(ta, ...rest);
-};
-
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
   const fixedLength = new ctor(rab, 0, 4);
@@ -33,10 +29,10 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, ...] << lengthTracking
   //                    [4, 6, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(ArrayJoinHelper(fixedLength), '0,2,4,6');
-  assert.sameValue(ArrayJoinHelper(fixedLengthWithOffset), '4,6');
-  assert.sameValue(ArrayJoinHelper(lengthTracking), '0,2,4,6');
-  assert.sameValue(ArrayJoinHelper(lengthTrackingWithOffset), '4,6');
+  assert.sameValue(Array.prototype.join.call(fixedLength), '0,2,4,6');
+  assert.sameValue(Array.prototype.join.call(fixedLengthWithOffset), '4,6');
+  assert.sameValue(Array.prototype.join.call(lengthTracking), '0,2,4,6');
+  assert.sameValue(Array.prototype.join.call(lengthTrackingWithOffset), '4,6');
 
   // Shrink so that fixed length TAs go out of bounds.
   rab.resize(3 * ctor.BYTES_PER_ELEMENT);
@@ -45,27 +41,27 @@ for (let ctor of ctors) {
   //              [0, 2, 4, ...] << lengthTracking
   //                    [4, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(ArrayJoinHelper(fixedLength), '');
-  assert.sameValue(ArrayJoinHelper(fixedLengthWithOffset), '');
+  assert.sameValue(Array.prototype.join.call(fixedLength), '');
+  assert.sameValue(Array.prototype.join.call(fixedLengthWithOffset), '');
 
-  assert.sameValue(ArrayJoinHelper(lengthTracking), '0,2,4');
-  assert.sameValue(ArrayJoinHelper(lengthTrackingWithOffset), '4');
+  assert.sameValue(Array.prototype.join.call(lengthTracking), '0,2,4');
+  assert.sameValue(Array.prototype.join.call(lengthTrackingWithOffset), '4');
 
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
-  assert.sameValue(ArrayJoinHelper(fixedLength), '');
-  assert.sameValue(ArrayJoinHelper(fixedLengthWithOffset), '');
-  assert.sameValue(ArrayJoinHelper(lengthTrackingWithOffset), '');
+  assert.sameValue(Array.prototype.join.call(fixedLength), '');
+  assert.sameValue(Array.prototype.join.call(fixedLengthWithOffset), '');
+  assert.sameValue(Array.prototype.join.call(lengthTrackingWithOffset), '');
 
-  assert.sameValue(ArrayJoinHelper(lengthTracking), '0');
+  assert.sameValue(Array.prototype.join.call(lengthTracking), '0');
 
   // Shrink to zero.
   rab.resize(0);
-  assert.sameValue(ArrayJoinHelper(fixedLength), '');
-  assert.sameValue(ArrayJoinHelper(fixedLengthWithOffset), '');
-  assert.sameValue(ArrayJoinHelper(lengthTrackingWithOffset), '');
+  assert.sameValue(Array.prototype.join.call(fixedLength), '');
+  assert.sameValue(Array.prototype.join.call(fixedLengthWithOffset), '');
+  assert.sameValue(Array.prototype.join.call(lengthTrackingWithOffset), '');
 
-  assert.sameValue(ArrayJoinHelper(lengthTracking), '');
+  assert.sameValue(Array.prototype.join.call(lengthTracking), '');
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
@@ -79,8 +75,8 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
   //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(ArrayJoinHelper(fixedLength), '0,2,4,6');
-  assert.sameValue(ArrayJoinHelper(fixedLengthWithOffset), '4,6');
-  assert.sameValue(ArrayJoinHelper(lengthTracking), '0,2,4,6,8,10');
-  assert.sameValue(ArrayJoinHelper(lengthTrackingWithOffset), '4,6,8,10');
+  assert.sameValue(Array.prototype.join.call(fixedLength), '0,2,4,6');
+  assert.sameValue(Array.prototype.join.call(fixedLengthWithOffset), '4,6');
+  assert.sameValue(Array.prototype.join.call(lengthTracking), '0,2,4,6,8,10');
+  assert.sameValue(Array.prototype.join.call(lengthTrackingWithOffset), '4,6,8,10');
 }
