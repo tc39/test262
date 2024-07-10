@@ -106,6 +106,10 @@ source-phase-imports-module-source
 # https://github.com/tc39/proposal-arraybuffer-base64
 uint8array-base64
 
+# Atomics.pause
+# https://github.com/tc39/proposal-atomics-microwait
+Atomics.pause
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
