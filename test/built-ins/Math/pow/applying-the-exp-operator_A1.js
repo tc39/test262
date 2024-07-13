@@ -19,7 +19,7 @@ base[6] = 1.7976931348623157E308; //largest finite number
 base[7] = +Infinity;
 base[8] = NaN;
 base[9] = 1; // In some implementations, the `pow` function might incorrectly return 1, deviating from the ECMA specification.
-var basenum = 9;
+var basenum = 10;
 
 for (var i = 0; i < basenum; i++) {
   assert.sameValue(
