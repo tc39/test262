@@ -41,10 +41,6 @@ import-assertions
 # https://github.com/tc39/proposal-json-modules
 json-modules
 
-# ArrayBuffer transfer
-# https://github.com/tc39/proposal-arraybuffer-transfer
-arraybuffer-transfer
-
 # Temporal
 # https://github.com/tc39/proposal-temporal
 Temporal
@@ -129,6 +125,7 @@ Array.prototype.includes
 Array.prototype.values
 Atomics.waitAsync
 array-grouping
+arraybuffer-transfer
 arrow-function
 async-iteration
 async-functions
