@@ -67,12 +67,6 @@ for (let ctor of ctors) {
     fixedLengthWithOffset.keys();
   });
 
-  assert.throws(TypeError, () => {
-    Array.from(fixedLength.keys());
-  });
-  assert.throws(TypeError, () => {
-    Array.from(fixedLengthWithOffset.keys());
-  });
   assert.compareArray(Array.from(lengthTracking.keys()), [
     0,
     1,
@@ -92,15 +86,6 @@ for (let ctor of ctors) {
     lengthTrackingWithOffset.keys();
   });
 
-  assert.throws(TypeError, () => {
-    Array.from(fixedLength.keys());
-  });
-  assert.throws(TypeError, () => {
-    Array.from(fixedLengthWithOffset.keys());
-  });
-  assert.throws(TypeError, () => {
-    Array.from(lengthTrackingWithOffset.keys());
-  });
   assert.compareArray(Array.from(lengthTracking.keys()), [0]);
 
   // Shrink to zero.
@@ -115,15 +100,6 @@ for (let ctor of ctors) {
     lengthTrackingWithOffset.keys();
   });
 
-  assert.throws(TypeError, () => {
-    Array.from(fixedLength.keys());
-  });
-  assert.throws(TypeError, () => {
-    Array.from(fixedLengthWithOffset.keys());
-  });
-  assert.throws(TypeError, () => {
-    Array.from(lengthTrackingWithOffset.keys());
-  });
   assert.compareArray(Array.from(lengthTracking.keys()), []);
 
   // Grow so that all TAs are back in-bounds.
