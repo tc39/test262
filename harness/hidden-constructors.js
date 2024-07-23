@@ -10,6 +10,18 @@ defines:
   - GeneratorFunction
 ---*/
 
-var AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
-var AsyncGeneratorFunction = Object.getPrototypeOf(async function* () {}).constructor;
-var GeneratorFunction = Object.getPrototypeOf(function* () {}).constructor;
+var AsyncFunction;
+var AsyncGeneratorFunction;
+var GeneratorFunction;
+
+try {
+  AsyncFunction = Object.getPrototypeOf(new Function('async function () {}')).constructor;
+} catch(e) {}
+
+try {
+  Object.getPrototypeOf(new Function('async function* () {}')).constructor;
+} catch(e) {}
+
+try {
+  Object.getPrototypeOf(new Function('function* () {}')).constructor;
+} catch(e) {}
