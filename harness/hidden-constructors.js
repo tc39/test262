@@ -15,13 +15,13 @@ var AsyncGeneratorFunction;
 var GeneratorFunction;
 
 try {
-  AsyncFunction = Object.getPrototypeOf(new Function('async function dummy() {}')).constructor;
+  AsyncFunction = Object.getPrototypeOf(new Function('return async function dummy() {}')()).constructor;
 } catch(e) {}
 
 try {
-  AsyncGeneratorFunction = Object.getPrototypeOf(new Function('async function* dummy() {}')).constructor;
+  AsyncGeneratorFunction = Object.getPrototypeOf(new Function('return async function* dummy() {}')()).constructor;
 } catch(e) {}
 
 try {
-  GeneratorFunction = Object.getPrototypeOf(new Function('function* dummy() {}')).constructor;
+  GeneratorFunction = Object.getPrototypeOf(new Function('return function* dummy() {}')()).constructor;
 } catch(e) {}
