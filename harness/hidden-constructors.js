@@ -19,9 +19,9 @@ try {
 } catch(e) {}
 
 try {
-  Object.getPrototypeOf(new Function('async function* () {}')).constructor;
+  AsyncGeneratorFunction = Object.getPrototypeOf(new Function('async function* () {}')).constructor;
 } catch(e) {}
 
 try {
-  Object.getPrototypeOf(new Function('function* () {}')).constructor;
+  GeneratorFunction = Object.getPrototypeOf(new Function('function* () {}')).constructor;
 } catch(e) {}
