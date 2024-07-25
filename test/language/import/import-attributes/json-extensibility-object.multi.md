@@ -1,5 +1,9 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+Copyright (C) 2021 the V8 project authors. All rights reserved.
+This code is governed by the BSD license found in the LICENSE file.
+
+## main.js
+
+```js
 /*---
 esid: sec-parse-json-module
 description: Creates extensible objects
@@ -18,3 +22,10 @@ verifyProperty(value, 'test262property', {
   enumerable: true,
   configurable: true
 });
+```
+
+## json-value-object_FIXTURE.json
+
+```json
+{}
+```
