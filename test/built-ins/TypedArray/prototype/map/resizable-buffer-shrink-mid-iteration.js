@@ -5,7 +5,7 @@
 esid: sec-%typedarray%.prototype.map
 description: >
   TypedArray.p.map behaves correctly on TypedArrays backed by resizable buffers
-  that are grown mid-iteration.
+  that are shrunk mid-iteration.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/

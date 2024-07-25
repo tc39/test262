@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.map
 description: >
-  Array.p.map behaves correctly when the resizable buffer is grown mid-iteration.
+  Array.p.map behaves correctly when the resizable buffer is shrunk mid-iteration.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
