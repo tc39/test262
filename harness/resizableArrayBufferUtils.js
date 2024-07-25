@@ -17,11 +17,16 @@ defines:
   - TestIterationAndResize
 features: [BigInt]
 ---*/
+// Helper to create subclasses without bombing out when `class` isn't supported
+function subClass(type) {
+  try {
+    return new Function('return class My' + type + ' extends ' + type + ' {}')();
+  } catch (e) {}
+}
 
-// Using new Function()(); instead of just 'class x extends Y' as to not bomb out when `class` isn't supported
-const MyUint8Array = new Function('return class MyUint8Array extends Uint8Array {}')();
-const MyFloat32Array = new Function('return class MyFloat32Array extends Float32Array {}')();
-const MyBigInt64Array = new Function('return class MyBigInt64Array extends BigInt64Array {}')();
+const MyUint8Array = subClass('Uint8Array');
+const MyFloat32Array = subClass('Float32Array');
+const MyBigInt64Array = subClass('BigInt64Array');
 
 const builtinCtors = [
   Uint8Array,
