@@ -69,8 +69,8 @@ date = Temporal.PlainDate.from({
 });
 assert.sameValue(`${date}`, "1000-01-01[u-ca=japanese]");
 assert.sameValue(
-  TemporalHelpers.canonicalizeEraInCalendar(date, date.era),
-  TemporalHelpers.canonicalizeEraInCalendar(date, "ce"),
+  TemporalHelpers.canonicalizeCalendarEra(date.calendarId, date.era),
+  TemporalHelpers.canonicalizeCalendarEra(date.calendarId, "ce"),
 );
 assert.sameValue(date.eraYear, 1000);
 
@@ -83,7 +83,7 @@ date = Temporal.PlainDate.from({
 });
 assert.sameValue(`${date}`, "0000-01-01[u-ca=japanese]");
 assert.sameValue(
-  TemporalHelpers.canonicalizeEraInCalendar(date, date.era),
-  TemporalHelpers.canonicalizeEraInCalendar(date, "bce"),
+  TemporalHelpers.canonicalizeCalendarEra(date.calendarId, date.era),
+  TemporalHelpers.canonicalizeCalendarEra(date.calendarId, "bce"),
 );
 assert.sameValue(date.eraYear, 1);
