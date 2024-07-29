@@ -35,7 +35,7 @@ for (let ctor of ctors) {
   const fixedLength = new ctor(rab, 0, 4);
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  fixedLength.map(ResizeMidIteration, 'initial value');
+  fixedLength.reduce(ResizeMidIteration, 'initial value');
   assert.compareArray(values, [
     0,
     2,
@@ -49,7 +49,7 @@ for (let ctor of ctors) {
   const fixedLengthWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT, 2);
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  fixedLengthWithOffset.map(ResizeMidIteration, 'initial value');
+  fixedLengthWithOffset.reduce(ResizeMidIteration, 'initial value');
   assert.compareArray(values, [
     4,
     undefined
@@ -61,7 +61,7 @@ for (let ctor of ctors) {
   const lengthTracking = new ctor(rab, 0);
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  lengthTracking.map(ResizeMidIteration, 'initial value');
+  lengthTracking.reduce(ResizeMidIteration, 'initial value');
   assert.compareArray(values, [
     0,
     2,
@@ -75,7 +75,7 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  lengthTrackingWithOffset.map(ResizeMidIteration, 'initial value');
+  lengthTrackingWithOffset.reduce(ResizeMidIteration, 'initial value');
   assert.compareArray(values, [
     4,
     undefined
