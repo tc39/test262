@@ -13,11 +13,9 @@ includes: [propertyHelper.js]
 
 var descriptor = Object.getOwnPropertyDescriptor(AsyncDisposableStack.prototype, 'disposed');
 
-assert.sameValue(
-  descriptor.get.length, 0,
-  'The value of `AsyncDisposableStack.prototype.disposed` is `0`'
-);
-
-verifyNotEnumerable(descriptor.get, 'length');
-verifyNotWritable(descriptor.get, 'length');
-verifyConfigurable(descriptor.get, 'length');
+verifyProperty(descriptor.get, 'length', {
+  value: 0;
+  enumerable: false,
+  writable: false,
+  configurable: true
+});
