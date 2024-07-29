@@ -9,6 +9,7 @@ info: |
 
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
+features: [explicit-resource-management]
 ---*/
 
 var descriptor = Object.getOwnPropertyDescriptor(AsyncDisposableStack.prototype, 'disposed');
