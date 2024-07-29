@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%iteratorprototype%-@@dispose
-description: Property descriptor
+description: Property descriptor of %IteratorPrototype%[ @@dispose ]
 info: |
     ES6 Section 17
 

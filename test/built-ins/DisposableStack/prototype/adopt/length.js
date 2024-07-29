@@ -3,9 +3,9 @@
 
 /*---
 esid: sec-disposablestack.prototype.adopt
-description: DisposableStack.prototype.adopt.length property descriptor
+description: DisposableStack.prototype.adopt.length value and property descriptor
 info: |
-  DisposableStack.prototype.adopt ( )
+  DisposableStack.prototype.adopt ( value, onDispose )
 
   17 ECMAScript Standard Built-in Objects
 

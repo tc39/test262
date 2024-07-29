@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%asynciteratorprototype%-@@asyncDispose
-description: Descriptor for `name` property
+description: Descriptor for `name` property of %AsyncIteratorPrototype%[ @@asyncDispose ]
 info: |
   The value of the name property of this function is "[Symbol.asyncDispose]".
 

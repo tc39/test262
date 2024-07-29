@@ -5,7 +5,7 @@
 esid: sec-asyncdisposablestack.prototype.defer
 description: AsyncDisposableStack.prototype.defer.length property descriptor
 info: |
-  AsyncDisposableStack.prototype.defer ( )
+  AsyncDisposableStack.prototype.defer ( onDisposeAsync )
 
   17 ECMAScript Standard Built-in Objects
 

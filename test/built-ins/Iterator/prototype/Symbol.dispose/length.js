@@ -4,6 +4,8 @@
 esid: sec-%iteratorprototype%-@@dispose
 description: Length of %IteratorPrototype%[ @@dispose ]
 info: |
+    %IteratorPrototype% [ @@dispose ] ( )
+
     ES6 Section 17:
     Every built-in Function object, including constructors, has a length
     property whose value is an integer. Unless otherwise specified, this value

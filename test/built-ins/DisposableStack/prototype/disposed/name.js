@@ -5,7 +5,7 @@ esid: sec-get-disposablestack.prototype.disposed
 description: >
   DisposableStack.prototype.disposed.name value and descriptor.
 info: |
-  get DisposableStack.prototype.size
+  get DisposableStack.prototype.disposed
 
   17 ECMAScript Standard Built-in Objects
 
