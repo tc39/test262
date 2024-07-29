@@ -5,7 +5,7 @@
 esid: sec-disposablestack.prototype.defer
 description: DisposableStack.prototype.defer.length property descriptor
 info: |
-  DisposableStack.prototype.defer ( )
+  DisposableStack.prototype.defer ( onDispose )
 
   17 ECMAScript Standard Built-in Objects
 

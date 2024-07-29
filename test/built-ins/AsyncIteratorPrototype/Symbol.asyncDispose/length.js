@@ -4,6 +4,8 @@
 esid: sec-%asynciteratorprototype%-@@asyncDispose
 description: Length of %AsyncIteratorPrototype%[ @@asyncDispose ]
 info: |
+    %AsyncIteratorPrototype%[ @@asyncDispose ] ()
+
     ES6 Section 17:
     Every built-in Function object, including constructors, has a length
     property whose value is an integer. Unless otherwise specified, this value
