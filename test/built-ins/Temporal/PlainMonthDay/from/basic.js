@@ -16,7 +16,7 @@ const options = [
 ];
 options.forEach((opt) => {
   const optionsDesc = opt && JSON.stringify(opt);
-  result = Temporal.PlainMonthDay.from({ year: 2021, month: 7, day: 3 }, opt);
+  let result = Temporal.PlainMonthDay.from({ year: 2021, month: 7, day: 3 }, opt);
   TemporalHelpers.assertPlainMonthDay(result, "M07", 3, `month 7, day 3, with year, options = ${optionsDesc}`);
   result = Temporal.PlainMonthDay.from({ year: 2021, month: 12, day: 31 }, opt);
   TemporalHelpers.assertPlainMonthDay(result, "M12", 31, `month 12, day 31, with year, options = ${optionsDesc}`);
@@ -27,7 +27,7 @@ options.forEach((opt) => {
 });
 
 TemporalHelpers.ISOMonths.forEach(({ month, monthCode, daysInMonth }) => {
-  result = Temporal.PlainMonthDay.from({ month, day: daysInMonth });
+  let result = Temporal.PlainMonthDay.from({ month, day: daysInMonth });
   TemporalHelpers.assertPlainMonthDay(result, monthCode, daysInMonth, `month ${month}, day ${daysInMonth}`);
 
   result = Temporal.PlainMonthDay.from({ monthCode, day: daysInMonth });
