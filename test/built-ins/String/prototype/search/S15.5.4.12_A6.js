@@ -9,8 +9,6 @@ description: Checking String.prototype.search.prototype
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.search.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.search.prototype === undefined. Actual: ' + String.prototype.search.prototype);
-}
+assert.sameValue(String.prototype.search.prototype, undefined, '#1: String.prototype.search.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////

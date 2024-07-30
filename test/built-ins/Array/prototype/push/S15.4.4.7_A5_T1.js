@@ -17,24 +17,14 @@ var x = {
 };
 
 var push = x.push(1);
-if (push !== 2) {
-  throw new Test262Error('#1: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1) === 2. Actual: ' + (push));
-}
+assert.sameValue(push, 2, '#1: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1) === 2');
 
-if (x.length !== 2) {
-  throw new Test262Error('#2: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#2: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1); x.length === 2');
 
-if (x[1] !== 1) {
-  throw new Test262Error('#3: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1); x[1] === 1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], 1, '#3: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1); x[1] === 1');
 
 delete x[1];
-if (x[1] !== -1) {
-  throw new Test262Error('#4: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1); delete x[1]; x[1] === -1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], -1, '#4: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; x.push(1); delete x[1]; x[1] === -1');
 
 delete x.length;
-if (x.length !== 1) {
-  throw new Test262Error('#5: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; delete x; x.push(1); x.length === 1. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 1, '#5: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; delete x; x.push(1); x.length === 1');

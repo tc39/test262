@@ -8,19 +8,13 @@ description: Checking this use new Array() and []
 ---*/
 
 var x = new Array(0, 1, 2, 3);
-if (x.join(undefined) !== "0,1,2,3") {
-  throw new Test262Error('#1: x = new Array(0,1,2,3); x.join(undefined) === "0,1,2,3". Actual: ' + (x.join(undefined)));
-}
+assert.sameValue(x.join(undefined), "0,1,2,3", '#1: x = new Array(0,1,2,3); x.join(undefined) === "0,1,2,3"');
 
 x = [];
 x[0] = 0;
 x[3] = 3;
-if (x.join(undefined) !== "0,,,3") {
-  throw new Test262Error('#2: x = []; x[0] = 0; x[3] = 3; x.join(undefined) === "0,,,3". Actual: ' + (x.join(undefined)));
-}
+assert.sameValue(x.join(undefined), "0,,,3", '#2: x = []; x[0] = 0; x[3] = 3; x.join(undefined) === "0,,,3"');
 
 x = [];
 x[0] = 0;
-if (x.join(undefined) !== "0") {
-  throw new Test262Error('#3: x = []; x[0] = 0; x.join(undefined) === "0". Actual: ' + (x.join(undefined)));
-}
+assert.sameValue(x.join(undefined), "0", '#3: x = []; x[0] = 0; x.join(undefined) === "0"');

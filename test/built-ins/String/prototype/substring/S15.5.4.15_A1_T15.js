@@ -16,8 +16,6 @@ Number.prototype.substring = String.prototype.substring;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__num.substring() !== "11.001002") {
-  throw new Test262Error('#1: var __num = 11.001002; Number.prototype.substring = String.prototype.substring; __num.substring()==="11.001002". Actual: ' + __num.substring());
-}
+assert.sameValue(__num.substring(), "11.001002", '#1: var __num = 11.001002; Number.prototype.substring = String.prototype.substring; __num.substring()==="11.001002"');
 //
 //////////////////////////////////////////////////////////////////////////////

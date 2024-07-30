@@ -9,8 +9,6 @@ description: Call "abcd".indexOf("abcdab") and check result
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if ("abcd".indexOf("abcdab") !== -1) {
-  throw new Test262Error('#1: "abcd".indexOf("abcdab")===-1. Actual: ' + ("abcd".indexOf("abcdab")));
-}
+assert.sameValue("abcd".indexOf("abcdab"), -1, '#1: "abcd".indexOf("abcdab")===-1');
 //
 //////////////////////////////////////////////////////////////////////////////

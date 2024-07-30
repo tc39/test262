@@ -10,12 +10,8 @@ description: Applying grouping operator to Number
 //Check for Number
 
 //CHECK#1
-if ((1) !== 1) {
-  throw new Test262Error('#1: (1) === 1. Actual: ' + ((1)));
-}
+assert.sameValue((1), 1, '#1: (1) === 1');
 
 //CHECK#2
 var x = new Number(1);
-if ((x) !== x) {
-  throw new Test262Error('#2: var x = new Number(1); (x) === x. Actual: ' + ((x)));
-}
+assert.sameValue((x), x, '#2: var x = new Number(1); (x) === x');

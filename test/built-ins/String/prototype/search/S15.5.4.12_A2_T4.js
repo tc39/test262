@@ -14,8 +14,6 @@ var regExp = /Four/;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (bString.search(regExp) !== -1) {
-  throw new Test262Error('#1: var bString = new String("one two three four five"); var regExp = /Four/; bString.search(regExp)=== -1. Actual: ' + bString.search(regExp));
-}
+assert.sameValue(bString.search(regExp), -1, '#1: var bString = new String("one two three four five"); var regExp = /Four/; bString.search(regExp)=== -1');
 //
 //////////////////////////////////////////////////////////////////////////////

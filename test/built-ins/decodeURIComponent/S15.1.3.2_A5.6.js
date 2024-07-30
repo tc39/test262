@@ -8,6 +8,4 @@ description: Checking decodeURIComponent.prototype
 ---*/
 
 //CHECK#1
-if (decodeURIComponent.prototype !== undefined) {
-  throw new Test262Error('#1: decodeURIComponent.prototype === undefined. Actual: ' + (decodeURIComponent.prototype));
-}
+assert.sameValue(decodeURIComponent.prototype, undefined, '#1: decodeURIComponent.prototype === undefined');

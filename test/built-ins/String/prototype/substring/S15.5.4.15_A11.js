@@ -17,8 +17,6 @@ if (!(String.prototype.substring.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.substring.length !== 2) {
-  throw new Test262Error('#2: String.prototype.substring.length === 2. Actual: ' + String.prototype.substring.length);
-}
+assert.sameValue(String.prototype.substring.length, 2, '#2: String.prototype.substring.length === 2');
 //
 //////////////////////////////////////////////////////////////////////////////

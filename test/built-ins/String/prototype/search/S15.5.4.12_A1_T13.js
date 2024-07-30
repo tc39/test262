@@ -20,8 +20,6 @@ var __obj = {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if ("ABB\u0041B\u0031ABAB\u0031BBAA".search(__obj) !== 5) {
-  throw new Test262Error('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; "ABB\\u0041B\\u0031ABAB\\u0031BBAA".search(__obj) ===5. Actual: ' + ("ABB\u0041B\u0031ABAB\u0031BBAA".search(__obj)));
-}
+assert.sameValue("ABB\u0041B\u0031ABAB\u0031BBAA".search(__obj), 5, '#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; "ABB\\u0041B\\u0031ABAB\\u0031BBAA".search(__obj) ===5');
 //
 //////////////////////////////////////////////////////////////////////////////
