@@ -11,7 +11,7 @@ features: [resizable-arraybuffer]
 ---*/
 
 // Returns a function that resizes rab to size resizeTo and then compares its
-// arguments. Such a result function is to be used as an argument to .map.
+// arguments. Such a result function is to be used as an argument to .sort.
 function ResizeAndCompare(rab, resizeTo) {
   return (a, b) => {
     rab.resize(resizeTo);

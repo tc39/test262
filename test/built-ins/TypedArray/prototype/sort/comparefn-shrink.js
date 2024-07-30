@@ -8,11 +8,10 @@ description: >
   resizable buffer and is shrunk by the comparison callback
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer, Array.prototype.includes]
-flags: [onlyStrict]
 ---*/
 
 // Returns a function that resizes rab to size resizeTo and then compares its
-// arguments. Such a result function is to be used as an argument to .map.
+// arguments. Such a result function is to be used as an argument to .sort.
 function ResizeAndCompare(rab, resizeTo) {
   return (a, b) => {
     rab.resize(resizeTo);
