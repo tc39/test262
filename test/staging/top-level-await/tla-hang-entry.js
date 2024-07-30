@@ -7,7 +7,7 @@ flags: [module, async]
 features: [top-level-await]
 ---*/
 
-import "parent-tla_FIXTURE.js";
-await import("grandparent-tla_FIXTURE.js");
+import "./parent-tla_FIXTURE.js";
+await import("./grandparent-tla_FIXTURE.js");
 
 $DONE();

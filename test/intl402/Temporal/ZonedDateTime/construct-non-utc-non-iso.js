@@ -6,6 +6,7 @@ esid: sec-temporal.zoneddatetime
 description: >
   Test construction and properties of an instance with non-UTC time zone and
   non-ISO8601 calendar
+includes: [temporalHelpers.js]
 features: [Temporal, BigInt]
 ---*/
 
@@ -16,7 +17,11 @@ const instance = new Temporal.ZonedDateTime(epochNanos, "Europe/Vienna", "gregor
 assert(instance instanceof Temporal.ZonedDateTime, "instanceof is correct");
 assert.sameValue(typeof instance, "object", "typeof is correct");
 
-assert.sameValue(instance.era, "ce", "era");
+assert.sameValue(
+  TemporalHelpers.canonicalizeCalendarEra(instance.calendarId, instance.era),
+  TemporalHelpers.canonicalizeCalendarEra(instance.calendarId, "ce"),
+  "era"
+);
 assert.sameValue(instance.eraYear, 1976, "eraYear");
 assert.sameValue(instance.year, 1976, "year");
 assert.sameValue(instance.month, 11, "month");
