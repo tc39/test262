@@ -13,8 +13,8 @@
   "private": true,
   "homepage": "https://github.com/tc39/test262#readme",
   "devDependencies": {
-    "esvu": "^1.2.11",
-    "test262-harness": "^8.0.0"
+    "esvu": "^1.2.16",
+    "test262-harness": "^10.0.0"
   },
   "scripts": {
     "ci": "./tools/scripts/ci_test.sh",
