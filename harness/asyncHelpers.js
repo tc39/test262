@@ -72,7 +72,7 @@ assert.throwsAsync = function (expectedErrorConstructor, func, message) {
     }
 
     try {
-      resolve(res.then(
+      resolve(Promise.resolve(res).then(
         function () {
           fail(expectation + " but no exception was thrown at all");
         },
