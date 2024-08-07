@@ -1,5 +1,9 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+Copyright (C) 2021 the V8 project authors. All rights reserved.
+This code is governed by the BSD license found in the LICENSE file.
+
+## main.js
+
+```js
 /*---
 esid: sec-parse-json-module
 description: Correctly parses the JSON representation of a boolean
@@ -18,3 +22,10 @@ features: [import-attributes, json-modules]
 import value from './json-value-boolean_FIXTURE.json' with { type: 'json' };
 
 assert.sameValue(value, true);
+```
+
+## json-value-boolean_FIXTURE.json
+
+```json
+true
+```

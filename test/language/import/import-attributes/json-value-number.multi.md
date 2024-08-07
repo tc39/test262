@@ -1,8 +1,12 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+Copyright (C) 2021 the V8 project authors. All rights reserved.
+This code is governed by the BSD license found in the LICENSE file.
+
+## main.js
+
+```js
 /*---
 esid: sec-parse-json-module
-description: Correctly parses the JSON representation of a string
+description: Correctly parses the JSON representation of a number
 info: |
   # 1.4 ParseJSONModule ( source )
 
@@ -15,6 +19,13 @@ flags: [module]
 features: [import-attributes, json-modules]
 ---*/
 
-import value from './json-value-string_FIXTURE.json' with { type: 'json' };
+import value from './json-value-number_FIXTURE.json' with { type: 'json' };
 
-assert.sameValue(value, 'a string value');
+assert.sameValue(value, -1.2345);
+```
+
+## json-value-number_FIXTURE.json
+
+```json
+-1234.500e-003
+```
