@@ -3,7 +3,7 @@
 /*---
 description: ASI between a field named "get" and a generator method
 esid: prod-ClassElement
-features: [class-fields-public, class]
+features: [class-fields-public, class-static-fields-public, class, generators]
 info: |
     ClassElement :
       MethodDefinition
