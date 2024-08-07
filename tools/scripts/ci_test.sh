@@ -14,4 +14,8 @@ if [ "$CIRCLE_PULL_REQUEST" != "" ]; then
 
   echo "Running the tests with test262-harness"
   test262-harness -t 1 --hostType=$hostType --hostPath=$hostPath --hostArgs="$hostArgs" -- $paths
+  exit 0
 fi
+
+# running full suite for non-PRs
+test262-harness -t 1 --hostType=$hostType --hostPath=$hostPath --hostArgs="$hostArgs" -- test/**/*.js
