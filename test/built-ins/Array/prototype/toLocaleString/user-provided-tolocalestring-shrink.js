@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.tolocalestringb
+esid: sec-array.prototype.tolocalestring
 description: >
   Array.p.toLocaleString behaves correctly when {Number,BigInt}.prototype.toLocaleString
   is replaced with a user-provided function that shrinks the array.
