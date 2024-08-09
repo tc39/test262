@@ -31,9 +31,6 @@ for (let ctor of ctors) {
   function div3(n) {
     return Number(n) % 3 == 0;
   }
-  function even(n) {
-    return Number(n) % 2 == 0;
-  }
   function over10(n) {
     return Number(n) > 10;
   }
