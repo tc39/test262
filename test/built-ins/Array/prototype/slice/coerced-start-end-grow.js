@@ -10,6 +10,7 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
+// The start argument grows the resizable array buffer rab.
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
   const lengthTracking = new ctor(rab);
@@ -27,6 +28,29 @@ for (let ctor of ctors) {
     2,
     3,
     4
+  ]);
+  assert.sameValue(rab.byteLength, 6 * ctor.BYTES_PER_ELEMENT);
+}
+
+// The end argument grows the resizable array buffer rab.
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const lengthTracking = new ctor(rab);
+  for (let i = 0; i < 4; ++i) {
+    WriteToTypedArray(lengthTracking, i, i + 1);
+  }
+
+  const evil = {
+    valueOf: () => {
+      rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+      return 5;
+    }
+  };
+  assert.compareArray(ToNumbers(Array.prototype.slice.call(lengthTracking,4,evil)), [
+  ]);
+  assert.compareArray(ToNumbers(Array.prototype.slice.call(lengthTracking,3,evil)), [
+    4,
+    0
   ]);
   assert.sameValue(rab.byteLength, 6 * ctor.BYTES_PER_ELEMENT);
 }
