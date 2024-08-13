@@ -18,6 +18,22 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   const taWrite = new ctor(rab);
 
+  // toLocaleString separator is implementation dependent.
+  function listToString(list) {
+    const comma = ['',''].toLocaleString();
+    const len = list.length;
+    let result = '';
+    if (len > 1) {
+      for (let i=0; i < len - 1 ; i++) {
+        result += list[i] + comma;
+      }
+    }
+    if (len > 0) {
+      result += list[len-1];
+    }
+    return result;
+  }
+
   // Write some data into the array.
   for (let i = 0; i < 4; ++i) {
     WriteToTypedArray(taWrite, i, 2 * i);
@@ -29,10 +45,10 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, ...] << lengthTracking
   //                    [4, 6, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), '0,2,4,6');
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), '4,6');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), '0,2,4,6');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), '4,6');
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), listToString([0,2,4,6]));
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), listToString([4,6]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), listToString([0,2,4,6]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), listToString([4,6]));
 
   // Shrink so that fixed length TAs go out of bounds.
   rab.resize(3 * ctor.BYTES_PER_ELEMENT);
@@ -41,27 +57,27 @@ for (let ctor of ctors) {
   //              [0, 2, 4, ...] << lengthTracking
   //                    [4, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), '');
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), '');
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), listToString([]));
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), listToString([]));
 
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), '0,2,4');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), '4');
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), listToString([0,2,4]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), listToString([4]));
 
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), '');
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), '');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), '');
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), listToString([]));
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), listToString([]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), listToString([]));
 
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), '0');
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), listToString([0]));
 
   // Shrink to zero.
   rab.resize(0);
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), '');
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), '');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), '');
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), listToString([]));
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), listToString([]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), listToString([]));
 
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), '');
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), listToString([]));
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
@@ -75,8 +91,8 @@ for (let ctor of ctors) {
   //              [0, 2, 4, 6, 8, 10, ...] << lengthTracking
   //                    [4, 6, 8, 10, ...] << lengthTrackingWithOffset
 
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), '0,2,4,6');
-  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), '4,6');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), '0,2,4,6,8,10');
-  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), '4,6,8,10');
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLength), listToString([0,2,4,6]));
+  assert.sameValue(Array.prototype.toLocaleString.call(fixedLengthWithOffset), listToString([4,6]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTracking), listToString([0,2,4,6,8,10]));
+  assert.sameValue(Array.prototype.toLocaleString.call(lengthTrackingWithOffset), listToString([4,6,8,10]));
 }

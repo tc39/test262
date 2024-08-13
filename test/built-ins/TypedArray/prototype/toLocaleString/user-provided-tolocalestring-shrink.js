@@ -14,6 +14,22 @@ features: [resizable-arraybuffer]
 const oldNumberPrototypeToLocaleString = Number.prototype.toLocaleString;
 const oldBigIntPrototypeToLocaleString = BigInt.prototype.toLocaleString;
 
+// toLocaleString separator is implementation dependent.
+function listToString(list) {
+  const comma = ['',''].toLocaleString();
+  const len = list.length;
+  let result = '';
+  if (len > 1) {
+    for (let i=0; i < len - 1 ; i++) {
+      result += list[i] + comma;
+    }
+  }
+  if (len > 0) {
+    result += list[len-1];
+  }
+  return result;
+}
+
 // Shrinking + fixed-length TA.
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -36,7 +52,7 @@ for (let ctor of ctors) {
 
   // We iterate 4 elements, since it was the starting length. The TA goes
   // OOB after 2 elements.
-  assert.sameValue(fixedLength.toLocaleString(), '0,0,,');
+  assert.sameValue(fixedLength.toLocaleString(), listToString([0,0,'','']));
 }
 
 // Shrinking + length-tracking TA.
@@ -61,7 +77,7 @@ for (let ctor of ctors) {
 
   // We iterate 4 elements, since it was the starting length. Elements beyond
   // the new length are converted to the empty string.
-  assert.sameValue(lengthTracking.toLocaleString(), '0,0,,');
+  assert.sameValue(lengthTracking.toLocaleString(), listToString([0,0,'','']));
 }
 Number.prototype.toLocaleString = oldNumberPrototypeToLocaleString;
 BigInt.prototype.toLocaleString = oldBigIntPrototypeToLocaleString;
