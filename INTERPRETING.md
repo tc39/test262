@@ -42,6 +42,7 @@ properties of the global scope prior to test execution.
   the test runner. This is used as a communication mechanism for asynchronous
   tests (via the `async` flag, described below).
 - **`$262`** An ordinary object with the following properties:
+  - **`AbstractModuleSource`** - a reference to the `%AbstractModuleSource%` constructor which does not appear as a property of the global object.
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/#sec-code-realms),
     defines this API on the new realm's global object, and returns the `$262`
@@ -107,7 +108,6 @@ properties of the global scope prior to test execution.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
     - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
-    - **`AbstractModuleSource`** - a reference to the `%AbstractModuleSource%` constructor which does not appear as a property of the global object.
 
 In addition, consumers may choose to override any of [the functions defined by test harness files](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
 
