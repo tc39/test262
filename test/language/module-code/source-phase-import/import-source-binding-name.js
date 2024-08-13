@@ -10,7 +10,7 @@ info: |
 
 negative:
   phase: resolution
-  type: SyntaxError
+  type: Error
 features: [source-phase-imports]
 flags: [module]
 ---*/
