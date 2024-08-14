@@ -21,17 +21,7 @@ for (let ctor of ctors) {
   // toLocaleString separator is implementation dependent.
   function listToString(list) {
     const comma = ['',''].toLocaleString();
-    const len = list.length;
-    let result = '';
-    if (len > 1) {
-      for (let i=0; i < len - 1 ; i++) {
-        result += list[i] + comma;
-      }
-    }
-    if (len > 0) {
-      result += list[len-1];
-    }
-    return result;
+    return list.join(comma);
   }
 
   // Write some data into the array.
