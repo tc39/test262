@@ -6,50 +6,8 @@ esid: sec-arraybuffer-length
 description: >
   TypedArrays backed by resizable buffers are iterable with for-of
 features: [resizable-arraybuffer]
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
 
 const no_elements = 10;
 const offset = 2;

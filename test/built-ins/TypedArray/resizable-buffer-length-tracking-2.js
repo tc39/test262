@@ -6,44 +6,11 @@ esid: sec-arraybuffer-length
 description: >
   Length-tracking TypedArrays backed by resizable buffers with offsets
   behave correctly
+includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
 // length-tracking-1 but with offsets.
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
 
 const rab = CreateResizableArrayBuffer(16, 40);
 const offset = 8;

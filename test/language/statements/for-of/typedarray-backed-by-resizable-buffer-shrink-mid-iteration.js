@@ -7,50 +7,8 @@ description: >
   TypedArrays backed by resizable buffers are iterable with for-of and behave
   correctly when the buffer is shrunk during iteration
 features: [resizable-arraybuffer]
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
 
 function CreateRab(buffer_byte_length, ctor) {
   const rab = CreateResizableArrayBuffer(buffer_byte_length, 2 * buffer_byte_length);
@@ -59,27 +17,6 @@ function CreateRab(buffer_byte_length, ctor) {
     WriteToTypedArray(ta_write, i, i % 128);
   }
   return rab;
-}
-
-function TestIterationAndResize(ta, expected, rab, resize_after, new_byte_length) {
-  let values = [];
-  let resized = false;
-  for (const value of ta) {
-    if (value instanceof Array) {
-      values.push([
-        value[0],
-        Number(value[1])
-      ]);
-    } else {
-      values.push(Number(value));
-    }
-    if (!resized && values.length == resize_after) {
-      rab.resize(new_byte_length);
-      resized = true;
-    }
-  }
-  assert.compareArray(values, expected);
-  assert(resized);
 }
 
 const no_elements = 10;

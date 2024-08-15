@@ -6,12 +6,9 @@ esid: sec-isvalidintegerindex
 description: >
   TypedArrays backed by resizable buffers that are out-of-bounds behave
   as if they were detached
+includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
 
 function ReadElement2(ta) {
   return ta[2];

@@ -6,66 +6,9 @@ esid: sec-%typedarray%.prototype.slice
 description: >
   TypedArray.p.slice behaves correctly when the receiver is backed by
   resizable buffer that is grown by argument coercion
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
 
 const TypedArraySliceHelper = (ta, ...rest) => {
   return ta.slice(...rest);
