@@ -19,11 +19,10 @@ function CreateRab(buffer_byte_length, ctor) {
   return rab;
 }
 
-const no_elements = 10;
-const offset = 2;
-
 // We need to recreate the RAB between all TA tests, since we grow it.
 for (let ctor of ctors) {
+  const no_elements = 10;
+  const offset = 2;
   const buffer_byte_length = no_elements * ctor.BYTES_PER_ELEMENT;
   const byte_offset = offset * ctor.BYTES_PER_ELEMENT;
 

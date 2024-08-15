@@ -19,9 +19,9 @@ function CreateRab(buffer_byte_length, ctor) {
   return rab;
 }
 
-const no_elements = 10;
-const offset = 2;
 for (let ctor of ctors) {
+  const no_elements = 10;
+  const offset = 2;
   const buffer_byte_length = no_elements * ctor.BYTES_PER_ELEMENT;
   const byte_offset = offset * ctor.BYTES_PER_ELEMENT;
 
