@@ -45,6 +45,19 @@ for (let ctor of ctors) {
   assert.compareArray(ToNumbers(fixedLength.subarray(evil, 1)), [0]);
 }
 
+// As above but with the second parameter conversion shrinking the buffer.
+for (let ctor of ctors) {
+  const rab = CreateRabForTest(ctor);
+  const fixedLength = new ctor(rab, 0, 4);
+  let evil = {
+    valueOf: () => {
+      rab.resize(2 * ctor.BYTES_PER_ELEMENT);
+      return 1;
+    }
+  };
+  assert.compareArray(ToNumbers(fixedLength.subarray(0,evil)), [0]);
+}
+
 // Fixed-length TA + second parameter conversion shrinks. The old length is
 // used in the length computation, and the subarray construction fails.
 for (let ctor of ctors) {
@@ -89,6 +102,19 @@ for (let ctor of ctors) {
   assert.compareArray(ToNumbers(fixedLength.subarray(evil, 1)), [0]);
 }
 
+// As above but with the second parameter conversion shrinking the buffer.
+for (let ctor of ctors) {
+  const rab = CreateRabForTest(ctor);
+  const fixedLength = new ctor(rab, 0, 4);
+  const evil = {
+    valueOf: () => {
+      rab.resize(2 * ctor.BYTES_PER_ELEMENT);
+      return 1;
+    }
+  };
+  assert.compareArray(ToNumbers(fixedLength.subarray(0,evil)), [0]);
+}
+
 // Length-tracking TA + first parameter conversion shrinks. The old length is
 // used in the length computation, and the subarray construction fails.
 for (let ctor of ctors) {
@@ -117,6 +143,19 @@ for (let ctor of ctors) {
     }
   };
   assert.compareArray(ToNumbers(lengthTracking.subarray(evil, 1)), [0]);
+}
+
+// As above but with the second parameter conversion shrinking the buffer.
+for (let ctor of ctors) {
+  const rab = CreateRabForTest(ctor);
+  const lengthTracking = new ctor(rab);
+  let evil = {
+    valueOf: () => {
+      rab.resize(2 * ctor.BYTES_PER_ELEMENT);
+      return 1;
+    }
+  };
+  assert.compareArray(ToNumbers(lengthTracking.subarray(0,evil)), [0]);
 }
 
 // Length-tracking TA + first parameter conversion shrinks. The second

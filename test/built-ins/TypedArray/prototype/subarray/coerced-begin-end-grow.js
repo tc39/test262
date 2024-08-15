@@ -28,8 +28,26 @@ for (let ctor of ctors) {
   };
   // The length computation is done before parameter conversion. At that
   // point, the length is 0, since the TA is OOB.
-  assert.compareArray(ToNumbers(fixedLength.subarray(evil, 0, 1)), []);
+  assert.compareArray(ToNumbers(fixedLength.subarray(evil, 1)), []);
 }
+
+// As above but with the second parameter conversion growing the buffer.
+for (let ctor of ctors) {
+  const rab = CreateRabForTest(ctor);
+  const fixedLength = new ctor(rab, 0, 4);
+  // Make `fixedLength` OOB.
+  rab.resize(2 * ctor.BYTES_PER_ELEMENT);
+  const evil = {
+    valueOf: () => {
+      rab.resize(4 * ctor.BYTES_PER_ELEMENT);
+      return 1;
+    }
+  };
+  // The length computation is done before parameter conversion. At that
+  // point, the length is 0, since the TA is OOB.
+  assert.compareArray(ToNumbers(fixedLength.subarray(0, evil)), []);
+}
+
 
 // Growing + fixed-length TA. Growing won't affect anything.
 for (let ctor of ctors) {
@@ -42,6 +60,24 @@ for (let ctor of ctors) {
     }
   };
   assert.compareArray(ToNumbers(fixedLength.subarray(evil)), [
+    0,
+    2,
+    4,
+    6
+  ]);
+}
+
+// As above but with the second parameter conversion growing the buffer.
+for (let ctor of ctors) {
+  const rab = CreateRabForTest(ctor);
+  const fixedLength = new ctor(rab, 0, 4);
+  const evil = {
+    valueOf: () => {
+      rab.resize(6 * ctor.BYTES_PER_ELEMENT);
+      return 4;
+    }
+  };
+  assert.compareArray(ToNumbers(fixedLength.subarray(0, evil)), [
     0,
     2,
     4,
