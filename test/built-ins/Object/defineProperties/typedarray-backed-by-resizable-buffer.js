@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-object.definepropreties
+esid: sec-object.defineproperties
 description: >
   Object.defineProperties behaves correctly on TypedArrays backed by
   resizable buffers
