@@ -194,7 +194,7 @@ f();
 Tests written like this will correctly pass if the import Promise is rejected, and will correctly fail if the import succeeds (due to the imported module object being passed to `$DONE`.)
 However, at a first glance, it's not immediately clear that the test is correct in the case of the import succeeding; in fact in an earlier draft of this RFC I thought the test was incorrect.
 
-Others, such as [`test/language/expressions/dynamic-import/import-assertions/2nd-param-non-object.js`](https://github.com/tc39/test262/blob/main/test/language/expressions/dynamic-import/import-assertions/2nd-param-non-object.js), use a pattern more like what is proposed in this RFC. However, this pattern doesn't format the messages as helpfully in all the edge cases that `assert.throws()` does, such as:
+Others, such as [`test/language/expressions/dynamic-import/import-attributes/2nd-param-non-object.js`](https://github.com/tc39/test262/blob/main/test/language/expressions/dynamic-import/import-attributes/2nd-param-non-object.js), use a pattern more like what is proposed in this RFC. However, this pattern doesn't format the messages as helpfully in all the edge cases that `assert.throws()` does, such as:
 
 - the Promise being rejected with a primitive value;
 - the error constructor being a different object with the same name, such as a different iframe's TypeError;
