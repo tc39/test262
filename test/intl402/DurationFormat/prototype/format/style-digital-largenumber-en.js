@@ -38,7 +38,7 @@ assert.sameValue(df.format({hours: 12, minutes: 34, seconds: 56, milliseconds: 1
     "12:34:1290.567", `format in digit set useGrouping to false`);
 
 assert.sameValue(df.format({days: 1234567, hours: 3, minutes: 20, seconds: 45}),
-    "1,234,567 days, 3:20:45", `format in digit set useGrouping to false`);
+    "1,234,567 days, 3:20:45", `useGrouping set to false applies to time units but not days`);
 
 assert.sameValue(df.format({days: 1234567, hours: 2345678, minutes: 3456789, seconds: 4567890}),
-    "1,234,567 days, 2345678:3456789:4567890", `format in digit set useGrouping to false`);
+    "1,234,567 days, 2345678:3456789:4567890", `useGrouping set to false applies to time units but not days`);
