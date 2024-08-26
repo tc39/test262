@@ -11,15 +11,13 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function ObjectDefinePropertyHelper(ta, index, value) {
+function MayNeedBigInt(ta, value) {
   if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
-    Object.defineProperty(ta, index, { value: BigInt(value) });
+    return BigInt(value);
   } else {
-    Object.defineProperty(ta, index, { value: value });
+    return value;
   }
 }
-
-const helper = ObjectDefinePropertyHelper;
 
 // Fixed length.
 for (let ctor of ctors) {
@@ -32,7 +30,7 @@ for (let ctor of ctors) {
     }
   };
   assert.throws(TypeError, () => {
-    helper(fixedLength, evil, 8);
+    Object.defineProperty(fixedLength, evil, { value: MayNeedBigInt(fixedLength, 8) });
   });
 }
 
@@ -47,6 +45,6 @@ for (let ctor of ctors) {
     }
   };
   assert.throws(TypeError, () => {
-    helper(lengthTracking, evil, 8);
+    Object.defineProperty(lengthTracking, evil, { value: MayNeedBigInt(lengthTracking, 8) });
   });
 }

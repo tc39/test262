@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-object.defineproperties
+esid: sec-object.defineproperty
 description: >
-  Object.defineProperties behaves correctly on TypedArrays backed by
+  Object.defineProperty behaves correctly on TypedArrays backed by
   resizable buffers
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
@@ -18,10 +18,8 @@ function MayNeedBigInt(ta, value) {
   }
 }
 
-function DefinePropertiesMayNeedBigInt(ta, index, value) {
-  const values = {};
-  values[index] = { value: MayNeedBigInt(ta, value) };
-  Object.defineProperties(ta, values);
+function DefinePropertyMayNeedBigInt(ta, index, value) {
+  Object.defineProperty(ta, index, { value: MayNeedBigInt(ta, value) });
 }
 
 for (let ctor of ctors) {
@@ -38,28 +36,28 @@ for (let ctor of ctors) {
   //              [0, 0, 0, 0, ...] << lengthTracking
   //                    [0, 0, ...] << lengthTrackingWithOffset
 
-  DefinePropertiesMayNeedBigInt(fixedLength, 0, 1);
+  DefinePropertyMayNeedBigInt(fixedLength, 0, 1);
   assert.compareArray(ToNumbers(taFull), [
     1,
     0,
     0,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 0, 2);
+  DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 0, 2);
   assert.compareArray(ToNumbers(taFull), [
     1,
     0,
     2,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTracking, 1, 3);
+  DefinePropertyMayNeedBigInt(lengthTracking, 1, 3);
   assert.compareArray(ToNumbers(taFull), [
     1,
     3,
     2,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 1, 4);
+  DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 1, 4);
   assert.compareArray(ToNumbers(taFull), [
     1,
     3,
@@ -67,16 +65,16 @@ for (let ctor of ctors) {
     4
   ]);
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLength, 4, 8);
+    DefinePropertyMayNeedBigInt(fixedLength, 4, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 2, 8);
+    DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 2, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(lengthTracking, 4, 8);
+    DefinePropertyMayNeedBigInt(lengthTracking, 4, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 2, 8);
+    DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 2, 8);
   });
 
   // Shrink so that fixed length TAs go out of bounds.
@@ -87,23 +85,23 @@ for (let ctor of ctors) {
   //                    [2, ...] << lengthTrackingWithOffset
 
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLength, 0, 8);
+    DefinePropertyMayNeedBigInt(fixedLength, 0, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 0, 8);
+    DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 0, 8);
   });
   assert.compareArray(ToNumbers(taFull), [
     1,
     3,
     2
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTracking, 0, 5);
+  DefinePropertyMayNeedBigInt(lengthTracking, 0, 5);
   assert.compareArray(ToNumbers(taFull), [
     5,
     3,
     2
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 0, 6);
+  DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 0, 6);
   assert.compareArray(ToNumbers(taFull), [
     5,
     3,
@@ -113,37 +111,37 @@ for (let ctor of ctors) {
   // Shrink so that the TAs with offset go out of bounds.
   rab.resize(1 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLength, 0, 8);
+    DefinePropertyMayNeedBigInt(fixedLength, 0, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 0, 8);
+    DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 0, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 0, 8);
+    DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 0, 8);
   });
   assert.compareArray(ToNumbers(taFull), [5]);
-  DefinePropertiesMayNeedBigInt(lengthTracking, 0, 7);
+  DefinePropertyMayNeedBigInt(lengthTracking, 0, 7);
   assert.compareArray(ToNumbers(taFull), [7]);
 
   // Shrink to zero.
   rab.resize(0);
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLength, 0, 8);
+    DefinePropertyMayNeedBigInt(fixedLength, 0, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 0, 8);
+    DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 0, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(lengthTracking, 0, 8);
+    DefinePropertyMayNeedBigInt(lengthTracking, 0, 8);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 0, 8);
+    DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 0, 8);
   });
   assert.compareArray(ToNumbers(taFull), []);
 
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * ctor.BYTES_PER_ELEMENT);
-  DefinePropertiesMayNeedBigInt(fixedLength, 0, 9);
+  DefinePropertyMayNeedBigInt(fixedLength, 0, 9);
   assert.compareArray(ToNumbers(taFull), [
     9,
     0,
@@ -152,7 +150,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 0, 10);
+  DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 0, 10);
   assert.compareArray(ToNumbers(taFull), [
     9,
     0,
@@ -161,7 +159,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTracking, 1, 11);
+  DefinePropertyMayNeedBigInt(lengthTracking, 1, 11);
   assert.compareArray(ToNumbers(taFull), [
     9,
     11,
@@ -170,7 +168,7 @@ for (let ctor of ctors) {
     0,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 2, 12);
+  DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 2, 12);
   assert.compareArray(ToNumbers(taFull), [
     9,
     11,
@@ -182,10 +180,10 @@ for (let ctor of ctors) {
 
   // Trying to define properties out of the fixed-length bounds throws.
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLength, 5, 13);
+    DefinePropertyMayNeedBigInt(fixedLength, 5, 13);
   });
   assert.throws(TypeError, () => {
-    DefinePropertiesMayNeedBigInt(fixedLengthWithOffset, 3, 13);
+    DefinePropertyMayNeedBigInt(fixedLengthWithOffset, 3, 13);
   });
   assert.compareArray(ToNumbers(taFull), [
     9,
@@ -195,7 +193,7 @@ for (let ctor of ctors) {
     12,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTracking, 4, 14);
+  DefinePropertyMayNeedBigInt(lengthTracking, 4, 14);
   assert.compareArray(ToNumbers(taFull), [
     9,
     11,
@@ -204,7 +202,7 @@ for (let ctor of ctors) {
     14,
     0
   ]);
-  DefinePropertiesMayNeedBigInt(lengthTrackingWithOffset, 3, 15);
+  DefinePropertyMayNeedBigInt(lengthTrackingWithOffset, 3, 15);
   assert.compareArray(ToNumbers(taFull), [
     9,
     11,

@@ -16,27 +16,24 @@ features: [resizable-arraybuffer]
 ---*/
 
 for (let ctor of ctors) {
-  if (ctor.BYTES_PER_ELEMENT != 1) {
-    continue;
-  }
-  const rab = CreateResizableArrayBuffer(16, 40);
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 40 * ctor.BYTES_PER_ELEMENT);
   const array = new ctor(rab, 0, 4);
   // Within-bounds read
   for (let i = 0; i < 4; ++i) {
     assert(i in array);
   }
-  rab.resize(2);
+  rab.resize(2 * ctor.BYTES_PER_ELEMENT);
   // OOB read. If the RAB isn't large enough to fit the entire TypedArray,
   // the length of the TypedArray is treated as 0.
   for (let i = 0; i < 4; ++i) {
     assert(!(i in array));
   }
-  rab.resize(4);
+  rab.resize(4 * ctor.BYTES_PER_ELEMENT);
   // Within-bounds read
   for (let i = 0; i < 4; ++i) {
     assert(i in array);
   }
-  rab.resize(40);
+  rab.resize(40 * ctor.BYTES_PER_ELEMENT);
   // Within-bounds read
   for (let i = 0; i < 4; ++i) {
     assert(i in array);
