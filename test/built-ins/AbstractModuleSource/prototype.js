@@ -9,6 +9,7 @@ info: |
 
   The initial value of %AbstractModuleSource%.prototype is the %AbstractModuleSource% prototype object.
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false }.
+includes: [propertyHelper.js]
 features: [source-phase-imports]
 flags: [module]
 ---*/
@@ -18,5 +19,5 @@ verifyProperty($262.AbstractModuleSource, 'prototype', {
   value: $262.AbstractModuleSource.prototype,
   writable: false,
   enumerable: false,
-  configurable: false
+  configurable: true
 });

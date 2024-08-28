@@ -21,7 +21,7 @@ jobs:
       - name: download esmeta
         run: |
           mkdir -p "${ESMETA_HOME}"
-          git clone --branch v0.4.1 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
+          git clone --branch v0.4.2 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
           cd "${ESMETA_HOME}" && git submodule update --init --depth 1
       - name: build esmeta
         working-directory: ${{ env.ESMETA_HOME }}

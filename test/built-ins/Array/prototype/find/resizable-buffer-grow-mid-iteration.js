@@ -19,7 +19,7 @@ let resizeTo;
 // resizeTo. To be called by a method of the view being collected.
 // Note that rab, values, resizeAfter, and resizeTo may need to be reset
 // before calling this.
-function ResizeBufferMidIteration(n) {
+function ResizeMidIteration(n) {
   CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
   return false;
 }
@@ -36,7 +36,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 2;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert.sameValue(Array.prototype.find.call(fixedLength, ResizeBufferMidIteration), undefined);
+  assert.sameValue(Array.prototype.find.call(fixedLength, ResizeMidIteration), undefined);
   assert.compareArray(values, [
     0,
     2,
@@ -50,7 +50,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 1;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert.sameValue(Array.prototype.find.call(fixedLengthWithOffset, ResizeBufferMidIteration), undefined);
+  assert.sameValue(Array.prototype.find.call(fixedLengthWithOffset, ResizeMidIteration), undefined);
   assert.compareArray(values, [
     4,
     6
@@ -62,7 +62,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 2;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert.sameValue(Array.prototype.find.call(lengthTracking, ResizeBufferMidIteration), undefined);
+  assert.sameValue(Array.prototype.find.call(lengthTracking, ResizeMidIteration), undefined);
   assert.compareArray(values, [
     0,
     2,
@@ -76,7 +76,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 1;
   resizeTo = 5 * ctor.BYTES_PER_ELEMENT;
-  assert.sameValue(Array.prototype.find.call(lengthTrackingWithOffset, ResizeBufferMidIteration), undefined);
+  assert.sameValue(Array.prototype.find.call(lengthTrackingWithOffset, ResizeMidIteration), undefined);
   assert.compareArray(values, [
     4,
     6

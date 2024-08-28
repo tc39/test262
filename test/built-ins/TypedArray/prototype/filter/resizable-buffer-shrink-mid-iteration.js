@@ -4,8 +4,8 @@
 /*---
 esid: sec-%typedarray%.prototype.filter
 description: >
-  TypedArray.p.filter behaves correctly when receiver is backed by resizable
-  buffer that is shrunk mid-iteration
+  TypedArray.p.filter behaves correctly on TypedArrays backed by resizable
+  buffers that are shrunk mid-iteration.
 includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
@@ -19,7 +19,7 @@ let resizeTo;
 // resizeTo. To be called by a method of the view being collected.
 // Note that rab, values, resizeAfter, and resizeTo may need to be reset
 // before calling this.
-function ResizeBufferMidIteration(n) {
+function ResizeMidIteration(n) {
   CollectValuesAndResize(n, values, rab, resizeAfter, resizeTo);
   return false;
 }
@@ -36,7 +36,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(fixedLength.filter(ResizeBufferMidIteration)),[]);
+  assert.compareArray(ToNumbers(fixedLength.filter(ResizeMidIteration)),[]);
   assert.compareArray(values, [
     0,
     2,
@@ -50,7 +50,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(fixedLengthWithOffset.filter(ResizeBufferMidIteration)),[]);
+  assert.compareArray(ToNumbers(fixedLengthWithOffset.filter(ResizeMidIteration)),[]);
   assert.compareArray(values, [
     4,
     undefined
@@ -62,7 +62,7 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 2;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(lengthTracking.filter(ResizeBufferMidIteration)),[]);
+  assert.compareArray(ToNumbers(lengthTracking.filter(ResizeMidIteration)),[]);
   assert.compareArray(values, [
     0,
     2,
@@ -76,10 +76,9 @@ for (let ctor of ctors) {
   values = [];
   resizeAfter = 1;
   resizeTo = 3 * ctor.BYTES_PER_ELEMENT;
-  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(ResizeBufferMidIteration)),[]);
+  assert.compareArray(ToNumbers(lengthTrackingWithOffset.filter(ResizeMidIteration)),[]);
   assert.compareArray(values, [
     4,
     undefined
   ]);
 }
-
