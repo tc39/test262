@@ -149,3 +149,10 @@ function TestIterationAndResize(iterable, expected, rab, resizeAfter, newByteLen
   }
   assert(resized, "TestIterationAndResize: resize condition should have been hit");
 }
+
+function MayNeedBigInt(ta, n) {
+  if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
+    return BigInt(n);
+  }
+  return n;
+}

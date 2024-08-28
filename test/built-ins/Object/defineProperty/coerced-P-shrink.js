@@ -11,14 +11,6 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function MayNeedBigInt(ta, value) {
-  if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
-    return BigInt(value);
-  } else {
-    return value;
-  }
-}
-
 // Fixed length.
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);

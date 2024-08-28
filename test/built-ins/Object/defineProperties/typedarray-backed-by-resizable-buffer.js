@@ -10,14 +10,6 @@ includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function MayNeedBigInt(ta, value) {
-  if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
-    return BigInt(value);
-  } else {
-    return value;
-  }
-}
-
 function DefinePropertiesMayNeedBigInt(ta, index, value) {
   const values = {};
   values[index] = { value: MayNeedBigInt(ta, value) };
