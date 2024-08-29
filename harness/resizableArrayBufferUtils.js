@@ -9,7 +9,7 @@ defines:
   - ctors
   - MyBigInt64Array
   - CreateResizableArrayBuffer
-  - WriteToTypedArray
+  - MayNeedBigInt
   - Convert
   - ToNumbers
   - CreateRabForTest
@@ -151,8 +151,10 @@ function TestIterationAndResize(iterable, expected, rab, resizeAfter, newByteLen
 }
 
 function MayNeedBigInt(ta, n) {
-  if (typeof n == 'number' && (ta instanceof BigInt64Array || ta instanceof BigUint64Array)) {
+  assert.sameValue(typeof n, 'number');
+  if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
     return BigInt(n);
   }
   return n;
 }
+
