@@ -19,7 +19,7 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   const taWrite = new ctor(rab);
   for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(taWrite, i, i);
+    taWrite[i] = MayNeedBigInt(taWrite, i);
   }
   function func(...args) {
     return [...args];

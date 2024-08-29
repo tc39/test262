@@ -28,7 +28,7 @@ for (let ctor of ctors) {
   // Write some data into the array.
   let ta_write = new ctor(rab);
   for (let i = 0; i < no_elements; ++i) {
-    WriteToTypedArray(ta_write, i, i % 128);
+    ta_write[i] = MayNeedBigInt(ta_write, i % 128);
   }
 
   // Create various different styles of TypedArrays with the RAB as the

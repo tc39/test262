@@ -19,7 +19,7 @@ for (let ctor of ctors) {
   // Write some data into the array.
   let ta_write = new ctor(rab);
   for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(ta_write, i, i);
+    ta_write[i] = MayNeedBigInt(ta_write, i);
   }
   {
     let [a, b, c, d, e] = fixedLength;
