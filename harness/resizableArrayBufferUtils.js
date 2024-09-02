@@ -92,7 +92,8 @@ function ToNumbers(array) {
 
 function MayNeedBigInt(ta, n) {
   assert.sameValue(typeof n, 'number');
-  if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
+  if ((BigInt64Array !== 'undefined' && ta instanceof BigInt64Array)
+      || (BigUint64Array !== 'undefined' && ta instanceof BigUint64Array)) {
     return BigInt(n);
   }
   return n;
