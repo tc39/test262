@@ -1,7 +1,7 @@
 // Copyright (C) 2024 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: ASI between a field named "get" and a generator method
+description: ASI between a field named "set" and a generator method
 esid: prod-ClassElement
 features: [class-fields-public, class]
 info: |
