@@ -6,67 +6,9 @@ esid: sec-function.prototype.apply
 description: >
   Function.p.apply behaves correctly when the argument array is a
   TypedArray backed by resizable buffer
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
 
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
@@ -76,7 +18,7 @@ for (let ctor of ctors) {
   const lengthTrackingWithOffset = new ctor(rab, 2 * ctor.BYTES_PER_ELEMENT);
   const taWrite = new ctor(rab);
   for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(taWrite, i, i);
+    taWrite[i] = MayNeedBigInt(taWrite, i);
   }
   function func(...args) {
     return [...args];

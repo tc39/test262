@@ -7,53 +7,9 @@ description: >
   Object.defineProperty behaves correctly when the object is a
   TypedArray backed by a resizable buffer that's shrunk during argument
   coercion
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
-
-function ObjectDefinePropertyHelper(ta, index, value) {
-  if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
-    Object.defineProperty(ta, index, { value: BigInt(value) });
-  } else {
-    Object.defineProperty(ta, index, { value: value });
-  }
-}
-
-const helper = ObjectDefinePropertyHelper;
 
 // Fixed length.
 for (let ctor of ctors) {
@@ -66,7 +22,7 @@ for (let ctor of ctors) {
     }
   };
   assert.throws(TypeError, () => {
-    helper(fixedLength, evil, 8);
+    Object.defineProperty(fixedLength, evil, { value: MayNeedBigInt(fixedLength, 8) });
   });
 }
 
@@ -81,6 +37,6 @@ for (let ctor of ctors) {
     }
   };
   assert.throws(TypeError, () => {
-    helper(lengthTracking, evil, 8);
+    Object.defineProperty(lengthTracking, evil, { value: MayNeedBigInt(lengthTracking, 8) });
   });
 }

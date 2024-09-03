@@ -6,43 +6,9 @@ esid: sec-initializetypedarrayfromtypedarray
 description: >
   Initializing a TypedArray from another TypedArray that is backed by a
   resizable buffer
-includes: [compareArray.js]
+includes: [compareArray.js, resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
-
-class MyUint8Array extends Uint8Array {
-}
-
-class MyFloat32Array extends Float32Array {
-}
-
-class MyBigInt64Array extends BigInt64Array {
-}
-
-const builtinCtors = [
-  Uint8Array,
-  Int8Array,
-  Uint16Array,
-  Int16Array,
-  Uint32Array,
-  Int32Array,
-  Float32Array,
-  Float64Array,
-  Uint8ClampedArray,
-  BigUint64Array,
-  BigInt64Array
-];
-
-const ctors = [
-  ...builtinCtors,
-  MyUint8Array,
-  MyFloat32Array,
-  MyBigInt64Array
-];
-
-function CreateResizableArrayBuffer(byteLength, maxByteLength) {
-  return new ArrayBuffer(byteLength, { maxByteLength: maxByteLength });
-}
 
 function IsBigIntTypedArray(ta) {
   return ta instanceof BigInt64Array || ta instanceof BigUint64Array;
@@ -59,29 +25,6 @@ function AllBigIntMatchedCtorCombinations(test) {
   }
 }
 
-function WriteToTypedArray(array, index, value) {
-  if (array instanceof BigInt64Array || array instanceof BigUint64Array) {
-    array[index] = BigInt(value);
-  } else {
-    array[index] = value;
-  }
-}
-
-function Convert(item) {
-  if (typeof item == 'bigint') {
-    return Number(item);
-  }
-  return item;
-}
-
-function ToNumbers(array) {
-  let result = [];
-  for (let item of array) {
-    result.push(Convert(item));
-  }
-  return result;
-}
-
 AllBigIntMatchedCtorCombinations((targetCtor, sourceCtor) => {
   const rab = CreateResizableArrayBuffer(4 * sourceCtor.BYTES_PER_ELEMENT, 8 * sourceCtor.BYTES_PER_ELEMENT);
   const fixedLength = new sourceCtor(rab, 0, 4);
@@ -92,7 +35,7 @@ AllBigIntMatchedCtorCombinations((targetCtor, sourceCtor) => {
   // Write some data into the array.
   const taFull = new sourceCtor(rab);
   for (let i = 0; i < 4; ++i) {
-    WriteToTypedArray(taFull, i, i + 1);
+    taFull[i] = MayNeedBigInt(taFull, i + 1);
   }
 
   // Orig. array: [1, 2, 3, 4]
@@ -171,7 +114,7 @@ AllBigIntMatchedCtorCombinations((targetCtor, sourceCtor) => {
   // Grow so that all TAs are back in-bounds.
   rab.resize(6 * sourceCtor.BYTES_PER_ELEMENT);
   for (let i = 0; i < 6; ++i) {
-    WriteToTypedArray(taFull, i, i + 1);
+    taFull[i] = MayNeedBigInt(taFull, i + 1);
   }
 
   // Orig. array: [1, 2, 3, 4, 5, 6]
