@@ -14,7 +14,7 @@ function CreateRab(buffer_byte_length, ctor) {
   const rab = CreateResizableArrayBuffer(buffer_byte_length, 2 * buffer_byte_length);
   let ta_write = new ctor(rab);
   for (let i = 0; i < buffer_byte_length / ctor.BYTES_PER_ELEMENT; ++i) {
-    WriteToTypedArray(ta_write, i, i % 128);
+    ta_write[i] = MayNeedBigInt(ta_write, i % 128);
   }
   return rab;
 }

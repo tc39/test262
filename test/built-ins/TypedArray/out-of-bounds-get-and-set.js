@@ -10,14 +10,6 @@ includes: [resizableArrayBufferUtils.js]
 features: [resizable-arraybuffer]
 ---*/
 
-function MayNeedBigInt(ta, num) {
-  if (ta instanceof BigInt64Array || ta instanceof BigUint64Array) {
-    return BigInt(num);
-  } else {
-    return num;
-  }
-}
-
 for (let ctor of ctors) {
   const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 40 * ctor.BYTES_PER_ELEMENT);
   const array = new ctor(rab, 0, 4);
