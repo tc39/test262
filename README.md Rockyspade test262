@@ -16,7 +16,7 @@ The goal of Test262 is to provide test material that covers every observable beh
 
 ### ECMAScript feature proposals
 
-As defined in the [TC39 Process](https://tc39.github.io/process-document/), Stage 4 Entrance Criteria requires tests for new feature proposals to advance. Tests may be written by proposal champions, implementers, or any interested community member. 
+As defined in the [TC39 Process](https://tc39.github.io/process-document/), Stage 4 Entrance Criteria requires tests for new feature proposals to advance. Tests may be written by proposal champions, implementers, or any interested community member.y
 
 A **proposal champion** is someone that worked on the feature proposal and specification directly.
 
