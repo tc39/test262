@@ -11,6 +11,8 @@ info: |
     [...]
     5. If IsAnonymousFunctionDefinition(AssignmentExpression) is true and isProtoSetter is false, then
         a. Let propValue be ? NamedEvaluation of AssignmentExpression with argument propKey.
+    6. Else,
+        a. Let exprValueRef be ? Evaluation of AssignmentExpression.
 ---*/
 
 var o;
