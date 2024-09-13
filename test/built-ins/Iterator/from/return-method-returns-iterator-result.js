@@ -11,12 +11,13 @@ info: |
     6. If returnMethod is undefined, then
       a. Return CreateIterResultObject(undefined, true).
 
-includes: [deepEqual.js]
 features: [iterator-helpers]
-flags: []
 ---*/
 
 const iter = {};
 const wrapper = Iterator.from(iter);
 
-assert.deepEqual(wrapper.return(), { value: undefined, done: true });
+const result = wrapper.return();
+assert(result.hasOwnProperty("value"));
+assert.sameValue(result.value, undefined);
+assert.sameValue(result.done, true);

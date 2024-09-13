@@ -10,23 +10,30 @@ info: |
     2. Perform ? RequireInternalSlot(O, [[Iterated]]).
 
 features: [iterator-helpers]
-flags: []
+includes: [temporalHelpers.js, compareArray.js]
 ---*/
 
-const iter = {};
-const WrapForValidIteratorPrototype = Object.getPrototypeOf(Iterator.from(iter));
+const WrapForValidIteratorPrototype = Object.getPrototypeOf(Iterator.from({}));
 
-assert.throws(TypeError, function() {
-    WrapForValidIteratorPrototype.return.call({});
-});
+{
+  assert.throws(TypeError, function() {
+      WrapForValidIteratorPrototype.return.call({});
+  });
+}
 
-let returnCallCount = 0;
-assert.throws(TypeError, function() {
-    WrapForValidIteratorPrototype.return.call({
-      return () {
-        returnCallCount++;
-        return { value: 5, done: true };
-      }
-    });
-});
-assert.sameValue(returnCallCount, 0);
+{
+  const originalIter = {
+    return() {
+      return { value: 5, done: true };
+    },
+  };
+
+  const calls = [];
+  TemporalHelpers.observeMethod(calls, originalIter, "return", "originalIter");
+  const iter = TemporalHelpers.propertyBagObserver(calls, originalIter, "originalIter");
+
+  assert.throws(TypeError, function() {
+      WrapForValidIteratorPrototype.return.call(iter);
+  });
+  assert.compareArray(calls, []);
+}

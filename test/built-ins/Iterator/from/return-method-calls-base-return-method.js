@@ -11,19 +11,31 @@ info: |
       ...
     7. Return ? Call(returnMethod, iterator).
 
-includes: [deepEqual.js]
 features: [iterator-helpers]
-flags: []
+includes: [temporalHelpers.js, compareArray.js]
 ---*/
 
-let returnCallCount = 0;
-const iter = {
+const calls = [];
+
+const expectedIteratorResult = { value: 5, done: true };
+const originalIter = {
     return () {
-        returnCallCount++;
-        return { value: 5, done: true };
+        return expectedIteratorResult;
     },
 };
-const wrapper = Iterator.from(iter);
+TemporalHelpers.observeMethod(calls, originalIter, "return", "originalIter");
+const iter = TemporalHelpers.propertyBagObserver(calls, originalIter, "originalIter");
 
-assert.deepEqual(wrapper.return(), { value: 5, done: true });
-assert.sameValue(returnCallCount, 1);
+const wrapper = Iterator.from(iter);
+assert.compareArray(calls, [
+  "get originalIter[Symbol.iterator]",
+  "get originalIter.next",
+]);
+
+assert.sameValue(wrapper.return(), expectedIteratorResult);
+assert.compareArray(calls, [
+  "get originalIter[Symbol.iterator]",
+  "get originalIter.next",
+  "get originalIter.return",
+  "call originalIter.return",
+]);
