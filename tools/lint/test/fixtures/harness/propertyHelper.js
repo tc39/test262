@@ -234,5 +234,18 @@ function verifyBuiltinProperty(obj, name, desc, options) {
     'verifyBuiltinProperty should receive at least 3 arguments: obj, name, and descriptor'
   );
 
+  if (desc && (true === desc.writable) || (true === desc.configurable)) {
+    const LOCKED_DOWN = ($262 && (typeof $262.isLockedDown === "function")) ? $262.isLockedDown() : false;
+    if (LOCKED_DOWN) {
+      var copy = {};
+      var names = Object.getOwnPropertyNames(desc);
+      for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+        copy[name] = ((name === "writable") || (name === "configurable")) ? false : desc[name];
+      }
+      desc = copy;
+    }
+  }
+
   return verifyProperty(obj, name, desc, options);
 }
