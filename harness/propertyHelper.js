@@ -75,7 +75,7 @@ function verifyProperty(obj, name, desc, options) {
     );
   }
 
-  var failures = [];
+  var failures = [], join = failures.join;
 
   if (Object.prototype.hasOwnProperty.call(desc, 'value')) {
     if (!isSameValue(desc.value, originalDesc.value)) {
@@ -107,7 +107,7 @@ function verifyProperty(obj, name, desc, options) {
     }
   }
 
-  assert(!failures.length, failures.join('; '));
+  assert(!failures.length, join.call(failures, '; '));
 
   if (options && options.restore) {
     Object.defineProperty(obj, name, originalDesc);
