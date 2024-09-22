@@ -268,3 +268,12 @@ function verifyNotConfigurable(obj, name) {
     throw new Test262Error("Expected obj[" + String(name) + "] NOT to be configurable, but was.");
   }
 }
+
+function verifyBuiltinProperty(obj, name, desc, options) {
+  assert(
+    arguments.length > 2,
+    'verifyBuiltinProperty should receive at least 3 arguments: obj, name, and descriptor'
+  );
+
+  return verifyProperty(obj, name, desc, options);
+}
