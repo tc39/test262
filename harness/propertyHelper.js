@@ -173,6 +173,10 @@ function isWritable(obj, name, verifyProp, value) {
   var oldValue = obj[name];
   var writeSucceeded;
 
+  if (arguments.length < 4 && newValue === oldValue) {
+    newValue = newValue + "2";
+  }
+
   try {
     obj[name] = newValue;
   } catch (e) {
