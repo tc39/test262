@@ -26,5 +26,7 @@ assert.sameValue(
   'typeof descriptor.set is undefined'
 );
 
-verifyNotEnumerable(AsyncDisposableStack.prototype, 'disposed');
-verifyConfigurable(AsyncDisposableStack.prototype, 'disposed');
+verifyProperty(AsyncDisposableStack.prototype, 'disposed', {
+  enumerable: false,
+  configurable: true,
+});

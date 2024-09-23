@@ -13,7 +13,9 @@ includes: [propertyHelper.js]
 features: [explicit-resource-management]
 ---*/
 
-assert.sameValue(AsyncDisposableStack.prototype[Symbol.asyncDispose], AsyncDisposableStack.prototype.disposeAsync);
-verifyNotEnumerable(AsyncDisposableStack.prototype, Symbol.asyncDispose);
-verifyWritable(AsyncDisposableStack.prototype, Symbol.asyncDispose);
-verifyConfigurable(AsyncDisposableStack.prototype, Symbol.asyncDispose);
+verifyProperty(AsyncDisposableStack.prototype, Symbol.asyncDispose, {
+  value: AsyncDisposableStack.prototype.disposeAsync,
+  enumerable: false,
+  writable: true,
+  configurable: true,
+});
