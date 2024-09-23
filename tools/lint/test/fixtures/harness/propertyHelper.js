@@ -13,6 +13,7 @@ defines:
   - verifyNotEnumerable
   - verifyConfigurable
   - verifyNotConfigurable
+  - verifyBuiltinProperty
 ---*/
 
 // @ts-check
