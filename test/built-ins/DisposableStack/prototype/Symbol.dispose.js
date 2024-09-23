@@ -14,6 +14,8 @@ features: [explicit-resource-management]
 ---*/
 
 assert.sameValue(DisposableStack.prototype[Symbol.dispose], DisposableStack.prototype.dispose);
-verifyNotEnumerable(DisposableStack.prototype, Symbol.dispose);
-verifyWritable(DisposableStack.prototype, Symbol.dispose);
-verifyConfigurable(DisposableStack.prototype, Symbol.dispose);
+verifyProperty(DisposableStack.prototype, Symbol.dispose, {
+  enumerable: false;
+  writable: true;
+  configurable: true;
+});
