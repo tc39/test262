@@ -273,7 +273,7 @@ function verifyNotConfigurable(obj, name) {
 /**
  * Use this function to verify the properties of a primordial object.
  * verifyPrimordialProperty accounts for the expected differences in the writable and configurable attributes when running under Hardened JavaScript's lockdown.
- * For non-priordial objects, use verifyProperty.
+ * For non-primordial objects, use verifyProperty.
  * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
  */
 
