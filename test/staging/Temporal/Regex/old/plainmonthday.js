@@ -12,7 +12,7 @@ function test(isoString, components) {
   var monthDay = Temporal.PlainMonthDay.from(isoString);
   assert.sameValue(monthDay.monthCode, `M${ m.toString().padStart(2, "0") }`);
   assert.sameValue(monthDay.day, d);
-  assert.sameValue(monthDay.calendar.id, cid);
+  assert.sameValue(monthDay.calendarId, cid);
 }
 function generateTest(dateTimeString, zoneString) {
   var components = [
@@ -49,7 +49,7 @@ function generateTest(dateTimeString, zoneString) {
 ]));
 [
   "1976-11-18T15:23:30,1234",
-  "\u2212009999-11-18",
+  "-009999-11-18",
   "19761118",
   "+199999-11-18",
   "+1999991118",

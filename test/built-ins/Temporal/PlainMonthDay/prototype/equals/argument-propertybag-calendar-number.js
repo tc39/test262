@@ -3,39 +3,24 @@
 
 /*---
 esid: sec-temporal.plainmonthday.prototype.equals
-description: A number as calendar in a property bag is converted to a string, then to a calendar
+description: A number as calendar in a property bag is not accepted
 features: [Temporal]
 ---*/
 
 const instance = new Temporal.PlainMonthDay(11, 18);
 
-const calendar = 19970327;
-
-let arg = { monthCode: "M11", day: 18, calendar };
-const result1 = instance.equals(arg);
-assert.sameValue(result1, true, "19970327 is a valid ISO string for calendar");
-
-arg = { monthCode: "M11", day: 18, calendar: { calendar } };
-const result2 = instance.equals(arg);
-assert.sameValue(result2, true, "19970327 is a valid ISO string for calendar (nested property)");
-
 const numbers = [
   1,
+  19970327,
   -19970327,
   1234567890,
 ];
 
 for (const calendar of numbers) {
-  let arg = { monthCode: "M11", day: 18, calendar };
+  const arg = { monthCode: "M11", day: 18, calendar };
   assert.throws(
-    RangeError,
+    TypeError,
     () => instance.equals(arg),
-    `Number ${calendar} does not convert to a valid ISO string for calendar`
-  );
-  arg = { monthCode: "M11", day: 18, calendar: { calendar } };
-  assert.throws(
-    RangeError,
-    () => instance.equals(arg),
-    `Number ${calendar} does not convert to a valid ISO string for calendar (nested property)`
+    "Numbers cannot be used as a calendar"
   );
 }

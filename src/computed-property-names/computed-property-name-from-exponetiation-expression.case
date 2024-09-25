@@ -4,7 +4,7 @@
 /*---
 desc: Computed property name from exponentiation expression
 template: evaluation
-features: [computed-property-names]
+features: [computed-property-names, exponentiation]
 ---*/
 
 //- ComputedPropertyName

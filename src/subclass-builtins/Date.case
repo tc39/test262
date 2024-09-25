@@ -4,9 +4,11 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 desc: >
-  new SubDate() instanceof Date
+  new SubDate(0) instanceof Date
 template: default
 ---*/
 
 //- builtin
 Date
+//- args
+0

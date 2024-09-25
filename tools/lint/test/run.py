@@ -18,7 +18,7 @@ class TestLinter(unittest.TestCase):
         return fspath
 
     def lint(self, args):
-        args[:0] = [ex]
+        args[:0] = [sys.executable, ex]
         sp = subprocess.Popen(args,
                               stdout=subprocess.PIPE,
                               stderr=subprocess.PIPE,

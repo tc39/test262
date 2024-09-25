@@ -12,7 +12,35 @@ const instance1 = new Temporal.ZonedDateTime(0n, expectedTimeZone);
 
 let timeZone = "2021-02-19T17:30";
 assert.throws(RangeError, () => instance1.equals({ year: 1970, month: 1, day: 1, timeZone }), "bare date-time string is not a time zone");
-assert.throws(RangeError, () => instance1.equals({ year: 1970, month: 1, day: 1, timeZone: { timeZone } }), "bare date-time string is not a time zone");
+
+[
+  "2021-08-19T17:30-07:00:01",
+  "2021-08-19T17:30-07:00:00",
+  "2021-08-19T17:30-07:00:00.1",
+  "2021-08-19T17:30-07:00:00.0",
+  "2021-08-19T17:30-07:00:00.01",
+  "2021-08-19T17:30-07:00:00.00",
+  "2021-08-19T17:30-07:00:00.001",
+  "2021-08-19T17:30-07:00:00.000",
+  "2021-08-19T17:30-07:00:00.0001",
+  "2021-08-19T17:30-07:00:00.0000",
+  "2021-08-19T17:30-07:00:00.00001",
+  "2021-08-19T17:30-07:00:00.00000",
+  "2021-08-19T17:30-07:00:00.000001",
+  "2021-08-19T17:30-07:00:00.000000",
+  "2021-08-19T17:30-07:00:00.0000001",
+  "2021-08-19T17:30-07:00:00.0000000",
+  "2021-08-19T17:30-07:00:00.00000001",
+  "2021-08-19T17:30-07:00:00.00000000",
+  "2021-08-19T17:30-07:00:00.000000001",
+  "2021-08-19T17:30-07:00:00.000000000",
+].forEach((timeZone) => {
+  assert.throws(
+    RangeError,
+    () => instance1.equals({ year: 2020, month: 5, day: 2, timeZone }),
+    `ISO string ${timeZone} with a sub-minute offset is not a valid time zone`
+  );
+});
 
 // The following are all valid strings so should not throw. They should produce
 // expectedTimeZone, so additionally the operation should return true, because
@@ -20,23 +48,18 @@ assert.throws(RangeError, () => instance1.equals({ year: 1970, month: 1, day: 1,
 
 timeZone = "2021-02-19T17:30Z";
 assert(instance1.equals({ year: 1970, month: 1, day: 1, timeZone }), "date-time + Z is UTC time zone");
-assert(instance1.equals({ year: 1970, month: 1, day: 1, timeZone: { timeZone } }), "date-time + Z is UTC time zone (string in property bag)");
 
 expectedTimeZone = "-08:00";
 const instance2 = new Temporal.ZonedDateTime(0n, expectedTimeZone);
 timeZone = "2021-02-19T17:30-08:00";
 assert(instance2.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone }), "date-time + offset is the offset time zone");
-assert(instance2.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone: { timeZone } }), "date-time + offset is the offset time zone (string in property bag)");
 
 const instance3 = new Temporal.ZonedDateTime(0n, expectedTimeZone);
 timeZone = "2021-02-19T17:30[-08:00]";
 assert(instance3.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone }), "date-time + IANA annotation is the IANA time zone");
-assert(instance3.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone: { timeZone } }), "date-time + IANA annotation is the IANA time zone (string in property bag)");
 
 timeZone = "2021-02-19T17:30Z[-08:00]";
 assert(instance3.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone }), "date-time + Z + IANA annotation is the IANA time zone");
-assert(instance3.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone: { timeZone } }), "date-time + Z + IANA annotation is the IANA time zone (string in property bag)");
 
 timeZone = "2021-02-19T17:30-08:00[-08:00]";
 assert(instance3.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone }), "date-time + offset + IANA annotation is the IANA time zone");
-assert(instance3.equals({ year: 1969, month: 12, day: 31, hour: 16, timeZone: { timeZone } }), "date-time + offset + IANA annotation is the IANA time zone (string in property bag)");

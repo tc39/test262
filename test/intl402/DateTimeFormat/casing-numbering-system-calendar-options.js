@@ -2,11 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializedatetimeformat
+esid: sec-createdatetimeformat
 description: >
     Tests that the options numberingSystem and calendar are mapped
     to lower case properly.
 author: Caio Lima
+features: [Array.prototype.includes]
 ---*/
 
 let defaultLocale = new Intl.DateTimeFormat().resolvedOptions().locale;

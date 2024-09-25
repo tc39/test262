@@ -23,16 +23,16 @@ var testDataMinimal = {
     "und": "en",
     "und-Thai": "th",
     "und-419": "es-419",
-    "und-150": "ru",
+    "und-150": "en-150",
     "und-AT": "de-AT",
 
     // https://unicode-org.atlassian.net/browse/ICU-13786
-    "aae-Latn-IT": "aae-Latn-IT",
+    "aae-Latn-IT": "aae",
     "aae-Thai-CO": "aae-Thai-CO",
 
     // https://unicode-org.atlassian.net/browse/ICU-10220
     // https://unicode-org.atlassian.net/browse/ICU-12345
-    "und-CW": "pap-CW",
+    "und-CW": "pap",
     "und-US": "en",
     "zh-Hant": "zh-TW",
     "zh-Hani": "zh-Hani",

@@ -42,6 +42,7 @@ properties of the global scope prior to test execution.
   the test runner. This is used as a communication mechanism for asynchronous
   tests (via the `async` flag, described below).
 - **`$262`** An ordinary object with the following properties:
+  - **`AbstractModuleSource`** - a reference to the `%AbstractModuleSource%` constructor which does not appear as a property of the global object.
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/#sec-code-realms),
     defines this API on the new realm's global object, and returns the `$262`
@@ -159,6 +160,12 @@ Implementers should attempt to resolve this module specifier by loading a file
 located at `test/language/import/nested/dep.js`.
 
 Files bearing a name ending in `.json` are intended to be interpreted as JSON.
+
+Implementers should resolve the specifier `<module source>` to a module that
+provides a valid [Module Source](https://tc39.es/proposal-source-phase-imports/#sec-module-source-objects),
+such as a [WebAssembly module](https://webassembly.github.io/esm-integration/js-api/index.html#webassembly-module-record).
+Tests use `<module source>` specifier are guarded with a feature flag
+`source-phase-imports-module-source`.
 
 ### Staging
 

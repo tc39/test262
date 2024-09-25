@@ -11,7 +11,7 @@ info: |
   Append p as the last element of entries.
   ...
 
-features: [BigInt, Symbol, TypedArray, WeakRef]
+features: [BigInt, Symbol, TypedArray, WeakRef, exponentiation]
 ---*/
 
 
@@ -31,7 +31,7 @@ const bigInt64Array = new BigInt64Array([n1, n53]);
 const bigUint64Array = new BigUint64Array([n1, n53]);
 const symbol = Symbol('');
 const object = {};
-const array = {};
+const array = [];
 const string = '';
 const booleanTrue = true;
 const booleanFalse = true;

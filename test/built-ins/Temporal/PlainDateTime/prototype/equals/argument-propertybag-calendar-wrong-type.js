@@ -5,14 +5,14 @@
 esid: sec-temporal.plaindatetime.prototype.equals
 description: >
   Appropriate error thrown when a calendar property from a property bag cannot
-  be converted to a calendar object or string
+  be converted to a calendar ID
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const timeZone = new Temporal.TimeZone("UTC");
+const timeZone = "UTC";
 const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321);
 
-const rangeErrorTests = [
+const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
   ["", "empty string"],
@@ -20,28 +20,22 @@ const rangeErrorTests = [
   [1n, "bigint"],
 ];
 
-for (const [calendar, description] of rangeErrorTests) {
-  let arg = { year: 2019, monthCode: "M11", day: 1, calendar };
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string`);
-
-  arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(RangeError, () => instance.equals(arg), `${description} does not convert to a valid ISO string (nested property)`);
+for (const [calendar, description] of primitiveTests) {
+  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  assert.throws(
+    typeof calendar === 'string' ? RangeError : TypeError,
+    () => instance.equals(arg),
+    `${description} does not convert to a valid ISO string`
+  );
 }
 
 const typeErrorTests = [
   [Symbol(), "symbol"],
-  [{}, "plain object"],  // TypeError due to missing dateFromFields()
-  [Temporal.Calendar, "Temporal.Calendar, object"],  // ditto
-  [Temporal.Calendar.prototype, "Temporal.Calendar.prototype, object"],  // fails brand check in dateFromFields()
+  [{}, "object"],
+  [new Temporal.Duration(), "duration instance"],
 ];
 
 for (const [calendar, description] of typeErrorTests) {
-  let arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(TypeError, () => instance.equals(arg), `${description} is not a valid property bag and does not convert to a string`);
-
-  arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar } };
-  assert.throws(TypeError, () => instance.equals(arg), `${description} is not a valid property bag and does not convert to a string (nested property)`);
 }
-
-const arg = { year: 2019, monthCode: "M11", day: 1, calendar: { calendar: undefined } };
-assert.throws(RangeError, () => instance.equals(arg), `nested undefined calendar property is always a RangeError`);

@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializedatetimeformat
+esid: sec-createdatetimeformat
 description: Checks basic handling of dayPeriod, narrow format.
 features: [Intl.DateTimeFormat-dayPeriod]
-locale: [en-US]
+locale: [en]
 ---*/
 
 const d0000 = new Date(2017, 11, 12,  0, 0, 0, 0);

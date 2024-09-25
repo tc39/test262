@@ -8,7 +8,7 @@ features: [Temporal]
 ---*/
 
 ["UTC", "+01:30"].forEach((timeZone) => {
-  const epoch = new Temporal.ZonedDateTime(0n, new Temporal.TimeZone(timeZone));
+  const epoch = new Temporal.ZonedDateTime(0n, timeZone);
 
   // These should be valid input and not throw
   Temporal.ZonedDateTime.compare({ year: 2020, month: 5, day: 2, timeZone }, epoch);

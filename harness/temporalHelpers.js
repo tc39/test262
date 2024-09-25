@@ -7,6 +7,8 @@ defines: [TemporalHelpers]
 features: [Symbol.species, Symbol.iterator, Temporal]
 ---*/
 
+const ASCII_IDENTIFIER = /^[$_a-zA-Z][$_a-zA-Z0-9]*$/u;
+
 function formatPropertyName(propertyKey, objectName = "") {
   switch (typeof propertyKey) {
     case "symbol":
@@ -17,14 +19,135 @@ function formatPropertyName(propertyKey, objectName = "") {
       } else {
         return `${objectName}[Symbol('${propertyKey.description}')]`
       }
-    case "number":
-      return `${objectName}[${propertyKey}]`;
+    case "string":
+      if (propertyKey !== String(Number(propertyKey))) {
+        if (ASCII_IDENTIFIER.test(propertyKey)) {
+          return objectName ? `${objectName}.${propertyKey}` : propertyKey;
+        }
+        return `${objectName}['${propertyKey.replace(/'/g, "\\'")}']`
+      }
+      // fall through
     default:
-      return objectName ? `${objectName}.${propertyKey}` : propertyKey;
+      // integer or string integer-index
+      return `${objectName}[${propertyKey}]`;
   }
 }
 
+const SKIP_SYMBOL = Symbol("Skip");
+
 var TemporalHelpers = {
+  /*
+   * Codes and maximum lengths of months in the ISO 8601 calendar.
+   */
+  ISOMonths: [
+    { month: 1, monthCode: "M01", daysInMonth: 31 },
+    { month: 2, monthCode: "M02", daysInMonth: 29 },
+    { month: 3, monthCode: "M03", daysInMonth: 31 },
+    { month: 4, monthCode: "M04", daysInMonth: 30 },
+    { month: 5, monthCode: "M05", daysInMonth: 31 },
+    { month: 6, monthCode: "M06", daysInMonth: 30 },
+    { month: 7, monthCode: "M07", daysInMonth: 31 },
+    { month: 8, monthCode: "M08", daysInMonth: 31 },
+    { month: 9, monthCode: "M09", daysInMonth: 30 },
+    { month: 10, monthCode: "M10", daysInMonth: 31 },
+    { month: 11, monthCode: "M11", daysInMonth: 30 },
+    { month: 12, monthCode: "M12", daysInMonth: 31 }
+  ],
+
+  /*
+   * List of known calendar eras and their possible aliases.
+   *
+   * https://tc39.es/proposal-intl-era-monthcode/#table-eras
+   */
+  CalendarEras: {
+    buddhist: [
+      { era: "buddhist", aliases: ["be"] },
+    ],
+    chinese: [
+      { era: "chinese" },
+    ],
+    coptic: [
+      { era: "coptic" },
+      { era: "coptic-inverse" },
+    ],
+    dangi: [
+      { era: "dangi" },
+    ],
+    ethiopic: [
+      { era: "ethiopic", aliases: ["incar"] },
+      { era: "ethioaa", aliases: ["ethiopic-amete-alem", "mundi"] },
+    ],
+    ethioaa: [
+      { era: "ethioaa", aliases: ["ethiopic-amete-alem", "mundi"] },
+    ],
+    gregory: [
+      { era: "gregory", aliases: ["ce", "ad"] },
+      { era: "gregory-inverse", aliases: ["bc", "bce"] },
+    ],
+    hebrew: [
+      { era: "hebrew", aliases: ["am"] },
+    ],
+    indian: [
+      { era: "indian", aliases: ["saka"] },
+    ],
+    islamic: [
+      { era: "islamic", aliases: ["ah"] },
+    ],
+    "islamic-civil": [
+      { era: "islamic-civil", aliases: ["islamicc", "ah"] },
+    ],
+    "islamic-rgsa": [
+      { era: "islamic-rgsa", aliases: ["ah"] },
+    ],
+    "islamic-tbla": [
+      { era: "islamic-tbla", aliases: ["ah"] },
+    ],
+    "islamic-umalqura": [
+      { era: "islamic-umalqura", aliases: ["ah"] },
+    ],
+    japanese: [
+      { era: "heisei" },
+      { era: "japanese", aliases: ["gregory", "ad", "ce"] },
+      { era: "japanese-inverse", aliases: ["gregory-inverse", "bc", "bce"] },
+      { era: "meiji" },
+      { era: "reiwa" },
+      { era: "showa" },
+      { era: "taisho" },
+    ],
+    persian: [
+      { era: "persian", aliases: ["ap"] },
+    ],
+    roc: [
+      { era: "roc", aliases: ["minguo"] },
+      { era: "roc-inverse", aliases: ["before-roc"] },
+    ],
+  },
+
+  /*
+   * Return the canonical era code.
+   */
+  canonicalizeCalendarEra(calendarId, eraName) {
+    assert.sameValue(typeof calendarId, "string", "calendar must be string in canonicalizeCalendarEra");
+
+    if (calendarId === "iso8601") {
+      assert.sameValue(eraName, undefined);
+      return undefined;
+    }
+    assert(Object.hasOwn(TemporalHelpers.CalendarEras, calendarId));
+
+    if (eraName === undefined) {
+      return undefined;
+    }
+    assert.sameValue(typeof eraName, "string", "eraName must be string or undefined in canonicalizeCalendarEra");
+
+    for (let {era, aliases = []} of TemporalHelpers.CalendarEras[calendarId]) {
+      if (era === eraName || aliases.includes(eraName)) {
+        return era;
+      }
+    }
+    throw new Test262Error(`Unsupported era name: ${eraName}`);
+  },
+
   /*
    * assertDuration(duration, years, ...,  nanoseconds[, description]):
    *
@@ -32,17 +155,39 @@ var TemporalHelpers = {
    * an expected value.
    */
   assertDuration(duration, years, months, weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds, description = "") {
-    assert(duration instanceof Temporal.Duration, `${description} instanceof`);
-    assert.sameValue(duration.years, years, `${description} years result`);
-    assert.sameValue(duration.months, months, `${description} months result`);
-    assert.sameValue(duration.weeks, weeks, `${description} weeks result`);
-    assert.sameValue(duration.days, days, `${description} days result`);
-    assert.sameValue(duration.hours, hours, `${description} hours result`);
-    assert.sameValue(duration.minutes, minutes, `${description} minutes result`);
-    assert.sameValue(duration.seconds, seconds, `${description} seconds result`);
-    assert.sameValue(duration.milliseconds, milliseconds, `${description} milliseconds result`);
-    assert.sameValue(duration.microseconds, microseconds, `${description} microseconds result`);
-    assert.sameValue(duration.nanoseconds, nanoseconds, `${description} nanoseconds result`);
+    const prefix = description ? `${description}: ` : "";
+    assert(duration instanceof Temporal.Duration, `${prefix}instanceof`);
+    assert.sameValue(duration.years, years, `${prefix}years result:`);
+    assert.sameValue(duration.months, months, `${prefix}months result:`);
+    assert.sameValue(duration.weeks, weeks, `${prefix}weeks result:`);
+    assert.sameValue(duration.days, days, `${prefix}days result:`);
+    assert.sameValue(duration.hours, hours, `${prefix}hours result:`);
+    assert.sameValue(duration.minutes, minutes, `${prefix}minutes result:`);
+    assert.sameValue(duration.seconds, seconds, `${prefix}seconds result:`);
+    assert.sameValue(duration.milliseconds, milliseconds, `${prefix}milliseconds result:`);
+    assert.sameValue(duration.microseconds, microseconds, `${prefix}microseconds result:`);
+    assert.sameValue(duration.nanoseconds, nanoseconds, `${prefix}nanoseconds result`);
+  },
+
+  /*
+   * assertDateDuration(duration, years, months, weeks, days, [, description]):
+   *
+   * Shorthand for asserting that each date field of a Temporal.Duration is
+   * equal to an expected value.
+   */
+  assertDateDuration(duration, years, months, weeks, days, description = "") {
+    const prefix = description ? `${description}: ` : "";
+    assert(duration instanceof Temporal.Duration, `${prefix}instanceof`);
+    assert.sameValue(duration.years, years, `${prefix}years result:`);
+    assert.sameValue(duration.months, months, `${prefix}months result:`);
+    assert.sameValue(duration.weeks, weeks, `${prefix}weeks result:`);
+    assert.sameValue(duration.days, days, `${prefix}days result:`);
+    assert.sameValue(duration.hours, 0, `${prefix}hours result should be zero:`);
+    assert.sameValue(duration.minutes, 0, `${prefix}minutes result should be zero:`);
+    assert.sameValue(duration.seconds, 0, `${prefix}seconds result should be zero:`);
+    assert.sameValue(duration.milliseconds, 0, `${prefix}milliseconds result should be zero:`);
+    assert.sameValue(duration.microseconds, 0, `${prefix}microseconds result should be zero:`);
+    assert.sameValue(duration.nanoseconds, 0, `${prefix}nanoseconds result should be zero:`);
   },
 
   /*
@@ -52,7 +197,8 @@ var TemporalHelpers = {
    * the corresponding field in another Temporal.Duration.
    */
   assertDurationsEqual(actual, expected, description = "") {
-    assert(expected instanceof Temporal.Duration, `${description} expected value should be a Temporal.Duration`);
+    const prefix = description ? `${description}: ` : "";
+    assert(expected instanceof Temporal.Duration, `${prefix}expected value should be a Temporal.Duration`);
     TemporalHelpers.assertDuration(actual, expected.years, expected.months, expected.weeks, expected.days, expected.hours, expected.minutes, expected.seconds, expected.milliseconds, expected.microseconds, expected.nanoseconds, description);
   },
 
@@ -63,9 +209,10 @@ var TemporalHelpers = {
    * and equal according to their equals() methods.
    */
   assertInstantsEqual(actual, expected, description = "") {
-    assert(expected instanceof Temporal.Instant, `${description} expected value should be a Temporal.Instant`);
-    assert(actual instanceof Temporal.Instant, `${description} instanceof`);
-    assert(actual.equals(expected), `${description} equals method`);
+    const prefix = description ? `${description}: ` : "";
+    assert(expected instanceof Temporal.Instant, `${prefix}expected value should be a Temporal.Instant`);
+    assert(actual instanceof Temporal.Instant, `${prefix}instanceof`);
+    assert(actual.equals(expected), `${prefix}equals method`);
   },
 
   /*
@@ -74,16 +221,21 @@ var TemporalHelpers = {
    * Shorthand for asserting that each field of a Temporal.PlainDate is equal to
    * an expected value. (Except the `calendar` property, since callers may want
    * to assert either object equality with an object they put in there, or the
-   * result of date.calendar.toString().)
+   * value of date.calendarId.)
    */
   assertPlainDate(date, year, month, monthCode, day, description = "", era = undefined, eraYear = undefined) {
-    assert(date instanceof Temporal.PlainDate, `${description} instanceof`);
-    assert.sameValue(date.era, era, `${description} era result`);
-    assert.sameValue(date.eraYear, eraYear, `${description} eraYear result`);
-    assert.sameValue(date.year, year, `${description} year result`);
-    assert.sameValue(date.month, month, `${description} month result`);
-    assert.sameValue(date.monthCode, monthCode, `${description} monthCode result`);
-    assert.sameValue(date.day, day, `${description} day result`);
+    const prefix = description ? `${description}: ` : "";
+    assert(date instanceof Temporal.PlainDate, `${prefix}instanceof`);
+    assert.sameValue(
+      TemporalHelpers.canonicalizeCalendarEra(date.calendarId, date.era),
+      TemporalHelpers.canonicalizeCalendarEra(date.calendarId, era),
+      `${prefix}era result:`
+    );
+    assert.sameValue(date.eraYear, eraYear, `${prefix}eraYear result:`);
+    assert.sameValue(date.year, year, `${prefix}year result:`);
+    assert.sameValue(date.month, month, `${prefix}month result:`);
+    assert.sameValue(date.monthCode, monthCode, `${prefix}monthCode result:`);
+    assert.sameValue(date.day, day, `${prefix}day result:`);
   },
 
   /*
@@ -92,22 +244,27 @@ var TemporalHelpers = {
    * Shorthand for asserting that each field of a Temporal.PlainDateTime is
    * equal to an expected value. (Except the `calendar` property, since callers
    * may want to assert either object equality with an object they put in there,
-   * or the result of datetime.calendar.toString().)
+   * or the value of datetime.calendarId.)
    */
   assertPlainDateTime(datetime, year, month, monthCode, day, hour, minute, second, millisecond, microsecond, nanosecond, description = "", era = undefined, eraYear = undefined) {
-    assert(datetime instanceof Temporal.PlainDateTime, `${description} instanceof`);
-    assert.sameValue(datetime.era, era, `${description} era result`);
-    assert.sameValue(datetime.eraYear, eraYear, `${description} eraYear result`);
-    assert.sameValue(datetime.year, year, `${description} year result`);
-    assert.sameValue(datetime.month, month, `${description} month result`);
-    assert.sameValue(datetime.monthCode, monthCode, `${description} monthCode result`);
-    assert.sameValue(datetime.day, day, `${description} day result`);
-    assert.sameValue(datetime.hour, hour, `${description} hour result`);
-    assert.sameValue(datetime.minute, minute, `${description} minute result`);
-    assert.sameValue(datetime.second, second, `${description} second result`);
-    assert.sameValue(datetime.millisecond, millisecond, `${description} millisecond result`);
-    assert.sameValue(datetime.microsecond, microsecond, `${description} microsecond result`);
-    assert.sameValue(datetime.nanosecond, nanosecond, `${description} nanosecond result`);
+    const prefix = description ? `${description}: ` : "";
+    assert(datetime instanceof Temporal.PlainDateTime, `${prefix}instanceof`);
+    assert.sameValue(
+      TemporalHelpers.canonicalizeCalendarEra(datetime.calendarId, datetime.era),
+      TemporalHelpers.canonicalizeCalendarEra(datetime.calendarId, era),
+      `${prefix}era result:`
+    );
+    assert.sameValue(datetime.eraYear, eraYear, `${prefix}eraYear result:`);
+    assert.sameValue(datetime.year, year, `${prefix}year result:`);
+    assert.sameValue(datetime.month, month, `${prefix}month result:`);
+    assert.sameValue(datetime.monthCode, monthCode, `${prefix}monthCode result:`);
+    assert.sameValue(datetime.day, day, `${prefix}day result:`);
+    assert.sameValue(datetime.hour, hour, `${prefix}hour result:`);
+    assert.sameValue(datetime.minute, minute, `${prefix}minute result:`);
+    assert.sameValue(datetime.second, second, `${prefix}second result:`);
+    assert.sameValue(datetime.millisecond, millisecond, `${prefix}millisecond result:`);
+    assert.sameValue(datetime.microsecond, microsecond, `${prefix}microsecond result:`);
+    assert.sameValue(datetime.nanosecond, nanosecond, `${prefix}nanosecond result:`);
   },
 
   /*
@@ -115,13 +272,18 @@ var TemporalHelpers = {
    *
    * Shorthand for asserting that two Temporal.PlainDateTimes are of the correct
    * type, equal according to their equals() methods, and additionally that
-   * their calendars are the same value.
+   * their calendar internal slots are the same value.
    */
   assertPlainDateTimesEqual(actual, expected, description = "") {
-    assert(expected instanceof Temporal.PlainDateTime, `${description} expected value should be a Temporal.PlainDateTime`);
-    assert(actual instanceof Temporal.PlainDateTime, `${description} instanceof`);
-    assert(actual.equals(expected), `${description} equals method`);
-    assert.sameValue(actual.calendar, expected.calendar, `${description} calendar same value`);
+    const prefix = description ? `${description}: ` : "";
+    assert(expected instanceof Temporal.PlainDateTime, `${prefix}expected value should be a Temporal.PlainDateTime`);
+    assert(actual instanceof Temporal.PlainDateTime, `${prefix}instanceof`);
+    assert(actual.equals(expected), `${prefix}equals method`);
+    assert.sameValue(
+      actual.calendarId,
+      expected.calendarId,
+      `${prefix}calendar same value:`
+    );
   },
 
   /*
@@ -130,13 +292,15 @@ var TemporalHelpers = {
    * Shorthand for asserting that each field of a Temporal.PlainMonthDay is
    * equal to an expected value. (Except the `calendar` property, since callers
    * may want to assert either object equality with an object they put in there,
-   * or the result of monthDay.calendar.toString().)
+   * or the value of monthDay.calendarId().)
    */
   assertPlainMonthDay(monthDay, monthCode, day, description = "", referenceISOYear = 1972) {
-    assert(monthDay instanceof Temporal.PlainMonthDay, `${description} instanceof`);
-    assert.sameValue(monthDay.monthCode, monthCode, `${description} monthCode result`);
-    assert.sameValue(monthDay.day, day, `${description} day result`);
-    assert.sameValue(monthDay.getISOFields().isoYear, referenceISOYear, `${description} referenceISOYear result`);
+    const prefix = description ? `${description}: ` : "";
+    assert(monthDay instanceof Temporal.PlainMonthDay, `${prefix}instanceof`);
+    assert.sameValue(monthDay.monthCode, monthCode, `${prefix}monthCode result:`);
+    assert.sameValue(monthDay.day, day, `${prefix}day result:`);
+    const isoYear = Number(monthDay.toString({ calendarName: "always" }).split("-")[0]);
+    assert.sameValue(isoYear, referenceISOYear, `${prefix}referenceISOYear result:`);
   },
 
   /*
@@ -146,13 +310,14 @@ var TemporalHelpers = {
    * an expected value.
    */
   assertPlainTime(time, hour, minute, second, millisecond, microsecond, nanosecond, description = "") {
-    assert(time instanceof Temporal.PlainTime, `${description} instanceof`);
-    assert.sameValue(time.hour, hour, `${description} hour result`);
-    assert.sameValue(time.minute, minute, `${description} minute result`);
-    assert.sameValue(time.second, second, `${description} second result`);
-    assert.sameValue(time.millisecond, millisecond, `${description} millisecond result`);
-    assert.sameValue(time.microsecond, microsecond, `${description} microsecond result`);
-    assert.sameValue(time.nanosecond, nanosecond, `${description} nanosecond result`);
+    const prefix = description ? `${description}: ` : "";
+    assert(time instanceof Temporal.PlainTime, `${prefix}instanceof`);
+    assert.sameValue(time.hour, hour, `${prefix}hour result:`);
+    assert.sameValue(time.minute, minute, `${prefix}minute result:`);
+    assert.sameValue(time.second, second, `${prefix}second result:`);
+    assert.sameValue(time.millisecond, millisecond, `${prefix}millisecond result:`);
+    assert.sameValue(time.microsecond, microsecond, `${prefix}microsecond result:`);
+    assert.sameValue(time.nanosecond, nanosecond, `${prefix}nanosecond result:`);
   },
 
   /*
@@ -162,9 +327,10 @@ var TemporalHelpers = {
    * type and equal according to their equals() methods.
    */
   assertPlainTimesEqual(actual, expected, description = "") {
-    assert(expected instanceof Temporal.PlainTime, `${description} expected value should be a Temporal.PlainTime`);
-    assert(actual instanceof Temporal.PlainTime, `${description} instanceof`);
-    assert(actual.equals(expected), `${description} equals method`);
+    const prefix = description ? `${description}: ` : "";
+    assert(expected instanceof Temporal.PlainTime, `${prefix}expected value should be a Temporal.PlainTime`);
+    assert(actual instanceof Temporal.PlainTime, `${prefix}instanceof`);
+    assert(actual.equals(expected), `${prefix}equals method`);
   },
 
   /*
@@ -173,16 +339,22 @@ var TemporalHelpers = {
    * Shorthand for asserting that each field of a Temporal.PlainYearMonth is
    * equal to an expected value. (Except the `calendar` property, since callers
    * may want to assert either object equality with an object they put in there,
-   * or the result of yearMonth.calendar.toString().)
+   * or the value of yearMonth.calendarId.)
    */
   assertPlainYearMonth(yearMonth, year, month, monthCode, description = "", era = undefined, eraYear = undefined, referenceISODay = 1) {
-    assert(yearMonth instanceof Temporal.PlainYearMonth, `${description} instanceof`);
-    assert.sameValue(yearMonth.era, era, `${description} era result`);
-    assert.sameValue(yearMonth.eraYear, eraYear, `${description} eraYear result`);
-    assert.sameValue(yearMonth.year, year, `${description} year result`);
-    assert.sameValue(yearMonth.month, month, `${description} month result`);
-    assert.sameValue(yearMonth.monthCode, monthCode, `${description} monthCode result`);
-    assert.sameValue(yearMonth.getISOFields().isoDay, referenceISODay, `${description} referenceISODay result`);
+    const prefix = description ? `${description}: ` : "";
+    assert(yearMonth instanceof Temporal.PlainYearMonth, `${prefix}instanceof`);
+    assert.sameValue(
+      TemporalHelpers.canonicalizeCalendarEra(yearMonth.calendarId, yearMonth.era),
+      TemporalHelpers.canonicalizeCalendarEra(yearMonth.calendarId, era),
+      `${prefix}era result:`
+    );
+    assert.sameValue(yearMonth.eraYear, eraYear, `${prefix}eraYear result:`);
+    assert.sameValue(yearMonth.year, year, `${prefix}year result:`);
+    assert.sameValue(yearMonth.month, month, `${prefix}month result:`);
+    assert.sameValue(yearMonth.monthCode, monthCode, `${prefix}monthCode result:`);
+    const isoDay = Number(yearMonth.toString({ calendarName: "always" }).slice(1).split('-')[2].slice(0, 2));
+    assert.sameValue(isoDay, referenceISODay, `${prefix}referenceISODay result:`);
   },
 
   /*
@@ -190,21 +362,25 @@ var TemporalHelpers = {
    *
    * Shorthand for asserting that two Temporal.ZonedDateTimes are of the correct
    * type, equal according to their equals() methods, and additionally that
-   * their time zones and calendars are the same value.
+   * their time zones and calendar internal slots are the same value.
    */
   assertZonedDateTimesEqual(actual, expected, description = "") {
-    assert(expected instanceof Temporal.ZonedDateTime, `${description} expected value should be a Temporal.ZonedDateTime`);
-    assert(actual instanceof Temporal.ZonedDateTime, `${description} instanceof`);
-    assert(actual.equals(expected), `${description} equals method`);
-    assert.sameValue(actual.timeZone, expected.timeZone, `${description} time zone same value`);
-    assert.sameValue(actual.calendar, expected.calendar, `${description} calendar same value`);
+    const prefix = description ? `${description}: ` : "";
+    assert(expected instanceof Temporal.ZonedDateTime, `${prefix}expected value should be a Temporal.ZonedDateTime`);
+    assert(actual instanceof Temporal.ZonedDateTime, `${prefix}instanceof`);
+    assert(actual.equals(expected), `${prefix}equals method`);
+    assert.sameValue(actual.timeZone, expected.timeZone, `${prefix}time zone same value:`);
+    assert.sameValue(
+      actual.calendarId,
+      expected.calendarId,
+      `${prefix}calendar same value:`
+    );
   },
 
   /*
    * assertUnreachable(description):
    *
-   * Helper for asserting that code is not executed. This is useful for
-   * assertions that methods of user calendars and time zones are not called.
+   * Helper for asserting that code is not executed.
    */
   assertUnreachable(description) {
     let message = "This code should not be executed";
@@ -215,65 +391,21 @@ var TemporalHelpers = {
   },
 
   /*
-   * checkCalendarDateUntilLargestUnitSingular(func, expectedLargestUnitCalls):
-   *
-   * When an options object with a largestUnit property is synthesized inside
-   * Temporal and passed to user code such as calendar.dateUntil(), the value of
-   * the largestUnit property should be in the singular form, even if the input
-   * was given in the plural form.
-   * (This doesn't apply when the options object is passed through verbatim.)
-   *
-   * func(calendar, largestUnit, index) is the operation under test. It's called
-   * with an instance of a calendar that keeps track of which largestUnit is
-   * passed to dateUntil(), each key of expectedLargestUnitCalls in turn, and
-   * the key's numerical index in case the function needs to generate test data
-   * based on the index. At the end, the actual values passed to dateUntil() are
-   * compared with the array values of expectedLargestUnitCalls.
-   */
-  checkCalendarDateUntilLargestUnitSingular(func, expectedLargestUnitCalls) {
-    const actual = [];
-
-    class DateUntilOptionsCalendar extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-
-      dateUntil(earlier, later, options) {
-        actual.push(options.largestUnit);
-        return super.dateUntil(earlier, later, options);
-      }
-
-      toString() {
-        return "date-until-options";
-      }
-    }
-
-    const calendar = new DateUntilOptionsCalendar();
-    Object.entries(expectedLargestUnitCalls).forEach(([largestUnit, expected], index) => {
-      func(calendar, largestUnit, index);
-      assert.compareArray(actual, expected, `largestUnit passed to calendar.dateUntil() for largestUnit ${largestUnit}`);
-      actual.splice(0); // empty it for the next check
-    });
-  },
-
-  /*
    * checkPlainDateTimeConversionFastPath(func):
    *
    * ToTemporalDate and ToTemporalTime should both, if given a
    * Temporal.PlainDateTime instance, convert to the desired type by reading the
    * PlainDateTime's internal slots, rather than calling any getters.
    *
-   * func(datetime, calendar) is the actual operation to test, that must
+   * func(datetime) is the actual operation to test, that must
    * internally call the abstract operation ToTemporalDate or ToTemporalTime.
-   * It is passed a Temporal.PlainDateTime instance, as well as the instance's
-   * calendar object (so that it doesn't have to call the calendar getter itself
-   * if it wants to make any assertions about the calendar.)
+   * It is passed a Temporal.PlainDateTime instance.
    */
   checkPlainDateTimeConversionFastPath(func, message = "checkPlainDateTimeConversionFastPath") {
     const actual = [];
     const expected = [];
 
-    const calendar = new Temporal.Calendar("iso8601");
+    const calendar = "iso8601";
     const datetime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, calendar);
     const prototypeDescrs = Object.getOwnPropertyDescriptors(Temporal.PlainDateTime.prototype);
     ["year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
@@ -301,7 +433,7 @@ var TemporalHelpers = {
       },
     });
 
-    func(datetime, calendar);
+    func(datetime);
     assert.compareArray(actual, expected, `${message}: property getters not called`);
   },
 
@@ -743,104 +875,16 @@ var TemporalHelpers = {
   },
 
   /*
-   * Check that any iterable returned from a custom time zone's
-   * getPossibleInstantsFor() method is exhausted.
-   * The custom time zone object is passed in to func().
-   * expected is an array of strings representing the expected calls to the
-   * getPossibleInstantsFor() method. The PlainDateTimes that it is called with,
-   * are compared (using their toString() results) with the array.
-   */
-  checkTimeZonePossibleInstantsIterable(func, expected) {
-    // A custom time zone that returns an iterable instead of an array from its
-    // getPossibleInstantsFor() method, and for testing purposes skips
-    // 00:00-01:00 UTC on January 1, 2030, and repeats 00:00-01:00 UTC+1 on
-    // January 3, 2030. Otherwise identical to the UTC time zone.
-    class TimeZonePossibleInstantsIterable extends Temporal.TimeZone {
-      constructor() {
-        super("UTC");
-        this.getPossibleInstantsForCallCount = 0;
-        this.getPossibleInstantsForCalledWith = [];
-        this.getPossibleInstantsForReturns = [];
-        this.iteratorExhausted = [];
-      }
-
-      toString() {
-        return "Custom/Iterable";
-      }
-
-      getOffsetNanosecondsFor(instant) {
-        if (Temporal.Instant.compare(instant, "2030-01-01T00:00Z") >= 0 &&
-          Temporal.Instant.compare(instant, "2030-01-03T01:00Z") < 0) {
-          return 3600_000_000_000;
-        } else {
-          return 0;
-        }
-      }
-
-      getPossibleInstantsFor(dateTime) {
-        this.getPossibleInstantsForCallCount++;
-        this.getPossibleInstantsForCalledWith.push(dateTime);
-
-        // Fake DST transition
-        let retval = super.getPossibleInstantsFor(dateTime);
-        if (dateTime.toPlainDate().equals("2030-01-01") && dateTime.hour === 0) {
-          retval = [];
-        } else if (dateTime.toPlainDate().equals("2030-01-03") && dateTime.hour === 0) {
-          retval.push(retval[0].subtract({ hours: 1 }));
-        } else if (dateTime.year === 2030 && dateTime.month === 1 && dateTime.day >= 1 && dateTime.day <= 2) {
-          retval[0] = retval[0].subtract({ hours: 1 });
-        }
-
-        this.getPossibleInstantsForReturns.push(retval);
-        this.iteratorExhausted.push(false);
-        return {
-          callIndex: this.getPossibleInstantsForCallCount - 1,
-          timeZone: this,
-          *[Symbol.iterator]() {
-            yield* this.timeZone.getPossibleInstantsForReturns[this.callIndex];
-            this.timeZone.iteratorExhausted[this.callIndex] = true;
-          },
-        };
-      }
-    }
-
-    const timeZone = new TimeZonePossibleInstantsIterable();
-    func(timeZone);
-
-    assert.sameValue(timeZone.getPossibleInstantsForCallCount, expected.length, "getPossibleInstantsFor() method called correct number of times");
-
-    for (let index = 0; index < expected.length; index++) {
-      assert.sameValue(timeZone.getPossibleInstantsForCalledWith[index].toString(), expected[index], "getPossibleInstantsFor() called with expected PlainDateTime");
-      assert(timeZone.iteratorExhausted[index], "iterated through the whole iterable");
-    }
-  },
-
-  /*
    * Check that any calendar-carrying Temporal object has its [[Calendar]]
    * internal slot read by ToTemporalCalendar, and does not fetch the calendar
    * by calling getters.
-   * The custom calendar object is passed in to func() so that it can do its
-   * own additional assertions involving the calendar if necessary. (Sometimes
-   * there is nothing to assert as the calendar isn't stored anywhere that can
-   * be asserted about.)
    */
   checkToTemporalCalendarFastPath(func) {
-    class CalendarFastPathCheck extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-
-      toString() {
-        return "fast-path-check";
-      }
-    }
-    const calendar = new CalendarFastPathCheck();
-
-    const plainDate = new Temporal.PlainDate(2000, 5, 2, calendar);
-    const plainDateTime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, calendar);
-    const plainMonthDay = new Temporal.PlainMonthDay(5, 2, calendar);
-    const plainYearMonth = new Temporal.PlainYearMonth(2000, 5, calendar);
-    const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", calendar);
+    const plainDate = new Temporal.PlainDate(2000, 5, 2, "iso8601");
+    const plainDateTime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, "iso8601");
+    const plainMonthDay = new Temporal.PlainMonthDay(5, 2, "iso8601");
+    const plainYearMonth = new Temporal.PlainYearMonth(2000, 5, "iso8601");
+    const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", "iso8601");
 
     [plainDate, plainDateTime, plainMonthDay, plainYearMonth, zonedDateTime].forEach((temporalObject) => {
       const actual = [];
@@ -853,7 +897,7 @@ var TemporalHelpers = {
         },
       });
 
-      func(temporalObject, calendar);
+      func(temporalObject);
       assert.compareArray(actual, expected, "calendar getter not called");
     });
   },
@@ -881,8 +925,7 @@ var TemporalHelpers = {
     const actual = [];
     const expected = [];
 
-    const calendar = new Temporal.Calendar("iso8601");
-    const date = new Temporal.PlainDate(2000, 5, 2, calendar);
+    const date = new Temporal.PlainDate(2000, 5, 2, "iso8601");
     const prototypeDescrs = Object.getOwnPropertyDescriptors(Temporal.PlainDate.prototype);
     ["year", "month", "monthCode", "day"].forEach((property) => {
       Object.defineProperty(date, property, {
@@ -904,463 +947,12 @@ var TemporalHelpers = {
     Object.defineProperty(date, "calendar", {
       get() {
         actual.push("get calendar");
-        return calendar;
+        return "iso8601";
       },
     });
 
-    func(date, calendar);
+    func(date);
     assert.compareArray(actual, expected, "property getters not called");
-  },
-
-  /*
-   * A custom calendar used in prototype pollution checks. Verifies that the
-   * fromFields methods are always called with a null-prototype fields object.
-   */
-  calendarCheckFieldsPrototypePollution() {
-    class CalendarCheckFieldsPrototypePollution extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.dateFromFieldsCallCount = 0;
-        this.yearMonthFromFieldsCallCount = 0;
-        this.monthDayFromFieldsCallCount = 0;
-      }
-
-      // toString must remain "iso8601", so that some methods don't throw due to
-      // incompatible calendars
-
-      dateFromFields(fields, options = {}) {
-        this.dateFromFieldsCallCount++;
-        assert.sameValue(Object.getPrototypeOf(fields), null, "dateFromFields should be called with null-prototype fields object");
-        return super.dateFromFields(fields, options);
-      }
-
-      yearMonthFromFields(fields, options = {}) {
-        this.yearMonthFromFieldsCallCount++;
-        assert.sameValue(Object.getPrototypeOf(fields), null, "yearMonthFromFields should be called with null-prototype fields object");
-        return super.yearMonthFromFields(fields, options);
-      }
-
-      monthDayFromFields(fields, options = {}) {
-        this.monthDayFromFieldsCallCount++;
-        assert.sameValue(Object.getPrototypeOf(fields), null, "monthDayFromFields should be called with null-prototype fields object");
-        return super.monthDayFromFields(fields, options);
-      }
-    }
-
-    return new CalendarCheckFieldsPrototypePollution();
-  },
-
-  /*
-   * A custom calendar used in prototype pollution checks. Verifies that the
-   * mergeFields() method is always called with null-prototype fields objects.
-   */
-  calendarCheckMergeFieldsPrototypePollution() {
-    class CalendarCheckMergeFieldsPrototypePollution extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.mergeFieldsCallCount = 0;
-      }
-
-      toString() {
-        return "merge-fields-null-proto";
-      }
-
-      mergeFields(fields, additionalFields) {
-        this.mergeFieldsCallCount++;
-        assert.sameValue(Object.getPrototypeOf(fields), null, "mergeFields should be called with null-prototype fields object (first argument)");
-        assert.sameValue(Object.getPrototypeOf(additionalFields), null, "mergeFields should be called with null-prototype fields object (second argument)");
-        return super.mergeFields(fields, additionalFields);
-      }
-    }
-
-    return new CalendarCheckMergeFieldsPrototypePollution();
-  },
-
-  /*
-   * A custom calendar used in prototype pollution checks. Verifies that methods
-   * are always called with a null-prototype options object.
-   */
-  calendarCheckOptionsPrototypePollution() {
-    class CalendarCheckOptionsPrototypePollution extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.yearMonthFromFieldsCallCount = 0;
-        this.dateUntilCallCount = 0;
-      }
-
-      toString() {
-        return "options-null-proto";
-      }
-
-      yearMonthFromFields(fields, options) {
-        this.yearMonthFromFieldsCallCount++;
-        assert.sameValue(Object.getPrototypeOf(options), null, "yearMonthFromFields should be called with null-prototype options");
-        return super.yearMonthFromFields(fields, options);
-      }
-
-      dateUntil(one, two, options) {
-        this.dateUntilCallCount++;
-        assert.sameValue(Object.getPrototypeOf(options), null, "dateUntil should be called with null-prototype options");
-        return super.dateUntil(one, two, options);
-      }
-    }
-
-    return new CalendarCheckOptionsPrototypePollution();
-  },
-
-  /*
-   * A custom calendar that asserts its dateAdd() method is called with the
-   * options parameter having the value undefined.
-   */
-  calendarDateAddUndefinedOptions() {
-    class CalendarDateAddUndefinedOptions extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.dateAddCallCount = 0;
-      }
-
-      toString() {
-        return "dateadd-undef-options";
-      }
-
-      dateAdd(date, duration, options) {
-        this.dateAddCallCount++;
-        assert.sameValue(options, undefined, "dateAdd shouldn't be called with options");
-        return super.dateAdd(date, duration, options);
-      }
-    }
-    return new CalendarDateAddUndefinedOptions();
-  },
-
-  /*
-   * A custom calendar that asserts its dateAdd() method is called with a
-   * PlainDate instance. Optionally, it also asserts that the PlainDate instance
-   * is the specific object `this.specificPlainDate`, if it is set by the
-   * calling code.
-   */
-  calendarDateAddPlainDateInstance() {
-    class CalendarDateAddPlainDateInstance extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.dateAddCallCount = 0;
-        this.specificPlainDate = undefined;
-      }
-
-      toString() {
-        return "dateadd-plain-date-instance";
-      }
-
-      dateAdd(date, duration, options) {
-        this.dateAddCallCount++;
-        assert(date instanceof Temporal.PlainDate, "dateAdd() should be called with a PlainDate instance");
-        if (this.dateAddCallCount === 1 && this.specificPlainDate) {
-          assert.sameValue(date, this.specificPlainDate, `dateAdd() should be called first with the specific PlainDate instance ${this.specificPlainDate}`);
-        }
-        return super.dateAdd(date, duration, options);
-      }
-    }
-    return new CalendarDateAddPlainDateInstance();
-  },
-
-  /*
-   * A custom calendar that returns @returnValue from its dateUntil() method,
-   * recording the call in @calls.
-   */
-  calendarDateUntilObservable(calls, returnValue) {
-    class CalendarDateUntilObservable extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-
-      dateUntil() {
-        calls.push("call dateUntil");
-        return returnValue;
-      }
-    }
-
-    return new CalendarDateUntilObservable();
-  },
-
-  /*
-   * A custom calendar that returns an iterable instead of an array from its
-   * fields() method, otherwise identical to the ISO calendar.
-   */
-  calendarFieldsIterable() {
-    class CalendarFieldsIterable extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.fieldsCallCount = 0;
-        this.fieldsCalledWith = [];
-        this.iteratorExhausted = [];
-      }
-
-      toString() {
-        return "fields-iterable";
-      }
-
-      fields(fieldNames) {
-        this.fieldsCallCount++;
-        this.fieldsCalledWith.push(fieldNames.slice());
-        this.iteratorExhausted.push(false);
-        return {
-          callIndex: this.fieldsCallCount - 1,
-          calendar: this,
-          *[Symbol.iterator]() {
-            yield* this.calendar.fieldsCalledWith[this.callIndex];
-            this.calendar.iteratorExhausted[this.callIndex] = true;
-          },
-        };
-      }
-    }
-    return new CalendarFieldsIterable();
-  },
-
-  /*
-   * A custom calendar that asserts its ...FromFields() methods are called with
-   * the options parameter having the value undefined.
-   */
-  calendarFromFieldsUndefinedOptions() {
-    class CalendarFromFieldsUndefinedOptions extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.dateFromFieldsCallCount = 0;
-        this.monthDayFromFieldsCallCount = 0;
-        this.yearMonthFromFieldsCallCount = 0;
-      }
-
-      toString() {
-        return "from-fields-undef-options";
-      }
-
-      dateFromFields(fields, options) {
-        this.dateFromFieldsCallCount++;
-        assert.sameValue(options, undefined, "dateFromFields shouldn't be called with options");
-        return super.dateFromFields(fields, options);
-      }
-
-      yearMonthFromFields(fields, options) {
-        this.yearMonthFromFieldsCallCount++;
-        assert.sameValue(options, undefined, "yearMonthFromFields shouldn't be called with options");
-        return super.yearMonthFromFields(fields, options);
-      }
-
-      monthDayFromFields(fields, options) {
-        this.monthDayFromFieldsCallCount++;
-        assert.sameValue(options, undefined, "monthDayFromFields shouldn't be called with options");
-        return super.monthDayFromFields(fields, options);
-      }
-    }
-    return new CalendarFromFieldsUndefinedOptions();
-  },
-
-  /*
-   * A custom calendar that modifies the fields object passed in to
-   * dateFromFields, sabotaging its time properties.
-   */
-  calendarMakeInfinityTime() {
-    class CalendarMakeInfinityTime extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-
-      dateFromFields(fields, options) {
-        const retval = super.dateFromFields(fields, options);
-        fields.hour = Infinity;
-        fields.minute = Infinity;
-        fields.second = Infinity;
-        fields.millisecond = Infinity;
-        fields.microsecond = Infinity;
-        fields.nanosecond = Infinity;
-        return retval;
-      }
-    }
-    return new CalendarMakeInfinityTime();
-  },
-
-  /*
-   * A custom calendar that defines getters on the fields object passed into
-   * dateFromFields that throw, sabotaging its time properties.
-   */
-  calendarMakeInvalidGettersTime() {
-    class CalendarMakeInvalidGettersTime extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-
-      dateFromFields(fields, options) {
-        const retval = super.dateFromFields(fields, options);
-        const throwingDescriptor = {
-          get() {
-            throw new Test262Error("reading a sabotaged time field");
-          },
-        };
-        Object.defineProperties(fields, {
-          hour: throwingDescriptor,
-          minute: throwingDescriptor,
-          second: throwingDescriptor,
-          millisecond: throwingDescriptor,
-          microsecond: throwingDescriptor,
-          nanosecond: throwingDescriptor,
-        });
-        return retval;
-      }
-    }
-    return new CalendarMakeInvalidGettersTime();
-  },
-
-  /*
-   * A custom calendar whose mergeFields() method returns a proxy object with
-   * all of its Get and HasProperty operations observable, as well as adding a
-   * "shouldNotBeCopied": true property.
-   */
-  calendarMergeFieldsGetters() {
-    class CalendarMergeFieldsGetters extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-        this.mergeFieldsReturnOperations = [];
-      }
-
-      toString() {
-        return "merge-fields-getters";
-      }
-
-      dateFromFields(fields, options) {
-        assert.sameValue(fields.shouldNotBeCopied, undefined, "extra fields should not be copied");
-        return super.dateFromFields(fields, options);
-      }
-
-      yearMonthFromFields(fields, options) {
-        assert.sameValue(fields.shouldNotBeCopied, undefined, "extra fields should not be copied");
-        return super.yearMonthFromFields(fields, options);
-      }
-
-      monthDayFromFields(fields, options) {
-        assert.sameValue(fields.shouldNotBeCopied, undefined, "extra fields should not be copied");
-        return super.monthDayFromFields(fields, options);
-      }
-
-      mergeFields(fields, additionalFields) {
-        const retval = super.mergeFields(fields, additionalFields);
-        retval._calendar = this;
-        retval.shouldNotBeCopied = true;
-        return new Proxy(retval, {
-          get(target, key) {
-            target._calendar.mergeFieldsReturnOperations.push(`get ${key}`);
-            const result = target[key];
-            if (result === undefined) {
-              return undefined;
-            }
-            return TemporalHelpers.toPrimitiveObserver(target._calendar.mergeFieldsReturnOperations, result, key);
-          },
-          has(target, key) {
-            target._calendar.mergeFieldsReturnOperations.push(`has ${key}`);
-            return key in target;
-          },
-        });
-      }
-    }
-    return new CalendarMergeFieldsGetters();
-  },
-
-  /*
-   * A custom calendar whose mergeFields() method returns a primitive value,
-   * given by @primitive, and which records the number of calls made to its
-   * dateFromFields(), yearMonthFromFields(), and monthDayFromFields() methods.
-   */
-  calendarMergeFieldsReturnsPrimitive(primitive) {
-    class CalendarMergeFieldsPrimitive extends Temporal.Calendar {
-      constructor(mergeFieldsReturnValue) {
-        super("iso8601");
-        this._mergeFieldsReturnValue = mergeFieldsReturnValue;
-        this.dateFromFieldsCallCount = 0;
-        this.monthDayFromFieldsCallCount = 0;
-        this.yearMonthFromFieldsCallCount = 0;
-      }
-
-      toString() {
-        return "merge-fields-primitive";
-      }
-
-      dateFromFields(fields, options) {
-        this.dateFromFieldsCallCount++;
-        return super.dateFromFields(fields, options);
-      }
-
-      yearMonthFromFields(fields, options) {
-        this.yearMonthFromFieldsCallCount++;
-        return super.yearMonthFromFields(fields, options);
-      }
-
-      monthDayFromFields(fields, options) {
-        this.monthDayFromFieldsCallCount++;
-        return super.monthDayFromFields(fields, options);
-      }
-
-      mergeFields() {
-        return this._mergeFieldsReturnValue;
-      }
-    }
-    return new CalendarMergeFieldsPrimitive(primitive);
-  },
-
-  /*
-   * crossDateLineTimeZone():
-   *
-   * This returns an instance of a custom time zone class that implements one
-   * single transition where the time zone moves from one side of the
-   * International Date Line to the other, for the purpose of testing time zone
-   * calculations without depending on system time zone data.
-   *
-   * The transition occurs at epoch second 1325239200 and goes from offset
-   * -10:00 to +14:00. In other words, the time zone skips the whole calendar
-   * day of 2011-12-30. This is the same as the real-life transition in the
-   * Pacific/Apia time zone.
-   */
-  crossDateLineTimeZone() {
-    const { compare } = Temporal.PlainDateTime;
-    const skippedDay = new Temporal.PlainDate(2011, 12, 30);
-    const transitionEpoch = 1325239200_000_000_000n;
-    const beforeOffset = new Temporal.TimeZone("-10:00");
-    const afterOffset = new Temporal.TimeZone("+14:00");
-
-    class CrossDateLineTimeZone extends Temporal.TimeZone {
-      constructor() {
-        super("+14:00");
-      }
-
-      getOffsetNanosecondsFor(instant) {
-        if (instant.epochNanoseconds < transitionEpoch) {
-          return beforeOffset.getOffsetNanosecondsFor(instant);
-        }
-        return afterOffset.getOffsetNanosecondsFor(instant);
-      }
-
-      getPossibleInstantsFor(datetime) {
-        const comparison = Temporal.PlainDate.compare(datetime.toPlainDate(), skippedDay);
-        if (comparison === 0) {
-          return [];
-        }
-        if (comparison < 0) {
-          return [beforeOffset.getInstantFor(datetime)];
-        }
-        return [afterOffset.getInstantFor(datetime)];
-      }
-
-      getPreviousTransition(instant) {
-        if (instant.epochNanoseconds > transitionEpoch) return new Temporal.Instant(transitionEpoch);
-        return null;
-      }
-
-      getNextTransition(instant) {
-        if (instant.epochNanoseconds < transitionEpoch) return new Temporal.Instant(transitionEpoch);
-        return null;
-      }
-
-      toString() {
-        return "Custom/Date_Line";
-      }
-    }
-    return new CrossDateLineTimeZone();
   },
 
   /*
@@ -1382,217 +974,49 @@ var TemporalHelpers = {
   },
 
   /*
-   * calendarObserver:
-   * A custom calendar that behaves exactly like the ISO 8601 calendar but
-   * tracks calls to any of its methods, and Get/Has operations on its
-   * properties, by appending messages to an array. This is for the purpose of
-   * testing order of operations that are observable from user code.
-   * objectName is used in the log.
+   * observeMethod(calls, object, propertyName, value):
+   *
+   * Defines an own property @object.@propertyName with value @value, that
+   * will log any calls of @value to the array @calls.
    */
-  calendarObserver(calls, objectName, methodOverrides = {}) {
-    const iso8601 = new Temporal.Calendar("iso8601");
-    const trackingMethods = {
-      dateFromFields(...args) {
-        calls.push(`call ${objectName}.dateFromFields`);
-        if ('dateFromFields' in methodOverrides) {
-          const value = methodOverrides.dateFromFields;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.dateFromFields(...args);
-        // Replace the calendar in the result with the call-tracking calendar
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
-      },
-      yearMonthFromFields(...args) {
-        calls.push(`call ${objectName}.yearMonthFromFields`);
-        if ('yearMonthFromFields' in methodOverrides) {
-          const value = methodOverrides.yearMonthFromFields;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.yearMonthFromFields(...args);
-        // Replace the calendar in the result with the call-tracking calendar
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainYearMonth(isoYear, isoMonth, this, isoDay);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
-      },
-      monthDayFromFields(...args) {
-        calls.push(`call ${objectName}.monthDayFromFields`);
-        if ('monthDayFromFields' in methodOverrides) {
-          const value = methodOverrides.monthDayFromFields;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.monthDayFromFields(...args);
-        // Replace the calendar in the result with the call-tracking calendar
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainMonthDay(isoMonth, isoDay, this, isoYear);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
-      },
-      dateAdd(...args) {
-        calls.push(`call ${objectName}.dateAdd`);
-        if ('dateAdd' in methodOverrides) {
-          const value = methodOverrides.dateAdd;
-          return typeof value === "function" ? value(...args) : value;
-        }
-        const originalResult = iso8601.dateAdd(...args);
-        const {isoYear, isoMonth, isoDay} = originalResult.getISOFields();
-        const result = new Temporal.PlainDate(isoYear, isoMonth, isoDay, this);
-        // Remove the HasProperty check resulting from the above constructor call
-        assert.sameValue(calls.pop(), `has ${objectName}.calendar`);
-        return result;
+  observeMethod(calls, object, propertyName, objectName = "") {
+    const method = object[propertyName];
+    object[propertyName] = function () {
+      calls.push(`call ${formatPropertyName(propertyName, objectName)}`);
+      return method.apply(object, arguments);
+    };
+  },
+
+  /*
+   * Used for substituteMethod to indicate default behavior instead of a
+   * substituted value
+   */
+  SUBSTITUTE_SKIP: SKIP_SYMBOL,
+
+  /*
+   * substituteMethod(object, propertyName, values):
+   *
+   * Defines an own property @object.@propertyName that will, for each
+   * subsequent call to the method previously defined as
+   * @object.@propertyName:
+   *  - Call the method, if no more values remain
+   *  - Call the method, if the value in @values for the corresponding call
+   *    is SUBSTITUTE_SKIP
+   *  - Otherwise, return the corresponding value in @value
+   */
+  substituteMethod(object, propertyName, values) {
+    let calls = 0;
+    const method = object[propertyName];
+    object[propertyName] = function () {
+      if (calls >= values.length) {
+        return method.apply(object, arguments);
+      } else if (values[calls] === SKIP_SYMBOL) {
+        calls++;
+        return method.apply(object, arguments);
+      } else {
+        return values[calls++];
       }
     };
-    // Automatically generate the other methods that don't need any custom code
-    ["toString", "dateUntil", "era", "eraYear", "year", "month", "monthCode", "day", "daysInMonth", "fields", "mergeFields"].forEach((methodName) => {
-      trackingMethods[methodName] = function (...args) {
-        actual.push(`call ${formatPropertyName(methodName, objectName)}`);
-        if (methodName in methodOverrides) {
-          const value = methodOverrides[methodName];
-          return typeof value === "function" ? value(...args) : value;
-        }
-        return iso8601[methodName](...args);
-      };
-    });
-    return new Proxy(trackingMethods, {
-      get(target, key, receiver) {
-        const result = Reflect.get(target, key, receiver);
-        actual.push(`get ${formatPropertyName(key, objectName)}`);
-        return result;
-      },
-      has(target, key) {
-        actual.push(`has ${formatPropertyName(key, objectName)}`);
-        return Reflect.has(target, key);
-      },
-    });
-  },
-
-  /*
-   * A custom calendar that does not allow any of its methods to be called, for
-   * the purpose of asserting that a particular operation does not call into
-   * user code.
-   */
-  calendarThrowEverything() {
-    class CalendarThrowEverything extends Temporal.Calendar {
-      constructor() {
-        super("iso8601");
-      }
-      toString() {
-        TemporalHelpers.assertUnreachable("toString should not be called");
-      }
-      dateFromFields() {
-        TemporalHelpers.assertUnreachable("dateFromFields should not be called");
-      }
-      yearMonthFromFields() {
-        TemporalHelpers.assertUnreachable("yearMonthFromFields should not be called");
-      }
-      monthDayFromFields() {
-        TemporalHelpers.assertUnreachable("monthDayFromFields should not be called");
-      }
-      dateAdd() {
-        TemporalHelpers.assertUnreachable("dateAdd should not be called");
-      }
-      dateUntil() {
-        TemporalHelpers.assertUnreachable("dateUntil should not be called");
-      }
-      era() {
-        TemporalHelpers.assertUnreachable("era should not be called");
-      }
-      eraYear() {
-        TemporalHelpers.assertUnreachable("eraYear should not be called");
-      }
-      year() {
-        TemporalHelpers.assertUnreachable("year should not be called");
-      }
-      month() {
-        TemporalHelpers.assertUnreachable("month should not be called");
-      }
-      monthCode() {
-        TemporalHelpers.assertUnreachable("monthCode should not be called");
-      }
-      day() {
-        TemporalHelpers.assertUnreachable("day should not be called");
-      }
-      fields() {
-        TemporalHelpers.assertUnreachable("fields should not be called");
-      }
-      mergeFields() {
-        TemporalHelpers.assertUnreachable("mergeFields should not be called");
-      }
-    }
-
-    return new CalendarThrowEverything();
-  },
-
-  /*
-   * oneShiftTimeZone(shiftInstant, shiftNanoseconds):
-   *
-   * In the case of a spring-forward time zone offset transition (skipped time),
-   * and disambiguation === 'earlier', BuiltinTimeZoneGetInstantFor subtracts a
-   * negative number of nanoseconds from a PlainDateTime, which should balance
-   * with the microseconds field.
-   *
-   * This returns an instance of a custom time zone class which skips a length
-   * of time equal to shiftNanoseconds (a number), at the Temporal.Instant
-   * shiftInstant. Before shiftInstant, it's identical to UTC, and after
-   * shiftInstant it's a constant-offset time zone.
-   *
-   * It provides a getPossibleInstantsForCalledWith member which is an array
-   * with the result of calling toString() on any PlainDateTimes passed to
-   * getPossibleInstantsFor().
-   */
-  oneShiftTimeZone(shiftInstant, shiftNanoseconds) {
-    class OneShiftTimeZone extends Temporal.TimeZone {
-      constructor(shiftInstant, shiftNanoseconds) {
-        super("+00:00");
-        this._shiftInstant = shiftInstant;
-        this._epoch1 = shiftInstant.epochNanoseconds;
-        this._epoch2 = this._epoch1 + BigInt(shiftNanoseconds);
-        this._shiftNanoseconds = shiftNanoseconds;
-        this._shift = new Temporal.Duration(0, 0, 0, 0, 0, 0, 0, 0, 0, this._shiftNanoseconds);
-        this.getPossibleInstantsForCalledWith = [];
-      }
-
-      _isBeforeShift(instant) {
-        return instant.epochNanoseconds < this._epoch1;
-      }
-
-      getOffsetNanosecondsFor(instant) {
-        return this._isBeforeShift(instant) ? 0 : this._shiftNanoseconds;
-      }
-
-      getPossibleInstantsFor(plainDateTime) {
-        this.getPossibleInstantsForCalledWith.push(plainDateTime.toString());
-        const [instant] = super.getPossibleInstantsFor(plainDateTime);
-        if (this._shiftNanoseconds > 0) {
-          if (this._isBeforeShift(instant)) return [instant];
-          if (instant.epochNanoseconds < this._epoch2) return [];
-          return [instant.subtract(this._shift)];
-        }
-        if (instant.epochNanoseconds < this._epoch2) return [instant];
-        const shifted = instant.subtract(this._shift);
-        if (this._isBeforeShift(instant)) return [instant, shifted];
-        return [shifted];
-      }
-
-      getNextTransition(instant) {
-        return this._isBeforeShift(instant) ? this._shiftInstant : null;
-      }
-
-      getPreviousTransition(instant) {
-        return this._isBeforeShift(instant) ? null : this._shiftInstant;
-      }
-
-      toString() {
-        return "Custom/One_Shift";
-      }
-    }
-    return new OneShiftTimeZone(shiftInstant, shiftNanoseconds);
   },
 
   /*
@@ -1605,8 +1029,11 @@ var TemporalHelpers = {
    * and valueOf methods in the same array. This is for the purpose of testing
    * order of operations that are observable from user code. objectName is used
    * in the log.
+   * If skipToPrimitive is given, it must be an array of property keys. Those
+   * properties will not have a TemporalHelpers.toPrimitiveObserver returned,
+   * and instead just be returned directly.
    */
-  propertyBagObserver(calls, propertyBag, objectName) {
+  propertyBagObserver(calls, propertyBag, objectName, skipToPrimitive) {
     return new Proxy(propertyBag, {
       ownKeys(target) {
         calls.push(`ownKeys ${objectName}`);
@@ -1622,147 +1049,16 @@ var TemporalHelpers = {
         if (result === undefined) {
           return undefined;
         }
-        if (typeof result === "object") {
+        if ((result !== null && typeof result === "object") || typeof result === "function") {
+          return result;
+        }
+        if (skipToPrimitive && skipToPrimitive.indexOf(key) >= 0) {
           return result;
         }
         return TemporalHelpers.toPrimitiveObserver(calls, result, `${formatPropertyName(key, objectName)}`);
       },
       has(target, key) {
         calls.push(`has ${formatPropertyName(key, objectName)}`);
-        return Reflect.has(target, key);
-      },
-    });
-  },
-
-  /*
-   * specificOffsetTimeZone():
-   *
-   * This returns an instance of a custom time zone class, which returns a
-   * specific custom value from its getOffsetNanosecondsFrom() method. This is
-   * for the purpose of testing the validation of what this method returns.
-   *
-   * It also returns an empty array from getPossibleInstantsFor(), so as to
-   * trigger calls to getOffsetNanosecondsFor() when used from the
-   * BuiltinTimeZoneGetInstantFor operation.
-   */
-  specificOffsetTimeZone(offsetValue) {
-    class SpecificOffsetTimeZone extends Temporal.TimeZone {
-      constructor(offsetValue) {
-        super("UTC");
-        this._offsetValue = offsetValue;
-      }
-
-      getOffsetNanosecondsFor() {
-        return this._offsetValue;
-      }
-
-      getPossibleInstantsFor() {
-        return [];
-      }
-    }
-    return new SpecificOffsetTimeZone(offsetValue);
-  },
-
-  /*
-   * springForwardFallBackTimeZone():
-   *
-   * This returns an instance of a custom time zone class that implements one
-   * single spring-forward/fall-back transition, for the purpose of testing the
-   * disambiguation option, without depending on system time zone data.
-   *
-   * The spring-forward occurs at epoch second 954669600 (2000-04-02T02:00
-   * local) and goes from offset -08:00 to -07:00.
-   *
-   * The fall-back occurs at epoch second 972810000 (2000-10-29T02:00 local) and
-   * goes from offset -07:00 to -08:00.
-   */
-  springForwardFallBackTimeZone() {
-    const { compare } = Temporal.PlainDateTime;
-    const springForwardLocal = new Temporal.PlainDateTime(2000, 4, 2, 2);
-    const springForwardEpoch = 954669600_000_000_000n;
-    const fallBackLocal = new Temporal.PlainDateTime(2000, 10, 29, 1);
-    const fallBackEpoch = 972810000_000_000_000n;
-    const winterOffset = new Temporal.TimeZone('-08:00');
-    const summerOffset = new Temporal.TimeZone('-07:00');
-
-    class SpringForwardFallBackTimeZone extends Temporal.TimeZone {
-      constructor() {
-        super("-08:00");
-      }
-
-      getOffsetNanosecondsFor(instant) {
-        if (instant.epochNanoseconds < springForwardEpoch ||
-          instant.epochNanoseconds >= fallBackEpoch) {
-          return winterOffset.getOffsetNanosecondsFor(instant);
-        }
-        return summerOffset.getOffsetNanosecondsFor(instant);
-      }
-
-      getPossibleInstantsFor(datetime) {
-        if (compare(datetime, springForwardLocal) >= 0 && compare(datetime, springForwardLocal.add({ hours: 1 })) < 0) {
-          return [];
-        }
-        if (compare(datetime, fallBackLocal) >= 0 && compare(datetime, fallBackLocal.add({ hours: 1 })) < 0) {
-          return [summerOffset.getInstantFor(datetime), winterOffset.getInstantFor(datetime)];
-        }
-        if (compare(datetime, springForwardLocal) < 0 || compare(datetime, fallBackLocal) >= 0) {
-          return [winterOffset.getInstantFor(datetime)];
-        }
-        return [summerOffset.getInstantFor(datetime)];
-      }
-
-      getPreviousTransition(instant) {
-        if (instant.epochNanoseconds > fallBackEpoch) return new Temporal.Instant(fallBackEpoch);
-        if (instant.epochNanoseconds > springForwardEpoch) return new Temporal.Instant(springForwardEpoch);
-        return null;
-      }
-
-      getNextTransition(instant) {
-        if (instant.epochNanoseconds < springForwardEpoch) return new Temporal.Instant(springForwardEpoch);
-        if (instant.epochNanoseconds < fallBackEpoch) return new Temporal.Instant(fallBackEpoch);
-        return null;
-      }
-
-      toString() {
-        return "Custom/Spring_Fall";
-      }
-    }
-    return new SpringForwardFallBackTimeZone();
-  },
-
-  /*
-   * timeZoneObserver:
-   * A custom calendar that behaves exactly like the UTC time zone but tracks
-   * calls to any of its methods, and Get/Has operations on its properties, by
-   * appending messages to an array. This is for the purpose of testing order of
-   * operations that are observable from user code. objectName is used in the
-   * log. methodOverrides is an optional object containing properties with the
-   * same name as Temporal.TimeZone methods. If the property value is a function
-   * it will be called with the proper arguments instead of the UTC method.
-   * Otherwise, the property value will be returned directly.
-   */
-  timeZoneObserver(calls, objectName, methodOverrides = {}) {
-    const utc = new Temporal.TimeZone("UTC");
-    const trackingMethods = {};
-    // Automatically generate the methods
-    ["getOffsetNanosecondsFor", "getPossibleInstantsFor", "toString"].forEach((methodName) => {
-      trackingMethods[methodName] = function (...args) {
-        actual.push(`call ${formatPropertyName(methodName, objectName)}`);
-        if (methodName in methodOverrides) {
-          const value = methodOverrides[methodName];
-          return typeof value === "function" ? value(...args) : value;
-        }
-        return utc[methodName](...args);
-      };
-    });
-    return new Proxy(trackingMethods, {
-      get(target, key, receiver) {
-        const result = Reflect.get(target, key, receiver);
-        actual.push(`get ${formatPropertyName(key, objectName)}`);
-        return result;
-      },
-      has(target, key) {
-        actual.push(`has ${formatPropertyName(key, objectName)}`);
         return Reflect.has(target, key);
       },
     });
@@ -1804,6 +1100,11 @@ var TemporalHelpers = {
     plainMonthDayStringsInvalid() {
       return [
         "11-18junk",
+        "11-18[u-ca=gregory]",
+        "11-18[u-ca=hebrew]",
+        "11-18[U-CA=iso8601]",
+        "11-18[u-CA=iso8601]",
+        "11-18[FOO=bar]",
       ];
     },
 
@@ -1891,6 +1192,11 @@ var TemporalHelpers = {
     plainYearMonthStringsInvalid() {
       return [
         "2020-13",
+        "1976-11[u-ca=gregory]",
+        "1976-11[u-ca=hebrew]",
+        "1976-11[U-CA=iso8601]",
+        "1976-11[u-CA=iso8601]",
+        "1976-11[FOO=bar]",
       ];
     },
 
@@ -1906,7 +1212,7 @@ var TemporalHelpers = {
         "1976-11-01T00:00:00+05:00",
         "197611",
         "+00197611",
-        "1976-11-18T15:23:30.1\u221202:00",
+        "1976-11-18T15:23:30.1-02:00",
         "1976-11-18T152330.1+00:00",
         "19761118T15:23:30.1+00:00",
         "1976-11-18T15:23:30.1+0000",
@@ -1933,7 +1239,7 @@ var TemporalHelpers = {
      */
     plainYearMonthStringsValidNegativeYear() {
       return [
-        "\u2212009999-11",
+        "-009999-11",
       ];
     },
   }

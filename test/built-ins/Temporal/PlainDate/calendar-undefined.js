@@ -9,14 +9,8 @@ features: [Temporal]
 
 const args = [2020, 12, 24];
 
-Object.defineProperty(Temporal.Calendar, "from", {
-  get() {
-    throw new Test262Error("Should not get Calendar.from");
-  },
-});
-
 const dateExplicit = new Temporal.PlainDate(...args, undefined);
-assert.sameValue(dateExplicit.calendar.toString(), "iso8601");
+assert.sameValue(dateExplicit.calendarId, "iso8601", "calendar string is iso8601");
 
 const dateImplicit = new Temporal.PlainDate(...args);
-assert.sameValue(dateImplicit.calendar.toString(), "iso8601");
+assert.sameValue(dateImplicit.calendarId, "iso8601", "calendar string is iso8601");

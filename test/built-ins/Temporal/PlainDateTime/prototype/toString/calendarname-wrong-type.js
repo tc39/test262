@@ -15,12 +15,9 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const calendar = {
-  toString() { return "custom"; }
-};
-const datetime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, calendar);
+const datetime = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, "iso8601");
 
 TemporalHelpers.checkStringOptionWrongType("calendarName", "auto",
   (calendarName) => datetime.toString({ calendarName }),
-  (result, descr) => assert.sameValue(result, "2000-05-02T12:34:56.987654321[u-ca=custom]", descr),
+  (result, descr) => assert.sameValue(result, "2000-05-02T12:34:56.987654321", descr),
 );

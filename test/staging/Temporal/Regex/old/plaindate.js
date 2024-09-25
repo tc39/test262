@@ -13,7 +13,7 @@ function test(isoString, components) {
     assert.sameValue(date.year, y);
     assert.sameValue(date.month, m);
     assert.sameValue(date.day, d);
-    assert.sameValue(date.calendar.id, cid);
+    assert.sameValue(date.calendarId, cid);
 }
 function generateTest(dateTimeString, zoneString) {
   var components = [
@@ -54,7 +54,7 @@ test("1976-11-18T15:23:30,1234", [
   11,
   18
 ]);
-test("\u2212009999-11-18", [
+test("-009999-11-18", [
   -9999,
   11,
   18

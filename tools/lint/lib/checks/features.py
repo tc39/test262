@@ -1,3 +1,5 @@
+import re
+
 from ..check import Check
 
 class CheckFeatures(Check):
@@ -11,8 +13,9 @@ class CheckFeatures(Check):
     @staticmethod
     def _parse(content):
         features = []
-        for line in content.split():
-            if not line or line.startswith('#'):
+        for line in content.splitlines():
+            line = re.sub(r'\s*#.*', '', line)
+            if not line:
                 continue
             features.append(line)
         return features

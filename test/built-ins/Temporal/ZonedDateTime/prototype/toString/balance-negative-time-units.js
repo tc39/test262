@@ -32,9 +32,8 @@ features: [Temporal]
 // This code path is encountered if the time zone offset is negative and its
 // absolute value in nanoseconds is greater than the nanosecond field of the
 // ZonedDateTime
-const tz = new Temporal.TimeZone("-00:00:00.000000002");
-const datetime = new Temporal.ZonedDateTime(1001n, tz);
+const datetime = new Temporal.ZonedDateTime(1001n, "-00:02");
 
 const isoString = datetime.toString();
 
-assert.sameValue(isoString, "1970-01-01T00:00:00.000000999+00:00[-00:00:00.000000002]");
+assert.sameValue(isoString, "1969-12-31T23:58:00.000001001-00:02[-00:02]");

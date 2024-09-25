@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal-duration-objects
 description: Temporal.Duration.prototype.total()
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -35,11 +34,11 @@ var s = Temporal.Duration.from({
 }).total({ unit: "seconds" });
 assert.sameValue(s, 0.002031);
 
-// accepts datetime string equivalents or fields for relativeTo
+// accepts datetime strings or fields for relativeTo
 [
   "2020-01-01",
+  "20200101",
   "2020-01-01T00:00:00.000000000",
-  20200101n,
   {
     year: 2020,
     month: 1,
@@ -58,29 +57,22 @@ assert.sameValue(s, 0.002031);
   assert.sameValue(total.toPrecision(15), totalMonths.toPrecision(15));
 });
 
+// does not accept non-string primitives for relativeTo
+[
+  20200101,
+  20200101n,
+  null,
+  true,
+].forEach(relativeTo => {
+  assert.throws(
+    TypeError, () => d.total({ unit: "months", relativeTo})
+  );
+});
+
 // throws on wrong offset for ZonedDateTime relativeTo string
 assert.throws(RangeError, () => d.total({
   unit: "months",
   relativeTo: "1971-01-01T00:00+02:00[-00:44:30]"
-}));
-
-// does not throw on HH:MM rounded offset for ZonedDateTime relativeTo string
-var oneMonth = Temporal.Duration.from({ months: 1 });
-assert.sameValue(oneMonth.total({
-  unit: "months",
-  relativeTo: "1971-01-01T00:00-00:45[-00:44:30]"
-}), 1);
-
-// throws on HH:MM rounded offset for ZonedDateTime relativeTo property bag
-assert.throws(RangeError, () => d.total({
-  unit: "months",
-  relativeTo: {
-    year: 1971,
-    month: 1,
-    day: 1,
-    offset: "-00:45",
-    timeZone: "-00:44:30"
-  }
 }));
 
 // relativeTo object must contain at least the required correctly-spelled properties
@@ -179,47 +171,6 @@ assert(Math.abs(negativeD2.total({ unit: "seconds" }) - -totalD2.seconds) < Numb
 assert(Math.abs(negativeD2.total({ unit: "milliseconds" }) - -totalD2.milliseconds) < Number.EPSILON);
 assert(Math.abs(negativeD2.total({ unit: "microseconds" }) - -totalD2.microseconds) < Number.EPSILON);
 assert.sameValue(negativeD2.total({ unit: "nanoseconds" }), -totalD2.nanoseconds);
-var endpoint = relativeTo.toPlainDateTime().add(d);
-var options = unit => ({
-  largestUnit: unit,
-  smallestUnit: unit,
-  roundingMode: "trunc"
-});
-var fullYears = 5;
-var fullDays = endpoint.since(relativeTo, options("days")).days;
-var fullMilliseconds = endpoint.since(relativeTo, options("milliseconds")).milliseconds;
-var partialDayMilliseconds = fullMilliseconds - fullDays * 24 * 3600000 + 0.005005;
-var fractionalDay = partialDayMilliseconds / (24 * 3600000);
-var partialYearDays = fullDays - (fullYears * 365 + 2);
-var fractionalYear = partialYearDays / 365 + fractionalDay / 365;
-var fractionalMonths = ((endpoint.day - 1) * (24 * 3600000) + partialDayMilliseconds) / (31 * 24 * 3600000);
-var totalResults = {
-  years: fullYears + fractionalYear,
-  months: 66 + fractionalMonths,
-  weeks: (fullDays + fractionalDay) / 7,
-  days: fullDays + fractionalDay,
-  hours: fullDays * 24 + partialDayMilliseconds / 3600000,
-  minutes: fullDays * 24 * 60 + partialDayMilliseconds / 60000,
-  seconds: fullDays * 24 * 60 * 60 + partialDayMilliseconds / 1000,
-  milliseconds: fullMilliseconds + 0.005005,
-  microseconds: fullMilliseconds * 1000 + 5.005,
-  nanoseconds: fullMilliseconds * 1000000 + 5005
-};
-for (var [unit, expected] of Object.entries(totalResults)) {
-  assert.sameValue(d.total({
-    unit,
-    relativeTo
-  }).toPrecision(15), expected.toPrecision(15));
-}
-for (var unit of [
-    "microseconds",
-    "nanoseconds"
-  ]) {
-  assert(d.total({
-    unit,
-    relativeTo
-  }).toString().startsWith("174373505005"));
-}
 
 // balances differently depending on relativeTo
 var fortyDays = Temporal.Duration.from({ days: 40 });
@@ -242,177 +193,6 @@ assert.sameValue(negativeFortyDays.total({
   unit: "months",
   relativeTo: "2020-04-01"
 }).toPrecision(16), (-(1 + 9 / 29)).toPrecision(16));
-
-var oneDay = new Temporal.Duration(0, 0, 0, 1);
-// relativeTo does not affect days if PlainDate
-var relativeTo = Temporal.PlainDate.from("2017-01-01");
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo
-}), 24);
-
-// relativeTo does not affect days if ZonedDateTime, and duration encompasses no DST change
-var relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[+04:30]");
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo
-}), 24);
-
-// relativeTo affects days if ZonedDateTime, and duration encompasses DST change"
-var timeZone = TemporalHelpers.springForwardFallBackTimeZone();
-var skippedHourDay = Temporal.PlainDateTime.from("2000-04-02").toZonedDateTime(timeZone);
-var repeatedHourDay = Temporal.PlainDateTime.from("2000-10-29").toZonedDateTime(timeZone);
-var inRepeatedHour = new Temporal.ZonedDateTime(972806400_000_000_000n, timeZone);
-var hours12 = new Temporal.Duration(0, 0, 0, 0, 12);
-var hours25 = new Temporal.Duration(0, 0, 0, 0, 25);
-
-// start inside repeated hour, end after
-assert.sameValue(hours25.total({
-  unit: "days",
-  relativeTo: inRepeatedHour
-}), 1);
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo: inRepeatedHour
-}), 25);
-
-// start after repeated hour, end inside (negative)
-var relativeTo = Temporal.PlainDateTime.from("2000-10-30T01:00").toZonedDateTime(timeZone);
-assert.sameValue(hours25.negated().total({
-  unit: "days",
-  relativeTo
-}), -1);
-assert.sameValue(oneDay.negated().total({
-  unit: "hours",
-  relativeTo
-}), -25);
-
-// start in normal hour, end in skipped hour
-var relativeTo = Temporal.PlainDateTime.from("2000-04-01T02:30").toZonedDateTime(timeZone);
-var totalDays = hours25.total({
-  unit: "days",
-  relativeTo
-});
-assert(Math.abs(totalDays - (1 + 1 / 24)) < Number.EPSILON);
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo
-}), 24);
-
-// start before skipped hour, end >1 day after
-var totalDays = hours25.total({
-  unit: "days",
-  relativeTo: skippedHourDay
-});
-assert(Math.abs(totalDays - (1 + 2 / 24)) < Number.EPSILON);
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo: skippedHourDay
-}), 23);
-
-// start after skipped hour, end >1 day before (negative)
-var relativeTo = Temporal.PlainDateTime.from("2000-04-03T00:00").toZonedDateTime(timeZone);
-var totalDays = hours25.negated().total({
-  unit: "days",
-  relativeTo
-});
-assert(Math.abs(totalDays - (-1 - 2 / 24)) < Number.EPSILON);
-assert.sameValue(oneDay.negated().total({
-  unit: "hours",
-  relativeTo
-}), -23);
-
-// start before skipped hour, end <1 day after
-var totalDays = hours12.total({
-  unit: "days",
-  relativeTo: skippedHourDay
-});
-assert(Math.abs(totalDays - 12 / 23) < Number.EPSILON);
-
-// start after skipped hour, end <1 day before (negative)
-var relativeTo = Temporal.PlainDateTime.from("2000-04-02T12:00").toZonedDateTime(timeZone);
-var totalDays = hours12.negated().total({
-  unit: "days",
-  relativeTo
-});
-assert(Math.abs(totalDays - -12 / 23) < Number.EPSILON);
-
-// start before repeated hour, end >1 day after
-assert.sameValue(hours25.total({
-  unit: "days",
-  relativeTo: repeatedHourDay
-}), 1);
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo: repeatedHourDay
-}), 25);
-
-// start after repeated hour, end >1 day before (negative)
-var relativeTo = Temporal.PlainDateTime.from("2000-10-30T00:00").toZonedDateTime(timeZone);
-assert.sameValue(hours25.negated().total({
-  unit: "days",
-  relativeTo
-}), -1);
-assert.sameValue(oneDay.negated().total({
-  unit: "hours",
-  relativeTo
-}), -25);
-
-// start before repeated hour, end <1 day after
-var totalDays = hours12.total({
-  unit: "days",
-  relativeTo: repeatedHourDay
-});
-assert(Math.abs(totalDays - 12 / 25) < Number.EPSILON);
-
-// start after repeated hour, end <1 day before (negative)
-var relativeTo = Temporal.PlainDateTime.from("2000-10-29T12:00").toZonedDateTime(timeZone);
-var totalDays = hours12.negated().total({
-  unit: "days",
-  relativeTo
-});
-assert(Math.abs(totalDays - -12 / 25) < Number.EPSILON);
-
-// Samoa skipped 24 hours
-var fakeSamoa = TemporalHelpers.crossDateLineTimeZone();
-var relativeTo = Temporal.PlainDateTime.from("2011-12-29T12:00").toZonedDateTime(fakeSamoa);
-var totalDays = hours25.total({
-  unit: "days",
-  relativeTo
-});
-assert(Math.abs(totalDays - (2 + 1 / 24)) < Number.EPSILON);
-assert.sameValue(Temporal.Duration.from({ hours: 48 }).total({
-  unit: "days",
-  relativeTo
-}), 3);
-assert.sameValue(Temporal.Duration.from({ days: 2 }).total({
-  unit: "hours",
-  relativeTo
-}), 24);
-assert.sameValue(Temporal.Duration.from({ days: 3 }).total({
-  unit: "hours",
-  relativeTo
-}), 48);
-
-// totaling back up to days
-var relativeTo = Temporal.PlainDateTime.from("2000-10-28T00:00").toZonedDateTime(timeZone);
-assert.sameValue(Temporal.Duration.from({ hours: 48 }).total({ unit: "days" }), 2);
-var totalDays = Temporal.Duration.from({ hours: 48 }).total({
-  unit: "days",
-  relativeTo
-});
-assert(Math.abs(totalDays - (1 + 24 / 25)) < Number.EPSILON);
-
-// casts relativeTo to ZonedDateTime if possible
-assert.sameValue(oneDay.total({
-  unit: "hours",
-  relativeTo: {
-    year: 2000,
-    month: 10,
-    day: 29,
-    timeZone
-  }
-}), 25);
 
 // balances up to the next unit after rounding
 var almostWeek = Temporal.Duration.from({
