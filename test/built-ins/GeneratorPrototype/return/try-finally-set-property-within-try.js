@@ -11,10 +11,10 @@ features: [generators]
 ---*/
 
 
-var obj={foo:undefined};
+var obj={foo:'not modified'};
 function* g() {
   try {
-    obj.foo=yield;
+    obj.foo = yield;
   } finally {
     return 1;
   }
@@ -24,5 +24,5 @@ var result;
 
 iter.next();
 result = iter.return(45).value;
-assert.sameValue(obj.foo,undefined,'`obj.foo` did not set');
-assert.sameValue(result,1,'return in finally executes first');
+assert.sameValue(obj.foo, 'not modified', '`obj.foo` was not set');
+assert.sameValue(result, 1, 'finally block supersedes return value');
