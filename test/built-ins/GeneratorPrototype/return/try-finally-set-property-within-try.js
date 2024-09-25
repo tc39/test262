@@ -11,7 +11,7 @@ features: [generators]
 ---*/
 
 
-var obj={foo:'not modified'};
+var obj = { foo: 'not modified' };
 function* g() {
   try {
     obj.foo = yield;
@@ -24,5 +24,5 @@ var result;
 
 iter.next();
 result = iter.return(45).value;
-assert.sameValue(obj.foo, 'not modified', '`obj.foo` was not set');
-assert.sameValue(result, 1, 'finally block supersedes return value');
+assert.sameValue(obj.foo, 'not modified', '`obj.foo` must not be set');
+assert.sameValue(result, 1, 'finally block must supersede return value');
