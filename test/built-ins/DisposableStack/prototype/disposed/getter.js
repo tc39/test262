@@ -27,6 +27,6 @@ assert.sameValue(
 );
 
 verifyProperty(DisposableStack.prototype, 'disposed', {
-  enumerable: false;
-  configurable: true;
+  enumerable: false,
+  configurable: true
 });

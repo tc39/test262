@@ -15,7 +15,7 @@ features: [explicit-resource-management]
 
 assert.sameValue(DisposableStack.prototype[Symbol.dispose], DisposableStack.prototype.dispose);
 verifyProperty(DisposableStack.prototype, Symbol.dispose, {
-  enumerable: false;
-  writable: true;
-  configurable: true;
+  enumerable: false,
+  writable: true,
+  configurable: true
 });
