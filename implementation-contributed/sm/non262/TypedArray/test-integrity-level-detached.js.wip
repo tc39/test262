@@ -1,0 +1,31 @@
+const EMPTY = 0;
+const INLINE_STORAGE = 10;
+const NON_INLINE_STORAGE = 1024;
+
+class DetachedInt32Array extends Int32Array {
+    constructor(...args) {
+        super(...args);
+        detachArrayBuffer(this.buffer);
+        console.log("detached: " + this.buffer.detached)
+    }
+}
+
+
+function maybeThrowOnDetached(fn, returnValue) {
+    return fn();
+}
+
+// Non-empty typed arrays can be sealed, but calling TestIntegrityLevel will
+// throw on detached typed arrays.
+for (let length of [INLINE_STORAGE, NON_INLINE_STORAGE]) {
+    let ta = new DetachedInt32Array(length);
+    Object.seal(ta);
+
+    assertEq(Object.isExtensible(ta), false);
+    assertEq(maybeThrowOnDetached(() => Object.isSealed(ta), true), true);
+    assertEq(maybeThrowOnDetached(() => Object.isFrozen(ta), true), true);
+}
+
+
+if (typeof reportCompare === "function")
+    reportCompare(true, true);
