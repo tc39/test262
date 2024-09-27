@@ -45,6 +45,6 @@ assert.compareArray = function(actual, expected, message) {
   // The following prevents actual and expected from being iterated and evaluated
   // more than once unless absolutely necessary.
   if (!result) {
-    assert(false, `Actual ${format(actual)} and expected ${format(expected)} should have the the same contents. ${message}`);
+    assert(false, `Actual ${format(actual)} and expected ${format(expected)} should have the same contents. ${message}`);
   }
 };
