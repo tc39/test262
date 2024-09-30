@@ -63,7 +63,7 @@ function verifyProperty(obj, name, desc, options) {
     "The desc argument should be an object or undefined, " + String(desc)
   );
 
-  var failures = [], join = failures.join;
+  var failures = [];
 
   if (Object.prototype.hasOwnProperty.call(desc, 'value')) {
     if (!isSameValue(desc.value, originalDesc.value)) {
@@ -92,7 +92,7 @@ function verifyProperty(obj, name, desc, options) {
     }
   }
 
-  assert(!failures.length, join.call(failures, '; '));
+  assert(!failures.length, failures.join('; '));
 
   if (options && options.restore) {
     Object.defineProperty(obj, name, originalDesc);
@@ -229,24 +229,9 @@ function verifyNotConfigurable(obj, name) {
   }
 }
 
-function verifyPrimordialProperty(obj, name, desc, options) {
-  assert(
-    arguments.length > 2,
-    'verifyPrimordialProperty should receive at least 3 arguments: obj, name, and descriptor'
-  );
-
-  if (desc && (true === desc.writable) || (true === desc.configurable)) {
-    const LOCKED_DOWN = ($262 && (typeof $262.isLockedDown === "function")) ? $262.isLockedDown() : false;
-    if (LOCKED_DOWN) {
-      var copy = {};
-      var names = Object.getOwnPropertyNames(desc);
-      for (var i = 0; i < names.length; i++) {
-        var name = names[i];
-        copy[name] = ((name === "writable") || (name === "configurable")) ? false : desc[name];
-      }
-      desc = copy;
-    }
-  }
-
-  return verifyProperty(obj, name, desc, options);
-}
+/**
+ * Use this function to verify the properties of a primordial object.
+ * For non-primordial objects, use verifyProperty.
+ * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
+ */
+var verifyPrimordialProperty = verifyProperty;

@@ -18,6 +18,16 @@ defines:
 
 // @ts-check
 
+// Capture primordial functions and receiver-uncurried primordial methods that
+// are used in verification but might be destroyed *by* that process itself.
+var __isArray = Array.isArray;
+var __defineProperty = Object.defineProperty;
+var __join = Function.prototype.call.bind(Array.prototype.join);
+var __push = Function.prototype.call.bind(Array.prototype.push);
+var __hasOwnProperty = Function.prototype.call.bind(Object.prototype.hasOwnProperty);
+var __propertyIsEnumerable = Function.prototype.call.bind(Object.prototype.propertyIsEnumerable);
+var nonIndexNumericPropertyName = Math.pow(2, 32) - 1;
+
 /**
  * @param {object} obj
  * @param {string|symbol} name
@@ -47,7 +57,7 @@ function verifyProperty(obj, name, desc, options) {
   }
 
   assert(
-    Object.prototype.hasOwnProperty.call(obj, name),
+    __hasOwnProperty(obj, name),
     "obj should have an own property " + nameStr
   );
 
@@ -76,49 +86,50 @@ function verifyProperty(obj, name, desc, options) {
     );
   }
 
-  var failures = [], join = failures.join;
+  var failures = [];
 
-  if (Object.prototype.hasOwnProperty.call(desc, 'value')) {
+  if (__hasOwnProperty(desc, 'value')) {
     if (!isSameValue(desc.value, originalDesc.value)) {
-      failures.push("descriptor value should be " + desc.value);
+      __push(failures, "descriptor value should be " + desc.value);
     }
     if (!isSameValue(desc.value, obj[name])) {
-      failures.push("object value should be " + desc.value);
+      __push(failures, "object value should be " + desc.value);
     }
   }
 
-  if (Object.prototype.hasOwnProperty.call(desc, 'enumerable')) {
+  if (__hasOwnProperty(desc, 'enumerable')) {
     if (desc.enumerable !== originalDesc.enumerable ||
         desc.enumerable !== isEnumerable(obj, name)) {
-      failures.push('descriptor should ' + (desc.enumerable ? '' : 'not ') + 'be enumerable');
+      __push(failures, 'descriptor should ' + (desc.enumerable ? '' : 'not ') + 'be enumerable');
     }
   }
 
-  if (Object.prototype.hasOwnProperty.call(desc, 'writable')) {
+  // Operations past this point are potentially destructive!
+
+  if (__hasOwnProperty(desc, 'writable')) {
     if (desc.writable !== originalDesc.writable ||
         desc.writable !== isWritable(obj, name)) {
-      failures.push('descriptor should ' + (desc.writable ? '' : 'not ') + 'be writable');
+      __push(failures, 'descriptor should ' + (desc.writable ? '' : 'not ') + 'be writable');
     }
   }
 
-  if (Object.prototype.hasOwnProperty.call(desc, 'configurable')) {
+  if (__hasOwnProperty(desc, 'configurable')) {
     if (desc.configurable !== originalDesc.configurable ||
         desc.configurable !== isConfigurable(obj, name)) {
-      failures.push('descriptor should ' + (desc.configurable ? '' : 'not ') + 'be configurable');
+      __push(failures, 'descriptor should ' + (desc.configurable ? '' : 'not ') + 'be configurable');
     }
   }
 
-  assert(!failures.length, join.call(failures, '; '));
+  assert(!failures.length, __join(failures, '; '));
 
   if (options && options.restore) {
-    Object.defineProperty(obj, name, originalDesc);
+    __defineProperty(obj, name, originalDesc);
   }
 
   return true;
 }
 
 function isConfigurable(obj, name) {
-  var hasOwnProperty = Object.prototype.hasOwnProperty;
   try {
     delete obj[name];
   } catch (e) {
@@ -126,7 +137,7 @@ function isConfigurable(obj, name) {
       throw new Test262Error("Expected TypeError, got " + e);
     }
   }
-  return !hasOwnProperty.call(obj, name);
+  return !__hasOwnProperty(obj, name);
 }
 
 function isEnumerable(obj, name) {
@@ -144,9 +155,7 @@ function isEnumerable(obj, name) {
     stringCheck = true;
   }
 
-  return stringCheck &&
-    Object.prototype.hasOwnProperty.call(obj, name) &&
-    Object.prototype.propertyIsEnumerable.call(obj, name);
+  return stringCheck && __hasOwnProperty(obj, name) && __propertyIsEnumerable(obj, name);
 }
 
 function isSameValue(a, b) {
@@ -156,15 +165,18 @@ function isSameValue(a, b) {
   return a === b;
 }
 
-var __isArray = Array.isArray;
 function isWritable(obj, name, verifyProp, value) {
   var unlikelyValue = __isArray(obj) && name === "length" ?
-    Math.pow(2, 32) - 1 :
+    nonIndexNumericPropertyName :
     "unlikelyValue";
   var newValue = value || unlikelyValue;
-  var hadValue = Object.prototype.hasOwnProperty.call(obj, name);
+  var hadValue = __hasOwnProperty(obj, name);
   var oldValue = obj[name];
   var writeSucceeded;
+
+  if (arguments.length < 4 && newValue === oldValue) {
+    newValue = newValue + "2";
+  }
 
   try {
     obj[name] = newValue;
@@ -272,29 +284,7 @@ function verifyNotConfigurable(obj, name) {
 
 /**
  * Use this function to verify the properties of a primordial object.
- * verifyPrimordialProperty accounts for the expected differences in the writable and configurable attributes when running under Hardened JavaScript's lockdown.
  * For non-primordial objects, use verifyProperty.
  * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
  */
-
-function verifyPrimordialProperty(obj, name, desc, options) {
-  assert(
-    arguments.length > 2,
-    'verifyPrimordialProperty should receive at least 3 arguments: obj, name, and descriptor'
-  );
-
-  if (desc && (true === desc.writable) || (true === desc.configurable)) {
-    const LOCKED_DOWN = ($262 && (typeof $262.isLockedDown === "function")) ? $262.isLockedDown() : false;
-    if (LOCKED_DOWN) {
-      var copy = {};
-      var names = Object.getOwnPropertyNames(desc);
-      for (var i = 0; i < names.length; i++) {
-        var name = names[i];
-        copy[name] = ((name === "writable") || (name === "configurable")) ? false : desc[name];
-      }
-      desc = copy;
-    }
-  }
-
-  return verifyProperty(obj, name, desc, options);
-}
+var verifyPrimordialProperty = verifyProperty;
