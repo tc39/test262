@@ -21,3 +21,6 @@ assert.sameValue(
   "[𠮷:0][a:2][𠮷:3][b:5][𠮷:6]",
   "Replace with function"
 );
+
+assert.sameValue(doReplace(/\p{Script=Han}/gu, 'X'), "XaXbX", "Unicode property escapes with u flag");
+assert.sameValue(doReplace(/\p{Script=Han}/gv, 'X'), "XaXbX", "Unicode property escapes with v flag");
