@@ -29,4 +29,4 @@ assert.compareArray(doMatch(/[👨‍👩‍👧‍👦]/u), ["👨"], "Complex 
 
 assert.sameValue(doMatch(/x/u), null, "Non-matching regex with u flag");
 assert.sameValue(doMatch(/x/v), null, "Non-matching regex with v flag");
-reportCompare(0, 0);
+

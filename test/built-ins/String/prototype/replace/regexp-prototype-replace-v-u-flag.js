@@ -24,5 +24,3 @@ assert.sameValue(
 
 assert.sameValue(doReplace(/\p{Script=Han}/gu, 'X'), "XaXbX", "Unicode property escapes with u flag");
 assert.sameValue(doReplace(/\p{Script=Han}/gv, 'X'), "XaXbX", "Unicode property escapes with v flag");
-
-reportCompare(0, 0);

@@ -41,4 +41,3 @@ assert.sameValue(doSearch(/[👨‍👩‍👧‍👦]/u), 9, "Complex emoji seq
 // Non-existent pattern
 assert.sameValue(doSearch(/x/u), -1, "Search for non-existent pattern with u flag");
 assert.sameValue(doSearch(/x/v), -1, "Search for non-existent pattern with v flag");
-reportCompare(0, 0);

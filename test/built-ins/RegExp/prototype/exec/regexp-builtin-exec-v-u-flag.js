@@ -14,6 +14,8 @@ function doExec(regex) {
   return result ? [result[0], result.index] : null;
 }
 
+assert.compareArray(doExec(/𠮷/), ["𠮷", 0], "Basic exec without v flag");
+
 assert.compareArray(doExec(/𠮷/u), ["𠮷", 0], "Exec with u flag");
 assert.compareArray(doExec(/\p{Script=Han}/u), ["𠮷", 0], "Unicode property escapes with u flag");
 assert.compareArray(doExec(/./u), ["𠮷", 0], "Dot with u flag");
@@ -43,5 +45,3 @@ assert.sameValue(resultWithGroupsV.index, 0, "Match index for groups with v flag
 const complexText = 'a\u{20BB7}b\u{10FFFF}c';
 assert.compareArray(/\P{ASCII}/u.exec(complexText), ["\u{20BB7}"], "Non-ASCII with u flag");
 assert.compareArray(/\P{ASCII}/v.exec(complexText), ["\u{20BB7}"], "Non-ASCII with v flag");
-
-reportCompare(0, 0);

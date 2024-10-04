@@ -4,6 +4,7 @@
 esid: sec-regexp.prototype-@@matchall
 description: RegExp.prototype[@@matchAll] behavior with 'u'and 'v' flags.
 features: [Symbol.matchAll, regexp-v-flag, regexp-unicode-property-escapes]
+includes: [compareArray.js]
 ---*/
 
 const text = '𠮷a𠮷b𠮷';
@@ -59,13 +60,13 @@ assert.sameValue(
 
 assert.sameValue(
   doMatchAll(/(?:)/gu).length,
-  6,
+  12,
   "Empty matches with u flag"
 );
 
 assert.sameValue(
   doMatchAll(/(?:)/gv).length,
-  6,
+  12,
   "Empty matches with v flag"
 );
 
@@ -80,4 +81,3 @@ assert.sameValue(
   undefined,
   "Non-ASCII with v flag"
 );
-reportCompare(0, 0);
