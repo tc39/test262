@@ -8,16 +8,12 @@ description: Checking use hasOwnProperty, delete
 ---*/
 
 //CHECK#1
-if (parseFloat.hasOwnProperty('length') !== true) {
-  throw new Test262Error('#1: parseFloat.hasOwnProperty(\'length\') === true. Actual: ' + (parseFloat.hasOwnProperty('length')));
-}
+assert.sameValue(parseFloat.hasOwnProperty('length'), true, '#1: parseFloat.hasOwnProperty(\'length\') === true');
 
 delete parseFloat.length;
 
 //CHECK#2
-if (parseFloat.hasOwnProperty('length') !== false) {
-  throw new Test262Error('#2: delete parseFloat.length; parseFloat.hasOwnProperty(\'length\') === false. Actual: ' + (parseFloat.hasOwnProperty('length')));
-}
+assert.sameValue(parseFloat.hasOwnProperty('length'), false, '#2: delete parseFloat.length; parseFloat.hasOwnProperty(\'length\') === false');
 
 //CHECK#3
 if (parseFloat.length === undefined) {

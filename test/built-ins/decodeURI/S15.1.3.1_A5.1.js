@@ -8,9 +8,7 @@ description: Checking use propertyIsEnumerable, for-in
 ---*/
 
 //CHECK#1
-if (decodeURI.propertyIsEnumerable('length') !== false) {
-  throw new Test262Error('#1: decodeURI.propertyIsEnumerable(\'length\') === false. Actual: ' + (decodeURI.propertyIsEnumerable('length')));
-}
+assert.sameValue(decodeURI.propertyIsEnumerable('length'), false, '#1: decodeURI.propertyIsEnumerable(\'length\') === false');
 
 //CHECK#2
 var result = true;

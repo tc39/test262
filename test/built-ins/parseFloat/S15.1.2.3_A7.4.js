@@ -8,6 +8,4 @@ description: parseFloat.length === 1
 ---*/
 
 //CHECK#1
-if (parseFloat.length !== 1) {
-  throw new Test262Error('#1: parseFloat.length === 1. Actual: ' + (parseFloat.length));
-}
+assert.sameValue(parseFloat.length, 1, '#1: parseFloat.length === 1');

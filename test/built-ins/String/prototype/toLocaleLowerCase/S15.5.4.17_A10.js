@@ -28,8 +28,6 @@ verifyNotWritable(String.prototype.toLocaleLowerCase, "length", null, function()
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.toLocaleLowerCase.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.toLocaleLowerCase.length; String.prototype.toLocaleLowerCase.length = function(){return "shifted";}; String.prototype.toLocaleLowerCase.length === __obj. Actual: ' + String.prototype.toLocaleLowerCase.length);
-}
+assert.sameValue(String.prototype.toLocaleLowerCase.length, __obj, '#2: __obj = String.prototype.toLocaleLowerCase.length; String.prototype.toLocaleLowerCase.length = function(){return "shifted";}; String.prototype.toLocaleLowerCase.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

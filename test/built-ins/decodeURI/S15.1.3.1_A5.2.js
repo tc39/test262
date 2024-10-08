@@ -8,16 +8,12 @@ description: Checking use hasOwnProperty, delete
 ---*/
 
 //CHECK#1
-if (decodeURI.hasOwnProperty('length') !== true) {
-  throw new Test262Error('#1: decodeURI.hasOwnProperty(\'length\') === true. Actual: ' + (decodeURI.hasOwnProperty('length')));
-}
+assert.sameValue(decodeURI.hasOwnProperty('length'), true, '#1: decodeURI.hasOwnProperty(\'length\') === true');
 
 delete decodeURI.length;
 
 //CHECK#2
-if (decodeURI.hasOwnProperty('length') !== false) {
-  throw new Test262Error('#2: delete decodeURI.length; decodeURI.hasOwnProperty(\'length\') === false. Actual: ' + (decodeURI.hasOwnProperty('length')));
-}
+assert.sameValue(decodeURI.hasOwnProperty('length'), false, '#2: delete decodeURI.length; decodeURI.hasOwnProperty(\'length\') === false');
 
 //CHECK#3
 if (decodeURI.length === undefined) {

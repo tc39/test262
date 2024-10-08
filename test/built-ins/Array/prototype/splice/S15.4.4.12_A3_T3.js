@@ -13,18 +13,10 @@ obj[4294967294] = "x";
 obj.length = -1;
 var arr = obj.splice(4294967294, 1);
 
-if (arr.length !== 0) {
-  throw new Test262Error('#1: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = -1; var arr = obj.splice(4294967294,1); arr.length === 0. Actual: ' + (arr.length));
-}
+assert.sameValue(arr.length, 0, '#1: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = -1; var arr = obj.splice(4294967294,1); arr.length === 0');
 
-if (arr[0] !== undefined) {
-  throw new Test262Error('#2: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = 1; var arr = obj.splice(4294967294,1); arr[0] === undefined. Actual: ' + (arr[0]));
-}
+assert.sameValue(arr[0], undefined, '#2: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = 1; var arr = obj.splice(4294967294,1); arr[0] === undefined');
 
-if (obj.length !== 0) {
-  throw new Test262Error('#3: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = 1; var arr = obj.splice(4294967294,1); obj.length === 0. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 0, '#3: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = 1; var arr = obj.splice(4294967294,1); obj.length === 0');
 
-if (obj[4294967294] !== "x") {
-  throw new Test262Error('#4: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = 1; var arr = obj.splice(4294967294,1); obj[4294967294] === "x". Actual: ' + (obj[4294967294]));
-}
+assert.sameValue(obj[4294967294], "x", '#4: var obj = {}; obj.splice = Array.prototype.splice; obj[4294967294] = "x"; obj.length = 1; var arr = obj.splice(4294967294,1); obj[4294967294] === "x"');

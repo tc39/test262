@@ -10,8 +10,6 @@ description: Try read length property of empty string variable
 var __str = "";
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__str.length !== 0) {
-  throw new Test262Error('#1: var __str = ""; __str.length === 0. Actual: ' + (__str));
-}
+assert.sameValue(__str.length, 0, '#1: var __str = ""; __str.length === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

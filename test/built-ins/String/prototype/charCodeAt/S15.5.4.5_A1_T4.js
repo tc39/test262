@@ -10,8 +10,6 @@ description: Call charCodeAt() function without argument of string object
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 //since Number() evaluates to 0 charCodeAt() evaluates to charCodeAt(0)
-if ("smart".charCodeAt() !== 0x73) {
-  throw new Test262Error('#1: "smart".charCodeAt() === 0x73. Actual: "smart".charCodeAt() ===' + ("smart".charCodeAt()));
-}
+assert.sameValue("smart".charCodeAt(), 0x73, '#1: "smart".charCodeAt() === 0x73');
 //
 //////////////////////////////////////////////////////////////////////////////

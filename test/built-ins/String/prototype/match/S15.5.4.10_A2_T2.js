@@ -13,9 +13,7 @@ var __string = "343443444";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__string.match(/34/g).length !== 3) {
-  throw new Test262Error('#1: __string = "343443444"; __string.match(/34/g).length=== 3. Actual: ' + __string.match(/34/g).length);
-}
+assert.sameValue(__string.match(/34/g).length, 3, '#1: __string = "343443444"; __string.match(/34/g).length=== 3');
 //
 //////////////////////////////////////////////////////////////////////////////
 

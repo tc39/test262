@@ -8,14 +8,12 @@ description: Type(x) is boolean primitive or Boolean object
 ---*/
 
 //CHECK#1
-var x = true; 
+var x = true;
 x--;
-if (x !== 0) {
-  throw new Test262Error('#1: var x = true; x--; x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#1: var x = true; x--; x === 0');
 
 //CHECK#2
-var x = new Boolean(false); 
+var x = new Boolean(false);
 x--;
 if (x !== 0 - 1) {
   throw new Test262Error('#2: var x = new Boolean(false); x--; x === 0 - 1. Actual: ' + (x));

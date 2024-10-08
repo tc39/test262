@@ -36,8 +36,6 @@ for (var p in String.prototype.toLocaleLowerCase) {
   if (p === "length") count++;
 }
 
-if (count !== 0) {
-  throw new Test262Error('#2: count=0; for (p in String.prototype.toLocaleLowerCase){if (p==="length") count++;}; count === 0. Actual: ' + count);
-}
+assert.sameValue(count, 0, '#2: count=0; for (p in String.prototype.toLocaleLowerCase){if (p==="length") count++;}; count === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

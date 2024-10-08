@@ -13,9 +13,7 @@ var __str__instance = new String("ABC\u0041\u0042\u0043");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__str__instance.length !== 6) {
-  throw new Test262Error('#1: var __str__instance = new String("ABC\\u0041\\u0042\\u0043"); __str__instance.length === 6, where __str__instance is new String("ABC\\u0041\\u0042\\u0043"). Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 6, '#1: var __str__instance = new String("ABC\\u0041\\u0042\\u0043"); __str__instance.length === 6, where __str__instance is new String("ABC\\u0041\\u0042\\u0043")');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -23,8 +21,6 @@ __str__instance = new String;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str__instance.length !== 0) {
-  throw new Test262Error('#2: __str__instance = new String; __str__instance.length === 0, where __str__instance is new String. Actual: __str__instance.length ===' + __str__instance.length);
-}
+assert.sameValue(__str__instance.length, 0, '#2: __str__instance = new String; __str__instance.length === 0, where __str__instance is new String');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -22,9 +22,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#1.5: __str = new String(1.2345); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#1.5: __str = new String(1.2345); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -47,9 +45,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#3.5: __str = new String(1.234567890); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#3.5: __str = new String(1.234567890); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -72,9 +68,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#5.5: __str = new String(1.234500000000000000000000000); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#5.5: __str = new String(1.234500000000000000000000000); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 

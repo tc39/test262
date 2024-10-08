@@ -11,8 +11,6 @@ Number.prototype.toUpperCase = String.prototype.toUpperCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (NaN.toUpperCase() !== "NAN") {
-  throw new Test262Error('#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; NaN.toUpperCase()=== "NAN". Actual: ' + NaN.toUpperCase());
-}
+assert.sameValue(NaN.toUpperCase(), "NAN", '#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; NaN.toUpperCase()=== "NAN"');
 //
 //////////////////////////////////////////////////////////////////////////////

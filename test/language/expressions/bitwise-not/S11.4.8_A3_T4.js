@@ -13,6 +13,4 @@ if (~void 0 !== -1) {
 }
 
 //CHECK#2
-if (~null !== -1) {
-  throw new Test262Error('#2: ~null === -1. Actual: ' + (~null));
-}
+assert.sameValue(~null, -1, '#2: ~null === -1');
