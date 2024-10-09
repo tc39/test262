@@ -15,6 +15,18 @@ assert.deepEqual = function(actual, expected, message) {
 };
 
 assert.deepEqual.format = (function () {
+  function lazyStringFactory(strings, ...subs) {
+    return function(...mappers) {
+      assert(mappers.length === subs.length, 'mappers must be paired with substitutions');
+      let toString = () => {
+        let mappedSubs = subs.map((sub, i) => mappers[i](sub));
+        return strings.map((str, i) => `${i === 0 ? '' : mappedSubs[i - 1]}${str}`).join('');
+      };
+      return { toString };
+    };
+  }
+  let renderUsage = usage => usage.used ? ` as #${usage.id}` : '';
+
   return function format(value, seen) {
     switch (typeof value) {
       case 'string':
@@ -22,52 +34,57 @@ assert.deepEqual.format = (function () {
       case 'bigint':
         return `${value}n`;
       case 'boolean':
-      case 'symbol':
       case 'undefined':
       case 'number':
         return value === 0 && 1 / value === -Infinity ? '-0' : String(value);
+      case 'symbol':
       case 'function':
-        return `function${value.name ? ` ${String(value.name)}` : ''}`;
       case 'object':
         if (value === null) return 'null';
-        if (value instanceof Date) return `Date("${value.toISOString()}")`;
-        if (value instanceof Error) return `error ${value.name || 'Error'}("${value.message}")`;
-        if (value instanceof RegExp) return value.toString();
-        if (!seen) {
-          seen = {
-            counter: 0,
-            map: new Map()
-          };
-        }
-
-        let usage = seen.map.get(value);
-        if (usage) {
-          usage.used = true;
-          return `ref #${usage.id}`;
-        }
-
-        usage = { id: ++seen.counter, used: false };
-        seen.map.set(value, usage);
-
-        if (typeof Set !== "undefined" && value instanceof Set) {
-          return `Set {${Array.from(value).map(value => assert.deepEqual.format(value, seen)).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
-        }
-        if (typeof Map !== "undefined" && value instanceof Map) {
-          return `Map {${Array.from(value).map(pair => `${assert.deepEqual.format(pair[0], seen)} => ${assert.deepEqual.format(pair[1], seen)}`).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
-        }
-        if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
-          return `[${value.map(value => assert.deepEqual.format(value, seen)).join(', ')}]${usage.used ? ` as #${usage.id}` : ''}`;
-        }
-        let tag = Symbol.toStringTag && Symbol.toStringTag in value
-          ? value[Symbol.toStringTag]
-          : 'Object';
-        if (tag === 'Object' && Object.getPrototypeOf(value) === null) {
-          tag = '[Object: null prototype]';
-        }
-        return `${tag ? `${tag} ` : ''}{${Object.keys(value).map(key => `${key.toString()}: ${assert.deepEqual.format(value[key], seen)}`).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
+        break;
       default:
         return typeof value;
     }
+
+    if (!seen) {
+      seen = {
+        counter: 0,
+        map: new Map()
+      };
+    }
+    let usage = seen.map.get(value);
+    if (usage) {
+      usage.used = true;
+      return `ref #${usage.id}`;
+    }
+    usage = { id: ++seen.counter, used: false };
+    seen.map.set(value, usage);
+
+    if (typeof value === 'function') {
+      return lazyStringFactory`function${value.name ? ` ${String(value.name)}` : ''}${usage}`(String, renderUsage);
+    } else if (typeof value !== 'object') {
+      return lazyStringFactory`${value}${usage}`(String, renderUsage);
+    } else if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
+      return lazyStringFactory`[${value.map(value => assert.deepEqual.format(value, seen))}]${usage}`(arr => arr.join(', '), renderUsage);
+    } else if (value instanceof Date) {
+      return lazyStringFactory`Date(${assert.deepEqual.format(value.toISOString(), seen)})${usage}`(String, renderUsage);
+    } else if (value instanceof Error) {
+      return lazyStringFactory`error ${value.name || 'Error'}(${assert.deepEqual.format(value.message, seen)})${usage}`(String, String, renderUsage);
+    } else if (value instanceof RegExp) {
+      return lazyStringFactory`${value}${usage}`(String, renderUsage);
+    } else if (typeof Map !== "undefined" && value instanceof Map) {
+      return lazyStringFactory`Map {${Array.from(value).map(pair => `${assert.deepEqual.format(pair[0], seen)} => ${assert.deepEqual.format(pair[1], seen)}`)}}${usage}`(arr => arr.join(', '), renderUsage);
+    } else if (typeof Set !== "undefined" && value instanceof Set) {
+      return lazyStringFactory`Set {${Array.from(value).map(value => assert.deepEqual.format(value, seen))}}${usage}`(arr => arr.join(', '), renderUsage);
+    }
+
+    let tag = Symbol.toStringTag && Symbol.toStringTag in value
+      ? value[Symbol.toStringTag]
+      : 'Object';
+    if (tag === 'Object' && Object.getPrototypeOf(value) === null) {
+      tag = '[Object: null prototype]';
+    }
+    return lazyStringFactory`${tag ? `${tag} ` : ''}{${Object.keys(value).map(key => `${key.toString()}: ${assert.deepEqual.format(value[key], seen)}`)}}${usage}`(String, arr => arr.join(', '), renderUsage);
   };
 })();
 
