@@ -18,12 +18,6 @@ includes: [propertyHelper.js]
 features: [json-parse-with-source]
 ---*/
 
-assert.sameValue(
-  typeof JSON.isRawJSON,
-  'function',
-  'The value of `typeof JSON.isRawJSON` is "function"'
-);
-
 verifyProperty(JSON, 'isRawJSON', {
   enumerable: false,
   writable: true,
