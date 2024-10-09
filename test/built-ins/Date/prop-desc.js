@@ -14,5 +14,5 @@ includes: [propertyHelper.js]
 verifyProperty(this, "Date", {
   writable: true,
   enumerable: false,
-  configurable: true
+  configurable: true,
 });
