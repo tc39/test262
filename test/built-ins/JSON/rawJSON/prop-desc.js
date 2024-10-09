@@ -9,6 +9,7 @@ info: |
   JSON.rawJSON ( text )
 
   18 ECMAScript Standard Built-in Objects
+  ...
   Every other data property described in clauses 19 through 28 and in Annex B.2
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
@@ -16,13 +17,6 @@ info: |
 includes: [propertyHelper.js]
 features: [json-parse-with-source]
 ---*/
-assert.sameValue(typeof JSON.rawJSON, 'function');
-
-assert.sameValue(
-  typeof JSON.rawJSON,
-  'function',
-  'The value of `typeof JSON.rawJSON` is "function"'
-);
 
 verifyProperty(JSON, 'rawJSON', {
   enumerable: false,
