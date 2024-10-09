@@ -14,57 +14,59 @@ assert.deepEqual = function(actual, expected, message) {
   );
 };
 
-assert.deepEqual.format = function(value, seen) {
-  switch (typeof value) {
-    case 'string':
-      return typeof JSON !== "undefined" ? JSON.stringify(value) : `"${value}"`;
-    case 'number':
-    case 'boolean':
-    case 'symbol':
-    case 'bigint':
-      return value.toString();
-    case 'undefined':
-      return 'undefined';
-    case 'function':
-      return `[Function${value.name ? `: ${value.name}` : ''}]`;
-    case 'object':
-      if (value === null) return 'null';
-      if (value instanceof Date) return `Date "${value.toISOString()}"`;
-      if (value instanceof RegExp) return value.toString();
-      if (!seen) {
-        seen = {
-          counter: 0,
-          map: new Map()
-        };
-      }
+assert.deepEqual.format = (function () {
+  return function format(value, seen) {
+    switch (typeof value) {
+      case 'string':
+        return typeof JSON !== "undefined" ? JSON.stringify(value) : `"${value}"`;
+      case 'number':
+      case 'boolean':
+      case 'symbol':
+      case 'bigint':
+        return value.toString();
+      case 'undefined':
+        return 'undefined';
+      case 'function':
+        return `[Function${value.name ? `: ${value.name}` : ''}]`;
+      case 'object':
+        if (value === null) return 'null';
+        if (value instanceof Date) return `Date "${value.toISOString()}"`;
+        if (value instanceof RegExp) return value.toString();
+        if (!seen) {
+          seen = {
+            counter: 0,
+            map: new Map()
+          };
+        }
 
-      let usage = seen.map.get(value);
-      if (usage) {
-        usage.used = true;
-        return `[Ref: #${usage.id}]`;
-      }
+        let usage = seen.map.get(value);
+        if (usage) {
+          usage.used = true;
+          return `[Ref: #${usage.id}]`;
+        }
 
-      usage = { id: ++seen.counter, used: false };
-      seen.map.set(value, usage);
+        usage = { id: ++seen.counter, used: false };
+        seen.map.set(value, usage);
 
-      if (typeof Set !== "undefined" && value instanceof Set) {
-        return `Set {${Array.from(value).map(value => assert.deepEqual.format(value, seen)).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
-      }
-      if (typeof Map !== "undefined" && value instanceof Map) {
-        return `Map {${Array.from(value).map(pair => `${assert.deepEqual.format(pair[0], seen)} => ${assert.deepEqual.format(pair[1], seen)}}`).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
-      }
-      if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
-        return `[${value.map(value => assert.deepEqual.format(value, seen)).join(', ')}]${usage.used ? ` as #${usage.id}` : ''}`;
-      }
-      let tag = Symbol.toStringTag in value ? value[Symbol.toStringTag] : 'Object';
-      if (tag === 'Object' && Object.getPrototypeOf(value) === null) {
-        tag = '[Object: null prototype]';
-      }
-      return `${tag ? `${tag} ` : ''}{ ${Object.keys(value).map(key => `${key.toString()}: ${assert.deepEqual.format(value[key], seen)}`).join(', ')} }${usage.used ? ` as #${usage.id}` : ''}`;
-    default:
-      return typeof value;
-  }
-};
+        if (typeof Set !== "undefined" && value instanceof Set) {
+          return `Set {${Array.from(value).map(value => assert.deepEqual.format(value, seen)).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
+        }
+        if (typeof Map !== "undefined" && value instanceof Map) {
+          return `Map {${Array.from(value).map(pair => `${assert.deepEqual.format(pair[0], seen)} => ${assert.deepEqual.format(pair[1], seen)}}`).join(', ')}}${usage.used ? ` as #${usage.id}` : ''}`;
+        }
+        if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
+          return `[${value.map(value => assert.deepEqual.format(value, seen)).join(', ')}]${usage.used ? ` as #${usage.id}` : ''}`;
+        }
+        let tag = Symbol.toStringTag in value ? value[Symbol.toStringTag] : 'Object';
+        if (tag === 'Object' && Object.getPrototypeOf(value) === null) {
+          tag = '[Object: null prototype]';
+        }
+        return `${tag ? `${tag} ` : ''}{ ${Object.keys(value).map(key => `${key.toString()}: ${assert.deepEqual.format(value[key], seen)}`).join(', ')} }${usage.used ? ` as #${usage.id}` : ''}`;
+      default:
+        return typeof value;
+    }
+  };
+})();
 
 assert.deepEqual._compare = (function () {
   var EQUAL = 1;
