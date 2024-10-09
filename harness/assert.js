@@ -101,18 +101,30 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
-assert._toString = function (value) {
-  try {
-    if (value === 0 && 1 / value === -Infinity) {
-      return '-0';
-    }
+assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
+  switch (typeof value) {
+    case 'string':
+      return typeof JSON !== "undefined" ? JSON.stringify(value) : `"${value}"`;
+    case 'bigint':
+      return `${value}n`;
+    case 'boolean':
+    case 'undefined':
+    case 'number':
+      return value === 0 && 1 / value === -Infinity ? '-0' : String(value);
+    default:
+      if (value === null) return 'null';
+  }
+};
 
+assert._toString = function (value) {
+  var basic = assert._formatIdentityFreeValue(value);
+  if (basic) return basic;
+  try {
     return String(value);
   } catch (err) {
     if (err.name === 'TypeError') {
       return Object.prototype.toString.call(value);
     }
-
     throw err;
   }
 };
