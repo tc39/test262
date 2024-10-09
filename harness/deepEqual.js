@@ -28,15 +28,15 @@ assert.deepEqual.format = (function () {
   let renderUsage = usage => usage.used ? ` as #${usage.id}` : '';
 
   return function format(value, seen) {
+    let basic = assert._formatIdentityFreeValue(value);
+    if (basic) return basic;
     switch (typeof value) {
       case 'string':
-        return typeof JSON !== "undefined" ? JSON.stringify(value) : `"${value}"`;
       case 'bigint':
-        return `${value}n`;
       case 'boolean':
       case 'undefined':
       case 'number':
-        return value === 0 && 1 / value === -Infinity ? '-0' : String(value);
+        assert(false, 'values without identity should use basic formatting');
       case 'symbol':
       case 'function':
       case 'object':
