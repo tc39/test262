@@ -209,7 +209,7 @@ assert.deepEqual._compare = (function () {
   }
 
   function isObjectEquatable(value) {
-    return typeof value === 'object';
+    return typeof value === 'object' || typeof value === 'function';
   }
 
   function compareObjectEquality(a, b, cache) {
