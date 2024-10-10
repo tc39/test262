@@ -85,6 +85,8 @@ assert.deepEqual.format = function(value, seen) {
     return acceptMappers;
   }
 
+  let format = assert.deepEqual.format;
+
   if (typeof value === 'function') {
     return lazyOutput`function${value.name ? ` ${String(value.name)}` : ''}`;
   }
@@ -92,31 +94,31 @@ assert.deepEqual.format = function(value, seen) {
     return lazyOutput`${value}`;
   }
   if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
-    return lazyOutput`[${value.map(value => assert.deepEqual.format(value, seen))}]`(join);
+    return lazyOutput`[${value.map(value => format(value, seen))}]`(join);
   }
   if (value instanceof Date) {
-    return lazyOutput`Date(${assert.deepEqual.format(value.toISOString(), seen)})`;
+    return lazyOutput`Date(${format(value.toISOString(), seen)})`;
   }
   if (value instanceof Error) {
-    return lazyOutput`error ${value.name || 'Error'}(${assert.deepEqual.format(value.message, seen)})`;
+    return lazyOutput`error ${value.name || 'Error'}(${format(value.message, seen)})`;
   }
   if (value instanceof RegExp) {
     return lazyOutput`${value}`;
   }
   if (typeof Map !== "undefined" && value instanceof Map) {
-    return lazyOutput`Map {${Array.from(value).map(pair => `${assert.deepEqual.format(pair[0], seen)} => ${assert.deepEqual.format(pair[1], seen)}`)}}`(join);
+    let contents = Array.from(value).map(pair => `${format(pair[0], seen)} => ${format(pair[1], seen)}`);
+    return lazyOutput`Map {${contents}}`(join);
   }
   if (typeof Set !== "undefined" && value instanceof Set) {
-    return lazyOutput`Set {${Array.from(value).map(value => assert.deepEqual.format(value, seen))}}`(join);
+    let contents = Array.from(value).map(value => format(value, seen));
+    return lazyOutput`Set {${contents}}`(join);
   }
 
   let tag = Symbol.toStringTag && Symbol.toStringTag in value
     ? value[Symbol.toStringTag]
-    : 'Object';
-  if (tag === 'Object' && Object.getPrototypeOf(value) === null) {
-    tag = '[Object: null prototype]';
-  }
-  return lazyOutput`${tag ? `${tag} ` : ''}{${Object.keys(value).map(key => `${key.toString()}: ${assert.deepEqual.format(value[key], seen)}`)}}`(String, join);
+    : Object.getPrototypeOf(value) === null ? '[Object: null prototype]' : 'Object';
+  let contents = Object.keys(value).map(key => `${String(key)}: ${format(value[key], seen)}`);
+  return lazyOutput`${tag ? `${tag} ` : ''}{${contents}}`(String, join);
 };
 
 assert.deepEqual._compare = (function () {
