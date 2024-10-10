@@ -102,17 +102,18 @@ assert.throws = function (expectedErrorConstructor, func, message) {
 };
 
 assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
-  switch (typeof value) {
+  switch (value === null ? 'null' : typeof value) {
     case 'string':
       return typeof JSON !== "undefined" ? JSON.stringify(value) : `"${value}"`;
     case 'bigint':
       return `${value}n`;
+    case 'number':
+      if (value === 0 && 1 / value === -Infinity) return '-0';
+      // falls through
     case 'boolean':
     case 'undefined':
-    case 'number':
-      return value === 0 && 1 / value === -Infinity ? '-0' : String(value);
-    default:
-      if (value === null) return 'null';
+    case 'null':
+      return String(value);
   }
 };
 
