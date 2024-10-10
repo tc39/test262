@@ -30,17 +30,18 @@ assert.deepEqual.format = (function () {
   return function format(value, seen) {
     let basic = assert._formatIdentityFreeValue(value);
     if (basic) return basic;
-    switch (typeof value) {
+    switch (value === null ? 'null' : typeof value) {
       case 'string':
       case 'bigint':
+      case 'number':
       case 'boolean':
       case 'undefined':
-      case 'number':
+      case 'null':
         assert(false, 'values without identity should use basic formatting');
+        break;
       case 'symbol':
       case 'function':
       case 'object':
-        if (value === null) return 'null';
         break;
       default:
         return typeof value;
