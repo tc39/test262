@@ -14,6 +14,7 @@ assert.deepEqual = function(actual, expected, message) {
   );
 };
 
+let getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 let join = arr => arr.join(', ');
 function stringFromTemplate(strings, ...subs) {
   let parts = strings.map((str, i) => `${i === 0 ? '' : subs[i - 1]}${str}`);
@@ -121,7 +122,8 @@ assert.deepEqual.format = function(value, seen) {
   let tag = Symbol.toStringTag && Symbol.toStringTag in value
     ? value[Symbol.toStringTag]
     : Object.getPrototypeOf(value) === null ? '[Object: null prototype]' : 'Object';
-  let contents = Object.keys(value).map(key => lazyString`${String(key)}: ${format(value[key], seen)}`);
+  let keys = Reflect.ownKeys(value).filter(key => getOwnPropertyDescriptor(value, key).enumerable);
+  let contents = keys.map(key => lazyString`${String(key)}: ${format(value[key], seen)}`);
   return lazyResult`${tag ? `${tag} ` : ''}{${contents}}`(String, join);
 };
 
