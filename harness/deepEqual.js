@@ -15,6 +15,10 @@ assert.deepEqual = function(actual, expected, message) {
 };
 
 let join = arr => arr.join(', ');
+function stringFromTemplate(strings, ...subs) {
+  let parts = strings.map((str, i) => `${i === 0 ? '' : subs[i - 1]}${str}`);
+  return parts.join('');
+}
 
 assert.deepEqual.format = function(value, seen) {
   let basic = assert._formatIdentityFreeValue(value);
@@ -65,15 +69,11 @@ assert.deepEqual.format = function(value, seen) {
   // For convenience, any absent mapper is presumed to be `String`, and the
   // function itself has a toString method that self-invokes with no mappers
   // (allowing returning the function directly when every mapper is `String`).
-  function lazyOutput(strings, ...subs) {
+  function lazyResult(strings, ...subs) {
     function acceptMappers(...mappers) {
       function toString() {
         let renderings = subs.map((sub, i) => (mappers[i] || String)(sub));
-        let parts = strings.map((str, i) => {
-          if (i === 0) return `${str}`;
-          return `${renderings[i - 1]}${str}`;
-        });
-        let rendered = parts.join('');
+        let rendered = stringFromTemplate(strings, ...renderings);
         if (usage.used) rendered += ` as #${usage.id}`;
         return rendered;
       }
@@ -86,39 +86,43 @@ assert.deepEqual.format = function(value, seen) {
   }
 
   let format = assert.deepEqual.format;
+  function lazyString(strings, ...subs) {
+    return { toString: () => stringFromTemplate(strings, ...subs) };
+  }
 
   if (typeof value === 'function') {
-    return lazyOutput`function${value.name ? ` ${String(value.name)}` : ''}`;
+    return lazyResult`function${value.name ? ` ${String(value.name)}` : ''}`;
   }
   if (typeof value !== 'object') {
-    return lazyOutput`${value}`;
+    // probably a symbol
+    return lazyResult`${value}`;
   }
   if (Array.isArray ? Array.isArray(value) : value instanceof Array) {
-    return lazyOutput`[${value.map(value => format(value, seen))}]`(join);
+    return lazyResult`[${value.map(value => format(value, seen))}]`(join);
   }
   if (value instanceof Date) {
-    return lazyOutput`Date(${format(value.toISOString(), seen)})`;
+    return lazyResult`Date(${format(value.toISOString(), seen)})`;
   }
   if (value instanceof Error) {
-    return lazyOutput`error ${value.name || 'Error'}(${format(value.message, seen)})`;
+    return lazyResult`error ${value.name || 'Error'}(${format(value.message, seen)})`;
   }
   if (value instanceof RegExp) {
-    return lazyOutput`${value}`;
+    return lazyResult`${value}`;
   }
   if (typeof Map !== "undefined" && value instanceof Map) {
-    let contents = Array.from(value).map(pair => `${format(pair[0], seen)} => ${format(pair[1], seen)}`);
-    return lazyOutput`Map {${contents}}`(join);
+    let contents = Array.from(value).map(pair => lazyString`${format(pair[0], seen)} => ${format(pair[1], seen)}`);
+    return lazyResult`Map {${contents}}`(join);
   }
   if (typeof Set !== "undefined" && value instanceof Set) {
     let contents = Array.from(value).map(value => format(value, seen));
-    return lazyOutput`Set {${contents}}`(join);
+    return lazyResult`Set {${contents}}`(join);
   }
 
   let tag = Symbol.toStringTag && Symbol.toStringTag in value
     ? value[Symbol.toStringTag]
     : Object.getPrototypeOf(value) === null ? '[Object: null prototype]' : 'Object';
-  let contents = Object.keys(value).map(key => `${String(key)}: ${format(value[key], seen)}`);
-  return lazyOutput`${tag ? `${tag} ` : ''}{${contents}}`(String, join);
+  let contents = Object.keys(value).map(key => lazyString`${String(key)}: ${format(value[key], seen)}`);
+  return lazyResult`${tag ? `${tag} ` : ''}{${contents}}`(String, join);
 };
 
 assert.deepEqual._compare = (function () {
