@@ -1,5 +1,9 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+Copyright (C) 2021 the V8 project authors. All rights reserved.
+This code is governed by the BSD license found in the LICENSE file.
+
+## main.js
+
+```js
 /*---
 esid: sec-parse-json-module
 description: Does not define
@@ -21,3 +25,12 @@ negative:
 $DONOTEVALUATE();
 
 import value from './json-invalid_FIXTURE.json' with { type: 'json' };
+```
+
+## json-invalid_FIXTURE.json
+
+```json
+{
+  notJson: 0
+}
+```
