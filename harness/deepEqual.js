@@ -20,6 +20,11 @@ function stringFromTemplate(strings, ...subs) {
   let parts = strings.map((str, i) => `${i === 0 ? '' : subs[i - 1]}${str}`);
   return parts.join('');
 }
+function escapeKey(key) {
+  if (typeof key === 'symbol') return `[${String(key)}]`;
+  if (/^[a-zA-Z0-9_$]+$/.test(key)) return key;
+  return assert._formatIdentityFreeValue(key);
+}
 
 assert.deepEqual.format = function(value, seen) {
   let basic = assert._formatIdentityFreeValue(value);
@@ -123,7 +128,7 @@ assert.deepEqual.format = function(value, seen) {
     ? value[Symbol.toStringTag]
     : Object.getPrototypeOf(value) === null ? '[Object: null prototype]' : 'Object';
   let keys = Reflect.ownKeys(value).filter(key => getOwnPropertyDescriptor(value, key).enumerable);
-  let contents = keys.map(key => lazyString`${String(key)}: ${format(value[key], seen)}`);
+  let contents = keys.map(key => lazyString`${escapeKey(key)}: ${format(value[key], seen)}`);
   return lazyResult`${tag ? `${tag} ` : ''}{${contents}}`(String, join);
 };
 
