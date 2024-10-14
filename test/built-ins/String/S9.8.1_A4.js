@@ -8,21 +8,13 @@ description: +/-Infinity convert to String by explicit transformation
 ---*/
 
 // CHECK#1
-if (String(Infinity) !== "Infinity") {
-  throw new Test262Error('#1: String(Infinity) === "Infinity". Actual: ' + (String(Infinity)));
-}
+assert.sameValue(String(Infinity), "Infinity", '#1: String(Infinity) === "Infinity"');
 
 // CHECK#2
-if (String(Number.POSITIVE_INFINITY) !== "Infinity") {
-  throw new Test262Error('#2: String(Number.POSITIVE_INFINITY) === "Infinity". Actual: ' + (String(Number.POSITIVE_INFINITY)));
-}
+assert.sameValue(String(Number.POSITIVE_INFINITY), "Infinity", '#2: String(Number.POSITIVE_INFINITY) === "Infinity"');
 
 // CHECK#3
-if (String(-Infinity) !== "-Infinity") {
-  throw new Test262Error('#3: String(-Infinity) === "-Infinity". Actual: ' + (String(-Infinity)));
-}
+assert.sameValue(String(-Infinity), "-Infinity", '#3: String(-Infinity) === "-Infinity"');
 
 // CHECK#4
-if (String(Number.NEGATIVE_INFINITY) !== "-Infinity") {
-  throw new Test262Error('#4: String(Number.NEGATIVE_INFINITY) === "-Infinity". Actual: ' + (String(Number.NEGATIVE_INFINITY)));
-}
+assert.sameValue(String(Number.NEGATIVE_INFINITY), "-Infinity", '#4: String(Number.NEGATIVE_INFINITY) === "-Infinity"');

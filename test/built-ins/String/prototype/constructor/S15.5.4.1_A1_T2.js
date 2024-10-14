@@ -23,9 +23,7 @@ if (__instance != "choosing one") {
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#1
-if (__instance.constructor !== String) {
-  throw new Test262Error('#1: __constr = String.prototype.constructor; __instance = new __constr("choosing one"); __instance.constructor === String. Actual: __instance.constructor ===' + __instance.constructor);
-}
+assert.sameValue(__instance.constructor, String, '#1: __constr = String.prototype.constructor; __instance = new __constr("choosing one"); __instance.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -43,8 +41,6 @@ var __to_string_result = '[object ' + 'String' + ']';
 
 delete String.prototype.toString;
 
-if (__instance.toString() !== __to_string_result) {
-  throw new Test262Error('#3: __constr = String.prototype.constructor; __instance = new __constr("choosing one"); delete String.prototype.toString; __instance.toString() === __to_string_result. Actual: __instance.toString() ===' + __instance.toString() + ' __to_string_result ===' + __to_string_result);
-}
+assert.sameValue(__instance.toString(), __to_string_result, '#3: __constr = String.prototype.constructor; __instance = new __constr("choosing one"); delete String.prototype.toString; __instance.toString() === __to_string_result');
 //
 //////////////////////////////////////////////////////////////////////////////

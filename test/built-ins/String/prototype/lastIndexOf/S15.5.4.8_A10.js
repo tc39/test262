@@ -28,8 +28,6 @@ verifyNotWritable(String.prototype.lastIndexOf, "length", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.lastIndexOf.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.length = function(){return "shifted";}; String.prototype.lastIndexOf.length === __obj. Actual: ' + String.prototype.lastIndexOf.length);
-}
+assert.sameValue(String.prototype.lastIndexOf.length, __obj, '#2: __obj = String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.length = function(){return "shifted";}; String.prototype.lastIndexOf.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////
