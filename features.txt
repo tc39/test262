@@ -23,14 +23,6 @@ Intl.NumberFormat-v3
 # https://github.com/tc39/proposal-regexp-legacy-features
 legacy-regexp
 
-# Import Attributes
-# https://github.com/tc39/proposal-import-attributes/
-import-attributes
-
-# JSON modules
-# https://github.com/tc39/proposal-json-modules
-json-modules
-
 # Temporal
 # https://github.com/tc39/proposal-temporal
 Temporal
@@ -61,18 +53,6 @@ json-parse-with-source
 # RegExp.escape
 # https://github.com/tc39/proposal-regex-escaping
 RegExp.escape
-
-# Regular expression modifiers
-# https://github.com/tc39/proposal-regexp-modifiers
-regexp-modifiers
-
-# Iterator Helpers
-# https://github.com/tc39/proposal-iterator-helpers
-iterator-helpers
-
-# Promise.try
-# https://github.com/tc39/proposal-promise-try
-promise-try
 
 # Explicit Resource Management
 # https://github.com/tc39/proposal-explicit-resource-management
@@ -164,7 +144,9 @@ Float64Array
 generators
 globalThis
 hashbang
+import-attributes
 import.meta
+iterator-helpers
 Int8Array
 Int16Array
 Int32Array
@@ -182,6 +164,7 @@ Intl.Locale
 Intl.NumberFormat-unified
 Intl.RelativeTimeFormat
 Intl.Segmenter
+json-modules
 json-superset
 let
 logical-assignment-operators
@@ -200,6 +183,7 @@ Promise.allSettled
 Promise.any
 Promise.prototype.finally
 promise-with-resolvers
+promise-try
 Proxy
 proxy-missing-checks  # https://github.com/tc39/ecma262/pull/666
 Reflect
@@ -209,6 +193,7 @@ Reflect.setPrototypeOf
 regexp-dotall
 regexp-lookbehind
 regexp-match-indices
+regexp-modifiers
 regexp-named-groups
 regexp-unicode-property-escapes
 regexp-v-flag
