@@ -73,6 +73,8 @@ assert.sameValue(
   desc.value, 43,
   'sets a data descriptor on the receiver object to set a new property'
 );
-verifyWritable(receiver, 'p');
-verifyEnumerable(receiver, 'p');
-verifyConfigurable(receiver, 'p');
+verifyProperty(receiver, 'p', {
+  writable: true,
+  enumerable: true,
+  configurable: true,
+});
