@@ -31,6 +31,6 @@ verifyProperty(unscopables, "findLast", {
 assert.sameValue(unscopables.findLastIndex, true, '`findLastIndex` property value');
 verifyProperty(unscopables, "findLastIndex", {
   writable: true,
-  enumerable: false,
+  enumerable: true,
   configurable: true
 });
