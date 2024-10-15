@@ -42,6 +42,7 @@ def target(*deps):
 def build():
     shell(sys.executable, 'tools/generation/generator.py',
           'create',
+          '--parents',
           '--out', OUT_DIR,
           SRC_DIR)
 
