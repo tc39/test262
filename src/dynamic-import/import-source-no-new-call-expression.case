@@ -1,0 +1,18 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is a CallExpression, it can't be preceded by the new keyword
+template: syntax/invalid
+info: |
+  CallExpression:
+    ImportCall
+
+  ImportCall :
+      import . source ( AssignmentExpression[+In, ?Yield, ?Await] )
+
+features: [source-phase-imports, source-phase-imports-module-source]
+---*/
+
+//- import
+new import.source('<module source>')
