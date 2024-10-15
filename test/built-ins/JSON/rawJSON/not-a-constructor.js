@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [json-parse-with-source]
+features: [json-parse-with-source, Reflect.construct]
 ---*/
 
 assert.sameValue(isConstructor(JSON.rawJSON), false, 'isConstructor(JSON.rawJSON) must return false');
