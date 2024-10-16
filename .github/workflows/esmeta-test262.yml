@@ -16,6 +16,8 @@ jobs:
           java-version: 17
       - name: Setup SBT
         uses: sbt/setup-sbt@v1
+        if: ${{ hashFiles('/usr/bin/sbt') == '' }}
+        # https://www.peterbe.com/plog/how-to-run-workflow-step-if-a-file-exists
       - name: Add to PATH
         shell: bash
         run: |
