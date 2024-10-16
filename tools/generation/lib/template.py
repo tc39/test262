@@ -182,7 +182,9 @@ class Template:
         flags += case_values['meta'].get('flags', [])
         flags += self.attribs['meta'].get('flags', [])
         flags = without_duplicates(flags)
-        if 'async' in flags and negative and negative.get('phase') == 'parse' and negative.get('type') == 'SyntaxError':
+        if (negative and negative.get('phase') == 'parse'
+                and negative.get('type') == 'SyntaxError'
+                and 'async' in flags):
             flags.remove('async')
         lines += ['flags: ' + yaml.dump(flags, default_flow_style=True,
                   width=float('inf')).strip()]
