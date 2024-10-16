@@ -49,6 +49,11 @@ def indent(text, prefix = '    ', js_value = False):
 
     return '\n'.join(indented)
 
+
+def without_duplicates(iterable):
+    return list(OrderedDict.fromkeys(iterable))
+
+
 class Template:
     def __init__(self, filename, encoding):
         self.filename = filename
@@ -160,7 +165,7 @@ class Template:
         features = []
         features += case_values['meta'].get('features', [])
         features += self.attribs['meta'].get('features', [])
-        features = list(OrderedDict.fromkeys(features))
+        features = without_duplicates(features)
         if len(features):
             lines += ['features: ' + yaml.dump(features,
                       default_flow_style=True, width=float('inf')).strip()]
@@ -176,7 +181,7 @@ class Template:
         flags = ['generated']
         flags += case_values['meta'].get('flags', [])
         flags += self.attribs['meta'].get('flags', [])
-        flags = list(OrderedDict.fromkeys(flags))
+        flags = without_duplicates(flags)
         if 'async' in flags and negative and negative.get('phase') == 'parse' and negative.get('type') == 'SyntaxError':
             flags.remove('async')
         lines += ['flags: ' + yaml.dump(flags, default_flow_style=True,
@@ -185,7 +190,7 @@ class Template:
         includes = []
         includes += case_values['meta'].get('includes', [])
         includes += self.attribs['meta'].get('includes', [])
-        includes = list(OrderedDict.fromkeys(includes))
+        includes = without_duplicates(includes)
         if len(includes):
             lines += ['includes: ' + yaml.dump(includes,
                       default_flow_style=True, width=float('inf')).strip()]
