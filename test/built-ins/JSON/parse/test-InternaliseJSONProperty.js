@@ -1,7 +1,10 @@
 // Copyright (C) 2023 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-description: V8 mjsunit test for JSON.parse with source snapshotting
+esid: sec-internalizejsonproperty
+description: Codepaths involving InternaliseJSONProperty behave as expected
+
 includes: [deepEqual.js]
 features: [json-parse-with-source]
 ---*/
@@ -11,7 +14,8 @@ const replacements = [42,
                       {foo:'bar'},
                       'foo'];
 
-function TestArrayForwardModify(replacement) {
+// Test Array forward modify
+for (const replacement of replacements) {
   let alreadyReplaced = false;
   let expectedKeys = ['0','1',''];
   // lol who designed reviver semantics
@@ -34,7 +38,8 @@ function TestArrayForwardModify(replacement) {
   assert.deepEqual([1, replacement], o);
 }
 
-function TestObjectForwardModify(replacement) {
+// Test Object forward modify
+for (const replacement of replacements) {
   let alreadyReplaced = false;
   let expectedKeys = ['p','q',''];
   if (typeof replacement === 'object') {
@@ -56,12 +61,9 @@ function TestObjectForwardModify(replacement) {
   assert.deepEqual({p:1, q:replacement}, o);
 }
 
-for (const r of replacements) {
-  TestArrayForwardModify(r);
-  TestObjectForwardModify(r);
-}
 
-(function TestArrayAppend() {
+// Test Array append
+{
   let log = [];
   const o = JSON.parse('[1,[]]', function (k, v, { source }) {
     log.push([k, v, source]);
@@ -71,24 +73,25 @@ for (const r of replacements) {
     return this[k];
   });
   assert.deepEqual([['0', 1, '1'],
-                ['0', 'barf', undefined],
-                ['1', ['barf'], undefined],
-                ['', [1, ['barf']], undefined]],
-               log);
-})();
+                    ['0', 'barf', undefined],
+                    ['1', ['barf'], undefined],
+                    ['', [1, ['barf']], undefined]],
+                   log);
+}
 
-(function TestObjectAddProperty() {
+// Test Object add property
+{
   let log = [];
   const o = JSON.parse('{"p":1,"q":{}}', function (k, v, { source }) {
     log.push([k, v, source]);
     if (v === 1) {
       this.q.added = 'barf';
     }
-    return this[k];
+  return this[k];
   });
   assert.deepEqual([['p', 1, '1'],
-                ['added', 'barf', undefined],
-                ['q', {added:'barf'}, undefined],
-                ['', {p:1, q:{added:'barf'}}, undefined]],
-               log);
-})();
+                    ['added', 'barf', undefined],
+                    ['q', {added:'barf'}, undefined],
+                    ['', {p:1, q:{added:'barf'}}, undefined]],
+                   log);
+}
