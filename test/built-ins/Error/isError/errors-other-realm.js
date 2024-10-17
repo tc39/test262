@@ -5,7 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns true on Error and Error subclass instances from a different realm
-features: [cross-realm]
+features: [Error.isError, cross-realm]
 ---*/
 
 var other = $262.createRealm().global;

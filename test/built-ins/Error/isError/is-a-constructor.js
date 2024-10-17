@@ -16,7 +16,7 @@ info: |
   If argument has a [[Construct]] internal method, return true.
   Return false.
 includes: [isConstructor.js]
-features: [Reflect.construct]
+features: [Error.isError, Reflect.construct]
 ---*/
 
 assert.sameValue(isConstructor(Error.isError), false, 'isConstructor(Error.isError) must return false');

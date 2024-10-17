@@ -9,6 +9,7 @@ info: |
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
+features: [Error.isError]
 ---*/
 
 verifyProperty(Error, "isError", {

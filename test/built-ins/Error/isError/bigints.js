@@ -5,7 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns false on bigints
-features: [BigInt]
+features: [Error.isError, BigInt]
 ---*/
 
 assert.sameValue(Error.isError(0n), false);

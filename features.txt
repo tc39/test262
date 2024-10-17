@@ -80,6 +80,10 @@ uint8array-base64
 # https://github.com/tc39/proposal-atomics-microwait
 Atomics.pause
 
+# Error.isError
+# https://github.com/tc39/proposal-is-error
+Error.isError
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
