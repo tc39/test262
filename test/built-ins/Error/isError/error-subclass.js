@@ -5,7 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns true on userland Error subclasses
-features: [class]
+features: [Error.isError, class]
 ---*/
 
 class MyError extends Error {}

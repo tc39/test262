@@ -5,6 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns false on non-Error objects pretending to be an Error
+features: [Error.isError]
 ---*/
 
 var fakeError = {

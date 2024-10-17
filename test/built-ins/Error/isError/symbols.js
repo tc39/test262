@@ -5,7 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns false on symbols
-features: [Symbol]
+features: [Error.isError, Symbol]
 ---*/
 
 assert.sameValue(Error.isError(new Symbol()), false);

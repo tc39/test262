@@ -5,6 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns true on Error and Error subclass instances
+features: [Error.isError]
 ---*/
 
 assert.sameValue(Error.isError(new Error()), true);

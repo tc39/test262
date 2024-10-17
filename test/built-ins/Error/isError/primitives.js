@@ -5,6 +5,7 @@
 esid: sec-error.iserror
 description: >
   Returns false on primitives
+features: [Error.isError]
 ---*/
 
 assert.sameValue(Error.isError(), false);
