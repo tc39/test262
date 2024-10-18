@@ -1,5 +1,9 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+Copyright (C) 2021 the V8 project authors. All rights reserved.
+This code is governed by the BSD license found in the LICENSE file.
+
+## main.js
+
+```js
 /*---
 esid: sec-parse-json-module
 description: Correctly parses the JSON representation of an ordinary object
@@ -65,3 +69,17 @@ assert.sameValue(
   'the value of the "array" property is not a subclass of Array'
 );
 assert.sameValue(Object.getOwnPropertyNames(value.array).length, 1);
+```
+
+## json-value-object_FIXTURE.json
+
+```json
+{
+  "number": -1234.500e-003,
+  "boolean": true,
+  "string": "a string value",
+  "null": null,
+  "object": {},
+  "array": []
+}
+```
