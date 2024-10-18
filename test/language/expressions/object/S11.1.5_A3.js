@@ -12,14 +12,10 @@ description: >
 var object = {0 : 1, "1" : "x", o : {}};
 
 //CHECK#1
-if (object[0] !== 1) {
-  throw new Test262Error('#1: var object = {0 : 1; "1" : "x"; o : {}}; object[0] === 1. Actual: ' + (object[0]));
-}
+assert.sameValue(object[0], 1, '#1: var object = {0 : 1; "1" : "x"; o : {}}; object[0] === 1');
 
 //CHECK#2
-if (object["1"] !== "x") {
-  throw new Test262Error('#2: var object = {0 : 1; "1" : "x"; o : {}}; object["1"] === "x". Actual: ' + (object["1"]));
-}
+assert.sameValue(object["1"], "x", '#2: var object = {0 : 1; "1" : "x"; o : {}}; object["1"] === "x"');
 
 //CHECK#3
 if (typeof object.o !== "object") {

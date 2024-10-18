@@ -21,16 +21,12 @@ __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__obj.toLocaleLowerCase() !== "1") {
-  throw new Test262Error('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase() ==="1". Actual: ' + __obj.toLocaleLowerCase());
-}
+assert.sameValue(__obj.toLocaleLowerCase(), "1", '#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase() ==="1"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__obj.toLocaleLowerCase().length !== 1) {
-  throw new Test262Error('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase().length === 1. Actual: ' + __obj.toLocaleLowerCase().length);
-}
+assert.sameValue(__obj.toLocaleLowerCase().length, 1, '#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase; __obj.toLocaleLowerCase().length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

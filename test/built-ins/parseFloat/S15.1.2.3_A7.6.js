@@ -8,6 +8,4 @@ description: Checking parseFloat.prototype
 ---*/
 
 //CHECK#1
-if (parseFloat.prototype !== undefined) {
-  throw new Test262Error('#1: parseFloat.prototype === undefined. Actual: ' + (parseFloat.prototype));
-}
+assert.sameValue(parseFloat.prototype, undefined, '#1: parseFloat.prototype === undefined');
