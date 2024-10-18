@@ -84,6 +84,10 @@ Atomics.pause
 # https://github.com/tc39/proposal-is-error
 Error.isError
 
+# AsyncContext
+# https://github.com/tc39/proposal-async-context
+AsyncContext
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
