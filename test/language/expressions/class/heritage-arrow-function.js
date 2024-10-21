@@ -4,7 +4,7 @@
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
 description: >
-  Throw a TypeError exception if IsConstructor(superclass) is false (async arrow)
+  Throw a TypeError exception if IsConstructor(superclass) is false (arrow)
 info: |
   Runtime Semantics: ClassDefinitionEvaluation
 
