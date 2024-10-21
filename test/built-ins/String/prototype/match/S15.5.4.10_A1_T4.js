@@ -13,25 +13,19 @@ var __expected = RegExp().exec("");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__matched.length !== __expected.length) {
-  throw new Test262Error('#1: __matched = "".match(); __expected = RegExp().exec(""); __matched.length === __expected.length. Actual: ' + __matched.length);
-}
+assert.sameValue(__matched.length, __expected.length, '#1: __matched = "".match(); __expected = RegExp().exec(""); __matched.length === __expected.length');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__matched.index !== __expected.index) {
-  throw new Test262Error('#2: __matched = "".match(); __expected = RegExp().exec(""); __matched.index === __expected.index. Actual: ' + __matched.index);
-}
+assert.sameValue(__matched.index, __expected.index, '#2: __matched = "".match(); __expected = RegExp().exec(""); __matched.index === __expected.index');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__matched.input !== __expected.input) {
-  throw new Test262Error('#3: __matched = "".match(); __expected = RegExp().exec(""); __matched.input === __expected.input. Actual: ' + __matched.input);
-}
+assert.sameValue(__matched.input, __expected.input, '#3: __matched = "".match(); __expected = RegExp().exec(""); __matched.input === __expected.input');
 //
 //////////////////////////////////////////////////////////////////////////////
 

@@ -9,21 +9,15 @@ description: If Type(value) is Object, evaluate ToPrimitive(value, Number)
 
 //CHECK#1
 var object = {valueOf: function() {return 1}};
-if (~object !== -2) {
-  throw new Test262Error('#1: var object = {valueOf: function() {return 1}}; ~object === -2. Actual: ' + (~object));
-}
+assert.sameValue(~object, -2, '#1: var object = {valueOf: function() {return 1}}; ~object === -2');
 
 //CHECK#2
 var object = {valueOf: function() {return 1}, toString: function() {return 0}};
-if (~object !== -2) {
-  throw new Test262Error('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; ~object === -2. Actual: ' + (~object));
-} 
+assert.sameValue(~object, -2, '#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; ~object === -2');
 
 //CHECK#3
 var object = {valueOf: function() {return 1}, toString: function() {return {}}};
-if (~object !== -2) {
-  throw new Test262Error('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; ~object === -2. Actual: ' + (~object));
-}
+assert.sameValue(~object, -2, '#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; ~object === -2');
 
 //CHECK#4
 try {
@@ -42,26 +36,22 @@ catch (e) {
 
 //CHECK#5
 var object = {toString: function() {return 1}};
-if (~object !== -2) {
-  throw new Test262Error('#5: var object = {toString: function() {return 1}}; ~object === -2. Actual: ' + (~object));
-}
+assert.sameValue(~object, -2, '#5: var object = {toString: function() {return 1}}; ~object === -2');
 
 //CHECK#6
 var object = {valueOf: function() {return {}}, toString: function() {return 1}}
-if (~object !== -2) {
-  throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; ~object === -2. Actual: ' + (~object));
-}
+assert.sameValue(~object, -2, '#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; ~object === -2');
 
 //CHECK#7
 try {
   var object = {valueOf: function() {throw "error"}, toString: function() {return 1}};
   ~object;
   throw new Test262Error('#7.1: var object = {valueOf: function() {throw "error"}, toString: function() {return 1}}; ~object throw "error". Actual: ' + (~object));
-}  
+}
 catch (e) {
   if (e !== "error") {
     throw new Test262Error('#7.2: var object = {valueOf: function() {throw "error"}, toString: function() {return 1}}; ~object throw "error". Actual: ' + (e));
-  } 
+  }
 }
 
 //CHECK#8
@@ -69,9 +59,9 @@ try {
   var object = {valueOf: function() {return {}}, toString: function() {return {}}};
   ~object;
   throw new Test262Error('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; ~object throw TypeError. Actual: ' + (~object));
-}  
+}
 catch (e) {
   if ((e instanceof TypeError) !== true) {
     throw new Test262Error('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; ~object throw TypeError. Actual: ' + (e));
-  } 
+  }
 }

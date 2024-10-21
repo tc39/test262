@@ -24,8 +24,6 @@ verifyNotWritable(String, "prototype", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype; String.prototype = function(){return "shifted";}; String.prototype === __obj. Actual: String.prototype ===' + String.prototype);
-}
+assert.sameValue(String.prototype, __obj, '#2: __obj = String.prototype; String.prototype = function(){return "shifted";}; String.prototype === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -21,8 +21,6 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "null") {
-  throw new Test262Error('#2: __str = String(null); __str === "null". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "null", '#2: __str = String(null); __str === "null"');
 //
 //////////////////////////////////////////////////////////////////////////////

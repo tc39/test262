@@ -8,16 +8,10 @@ description: NaN convert to String by explicit transformation
 ---*/
 
 // CHECK#1
-if (String(NaN) !== "NaN") {
-  throw new Test262Error('#1: String(NaN) === Not-a-Number Actual: ' + (String(NaN)));
-}
+assert.sameValue(String(NaN), "NaN", '#1: String(NaN) === Not-a-Numbe');
 
 // CHECK#2
-if (String(Number.NaN) !== "NaN") {
-  throw new Test262Error('#2: String(Number.NaN) === Not-a-Number Actual: ' + (String(Number.NaN)));
-}
+assert.sameValue(String(Number.NaN), "NaN", '#2: String(Number.NaN) === Not-a-Numbe');
 
 // CHECK#3
-if (String(Number("asasa")) !== "NaN") {
-  throw new Test262Error('#3: String(Number("asasa")) === Not-a-Number Actual: ' + (String(Number("asasa"))));
-}
+assert.sameValue(String(Number("asasa")), "NaN", '#3: String(Number("asasa")) === Not-a-Numbe');

@@ -14,10 +14,8 @@ if (++x !== 1 + 1) {
 }
 
 //CHECK#2
-var x = "x"; 
-if (isNaN(++x) !== true) {
-  throw new Test262Error('#2: var x = "x"; ++x === Not-a-Number. Actual: ' + (++x));
-}
+var x = "x";
+assert.sameValue(isNaN(++x), true, '#2: var x = "x"; ++x === Not-a-Number');
 
 //CHECK#3
 var x = new String("-1");

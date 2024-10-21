@@ -8,6 +8,4 @@ description: null convert to Boolean by implicit transformation
 ---*/
 
 // CHECK#1
-if (!(null) !== true) {
-  throw new Test262Error('#1: !(null) === true. Actual: ' + (!(null))); 
-}
+assert.sameValue(!(null), true, '#1: !(null) === true');

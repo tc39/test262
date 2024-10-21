@@ -12,9 +12,7 @@ description: Execute x++, where x is var x
 var x;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (x !== undefined) {
-  throw new Test262Error('#1: var x; x === undefined. Actual: ' + (x));
-}
+assert.sameValue(x, undefined, '#1: var x; x === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////
 x++;
