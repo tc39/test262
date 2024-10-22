@@ -5,10 +5,13 @@
 includes: [non262-RegExp-shell.js, non262-shell.js]
 flags:
 - noStrict
+features:
+- Intl
 description: |
   pending
 esid: pending
 ---*/
+
 var BUGNUMBER = 1338373;
 var summary = "Word boundary should match U+017F and U+212A in unicode+ignoreCase.";
 

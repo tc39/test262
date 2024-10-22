@@ -16,14 +16,11 @@ assertThrowsInstanceOf(() => eval(`class A { #x; #x; }`), SyntaxError);
 assertThrowsInstanceOf(
     () => eval(`var x = "foo"; class A { #[x] = 20; }`), SyntaxError);
 
-function assertThrowsWithMessage(f, msg) {
-    assertThrowsInstanceOfWithMessageCheck(f, SyntaxError,
-        message => message.normalize() === msg.normalize());
-}
-
-assertThrowsWithMessage(() => eval(`class A { #x; h(o) { return !#x; }}`),
+assertThrowsInstanceOfWithMessage(() => eval(`class A { #x; h(o) { return !#x; }}`),
+    SyntaxError,
     "invalid use of private name in unary expression without object reference");
-assertThrowsWithMessage(() => eval(`class A { #x; h(o) { return 1 + #x in o; }}`),
+assertThrowsInstanceOfWithMessage(() => eval(`class A { #x; h(o) { return 1 + #x in o; }}`),
+    SyntaxError,
     "invalid use of private name due to operator precedence");
 
 

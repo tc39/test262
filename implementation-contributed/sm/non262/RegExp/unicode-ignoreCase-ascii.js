@@ -5,10 +5,13 @@
 includes: [compareArray.js, non262-RegExp-shell.js, non262-shell.js]
 flags:
 - noStrict
+features:
+- Intl
 description: |
   pending
 esid: pending
 ---*/
+
 var BUGNUMBER = 1135377;
 var summary = "Implement RegExp unicode flag -- ignoreCase flag with non-ascii to ascii map.";
 

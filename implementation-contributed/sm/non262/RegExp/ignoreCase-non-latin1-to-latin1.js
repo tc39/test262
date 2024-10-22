@@ -5,10 +5,13 @@
 includes: [non262-RegExp-shell.js, non262-shell.js]
 flags:
 - noStrict
+features:
+- Intl
 description: |
   pending
 esid: pending
 ---*/
+
 var BUGNUMBER = 1338779;
 var summary = "Non-Latin1 to Latin1 mapping in ignoreCase.";
 
