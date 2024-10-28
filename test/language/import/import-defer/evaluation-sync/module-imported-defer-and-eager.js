@@ -37,12 +37,14 @@ info: |
       1. Set _index_ to ? InnerModuleEvaluation(_requiredModule_, _stack_, _index_).
       1. ...
 
+flags: [module]
 features: [import-defer]
+includes: [deepEqual.js]
 ---*/
 
 import "./setup_FIXTURE.js";
 
-import defer * as ns1 "./dep-1_FIXTURE.js";
+import defer * as ns1 from "./dep-1_FIXTURE.js";
 import "./dep-2_FIXTURE.js";
 import "./dep-1_FIXTURE.js";
 

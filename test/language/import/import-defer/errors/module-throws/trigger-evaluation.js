@@ -24,10 +24,11 @@ info: |
       1. Return ThrowCompletion(_promise_.[[PromiseResult]]).
     1. ...
 
+flags: [module]
 features: [import-defer]
 ---*/
 
-import defer * as ns "./throws_FIXTURE.js";
+import defer * as ns from "./throws_FIXTURE.js";
 
 assert.throws(URIError, () => ns.foo, "Evaluation errors are thrown when evaluating");
 assert.throws(URIError, () => ns.foo, "Evaluation errors are thrown for already evaluated modules");

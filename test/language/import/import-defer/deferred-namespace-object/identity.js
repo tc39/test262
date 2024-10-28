@@ -26,6 +26,7 @@ info: |
       1. ...
     1. Return _M_.
 
+flags: [module]
 features: [import-defer]
 ---*/
 

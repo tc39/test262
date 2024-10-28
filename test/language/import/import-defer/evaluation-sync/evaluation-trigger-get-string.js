@@ -12,12 +12,13 @@ info: |
     1. If _O_.[[Deferred]] is **true**, perform ? EnsureDeferredNamespaceEvaluation(_O_).
     1. ...
 
+flags: [module]
 features: [import-defer]
 ---*/
 
 import "./setup_FIXTURE.js";
 
-import defer * as ns1 "./dep-1_FIXTURE.js";
+import defer * as ns1 from "./dep-1_FIXTURE.js";
 
 assert(globalThis.evaluations.length === 0, "import defer does not trigger evaluation");
 

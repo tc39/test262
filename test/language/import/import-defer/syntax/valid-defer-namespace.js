@@ -14,6 +14,7 @@ info: |
   NameSpaceImport :
     `*` `as` ImportedBinding
 
+flags: [module]
 features: [import-defer]
 ---*/
 

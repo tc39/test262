@@ -18,8 +18,9 @@ info: |
   [[IsExtensible]] ( )
     1. Return false.
 
+flags: [module]
 features: [import-defer]
-includes: [propertyHelper.js]
+includes: [propertyHelper.js, deepEqual.js]
 ---*/
 
 import defer * as ns from "./dep_FIXTURE.js";
@@ -30,8 +31,8 @@ assert(Reflect.isExtensible(ns) === false, "Deferred namespaces are not extensib
 assert(Reflect.preventExtensions(ns) === true, "Deferred namespaces can made non-extensible");
 
 assert(Reflect.getPrototypeOf(ns) === null, "Deferred namespaces have a null prototype");
-asserts(Reflect.setPrototypeOf(ns, {}) === false, "Deferred namespaces' prototype cannot be changed");
-asserts(Reflect.setPrototypeOf(ns, null) === true, "Deferred namespaces' prototype can be 'set' to null");
+assert(Reflect.setPrototypeOf(ns, {}) === false, "Deferred namespaces' prototype cannot be changed");
+assert(Reflect.setPrototypeOf(ns, null) === true, "Deferred namespaces' prototype can be 'set' to null");
 
 assert.throws(TypeError, () => Reflect.apply(ns, null, []), "Deferred namespaces are not callable");
 assert.throws(TypeError, () => Reflect.construct(ns, null, []), "Deferred namespaces are not constructable");

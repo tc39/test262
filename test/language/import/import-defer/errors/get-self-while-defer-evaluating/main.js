@@ -31,6 +31,7 @@ info: |
         1. Return *false*.
     1. Return *true*.
 
+flags: [module]
 features: [import-defer]
 ---*/
 

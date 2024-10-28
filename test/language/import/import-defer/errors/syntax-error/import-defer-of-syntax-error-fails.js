@@ -9,11 +9,12 @@ info: |
   LoadRequestedModules ([ _hostDefined_ ])
     - just notice that it does not check if the module is deferred
 
+flags: [module]
 features: [import-defer]
 
 negative:
   phase: resolution
-  type: SyntaxErrpr
+  type: SyntaxError
 ---*/
 
 import defer * as ns "./syntax-error_FIXTURE.js";

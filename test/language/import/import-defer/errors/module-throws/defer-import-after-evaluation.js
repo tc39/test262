@@ -24,6 +24,7 @@ info: |
       1. Return ThrowCompletion(_promise_.[[PromiseResult]]).
     1. ...
 
+flags: [module]
 features: [import-defer, top-level-await]
 ---*/
 

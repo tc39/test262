@@ -9,16 +9,21 @@ info: |
   [[Set]] ( _P_, _V_, _Receiver_ )
     1. Return **false**.
 
+flags: [module]
 features: [import-defer]
 ---*/
 
 import "./setup_FIXTURE.js";
 
-import defer * as ns1 "./dep-1_FIXTURE.js";
+import defer * as ns1 from "./dep-1_FIXTURE.js";
 
 assert(globalThis.evaluations.length === 0, "import defer does not trigger evaluation");
 
-ns1.foo = 2;
-ns1.ns_1_2 = 3;
+try {
+  ns1.foo = 2;
+} catch {}
+try {
+  ns1.ns_1_2 = 3;
+} catch {}
 
-assert(globalThis.evaluations.length === 0, "[[Get]] of a symbol does not trigger evaluation");
+assert(globalThis.evaluations.length === 0, "[[Set]] of a symbol does not trigger evaluation");

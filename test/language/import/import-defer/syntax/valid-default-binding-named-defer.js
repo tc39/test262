@@ -21,6 +21,7 @@ info: |
   ImportedBinding :
     BindingIdentifier[~Yield, +Await]
 
+flags: [module]
 features: [import-defer]
 ---*/
 

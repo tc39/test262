@@ -31,9 +31,10 @@ info: |
         1. Return *false*.
     1. Return *true*.
 
+flags: [module]
 features: [import-defer]
 ---*/
 
-import defer * self from "./get-self-while-evaluating.js";
+import defer * as self from "./get-self-while-evaluating.js";
 
 assert.throws(TypeError, () => self.foo);
