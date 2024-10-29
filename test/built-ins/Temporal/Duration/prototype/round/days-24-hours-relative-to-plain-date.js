@@ -9,7 +9,7 @@ features: [Temporal]
 ---*/
 
 const hours25 = new Temporal.Duration(0, 0, 0, 0, 25, 0, 0, 0, 0, 0);
-const relativeTo = Temporal.PlainDate.from("2017-01-01");
+const relativeTo = new Temporal.PlainDate(2017, 1, 1);
 
 TemporalHelpers.assertDuration(hours25.round({ largestUnit: "days", relativeTo }),
                                0, 0, 0, 1, 1, 0, 0, 0, 0, 0);
