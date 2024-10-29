@@ -9,7 +9,7 @@ features: [Temporal]
 ---*/
 
 const hours25 = new Temporal.Duration(0, 0, 0, 0, 25, 0, 0, 0, 0, 0);
-const relativeTo = Temporal.ZonedDateTime.from("2017-01-01T00:00[+04:30]");
+const relativeTo = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "+04:30");
 
 TemporalHelpers.assertDuration(hours25.round({ largestUnit: "days", relativeTo }),
                                0, 0, 0, 1, 1, 0, 0, 0, 0, 0);
