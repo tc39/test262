@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-zoneddatetime-objects
-description: Construction and properties
+esid: sec-temporal.zoneddatetime
+description: Construction and properties.
 features: [Temporal]
 ---*/
 
-var epochMillis = Date.UTC(1976, 10, 18, 15, 23, 30, 123);
-var epochNanos = BigInt(epochMillis) * BigInt(1000000) + BigInt(456789);
+const epochMillis = Date.UTC(1976, 10, 18, 15, 23, 30, 123);
+const epochNanos = BigInt(epochMillis) * BigInt(1000000) + BigInt(456789);
 
 // works
 var zdt = new Temporal.ZonedDateTime(epochNanos, "-08:00");
@@ -17,7 +17,7 @@ assert.sameValue(typeof zdt, "object");
 assert.sameValue(zdt.toInstant().epochMilliseconds, Date.UTC(1976, 10, 18, 15, 23, 30, 123), "epochMilliseconds");
 
 // Temporal.ZonedDateTime for (1976, 11, 18, 15, 23, 30, 123, 456, 789)"
-  var zdt = new Temporal.ZonedDateTime(epochNanos, "UTC");
+zdt = new Temporal.ZonedDateTime(epochNanos, "UTC");
 // can be constructed
 assert(zdt instanceof Temporal.ZonedDateTime);
 assert.sameValue(typeof zdt, "object");
