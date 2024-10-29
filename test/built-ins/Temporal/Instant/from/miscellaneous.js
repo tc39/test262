@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-instant-objects
-description: Temporal.Instant works as expected
+esid: sec-temporal.instant.from
+description: Temporal.Instant.from works as expected
 features: [Temporal]
 ---*/
 

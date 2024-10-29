@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-duration-objects
-description: Temporal.Duration works as expected
+esid: sec-temporal.duration.from
+description: Temporal.Duration.from works as expected
 features: [Temporal]
 ---*/
 

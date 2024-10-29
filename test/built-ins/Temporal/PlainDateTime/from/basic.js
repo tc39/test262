@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-plaindatetime-objects
-description: Temporal.PlainDateTime works as expected
+esid: sec-temporal.plaindatetime.from
+description: Temporal.PlainDateTime.from works as expected
 features: [Temporal]
 ---*/
 
