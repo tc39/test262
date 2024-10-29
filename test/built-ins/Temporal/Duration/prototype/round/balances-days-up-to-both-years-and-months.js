@@ -12,5 +12,5 @@ const twoYears = new Temporal.Duration(0, 11, 0, 396, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(twoYears.round({
     largestUnit: "years",
-    relativeTo: "2017-01-01"
+    relativeTo: new Temporal.PlainDate(2017, 1, 1)
 }), 2, 0, 0, 0, 0, 0, 0, 0, 0, 0);

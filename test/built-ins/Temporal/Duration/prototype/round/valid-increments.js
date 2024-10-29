@@ -8,7 +8,7 @@ features: [Temporal]
 ---*/
 
 const d = new Temporal.Duration(5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
-const relativeTo = Temporal.PlainDate.from("2020-01-01");
+const relativeTo = new Temporal.PlainDate(2020, 1, 1);
 
 // valid hour increments divide into 24
 [
