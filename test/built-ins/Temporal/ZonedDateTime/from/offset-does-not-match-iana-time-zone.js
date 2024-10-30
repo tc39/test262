@@ -18,3 +18,5 @@ const obj = {
 
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj));
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(obj, { offset: "reject" }));
+assert.throws(RangeError, () => Temporal.ZonedDateTime.from("2020-03-08T01:00-04:00[UTC]"));
+assert.throws(RangeError, () => Temporal.ZonedDateTime.from("2020-03-08T01:00-04:00[UTC]", { offset: "reject" }));
