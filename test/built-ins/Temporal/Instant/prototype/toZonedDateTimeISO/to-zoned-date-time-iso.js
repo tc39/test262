@@ -16,9 +16,7 @@ assert.throws(TypeError, () => inst.toZonedDateTimeISO());
 // time zone parameter UTC
 const zdt = inst.toZonedDateTimeISO("UTC");
 assert.sameValue(inst.epochNanoseconds, zdt.epochNanoseconds);
-TemporalHelpers.assertZonedDateTimesEqual(
-    zdt,
-    Temporal.ZonedDateTime.from("1976-11-18T14:23:30.123456789+00:00[UTC]"));
+assert.sameValue(zdt.timeZoneId, "UTC");
 
 // time zone parameter non-UTC
 const zdtNonUTC = inst.toZonedDateTimeISO("-05:00");
