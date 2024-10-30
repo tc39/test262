@@ -7,7 +7,7 @@ description: Incorrectly-spelled properties are ignored in relativeTo
 features: [Temporal]
 ---*/
 
-const oneMonth = new Temporal.Duration(0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+const oneMonth = new Temporal.Duration(0, 0, 0, 31, 0, 0, 0, 0, 0, 0);
 
 assert.sameValue(oneMonth.total({
   unit: "months",
