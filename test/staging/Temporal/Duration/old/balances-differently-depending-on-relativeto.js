@@ -12,19 +12,19 @@ const negativeFortyDays = new Temporal.Duration(0, 0, 0, -40, 0, 0, 0, 0, 0, 0);
 
 assert.sameValue(fortyDays.total({
   unit: "months",
-  relativeTo: "2020-02-01"
+  relativeTo: new Temporal.PlainDate(2020, 2, 1)
 }).toPrecision(16), (1 + 11 / 31).toPrecision(16));
 assert.sameValue(fortyDays.total({
   unit: "months",
-  relativeTo: "2020-01-01"
+  relativeTo: new Temporal.PlainDate(2020, 1, 1)
 }).toPrecision(16), (1 + 9 / 29).toPrecision(16));
 
 // balances differently depending on relativeTo (negative)
 assert.sameValue(negativeFortyDays.total({
   unit: "months",
-  relativeTo: "2020-03-01"
+  relativeTo: new Temporal.PlainDate(2020, 3, 1)
 }).toPrecision(16), (-(1 + 11 / 31)).toPrecision(16));
 assert.sameValue(negativeFortyDays.total({
   unit: "months",
-  relativeTo: "2020-04-01"
+  relativeTo: new Temporal.PlainDate(2020, 4, 1)
 }).toPrecision(16), (-(1 + 9 / 29)).toPrecision(16));
