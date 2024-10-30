@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: module graphs with TLA shouldn't hang
+description: Module graphs with Top-Level Await shouldn't hang.
 flags: [module, async]
 features: [top-level-await]
 ---*/
 
-import "./parent-tla_FIXTURE.js";
-await import("./grandparent-tla_FIXTURE.js");
+import "./module-graphs-parent-tla_FIXTURE.js";
+await import("./module-graphs-grandparent-tla_FIXTURE.js");
 
 $DONE();
