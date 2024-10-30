@@ -12,29 +12,29 @@ const days = new Temporal.Duration(0, 0, 0, 45, 0, 0, 0, 0, 0, 0);
 const yearAndHalf = new Temporal.Duration(0, 0, 0, 547, 12, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(days.round({
-    relativeTo: "2019-01-01",
+    relativeTo: new Temporal.PlainDate(2019, 1, 1)
     smallestUnit: "months"}), 0, 2, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(days.negated().round({
-    relativeTo: "2019-02-15",
+    relativeTo: new Temporal.PlainDate(2019, 2, 15)
     smallestUnit: "months"}), 0, -1, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(yearAndHalf.round({
-    relativeTo: "2018-01-01",
+    relativeTo: new Temporal.PlainDate(2018, 1, 1)
     smallestUnit: "years"}), 2, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(yearAndHalf.round({
-    relativeTo: "2018-07-01",
+    relativeTo: new Temporal.PlainDate(2018, 7, 1)
     smallestUnit: "years"}), 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(yearAndHalf.round({
-    relativeTo: "2019-01-01",
+    relativeTo: new Temporal.PlainDate(2019, 1, 1)
     smallestUnit: "years"}), 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(yearAndHalf.round({
-    relativeTo: "2020-01-01",
+    relativeTo: new Temporal.PlainDate(2020, 1, 1)
     smallestUnit: "years"}), 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(yearAndHalf.round({
-    relativeTo: "2020-07-01",
+    relativeTo: new Temporal.PlainDate(2020, 7, 1)
     smallestUnit: "years"}), 2, 0, 0, 0, 0, 0, 0, 0, 0, 0);

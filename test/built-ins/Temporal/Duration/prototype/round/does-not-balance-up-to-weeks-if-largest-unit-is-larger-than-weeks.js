@@ -12,5 +12,5 @@ const monthAlmostWeek = new Temporal.Duration(0, 1, 0, 6, 20, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(monthAlmostWeek.round({
     smallestUnit: "days",
-    relativeTo: "2020-01-01"
+    relativeTo: new PlainDate(2020, 1, 1)
 }), 0, 1, 0, 7, 0, 0, 0, 0, 0, 0);

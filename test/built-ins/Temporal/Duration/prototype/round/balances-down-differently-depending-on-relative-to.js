@@ -17,17 +17,17 @@ TemporalHelpers.assertDuration(oneYear.round({
 
 TemporalHelpers.assertDuration(oneYear.round({
     largestUnit: "days",
-    relativeTo: "2019-07-01"
+    relativeTo: new Temporal.PlainDate(2019, 7, 1)
 }), 0, 0, 0, 366, 0, 0, 0, 0, 0, 0);
 
 const minusYear = new Temporal.Duration(-1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(minusYear.round({
     largestUnit: "days",
-    relativeTo: "2020-01-01"
+    relativeTo: new Temporal.PlainDate(2020, 1, 1)
 }), 0, 0, 0, -365, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(minusYear.round({
     largestUnit: "days",
-    relativeTo: "2020-07-01"
+    relativeTo: new Temporal.PlainDate(2020, 7, 1)
 }), 0, 0, 0, -366, 0, 0, 0, 0, 0, 0);
