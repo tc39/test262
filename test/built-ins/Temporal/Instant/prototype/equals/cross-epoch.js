@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-instant-objects
-description: Temporal.Instant.equals works
+esid: sec-temporal.instant.prototype.equals
+description: Temporal.Instant.equals works cross-epoch
 features: [Temporal]
 ---*/
 
-var i1 = Temporal.Instant.from("1963-02-13T09:36:29.123456789Z");
-var i2 = Temporal.Instant.from("1976-11-18T15:23:30.123456789Z");
-var i3 = Temporal.Instant.from("1981-12-15T14:34:31.987654321Z");
+const i1 = Temporal.Instant.from("1963-02-13T09:36:29.123456789Z");
+const i2 = Temporal.Instant.from("1976-11-18T15:23:30.123456789Z");
+const i3 = Temporal.Instant.from("1981-12-15T14:34:31.987654321Z");
 
 // pre epoch equal
 assert(i1.equals(i1))
