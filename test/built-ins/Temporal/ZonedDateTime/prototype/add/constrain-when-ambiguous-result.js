@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.prototype.add
-description: Casts argument to Duration.
+description: Constrains result when ambiguous.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.instant.prototype.subtract
+esid: sec-temporal.zoneddatetime.prototype.subtract
 description: Symmetrical with regard to negative durations in the time part.
 includes: [temporalHelpers.js]
 features: [Temporal]
