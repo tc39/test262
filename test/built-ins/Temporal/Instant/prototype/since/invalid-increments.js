@@ -1,3 +1,4 @@
+
 // Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
@@ -7,8 +8,8 @@ description: Test invalid increments.
 features: [Temporal]
 ---*/
 
-const earlier = Temporal.Instant.from("1976-11-18T15:23:30.123456789Z");
-const later = Temporal.Instant.from("2019-10-29T10:46:38.271986102Z");
+const earlier = new Temporal.Instant(0n);
+const later = new Temporal.Instant(1_000_000_000_000_000_000n);
 const largestUnit = "hours";
 
 // throws on increments that do not divide evenly into the next highest

@@ -3,7 +3,8 @@
 
 /*---
 esid: sec-temporal.instant.prototype.since
-description: since() can return subseconds..
+description: since() can return subseconds.
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
@@ -15,15 +16,15 @@ const latersub = feb20.add({
   microseconds: 250,
   nanoseconds: 250
 });
+
 const msDiff = latersub.since(feb20, { largestUnit: "milliseconds" });
-assert.sameValue(msDiff.seconds, 0);
-assert.sameValue(msDiff.milliseconds, 86400250);
-assert.sameValue(msDiff.microseconds, 250);
-assert.sameValue(msDiff.nanoseconds, 250);
+TemporalHelpers.assertDuration(msDiff,
+                               0, 0, 0, 0, 0, 0, 0, 86400250, 250, 250);
+
 const µsDiff = latersub.since(feb20, { largestUnit: "microseconds" });
-assert.sameValue(µsDiff.milliseconds, 0);
-assert.sameValue(µsDiff.microseconds, 86400250250);
-assert.sameValue(µsDiff.nanoseconds, 250);
+TemporalHelpers.assertDuration(µsDiff,
+                               0, 0, 0, 0, 0, 0, 0, 0, 86400250250, 250);
+
 const nsDiff = latersub.since(feb20, { largestUnit: "nanoseconds" });
-assert.sameValue(nsDiff.microseconds, 0);
-assert.sameValue(nsDiff.nanoseconds, 86400250250250);
+TemporalHelpers.assertDuration(nsDiff,
+                               0, 0, 0, 0, 0, 0, 0, 0, 0, 86400250250250);

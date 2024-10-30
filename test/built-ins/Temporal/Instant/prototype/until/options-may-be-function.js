@@ -11,5 +11,5 @@ features: [Temporal]
 const feb20 = Temporal.Instant.from("2020-02-01T00:00Z");
 const feb21 = Temporal.Instant.from("2021-02-01T00:00Z");
 
-TemporalHelpers.assertDurationsEqual(feb20.until(feb21, () => {}),
-                                     new Temporal.Duration(0, 0, 0, 0, 0, 0, 31622400, 0, 0, 0));
+TemporalHelpers.assertDuration(feb20.until(feb21, () => {}),
+                               0, 0, 0, 0, 0, 0, 31622400, 0, 0, 0);

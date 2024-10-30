@@ -11,11 +11,11 @@ features: [Temporal]
 const earlier = Temporal.Instant.from("1969-07-24T16:50:35.123456789Z");
 const later = Temporal.Instant.from("2019-10-29T10:46:38.271986102Z");
 
-TemporalHelpers.assertDurationsEqual(earlier.until(later, {
+TemporalHelpers.assertDuration(earlier.until(later, {
   smallestUnit: "hours",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 440610, 0, 0, 0, 0, 0));
-TemporalHelpers.assertDurationsEqual(earlier.until(later, {
+}), 0, 0, 0, 0, 440610, 0, 0, 0, 0, 0);
+TemporalHelpers.assertDuration(earlier.until(later, {
   smallestUnit: "minutes",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 0, 26436596, 0, 0, 0, 0));
+}), 0, 0, 0, 0, 0, 26436596, 0, 0, 0, 0);
