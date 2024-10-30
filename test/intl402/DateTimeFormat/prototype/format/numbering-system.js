@@ -16,7 +16,7 @@ info: >
     ...
       d. Perform ! CreateDataPropertyOrThrow(nf3Options, "numberingSystem", dateTimeFormat.[[NumberingSystem]]).
 
-locale: [en-US]
+locale: [en-US, en-US-u-nu-arab, en-US-u-nu-deva, en-US-u-nu-hanidec]
 ---*/
 
 const localesAndResults = [

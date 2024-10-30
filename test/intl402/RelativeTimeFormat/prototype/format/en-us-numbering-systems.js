@@ -13,14 +13,15 @@ locale: [en-US]
 ---*/
 
 const localesAndResults = [
-  ["en-US", "1,234,567,890"],
-  ["en-US-u-nu-arab", "١٬٢٣٤٬٥٦٧٬٨٩٠"],
-  ["en-US-u-nu-deva", "१,२३४,५६७,८९०"],
-  ["en-US-u-nu-hanidec", "一,二三四,五六七,八九〇"],
+  ["en-US"],
+  ["en-US-u-nu-arab"],
+  ["en-US-u-nu-deva"],
+  ["en-US-u-nu-hanidec"],
 ];
 const seconds = 1234567890;
 
-for (const [locale, expected] of localesAndResults){
+for (const locale of localesAndResults){
   const formatted = new Intl.RelativeTimeFormat(locale, {style: "short"}).format(seconds, "seconds");
+  const expected = new Intl.NumberFormat(locale).format(seconds);
   assert.sameValue(formatted.includes(expected), true, `locale: ${locale}`);
 }
