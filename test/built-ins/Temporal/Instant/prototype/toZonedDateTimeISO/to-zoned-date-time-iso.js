@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.instant.prototype.tozoneddatetimeiso
 description: Test time zone parameters.
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
