@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.prototype.equals
-description: Different time zones not equal.
+description: equals() casts its argument from string or object.
 features: [Temporal]
 ---*/
 
