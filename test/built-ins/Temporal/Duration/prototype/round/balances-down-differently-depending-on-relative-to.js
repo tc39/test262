@@ -12,7 +12,7 @@ const oneYear = new Temporal.Duration(1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(oneYear.round({
     largestUnit: "days",
-    relativeTo: "2019-01-01"
+    relativeTo: new Temporal.PlainDate(2019, 1, 1)
 }), 0, 0, 0, 365, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(oneYear.round({
