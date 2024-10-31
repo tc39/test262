@@ -17,7 +17,7 @@ author: Ben Allen
 ---*/
 
 const nf = Intl.NumberFormat([], {style: "currency", currency: "USD"});
-const max = nf.resolvedOptions.maximumFractionDigits;
-const min = nf.resolvedOptions.minimumFractionDigits;
+const max = nf.resolvedOptions().maximumFractionDigits;
+const min = nf.resolvedOptions().minimumFractionDigits;
 
-assert.sameValue(min === max, true, "Currency data not used; maximumFractionDigits does not match minimumFractionDigits");
+assert.sameValue(min, max, "Currency data not used; maximumFractionDigits should match minimumFractionDigits");
