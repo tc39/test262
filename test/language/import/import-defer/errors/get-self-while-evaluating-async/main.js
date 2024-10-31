@@ -31,6 +31,8 @@ features: [import-defer, top-level-await]
 
 import defer * as ns from "./dep_FIXTURE.js";
 
+assert(globalThis["error on ns.foo"] instanceof TypeError, "ns.foo while evaluating throws a TypeError");
+
 ns.foo;
 
 $DONE();

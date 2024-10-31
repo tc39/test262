@@ -4,5 +4,11 @@
 import defer * as dep2 from "./dep-2_FIXTURE.js";
 
 globalThis.dep3evaluated = false;
-assert.throws(TypeError, () => dep2.foo);
-assert.sameValue(globalThis.dep3evaluated, false, "the 'evaluable' dependencies of dep-2 are not evaluated");
+
+try {
+  dep2.foo;
+} catch (error) {
+  globalThis["evaluating dep2.foo error"] = error;
+}
+
+globalThis["evaluating dep2.foo evaluates dep2"] = globalThis.dep3evaluated;

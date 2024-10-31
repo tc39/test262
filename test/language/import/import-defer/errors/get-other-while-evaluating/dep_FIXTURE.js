@@ -3,4 +3,8 @@
 
 import defer * as main from "./main.js";
 
-assert.throws(TypeError, () => main.foo);
+try {
+  main.foo;
+} catch (error) {
+  globalThis["error on main.foo"] = error;
+}

@@ -36,3 +36,5 @@ features: [import-defer]
 ---*/
 
 import "./dep_FIXTURE.js";
+
+assert(globalThis["error on main.foo"] instanceof TypeError, "main.foo while evaluating throws a TypeError");

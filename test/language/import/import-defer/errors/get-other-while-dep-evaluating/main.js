@@ -36,3 +36,6 @@ features: [import-defer]
 ---*/
 
 import "./dep-1_FIXTURE.js";
+
+assert(globalThis["evaluating dep2.foo error"] instanceof TypeError, "evaluating dep2.foo throws a TypeError");
+assert(!globalThis["evaluating dep2.foo evaluates dep2"], "evaluating dep2.foo does not evaluate dep2");

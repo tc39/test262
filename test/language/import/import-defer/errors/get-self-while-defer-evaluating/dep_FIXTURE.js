@@ -3,4 +3,8 @@
 
 import defer * as ns from "./dep_FIXTURE.js";
 
-assert.throws(TypeError, () => ns.foo);
+try {
+  ns.foo;
+} catch (error) {
+  globalThis["error on ns.foo"] = error;
+}
