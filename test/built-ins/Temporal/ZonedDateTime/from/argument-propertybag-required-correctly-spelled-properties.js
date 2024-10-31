@@ -14,3 +14,22 @@ assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
   days: 18,
   timeZone: "+01:00"
 }));
+assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
+  years: 1976,
+  months: 11,
+  day: 18,
+  timeZone: "+01:00"
+}));
+assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
+  year: 1976,
+  months: 11,
+  days: 18,
+  timeZone: "+01:00"
+}));
+assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
+  years: 1976,
+  month: 11,
+  days: 18,
+  timeZone: "+01:00"
+}));
+

@@ -11,7 +11,6 @@ features: [Temporal]
 // "1976-11-18T00:00:00+01:00[+01:00]"
 const expected = new Temporal.ZonedDateTime(217119600000000000n, "+01:00");
 
-// can be constructed with monthCode and without month
 TemporalHelpers.assertZonedDateTimesEqual(Temporal.ZonedDateTime.from({
     year: 1976,
     month: 11,
