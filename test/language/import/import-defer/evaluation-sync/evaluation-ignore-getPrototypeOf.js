@@ -17,8 +17,8 @@ import "./setup_FIXTURE.js";
 
 import defer * as ns1 from "./dep-1_FIXTURE.js";
 
-assert(globalThis.evaluations.length === 0, "import defer does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
 
 Object.getPrototypeOf(ns1);
 
-assert(globalThis.evaluations.length === 0, "[[GetPrototypeOf]] does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "[[GetPrototypeOf]] does not trigger evaluation");

@@ -42,6 +42,7 @@ info: |
 
 flags: [module, async]
 features: [import-defer, top-level-await]
+includes: [compareArray.js]
 ---*/
 
 import "../setup_FIXTURE.js";
@@ -52,7 +53,7 @@ import "./dep-3.js";
 import defer * as ns4 from "./dep-4.js";
 import "./dep-5.js";
 
-assert.deepEqual(globalThis.evaluations, [
+assert.compareArray(globalThis.evaluations, [
   "1",
   "2.1.1 start",
   "2.2.1",
@@ -67,10 +68,10 @@ assert.deepEqual(globalThis.evaluations, [
 
 globalThis.evaluations = [];
 ns2.x;
-assert.deepEqual(globalThis.evaluations, ["2.1", "2"]);
+assert.compareArray(globalThis.evaluations, ["2.1", "2"]);
 
 globalThis.evaluations = [];
 ns4.x;
-assert.deepEqual(globalThis.evaluations, ["4"]);
+assert.compareArray(globalThis.evaluations, ["4"]);
 
 $DONE();

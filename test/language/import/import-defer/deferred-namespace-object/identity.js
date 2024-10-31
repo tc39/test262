@@ -37,7 +37,7 @@ import defer * as nsDeferred2 from "./dep_FIXTURE.js";
 import { depDeferredNamespace as nsDeferred3 } from "./dep-defer-ns_FIXTURE.js";
 const nsDeferred4 = await import.defer("./dep_FIXTURE.js");
 
-assert(nsDeferred1 === nsDeferred2, "Deferred import of the same module twice gives the same object");
-assert(nsDeferred1 === nsDeferred3, "Deferred import of the same module twice from different files gives the same object");
-assert(nsDeferred1 === nsDeferred4, "Static and dynamic deferred import of the same module gives the same object");
-assert(nsDeferred1 !== nsEager, "Deferred namespaces are distinct from eager namespaces");
+assert.sameValue(nsDeferred1, nsDeferred2, "Deferred import of the same module twice gives the same object");
+assert.sameValue(nsDeferred1, nsDeferred3, "Deferred import of the same module twice from different files gives the same object");
+assert.sameValue(nsDeferred1, nsDeferred4, "Static and dynamic deferred import of the same module gives the same object");
+assert.notSameValue(nsDeferred1, nsEager, "Deferred namespaces are distinct from eager namespaces");

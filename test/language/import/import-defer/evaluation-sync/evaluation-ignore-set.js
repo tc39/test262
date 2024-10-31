@@ -17,7 +17,7 @@ import "./setup_FIXTURE.js";
 
 import defer * as ns1 from "./dep-1_FIXTURE.js";
 
-assert(globalThis.evaluations.length === 0, "import defer does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
 
 try {
   ns1.foo = 2;
@@ -26,4 +26,4 @@ try {
   ns1.ns_1_2 = 3;
 } catch {}
 
-assert(globalThis.evaluations.length === 0, "[[Set]] of a symbol does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "[[Set]] of a symbol does not trigger evaluation");

@@ -25,23 +25,23 @@ info: |
 
 flags: [module]
 features: [import-defer]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 import "./setup_FIXTURE.js";
 
 import defer * as ns1 from "./dep-1_FIXTURE.js";
 
-assert(globalThis.evaluations.length === 0, "import defer does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
 
 const ns_1_2 = ns1.ns_1_2;
 
-assert.deepEqual(globalThis.evaluations, [1.1, 1], "when evaluation is triggered, deferred sub-dependencies are not evaluated");
+assert.compareArray(globalThis.evaluations, [1.1, 1], "when evaluation is triggered, deferred sub-dependencies are not evaluated");
 
 ns1.ns_1_2;
 
-assert.deepEqual(globalThis.evaluations, [1.1, 1], "the module is not re-executed");
+assert.compareArray(globalThis.evaluations, [1.1, 1], "the module is not re-executed");
 
 ns_1_2.foo;
 
-assert.deepEqual(globalThis.evaluations, [1.1, 1, 1.2]);
+assert.compareArray(globalThis.evaluations, [1.1, 1, 1.2]);

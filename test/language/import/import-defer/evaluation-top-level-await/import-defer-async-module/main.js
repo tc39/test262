@@ -42,13 +42,14 @@ info: |
 
 flags: [module, async]
 features: [import-defer, top-level-await]
+includes: [compareArray.js]
 ---*/
 
 import "../setup_FIXTURE.js";
 import defer * as ns from "./tla_FIXTURE.js";
 
-assert.deepEqual(globalThis.evaluations, ["tla start", "tla end"]);
+assert.compareArray(globalThis.evaluations, ["tla start", "tla end"]);
 ns.x;
-assert.deepEqual(globalThis.evaluations, ["tla start", "tla end"]);
+assert.compareArray(globalThis.evaluations, ["tla start", "tla end"]);
 
 $DONE();

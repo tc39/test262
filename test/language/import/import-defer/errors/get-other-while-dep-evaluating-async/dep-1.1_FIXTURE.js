@@ -14,6 +14,6 @@ first.then(() => {
   return third.then(() => {
     // dep-1 is now in the ~evaluated~ state
     let foo = ns.foo;
-    assert(foo === 1, "Once it finished evaluating, the module can be accessed");
+    assert.sameValue(foo, 1, "Once it finished evaluating, the module can be accessed");
   })
 }).then(resolveDone, rejectDone);

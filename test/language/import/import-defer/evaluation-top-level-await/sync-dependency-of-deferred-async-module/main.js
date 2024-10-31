@@ -42,17 +42,18 @@ info: |
 
 flags: [module, async]
 features: [import-defer, top-level-await]
+includes: [compareArray.js]
 ---*/
 
 import "../setup_FIXTURE.js";
 import defer * as ns from "./imports-tla-with-dep_FIXTURE.js";
 
-assert.deepEqual(
+assert.compareArray(
   globalThis.evaluations,
   ["dep", "tla-with-dep start", "tla-with-dep end"]
 );
 ns.x;
-assert.deepEqual(
+assert.compareArray(
   globalThis.evaluations,
   ["dep", "tla-with-dep start", "tla-with-dep end", "imports-tla-with-dep"]
 );

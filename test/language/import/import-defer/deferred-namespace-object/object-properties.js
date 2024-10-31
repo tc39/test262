@@ -20,24 +20,24 @@ info: |
 
 flags: [module]
 features: [import-defer]
-includes: [propertyHelper.js, deepEqual.js]
+includes: [propertyHelper.js, compareArray.js]
 ---*/
 
 import defer * as ns from "./dep_FIXTURE.js";
 
-assert(typeof ns === "object", "Deferred namespaces are objects");
+assert.sameValue(typeof ns, "object", "Deferred namespaces are objects");
 
-assert(Reflect.isExtensible(ns) === false, "Deferred namespaces are not extensible");
-assert(Reflect.preventExtensions(ns) === true, "Deferred namespaces can made non-extensible");
+assert(!Reflect.isExtensible(ns), "Deferred namespaces are not extensible");
+assert.sameValue(Reflect.preventExtensions(ns), true, "Deferred namespaces can made non-extensible");
 
-assert(Reflect.getPrototypeOf(ns) === null, "Deferred namespaces have a null prototype");
-assert(Reflect.setPrototypeOf(ns, {}) === false, "Deferred namespaces' prototype cannot be changed");
-assert(Reflect.setPrototypeOf(ns, null) === true, "Deferred namespaces' prototype can be 'set' to null");
+assert.sameValue(Reflect.getPrototypeOf(ns), null, "Deferred namespaces have a null prototype");
+assert.sameValue(Reflect.setPrototypeOf(ns, {}), false, "Deferred namespaces' prototype cannot be changed");
+assert.sameValue(Reflect.setPrototypeOf(ns, null), true, "Deferred namespaces' prototype can be 'set' to null");
 
 assert.throws(TypeError, () => Reflect.apply(ns, null, []), "Deferred namespaces are not callable");
 assert.throws(TypeError, () => Reflect.construct(ns, null, []), "Deferred namespaces are not constructable");
 
-assert.deepEqual(
+assert.compareArray(
   Reflect.ownKeys(ns),
   ["bar", "foo", Symbol.toStringTag],
   "Deferred namespaces' keys are the exports sorted alphabetically, followed by @@toStringTag"
@@ -49,4 +49,4 @@ verifyProperty(ns, "foo", {
   enumerable: true,
   configurable: false,
 });
-assert(Reflect.getOwnPropertyDescriptor(ns, "non-existent") === undefined, "No descriptors for non-exports");
+assert.sameValue(Reflect.getOwnPropertyDescriptor(ns, "non-existent"), undefined, "No descriptors for non-exports");

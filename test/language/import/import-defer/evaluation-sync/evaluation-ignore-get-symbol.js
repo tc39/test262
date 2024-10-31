@@ -20,9 +20,9 @@ import "./setup_FIXTURE.js";
 
 import defer * as ns1 from "./dep-1_FIXTURE.js";
 
-assert(globalThis.evaluations.length === 0, "import defer does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
 
 ns1[Symbol.toStringTag];
 ns1[Symbol()];
 
-assert(globalThis.evaluations.length === 0, "[[Get]] of a symbol does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "[[Get]] of a symbol does not trigger evaluation");

@@ -39,7 +39,7 @@ info: |
 
 flags: [module]
 features: [import-defer]
-includes: [deepEqual.js]
+includes: [compareArray.js]
 ---*/
 
 import "./setup_FIXTURE.js";
@@ -48,4 +48,4 @@ import defer * as ns1 from "./dep-1_FIXTURE.js";
 import "./dep-2_FIXTURE.js";
 import "./dep-1_FIXTURE.js";
 
-assert.deepEqual(globalThis.evaluations, [2, 1.1, 1], "the module is evaluated in the order where it's imported as non-deferred");
+assert.compareArray(globalThis.evaluations, [2, 1.1, 1], "the module is evaluated in the order where it's imported as non-deferred");
