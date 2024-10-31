@@ -28,8 +28,7 @@ offsetOptions.forEach((offsetOption) => {
     assert.throws(
       typeof(offset) === 'string' || (typeof offset === "object" && offset !== null) ? RangeError : TypeError,
       () => Temporal.ZonedDateTime.from(arg, { offset: offsetOption }),
-        typeof(offset) === 'symbol' ? "symbol is not a valid offset string"
-            : `"${offset} is not a valid offset string (with offset option ${offsetOption})`
+        `"${String(offset)} is not a valid offset string (with offset option ${offsetOption})`
     );
   });
 });
