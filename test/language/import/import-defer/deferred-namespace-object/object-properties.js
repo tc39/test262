@@ -4,7 +4,7 @@
 /*---
 esid: sec-modulenamespacecreate
 description: >
-  `defer` is a valid name for default imports
+  Deferred namespace objects have the correct MOP implementation
 info: |
   ModuleNamespaceCreate ( _module_, _exports_, _phase_ )
     1. Let _internalSlotsList_ be the internal slots listed in <emu-xref href="#table-internal-slots-of-module-namespace-exotic-objects"></emu-xref>.

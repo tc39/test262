@@ -4,7 +4,7 @@
 /*---
 esid: sec-module-namespace-exotic-objects-get-p-receiver-EnsureDeferredNamespaceEvaluation
 description: >
-  Modules cannot try to trigger their own evaluation
+  Deferred namespaces' properties cannot be accessed on a module that is being evaluated
 info: |
   10.4.6.8 [[Get]] ( _P_, _Receiver_ )
     1. ...
