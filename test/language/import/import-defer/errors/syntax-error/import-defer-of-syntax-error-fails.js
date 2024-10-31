@@ -17,4 +17,6 @@ negative:
   type: SyntaxError
 ---*/
 
+$DONOTEVALUATE();
+
 import defer * as ns "./syntax-error_FIXTURE.js";

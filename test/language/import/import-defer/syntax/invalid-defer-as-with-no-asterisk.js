@@ -28,4 +28,6 @@ negative:
   type: SyntaxError
 ---*/
 
+$DONOTEVALUATE();
+
 import defer as ns from "./dep_FIXTURE.js";

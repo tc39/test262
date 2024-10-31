@@ -27,4 +27,6 @@ negative:
   type: SyntaxError
 ---*/
 
+$DONOTEVALUATE();
+
 export defer * as ns from "./dep_FIXTURE.js";
