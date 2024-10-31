@@ -3,11 +3,10 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.from
-description: Temporal.ZonedDateTime.from({}) throws.
+description: from() throws if a required property is undefined.
 features: [Temporal]
 ---*/
 
-// Temporal.ZonedDateTime.from(required prop undefined) throws
 assert.throws(TypeError, () => Temporal.ZonedDateTime.from({
   year: 1976,
   month: undefined,
