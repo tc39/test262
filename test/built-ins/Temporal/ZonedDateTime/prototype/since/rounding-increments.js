@@ -16,43 +16,43 @@ const earlier = new Temporal.ZonedDateTime(1546935756123456789n, "+01:00");
 const later = new Temporal.ZonedDateTime(1631018380987654321n, "+01:00");
 
 // rounds to an increment of hours
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "hours",
   roundingIncrement: 3,
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 23355, 0, 0, 0, 0, 0));
+}), 0, 0, 0, 0, 23355, 0, 0, 0, 0, 0);
 
 // rounds to an increment of minutes
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "minutes",
   roundingIncrement: 30,
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 23356, 30, 0, 0, 0, 0));
+}), 0, 0, 0, 0, 23356, 30, 0, 0, 0, 0);
 
 // rounds to an increment of seconds
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "seconds",
   roundingIncrement: 15,
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 23356, 17, 0, 0, 0));
+}), 0, 0, 0, 0, 23356, 17, 0, 0, 0, 0);
 
 // rounds to an increment of milliseconds
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "milliseconds",
   roundingIncrement: 10,
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 23356, 17, 4, 860, 0, 0));
+}), 0, 0, 0, 0, 23356, 17, 4, 860, 0, 0);
 
 // rounds to an increment of microseconds
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "microseconds",
   roundingIncrement: 10,
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 23356, 17, 4, 864, 200, 0));
+}), 0, 0, 0, 0, 23356, 17, 4, 864, 200, 0);
 
 // rounds to an increment of nanoseconds
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "nanoseconds",
   roundingIncrement: 10,
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 0, 0, 23356, 17, 4, 864, 197, 530));
+}), 0, 0, 0, 0, 23356, 17, 4, 864, 197, 530);

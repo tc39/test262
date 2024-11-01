@@ -7,8 +7,8 @@ description: Valid increments are based on divisibility.
 features: [Temporal]
 ---*/
 
-const earlier = Temporal.ZonedDateTime.from('2019-01-08T09:22:36.123456789+01:00[+01:00]');
-const later = Temporal.ZonedDateTime.from('2021-09-07T13:39:40.987654321+01:00[+01:00]');
+const earlier = new Temporal.ZonedDateTime(0n, "+01:00");
+const later = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "+01:00");
 
 // valid hour increments divide into 24
 [

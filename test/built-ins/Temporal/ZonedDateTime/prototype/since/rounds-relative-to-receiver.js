@@ -16,11 +16,11 @@ const dt2 = Temporal.ZonedDateTime.from("2020-07-02T00:00+00:00[UTC]");
 const dt1 = new Temporal.ZonedDateTime(1546300800000000000n, "UTC");
 const dt2 = new Temporal.ZonedDateTime(1593648000000000000n, "UTC");
 
-TemporalHelpers.assertDurationsEqual(dt2.since(dt1, {
+TemporalHelpers.assertDuration(dt2.since(dt1, {
   smallestUnit: "years",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(1, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-TemporalHelpers.assertDurationsEqual(dt1.since(dt2, {
+}), 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+TemporalHelpers.assertDuration(dt1.since(dt2, {
   smallestUnit: "years",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(-2, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+}), -2, 0, 0, 0, 0, 0, 0, 0, 0, 0);

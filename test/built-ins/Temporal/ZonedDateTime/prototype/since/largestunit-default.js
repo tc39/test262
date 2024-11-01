@@ -15,17 +15,17 @@ const later = Temporal.ZonedDateTime.from('2021-09-07T13:39:40.987654321+01:00[+
 const earlier = new Temporal.ZonedDateTime(1546935756123456789n, "+01:00");
 const later = new Temporal.ZonedDateTime(1631018380987654321n, "+01:00");
 
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "years",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(3, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+}), 3, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "months",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 32, 0, 0, 0, 0, 0, 0, 0, 0));
-TemporalHelpers.assertDurationsEqual(later.since(earlier, {
+}), 0, 32, 0, 0, 0, 0, 0, 0, 0, 0);
+TemporalHelpers.assertDuration(later.since(earlier, {
   smallestUnit: "weeks",
   roundingMode: "halfExpand"
-}), new Temporal.Duration(0, 0, 139, 0, 0, 0, 0, 0, 0, 0));
+}), 0, 0, 139, 0, 0, 0, 0, 0, 0, 0);
 
 
