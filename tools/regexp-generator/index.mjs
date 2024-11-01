@@ -1,9 +1,10 @@
-const fs = require('fs');
-const rewritePattern = require('regexpu-core');
-const slugify = require('slugify');
-const filenamify = require('filenamify');
-const jsesc = require('jsesc');
-const header = require('./header');
+import filenamify from 'filenamify';
+import fs from 'node:fs';
+import jsesc from 'jsesc';
+import rewritePattern from 'regexpu-core';
+import slugify from 'slugify';
+
+import header from './header.mjs';
 
 const patterns = {
     'whitespace class escape': '\\s',
@@ -91,7 +92,7 @@ for (const [desc, escape] of Object.entries(patterns)) {
 
         const pattern = `${escape}${quantifier}`;
         const range = rewritePattern(pattern, flags, {
-            useUnicodeFlag: flags.includes('u')
+            unicodeFlag: flags.includes('u') ? 'transform' : false,
         });
 
         console.log(`${pattern} => ${range}, flags: ${flags}`);
