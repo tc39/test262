@@ -54,7 +54,8 @@ assert.sameValue(
 }
 
 function writeFile(desc, content, suffix = '') {
-    const filename = `output/character-class-${slugify(filenamify(desc.toLowerCase()))}${suffix}.js`;
+    const outPath = '../../test/built-ins/RegExp/CharacterClassEscapes';
+    const filename = `${outPath}/character-class-${slugify(filenamify(desc.toLowerCase()))}${suffix}.js`;
     fs.writeFileSync(filename, content);
 }
 
