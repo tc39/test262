@@ -40,7 +40,7 @@ includes: [regExpUtils.js]
 const str = buildString({
     loneCodePoints: [],
     ranges: [
-        [0x0030, 0x0039],
+        [0x000030, 0x000039],
     ],
 });
 

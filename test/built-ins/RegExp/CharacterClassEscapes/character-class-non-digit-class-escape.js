@@ -38,11 +38,13 @@ includes: [regExpUtils.js]
 ---*/
 
 const str = buildString({
-  loneCodePoints: [],
-  ranges: [
-      [0x000000, 0x00002F],
-      [0x00003A, 0x00FFFF],
-  ],
+    loneCodePoints: [],
+    ranges: [
+        [0x00DC00, 0x00DFFF],
+        [0x000000, 0x00002F],
+        [0x00003A, 0x00DBFF],
+        [0x00E000, 0x00FFFF],
+    ],
 });
 
 const re = /\D/g;
