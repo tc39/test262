@@ -13,8 +13,8 @@
   "license": "MIT",
   "devDependencies": {
     "filenamify": "^6.0.0",
-    "jsesc": "^3.0.2",
     "mkdirp": "^3.0.1",
+    "regenerate": "^1.4.2",
     "regexpu-core": "^6.1.1",
     "rimraf": "^6.0.1",
     "slugify": "^1.6.6"
