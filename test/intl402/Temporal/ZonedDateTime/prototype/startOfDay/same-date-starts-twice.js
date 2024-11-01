@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.zoneddatetime.from
+esid: sec-temporal.zoneddatetime.prototype.startofday
 description: Handles dates with offset transitions where midnight occurs twice.
 includes: [temporalHelpers.js]
 features: [Temporal]
