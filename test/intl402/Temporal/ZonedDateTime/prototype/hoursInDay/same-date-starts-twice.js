@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.zoneddatetime.prototype.hoursinday
 description: Handles dates with offset transitions where midnight occurs twice.
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
