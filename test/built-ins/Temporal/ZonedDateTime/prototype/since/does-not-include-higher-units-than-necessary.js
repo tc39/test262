@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.prototype.since
-description: Can return subseconds.
+description: Does not include higher units than necessary in the return value.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
