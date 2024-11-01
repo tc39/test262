@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.from
-description: Handles dates with offset transitions.
+description: Handles dates with offset transitions where midnight occurs twice.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
