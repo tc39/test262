@@ -72,6 +72,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r tools/generation/requirements.txt
 
+      - name: Install dependencies for regexp-generator tool
+        run: |
+          cd tools/regexp-generator
+          npm install
+
       - name: Build tests
         run: |
           ./make.py clean >/dev/null
