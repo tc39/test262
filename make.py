@@ -8,8 +8,10 @@ import os, shutil, subprocess, sys
 OUT_DIR = os.environ.get('OUT_DIR') or 'test'
 SRC_DIR = os.environ.get('SRC_DIR') or 'src'
 
-def shell(*args):
-    sp = subprocess.Popen(list(args), stdout=subprocess.PIPE, universal_newlines=True)
+
+def shell(*args, **kwargs):
+    sp = subprocess.Popen(list(args), stdout=subprocess.PIPE,
+                          universal_newlines=True, **kwargs)
     cmd_str = ' '.join(args)
 
     print('> ' + cmd_str)
@@ -36,17 +38,27 @@ def target(*deps):
         return wrapped
     return other
 
+
 @target()
+def npm_deps():
+    shell('npm', 'install', cwd='./tools/regexp-generator')
+
+
+@target('npm_deps')
 def build():
     shell(sys.executable, 'tools/generation/generator.py',
           'create',
           '--parents',
           '--out', OUT_DIR,
           SRC_DIR)
+    shell('npm', 'run', 'build', cwd='./tools/regexp-generator')
 
-@target()
+
+@target('npm_deps')
 def clean():
     shell(sys.executable, 'tools/generation/generator.py', 'clean', OUT_DIR)
+    shell('npm', 'run', 'clean', cwd='./tools/regexp-generator')
+
 
 if len(sys.argv) == 1:
     targets['build']()
