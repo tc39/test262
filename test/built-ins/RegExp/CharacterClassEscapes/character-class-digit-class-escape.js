@@ -7,7 +7,7 @@ description: >
     Compare range for digit class escape \d with flags g
 info: |
     This is a generated test. Please check out
-    https://github.com/bocoup/test262-regexp-generator
+    https://github.com/tc39/test262/tree/main/tools/regexp-generator/
     for any changes.
 
     CharacterClassEscape[U] ::
@@ -35,6 +35,7 @@ info: |
         Return the set of all characters not included in the set returned by CharacterClassEscape :: w.
 features: [String.fromCodePoint]
 includes: [regExpUtils.js]
+flags: [generated]
 ---*/
 
 const str = buildString({
