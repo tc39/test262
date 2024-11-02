@@ -77,10 +77,8 @@ function buildString(escapeChar, flags) {
     return prettyPrint([ loneCodePoints, ranges ]);
 }
 
-function buildContent(desc, pattern, range, max, flags, skip180e) {
+function buildContent(desc, pattern, flags) {
     let string = buildString(pattern[1], flags);
-    let method;
-    let features = [];
 
     let content = header(`Compare range for ${desc} ${pattern} with flags ${flags}`);
 
@@ -118,7 +116,6 @@ function writeFile(desc, content, suffix = '') {
 
 // No additions
 for (const [desc, escape] of Object.entries(patterns)) {
-    const skip180e = escape.toLowerCase().includes('s');
     [
         {
             quantifier: '',
@@ -127,23 +124,19 @@ for (const [desc, escape] of Object.entries(patterns)) {
         {
             quantifier: '+',
             flags: '',
-            posCb(u) { return [u, u+u]},
             suffix: '-plus-quantifier',
         },
         {
             quantifier: '',
             flags: 'u',
-            max: 0x10FFFF,
             suffix: '-flags-u',
         },
         {
             quantifier: '+',
             flags: 'u',
-            posCb(u) { return [u, u+u]},
             suffix: '-plus-quantifier-flags-u',
-            max: 0x10FFFF,
         },
-    ].forEach(({quantifier, max = 0xFFFF, flags, suffix, posCb = u => [u], negCb = u => [u]}) => {
+    ].forEach(({quantifier, flags, suffix}) => {
         flags += 'g';
 
         const pattern = `${escape}${quantifier}`;
@@ -153,7 +146,7 @@ for (const [desc, escape] of Object.entries(patterns)) {
 
         console.log(`${pattern} => ${range}, flags: ${flags}`);
 
-        const content = buildContent(desc, pattern, range, max, flags, skip180e);
+        const content = buildContent(desc, pattern, flags);
 
         writeFile(desc, content, suffix);
     });
