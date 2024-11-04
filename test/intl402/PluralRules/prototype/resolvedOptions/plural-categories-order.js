@@ -20,5 +20,4 @@ assert.compareArray(new Intl.PluralRules('fa').resolvedOptions().pluralCategorie
 assert.compareArray(new Intl.PluralRules('fr').resolvedOptions().pluralCategories, ['one', 'many', 'other'], "pluralCategories order or contents incorrect for 'fr' locale");
 assert.compareArray(new Intl.PluralRules('gv').resolvedOptions().pluralCategories, ['one', 'two', 'few', 'many', 'other'], "pluralCategories order or contents incorrect for 'gv' locale");
 assert.compareArray(new Intl.PluralRules('ko').resolvedOptions().pluralCategories, ['other'], "pluralCategories order or contents incorrect for 'ko' locale");
-
 assert.compareArray(new Intl.PluralRules('sl').resolvedOptions().pluralCategories, ['one', 'two', 'few', 'other'], "pluralCategories order or contents incorrect for 'sl' locale");
