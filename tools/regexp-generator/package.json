@@ -1,7 +1,5 @@
 {
-  "name": "test262-regexp-class-escapes",
-  "version": "1.0.0",
-  "description": "",
+  "private": true,
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
