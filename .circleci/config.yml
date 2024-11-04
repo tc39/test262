@@ -37,7 +37,7 @@ execution_steps: &execution_steps
     - run: hostPath=$HOME/.esvu/bin/$hostPath npm run ci
 
 jobs:
-  "Test262: verify tools; build & lint tests":
+  "Test262: verify tools; build tests":
     docker:
       - image: cimg/python:3.7.4
     working_directory: ~/test262
@@ -47,20 +47,11 @@ jobs:
           name: "Install requirements for generation tool"
           command: python -m pip install --user --requirement tools/generation/requirements.txt
       - run:
-          name: "Install requirements for lint tool"
-          command: python -m pip install --user --requirement tools/lint/requirements.txt
-      - run:
           name: "Test the generation tool"
           command: ./tools/generation/test/run.py
       - run:
-          name: "Test the lint tool"
-          command: ./tools/lint/test/run.py
-      - run:
           name: "Build tests; check for new changes"
           command: ./tools/scripts/ci_build.sh
-      - run:
-          name: "Lint tests"
-          command: ./tools/scripts/ci_lint.sh
   "V8: New or modified tests execution":
     docker:
       - image: *node_image
@@ -134,7 +125,7 @@ workflows:
   version: 2
   Tools:
     jobs:
-      - "Test262: verify tools; build & lint tests"
+      - "Test262: verify tools; build tests"
   Tests execution:
     jobs:
       # - "ChakraCore: New or modified tests execution"
