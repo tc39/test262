@@ -8,81 +8,81 @@ import slugify from 'slugify';
 import header from './header.mjs';
 
 const patterns = {
-    'whitespace class escape': '\\s',
-    'non-whitespace class escape': '\\S',
-    'word class escape': '\\w',
-    'non-word class escape': '\\W',
-    'digit class escape': '\\d',
-    'non-digit class escape': '\\D',
+  'whitespace class escape': '\\s',
+  'non-whitespace class escape': '\\S',
+  'word class escape': '\\w',
+  'non-word class escape': '\\W',
+  'digit class escape': '\\d',
+  'non-digit class escape': '\\D',
 };
 
 // Pretty-printing code adapted from unicode-property-escapes-tests.
 // https://github.com/mathiasbynens/unicode-property-escapes-tests/blob/60f2dbec2b2a840ee67aa04dbd3449bb90fd2999/regenerate.js
 
 function toHex(codePoint) {
-    return '0x' + ('00000' + codePoint.toString(16).toUpperCase()).slice(-6);
+  return '0x' + ('00000' + codePoint.toString(16).toUpperCase()).slice(-6);
 };
 
 function toTestData(reg) {
-    const data = reg.data;
-    // Iterate over the data per `(start, end)` pair.
-    let index = 0;
-    const length = data.length;
-    const loneCodePoints = [];
-    const ranges = [];
-    while (index < length) {
-        let start = data[index];
-        let end = data[index + 1] - 1; // Note: the `- 1` makes `end` inclusive.
-        if (start == end) {
-            loneCodePoints.push(start);
-        } else {
-            ranges.push([start, end]);
-        }
-        index += 2;
+  const data = reg.data;
+  // Iterate over the data per `(start, end)` pair.
+  let index = 0;
+  const length = data.length;
+  const loneCodePoints = [];
+  const ranges = [];
+  while (index < length) {
+    let start = data[index];
+    let end = data[index + 1] - 1; // Note: the `- 1` makes `end` inclusive.
+    if (start == end) {
+      loneCodePoints.push(start);
+    } else {
+      ranges.push([start, end]);
     }
-    return [ loneCodePoints, ranges ];
+    index += 2;
+  }
+  return [ loneCodePoints, ranges ];
 }
 
 function prettyPrint([ loneCodePoints, ranges ]) {
-    const indent = '    ';
-    loneCodePoints = loneCodePoints.map((codePoint) => toHex(codePoint));
-    ranges = ranges.map(
-        (range) => `[${ toHex(range[0]) }, ${ toHex(range[1]) }]`
-    );
-    const loneCodePointsOutput = loneCodePoints.length ?
-        loneCodePoints.length === 1 ? `[${loneCodePoints[0]}]` :
-            `[\n${indent}${indent}${ loneCodePoints.join(`,\n${indent}${indent}`) },\n${indent}]` :
-        `[]`;
-    const rangesOutput = ranges.length ?
-        `[\n${indent}${indent}${ ranges.join(`,\n${indent}${indent}`) },\n${indent}]` :
-        `[]`;
-    return `{\n${indent}loneCodePoints: ${ loneCodePointsOutput },\n${indent}ranges: ${ rangesOutput },\n}`;
+  const indent = '    ';
+  loneCodePoints = loneCodePoints.map((codePoint) => toHex(codePoint));
+  ranges = ranges.map(
+    (range) => `[${ toHex(range[0]) }, ${ toHex(range[1]) }]`
+  );
+  const loneCodePointsOutput = loneCodePoints.length ?
+    loneCodePoints.length === 1 ? `[${loneCodePoints[0]}]` :
+      `[\n${indent}${indent}${ loneCodePoints.join(`,\n${indent}${indent}`) },\n${indent}]` :
+    `[]`;
+  const rangesOutput = ranges.length ?
+    `[\n${indent}${indent}${ ranges.join(`,\n${indent}${indent}`) },\n${indent}]` :
+    `[]`;
+  return `{\n${indent}loneCodePoints: ${ loneCodePointsOutput },\n${indent}ranges: ${ rangesOutput },\n}`;
 }
 
 const LOW_SURROGATES = regenerate().addRange(0xDC00, 0xDFFF);
 
 function buildString(escapeChar, flags) {
-    const isUnicode = flags.includes('u');
-    let escapeData = ESCAPE_SETS[isUnicode ? 'UNICODE' : 'REGULAR'].get(escapeChar);
+  const isUnicode = flags.includes('u');
+  let escapeData = ESCAPE_SETS[isUnicode ? 'UNICODE' : 'REGULAR'].get(escapeChar);
 
-    const lowSurrogates = escapeData.clone().intersection(LOW_SURROGATES);
-    if (lowSurrogates.data.length === 0) {
-        return prettyPrint(toTestData(escapeData));
-    }
-    const rest = escapeData.clone().remove(LOW_SURROGATES);
-    const [ lowLoneCodePoints, lowRanges ] = toTestData(lowSurrogates);
-    const [ loneCodePoints, ranges ] = toTestData(rest);
-    loneCodePoints.unshift(...lowLoneCodePoints);
-    ranges.unshift(...lowRanges);
-    return prettyPrint([ loneCodePoints, ranges ]);
+  const lowSurrogates = escapeData.clone().intersection(LOW_SURROGATES);
+  if (lowSurrogates.data.length === 0) {
+    return prettyPrint(toTestData(escapeData));
+  }
+  const rest = escapeData.clone().remove(LOW_SURROGATES);
+  const [ lowLoneCodePoints, lowRanges ] = toTestData(lowSurrogates);
+  const [ loneCodePoints, ranges ] = toTestData(rest);
+  loneCodePoints.unshift(...lowLoneCodePoints);
+  ranges.unshift(...lowRanges);
+  return prettyPrint([ loneCodePoints, ranges ]);
 }
 
 function buildContent(desc, pattern, flags) {
-    let string = buildString(pattern[1], flags);
+  let string = buildString(pattern[1], flags);
 
-    let content = header(`Compare range for ${desc} ${pattern} with flags ${flags}`);
+  let content = header(`Compare range for ${desc} ${pattern} with flags ${flags}`);
 
-    content += `
+  content += `
 const str = buildString(${string});
 
 const re = /${pattern}/${flags};
@@ -90,18 +90,18 @@ const re = /${pattern}/${flags};
 const errors = [];
 
 if (!re.test(str)) {
-    // Error, let's find out where
-    for (const char of str) {
-        if (!re.test(char)) {
-            errors.push('0x' + char.codePointAt(0).toString(16));
-        }
+  // Error, let's find out where
+  for (const char of str) {
+    if (!re.test(char)) {
+      errors.push('0x' + char.codePointAt(0).toString(16));
     }
+  }
 }
 
 assert.sameValue(
-    errors.length,
-    0,
-    'Expected matching code points, but received: ' + errors.join(',')
+  errors.length,
+  0,
+  'Expected matching code points, but received: ' + errors.join(',')
 );
 `;
 
@@ -109,45 +109,45 @@ assert.sameValue(
 }
 
 function writeFile(desc, content, suffix = '') {
-    const outPath = '../../test/built-ins/RegExp/CharacterClassEscapes';
-    const filename = `${outPath}/character-class-${slugify(filenamify(desc.toLowerCase()))}${suffix}.js`;
-    fs.writeFileSync(filename, content);
+  const outPath = '../../test/built-ins/RegExp/CharacterClassEscapes';
+  const filename = `${outPath}/character-class-${slugify(filenamify(desc.toLowerCase()))}${suffix}.js`;
+  fs.writeFileSync(filename, content);
 }
 
 // No additions
 for (const [desc, escape] of Object.entries(patterns)) {
-    [
-        {
-            quantifier: '',
-            flags: '',
-        },
-        {
-            quantifier: '+',
-            flags: '',
-            suffix: '-plus-quantifier',
-        },
-        {
-            quantifier: '',
-            flags: 'u',
-            suffix: '-flags-u',
-        },
-        {
-            quantifier: '+',
-            flags: 'u',
-            suffix: '-plus-quantifier-flags-u',
-        },
-    ].forEach(({quantifier, flags, suffix}) => {
-        flags += 'g';
+  [
+    {
+      quantifier: '',
+      flags: '',
+    },
+    {
+      quantifier: '+',
+      flags: '',
+      suffix: '-plus-quantifier',
+    },
+    {
+      quantifier: '',
+      flags: 'u',
+      suffix: '-flags-u',
+    },
+    {
+      quantifier: '+',
+      flags: 'u',
+      suffix: '-plus-quantifier-flags-u',
+    },
+  ].forEach(({quantifier, flags, suffix}) => {
+    flags += 'g';
 
-        const pattern = `${escape}${quantifier}`;
-        const range = rewritePattern(pattern, flags, {
-            unicodeFlag: flags.includes('u') ? 'transform' : false,
-        });
-
-        console.log(`${pattern} => ${range}, flags: ${flags}`);
-
-        const content = buildContent(desc, pattern, flags);
-
-        writeFile(desc, content, suffix);
+    const pattern = `${escape}${quantifier}`;
+    const range = rewritePattern(pattern, flags, {
+      unicodeFlag: flags.includes('u') ? 'transform' : false,
     });
+
+    console.log(`${pattern} => ${range}, flags: ${flags}`);
+
+    const content = buildContent(desc, pattern, flags);
+
+    writeFile(desc, content, suffix);
+  });
 }
