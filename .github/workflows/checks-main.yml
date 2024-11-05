@@ -25,4 +25,4 @@ jobs:
         run: ./tools/lint/test/run.py
 
       - name: Lint all tests
-        run: ./tools/scripts/ci_lint.sh
+        run: ./tools/lint/lint.py test/
