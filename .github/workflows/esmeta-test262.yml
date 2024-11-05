@@ -30,14 +30,20 @@ jobs:
       - name: build esmeta
         working-directory: ${{ env.ESMETA_HOME }}
         run: sbt assembly
+
+      - name: Identify new or changed tests
+        id: changed_tests
+        uses: tj-actions/changed-files@v45
+        with:
+          files: test/
+
       - name: run test262
+        if: steps.changed_tests.outputs.any_changed == 'true'
+        env:
+          CHANGED: ${{ steps.changed_tests.outputs.all_changed_files }}
         run: |
-          git fetch origin main
-          paths=$(git diff --diff-filter ACMR --name-only origin/main.. -- test/)
-          if [ "$paths" == "" ]; then
-            echo No test files added or modified. Exiting.
-            exit 0
-          fi
           echo New or modified test files:
-          echo "$paths"
-          "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) $paths
+          for file in $CHANGED; do
+            echo $file
+          done
+          "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) $CHANGED
