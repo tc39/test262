@@ -61,9 +61,6 @@ jobs:
       - run:
           name: "Lint tests"
           command: ./tools/scripts/ci_lint.sh
-      # - run:
-      #     name: "Run deploy"
-      #     command: ./tools/scripts/deploy.sh
   "V8: New or modified tests execution":
     docker:
       - image: *node_image
