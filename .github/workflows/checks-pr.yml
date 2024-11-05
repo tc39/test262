@@ -46,3 +46,37 @@ jobs:
         run: |
           awk -F': ' <errors.out \
             "{ sub(\"$(pwd)/\", \"\"); printf \"::error file=%s,line=1::%s\n\", \$1, \$2 }"
+
+
+  build:
+    name: Build generated tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install dependencies for generation tool
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/generation/requirements.txt
+
+      - name: Test the generation tool
+        run: ./tools/generation/test/run.py
+
+      - name: Build tests
+        run: ./tools/scripts/ci_build.sh
+
+      - name: Verify changes
+        uses: tj-actions/verify-changed-files@v20
+        with:
+          fail-if-changed: true
+          fail-message: |
+            New changes were found after re-generating the tests.
+            Please read the documentation on procedurally generated tests
+            https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#procedurally-generated-tests
