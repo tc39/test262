@@ -70,7 +70,9 @@ jobs:
         run: ./tools/generation/test/run.py
 
       - name: Build tests
-        run: ./tools/scripts/ci_build.sh
+        run: |
+          ./make.py clean >/dev/null
+          ./make.py
 
       - name: Verify changes
         uses: tj-actions/verify-changed-files@v20
