@@ -1,10 +1,16 @@
-name: Checks
+name: Test tools
 
-on: push
+on:
+  push:
+    files:
+      - 'tools/**'
+  pull_request:
+    files:
+      - 'tools/**'
 
 jobs:
   lint:
-    name: Lint tests
+    name: Test the lint tool
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,11 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r tools/lint/requirements.txt
 
-      - name: Lint all tests
-        run: ./tools/lint/lint.py test/
+      - name: Test the lint tool
+        run: ./tools/lint/test/run.py
 
-  build:
-    name: Build generated tests
+  generation:
+    name: Test the generation tool
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,16 +48,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r tools/generation/requirements.txt
 
-      - name: Build tests
-        run: |
-          ./make.py clean >/dev/null
-          ./make.py
-
-      - name: Verify changes
-        uses: tj-actions/verify-changed-files@v20
-        with:
-          fail-if-changed: true
-          fail-message: |
-            New changes were found after re-generating the tests.
-            Please read the documentation on procedurally generated tests
-            https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#procedurally-generated-tests
+      - name: Test the generation tool
+        run: ./tools/generation/test/run.py
