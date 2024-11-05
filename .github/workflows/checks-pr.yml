@@ -39,4 +39,10 @@ jobs:
           for file in $CHANGED; do
             echo $file
           done
-          ./tools/lint/lint.py $CHANGED
+          ./tools/lint/lint.py $CHANGED 2> >(tee errors.out >&2)
+
+      - name: Create annotations in the PR
+        if: failure()
+        run: |
+          awk -F': ' <errors.out \
+            "{ sub(\"$(pwd)/\", \"\"); printf \"::error file=%s,line=1::%s\n\", \$1, \$2 }"
