@@ -97,7 +97,11 @@ if __name__ == '__main__':
     if args.exceptions:
         exceptions = lib.exceptions.parse(args.exceptions)
     else:
-        exceptions = dict()
+        try:
+            with open('lint.exceptions', 'r') as default_exceptions:
+                exceptions = lib.exceptions.parse(default_exceptions)
+        except FileNotFoundError:
+            exceptions = dict()
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)

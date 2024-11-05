@@ -39,4 +39,4 @@ jobs:
           for file in $CHANGED; do
             echo $file
           done
-          ./tools/scripts/ci_lint.sh $CHANGED
+          ./tools/lint/lint.py $CHANGED
