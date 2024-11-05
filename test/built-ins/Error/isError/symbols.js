@@ -8,4 +8,4 @@ description: >
 features: [Error.isError, Symbol]
 ---*/
 
-assert.sameValue(Error.isError(new Symbol()), false);
+assert.sameValue(Error.isError(Symbol()), false);

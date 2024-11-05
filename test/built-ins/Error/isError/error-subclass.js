@@ -27,7 +27,7 @@ assert.sameValue(Error.isError(new MyURIError()), true);
 if (typeof AggregateError !== 'undefined') {
   class MyAggregateError extends AggregateError {}
 
-  assert.sameValue(Error.isError(new MyAggregateError()), true);
+  assert.sameValue(Error.isError(new MyAggregateError([])), true);
 }
 
 if (typeof SuppressedError !== 'undefined') {
