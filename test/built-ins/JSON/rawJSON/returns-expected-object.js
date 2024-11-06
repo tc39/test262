@@ -16,7 +16,7 @@ includes: [compareArray.js]
 features: [json-parse-with-source]
 ---*/
 
-function assertIsRawJson(rawJSON, expectedRawJSONValue) {
+function assertIsRawJSON(rawJSON, expectedRawJSONValue) {
   assert.sameValue(Object.getPrototypeOf(rawJSON), null, "RawJSON object should have null prototype");
   assert(Object.hasOwn(rawJSON, "rawJSON"), "RawJSON object should have rawJSON own property");
   assert.compareArray(Object.getOwnPropertyNames(rawJSON), ["rawJSON"], "RawJSON object should have only rawJSON own property");
@@ -24,8 +24,8 @@ function assertIsRawJson(rawJSON, expectedRawJSONValue) {
   assert.sameValue(rawJSON.rawJSON, expectedRawJSONValue, "rawJSON value");
 }
 
-assertIsRawJson(JSON.rawJSON(1), "1");
-assertIsRawJson(JSON.rawJSON(null), "null");
-assertIsRawJson(JSON.rawJSON(true), "true");
-assertIsRawJson(JSON.rawJSON(false), "false");
-assertIsRawJson(JSON.rawJSON('"foo"'), '"foo"');
+assertIsRawJSON(JSON.rawJSON(1), "1");
+assertIsRawJSON(JSON.rawJSON(null), "null");
+assertIsRawJSON(JSON.rawJSON(true), "true");
+assertIsRawJSON(JSON.rawJSON(false), "false");
+assertIsRawJSON(JSON.rawJSON('"foo"'), '"foo"');
