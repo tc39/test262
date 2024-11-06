@@ -17,7 +17,7 @@ assert.sameValue(Error.isError(new TypeError()), true);
 assert.sameValue(Error.isError(new URIError()), true);
 
 if (typeof AggregateError !== 'undefined') {
-  assert.sameValue(Error.isError(new AggregateError()), true);
+  assert.sameValue(Error.isError(new AggregateError([])), true);
 }
 if (typeof SuppressedError !== 'undefined') {
   assert.sameValue(Error.isError(new SuppressedError()), true);
