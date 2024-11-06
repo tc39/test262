@@ -19,7 +19,7 @@ assert.sameValue(Error.isError(new other.TypeError()), true);
 assert.sameValue(Error.isError(new other.URIError()), true);
 
 if (typeof AggregateError !== 'undefined') {
-  assert.sameValue(Error.isError(new other.AggregateError()), true);
+  assert.sameValue(Error.isError(new other.AggregateError([])), true);
 }
 if (typeof SuppressedError !== 'undefined') {
   assert.sameValue(Error.isError(new other.SuppressedError()), true);
