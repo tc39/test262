@@ -9,7 +9,7 @@ features: [Temporal]
 
 // Based on a test case by Adam Shaw
 
-const dur = new Temporal.Duration.from(0, 0, 0, 0, /* hours = */ 13, 0, 0, 0, 0, 0);
+const dur = new Temporal.Duration(0, 0, 0, 0, /* hours = */ 13, 0, 0, 0, 0, 0);
 const zdt = new Temporal.ZonedDateTime(0n, "UTC");
 
 TemporalHelpers.assertDuration(
