@@ -30,5 +30,9 @@ features: [import-defer]
 
 import defer * as ns from "./throws_FIXTURE.js";
 
-assert.throws(URIError, () => ns.foo, "Evaluation errors are thrown when evaluating");
-assert.throws(URIError, () => ns.foo, "Evaluation errors are thrown for already evaluated modules");
+let err1, err2;
+try { ns.foo } catch (e) { err1 = e };
+assert.deepEqual(err1, { someError: "the error from throws_FIXTURE" }, "Evaluation errors are thrown when evaluating");
+
+try { ns.foo } catch (e) { err2 = e };
+assert.sameValue(err1, err2, "Evaluation errors are thrown for already evaluated modules");

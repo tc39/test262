@@ -22,4 +22,4 @@ assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigge
 Reflect.setPrototypeOf(ns1, null);
 Reflect.setPrototypeOf(ns1, {});
 
-assert.sameValue(globalThis.evaluations.length, 0, "[[GetPrototypeOf]] does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "[[SetPrototypeOf]] does not trigger evaluation");

@@ -11,4 +11,4 @@ try {
   globalThis["evaluating dep2.foo error"] = error;
 }
 
-globalThis["evaluating dep2.foo evaluates dep2"] = globalThis.dep3evaluated;
+globalThis["evaluating dep2.foo evaluates dep3"] = globalThis.dep3evaluated;

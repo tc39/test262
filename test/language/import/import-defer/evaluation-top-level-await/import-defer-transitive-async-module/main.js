@@ -45,11 +45,11 @@ features: [import-defer, top-level-await]
 includes: [compareArray.js]
 ---*/
 
-import "../setup_FIXTURE.js";
-import defer * as ns "./imports-tla_FIXTURE.js";
+import "./setup_FIXTURE.js";
+import defer * as ns from "./imports-tla_FIXTURE.js";
 
 assert.compareArray(globalThis.evaluations, ["tla start", "tla end"]);
 ns.x;
-assert.compareArray(globalThis.evaluations, ["imports-dla"]);
+assert.compareArray(globalThis.evaluations, ["tla start", "tla end", "imports-tla"]);
 
 $DONE();

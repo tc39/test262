@@ -21,4 +21,4 @@ assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigge
 
 Object.isExtensible(ns1);
 
-assert.sameValue(globalThis.evaluations.length, 0, "[[GetPrototypeOf]] does not trigger evaluation");
+assert.sameValue(globalThis.evaluations.length, 0, "[[IsExtensible]] does not trigger evaluation");

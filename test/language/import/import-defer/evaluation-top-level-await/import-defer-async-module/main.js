@@ -45,7 +45,7 @@ features: [import-defer, top-level-await]
 includes: [compareArray.js]
 ---*/
 
-import "../setup_FIXTURE.js";
+import "./setup_FIXTURE.js";
 import defer * as ns from "./tla_FIXTURE.js";
 
 assert.compareArray(globalThis.evaluations, ["tla start", "tla end"]);

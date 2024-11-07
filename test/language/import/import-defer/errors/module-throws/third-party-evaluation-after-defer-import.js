@@ -24,12 +24,23 @@ info: |
       1. Return ThrowCompletion(_promise_.[[PromiseResult]]).
     1. ...
 
-flags: [module]
-features: [import-defer, top-level-await]
+flags: [module, async]
+features: [import-defer]
+include: [asyncHelpers.js]
 ---*/
 
 import defer * as ns from "./throws_FIXTURE.js";
 
-await import("./throws_FIXTURE.js").catch(() => {});
+asyncText(async () => {
+  let err1;
+  await import("./throws_FIXTURE.js").catch((e) => { err1 = e });
+  assert.deepEqual(err1, { someError: "the error from throws_FIXTURE" });
 
-assert.throws(URIError, () => ns.foo, "Evaluation errors are thrown for modules evaluated after getting the deferred namespace");
+  let err2;
+  try { ns.foo } catch (e) { err2 = e };
+  assert.sameValue(
+    err1,
+    err2,
+    "Evaluation errors are thrown for modules evaluated after getting the deferred namespace"
+  );
+});
