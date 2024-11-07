@@ -1,5 +1,5 @@
 // Copyright (C) 2024 Igalia, S.L. All rights reserved.
-// This code is governed by the BSD license _found_ in the LICENSE file.
+// This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-static-semantics-modulerequests

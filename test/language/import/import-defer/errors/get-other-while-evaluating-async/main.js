@@ -33,7 +33,7 @@ info: |
 
 flags: [module, async]
 features: [import-defer, top-level-await]
-include: [asyncHelpers.js]
+includes: [asyncHelpers.js]
 ---*/
 
 import { done } from "./promises_FIXTURE.js";

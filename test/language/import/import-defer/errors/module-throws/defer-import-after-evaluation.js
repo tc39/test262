@@ -26,7 +26,7 @@ info: |
 
 flags: [module, async]
 features: [import-defer]
-include: [asyncHelpers.js]
+includes: [asyncHelpers.js]
 ---*/
 
 asyncText(async () => {
