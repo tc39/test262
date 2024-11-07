@@ -1,7 +1,7 @@
 // Copyright (C) 2024 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-import { first, third, rejectDone, resolveDone } from "./promises_FIXTURE.js";
+import { first, third, resolveSecond, rejectDone, resolveDone } from "./promises_FIXTURE.js";
 import defer * as ns from "./dep-1-tla_FIXTURE.js";
 
 // ns is now in the ~evaluating~ state
@@ -18,6 +18,7 @@ first.then(() => {
   } catch (error) {
     globalThis["error on ns.foo while evaluating-async"] = error;
   }
+  resolveSecond();
 }).then(() => {
   return third.then(() => {
     // ns is now in the ~evaluated~ state

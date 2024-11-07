@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 export let resolveDone, rejectDone;
-export const done = new Promise((r, j) => (resolveDone = r, rejecteDone = j));
+export const done = new Promise((r, j) => (resolveDone = r, rejectDone = j));
 
 export let resolveFirst, rejectFirst;
 export const first = new Promise((r, j) => (resolveFirst = r, rejectFirst = j));

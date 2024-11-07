@@ -33,13 +33,15 @@ info: |
 
 flags: [module, async]
 features: [import-defer, top-level-await]
+include: [asyncHelpers.js]
 ---*/
 
 import { done } from "./promises_FIXTURE.js";
 import "./dep-1-tla_FIXTURE.js";
 
-done.then(() => {
+asyncTest(async () => {
+  await done;
   assert(globalThis["error on ns.foo while evaluating"] instanceof TypeError, "ns.foo while evaluating throws a TypeError");
   assert(globalThis["error on ns.foo while evaluating-async"] instanceof TypeError, "ns.foo while evaluating-async throws a TypeError");
   assert.sameValue(globalThis["value of ns.foo when evaluated"], 1);
-}).then($DONE, $DONE);
+});
