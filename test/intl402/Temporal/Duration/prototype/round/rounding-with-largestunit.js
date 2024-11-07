@@ -9,8 +9,8 @@ features: [Temporal]
 
 // Based on a test case by Adam Shaw
 
-const dur = Temporal.Duration.from({"hours": 13});
-const zdt = Temporal.ZonedDateTime.from('2024-03-10T00:00:00[America/New_York]');
+const dur = new Temporal.Duration.from(0, 0, 0, 0, /* hours = */ 13, 0, 0, 0, 0, 0);
+const zdt = new Temporal.ZonedDateTime(0n, "UTC");
 
 TemporalHelpers.assertDuration(
     dur.round({
