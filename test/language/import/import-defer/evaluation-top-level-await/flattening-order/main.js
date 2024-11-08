@@ -48,10 +48,10 @@ includes: [compareArray.js]
 import "./setup_FIXTURE.js";
 
 import "./dep-1_FIXTURE.js";
-import defer * as ns2 from "./dep-2_FIXTURE.js.js";
-import "./dep-3_FIXTURE.js.js";
-import defer * as ns4 from "./dep-4_FIXTURE.js.js";
-import "./dep-5_FIXTURE.js.js";
+import defer * as ns2 from "./dep-2_FIXTURE.js";
+import "./dep-3_FIXTURE.js";
+import defer * as ns4 from "./dep-4_FIXTURE.js";
+import "./dep-5_FIXTURE.js";
 
 assert.compareArray(globalThis.evaluations, [
   "1",

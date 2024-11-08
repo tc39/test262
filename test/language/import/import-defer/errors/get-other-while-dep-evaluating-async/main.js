@@ -39,7 +39,7 @@ includes: [asyncHelpers.js]
 import { done } from "./promises_FIXTURE.js";
 import "./dep-1-tla_FIXTURE.js";
 
-asyncText(async () => {
+asyncTest(async () => {
   await done;
   assert(globalThis["error on ns.foo while evaluating"] instanceof TypeError, "ns.foo while evaluating throws a TypeError");
   assert(globalThis["error on ns.foo while evaluating-async"] instanceof TypeError, "ns.foo while evaluating-async throws a TypeError");
