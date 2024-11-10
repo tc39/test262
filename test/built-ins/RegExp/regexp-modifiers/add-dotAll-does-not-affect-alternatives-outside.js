@@ -1,10 +1,10 @@
-// Copyright 2023 Ron Buckton. All rights reserved.
+// Copyright 2024 Daniel Kwan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-author: Ron Buckton
+author: Daniel Kwan
 description: >
-  multiline (`m`) modifier can be added via `(?m:)` or `(?m-:)`.
+  Adding dotAll (`s`) modifier should not affect alternatives outside.
 info: |
   Runtime Semantics: CompileAtom
   The syntax-directed operation CompileAtom takes arguments direction (forward or backward) and modifiers (a Modifiers Record) and returns a Matcher.
@@ -33,26 +33,16 @@ esid: sec-compileatom
 features: [regexp-modifiers]
 ---*/
 
-var re1 = /(?m:es$)/;
-assert(re1.test("es\ns"), "$ should match newline in modified group");
+var re1 = /a.a|b.b|(?s:c.c)|d.d|e.e/;
+assert(!re1.test("a\na"), "Alternative `a.a` should not match newline");
+assert(!re1.test("b\nb"), "Alternative `b.b` should not match newline");
+assert(re1.test("c\nc"), "Alternative `(?s:c.c)` should match newline in modified group");
+assert(!re1.test("d\nd"), "Alternative `d.d` should not match newline");
+assert(!re1.test("e\ne"), "Alternative `e.e` should not match newline");
 
-var re2 = new RegExp("(?m:es$)");
-assert(re2.test("es\ns"), "$ should match newline in modified group");
-
-var re3 = /(?m-:es$)/;
-assert(re3.test("es\ns"), "$ should match newline in modified group");
-
-var re4 = new RegExp("(?m-:es$)");
-assert(re4.test("es\ns"), "$ should match newline in modified group");
-
-var re5 = /^a(?m:^b$)c$/;
-assert(re5.test("a\nb\nc"), "^ and $ should match newline in modified group");
-assert(!re5.test("\na\nb\nc"), "^ should not match newline outside modified group");
-assert(!re5.test("a\nb\nc\n"), "$ should not match newline outside modified group");
-assert(!re5.test("\na\nb\nc\n"), "^ and $ should not match newline outside modified group");
-
-var re6 = new RegExp("^a(?m:^b$)c$");
-assert(re6.test("a\nb\nc"), "^ and $ should match newline in modified group");
-assert(!re6.test("\na\nb\nc"), "^ should not match newline outside modified group");
-assert(!re6.test("a\nb\nc\n"), "$ should not match newline outside modified group");
-assert(!re6.test("\na\nb\nc\n"), "^ and $ should not match newline outside modified group");
+var re2 = /(a.a)|(?:b.b)|(?s:c.c)|(?:d.d)|(e.e)/;
+assert(!re2.test("a\na"), "Alternative `(a.a)` should not match newline");
+assert(!re2.test("b\nb"), "Alternative `(?:b.b)` should not match newline");
+assert(re2.test("c\nc"), "Alternative `(?s:c.c)` should match newline in modified group");
+assert(!re2.test("d\nd"), "Alternative `(?:d.d)` should not match newline");
+assert(!re2.test("e\ne"), "Alternative `(e.e)` should not match newline");

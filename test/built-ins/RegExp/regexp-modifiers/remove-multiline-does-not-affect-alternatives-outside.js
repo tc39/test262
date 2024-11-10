@@ -1,10 +1,10 @@
-// Copyright 2023 Ron Buckton. All rights reserved.
+// Copyright 2024 Daniel Kwan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-author: Ron Buckton
+author: Daniel Kwan
 description: >
-  multiline (`m`) modifier can be removed via `(?-m:)`.
+  Removing multiline (`m`) modifier should not affect alternatives outside.
 info: |
   Runtime Semantics: CompileAtom
   The syntax-directed operation CompileAtom takes arguments direction (forward or backward) and modifiers (a Modifiers Record) and returns a Matcher.
@@ -33,18 +33,16 @@ esid: sec-compileatom
 features: [regexp-modifiers]
 ---*/
 
-var re1 = /^(?-m:es$)/m;
-assert(!re1.test("\nes\ns"), "$ should not match newline in modified group");
-assert(re1.test("\nes"), "$ should match end of input in modified group");
+var re1 = /^a$|^b$|(?-m:^c$)|^d$|^e$/m;
+assert(re1.test("\na\n"), "Alternative `^a$` should match newline");
+assert(re1.test("\nb\n"), "Alternative `^b$` should match newline");
+assert(!re1.test("\nc\n"), "Alternative `(?-m:^c$)` should not match newline in modified group");
+assert(re1.test("\nd\n"), "Alternative `^d$` should match newline");
+assert(re1.test("\ne\n"), "Alternative `^e$` should match newline");
 
-var re2 = new RegExp("^(?-m:es$)", "m");
-assert(!re2.test("\nes\ns"), "$ should not match newline in modified group");
-assert(re2.test("\nes"), "$ should match end of input in modified group");
-
-var re3 = /(?-m:^es)$/m;
-assert(!re3.test("e\nes\n"), "^ should not match newline in modified group");
-assert(re3.test("es\n"), "^ should match start of input in modified group");
-
-var re4 = new RegExp("(?-m:^es)$", "m");
-assert(!re4.test("e\nes\n"), "^ should not match newline in modified group");
-assert(re4.test("es\n"), "^ should match start of input in modified group");
+var re2 = /(^a$)|(?:^b$)|(?-m:^c$)|(?:^d$)|(^e$)/m;
+assert(re2.test("\na\n"), "Alternative `(^a$)` should match newline");
+assert(re2.test("\nb\n"), "Alternative `(?:^b$)` should match newline");
+assert(!re2.test("\nc\n"), "Alternative `(?-m:^c$)` should not match newline in modified group");
+assert(re2.test("\nd\n"), "Alternative `(?:^d$)` should match newline");
+assert(re2.test("\ne\n"), "Alternative `(^e$)` should match newline");
