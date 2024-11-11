@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.prototype.round
-description: Balances up to weeks correctly when years and months are present.
+description: Rounds up to weeks correctly when years and months are present.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
