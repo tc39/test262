@@ -10,17 +10,19 @@ features: [Temporal]
 
 const oneMonthOneDay = new Temporal.Duration(0, 1, 0, 1, 0, 0, 0, 0, 0, 0);
 const oneYearOneMonthOneDay = new Temporal.Duration(1, 1, 0, 1, 0, 0, 0, 0, 0, 0);
+const severalWeeksInDays = new Temporal.Duration(0, 0, 0, 29, 0, 0, 0, 0, 0, 0);
+const relativeTo = new Temporal.PlainDate(2024, 1, 1);
 
 // largestUnit must be included
 assert.throws(RangeError, () => oneMonthOneDay.round({
-        relativeTo: '2024-01-01',
+        relativeTo,
         smallestUnit: 'weeks',
         roundingIncrement: 99,
         roundingMode: 'ceil'
 }));
 
 TemporalHelpers.assertDuration(oneMonthOneDay.round({
-    relativeTo: '2024-01-01',
+    relativeTo,
     largestUnit: 'weeks',
     smallestUnit: 'weeks',
     roundingIncrement: 99,
@@ -28,7 +30,7 @@ TemporalHelpers.assertDuration(oneMonthOneDay.round({
 }), 0, 0, 99, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(oneMonthOneDay.round({
-    relativeTo: '2024-01-01',
+    relativeTo,
     largestUnit: 'weeks',
     smallestUnit: 'weeks',
     roundingIncrement: 6,
@@ -36,7 +38,7 @@ TemporalHelpers.assertDuration(oneMonthOneDay.round({
 }), 0, 0, 6, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(oneYearOneMonthOneDay.round({
-    relativeTo: '2024-01-01',
+    relativeTo,
     largestUnit: 'weeks',
     smallestUnit: 'weeks',
     roundingIncrement: 99,
@@ -44,9 +46,25 @@ TemporalHelpers.assertDuration(oneYearOneMonthOneDay.round({
 }), 0, 0, 99, 0, 0, 0, 0, 0, 0, 0);
 
 TemporalHelpers.assertDuration(oneYearOneMonthOneDay.round({
-    relativeTo: '2024-01-01',
+    relativeTo,
     largestUnit: 'weeks',
     smallestUnit: 'weeks',
     roundingIncrement: 57,
     roundingMode: 'ceil'
 }), 0, 0, 57, 0, 0, 0, 0, 0, 0, 0);
+
+TemporalHelpers.assertDuration(severalWeeksInDays.round({
+    relativeTo,
+    largestUnit: 'weeks',
+    smallestUnit: 'weeks',
+    roundingIncrement: 5,
+    roundingMode: 'ceil'
+}), 0, 0, 5, 0, 0, 0, 0, 0, 0, 0);
+
+TemporalHelpers.assertDuration(severalWeeksInDays.round({
+    relativeTo,
+    largestUnit: 'weeks',
+    smallestUnit: 'weeks',
+    roundingIncrement: 8,
+    roundingMode: 'ceil'
+}), 0, 0, 8, 0, 0, 0, 0, 0, 0, 0);
