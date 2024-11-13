@@ -14,6 +14,7 @@ assert.deepEqual = function(actual, expected, message) {
   );
 };
 
+(function() {
 let getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 let join = arr => arr.join(', ');
 function stringFromTemplate(strings, ...subs) {
@@ -131,6 +132,7 @@ assert.deepEqual.format = function(value, seen) {
   let contents = keys.map(key => lazyString`${escapeKey(key)}: ${format(value[key], seen)}`);
   return lazyResult`${tag ? `${tag} ` : ''}{${contents}}`(String, join);
 };
+})();
 
 assert.deepEqual._compare = (function () {
   var EQUAL = 1;
