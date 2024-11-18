@@ -21,6 +21,6 @@ info: |
 
 const utcIdentifiers = ["Etc/GMT", "Etc/UTC", "GMT"];
 
-for (const timeZone of utcIdentifiers){
+for (const timeZone of utcIdentifiers) {
   assert.sameValue(new Intl.DateTimeFormat([], {timeZone}).resolvedOptions().timeZone, "UTC", "Time zone name " + timeZone + " not canonicalized to 'UTC'.");
 }
