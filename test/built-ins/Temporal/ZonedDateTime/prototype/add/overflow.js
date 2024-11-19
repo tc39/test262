@@ -10,8 +10,8 @@ features: [Temporal]
 
 // add result
 // earlier = Temporal.ZonedDateTime.from("2020-05-31T23:12:38.271986102-04:00[-04:00]");
-earlier = new Temporal.ZonedDateTime(1590981158271986102n, "-04:00");
-later = earlier.add({ hours: 2 });
+var earlier = new Temporal.ZonedDateTime(1590981158271986102n, "-04:00");
+var later = earlier.add({ hours: 2 });
 
 TemporalHelpers.assertZonedDateTimesEqual(
     later,
