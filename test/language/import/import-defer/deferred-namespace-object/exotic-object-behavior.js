@@ -35,7 +35,7 @@ assert.sameValue(Reflect.setPrototypeOf(ns, {}), false, "Deferred namespaces' pr
 assert.sameValue(Reflect.setPrototypeOf(ns, null), true, "Deferred namespaces' prototype can be 'set' to null");
 
 assert.throws(TypeError, () => Reflect.apply(ns, null, []), "Deferred namespaces are not callable");
-assert.throws(TypeError, () => Reflect.construct(ns, null, []), "Deferred namespaces are not constructable");
+assert.throws(TypeError, () => Reflect.construct(ns, [], ns), "Deferred namespaces are not constructable");
 
 assert.compareArray(
   Reflect.ownKeys(ns),

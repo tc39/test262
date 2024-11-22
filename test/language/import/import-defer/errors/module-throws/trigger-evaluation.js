@@ -26,7 +26,6 @@ info: |
 
 flags: [module]
 features: [import-defer]
-includes: [deepEqual.js]
 ---*/
 
 import defer * as ns from "./throws_FIXTURE.js";

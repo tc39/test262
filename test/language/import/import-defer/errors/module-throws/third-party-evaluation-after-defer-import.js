@@ -26,7 +26,7 @@ info: |
 
 flags: [module, async]
 features: [import-defer]
-includes: [asyncHelpers.js, deepEqual.js]
+includes: [asyncHelpers.js]
 ---*/
 
 import defer * as ns from "./throws_FIXTURE.js";
@@ -34,7 +34,7 @@ import defer * as ns from "./throws_FIXTURE.js";
 asyncTest(async () => {
   let err1;
   await import("./throws_FIXTURE.js").catch((e) => { err1 = e });
-  assert.deepEqual(err1, { someError: "the error from throws_FIXTURE" });
+  assert.sameValue(err1.someError, "the error from throws_FIXTURE");
 
   let err2;
   try { ns.foo } catch (e) { err2 = e };

@@ -29,6 +29,17 @@ flags: [module, async]
 features: [import-defer, top-level-await]
 ---*/
 
+/*
+`./dep_FIXTURE.js` is _not_ deferred, because it contains top-level await. So what is happening in this test is that:
+- the deferred module is not actually deferred, so `dep_FIXTURE.js` starts executing and goes in its `evaluating` state
+- it has access to a deferred namespace of itself
+- once it reaches the `await`, the state changes to `evaluating-async`
+- the test tries then to access a property from the deferred namespace while it's `evaluating-async` (which is what this test it testing). It should throw.
+- `dep_FIXTURE.js` is done, and becomes `evaluated`
+- `main.js` starts evaluating, and the error is already there
+- `ns.foo` now works, because `ns` is `evaluated` and not `evaluating-async`
+*/
+
 import defer * as ns from "./dep_FIXTURE.js";
 
 assert(globalThis["error on ns.foo"] instanceof TypeError, "ns.foo while evaluating throws a TypeError");
