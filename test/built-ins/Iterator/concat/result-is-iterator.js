@@ -1,4 +1,4 @@
-// Copyright (C) 2024 André Bargull. All rights reserved.
+// Copyright (C) 2024 André Bargull and Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -11,3 +11,7 @@ features: [iterator-sequencing]
 
 var iter = Iterator.concat();
 assert(iter instanceof Iterator, "Iterator.concat() must return an Iterator");
+
+var customIter = { next() { return { done: true, value: undefined }; } };
+iter = Iterator.concat({ [Symbol.iterator]() { return customIter; } });
+assert(iter instanceof Iterator, "Iterator.concat(...) must return an Iterator");
