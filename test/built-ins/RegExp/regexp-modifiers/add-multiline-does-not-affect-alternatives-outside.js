@@ -1,10 +1,10 @@
-// Copyright 2023 Ron Buckton. All rights reserved.
+// Copyright 2024 Daniel Kwan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-author: Ron Buckton
+author: Daniel Kwan
 description: >
-  Can remove ignoreCase (`i`) modifier for group nested within a group that adds ignoreCase modifier.
+  Adding multiline (`m`) modifier should not affect alternatives outside.
 info: |
   Runtime Semantics: CompileAtom
   The syntax-directed operation CompileAtom takes arguments direction (forward or backward) and modifiers (a Modifiers Record) and returns a Matcher.
@@ -33,10 +33,16 @@ esid: sec-compileatom
 features: [regexp-modifiers]
 ---*/
 
-var re1 = /(?i:a(?-i:b))c/;
-assert(!re1.test("ABC"), "b should not match B in ABC");
-assert(!re1.test("ABc"), "b should not match B in ABc");
-assert(re1.test("Abc"), "a should match A in Abc");
-assert(!re1.test("aBc"), "b should not match B in aBc");
-assert(!re1.test("abC"), "c should not match C in abC");
-assert(re1.test("abc"), "should match abc");
+var re1 = /^a$|^b$|(?m:^c$)|^d$|^e$/;
+assert(!re1.test("\na\n"), "Alternative `^a$` should not match newline");
+assert(!re1.test("\nb\n"), "Alternative `^b$` should not match newline");
+assert(re1.test("\nc\n"), "Alternative `(?m:^c$)` should match newline in modified group");
+assert(!re1.test("\nd\n"), "Alternative `^d$` should not match newline");
+assert(!re1.test("\ne\n"), "Alternative `^e$` should not match newline");
+
+var re2 = /(^a$)|(?:^b$)|(?m:^c$)|(?:^d$)|(^e$)/;
+assert(!re2.test("\na\n"), "Alternative `(^a$)` should not match newline");
+assert(!re2.test("\nb\n"), "Alternative `(?:^b$)` should not match newline");
+assert(re2.test("\nc\n"), "Alternative `(?m:^c$)` should match newline in modified group");
+assert(!re2.test("\nd\n"), "Alternative `(?:^d$)` should not match newline");
+assert(!re2.test("\ne\n"), "Alternative `(^e$)` should not match newline");

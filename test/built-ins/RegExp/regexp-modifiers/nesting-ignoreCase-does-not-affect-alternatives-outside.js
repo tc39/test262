@@ -1,13 +1,19 @@
-// Copyright 2023 Ron Buckton. All rights reserved.
+// Copyright 2024 Daniel Kwan. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-author: Ron Buckton
+author: Daniel Kwan
 description: >
-  multiline (`m`) modifier can be removed via `(?-m:)`.
+  Nesting ignoreCase (`i`) modifier should not affect alternatives outside.
 info: |
   Runtime Semantics: CompileAtom
   The syntax-directed operation CompileAtom takes arguments direction (forward or backward) and modifiers (a Modifiers Record) and returns a Matcher.
+
+  Atom :: `(` `?` RegularExpressionFlags `:` Disjunction `)`
+    1. Let addModifiers be the source text matched by RegularExpressionFlags.
+    2. Let removeModifiers be the empty String.
+    3. Let newModifiers be UpdateModifiers(modifiers, CodePointsToString(addModifiers), removeModifiers).
+    4. Return CompileSubpattern of Disjunction with arguments direction and newModifiers.
 
   Atom :: `(` `?` RegularExpressionFlags `-` RegularExpressionFlags `:` Disjunction `)`
     1. Let addModifiers be the source text matched by the first RegularExpressionFlags.
@@ -33,18 +39,24 @@ esid: sec-compileatom
 features: [regexp-modifiers]
 ---*/
 
-var re1 = /^(?-m:es$)/m;
-assert(!re1.test("\nes\ns"), "$ should not match newline in modified group");
-assert(re1.test("\nes"), "$ should match end of input in modified group");
+var re1 = /a|(?-i:b|(?i:c)|d|(?-i:e)|f)|g|(?i:h)|k/i;
+assert(re1.test("A"), "`a` should match `A`");
+assert(!re1.test("B"), "`b` should not match `B`");
+assert(re1.test("C"), "`c` should match `C`");
+assert(!re1.test("D"), "`d` should not match `D`");
+assert(!re1.test("E"), "`e` should not match `E`");
+assert(!re1.test("F"), "`f` should not match `F`");
+assert(re1.test("G"), "`g` should match `G`");
+assert(re1.test("H"), "`h` should match `H`");
+assert(re1.test("K"), "`k` should match `K`");
 
-var re2 = new RegExp("^(?-m:es$)", "m");
-assert(!re2.test("\nes\ns"), "$ should not match newline in modified group");
-assert(re2.test("\nes"), "$ should match end of input in modified group");
-
-var re3 = /(?-m:^es)$/m;
-assert(!re3.test("e\nes\n"), "^ should not match newline in modified group");
-assert(re3.test("es\n"), "^ should match start of input in modified group");
-
-var re4 = new RegExp("(?-m:^es)$", "m");
-assert(!re4.test("e\nes\n"), "^ should not match newline in modified group");
-assert(re4.test("es\n"), "^ should match start of input in modified group");
+var re2 = /a|(?i:b|(?-i:c)|d|(?i:e)|f)|g|(?-i:h)|k/;
+assert(!re2.test("A"), "`a` should not match `A`");
+assert(re2.test("B"), "`b` should match `B`");
+assert(!re2.test("C"), "`c` should not match `C`");
+assert(re2.test("D"), "`d` should match `D`");
+assert(re2.test("E"), "`e` should match `E`");
+assert(re2.test("F"), "`f` should match `F`");
+assert(!re2.test("G"), "`g` should not match `G`");
+assert(!re2.test("H"), "`h` should not match `H`");
+assert(!re2.test("K"), "`k` should not match `K`");
