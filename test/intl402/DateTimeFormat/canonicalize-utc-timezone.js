@@ -17,10 +17,13 @@ info: |
   5. For each element identifier of identifiers, do
   ...
     c. If primary is one of "Etc/UTC", "Etc/GMT", or "GMT", set primary to "UTC".
+features: [Temporal]
 ---*/
 
 const utcIdentifiers = ["Etc/GMT", "Etc/UTC", "GMT"];
 
 for (const timeZone of utcIdentifiers) {
-  assert.sameValue(new Intl.DateTimeFormat([], {timeZone}).resolvedOptions().timeZone, "UTC", "Time zone name " + timeZone + " not canonicalized to 'UTC'.");
+  const dateTime = new Temporal.ZonedDateTime(0n, timeZone);
+  const utcDateTime = new Temporal.ZonedDateTime(0n, "UTC");
+  assert(dateTime.equals(utcDateTime), "Time zone name " + timeZone + " should be equal to primary identifier 'UTC'.");
 }
