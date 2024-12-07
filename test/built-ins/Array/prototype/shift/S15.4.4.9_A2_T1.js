@@ -28,20 +28,12 @@ if (obj.length !== undefined) {
 
 obj.length = undefined;
 var shift = obj.shift();
-if (shift !== undefined) {
-  throw new Test262Error('#3: var obj = {}; obj.length = undefined; obj.shift = Array.prototype.shift; obj.shift() === undefined. Actual: ' + (shift));
-}
+assert.sameValue(shift, undefined, '#3: var obj = {}; obj.length = undefined; obj.shift = Array.prototype.shift; obj.shift() === undefined');
 
-if (obj.length !== 0) {
-  throw new Test262Error('#4: var obj = {}; obj.length = undefined; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 0, '#4: var obj = {}; obj.length = undefined; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0');
 
 obj.length = null
 var shift = obj.shift();
-if (shift !== undefined) {
-  throw new Test262Error('#5: var obj = {}; obj.length = null; obj.shift = Array.prototype.shift; obj.shift() === undefined. Actual: ' + (shift));
-}
+assert.sameValue(shift, undefined, '#5: var obj = {}; obj.length = null; obj.shift = Array.prototype.shift; obj.shift() === undefined');
 
-if (obj.length !== 0) {
-  throw new Test262Error('#6: var obj = {}; obj.length = null; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 0, '#6: var obj = {}; obj.length = null; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0');

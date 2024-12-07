@@ -17,8 +17,6 @@ if (!(String.prototype.concat.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.concat.length !== 1) {
-  throw new Test262Error('#2: String.prototype.concat.length === 1. Actual: ' + String.prototype.concat.length);
-}
+assert.sameValue(String.prototype.concat.length, 1, '#2: String.prototype.concat.length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

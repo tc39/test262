@@ -26,8 +26,6 @@ verifyNotWritable(String.prototype.indexOf, "length", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.indexOf.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.indexOf.length; String.prototype.indexOf.length = function(){return "shifted";}; String.prototype.indexOf.length === __obj. Actual: ' + String.prototype.indexOf.length);
-}
+assert.sameValue(String.prototype.indexOf.length, __obj, '#2: __obj = String.prototype.indexOf.length; String.prototype.indexOf.length = function(){return "shifted";}; String.prototype.indexOf.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

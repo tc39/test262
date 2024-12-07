@@ -12,27 +12,19 @@ var x;
 //CHECK#1
 x = null;
 x %= undefined;
-if (isNaN(x) !== true) {
-  throw new Test262Error('#1: x = null; x %= undefined; x === Not-a-Number. Actual: ' + (x));
-}
+assert.sameValue(isNaN(x), true, '#1: x = null; x %= undefined; x === Not-a-Number');
 
 //CHECK#2
 x = undefined;
 x %= null;
-if (isNaN(x) !== true) {
-  throw new Test262Error('#2: x = undefined; x %= null; x === Not-a-Number. Actual: ' + (x));
-}
+assert.sameValue(isNaN(x), true, '#2: x = undefined; x %= null; x === Not-a-Number');
 
 //CHECK#3
 x = undefined;
 x %= undefined;
-if (isNaN(x) !== true) {
-  throw new Test262Error('#3: x = undefined; x %= undefined; x === Not-a-Number. Actual: ' + (x));
-}
+assert.sameValue(isNaN(x), true, '#3: x = undefined; x %= undefined; x === Not-a-Number');
 
 //CHECK#4
 x = null;
 x %= null;
-if (isNaN(x) !== true) {
-  throw new Test262Error('#4: x = null; x %= null; x === Not-a-Number. Actual: ' + (x));
-}
+assert.sameValue(isNaN(x), true, '#4: x = null; x %= null; x === Not-a-Number');

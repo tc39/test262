@@ -21,9 +21,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "NaN") {
-  throw new Test262Error('#2: __str = String(1/"a"); __str === "NaN". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "NaN", '#2: __str = String(1/"a"); __str === "NaN"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -39,9 +37,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__str !== "NaN") {
-  throw new Test262Error('#4: __str = String("b"*null); __str === "NaN". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "NaN", '#4: __str = String("b"*null); __str === "NaN"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -57,8 +53,6 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#6
-if (__str !== "NaN") {
-  throw new Test262Error('#6: __str = String(Number.NaN); __str === "NaN". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "NaN", '#6: __str = String(Number.NaN); __str === "NaN"');
 //
 //////////////////////////////////////////////////////////////////////////////

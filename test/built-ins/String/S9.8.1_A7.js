@@ -14,11 +14,7 @@ description: >
 ---*/
 
 // CHECK#1
-if (String(1.0000001) !== "1.0000001") {
-  throw new Test262Error('#1: String(1.0000001) === "1.0000001". Actual: ' + (String(1.0000001)));
-}
+assert.sameValue(String(1.0000001), "1.0000001", '#1: String(1.0000001) === "1.0000001"');
 
 // CHECK#2
-if (String(-1.0000001) !== "-1.0000001") {
-  throw new Test262Error('#2: String(-1.0000001) === "-1.0000001". Actual: ' + (String(-1.0000001)));
-}
+assert.sameValue(String(-1.0000001), "-1.0000001", '#2: String(-1.0000001) === "-1.0000001"');

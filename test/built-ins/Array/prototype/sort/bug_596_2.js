@@ -13,43 +13,27 @@ author: Thomas Dahlstrom (tdahlstrom@gmail.com)
 var array = ['a', , void 0];
 
 //CHECK#1
-if (array.length !== 3) {
-  throw new Test262Error('#1: array.length !== 3. Actual: ' + (array.length))
-}
+assert.sameValue(array.length, 3, '#1: array.length !== 3');
 
 //CHECK#2
-if (array.hasOwnProperty('0') !== true) {
-  throw new Test262Error("#2: array.hasOwnProperty('0'). Actual: " + array.hasOwnProperty('0'));
-}
+assert.sameValue(array.hasOwnProperty('0'), true, "#2: array.hasOwnProperty('0')");
 
 //CHECK#3
-if (array.hasOwnProperty('1') !== false) {
-  throw new Test262Error("#3: array.hasOwnProperty('1'). Actual: " + array.hasOwnProperty('1'));
-}
+assert.sameValue(array.hasOwnProperty('1'), false, "#3: array.hasOwnProperty('1')");
 
 //CHECK#4
-if (array.hasOwnProperty('2') !== true) {
-  throw new Test262Error("#4: array.hasOwnProperty('2'). Actual: " + array.hasOwnProperty('2'));
-}
+assert.sameValue(array.hasOwnProperty('2'), true, "#4: array.hasOwnProperty('2')");
 
 array.sort();
 
 //CHECK#5
-if (array.length !== 3) {
-  throw new Test262Error('#5: array.length !== 3. Actual: ' + (array.length))
-}
+assert.sameValue(array.length, 3, '#5: array.length !== 3');
 
 //CHECK#6
-if (array.hasOwnProperty('0') !== true) {
-  throw new Test262Error("#6: array.hasOwnProperty('0'). Actual: " + array.hasOwnProperty('0'));
-}
+assert.sameValue(array.hasOwnProperty('0'), true, "#6: array.hasOwnProperty('0')");
 
 //CHECK#7
-if (array.hasOwnProperty('1') !== true) {
-  throw new Test262Error("#7: array.hasOwnProperty('1'). Actual: " + array.hasOwnProperty('1'));
-}
+assert.sameValue(array.hasOwnProperty('1'), true, "#7: array.hasOwnProperty('1')");
 
 //CHECK#8
-if (array.hasOwnProperty('2') !== false) {
-  throw new Test262Error("#8: array.hasOwnProperty('2'). Actual: " + array.hasOwnProperty('2'));
-}
+assert.sameValue(array.hasOwnProperty('2'), false, "#8: array.hasOwnProperty('2')");

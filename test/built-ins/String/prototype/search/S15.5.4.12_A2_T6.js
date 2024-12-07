@@ -11,8 +11,6 @@ var aString = new String("test string");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (aString.search("notexist") !== -1) {
-  throw new Test262Error('#1: var aString = new String("test string"); aString.search("notexist")=== -1. Actual: ' + aString.search("notexist"));
-}
+assert.sameValue(aString.search("notexist"), -1, '#1: var aString = new String("test string"); aString.search("notexist")=== -1');
 //
 //////////////////////////////////////////////////////////////////////////////

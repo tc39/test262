@@ -11,16 +11,12 @@ var __instance = new Array('new', 'zoo', 'revue');
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.indexOf('new') !== 0) {
-  throw new Test262Error('#1: __instance = new Array(\'new\',\'zoo\',\'revue\'); __instance.indexOf(\'new\') === 0. Actual: ' + __instance.indexOf('new'));
-}
+assert.sameValue(__instance.indexOf('new'), 0, '#1: __instance = new Array(\'new\',\'zoo\',\'revue\'); __instance.indexOf(\'new\') === 0');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__instance.indexOf('zoo') !== 1) {
-  throw new Test262Error('#2: __instance = new Array(\'new\',\'zoo\',\'revue\'); __instance.indexOf(\'zoo\') === 1. Actual: ' + __instance.indexOf('zoo'));
-}
+assert.sameValue(__instance.indexOf('zoo'), 1, '#2: __instance = new Array(\'new\',\'zoo\',\'revue\'); __instance.indexOf(\'zoo\') === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

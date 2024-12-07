@@ -8,9 +8,7 @@ description: Checking use propertyIsEnumerable, for-in
 ---*/
 
 //CHECK#1
-if (this.propertyIsEnumerable('parseFloat') !== false) {
-  throw new Test262Error('#1:this.propertyIsEnumerable(\'parseFloat\') === false. Actual: ' + (this.propertyIsEnumerable('parseFloat')));
-}
+assert.sameValue(this.propertyIsEnumerable('parseFloat'), false, '#1:this.propertyIsEnumerable(\'parseFloat\') === false');
 
 //CHECK#2
 var result = true;

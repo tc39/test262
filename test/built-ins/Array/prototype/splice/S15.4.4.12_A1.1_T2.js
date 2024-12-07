@@ -17,34 +17,18 @@ if (arr.getClass() !== "[object " + "Array" + "]") {
   throw new Test262Error('#1: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr is Array object. Actual: ' + (arr.getClass()));
 }
 
-if (arr.length !== 3) {
-  throw new Test262Error('#2: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr.length === 3. Actual: ' + (arr.length));
-}
+assert.sameValue(arr.length, 3, '#2: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr.length === 3');
 
-if (arr[0] !== 0) {
-  throw new Test262Error('#3: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr[0] === 0. Actual: ' + (arr[0]));
-}
+assert.sameValue(arr[0], 0, '#3: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr[0] === 0');
 
-if (arr[1] !== 1) {
-  throw new Test262Error('#4: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr[1] === 1. Actual: ' + (arr[1]));
-}
+assert.sameValue(arr[1], 1, '#4: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr[1] === 1');
 
-if (arr[2] !== 2) {
-  throw new Test262Error('#5: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr[2] === 2. Actual: ' + (arr[2]));
-}
+assert.sameValue(arr[2], 2, '#5: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); arr[2] === 2');
 
-if (x.length !== 3) {
-  throw new Test262Error('#6: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x.length === 3. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 3, '#6: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x.length === 3');
 
-if (x[0] !== 4) {
-  throw new Test262Error('#7: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x[0] === 4. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 4, '#7: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x[0] === 4');
 
-if (x[1] !== 5) {
-  throw new Test262Error('#8: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x[1] === 5. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], 5, '#8: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x[1] === 5');
 
-if (x[2] !== 3) {
-  throw new Test262Error('#9: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x[2] === 3. Actual: ' + (x[2]));
-}
+assert.sameValue(x[2], 3, '#9: var x = [0,1,2,3]; var arr = x.splice(0,3,4,5); x[2] === 3');
