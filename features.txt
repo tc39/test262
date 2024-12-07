@@ -88,6 +88,10 @@ Error.isError
 # https://tc39.es/proposal-defer-import-eval
 import-defer
 
+# Iterator Sequencing
+# https://github.com/tc39/proposal-iterator-sequencing
+iterator-sequencing
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
