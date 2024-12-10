@@ -11,8 +11,6 @@ description: Checking String.prototype.constructor
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.constructor !== String) {
-  throw new Test262Error('#1: String.prototype.constructor === String. Actual: String.prototype.constructor ===' + String.prototype.constructor);
-}
+assert.sameValue(String.prototype.constructor, String, '#1: String.prototype.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////

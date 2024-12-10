@@ -11,24 +11,16 @@ description: Checking Number case
 ---*/
 
 //CHECK#1
-if (1..toString() !== "1") {
-  throw new Test262Error('#1: 1..toString() === "1". Actual: ' + (1..toString()));
-}
+assert.sameValue(1..toString(), "1", '#1: 1..toString() === "1"');
 
 //CHECK#2
-if (1.1.toFixed(5) !== "1.10000") {
-  throw new Test262Error('#2: 1.1.toFixed(5) === "1.10000". Actual: ' + (1.1.toFixed(5)));
-}
+assert.sameValue(1.1.toFixed(5), "1.10000", '#2: 1.1.toFixed(5) === "1.10000"');
 
 //CHECK#3
-if (1["toString"]() !== "1") {
-  throw new Test262Error('#3: 1["toString"]() === "1". Actual: ' + (1["toString"]()));
-}
+assert.sameValue(1["toString"](), "1", '#3: 1["toString"]() === "1"');
 
 //CHECK#4
-if (1.["toFixed"](5) !== "1.00000") {
-  throw new Test262Error('#4: 1.["toFixed"](5) === "1.00000". Actual: ' + (1.["toFixed"](5)));
-}
+assert.sameValue(1.["toFixed"](5), "1.00000", '#4: 1.["toFixed"](5) === "1.00000"');
 
 //CHECK#5
 if (new Number(1).toString() !== "1") {

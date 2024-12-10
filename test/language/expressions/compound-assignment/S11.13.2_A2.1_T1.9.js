@@ -12,14 +12,10 @@ description: >
 //CHECK#1
 var x = 1;
 var z = (x &= 1);
-if (z !== 1) {
-  throw new Test262Error('#1: var x = 1; var z = (x &= 1); z === 1. Actual: ' + (z));
-}
+assert.sameValue(z, 1, '#1: var x = 1; var z = (x &= 1); z === 1');
 
 //CHECK#2
 var x = 1;
 var y = 1;
 var z = (x &= y);
-if (z !== 1) {
-  throw new Test262Error('#2: var x = 1; var y = 1; var z = (x &= y); z === 1. Actual: ' + (z));
-}
+assert.sameValue(z, 1, '#2: var x = 1; var y = 1; var z = (x &= y); z === 1');

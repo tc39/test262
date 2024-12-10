@@ -16,6 +16,4 @@ if ((true) !== true) {
 
 //CHECK#2
 var x = new Boolean(true);
-if ((x) !== x) {
-  throw new Test262Error('#2: var x = new Boolean(true); (x) === x. Actual: ' + ((x)));
-}
+assert.sameValue((x), x, '#2: var x = new Boolean(true); (x) === x');

@@ -24,9 +24,7 @@ populateAge(m);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (n.age !== 50) {
-  throw new Test262Error('#2: var n = {}; var m = n; function populateAge(person){person.age = 50;} populateAge(m); n.age === 50. Actual: ' + (n.age));
-}
+assert.sameValue(n.age, 50, '#2: var n = {}; var m = n; function populateAge(person){person.age = 50;} populateAge(m); n.age === 50');
 
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -8,6 +8,4 @@ description: Checking encodeURI.prototype
 ---*/
 
 //CHECK#1
-if (encodeURI.prototype !== undefined) {
-  throw new Test262Error('#1: encodeURI.prototype === undefined. Actual: ' + (encodeURI.prototype));
-}
+assert.sameValue(encodeURI.prototype, undefined, '#1: encodeURI.prototype === undefined');

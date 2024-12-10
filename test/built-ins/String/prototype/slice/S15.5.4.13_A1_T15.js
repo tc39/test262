@@ -16,8 +16,6 @@ Number.prototype.slice = String.prototype.slice;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__num.slice() !== "11.001002") {
-  throw new Test262Error('#1: var __num = 11.001002; Number.prototype.slice = String.prototype.slice; __num.slice()==="11.001002". Actual: ' + __num.slice());
-}
+assert.sameValue(__num.slice(), "11.001002", '#1: var __num = 11.001002; Number.prototype.slice = String.prototype.slice; __num.slice()==="11.001002"');
 //
 //////////////////////////////////////////////////////////////////////////////

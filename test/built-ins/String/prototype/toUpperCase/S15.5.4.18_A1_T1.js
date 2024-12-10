@@ -13,8 +13,6 @@ __instance.toUpperCase = String.prototype.toUpperCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.toUpperCase() !== "TRUE") {
-  throw new Test262Error('#1: __instance = new Object(true); __instance.toUpperCase = String.prototype.toUpperCase;  __instance.toUpperCase() === "TRUE". Actual: ' + __instance.toUpperCase());
-}
+assert.sameValue(__instance.toUpperCase(), "TRUE", '#1: __instance = new Object(true); __instance.toUpperCase = String.prototype.toUpperCase;  __instance.toUpperCase() === "TRUE"');
 //
 //////////////////////////////////////////////////////////////////////////////

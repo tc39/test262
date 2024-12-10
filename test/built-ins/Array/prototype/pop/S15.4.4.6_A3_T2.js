@@ -14,18 +14,10 @@ obj[4294967296] = "y";
 obj.length = 4294967297;
 
 var pop = obj.pop();
-if (pop !== "y") {
-  throw new Test262Error('#1: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop() === "y". Actual: ' + (pop));
-}
+assert.sameValue(pop, "y", '#1: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop() === "y"');
 
-if (obj.length !== 4294967296) {
-  throw new Test262Error('#2: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop(); obj.length === 4294967296. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 4294967296, '#2: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop(); obj.length === 4294967296');
 
-if (obj[0] !== "x") {
-  throw new Test262Error('#3: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop(); obj[0] === "x". Actual: ' + (obj[0]));
-}
+assert.sameValue(obj[0], "x", '#3: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop(); obj[0] === "x"');
 
-if (obj[4294967296] !== undefined) {
-  throw new Test262Error('#4: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop(); obj[4294967296] === undefined. Actual: ' + (obj[4294967296]));
-}
+assert.sameValue(obj[4294967296], undefined, '#4: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; obj.pop(); obj[4294967296] === undefined');

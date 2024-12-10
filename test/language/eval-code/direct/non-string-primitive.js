@@ -9,26 +9,16 @@ description: Checking all primitive
 
 //CHECK#1
 var x = 1;
-if (eval(x) !== x) {
-  throw new Test262Error('#1: x = 1; eval(x) === x. Actual: ' + (eval(x)));
-}
+assert.sameValue(eval(x), x, '#1: x = 1; eval(x) === x');
 
 //CHECK#2
-if (eval(1) !== 1) {
-  throw new Test262Error('#2: eval(1) === 1. Actual: ' + (eval(1)));
-}
+assert.sameValue(eval(1), 1, '#2: eval(1) === 1');
 
 //CHECK#3
-if (eval(true) !== true) {
-  throw new Test262Error('#3: eval(true) === true. Actual: ' + (eval(true)));
-}
+assert.sameValue(eval(true), true, '#3: eval(true) === true');
 
 //CHECK#4
-if (eval(null) !== null) {
-  throw new Test262Error('#4: eval(null) === null. Actual: ' + (eval(null)));
-}
+assert.sameValue(eval(null), null, '#4: eval(null) === null');
 
 //CHECK#5
-if (eval(undefined) !== undefined) {
-  throw new Test262Error('#5: eval(undefined) === undefined. Actual: ' + (eval(undefined)));
-}
+assert.sameValue(eval(undefined), undefined, '#5: eval(undefined) === undefined');
