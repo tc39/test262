@@ -1,0 +1,16 @@
+// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-ownpropertykeys
+desc: _ [[OwnPropertyKeys]]
+info: |
+  [[OwnPropertyKeys]] ( )
+    1. Let _exports_ be ? GetModuleExportsList(_O_).
+    1. ...
+
+template: trigger
+---*/
+
+//- body
+Reflect.ownKeys(ns);
