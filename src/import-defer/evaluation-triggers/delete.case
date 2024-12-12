@@ -1,0 +1,19 @@
+// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-delete-p
+desc: _ [[Delete]]
+info: |
+  [[Delete]] ( _P_ )
+    1. If IsSymbolLikeNamespaceKey(_P_, _O_), return ! OrdinaryDelete(_O_, _P_).
+    1. Let _exports_ be ? GetModuleExportsList(_O_).
+    1. ...
+
+template: trigger-on-possible-export
+---*/
+
+//- body
+try {
+  delete ns[key];
+} catch (_) {}
