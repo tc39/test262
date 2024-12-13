@@ -84,5 +84,3 @@ try {
 }
 
 assert.sameValue(log, 'eee');
-
-if ('assert.sameValue' in this)
