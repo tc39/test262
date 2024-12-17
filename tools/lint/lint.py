@@ -41,6 +41,7 @@ from lib.checks.filename import CheckFileName
 from lib.checks.nopadding import CheckNoPadding
 from lib.checks.flags import CheckFlags
 from lib.checks.posix import CheckPosix
+from lib.checks.parsetestrecord import CheckParseTestRecord
 from lib.eprint import eprint
 import lib.frontmatter
 import lib.exceptions
@@ -70,6 +71,7 @@ def checks(features):
         CheckNoPadding(),
         CheckFlags(),
         CheckPosix(),
+        CheckParseTestRecord(),
     ]
 
 def lint(file_names, features):
