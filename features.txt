@@ -92,6 +92,10 @@ import-defer
 # https://github.com/tc39/proposal-iterator-sequencing
 iterator-sequencing
 
+# AsyncContext
+# https://github.com/tc39/proposal-async-context
+AsyncContext
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
