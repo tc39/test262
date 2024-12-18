@@ -92,6 +92,10 @@ import-defer
 # https://github.com/tc39/proposal-iterator-sequencing
 iterator-sequencing
 
+# Async Iterator Helpers
+# https://github.com/tc39/proposal-async-iterator-helpers
+async-iterator-helpers
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
