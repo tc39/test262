@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.zoneddatetime.from
 description: Time zone identifiers are case-normalized
-features: [Temporal]
+features: [Temporal, canonical-tz]
 ---*/
 
 const timeZoneIdentifiers = [
