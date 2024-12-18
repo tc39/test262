@@ -27,5 +27,3 @@ g();
 
 assert.sameValue(x, "global-x");
 assert.sameValue(log, "42g");
-
-if ("assert.sameValue" in this)
