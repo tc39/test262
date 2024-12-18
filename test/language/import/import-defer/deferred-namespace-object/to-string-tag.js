@@ -25,7 +25,7 @@ features: [import-defer]
 includes: [propertyHelper.js]
 ---*/
 
-import * as ns from "./dep_FIXTURE.js";
+import defer * as ns from "./dep_FIXTURE.js";
 
 verifyProperty(ns, Symbol.toStringTag, {
   value: "Deferred Module",
