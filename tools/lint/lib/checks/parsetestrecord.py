@@ -89,4 +89,14 @@ class CheckParseTestRecord(Check):
         elif "flags" in test_rec:
             return "Unexpected flags present in parseTestRecord"
 
+        # Ensure all features in `test_rec` are consistent with `meta`.
+        if "features" in meta:
+            if "features" not in test_rec:
+                return "Features not present in parseTestRecord"
+
+            if meta["features"] != test_rec["features"]:
+                return "Features don't match parseTestRecord"
+        elif "features" in test_rec:
+            return "Unexpected features present in parseTestRecord"
+
         return None
