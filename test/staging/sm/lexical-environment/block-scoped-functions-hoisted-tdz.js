@@ -37,4 +37,3 @@ try {
 
 assert.sameValue(log, "truetrue");
 
-if ("assert.sameValue" in this)
