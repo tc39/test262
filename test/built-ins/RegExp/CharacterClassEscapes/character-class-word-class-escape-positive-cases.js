@@ -1,10 +1,11 @@
 // Copyright (C) 2018 Leo Balter.  All rights reserved.
+// Copyright (C) 2024 Aurèle Barrière.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: prod-CharacterClassEscape
 description: >
-  Compare range for whitespace class escape \s with flags ug
+  Check positive cases of word class escape \w.
 info: |
   This is a generated test. Please check out
   https://github.com/tc39/test262/tree/main/tools/regexp-generator/
@@ -45,32 +46,33 @@ includes: [regExpUtils.js]
 flags: [generated]
 ---*/
 
-const str = buildString({
-    loneCodePoints: [
-        0x000020,
-        0x0000A0,
-        0x001680,
-        0x00202F,
-        0x00205F,
-        0x003000,
-        0x00FEFF,
-    ],
-    ranges: [
-        [0x000009, 0x00000D],
-        [0x002000, 0x00200A],
-        [0x002028, 0x002029],
-    ],
-});
+const str = buildString(
+{
+  loneCodePoints: [
+    0x00005F
+  ],
+  ranges: [
+    [0x000030, 0x000039],
+    [0x000041, 0x00005A],
+    [0x000061, 0x00007A]
+  ]
+}
+);
 
-const re = /\s/ug;
+const standard = /^\w+$/;
+const unicode = /^\w+$/u;
+const vflag = /^\w+$/v;
+const regexes = [standard,unicode,vflag];
 
 const errors = [];
 
-if (!re.test(str)) {
-  // Error, let's find out where
-  for (const char of str) {
-    if (!re.test(char)) {
-      errors.push('0x' + char.codePointAt(0).toString(16));
+for (const regex of regexes) {
+  if (!regex.test(str)) {
+    // Error, let's find out where
+    for (const char of str) {
+      if (!regex.test(char)) {
+        errors.push('0x' + char.codePointAt(0).toString(16));
+      }
     }
   }
 }
@@ -78,5 +80,5 @@ if (!re.test(str)) {
 assert.sameValue(
   errors.length,
   0,
-  'Expected matching code points, but received: ' + errors.join(',')
+  'Expected full match, but did not match: ' + errors.join(',')
 );
