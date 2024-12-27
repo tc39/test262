@@ -2,24 +2,22 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-plainedate-objects
-description: Temporal.PlainDate works as expected
+esid: sec-temporal-plainyearmonth.from
+description: Temporal.PlainYearMonth.from works as expected
 features: [Temporal]
 ---*/
 
 function test(isoString, components) {
-    var [y, m, d, cid = "iso8601"] = components;
-    var date = Temporal.PlainDate.from(isoString);
-    assert.sameValue(date.year, y);
-    assert.sameValue(date.month, m);
-    assert.sameValue(date.day, d);
-    assert.sameValue(date.calendarId, cid);
+  var [y, m, cid = "iso8601"] = components;
+  var yearMonth = Temporal.PlainYearMonth.from(isoString);
+  assert.sameValue(yearMonth.year, y);
+  assert.sameValue(yearMonth.month, m);
+  assert.sameValue(yearMonth.calendarId, cid);
 }
 function generateTest(dateTimeString, zoneString) {
   var components = [
     1976,
-    11,
-    18
+    11
   ];
   test(`${ dateTimeString }${ zoneString }`, components);
   test(`${ dateTimeString }:30${ zoneString }`, components);
@@ -31,6 +29,7 @@ function generateTest(dateTimeString, zoneString) {
   "+01:00[Custom/Vienna]",
   "-0400",
   "-04:00:00.000000000",
+  "+01:00:00.0[Europe/Vienna]",
   "+01:00[+01:00]",
   "+01:00[+0100]",
   ""
@@ -46,23 +45,51 @@ function generateTest(dateTimeString, zoneString) {
   "12345678"
 ].forEach(decimals => test(`1976-11-18T15:23:30.${ decimals }`, [
   1976,
-  11,
-  18
+  11
 ]));
 test("1976-11-18T15:23:30,1234", [
   1976,
-  11,
-  18
+  11
 ]);
-test("-009999-11-18", [
-  -9999,
-  11,
-  18
-]);
-test("1976-11-18T15", [
+test("19761118", [
   1976,
-  11,
-  18
+  11
+]);
+test("+199999-11-18", [
+  199999,
+  11
+]);
+test("+1999991118", [
+  199999,
+  11
+]);
+test("-000300-11-18", [
+  -300,
+  11
+]);
+test("-0003001118", [
+  -300,
+  11
+]);
+test("1512-11-18", [
+  1512,
+  11
+]);
+test("+199999-11", [
+  199999,
+  11
+]);
+test("+19999911", [
+  199999,
+  11
+]);
+test("-000300-11", [
+  -300,
+  11
+]);
+test("-00030011", [
+  -300,
+  11
 ]);
 [
   "",
@@ -71,11 +98,9 @@ test("1976-11-18T15", [
   "+01:00[Custom/Vienna]"
 ].forEach(zoneString => test(`1976-11-18T15:23:30.123456789${ zoneString }[u-ca=iso8601]`, [
   1976,
-  11,
-  18
+  11
 ]));
-test("1976-11-18[u-ca=iso8601]", [
+test("1976-11-01[u-ca=iso8601]", [
   1976,
-  11,
-  18
+  11
 ]);
