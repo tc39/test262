@@ -29,6 +29,12 @@ _LICENSE_PATTERN = re.compile(
        r'// See LICENSE or https://github\.com/tc39/test262/blob/HEAD/LICENSE' +
    r')[\r\n]{1,2}' + _BLANK_LINES, re.IGNORECASE)
 
+_LICENSE_PATTERN_PUBLIC_DOMAIN = re.compile(
+   r'/\*[\r\n]{1,2}' +
+   r' \* Any copyright is dedicated to the Public Domain\.[\r\n]{1,2}' +
+   r' \* http://creativecommons\.org/licenses/publicdomain/[\r\n]{1,2}' +
+   r' \*/[\r\n]{1,2}' + _BLANK_LINES, re.IGNORECASE)
+
 yamlLoad = None
 
 def yamlAttrParser(testRecord, attrs, name, onerror):
@@ -51,10 +57,14 @@ def yamlAttrParser(testRecord, attrs, name, onerror):
 
 def findLicense(src):
     match = _LICENSE_PATTERN.search(src)
-    if not match:
-        return None
+    if match:
+        return match.group(0)
 
-    return match.group(0)
+    match = _LICENSE_PATTERN_PUBLIC_DOMAIN.search(src)
+    if match:
+        return match.group(0)
+
+    return None
 
 def findAttrs(src):
     match = _YAML_PATTERN.search(src)

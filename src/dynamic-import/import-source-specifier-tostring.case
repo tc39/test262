@@ -28,7 +28,7 @@ info: |
 
     16.2.1.7.2 GetModuleSource ( )
     Source Text Module Record provides a GetModuleSource implementation that always returns an abrupt completion indicating that a source phase import is not available.
-    1. Throw a ReferenceError exception.
+    1. Throw a SyntaxError exception.
 
 template: catch
 features: [source-phase-imports]
@@ -47,4 +47,4 @@ const obj = {
 //- import
 import.source(obj)
 //- body
-assert.sameValue(error.name, 'ReferenceError');
+assert.sameValue(error.name, 'SyntaxError');

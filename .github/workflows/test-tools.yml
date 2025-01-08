@@ -1,0 +1,52 @@
+name: Test tools
+
+on:
+  push:
+    files:
+      - 'tools/**'
+  pull_request:
+    files:
+      - 'tools/**'
+
+jobs:
+  lint:
+    name: Test the lint tool
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/lint/requirements.txt
+
+      - name: Test the lint tool
+        run: ./tools/lint/test/run.py
+
+  generation:
+    name: Test the generation tool
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install dependencies for generation tool
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/generation/requirements.txt
+
+      - name: Test the generation tool
+        run: ./tools/generation/test/run.py

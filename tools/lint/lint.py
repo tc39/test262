@@ -41,6 +41,7 @@ from lib.checks.filename import CheckFileName
 from lib.checks.nopadding import CheckNoPadding
 from lib.checks.flags import CheckFlags
 from lib.checks.posix import CheckPosix
+from lib.checks.parsetestrecord import CheckParseTestRecord
 from lib.eprint import eprint
 import lib.frontmatter
 import lib.exceptions
@@ -70,6 +71,7 @@ def checks(features):
         CheckNoPadding(),
         CheckFlags(),
         CheckPosix(),
+        CheckParseTestRecord(),
     ]
 
 def lint(file_names, features):
@@ -97,7 +99,11 @@ if __name__ == '__main__':
     if args.exceptions:
         exceptions = lib.exceptions.parse(args.exceptions)
     else:
-        exceptions = dict()
+        try:
+            with open('lint.exceptions', 'r') as default_exceptions:
+                exceptions = lib.exceptions.parse(default_exceptions)
+        except FileNotFoundError:
+            exceptions = dict()
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
