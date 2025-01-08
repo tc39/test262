@@ -19,6 +19,7 @@ let closable = {
   },
   return() {
     closed = true;
+    return {};
   },
 };
 
