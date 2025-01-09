@@ -51,7 +51,7 @@ function test()
     }
     catch (e)
     {
-      gc();
+      $262.gc();
     }
   }
   foopy();

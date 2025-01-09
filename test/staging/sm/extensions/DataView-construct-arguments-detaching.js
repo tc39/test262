@@ -33,7 +33,7 @@ function testByteOffset()
       valueOf: function()
       {
         $262.detachArrayBuffer(ab);
-        gc();
+        $262.gc();
         return 0x800;
       }
     };
@@ -61,7 +61,7 @@ function testByteLength()
       valueOf: function()
       {
         $262.detachArrayBuffer(ab);
-        gc();
+        $262.gc();
         return 0x800;
       }
     };
