@@ -34,7 +34,7 @@ function testOneDeletion()
 
   for (var i in o)
   {
-    gc();
+    $262.gc();
     delete o.s;
   }
 }
@@ -51,7 +51,7 @@ function testTwoDeletions()
 
   for (var i in o)
   {
-    gc();
+    $262.gc();
     delete o.t;
     delete o.s;
   }
@@ -70,7 +70,7 @@ function testThreeDeletions()
 
   for (var i in o)
   {
-    gc();
+    $262.gc();
     delete o.x;
     delete o.t;
     delete o.s;

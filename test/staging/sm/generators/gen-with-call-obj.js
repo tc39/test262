@@ -37,10 +37,10 @@ f2(10);
 
 // now observe gen's call object (which should have been put)
 
-gc();
+$262.gc();
 assert.sameValue(foo(), 10);
-gc();
+$262.gc();
 assert.sameValue(foo(), 11);
-gc();
+$262.gc();
 assert.sameValue(foo(), 12);
 

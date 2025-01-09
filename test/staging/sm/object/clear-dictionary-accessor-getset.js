@@ -49,7 +49,7 @@ function test(field)
   }
 
   inner();
-  gc(); // In unfixed code, this crashes trying to mark a null [[field]].
+  $262.gc(); // In unfixed code, this crashes trying to mark a null [[field]].
 }
 
 test("get");

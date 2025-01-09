@@ -35,7 +35,7 @@ function testIndex()
       valueOf: function()
       {
         $262.detachArrayBuffer(ab);
-        gc();
+        $262.gc();
         return 0xFFF;
       }
     };
@@ -65,7 +65,7 @@ function testValue()
       valueOf: function()
       {
         $262.detachArrayBuffer(ab);
-        gc();
+        $262.gc();
         return 0x42;
       }
     };
