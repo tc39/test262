@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/defineOwnProperty.case
-// - ./src/import-defer/evaluation-triggers/trigger-on-possible-export/symbol-other.template
+// - src/import-defer/defineOwnProperty.case
+// - src/import-defer/trigger-on-possible-export/symbol-other.template
 /*---
 description: _ [[DefineOwnProperty]] (of a symbol that is not a property of the namespace object, does not trigger execution)
 esid: sec-module-namespace-exotic-objects

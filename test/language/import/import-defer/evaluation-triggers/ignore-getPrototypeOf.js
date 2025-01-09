@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/getPrototypeOf.case
-// - ./src/import-defer/evaluation-triggers/ignore/ignore.template
+// - src/import-defer/getPrototypeOf.case
+// - src/import-defer/ignore/ignore.template
 /*---
 description: _ [[GetPrototypeOf]] (does not trigger execution)
 esid: sec-module-namespace-exotic-objects

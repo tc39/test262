@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/delete.case
-// - ./src/import-defer/evaluation-triggers/trigger-on-possible-export/symbol-toStringTag.template
+// - src/import-defer/delete.case
+// - src/import-defer/trigger-on-possible-export/symbol-toStringTag.template
 /*---
 description: _ [[Delete]] (of Symbol.toStringTag, does not trigger execution)
 esid: sec-module-namespace-exotic-objects

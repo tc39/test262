@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/ownPropertyKeys.case
-// - ./src/import-defer/evaluation-triggers/trigger/trigger.template
+// - src/import-defer/ownPropertyKeys.case
+// - src/import-defer/trigger/trigger.template
 /*---
 description: _ [[OwnPropertyKeys]] (triggers execution)
 esid: sec-module-namespace-exotic-objects

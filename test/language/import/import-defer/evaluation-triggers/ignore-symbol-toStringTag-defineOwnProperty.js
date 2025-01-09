@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/defineOwnProperty.case
-// - ./src/import-defer/evaluation-triggers/trigger-on-possible-export/symbol-toStringTag.template
+// - src/import-defer/defineOwnProperty.case
+// - src/import-defer/trigger-on-possible-export/symbol-toStringTag.template
 /*---
 description: _ [[DefineOwnProperty]] (of Symbol.toStringTag, does not trigger execution)
 esid: sec-module-namespace-exotic-objects

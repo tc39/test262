@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/get.case
-// - ./src/import-defer/evaluation-triggers/trigger-on-possible-export/then-not-exported.template
+// - src/import-defer/get.case
+// - src/import-defer/trigger-on-possible-export/then-not-exported.template
 /*---
 description: _ [[Get]] (of 'then' when it is not an exported name, does not trigger execution)
 esid: sec-module-namespace-exotic-objects
