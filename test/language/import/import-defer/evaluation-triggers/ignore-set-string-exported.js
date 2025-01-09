@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/set-string-exported.case
-// - ./src/import-defer/evaluation-triggers/ignore/ignore.template
+// - src/import-defer/set-string-exported.case
+// - src/import-defer/ignore/ignore.template
 /*---
 description: _ [[Set]] of a string which is an export name (does not trigger execution)
 esid: sec-module-namespace-exotic-objects

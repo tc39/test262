@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - ./src/import-defer/evaluation-triggers/hasProperty.case
-// - ./src/import-defer/evaluation-triggers/trigger-on-possible-export/string-not-exported.template
+// - src/import-defer/hasProperty.case
+// - src/import-defer/trigger-on-possible-export/string-not-exported.template
 /*---
 description: _ [[HasProperty]] (of a string that is not an exported name, triggers execution)
 esid: sec-module-namespace-exotic-objects
