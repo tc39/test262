@@ -1,0 +1,18 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is a CallExpression, it can't be preceded by the new keyword
+template: syntax/invalid
+info: |
+  CallExpression:
+    ImportCall
+
+  ImportCall :
+      import . defer ( AssignmentExpression[+In, ?Yield, ?Await] )
+
+features: [import-defer]
+---*/
+
+//- import
+new import.defer('./empty_FIXTURE.js')

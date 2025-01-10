@@ -1,0 +1,12 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Calling import.defer('')
+template: syntax/valid
+features: [import-defer]
+---*/
+
+//- import
+import.defer('./empty_FIXTURE.js')
