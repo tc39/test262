@@ -32,5 +32,5 @@ const durations = [
 ];
 
 for (const [duration, expected] of durations) {
-  assert.sameValue(df.format(duration), expected, `Duration is ${duration}`);
+  assert.sameValue(df.format(duration), expected, `Duration is ${JSON.stringify(duration)}`);
 }
