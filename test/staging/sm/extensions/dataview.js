@@ -1637,7 +1637,6 @@ function test(sharedMem) {
     var ab = new ArrayBuffer(4);
     var dv = new DataView(ab);
     dv = 1;
-    gc();
 
     // Bug 1438569.
     dv = new DataView(new ArrayBuffer(20 * 1024 * 1024));

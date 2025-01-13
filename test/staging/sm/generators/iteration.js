@@ -211,14 +211,6 @@ TestGenerator(
     "foo",
     ["fee", "fi", "fo", "fum", undefined]);
 
-// GC.
-if (typeof gc == 'function') {
-    TestGenerator(function* g16() { yield "baz"; gc(); yield "qux"; },
-                  ["baz", "qux", undefined],
-                  "foo",
-                  ["baz", "qux", undefined]);
-}
-
 // Receivers.
 TestGenerator(
     function g17() {

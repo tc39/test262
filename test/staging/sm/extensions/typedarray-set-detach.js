@@ -40,7 +40,6 @@ var src = [ 10, 20, 30, 40,
 Object.defineProperty(src, 4, {
   get: function () {
     $262.detachArrayBuffer(ab);
-    gc();
     return 200;
   }
 });

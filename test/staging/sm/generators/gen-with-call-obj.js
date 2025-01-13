@@ -36,11 +36,7 @@ function f2(x) {
 f2(10);
 
 // now observe gen's call object (which should have been put)
-
-gc();
 assert.sameValue(foo(), 10);
-gc();
 assert.sameValue(foo(), 11);
-gc();
 assert.sameValue(foo(), 12);
 

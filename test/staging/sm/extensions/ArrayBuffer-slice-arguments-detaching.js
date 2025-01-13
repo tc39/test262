@@ -33,7 +33,6 @@ function testStart()
       valueOf: function()
       {
         $262.detachArrayBuffer(ab);
-        gc();
         return 0x800;
       }
     };
@@ -61,7 +60,6 @@ function testEnd()
       valueOf: function()
       {
         $262.detachArrayBuffer(ab);
-        gc();
         return 0x1000;
       }
     };
