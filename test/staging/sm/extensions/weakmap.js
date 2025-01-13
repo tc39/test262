@@ -94,8 +94,6 @@ function test()
     check(() => typeof map.get({}) == "undefined");
     check(() => map.get({}, "foo") == undefined);
 
-    gc(); gc(); gc();
-
     check(() => map.get(key) == 42);
     check(() => map.delete(key) == true);
     check(() => map.delete(key) == false);
@@ -107,8 +105,6 @@ function test()
 
     var value = { };
     check(() => map.set(new Object(), value) === map);
-    gc(); gc(); gc();
-
     check(() => map.has("non-object key") == false);
     check(() => map.has() == false);
     check(() => map.get("non-object key") == undefined);

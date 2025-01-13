@@ -51,7 +51,6 @@ function test()
     }
     catch (e)
     {
-      gc();
     }
   }
   foopy();
