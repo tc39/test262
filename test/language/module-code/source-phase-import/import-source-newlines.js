@@ -15,7 +15,7 @@ info: |
   Source Text Module Record provides a GetModuleSource implementation that always returns an abrupt completion indicating that a source phase import is not available.
 negative:
   phase: resolution
-  type: SyntaxError
+  type: Error
 features: [source-phase-imports]
 flags: [module]
 ---*/
