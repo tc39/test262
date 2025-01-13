@@ -24,4 +24,4 @@ assert.sameValue(typeof argumentsDesc.get, "function",
 assert.sameValue(typeof argumentsDesc.set, "function",
   "Function.prototype.arguments has function setter");
 assert.sameValue(argumentsDesc.get, argumentsDesc.set,
-  "Arguments property getter/setter are the same function");
+  "Function.prototype.arguments property getter/setter are the same function");
