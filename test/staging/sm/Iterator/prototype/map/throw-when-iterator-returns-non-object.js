@@ -7,7 +7,7 @@ description: |
   Throw TypeError if `next` call returns non-object.
 features:
 - iterator-helpers
-includes: [sm/non262-shell.js, sm/non262.js]
+includes: [sm/non262.js, sm/non262-shell.js]
 flags:
 - noStrict
 ---*/

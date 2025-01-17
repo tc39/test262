@@ -7,7 +7,7 @@ description: |
   Mutate an iterator after it has been mapped.
 features:
 - iterator-helpers
-includes: [sm/non262-shell.js, sm/non262.js]
+includes: [sm/non262.js, sm/non262-shell.js]
 flags:
 - noStrict
 ---*/
