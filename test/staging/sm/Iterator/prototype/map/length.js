@@ -8,11 +8,11 @@ description: |
 info: |
   17 ECMAScript Standard Built-in Objects
 features:
-- Symbol.iterator
-- iterator-helpers
+  - Symbol.iterator
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 assert.sameValue(Iterator.prototype.map.length, 1);
 

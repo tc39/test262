@@ -12,10 +12,10 @@ info: |
       i. Let innerNext be IteratorNext(innerIterator).
       ii. IfAbruptCloseIterator(innerNext, iterated).
 features:
-- iterator-helpers
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 class TestIterator extends Iterator {
   next() {

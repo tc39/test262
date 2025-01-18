@@ -3,7 +3,7 @@
 
 /*---
 flags:
-- onlyStrict
+  - onlyStrict
 includes: [sm/non262.js, sm/non262-shell.js, sm/non262-TypedArray-shell.js]
 description: |
   pending

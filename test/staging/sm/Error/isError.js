@@ -3,10 +3,10 @@
 
 /*---
 features:
-- Error.isError
+  - Error.isError
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 description: |
   pending
 esid: pending

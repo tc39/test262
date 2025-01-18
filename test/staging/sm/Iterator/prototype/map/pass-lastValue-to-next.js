@@ -8,10 +8,10 @@ description: |
 info: |
   Iterator Helpers Proposal 2.1.5.2
 features:
-- iterator-helpers
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 const iteratorWhereNextTakesValue = Object.setPrototypeOf({
   next: function(value) {

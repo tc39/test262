@@ -4,9 +4,9 @@
 /*---
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 features:
-- iterator-helpers
+  - iterator-helpers
 info: |
   Iterator is not enabled unconditionally
 description: |

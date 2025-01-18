@@ -8,10 +8,10 @@ description: |
 info: |
   Iterator Helpers proposal 2.1.5.7
 features:
-- iterator-helpers
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 const iter = [1, 2].values().flatMap(function*(x) {
   yield x;

@@ -6,10 +6,10 @@ esid: pending
 description: |
   Eagerly throw TypeError when `mapper` is not callable.
 features:
-- iterator-helpers
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 //
 

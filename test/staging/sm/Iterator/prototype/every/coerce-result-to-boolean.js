@@ -3,11 +3,11 @@
 
 /*---
 features:
-- IsHTMLDDA
-- iterator-helpers
+  - IsHTMLDDA
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 info: |
   Iterator is not enabled unconditionally
 description: |

@@ -6,7 +6,7 @@
 /*---
 includes: [sm/non262.js, sm/non262-shell.js, sm/non262-extensions-shell.js]
 flags:
-- noStrict
+  - noStrict
 info: |
   preventExtensions on global
 description: |

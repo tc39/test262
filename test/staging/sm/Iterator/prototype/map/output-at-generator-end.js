@@ -6,10 +6,10 @@ esid: pending
 description: |
   %Iterator.prototype%.map outputs correct value at end of iterator.
 features:
-- iterator-helpers
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 const iterator = [0].values().map(x => x);
 

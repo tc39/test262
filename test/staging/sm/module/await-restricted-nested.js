@@ -4,7 +4,7 @@
 /*---
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- module
+  - module
 negative:
   phase: parse
   type: SyntaxError

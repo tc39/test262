@@ -6,10 +6,10 @@ esid: pending
 description: |
   Call next on an iterator that is being iterated over.
 features:
-- iterator-helpers
+  - iterator-helpers
 includes: [sm/non262.js, sm/non262-shell.js]
 flags:
-- noStrict
+  - noStrict
 ---*/
 
 const iterator = [1, 2, 3].values()
