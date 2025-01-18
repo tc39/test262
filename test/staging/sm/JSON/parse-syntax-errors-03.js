@@ -6,7 +6,7 @@
 /*---
 includes: [sm/non262.js, sm/non262-shell.js, sm/non262-JSON-shell.js]
 flags:
-- noStrict
+  - noStrict
 description: |
   pending
 esid: pending
