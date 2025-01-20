@@ -12,10 +12,9 @@ info: |
 const callerDesc = Object.getOwnPropertyDescriptor(Function.prototype, "caller");
 const argumentsDesc = Object.getOwnPropertyDescriptor(Function.prototype, "arguments");
 
-assert.sameValue(typeof callerDesc.get, "function");
-assert.sameValue(typeof callerDesc.set, "function");
-assert.sameValue(callerDesc.get, callerDesc.set, "caller getter/setter should be same function");
-
-assert.sameValue(typeof argumentsDesc.get, "function");
-assert.sameValue(typeof argumentsDesc.set, "function");
-assert.sameValue(argumentsDesc.get, argumentsDesc.set, "arguments getter/setter should be same function");
+// Other tests at ../{arguments,caller}/prop-desc.js already assert that each
+// getter/setter pair use a single function (and when possible, that the
+// function is %ThrowTypeError%), so this test only needs to assert equality
+// *across* the pairs.
+assert.sameValue(callerDesc.get, argumentsDesc.get,
+  "Function.prototype.arguments and Function.prototype.caller accessor functions should match (%ThrowTypeError%)");
