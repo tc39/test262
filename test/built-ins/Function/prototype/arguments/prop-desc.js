@@ -25,3 +25,19 @@ assert.sameValue(typeof argumentsDesc.set, "function",
   "Function.prototype.arguments has function setter");
 assert.sameValue(argumentsDesc.get, argumentsDesc.set,
   "Function.prototype.arguments property getter/setter are the same function");
+
+var throwTypeError;
+WellKnownIntrinsicObjects.forEach(function(record) {
+  if (record.name === "%ThrowTypeError%") {
+    throwTypeError = record.value;
+  }
+});
+if (throwTypeError) {
+  assert.sameValue(descriptor.set, throwTypeError, "Function.prototype.arguments getter is %ThrowTypeError%");
+}
+assert.throws(TypeError, function() {
+  return Function.prototype.arguments;
+});
+assert.throws(TypeError, function() {
+  Function.prototype.arguments = {};
+});    
