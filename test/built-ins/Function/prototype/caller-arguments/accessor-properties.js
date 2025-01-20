@@ -1,9 +1,12 @@
 /*---
-description: Function.prototype caller and arguments properties are accessor properties with ThrowTypeError
-esid: sec-function.prototype.caller
+esid: sec-addrestrictedfunctionproperties
+description: >
+  Function.prototype.arguments and Function.prototype.arguments are both
+  accessor properties whose set and get functions are both %ThrowTypeError%.
 info: |
-    Function instances do not inherit the "caller" and "arguments" accessors
-    from Function.prototype. The accessors exist only on Function.prototype.
+  2. Let _thrower_ be _realm_.[[Intrinsics]].[[%ThrowTypeError%]].
+  3. Perform ! DefinePropertyOrThrow(_F_, *"caller"*, PropertyDescriptor { [[Get]]: _thrower_, [[Set]]: _thrower_, [[Enumerable]]: *false*, [[Configurable]]: *true* }).
+  4. Perform ! DefinePropertyOrThrow(_F_, *"arguments"*, PropertyDescriptor { [[Get]]: _thrower_, [[Set]]: _thrower_, [[Enumerable]]: *false*, [[Configurable]]: *true* }).
 ---*/
 
 const callerDesc = Object.getOwnPropertyDescriptor(Function.prototype, "caller");
