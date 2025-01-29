@@ -39,5 +39,5 @@ assert.throws(TypeError, function() {
   return Function.prototype.arguments;
 });
 assert.throws(TypeError, function() {
-  Function.prototype.arguments = {};
-});    
+  Function.prototype.arguments = arguments;
+});
