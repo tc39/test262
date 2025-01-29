@@ -14,10 +14,12 @@ includes: [propertyHelper.js, wellKnownIntrinsicObjects.js]
 
 const argumentsDesc = Object.getOwnPropertyDescriptor(Function.prototype, 'arguments');
 
-verifyProperty(Function.prototype, "arguments", {
-  enumerable: false,
-  configurable: true
-});
+verifyProperty(
+  Function.prototype,
+  "arguments",
+  { enumerable: false, configurable: true },
+  { restore: true }
+);
 
 assert.sameValue(typeof argumentsDesc.get, "function",
   "Function.prototype.arguments has function getter");

@@ -12,10 +12,12 @@ includes: [propertyHelper.js, wellKnownIntrinsicObjects.js]
 
 const callerDesc = Object.getOwnPropertyDescriptor(Function.prototype, 'caller');
 
-verifyProperty(Function.prototype, "caller", {
-  enumerable: false,
-  configurable: true
-});
+verifyProperty(
+  Function.prototype,
+  "caller",
+  { enumerable: false, configurable: true },
+  { restore: true }
+);
 
 assert.sameValue(typeof callerDesc.get, "function",
   "Function.prototype.caller has function getter");
