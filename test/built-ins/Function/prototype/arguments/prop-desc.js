@@ -9,7 +9,7 @@ info: |
   2. Let _thrower_ be _realm_.[[Intrinsics]].[[%ThrowTypeError%]].
   3. Perform ! DefinePropertyOrThrow(_F_, *"caller"*, PropertyDescriptor { [[Get]]: _thrower_, [[Set]]: _thrower_, [[Enumerable]]: *false*, [[Configurable]]: *true* }).
   4. Perform ! DefinePropertyOrThrow(_F_, *"arguments"*, PropertyDescriptor { [[Get]]: _thrower_, [[Set]]: _thrower_, [[Enumerable]]: *false*, [[Configurable]]: *true* }).
-includes: [propertyHelper.js]
+includes: [propertyHelper.js, wellKnownIntrinsicObjects.js]
 ---*/
 
 const argumentsDesc = Object.getOwnPropertyDescriptor(Function.prototype, 'arguments');
