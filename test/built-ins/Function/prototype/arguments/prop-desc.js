@@ -33,7 +33,7 @@ WellKnownIntrinsicObjects.forEach(function(record) {
   }
 });
 if (throwTypeError) {
-  assert.sameValue(descriptor.set, throwTypeError, "Function.prototype.arguments getter is %ThrowTypeError%");
+  assert.sameValue(argumentsDesc.set, throwTypeError, "Function.prototype.arguments getter is %ThrowTypeError%");
 }
 assert.throws(TypeError, function() {
   return Function.prototype.arguments;
