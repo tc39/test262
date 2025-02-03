@@ -64,7 +64,6 @@ includes: [compareArray.js]
 ---*/
 
 import "./setup_FIXTURE.js";
-import defer * as ns from "./imports-tla-with-dep_FIXTURE.js";
 
 import.defer("./imports-tla-with-dep_FIXTURE.js").then(ns => {
   assert.compareArray(
