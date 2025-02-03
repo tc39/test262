@@ -6,7 +6,7 @@ desc: ImportCall is not extensible - no rest parameter
 template: syntax/invalid
 info: |
   ImportCall :
-      import . source ( AssignmentExpression[+In, ?Yield] )
+      import . defer ( AssignmentExpression[+In, ?Yield] )
 
   This production doesn't allow the following production from ArgumentsList:
 

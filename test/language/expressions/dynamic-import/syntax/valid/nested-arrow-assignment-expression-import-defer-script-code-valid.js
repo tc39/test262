@@ -21,9 +21,5 @@ info: |
     9. Return promiseCapability.[[Promise]].
 
 ---*/
-// This is still valid in script code, and should not be valid for module code
-// https://tc39.github.io/ecma262/#sec-scripts-static-semantics-lexicallydeclarednames
-var smoosh; function smoosh() {}
-
 
 let f = () => import.defer('./empty_FIXTURE.js');

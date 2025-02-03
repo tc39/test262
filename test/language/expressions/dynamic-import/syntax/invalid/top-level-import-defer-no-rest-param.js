@@ -15,7 +15,7 @@ info: |
 
 
     ImportCall :
-        import . source ( AssignmentExpression[+In, ?Yield] )
+        import . defer ( AssignmentExpression[+In, ?Yield] )
 
     This production doesn't allow the following production from ArgumentsList:
 
