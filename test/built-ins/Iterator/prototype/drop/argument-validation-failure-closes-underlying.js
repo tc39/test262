@@ -41,7 +41,8 @@ assert.throws(RangeError, function() {
 assert.sameValue(closed, true);
 
 closed = false;
-assert.throws(Test262Error, function() {
-  closable.drop({ get valueOf() { throw new Test262Error(); }});
+class ShouldNotGetValueOf {}
+assert.throws(ShouldNotGetValueOf, function() {
+  closable.drop({ get valueOf() { throw new ShouldNotGetValueOf(); }});
 });
 assert.sameValue(closed, true);
