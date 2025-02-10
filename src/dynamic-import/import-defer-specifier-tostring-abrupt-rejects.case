@@ -1,0 +1,40 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// Copyright (C) 2018 Rick Waldron. All rights reserved.
+// Copyright (C) 2018 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    Abrupt from ToString(specifier) rejects the promise
+esid: sec-moduleevaluation
+info: |
+    Import Calls
+
+    Runtime Semantics: Evaluation
+
+    ImportCall : import . defer ( |AssignmentExpression| )
+        1. Return ? EvaluateImportCall(|AssignmentExpression|, ~defer~)
+
+    EvaluateImportCall ( specifierExpression, phase )
+        1. Let _referrer_ be GetActiveScriptOrModule().
+        1. If _referrer_ is *null*, set _referrer_ to the current Realm Record.
+        1. Let _specifierRef_ be ? Evaluation of _specifierExpression_.
+        1. Let _specifier_ be ? GetValue(_specifierRef_).
+        1. Let _promiseCapability_ be ! NewPromiseCapability(%Promise%).
+        1. Let _specifierString_ be Completion(ToString(_specifier_)).
+        1. IfAbruptRejectPromise(_specifierString_, _promiseCapability_).
+        ...
+template: catch
+features: [import-defer]
+---*/
+
+//- setup
+const obj = {
+    toString() {
+        throw 'custom error';
+    }
+};
+
+//- import
+import.defer(obj)
+//- body
+assert.sameValue(error, 'custom error');
