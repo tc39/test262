@@ -34,7 +34,7 @@ const WellKnownIntrinsicObjects = [
   },
   {
     name: '%AsyncGeneratorFunction%',
-    source: 'Object.getPrototypeOf(async function * () {})',
+    source: '(async function* () {}).constructor',
   },
   {
     name: '%AsyncIteratorPrototype%',
@@ -119,7 +119,7 @@ const WellKnownIntrinsicObjects = [
   },
   {
     name: '%GeneratorFunction%',
-    source: 'Object.getPrototypeOf(function * () {})',
+    source: '(function* () {}).constructor',
   },
   {
     name: '%Int8Array%',
