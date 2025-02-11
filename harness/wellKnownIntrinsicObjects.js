@@ -3,7 +3,7 @@
 /*---
 description: |
     An Array of all representable Well-Known Intrinsic Objects
-defines: [WellKnownIntrinsicObjects]
+defines: [WellKnownIntrinsicObjects, getWellKnownIntrinsicObject]
 ---*/
 
 const WellKnownIntrinsicObjects = [
@@ -306,3 +306,22 @@ WellKnownIntrinsicObjects.forEach((wkio) => {
 
   wkio.value = actual;
 });
+
+/**
+ * Returns a well-known intrinsic object, if the implementation provides it.
+ * Otherwise, throws.
+ * @param {string} key - the specification's name for the intrinsic, for example
+ *   "%Array%"
+ * @returns {object} the well-known intrinsic object.
+ */
+function getWellKnownIntrinsicObject(key) {
+  for (var ix = 0; ix < WellKnownIntrinsicObjects.length; ix++) {
+    if (WellKnownIntrinsicObjects[ix].name === key) {
+      var value = WellKnownIntrinsicObjects[ix].value;
+      if (value !== undefined)
+        return value;
+      throw new Test262Error('this implementation could not obtain ' + key);
+    }
+  }
+  throw new Test262Error('unknown well-known intrinsic ' + key);
+}
