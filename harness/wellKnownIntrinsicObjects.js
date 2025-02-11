@@ -24,8 +24,9 @@ const WellKnownIntrinsicObjects = [
     source: 'Object.getPrototypeOf([][Symbol.iterator]())',
   },
   {
+    // Not currently accessible to ECMAScript user code
     name: '%AsyncFromSyncIteratorPrototype%',
-    source: 'undefined',
+    source: '',
   },
   {
     name: '%AsyncFunction%',
@@ -108,6 +109,7 @@ const WellKnownIntrinsicObjects = [
     source: 'Float64Array',
   },
   {
+    // Not currently accessible to ECMAScript user code
     name: '%ForInIteratorPrototype%',
     source: '',
   },
