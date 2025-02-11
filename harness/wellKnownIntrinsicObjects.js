@@ -37,6 +37,10 @@ const WellKnownIntrinsicObjects = [
     source: '(async function* () {}).constructor',
   },
   {
+    name: '%AsyncGeneratorPrototype%',
+    source: 'Object.getPrototypeOf(async function* () {}).prototype',
+  },
+  {
     name: '%AsyncIteratorPrototype%',
     source: '((async function * () {})())[Symbol.asyncIterator]()',
   },
@@ -122,6 +126,10 @@ const WellKnownIntrinsicObjects = [
     source: '(function* () {}).constructor',
   },
   {
+    name: '%GeneratorPrototype%',
+    source: 'Object.getPrototypeOf(function * () {}).prototype',
+  },
+  {
     name: '%Int8Array%',
     source: 'Int8Array',
   },
@@ -142,8 +150,12 @@ const WellKnownIntrinsicObjects = [
     source: 'isNaN',
   },
   {
-    name: '%IteratorPrototype%',
-    source: 'Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]()))',
+    name: '%Iterator%',
+    source: 'typeof Iterator !== "undefined" ? Iterator : Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]())).constructor',
+  },
+  {
+    name: '%IteratorHelperPrototype%',
+    source: 'Object.getPrototypeOf(Iterator.from([]).drop(0))',
   },
   {
     name: '%JSON%',
@@ -276,6 +288,10 @@ const WellKnownIntrinsicObjects = [
   {
     name: '%WeakSet%',
     source: 'WeakSet',
+  },
+  {
+    name: '%WrapForValidIteratorPrototype%',
+    source: 'Object.getPrototypeOf(Iterator.from({ [Symbol.iterator](){ return {}; } }))',
   },
 ];
 
