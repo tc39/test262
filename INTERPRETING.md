@@ -258,8 +258,11 @@ export {} from './instn-resolve-empty-export_FIXTURE.js';
 ### `includes`
 
 One or more files whose content must be evaluated in the test realm's global
-scope prior to test execution. These files are located within the `harness/`
-directory of the Test262 project.
+scope prior to test execution, after the files listed in the
+[Test262-Defined Bindings](#test262-defined-bindings) section and the file
+listed for the `async` flag below.
+They must be included in the order given in the source.
+These files are located within the `harness/` directory of the Test262 project.
 
 *Example*
 
@@ -348,9 +351,11 @@ following strings:
   ```
 
 - **`async`** The file `harness/doneprintHandle.js` must be evaluated in the
-  test realm's global scope prior to test execution. The test must not be
-  considered complete until the implementation-defined `print` function has
-  been invoked or some length of time has passed without any such invocation.
+  test realm's global scope prior to test execution, after the files listed in
+  the [Test262-Defined Bindings](#test262-defined-bindings) section.
+  The test must not be considered complete until the implementation-defined
+  `print` function has been invoked or some length of time has passed without
+  any such invocation.
   In the event of a passing test run, this function will be invoked with the
   string `'Test262:AsyncTestComplete'`. If invoked with a string that is
   prefixed with the character sequence `Test262:AsyncTestFailure:`, the test
