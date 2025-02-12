@@ -71,13 +71,13 @@ properties of the global scope prior to test execution.
   - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
     object that:
 
-    1. has an [[IsHTMLDDA]] internal slot, and 
-    2. when called with no arguments or with the first argument `""` (an empty string) returns `null`. 
+    1. has an [[IsHTMLDDA]] internal slot, and
+    2. when called with no arguments or with the first argument `""` (an empty string) returns `null`.
 
-          Note: The peculiar second requirement permits testing algorithms when they also call `document.all` with such arguments, so that testing for correct behavior requires knowing how the call behaves. This is rarely necessary.  
-    
+          Note: The peculiar second requirement permits testing algorithms when they also call `document.all` with such arguments, so that testing for correct behavior requires knowing how the call behaves. This is rarely necessary.
+
           Use this property to test that ECMAScript algorithms aren't mis-implemented to treat `document.all` as being `undefined` or of type Undefined (instead of Object).
-    
+
           **Tests using this function must be tagged with the `IsHTMLDDA` feature so that only hosts supporting this property will run them.**
   - **`agent`** - an ordinary object with the following properties:
     - **`start`** - a function that takes a script source string and runs
@@ -98,10 +98,10 @@ properties of the global scope prior to test execution.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
       - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
-    - **`broadcast`** - a function that takes a SharedArrayBuffer and an 
-        Int32 or BigInt and broadcasts the two values to all concurrent 
-        agents. The function blocks until all agents have retrieved the 
-        message. Note, this assumes that all agents that were started are 
+    - **`broadcast`** - a function that takes a SharedArrayBuffer and an
+        Int32 or BigInt and broadcasts the two values to all concurrent
+        agents. The function blocks until all agents have retrieved the
+        message. Note, this assumes that all agents that were started are
         still running.
     - **`getReport`** - a function that reads an incoming string from any agent,
       and returns it if it exists, or returns `null` otherwise.
@@ -208,7 +208,7 @@ an exception, or if the name of the thrown exception's constructor does not
 match the specified constructor name, or if the error occurs at a phase that
 differs from the indicated phase, the test must be interpreted as "failing."
 
-The **`$DONOTEVALUATE()`** function is for use in tests that include the following meta data: 
+The **`$DONOTEVALUATE()`** function is for use in tests that include the following meta data:
 
 ```
 negative:
@@ -216,7 +216,7 @@ negative:
   type: ReferenceError
 ```
 
-The definition is considered "runner implementation defined" and no guarantees can be made about its behavior, therefore it is restricted to only tests that meet the criteria described above. 
+The definition is considered "runner implementation defined" and no guarantees can be made about its behavior, therefore it is restricted to only tests that meet the criteria described above.
 
 *Examples:*
 
