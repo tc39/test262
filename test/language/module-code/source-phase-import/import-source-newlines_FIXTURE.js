@@ -18,8 +18,6 @@
 //  16.2.1.7.2 GetModuleSource ( )
 //  Source Text Module Record provides a GetModuleSource implementation that always returns an abrupt completion indicating that a source phase import is not available.
 
-$DONOTEVALUATE();
-
 import "../resources/ensure-linking-error_FIXTURE.js";
 
 import

@@ -19,7 +19,6 @@ function assertImportSourceResolutionFailure(specifier) {
       throw new Test262Error(`${specifier}: Promise should be rejected`);
     },
     error => {
-      print(error)
       if (error instanceof SyntaxError) {
         throw new Test262Error(`${specifier}: Promise should be rejected with a non-SyntaxError`);
       }
