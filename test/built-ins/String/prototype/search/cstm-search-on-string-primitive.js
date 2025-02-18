@@ -4,12 +4,12 @@
 /*---
 esid: sec-string.prototype.search
 description: >
-  If a separator is a string primitive, its Symbol.search property is not accessed.
+  If a searchValue is a string primitive, its Symbol.search property is not accessed.
 info: |
   String.prototype.search ( searchValue )
 
   [...]
-  2. If separator is not Object, then
+  2. If searchValue is not Object, then
     [...]
   [...]
 

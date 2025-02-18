@@ -4,12 +4,12 @@
 /*---
 esid: sec-string.prototype.replaceall
 description: >
-  If a separator is a boolean primitive, its Symbol.replace property is not accessed.
+  If a searchValue is a boolean primitive, its Symbol.replace property is not accessed.
 info: |
   String.prototype.replaceAll ( searchValue, replaceValue )
 
   [...]
-  2. If separator is not Object, then
+  2. If searchValue is not Object, then
     [...]
   [...]
 

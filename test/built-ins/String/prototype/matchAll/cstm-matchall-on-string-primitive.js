@@ -4,12 +4,12 @@
 /*---
 esid: sec-string.prototype.matchall
 description: >
-  If a separator is a string primitive, its Symbol.matchAll property is not accessed.
+  If a regexp property is a string primitive, its Symbol.matchAll property is not accessed.
 info: |
   String.prototype.matchAll ( regexp )
 
   [...]
-  2. If separator is not Object, then
+  2. If regexp is not Object, then
     [...]
   [...]
 

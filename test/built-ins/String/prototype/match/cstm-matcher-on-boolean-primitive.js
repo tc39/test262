@@ -4,12 +4,12 @@
 /*---
 esid: sec-string.prototype.match
 description: >
-  If a separator is a boolean primitive, its Symbol.match property is not accessed.
+  If a regexp property is a boolean primitive, its Symbol.match property is not accessed.
 info: |
   String.prototype.match ( regexp )
 
   [...]
-  2. If separator is not Object, then
+  2. If regexp is not Object, then
     [...]
   [...]
 
