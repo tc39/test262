@@ -28,5 +28,4 @@ var separator = ",";
 const matched = "a,b,c".match(separator);
 assert.sameValue(matched.index, 1);
 assert.sameValue(matched.input, "a,b,c");
-assert.sameValue(matched[0], "b");
-assert.sameValue(matched.length, 1);
+assert.compareArray(matched, [","]);
