@@ -13,6 +13,7 @@ info: |
     [...]
   [...]
 
+includes: [compareArray.js]
 features: [Symbol.matchAll]
 ---*/
 
@@ -28,8 +29,8 @@ const matched = "a1b1c".matchAll(matcher);
 const matchesArray = Array.from(matched);
 assert.sameValue(matchesArray[0].index, 1);
 assert.sameValue(matchesArray[0].input, "a1b1c");
-assert.sameValue(matchesArray[0][0], "1");
+assert.compareArray(matchesArray[0], ["1"]);
 assert.sameValue(matchesArray[1].index, 3);
 assert.sameValue(matchesArray[1].input, "a1b1c");
-assert.sameValue(matchesArray[1][0], "1");
+assert.compareArray(matchesArray[1], ["1"]);
 assert.sameValue(matchesArray.length, 2);

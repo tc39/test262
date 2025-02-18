@@ -28,5 +28,4 @@ var separator = 1;
 const matched = "a1b1c".match(separator);
 assert.sameValue(matched.index, 1);
 assert.sameValue(matched.input, "a1b1c");
-assert.sameValue(matched[0], "1");
-assert.sameValue(matched.length, 1);
+assert.compareArray(matched, ["1"]);

@@ -28,5 +28,4 @@ var separator = true;
 const matched = "atruebtruec".match(separator);
 assert.sameValue(matched.index, 1);
 assert.sameValue(matched.input, "atruebtruec");
-assert.sameValue(matched[0], "true");
-assert.sameValue(matched.length, 1);
+assert.compareArray(matched, ["true"]);
