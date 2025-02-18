@@ -1,0 +1,32 @@
+// Copyright (C) 2025 Luca Casonato. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-string.prototype.match
+description: >
+  If a separator is a number primitive, its Symbol.match property is not accessed.
+info: |
+  String.prototype.match ( regexp )
+
+  [...]
+  2. If separator is not Object, then
+    [...]
+  [...]
+
+includes: [compareArray.js]
+features: [Symbol.match]
+---*/
+
+Object.defineProperty(Number.prototype, Symbol.match, {
+  get: function() {
+    throw new Test262Error("should not be called");
+  },
+});
+
+var separator = 1;
+
+const matched = "a1b1c".match(separator);
+assert.sameValue(matched.index, 1);
+assert.sameValue(matched.input, "a1b1c");
+assert.sameValue(matched[0], "1");
+assert.sameValue(matched.length, 1);
