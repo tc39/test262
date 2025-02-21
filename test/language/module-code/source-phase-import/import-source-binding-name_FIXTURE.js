@@ -12,7 +12,7 @@
 //   ImportDeclaration:
 //     import source ImportedBinding FromClause ;
 
-import "../resources/ensure-linking-error_FIXTURE.js";
+import "./ensure-linking-error_FIXTURE.js";
 
 import source from '<do not resolve>';
 import from from '<do not resolve>';
