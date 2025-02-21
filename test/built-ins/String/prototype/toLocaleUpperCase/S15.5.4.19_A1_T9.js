@@ -18,25 +18,19 @@ var __expected = "UNDEFINED";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__lowerCase.length !== __expected.length) {
-  throw new Test262Error('#1: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected ="UNDEFINED"; __lowerCase.length === __expected.length. Actual: ' + __lowerCase.length);
-}
+assert.sameValue(__lowerCase.length, __expected.length, '#1: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected ="UNDEFINED"; __lowerCase.length === __expected.length');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__lowerCase.index !== __expected.index) {
-  throw new Test262Error('#2: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected ="UNDEFINED"; __lowerCase.index === __expected.index. Actual: ' + __lowerCase.index);
-}
+assert.sameValue(__lowerCase.index, __expected.index, '#2: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected ="UNDEFINED"; __lowerCase.index === __expected.index');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__lowerCase.input !== __expected.input) {
-  throw new Test262Error('#3: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected ="UNDEFINED"; __lowerCase.input === __expected.input. Actual: ' + __lowerCase.input);
-}
+assert.sameValue(__lowerCase.input, __expected.input, '#3: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected ="UNDEFINED"; __lowerCase.input === __expected.input');
 //
 //////////////////////////////////////////////////////////////////////////////
 

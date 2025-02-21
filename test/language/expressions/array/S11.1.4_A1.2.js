@@ -22,11 +22,7 @@ if (array instanceof Array !== true) {
 }
 
 //CHECK#3
-if (array.toString !== Array.prototype.toString) {
-  throw new Test262Error('#3: var array = [,,,,,]; array.toString === Array.prototype.toString. Actual: ' + (array.toString));
-}
+assert.sameValue(array.toString, Array.prototype.toString, '#3: var array = [,,,,,]; array.toString === Array.prototype.toString');
 
 //CHECK#4
-if (array.length !== 5) {
-  throw new Test262Error('#4: var array = [,,,,,]; array.length === 5. Actual: ' + (array.length));
-}
+assert.sameValue(array.length, 5, '#4: var array = [,,,,,]; array.length === 5');

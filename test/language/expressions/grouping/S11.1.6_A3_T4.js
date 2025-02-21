@@ -10,9 +10,7 @@ description: Applying grouping operator to undefined
 //Check for undefined and null
 
 //CHECK#1
-if ((undefined) !== undefined) {
-  throw new Test262Error('#1: (undefined) === undefined. Actual: ' + ((undefined)));
-}
+assert.sameValue((undefined), undefined, '#1: (undefined) === undefined');
 
 //CHECK#2
 if ((void 0) !== void 0) {
@@ -20,6 +18,4 @@ if ((void 0) !== void 0) {
 }
 
 //CHECK#2
-if ((null) !== null) {
-  throw new Test262Error('#2: (null) === null. Actual: ' + ((null)));
-}
+assert.sameValue((null), null, '#2: (null) === null');

@@ -17,8 +17,6 @@ if (!(String.prototype.lastIndexOf.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.lastIndexOf.length !== 1) {
-  throw new Test262Error('#2: String.prototype.lastIndexOf.length === 1. Actual: ' + String.prototype.lastIndexOf.length);
-}
+assert.sameValue(String.prototype.lastIndexOf.length, 1, '#2: String.prototype.lastIndexOf.length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -13,8 +13,6 @@ Function.prototype.indicator = 1;
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#
-if (String.indicator !== 1) {
-  throw new Test262Error('#1: Function.prototype.indicator = 1; String.indicator === 1. Actual: String.indicator ===' + String.indicator);
-}
+assert.sameValue(String.indicator, 1, '#1: Function.prototype.indicator = 1; String.indicator === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

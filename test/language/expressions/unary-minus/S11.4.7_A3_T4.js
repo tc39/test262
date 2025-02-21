@@ -13,6 +13,4 @@ if (isNaN(-void 0) !== true) {
 }
 
 //CHECK#2
-if (-null !== 0) {
-  throw new Test262Error('#2: +null === 0. Actual: ' + (+null));
-}
+assert(-null === 0, '#2: -null === 0');
