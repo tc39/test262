@@ -25,6 +25,7 @@
     "test:diff:spidermonkey": "test262-harness -t 8 --hostType=jsshell --hostPath=spidermonkey $(npm run --silent diff)",
     "test:diff:chakra": "test262-harness -t 8 --hostType=ch --hostPath=chakra $(npm run --silent diff)",
     "test:diff:javascriptcore": "test262-harness -t 8 --hostType=jsc --hostPath=javascriptcore $(npm run --silent diff)",
-    "test:diff:xs": "test262-harness -t 8 --hostType=xs --hostPath=xs $(npm run --silent diff)"
+    "test:diff:xs": "test262-harness -t 8 --hostType=xs --hostPath=xs $(npm run --silent diff)",
+    "test:diff:engine262": "test262-harness -t 8 --hostType=engine262 --hostPath=engine262 $(npm run --silent diff)"
   }
 }
