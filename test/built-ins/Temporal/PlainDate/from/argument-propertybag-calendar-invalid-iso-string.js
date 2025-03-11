@@ -18,5 +18,4 @@ const invalidStrings = [
       () => Temporal.PlainDate.from(arg),
       `${description} is not a valid calendar ID`
     );
-  }
-  
+}
