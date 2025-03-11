@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.from
+esid: sec-temporal.plainyearmonth.from
 description: Various invalid ISO string values for calendar in a property bag
 features: [Temporal]
 ---*/
@@ -12,10 +12,10 @@ const invalidStrings = [
   ];
   
 for (const [calendar, description] of invalidStrings) {
-    const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+    const arg = { year: 2019, monthCode: "M11", calendar };
     assert.throws(
       RangeError,
-      () => Temporal.PlainDate.from(arg),
+      () => Temporal.PlainYearMonth.from(arg),
       `${description} is not a valid calendar ID`
     );
 }
