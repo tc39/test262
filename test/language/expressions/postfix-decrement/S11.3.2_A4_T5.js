@@ -9,14 +9,10 @@ description: Type(x) is Object object or Function object
 
 //CHECK#1
 var x = {};
-var y = x--; 
-if (isNaN(y) !== true) {
-  throw new Test262Error('#1: var x = {}; var y = x--; y === Not-a-Number. Actual: ' + (y));
-}
+var y = x--;
+assert.sameValue(isNaN(y), true, '#1: var x = {}; var y = x--; y === Not-a-Number');
 
 //CHECK#2
 var x = function(){return 1};
-var y = x--; 
-if (isNaN(y) !== true) {
-  throw new Test262Error('#2: var x = function(){return 1}; var y = x--; y === Not-a-Number. Actual: ' + (y));
-}
+var y = x--;
+assert.sameValue(isNaN(y), true, '#2: var x = function(){return 1}; var y = x--; y === Not-a-Number');

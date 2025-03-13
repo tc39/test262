@@ -25,8 +25,6 @@ if (!(String.hasOwnProperty("fromCharCode"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (String.fromCharCode.length !== 1) {
-  throw new Test262Error('#3: String.fromCharCode.length === 1. Actual: String.fromCharCode.length ===' + String.fromCharCode.length);
-}
+assert.sameValue(String.fromCharCode.length, 1, '#3: String.fromCharCode.length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

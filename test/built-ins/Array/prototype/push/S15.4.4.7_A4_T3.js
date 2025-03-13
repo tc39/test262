@@ -12,34 +12,18 @@ obj.push = Array.prototype.push;
 obj.length = -1;
 
 var push = obj.push("x", "y", "z");
-if (push !== 3) {
-  throw new Test262Error('#1: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z") === 3. Actual: ' + (push));
-}
+assert.sameValue(push, 3, '#1: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z") === 3');
 
-if (obj.length !== 3) {
-  throw new Test262Error('#2: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj.length === 3. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 3, '#2: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj.length === 3');
 
-if (obj[4294967295] !== undefined) {
-  throw new Test262Error('#3: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[4294967295] === undefined. Actual: ' + (obj[4294967295]));
-}
+assert.sameValue(obj[4294967295], undefined, '#3: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[4294967295] === undefined');
 
-if (obj[4294967296] !== undefined) {
-  throw new Test262Error('#4: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[4294967296] === undefined. Actual: ' + (obj[4294967296]));
-}
+assert.sameValue(obj[4294967296], undefined, '#4: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[4294967296] === undefined');
 
-if (obj[4294967297] !== undefined) {
-  throw new Test262Error('#5: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[4294967297] === undefined. Actual: ' + (obj[4294967297]));
-}
+assert.sameValue(obj[4294967297], undefined, '#5: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[4294967297] === undefined');
 
-if (obj[0] !== "x") {
-  throw new Test262Error('#3: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[0] === "x". Actual: ' + (obj[0]));
-}
+assert.sameValue(obj[0], "x", '#3: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[0] === "x"');
 
-if (obj[1] !== "y") {
-  throw new Test262Error('#4: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[1] === "y". Actual: ' + (obj[1]));
-}
+assert.sameValue(obj[1], "y", '#4: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[1] === "y"');
 
-if (obj[2] !== "z") {
-  throw new Test262Error('#5: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[2] === "z". Actual: ' + (obj[2]));
-}
+assert.sameValue(obj[2], "z", '#5: var obj = {}; obj.push = Array.prototype.push; obj.length = -1; obj.push("x", "y", "z"); obj[2] === "z"');

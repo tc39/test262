@@ -28,8 +28,6 @@ verifyNotWritable(String.prototype.localeCompare, "length", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.localeCompare.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.localeCompare.length; String.prototype.localeCompare.length = function(){return "shifted";}; String.prototype.localeCompare.length === __obj. Actual: ' + String.prototype.localeCompare.length);
-}
+assert.sameValue(String.prototype.localeCompare.length, __obj, '#2: __obj = String.prototype.localeCompare.length; String.prototype.localeCompare.length = function(){return "shifted";}; String.prototype.localeCompare.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

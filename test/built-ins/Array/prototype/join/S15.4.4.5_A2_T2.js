@@ -13,25 +13,17 @@ var obj = {};
 obj.join = Array.prototype.join;
 
 obj.length = NaN;
-if (obj.join() !== "") {
-  throw new Test262Error('#1: var obj = {}; obj.length = NaN; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#1: var obj = {}; obj.length = NaN; obj.join = Array.prototype.join; obj.join() === ""');
 
 assert.sameValue(obj.length, NaN, "obj.length is NaN");
 
 obj.length = Number.NEGATIVE_INFINITY;
-if (obj.join() !== "") {
-  throw new Test262Error('#5: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#5: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.join = Array.prototype.join; obj.join() === ""');
 
-if (obj.length !== Number.NEGATIVE_INFINITY) {
-  throw new Test262Error('#6: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.join = Array.prototype.join; obj.join(); obj.length === Number.NEGATIVE_INFINITY. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, Number.NEGATIVE_INFINITY, '#6: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.join = Array.prototype.join; obj.join(); obj.length === Number.NEGATIVE_INFINITY');
 
 obj.length = -0;
-if (obj.join() !== "") {
-  throw new Test262Error('#7: var obj = {}; obj.length = -0; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#7: var obj = {}; obj.length = -0; obj.join = Array.prototype.join; obj.join() === ""');
 
 if (obj.length !== -0) {
   throw new Test262Error('#8: var obj = {}; obj.length = -0; obj.join = Array.prototype.join; obj.join(); obj.length === 0. Actual: ' + (obj.length));
@@ -42,20 +34,12 @@ if (obj.length !== -0) {
 }
 
 obj.length = 0.5;
-if (obj.join() !== "") {
-  throw new Test262Error('#9: var obj = {}; obj.length = 0.5; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#9: var obj = {}; obj.length = 0.5; obj.join = Array.prototype.join; obj.join() === ""');
 
-if (obj.length !== 0.5) {
-  throw new Test262Error('#10: var obj = {}; obj.length = 0.5; obj.join = Array.prototype.join; obj.join(); obj.length === 0.5. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 0.5, '#10: var obj = {}; obj.length = 0.5; obj.join = Array.prototype.join; obj.join(); obj.length === 0.5');
 
 var x = new Number(0);
 obj.length = x;
-if (obj.join() !== "") {
-  throw new Test262Error('#11: var x = new Number(0); var obj = {}; obj.length = x; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#11: var x = new Number(0); var obj = {}; obj.length = x; obj.join = Array.prototype.join; obj.join() === ""');
 
-if (obj.length !== x) {
-  throw new Test262Error('#12: var x = new Number(0); var obj = {}; obj.length = x; obj.join = Array.prototype.join; obj.join(); obj.length === x. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, x, '#12: var x = new Number(0); var obj = {}; obj.length = x; obj.join = Array.prototype.join; obj.join(); obj.length === x');

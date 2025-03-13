@@ -22,36 +22,22 @@ if (array instanceof Array !== true) {
 }
 
 //CHECK#3
-if (array.toString !== Array.prototype.toString) {
-  throw new Test262Error('#3: var array = [4,5,,,,]; array.toString === Array.prototype.toString. Actual: ' + (array.toString));
-}
+assert.sameValue(array.toString, Array.prototype.toString, '#3: var array = [4,5,,,,]; array.toString === Array.prototype.toString');
 
 //CHECK#4
-if (array.length !== 5) {
-  throw new Test262Error('#4: var array = [4,5,,,,]; array.length === 5. Actual: ' + (array.length));
-}
+assert.sameValue(array.length, 5, '#4: var array = [4,5,,,,]; array.length === 5');
 
 //CHECK#5
-if (array[0] !== 4) {
-  throw new Test262Error('#5: var array = [4,5,,,,]; array[0] === 4. Actual: ' + (array[0]));
-}
+assert.sameValue(array[0], 4, '#5: var array = [4,5,,,,]; array[0] === 4');
 
 //CHECK#6
-if (array[1] !== 5) {
-  throw new Test262Error('#6: var array = [4,5,,,,]; array[1] === 5. Actual: ' + (array[1]));
-}
+assert.sameValue(array[1], 5, '#6: var array = [4,5,,,,]; array[1] === 5');
 
 //CHECK#7
-if (array[2] !== undefined) {
-  throw new Test262Error('#7: var array = [4,5,,,,]; array[2] === undefined. Actual: ' + (array[2]));
-}
+assert.sameValue(array[2], undefined, '#7: var array = [4,5,,,,]; array[2] === undefined');
 
 //CHECK#8
-if (array[3] !== undefined) {
-  throw new Test262Error('#8: var array = [4,5,,,,]; array[3] === undefined. Actual: ' + (array[3]));
-}
+assert.sameValue(array[3], undefined, '#8: var array = [4,5,,,,]; array[3] === undefined');
 
 //CHECK#9
-if (array[4] !== undefined) {
-  throw new Test262Error('#9: var array = [4,5,,,,]; array[4] === undefined. Actual: ' + (array[4]));
-}
+assert.sameValue(array[4], undefined, '#9: var array = [4,5,,,,]; array[4] === undefined');

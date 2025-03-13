@@ -12,32 +12,18 @@ description: Checking case when push is given no arguments or one argument
 
 var x = new Array();
 var push = x.push(1);
-if (push !== 1) {
-  throw new Test262Error('#1: x = new Array(); x.push(1) === 1. Actual: ' + (push));
-}
+assert.sameValue(push, 1, '#1: x = new Array(); x.push(1) === 1');
 
-if (x[0] !== 1) {
-  throw new Test262Error('#2: x = new Array(); x.push(1); x[0] === 1. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 1, '#2: x = new Array(); x.push(1); x[0] === 1');
 
 var push = x.push();
-if (push !== 1) {
-  throw new Test262Error('#3: x = new Array(); x.push(1); x.push() === 1. Actual: ' + (push));
-}
+assert.sameValue(push, 1, '#3: x = new Array(); x.push(1); x.push() === 1');
 
-if (x[1] !== undefined) {
-  throw new Test262Error('#4: x = new Array(); x.push(1); x.push(); x[1] === unedfined. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], undefined, '#4: x = new Array(); x.push(1); x.push(); x[1] === unedfined');
 
 var push = x.push(-1);
-if (push !== 2) {
-  throw new Test262Error('#5: x = new Array(); x.push(1); x.push(); x.push(-1) === 2. Actual: ' + (push));
-}
+assert.sameValue(push, 2, '#5: x = new Array(); x.push(1); x.push(); x.push(-1) === 2');
 
-if (x[1] !== -1) {
-  throw new Test262Error('#6: x = new Array(); x.push(1); x.push(-1); x[1] === -1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], -1, '#6: x = new Array(); x.push(1); x.push(-1); x[1] === -1');
 
-if (x.length !== 2) {
-  throw new Test262Error('#7: x = new Array(); x.push(1); x.push(); x.push(-1); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#7: x = new Array(); x.push(1); x.push(); x.push(-1); x.length === 2');
