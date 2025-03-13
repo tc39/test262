@@ -1,5 +1,6 @@
 export default description => {
   let header = `// Copyright (C) 2018 Leo Balter.  All rights reserved.
+// Copyright (C) 2024 Aurèle Barrière.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
