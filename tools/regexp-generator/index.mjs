@@ -7,15 +7,6 @@ import slugify from 'slugify';
 
 import header from './header.mjs';
 
-const patterns = {
-  'whitespace class escape': '\\s',
-  'non-whitespace class escape': '\\S',
-  'word class escape': '\\w',
-  'non-word class escape': '\\W',
-  'digit class escape': '\\d',
-  'non-digit class escape': '\\D',
-};
-
 // Pretty-printing code adapted from unicode-property-escapes-tests.
 // https://github.com/mathiasbynens/unicode-property-escapes-tests/blob/60f2dbec2b2a840ee67aa04dbd3449bb90fd2999/regenerate.js
 
@@ -44,27 +35,23 @@ function toTestData(reg) {
 }
 
 function prettyPrint([ loneCodePoints, ranges ]) {
-  const indent = '    ';
+  const indent = '  '; // Test 262 uses two-space indents.
   loneCodePoints = loneCodePoints.map((codePoint) => toHex(codePoint));
   ranges = ranges.map(
     (range) => `[${ toHex(range[0]) }, ${ toHex(range[1]) }]`
   );
   const loneCodePointsOutput = loneCodePoints.length ?
-    loneCodePoints.length === 1 ? `[${loneCodePoints[0]}]` :
-      `[\n${indent}${indent}${ loneCodePoints.join(`,\n${indent}${indent}`) },\n${indent}]` :
+    `[\n${indent}${indent}${ loneCodePoints.join(`,\n${indent}${indent}`) }\n${indent}]` :
     `[]`;
   const rangesOutput = ranges.length ?
-    `[\n${indent}${indent}${ ranges.join(`,\n${indent}${indent}`) },\n${indent}]` :
+    `[\n${indent}${indent}${ ranges.join(`,\n${indent}${indent}`) }\n${indent}]` :
     `[]`;
-  return `{\n${indent}loneCodePoints: ${ loneCodePointsOutput },\n${indent}ranges: ${ rangesOutput },\n}`;
+  return `{\n${indent}loneCodePoints: ${ loneCodePointsOutput },\n${indent}ranges: ${ rangesOutput }\n}`;
 }
 
 const LOW_SURROGATES = regenerate().addRange(0xDC00, 0xDFFF);
 
-function buildString(escapeChar, flags) {
-  const isUnicode = flags.includes('u');
-  let escapeData = ESCAPE_SETS[isUnicode ? 'UNICODE' : 'REGULAR'].get(escapeChar);
-
+function toTestCode(escapeData) {
   const lowSurrogates = escapeData.clone().intersection(LOW_SURROGATES);
   if (lowSurrogates.data.length === 0) {
     return prettyPrint(toTestData(escapeData));
@@ -77,23 +64,94 @@ function buildString(escapeChar, flags) {
   return prettyPrint([ loneCodePoints, ranges ]);
 }
 
-function buildContent(desc, pattern, flags) {
-  let string = buildString(pattern[1], flags);
+// The different character class escapes.
+const patterns = {
+  's': 'whitespace class escape',
+  'S': 'non-whitespace class escape',
+  'w': 'word class escape',
+  'W': 'non-word class escape',
+  'd': 'digit class escape',
+  'D': 'non-digit class escape',
+};
 
-  let content = header(`Compare range for ${desc} ${pattern} with flags ${flags}`);
+const negation = {
+  's': 'S',
+  'S': 's',
+  'w': 'W',
+  'W': 'w',
+  'd': 'D',
+  'D': 'd',
+}
+
+// In each test file, test all these flag configurations.
+const flags_configs = {
+  'standard': '',
+  'unicode': 'u',
+  'vflag': 'v',
+}
+
+// For each character class escape, test positive and negative cases.
+const test_cases = [
+  { positivity: true,
+    suffix: '-positive-cases' },
+  { positivity: false,
+    suffix: '-negative-cases' },
+]
+
+function buildRegex(pattern, positivity) {
+  return positivity ? `^\\${pattern}+$` : `\\${pattern}`;
+}
+
+function buildRegexes(pattern, positivity) {
+  const regex = buildRegex(pattern, positivity);
+  let regStr = '';
+  for (const [regexname, flags] of Object.entries(flags_configs)) {
+    regStr += `const ${regexname} = /${regex}/${flags};\n`;
+  }
+  const allRegexes = Object.keys(flags_configs).toString();
+  regStr += `const regexes = [${allRegexes}];`;
+  return regStr;
+}
+
+function buildString(pattern, positivity) {
+  const escape = positivity ? pattern : negation[pattern];
+  const escapeData = ESCAPE_SETS.UNICODE.get(escape);
+  return toTestCode(escapeData);
+}
+
+function buildDescr(pattern, positivity) {
+  let name = patterns[pattern];
+  let descr = positivity ? 'Check positive cases of' : 'Check negative cases of';
+  return `${descr} ${name} \\${pattern}.`;
+}
+
+function buildContent(pattern, positivity) {
+
+  let regexes = buildRegexes(pattern, positivity);
+  let string = buildString(pattern, positivity);
+  let descr = buildDescr(pattern, positivity);
+  let testNegate = positivity ? '!' : '';
+  let errMsg = positivity ? 'Expected full match, but did not match: ' :
+  'Expected no match, but matched: ';
+
+  let content = header(`${descr}`);
 
   content += `
-const str = buildString(${string});
+const str = buildString(
+${string}
+);
 
-const re = /${pattern}/${flags};
+${regexes}
 
 const errors = [];
 
-if (!re.test(str)) {
-  // Error, let's find out where
-  for (const char of str) {
-    if (!re.test(char)) {
-      errors.push('0x' + char.codePointAt(0).toString(16));
+for (const regex of regexes) {
+  if (${testNegate}regex.test(str)) {
+    // Error, let's find out where
+    for (const char of str) {
+      if (${testNegate}regex.test(char)) {
+        errors.push('0x' + char.codePointAt(0).toString(16));
+      }
     }
   }
 }
@@ -101,7 +159,7 @@ if (!re.test(str)) {
 assert.sameValue(
   errors.length,
   0,
-  'Expected matching code points, but received: ' + errors.join(',')
+  '${errMsg}' + errors.join(',')
 );
 `;
 
@@ -114,40 +172,9 @@ function writeFile(desc, content, suffix = '') {
   fs.writeFileSync(filename, content);
 }
 
-// No additions
-for (const [desc, escape] of Object.entries(patterns)) {
-  [
-    {
-      quantifier: '',
-      flags: '',
-    },
-    {
-      quantifier: '+',
-      flags: '',
-      suffix: '-plus-quantifier',
-    },
-    {
-      quantifier: '',
-      flags: 'u',
-      suffix: '-flags-u',
-    },
-    {
-      quantifier: '+',
-      flags: 'u',
-      suffix: '-plus-quantifier-flags-u',
-    },
-  ].forEach(({quantifier, flags, suffix}) => {
-    flags += 'g';
-
-    const pattern = `${escape}${quantifier}`;
-    const range = rewritePattern(pattern, flags, {
-      unicodeFlag: flags.includes('u') ? 'transform' : false,
-    });
-
-    console.log(`${pattern} => ${range}, flags: ${flags}`);
-
-    const content = buildContent(desc, pattern, flags);
-
+for (const [pattern, desc] of Object.entries(patterns)) {
+  test_cases.forEach(({positivity, suffix}) => {
+    const content = buildContent(pattern, positivity);
     writeFile(desc, content, suffix);
   });
 }
