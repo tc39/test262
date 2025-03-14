@@ -34,7 +34,7 @@ for (var ix = 0; ix < utcIdentifiers.length; ix++) {
   var dateTime = new Temporal.ZonedDateTime(0n, timeZone);
   assert.sameValue(
     dateTime.timeZoneId,
-    utcDateTime.timeZoneId,
+    timeZone,
     timeZone + " should be preserved and not canonicalized to UTC");
   assert(dateTime.equals(utcDateTime), "Time zone " + timeZone + " should be equal to primary identifier UTC");
 }
