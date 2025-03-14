@@ -4,35 +4,31 @@
 /*---
 esid: sec-temporal-intl
 description: Non-ISO Calendars
-features: [Temporal, Array.prototype.includes]
+features: [Temporal]
 locale:
   - en-US-u-ca-buddhist
 ---*/
 
-var hasOutdatedChineseIcuData = false;
+const calendar = "buddhist";
 
 // verify that Intl.DateTimeFormat.formatToParts output matches snapshot data
-function compareFormatToPartsSnapshot(isoString, expected) {
+function compareFormatToPartsSnapshot(isoString, expectedComponents) {
   const date = new Date(isoString);
-  Object.entries(expected).forEach(([calendar, expectedComponents]) => {
-    const formatter = new Intl.DateTimeFormat(`en-US-u-ca-${calendar}`, { timeZone: "UTC" });
-    const actualComponents = formatter.formatToParts(date);
-    Object.entries(expectedComponents).forEach(([expectedType, expectedValue]) => {
-      const part = actualComponents.find(({type}) => type === expectedType);
-      const contextMessage = `${expectedType} component of ${isoString} formatted in ${calendar}`;
-      assert.notSameValue(part, undefined, contextMessage);
-      assert.sameValue(part.value, `${expectedValue}`, contextMessage);
-    });
-  });
+  const formatter = new Intl.DateTimeFormat(`en-US-u-ca-${calendar}`, { timeZone: "UTC" });
+  const actualComponents = formatter.formatToParts(date);
+  for (let [expectedType, expectedValue] of Object.entries(expectedComponents)) {
+    const part = actualComponents.find(({type}) => type === expectedType);
+    const contextMessage = `${expectedType} component of ${isoString} formatted in ${calendar}`;
+    assert.notSameValue(part, undefined, contextMessage);
+    assert.sameValue(part.value, `${expectedValue}`, contextMessage);
+  }
 }
 
 compareFormatToPartsSnapshot("2000-01-01T00:00Z", {
-  buddhist: {
-    year: 2543,
-    era: "BE",
-    month: 1,
-    day: 1,
-  },
+  year: 2543,
+  era: "BE",
+  month: 1,
+  day: 1,
 });
 
 // Several calendars based on the Gregorian calendar use Julian dates (not
@@ -40,170 +36,128 @@ compareFormatToPartsSnapshot("2000-01-01T00:00Z", {
 // https://bugs.chromium.org/p/chromium/issues/detail?id=1173158. The code below
 // allows these tests to pass regardless of the bug, while still remaining
 // sensitive to other bugs that may crop up.
-const yearOneDay = new Map(
-  ["iso8601", "gregory", "roc", "buddhist", "japanese"].map(calendar => {
-    const hasGregorianSwitchoverBug = new Date("+001001-01-01T00:00Z")
-      .toLocaleDateString(`en-US-u-ca-${calendar}`, { timeZone: "UTC" })
-      .startsWith("12");
-    return [calendar, hasGregorianSwitchoverBug ? 3 : 1]
-  }));
+const yearOneDay = (() => {
+  const hasGregorianSwitchoverBug = new Date("+001001-01-01T00:00Z")
+    .toLocaleDateString(`en-US-u-ca-${calendar}`, { timeZone: "UTC" })
+    .startsWith("12");
+  return hasGregorianSwitchoverBug ? 3 : 1;
+})();
 compareFormatToPartsSnapshot("0001-01-01T00:00Z", {
-  buddhist: {
-    year: 544,
-    era: "BE",
-    month: 1,
-    day: yearOneDay.get("buddhist"),
-  },
+  year: 544,
+  era: "BE",
+  month: 1,
+  day: yearOneDay,
 });
 
 var fromWithCases = {
-  buddhist: {
-    year2000: {
-      year: 2543,
-      month: 1,
-      day: 1,
-      era: "be"
-    },
-    year1: RangeError
+  year2000: {
+    year: 2543,
+    month: 1,
+    monthCode: "M01",
+    day: 1,
   },
 };
-for (var [id, tests] of Object.entries(fromWithCases)) {
-  var dates = {
-    year2000: Temporal.PlainDate.from("2000-01-01"),
-    year1: Temporal.PlainDate.from("0001-01-01")
-  };
-  for (var [name, date] of Object.entries(dates)) {
-    var values = tests[name];
-    var errorExpected = values === RangeError;
-    if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-      if (errorExpected) {
-        assert.throws(RangeError, () => {
-          var inCal = date.withCalendar(id);
-          Temporal.PlainDate.from({
-            calendar: id,
-            year: inCal.year,
-            day: inCal.day,
-            monthCode: inCal.monthCode
-          });
-        });
-      }
-      var inCal = date.withCalendar(id);
-      assert.sameValue(`${ name } ${ id } day: ${ inCal.day }`, `${ name } ${ id } day: ${ values.day }`);
-      if (values.eraYear === undefined && values.era !== undefined)
-        values.eraYear = values.year;
-      assert.sameValue(`${ name } ${ id } eraYear: ${ inCal.eraYear }`, `${ name } ${ id } eraYear: ${ values.eraYear }`);
-      assert.sameValue(`${ name } ${ id } era: ${ inCal.era }`, `${ name } ${ id } era: ${ values.era }`);
-      assert.sameValue(`${ name } ${ id } year: ${ inCal.year }`, `${ name } ${ id } year: ${ values.year }`);
-      assert.sameValue(`${ name } ${ id } month: ${ inCal.month }`, `${ name } ${ id } month: ${ values.month }`);
-      if (values.monthCode === undefined)
-        values.monthCode = `M${ values.month.toString().padStart(2, "0") }`;
-      assert.sameValue(`${ name } ${ id } monthCode: ${ inCal.monthCode }`, `${ name } ${ id } monthCode: ${ values.monthCode }`);
-      if (values.era) {
-        var dateRoundtrip1 = Temporal.PlainDate.from({
-          calendar: id,
-          eraYear: values.eraYear,
-          era: values.era,
-          day: values.day,
-          monthCode: values.monthCode
-        });
-        assert.sameValue(dateRoundtrip1.toString(), inCal.toString());
-        assert.throws(RangeError, () => Temporal.PlainDate.from({
-          calendar: id,
-          eraYear: values.eraYear,
-          era: values.era,
-          day: values.day,
-          monthCode: values.monthCode,
-          year: values.year + 1
-        }));
-      }
-      var dateRoundtrip2 = Temporal.PlainDate.from({
-        calendar: id,
-        year: values.year,
-        day: values.day,
-        monthCode: values.monthCode
-      });
-      assert.sameValue(dateRoundtrip2.toString(), inCal.toString());
-      var dateRoundtrip3 = Temporal.PlainDate.from({
-        calendar: id,
-        year: values.year,
-        day: values.day,
-        month: values.month
-      });
-      assert.sameValue(dateRoundtrip3.toString(), inCal.toString());
-      var dateRoundtrip4 = Temporal.PlainDate.from({
-        calendar: id,
-        year: values.year,
-        day: values.day,
-        monthCode: values.monthCode
-      });
-      assert.sameValue(dateRoundtrip4.toString(), inCal.toString());
-      assert.throws(RangeError, () => Temporal.PlainDate.from({
-        calendar: id,
-        day: values.day,
-        month: values.month === 1 ? 2 : values.month - 1,
-        monthCode: values.monthCode,
-        year: values.year
-      }));
-    };
-    if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-      var inCal = date.withCalendar(id);
-      if (errorExpected) {
-        assert.throws(RangeError, () => inCal.with({ day: 1 }).year);
-      }
-      var afterWithDay = inCal.with({ day: 1 });
-      var t = "(after setting day)";
-      assert.sameValue(`${ t } year: ${ afterWithDay.year }`, `${ t } year: ${ inCal.year }`);
-      assert.sameValue(`${ t } month: ${ afterWithDay.month }`, `${ t } month: ${ inCal.month }`);
-      assert.sameValue(`${ t } day: ${ afterWithDay.day }`, `${ t } day: 1`);
-      var afterWithMonth = afterWithDay.with({ month: 1 });
-      t = "(after setting month)";
-      assert.sameValue(`${ t } year: ${ afterWithMonth.year }`, `${ t } year: ${ inCal.year }`);
-      assert.sameValue(`${ t } month: ${ afterWithMonth.month }`, `${ t } month: 1`);
-      assert.sameValue(`${ t } day: ${ afterWithMonth.day }`, `${ t } day: 1`);
-      var afterWithYear = afterWithMonth.with({ year: 2220 });
-      t = "(after setting year)";
-      assert.sameValue(`${ t } year: ${ afterWithYear.year }`, `${ t } year: 2220`);
-      assert.sameValue(`${ t } month: ${ afterWithYear.month }`, `${ t } month: 1`);
-      assert.sameValue(`${ t } day: ${ afterWithYear.day }`, `${ t } day: 1`);
-    };
-  }
+var dates = {
+  year2000: Temporal.PlainDate.from("2000-01-01"),
+};
+for (var [name, result] of Object.entries(fromWithCases)) {
+  var date = dates[name];
+  var inCal = date.withCalendar(calendar);
+
+  assert.sameValue(inCal.era, result.era, `${name}: era`);
+  assert.sameValue(inCal.eraYear, result.eraYear, `${name}: eraYear`);
+  assert.sameValue(inCal.year, result.year, `${name}: year`);
+  assert.sameValue(inCal.month, result.month, `${name}: month`);
+  assert.sameValue(inCal.monthCode, result.monthCode, `${name}: monthCode`);
+  assert.sameValue(inCal.day, result.day, `${name}: day`);
+
+  var dateRoundtrip2 = Temporal.PlainDate.from({
+    calendar,
+    year: result.year,
+    day: result.day,
+    monthCode: result.monthCode
+  });
+  assert.sameValue(dateRoundtrip2.toString(), inCal.toString());
+
+  var dateRoundtrip3 = Temporal.PlainDate.from({
+    calendar,
+    year: result.year,
+    day: result.day,
+    month: result.month
+  });
+  assert.sameValue(dateRoundtrip3.toString(), inCal.toString());
+
+  var dateRoundtrip4 = Temporal.PlainDate.from({
+    calendar,
+    year: result.year,
+    day: result.day,
+    monthCode: result.monthCode
+  });
+  assert.sameValue(dateRoundtrip4.toString(), inCal.toString());
+
+  assert.throws(RangeError, () => Temporal.PlainDate.from({
+    calendar,
+    day: result.day,
+    month: result.month === 1 ? 2 : result.month - 1,
+    monthCode: result.monthCode,
+    year: result.year
+  }));
+
+  var afterWithDay = inCal.with({ day: 1 });
+  assert.sameValue(afterWithDay.year, inCal.year, `${name} (after setting day)`);
+  assert.sameValue(afterWithDay.month, inCal.month, `${name} (after setting day)`);
+  assert.sameValue(afterWithDay.day, 1, `${name} (after setting day)`);
+
+  var afterWithMonth = afterWithDay.with({ month: 1 });
+  assert.sameValue(afterWithMonth.year, inCal.year, `${name} (after setting month)`);
+  assert.sameValue(afterWithMonth.month, 1, `${name} (after setting month)`);
+  assert.sameValue(afterWithMonth.day, 1, `${name} (after setting month)`);
+
+  var afterWithYear = afterWithMonth.with({ year: 2220 });
+  assert.sameValue(afterWithYear.year, 2220, `${name} (after setting year)`);
+  assert.sameValue(afterWithYear.month, 1, `${name} (after setting year)`);
+  assert.sameValue(afterWithYear.day, 1, `${name} (after setting year)`);
 }
-var addDaysWeeksCases = {
-  buddhist: RangeError,
-};
-const addMonthsCases = {
-  // See https://bugs.chromium.org/p/chromium/issues/detail?id=1173158
-  buddhist: RangeError, // { year: 2001, month: 6, day: 1, monthCode: 'M06', eraYear: 2001, era: 'be' },
-};
-var i = 0;
-const addYearsMonthsDaysCases = Object.entries(addMonthsCases).reduce((obj, entry) => {
-  obj[entry[0]] = entry[1] === RangeError ? RangeError : { ...entry[1], day: 18 };
-  return obj;
-}, {});
-var tests = {
+
+var durationCases = {
   days: {
     duration: { days: 280 },
-    results: addDaysWeeksCases,
+    result: {
+      year: 2555,
+      month: 10,
+      monthCode: "M10",
+      day: 7,
+    },
     startDate: {
-      year: 2000,
+      year: 2555,
       month: 1,
       day: 1
     }
   },
   weeks: {
     duration: { weeks: 40 },
-    results: addDaysWeeksCases,
+    result: {
+      year: 2555,
+      month: 10,
+      monthCode: "M10",
+      day: 7,
+    },
     startDate: {
-      year: 2000,
+      year: 2555,
       month: 1,
       day: 1
     }
   },
   months: {
     duration: { months: 6 },
-    results: addMonthsCases,
+    result: {
+      year: 2556,
+      month: 6,
+      monthCode: "M06",
+      day: 1,
+    },
     startDate: {
-      year: 2000,
+      year: 2555,
       month: 12,
       day: 1
     }
@@ -214,80 +168,78 @@ var tests = {
       months: 6,
       days: 17
     },
-    results: addYearsMonthsDaysCases,
+    result: {
+      year: 2559,
+      month: 6,
+      monthCode: "M06",
+      day: 18,
+    },
     startDate: {
-      year: 1997,
+      year: 2555,
       monthCode: "M12",
       day: 1
     }
   }
 };
-for (var id of Object.keys(addMonthsCases)) {
-  for (var [unit, {duration, results, startDate}] of Object.entries(tests)) {
-    var values = results[id];
-    duration = Temporal.Duration.from(duration);
-    if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-      if (values === RangeError) {
-        assert.throws(RangeError, () => Temporal.PlainDate.from({
-          ...startDate,
-          calendar: id
-        }));
-      }
-      var start = Temporal.PlainDate.from({
-        ...startDate,
-        calendar: id
-      });
-      var end = start.add(duration);
-      assert.sameValue(`add ${ unit } ${ id } day: ${ end.day }`, `add ${ unit } ${ id } day: ${ values.day }`);
-      assert.sameValue(`add ${ unit } ${ id } eraYear: ${ end.eraYear }`, `add ${ unit } ${ id } eraYear: ${ values.eraYear }`);
-      assert.sameValue(`add ${ unit } ${ id } era: ${ end.era }`, `add ${ unit } ${ id } era: ${ values.era }`);
-      assert.sameValue(`add ${ unit } ${ id } year: ${ end.year }`, `add ${ unit } ${ id } year: ${ values.year }`);
-      assert.sameValue(`add ${ unit } ${ id } month: ${ end.month }`, `add ${ unit } ${ id } month: ${ values.month }`);
-      assert.sameValue(`add ${ unit } ${ id } monthCode: ${ end.monthCode }`, `add ${ unit } ${ id } monthCode: ${ values.monthCode }`);
-      var calculatedStart = end.subtract(duration);
-      var isLunisolar = [
-        "chinese",
-        "dangi",
-        "hebrew"
-      ].includes(id);
-      var expectedCalculatedStart = isLunisolar && duration.years !== 0 && !end.monthCode.endsWith("L") ? start.subtract({ months: 1 }) : start;
-      assert.sameValue(`start ${ calculatedStart.toString() }`, `start ${ expectedCalculatedStart.toString() }`);
-      var diff = start.until(end, { largestUnit: unit });
-      assert.sameValue(`diff ${ unit } ${ id }: ${ diff }`, `diff ${ unit } ${ id }: ${ duration }`);
-      if (unit === "months") {
-        var startYesterday = start.subtract({ days: 1 });
-        var endYesterday = startYesterday.add(duration);
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } day (initial): ${ endYesterday.day }`, `add from end-of-month ${ unit } ${ id } day (initial): ${ Math.min(startYesterday.day, endYesterday.daysInMonth) }`);
-        var endYesterdayNextDay = endYesterday.add({ days: 1 });
-        while (endYesterdayNextDay.day !== 1) {
-          endYesterdayNextDay = endYesterdayNextDay.add({ days: 1 });
-        }
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } day: ${ endYesterdayNextDay.day }`, `add from end-of-month ${ unit } ${ id } day: ${ values.day }`);
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } eraYear: ${ endYesterdayNextDay.eraYear }`, `add from end-of-month ${ unit } ${ id } eraYear: ${ values.eraYear }`);
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } era: ${ endYesterdayNextDay.era }`, `add from end-of-month ${ unit } ${ id } era: ${ values.era }`);
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } year: ${ endYesterdayNextDay.year }`, `add from end-of-month ${ unit } ${ id } year: ${ values.year }`);
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } month: ${ endYesterdayNextDay.month }`, `add from end-of-month ${ unit } ${ id } month: ${ values.month }`);
-        assert.sameValue(`add from end-of-month ${ unit } ${ id } monthCode: ${ endYesterdayNextDay.monthCode }`, `add from end-of-month ${ unit } ${ id } monthCode: ${ values.monthCode }`);
-        var endReverse = endYesterdayNextDay.subtract({ days: 1 });
-        var startReverse = endReverse.subtract(duration);
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } day (initial): ${ startReverse.day }`, `subtract from end-of-month ${ unit } ${ id } day (initial): ${ Math.min(endReverse.day, startReverse.daysInMonth) }`);
-        var startReverseNextDay = startReverse.add({ days: 1 });
-        while (startReverseNextDay.day !== 1) {
-          startReverseNextDay = startReverseNextDay.add({ days: 1 });
-        }
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } day: ${ startReverseNextDay.day }`, `subtract from end-of-month ${ unit } ${ id } day: ${ start.day }`);
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } eraYear: ${ startReverseNextDay.eraYear }`, `subtract from end-of-month ${ unit } ${ id } eraYear: ${ start.eraYear }`);
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } era: ${ startReverseNextDay.era }`, `subtract from end-of-month ${ unit } ${ id } era: ${ start.era }`);
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } year: ${ startReverseNextDay.year }`, `subtract from end-of-month ${ unit } ${ id } year: ${ start.year }`);
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } month: ${ startReverseNextDay.month }`, `subtract from end-of-month ${ unit } ${ id } month: ${ start.month }`);
-        assert.sameValue(`subtract from end-of-month ${ unit } ${ id } monthCode: ${ startReverseNextDay.monthCode }`, `subtract from end-of-month ${ unit } ${ id } monthCode: ${ start.monthCode }`);
-      }
-    };
+for (var [unit, {duration, result, startDate}] of Object.entries(durationCases)) {
+  duration = Temporal.Duration.from(duration);
+
+  var start = Temporal.PlainDate.from({
+    ...startDate,
+    calendar
+  });
+
+  var end = start.add(duration);
+  assert.sameValue(end.era, result.era, `${unit}`);
+  assert.sameValue(end.eraYear, result.eraYear, `${unit}`);
+  assert.sameValue(end.year, result.year, `${unit}`);
+  assert.sameValue(end.month, result.month, `${unit}`);
+  assert.sameValue(end.monthCode, result.monthCode, `${unit}`);
+  assert.sameValue(end.day, result.day, `${unit}`);
+
+  var calculatedStart = end.subtract(duration);
+  var expectedCalculatedStart = start;
+  assert.sameValue(calculatedStart.toString(), expectedCalculatedStart.toString(), `${unit}`);
+
+  var diff = start.until(end, { largestUnit: unit });
+  assert.sameValue(diff.toString(), duration.toString(), `${unit}`);
+
+  if (unit === "months") {
+    var startYesterday = start.subtract({ days: 1 });
+    var endYesterday = startYesterday.add(duration);
+    assert.sameValue(endYesterday.day, Math.min(startYesterday.day, endYesterday.daysInMonth), `${unit}`);
+
+    var endYesterdayNextDay = endYesterday.add({ days: 1 });
+    while (endYesterdayNextDay.day !== 1) {
+      endYesterdayNextDay = endYesterdayNextDay.add({ days: 1 });
+    }
+    assert.sameValue(endYesterdayNextDay.era, result.era, `${unit}`);
+    assert.sameValue(endYesterdayNextDay.eraYear, result.eraYear, `${unit}`);
+    assert.sameValue(endYesterdayNextDay.year, result.year, `${unit}`);
+    assert.sameValue(endYesterdayNextDay.month, result.month, `${unit}`);
+    assert.sameValue(endYesterdayNextDay.monthCode, result.monthCode, `${unit}`);
+    assert.sameValue(endYesterdayNextDay.day, result.day, `${unit}`);
+
+    var endReverse = endYesterdayNextDay.subtract({ days: 1 });
+    var startReverse = endReverse.subtract(duration);
+    assert.sameValue(startReverse.day, Math.min(endReverse.day, startReverse.daysInMonth));
+
+    var startReverseNextDay = startReverse.add({ days: 1 });
+    while (startReverseNextDay.day !== 1) {
+      startReverseNextDay = startReverseNextDay.add({ days: 1 });
+    }
+    assert.sameValue(startReverseNextDay.era, start.era, `${unit}`);
+    assert.sameValue(startReverseNextDay.eraYear, start.eraYear, `${unit}`);
+    assert.sameValue(startReverseNextDay.year, start.year, `${unit}`);
+    assert.sameValue(startReverseNextDay.month, start.month, `${unit}`);
+    assert.sameValue(startReverseNextDay.monthCode, start.monthCode, `${unit}`);
+    assert.sameValue(startReverseNextDay.day, start.day, `${unit}`);
   }
 }
-var daysInMonthCases = {
-  buddhist: {
-    year: 4001,
+
+var daysInMonthCases = [
+  {
+    year: 2556,
     leap: false,
     days: [
       31,
@@ -304,138 +256,97 @@ var daysInMonthCases = {
       31
     ]
   },
-};
-for (var id of Object.keys(daysInMonthCases)) {
-  var {year, leap, days} = daysInMonthCases[id];
-  var date = hasOutdatedChineseIcuData && (id === "chinese" || id === "dangi") ? undefined : Temporal.PlainDate.from({
+];
+for (var {year, leap, days} of daysInMonthCases) {
+  var date = Temporal.PlainDate.from({
     year,
     month: 1,
     day: 1,
-    calendar: id
+    calendar
   });
-  if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-    if (typeof leap === "boolean") {
-      assert.sameValue(date.inLeapYear, leap);
-    } else {
-      assert.sameValue(date.inLeapYear, true);
-      var leapMonth = date.with({ monthCode: leap });
-      assert.sameValue(leapMonth.monthCode, leap);
-    }
-  };
-  if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-    var {monthsInYear} = date;
-    assert.sameValue(monthsInYear, days.length);
-    for (var i = monthsInYear, leapMonthIndex = undefined, monthStart = undefined; i >= 1; i--) {
-      monthStart = monthStart ? monthStart.add({ months: -1 }) : date.add({ months: monthsInYear - 1 });
-      var {month, monthCode, daysInMonth} = monthStart;
-      assert.sameValue(`${ id } month ${ i } (code ${ monthCode }) days: ${ daysInMonth }`, `${ id } month ${ i } (code ${ monthCode }) days: ${ days[i - 1] }`);
-      if (monthCode.endsWith("L")) {
-        assert.sameValue(date.with({ monthCode }).monthCode, monthCode);
-        leapMonthIndex = i;
-      } else {
-        if (leapMonthIndex && i === leapMonthIndex - 1) {
-          var inLeapMonth = monthStart.with({ monthCode: `M${ month.toString().padStart(2, "0") }L` });
-          assert.sameValue(inLeapMonth.monthCode, `${ monthCode }L`);
-        } else {
-          assert.throws(RangeError, () => monthStart.with({ monthCode: `M${ month.toString().padStart(2, "0") }L` }, { overflow: "reject" }));
-          if ([
-              "chinese",
-              "dangi"
-            ].includes(id)) {
-            if (i === 1 || i === 12 || i === 13) {
-              assert.throws(RangeError, () => monthStart.with({ monthCode: `M${ month.toString().padStart(2, "0") }L` }));
-            } else {
-              var fakeL = monthStart.with({
-                monthCode: `M${ month.toString().padStart(2, "0") }L`,
-                day: 5
-              });
-              assert.sameValue(`fake leap month ${ fakeL.monthCode }`, `fake leap month M${ month.toString().padStart(2, "0") }`);
-              assert.sameValue(fakeL.day, fakeL.daysInMonth);
-            }
-          }
-        }
-        if (![
-            "chinese",
-            "dangi",
-            "hebrew"
-          ].includes(id)) {
-          assert.throws(RangeError, () => monthStart.with({ monthCode: `M${ month.toString().padStart(2, "0") }L` }));
-        }
-      }
-      assert.throws(RangeError, () => monthStart.with({ day: daysInMonth + 1 }, { overflow: "reject" }));
-      var oneDayPastMonthEnd = monthStart.with({ day: daysInMonth + 1 });
-      assert.sameValue(oneDayPastMonthEnd.day, daysInMonth);
-    }
-  };
+  assert.sameValue(date.inLeapYear, leap);
+
+  var {monthsInYear} = date;
+  assert.sameValue(monthsInYear, days.length);
+
+  for (var i = monthsInYear, monthStart = undefined; i >= 1; i--) {
+    monthStart = monthStart ? monthStart.add({ months: -1 }) : date.add({ months: monthsInYear - 1 });
+
+    var {month, monthCode, daysInMonth} = monthStart;
+    assert.sameValue(month, i);
+    assert.sameValue(daysInMonth, days[i - 1]);
+
+    assert.sameValue(monthCode.endsWith("L"), false);
+    assert.throws(RangeError, () => monthStart.with({ monthCode: `M${ month.toString().padStart(2, "0") }L` }));
+    assert.throws(RangeError, () => monthStart.with({ monthCode: `M${ month.toString().padStart(2, "0") }L` }, { overflow: "reject" }));
+
+    var oneDayPastMonthEnd = monthStart.with({ day: daysInMonth + 1 });
+    assert.sameValue(oneDayPastMonthEnd.day, daysInMonth);
+    assert.throws(RangeError, () => monthStart.with({ day: daysInMonth + 1 }, { overflow: "reject" }));
+  }
 }
+
 var monthDayCases = [
   {
-    calendar: "buddhist",
-    isoReferenceYear: 1972,
-    year: 2004,
+    year: 2547,
     month: 2,
+    monthCode: "M02",
     day: 29
   },
 ];
-var i = 0;
-for (var test of monthDayCases) {
-  var id = test.calendar;
-  if ((id === "chinese" || id === "dangi") && hasOutdatedChineseIcuData ) {
-    if (test.monthCode === undefined)
-      test.monthCode = `M${ test.month.toString().padStart(2, "0") }`;
-    var {calendar, monthCode, month, day, year, isoReferenceYear} = test;
-    var md = Temporal.PlainMonthDay.from({
-      year,
-      month,
-      day,
+for (var {monthCode, month, day, year} of monthDayCases) {
+  var md = Temporal.PlainMonthDay.from({
+    year,
+    month,
+    day,
+    calendar
+  });
+  var isoString = md.toString();
+
+  var mdFromIso = Temporal.PlainMonthDay.from(isoString);
+  assert.sameValue(mdFromIso.toString(), isoString);
+  assert.sameValue(md.monthCode, monthCode);
+  assert.sameValue(md.day, day);
+
+  var md2 = Temporal.PlainMonthDay.from({
+    monthCode,
+    day,
+    calendar
+  });
+  assert.sameValue(md2.monthCode, monthCode);
+  assert.sameValue(md2.day, day);
+  assert.sameValue(md.equals(md2), true);
+
+  assert.throws(RangeError, () => {
+    Temporal.PlainMonthDay.from({
+      monthCode: "M15",
+      day: 1,
+      calendar
+    }, { overflow: "reject" });
+  });
+
+  assert.throws(RangeError, () => {
+    Temporal.PlainMonthDay.from({
+      monthCode: "M15",
+      day: 1,
       calendar
     });
-    var isoString = md.toString();
-    var mdFromIso = Temporal.PlainMonthDay.from(isoString);
-    assert.sameValue(mdFromIso, md);
-    var isoFields = md.getISOFields();
-    assert.sameValue(md.monthCode, monthCode);
-    assert.sameValue(md.day, day);
-    assert.sameValue(isoFields.isoYear, isoReferenceYear);
-    var md2 = Temporal.PlainMonthDay.from({
-      monthCode,
-      day,
-      calendar
-    });
-    var isoFields2 = md2.getISOFields();
-    assert.sameValue(md2.monthCode, monthCode);
-    assert.sameValue(md2.day, day);
-    assert.sameValue(isoFields2.isoYear, isoReferenceYear);
-    assert.sameValue(md.equals(md2), true);
-    assert.throws(RangeError, () => {
-      Temporal.PlainMonthDay.from({
-        monthCode: "M15",
-        day: 1,
-        calendar
-      }, { overflow: "reject" });
-    });
-    assert.throws(RangeError, () => {
-      Temporal.PlainMonthDay.from({
-        monthCode: "M15",
-        day: 1,
-        calendar
-      });
-    });
-    assert.throws(RangeError, () => {
-      Temporal.PlainMonthDay.from({
-        year,
-        month: 15,
-        day: 1,
-        calendar
-      }, { overflow: "reject" });
-    });
-    var constrained = Temporal.PlainMonthDay.from({
+  });
+
+  assert.throws(RangeError, () => {
+    Temporal.PlainMonthDay.from({
       year,
       month: 15,
       day: 1,
       calendar
-    });
-    var {monthCode: monthCodeConstrained} = constrained;
-    assert(monthCodeConstrained === "M12" || monthCodeConstrained === "M13");
-  };
+    }, { overflow: "reject" });
+  });
+
+  var constrained = Temporal.PlainMonthDay.from({
+    year,
+    month: 15,
+    day: 1,
+    calendar
+  });
+  assert.sameValue(constrained.monthCode, "M12");
 }
