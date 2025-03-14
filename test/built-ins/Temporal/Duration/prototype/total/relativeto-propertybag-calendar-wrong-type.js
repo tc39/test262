@@ -9,23 +9,24 @@ description: >
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const timeZone = "UTC";
 const instance = new Temporal.Duration(1, 0, 0, 0, 24);
 
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, "number"],
   [1n, "bigint"],
+  [19970327, "large number"],
+  [-19970327, "negative number"],
+  [1234567890, "very large integer"],
 ];
 
 for (const [calendar, description] of primitiveTests) {
   const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(
-    typeof calendar === 'string' ? RangeError : TypeError,
+    TypeError,
     () => instance.total({ unit: "days", relativeTo }),
-    `${description} does not convert to a valid ISO string`
+    `${description} is not a valid calendar`
   );
 }
 

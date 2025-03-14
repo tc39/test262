@@ -12,16 +12,18 @@ features: [BigInt, Symbol, Temporal]
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, "number"],
   [1n, "bigint"],
+  [-19761118, "negative number"],
+  [19761118, "large positive number"],
+  [1234567890, "large integer"],
 ];
 
 for (const [arg, description] of primitiveTests) {
   assert.throws(
-    typeof arg === 'string' ? RangeError : TypeError,
+    TypeError,
     () => new Temporal.PlainYearMonth(2000, 5, arg, 1),
-    `${description} does not convert to a valid ISO string`
+    `${description} is not a valid calendar`
   );
 }
 
