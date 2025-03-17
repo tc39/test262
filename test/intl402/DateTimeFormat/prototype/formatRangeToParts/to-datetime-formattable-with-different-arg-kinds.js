@@ -26,8 +26,7 @@ info: |
 
   PartitionDateTimeRangePattern ( dateTimeFormat, x, y )
 
-  ...
-  5. If IsTemporalObject(x) is true or IsTemporalObject(y) is true, then
+  1. If IsTemporalObject(x) is true or IsTemporalObject(y) is true, then
     a. If SameTemporalType(x, y) is false, throw a TypeError exception.
   ...
 features: [Temporal]
