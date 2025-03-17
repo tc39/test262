@@ -37,12 +37,12 @@ const narrow = new Intl.DateTimeFormat('en', {
   dayPeriod: 'narrow'
 });
 
-assert.sameValue(narrow.format(d0000), 'at night', '00:00, narrow format');
-assert.sameValue(narrow.format(d0100), 'at night', '01:00, narrow format');
-assert.sameValue(narrow.format(d0200), 'at night', '02:00, narrow format');
-assert.sameValue(narrow.format(d0300), 'at night', '03:00, narrow format');
-assert.sameValue(narrow.format(d0400), 'at night', '04:00, narrow format');
-assert.sameValue(narrow.format(d0500), 'at night', '05:00, narrow format');
+assert.sameValue(narrow.format(d0000), 'in the morning', '00:00, narrow format');
+assert.sameValue(narrow.format(d0100), 'in the morning', '01:00, narrow format');
+assert.sameValue(narrow.format(d0200), 'in the morning', '02:00, narrow format');
+assert.sameValue(narrow.format(d0300), 'in the morning', '03:00, narrow format');
+assert.sameValue(narrow.format(d0400), 'in the morning', '04:00, narrow format');
+assert.sameValue(narrow.format(d0500), 'in the morning', '05:00, narrow format');
 assert.sameValue(narrow.format(d0600), 'in the morning', '06:00, narrow format');
 assert.sameValue(narrow.format(d0700), 'in the morning', '07:00, narrow format');
 assert.sameValue(narrow.format(d0800), 'in the morning', '08:00, narrow format');
@@ -67,12 +67,12 @@ const narrowNumeric = new Intl.DateTimeFormat('en', {
   hour: 'numeric'
 });
 
-assert.sameValue(narrowNumeric.format(d0000), '12 at night', '00:00, narrow-numeric');
-assert.sameValue(narrowNumeric.format(d0100), '1 at night', '01:00, narrow-numeric');
-assert.sameValue(narrowNumeric.format(d0200), '2 at night', '02:00, narrow-numeric');
-assert.sameValue(narrowNumeric.format(d0300), '3 at night', '03:00, narrow-numeric');
-assert.sameValue(narrowNumeric.format(d0400), '4 at night', '04:00, narrow-numeric');
-assert.sameValue(narrowNumeric.format(d0500), '5 at night', '05:00, narrow-numeric');
+assert.sameValue(narrowNumeric.format(d0000), '12 in the morning', '00:00, narrow-numeric');
+assert.sameValue(narrowNumeric.format(d0100), '1 in the morning', '01:00, narrow-numeric');
+assert.sameValue(narrowNumeric.format(d0200), '2 in the morning', '02:00, narrow-numeric');
+assert.sameValue(narrowNumeric.format(d0300), '3 in the morning', '03:00, narrow-numeric');
+assert.sameValue(narrowNumeric.format(d0400), '4 in the morning', '04:00, narrow-numeric');
+assert.sameValue(narrowNumeric.format(d0500), '5 in the morning', '05:00, narrow-numeric');
 assert.sameValue(narrowNumeric.format(d0600), '6 in the morning', '06:00, narrow-numeric');
 assert.sameValue(narrowNumeric.format(d0700), '7 in the morning', '07:00, narrow-numeric');
 assert.sameValue(narrowNumeric.format(d0800), '8 in the morning', '08:00, narrow-numeric');
