@@ -10,8 +10,8 @@ info: |
   Intl.DateTimeFormat.prototype.formatRangeToParts ( startDate, endDate )
 
   ...
-  4. Let x be ? ToNumberToDateTimeFormattable(startDate).
-  5. Let y be ? ToNumberToDateTimeFormattable(endDate).
+  4. Let x be ? ToDateTimeFormattable(startDate).
+  5. Let y be ? ToDateTimeFormattable(endDate).
   6. Return ? FormatDateTimeRangeToParts(dtf, x, y).
 
   ToDateTimeFormattable ( value )
