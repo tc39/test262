@@ -26,9 +26,7 @@ var object = {
     return "%5E"
   }
 };
-if (decodeURI(object) !== "^") {
-  throw new Test262Error('#2: var object = {valueOf: function() {return ""}, toString: function() {return "%5E"}}; decodeURI(object) === "^". Actual: ' + (decodeURI(object)));
-}
+assert.sameValue(decodeURI(object), "^", '#2: var object = {valueOf: function() {return ""}, toString: function() {return "%5E"}}; decodeURI(object) === "^"');
 
 //CHECK#3
 var object = {
@@ -39,9 +37,7 @@ var object = {
     return {}
   }
 };
-if (decodeURI(object) !== "^") {
-  throw new Test262Error('#3: var object = {valueOf: function() {return "%5E"}, toString: function() {return {}}}; decodeURI(object) === "^". Actual: ' + (decodeURI(object)));
-}
+assert.sameValue(decodeURI(object), "^", '#3: var object = {valueOf: function() {return "%5E"}, toString: function() {return {}}}; decodeURI(object) === "^"');
 
 //CHECK#4
 try {
@@ -71,9 +67,7 @@ var object = {
     return "%5E"
   }
 };
-if (decodeURI(object) !== "^") {
-  throw new Test262Error('#5: var object = {toString: function() {return "%5E"}}; decodeURI(object) === "^". Actual: ' + (decodeURI(object)));
-}
+assert.sameValue(decodeURI(object), "^", '#5: var object = {toString: function() {return "%5E"}}; decodeURI(object) === "^"');
 
 //CHECK#6
 var object = {
@@ -84,9 +78,7 @@ var object = {
     return "%5E"
   }
 }
-if (decodeURI(object) !== "^") {
-  throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return "%5E"}}; decodeURI(object) === "^". Actual: ' + (decodeURI(object)));
-}
+assert.sameValue(decodeURI(object), "^", '#6: var object = {valueOf: function() {return {}}, toString: function() {return "%5E"}}; decodeURI(object) === "^"');
 
 //CHECK#7
 try {

@@ -10,13 +10,9 @@ description: Type(x) is undefined or null
 //CHECK#1
 var x;
 var y = x++;
-if (isNaN(y) !== true) {
-  throw new Test262Error('#1: var x; var y = x++; y === Not-a-Number. Actual: ' + (y));
-}
+assert.sameValue(isNaN(y), true, '#1: var x; var y = x++; y === Not-a-Number');
 
 //CHECK#2
 var x = null;
 var y = x++;
-if (y !== 0) {
-  throw new Test262Error('#2: var x = null; var y = x++; y === 0. Actual: ' + (y));
-}
+assert.sameValue(y, 0, '#2: var x = null; var y = x++; y === 0');

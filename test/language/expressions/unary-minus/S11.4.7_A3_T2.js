@@ -8,9 +8,7 @@ description: Type(x) is number primitive or Number object
 ---*/
 
 //CHECK#1
-if (-(1) !== -1) {
-  throw new Test262Error('#1: -(1) === -1. Actual: ' + (-(1)));
-}
+assert.sameValue(-(1), -1, '#1: -(1) === -1');
 
 //CHECK#2
 if (-new Number(-1) !== 1) {

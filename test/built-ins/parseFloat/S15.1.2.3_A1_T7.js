@@ -24,9 +24,7 @@ var object = {
     return 0
   }
 };
-if (parseFloat(object) !== 0) {
-  throw new Test262Error('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; parseFloat(object) === 0. Actual: ' + (parseFloat(object)));
-}
+assert.sameValue(parseFloat(object), 0, '#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; parseFloat(object) === 0');
 
 //CHECK#3
 var object = {
@@ -37,9 +35,7 @@ var object = {
     return {}
   }
 };
-if (parseFloat(object) !== 1) {
-  throw new Test262Error('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));
-}
+assert.sameValue(parseFloat(object), 1, '#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; parseFloat(object) === 1');
 
 //CHECK#4
 try {
@@ -69,9 +65,7 @@ var object = {
     return 1
   }
 };
-if (parseFloat(object) !== 1) {
-  throw new Test262Error('#5: var object = {toString: function() {return 1}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));
-}
+assert.sameValue(parseFloat(object), 1, '#5: var object = {toString: function() {return 1}}; parseFloat(object) === 1');
 
 //CHECK#6
 var object = {
@@ -82,9 +76,7 @@ var object = {
     return 1
   }
 }
-if (parseFloat(object) !== 1) {
-  throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));
-}
+assert.sameValue(parseFloat(object), 1, '#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; parseFloat(object) === 1');
 
 //CHECK#7
 try {

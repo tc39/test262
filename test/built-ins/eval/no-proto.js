@@ -8,6 +8,4 @@ description: Checking eval.prototype
 ---*/
 
 //CHECK#1
-if (eval.prototype !== undefined) {
-  throw new Test262Error('#1: eval.prototype === undefined. Actual: ' + (eval.prototype));
-}
+assert.sameValue(eval.prototype, undefined, '#1: eval.prototype === undefined');

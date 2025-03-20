@@ -21,9 +21,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "Infinity") {
-  throw new Test262Error('#2: __str = String(1/0); __str === "Infinity". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "Infinity", '#2: __str = String(1/0); __str === "Infinity"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -39,9 +37,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__str !== "-Infinity") {
-  throw new Test262Error('#4: __str = String(-1/0); __str === "-Infinity". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "-Infinity", '#4: __str = String(-1/0); __str === "-Infinity"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -57,9 +53,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#6
-if (__str !== "Infinity") {
-  throw new Test262Error('#6: __str = String(Infinity); __str === "Infinity". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "Infinity", '#6: __str = String(Infinity); __str === "Infinity"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -75,9 +69,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#8
-if (__str !== "-Infinity") {
-  throw new Test262Error('#8: __str = String(-Infinity); __str === "-Infinity". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "-Infinity", '#8: __str = String(-Infinity); __str === "-Infinity"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -93,9 +85,7 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#10
-if (__str !== "Infinity") {
-  throw new Test262Error('#10: __str = String(Number.POSITIVE_INFINITY); __str === "Infinity". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "Infinity", '#10: __str = String(Number.POSITIVE_INFINITY); __str === "Infinity"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -111,8 +101,6 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#12
-if (__str !== "-Infinity") {
-  throw new Test262Error('#12: __str = String(Number.NEGATIVE_INFINITY); __str === "-Infinity". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "-Infinity", '#12: __str = String(Number.NEGATIVE_INFINITY); __str === "-Infinity"');
 //
 //////////////////////////////////////////////////////////////////////////////

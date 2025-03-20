@@ -8,12 +8,10 @@ description: Checking NaN
 ---*/
 
 //CHECK#1
-if (isNaN(-NaN) !== true) {
-  throw new Test262Error('#1: -NaN === Not-a-Number. Actual: ' + (-NaN));
-}
+assert.sameValue(isNaN(-NaN), true, '#1: -NaN === Not-a-Number');
 
 //CHECK#2
-var x = NaN; 
+var x = NaN;
 if (isNaN(-x) != true) {
   throw new Test262Error('#2: var x = NaN; -x === Not-a-Number. Actual: ' + (-x));
 }
