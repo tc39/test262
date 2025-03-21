@@ -31,7 +31,14 @@ const e = new SuppressedError(error, suppressed, message);
 
 assert.sameValue(messageStringified, true);
 const keys = Object.getOwnPropertyNames(e);
-assert(keys.indexOf("message") === 0, "Expected 'message' to be defined first");
-assert(keys.indexOf("error") === 1, "Expected 'error' to be defined second");
-assert(keys.indexOf("suppressed") === 2, "Expected 'suppressed' to be defined third");
 
+// Allow implementation-defined properties before "message" and after "suppressed".
+
+const messageIndex = keys.indexOf("message");
+assert.notSameValue(messageIndex, -1, "Expected 'message' to be defined");
+
+const errorIndex = keys.indexOf("error");
+assert.sameValue(errorIndex, messageIndex + 1, "Expected 'error' to be defined after 'message'");
+
+const suppressedIndex = keys.indexOf("suppressed");
+assert.sameValue(suppressedIndex, errorIndex + 1, "Expected 'suppressed' to be defined after 'error'");
