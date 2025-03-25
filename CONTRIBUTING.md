@@ -458,6 +458,7 @@ Tests expressed with this convention are built automatically following the sourc
 
 ## Reporting Bugs to Implementers
 
+- [Boa](https://github.com/boa-dev/boa/issues/new)
 - [ChakraCore](https://github.com/microsoft/ChakraCore/issues/new)
 - [engine262](https://github.com/engine262/engine262/issues/new)
 - [GraalJS](https://github.com/oracle/graal/issues/new?labels=bug&template=5_issues_other.md&title=)
