@@ -68,15 +68,6 @@ jobs:
       hostPath: spidermonkey
       hostName: spidermonkey
     <<: [*execution_steps]
-  # "ChakraCore: New or modified tests execution":
-  #   docker:
-  #     - image: *node_image
-  #   working_directory: ~/test262
-  #   environment:
-  #     hostType: ch
-  #     hostPath: chakra
-  #     hostName: chakra
-  #   <<: [*execution_steps]
   "JSC: New or modified tests execution":
     docker:
       - image: *node_image
@@ -110,7 +101,6 @@ workflows:
   version: 2
   Tests execution:
     jobs:
-      # - "ChakraCore: New or modified tests execution"
       - "JSC: New or modified tests execution"
       - "SpiderMonkey: New or modified tests execution"
       - "V8: New or modified tests execution"
