@@ -17,8 +17,6 @@ if (!(String.prototype.toLocaleLowerCase.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.toLocaleLowerCase.length !== 0) {
-  throw new Test262Error('#2: String.prototype.toLocaleLowerCase.length === 0. Actual: ' + String.prototype.toLocaleLowerCase.length);
-}
+assert.sameValue(String.prototype.toLocaleLowerCase.length, 0, '#2: String.prototype.toLocaleLowerCase.length === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

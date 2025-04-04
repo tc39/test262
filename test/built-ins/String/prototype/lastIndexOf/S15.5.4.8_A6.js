@@ -9,8 +9,6 @@ description: Checking String.prototype.lastIndexOf.prototype
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.lastIndexOf.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.lastIndexOf.prototype === undefined. Actual: ' + String.prototype.lastIndexOf.prototype);
-}
+assert.sameValue(String.prototype.lastIndexOf.prototype, undefined, '#1: String.prototype.lastIndexOf.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -8,17 +8,11 @@ description: "IdentifierPart :: m"
 ---*/
 
 //CHECK#1
-var regexp = /(?:)/m; 
-if (regexp.global !== false) {
-  throw new Test262Error('#1: var regexp = /(?:)/g; regexp.global === false. Actual: ' + (regexp.global));
-}
+var regexp = /(?:)/m;
+assert.sameValue(regexp.global, false, '#1: var regexp = /(?:)/g; regexp.global === false');
 
-//CHECK#2 
-if (regexp.ignoreCase !== false) {
-  throw new Test262Error('#2: var regexp = /(?:)/g; regexp.ignoreCase === false. Actual: ' + (regexp.ignoreCase));
-}
+//CHECK#2
+assert.sameValue(regexp.ignoreCase, false, '#2: var regexp = /(?:)/g; regexp.ignoreCase === false');
 
 //CHECK#3
-if (regexp.multiline !== true) {
-  throw new Test262Error('#3: var regexp = /(?:)/g; regexp.multiline === true. Actual: ' + (regexp.multiline));
-}
+assert.sameValue(regexp.multiline, true, '#3: var regexp = /(?:)/g; regexp.multiline === true');

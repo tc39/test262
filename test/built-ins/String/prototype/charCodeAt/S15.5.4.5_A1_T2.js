@@ -13,17 +13,13 @@ __instance.charCodeAt = String.prototype.charCodeAt;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.charCodeAt(false) !== 0x66) {
-  throw new Test262Error('#1: __instance = new Boolean; __instance.charCodeAt = String.prototype.charCodeAt; __instance.charCodeAt(false)===0x66. Actual: ' + __instance.charCodeAt(false));
-}
+assert.sameValue(__instance.charCodeAt(false), 0x66, '#1: __instance = new Boolean; __instance.charCodeAt = String.prototype.charCodeAt; __instance.charCodeAt(false)===0x66');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__instance.charCodeAt(true) !== 0x61) {
-  throw new Test262Error('#2: __instance = new Boolean; __instance.charCodeAt = String.prototype.charCodeAt; __instance.charCodeAt(true)===0x61. Actual: ' + __instance.charCodeAt(true));
-}
+assert.sameValue(__instance.charCodeAt(true), 0x61, '#2: __instance = new Boolean; __instance.charCodeAt = String.prototype.charCodeAt; __instance.charCodeAt(true)===0x61');
 //
 //////////////////////////////////////////////////////////////////////////////
 

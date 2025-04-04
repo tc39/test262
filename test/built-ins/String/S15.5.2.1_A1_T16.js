@@ -22,9 +22,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#1.5: __str =new String(.12345); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#1.5: __str =new String(.12345); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -47,9 +45,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#3.5: __str =new  String(.012345); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#3.5: __str =new  String(.012345); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -72,9 +68,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#5.5: __str =new  String(.0012345); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#5.5: __str =new  String(.0012345); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -97,9 +91,7 @@ if (typeof __str !== "object") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#7.5
-if (__str.constructor !== String) {
-  throw new Test262Error('#7.5: __str =new  String(.00000012345); __str.constructor === String. Actual: __str.constructor ===' + __str.constructor);
-}
+assert.sameValue(__str.constructor, String, '#7.5: __str =new  String(.00000012345); __str.constructor === String');
 //
 //////////////////////////////////////////////////////////////////////////////
 

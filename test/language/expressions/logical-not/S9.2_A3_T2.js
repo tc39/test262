@@ -7,12 +7,8 @@ es5id: 9.2_A3_T2
 description: true and false convert to Boolean by implicit transformation
 ---*/
 
-// CHECK#1 
-if (!(true) !== false) {
-  throw new Test262Error('#1: !(true) === false. Actual: ' + (!(true)));	
-}
+// CHECK#1
+assert.sameValue(!(true), false, '#1: !(true) === false');
 
 // CHECK#2
-if (!(false) !== true) {
-  throw new Test262Error('#2: !(false) === true. Actual: ' + (!(false)));
-}
+assert.sameValue(!(false), true, '#2: !(false) === true');

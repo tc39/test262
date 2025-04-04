@@ -13,9 +13,7 @@ var object = {
     return 1
   }
 };
-if (String.fromCharCode(object).charCodeAt(0) !== 1) {
-  throw new Test262Error('#1: var object = {valueOf: function() {return 1}}; String.fromCharCode(object).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(object).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(object).charCodeAt(0), 1, '#1: var object = {valueOf: function() {return 1}}; String.fromCharCode(object).charCodeAt(0) === 1');
 
 //CHECK#2
 var object = {
@@ -26,9 +24,7 @@ var object = {
     return 0
   }
 };
-if (String.fromCharCode(object).charCodeAt(0) !== 1) {
-  throw new Test262Error('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; String.fromCharCode(object).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(object).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(object).charCodeAt(0), 1, '#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; String.fromCharCode(object).charCodeAt(0) === 1');
 
 //CHECK#3
 var object = {
@@ -39,9 +35,7 @@ var object = {
     return {}
   }
 };
-if (String.fromCharCode(object).charCodeAt(0) !== 1) {
-  throw new Test262Error('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; String.fromCharCode(object).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(object).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(object).charCodeAt(0), 1, '#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; String.fromCharCode(object).charCodeAt(0) === 1');
 
 //CHECK#4
 try {
@@ -71,9 +65,7 @@ var object = {
     return 1
   }
 };
-if (String.fromCharCode(object).charCodeAt(0) !== 1) {
-  throw new Test262Error('#5: var object = {toString: function() {return 1}}; String.fromCharCode(object).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(object).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(object).charCodeAt(0), 1, '#5: var object = {toString: function() {return 1}}; String.fromCharCode(object).charCodeAt(0) === 1');
 
 //CHECK#6
 var object = {
@@ -84,9 +76,7 @@ var object = {
     return 1
   }
 }
-if (String.fromCharCode(object).charCodeAt(0) !== 1) {
-  throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; String.fromCharCode(object).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(object).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(object).charCodeAt(0), 1, '#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; String.fromCharCode(object).charCodeAt(0) === 1');
 
 //CHECK#7
 try {
