@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: setInt32 throws if buffer is immutable
-seid: sec-dataview.prototype.setint32
+eeid: sec-dataview.prototype.setint32
 features: [DataView, ArrayBuffer, immutable-arraybuffer]
 ---*/
 
