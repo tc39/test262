@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: setFromBase64 throws if buffer is immutable
+esid: sec-uint8array.prototype.setfrombase64
 features: [uint8array-base64, TypedArray, immutable-arraybuffer]
 ---*/
 

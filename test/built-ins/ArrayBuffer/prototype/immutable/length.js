@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: verify immutable getter's length property attributes and value
+esid: sec-get-arraybuffer.prototype.immutable
 includes: [propertyHelper.js]
 features: [ArrayBuffer, immutable-arraybuffer]
 ---*/

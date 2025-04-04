@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: immutable getter throws if this is a SharedArrayBuffer
+esid: sec-get-arraybuffer.prototype.immutable
 features: [SharedArrayBuffer, ArrayBuffer, immutable-arraybuffer]
 ---*/
 

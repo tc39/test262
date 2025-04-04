@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: fill throws if buffer is immutable
+esid: sec-%typedarray%.prototype.fill
 includes: [testTypedArray.js]
 features: [TypedArray, immutable-arraybuffer]
 ---*/

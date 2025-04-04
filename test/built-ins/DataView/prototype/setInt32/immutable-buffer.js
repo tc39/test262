@@ -1,7 +1,8 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: setInt16 throws if buffer is immutable
+description: setInt32 throws if buffer is immutable
+seid: sec-dataview.prototype.setint32
 features: [DataView, ArrayBuffer, immutable-arraybuffer]
 ---*/
 

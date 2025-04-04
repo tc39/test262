@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: transfer resizable ArrayBuffer to larger immutable ArrayBuffer
+esid: sec-arraybuffer.prototype.transfertoimmutable
 features: [resizable-arraybuffer, immutable-arraybuffer]
 ---*/
 

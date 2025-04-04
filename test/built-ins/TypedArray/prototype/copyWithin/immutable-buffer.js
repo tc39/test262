@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: copyWithin throws if buffer is immutable
+esid: sec-%typedarray%.prototype.copywithin
 includes: [testTypedArray.js]
 features: [TypedArray, immutable-arraybuffer]
 ---*/

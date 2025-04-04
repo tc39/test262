@@ -1,7 +1,8 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-description: setFloat32 throws if buffer is immutable
+description: setFloat64 throws if buffer is immutable
+esid: sec-dataview.prototype.setfloat64
 features: [DataView, ArrayBuffer, immutable-arraybuffer]
 ---*/
 

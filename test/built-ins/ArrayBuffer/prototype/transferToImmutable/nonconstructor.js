@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: transferToImmutable is not a constructor
+esid: sec-arraybuffer.prototype.transfertoimmutable
 includes: [isConstructor.js]
 features: [immutable-arraybuffer, Reflect.construct]
 ---*/

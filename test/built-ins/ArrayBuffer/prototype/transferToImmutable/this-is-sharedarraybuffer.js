@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: transferToImmutable throws if receiver is SharedArrayBuffer
+esid: sec-arraybuffer.prototype.transfertoimmutable
 features: [SharedArrayBuffer, immutable-arraybuffer]
 ---*/
 

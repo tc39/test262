@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: transferToImmutable throws if receiver is detached ArrayBuffer
+esid: sec-arraybuffer.prototype.transfertoimmutable
 includes: [detachArrayBuffer.js]
 features: [immutable-arraybuffer]
 ---*/

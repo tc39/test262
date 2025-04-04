@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Reflect.defineProperty throws on indexed property if buffer is immutable
+esid: sec-integer-indexed-exotic-objects-defineownproperty-p-desc
 includes: [testTypedArray.js]
 features: [Reflect, TypedArray, immutable-arraybuffer]
 ---*/

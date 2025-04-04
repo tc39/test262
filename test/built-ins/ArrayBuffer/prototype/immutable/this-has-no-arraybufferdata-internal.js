@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: immmutable getter is a function that throws if receiver is not an ArrayBuffer
+esid: sec-get-arraybuffer.prototype.immutable
 features: [DataView, Int8Array, ArrayBuffer, immutable-arraybuffer]
 ---*/
 

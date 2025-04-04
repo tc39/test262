@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: setFloat16 throws if buffer is immutable
+esid: sec-dataview.prototype.setfloat16
 features: [DataView, ArrayBuffer, Float16Array, immutable-arraybuffer]
 ---*/
 

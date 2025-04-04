@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: setBigInt64 throws if buffer is immutable
+esid: sec-dataview.prototype.setbigint64
 features: [DataView, ArrayBuffer, BigInt, immutable-arraybuffer]
 ---*/
 

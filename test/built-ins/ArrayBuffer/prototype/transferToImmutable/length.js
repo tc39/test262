@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: verify length property of transferToImmutable
+esid: sec-arraybuffer.prototype.transfertoimmutable
 includes: [propertyHelper.js]
 features: [immutable-arraybuffer]
 ---*/

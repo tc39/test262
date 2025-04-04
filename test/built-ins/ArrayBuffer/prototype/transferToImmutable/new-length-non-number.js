@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: transferToImmutable throws if new length is not a number
+esid: sec-arraybuffer.prototype.transfertoimmutable
 features: [immutable-arraybuffer]
 ---*/
 

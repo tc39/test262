@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: setInt8 throws if buffer is immutable
+esid: sec-dataview.prototype.setint8
 features: [DataView, ArrayBuffer, immutable-arraybuffer]
 ---*/
 
