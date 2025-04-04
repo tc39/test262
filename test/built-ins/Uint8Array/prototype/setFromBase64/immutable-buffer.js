@@ -1,6 +1,7 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: setFromBase64 throws if buffer is immutable
 features: [uint8array-base64, TypedArray, immutable-arraybuffer]
 ---*/
 

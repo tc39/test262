@@ -1,6 +1,7 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: immutable getter throws if receiver is growable SharedArrayBuffer
 features: [SharedArrayBuffer, ArrayBuffer, immutable-arraybuffer]
 ---*/
 
@@ -9,7 +10,7 @@ var immutable = Object.getOwnPropertyDescriptor(
 );
 
 var getter = immutable.get;
-var sab = new SharedArrayBuffer(4);
+var sab = new SharedArrayBuffer(4, {maxByteLength: 20});
 
 assert.sameValue(typeof getter, "function");
 

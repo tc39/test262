@@ -1,6 +1,7 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: Reflect.defineProperty throws on indexed property if buffer is immutable
 includes: [testTypedArray.js]
 features: [Reflect, TypedArray, immutable-arraybuffer]
 ---*/

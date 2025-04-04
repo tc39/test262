@@ -1,6 +1,7 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: transferToImmutable throws if new length is too large
 features: [immutable-arraybuffer]
 ---*/
 

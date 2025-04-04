@@ -1,6 +1,7 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: setting indexed property throws if buffer is immutable
 includes: [testTypedArray.js]
 features: [TypedArray, immutable-arraybuffer]
 ---*/

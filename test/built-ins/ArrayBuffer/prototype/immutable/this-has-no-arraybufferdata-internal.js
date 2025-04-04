@@ -1,6 +1,7 @@
 // Copyright (C) 2025 Moddable Tech, Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+description: immmutable getter is a function that throws if receiver is not an ArrayBuffer
 features: [DataView, Int8Array, ArrayBuffer, immutable-arraybuffer]
 ---*/
 
