@@ -1,12 +1,13 @@
+import datetime
 import re
 
 from ..check import Check
 
 _MIN_YEAR = 2009
-_MAX_YEAR = 2030
+_MAX_YEAR = datetime.date.today().year + 1
 
 _LICENSE_PATTERN = re.compile(
-    r'// Copyright( \([C]\))? (\w+) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
+    r'// Copyright( \(C\))? ([1-9][0-9-]*) .+\. {1,2}All rights reserved\.[\r\n]{1,2}' +
     r'(' +
         r'// This code is governed by the( BSD)? license found in the LICENSE file\.' +
         r'|' +
