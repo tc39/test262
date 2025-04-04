@@ -29,9 +29,9 @@ class CheckFeatures(Check):
         if len(features) == 0:
             return 'If present, the `features` tag must have at least one member'
 
-        for feature in features:
-            if feature not in self.valid_features:
-                return 'Unrecognized feature: "%s"' % feature
+        unrecognized = set(features) - set(self.valid_features)
+        if len(unrecognized) > 0:
+            return 'Unrecognized features: %s' % ', '.join(sorted(unrecognized))
 
         if len(set(features)) != len(features):
             return 'The `features` tag may not include duplicate entries'

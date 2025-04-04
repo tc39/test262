@@ -50,8 +50,11 @@ jobs:
       - name: Create annotations in the PR
         if: failure() && github.event_name == 'pull_request'
         run: |
-          awk -F': ' <errors.out \
-            "{ sub(\"$(pwd)/\", \"\"); printf \"::error file=%s,line=1::%s\n\", \$1, \$2 }"
+          awk -v cwd="$(pwd)/" <errors.out '{
+            if (index($0, cwd)==1) $0=substr($0, length(cwd)+1);
+            i=index($0, ": ");
+            printf "::error file=%s,line=1::%s\n", substr($0, 1, i-1), substr($0, i+2);
+          }'
 
 
   build:
