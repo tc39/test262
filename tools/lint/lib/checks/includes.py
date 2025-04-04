@@ -60,6 +60,7 @@ class CheckIncludes(Check):
 
         without_frontmatter = self._remove_frontmatter(source)
 
+        unused = []
         for harness_file in harness_files:
             if harness_file['allow_unused']:
                 continue
@@ -77,4 +78,7 @@ class CheckIncludes(Check):
                 if self._has_reference(other_harness_file['source'], harness_file['defines']):
                     break
             else:
-                return 'Unused include: "%s"' % harness_file['name']
+                unused.append(harness_file['name'])
+
+        if len(unused) > 0:
+            return 'Unused includes: %s' % ', '.join(sorted(unused))
