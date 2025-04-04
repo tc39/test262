@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: immutable getter throws if this is not an Object
-includes: [propertyHelper.js]
 features: [Symbol, ArrayBuffer, immutable-arraybuffer]
 ---*/
 
