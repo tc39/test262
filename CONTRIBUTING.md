@@ -299,8 +299,8 @@ function Test262Error(message) {
 
 The [Module section of INTERPRETING.md](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#modules) states that `_FIXTURE` files will not have Realm modifications applied. In practice, this means that code in `_FIXTURE` files must abide by the following rules:
 
-- **MUST NOT** refer to, or make use of any [Test262-Defined Bindings](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#test262-defined-bindings) in any way. 
-- **MUST NOT** refer to, or make use of any [Host-Defined Functions](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#host-defined-functions) in any way. 
+- **MUST NOT** refer to, or make use of any [Test262-Defined Bindings](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#test262-defined-bindings) in any way.
+- **MUST NOT** refer to, or make use of any [Host-Defined Functions](https://github.com/tc39/test262/blob/HEAD/INTERPRETING.md#host-defined-functions) in any way.
 
 ## Handling Errors and Negative Test Cases
 
@@ -458,14 +458,14 @@ Tests expressed with this convention are built automatically following the sourc
 
 ## Reporting Bugs to Implementers
 
-- [ChakraCore](https://github.com/microsoft/ChakraCore/issues/new)
+- [Boa](https://github.com/boa-dev/boa/issues/new)
+- [ChakraCore](https://github.com/chakra-core/ChakraCore/issues/new)
 - [engine262](https://github.com/engine262/engine262/issues/new)
 - [GraalJS](https://github.com/oracle/graal/issues/new?labels=bug&template=5_issues_other.md&title=)
 - [Hermes](https://github.com/facebook/hermes/issues/new?labels%5B%5D=need+triage&labels%5B%5D=bug&template=01_bug_report.md&title=)
 - [JavaScriptCore](https://bugs.webkit.org/enter_bug.cgi?product=WebKit&component=JavaScriptCore)
+- [Kiesel](https://codeberg.org/kiesel-js/kiesel/issues/new)
 - [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)
 - [QuickJS](https://github.com/bellard/quickjs/issues/new)
 - [SpiderMonkey](https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=JavaScript%20Engine)
 - [V8](https://bugs.chromium.org/p/v8/issues/entry)
-
-
