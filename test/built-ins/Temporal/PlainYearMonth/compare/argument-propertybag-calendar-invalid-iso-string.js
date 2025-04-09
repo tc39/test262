@@ -24,4 +24,3 @@ for (const [calendar, description] of invalidStrings) {
     `${description} is not a valid calendar ID (second argument)`
   );
 }
-  
