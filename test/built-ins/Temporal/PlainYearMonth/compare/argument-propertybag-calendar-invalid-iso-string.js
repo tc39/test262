@@ -1,29 +1,27 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-temporal.plainyearmonth.compare
-description: A number as calendar in a property bag is not accepted
+description: Invalid ISO string as calendar should throw RangeError
 features: [Temporal]
 ---*/
 
-const numbers = [
-  1,
-  19970327,
-  -19970327,
-  1234567890,
+const invalidStrings = [
+  ["", "empty string"],
 ];
-
-for (const calendar of numbers) {
+  
+for (const [calendar, description] of invalidStrings) {
   const arg = { year: 2019, monthCode: "M06", calendar };
   assert.throws(
-    TypeError,
+    RangeError,
     () => Temporal.PlainYearMonth.compare(arg, new Temporal.PlainYearMonth(2019, 6)),
-    "A number is not a valid ISO string for calendar (first argument)"
+    `${description} is not a valid calendar ID (first argument)`
   );
   assert.throws(
-    TypeError,
+    RangeError,
     () => Temporal.PlainYearMonth.compare(new Temporal.PlainYearMonth(2019, 6), arg),
-    "A number is not a valid ISO string for calendar (second argument)"
+    `${description} is not a valid calendar ID (second argument)`
   );
 }
+  
