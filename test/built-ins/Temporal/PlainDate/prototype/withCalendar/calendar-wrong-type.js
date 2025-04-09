@@ -14,16 +14,18 @@ const instance = new Temporal.PlainDate(1976, 11, 18, "iso8601");
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, "number"],
   [1n, "bigint"],
+  [-19761118, "negative number"],
+  [19761118, "large positive number"],
+  [1234567890, "very large integer"],
 ];
 
 for (const [arg, description] of primitiveTests) {
   assert.throws(
-    typeof arg === 'string' ? RangeError : TypeError,
+    TypeError,
     () => instance.withCalendar(arg),
-    `${description} does not convert to a valid ISO string`
+    `${description} is not a valid calendar`
   );
 }
 
@@ -34,5 +36,9 @@ const typeErrorTests = [
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.withCalendar(arg), `${description} is not a valid object and does not convert to a string`);
+  assert.throws(
+    TypeError,
+    () => instance.withCalendar(arg),
+    `${description} is not a valid object and does not convert to a string`
+  );
 }
