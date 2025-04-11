@@ -1,25 +1,22 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-temporal.plaindate.prototype.withcalendar
-description: A number is not allowed to be a calendar
+description: Invalid ISO string as calendar should throw RangeError
 features: [Temporal]
 ---*/
 
 const instance = new Temporal.PlainDate(1976, 11, 18, "iso8601");
 
-const numbers = [
-  1,
-  -19761118,
-  19761118,
-  1234567890,
+const invalidStrings = [
+  ["", "empty string"],
 ];
 
-for (const arg of numbers) {
+for (const [arg, description] of invalidStrings) {
   assert.throws(
-    TypeError,
+    RangeError,
     () => instance.withCalendar(arg),
-    "A number is not a valid ISO string for Calendar"
+    `${description} is not a valid calendar ID`
   );
 }
