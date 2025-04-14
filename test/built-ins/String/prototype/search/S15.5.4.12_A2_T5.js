@@ -14,8 +14,6 @@ var regExp = /four/;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (bString.search(regExp) !== 14) {
-  throw new Test262Error('#1: var bString = new String("one two three four five"); var regExp = /four/; bString.search(regExp)=== 14. Actual: ' + bString.search(regExp));
-}
+assert.sameValue(bString.search(regExp), 14, '#1: var bString = new String("one two three four five"); var regExp = /four/; bString.search(regExp)=== 14');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -11,24 +11,16 @@ description: Checking String case;
 ---*/
 
 //CHECK#1
-if ("abc123".charAt(5) !== "3") {
-  throw new Test262Error('#1: "abc123".charAt(5) === "3". Actual: ' + ("abc123".charAt(5)));
-}
+assert.sameValue("abc123".charAt(5), "3", '#1: "abc123".charAt(5) === "3"');
 
 //CHECK#2
-if ("abc123"["charAt"](0) !== "a") {
-  throw new Test262Error('#2: "abc123"["charAt"](0) === "a". Actual: ' + ("abc123"["charAt"](0)));
-}
+assert.sameValue("abc123"["charAt"](0), "a", '#2: "abc123"["charAt"](0) === "a"');
 
 //CHECK#3
-if ("abc123".length !== 6) {
-  throw new Test262Error('#3: "abc123".length === 6. Actual: ' + ("abc123".length));
-}
+assert.sameValue("abc123".length, 6, '#3: "abc123".length === 6');
 
 //CHECK#4
-if ("abc123"["length"] !== 6) {
-  throw new Test262Error('#4: "abc123"["length"] === 6. Actual: ' + ("abc123"["length"]));
-}
+assert.sameValue("abc123"["length"], 6, '#4: "abc123"["length"] === 6');
 
 //CHECK#5
 if (new String("abc123").length !== 6) {

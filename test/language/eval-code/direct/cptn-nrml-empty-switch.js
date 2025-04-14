@@ -10,6 +10,4 @@ description: Switch statement
 ---*/
 
 //CHECK#1
-if (eval("switch(1){}") !== undefined) {
-  throw new Test262Error('#1: eval("switch(1){}") === undefined. Actual: ' + (eval("switch(1){}")));
-}
+assert.sameValue(eval("switch(1){}"), undefined, '#1: eval("switch(1){}") === undefined');

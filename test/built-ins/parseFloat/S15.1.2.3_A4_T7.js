@@ -10,36 +10,22 @@ description: Checking DecimalDigits ExponentPart_opt
 ---*/
 
 //CHECK#1
-if (parseFloat("-11string") !== -11) {
-  throw new Test262Error('#1: parseFloat("-11string") === -11. Actual: ' + (parseFloat("-11string")));
-}
+assert.sameValue(parseFloat("-11string"), -11, '#1: parseFloat("-11string") === -11');
 
 //CHECK#2
-if (parseFloat("01string") !== 1) {
-  throw new Test262Error('#2: parseFloat("01string") === 1. Actual: ' + (parseFloat("01string")));
-}
+assert.sameValue(parseFloat("01string"), 1, '#2: parseFloat("01string") === 1');
 
 //CHECK#3
-if (parseFloat("-11e-1string") !== -1.1) {
-  throw new Test262Error('#3: parseFloat("-11e-1string") === -1.1. Actual: ' + (parseFloat("-11e-1string")));
-}
+assert.sameValue(parseFloat("-11e-1string"), -1.1, '#3: parseFloat("-11e-1string") === -1.1');
 
 //CHECK#4
-if (parseFloat("01e1string") !== 10) {
-  throw new Test262Error('#4: parseFloat("01e1string") === 10. Actual: ' + (parseFloat("01e1string")));
-}
+assert.sameValue(parseFloat("01e1string"), 10, '#4: parseFloat("01e1string") === 10');
 
 //CHECK#5
-if (parseFloat("001string") !== 1) {
-  throw new Test262Error('#5: parseFloat("001string") === 1. Actual: ' + (parseFloat("001string")));
-}
+assert.sameValue(parseFloat("001string"), 1, '#5: parseFloat("001string") === 1');
 
 //CHECK#6
-if (parseFloat("1e001string") !== 10) {
-  throw new Test262Error('#6: parseFloat("1e001string") === 10. Actual: ' + (parseFloat("1e001string")));
-}
+assert.sameValue(parseFloat("1e001string"), 10, '#6: parseFloat("1e001string") === 10');
 
 //CHECK#7
-if (parseFloat("010string") !== 10) {
-  throw new Test262Error('#7: parseFloat("010string") === 10. Actual: ' + (parseFloat("010string")));
-}
+assert.sameValue(parseFloat("010string"), 10, '#7: parseFloat("010string") === 10');

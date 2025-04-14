@@ -32,28 +32,16 @@ if (obj.length !== undefined) {
 
 obj.length = undefined;
 var push = obj.push(-4);
-if (push !== 1) {
-  throw new Test262Error('#4: var obj = {}; obj.length = undefined; obj.push = Array.prototype.push; obj.push(-4) === 1. Actual: ' + (push));
-}
+assert.sameValue(push, 1, '#4: var obj = {}; obj.length = undefined; obj.push = Array.prototype.push; obj.push(-4) === 1');
 
-if (obj.length !== 1) {
-  throw new Test262Error('#5: var obj = {}; obj.length = undefined; obj.push = Array.prototype.push; obj.push(-4); obj.length === 1. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 1, '#5: var obj = {}; obj.length = undefined; obj.push = Array.prototype.push; obj.push(-4); obj.length === 1');
 
-if (obj["0"] !== -4) {
-  throw new Test262Error('#6: var obj = {}; obj.length = undefined; obj.push = Array.prototype.push; obj.push(-4); obj["0"] === -4. Actual: ' + (obj["0"]));
-}
+assert.sameValue(obj["0"], -4, '#6: var obj = {}; obj.length = undefined; obj.push = Array.prototype.push; obj.push(-4); obj["0"] === -4');
 
 obj.length = null
 var push = obj.push(-7);
-if (push !== 1) {
-  throw new Test262Error('#7: var obj = {}; obj.length = null; obj.push = Array.prototype.push; obj.push(-7) === 1. Actual: ' + (push));
-}
+assert.sameValue(push, 1, '#7: var obj = {}; obj.length = null; obj.push = Array.prototype.push; obj.push(-7) === 1');
 
-if (obj.length !== 1) {
-  throw new Test262Error('#8: var obj = {}; obj.length = null; obj.push = Array.prototype.push; obj.push(-7); obj.length === 1. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 1, '#8: var obj = {}; obj.length = null; obj.push = Array.prototype.push; obj.push(-7); obj.length === 1');
 
-if (obj["0"] !== -7) {
-  throw new Test262Error('#9: var obj = {}; obj.length = null; obj.push = Array.prototype.push; obj.push(-7); obj["0"] === -7. Actual: ' + (obj["0"]));
-}
+assert.sameValue(obj["0"], -7, '#9: var obj = {}; obj.length = null; obj.push = Array.prototype.push; obj.push(-7); obj["0"] === -7');

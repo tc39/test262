@@ -25,9 +25,7 @@ try {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (Error.prototype !== proto) {
-  throw new Test262Error('#2: var proto=Error.prototype; delete Error.prototype; Error.prototype===proto. Actual: ' + Error.prototype);
-}
+assert.sameValue(Error.prototype, proto, '#2: var proto=Error.prototype; delete Error.prototype; Error.prototype===proto');
 //
 //////////////////////////////////////////////////////////////////////////////
 

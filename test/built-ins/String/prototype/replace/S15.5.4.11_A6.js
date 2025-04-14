@@ -9,8 +9,6 @@ description: Checking String.prototype.replace.prototype;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.replace.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.replace.prototype === undefined. Actual: ' + String.prototype.replace.prototype);
-}
+assert.sameValue(String.prototype.replace.prototype, undefined, '#1: String.prototype.replace.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////
