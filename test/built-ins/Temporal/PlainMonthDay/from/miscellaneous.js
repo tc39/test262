@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-plainmonthday-objects
-description: Temporal.PlainMonthDay works as expected
+esid: sec-temporal.plainmonthday.from
+description: Temporal.PlainMonthDay.from works as expected
 features: [Temporal]
 ---*/
 
