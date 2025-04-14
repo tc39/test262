@@ -17,4 +17,4 @@ info: |
 flags: [onlyStrict]
 ---*/
 
-undeclared = (this.undeclared = 5);
+undeclared = (globalThis.undeclared = 5);
