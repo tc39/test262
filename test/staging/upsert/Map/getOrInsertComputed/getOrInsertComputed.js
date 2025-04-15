@@ -1,3 +1,4 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -12,7 +13,6 @@ includes: [deepEqual.js]
 features: [arrow-function]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
 assert.sameValue(
   typeof Map.prototype.getOrInsertComputed,
   'function',

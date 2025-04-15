@@ -1,3 +1,4 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -18,7 +19,6 @@ info: |
 features: [Symbol, arrow-function]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
 var map = new Map();
 map.getOrInsertComputed(-0, () => 42);
 assert.sameValue(map.get(0), 42);

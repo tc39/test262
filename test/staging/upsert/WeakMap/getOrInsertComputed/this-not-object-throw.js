@@ -1,3 +1,4 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // Copyright (C) 2025 Jonas Haukenes, Sune Eriksson Lianes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -13,7 +14,6 @@ info: |
 features: [Symbol]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
 var m = new WeakMap();
 
 assertThrowsInstanceOf(function () {

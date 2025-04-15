@@ -1,3 +1,4 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -18,7 +19,6 @@ info: |
 features: [Symbol, arrow-function]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
 var s = Symbol(2);
 var map = new Map([[4, 4], ['foo3', 3], [s, 2]]);
 

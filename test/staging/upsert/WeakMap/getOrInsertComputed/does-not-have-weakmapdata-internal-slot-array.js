@@ -1,3 +1,4 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -12,7 +13,6 @@ info: |
   ...
 flags: [noStrict]
 ---*/
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
 assertThrowsInstanceOf(function() {
   WeakMap.prototype.getOrInsertComputed.call([], {}, () => 1);
 }, TypeError);
