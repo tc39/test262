@@ -1,3 +1,4 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // Copyright (C) 2024 Sune Eriksson Lianes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -16,7 +17,6 @@ features:
 - arrow-function
 flags: [noStrict]
 ---*/
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
 var map = new Map();
 
 map.getOrInsertComputed('bar', () => 0);

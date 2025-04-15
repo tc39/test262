@@ -1,3 +1,4 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // Copyright (C) 2024 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
@@ -21,7 +22,6 @@ includes: [isConstructor.js]
 features: [Map, Reflect.construct, arrow-function]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
 assert.sameValue(isConstructor(Map.prototype.getOrInsert), false, 'isConstructor(Map.prototype.getOrInsert) must return false');
 
 assertThrowsInstanceOf(() => {

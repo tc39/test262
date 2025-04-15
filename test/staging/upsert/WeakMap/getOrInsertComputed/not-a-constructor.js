@@ -1,3 +1,4 @@
+// Copyright (C) 2020 Rick Waldron. All rights reserved.
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -20,7 +21,6 @@ includes: [isConstructor.js]
 features: [Reflect.construct, WeakMap, arrow-function]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2020 Rick Waldron. All rights reserved.
 assert.sameValue(
   isConstructor(WeakMap.prototype.getOrInsertComputed),
   false,

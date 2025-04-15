@@ -1,3 +1,4 @@
+// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
@@ -14,7 +15,6 @@ info: |
 features: [Symbol, WeakMap, symbols-as-weakmap-keys]
 flags: [noStrict]
 ---*/
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
 var map = new WeakMap();
 var foo = Symbol('a description');
 var bar = Symbol('a description');
