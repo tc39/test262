@@ -1,5 +1,10 @@
 # Test262 Authoring Guidelines
 
+## So You Want To Write Tests For A Stage 2.7 Proposal
+
+If you are writing tests for a whole proposal (not just for a few lines in the spec) please read about [testing plans](docs/testing-plan-guide.md).
+A **testing plan** showing what is and isn't intended to be covered, and **several small pull requests** implementing it in easily reviewable chunks is much preferred above a single pull request with all the tests.
+
 ## Source Material
 
 - https://tc39.github.io/ecma262/
