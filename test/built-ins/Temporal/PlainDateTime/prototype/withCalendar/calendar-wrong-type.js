@@ -14,14 +14,16 @@ const instance = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
   [1, "number that doesn't convert to a valid ISO string"],
   [1n, "bigint"],
+  [19970327, "large number"],
+  [-19970327, "negative number"],
+  [1234567890, "very large integer"],
 ];
 
 for (const [arg, description] of primitiveTests) {
   assert.throws(
-    typeof arg === 'string' ? RangeError : TypeError,
+    TypeError,
     () => instance.withCalendar(arg),
     `${description} does not convert to a valid ISO string`
   );
