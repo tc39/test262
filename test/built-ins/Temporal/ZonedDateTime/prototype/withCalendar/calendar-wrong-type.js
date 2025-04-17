@@ -4,8 +4,7 @@
 /*---
 esid: sec-temporal.zoneddatetime.prototype.withcalendar
 description: >
-  Appropriate error thrown when argument cannot be converted to a valid string
-  for Calendar
+  Appropriate error thrown when argument cannot be converted to a valid object or string
 features: [BigInt, Symbol, Temporal]
 ---*/
 
@@ -14,14 +13,16 @@ const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", "
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
   [1, "number that doesn't convert to a valid ISO string"],
   [1n, "bigint"],
+  [-19761118, "negative number"],
+  [19761118, "large positive number"],
+  [1234567890, "very large integer"],
 ];
 
 for (const [arg, description] of primitiveTests) {
   assert.throws(
-    typeof arg === 'string' ? RangeError : TypeError,
+    TypeError,
     () => instance.withCalendar(arg),
     `${description} does not convert to a valid ISO string`
   );
@@ -34,5 +35,9 @@ const typeErrorTests = [
 ];
 
 for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.withCalendar(arg), `${description} is not a valid object and does not convert to a string`);
+  assert.throws(
+    TypeError,
+    () => instance.withCalendar(arg),
+    `${description} is not a valid object and does not convert to a string`
+  );
 }
