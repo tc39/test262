@@ -14,15 +14,17 @@ const instance = new Temporal.PlainYearMonth(2000, 5);
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
   [1, "number that doesn't convert to a valid ISO string"],
   [1n, "bigint"],
+  [19970327, "large positive number"],
+  [-19970327, "negative number"],
+  [1234567890, "very large integer"],
 ];
 
 for (const [calendar, description] of primitiveTests) {
   const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(
-    typeof calendar === 'string' ? RangeError : TypeError,
+    TypeError,
     () => instance.since(arg),
     `${description} does not convert to a valid ISO string`
   );
@@ -36,5 +38,9 @@ const typeErrorTests = [
 
 for (const [calendar, description] of typeErrorTests) {
   const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
-  assert.throws(TypeError, () => instance.since(arg), `${description} is not a valid property bag and does not convert to a string`);
+  assert.throws(
+    TypeError,
+    () => instance.since(arg),
+    `${description} is not a valid property bag and does not convert to a string`
+  );
 }

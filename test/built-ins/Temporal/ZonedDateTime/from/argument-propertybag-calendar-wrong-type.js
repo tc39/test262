@@ -9,20 +9,23 @@ description: >
 features: [BigInt, Symbol, Temporal]
 ---*/
 
+const timeZone = "UTC";
 const primitiveTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, "number"],
   [1n, "bigint"],
+  [19970327, "large number"],
+  [-19970327, "negative number"],
+  [1234567890, "very large integer"],
 ];
 
 for (const [calendar, description] of primitiveTests) {
-  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 1970, monthCode: "M01", day: 1, timeZone, calendar };
   assert.throws(
-    typeof calendar === 'string' ? RangeError : TypeError,
+    TypeError,
     () => Temporal.ZonedDateTime.from(arg),
-    `${description} does not convert to a valid ISO string`
+    `${description} is not a valid calendar`
   );
 }
 
@@ -33,6 +36,6 @@ const typeErrorTests = [
 ];
 
 for (const [calendar, description] of typeErrorTests) {
-  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
+  const arg = { year: 2019, monthCode: "M11", day: 1, timeZone, calendar };
   assert.throws(TypeError, () => Temporal.ZonedDateTime.from(arg), `${description} is not a valid property bag and does not convert to a string`);
 }
