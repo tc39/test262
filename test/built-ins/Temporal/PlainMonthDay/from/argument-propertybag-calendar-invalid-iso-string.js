@@ -1,4 +1,4 @@
-// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -8,14 +8,14 @@ features: [Temporal]
 ---*/
 
 const invalidStrings = [
-    ["", "empty string"],
-  ];
-  
+	["", "empty string"],
+];
+
 for (const [calendar, description] of invalidStrings) {
-    const arg = { monthCode: "M11", day: 18, calendar };
-    assert.throws(
-        RangeError,
-        () => Temporal.PlainMonthDay.from(arg),
-        `${description} is not a valid calendar ID`
-    );
+	const arg = { monthCode: "M11", day: 18, calendar };
+	assert.throws(
+		RangeError,
+		() => Temporal.PlainMonthDay.from(arg),
+		`${description} is not a valid calendar ID`
+	);
 }
