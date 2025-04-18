@@ -45,4 +45,8 @@ for (const [ option, value ] of conflictingOptions) {
   assert.throws(TypeError, function() {
     datetime.toLocaleString("en", { [option]: value, timeStyle: "short" });
   }, `datetime.toLocaleString("en", { ${option}: "${value}",  timeStyle: "short" }) throws TypeError`);
+
+  // dateStyle or timeStyle present but undefined does not conflict
+  datetime.toLocaleString("en", { [option]: value, dateStyle: undefined });
+  datetime.toLocaleString("en", { [option]: value, timeStyle: undefined });
 }
