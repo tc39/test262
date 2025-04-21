@@ -1,0 +1,12 @@
+// Copyright (C) 2025 Sony Interactive Entertainment Inc. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/assignmenttargettype/direct-
+name: Direct assignment
+info: |
+  Direct assignment
+---*/
+$DONOTEVALUATE();
+
+/*{ statement }*/
