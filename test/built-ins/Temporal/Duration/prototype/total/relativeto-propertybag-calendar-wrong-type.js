@@ -11,7 +11,7 @@ features: [BigInt, Symbol, Temporal]
 
 const instance = new Temporal.Duration(1, 0, 0, 0, 24);
 
-const primitiveTests = [
+const wrongTypeTests = [
   [null, "null"],
   [true, "boolean"],
   [1, "number"],
@@ -19,18 +19,6 @@ const primitiveTests = [
   [19970327, "large number"],
   [-19970327, "negative number"],
   [1234567890, "very large integer"],
-];
-
-for (const [calendar, description] of primitiveTests) {
-  const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
-  assert.throws(
-    TypeError,
-    () => instance.total({ unit: "days", relativeTo }),
-    `${description} is not a valid calendar`
-  );
-}
-
-const typeErrorTests = [
   [Symbol(), "symbol"],
   [{}, "object"],
   [Temporal.PlainDate, "Temporal.PlainDate, object"],
@@ -39,7 +27,11 @@ const typeErrorTests = [
   [Temporal.ZonedDateTime.prototype, "Temporal.ZonedDateTime.prototype, object"],
 ];
 
-for (const [calendar, description] of typeErrorTests) {
+for (const [calendar, description] of wrongTypeTests) {
   const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
-  assert.throws(TypeError, () => instance.total({ unit: "days", relativeTo }), `${description} is not a valid property bag and does not convert to a string`);
+  assert.throws(
+    TypeError,
+    () => instance.total({ unit: "days", relativeTo }),
+    `${description} is not a valid calendar`
+  );
 }
