@@ -12,7 +12,7 @@ features: [BigInt, Symbol, Temporal]
 const timeZone = "UTC";
 const instance = new Temporal.ZonedDateTime(0n, timeZone);
 
-const primitiveTests = [
+const wrongTypeTests = [
   [null, "null"],
   [true, "boolean"],
   [1, "number that doesn't convert to a valid ISO string"],
@@ -20,28 +20,16 @@ const primitiveTests = [
   [19970327, "large number"],
   [-19970327, "negative number"],
   [1234567890, "very large integer"],
-];
-
-for (const [calendar, description] of primitiveTests) {
-  const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
-  assert.throws(
-    TypeError,
-    () => instance.since(arg),
-    `${description} does not convert to a valid ISO string`
-  );
-}
-
-const typeErrorTests = [
   [Symbol(), "symbol"],
   [{}, "object"],
   [new Temporal.Duration(), "duration instance"],
 ];
 
-for (const [calendar, description] of typeErrorTests) {
+for (const [calendar, description] of wrongTypeTests) {
   const arg = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(
     TypeError,
     () => instance.since(arg),
-    `${description} is not a valid property bag and does not convert to a string`
+    `${description} does not convert to a valid ISO string`
   );
 }
