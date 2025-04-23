@@ -9,7 +9,7 @@ description: >
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const primitiveTests = [
+const wrongTypeTests = [
   [null, "null"],
   [true, "boolean"],
   [1, "number"],
@@ -17,24 +17,16 @@ const primitiveTests = [
   [19970327, "large number"],
   [-19970327, "negative number"],
   [1234567890, "very large integer"],
+  [Symbol(), "symbol"],
+  [{}, "object"],
+  [new Temporal.Duration(), "duration instance"],
 ];
 
-for (const [calendar, description] of primitiveTests) {
+for (const [calendar, description] of wrongTypeTests) {
   const arg = { year: 2019, monthCode: "M11", calendar };
   assert.throws(
     TypeError,
     () => Temporal.PlainYearMonth.from(arg),
     `${description} is not a valid calendar`
   );
-}
-
-const typeErrorTests = [
-  [Symbol(), "symbol"],
-  [{}, "object"],
-  [new Temporal.Duration(), "duration instance"],
-];
-
-for (const [calendar, description] of typeErrorTests) {
-  const arg = { year: 2019, monthCode: "M11", calendar };
-  assert.throws(TypeError, () => Temporal.PlainYearMonth.from(arg), `${description} is not a valid property bag and does not convert to a string`);
 }
