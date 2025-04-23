@@ -4,7 +4,7 @@
 /*---
 esid: sec-datetime-format-functions
 description: Different combinations of style options and Temporal types format correctly.
-locale: [en]
+locale: [en-US]
 features: [Temporal]
 ---*/
 
