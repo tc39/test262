@@ -345,19 +345,19 @@ assert.throws(TypeError, () => dateFormatterMedium.format(time), "plain time, da
 assert.throws(TypeError, () => dateFormatterLong.format(time), "plain time, dateStyle=long");
 
 const timeResultShort = timeFormatterShort.format(time);
-// assert.sameValue(timeResultShort, "12:34 AM", "plain time, dateStyle=short");
-assert.notSameValue(timeResultShort.search("12"), -1, "plainTime, dateStyle=short: hour should appear");
-assert.sameValue(timeResultShort.search("56"), -1, "plainTime, dateStyle=short: seconds should not appear");
+// assert.sameValue(timeResultShort, "12:34 AM", "plain time, timeStyle=short");
+assert.notSameValue(timeResultShort.search("12"), -1, "plainTime, timeStyle=short: hour should appear");
+assert.sameValue(timeResultShort.search("56"), -1, "plainTime, timeStyle=short: seconds should not appear");
 
 const timeResultMedium = timeFormatterMedium.format(time);
-// assert.sameValue(timeResultMedium, "12:34:56 AM", "plain time, dateStyle=medium");
-assert.notSameValue(timeResultMedium.search("56"), -1, "plainTime, dateStyle=medium: seconds should appear");
-assert.sameValue(timeResultMedium.search("777"), -1, "plainTime, dateStyle=medium: milliseconds should not appear");
+// assert.sameValue(timeResultMedium, "12:34:56 AM", "plain time, timeStyle=medium");
+assert.notSameValue(timeResultMedium.search("56"), -1, "plainTime, timeStyle=medium: seconds should appear");
+assert.sameValue(timeResultMedium.search("777"), -1, "plainTime, timeStyle=medium: milliseconds should not appear");
 
 const timeResultLong = timeFormatterLong.format(time);
-// assert.sameValue(timeResultLong, "12:34:56 AM", "plain time, dateStyle=long");
-assert.notSameValue(timeResultMedium.search("34"), -1, "plainTime, dateStyle=long: minutes should appear");
-assert.sameValue(timeResultMedium.search("888"), -1, "plainTime, dateStyle=long: microseconds should not appear");
+// assert.sameValue(timeResultLong, "12:34:56 AM", "plain time, timeStyle=long");
+assert.notSameValue(timeResultMedium.search("34"), -1, "plainTime, timeStyle=long: minutes should appear");
+assert.sameValue(timeResultMedium.search("888"), -1, "plainTime, timeStyle=long: microseconds should not appear");
 
 var timeResult = dateTimeFormatterShort.format(time);
 assert.sameValue(timeResult, timeResultShort, "plain time, dateStyle = timeStyle = short");
