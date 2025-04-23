@@ -4,7 +4,23 @@
 /*---
 esid: sec-initializepluralrules
 description: Checks that the notation option is picked up correctly.
+info: |
+  Intl.PluralRules ( [ _locales_ [ , _options_ ] ] )
+    ...
+    1. Let notation be ? GetOption(options, "notation", "string", « "standard", "compact", "scientific", "engineering" », "standard").
+    ...
 ---*/
 
-assert.sameValue(new Intl.PluralRules('fr-FR', { notation: 'compact' }).select(1.00000020e6), 'one', 'compact notation');
-assert.sameValue(new Intl.PluralRules('fr-FR', { notation: 'standard' }).select(1.00000020e6), 'other', 'standard notation');
+const validValues = ["standard", "compact", "scientific", "engineering", new String("standard"), new String("compact"), new String("scientific"), new String("engineering")];
+const invalidValues = ["COMPACT", "ståndard", 123, false, Symbol("foo"), null, {}, [], ""];
+
+for (const value of validValues) {
+  assert.doesNotThrow(() => {
+    new Intl.PluralRules("en", { notation: value });
+  }, `No exception should be thrown for ${value}`);
+}
+for (const value of invalidValues) {
+  assert.throws(RangeError, () => {
+    new Intl.PluralRules("en", { notation: value });
+  }, `Exception should be thrown for ${value}`);
+}
