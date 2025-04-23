@@ -1,26 +1,24 @@
-// Copyright (C) 2022 Igalia, S.L. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-temporal.duration.prototype.round
-description: A number as calendar in relativeTo property bag is invalid
+description: >
+  An ISO string that cannot be converted to a calendar ID should throw a RangeError
 features: [Temporal]
 ---*/
 
 const instance = new Temporal.Duration(1, 0, 0, 0, 24);
 
-const numbers = [
-  1,
-  19970327,
-  -19970327,
-  1234567890,
+const invalidStrings = [
+  ["", "empty string"]
 ];
 
-for (const calendar of numbers) {
+for (const [calendar, description] of invalidStrings) {
   const relativeTo = { year: 2019, monthCode: "M11", day: 1, calendar };
   assert.throws(
-    TypeError,
+    RangeError,
     () => instance.round({ largestUnit: "years", relativeTo }),
-    `A number (${calendar}) is not a valid ISO string for relativeTo.calendar`
+    `${description} is not a valid calendar ID`
   );
 }
