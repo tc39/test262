@@ -11,7 +11,7 @@ features: [BigInt, Symbol, Temporal]
 
 const instance = new Temporal.PlainDate(1976, 11, 18, "iso8601");
 
-const primitiveTests = [
+const wrongTypeTests = [
   [null, "null"],
   [true, "boolean"],
   [1, "number"],
@@ -19,26 +19,15 @@ const primitiveTests = [
   [-19761118, "negative number"],
   [19761118, "large positive number"],
   [1234567890, "very large integer"],
-];
-
-for (const [arg, description] of primitiveTests) {
-  assert.throws(
-    TypeError,
-    () => instance.withCalendar(arg),
-    `${description} is not a valid calendar`
-  );
-}
-
-const typeErrorTests = [
   [Symbol(), "symbol"],
   [{}, "object"],
   [new Temporal.Duration(), "duration instance"],
 ];
 
-for (const [arg, description] of typeErrorTests) {
+for (const [arg, description] of wrongTypeTests) {
   assert.throws(
     TypeError,
     () => instance.withCalendar(arg),
-    `${description} is not a valid object and does not convert to a string`
+    `${description} is not a valid calendar`
   );
 }
