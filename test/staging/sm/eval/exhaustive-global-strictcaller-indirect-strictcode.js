@@ -8,20 +8,10 @@ flags:
   - onlyStrict
 includes: [sm/non262.js, sm/non262-shell.js]
 description: |
-  pending
+  eval in all its myriad flavors
 esid: pending
 ---*/
 "use strict";
-
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 514568;
-var summary = "eval in all its myriad flavors";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var x = 17;
 
@@ -177,7 +167,3 @@ assert.sameValue(resultsY.local4, "ReferenceError");
 
 assert.sameValue(resultsY.inner5, 71);
 assert.sameValue(resultsY.local5, "ReferenceError");
-
-/******************************************************************************/
-
-print("Tests complete!");
