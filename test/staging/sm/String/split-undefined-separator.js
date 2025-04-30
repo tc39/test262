@@ -5,8 +5,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   String.prototype.split with undefined separator
 esid: pending
