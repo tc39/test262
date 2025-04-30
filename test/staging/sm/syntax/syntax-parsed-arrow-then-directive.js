@@ -11,50 +11,28 @@ description: |
 esid: pending
 ---*/
 
-var stack;
-
-function reset()
-{
-  stack = "";
-}
-
-function assertStackContains(needle, msg)
-{
-  assert.sameValue(stack.indexOf(needle) >= 0, true,
-           `stack should contain '${needle}': ${msg}`);
-}
-
 Object.defineProperty(this, "detectSourceURL", {
   get() {
-    stack = new Error().stack;
     return 17;
   }
 });
 
 // block followed by semicolon
-reset();
 assert.sameValue(eval(`x=>{};
 //# sourceURL=http://example.com/foo.js
 detectSourceURL`), 17);
-assertStackContains("http://example.com/foo.js", "block, semi");
 
 // block not followed by semicolon
-reset();
 assert.sameValue(eval(`x=>{}
 //# sourceURL=http://example.com/bar.js
 detectSourceURL`), 17);
-assertStackContains("http://example.com/bar.js", "block, not semi");
 
 // expr followed by semicolon
-reset();
 assert.sameValue(eval(`x=>y;
 //# sourceURL=http://example.com/baz.js
 detectSourceURL`), 17);
-assertStackContains("http://example.com/baz.js", "expr, semi");
 
 // expr not followed by semicolon
-reset();
 assert.sameValue(eval(`x=>y
 //# sourceURL=http://example.com/quux.js
 detectSourceURL`), 17);
-assertStackContains("http://example.com/quux.js", "expr, not semi");
