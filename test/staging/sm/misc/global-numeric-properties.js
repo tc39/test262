@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  undefined, Infinity, and NaN global properties should not be writable
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 537863;
-var summary =
-  'undefined, Infinity, and NaN global properties should not be writable';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var desc, old, error;
 var global = this;
@@ -59,7 +49,3 @@ for (var i = 0; i < names.length; i++)
   }
   assert.sameValue(error, "typeerror", "wrong strict mode error setting " + name);
 }
-
-/******************************************************************************/
-
-print("All tests passed!");

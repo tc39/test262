@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement FutureReservedWords per-spec
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 497869;
-var summary = "Implement FutureReservedWords per-spec";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var futureReservedWords =
   [
@@ -52,7 +43,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS LHS FOR ASSIGNMENT
 
   actual = "";
-  status = summary + ": " + word + ": normal assignment";
+  status = word + ": normal assignment";
   try
   {
     eval(word + " = 'foo';");
@@ -66,7 +57,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict assignment";
+  status = word + ": strict assignment";
   try
   {
     eval("'use strict'; " + word + " = 'foo';");
@@ -82,7 +73,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS DESTRUCTURING SHORTHAND
 
   actual = "";
-  status = summary + ": " + word + ": destructuring shorthand";
+  status = word + ": destructuring shorthand";
   try
   {
     eval("({ " + word + " } = 'foo');");
@@ -96,7 +87,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict destructuring shorthand";
+  status = word + ": strict destructuring shorthand";
   try
   {
     eval("'use strict'; ({ " + word + " } = 'foo');");
@@ -112,7 +103,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE IN VARIABLE DECLARATION
 
   actual = "";
-  status = summary + ": " + word + ": normal var";
+  status = word + ": normal var";
   try
   {
     eval("var " + word + ";");
@@ -126,7 +117,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict var";
+  status = word + ": strict var";
   try
   {
     eval("'use strict'; var " + word + ";");
@@ -142,7 +133,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE IN FOR-IN VARIABLE DECLARATION
 
   actual = "";
-  status = summary + ": " + word + ": normal for-in var";
+  status = word + ": normal for-in var";
   try
   {
     eval("for (var " + word + " in {});");
@@ -156,7 +147,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict for-in var";
+  status = word + ": strict for-in var";
   try
   {
     eval("'use strict'; for (var " + word + " in {});");
@@ -172,7 +163,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS CATCH IDENTIFIER
 
   actual = "";
-  status = summary + ": " + word + ": normal var";
+  status = word + ": normal var";
   try
   {
     eval("try { } catch (" + word + ") { }");
@@ -186,7 +177,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict var";
+  status = word + ": strict var";
   try
   {
     eval("'use strict'; try { } catch (" + word + ") { }");
@@ -202,7 +193,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS LABEL
 
   actual = "";
-  status = summary + ": " + word + ": normal label";
+  status = word + ": normal label";
   try
   {
     eval(word + ": while (false);");
@@ -216,7 +207,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict label";
+  status = word + ": strict label";
   try
   {
     eval("'use strict'; " + word + ": while (false);");
@@ -232,7 +223,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS ARGUMENT NAME IN FUNCTION DECLARATION
 
   actual = "";
-  status = summary + ": " + word + ": normal function argument";
+  status = word + ": normal function argument";
   try
   {
     eval("function foo(" + word + ") { }");
@@ -246,7 +237,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict function argument";
+  status = word + ": strict function argument";
   try
   {
     eval("'use strict'; function foo(" + word + ") { }");
@@ -260,7 +251,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectStrict, status);
 
   actual = "";
-  status = summary + ": " + word + ": function argument retroactively strict";
+  status = word + ": function argument retroactively strict";
   try
   {
     eval("function foo(" + word + ") { 'use strict'; }");
@@ -276,7 +267,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS ARGUMENT NAME IN FUNCTION EXPRESSION
 
   actual = "";
-  status = summary + ": " + word + ": normal function expression argument";
+  status = word + ": normal function expression argument";
   try
   {
     eval("var s = (function foo(" + word + ") { });");
@@ -290,7 +281,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict function expression argument";
+  status = word + ": strict function expression argument";
   try
   {
     eval("'use strict'; var s = (function foo(" + word + ") { });");
@@ -304,7 +295,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectStrict, status);
 
   actual = "";
-  status = summary + ": " + word + ": function expression argument retroactively strict";
+  status = word + ": function expression argument retroactively strict";
   try
   {
     eval("var s = (function foo(" + word + ") { 'use strict'; });");
@@ -320,7 +311,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS ARGUMENT NAME WITH FUNCTION CONSTRUCTOR
 
   actual = "";
-  status = summary + ": " + word + ": argument with normal Function";
+  status = word + ": argument with normal Function";
   try
   {
     Function(word, "return 17");
@@ -334,7 +325,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": argument with strict Function";
+  status = word + ": argument with strict Function";
   try
   {
     Function(word, "'use strict'; return 17");
@@ -350,7 +341,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS ARGUMENT NAME IN PROPERTY SETTER
 
   actual = "";
-  status = summary + ": " + word + ": normal property setter argument";
+  status = word + ": normal property setter argument";
   try
   {
     eval("var o = { set x(" + word + ") { } };");
@@ -364,7 +355,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict property setter argument";
+  status = word + ": strict property setter argument";
   try
   {
     eval("'use strict'; var o = { set x(" + word + ") { } };");
@@ -378,7 +369,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectStrict, status);
 
   actual = "";
-  status = summary + ": " + word + ": property setter argument retroactively strict";
+  status = word + ": property setter argument retroactively strict";
   try
   {
     eval("var o = { set x(" + word + ") { 'use strict'; } };");
@@ -394,7 +385,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS FUNCTION NAME IN FUNCTION DECLARATION
 
   actual = "";
-  status = summary + ": " + word + ": normal function name";
+  status = word + ": normal function name";
   try
   {
     eval("function " + word + "() { }");
@@ -408,7 +399,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict function name";
+  status = word + ": strict function name";
   try
   {
     eval("'use strict'; function " + word + "() { }");
@@ -422,7 +413,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectStrict, status);
 
   actual = "";
-  status = summary + ": " + word + ": function name retroactively strict";
+  status = word + ": function name retroactively strict";
   try
   {
     eval("function " + word + "() { 'use strict'; }");
@@ -438,7 +429,7 @@ function testWord(word, expectNormal, expectStrict)
   // USE AS FUNCTION NAME IN FUNCTION EXPRESSION
 
   actual = "";
-  status = summary + ": " + word + ": normal function expression name";
+  status = word + ": normal function expression name";
   try
   {
     eval("var s = (function " + word + "() { });");
@@ -452,7 +443,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectNormal, status);
 
   actual = "";
-  status = summary + ": " + word + ": strict function expression name";
+  status = word + ": strict function expression name";
   try
   {
     eval("'use strict'; var s = (function " + word + "() { });");
@@ -466,7 +457,7 @@ function testWord(word, expectNormal, expectStrict)
   assert.sameValue(actual, expectStrict, status);
 
   actual = "";
-  status = summary + ": " + word + ": function expression name retroactively strict";
+  status = word + ": function expression name retroactively strict";
   try
   {
     eval("var s = (function " + word + "() { 'use strict'; });");
@@ -492,7 +483,3 @@ function testStrictFutureReservedWord(word)
 
 futureReservedWords.forEach(testFutureReservedWord);
 strictFutureReservedWords.forEach(testStrictFutureReservedWord);
-
-/******************************************************************************/
-
-print("All tests passed!");

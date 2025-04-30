@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement the ES5 algorithm for processing function statements
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 577325;
-var summary = 'Implement the ES5 algorithm for processing function statements';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var outer, desc;
 var isInShell = !("Window" in this);
@@ -347,7 +338,3 @@ if (isInShell) {
 	assert.sameValue(desc.value, "data8");
     }
 }
-
-/******************************************************************************/
-
-print("All tests passed!");
