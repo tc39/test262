@@ -12,17 +12,7 @@ esid: pending
 ---*/
 
 var f = function assignSelfStrict() { "use strict"; assignSelfStrict = 12; };
-
-try
-{
-  var r = f();
-  throw new Error("should have thrown a TypeError, returned " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "didn't throw a TypeError: " + e);
-}
+assert.throws(TypeError, f);
 
 var assignSelf = 42;
 var f2 = function assignSelf() { assignSelf = 12; };

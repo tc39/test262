@@ -14,16 +14,9 @@ esid: pending
 var arr = [0, 1, 2];
 Object.defineProperty(arr, 1, { configurable: false });
 
-try
-{
+assert.throws(TypeError, function() {
   Object.defineProperty(arr, "length", { value: 0, writable: false });
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "must throw TypeError when array truncation would have to remove " +
-           "non-configurable elements");
-}
+}, "must throw TypeError when array truncation would have to remove non-configurable elements");
 
 assert.sameValue(arr.length, 2, "length is highest remaining index plus one");
 

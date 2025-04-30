@@ -13,15 +13,9 @@ esid: pending
 
 function expectSyntaxError(str)
 {
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval(str);
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof SyntaxError, true,
-             "no syntax error evaluating " + str);
-  }
+  }, "syntax error evaluating " + str);
 }
 
 expectSyntaxError('"\\x"');

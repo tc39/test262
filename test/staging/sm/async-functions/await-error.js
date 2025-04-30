@@ -9,11 +9,6 @@ description: |
 esid: pending
 ---*/
 
-let caught = false;
-try {
-    eval("await 10");
-} catch(e) {
-    assert.sameValue(e.message.includes("await is only valid in"), true);
-    caught = true;
-}
-assert.sameValue(caught, true);
+assert.throws(SyntaxError, function() {
+  eval("await 10");
+});

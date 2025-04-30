@@ -14,13 +14,6 @@ esid: pending
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-try
-{
+assert.throws(RangeError, function() {
   new Uint8Array().set([], -1);
-  throw new Error("didn't throw at all");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof RangeError, true,
-           "expected RangeError, instead got: " + e);
-}
+});

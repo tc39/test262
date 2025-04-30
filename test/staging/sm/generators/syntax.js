@@ -17,17 +17,10 @@ esid: pending
 function assertSyntaxError(str) {
     var msg;
     var evil = eval;
-    try {
+    assert.throws(SyntaxError, function() {
         // Non-direct eval.
         evil(str);
-    } catch (exc) {
-        if (exc instanceof SyntaxError)
-            return;
-        msg = "Assertion failed: expected SyntaxError, got " + exc;
-    }
-    if (msg === undefined)
-        msg = "Assertion failed: expected SyntaxError, but no exception thrown";
-    throw new Error(msg + " - " + str);
+    });
 }
 
 // Yield statements.

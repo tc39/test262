@@ -12,23 +12,8 @@ esid: pending
 ---*/
 
 function test(sharedMem) {
-    function die(message, uplevel) {
-        throw new Error(message);
-    }
-
     function checkThrow(fun, type) {
-        var thrown = false;
-        try {
-            fun();
-        } catch (x) {
-            thrown = x;
-        }
-
-        if (!thrown) {
-            die('no exception thrown, expected ' + type.name, 2);
-        } else if (!(thrown instanceof type)) {
-            die('expected ' + type.name + ', got ' + thrown, 2);
-        }
+        assert.throws(type, fun);
     }
 
     function bufferize(u8array) {

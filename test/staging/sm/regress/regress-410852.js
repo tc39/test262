@@ -11,17 +11,6 @@ description: |
 esid: pending
 ---*/
 
-test();
-
-function test()
-{
-  try
-  {
-    eval('function(){if(t)');
-  }
-  catch(ex)
-  {
-    assert.sameValue(ex instanceof SyntaxError, true, "wrong error: " + ex);
-  }
-
-}
+assert.throws(SyntaxError, function() {
+  eval('function(){if(t)');
+});

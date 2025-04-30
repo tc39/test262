@@ -8,19 +8,8 @@ description: |
   pending
 esid: pending
 ---*/
+
 // Ensure that the distinction between Proxy Init and Proxy Set holds
-
-function assertThrowsTypeError(f) {
-  var type;
-  try {
-    f();
-  } catch (ex) {
-    type = ex.name;
-  }
-  assert.sameValue(type, 'TypeError');
-}
-
-
 
 var target = {};
 var p1 = new Proxy(target, {});
@@ -60,23 +49,22 @@ assert.sameValue(A.gf(p1), 15);
 
 // Despite P1 being stamped with A's field, it shouldn't
 // be sufficient to set B's field.
-assertThrowsTypeError(() => B.sf(p1));
-assertThrowsTypeError(() => B.gf(p1));
-assertThrowsTypeError(() => B.sf(p1));
+assert.throws(TypeError, () => B.sf(p1));
+assert.throws(TypeError, () => B.gf(p1));
+assert.throws(TypeError, () => B.sf(p1));
 new B(p1);
 assert.sameValue(B.gf(p1), 25);
 B.sf(p1);
 assert.sameValue(B.gf(p1), 20);
 
 // A's field should't be on the target
-assertThrowsTypeError(() => A.gf(target));
+assert.throws(TypeError, () => A.gf(target));
 
 // Can't set the field, doesn't exist
-assertThrowsTypeError(() => A.sf(p2));
+assert.throws(TypeError, () => A.sf(p2));
 
 // Definitely can't get the field, doesn't exist.
-assertThrowsTypeError(() => A.gf(p2));
+assert.throws(TypeError, () => A.gf(p2));
 
 // Still should't be on the target.
-assertThrowsTypeError(() => A.gf(target));
-
+assert.throws(TypeError, () => A.gf(target));

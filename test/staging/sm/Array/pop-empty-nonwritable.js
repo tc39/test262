@@ -11,13 +11,6 @@ description: |
 esid: pending
 ---*/
 
-try
-{
+assert.throws(TypeError, function() {
   Object.freeze([]).pop();
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "should have thrown TypeError, instead got: " + e);
-}
+});

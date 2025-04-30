@@ -24,15 +24,9 @@ function shouldNotThrow(script) {
 }
 
 function shouldThrowSyntaxError(script) {
-  let error;
-  try {
+  assert.throws(SyntaxError, function() {
     eval(script);
-  } catch (e) {
-    error = e;
-  }
-
-  if (!(error instanceof SyntaxError))
-    throw new Error('Expected SyntaxError!');
+  });
 }
 
 function testBasicCases() {

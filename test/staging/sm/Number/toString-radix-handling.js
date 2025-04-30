@@ -11,17 +11,11 @@ description: |
 esid: pending
 ---*/
 
-function test(r)
-{
-  try
-  {
+function test(r) {
+  assert.throws(RangeError, function() {
     5..toString(r);
-    throw "should have thrown";
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof RangeError, true, "expected a RangeError, got " + e);
-  }
+  });
 }
+
 test(Math.pow(2, 32) + 10);
 test(55);

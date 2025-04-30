@@ -11,12 +11,6 @@ description: |
 esid: pending
 ---*/
 
-try
-{
-  var r = JSON.parse();
-  throw new Error("didn't throw, returned " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true, "expected syntax error, got: " + e);
-}
+assert.throws(SyntaxError, function() {
+  JSON.parse();
+});

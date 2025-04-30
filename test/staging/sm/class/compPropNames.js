@@ -12,14 +12,9 @@ esid: pending
 
 // Function definitions.
 function syntaxError (script) {
-    try {
+    assert.throws(SyntaxError, function() {
         Function(script);
-    } catch (e) {
-        if (e instanceof SyntaxError) {
-            return;
-        }
-    }
-    throw new Error('Expected syntax error: ' + script);
+    });
 }
 
 
@@ -76,9 +71,9 @@ syntaxError("({[if (0) 0;]})");  // much less a Statement
 syntaxError("function f() { {[x]: 1} }");  // that's not even an ObjectLiteral
 syntaxError("function f() { [x]: 1 }");    // or that
 syntaxError('a = {[f1@]: "a", [f2]: "b"}'); // unexpected symbol at end of AssignmentExpression
-try { JSON.parse('{["a"]:4}'); } catch(e) {
-    if (!(e instanceof SyntaxError)) throw new Error('Expected syntax error');
-}
+assert.throws(SyntaxError, function() {
+    JSON.parse('{["a"]:4}');
+});
 
 // Property characteristics.
 a = { ["b"] : 4 };

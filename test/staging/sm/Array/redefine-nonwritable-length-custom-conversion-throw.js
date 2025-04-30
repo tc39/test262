@@ -27,8 +27,7 @@ var convertible =
 var arr = [];
 Object.defineProperty(arr, "length", { value: 0, writable: false });
 
-try
-{
+assert.throws(SyntaxError, function() {
   Object.defineProperty(arr, "length",
                         {
                           value: convertible,
@@ -36,12 +35,7 @@ try
                           configurable: true,
                           enumerable: true
                         });
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true, "expected SyntaxError, got " + e);
-}
+});
 
 assert.sameValue(count, 1);
 assert.sameValue(arr.length, 0);

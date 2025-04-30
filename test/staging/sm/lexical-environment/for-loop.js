@@ -13,16 +13,9 @@ esid: pending
 
 function isError(code, type)
 {
-  try
-  {
+  assert.throws(type, function() {
     Function(code);
-    throw new Error("didn't throw");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof type, true,
-             "unexpected error for `" + code + "`: got " + e);
-  }
+  });
 }
 
 function isOK(code)

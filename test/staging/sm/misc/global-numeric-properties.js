@@ -11,7 +11,7 @@ description: |
 esid: pending
 ---*/
 
-var desc, old, error;
+var desc, old;
 var global = this;
 
 var names = ["NaN", "Infinity", "undefined"];
@@ -29,22 +29,8 @@ for (var i = 0; i < names.length; i++)
   global[name] = 17;
   assert.sameValue(global[name], old, name + " changed on setting?");
 
-  error = "before";
-  try
-  {
-    throw new TypeError("SpiderMonkey doesn't currently implement " +
-                        "strict-mode throwing when setting a readonly " +
-                        "property, not running this bit of test for now; " +
-                        "see bug 537873");
-
-    (function() { "use strict"; global[name] = 42; error = "didn't throw"; })();
-  }
-  catch (e)
-  {
-    if (e instanceof TypeError)
-      error = "typeerror";
-    else
-      error = "bad exception: " + e;
-  }
-  assert.sameValue(error, "typeerror", "wrong strict mode error setting " + name);
+  assert.throws(TypeError, function() {
+    "use strict";
+    global[name] = 42;
+  }, "wrong strict mode error setting " + name);
 }
