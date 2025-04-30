@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Date.prototype.toJSON isn't to spec
 esid: pending
 ---*/
-var gTestfile = 'toJSON-01.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 584811;
-var summary = "Date.prototype.toJSON isn't to spec";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var called;
 
@@ -238,8 +228,3 @@ var obj = {};
 called = false;
 assert.sameValue(dateToJSON.call(o), obj, "should have gotten obj back");
 assert.sameValue(called, true);
-
-
-/******************************************************************************/
-
-print("All tests passed!");

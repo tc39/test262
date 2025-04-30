@@ -11,6 +11,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 /*
  * For the sake of cross compatibility with other implementations we
  * follow the W3C "NOTE-datetime" specification when parsing dates of
@@ -19,10 +20,6 @@ esid: pending
  * preceding the time part may be replaced with a space. So, a string like
  * "1997-3-8 1:1:1" will parse successfully. See bug: 1203298
  */
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.sameValue(new Date("1997-03-08 1:1:1.01").getTime(),
          new Date("1997-03-08T01:01:01.01").getTime());
@@ -70,7 +67,3 @@ assert.sameValue(new Date("1997-03-08T1:1:01").getTime(),
          new Date(NaN).getTime());
 assert.sameValue(new Date("1997-03-08T1:1:1").getTime(),
          new Date(NaN).getTime());
-
-/******************************************************************************/
-
-print("Tests complete");

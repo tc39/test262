@@ -6,19 +6,14 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Date.prototype.toString is a generic function
 esid: pending
 ---*/
-var BUGNUMBER = 861219;
-var summary = 'Date.prototype.toString is a generic function';
 
 // Revised in ECMA 2018, Date.prototype.toString is no longer generic (bug 1381433).
-
-print(BUGNUMBER + ": " + summary);
 
 for (var thisValue of [{}, [], /foo/, Date.prototype, new Proxy(new Date(), {})])
   assert.throws(TypeError, () => Date.prototype.toString.call(thisValue));
 
 for (var prim of [null, undefined, 0, 1.2, true, false, "foo", Symbol.iterator])
   assert.throws(TypeError, () => Date.prototype.toString.call(prim));
-
