@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Test for correct implementation of |Date == boolean| and vice versa
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Passing a Date object to |new Date()| should copy it, not convert it to a primitive and create it from that.
 esid: pending

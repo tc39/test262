@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   [[DefaultValue]] behavior wrong for Date with overridden valueOf/toString
 esid: pending

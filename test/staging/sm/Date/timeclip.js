@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   TimeClip behavior for very large numbers
 esid: pending

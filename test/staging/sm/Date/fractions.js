@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Fractional days, months, years shouldn't trigger asserts
 esid: pending

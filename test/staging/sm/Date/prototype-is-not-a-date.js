@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Date.prototype isn't an instance of Date
 esid: pending

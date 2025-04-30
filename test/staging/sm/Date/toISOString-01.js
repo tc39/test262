@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Date.prototype.toISOString returns an invalid ISO-8601 string
 esid: pending
