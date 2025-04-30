@@ -6,7 +6,6 @@
 /*---
 flags:
   - onlyStrict
-includes: [sm/non262.js, sm/non262-shell.js]
 description: |
   Don't assert assigning into memory detached while converting the value to assign into a number
 esid: pending

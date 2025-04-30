@@ -4,7 +4,6 @@
 /*---
 description: |
   `name` property of Iterator.prototype.forEach.
-includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 features:

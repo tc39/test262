@@ -6,7 +6,6 @@
 /*---
 flags:
   - onlyStrict
-includes: [sm/non262.js, sm/non262-shell.js]
 description: |
   |delete window.NaN| should throw a TypeError
 esid: pending
