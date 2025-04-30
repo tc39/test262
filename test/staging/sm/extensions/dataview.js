@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   DataView tests
 esid: pending
@@ -33,7 +31,7 @@ function test(sharedMem) {
     }
 
     // testConstructor
-    buffer = bufferize(new Uint8Array([1, 2]));
+    var buffer = bufferize(new Uint8Array([1, 2]));
     checkThrow(() => new DataView(buffer, 0, 3), RangeError);
     checkThrow(() => new DataView(buffer, 1, 2), RangeError);
     checkThrow(() => new DataView(buffer, 2, 1), RangeError);
@@ -49,7 +47,7 @@ function test(sharedMem) {
     var data1_r = data1.slice().reverse();
     var buffer1 = bufferize(new Uint8Array(data1));
     var view1 = new DataView(buffer1, 0, 16);
-    view = view1;
+    var view = view1;
     assert.sameValue(view.getInt8(0), 0);
     assert.sameValue(view.getInt8(8), -128);
     assert.sameValue(view.getInt8(15), -1);
