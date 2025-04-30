@@ -23,9 +23,6 @@ test();
 
 function test()
 {
-    printBugNumber(BUGNUMBER);
-    printStatus(summary);
-
     var TestPassCount = 0;
     var TestFailCount = 0;
     var TestTodoCount = 0;

@@ -12,9 +12,6 @@ esid: pending
 var BUGNUMBER = 1108382;
 var summary = 'Remove non-standard flag argument from String.prototype.{search,match,replace}.';
 
-printBugNumber(BUGNUMBER);
-printStatus (summary);
-
 var result = "bbbAa".match("a", "i");
 assert.sameValue(result.index, 4);
 assert.sameValue(result.length, 1);
