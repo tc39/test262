@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   All NaNs must be treated as identical keys for Map
 esid: pending
