@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Tests that IteratorClose is called in array destructuring patterns.
 esid: pending
