@@ -5,8 +5,6 @@
 
 /*---
 includes: [sm/non262-TypedArray-shell.js]
-flags:
-  - noStrict
 description: |
   Implement %TypedArray%.prototype.{find, findIndex}
 esid: pending
