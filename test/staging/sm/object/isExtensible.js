@@ -9,6 +9,7 @@ flags:
 description: |
   Object.isExtensible() should return false when given primitive values as input
 esid: pending
+features: [Symbol]
 ---*/
 
 assert.sameValue(Object.isExtensible(), false);
@@ -17,6 +18,4 @@ assert.sameValue(Object.isExtensible(null), false);
 assert.sameValue(Object.isExtensible(1), false);
 assert.sameValue(Object.isExtensible("foo"), false);
 assert.sameValue(Object.isExtensible(true), false);
-if (typeof Symbol === "function") {
-    assert.sameValue(Object.isExtensible(Symbol()), false);
-}
+assert.sameValue(Object.isExtensible(Symbol()), false);

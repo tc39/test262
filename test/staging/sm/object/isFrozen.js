@@ -9,6 +9,7 @@ flags:
 description: |
   Object.isFrozen() should return true when given primitive values as input
 esid: pending
+features: [Symbol]
 ---*/
 
 assert.sameValue(Object.isFrozen(), true);
@@ -17,6 +18,4 @@ assert.sameValue(Object.isFrozen(null), true);
 assert.sameValue(Object.isFrozen(1), true);
 assert.sameValue(Object.isFrozen("foo"), true);
 assert.sameValue(Object.isFrozen(true), true);
-if (typeof Symbol === "function") {
-    assert.sameValue(Object.isFrozen(Symbol()), true);
-}
+assert.sameValue(Object.isFrozen(Symbol()), true);
