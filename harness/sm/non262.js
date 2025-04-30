@@ -1,7 +1,6 @@
 /*---
 defines: [printBugNumber, inSection, printStatus, writeHeaderToLog,
-  assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, reportMatch, createIsHTMLDDA, createExternalArrayBuffer,
-  enableGeckoProfilingWithSlowAssertions, enableGeckoProfiling, disableGeckoProfiling]
+  assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, reportMatch, createIsHTMLDDA, createExternalArrayBuffer]
 ---*/
 
 function printBugNumber() {}
@@ -67,8 +66,4 @@ if (globalThis.createExternalArrayBuffer === undefined) {
   globalThis.createExternalArrayBuffer = function createExternalArrayBuffer(size) {
     return new ArrayBuffer(size);
   }
-}
-if (globalThis.enableGeckoProfilingWithSlowAssertions === undefined) {
-  globalThis.enableGeckoProfilingWithSlowAssertions = globalThis.enableGeckoProfiling =
-    globalThis.disableGeckoProfiling = () => {}
 }
