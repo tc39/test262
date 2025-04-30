@@ -83,6 +83,4 @@ function test(otherGlobal) {
     }
 }
 
-test(createNewGlobal());
-test(createNewGlobal({newCompartment: true}));
-
+test($262.createRealm().global);
