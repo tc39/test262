@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Valgrind errors in jsemit.cpp
 esid: pending
