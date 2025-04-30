@@ -8,13 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement the Nullish Coalescing operator (??) proposal
 esid: pending
 ---*/
-var BUGNUMBER = 1566141;
-var summary = "Implement the Nullish Coalescing operator (??) proposal";
-
-print(BUGNUMBER + ": " + summary);
 
 // These tests are originally from webkit.
 // webkit specifics have been removed and a test for `document.all` has
@@ -117,6 +113,3 @@ shouldBe(null?.() ?? 3, 3);
 shouldBe((() => 0)?.() ?? 3, 0);
 shouldBe(({ x: 0 })?.[null?.a ?? 'x'] ?? 3, 0);
 shouldBe((() => 0)?.(null?.a ?? 'x') ?? 3, 0);
-
-print("Tests complete");
-

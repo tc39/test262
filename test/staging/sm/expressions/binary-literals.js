@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement ES6 binary literals
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 894026;
-var summary = "Implement ES6 binary literals";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var chars = ['b', 'B'];
 
@@ -116,7 +107,3 @@ function strict()
   return 0b11010101;
 }
 assert.sameValue(strict(), 128 + 64 + 16 + 4 + 1);
-
-/******************************************************************************/
-
-print("Tests complete");

@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  __proto__ in object literals in non-__proto__:v contexts doesn't modify [[Prototype]]
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1061853;
-var summary =
-  "__proto__ in object literals in non-__proto__:v contexts doesn't modify " +
-  "[[Prototype]]";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function hasOwn(obj, prop)
 {
@@ -268,7 +257,3 @@ for (var first in members)
     }
   }
 }
-
-/******************************************************************************/
-
-print("Tests complete");

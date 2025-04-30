@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Convert computed property name expressions to property key before evaluating the property's value
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1199546;
-var summary =
-  "Convert computed property name expressions to property key before " +
-  "evaluating the property's value";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var s = "foo";
 var convertsToS = { toString() { return s; } };
@@ -39,7 +28,3 @@ var o = {
 
 assert.sameValue(o.foo, "abc");
 assert.sameValue(o.bar, "efg");
-
-/******************************************************************************/
-
-print("Tests complete");

@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  delete (foo), delete ((foo)), and so on are strict mode early errors
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1111101;
-var summary =
-  "delete (foo), delete ((foo)), and so on are strict mode early errors";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function checkSyntaxError(code)
 {
@@ -76,8 +66,3 @@ checkFine("function f() { delete (escape); } f();");
 checkFine("function f() { delete (escape); }");
 checkFine("function f() { delete ((escape)); } f();");
 checkFine("function f() { delete ((escape)); }");
-
-
-/******************************************************************************/
-
-print("Tests complete");

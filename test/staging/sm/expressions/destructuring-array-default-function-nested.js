@@ -6,15 +6,10 @@ includes: [sm/non262.js, sm/non262-shell.js, sm/non262-expressions-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Array destructuring with various default values in various context - function expression with nested objects
 esid: pending
 ---*/
-var BUGNUMBER = 1184922;
-var summary = "Array destructuring with various default values in various context - function expression with nested objects";
-
-print(BUGNUMBER + ": " + summary);
 
 testDestructuringArrayDefault("function f() { return { f() {}, *g() {}, r: /a/ }; }");
 testDestructuringArrayDefault("function* g() { return { f() {}, *g() {}, r: /b/ }; }");
 testDestructuringArrayDefault("() => { return { f() {}, *g() {}, r: /c/ }; }");
-

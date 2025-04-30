@@ -8,17 +8,11 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  { get x y() { } } is not valid getter syntax
 esid: pending
 ---*/
 // Contributor:
 //   Jeff Walden <jwalden+code@mit.edu>
-
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 999999;
-var summary = '{ get x y() { } } is not valid getter syntax';
-
-print(BUGNUMBER + ": " + summary);
 
 var BAD_CODE = ["({ get x y() { } })", "({ set x y(v) { } })"];
 
@@ -56,4 +50,3 @@ for (var i = 0, sz = BAD_CODE.length; i < sz; i++)
              "bad or no exception thrown for Function(" + code + "): " + err);
   }
 }
-

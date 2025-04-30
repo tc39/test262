@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  { get x(v) { } } and { set x(v, v2) { } } should be syntax errors
 esid: pending
 ---*/
-var gTestfile = 'object-literal-accessor-arguments.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 536472;
-var summary =
-  'ES5: { get x(v) { } } and { set x(v, v2) { } } should be syntax errors';
-
-print(BUGNUMBER + ": " + summary);
-
-//-----------------------------------------------------------------------------
 
 function expectSyntaxError(s)
 {
@@ -46,6 +37,3 @@ expectSyntaxError("({ set x(a, a) { } })");
 expectSyntaxError("({ set x(a, b) { } })");
 expectSyntaxError("({ set x(a, a, b) { } })");
 expectSyntaxError("({ set x(a, b, c) { } })");
-
-//-----------------------------------------------------------------------------
-

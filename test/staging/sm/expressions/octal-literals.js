@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement ES6 octal literals
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 894026;
-var summary = "Implement ES6 octal literals";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var chars = ['o', 'O'];
 
@@ -104,7 +95,3 @@ function strict()
   return 0o755;
 }
 assert.sameValue(strict(), 7 * 64 + 5 * 8 + 5);
-
-/******************************************************************************/
-
-print("Tests complete");
