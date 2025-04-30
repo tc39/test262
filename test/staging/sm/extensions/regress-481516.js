@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   pobj_ == obj2
 esid: pending
@@ -20,12 +18,12 @@ function test()
 {
   expect = '1111222';
 
-  a = {x: 1};
-  b = {__proto__: a};
-  c = {__proto__: b};
-  objs = [{__proto__: a}, {__proto__: a}, {__proto__: a}, b, {__proto__: a},
+  var a = {x: 1};
+  var b = {__proto__: a};
+  var c = {__proto__: b};
+  var objs = [{__proto__: a}, {__proto__: a}, {__proto__: a}, b, {__proto__: a},
           {__proto__: a}];
-  for (i = 0; i < 6; i++) {
+  for (var i = 0; i < 6; i++) {
     actual += ""+c.x;
     objs[i].x = 2;
   }

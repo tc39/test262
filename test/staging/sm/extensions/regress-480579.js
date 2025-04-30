@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Do not assert: pobj_ == obj2
 esid: pending
@@ -20,10 +18,10 @@ function test()
 {
   expect = '12';
 
-  a = {x: 1};
-  b = {__proto__: a};
-  c = {__proto__: b};
-  for (i = 0; i < 2; i++) {
+  var a = {x: 1};
+  var b = {__proto__: a};
+  var c = {__proto__: b};
+  for (var i = 0; i < 2; i++) {
     actual += c.x;
     b.x = 2;
   }
