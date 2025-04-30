@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Behavior when the JSON.parse reviver mutates the holder array
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 901351;
-var summary = "Behavior when the JSON.parse reviver mutates the holder array";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var proxyObj = null;
 
@@ -36,7 +27,3 @@ assert.sameValue(arr[0], 0);
 assert.sameValue(arr[1], proxyObj);
 assert.sameValue(arr[1].c, 17);
 assert.sameValue(arr[1].d, 42);
-
-/******************************************************************************/
-
-print("Tests complete");

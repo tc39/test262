@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Error.prototype.toString called on function objects should work as on any object
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 894653;
-var summary =
-  "Error.prototype.toString called on function objects should work as on any " +
-  "object";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function ErrorToString(v)
 {
@@ -46,7 +35,3 @@ assert.sameValue(ErrorToString(fn2), "blerch: fnord");
 var fn3 = function() {};
 fn3.message = "";
 assert.sameValue(ErrorToString(fn3), "fn3");
-
-/******************************************************************************/
-
-print("Tests complete!");

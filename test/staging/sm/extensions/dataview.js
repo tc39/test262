@@ -8,20 +8,13 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  DataView tests
 esid: pending
 ---*/
-//------------------------------------------------------------------------------
-var BUGNUMBER = 575688;
-var summary = 'DataView tests';
 
 function test(sharedMem) {
     function die(message, uplevel) {
-        var e = new Error(message);
-        var frame = e.stack.split("\n")[uplevel];
-        print(message + " at " + frame.split("@")[1]);
-        print("Stack:\n" + e.stack);
-        throw(e);
+        throw new Error(message);
     }
 
     function checkThrow(fun, type) {
@@ -36,23 +29,6 @@ function test(sharedMem) {
             die('no exception thrown, expected ' + type.name, 2);
         } else if (!(thrown instanceof type)) {
             die('expected ' + type.name + ', got ' + thrown, 2);
-        }
-    }
-
-    function checkThrowTODO(fun, type) {
-        var thrown = false;
-        try {
-            fun();
-        } catch (x) {
-            thrown = x;
-        }
-
-        if (!thrown) {
-            print('(TODO) no exception thrown, expected ' + type.name);
-        } else if (!(thrown instanceof type)) {
-            print('(TODO) expected ' + type.name + ', got ' + thrown);
-        } else {
-            print('test unexpectedly passed: expected ' + type.name + ' exception');
         }
     }
 
@@ -1596,10 +1572,7 @@ function test(sharedMem) {
     } catch (exc) {
         e = exc;
     }
-    if (!e) {
-        print("==== TODO but PASSED? ====");
-        print("Bug 753996 unexpectedly passed");
-    }
+    assert.notSameValue(e, null);
 
     // proto is proxy for view of buffer: should throw TypeError
     //
@@ -1607,8 +1580,8 @@ function test(sharedMem) {
     // TypeError, and in fact it throws a (thisglobal).TypeError instead of
     // alien.TypeError.
     var av = Object.create(alien_view);
-    checkThrowTODO(() => av.getUint8(4), alien.TypeError);
-    checkThrowTODO(() => av.buffer, alien.TypeError);
+    checkThrow(() => av.getUint8(4), alien.TypeError);
+    checkThrow(() => av.buffer, alien.TypeError);
 
     // view of object whose proto is buffer. This should not work per dherman.
     // Note that DataView throws a TypeError while TypedArrays create a

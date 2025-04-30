@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Expression closure syntax is only permitted for functions that constitute entire AssignmentExpressions, not PrimaryExpressions that are themselves components of larger binary expressions
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1416337;
-var summary =
-  "Expression closure syntax is only permitted for functions that constitute " +
-  "entire AssignmentExpressions, not PrimaryExpressions that are themselves " +
-  "components of larger binary expressions";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 {
   function assertThrowsSyntaxError(code)
@@ -67,4 +55,3 @@ print(BUGNUMBER + ": " + summary);
   assertThrowsSyntaxError("x = @@@() 0 ? 1 : a => {} && true");
   assertThrowsSyntaxError("x = true && @@@() 0 ? 1 : a => {}");
 }
-

@@ -16,7 +16,3 @@ function nonstrict() { return nonstrict.caller; }
 function strict() { "use strict"; return nonstrict(); }
 
 assert.sameValue(strict(), null);
-
-/******************************************************************************/
-
-print("All tests passed!");

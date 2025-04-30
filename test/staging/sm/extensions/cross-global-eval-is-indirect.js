@@ -10,20 +10,9 @@ flags:
 info: |
   needs newGlobal()
 description: |
-  pending
+  |var eval = otherWindow.eval; eval(...)| should behave like indirectly calling that eval from a script in that other window
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 608473;
-var summary =
-  '|var eval = otherWindow.eval; eval(...)| should behave like indirectly ' +
-  'calling that eval from a script in that other window';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var originalEval = eval;
 var res;
@@ -46,7 +35,3 @@ res = f();
 assert.sameValue(res[0] !== res[1], true);
 assert.sameValue(res[0], this);
 assert.sameValue(res[1], otherGlobal);
-
-/******************************************************************************/
-
-print("All tests passed!");
