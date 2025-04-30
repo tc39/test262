@@ -22,6 +22,6 @@ for (let method of [true, false, 0, 123, "", "abc", Symbol(), {}]) {
         [Symbol.toPrimitive]: method,
         toString: () => "pass",
     };
-    assertThrowsInstanceOf(() => "" + obj, TypeError);
+    assert.throws(TypeError, () => "" + obj);
 }
 

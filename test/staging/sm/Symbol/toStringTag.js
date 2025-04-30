@@ -62,7 +62,7 @@ function testProxy() {
     assert.sameValue(Object.prototype.toString.call(new Proxy(function() {}, metaHandler)), "[object Function]")
     var {proxy, revoke} = Proxy.revocable({}, metaHandler);
     revoke();
-    assertThrowsInstanceOf(() => Object.prototype.toString.call(proxy), TypeError);
+    assert.throws(TypeError, () => Object.prototype.toString.call(proxy));
 
     assert.sameValue(count, 4);
 }

@@ -88,7 +88,7 @@ assert.sameValue(descs.propertyIsEnumerable(s3), false); // inherited properties
 var obj = {};
 obj[s1] = 1;
 assert.sameValue(Object.preventExtensions(obj), obj);
-assertThrowsInstanceOf(function () { "use strict"; obj[s2] = 2; }, TypeError);
+assert.throws(TypeError, function () { "use strict"; obj[s2] = 2; });
 obj[s2] = 2;  // still no effect
 assert.sameValue(s2 in obj, false);
 

@@ -26,5 +26,5 @@ for (var sym of symbols) {
 // Any other value throws.
 var nonsymbols = [undefined, null, NaN, {}, Symbol.prototype];
 for (var nonsym of nonsymbols)
-    assertThrowsInstanceOf(() => Symbol.prototype.valueOf.call(nonsym), TypeError);
+    assert.throws(TypeError, () => Symbol.prototype.valueOf.call(nonsym));
 
