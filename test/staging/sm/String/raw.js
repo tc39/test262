@@ -14,12 +14,12 @@ var summary = 'String.raw';
 
 print(BUGNUMBER + ": " + summary);
 
-assertThrowsInstanceOf(function() { String.raw(); }, TypeError);
+assert.throws(TypeError, function() { String.raw(); });
 
 assert.sameValue(String.raw.length, 1);
 
 var cooked = [];
-assertThrowsInstanceOf(function() { String.raw(cooked); }, TypeError);
+assert.throws(TypeError, function() { String.raw(cooked); });
 
 cooked.raw = {};
 assert.sameValue(String.raw(cooked), "");

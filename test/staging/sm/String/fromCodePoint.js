@@ -31,17 +31,17 @@ assert.sameValue(String.fromCodePoint(0x61, 0x62, 0x1D307), 'ab\uD834\uDF07');
 assert.sameValue(String.fromCodePoint(false), '\0');
 assert.sameValue(String.fromCodePoint(null), '\0');
 
-assertThrowsInstanceOf(function() { String.fromCodePoint('_'); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint('+Infinity'); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint('-Infinity'); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(-1); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(0x10FFFF + 1); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(3.14); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(3e-2); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(Infinity); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(NaN); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint(undefined); }, RangeError);
-assertThrowsInstanceOf(function() { String.fromCodePoint({}); }, RangeError);
+assert.throws(RangeError, function() { String.fromCodePoint('_'); });
+assert.throws(RangeError, function() { String.fromCodePoint('+Infinity'); });
+assert.throws(RangeError, function() { String.fromCodePoint('-Infinity'); });
+assert.throws(RangeError, function() { String.fromCodePoint(-1); });
+assert.throws(RangeError, function() { String.fromCodePoint(0x10FFFF + 1); });
+assert.throws(RangeError, function() { String.fromCodePoint(3.14); });
+assert.throws(RangeError, function() { String.fromCodePoint(3e-2); });
+assert.throws(RangeError, function() { String.fromCodePoint(Infinity); });
+assert.throws(RangeError, function() { String.fromCodePoint(NaN); });
+assert.throws(RangeError, function() { String.fromCodePoint(undefined); });
+assert.throws(RangeError, function() { String.fromCodePoint({}); });
 
 var counter = Math.pow(2, 15) * 3 / 2;
 var result = [];

@@ -26,7 +26,7 @@ function testName(thisv) {
     if (key === "constructor") {
       assert.sameValue(String.prototype[key].call(thisv), "");
     } else if (failures.includes(key)) {
-      assertThrowsInstanceOf(() => String.prototype[key].call(thisv), TypeError, key);
+      assert.throws(TypeError, () => String.prototype[key].call(thisv), key);
     } else {
       var expected = `String.prototype.${key} called on incompatible ${thisv}`;
       assert.throws(TypeError, () => String.prototype[key].call(thisv), expected)

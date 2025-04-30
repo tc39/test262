@@ -20,25 +20,25 @@ assert.sameValue(String.prototype.replaceAll.length, 2);
 assert.sameValue(String.prototype.replaceAll.name, "replaceAll");
 
 // Throws if called with undefined or null.
-assertThrowsInstanceOf(() => String.prototype.replaceAll.call(undefined), TypeError);
-assertThrowsInstanceOf(() => String.prototype.replaceAll.call(null), TypeError);
+assert.throws(TypeError, () => String.prototype.replaceAll.call(undefined));
+assert.throws(TypeError, () => String.prototype.replaceAll.call(null));
 
 // Throws if called with a non-global RegExp.
-assertThrowsInstanceOf(() => "".replaceAll(/a/, ""), TypeError);
-assertThrowsInstanceOf(() => "".replaceAll(g.RegExp(""), ""), TypeError);
+assert.throws(TypeError, () => "".replaceAll(/a/, ""));
+assert.throws(TypeError, () => "".replaceAll(g.RegExp(""), ""));
 
 // Also throws with RegExp-like objects.
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
   "".replaceAll({[Symbol.match]: neverCalled, flags: ""}, "");
-}, TypeError);
+});
 
 // |flags| property mustn't be undefined or null.
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
   "".replaceAll({[Symbol.match]: neverCalled, flags: undefined}, "");
-}, TypeError);
-assertThrowsInstanceOf(() => {
+});
+assert.throws(TypeError, () => {
   "".replaceAll({[Symbol.match]: neverCalled, flags: null}, "");
-}, TypeError);
+});
 
 // Global RegExp (or RegExp-like) simply redirect to @@replace.
 assert.sameValue("aba".replace(/a/g, "c"), "cbc");
