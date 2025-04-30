@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-Math-shell.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
