@@ -4,8 +4,6 @@
 /*---
 features:
   - IsHTMLDDA
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
