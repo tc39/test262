@@ -9,8 +9,6 @@ info: |
   17 ECMAScript Standard Built-in Objects
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 assert.sameValue(Iterator.prototype.filter.name, 'filter');
 

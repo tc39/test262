@@ -6,8 +6,6 @@ info: |
   The prototype of the Iterator constructor is the intrinsic object %FunctionPrototype%.
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 description: |

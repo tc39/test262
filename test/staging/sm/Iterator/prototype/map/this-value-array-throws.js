@@ -8,8 +8,6 @@ description: |
 features:
   - Symbol.iterator
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

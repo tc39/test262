@@ -7,8 +7,6 @@ description: |
   Throw TypeError if `next` call returns non-object.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

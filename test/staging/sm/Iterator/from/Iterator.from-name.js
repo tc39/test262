@@ -4,8 +4,6 @@
 /*---
 description: |
   `name` property of Iterator.from.
-flags:
-  - noStrict
 features:
   - iterator-helpers
 info: |

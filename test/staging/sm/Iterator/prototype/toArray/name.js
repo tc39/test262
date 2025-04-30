@@ -4,8 +4,6 @@
 /*---
 description: |
   `name` property of Iterator.prototype.toArray.
-flags:
-  - noStrict
 features:
   - iterator-helpers
 info: |

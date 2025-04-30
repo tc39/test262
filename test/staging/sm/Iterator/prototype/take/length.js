@@ -10,8 +10,6 @@ info: |
 features:
   - Symbol.iterator
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 assert.sameValue(Iterator.prototype.take.length, 1);
 

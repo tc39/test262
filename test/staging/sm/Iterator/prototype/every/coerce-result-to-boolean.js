@@ -5,8 +5,6 @@
 features:
   - IsHTMLDDA
   - iterator-helpers
-flags:
-  - noStrict
 info: |
   Iterator is not enabled unconditionally
 description: |

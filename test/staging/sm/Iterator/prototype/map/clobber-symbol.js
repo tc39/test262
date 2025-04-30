@@ -9,8 +9,6 @@ features:
   - Symbol
   - Symbol.iterator
   - iterator-helpers
-flags:
-  - noStrict
 info: |
   Iterator is not enabled unconditionally
 ---*/

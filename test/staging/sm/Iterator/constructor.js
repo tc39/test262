@@ -6,8 +6,6 @@ info: |
   The Iterator constructor is a built-in function.
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 description: |

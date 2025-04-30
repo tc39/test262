@@ -6,8 +6,6 @@ info: |
   The "length" property of Iterator
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 description: |

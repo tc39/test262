@@ -4,8 +4,6 @@
 /*---
 description: |
   `name` property of Iterator.prototype.some.
-flags:
-  - noStrict
 features:
   - iterator-helpers
 info: |
