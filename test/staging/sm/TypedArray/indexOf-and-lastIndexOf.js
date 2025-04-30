@@ -43,9 +43,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.indexOf.call(invalidReceiver);
-        }, TypeError, "Assert that indexOf fails if this value is not a TypedArray");
+        }, "Assert that indexOf fails if this value is not a TypedArray");
     });
 
     // test that this.length is never called
@@ -104,9 +104,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.lastIndexOf.call(invalidReceiver);
-        }, TypeError, "Assert that lastIndexOf fails if this value is not a TypedArray");
+        }, "Assert that lastIndexOf fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.

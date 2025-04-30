@@ -18,7 +18,7 @@ const typedArray = new Int32Array(0);
 
 // Throws if the comparator is neither undefined nor callable.
 for (let invalidComparator of [null, 0, true, Symbol(), {}, []]) {
-    assertThrowsInstanceOf(() => typedArray.sort(invalidComparator), TypeError);
+    assert.throws(TypeError, () => typedArray.sort(invalidComparator));
 }
 
 // Doesn't throw if the comparator is undefined or a callable object.

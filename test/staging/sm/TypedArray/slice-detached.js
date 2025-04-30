@@ -32,9 +32,9 @@ if (typeof $262.detachArrayBuffer === "function") {
     // ArrayBuffer is detached when entering slice().
     for (let {typedArray, buffer} of createTypedArrays()) {
         $262.detachArrayBuffer(buffer());
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             typedArray.slice(0);
-        }, TypeError, "ArrayBuffer is detached on function entry");
+        }, "ArrayBuffer is detached on function entry");
     }
 
     // ArrayBuffer is detached when computing ToInteger(start).
@@ -54,9 +54,9 @@ if (typeof $262.detachArrayBuffer === "function") {
         if (length === 0) {
             typedArray.slice(start);
         } else {
-            assertThrowsInstanceOf(() => {
+            assert.throws(TypeError, () => {
                 typedArray.slice(start);
-            }, TypeError, "ArrayBuffer is detached in ToInteger(start)");
+            }, "ArrayBuffer is detached in ToInteger(start)");
         }
         assert.sameValue(detached, true, "$262.detachArrayBuffer was called");
     }
@@ -78,9 +78,9 @@ if (typeof $262.detachArrayBuffer === "function") {
         if (length === 0) {
             typedArray.slice(0, end);
         } else {
-            assertThrowsInstanceOf(() => {
+            assert.throws(TypeError, () => {
                 typedArray.slice(0, end);
-            }, TypeError, "ArrayBuffer is detached in ToInteger(end)");
+            }, "ArrayBuffer is detached in ToInteger(end)");
         }
         assert.sameValue(detached, true, "$262.detachArrayBuffer was called");
     }
@@ -102,9 +102,9 @@ if (typeof $262.detachArrayBuffer === "function") {
         if (length === 0) {
             typedArray.slice(0);
         } else {
-            assertThrowsInstanceOf(() => {
+            assert.throws(TypeError, () => {
                 typedArray.slice(0);
-            }, TypeError, "ArrayBuffer is detached in TypedArraySpeciesCreate(...)");
+            }, "ArrayBuffer is detached in TypedArraySpeciesCreate(...)");
         }
         assert.sameValue(detached, true, "$262.detachArrayBuffer was called");
     }

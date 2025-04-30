@@ -35,11 +35,11 @@ anyTypedArrayConstructors.forEach(constructor => {
             thisValues.push(Symbol());
 
         thisValues.forEach(thisArg =>
-            assertThrowsInstanceOf(() => arr[method].call(thisArg, () => true), TypeError)
+            assert.throws(TypeError, () => arr[method].call(thisArg, () => true))
         );
 
-        assertThrowsInstanceOf(() => arr[method](), TypeError);
-        assertThrowsInstanceOf(() => arr[method](1), TypeError);
+        assert.throws(TypeError, () => arr[method]());
+        assert.throws(TypeError, () => arr[method](1));
     });
 });
 

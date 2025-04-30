@@ -15,5 +15,5 @@ esid: pending
 var ta = new Int32Array(4);
 $262.detachArrayBuffer(ta.buffer);
 
-assertThrowsInstanceOf(() => Int32Array.from(ta), TypeError);
+assert.throws(TypeError, () => Int32Array.from(ta));
 

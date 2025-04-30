@@ -39,9 +39,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.entries.call(invalidReceiver);
-        }, TypeError, "Assert that entries fails if this value is not a TypedArray");
+        }, "Assert that entries fails if this value is not a TypedArray");
     });
 }
 

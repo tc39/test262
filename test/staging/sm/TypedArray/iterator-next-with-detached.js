@@ -68,14 +68,14 @@ if (typeof $262.detachArrayBuffer === "function" && typeof createNewGlobal === "
       checkResult(thisNext.call(iterator), {value: 2, done: false});
 
       bufferGlobal.$262.detachArrayBuffer(buffer);
-      assertThrowsInstanceOf(() => thisNext.call(iterator), TypeError);
+      assert.throws(TypeError, () => thisNext.call(iterator));
 
       // Test an unexhausted iterator.
       [arr, buffer, iterator] = arrayBufferIterator();
       checkResult(thisNext.call(iterator), {value: 1, done: false});
 
       bufferGlobal.$262.detachArrayBuffer(buffer);
-      assertThrowsInstanceOf(() => thisNext.call(iterator), TypeError);
+      assert.throws(TypeError, () => thisNext.call(iterator));
     }
   }
 }

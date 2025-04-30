@@ -24,5 +24,5 @@ let obj = {
 };
 
 // Throws a SyntaxError, because "huzzah!" can't be parsed as a BigInt.
-assertThrowsInstanceOf(() => ta.set(obj), SyntaxError);
+assert.throws(SyntaxError, () => ta.set(obj));
 

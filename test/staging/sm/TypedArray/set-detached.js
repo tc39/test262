@@ -27,11 +27,11 @@ if (typeof $262.detachArrayBuffer === "function") {
     for (let {typedArray, buffer} of createTypedArrays()) {
         $262.detachArrayBuffer(buffer);
 
-        assertThrowsInstanceOf(() => typedArray.set(null, {
+        assert.throws(ExpectedError, () => typedArray.set(null, {
             valueOf() {
                 throw new ExpectedError();
             }
-        }), ExpectedError);
+        }));
     }
 
     // Check for detached buffer after calling ToInteger(offset). Test with:
@@ -41,12 +41,12 @@ if (typeof $262.detachArrayBuffer === "function") {
     for (let [offset, error] of [[0, TypeError], [1000000, TypeError], [-1, RangeError]]) {
         for (let source of [[], [0], new Int32Array(0), new Int32Array(1)]) {
             for (let {typedArray, buffer} of createTypedArrays()) {
-                assertThrowsInstanceOf(() => typedArray.set(source, {
+                assert.throws(error, () => typedArray.set(source, {
                     valueOf() {
                         $262.detachArrayBuffer(buffer);
                         return offset;
                     }
-                }), error);
+                }));
             }
         }
     }
@@ -56,11 +56,11 @@ if (typeof $262.detachArrayBuffer === "function") {
         for (let {typedArray: source, buffer: sourceBuffer} of createTypedArrays()) {
             $262.detachArrayBuffer(sourceBuffer);
 
-            assertThrowsInstanceOf(() => typedArray.set(source, {
+            assert.throws(ExpectedError, () => typedArray.set(source, {
                 valueOf() {
                     throw new ExpectedError();
                 }
-            }), ExpectedError);
+            }));
         }
     }
 
@@ -71,12 +71,12 @@ if (typeof $262.detachArrayBuffer === "function") {
     for (let [offset, error] of [[0, TypeError], [1000000, TypeError], [-1, RangeError]]) {
         for (let {typedArray} of createTypedArrays()) {
             for (let {typedArray: source, buffer: sourceBuffer} of createTypedArrays()) {
-                assertThrowsInstanceOf(() => typedArray.set(source, {
+                assert.throws(error, () => typedArray.set(source, {
                     valueOf() {
                         $262.detachArrayBuffer(sourceBuffer);
                         return offset;
                     }
-                }), error);
+                }));
             }
         }
     }
@@ -89,12 +89,12 @@ if (typeof $262.detachArrayBuffer === "function") {
     for (let src of [ta => ta, ta => new Int32Array(ta.buffer), ta => new Float32Array(ta.buffer)]) {
         for (let {typedArray, buffer} of createTypedArrays()) {
             let source = src(typedArray);
-            assertThrowsInstanceOf(() => typedArray.set(source, {
+            assert.throws(TypeError, () => typedArray.set(source, {
                 valueOf() {
                     $262.detachArrayBuffer(buffer);
                     return 0;
                 }
-            }), TypeError);
+            }));
         }
     }
 
@@ -142,7 +142,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         };
         if (typedArray.length === 0) {
-            assertThrowsInstanceOf(() => typedArray.set(source), RangeError);
+            assert.throws(RangeError, () => typedArray.set(source));
         } else {
             typedArray.set(source);
         }
@@ -162,7 +162,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         };
         let err = typedArray.length === 0 ? RangeError : ExpectedError;
-        assertThrowsInstanceOf(() => typedArray.set(source), err);
+        assert.throws(err, () => typedArray.set(source));
     }
 
     // Same as above, but with side-effect when executing ToNumber(Get(src, "0")).
@@ -183,7 +183,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         };
         let err = typedArray.length === 0 ? RangeError : ExpectedError;
-        assertThrowsInstanceOf(() => typedArray.set(source), err);
+        assert.throws(err, () => typedArray.set(source));
     }
 
     // Side-effects when getting the source elements detach the buffer.
@@ -197,7 +197,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         });
         if (typedArray.length === 0) {
-            assertThrowsInstanceOf(() => typedArray.set(source), RangeError);
+            assert.throws(RangeError, () => typedArray.set(source));
         } else {
             typedArray.set(source);
         }
@@ -223,7 +223,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         });
         if (typedArray.length <= 1) {
-            assertThrowsInstanceOf(() => typedArray.set(source), RangeError);
+            assert.throws(RangeError, () => typedArray.set(source));
         } else {
             assert.sameValue(accessed, false);
             typedArray.set(source);
@@ -240,7 +240,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         }];
         if (typedArray.length === 0) {
-            assertThrowsInstanceOf(() => typedArray.set(source), RangeError);
+            assert.throws(RangeError, () => typedArray.set(source));
         } else {
             typedArray.set(source);
         }
@@ -263,7 +263,7 @@ if (typeof $262.detachArrayBuffer === "function") {
             }
         }];
         if (typedArray.length <= 1) {
-            assertThrowsInstanceOf(() => typedArray.set(source), RangeError);
+            assert.throws(RangeError, () => typedArray.set(source));
         } else {
             assert.sameValue(accessed, false);
             typedArray.set(source);
