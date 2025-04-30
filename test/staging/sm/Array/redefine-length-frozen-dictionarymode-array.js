@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Assertion redefining length property of a frozen dictionary-mode array
 esid: pending

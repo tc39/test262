@@ -5,8 +5,6 @@
 
 /*---
 includes: [deepEqual.js]
-flags:
-  - noStrict
 description: |
   Array.prototype.fill
 esid: pending
