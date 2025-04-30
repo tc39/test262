@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Destructuring should evaluate lhs reference before rhs in super property
 esid: pending
