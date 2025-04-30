@@ -33,8 +33,6 @@ verifyProperty(Array_unscopables, "values", {
 
 let keys = Reflect.ownKeys(Array_unscopables);
 
-// FIXME: Once bug 1826643 is fixed, change this test so that all
-// the keys are in alphabetical order
 let expectedKeys = [
     "at",
     "copyWithin",

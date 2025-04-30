@@ -46,12 +46,6 @@ function ToString(name) {
 function logger(obj, prefix=[]) {
   let wrapped = new Proxy(obj, {
     get(that, name) {
-      if (name == "return") {
-        // FIXME: Bug 1147371.
-        // We ignore IteratorClose for now.
-        return obj[name];
-      }
-
       let names = prefix.concat(ToString(name));
       log("rhs get " + names.join("::"));
       let v = obj[name];
@@ -91,6 +85,8 @@ assert.sameValue(logs.join(","),
            "rhs get @@iterator()::next()::done",
            "rhs get @@iterator()::next()::value",
            "lhs set a",
+
+           "rhs get @@iterator()::return",
          ].join(","));
 assert.sameValue(storage.values.a, "A");
 
@@ -110,6 +106,8 @@ assert.sameValue(logs.join(","),
            "rhs get @@iterator()::next()::done",
            "rhs get @@iterator()::next()::value",
            "lhs set a",
+
+           "rhs get @@iterator()::return",
          ].join(","));
 assert.sameValue(storage.values.a, "A");
 
@@ -295,6 +293,8 @@ assert.sameValue(logs.join(","),
            "rhs call @@iterator()::next()::value::@@iterator()::next",
            "rhs get @@iterator()::next()::value::@@iterator()::next()::done",
            "lhs set b",
+
+           "rhs get @@iterator()::return",
          ].join(","));
 assert.sameValue(storage.values.a, "A");
 assert.sameValue(storage.values.b.length, 1);
@@ -356,6 +356,8 @@ assert.sameValue(logs.join(","),
            "lhs before name a",
            "rhs get @@iterator()::next()::value::a",
            "lhs set a",
+
+           "rhs get @@iterator()::return",
          ].join(","));
 assert.sameValue(storage.values.a, "A");
 
@@ -419,6 +421,8 @@ assert.sameValue(logs.join(","),
            "rhs get a::@@iterator()::next()::done",
            "rhs get a::@@iterator()::next()::value",
            "lhs set b",
+
+           "rhs get a::@@iterator()::return",
          ].join(","));
 assert.sameValue(storage.values.b, "B");
 
@@ -558,6 +562,8 @@ assert.sameValue(logs.join(","),
            "rhs get @@iterator()::next()::value::@@iterator()::next()::value::d::f::@@iterator()::next()::done",
            "rhs get @@iterator()::next()::value::@@iterator()::next()::value::d::f::@@iterator()::next()::value",
            "lhs set g",
+           "rhs get @@iterator()::next()::value::@@iterator()::next()::value::d::f::@@iterator()::return",
+           "rhs get @@iterator()::next()::value::@@iterator()::return",
 
            "rhs call @@iterator()::next",
            "rhs get @@iterator()::next()::done",
@@ -595,6 +601,8 @@ assert.sameValue(logs.join(","),
            "rhs get @@iterator()::next()::value::i::@@iterator()::next()::value::k::@@iterator()::next()::done",
            "rhs get @@iterator()::next()::value::i::@@iterator()::next()::value::k::@@iterator()::next()::value",
            "lhs set l",
+           "rhs get @@iterator()::next()::value::i::@@iterator()::next()::value::k::@@iterator()::return",
+           "rhs get @@iterator()::next()::value::i::@@iterator()::return",
 
            "rhs call @@iterator()::next",
            "rhs get @@iterator()::next()::done",
@@ -653,6 +661,8 @@ assert.sameValue(logs.join(","),
            "rhs get @@iterator()::next()::value::@@iterator()::next()::value::p::r::@@iterator()::next()::done",
            "rhs get @@iterator()::next()::value::@@iterator()::next()::value::p::r::@@iterator()::next()::value",
            "lhs set s",
+           "rhs get @@iterator()::next()::value::@@iterator()::next()::value::p::r::@@iterator()::return",
+           "rhs get @@iterator()::next()::value::@@iterator()::return",
 
            "lhs before obj t",
            "lhs before name t",
@@ -696,6 +706,8 @@ assert.sameValue(logs.join(","),
            "rhs get @@iterator()::next()::value::@@iterator()::next()::value::w::y::@@iterator()::next()::done",
            "rhs get @@iterator()::next()::value::@@iterator()::next()::value::w::y::@@iterator()::next()::value",
            "lhs set z",
+           "rhs get @@iterator()::next()::value::@@iterator()::next()::value::w::y::@@iterator()::return",
+           "rhs get @@iterator()::next()::value::@@iterator()::return",
 
            "lhs before obj length",
            "lhs before name length",
