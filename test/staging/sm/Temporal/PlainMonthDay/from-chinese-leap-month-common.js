@@ -63,8 +63,8 @@ for (let monthCode of monthCodes) {
   assert.sameValue(constrain.day, day);
   assertSameISOFields(constrain, pmd);
 
-  assertThrowsInstanceOf(() => {
+  assert.throws(RangeError, () => {
     Temporal.PlainMonthDay.from({calendar, monthCode, day: day + 1}, {overflow: "reject"});
-  }, RangeError);
+  });
 }
 
