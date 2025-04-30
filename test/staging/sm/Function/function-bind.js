@@ -47,27 +47,22 @@ assert.sameValue(strictReturnThis.bind("foopy")(), "foopy");
 
 // rigorous, step-by-step testing
 
-function expectThrowTypeError(fun)
-{
-  assertThrowsInstanceOf(fun, TypeError);
-}
-
 /*
  * 1. Let Target be the this value.
  * 2. If IsCallable(Target) is false, throw a TypeError exception.
  */
-expectThrowTypeError(function() { bind.call(null); });
-expectThrowTypeError(function() { bind.call(undefined); });
-expectThrowTypeError(function() { bind.call(NaN); });
-expectThrowTypeError(function() { bind.call(0); });
-expectThrowTypeError(function() { bind.call(-0); });
-expectThrowTypeError(function() { bind.call(17); });
-expectThrowTypeError(function() { bind.call(42); });
-expectThrowTypeError(function() { bind.call("foobar"); });
-expectThrowTypeError(function() { bind.call(true); });
-expectThrowTypeError(function() { bind.call(false); });
-expectThrowTypeError(function() { bind.call([]); });
-expectThrowTypeError(function() { bind.call({}); });
+assert.throws(TypeError, function() { bind.call(null); });
+assert.throws(TypeError, function() { bind.call(undefined); });
+assert.throws(TypeError, function() { bind.call(NaN); });
+assert.throws(TypeError, function() { bind.call(0); });
+assert.throws(TypeError, function() { bind.call(-0); });
+assert.throws(TypeError, function() { bind.call(17); });
+assert.throws(TypeError, function() { bind.call(42); });
+assert.throws(TypeError, function() { bind.call("foobar"); });
+assert.throws(TypeError, function() { bind.call(true); });
+assert.throws(TypeError, function() { bind.call(false); });
+assert.throws(TypeError, function() { bind.call([]); });
+assert.throws(TypeError, function() { bind.call({}); });
 
 
 /*
@@ -254,8 +249,8 @@ function testBound(fun)
   assert.sameValue(Object.getOwnPropertyDescriptor(boundf, "caller"), undefined,
            "should be no caller property");
 
-  expectThrowTypeError(function() { return boundf.arguments; });
-  expectThrowTypeError(function() { return boundf.caller; });
+  assert.throws(TypeError, function() { return boundf.arguments; });
+  assert.throws(TypeError, function() { return boundf.caller; });
 }
 
 testBound(strict);
