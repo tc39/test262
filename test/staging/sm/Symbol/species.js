@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -24,7 +24,7 @@ for (C of [Array, Map, Set, RegExp,
            TypedArray,
            ArrayBuffer]) {
   var desc = Object.getOwnPropertyDescriptor(C, Symbol.species);
-  assert.deepEqual(Object.keys(desc).sort(), ["configurable", "enumerable", "get", "set"]);
+  assert.compareArray(Object.keys(desc).sort(), ["configurable", "enumerable", "get", "set"]);
   assert.sameValue(desc.set, undefined);
   assert.sameValue(desc.enumerable, false);
   assert.sameValue(desc.configurable, true);

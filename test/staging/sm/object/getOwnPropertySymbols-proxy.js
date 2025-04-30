@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -31,6 +31,6 @@ function OwnKeysProxy() {
     return new Proxy({}, new HandlerProxy);
 }
 
-assert.deepEqual(Object.getOwnPropertySymbols(new OwnKeysProxy), symbols);
+assert.compareArray(Object.getOwnPropertySymbols(new OwnKeysProxy), symbols);
 assert.sameValue(hits, 1);
 

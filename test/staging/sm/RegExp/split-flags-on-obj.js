@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -15,11 +15,11 @@ delete RegExp.prototype.flags;
 
 let re = /a/i;
 let a = re[Symbol.split]("1a2A3a4A5");
-assert.deepEqual(a, ["1", "2", "3", "4", "5"]);
+assert.compareArray(a, ["1", "2", "3", "4", "5"]);
 
 delete Object.prototype.flags;
 
 Object.prototype.flags = "";
 
 a = re[Symbol.split]("1a2A3a4A5");
-assert.deepEqual(a, ["1", "2A3", "4A5"]);
+assert.compareArray(a, ["1", "2A3", "4A5"]);

@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -44,7 +44,7 @@ var cases = [
      keys: Reflect.ownKeys(Math)}
 ];
 for (var {object, keys} of cases)
-    assert.deepEqual(Reflect.ownKeys(object), keys);
+    assert.compareArray(Reflect.ownKeys(object), keys);
 
 // Reflect.ownKeys() creates a new array each time it is called.
 var object = {}, keys = [];
@@ -61,7 +61,7 @@ proxy = new Proxy(obj, {
     ownKeys() { return keys; }
 });
 var actual = Reflect.ownKeys(proxy);
-assert.deepEqual(actual, keys);  // we get correct answers
+assert.compareArray(actual, keys);  // we get correct answers
 assert.sameValue(actual !== keys, true);  // but not the same object
 
 // If a proxy breaks invariants, a TypeError is thrown.
