@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Computed Property Names
 esid: pending
@@ -77,7 +75,7 @@ assert.throws(SyntaxError, function() {
 
 // Property characteristics.
 a = { ["b"] : 4 };
-b = Object.getOwnPropertyDescriptor(a, "b");
+var b = Object.getOwnPropertyDescriptor(a, "b");
 assert.sameValue(b.configurable, true);
 assert.sameValue(b.enumerable, true);
 assert.sameValue(b.writable, true);
@@ -222,7 +220,7 @@ assert.sameValue(a[expr], 5);
 assertThrowsValue(() => { a[expr] = 7; }, 4);
 
 // expressions with side effects are called in the right order
-log = "";
+var log = "";
 obj = {
     "a": log += 'a',
     get [log += 'b']() {},
