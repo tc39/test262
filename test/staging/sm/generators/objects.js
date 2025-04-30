@@ -22,10 +22,10 @@ function TestGeneratorObject() {
 
   var iter = g();
   assert.sameValue(Object.getPrototypeOf(iter), g.prototype);
-  assertTrue(iter instanceof g);
+  assert.sameValue(iter instanceof g, true);
   assert.sameValue(String(iter), "[object Generator]");
   assert.deepEqual(Object.getOwnPropertyNames(iter), []);
-  assertNotEq(g(), iter);
+  assert.notSameValue(g(), iter);
 }
 TestGeneratorObject();
 
