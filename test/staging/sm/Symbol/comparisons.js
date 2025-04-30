@@ -36,7 +36,7 @@ for (var comparator of ["<", "<=", ">", ">="]) {
     var f = Function("a, b", "return a " + comparator + " b;");
     for (var a of symbols) {
         for (var b of values)
-            assertThrowsInstanceOf(() => f(a, b), TypeError);
+            assert.throws(TypeError, () => f(a, b));
     }
 }
 
