@@ -95,10 +95,10 @@ function test() {
             }
         };
     };
-    assertThrowsInstanceOf(function() {
+    assert.throws(TypeError, function() {
         for (var x of iterable)
             break;
-    }, TypeError);
+    });
     assert.sameValue(returnCalled, ++returnCalledExpected);
 
     // continue doesn't call iter.return for the loop it's continuing
