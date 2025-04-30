@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-Set-shell.js, deepEqual.js, compareArray.js]
+includes: [sm/non262-Set-shell.js, compareArray.js, propertyHelper.js]
 flags:
   - noStrict
 description: |
@@ -11,10 +11,10 @@ esid: pending
 ---*/
 
 assert.sameValue(typeof Set.prototype.isSubsetOf, "function");
-assert.deepEqual(Object.getOwnPropertyDescriptor(Set.prototype.isSubsetOf, "length"), {
+verifyProperty(Set.prototype.isSubsetOf, "length", {
   value: 1, writable: false, enumerable: false, configurable: true,
 });
-assert.deepEqual(Object.getOwnPropertyDescriptor(Set.prototype.isSubsetOf, "name"), {
+verifyProperty(Set.prototype.isSubsetOf, "name", {
   value: "isSubsetOf", writable: false, enumerable: false, configurable: true,
 });
 

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-TypedArray-shell.js, deepEqual.js]
+includes: [sm/non262-TypedArray-shell.js, propertyHelper.js]
 flags:
   - noStrict
 description: |
@@ -21,11 +21,13 @@ assert.sameValue(TypedArrayPrototype.toLocaleString === Array.prototype.toLocale
 // The concrete TypedArray prototypes do not have an own "toLocaleString" property.
 assert.sameValue(anyTypedArrayConstructors.every(c => !c.hasOwnProperty("toLocaleString")), true);
 
-assert.deepEqual(Object.getOwnPropertyDescriptor(TypedArrayPrototype, "toLocaleString"), {
+verifyProperty(TypedArrayPrototype, "toLocaleString", {
     value: TypedArrayPrototype.toLocaleString,
     writable: true,
     enumerable: false,
     configurable: true,
+}, {
+    restore: true
 });
 
 assert.sameValue(TypedArrayPrototype.toLocaleString.name, "toLocaleString");
@@ -86,4 +88,3 @@ for (let constructor of anyTypedArrayConstructors) {
     assert.sameValue(called, true);
 }
 Number.prototype.toLocaleString = originalNumberToLocaleString;
-
