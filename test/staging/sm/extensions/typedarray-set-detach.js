@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Uint8Array.prototype.set issues when this array changes during setting
 esid: pending

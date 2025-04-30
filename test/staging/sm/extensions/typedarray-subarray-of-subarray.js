@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   new Int8Array([1, 2, 3]).subarray(1).subarray(1)[0] === 3
 esid: pending

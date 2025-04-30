@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   __proto__ should show up with O.getOwnPropertyNames(O.prototype)
 esid: pending

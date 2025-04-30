@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Expression closure syntax is only permitted for functions that constitute entire AssignmentExpressions, not PrimaryExpressions that are themselves components of larger binary expressions
 esid: pending
