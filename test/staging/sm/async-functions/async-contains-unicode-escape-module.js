@@ -12,4 +12,6 @@ flags:
   - module
 ---*/
 
+$DONOTEVALUATE();
+
 export default \u0061sync function f() {}
