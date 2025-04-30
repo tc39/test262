@@ -14,5 +14,5 @@ var bufView = new DataView(buf);
 
 $262.detachArrayBuffer(buf);
 
-assertThrowsInstanceOf(() => bufView.getInt8(0), TypeError);
+assert.throws(TypeError, () => bufView.getInt8(0));
 

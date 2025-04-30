@@ -102,7 +102,7 @@ esid: pending
     }
 
     assert.sameValue(true, Object.isFrozen(JSON.rawJSON('"shouldBeFrozen"')));
-    assertThrowsInstanceOf(() => JSON.rawJSON(), SyntaxError);
+    assert.throws(SyntaxError, () => JSON.rawJSON());
     assertIsRawJson(JSON.rawJSON(1, 2), '1');
 })();
 
@@ -125,9 +125,9 @@ esid: pending
     assert.sameValue(TypeError !== otherGlobal.TypeError, true);
 
     assertErrorComesFromCorrectRealm = (fun, thisRealmType) => {
-        assertThrowsInstanceOf(() => fun(this), thisRealmType,
+        assert.throws(thisRealmType, () => fun(this),
             `${thisRealmType.name} should come from this realm.`);
-        assertThrowsInstanceOf(() => fun(otherGlobal), otherGlobal[thisRealmType.name],
+        assert.throws(otherGlobal[thisRealmType.name], () => fun(otherGlobal),
             `${thisRealmType.name} should come from the other realm.`);
     }
 

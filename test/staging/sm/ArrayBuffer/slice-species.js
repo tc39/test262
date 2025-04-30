@@ -105,7 +105,7 @@ for (let [ctor, answer] of tests) {
     a.constructor = {
       [Symbol.species]: species
     };
-    assertThrowsInstanceOf(() => a.slice(8, 16), TypeError);
+    assert.throws(TypeError, () => a.slice(8, 16));
   }
 
   // undefined constructor
@@ -119,7 +119,7 @@ for (let [ctor, answer] of tests) {
   for (let ctor of [null, 0, 1.1, true, false, "a", Symbol.iterator]) {
     a = arr.buffer;
     a.constructor = ctor;
-    assertThrowsInstanceOf(() => a.slice(8, 16), TypeError);
+    assert.throws(TypeError, () => a.slice(8, 16));
   }
 
   // @@species from different global

@@ -19,8 +19,8 @@ assert.sameValue(AggregateError.prototype.name, "AggregateError");
 assert.sameValue(AggregateError.prototype.message, "");
 
 // The |errors| argument is mandatory.
-assertThrowsInstanceOf(() => new AggregateError(), TypeError);
-assertThrowsInstanceOf(() => AggregateError(), TypeError);
+assert.throws(TypeError, () => new AggregateError());
+assert.throws(TypeError, () => AggregateError());
 
 // The .errors data property is an array object.
 {

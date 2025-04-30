@@ -27,7 +27,7 @@ let minusOne = Temporal.Duration.from({nanoseconds: -1});
 //Test invalid date
 {
     const invalidDate = new Date(NaN);
-    assertThrowsInstanceOf(() => invalidDate.toTemporalInstant(), RangeError);
+    assert.throws(RangeError, () => invalidDate.toTemporalInstant());
 }
 
 //Test Temporal.Instant properties
@@ -62,11 +62,11 @@ let minusOne = Temporal.Duration.from({nanoseconds: -1});
     assert.sameValue(max.subtract(one).epochNanoseconds, max.epochNanoseconds - 1n);
 
     // Subtracting one from the minimum instant.
-    assertThrowsInstanceOf(() => min.add(minusOne), RangeError);
-    assertThrowsInstanceOf(() => min.subtract(one), RangeError);
+    assert.throws(RangeError, () => min.add(minusOne));
+    assert.throws(RangeError, () => min.subtract(one));
 
     // Adding one to the maximum instant.
-    assertThrowsInstanceOf(() => max.add(one), RangeError);
-    assertThrowsInstanceOf(() => max.subtract(minusOne), RangeError);
+    assert.throws(RangeError, () => max.add(one));
+    assert.throws(RangeError, () => max.subtract(minusOne));
 }
 
