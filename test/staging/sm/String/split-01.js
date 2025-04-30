@@ -8,17 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.split tests
 esid: pending
 ---*/
-var BUGNUMBER = 614608;
-var summary = "String.prototype.split tests";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function assertEqArr(a1, a2) {
     assert.sameValue(a1.length, a2.length);
@@ -48,5 +40,3 @@ assertEqArr("ab".split(/a*/), ["", "b"]);
 assertEqArr("A<B>bold</B>and<CODE>coded</CODE>".split(/<(\/)?([^<>]+)>/),
             ["A", undefined, "B", "bold", "/", "B", "and", undefined,
              "CODE", "coded", "/", "CODE", ""]);
-
-print("All tests passed!");

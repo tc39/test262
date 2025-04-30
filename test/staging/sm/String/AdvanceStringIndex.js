@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- AdvanceStringIndex in global match and replace.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- AdvanceStringIndex in global match and replace.";
-
-print(BUGNUMBER + ": " + summary);
 
 // ==== String.prototype.match ====
 
@@ -49,4 +45,3 @@ assert.compareArray("\uD83D\uDC38\uD83D\uDC39X\uD83D\uDC3A".split(/\uDC38|X|/u),
               ["\uD83D\uDC38", "\uD83D\uDC39", "\uD83D\uDC3A"]);
 assert.compareArray("\uD83D\uDC38\uD83D\uDC39X\uD83D\uDC3A".split(/\uD83D\uDC38|X|/u),
               ["", "\uD83D\uDC39", "\uD83D\uDC3A"]);
-

@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.{startsWith,endsWith,includes} should call IsRegExp.
 esid: pending
 ---*/
-var BUGNUMBER = 1054755;
-var summary = 'String.prototype.{startsWith,endsWith,includes} should call IsRegExp.';
-
-print(BUGNUMBER + ": " + summary);
 
 for (var method of ["startsWith", "endsWith", "includes"]) {
   for (var re of [/foo/, new RegExp()]) {
@@ -30,4 +26,3 @@ for (var method of ["startsWith", "endsWith", "includes"]) {
     "foo"[method]({ [Symbol.match]: v2 });
   }
 }
-

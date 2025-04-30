@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.fromCodePoint
 esid: pending
 ---*/
-var BUGNUMBER = 918879;
-var summary = 'String.fromCodePoint';
-
-print(BUGNUMBER + ": " + summary);
 
 // Tests taken from:
 // https://github.com/mathiasbynens/String.fromCodePoint/blob/master/tests/tests.js
@@ -67,4 +63,3 @@ assert.sameValue(String.fromCodePoint(0x31, 0x32, 0x33, 0x34), '1234');
 assert.sameValue(String.fromCodePoint(0x31, 0x32, 0x33, 0x34, 0x35), '12345');
 // str_fromCodePoint (many arguments, creates a malloc string)
 assert.sameValue(String.fromCodePoint(0x31, 0x32, 0x33, 0x34, 0x35, 0x36), '123456');
-

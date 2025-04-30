@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Add \\u{xxxxxx} string literals
 esid: pending
 ---*/
-var BUGNUMBER = 320500;
-var summary = 'Add \\u{xxxxxx} string literals';
-
-print(BUGNUMBER + ": " + summary);
 
 assert.sameValue("\u{0}", String.fromCodePoint(0x0));
 assert.sameValue("\u{1}", String.fromCodePoint(0x1));
@@ -70,4 +66,3 @@ assert.throws(SyntaxError, () => eval(`"\\u{FFFF   }"`));
 assert.throws(SyntaxError, () => eval(`"\\u{FF   FF}"`));
 assert.throws(SyntaxError, () => eval(`"\\u{F F F F}"`));
 assert.throws(SyntaxError, () => eval(`"\\u{100000001}"`));
-

@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.normalize - passing wrong parameter
 esid: pending
 ---*/
-var BUGNUMBER = 918987;
-var summary = 'String.prototype.normalize - passing wrong parameter';
-
-print(BUGNUMBER + ": " + summary);
 
 function test() {
   assert.throws(RangeError, () => "abc".normalize("NFE"),
@@ -25,4 +21,3 @@ if ("normalize" in String.prototype) {
   // String.prototype.normalize is not enabled in all builds.
   test();
 }
-

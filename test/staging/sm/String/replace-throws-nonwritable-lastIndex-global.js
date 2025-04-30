@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.replace should throw when called with a global RegExp whose .lastIndex is non-writable
 esid: pending
 ---*/
-var BUGNUMBER = 501739;
-var summary =
-  "String.prototype.replace should throw when called with a global RegExp " +
-  "whose .lastIndex is non-writable";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var s = '0x2x4x6x8';
 
@@ -125,7 +115,3 @@ catch (e)
            "should have thrown a TypeError, instead got: " + e);
   assert.sameValue(p6.lastIndex, 3);
 }
-
-/******************************************************************************/
-
-print("Tests complete");

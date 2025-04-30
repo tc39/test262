@@ -8,17 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.split with undefined separator
 esid: pending
 ---*/
-var BUGNUMBER = 614608;
-var summary = "String.prototype.split with undefined separator";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function assertEqArr(a1, a2) {
     assert.sameValue(a1.length, a2.length);
@@ -38,5 +30,3 @@ assertEqArr(s.split("undefined", 1), ["--"]);
 assertEqArr(s.split("-", 0), []);
 assertEqArr(s.split(undefined, 0), []);
 assertEqArr(s.split(s, 0), []);
-
-print("All tests passed!");

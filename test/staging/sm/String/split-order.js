@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.split should call ToUint32(limit) before ToString(separator).
 esid: pending
 ---*/
-var BUGNUMBER = 1287521;
-var summary = 'String.prototype.split should call ToUint32(limit) before ToString(separator).';
-
-print(BUGNUMBER + ": " + summary);
 
 var log = [];
 "abba".split({
@@ -28,4 +24,3 @@ var log = [];
 });
 
 assert.sameValue(log.join(","), "limit-valueOf,separator-tostring");
-

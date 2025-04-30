@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.codePointAt
 esid: pending
 ---*/
-var BUGNUMBER = 918879;
-var summary = 'String.prototype.codePointAt';
-
-print(BUGNUMBER + ": " + summary);
 
 // Tests taken from:
 // https://github.com/mathiasbynens/String.prototype.codePointAt/blob/master/tests/tests.js
@@ -91,4 +87,3 @@ assert.throws(TypeError, function() { String.prototype.codePointAt.apply(null, [
 assert.sameValue(String.prototype.codePointAt.apply(42, [0]), 0x34);
 assert.sameValue(String.prototype.codePointAt.apply(42, [1]), 0x32);
 assert.sameValue(String.prototype.codePointAt.apply({ 'toString': function() { return 'abc'; } }, [2]), 0x63);
-
