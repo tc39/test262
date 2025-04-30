@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-Set-shell.js, compareArray.js, propertyHelper.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
