@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.stringify with no arguments
 esid: pending

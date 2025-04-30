@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Better/more correct handling for replacer arrays with trailing holes through which inherited elements might appear
 esid: pending
