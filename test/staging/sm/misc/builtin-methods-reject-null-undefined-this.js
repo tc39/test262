@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  ECMAScript built-in methods that immediately throw when |this| is |undefined| or |null| (due to CheckObjectCoercible, ToObject, or ToString)
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 619283;
-var summary =
-  "ECMAScript built-in methods that immediately throw when |this| is " +
-  "|undefined| or |null| (due to CheckObjectCoercible, ToObject, or ToString)";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // We can't just exhaustively loop over everything because 1) method properties
 // might be extensions with special |this| handling, and 2) some methods don't
@@ -155,7 +144,3 @@ for (var className in ClassToMethodMap)
     testMethod(Class, className, method);
   }
 }
-
-/******************************************************************************/
-
-print("All tests passed!");
