@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   iterator.next() should not be called when after iterator completes
 esid: pending
@@ -21,6 +19,7 @@ var obj = new Proxy({}, {
         else
             v = JSON.stringify(value);
         log += "set:" + name + "=" + v + ",";
+        return true;
     }
 });
 function createIterable(n) {
