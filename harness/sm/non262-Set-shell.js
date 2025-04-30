@@ -17,10 +17,10 @@ defines: [assertSetContainsExactOrderedItems, SetLike, SetIteratorLike, LoggingP
   const SetIteratorPrototypeNext = new Set().values().next;
 
   function assertSetContainsExactOrderedItems(actual, expected) {
-    assertEq(ReflectGetPrototypeOf(actual), SetPrototype, "actual is a native Set object");
-    assertEq(ArrayIsArray(expected), true, "expected is an Array object");
+    assert.sameValue(ReflectGetPrototypeOf(actual), SetPrototype, "actual is a native Set object");
+    assert.sameValue(ArrayIsArray(expected), true, "expected is an Array object");
 
-    assertEq(ReflectApply(SetPrototypeSize, actual, []), expected.length);
+    assert.sameValue(ReflectApply(SetPrototypeSize, actual, []), expected.length);
 
     let index = 0;
     let keys = ReflectApply(SetPrototypeKeys, actual, []);
@@ -30,7 +30,7 @@ defines: [assertSetContainsExactOrderedItems, SetLike, SetIteratorLike, LoggingP
       if (done) {
         break;
       }
-      assertEq(item, expected[index], `Element at index ${index}:`);
+      assert.sameValue(item, expected[index], `Element at index ${index}:`);
       index++;
     }
   }
@@ -81,7 +81,7 @@ defines: [assertSetContainsExactOrderedItems, SetLike, SetIteratorLike, LoggingP
   }
 
   function LoggingProxy(obj, log) {
-    assertEq(ArrayIsArray(log), true);
+    assert.sameValue(ArrayIsArray(log), true);
 
     let handler = new Proxy({
       get(t, pk, r) {
