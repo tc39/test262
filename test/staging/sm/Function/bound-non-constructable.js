@@ -22,6 +22,6 @@ for (var obj of objects) {
 
     // Make sure they are callable, but not constructable.
     obj();
-    assertThrowsInstanceOf(() => new obj, TypeError);
+    assert.throws(TypeError, () => new obj);
 }
 

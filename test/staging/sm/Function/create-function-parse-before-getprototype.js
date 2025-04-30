@@ -18,9 +18,9 @@ var newTarget = Object.defineProperty(function(){}.bind(), "prototype", {
     }
 });
 
-assertThrowsInstanceOf(() => {
+assert.throws(SyntaxError, () => {
     Reflect.construct(Function, ["@error"], newTarget);
-}, SyntaxError);
+});
 
 assert.sameValue(getProtoCalled, false);
 

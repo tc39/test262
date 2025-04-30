@@ -15,6 +15,6 @@ assert.deepEqual(desc,
 
 assert.sameValue(Function.prototype.prototype, undefined);
 assert.sameValue(Function.prototype.callee, undefined);
-assertThrowsInstanceOf(() => Function.prototype.caller, TypeError);
-assertThrowsInstanceOf(() => Function.prototype.arguments, TypeError);
+assert.throws(TypeError, () => Function.prototype.caller);
+assert.throws(TypeError, () => Function.prototype.arguments);
 

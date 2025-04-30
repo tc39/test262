@@ -14,16 +14,16 @@ function f0(a) {
 }
 
 // SyntaxError should be thrown if method definition has duplicated name.
-assertThrowsInstanceOf(() => eval(`
+assert.throws(SyntaxError, () => eval(`
 ({
   m1(a, a) {
   }
 });
-`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`
+`));
+assert.throws(SyntaxError, () => eval(`
 ({
   m2(a, ...a) {
   }
 });
-`), SyntaxError);
+`));
 
