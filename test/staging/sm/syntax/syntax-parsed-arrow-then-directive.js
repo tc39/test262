@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Properly apply a directive comment that's only tokenized by a syntax parser (because the directive comment appears immediately after an arrow function with expression body)
 esid: pending

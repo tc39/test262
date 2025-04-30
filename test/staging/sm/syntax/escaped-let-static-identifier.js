@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   |let| and |static| are forbidden as Identifier only in strict mode code, and it's permissible to use them as Identifier (with or without containing escapes) in non-strict code
 esid: pending

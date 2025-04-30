@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Properly evaluate a bigint literal that's initially tokenized by a syntax parser (because the bigint literal appears immediately after an arrow function with expression body)
 esid: pending
