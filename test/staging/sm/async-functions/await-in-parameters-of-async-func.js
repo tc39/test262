@@ -22,9 +22,6 @@ test();
 
 function test()
 {
-  printBugNumber(BUGNUMBER);
-  printStatus(summary);
-
   let testAwaitInDefaultExprOfAsyncFunc = (code) => {
     assert.throws(SyntaxError, () => eval(code), "await expression can't be used in parameter");
   };

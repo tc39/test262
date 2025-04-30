@@ -1,12 +1,6 @@
 /*---
-defines: [printBugNumber, inSection, printStatus, writeHeaderToLog,
-  assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, reportMatch, createIsHTMLDDA, createExternalArrayBuffer]
+defines: [assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, reportMatch, createIsHTMLDDA, createExternalArrayBuffer]
 ---*/
-
-function printBugNumber() {}
-function inSection() {}
-function printStatus() {}
-function writeHeaderToLog() {}
 
 function assertThrownErrorContains(f, substr) {
   try {
