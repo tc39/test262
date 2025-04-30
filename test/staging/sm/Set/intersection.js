@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-Set-shell.js, deepEqual.js, compareArray.js]
+includes: [sm/non262-Set-shell.js, compareArray.js, propertyHelper.js]
 flags:
   - noStrict
 description: |
@@ -11,10 +11,10 @@ esid: pending
 ---*/
 
 assert.sameValue(typeof Set.prototype.intersection, "function");
-assert.deepEqual(Object.getOwnPropertyDescriptor(Set.prototype.intersection, "length"), {
+verifyProperty(Set.prototype.intersection, "length", {
   value: 1, writable: false, enumerable: false, configurable: true,
 });
-assert.deepEqual(Object.getOwnPropertyDescriptor(Set.prototype.intersection, "name"), {
+verifyProperty(Set.prototype.intersection, "name", {
   value: "intersection", writable: false, enumerable: false, configurable: true,
 });
 
