@@ -40,9 +40,9 @@ function test() {
     // G.p.throw on an iterator without "throw" calls IteratorClose.
     var g1 = y();
     g1.next();
-    assertThrowsInstanceOf(function() {
+    assert.throws(TypeError, function() {
         g1.throw("foo");
-    }, TypeError);
+    });
     assert.sameValue(returnCalled, ++returnCalledExpected);
     assert.sameValue(nextCalled, ++nextCalledExpected);
     g1.next();
@@ -117,9 +117,9 @@ function test() {
     };
     var g5 = y();
     g5.next();
-    assertThrowsInstanceOf(function() {
+    assert.throws(TypeError, function() {
         g5.return("foo");
-    }, TypeError);
+    });
     assert.sameValue(returnCalled, ++returnCalledExpected);
 
     // IteratorClose expects iter.return to return an Object.

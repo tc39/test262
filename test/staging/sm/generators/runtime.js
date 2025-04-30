@@ -19,7 +19,7 @@ esid: pending
 // See http://people.mozilla.org/~jorendorff/es6-draft.html#sec-15.19.3.
 
 function assertSyntaxError(str) {
-    assertThrowsInstanceOf(Function(str), SyntaxError);
+    assert.throws(SyntaxError, Function(str));
 }
 
 
