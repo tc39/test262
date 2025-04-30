@@ -14,7 +14,7 @@ description: |
 esid: pending
 ---*/
 
-const otherGlobal = createNewGlobal({newCompartment: true});
+const otherGlobal = $262.createRealm().global;
 assert.sameValue(TypeError !== otherGlobal.TypeError, true);
 
 const iter = [].values();
