@@ -14,7 +14,7 @@ var summary = "RegExp constructor should check pattern.constructor.";
 
 print(BUGNUMBER + ": " + summary);
 
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 
 var re = /foo/;
 assert.sameValue(RegExp(re), re);

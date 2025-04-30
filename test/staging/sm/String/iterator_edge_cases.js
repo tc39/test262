@@ -25,10 +25,7 @@ TestStringIteratorPrototypeConfusion();
 // cross-compartment iterator.
 function TestStringIteratorWrappers() {
     var iter = ""[Symbol.iterator]();
-    assert.deepEqual(iter.next.call(createNewGlobal().eval('"x"[Symbol.iterator]()')),
+    assert.deepEqual(iter.next.call($262.createRealm().global.eval('"x"[Symbol.iterator]()')),
 		 { value: "x", done: false })
 }
-if (typeof createNewGlobal === "function") {
-    TestStringIteratorWrappers();
-}
-
+TestStringIteratorWrappers();

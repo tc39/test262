@@ -13,7 +13,7 @@ function neverCalled() {
   assert.sameValue(true, false, "unexpected call");
 }
 
-const g = createNewGlobal();
+const g = $262.createRealm().global;
 
 assert.sameValue(typeof String.prototype.replaceAll, "function");
 assert.sameValue(String.prototype.replaceAll.length, 2);

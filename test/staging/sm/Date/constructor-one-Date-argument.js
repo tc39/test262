@@ -30,7 +30,7 @@ Date.prototype.valueOf = () => 42;
 d = new Date(new Date(8675309));
 assert.sameValue(d.getTime(), 8675309);
 
-var D = createNewGlobal().Date;
+var D = $262.createRealm().global.Date;
 
 D.prototype.toString = D.prototype.valueOf = null;
 var d = new Date(new D(3141592654));
