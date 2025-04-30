@@ -29,6 +29,6 @@ const fn = () => {};
 const iter = new TestIterator();
 
 assert.sameValue(iter.closed, false);
-assertThrowsInstanceOf(() => iter.some(fn), Error);
+assert.throws(Error, () => iter.some(fn));
 assert.sameValue(iter.closed, false);
 

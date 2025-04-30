@@ -50,7 +50,7 @@ for (const value of nonIterables) {
   const mapped = iter.flatMap(x => value);
 
   assert.sameValue(iter.closed, false);
-  assertThrowsInstanceOf(() => mapped.next(), TypeError);
+  assert.throws(TypeError, () => mapped.next());
   assert.sameValue(iter.closed, true);
 }
 

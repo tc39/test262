@@ -21,5 +21,5 @@ function mapper(x) {
 }
 iterator = [0].values().map(mapper);
 
-assertThrowsInstanceOf(iterator.next, TypeError);
+assert.throws(TypeError, iterator.next);
 

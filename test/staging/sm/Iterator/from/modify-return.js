@@ -25,7 +25,7 @@ assert.sameValue(done, true);
 assert.sameValue(value, "old return");
 
 iter.return = () => { throw new Error(); };
-assertThrowsInstanceOf(() => wrap.return(), Error);
+assert.throws(Error, () => wrap.return());
 
 iter.return = null;
 let nullResult = wrap.return("return argument ignored");

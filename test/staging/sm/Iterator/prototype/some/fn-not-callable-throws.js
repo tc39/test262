@@ -16,12 +16,12 @@ esid: pending
 
 const iter = [].values();
 
-assertThrowsInstanceOf(() => iter.some(), TypeError);
-assertThrowsInstanceOf(() => iter.some(undefined), TypeError);
-assertThrowsInstanceOf(() => iter.some(null), TypeError);
-assertThrowsInstanceOf(() => iter.some(0), TypeError);
-assertThrowsInstanceOf(() => iter.some(false), TypeError);
-assertThrowsInstanceOf(() => iter.some(''), TypeError);
-assertThrowsInstanceOf(() => iter.some(Symbol('')), TypeError);
-assertThrowsInstanceOf(() => iter.some({}), TypeError);
+assert.throws(TypeError, () => iter.some());
+assert.throws(TypeError, () => iter.some(undefined));
+assert.throws(TypeError, () => iter.some(null));
+assert.throws(TypeError, () => iter.some(0));
+assert.throws(TypeError, () => iter.some(false));
+assert.throws(TypeError, () => iter.some(''));
+assert.throws(TypeError, () => iter.some(Symbol('')));
+assert.throws(TypeError, () => iter.some({}));
 

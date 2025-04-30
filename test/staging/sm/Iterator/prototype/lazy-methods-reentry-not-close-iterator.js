@@ -27,7 +27,7 @@ for (const method of methods) {
     if (x == 2) {
       // Reenter the currently running generator.
       reentered = true;
-      assertThrowsInstanceOf(() => iterHelper.next(), TypeError);
+      assert.throws(TypeError, () => iterHelper.next());
     }
     return method[1](x);
   });
