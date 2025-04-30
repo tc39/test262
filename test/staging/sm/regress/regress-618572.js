@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Do not assert when ungetting a Unicode char sequence
 esid: pending
