@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  async name token in property and object destructuring pattern
 esid: pending
 ---*/
-var BUGNUMBER = 1185106;
-var summary = "async name token in property and object destructuring pattern";
-
-print(BUGNUMBER + ": " + summary);
 
 {
   let a = { async: 10 };
@@ -55,4 +51,3 @@ print(BUGNUMBER + ": " + summary);
   assert.sameValue(a.async, 15);
   assert.sameValue(a.other, 16);
 }
-
