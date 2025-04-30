@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  parseInt(string, radix)
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 577536;
-var summary = "ES5 15.1.2.2 parseInt(string, radix)";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var str, radix;
 var upvar;
@@ -170,8 +161,3 @@ assert.sameValue(parseInt("00A", 16), 10);
 assert.sameValue(parseInt("A", 17), 10);
 assert.sameValue(parseInt("0A", 17), 10);
 assert.sameValue(parseInt("00A", 17), 10);
-
-
-/******************************************************************************/
-
-print("All tests passed!");
