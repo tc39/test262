@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype[@@replace] should check latin1/twoBytes for all strings used in relate operation.
 esid: pending
 ---*/
-var BUGNUMBER = 1269719;
-var summary = "RegExp.prototype[@@replace] should check latin1/twoBytes for all strings used in relate operation.";
-
-print(BUGNUMBER + ": " + summary);
 
 var ans = [
   "[AB$2$3$]",
@@ -50,4 +46,3 @@ for (var matched of ["A", "\u3042"]) {
     }
   }
 }
-

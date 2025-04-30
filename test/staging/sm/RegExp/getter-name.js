@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp getters should have get prefix
 esid: pending
 ---*/
-var BUGNUMBER = 1180290;
-var summary = 'RegExp getters should have get prefix';
-
-print(BUGNUMBER + ": " + summary);
 
 assert.sameValue(Object.getOwnPropertyDescriptor(RegExp, Symbol.species).get.name, "get [Symbol.species]");
 assert.sameValue(Object.getOwnPropertyDescriptor(RegExp.prototype, "flags").get.name, "get flags");
@@ -22,4 +18,3 @@ assert.sameValue(Object.getOwnPropertyDescriptor(RegExp.prototype, "multiline").
 assert.sameValue(Object.getOwnPropertyDescriptor(RegExp.prototype, "source").get.name, "get source");
 assert.sameValue(Object.getOwnPropertyDescriptor(RegExp.prototype, "sticky").get.name, "get sticky");
 assert.sameValue(Object.getOwnPropertyDescriptor(RegExp.prototype, "unicode").get.name, "get unicode");
-

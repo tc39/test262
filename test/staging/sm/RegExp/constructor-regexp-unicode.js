@@ -6,13 +6,8 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp constructor should check the pattern syntax again when adding unicode flag.
 esid: pending
 ---*/
-var BUGNUMBER = 1274393;
-var summary = "RegExp constructor should check the pattern syntax again when adding unicode flag.";
-
-print(BUGNUMBER + ": " + summary);
 
 assert.throws(SyntaxError, () => RegExp(/\-/, "u"));
-

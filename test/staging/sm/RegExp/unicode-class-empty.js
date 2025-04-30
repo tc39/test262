@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- empty class should not match anything.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- empty class should not match anything.";
-
-print(BUGNUMBER + ": " + summary);
 
 assert.sameValue(/[]/u.exec("A"),
          null);
@@ -31,4 +27,3 @@ assert.compareArray(/[^]/u.exec("\uDC38"),
               ["\uDC38"]);
 assert.compareArray(/[^]/u.exec("\uD83D\uDC38"),
               ["\uD83D\uDC38"]);
-

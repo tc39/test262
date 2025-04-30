@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype.split should reflect the change to Object.prototype.flags.
 esid: pending
 ---*/
-var BUGNUMBER = 0;
-var summary = "RegExp.prototype.split should reflect the change to Object.prototype.flags.";
-
-print(BUGNUMBER + ": " + summary);
 
 Object.defineProperty(Object.prototype, "flags", Object.getOwnPropertyDescriptor(RegExp.prototype, "flags"));
 delete RegExp.prototype.flags;
@@ -27,4 +23,3 @@ Object.prototype.flags = "";
 
 a = re[Symbol.split]("1a2A3a4A5");
 assert.deepEqual(a, ["1", "2A3", "4A5"]);
-

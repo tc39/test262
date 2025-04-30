@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Trace RegExp.prototype[@@replace] behavior.
 esid: pending
 ---*/
-var BUGNUMBER = 887016;
-var summary = "Trace RegExp.prototype[@@replace] behavior.";
-
-print(BUGNUMBER + ": " + summary);
 
 var n;
 var log;
@@ -313,4 +309,3 @@ assert.sameValue(log,
          "get:result[length],get:result[0],get:result[index],get:result[groups],");
 
 stopObserve();
-
