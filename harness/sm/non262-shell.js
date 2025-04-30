@@ -5,7 +5,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*---
-defines: [assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf]
+defines: [assertThrowsValue, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf]
 allow_unused: True
 ---*/
 
@@ -27,18 +27,6 @@ allow_unused: True
       if (msg !== undefined)
         fullmsg += " - " + msg;
       throw new Error(fullmsg);
-    };
-  }
-
-  if (typeof globalThis.assertThrownErrorContains === 'undefined') {
-    globalThis.assertThrownErrorContains = function assertThrownErrorContains(thunk, substr) {
-      try {
-        thunk();
-      } catch (e) {
-        // Do not test error messages
-        return;
-      }
-      throw new Error("Expected error containing " + substr + ", no exception thrown");
     };
   }
 
