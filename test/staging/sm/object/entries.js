@@ -59,9 +59,9 @@ if ("entries" in Object) {
     entries = Object.entries(o);
     assert.deepEqual(entries, [["a", 1], ["c", 3]]);
 
-    assertThrowsInstanceOf(() => Object.entries(), TypeError);
-    assertThrowsInstanceOf(() => Object.entries(undefined), TypeError);
-    assertThrowsInstanceOf(() => Object.entries(null), TypeError);
+    assert.throws(TypeError, () => Object.entries());
+    assert.throws(TypeError, () => Object.entries(undefined));
+    assert.throws(TypeError, () => Object.entries(null));
 
     assert.deepEqual(Object.entries(1), []);
     assert.deepEqual(Object.entries(true), []);

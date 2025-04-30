@@ -9,16 +9,16 @@ description: |
   pending
 esid: pending
 ---*/
-assertThrowsInstanceOf(() => eval("({ get x(...a) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ get x(a, ...b) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ get x([a], ...b) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ get x({a}, ...b) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ get x({a: A}, ...b) { } })"), SyntaxError);
+assert.throws(SyntaxError, () => eval("({ get x(...a) { } })"));
+assert.throws(SyntaxError, () => eval("({ get x(a, ...b) { } })"));
+assert.throws(SyntaxError, () => eval("({ get x([a], ...b) { } })"));
+assert.throws(SyntaxError, () => eval("({ get x({a}, ...b) { } })"));
+assert.throws(SyntaxError, () => eval("({ get x({a: A}, ...b) { } })"));
 
-assertThrowsInstanceOf(() => eval("({ set x(...a) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ set x(a, ...b) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ set x([a], ...b) { } })"), SyntaxError);
-assertThrowsInstanceOf(() => eval("({ set x({a: A}, ...b) { } })"), SyntaxError);
+assert.throws(SyntaxError, () => eval("({ set x(...a) { } })"));
+assert.throws(SyntaxError, () => eval("({ set x(a, ...b) { } })"));
+assert.throws(SyntaxError, () => eval("({ set x([a], ...b) { } })"));
+assert.throws(SyntaxError, () => eval("({ set x({a: A}, ...b) { } })"));
 
 ({ get(...a) { } });
 ({ get(a, ...b) { } });

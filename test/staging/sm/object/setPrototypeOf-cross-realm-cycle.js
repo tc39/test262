@@ -16,6 +16,6 @@ var gw = createNewGlobal();
 
 var obj = {};
 var w = gw.Object.create(obj);
-assertThrowsInstanceOf(() => Object.setPrototypeOf(obj, w), TypeError);
-assertThrowsInstanceOf(() => gw.Object.setPrototypeOf(obj, w), gw.TypeError);
+assert.throws(TypeError, () => Object.setPrototypeOf(obj, w));
+assert.throws(gw.TypeError, () => gw.Object.setPrototypeOf(obj, w));
 

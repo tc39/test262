@@ -15,9 +15,9 @@ var BUGNUMBER = 1079090;
 var summary = "Coerce the argument passed to Object.getPrototypeOf using ToObject";
 print(BUGNUMBER + ": " + summary);
 
-assertThrowsInstanceOf(() => Object.getPrototypeOf(), TypeError);
-assertThrowsInstanceOf(() => Object.getPrototypeOf(undefined), TypeError);
-assertThrowsInstanceOf(() => Object.getPrototypeOf(null), TypeError);
+assert.throws(TypeError, () => Object.getPrototypeOf());
+assert.throws(TypeError, () => Object.getPrototypeOf(undefined));
+assert.throws(TypeError, () => Object.getPrototypeOf(null));
 
 assert.sameValue(Object.getPrototypeOf(1), Number.prototype);
 assert.sameValue(Object.getPrototypeOf(true), Boolean.prototype);
