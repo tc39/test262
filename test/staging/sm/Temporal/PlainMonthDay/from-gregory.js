@@ -41,7 +41,7 @@ esid: pending
     monthCode: "M01",
     day: 1,
   };
-  assertThrowsInstanceOf(() => Temporal.PlainMonthDay.from(fields), RangeError);
+  assert.throws(RangeError, () => Temporal.PlainMonthDay.from(fields));
 }
 
 // eraYear and year must be consistent when month is present.
@@ -54,7 +54,7 @@ esid: pending
     month: 1,
     day: 1,
   };
-  assertThrowsInstanceOf(() => Temporal.PlainMonthDay.from(fields), RangeError);
+  assert.throws(RangeError, () => Temporal.PlainMonthDay.from(fields));
 }
 
 // monthCode and month must be consistent.
@@ -66,6 +66,6 @@ esid: pending
     month: 2,
     day: 1,
   };
-  assertThrowsInstanceOf(() => Temporal.PlainMonthDay.from(fields), RangeError);
+  assert.throws(RangeError, () => Temporal.PlainMonthDay.from(fields));
 }
 
