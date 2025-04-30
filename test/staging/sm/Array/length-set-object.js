@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Various quirks of setting array length properties to objects
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 657298;
-var summary = 'Various quirks of setting array length properties to objects';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function invokeConversionTwice1()
 {
@@ -65,7 +56,3 @@ function dontOverwriteError2()
   }
 }
 dontOverwriteError2();
-
-/******************************************************************************/
-
-print("All tests passed!");

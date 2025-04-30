@@ -6,7 +6,7 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Dense array properties shouldn't be modified when they're frozen
 esid: pending
 ---*/
 /*
@@ -14,10 +14,6 @@ esid: pending
  * http://creativecommons.org/licenses/publicdomain/
  * Author: Emilio Cobos Álvarez <ecoal95@gmail.com>
  */
-var BUGNUMBER = 1310744;
-var summary = "Dense array properties shouldn't be modified when they're frozen";
-
-print(BUGNUMBER + ": " + summary);
 
 var a = Object.freeze([4, 5, 1]);
 
@@ -48,4 +44,3 @@ a[2] = "foo";
 assert.sameValue(delete a[0], false);
 
 assertArrayIsExpected();
-

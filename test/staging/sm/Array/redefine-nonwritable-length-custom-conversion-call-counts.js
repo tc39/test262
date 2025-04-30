@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Assertion redefining non-writable length to a non-numeric value
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 866700;
-var summary = "Assertion redefining non-writable length to a non-numeric value";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var count = 0;
 
@@ -42,7 +33,3 @@ Object.defineProperty(arr, "length", { value: convertible });
 assert.sameValue(count, 4);
 
 assert.sameValue(arr.length, 0);
-
-/******************************************************************************/
-
-print("Tests complete");
