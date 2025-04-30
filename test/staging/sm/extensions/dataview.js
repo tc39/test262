@@ -9,6 +9,7 @@ flags:
 description: |
   DataView tests
 esid: pending
+features: [host-gc-required]
 ---*/
 
 function test(sharedMem) {

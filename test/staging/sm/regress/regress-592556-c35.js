@@ -9,6 +9,7 @@ flags:
 description: |
   pending
 esid: pending
+features: [host-gc-required]
 ---*/
 
 var obj = {a: 0, b: 1, c: 2};

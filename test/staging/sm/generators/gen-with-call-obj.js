@@ -7,6 +7,7 @@ flags:
 description: |
   pending
 esid: pending
+features: [host-gc-required]
 ---*/
 var foo;
 

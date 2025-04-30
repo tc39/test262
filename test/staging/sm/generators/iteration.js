@@ -8,6 +8,7 @@ flags:
 description: |
   pending
 esid: pending
+features: [host-gc-required]
 ---*/
 // This file was written by Andy Wingo <wingo@igalia.com> and originally
 // contributed to V8 as generators-objects.js, available here:
