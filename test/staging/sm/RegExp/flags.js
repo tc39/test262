@@ -25,9 +25,9 @@ assert.sameValue(genericFlags({sticky:1, unicode:1, global: 0}), "uy");
 assert.sameValue(genericFlags({__proto__: {multiline: true}}), "m");
 assert.sameValue(genericFlags(new Proxy({}, {get(){return true}})), "dgimsuvy");
 
-assertThrowsInstanceOf(() => genericFlags(), TypeError);
-assertThrowsInstanceOf(() => genericFlags(1), TypeError);
-assertThrowsInstanceOf(() => genericFlags(""), TypeError);
+assert.throws(TypeError, () => genericFlags());
+assert.throws(TypeError, () => genericFlags(1));
+assert.throws(TypeError, () => genericFlags(""));
 
 function genericFlags(obj) {
     return Object.getOwnPropertyDescriptor(RegExp.prototype,"flags").get.call(obj);

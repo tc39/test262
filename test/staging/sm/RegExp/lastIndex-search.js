@@ -95,7 +95,7 @@ for (let Constructor of [RegExp, DuckRegExp]) {
     for (let {regExp, lastIndex, input} of testCasesNotPositiveZero) {
         let re = new Constructor(regExp);
         Object.defineProperty(re, "lastIndex", { value: lastIndex, writable: false });
-        assertThrowsInstanceOf(() => re[Symbol.search](input), TypeError);
+        assert.throws(TypeError, () => re[Symbol.search](input));
         assert.sameValue(re.lastIndex, lastIndex);
     }
 
@@ -104,7 +104,7 @@ for (let Constructor of [RegExp, DuckRegExp]) {
         let re = new Constructor(regExp);
         Object.defineProperty(re, "lastIndex", { value: lastIndex, writable: false });
         if (re.global || re.sticky) {
-            assertThrowsInstanceOf(() => re[Symbol.search](input), TypeError);
+            assert.throws(TypeError, () => re[Symbol.search](input));
         } else {
             re[Symbol.search](input);
         }
