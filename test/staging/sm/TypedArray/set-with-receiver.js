@@ -24,9 +24,7 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(Object.hasOwn(receiver, 10), false);
 
     // Detached
-    if (typeof $262.detachArrayBuffer === "function" &&
-        !isSharedConstructor(constructor))
-    {
+    if (!isSharedConstructor(constructor)) {
         $262.detachArrayBuffer(ta.buffer)
 
         assert.sameValue(ta[0], undefined);
