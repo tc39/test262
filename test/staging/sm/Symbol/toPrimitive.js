@@ -26,7 +26,7 @@ assert.sameValue(obj[Symbol.toPrimitive](Math.atan2), sym);
 assert.sameValue(sym[Symbol.toPrimitive](), sym);
 
 // Or a wrapper to a Symbol object in another compartment.
-var obj2 = createNewGlobal().Object(sym);
+var obj2 = $262.createRealm().global.Object(sym);
 assert.sameValue(obj2[Symbol.toPrimitive]("default"), sym);
 
 // Otherwise a TypeError is thrown.
