@@ -32,14 +32,14 @@ for (let primitive of primitives) {
             return primitive;
         }
     };
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         let [] = obj;
-    }, TypeError);
-    assertThrowsInstanceOf(() => {
+    });
+    assert.throws(TypeError, () => {
         [] = obj;
-    }, TypeError);
-    assertThrowsInstanceOf(() => {
+    });
+    assert.throws(TypeError, () => {
         f(obj);
-    }, TypeError);
+    });
 }
 
