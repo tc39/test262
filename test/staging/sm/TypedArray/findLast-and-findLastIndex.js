@@ -8,12 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js, sm/non262-TypedArray-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement %TypedArray%.prototype.{findLast, findLastIndex}
 esid: pending
 ---*/
-var BUGNUMBER = 1704385;
-var summary = "Implement %TypedArray%.prototype.{findLast, findLastIndex}";
-print(BUGNUMBER + ": " + summary);
 
 const methods = ["findLast", "findLastIndex"];
 
@@ -54,5 +51,3 @@ anyTypedArrayConstructors.filter(isFloatConstructor).forEach(constructor => {
     assert.sameValue(arr.findLast(v => Object.is(v, -0)), -0);
     assert.sameValue(arr.findLastIndex(v => Object.is(v, -0)), 0);
 })
-
-
