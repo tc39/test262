@@ -145,7 +145,7 @@ for (let values of [
   ]);
 
   log.length = 0;
-  assertThrowsInstanceOf(() => new Set([1]).isDisjointFrom(setLike), TypeError);
+  assert.throws(TypeError, () => new Set([1]).isDisjointFrom(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -170,7 +170,7 @@ for (let values of [
   ]);
 
   log.length = 0;
-  assertThrowsInstanceOf(() => new Set([1]).isDisjointFrom(setLike), TypeError);
+  assert.throws(TypeError, () => new Set([1]).isDisjointFrom(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -183,7 +183,7 @@ for (let values of [
   setLikeObj.keys = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isDisjointFrom(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isDisjointFrom(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -196,7 +196,7 @@ for (let values of [
   setLikeObj.has = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isDisjointFrom(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isDisjointFrom(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -208,7 +208,7 @@ for (let values of [
   sizeValue = NaN;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isDisjointFrom(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isDisjointFrom(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -219,7 +219,7 @@ for (let values of [
   sizeValue = undefined;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isDisjointFrom(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isDisjointFrom(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -228,7 +228,7 @@ for (let values of [
 }
 
 // Doesn't accept Array as an input.
-assertThrowsInstanceOf(() => emptySet.isDisjointFrom([]), TypeError);
+assert.throws(TypeError, () => emptySet.isDisjointFrom([]));
 
 // Works with Set subclasses.
 {
@@ -259,7 +259,7 @@ assertThrowsInstanceOf(() => emptySet.isDisjointFrom([]), TypeError);
 for (let thisValue of [
   null, undefined, true, "", {}, new Map, new Proxy(new Set, {}),
 ]) {
-  assertThrowsInstanceOf(() => Set.prototype.isDisjointFrom.call(thisValue, emptySet), TypeError);
+  assert.throws(TypeError, () => Set.prototype.isDisjointFrom.call(thisValue, emptySet));
 }
 
 // Calls |has| when the this-value has fewer keys.
