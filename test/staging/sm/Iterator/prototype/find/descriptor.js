@@ -6,8 +6,6 @@ info: |
   Descriptor property of Iterator.prototype.find
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 description: |

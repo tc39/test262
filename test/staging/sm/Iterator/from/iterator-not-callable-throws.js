@@ -6,8 +6,6 @@ info: |
   Iterator.from throws when called with an object with a non-callable @@iterator property.
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 description: |

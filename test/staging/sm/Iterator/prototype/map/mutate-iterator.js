@@ -7,8 +7,6 @@ description: |
   Mutate an iterator after it has been mapped.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

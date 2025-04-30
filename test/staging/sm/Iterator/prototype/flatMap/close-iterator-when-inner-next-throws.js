@@ -13,8 +13,6 @@ info: |
       ii. IfAbruptCloseIterator(innerNext, iterated).
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 class TestIterator extends Iterator {
   next() {

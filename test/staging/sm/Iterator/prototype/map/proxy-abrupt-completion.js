@@ -7,8 +7,6 @@ description: |
   %Iterator.prototype%.map accesses specified properties only.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 const handlerProxy = log => new Proxy({}, {
   get: (target, key, receiver) => (...args) => {

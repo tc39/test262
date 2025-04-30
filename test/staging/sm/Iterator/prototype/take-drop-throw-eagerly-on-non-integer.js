@@ -9,8 +9,6 @@ info: |
   Iterator Helpers proposal 2.1.5.4 and 2.1.5.5
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 
 //
