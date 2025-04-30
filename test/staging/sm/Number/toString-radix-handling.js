@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Number.prototype.toString should use ToInteger on the radix and should throw a RangeError if the radix is bad
 esid: pending
 ---*/
-var BUGNUMBER = 647385;
-var summary =
-  "Number.prototype.toString should use ToInteger on the radix and should " +
-  "throw a RangeError if the radix is bad";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function test(r)
 {
@@ -36,7 +26,3 @@ function test(r)
 }
 test(Math.pow(2, 32) + 10);
 test(55);
-
-/******************************************************************************/
-
-print("All tests passed!");
