@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Tests that IteratorReturn is called when a for-of loop has an abrupt completion value during non-iterator code.
 esid: pending

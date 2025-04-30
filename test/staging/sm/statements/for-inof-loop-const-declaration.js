@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Support const declarations in for-of loop heads
 esid: pending
