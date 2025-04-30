@@ -51,7 +51,7 @@ assertThrowsValue(
   "hello");
 
 // Not a number throws TypeError
-assertThrowsInstanceOf(() => Number.prototype.toPrecision.call("Hello"), TypeError);
+assert.throws(TypeError, () => Number.prototype.toPrecision.call("Hello"));
 
 if (typeof assert.sameValue === "function") {
 }

@@ -5,7 +5,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*---
-defines: [assertThrowsValue, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf]
+defines: [assertThrowsValue]
 allow_unused: True
 ---*/
 
@@ -27,35 +27,6 @@ allow_unused: True
       if (msg !== undefined)
         fullmsg += " - " + msg;
       throw new Error(fullmsg);
-    };
-  }
-
-  if (typeof globalThis.assertThrowsInstanceOfWithMessageCheck === 'undefined') {
-    globalThis.assertThrowsInstanceOfWithMessageCheck = function assertThrowsInstanceOfWithMessageCheck(f, ctor, check, msg) {
-      var fullmsg;
-      try {
-        f();
-      } catch (exc) {
-        if (!(exc instanceof ctor))
-          fullmsg = `Assertion failed: expected exception ${ctor.name}, got ${exc}`;
-        else {
-          // Do not test error messages
-          return;
-        }
-      }
-
-      if (fullmsg === undefined)
-        fullmsg = `Assertion failed: expected exception ${ctor.name}, no exception thrown`;
-      if (msg !== undefined)
-        fullmsg += " - " + msg;
-
-      throw new Error(fullmsg);
-    };
-  }
-
-  if (typeof globalThis.assertThrowsInstanceOf === 'undefined') {
-    globalThis.assertThrowsInstanceOf = function assertThrowsInstanceOf(f, ctor, msg) {
-      assertThrowsInstanceOfWithMessageCheck(f, ctor, _ => true, msg);
     };
   }
 })();

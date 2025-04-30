@@ -23,8 +23,8 @@ for (let value of primitives) {
     assert.sameValue(value.x = 5, 5);
     assert.sameValue(value[key] = 6, 6);
 
-    assertThrowsInstanceOf(function() { "use strict"; value.x = 5; }, TypeError);
-    assertThrowsInstanceOf(function() { "use strict"; value[key] = 6; }, TypeError);
+    assert.throws(TypeError, function() { "use strict"; value.x = 5; });
+    assert.throws(TypeError, function() { "use strict"; value[key] = 6; });
 
     let target = {};
     assert.sameValue(Reflect.set(target, key, 5, value), false);

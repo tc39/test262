@@ -26,41 +26,41 @@ if (!fieldsEnabled) {
   let source = `class C {
     x
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     x = 0;
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     0 = 0;
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     [0] = 0;
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     "hi" = 0;
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     "hi" = 0;
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     d = function(){};
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 
   source = `class C {
     d = class D { x = 0; };
   }`;
-  assertThrowsInstanceOf(() => Function(source), SyntaxError);
+  assert.throws(SyntaxError, () => Function(source));
 }
 
