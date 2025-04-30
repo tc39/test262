@@ -4,14 +4,11 @@
  */
 
 /*---
-flags:
-  - onlyStrict
 includes: [compareArray.js]
 description: |
   pending
 esid: pending
 ---*/
-"use strict";
 
 // Primitive values should never be tried to spread
 let primitives = [
@@ -41,4 +38,3 @@ for (let value of primitives) {
 
     prototype.length;
 }
-
