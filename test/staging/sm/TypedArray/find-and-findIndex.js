@@ -8,12 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js, sm/non262-TypedArray-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement %TypedArray%.prototype.{find, findIndex}
 esid: pending
 ---*/
-var BUGNUMBER = 1078975;
-var summary = "Implement %TypedArray%.prototype.{find, findIndex}";
-print(BUGNUMBER + ": " + summary);
 
 const methods = ["find", "findIndex"];
 
@@ -54,5 +51,3 @@ anyTypedArrayConstructors.filter(isFloatConstructor).forEach(constructor => {
     assert.sameValue(arr.find(v => Object.is(v, -0)), -0);
     assert.sameValue(arr.findIndex(v => Object.is(v, -0)), 0);
 })
-
-
