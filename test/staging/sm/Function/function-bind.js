@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js, nativeFunctionMatcher.js]
 flags:
   - noStrict
 description: |
-  pending
+  Function.prototype.bind
 esid: pending
 ---*/
-var gTestfile = 'function-bind.js';
-var BUGNUMBER = 429507;
-var summary = "ES5: Function.prototype.bind";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // ad-hoc testing
 
@@ -261,8 +252,3 @@ assertNativeFunction((function unbound(){"body"}).bind());
 /* 22. Return F. */
 var passim = function p(){}.bind(1);
 assert.sameValue(typeof passim, "function");
-
-
-/******************************************************************************/
-
-print("All tests passed!");

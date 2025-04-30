@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Rest parameters to functions can be named |yield| or |eval| or |let| in non-strict code
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1288460;
-var summary =
-  "Rest parameters to functions can be named |yield| or |eval| or |let| in "
-  "non-strict code";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var f1 = (...yield) => yield + 42;
 assert.sameValue(f1(), "42");
@@ -67,7 +56,3 @@ function h()
   }
 }
 h();
-
-/******************************************************************************/
-
-print("Tests complete");

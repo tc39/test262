@@ -11,6 +11,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 assert.sameValue(new Function(
             "eval('var foo = 915805');" +
             "return foo;"
@@ -24,7 +25,3 @@ assert.sameValue(new Function(
             "return foo;"
          )()(),
          915805);
-
-/******************************************************************************/
-
-print("Tests complete");

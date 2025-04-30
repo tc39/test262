@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.defineProperty sets arguments.length without setting the length-overridden bit
 esid: pending
 ---*/
-var gTestfile = 'redefine-arguments-length.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 539766;
-var summary =
-  "Object.defineProperty sets arguments.length without setting the " +
-  "length-overridden bit";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function test_JSOP_ARGCNT()
 {
@@ -64,8 +52,3 @@ function test_array_toString_sub_2()
   assert.sameValue([].toLocaleString.call(arguments), "1");
 }
 test_array_toString_sub_2(1, 2);
-
-
-/******************************************************************************/
-
-print("All tests passed!");

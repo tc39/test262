@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Anonymous class with name method shouldn't be affected by assignment
 esid: pending
 ---*/
-var BUGNUMBER = 883377;
-var summary = "Anonymous class with name method shouldn't be affected by assignment";
-
-print(BUGNUMBER + ": " + summary);
 
 var classWithStaticNameMethod = class { static name() {} };
 assert.sameValue(typeof classWithStaticNameMethod.name, "function");
@@ -38,4 +34,3 @@ assert.sameValue(classWithNameGetter.name, "classWithNameGetter");
 
 var classWithNameSetter = class { set name(v) {} };
 assert.sameValue(classWithNameSetter.name, "classWithNameSetter");
-
