@@ -5,8 +5,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js, compareArray.js, deepEqual.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending

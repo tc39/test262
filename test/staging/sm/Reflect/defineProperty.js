@@ -7,8 +7,6 @@
 features:
   - IsHTMLDDA
 includes: [sm/assertThrowsValue.js, sm/non262-Reflect-shell.js, deepEqual.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
