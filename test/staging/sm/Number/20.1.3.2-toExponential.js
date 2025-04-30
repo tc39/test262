@@ -51,7 +51,7 @@ assertThrowsValue(
   "hello");
 
 // Not a number throws TypeError
-assertThrowsInstanceOf(() => Number.prototype.toExponential.call("Hello"), TypeError);
+assert.throws(TypeError, () => Number.prototype.toExponential.call("Hello"));
 
 if (typeof assert.sameValue === "function") {
 }

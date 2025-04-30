@@ -37,7 +37,7 @@ for (let ctor of ctors) {
                 return primitive;
             }
         };
-        assertThrowsInstanceOf(() => new ctor(arg), TypeError);
+        assert.throws(TypeError, () => new ctor(arg));
     }
 }
 

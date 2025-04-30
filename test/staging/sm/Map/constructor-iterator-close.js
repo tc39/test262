@@ -61,7 +61,7 @@ function test(ctors, { nextVal=undefined,
             }
             assert.sameValue(caught, true);
         } else if (exceptionType) {
-            assertThrowsInstanceOf(() => new ctor(iterable), exceptionType);
+            assert.throws(exceptionType, () => new ctor(iterable));
         } else {
             new ctor(iterable);
         }

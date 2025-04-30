@@ -9,9 +9,9 @@ description: |
   pending
 esid: pending
 ---*/
-assertThrowsInstanceOf(() => ArrayBuffer(), TypeError);
-assertThrowsInstanceOf(() => ArrayBuffer(1), TypeError);
-assertThrowsInstanceOf(() => ArrayBuffer.call(null), TypeError);
-assertThrowsInstanceOf(() => ArrayBuffer.apply(null, []), TypeError);
-assertThrowsInstanceOf(() => Reflect.apply(ArrayBuffer, null, []), TypeError);
+assert.throws(TypeError, () => ArrayBuffer());
+assert.throws(TypeError, () => ArrayBuffer(1));
+assert.throws(TypeError, () => ArrayBuffer.call(null));
+assert.throws(TypeError, () => ArrayBuffer.apply(null, []));
+assert.throws(TypeError, () => Reflect.apply(ArrayBuffer, null, []));
 

@@ -39,8 +39,7 @@ var randomExtensions =
 
 for (var extension of randomExtensions)
 {
-  assertThrowsInstanceOf(() => Function(extension), SyntaxError,
-                         "bad behavior for: " + extension);
+  assert.throws(SyntaxError, () => Function(extension), "bad behavior for: " + extension);
 }
 
 /******************************************************************************/

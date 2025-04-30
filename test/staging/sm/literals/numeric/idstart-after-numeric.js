@@ -15,9 +15,9 @@ var BUGNUMBER = '523401';
 var summary = 'numeric literal followed by an identifier';
 
 var array = new Array();
-assertThrowsInstanceOf(() => eval("array[0for]"), SyntaxError);
-assertThrowsInstanceOf(() => eval("array[1yield]"), SyntaxError);
-assertThrowsInstanceOf(() => eval("array[2in []]"), SyntaxError); // "2 in []" is valid.
+assert.throws(SyntaxError, () => eval("array[0for]"));
+assert.throws(SyntaxError, () => eval("array[1yield]"));
+assert.throws(SyntaxError, () => eval("array[2in []]")); // "2 in []" is valid.
 assert.sameValue(array[2 in []], undefined);
 assert.sameValue(2 in [], false);
-assertThrowsInstanceOf(() => eval("array[3in]"), SyntaxError);
+assert.throws(SyntaxError, () => eval("array[3in]"));
