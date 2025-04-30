@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   null as a trap value on a handler should operate on the target
 esid: pending

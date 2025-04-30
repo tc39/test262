@@ -5,8 +5,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Scripted proxies' [[GetPrototypeOf]] behavior
 esid: pending
@@ -228,8 +226,8 @@ targetProto = null;
 
 var regex = /targetProto/;
 
-act1 = () => log.push("act1");
-act2 = () => log.push("act2");
+var act1 = () => log.push("act1");
+var act2 = () => log.push("act2");
 
 log.length = 0;
 assert.sameValue(Object.getPrototypeOf(p), null);
