@@ -46,7 +46,7 @@ function test(obj, expects) {
 
 function testThrowsGeneric(obj) {
   for (var prop of props) {
-    assertThrowsInstanceOf(() => genericGet(obj, prop), TypeError);
+    assert.throws(TypeError, () => genericGet(obj, prop));
   }
 }
 

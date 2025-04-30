@@ -14,5 +14,5 @@ var summary = "RegExp constructor should check the pattern syntax again when add
 
 print(BUGNUMBER + ": " + summary);
 
-assertThrowsInstanceOf(() => RegExp(/\-/, "u"), SyntaxError);
+assert.throws(SyntaxError, () => RegExp(/\-/, "u"));
 

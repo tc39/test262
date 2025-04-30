@@ -40,7 +40,7 @@ assert.sameValue(getter("unicode"), undefined);
 assert.sameValue(t.toString(), "/(?:)/");
 
 // The methods don't work with the prototype
-assertThrowsInstanceOf(() => t.compile("b", "i"), TypeError);
-assertThrowsInstanceOf(() => t.test("x"), TypeError);
-assertThrowsInstanceOf(() => t.exec("x"), TypeError);
+assert.throws(TypeError, () => t.compile("b", "i"));
+assert.throws(TypeError, () => t.test("x"));
+assert.throws(TypeError, () => t.exec("x"));
 
