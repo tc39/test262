@@ -2,13 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 // ES6 7.1.1 ToPrimitive(input [, PreferredType]) specifies a new extension
 // point in the language. Objects can override the behavior of ToPrimitive
 // somewhat by supporting the method obj[@@toPrimitive](hint).
@@ -107,5 +108,4 @@ var handler = new Proxy({}, {
 });
 proxy = new Proxy(Object.create(null), handler);
 assert.throws(TypeError, () => proxy == 0);
-assert.deepEqual(log, [Symbol.toPrimitive, "valueOf", "toString"]);
-
+assert.compareArray(log, [Symbol.toPrimitive, "valueOf", "toString"]);

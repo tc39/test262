@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -22,14 +22,14 @@ Object.defineProperty(Array.prototype, 1, {
   },
 });
 
-assert.deepEqual([].toSpliced(0, 0, 1), [1]);
+assert.compareArray([].toSpliced(0, 0, 1), [1]);
 
-assert.deepEqual([0].toSpliced(0, 0, 0), [0, 0]);
-assert.deepEqual([0].toSpliced(0, 0, 1), [1, 0]);
-assert.deepEqual([0].toSpliced(0, 1, 0), [0]);
-assert.deepEqual([0].toSpliced(0, 1, 1), [1]);
-assert.deepEqual([0].toSpliced(1, 0, 0), [0, 0]);
-assert.deepEqual([0].toSpliced(1, 0, 1), [0, 1]);
-assert.deepEqual([0].toSpliced(1, 1, 0), [0, 0]);
-assert.deepEqual([0].toSpliced(1, 1, 1), [0, 1]);
+assert.compareArray([0].toSpliced(0, 0, 0), [0, 0]);
+assert.compareArray([0].toSpliced(0, 0, 1), [1, 0]);
+assert.compareArray([0].toSpliced(0, 1, 0), [0]);
+assert.compareArray([0].toSpliced(0, 1, 1), [1]);
+assert.compareArray([0].toSpliced(1, 0, 0), [0, 0]);
+assert.compareArray([0].toSpliced(1, 0, 1), [0, 1]);
+assert.compareArray([0].toSpliced(1, 1, 0), [0, 0]);
+assert.compareArray([0].toSpliced(1, 1, 1), [0, 1]);
 

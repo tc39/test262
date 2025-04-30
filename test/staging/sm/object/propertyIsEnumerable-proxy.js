@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -40,30 +40,29 @@ for (var property of properties) {
     var {proxy, log} = logProxy({});
     var result = Object.prototype.propertyIsEnumerable.call(proxy, property);
     assert.sameValue(result, false);
-    assert.deepEqual(log, [property]);
+    assert.compareArray(log, [property]);
 
     // Test 2: property is present on object and enumerable
     var {proxy, log} = logProxy({[property]: 0});
     var result = Object.prototype.propertyIsEnumerable.call(proxy, property);
     assert.sameValue(result, true);
-    assert.deepEqual(log, [property]);
+    assert.compareArray(log, [property]);
 
     // Test 3: property is present on object, but not enumerable
     var {proxy, log} = logProxy(Object.defineProperty({[property]: 0}, property, {enumerable: false}));
     var result = Object.prototype.propertyIsEnumerable.call(proxy, property);
     assert.sameValue(result, false);
-    assert.deepEqual(log, [property]);
+    assert.compareArray(log, [property]);
 
     // Test 4: property is present on prototype object
     var {proxy, log} = logProxy(Object.create({[property]: 0}));
     var result = Object.prototype.propertyIsEnumerable.call(proxy, property);
     assert.sameValue(result, false);
-    assert.deepEqual(log, [property]);
+    assert.compareArray(log, [property]);
 
     // Test 5: property is present on prototype object, prototype is proxy object
     var {proxy, log} = logProxy({[property]: 0});
     var result = Object.prototype.propertyIsEnumerable.call(Object.create(proxy), property);
     assert.sameValue(result, false);
-    assert.deepEqual(log, []);
+    assert.compareArray(log, []);
 }
-

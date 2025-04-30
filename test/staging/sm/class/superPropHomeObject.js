@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -66,5 +66,4 @@ for (let exprBase of [base1, base2])
         constructor() { super(); }
         test() { animals.push(super["test"]()); }
     }().test();
-assert.deepEqual(animals, ["llama", "alpaca"]);
-
+assert.compareArray(animals, ["llama", "alpaca"]);
