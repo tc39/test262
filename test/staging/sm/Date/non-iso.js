@@ -17,7 +17,7 @@ esid: pending
  * the form YYYY-MM-DDTHH:MM:SS save for a few exceptions: months, days, hours
  * minutes, and seconds may be either one _or_ two digits long, and the 'T'
  * preceding the time part may be replaced with a space. So, a string like
- * "1997-3-8 1:1:1" will parse successfully. See bug: 1203298
+ * "1997-3-8 1:1:1" will parse successfully. See bug: 1205298
  */
 
 assert.sameValue(new Date("1997-03-08 1:1:1.01").getTime(),
