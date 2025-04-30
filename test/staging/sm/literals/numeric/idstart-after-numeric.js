@@ -4,14 +4,10 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
-  pending
+  numeric literal followed by an identifier
 esid: pending
 ---*/
-var BUGNUMBER = '523401';
-var summary = 'numeric literal followed by an identifier';
 
 var array = new Array();
 assert.throws(SyntaxError, () => eval("array[0for]"));
