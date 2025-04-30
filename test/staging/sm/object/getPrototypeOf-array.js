@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   The [[Prototype]] of an object whose prototype chain contains an array isn't that array's [[Prototype]]
 esid: pending

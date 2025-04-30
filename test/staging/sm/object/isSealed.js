@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.isSealed() should return true when given primitive values as input
 esid: pending
