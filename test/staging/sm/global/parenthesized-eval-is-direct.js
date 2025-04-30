@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   (eval)(...) is a direct eval, (1, eval)() isn't, etc.
 esid: pending

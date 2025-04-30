@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   parseInt should treat leading-zero inputs (with radix unspecified) as decimal, not octal
 esid: pending

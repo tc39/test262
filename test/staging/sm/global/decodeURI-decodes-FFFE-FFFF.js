@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   decodeURI{,Component} should return the specified character for '%EF%BF%BE' and '%EF%BF%BF', not return U+FFFD
 esid: pending
