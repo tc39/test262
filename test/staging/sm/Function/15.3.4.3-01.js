@@ -8,17 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Function.prototype.apply should accept any arraylike arguments
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 562448;
-var summary = 'Function.prototype.apply should accept any arraylike arguments';
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectTypeError(fun, msg)
 {
@@ -242,7 +234,3 @@ assert.sameValue(res[3], 8, "wrong ret[0]");
 
 strictArgsAsArray.apply(17, argsAccessors);
 assert.sameValue(seenThis, 17, "saw wrong this");
-
-/******************************************************************************/
-
-print("All tests passed!");
