@@ -5,34 +5,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*---
-defines: [makeIterator, assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
+defines: [assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
 allow_unused: True
 ---*/
 
 (function() {
   const undefined = void 0;
-
-  /** Make an iterator with a return method. */
-  globalThis.makeIterator = function makeIterator(overrides) {
-    var throwMethod;
-    if (overrides && overrides.throw)
-      throwMethod = overrides.throw;
-    var iterator = {
-      throw: throwMethod,
-      next: function(x) {
-        if (overrides && overrides.next)
-          return overrides.next(x);
-        return { done: false };
-      },
-      return: function(x) {
-        if (overrides && overrides.ret)
-          return overrides.ret(x);
-        return { done: true };
-      }
-    };
-
-    return function() { return iterator; };
-  };
 
   if (typeof globalThis.assertThrowsValue === 'undefined') {
     globalThis.assertThrowsValue = function assertThrowsValue(f, val, msg) {
