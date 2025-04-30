@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Properly implement the spec's distinctions between StatementListItem and Statement grammar productions and their uses
 esid: pending

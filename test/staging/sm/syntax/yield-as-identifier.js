@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   |yield| is sometimes a valid identifier
 esid: pending
