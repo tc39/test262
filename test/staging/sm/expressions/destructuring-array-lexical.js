@@ -14,8 +14,6 @@ var summary = "Array destructuring with accessing uninitialized lexical binding.
 
 print(BUGNUMBER + ": " + summary);
 
-assertThrowsInstanceOf(() => { let y = [y] = []; },
-                       ReferenceError);
-assertThrowsInstanceOf(() => { let y = [y] = [,]; },
-                       ReferenceError);
+assert.throws(ReferenceError, () => { let y = [y] = []; });
+assert.throws(ReferenceError, () => { let y = [y] = [,]; });
 
