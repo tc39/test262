@@ -22,5 +22,5 @@ class TestIterator extends Iterator {
 
 const iter = new TestIterator();
 
-assertThrowsInstanceOf(() => iter.toArray(), Error);
+assert.throws(Error, () => iter.toArray());
 

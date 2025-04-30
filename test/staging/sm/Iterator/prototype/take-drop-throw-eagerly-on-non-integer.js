@@ -29,8 +29,8 @@ const objectWithToPrimitive = {
 };
 
 for (const method of methods) {
-  assertThrowsInstanceOf(() => method(0n), TypeError);
-  assertThrowsInstanceOf(() => method(Symbol('')), TypeError);
-  assertThrowsInstanceOf(() => method(objectWithToPrimitive), TypeError);
+  assert.throws(TypeError, () => method(0n));
+  assert.throws(TypeError, () => method(Symbol('')));
+  assert.throws(TypeError, () => method(objectWithToPrimitive));
 }
 

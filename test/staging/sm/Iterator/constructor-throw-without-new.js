@@ -15,5 +15,5 @@ description: |
   pending
 esid: pending
 ---*/
-assertThrowsInstanceOf(() => Iterator(), TypeError);
+assert.throws(TypeError, () => Iterator());
 

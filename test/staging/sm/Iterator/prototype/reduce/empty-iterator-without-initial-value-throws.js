@@ -15,5 +15,5 @@ esid: pending
 ---*/
 
 const iter = [].values();
-assertThrowsInstanceOf(() => iter.reduce((x, y) => x + y), TypeError);
+assert.throws(TypeError, () => iter.reduce((x, y) => x + y));
 

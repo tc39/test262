@@ -19,10 +19,10 @@ assert.sameValue(TypeError !== otherGlobal.TypeError, true);
 
 const iter = [].values();
 
-assertThrowsInstanceOf(() => iter.every(), TypeError);
-assertThrowsInstanceOf(
-  otherGlobal.Iterator.prototype.every.bind(iter),
+assert.throws(TypeError, () => iter.every());
+assert.throws(
   otherGlobal.TypeError,
+  otherGlobal.Iterator.prototype.every.bind(iter),
   'TypeError comes from the realm of the method.',
 );
 

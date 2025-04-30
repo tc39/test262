@@ -35,5 +35,5 @@ const otherWrap = otherGlobal.Iterator.from(iter);
 checkIterResult(thisWrap.next.call(otherWrap), false, 0);
 checkIterResult(thisWrap.next.call(otherWrap, 'value'), false, 0);
 
-assertThrowsInstanceOf(thisWrap.return.bind(otherWrap), TestError);
+assert.throws(TestError, thisWrap.return.bind(otherWrap));
 
