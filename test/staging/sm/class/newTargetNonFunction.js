@@ -12,8 +12,8 @@ esid: pending
 // Make sure that we can plumb new.target, even if the results are going to
 // throw.
 
-assertThrowsInstanceOf(() => new ""(...Array()), TypeError);
+assert.throws(TypeError, () => new ""(...Array()));
 
-assertThrowsInstanceOf(() => new ""(), TypeError);
-assertThrowsInstanceOf(() => new ""(1), TypeError);
+assert.throws(TypeError, () => new ""());
+assert.throws(TypeError, () => new ""(1));
 

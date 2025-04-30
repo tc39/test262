@@ -34,41 +34,40 @@ for (let test of [a,b]) {
 // As such, it should by a TypeError to try and overwrite "prototype" with a
 // static member. The only way to try is with a computed property name; the rest
 // are early errors.
-assertThrowsInstanceOf(() => eval(`
+assert.throws(TypeError, () => eval(`
                                   class a {
                                     constructor() { };
                                     static ["prototype"]() { }
                                   }
-                                  `), TypeError);
-assertThrowsInstanceOf(() => eval(`
+                                  `));
+assert.throws(TypeError, () => eval(`
                                   class a {
                                     constructor() { };
                                     static get ["prototype"]() { }
                                   }
-                                  `), TypeError);
-assertThrowsInstanceOf(() => eval(`
+                                  `));
+assert.throws(TypeError, () => eval(`
                                   class a {
                                     constructor() { };
                                     static set ["prototype"](x) { }
                                   }
-                                  `), TypeError);
+                                  `));
 
-assertThrowsInstanceOf(() => eval(`(
+assert.throws(TypeError, () => eval(`(
                                   class a {
                                     constructor() { };
                                     static ["prototype"]() { }
                                   }
-                                  )`), TypeError);
-assertThrowsInstanceOf(() => eval(`(
+                                  )`));
+assert.throws(TypeError, () => eval(`(
                                   class a {
                                     constructor() { };
                                     static get ["prototype"]() { }
                                   }
-                                  )`), TypeError);
-assertThrowsInstanceOf(() => eval(`(
+                                  )`));
+assert.throws(TypeError, () => eval(`(
                                   class a {
                                     constructor() { };
                                     static set ["prototype"](x) { }
                                   }
-                                  )`), TypeError);
-
+                                  )`));

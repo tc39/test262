@@ -33,5 +33,5 @@ class beforeThrow extends base {
 Object.setPrototypeOf(beforeThrow, Math.sin);
 
 // Won't throw that Math.sin is not a constructor before evaluating the args
-assertThrowsInstanceOf(() => new beforeThrow(), MyError);
+assert.throws(MyError, () => new beforeThrow());
 

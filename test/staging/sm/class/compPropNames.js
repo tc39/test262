@@ -29,12 +29,12 @@ function syntaxError (script) {
 
 // Tests begin.
 
-assertThrowsInstanceOf(function() { var a = {[field1]: "a", [field2]: "b"}; }, ReferenceError);
+assert.throws(ReferenceError, function() { var a = {[field1]: "a", [field2]: "b"}; });
 
-assertThrowsInstanceOf(function() {
+assert.throws(ReferenceError, function() {
                            field1 = 1;
                            var a = {[field1]: "a", [field2]: "b"};
-                       }, ReferenceError);
+                       });
 
 var f1 = 1;
 var f2 = 2;

@@ -15,7 +15,7 @@ class base { constructor() { } }
 function lies() { }
 lies.prototype = 4;
 
-assertThrowsInstanceOf(()=>Reflect.consruct(base, [], lies), TypeError);
+assert.throws(TypeError, ()=>Reflect.consruct(base, [], lies));
 
 // lie a slightly different way
 function get(target, property, receiver) {
@@ -27,8 +27,8 @@ function get(target, property, receiver) {
 class inst extends base {
     constructor() { super(); }
 }
-assertThrowsInstanceOf(()=>new new Proxy(inst, {get})(), TypeError);
+assert.throws(TypeError, ()=>new new Proxy(inst, {get})());
 
 class defaultInst extends base {}
-assertThrowsInstanceOf(()=>new new Proxy(defaultInst, {get})(), TypeError);
+assert.throws(TypeError, ()=>new new Proxy(defaultInst, {get})());
 

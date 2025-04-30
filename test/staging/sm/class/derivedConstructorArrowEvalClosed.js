@@ -9,11 +9,12 @@ description: |
   pending
 esid: pending
 ---*/
+
 new class extends class { } {
     constructor() {
         let a1 = () => this;
         let a2 = (() => super());
-        assertThrowsInstanceOf(a1, ReferenceError);
+        assert.throws(ReferenceError, a1);
         assert.sameValue(a2(), a1());
     }
 }();

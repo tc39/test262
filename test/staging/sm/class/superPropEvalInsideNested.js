@@ -11,12 +11,12 @@ esid: pending
 ---*/
 // It's invalid to eval super.prop inside a nested non-method, even if it
 // appears inside a method definition
-assertThrowsInstanceOf(() =>
+assert.throws(SyntaxError, () =>
 ({
     method() {
         (function () {
             eval('super.toString');
         })();
     }
-}).method(), SyntaxError);
+}).method());
 

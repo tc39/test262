@@ -23,7 +23,7 @@ class strictAssignmentTest {
     }
 }
 
-assertThrowsInstanceOf(()=>new strictAssignmentTest(), TypeError);
+assert.throws(TypeError, ()=>new strictAssignmentTest());
 
 // Non-strict. Silent failure.
 ({ test() { super.prop = 14; } }).test();

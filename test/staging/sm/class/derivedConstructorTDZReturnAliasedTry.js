@@ -19,5 +19,5 @@ class derived extends base {
     }
   }
 }
-assertThrowsInstanceOf(()=>new derived(), ReferenceError);
+assert.throws(ReferenceError, ()=>new derived());
 

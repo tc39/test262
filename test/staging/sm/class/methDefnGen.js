@@ -88,5 +88,5 @@ assert.sameValue(a.b(1).next().value, 1);
 
 // Generators should not have [[Construct]]
 a = {*g() { yield 1; }}
-assertThrowsInstanceOf(() => { new a.g }, TypeError);
+assert.throws(TypeError, () => { new a.g });
 

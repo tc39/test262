@@ -14,17 +14,17 @@ class Foo {
     constructor() { }
 }
 
-assertThrowsInstanceOf(Foo, TypeError);
+assert.throws(TypeError, Foo);
 
 class Bar extends Foo {
     constructor() { }
 }
 
-assertThrowsInstanceOf(Bar, TypeError);
+assert.throws(TypeError, Bar);
 
-assertThrowsInstanceOf(class { constructor() { } }, TypeError);
-assertThrowsInstanceOf(class extends Foo { constructor() { } }, TypeError);
+assert.throws(TypeError, class { constructor() { } });
+assert.throws(TypeError, class extends Foo { constructor() { } });
 
-assertThrowsInstanceOf(class foo { constructor() { } }, TypeError);
-assertThrowsInstanceOf(class foo extends Foo { constructor() { } }, TypeError);
+assert.throws(TypeError, class foo { constructor() { } });
+assert.throws(TypeError, class foo extends Foo { constructor() { } });
 
