@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Destructuring should evaluate lhs reference before rhs
 esid: pending
@@ -19,6 +17,7 @@ let obj = new Proxy(storage, {
   set(that, name, value) {
     log("lhs set " + name);
     storage.values[name] = value;
+    return true;
   }
 });
 
