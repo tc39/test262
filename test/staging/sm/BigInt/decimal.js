@@ -2,12 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 // Any copyright is dedicated to the Public Domain.
 // https://creativecommons.org/licenses/publicdomain/
 
@@ -36,4 +35,3 @@ for (const [power, offset, sign, result] of decimalTests) {
     assert.sameValue(((2n**power+offset)*sign).toString(),
              result);
 }
-
