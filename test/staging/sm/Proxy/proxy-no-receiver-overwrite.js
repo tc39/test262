@@ -8,7 +8,6 @@ description: |
   pending
 esid: pending
 ---*/
-"use strict";
 
 var y = new Proxy({}, {
     getOwnPropertyDescriptor(target, key) {
@@ -28,4 +27,3 @@ var y = new Proxy({}, {
 // This will invoke [[Set]] on the target, with the proxy as receiver.
 assert.throws(TypeError, () => y.a = 1);
 assert.throws(TypeError, () => y.b = 2);
-

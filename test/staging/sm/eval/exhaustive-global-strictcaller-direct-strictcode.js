@@ -10,7 +10,6 @@ description: |
   eval in all its myriad flavors
 esid: pending
 ---*/
-"use strict";
 
 var x = 17;
 
