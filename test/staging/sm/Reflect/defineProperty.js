@@ -132,9 +132,7 @@ assert.sameValue(Reflect.defineProperty(obj, "prop", {set: g}), false);
 assert.sameValue(Reflect.defineProperty(obj, "prop", {set: s}), true);  // no-op
 
 // Proxy defineProperty handler method that returns false
-var falseValues = [false, 0, -0, "", NaN, null, undefined];
-if (typeof createIsHTMLDDA === "function")
-    falseValues.push(createIsHTMLDDA());
+var falseValues = [false, 0, -0, "", NaN, null, undefined, $262.IsHTMLDDA];
 var value;
 proxy = new Proxy({}, {
     defineProperty(t, id, desc) {
