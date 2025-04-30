@@ -9,7 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
-const otherGlobal = createNewGlobal();
+const otherGlobal = $262.createRealm().global;
 
 // Create with new ArrayBuffer and offset.
 for (var constructor of typedArrayConstructors) {

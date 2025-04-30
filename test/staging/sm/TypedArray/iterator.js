@@ -41,7 +41,7 @@ Object.defineProperty(i8Array, "length", {value: 15});
 (new Uint8Array(4)).set(i8Array, 3);
 
 // Ensure that it works across globals
-let g2 = createNewGlobal();
+let g2 = $262.createRealm().global;
 
 i8Array = new Int8Array(8);
 Object.defineProperty(i8Array, "length", {value: 0});

@@ -15,13 +15,13 @@ function checkResult(actual, expected)
   assert.sameValue(actual.done, expected.done);
 }
 
-if (typeof $262.detachArrayBuffer === "function" && typeof createNewGlobal === "function")
+if (typeof $262.detachArrayBuffer === "function")
 {
   var iteratorFunction = Uint8Array.prototype[Symbol.iterator];
 
 
   var thisGlobal = this;
-  var otherGlobal = createNewGlobal();
+  var otherGlobal = $262.createRealm().global;
 
   var thisNext = new Uint8Array()[Symbol.iterator]().next
 

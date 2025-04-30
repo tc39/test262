@@ -13,8 +13,8 @@ esid: pending
 const floatConstructors = anyTypedArrayConstructors.filter(isFloatConstructor);
 
 // Also test with cross-compartment wrapped typed arrays.
-if (typeof createNewGlobal === "function") {
-    const otherGlobal = createNewGlobal();
+{
+    const otherGlobal = $262.createRealm().global;
     floatConstructors.push(otherGlobal.Float16Array);
     floatConstructors.push(otherGlobal.Float32Array);
     floatConstructors.push(otherGlobal.Float64Array);

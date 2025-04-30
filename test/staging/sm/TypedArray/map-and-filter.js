@@ -9,6 +9,9 @@ description: |
   pending
 esid: pending
 ---*/
+
+var otherGlobal = $262.createRealm().global;
+
 // Tests for TypedArray#map.
 for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(constructor.prototype.map.length, 1);
@@ -110,12 +113,10 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var map = createNewGlobal()[constructor.name].prototype.map;
-        var sum = 0;
-        assert.compareArray(map.call(new constructor([1, 2, 3]), v => sum += v), new constructor([1,3,6]));
-        assert.sameValue(sum, 6);
-    }
+    var map = otherGlobal[constructor.name].prototype.map;
+    var sum = 0;
+    assert.compareArray(map.call(new constructor([1, 2, 3]), v => sum += v), new constructor([1,3,6]));
+    assert.sameValue(sum, 6);
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
@@ -234,13 +235,11 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var filter = createNewGlobal()[constructor.name].prototype.filter;
-        var sum = 0;
-        assert.compareArray(filter.call(new constructor([1, 2, 3]), v => {sum += v; return true}),
-        new constructor([1,2,3]));
-        assert.sameValue(sum, 6);
-    }
+    var filter = otherGlobal[constructor.name].prototype.filter;
+    var sum = 0;
+    assert.compareArray(filter.call(new constructor([1, 2, 3]), v => {sum += v; return true}),
+    new constructor([1,2,3]));
+    assert.sameValue(sum, 6);
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,

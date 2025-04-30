@@ -13,7 +13,7 @@ esid: pending
 
 // Ensure the various error conditions are tested in the correct order.
 
-const otherGlobal = createNewGlobal();
+const otherGlobal = $262.createRealm().global;
 
 function* createBuffers(lengths = [0, 8]) {
     for (let length of lengths) {
