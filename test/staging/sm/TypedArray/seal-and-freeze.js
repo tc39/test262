@@ -4,7 +4,6 @@
 /*---
 flags:
   - onlyStrict
-includes: [sm/non262-TypedArray-shell.js]
 description: |
   pending
 esid: pending
