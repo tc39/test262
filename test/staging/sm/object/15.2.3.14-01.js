@@ -17,9 +17,6 @@ var summary = 'ES5 Object.keys(O)';
 var actual = '';
 var expect = '';
 
-printBugNumber(BUGNUMBER);
-printStatus(summary);
-
 function arraysEqual(a1, a2)
 {
   return a1.length === a2.length &&
@@ -96,5 +93,3 @@ if (typeof Namespace !== "undefined" && typeof QName !== "undefined")
 /******************************************************************************/
 
 assert.sameValue(expect, actual, "Object.keys");
-
-printStatus("All tests passed!");
