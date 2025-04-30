@@ -8,22 +8,14 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Valgrind errors in jsemit.cpp
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 410852;
-var summary = 'Valgrind errors in jsemit.cpp';
 
-
-//-----------------------------------------------------------------------------
 test();
-//-----------------------------------------------------------------------------
 
 function test()
 {
-  print('Note: You must run this test under valgrind to determine if it passes');
-
   try
   {
     eval('function(){if(t)');

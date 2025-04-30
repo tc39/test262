@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-strict-shell.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  A string literal containing an octal escape before a strict mode directive should be a syntax error
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 601262;
-var summary =
-  "A string literal containing an octal escape before a strict mode " +
-  "directive should be a syntax error";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 try
 {
@@ -79,7 +68,3 @@ function notAnError3()
   "\145";
   function g() { "use strict"; }
 }
-
-/******************************************************************************/
-
-print("All tests passed!");

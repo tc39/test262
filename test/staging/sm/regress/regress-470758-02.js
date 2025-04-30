@@ -8,25 +8,20 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Promote evald initializer into upvar
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 470758;
-var summary = 'Promote evald initializer into upvar';
+
 var actual = '';
 var expect = '';
 
-
-//-----------------------------------------------------------------------------
 test();
-//-----------------------------------------------------------------------------
 
 function test()
 {
   expect = 5;
 
-  (function(){var x;eval("for (x = 0; x < 5; x++);");print(actual = x);})();
+  (function(){var x;eval("for (x = 0; x < 5; x++);"); actual = x;})();
 
-  assert.sameValue(expect, actual, summary);
+  assert.sameValue(expect, actual);
 }

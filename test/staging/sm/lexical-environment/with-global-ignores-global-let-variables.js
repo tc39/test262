@@ -11,6 +11,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 let v = "global-v";
 
 function f(v, global)
@@ -21,5 +22,3 @@ function f(v, global)
 
 assert.sameValue(f("argument-v", this), "argument-v",
          "let-var shouldn't appear in global for |with| purposes");
-
-print("Tests complete");
