@@ -23,7 +23,7 @@ const descriptors = [
 ];
 
 for (const descriptor of descriptors) {
-    assertThrowsInstanceOf(() => Object.create(null, {x: descriptor}), TypeError);
-    assertThrowsInstanceOf(() => Object.defineProperties({}, {x: descriptor}), TypeError);
+    assert.throws(TypeError, () => Object.create(null, {x: descriptor}));
+    assert.throws(TypeError, () => Object.defineProperties({}, {x: descriptor}));
 }
 

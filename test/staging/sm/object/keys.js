@@ -15,9 +15,9 @@ var BUGNUMBER = 1038545;
 var summary = "Coerce the argument passed to Object.keys using ToObject";
 print(BUGNUMBER + ": " + summary);
 
-assertThrowsInstanceOf(() => Object.keys(), TypeError);
-assertThrowsInstanceOf(() => Object.keys(undefined), TypeError);
-assertThrowsInstanceOf(() => Object.keys(null), TypeError);
+assert.throws(TypeError, () => Object.keys());
+assert.throws(TypeError, () => Object.keys(undefined));
+assert.throws(TypeError, () => Object.keys(null));
 
 assert.deepEqual(Object.keys(1), []);
 assert.deepEqual(Object.keys(true), []);
