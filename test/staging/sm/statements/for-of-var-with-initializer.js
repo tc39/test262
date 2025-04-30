@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Don't assert parsing |for (var x = 3 of 42);|
 esid: pending
 ---*/
-var gTestfile = "for-of-var-with-initializer.js";
-var BUGNUMBER = 1164741;
-var summary = "Don't assert parsing |for (var x = 3 of 42);|";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 try
 {
@@ -31,7 +22,3 @@ catch (e)
   assert.sameValue(e instanceof SyntaxError, true,
            "expected syntax error, got: " + e);
 }
-
-/******************************************************************************/
-
-print("Tests complete");
