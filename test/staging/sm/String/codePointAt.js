@@ -77,17 +77,17 @@ assert.sameValue('\uDF06abc'.codePointAt(null), 0xDF06);
 assert.sameValue('\uDF06abc'.codePointAt(undefined), 0xDF06);
 
 (function() { String.prototype.codePointAt.call(undefined); }, TypeError);
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.call(undefined, 4); }, TypeError);
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.call(null); }, TypeError);
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.call(null, 4); }, TypeError);
+assert.throws(TypeError, function() { String.prototype.codePointAt.call(undefined, 4); });
+assert.throws(TypeError, function() { String.prototype.codePointAt.call(null); });
+assert.throws(TypeError, function() { String.prototype.codePointAt.call(null, 4); });
 assert.sameValue(String.prototype.codePointAt.call(42, 0), 0x34);
 assert.sameValue(String.prototype.codePointAt.call(42, 1), 0x32);
 assert.sameValue(String.prototype.codePointAt.call({ 'toString': function() { return 'abc'; } }, 2), 0x63);
 
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.apply(undefined); }, TypeError);
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.apply(undefined, [4]); }, TypeError);
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.apply(null); }, TypeError);
-assertThrowsInstanceOf(function() { String.prototype.codePointAt.apply(null, [4]); }, TypeError);
+assert.throws(TypeError, function() { String.prototype.codePointAt.apply(undefined); });
+assert.throws(TypeError, function() { String.prototype.codePointAt.apply(undefined, [4]); });
+assert.throws(TypeError, function() { String.prototype.codePointAt.apply(null); });
+assert.throws(TypeError, function() { String.prototype.codePointAt.apply(null, [4]); });
 assert.sameValue(String.prototype.codePointAt.apply(42, [0]), 0x34);
 assert.sameValue(String.prototype.codePointAt.apply(42, [1]), 0x32);
 assert.sameValue(String.prototype.codePointAt.apply({ 'toString': function() { return 'abc'; } }, [2]), 0x63);
