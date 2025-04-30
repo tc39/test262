@@ -12,7 +12,7 @@ description: |
 esid: pending
 ---*/
 var global = this;
-var otherGlobal = createNewGlobal();
+var otherGlobal = $262.createRealm().global;
 
 var thisGlobal = () => global;
 var alternateGlobals = (function(i) {

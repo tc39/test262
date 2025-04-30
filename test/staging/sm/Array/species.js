@@ -14,6 +14,8 @@ var summary = 'Use ArraySpeciesCreate in Array.prototype.{concat,filter,map,slic
 
 print(BUGNUMBER + ": " + summary);
 
+var g = $262.createRealm().global;
+
 function test(funcName, args, expectedLength, expectedLogs) {
   // modified @@species
   function FakeArray(n) {
@@ -128,7 +130,6 @@ function test(funcName, args, expectedLength, expectedLogs) {
   assert.sameValue(b.constructor, Array);
 
   // @@species from different global
-  var g = createNewGlobal();
   g.eval("function FakeArray(n) { this.length = n; }");
   a = [1, 2, 3, 4, 5];
   a.constructor = {
