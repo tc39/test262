@@ -2,12 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 var ieval = eval;
 var AsyncFunction = async function(){}.constructor;
 
@@ -98,5 +97,3 @@ assertSyntaxErrorAsync("(a = (b, ...await) => {}) => {}");
 assertSyntaxErrorBoth("(a = async(b, ...await) => {}) => {}");
 assertSyntaxErrorBoth("async(a = (b, ...await) => {}) => {}");
 assertSyntaxErrorBoth("async(a = async(b, ...await) => {}) => {}");
-
-

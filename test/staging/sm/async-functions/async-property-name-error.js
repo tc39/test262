@@ -2,12 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 function assertSyntaxError(code) {
     assert.throws(SyntaxError, () => { Function(code); }, "Function:" + code);
     assert.throws(SyntaxError, () => { eval(code); }, "eval:" + code);
@@ -26,4 +25,3 @@ for (let decl of ["var", "let", "const"]) {
     assertSyntaxError(`${decl} {async async, } = {}`);
     assertSyntaxError(`${decl} {async async = 0} = {}`);
 }
-
