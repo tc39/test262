@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Syntax errors at the end of |for| statement header parts shouldn't cause crashes
 esid: pending

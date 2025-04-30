@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Properly handle explicitly-undefined optional arguments to a bunch of functions
 esid: pending
