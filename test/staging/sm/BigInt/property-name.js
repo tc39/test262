@@ -3,12 +3,11 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 // BigInt literals as property keys.
 {
   let o = {
@@ -200,4 +199,3 @@ esid: pending
 
   assert.sameValue(o[10].name, "10");
 }
-
