@@ -47,10 +47,10 @@ function performTests(pickGlobal)
 
     // Revoked proxy to (formerly) an array.
     revocable.revoke();
-    assertThrowsInstanceOf(() => Array.isArray(revocable.proxy), TypeError);
+    assert.throws(TypeError, () => Array.isArray(revocable.proxy));
 
     // Recursive proxy ultimately terminating in a revoked proxy to an array.
-    assertThrowsInstanceOf(() => Array.isArray(proxy), TypeError);
+    assert.throws(TypeError, () => Array.isArray(proxy));
 
 }
 

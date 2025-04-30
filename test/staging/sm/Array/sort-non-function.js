@@ -18,7 +18,7 @@ const array = new Array(0);
 
 // Throws if the comparator is neither undefined nor callable.
 for (let invalidComparator of [null, 0, true, Symbol(), {}, []]) {
-    assertThrowsInstanceOf(() => array.sort(invalidComparator), TypeError);
+    assert.throws(TypeError, () => array.sort(invalidComparator));
 }
 
 // Doesn't throw if the comparator is undefined or a callable object.

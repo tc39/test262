@@ -97,7 +97,7 @@ function test(funcName, args, expectedLength, expectedLogs) {
     a.constructor = {
       [Symbol.species]: species
     };
-    assertThrowsInstanceOf(() => a[funcName](...args), TypeError);
+    assert.throws(TypeError, () => a[funcName](...args));
   }
 
   // undefined constructor
@@ -110,7 +110,7 @@ function test(funcName, args, expectedLength, expectedLogs) {
   for (var ctor of [null, 0, 1.1, true, false, "a", Symbol.iterator]) {
     a = [1, 2, 3, 4, 5];
     a.constructor = ctor;
-    assertThrowsInstanceOf(() => a[funcName](...args), TypeError);
+    assert.throws(TypeError, () => a[funcName](...args));
   }
 
   // not an array

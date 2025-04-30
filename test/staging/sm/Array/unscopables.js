@@ -56,11 +56,11 @@ for (let key of keys)
     assert.sameValue(Array_unscopables[key], true);
 
 // Test that it actually works
-assertThrowsInstanceOf(() => {
+assert.throws(ReferenceError, () => {
     with ([]) {
         return entries;
     }
-}, ReferenceError);
+});
 
 {
     let fill = 33;
