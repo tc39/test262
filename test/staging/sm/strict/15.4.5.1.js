@@ -4,7 +4,6 @@
  */
 
 /*---
-includes: [sm/non262-strict-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
