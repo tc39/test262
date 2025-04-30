@@ -4,7 +4,6 @@
 
 /*---
 defines: [testDestructuringArrayDefault]
-allow_unused: True
 ---*/
 
 (function(global) {

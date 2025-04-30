@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*---
 defines: [assertIteratorResult, assertIteratorNext, assertIteratorDone]
-allow_unused: True
 ---*/
 
 function assertIteratorResult(result, value, done) {
