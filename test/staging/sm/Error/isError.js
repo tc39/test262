@@ -4,8 +4,6 @@
 /*---
 features:
   - Error.isError
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
