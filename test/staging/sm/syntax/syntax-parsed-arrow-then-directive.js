@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Properly apply a directive comment that's only tokenized by a syntax parser (because the directive comment appears immediately after an arrow function with expression body)
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1596706;
-var summary =
-  "Properly apply a directive comment that's only tokenized by a syntax " +
-  "parser (because the directive comment appears immediately after an arrow " +
-  "function with expression body)";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var stack;
 
@@ -71,7 +59,3 @@ assert.sameValue(eval(`x=>y
 //# sourceURL=http://example.com/quux.js
 detectSourceURL`), 17);
 assertStackContains("http://example.com/quux.js", "expr, not semi");
-
-/******************************************************************************/
-
-print("Tests complete");

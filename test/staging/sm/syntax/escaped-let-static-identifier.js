@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  |let| and |static| are forbidden as Identifier only in strict mode code, and it's permissible to use them as Identifier (with or without containing escapes) in non-strict code
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1288460;
-var summary =
-  "|let| and |static| are forbidden as Identifier only in strict mode code, " +
-  "and it's permissible to use them as Identifier (with or without " +
-  "containing escapes) in non-strict code";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function t(code)
 {
@@ -44,7 +32,3 @@ t("st\\u0061tic: 42;");
 t("if (1) st\\u0061tic: 42;");
 t("st\\u0061tic = 42;");
 t("if (1) st\\u0061tic = 42;");
-
-/******************************************************************************/
-
-print("Tests complete");
