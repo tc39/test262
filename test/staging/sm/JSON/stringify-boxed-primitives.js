@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Stringification of Boolean/String/Number objects
 esid: pending
 ---*/
-var gTestfile = 'stringify-boxed-primitives.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 584909;
-var summary = "Stringification of Boolean/String/Number objects";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function redefine(obj, prop, fun)
 {
@@ -128,7 +118,3 @@ catch (e)
   assert.sameValue(e instanceof TypeError, true,
            "ToString failure, should throw TypeError");
 }
-
-/******************************************************************************/
-
-print("All tests passed!");

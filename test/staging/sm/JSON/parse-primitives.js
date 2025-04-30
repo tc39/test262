@@ -9,6 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 var x;
 
 // check an empty object, just for sanity
@@ -64,7 +65,3 @@ assert.sameValue(x, "\uabcd");
 
 x = JSON.parse('"\\f"');
 assert.sameValue(x, "\f");
-
-/******************************************************************************/
-
-print("Tests complete");

@@ -177,7 +177,3 @@ assert.sameValue(props[1], "The outermost value");
 assert.sameValue(x["JSON Test Pattern pass3"]["The outermost value"],
          "must be an object or array.");
 assert.sameValue(x["JSON Test Pattern pass3"]["In this test"], "It is an object.");
-
-/******************************************************************************/
-
-print("Tests complete");

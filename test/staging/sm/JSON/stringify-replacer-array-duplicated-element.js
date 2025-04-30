@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Better/more correct handling for replacer arrays with getter array index properties
 esid: pending
 ---*/
-var gTestfile = 'stringify-replacer-array-hijinks.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 648471;
-var summary =
-  "Better/more correct handling for replacer arrays with getter array index " +
-  "properties";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var bigOdd = Math.pow(2, 50) + 1;
 
@@ -70,7 +58,3 @@ assert.sameValue(JSON.stringify({ 1: 1 }, [new String(1), new Number(1)]), '{"1"
 assert.sameValue(JSON.stringify({ 1: 1 }, [new Number(1), new String(1)]), '{"1":1}');
 
 assert.sameValue(JSON.stringify({ 1: 1 }, [new Number(1), new Number(1)]), '{"1":1}');
-
-/******************************************************************************/
-
-print("Tests complete");
