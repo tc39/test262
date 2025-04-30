@@ -7,8 +7,6 @@ description: |
   Eagerly throw TypeError when `mapper` is not callable.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

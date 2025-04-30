@@ -10,8 +10,6 @@ info: |
   false, [[Configurable]]: true }.
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 esid: pending

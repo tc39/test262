@@ -7,8 +7,6 @@ description: |
   Interleaved %Iterator.prototype%.map calls on the same iterator.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

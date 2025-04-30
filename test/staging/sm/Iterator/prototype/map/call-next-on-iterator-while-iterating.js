@@ -7,8 +7,6 @@ description: |
   Call next on an iterator that is being iterated over.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 
 const iterator = [1, 2, 3].values()

@@ -12,8 +12,6 @@ info: |
     g. IfAbruptCloseIterator(innerIterator, iterated).
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 class InvalidIterable {
   [Symbol.iterator]() {

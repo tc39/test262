@@ -7,8 +7,6 @@ description: |
   Lazy %Iterator.prototype% methods access specified properties only.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

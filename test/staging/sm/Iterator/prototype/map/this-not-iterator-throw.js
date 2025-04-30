@@ -7,8 +7,6 @@ description: |
   Eagerly throw TypeError when `this` is not an iterator.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 //
 

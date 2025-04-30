@@ -6,8 +6,6 @@ info: |
   Iterator.from returns an iterator wrapper if O is not an iterable.
 
   Iterator is not enabled unconditionally
-flags:
-  - noStrict
 features:
   - iterator-helpers
 description: |

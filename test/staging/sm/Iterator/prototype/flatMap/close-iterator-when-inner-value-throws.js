@@ -15,8 +15,6 @@ info: |
         2. IfAbruptCloseIterator(innerValue, iterated).
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 class TestIterator extends Iterator {
   next() {

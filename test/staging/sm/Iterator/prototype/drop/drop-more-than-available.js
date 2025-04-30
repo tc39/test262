@@ -12,8 +12,6 @@ info: |
     c. If next is false, return undefined.
 features:
   - iterator-helpers
-flags:
-  - noStrict
 ---*/
 
 //
