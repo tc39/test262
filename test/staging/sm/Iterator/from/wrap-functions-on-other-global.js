@@ -29,7 +29,7 @@ const iter = {
   throw: (value) => ({done: true, value}),
 };
 const thisWrap = Iterator.from(iter);
-const otherGlobal = createNewGlobal({newCompartment: true});
+const otherGlobal = $262.createRealm().global;
 const otherWrap = otherGlobal.Iterator.from(iter);
 
 checkIterResult(thisWrap.next.call(otherWrap), false, 0);
