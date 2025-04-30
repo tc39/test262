@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp constructor should check pattern.constructor.
 esid: pending
 ---*/
-var BUGNUMBER = 1147817;
-var summary = "RegExp constructor should check pattern.constructor.";
-
-print(BUGNUMBER + ": " + summary);
 
 var g = $262.createRealm().global;
 
@@ -84,4 +80,3 @@ g.eval(`obj.constructor = RegExp`);
 assert.sameValue(RegExp(obj) === obj, false);
 obj.constructor = RegExp;
 assert.sameValue(RegExp(obj), obj);
-

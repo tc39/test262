@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype[@@split] should handle if lastIndex is out of bound.
 esid: pending
 ---*/
-var BUGNUMBER = 1263851;
-var summary = "RegExp.prototype[@@split] should handle if lastIndex is out of bound.";
-
-print(BUGNUMBER + ": " + summary);
 
 var myRegExp = {
     get constructor() {
@@ -37,4 +33,3 @@ var result = RegExp.prototype[Symbol.split].call(myRegExp, "abcde");;
 assert.sameValue(result.length, 2);
 assert.sameValue(result[0], "");
 assert.sameValue(result[1], "");
-

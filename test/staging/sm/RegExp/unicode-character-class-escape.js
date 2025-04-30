@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- CharacterClassEscape.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- CharacterClassEscape.";
-
-print(BUGNUMBER + ": " + summary);
 
 // BMP
 
@@ -81,4 +77,3 @@ testNonBMP(/\W/u);
 testNonBMP(/[\D]/u);
 testNonBMP(/[\S]/u);
 testNonBMP(/[\W]/u);
-

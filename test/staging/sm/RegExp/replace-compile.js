@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype[@@replace] should call replacer function after collecting all matches.
 esid: pending
 ---*/
-var BUGNUMBER = 1287524;
-var summary = 'RegExp.prototype[@@replace] should call replacer function after collecting all matches.';
-
-print(BUGNUMBER + ": " + summary);
 
 var rx = RegExp("a", "g");
 var r = rx[Symbol.replace]("abba", function() {
@@ -27,4 +23,3 @@ r = "abba".replace(rx, function() {
     return "?";
 });
 assert.sameValue(r, "?bb?");
-
