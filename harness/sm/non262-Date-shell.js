@@ -1,6 +1,5 @@
 /*---
 defines: [runDSTOffsetCachingTestsFraction]
-allow_unused: True
 ---*/
 
 function runDSTOffsetCachingTestsFraction(part, parts)
