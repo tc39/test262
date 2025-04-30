@@ -2,17 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
 
-source = `class A {
+var source = `class A {
   // Ensure this name parses.
   #℘;
 }`;
 
 Function(source);
-
