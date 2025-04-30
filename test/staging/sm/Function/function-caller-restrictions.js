@@ -8,6 +8,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 // Function#caller restrictions as proposed by
 // https://github.com/claudepache/es-legacy-function-reflection/
 
@@ -32,7 +33,3 @@ assert.sameValue([0].map(caller)[0], null);
 assert.sameValue(function*() {
     yield caller();
 }().next().value, null);
-
-
-if (typeof assert.sameValue === "function") {
-}

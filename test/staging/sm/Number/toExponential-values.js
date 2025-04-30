@@ -8,6 +8,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 let values = [
   [-0, undefined, "0e+0"],
   [-0, 0, "0e+0"],
@@ -121,7 +122,4 @@ let values = [
 
 for (let [val, prec, expected] of values) {
   assert.sameValue(Number.prototype.toExponential.call(val, prec), expected);
-}
-
-if (typeof assert.sameValue === "function") {
 }
