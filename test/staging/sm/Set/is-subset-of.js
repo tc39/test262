@@ -118,7 +118,7 @@ for (let values of [
   setLikeObj.keys = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSubsetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSubsetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -131,7 +131,7 @@ for (let values of [
   setLikeObj.has = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSubsetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSubsetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -143,7 +143,7 @@ for (let values of [
   sizeValue = NaN;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSubsetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSubsetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -154,7 +154,7 @@ for (let values of [
   sizeValue = undefined;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSubsetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSubsetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -163,7 +163,7 @@ for (let values of [
 }
 
 // Doesn't accept Array as an input.
-assertThrowsInstanceOf(() => emptySet.isSubsetOf([]), TypeError);
+assert.throws(TypeError, () => emptySet.isSubsetOf([]));
 
 // Works with Set subclasses.
 {
@@ -194,7 +194,7 @@ assertThrowsInstanceOf(() => emptySet.isSubsetOf([]), TypeError);
 for (let thisValue of [
   null, undefined, true, "", {}, new Map, new Proxy(new Set, {}),
 ]) {
-  assertThrowsInstanceOf(() => Set.prototype.isSubsetOf.call(thisValue, emptySet), TypeError);
+  assert.throws(TypeError, () => Set.prototype.isSubsetOf.call(thisValue, emptySet));
 }
 
 // Doesn't call |has| when this-value has more elements.

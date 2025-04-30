@@ -123,7 +123,7 @@ for (let values of [
   }, log);
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.symmetricDifference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.symmetricDifference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -138,7 +138,7 @@ for (let values of [
   setLikeObj.keys = () => 123;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.symmetricDifference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.symmetricDifference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -151,7 +151,7 @@ for (let values of [
   setLikeObj.keys = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.symmetricDifference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.symmetricDifference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -164,7 +164,7 @@ for (let values of [
   setLikeObj.has = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.symmetricDifference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.symmetricDifference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -176,7 +176,7 @@ for (let values of [
   sizeValue = NaN;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.symmetricDifference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.symmetricDifference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -187,7 +187,7 @@ for (let values of [
   sizeValue = undefined;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.symmetricDifference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.symmetricDifference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -196,7 +196,7 @@ for (let values of [
 }
 
 // Doesn't accept Array as an input.
-assertThrowsInstanceOf(() => emptySet.symmetricDifference([]), TypeError);
+assert.throws(TypeError, () => emptySet.symmetricDifference([]));
 
 // Works with Set subclasses.
 {
@@ -227,7 +227,7 @@ assertThrowsInstanceOf(() => emptySet.symmetricDifference([]), TypeError);
 for (let thisValue of [
   null, undefined, true, "", {}, new Map, new Proxy(new Set, {}),
 ]) {
-  assertThrowsInstanceOf(() => Set.prototype.symmetricDifference.call(thisValue, emptySet), TypeError);
+  assert.throws(TypeError, () => Set.prototype.symmetricDifference.call(thisValue, emptySet));
 }
 
 // Doesn't return the original Set object.

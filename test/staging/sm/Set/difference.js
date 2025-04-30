@@ -160,7 +160,7 @@ for (let values of [
   ]);
 
   log.length = 0;
-  assertThrowsInstanceOf(() => new Set([1]).difference(setLike), TypeError);
+  assert.throws(TypeError, () => new Set([1]).difference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -185,7 +185,7 @@ for (let values of [
   ]);
 
   log.length = 0;
-  assertThrowsInstanceOf(() => new Set([1]).difference(setLike), TypeError);
+  assert.throws(TypeError, () => new Set([1]).difference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -198,7 +198,7 @@ for (let values of [
   setLikeObj.keys = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.difference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.difference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -211,7 +211,7 @@ for (let values of [
   setLikeObj.has = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.difference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.difference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -223,7 +223,7 @@ for (let values of [
   sizeValue = NaN;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.difference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.difference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -234,7 +234,7 @@ for (let values of [
   sizeValue = undefined;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.difference(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.difference(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -243,7 +243,7 @@ for (let values of [
 }
 
 // Doesn't accept Array as an input.
-assertThrowsInstanceOf(() => emptySet.difference([]), TypeError);
+assert.throws(TypeError, () => emptySet.difference([]));
 
 // Works with Set subclasses.
 {
@@ -274,7 +274,7 @@ assertThrowsInstanceOf(() => emptySet.difference([]), TypeError);
 for (let thisValue of [
   null, undefined, true, "", {}, new Map, new Proxy(new Set, {}),
 ]) {
-  assertThrowsInstanceOf(() => Set.prototype.difference.call(thisValue, emptySet), TypeError);
+  assert.throws(TypeError, () => Set.prototype.difference.call(thisValue, emptySet));
 }
 
 // Doesn't return the original Set object.
