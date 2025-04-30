@@ -6,22 +6,25 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Tests that IteratorReturn is called when a for-of loop has an abrupt completion value during non-iterator code.
 esid: pending
 ---*/
-// Tests that IteratorReturn is called when a for-of loop has an abrupt
-// completion value during non-iterator code.
 
 function test() {
     var returnCalled = 0;
     var returnCalledExpected = 0;
     var iterable = {};
-    iterable[Symbol.iterator] = makeIterator({
-        ret: function() {
-            returnCalled++;
-            return {};
-        }
-    });
+    iterable[Symbol.iterator] = function() {
+        return {
+            next() {
+                return { done: false };
+            },
+            return() {
+                returnCalled++;
+                return {};
+            }
+        };
+    };
 
     // break calls iter.return
     for (var x of iterable)
@@ -46,12 +49,17 @@ function test() {
     assert.sameValue(returnCalled, ++returnCalledExpected);
 
     // throw in iter.return doesn't re-call iter.return
-    iterable[Symbol.iterator] = makeIterator({
-        ret: function() {
-            returnCalled++;
-            throw "in iter.return";
-        }
-    });
+    iterable[Symbol.iterator] = function() {
+        return {
+            next() {
+                return { done: false };
+            },
+            return() {
+                returnCalled++;
+                throw "in iter.return";
+            }
+        };
+    };
     assertThrowsValue(function() {
         for (var x of iterable)
             break;
@@ -59,11 +67,16 @@ function test() {
     assert.sameValue(returnCalled, ++returnCalledExpected);
 
     // throw in iter.next doesn't call IteratorClose
-    iterable[Symbol.iterator] = makeIterator({
-        next: function() {
-            throw "in next";
-        }
-    });
+    iterable[Symbol.iterator] = function() {
+        return {
+            next() {
+                throw "in next";
+            },
+            return() {
+                return { done: true };
+            }
+        };
+    };
     assertThrowsValue(function() {
         for (var x of iterable)
             break;
@@ -71,12 +84,17 @@ function test() {
     assert.sameValue(returnCalled, returnCalledExpected);
 
     // "return" must return an Object.
-    iterable[Symbol.iterator] = makeIterator({
-        ret: function() {
-            returnCalled++;
-            return 42;
-        }
-    });
+    iterable[Symbol.iterator] = function() {
+        return {
+            next() {
+                return { done: false };
+            },
+            return() {
+                returnCalled++;
+                return 42;
+            }
+        };
+    };
     assertThrowsInstanceOf(function() {
         for (var x of iterable)
             break;
@@ -85,15 +103,17 @@ function test() {
 
     // continue doesn't call iter.return for the loop it's continuing
     var i = 0;
-    iterable[Symbol.iterator] = makeIterator({
-        next: function() {
-            return { done: i++ > 5 };
-        },
-        ret: function() {
-            returnCalled++;
-            return {};
-        }
-    });
+    iterable[Symbol.iterator] = function() {
+        return {
+            next() {
+                return { done: i++ > 5 };
+            },
+            return() {
+                returnCalled++;
+                return {};
+            }
+        };
+    };
     for (var x of iterable)
         continue;
     assert.sameValue(returnCalled, returnCalledExpected);

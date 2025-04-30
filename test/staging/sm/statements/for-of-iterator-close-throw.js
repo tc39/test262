@@ -16,12 +16,17 @@ function test() {
     var finallyEntered = 0;
     var finallyEnteredExpected = 0;
     var iterable = {};
-    iterable[Symbol.iterator] = makeIterator({
-        ret: function() {
-            returnCalled++;
-            throw 42;
-        }
-    });
+    iterable[Symbol.iterator] = function() {
+        return {
+            next() {
+                return { done: false };
+            },
+            return() {
+                returnCalled++;
+                throw 42;
+            }
+        };
+    };
 
     // inner try cannot catch IteratorClose throwing
     assertThrowsValue(function() {
