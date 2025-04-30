@@ -107,9 +107,9 @@ function test() {
             }
         };
     };
-    assertThrowsInstanceOf(function() {
+    assert.throws(TypeError, function() {
         var [] = iterable;
-    }, TypeError);
+    });
     assert.sameValue(returnCalled, ++returnCalledExpected);
 }
 
