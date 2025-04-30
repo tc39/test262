@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   CloneArrayBuffer should be called with byteLength of source typedArray
 esid: pending

@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 info: |
   needs shell functions
 description: |
@@ -13,4 +11,3 @@ esid: pending
 
 var b = new ArrayBuffer(0);
 assert.sameValue(b.byteLength, 0);
-
