@@ -41,20 +41,10 @@ props =
     c: { value: NaN, enumerable: false, configurable: true, writable: true },
     b: { value: 44 }
   };
-var error = "before";
-try
-{
+
+assert.throws(TypeError, function() {
   Object.defineProperties(o, props);
-  error = "no exception thrown";
-}
-catch (e)
-{
-  if (e instanceof TypeError)
-    error = "typeerror";
-  else
-    error = "bad exception: " + e;
-}
-assert.sameValue(error, "typeerror", "didn't throw or threw wrongly");
+});
 assert.sameValue("c" in o, true, "new property added");
 assert.sameValue(o.b, 42, "old property value preserved");
 
@@ -84,46 +74,14 @@ assert.sameValue("bar" in o, false, "bar is not an enumerable own property");
 Object.defineProperties(o, "");
 assert.sameValue("quux" in o, false, "quux is not an enumerable own property");
 
-error = "before";
-try
-{
+assert.throws(TypeError, function() {
   Object.defineProperties(o, "1");
-}
-catch (e)
-{
-  if (e instanceof TypeError)
-    error = "typeerror";
-  else
-    error = "bad exception: " + e;
-}
-assert.sameValue(error, "typeerror",
-         "should throw on Properties == '1' due to '1'[0] not being a " +
-         "property descriptor");
+}, "should throw on Properties == '1' due to '1'[0] not being a property descriptor");
 
-error = "before";
-try
-{
+assert.throws(TypeError, function() {
   Object.defineProperties(o, null);
-}
-catch (e)
-{
-  if (e instanceof TypeError)
-    error = "typeerror";
-  else
-    error = "bad exception: " + e;
-}
-assert.sameValue(error, "typeerror", "should throw on Properties == null");
+}, "should throw on Properties == null");
 
-error = "before";
-try
-{
+assert.throws(TypeError, function() {
   Object.defineProperties(o, undefined);
-}
-catch (e)
-{
-  if (e instanceof TypeError)
-    error = "typeerror";
-  else
-    error = "bad exception: " + e;
-}
-assert.sameValue(error, "typeerror", "should throw on Properties == undefined");
+}, "should throw on Properties == undefined");

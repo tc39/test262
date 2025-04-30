@@ -39,44 +39,23 @@ function testMethod(Class, className, method)
     var badThis = badThisValues[i];
 
     expr = className + ".prototype." + method + ".call(" + badThis + ")";
-    try
-    {
+    assert.throws(TypeError, function() {
       Class.prototype[method].call(badThis);
-      throw new Error(expr + " didn't throw a TypeError");
-    }
-    catch (e)
-    {
-      assert.sameValue(e instanceof TypeError, true,
-               "wrong error for " + expr + ", instead threw " + e);
-    }
+    }, "wrong error for " + expr);
 
     expr = className + ".prototype." + method + ".apply(" + badThis + ")";
-    try
-    {
+    assert.throws(TypeError, function() {
       Class.prototype[method].apply(badThis);
-      throw new Error(expr + " didn't throw a TypeError");
-    }
-    catch (e)
-    {
-      assert.sameValue(e instanceof TypeError, true,
-               "wrong error for " + expr + ", instead threw " + e);
-    }
+    }, "wrong error for " + expr);
   }
 
   // ..and for good measure..
 
   expr = "(0, " + className + ".prototype." + method + ")()"
-  try
-  {
+  assert.throws(TypeError, function() {
     // comma operator to call GetValue() on the method and de-Reference it
     (0, Class.prototype[method])();
-    throw new Error(expr + " didn't throw a TypeError");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true,
-             "wrong error for " + expr + ", instead threw " + e);
-  }
+  }, "wrong error for " + expr);
 }
 
 for (var className in ClassToMethodMap)

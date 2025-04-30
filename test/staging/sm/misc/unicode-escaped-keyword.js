@@ -10,18 +10,14 @@ description: |
   pending
 esid: pending
 ---*/
+
 function throws(code) {
-    var type;
-    try {
-        eval(code);
-    } catch (ex) {
-        type = ex.name;
-    }
-    assert.sameValue(type, 'SyntaxError');
+  assert.throws(SyntaxError, function() {
+    eval(code);
+  });
 }
 
 var s = '\\u0073';
 throws('var thi' + s);
 throws('switch (' + s + 'witch) {}')
 throws('var ' + s + 'witch');
-

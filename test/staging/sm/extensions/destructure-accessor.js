@@ -27,16 +27,9 @@ function expectOk(s)
 
 function expectSyntaxError(s)
 {
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval(s);
-    throw new Error("no error thrown");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof SyntaxError, true,
-             "expected syntax error parsing '" + s + "', got: " + e);
-  }
+  }, "expected syntax error parsing '" + s + "'");
 }
 
 expectSyntaxError("({ get x([]) { } })");

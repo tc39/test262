@@ -11,13 +11,6 @@ description: |
 esid: pending
 ---*/
 
-try
-{
+assert.throws(SyntaxError, function() {
   Function("for (x => 0 in 1;;) break;");
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true,
-           "expected syntax error, got " + e);
-}
+});

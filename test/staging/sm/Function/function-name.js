@@ -23,25 +23,17 @@ function testFunctionName(f) {
 function testFunctionNameStrict(f) {
     "use strict";
     var name = f.name;
-    var error;
-    try {
+    assert.throws(TypeError, function() {
         f.name = 'g';
-    } catch (e) {
-        error = e;
-    }
+    });
     assert.sameValue(f.name, name);
-    assert.sameValue(error instanceof TypeError, true);
     assert.sameValue(delete f.name, true);
     assert.sameValue(f.name, '');
     assert.sameValue(f.hasOwnProperty('name'), false);
-    error = null;
-    try {
+    assert.throws(TypeError, function() {
         f.name = 'g';
-    } catch (e) {
-        error = e;
-    }
+    });
     assert.sameValue(f.name, '');
-    assert.sameValue(error instanceof TypeError, true);
     Object.defineProperty(f, 'name', {value: 'g'});
     assert.sameValue(f.name, 'g');
 }

@@ -27,16 +27,9 @@ function testIndex()
       }
     };
 
-  var ok = false;
-  try
-  {
+  assert.throws(TypeError, function() {
     dv.setUint8(start, 0x42);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "should have thrown");
+  });
   assert.sameValue(ab.byteLength, 0, "should have been detached correctly");
 }
 testIndex();
@@ -57,16 +50,9 @@ function testValue()
       }
     };
 
-  var ok = false;
-  try
-  {
+  assert.throws(TypeError, function() {
     dv.setUint8(0xFFFFF, value);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "should have thrown");
+  });
   assert.sameValue(ab.byteLength, 0, "should have been detached correctly");
 }
 testValue();

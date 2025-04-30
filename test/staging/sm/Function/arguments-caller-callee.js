@@ -13,24 +13,9 @@ esid: pending
 
 // behavior
 
-function expectTypeError(fun)
-{
-  try
-  {
-    fun();
-    throw new Error("didn't throw");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true,
-             "expected TypeError calling function" +
-             ("name" in fun ? " " + fun.name : "") + ", instead got: " + e);
-  }
-}
-
 function bar() { "use strict"; return arguments; }
 assert.sameValue(bar().caller, undefined); // No error when accessing arguments.caller in ES2017+
-expectTypeError(function barCallee() { bar().callee; });
+assert.throws(TypeError, function barCallee() { bar().callee; });
 
 function baz() { return arguments; }
 assert.sameValue(baz().callee, baz);
