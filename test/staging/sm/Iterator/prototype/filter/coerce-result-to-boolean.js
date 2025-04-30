@@ -5,7 +5,6 @@
 features:
   - IsHTMLDDA
   - iterator-helpers
-includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 info: |
