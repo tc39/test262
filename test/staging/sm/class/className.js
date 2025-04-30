@@ -28,9 +28,7 @@ function testName(C, name, hasValue, hasGetter, hasSetter, isFunction=false) {
         } else {
             assert.sameValue(desc.value, name);
         }
-        // FIXME: Methods defined in classes should not be enumerable
-        // (bug 1144630).
-        // assert.sameValue(desc.enumerable, false);
+        assert.sameValue(desc.enumerable, false);
         assert.sameValue(desc.configurable, true);
 
         assert.sameValue("get" in desc, false);
@@ -44,24 +42,24 @@ function testName(C, name, hasValue, hasGetter, hasSetter, isFunction=false) {
     if (hasGetter) {
         assert.sameValue("get" in desc, true);
         assert.sameValue(desc.get(), name);
-        // assert.sameValue(desc.enumerable, false);
+        assert.sameValue(desc.enumerable, false);
         assert.sameValue(desc.configurable, true);
     } else {
         assert.sameValue("get" in desc, true);
         assert.sameValue(desc.get, undefined);
-        // assert.sameValue(desc.enumerable, false);
+        assert.sameValue(desc.enumerable, false);
         assert.sameValue(desc.configurable, true);
     }
 
     if (hasSetter) {
         assert.sameValue("set" in desc, true);
         assert.sameValue(typeof desc.set, "function");
-        // assert.sameValue(desc.enumerable, false);
+        assert.sameValue(desc.enumerable, false);
         assert.sameValue(desc.configurable, true);
     } else {
         assert.sameValue("set" in desc, true);
         assert.sameValue(desc.set, undefined);
-        // assert.sameValue(desc.enumerable, false);
+        assert.sameValue(desc.enumerable, false);
         assert.sameValue(desc.configurable, true);
     }
 }

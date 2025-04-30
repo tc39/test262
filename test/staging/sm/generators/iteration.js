@@ -229,19 +229,6 @@ TestGenerator(
     "foo",
     [1, 2, undefined]);
 
-// FIXME: Capture the generator object as "this" in new g().  Bug 907742.
-// TestGenerator(
-//     function g18() {
-//         function* g() { yield this.x; yield this.y; }
-//         var iter = new g;
-//         iter.x = 1;
-//         iter.y = 2;
-//         return iter;
-//     },
-//     [1, 2, undefined],
-//     "foo",
-//     [1, 2, undefined]);
-
 TestGenerator(
     function* g19() {
         var x = 1;
