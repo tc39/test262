@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  f.arguments must trigger an arguments object in non-strict mode functions
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 721322;
-var summary =
-  'f.arguments must trigger an arguments object in non-strict mode functions';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var obj =
   {
@@ -55,7 +45,3 @@ var sobj =
     }
   };
 sobj.test(5, undefined);
-
-/******************************************************************************/
-
-print("Tests complete");

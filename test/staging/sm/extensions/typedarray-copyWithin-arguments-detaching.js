@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  %TypedArray.prototype.copyWithin shouldn't misbehave horribly if index-argument conversion detaches the underlying ArrayBuffer
 esid: pending
 ---*/
-var gTestfile = "typedarray-copyWithin-arguments-detaching.js";
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 991981;
-var summary =
-  "%TypedArray.prototype.copyWithin shouldn't misbehave horribly if " +
-  "index-argument conversion detaches the underlying ArrayBuffer";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function testBegin()
 {
@@ -110,7 +98,3 @@ function testDest()
   assert.sameValue(ab.byteLength, 0, "detaching should work for start weirdness");
 }
 testDest();
-
-/******************************************************************************/
-
-print("Tests complete");

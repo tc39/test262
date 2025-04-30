@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement __define[GS]etter__ using Object.defineProperty
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 715821;
-var summary = "Implement __define[GS]etter__ using Object.defineProperty";
-
-print(BUGNUMBER + ": " + summary);
-
-/*************
- * UTILITIES *
- *************/
 
 function s(desc)
 {
@@ -282,7 +273,3 @@ check(sncwover, "fwoosh", { value: 17, writable: false, enumerable: true, config
 
 expectTypeError(function() { sncwover.__defineSetter__("fwoosh", s7); });
 check(sncwover, "fwoosh", { value: 17, writable: false, enumerable: true, configurable: false });
-
-/******************************************************************************/
-
-print("Tests complete");

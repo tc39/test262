@@ -8,19 +8,14 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Do not assert: pobj_ == obj2
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 480579;
-var summary = 'Do not assert: pobj_ == obj2';
+
 var actual = '';
 var expect = '';
 
-
-//-----------------------------------------------------------------------------
 test();
-//-----------------------------------------------------------------------------
 
 function test()
 {
@@ -30,9 +25,9 @@ function test()
   b = {__proto__: a};
   c = {__proto__: b};
   for (i = 0; i < 2; i++) {
-    print(actual += c.x);
+    actual += c.x;
     b.x = 2;
   }
 
-  assert.sameValue(expect, actual, summary);
+  assert.sameValue(expect, actual);
 }

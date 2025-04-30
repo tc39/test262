@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Redefining an array's |length| property when redefining the |length| property on a proxy with an array as target
 esid: pending
 ---*/
-var gTestfile = 'proxy-array-target-length-definition.js';
-var BUGNUMBER = 905947;
-var summary =
-  "Redefining an array's |length| property when redefining the |length| " +
-  "property on a proxy with an array as target";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var arr = [];
 var p = new Proxy(arr, {});
@@ -54,7 +43,3 @@ assert.sameValue(ad.value, 0);
 assert.sameValue(ad.writable, true);
 assert.sameValue(ad.enumerable, false);
 assert.sameValue(ad.configurable, false);
-
-/******************************************************************************/
-
-print("Tests complete");

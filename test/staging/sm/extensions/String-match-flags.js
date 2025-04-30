@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.match with non-string non-standard flags argument.
 esid: pending
 ---*/
-var BUGNUMBER = 1263139;
-var summary = "String.prototype.match with non-string non-standard flags argument.";
-
-print(BUGNUMBER + ": " + summary);
 
 var called;
 var flags = {
@@ -33,4 +29,3 @@ assert.sameValue(called, false);
 called = false;
 "a".replace("a", "b", flags);
 assert.sameValue(called, false);
-

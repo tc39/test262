@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  %TypedArray.prototype.subarray shouldn't misbehave horribly if index-argument conversion detaches the underlying ArrayBuffer
 esid: pending
 ---*/
-var gTestfile = "TypedArray-subarray-arguments-detaching.js";
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 991981;
-var summary =
-  "%TypedArray.prototype.subarray shouldn't misbehave horribly if " +
-  "index-argument conversion detaches the underlying ArrayBuffer";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function testBegin()
 {
@@ -110,7 +98,3 @@ function testEnd()
   assert.sameValue(ab.byteLength, 0, "detaching should work for start weirdness");
 }
 testEnd();
-
-/******************************************************************************/
-
-print("Tests complete");

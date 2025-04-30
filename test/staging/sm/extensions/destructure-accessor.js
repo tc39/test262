@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  { get x(v) { } } and { set x(v, v2) { } } should be syntax errors
 esid: pending
 ---*/
-var gTestfile = 'destructure-accessor.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 536472;
-var summary =
-  'ES5: { get x(v) { } } and { set x(v, v2) { } } should be syntax errors';
-
-print(BUGNUMBER + ": " + summary);
-
-//-----------------------------------------------------------------------------
 
 function expectOk(s)
 {
@@ -79,6 +70,3 @@ expectOk("({ set x([, b, c]) { } })");
 expectOk("({ set x([, b, c,]) { } })");
 expectOk("({ set x({ a: a }) { } })");
 expectOk("({ set x({ a: a, b: b }) { } })");
-
-//-----------------------------------------------------------------------------
-

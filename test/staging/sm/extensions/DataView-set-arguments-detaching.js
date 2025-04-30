@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  DataView.prototype.set* methods shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer being modified
 esid: pending
 ---*/
-var gTestfile = "DataView-set-arguments-detaching.js";
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 991981;
-var summary =
-  "DataView.prototype.set* methods shouldn't misbehave horribly if " +
-  "index-argument conversion detaches the ArrayBuffer being modified";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function testIndex()
 {
@@ -83,7 +71,3 @@ function testValue()
   assert.sameValue(ab.byteLength, 0, "should have been detached correctly");
 }
 testValue();
-
-/******************************************************************************/
-
-print("Tests complete");

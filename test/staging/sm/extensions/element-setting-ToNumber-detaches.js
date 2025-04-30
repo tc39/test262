@@ -8,23 +8,10 @@ flags:
   - onlyStrict
 includes: [sm/non262.js, sm/non262-shell.js]
 description: |
-  pending
+  Don't assert assigning into memory detached while converting the value to assign into a number
 esid: pending
 ---*/
 "use strict"; // make test fail when limitation below is fixed
-
-var gTestfile = 'element-setting-ToNumber-detaches.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1001547;
-var summary =
-  "Don't assert assigning into memory detached while converting the value to " +
-  "assign into a number";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // Technically per current spec the element-sets should throw in strict mode,
 // but we just silently do nothing for now, somewhat due to limitations of our
@@ -35,7 +22,3 @@ print(BUGNUMBER + ": " + summary);
 var ab = new ArrayBuffer(64);
 var ta = new Uint32Array(ab);
 ta[4] = { valueOf() { $262.detachArrayBuffer(ab); return 5; } };
-
-/******************************************************************************/
-
-print("Tests complete");

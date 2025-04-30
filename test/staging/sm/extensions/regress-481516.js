@@ -8,19 +8,14 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  pobj_ == obj2
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 481516;
-var summary = 'TM: pobj_ == obj2';
+
 var actual = '';
 var expect = '';
 
-
-//-----------------------------------------------------------------------------
 test();
-//-----------------------------------------------------------------------------
 
 function test()
 {
@@ -32,10 +27,10 @@ function test()
   objs = [{__proto__: a}, {__proto__: a}, {__proto__: a}, b, {__proto__: a},
           {__proto__: a}];
   for (i = 0; i < 6; i++) {
-    print(actual += ""+c.x);
+    actual += ""+c.x;
     objs[i].x = 2;
   }
-  print(actual += c.x);
+  actual += c.x;
 
-  assert.sameValue(expect, actual, summary);
+  assert.sameValue(expect, actual);
 }
