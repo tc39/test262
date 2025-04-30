@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.prototype.toLocaleString
 esid: pending
 ---*/
-var gTestfile = 'toLocaleString.js';
-var BUGNUMBER = 653789;
-var summary = "Object.prototype.toLocaleString";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectThrowTypeError(fun)
 {
@@ -101,7 +92,3 @@ assert.sameValue(toLocaleString.call({ toString: function() { return obj; } }), 
 assert.sameValue(toLocaleString.call({ toString: function() { return obj; },
                                valueOf: function() { return "abc"; } }),
          obj);
-
-/******************************************************************************/
-
-print("All tests passed!");

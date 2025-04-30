@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Don't assert anything about a shape from the property cache until it's known the cache entry matches
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 713944;
-var summary =
-  "Don't assert anything about a shape from the property cache until it's " +
-  "known the cache entry matches";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var accDesc = { set: function() {} };
 var dataDesc = { value: 3 };
@@ -56,4 +45,3 @@ for (var i = 0; i < 2; i++)
 }
 assert.sameValue(b.p1, 3);
 assert.sameValue(a.p1, 3);
-
