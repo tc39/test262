@@ -24,7 +24,7 @@ function test(code, eval)
   var unescaped = code.replace("###", "async");
   var escaped = code.replace("###", "\\u0061");
 
-  assertThrowsInstanceOf(() => eval(escaped), SyntaxError);
+  assert.throws(SyntaxError, () => eval(escaped));
   eval(unescaped);
 }
 
@@ -42,10 +42,8 @@ test("var x = ### function f() {}", eval);
 if (typeof parseModule === "function")
   test("export default ### function f() {}", parseModule);
 
-assertThrowsInstanceOf(() => eval("async await => 1;"),
-                       SyntaxError);
-assertThrowsInstanceOf(() => eval("async aw\\u0061it => 1;"),
-                       SyntaxError);
+assert.throws(SyntaxError, () => eval("async await => 1;"));
+assert.throws(SyntaxError, () => eval("async aw\\u0061it => 1;"));
 
 var async = 0;
 assert.sameValue(\u0061sync, 0);

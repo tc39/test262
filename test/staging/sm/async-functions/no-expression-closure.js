@@ -10,10 +10,10 @@ description: |
 esid: pending
 ---*/
 function assertSyntaxError(code) {
-    assertThrowsInstanceOf(function () { Function(code); }, SyntaxError, "Function:" + code);
-    assertThrowsInstanceOf(function () { eval(code); }, SyntaxError, "eval:" + code);
+    assert.throws(SyntaxError, function () { Function(code); }, "Function:" + code);
+    assert.throws(SyntaxError, function () { eval(code); }, "eval:" + code);
     var ieval = eval;
-    assertThrowsInstanceOf(function () { ieval(code); }, SyntaxError, "indirect eval:" + code);
+    assert.throws(SyntaxError, function () { ieval(code); }, "indirect eval:" + code);
 }
 
 // AsyncFunction statement
