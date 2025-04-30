@@ -29,12 +29,12 @@ for (let primitive of primitives) {
             return primitive;
         }
     };
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         function* g() {
             yield* obj;
         }
         for (let x of g()) {
         }
-    }, TypeError);
+    });
 }
 

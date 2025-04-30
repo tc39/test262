@@ -33,7 +33,7 @@ var it = g({
 
 it.next();
 
-assertThrowsInstanceOf(() => it.throw(""), TypeError);
+assert.throws(TypeError, () => it.throw(""));
 
 assert.sameValue(calledReturn, false);
 
