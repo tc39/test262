@@ -5,8 +5,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Object.getOwnPropertyNames: array objects
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Implement Object.preventExtensions, Object.isExtensible
 esid: pending

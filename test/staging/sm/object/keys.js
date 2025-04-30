@@ -5,8 +5,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Coerce the argument passed to Object.keys using ToObject
 esid: pending

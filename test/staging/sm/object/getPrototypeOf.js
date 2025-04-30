@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Coerce the argument passed to Object.getPrototypeOf using ToObject
 esid: pending

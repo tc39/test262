@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.is{Sealed,Frozen}, Object.{seal,freeze}
 esid: pending
