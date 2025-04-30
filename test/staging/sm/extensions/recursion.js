@@ -9,6 +9,7 @@ flags:
 description: |
   Handle infinite recursion
 esid: pending
+features: [host-gc-required]
 ---*/
 
 function eval() { eval(); }

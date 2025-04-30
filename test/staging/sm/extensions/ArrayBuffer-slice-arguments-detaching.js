@@ -9,6 +9,7 @@ flags:
 description: |
   ArrayBuffer.prototype.slice shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer being sliced
 esid: pending
+features: [host-gc-required]
 ---*/
 
 function testStart()

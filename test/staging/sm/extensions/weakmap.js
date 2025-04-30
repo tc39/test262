@@ -9,6 +9,7 @@ flags:
 description: |
   js weak maps
 esid: pending
+features: [host-gc-required]
 ---*/
 
 test();
