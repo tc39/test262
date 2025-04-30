@@ -27,11 +27,11 @@ print(BUGNUMBER + ": " + summary);
 
 var target = Object.preventExtensions({ a: 1 });
 var proxy = new Proxy(target, { ownKeys(t) { return ["a", "a"]; } });
-assertThrowsInstanceOf(() => Object.getOwnPropertyNames(proxy), TypeError);
+assert.throws(TypeError, () => Object.getOwnPropertyNames(proxy));
 
 target = Object.freeze({ a: 1 });
 proxy = new Proxy(target, { ownKeys(t) { return ["a", "a"]; } });
-assertThrowsInstanceOf(() => Object.getOwnPropertyNames(proxy), TypeError);
+assert.throws(TypeError, () => Object.getOwnPropertyNames(proxy));
 
 /******************************************************************************/
 

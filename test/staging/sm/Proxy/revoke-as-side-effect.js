@@ -57,8 +57,8 @@ assert.sameValue(createProxy({}).a, undefined);
 assert.sameValue(createProxy({a: 5}).a, 5);
 
 // [[Set]]
-assertThrowsInstanceOf(() => createProxy({}).a = 0, TypeError);
-assertThrowsInstanceOf(() => createProxy({a: 5}).a = 0, TypeError);
+assert.throws(TypeError, () => createProxy({}).a = 0);
+assert.throws(TypeError, () => createProxy({a: 5}).a = 0);
 
 // [[Delete]]
 assert.sameValue(delete createProxy({}).a, true);
@@ -77,6 +77,5 @@ assert.sameValue(createProxy(function() { return "ok" })(), "ok");
 // [[ConstructorKind]] is "base" per FunctionAllocate) accesses
 // |new.target.prototype| to create the |this| for the construct operation, that
 // would be returned if |return obj;| didn't override it.
-assertThrowsInstanceOf(() => new (createProxy(function q(){ return obj; })),
-                       TypeError);
+assert.throws(TypeError, () => new (createProxy(function q(){ return obj; })));
 
