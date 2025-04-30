@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Line terminator after backslash is invalid in regexp literals
 esid: pending

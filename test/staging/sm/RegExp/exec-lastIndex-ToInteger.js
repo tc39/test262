@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp.prototype.exec doesn't get the lastIndex and ToInteger() it for non-global regular expressions when it should
 esid: pending

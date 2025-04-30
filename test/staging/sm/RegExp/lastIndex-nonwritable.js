@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Regexp.prototype.test/exec shouldn't change lastIndex if not writable.
 esid: pending

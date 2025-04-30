@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Implement RegExp unicode flag -- back reference should not match lead surrogate that has corresponding trail surrogate.
 esid: pending

@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   RegExp.prototype.split should reflect the change to Object.prototype.flags.
 esid: pending

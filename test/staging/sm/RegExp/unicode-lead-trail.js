@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Implement RegExp unicode flag -- lead and trail patterns in RegExpUnicodeEscapeSequence.
 esid: pending
