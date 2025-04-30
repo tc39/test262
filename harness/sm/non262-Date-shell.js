@@ -8,8 +8,6 @@ function runDSTOffsetCachingTestsFraction(part, parts)
   var BUGNUMBER = 563938;
   var summary = 'Cache DST offsets to improve SunSpider score';
 
-  print(BUGNUMBER + ": " + summary);
-
   var MAX_UNIX_TIMET = 2145859200; // "2037-12-31T08:00:00.000Z" (PST8PDT based!)
   var RANGE_EXPANSION_AMOUNT = 30 * 24 * 60 * 60;
 
@@ -101,50 +99,32 @@ function runDSTOffsetCachingTestsFraction(part, parts)
   var start = Math.floor((part - 1) / parts * sz);
   var end = Math.floor(part / parts * sz);
 
-  print("Exhaustively testing timestamps " +
-        "[" + start + ", " + end + ") of " + sz + "...");
-
-  try
+  for (var i = start; i < end; i++)
   {
-    for (var i = start; i < end; i++)
+    var t1 = TEST_TIMESTAMPS[i];
+    for (var j = 0; j < sz; j++)
     {
-      print("Testing timestamp " + i + "...");
-
-      var t1 = TEST_TIMESTAMPS[i];
-      for (var j = 0; j < sz; j++)
+      var t2 = TEST_TIMESTAMPS[j];
+      for (var k = 0; k < sz; k++)
       {
-        var t2 = TEST_TIMESTAMPS[j];
-        for (var k = 0; k < sz; k++)
+        var t3 = TEST_TIMESTAMPS[k];
+        for (var w = 0; w < sz; w++)
         {
-          var t3 = TEST_TIMESTAMPS[k];
-          for (var w = 0; w < sz; w++)
-          {
-            var t4 = TEST_TIMESTAMPS[w];
+          var t4 = TEST_TIMESTAMPS[w];
 
-            clearDSTOffsetCache(t1);
+          clearDSTOffsetCache(t1);
 
-            var tzo1 = tzOffsetFromUnixTimestamp(t1);
-            var tzo2 = tzOffsetFromUnixTimestamp(t2);
-            var tzo3 = tzOffsetFromUnixTimestamp(t3);
-            var tzo4 = tzOffsetFromUnixTimestamp(t4);
+          var tzo1 = tzOffsetFromUnixTimestamp(t1);
+          var tzo2 = tzOffsetFromUnixTimestamp(t2);
+          var tzo3 = tzOffsetFromUnixTimestamp(t3);
+          var tzo4 = tzOffsetFromUnixTimestamp(t4);
 
-            assertEq(tzo1, CORRECT_TZOFFSETS[i]);
-            assertEq(tzo2, CORRECT_TZOFFSETS[j]);
-            assertEq(tzo3, CORRECT_TZOFFSETS[k]);
-            assertEq(tzo4, CORRECT_TZOFFSETS[w]);
-          }
+          assert.sameValue(tzo1, CORRECT_TZOFFSETS[i]);
+          assert.sameValue(tzo2, CORRECT_TZOFFSETS[j]);
+          assert.sameValue(tzo3, CORRECT_TZOFFSETS[k]);
+          assert.sameValue(tzo4, CORRECT_TZOFFSETS[w]);
         }
       }
     }
   }
-  catch (e)
-  {
-    assertEq(true, false,
-             "Error when testing with timestamps " +
-             i + ", " + j + ", " + k + ", " + w +
-             " (" + t1 + ", " + t2 + ", " + t3 + ", " + t4 + ")!");
-  }
-
-  reportCompare(true, true);
-  print("All tests passed!");
 }
