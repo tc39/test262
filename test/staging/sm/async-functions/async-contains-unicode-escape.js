@@ -2,22 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   async/await containing escapes
 esid: pending
 ---*/
 
-// Using "eval" as the argument name is fugly, but it means evals below are
-// *direct* evals, and so their effects in the unescaped case won't extend
-// past each separate |test| call (as would happen if we used a different name
-// that made each eval into an indirect eval, affecting code in the global
-// scope).
-function test(code, eval)
+function test(code)
 {
   var unescaped = code.replace("###", "async");
-  var escaped = code.replace("###", "\\u0061");
+  var escaped = code.replace("###", "\\u0061sync");
 
   assert.throws(SyntaxError, () => eval(escaped));
   eval(unescaped);
@@ -33,9 +26,6 @@ test("### (y) => {};", eval);
 test("var x = ### (y) => {}", eval);
 test("({ ### x() {} })", eval);
 test("var x = ### function f() {}", eval);
-
-if (typeof parseModule === "function")
-  test("export default ### function f() {}", parseModule);
 
 assert.throws(SyntaxError, () => eval("async await => 1;"));
 assert.throws(SyntaxError, () => eval("async aw\\u0061it => 1;"));
