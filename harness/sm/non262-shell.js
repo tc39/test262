@@ -140,9 +140,8 @@ allow_unused: True
       try {
         thunk();
       } catch (e) {
-        if (e.message.indexOf(substr) !== -1)
-          return;
-        throw new Error("Expected error containing " + substr + ", got " + e);
+        // Do not test error messages
+        return;
       }
       throw new Error("Expected error containing " + substr + ", no exception thrown");
     };
@@ -157,11 +156,8 @@ allow_unused: True
         if (!(exc instanceof ctor))
           fullmsg = `Assertion failed: expected exception ${ctor.name}, got ${exc}`;
         else {
-          var result = check(exc.message);
-          if (!result)
-            fullmsg = `Assertion failed: expected exception with message, got ${exc}`;
-          else
-            return;
+          // Do not test error messages
+          return;
         }
       }
 
