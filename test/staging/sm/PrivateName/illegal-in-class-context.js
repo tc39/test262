@@ -10,11 +10,10 @@ description: |
 esid: pending
 ---*/
 
-assertThrowsInstanceOf(() => eval(`class A { #x; #x; }`), SyntaxError);
+assert.throws(SyntaxError, () => eval(`class A { #x; #x; }`));
 
 // No computed private fields
-assertThrowsInstanceOf(
-    () => eval(`var x = "foo"; class A { #[x] = 20; }`), SyntaxError);
+assert.throws(SyntaxError, () => eval(`var x = "foo"; class A { #[x] = 20; }`));
 
 assert.throws(
     SyntaxError,

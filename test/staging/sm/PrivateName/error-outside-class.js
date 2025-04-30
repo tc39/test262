@@ -11,13 +11,12 @@ esid: pending
 ---*/
 
 // Can't reference a private field without an object
-assertThrowsInstanceOf(() => eval('#x'), SyntaxError);
+assert.throws(SyntaxError, () => eval('#x'));
 
 // Can't reference a private field without an enclosing class
-assertThrowsInstanceOf(() => eval('this.#x'), SyntaxError);
+assert.throws(SyntaxError, () => eval('this.#x'));
 
 // Can't reference a private field in a random function outside a class context
-assertThrowsInstanceOf(
-    () => eval('function foo() { return this.#x'), SyntaxError);
+assert.throws(SyntaxError, () => eval('function foo() { return this.#x'));
 
 
