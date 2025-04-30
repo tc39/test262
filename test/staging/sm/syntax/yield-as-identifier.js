@@ -21,12 +21,12 @@ print(BUGNUMBER + ": " + summary);
  * BEGIN TEST *
  **************/
 
+var g = $262.createRealm().global;
+
 function t(code)
 {
   var strictSemi = " 'use strict'; " + code;
   var strictASI = " 'use strict' \n " + code;
-
-  var g = createNewGlobal();
 
   g.Function(code);
 

@@ -74,7 +74,7 @@ assert.throws(TypeError, () => AggregateError());
   assert.sameValue(writable, true);
   assert.sameValue(value.length, 0);
 
-  const g = createNewGlobal();
+  const g = $262.createRealm().global;
 
   let obj = {};
   let errors = new g.AggregateError([obj]).errors;

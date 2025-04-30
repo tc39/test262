@@ -121,7 +121,7 @@ esid: pending
 })();
 
 (function checkErrorsComeFromCorrectRealm() {
-    const otherGlobal = createNewGlobal({newCompartment: true});
+    const otherGlobal = $262.createRealm().global;
     assert.sameValue(TypeError !== otherGlobal.TypeError, true);
 
     assertErrorComesFromCorrectRealm = (fun, thisRealmType) => {

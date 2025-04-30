@@ -123,7 +123,7 @@ for (let [ctor, answer] of tests) {
   }
 
   // @@species from different global
-  let g = createNewGlobal();
+  let g = $262.createRealm().global;
   g.eval("var MyArrayBuffer = class MyArrayBuffer extends ArrayBuffer {};");
   a = arr.buffer;
   a.constructor = {

@@ -86,7 +86,7 @@ for (let f of mapped) {
   f(10, 20, 30);
 }
 
-var g1 = createNewGlobal();
+var g1 = $262.createRealm().global;
 assert.sameValue(g1.eval(`
 function f(a, b, c) {
   return arguments[Symbol.iterator].name;
@@ -166,7 +166,7 @@ for (let f of unmapped) {
   f([10], 20, 30);
 }
 
-var g2 = createNewGlobal();
+var g2 = $262.createRealm().global;
 assert.sameValue(g2.eval(`
 function f([a], b, c) {
   return arguments[Symbol.iterator].name;

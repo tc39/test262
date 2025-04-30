@@ -124,7 +124,7 @@ assert.sameValue(log, "sp");
 
 // When calling a cross-compartment wrapper, receiver is rewrapped for the
 // target compartment.
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 if (!("assert" in g) && "assert" in globalThis)
     g.assert = assert;  // necessary when exporting to test262
 if (!("assert.sameValue" in g))

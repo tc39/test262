@@ -49,7 +49,7 @@ new Proxy(p, {});
 new Proxy({}, p);
 
 
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 p = g.eval(`var r = Proxy.revocable({}, {}); r.proxy;`);
 
 new Proxy(p, {});

@@ -40,7 +40,7 @@ var cases = [
      keys: ["0", "8", "773",  // indexes in numeric order
             "str", "-1", "second str", // strings in insertion order
             sym, sym2]}, // symbols in insertion order
-    {object: createNewGlobal().Math,  // cross-compartment wrapper
+    {object: $262.createRealm().global.Math,  // cross-compartment wrapper
      keys: Reflect.ownKeys(Math)}
 ];
 for (var {object, keys} of cases)

@@ -21,7 +21,7 @@ print(BUGNUMBER + ": " + summary);
  * BEGIN TEST *
  **************/
 
-function allTests()
+function allTests(Date)
 {
   var DS = new Date(2010, 1, 1).toString();
 
@@ -182,13 +182,8 @@ function allTests()
   testInOperatorName();
 }
 
-allTests();
-
-if (typeof createNewGlobal === "function")
-{
-  Date = createNewGlobal().Date;
-  allTests();
-}
+allTests(Date);
+allTests($262.createRealm().global.Date);
 
 /******************************************************************************/
 

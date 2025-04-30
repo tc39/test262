@@ -39,7 +39,7 @@ assert.sameValue(sourceCalled, false);
 assert.sameValue(flagsCalled, false);
 
 // cross-compartment
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 var b = g.eval(`
 var b = /foo2/;
 var flagsCalled = false;
