@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Behavior when JSON.parse walks over a non-native object
 esid: pending

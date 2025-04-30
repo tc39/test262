@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   { __proto__ } should work as a destructuring assignment pattern
 esid: pending

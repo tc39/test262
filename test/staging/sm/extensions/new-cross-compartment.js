@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   |new| on a cross-compartment wrapper to a non-constructor shouldn't assert
 esid: pending

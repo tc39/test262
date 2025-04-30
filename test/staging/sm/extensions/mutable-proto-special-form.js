@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Make __proto__ in object literals a special form not influenced by |Object.prototype|
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   %TypedArray.prototype.copyWithin shouldn't misbehave horribly if index-argument conversion detaches the underlying ArrayBuffer
 esid: pending

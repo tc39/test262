@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Error.prototype.toString called on function objects should work as on any object
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   %TypedArray.prototype.subarray shouldn't misbehave horribly if index-argument conversion detaches the underlying ArrayBuffer
 esid: pending
