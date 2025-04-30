@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   eval via the JSON parser should parse strings containing U+2028/U+2029 (as of <https://tc39.github.io/proposal-json-superset/>, that is)
 esid: pending
