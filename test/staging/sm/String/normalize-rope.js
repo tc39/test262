@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.normalize - normalize rope string
 esid: pending
 ---*/
-var BUGNUMBER = 918987;
-var summary = 'String.prototype.normalize - normalize rope string';
-
-print(BUGNUMBER + ": " + summary);
 
 function test() {
   /* JSRope test */
@@ -29,4 +25,3 @@ if ("normalize" in String.prototype) {
   // String.prototype.normalize is not enabled in all builds.
   test();
 }
-

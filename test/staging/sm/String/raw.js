@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.raw
 esid: pending
 ---*/
-var BUGNUMBER = 1039774;
-var summary = 'String.raw';
-
-print(BUGNUMBER + ": " + summary);
 
 assert.throws(TypeError, function() { String.raw(); });
 
@@ -62,4 +58,3 @@ assert.sameValue(String.raw(cooked, "x", "y"), "axb");
 
 cooked.raw = {length: 4, '0':"a", '1':"b", '2':"c"};
 assert.sameValue(String.raw(cooked, "x", "y"), "axbycundefined");
-

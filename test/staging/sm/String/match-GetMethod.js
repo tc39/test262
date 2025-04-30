@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.match should call GetMethod.
 esid: pending
 ---*/
-var BUGNUMBER = 1290655;
-var summary = "String.prototype.match should call GetMethod.";
-
-print(BUGNUMBER + ": " + summary);
 
 function create(value) {
     return {
@@ -35,4 +31,3 @@ for (let v of [null, undefined]) {
 for (let v of [1, true, Symbol.iterator, "", {}, []]) {
     assert.throws(TypeError, () => "a-a".match(create(v)));
 }
-

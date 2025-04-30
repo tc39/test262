@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.normalize - normalize no String object
 esid: pending
 ---*/
-var BUGNUMBER = 918987;
-var summary = 'String.prototype.normalize - normalize no String object';
-
-print(BUGNUMBER + ": " + summary);
 
 function test() {
   var myobj = {
@@ -26,4 +22,3 @@ if ("normalize" in String.prototype) {
   // String.prototype.normalize is not enabled in all builds.
   test();
 }
-

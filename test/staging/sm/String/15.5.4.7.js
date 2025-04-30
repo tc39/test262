@@ -8,13 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  String.prototype.indexOf with empty searchString
 esid: pending
 ---*/
-var BUGNUMBER = 612838;
-var summary = "String.prototype.indexOf with empty searchString";
-
-print(BUGNUMBER + ": " + summary);
 
 assert.sameValue("123".indexOf("", -1), 0);
 assert.sameValue("123".indexOf("", 0), 0);
@@ -22,5 +18,3 @@ assert.sameValue("123".indexOf("", 1), 1);
 assert.sameValue("123".indexOf("", 3), 3);
 assert.sameValue("123".indexOf("", 4), 3);
 assert.sameValue("123".indexOf("", 12345), 3);
-
-print("All tests passed!");
