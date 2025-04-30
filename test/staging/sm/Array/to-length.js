@@ -31,7 +31,7 @@ assertThrowsValue(() => Array.prototype.copyWithin.call({length: Infinity, get [
 assert.sameValue(Array.prototype.includes.call({length: Infinity, [max - 1]: "test"}, "test", max - 3), true);
 
 // Invoking the Array constructor with MAX_SAFE_INTEGER will throw, 0 won't
-assertThrowsInstanceOf(() => Array.from({length: Infinity}), RangeError);
+assert.throws(RangeError, () => Array.from({length: Infinity}));
 
 // Make sure ArraySpeciesCreate is called with ToLength applied to the length property
 var proxy = new Proxy([], {

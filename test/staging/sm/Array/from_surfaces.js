@@ -17,5 +17,5 @@ assert.sameValue(desc.configurable, true);
 assert.sameValue(desc.enumerable, false);
 assert.sameValue(desc.writable, true);
 assert.sameValue(Array.from.length, 1);
-assertThrowsInstanceOf(() => new Array.from(), TypeError);  // not a constructor
+assert.throws(TypeError, () => new Array.from());  // not a constructor
 

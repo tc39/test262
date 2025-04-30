@@ -41,14 +41,14 @@ function isNeg(x) {
   assert.deepEqual(negMappedArray.get(0), a1);
   assert.deepEqual(negMappedArray.size, 1);
 
-  assertThrowsInstanceOf(() => Object.groupBy([], undefined), TypeError);
-  assertThrowsInstanceOf(() => Object.groupBy([], null), TypeError);
-  assertThrowsInstanceOf(() => Object.groupBy([], 0), TypeError);
-  assertThrowsInstanceOf(() => Object.groupBy([], ""), TypeError);
-  assertThrowsInstanceOf(() => Map.groupBy([], undefined), TypeError);
-  assertThrowsInstanceOf(() => Map.groupBy([], null), TypeError);
-  assertThrowsInstanceOf(() => Map.groupBy([], 0), TypeError);
-  assertThrowsInstanceOf(() => Map.groupBy([], ""), TypeError);
+  assert.throws(TypeError, () => Object.groupBy([], undefined));
+  assert.throws(TypeError, () => Object.groupBy([], null));
+  assert.throws(TypeError, () => Object.groupBy([], 0));
+  assert.throws(TypeError, () => Object.groupBy([], ""));
+  assert.throws(TypeError, () => Map.groupBy([], undefined));
+  assert.throws(TypeError, () => Map.groupBy([], null));
+  assert.throws(TypeError, () => Map.groupBy([], 0));
+  assert.throws(TypeError, () => Map.groupBy([], ""));
 }
 
 const array = [ 'test' ];

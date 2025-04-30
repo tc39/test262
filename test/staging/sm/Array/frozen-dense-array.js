@@ -28,18 +28,18 @@ function assertArrayIsExpected() {
   assert.sameValue(a[2], 1);
 }
 
-assertThrowsInstanceOf(() => a.reverse(), TypeError);
-assertThrowsInstanceOf(() => a.shift(), TypeError);
-assertThrowsInstanceOf(() => a.unshift(0), TypeError);
-assertThrowsInstanceOf(() => a.sort(function() {}), TypeError);
-assertThrowsInstanceOf(() => a.pop(), TypeError);
-assertThrowsInstanceOf(() => a.fill(0), TypeError);
-assertThrowsInstanceOf(() => a.splice(0, 1, 1), TypeError);
-assertThrowsInstanceOf(() => a.push("foo"), TypeError);
-assertThrowsInstanceOf(() => { "use strict"; a.length = 5; }, TypeError);
-assertThrowsInstanceOf(() => { "use strict"; a[2] = "foo"; }, TypeError);
-assertThrowsInstanceOf(() => { "use strict"; delete a[0]; }, TypeError);
-assertThrowsInstanceOf(() => a.splice(Math.a), TypeError);
+assert.throws(TypeError, () => a.reverse());
+assert.throws(TypeError, () => a.shift());
+assert.throws(TypeError, () => a.unshift(0));
+assert.throws(TypeError, () => a.sort(function() {}));
+assert.throws(TypeError, () => a.pop());
+assert.throws(TypeError, () => a.fill(0));
+assert.throws(TypeError, () => a.splice(0, 1, 1));
+assert.throws(TypeError, () => a.push("foo"));
+assert.throws(TypeError, () => { "use strict"; a.length = 5; });
+assert.throws(TypeError, () => { "use strict"; a[2] = "foo"; });
+assert.throws(TypeError, () => { "use strict"; delete a[0]; });
+assert.throws(TypeError, () => a.splice(Math.a));
 
 // Shouldn't throw, since this is not strict mode, but shouldn't change the
 // value of the property.
