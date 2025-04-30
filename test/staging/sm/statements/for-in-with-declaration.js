@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Declarations in for-in loop heads must not contain |in|-expression initializers
 esid: pending
