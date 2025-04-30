@@ -23,7 +23,7 @@ function notEvaluated() {
   assert.sameValue(a, false);
 
   const b = true;
-  assertThrowsInstanceOf(() => { b &&= 1; }, TypeError);
+  assert.throws(TypeError, () => { b &&= 1; });
   assert.sameValue(b, true);
 }
 
@@ -37,7 +37,7 @@ function notEvaluated() {
 
   let g = function fn() {
     "use strict";
-    assertThrowsInstanceOf(() => { fn &&= 1; }, TypeError);
+    assert.throws(TypeError, () => { fn &&= 1; });
     assert.sameValue(fn, g);
   };
   g();
@@ -50,7 +50,7 @@ function notEvaluated() {
   assert.sameValue(a, true);
 
   const b = false;
-  assertThrowsInstanceOf(() => { b ||= 0; }, TypeError);
+  assert.throws(TypeError, () => { b ||= 0; });
   assert.sameValue(b, false);
 }
 
@@ -77,7 +77,7 @@ function notEvaluated() {
   assert.sameValue(a, true);
 
   const b = null;
-  assertThrowsInstanceOf(() => { b ??= 0; }, TypeError);
+  assert.throws(TypeError, () => { b ??= 0; });
   assert.sameValue(b, null);
 }
 

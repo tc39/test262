@@ -13,53 +13,53 @@ esid: pending
 
 // TDZ for lexical |let| bindings.
 {
-  assertThrowsInstanceOf(() => { let a = (a &&= 0); }, ReferenceError);
-  assertThrowsInstanceOf(() => { let a = (a ||= 0); }, ReferenceError);
-  assertThrowsInstanceOf(() => { let a = (a ??= 0); }, ReferenceError);
+  assert.throws(ReferenceError, () => { let a = (a &&= 0); });
+  assert.throws(ReferenceError, () => { let a = (a ||= 0); });
+  assert.throws(ReferenceError, () => { let a = (a ??= 0); });
 }
 
 // TDZ for lexical |const| bindings.
 {
-  assertThrowsInstanceOf(() => { const a = (a &&= 0); }, ReferenceError);
-  assertThrowsInstanceOf(() => { const a = (a ||= 0); }, ReferenceError);
-  assertThrowsInstanceOf(() => { const a = (a ??= 0); }, ReferenceError);
+  assert.throws(ReferenceError, () => { const a = (a &&= 0); });
+  assert.throws(ReferenceError, () => { const a = (a ||= 0); });
+  assert.throws(ReferenceError, () => { const a = (a ??= 0); });
 }
 
 // TDZ for parameter expressions.
 {
-  assertThrowsInstanceOf((a = (b &&= 0), b) => {}, ReferenceError);
-  assertThrowsInstanceOf((a = (b ||= 0), b) => {}, ReferenceError);
-  assertThrowsInstanceOf((a = (b ??= 0), b) => {}, ReferenceError);
+  assert.throws(ReferenceError, (a = (b &&= 0), b) => {});
+  assert.throws(ReferenceError, (a = (b ||= 0), b) => {});
+  assert.throws(ReferenceError, (a = (b ??= 0), b) => {});
 }
 
 // TDZ for |class| bindings.
 {
-  assertThrowsInstanceOf(() => { class a extends (a &&= 0) {} }, ReferenceError);
-  assertThrowsInstanceOf(() => { class a extends (a ||= 0) {} }, ReferenceError);
-  assertThrowsInstanceOf(() => { class a extends (a ??= 0) {} }, ReferenceError);
+  assert.throws(ReferenceError, () => { class a extends (a &&= 0) {} });
+  assert.throws(ReferenceError, () => { class a extends (a ||= 0) {} });
+  assert.throws(ReferenceError, () => { class a extends (a ??= 0) {} });
 }
 
 // TDZ for lexical |let| bindings with conditional assignment.
 {
-  assertThrowsInstanceOf(() => {
+  assert.throws(ReferenceError, () => {
     const False = false;
     False &&= b;
     b = 2;
     let b;
-  }, ReferenceError);
+  });
 
-  assertThrowsInstanceOf(() => {
+  assert.throws(ReferenceError, () => {
     const True = true;
     True ||= b;
     b = 2;
     let b;
-  }, ReferenceError);
+  });
 
-  assertThrowsInstanceOf(() => {
+  assert.throws(ReferenceError, () => {
     const NonNull = {};
     NonNull ??= b;
     b = 2;
     let b;
-  }, ReferenceError);
+  });
 }
 
