@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Support initializer defaults in destructuring declarations in for-in/of loop heads
 esid: pending
 ---*/
-var gTestfile = "for-loop-declaration-contains-computed-name.js";
-var BUGNUMBER = 1233767;
-var summary =
-  "Support initializer defaults in destructuring declarations in for-in/of " +
-  "loop heads";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var count;
 var expr;
@@ -49,7 +38,3 @@ for (var { length: x, [x - 1 + count]: y = "psych" } in "foo")
 
   count++;
 }
-
-/******************************************************************************/
-
-print("Tests complete");
