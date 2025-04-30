@@ -4,8 +4,6 @@
 /*---
 features:
   - IsHTMLDDA
-flags:
-  - noStrict
 description: |
   Implement the Nullish Coalescing operator (??) proposal
 esid: pending

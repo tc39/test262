@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   __proto__ in object literals in non-__proto__:v contexts doesn't modify [[Prototype]]
 esid: pending

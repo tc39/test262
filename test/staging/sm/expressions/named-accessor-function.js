@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   { get x y() { } } is not valid getter syntax
 esid: pending

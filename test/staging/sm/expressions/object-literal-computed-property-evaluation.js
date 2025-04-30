@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Convert computed property name expressions to property key before evaluating the property's value
 esid: pending

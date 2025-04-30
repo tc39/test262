@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   \\u and \\x must be followed by the appropriate number of hex digits or else it is a syntax error
 esid: pending
