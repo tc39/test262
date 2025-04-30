@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Method Definitions
 esid: pending
@@ -36,6 +34,8 @@ syntaxError("b = {a() => 0}");
 syntaxError("b = {a() void 0}");
 syntaxError("b = {a() 1}");
 syntaxError("b = {a() false}");
+
+var b;
 
 b = {a(){return 5;}};
 assert.sameValue(b.a(), 5);
