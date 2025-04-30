@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.replace should throw when called with a global RegExp whose .lastIndex is non-writable
 esid: pending

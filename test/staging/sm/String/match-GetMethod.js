@@ -3,8 +3,6 @@
 
 /*---
 includes: [deepEqual.js]
-flags:
-  - noStrict
 description: |
   String.prototype.match should call GetMethod.
 esid: pending

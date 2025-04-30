@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Be more careful with string math to avoid wrong results
 esid: pending
