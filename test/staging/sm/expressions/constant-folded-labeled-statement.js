@@ -12,7 +12,6 @@ esid: pending
 if (typeof disassemble === "function") {
     var code = disassemble(() => { x: 2+2; });
 
-    if (typeof assert.sameValue === "function")
-        assert.sameValue(true, /Int8 4/.test(code));
+    assert.sameValue(true, /Int8 4/.test(code));
 }
 
