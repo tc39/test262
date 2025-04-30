@@ -8,7 +8,6 @@ description: |
   pending
 esid: pending
 ---*/
-"use strict";
 
 Object.defineProperty(String.prototype, "toString", {
     get() {
@@ -18,4 +17,3 @@ Object.defineProperty(String.prototype, "toString", {
     }
 })
 assert.sameValue(Object.prototype.toLocaleString.call("test"), "string");
-

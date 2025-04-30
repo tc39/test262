@@ -8,7 +8,8 @@ description: |
   pending
 esid: pending
 ---*/
-"use strict"; // Use strict-mode to ensure |this| arguments aren't converted to objects.
+
+// strict-mode to ensure |this| arguments aren't converted to objects.
 
 var emptyIterator = {
   next() {
@@ -30,4 +31,3 @@ Object.defineProperty(Number.prototype, Symbol.iterator, {
 Promise.all(0);
 Promise.allSettled(0);
 Promise.race(0);
-

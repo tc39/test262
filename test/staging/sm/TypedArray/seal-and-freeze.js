@@ -8,7 +8,6 @@ description: |
   pending
 esid: pending
 ---*/
-"use strict";
 
 // Seal
 assert.sameValue(Object.isSealed(new Int32Array(2)), false);
@@ -54,4 +53,3 @@ array = new Int32Array(1);
 assert.throws(TypeError, () => Object.freeze(array));
 assert.sameValue(Object.isExtensible(array), false);
 assert.sameValue(Object.isFrozen(array), false);
-

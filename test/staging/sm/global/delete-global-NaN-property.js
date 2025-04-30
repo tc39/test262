@@ -10,7 +10,6 @@ description: |
   |delete window.NaN| should throw a TypeError
 esid: pending
 ---*/
-"use strict"
 
 var g = this, v = false;
 try
