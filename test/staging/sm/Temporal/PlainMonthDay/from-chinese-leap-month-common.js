@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-Temporal-PlainMonthDay-shell.js]
-flags:
-  - noStrict
 features:
   - Temporal
 description: |
