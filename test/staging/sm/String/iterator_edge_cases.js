@@ -9,13 +9,14 @@ description: |
   pending
 esid: pending
 ---*/
+
 // Test that we can't confuse %StringIteratorPrototype% for a
 // StringIterator object.
 function TestStringIteratorPrototypeConfusion() {
     var iter = ""[Symbol.iterator]();
-    assertThrowsInstanceOfWithMessage(
-        () => iter.next.call(Object.getPrototypeOf(iter)),
+    assert.throws(
         TypeError,
+        () => iter.next.call(Object.getPrototypeOf(iter)),
         "next method called on incompatible String Iterator");
 }
 TestStringIteratorPrototypeConfusion();
