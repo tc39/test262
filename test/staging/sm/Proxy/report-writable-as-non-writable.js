@@ -22,9 +22,7 @@ var proxy = new Proxy(target, {
     }
 });
 
-assertThrowsInstanceOf(() => Object.getOwnPropertyDescriptor(proxy, "test"),
-                       TypeError);
+assert.throws(TypeError, () => Object.getOwnPropertyDescriptor(proxy, "test"));
 
-assertThrowsInstanceOf(() => Reflect.getOwnPropertyDescriptor(proxy, "test"),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.getOwnPropertyDescriptor(proxy, "test"));
 

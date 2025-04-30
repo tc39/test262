@@ -47,7 +47,7 @@ p = rev.proxy;
 
 assert.sameValue(Object.getPrototypeOf(p), Object.prototype);
 rev.revoke();
-assertThrowsInstanceOf(() => Object.getPrototypeOf(p), TypeError);
+assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
 // 4. Let target be the value of the [[ProxyTarget]] internal slot of O.
 // 5. Let trap be ? GetMethod(handler, "getPrototypeOf").
@@ -67,8 +67,7 @@ assertThrowsValue(() => Object.getPrototypeOf(p), 42);
 // The trap might not be callable.
 p = new Proxy({}, { getPrototypeOf: 17 });
 
-assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                       TypeError);
+assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
 // 6. If trap is undefined, then
 //    a. Return ? target.[[GetPrototypeOf]]().
@@ -154,44 +153,34 @@ p = new Proxy(typeTestingTarget, { getPrototypeOf() { return rval; } });
 function returnsPrimitives()
 {
   rval = undefined;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = true;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = false;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = 0.0;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = -0.0;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = 3.141592654;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = NaN;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = -Infinity;
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = "[[Prototype]] FOR REALZ";
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
   rval = Symbol("[[Prototype]] FOR REALZ");
-  assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                         TypeError);
+  assert.throws(TypeError, () => Object.getPrototypeOf(p));
 }
 
 returnsPrimitives();
@@ -270,8 +259,7 @@ assert.sameValue(log[0], "act1 again");
 
 act1 = act2 = nop;
 rval = /a/;
-assertThrowsInstanceOf(() => Object.getPrototypeOf(p),
-                       TypeError);
+assert.throws(TypeError, () => Object.getPrototypeOf(p));
 
 // 13. Return handlerProto.
 

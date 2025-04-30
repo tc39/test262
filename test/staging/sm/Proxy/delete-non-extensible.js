@@ -23,6 +23,6 @@ var proxy = new Proxy(target, {
 assert.sameValue(delete proxy.missing, true);
 assert.sameValue(Reflect.deleteProperty(proxy, "missing"), true);
 
-assertThrowsInstanceOf(() => { delete proxy.test; }, TypeError);
-assertThrowsInstanceOf(() => Reflect.deleteProperty(proxy, "test"), TypeError);
+assert.throws(TypeError, () => { delete proxy.test; });
+assert.throws(TypeError, () => Reflect.deleteProperty(proxy, "test"));
 

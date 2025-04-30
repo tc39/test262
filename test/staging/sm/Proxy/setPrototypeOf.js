@@ -50,45 +50,35 @@ var originalProto = Reflect.getPrototypeOf(p);
 assert.sameValue(originalProto, Object.prototype);
 
 rev.revoke();
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, originalProto),
-                       TypeError);
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, originalProto));
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 // 6. Let trap be ? GetMethod(handler, "setPrototypeOf").
 
 // handler has uncallable (and not null/undefined) property
 p = new Proxy({}, { setPrototypeOf: 9 });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: -3.7 });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: NaN });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: Infinity });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: true });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: /x/ });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: Symbol(42) });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, { setPrototypeOf: class X {} });
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 p = new Proxy({}, observe({}));
 
@@ -251,8 +241,7 @@ var newProto;
 p = new Proxy(Object.preventExtensions(Object.create(Math)),
               { setPrototypeOf(t, p) { return true; } });
 
-assertThrowsInstanceOf(() => Reflect.setPrototypeOf(p, null),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.setPrototypeOf(p, null));
 
 // 14. Return true.
 

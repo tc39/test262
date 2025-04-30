@@ -27,6 +27,6 @@ var y = new Proxy({}, {
 })
 
 // This will invoke [[Set]] on the target, with the proxy as receiver.
-assertThrowsInstanceOf(() => y.a = 1, TypeError);
-assertThrowsInstanceOf(() => y.b = 2, TypeError);
+assert.throws(TypeError, () => y.a = 1);
+assert.throws(TypeError, () => y.b = 2);
 
