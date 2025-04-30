@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Various quirks of setting array length properties to objects
 esid: pending

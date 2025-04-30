@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Assertion redefining non-writable length to a non-numeric value
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   array.sort compare-function gets incorrect this
 esid: pending

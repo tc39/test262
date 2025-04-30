@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.prototype.concat should check HasProperty everytime for non-dense array
 esid: pending

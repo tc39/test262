@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Sorting an array containing only holes and |undefined| should move all |undefined| to the start of the array
 esid: pending

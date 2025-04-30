@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array length redefinition behavior with non-configurable elements
 esid: pending

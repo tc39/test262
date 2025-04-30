@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array length setting/truncating with non-dense, indexed elements
 esid: pending

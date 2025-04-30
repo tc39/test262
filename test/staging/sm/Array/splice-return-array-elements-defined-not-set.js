@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.prototype.splice should define, not set, the elements of the array it returns
 esid: pending

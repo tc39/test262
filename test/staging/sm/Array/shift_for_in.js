@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.prototype.shift on a dense array with holes should update for-in enumeration properties.
 esid: pending

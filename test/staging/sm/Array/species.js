@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Use ArraySpeciesCreate in Array.prototype.{concat,filter,map,slice,splice}.
 esid: pending

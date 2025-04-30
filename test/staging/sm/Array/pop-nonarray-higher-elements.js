@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.prototype.pop shouldn't touch elements greater than length on non-arrays
 esid: pending

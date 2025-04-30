@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   [].reverse should swap elements low to high using accesses to low elements, then accesses to high elements
 esid: pending
