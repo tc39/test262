@@ -26,25 +26,12 @@ function t(code)
   var strictSemi = " 'use strict'; " + code;
   var strictASI = " 'use strict' \n " + code;
 
-  var creationFunctions = ["Function"];
-  if (typeof evaluate === "function")
-    creationFunctions.push("evaluate");
-  if (typeof parseModule === "function")
-    creationFunctions.push("parseModule");
+  var g = createNewGlobal();
 
-  for (var func of creationFunctions)
-  {
-    var g = createNewGlobal();
-    var f = g[func];
+  g.Function(code);
 
-    if (func === "parseModule")
-      assertThrowsInstanceOf(() => f(code), g.SyntaxError);
-    else
-      f(code);
-
-    assertThrowsInstanceOf(() => f(strictSemi), g.SyntaxError);
-    assertThrowsInstanceOf(() => f(strictASI), g.SyntaxError);
-  }
+  assert.throws(g.SyntaxError, () => g.Function(strictSemi));
+  assert.throws(g.SyntaxError, () => g.Function(strictASI));
 }
 
 t("var yield = 3;");

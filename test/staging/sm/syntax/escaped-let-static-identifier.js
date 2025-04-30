@@ -29,22 +29,10 @@ function t(code)
   var strictSemi = " 'use strict'; " + code;
   var strictASI = " 'use strict' \n " + code;
 
-  var creationFunctions = [Function];
-  if (typeof evaluate === "function")
-    creationFunctions.push(evaluate);
-  if (typeof parseModule === "function")
-    creationFunctions.push(parseModule);
+  Function(code);
 
-  for (var func of creationFunctions)
-  {
-    if (typeof parseModule === "function" && func === parseModule)
-      assertThrowsInstanceOf(() => func(code), SyntaxError);
-    else
-      func(code);
-
-    assertThrowsInstanceOf(() => func(strictSemi), SyntaxError);
-    assertThrowsInstanceOf(() => func(strictASI), SyntaxError);
-  }
+  assert.throws(SyntaxError, () => Function(strictSemi));
+  assert.throws(SyntaxError, () => Function(strictASI));
 }
 
 t("l\\u0065t: 42;");
