@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Number.prototype.to* should throw a RangeError when passed a bad precision
 esid: pending
 ---*/
-var BUGNUMBER = 795745;
-var summary =
-  "Number.prototype.to* should throw a RangeError when passed a bad precision";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function test(method, prec)
 {
@@ -45,7 +36,3 @@ test("toFixed", 9999999);
 test("toPrecision", 9999999);
 
 test("toPrecision", 0);
-
-/******************************************************************************/
-
-print("Tests complete");

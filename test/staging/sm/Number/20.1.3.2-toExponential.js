@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Number.prototype.toExponential
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-
-var BUGNUMBER = 818617;
-var summary = "ECMAScript 2017 Draft ECMA-262 Section 20.1.3.2: Number.prototype.toExponential";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // With NaN, fractionDigits out of range.
 assert.sameValue(Number.prototype.toExponential.call(NaN, 555), 'NaN');
@@ -52,7 +42,3 @@ assertThrowsValue(
 
 // Not a number throws TypeError
 assert.throws(TypeError, () => Number.prototype.toExponential.call("Hello"));
-
-if (typeof assert.sameValue === "function") {
-}
-
