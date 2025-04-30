@@ -1,5 +1,5 @@
 /*---
-defines: [assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, reportMatch, createIsHTMLDDA, createExternalArrayBuffer]
+defines: [assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, createIsHTMLDDA, createExternalArrayBuffer]
 ---*/
 
 function assertThrownErrorContains(f, substr) {
@@ -41,13 +41,6 @@ function assertEq(...args) {
 }
 function reportCompare(...args) {
   assert.sameValue(...args)
-}
-
-function reportMatch(expectedRegExp, actual, description = "") {
-  assert.sameValue(typeof actual, "string",
-    `Type mismatch, expected string, actual type ${typeof actual}`);
-  assert.notSameValue(expectedRegExp.exec(actual), null,
-    `Expected match to '${expectedRegExp}', Actual value '${actual}'`);
 }
 
 if (globalThis.createIsHTMLDDA === undefined) {
