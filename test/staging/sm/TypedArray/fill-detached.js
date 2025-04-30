@@ -33,13 +33,13 @@ function DetachTypedArrayValue(ta, value) {
 for (let length of [0, 1, 10, 4096]) {
     let ta = new Int32Array(length);
     let value = DetachArrayBufferValue(ta.buffer, 123);
-    assertThrowsInstanceOf(() => ta.fill(value), TypeError);
+    assert.throws(TypeError, () => ta.fill(value));
 }
 
 // Test when ArrayBuffer is reified during the fill() call.
 for (let length of [0, 1, 10, 4096]) {
     let ta = new Int32Array(length);
     let value = DetachTypedArrayValue(ta, 123);
-    assertThrowsInstanceOf(() => ta.fill(value), TypeError);
+    assert.throws(TypeError, () => ta.fill(value));
 }
 

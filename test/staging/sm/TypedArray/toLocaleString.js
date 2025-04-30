@@ -32,9 +32,9 @@ assert.sameValue(TypedArrayPrototype.toLocaleString.name, "toLocaleString");
 assert.sameValue(TypedArrayPrototype.toLocaleString.length, 0);
 
 // It's not a generic method.
-assertThrowsInstanceOf(() => TypedArrayPrototype.toLocaleString.call(), TypeError);
+assert.throws(TypeError, () => TypedArrayPrototype.toLocaleString.call());
 for (let invalid of [void 0, null, {}, [], function(){}, true, 0, "", Symbol()]) {
-    assertThrowsInstanceOf(() => TypedArrayPrototype.toLocaleString.call(invalid), TypeError);
+    assert.throws(TypeError, () => TypedArrayPrototype.toLocaleString.call(invalid));
 }
 
 const localeOne = 1..toLocaleString(),

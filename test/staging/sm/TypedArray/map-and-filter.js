@@ -94,14 +94,14 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(count, 3);
 
     // There is no callback or callback is not a function.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         arr.map();
-    }, TypeError);
+    });
     var invalidCallbacks = [undefined, null, 1, false, "", Symbol(), [], {}, /./];
     invalidCallbacks.forEach(callback => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             arr.map(callback);
-        }, TypeError);
+        });
     })
 
     // Callback is a generator.
@@ -121,9 +121,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.filter.call(invalidReceiver, () => true);
-        }, TypeError, "Assert that map fails if this value is not a TypedArray");
+        }, "Assert that map fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.
@@ -218,14 +218,14 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(count, 3);
 
     // There is no callback or callback is not a function.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         arr.filter();
-    }, TypeError);
+    });
     var invalidCallbacks = [undefined, null, 1, false, "", Symbol(), [], {}, /./];
     invalidCallbacks.forEach(callback => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             arr.filter(callback);
-        }, TypeError);
+        });
     })
 
     // Callback is a generator.
@@ -246,9 +246,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.filter.call(invalidReceiver, () => true);
-        }, TypeError, "Assert that filter fails if this value is not a TypedArray");
+        }, "Assert that filter fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.

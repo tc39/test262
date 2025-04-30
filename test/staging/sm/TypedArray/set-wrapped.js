@@ -45,7 +45,7 @@ if (typeof createNewGlobal === "function") {
 
             // Called with wrapped typed array, array buffer already detached.
             otherGlobal.$262.detachArrayBuffer(source.buffer);
-            assertThrowsInstanceOf(() => target.set(source), TypeError);
+            assert.throws(TypeError, () => target.set(source));
 
             var source = new otherGlobal[TA.name](1);
             taintLengthProperty(source);
@@ -58,7 +58,7 @@ if (typeof createNewGlobal === "function") {
                     return 0;
                 }
             };
-            assertThrowsInstanceOf(() => target.set(source, offset), TypeError);
+            assert.throws(TypeError, () => target.set(source, offset));
         }
 
         // Create typed array from different global (implictly created when
@@ -70,7 +70,7 @@ if (typeof createNewGlobal === "function") {
 
             // Called with wrapped typed array, array buffer already detached.
             otherGlobal.$262.detachArrayBuffer(source.buffer);
-            assertThrowsInstanceOf(() => target.set(source), TypeError);
+            assert.throws(TypeError, () => target.set(source));
 
             var source = new TA(new otherGlobal.ArrayBuffer(1 * TA.BYTES_PER_ELEMENT));
             taintLengthProperty(source);
@@ -83,7 +83,7 @@ if (typeof createNewGlobal === "function") {
                     return 0;
                 }
             };
-            assertThrowsInstanceOf(() => target.set(source, offset), TypeError);
+            assert.throws(TypeError, () => target.set(source, offset));
         }
     }
 }

@@ -51,7 +51,7 @@ for (var constructor of anyTypedArrayConstructors) {
     // Throw an exception in the callback.
     var count = 0;
     var sum = 0;
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         arr.reduce((previous, current, index, array) => {
             count++;
             sum += current;
@@ -59,19 +59,19 @@ for (var constructor of anyTypedArrayConstructors) {
                 throw TypeError("reduce");
             }
         })
-    }, TypeError);
+    });
     assert.sameValue(count, 3);
     assert.sameValue(sum, 9);
 
     // There is no callback or callback is not a function.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         arr.reduce();
-    }, TypeError);
+    });
     var invalidCallbacks = [undefined, null, 1, false, "", Symbol(), [], {}, /./];
     invalidCallbacks.forEach(callback => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             arr.reduce(callback);
-        }, TypeError);
+        });
     })
 
     // Callback is a generator.
@@ -89,9 +89,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(3), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.reduce.call(invalidReceiver, () => {});
-        }, TypeError, "Assert that reduce fails if this value is not a TypedArray");
+        }, "Assert that reduce fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.
@@ -144,7 +144,7 @@ for (var constructor of anyTypedArrayConstructors) {
     // Throw an exception in the callback.
     var count = 0;
     var sum = 0;
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         arr.reduceRight((previous, current, index, array) => {
             count++;
             sum += current;
@@ -152,19 +152,19 @@ for (var constructor of anyTypedArrayConstructors) {
                 throw TypeError("reduceRight");
             }
         })
-    }, TypeError);
+    });
     assert.sameValue(count, 3);
     assert.sameValue(sum, 9);
 
     // There is no callback or callback is not a function.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         arr.reduceRight();
-    }, TypeError);
+    });
     var invalidCallbacks = [undefined, null, 1, false, "", Symbol(), [], {}, /./];
     invalidCallbacks.forEach(callback => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             arr.reduceRight(callback);
-        }, TypeError);
+        });
     })
 
     // Callback is a generator.
@@ -182,9 +182,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(3), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.reduceRight.call(invalidReceiver, () => {});
-        }, TypeError, "Assert that reduceRight fails if this value is not a TypedArray");
+        }, "Assert that reduceRight fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.

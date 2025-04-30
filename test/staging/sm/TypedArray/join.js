@@ -25,8 +25,8 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(new constructor(1).join(), "0");
     assert.sameValue(new constructor(3).join(), "0,0,0");
 
-    assertThrowsInstanceOf(() => new constructor().join({toString(){throw new TypeError}}), TypeError);
-    assertThrowsInstanceOf(() => new constructor().join(Symbol()), TypeError);
+    assert.throws(TypeError, () => new constructor().join({toString(){throw new TypeError}}));
+    assert.throws(TypeError, () => new constructor().join(Symbol()));
 
     // Called from other globals.
     if (typeof createNewGlobal === "function") {
@@ -38,9 +38,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.join.call(invalidReceiver);
-        }, TypeError, "Assert that join fails if this value is not a TypedArray");
+        }, "Assert that join fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.

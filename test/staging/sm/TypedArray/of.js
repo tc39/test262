@@ -27,8 +27,8 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.deepEqual(constructor.of("1", "2", "3"), new constructor([1, 2, 3]));
 
     // This method can't be transplanted to other constructors.
-    assertThrowsInstanceOf(() => constructor.of.call(Array), TypeError);
-    assertThrowsInstanceOf(() => constructor.of.call(Array, 1, 2, 3), TypeError);
+    assert.throws(TypeError, () => constructor.of.call(Array));
+    assert.throws(TypeError, () => constructor.of.call(Array, 1, 2, 3));
 
     var hits = 0;
     assert.deepEqual(constructor.of.call(function(len) {
@@ -51,40 +51,40 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidConstructors = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                                constructor.of, () => {}];
     invalidConstructors.forEach(C => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.of.call(C);
-        }, TypeError);
+        });
     });
 
     // Throw if `this` is a method definition or a getter/setter function.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         constructor.of.call({method() {}}.method);
-    }, TypeError);
-    assertThrowsInstanceOf(() => {
+    });
+    assert.throws(TypeError, () => {
         constructor.of.call(Object.getOwnPropertyDescriptor({get getter() {}}, "getter").get);
-    }, TypeError);
+    });
 
     // Generators are not legal constructors.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
       constructor.of.call(function*(len) {
         return len;
       }, "a")
-    }, TypeError);
+    });
 
     // An exception might be thrown in a strict assignment to the new object's indexed properties.
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         constructor.of.call(function() {
             return {get 0() {}};
         }, "a");
-    }, TypeError);
+    });
 
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         constructor.of.call(function() {
             return Object("1");
         }, "a");
-    }, TypeError);
+    });
 
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         constructor.of.call(function() {
             return Object.create({
                 set 0(v) {
@@ -92,7 +92,7 @@ for (var constructor of anyTypedArrayConstructors) {
                 }
             });
         }, "a");
-    }, TypeError);
+    });
 }
 
 for (let constructor of anyTypedArrayConstructors.filter(isFloatConstructor)) {
