@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.defineProperty sets arguments.length without setting the length-overridden bit
 esid: pending

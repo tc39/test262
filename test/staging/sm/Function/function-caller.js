@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Function.prototype.caller should throw a TypeError for strict-mode functions
 esid: pending
