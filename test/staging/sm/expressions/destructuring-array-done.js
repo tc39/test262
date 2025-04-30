@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  iterator.next() should not be called when after iterator completes
 esid: pending
 ---*/
-var BUGNUMBER = 1184922;
-var summary = "iterator.next() should not be called when after iterator completes";
-
-print(BUGNUMBER + ": " + summary);
 
 var log;
 function reset() {
@@ -325,4 +321,3 @@ assert.sameValue(log,
          "next," +
          "next," +
          "set:r=[4],");
-

@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Primitive values don't box correctly
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 732669;
-var summary = "Primitive values don't box correctly";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var t;
 function returnThis() { return this; }
@@ -107,7 +98,3 @@ t = "bar".property;
 assert.sameValue(t !== Object.prototype, true);
 assert.sameValue(t !== String.prototype, true);
 assert.sameValue(t.toString(), "bar");
-
-/******************************************************************************/
-
-print("Tests complete");

@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, sm/non262-expressions-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Array destructuring with various default values in various context - class expression and super/new.target
 esid: pending
 ---*/
-var BUGNUMBER = 1184922;
-var summary = "Array destructuring with various default values in various context - class expression and super/new.target";
-
-print(BUGNUMBER + ": " + summary);
 
 testDestructuringArrayDefault(`class E {
   constructor() {}
@@ -78,4 +74,3 @@ opt = {
     no_comp: false,
 };
 testDestructuringArrayDefault("new.target", opt);
-

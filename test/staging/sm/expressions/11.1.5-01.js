@@ -8,17 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement support for string literals as names for properties defined using ES5 get/set syntax
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 520696;
-var summary =
-  'Implement support for string literals as names for properties defined ' +
-  'using ES5 get/set syntax';
-
-print(BUGNUMBER + ": " + summary);
-
 
 var o;
 
@@ -43,4 +35,3 @@ o = eval('({ 3.141592654: "pi", 1e4: 17, 0xdeadbeef: "hex", 1e3000: "Infinity" }
 checkO();
 o = { 3.141592654: "pi", 1e4: 17, 0xdeadbeef: "hex", 1e3000: "Infinity" };
 checkO();
-
