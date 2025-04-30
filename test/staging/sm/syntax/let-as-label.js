@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  let can't be used as a label in strict mode code
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1288459;
-var summary = "let can't be used as a label in strict mode code";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 Function("let: 42");
 Function("l\\u0065t: 42");
@@ -34,7 +25,3 @@ assert.throws(SyntaxError, () => eval(" 'use strict'; let: 42"));
 assert.throws(SyntaxError, () => eval(" 'use strict' \n let: 42;"));
 assert.throws(SyntaxError, () => eval(" 'use strict'; l\\u0065t: 42"));
 assert.throws(SyntaxError, () => eval(" 'use strict' \n l\\u0065t: 42;"));
-
-/******************************************************************************/
-
-print("Tests complete");

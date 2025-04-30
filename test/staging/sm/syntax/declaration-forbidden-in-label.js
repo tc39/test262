@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Properly implement the spec's distinctions between StatementListItem and Statement grammar productions and their uses
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1288459;
-var summary =
-  "Properly implement the spec's distinctions between StatementListItem and " +
-  "Statement grammar productions and their uses";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.throws(SyntaxError, () => Function("a: let x;"));
 assert.throws(SyntaxError, () => Function("b: const y = 3;"));
@@ -33,7 +22,3 @@ assert.throws(SyntaxError, () => Function("'use strict'; d: function w() {};"));
 Function("e: function x() {};");
 
 assert.throws(SyntaxError, () => Function("f: function* y() {}"));
-
-/******************************************************************************/
-
-print("Tests complete");
