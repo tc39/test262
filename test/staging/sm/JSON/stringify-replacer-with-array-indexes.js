@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Call the replacer function for array elements with stringified indexes
 esid: pending
 ---*/
-var gTestfile = 'stringify-replacer-with-array-indexes.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 584909;
-var summary =
-  "Call the replacer function for array elements with stringified indexes";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var arr = [0, 1, 2, 3, 4];
 
@@ -57,7 +46,3 @@ function replacer()
 }
 
 assert.sameValue(JSON.stringify(arr, replacer), '[0,1,2,3,4]');
-
-/******************************************************************************/
-
-print("Tests complete");

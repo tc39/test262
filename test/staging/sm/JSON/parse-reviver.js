@@ -9,6 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 function doubler(k, v)
 {
   assert.sameValue(typeof k, "string");
@@ -47,7 +48,3 @@ catch (e)
   assert.sameValue(e instanceof SyntaxError, true, "wrong exception: " + e);
 }
 assert.sameValue(called, false);
-
-/******************************************************************************/
-
-print("Tests complete");

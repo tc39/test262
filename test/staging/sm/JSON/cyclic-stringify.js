@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Properly detect cycles in JSON.stringify (throw TypeError, check for cycles rather than imprecisely rely on recursion limits)
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 578273;
-var summary =
-  "ES5: Properly detect cycles in JSON.stringify (throw TypeError, check for " +
-  "cycles rather than imprecisely rely on recursion limits)";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // objects
 
@@ -101,7 +90,3 @@ catch (e)
   assert.sameValue(count, 2,
            "cyclic data structures not detected immediately");
 }
-
-/******************************************************************************/
-
-print("Tests complete");

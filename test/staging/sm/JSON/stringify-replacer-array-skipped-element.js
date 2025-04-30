@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Better/more correct handling for replacer arrays with getter array index properties
 esid: pending
 ---*/
-var gTestfile = 'stringify-replacer-array-skipped-element.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 648471;
-var summary =
-  "Better/more correct handling for replacer arrays with getter array index " +
-  "properties";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.sameValue(JSON.stringify({ 3: 3, 4: 4 },
                         ["3", { toString: function() { return "4" } }]),
@@ -63,7 +51,3 @@ assert.sameValue(JSON.stringify({ 3: 3, null: 4 }, ["3", "null", null]),
 
 assert.sameValue(JSON.stringify({ 3: 3, null: 4 }, ["3", null, "null"]),
          '{"3":3,"null":4}');
-
-/******************************************************************************/
-
-print("Tests complete");
