@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  |yield| is sometimes a valid identifier
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1288459;
-var summary = "|yield| is sometimes a valid identifier";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var g = $262.createRealm().global;
 
@@ -40,7 +31,3 @@ t("const yield = 3;");
 t("for (var yield = 3; ; ) break;");
 t("for (let yield = 3; ; ) break;");
 t("for (const yield = 3; ; ) break;");
-
-/******************************************************************************/
-
-print("Tests complete");
