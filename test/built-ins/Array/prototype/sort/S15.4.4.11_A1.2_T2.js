@@ -20,30 +20,18 @@ var x = new Array(2);
 x[1] = 1;
 x.sort(myComparefn);
 
-if (x.length !== 2) {
-  throw new Test262Error('#1: var x = new Array(2); x[1] = 1;  x.sort(myComparefn); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#1: var x = new Array(2); x[1] = 1;  x.sort(myComparefn); x.length === 2');
 
-if (x[0] !== 1) {
-  throw new Test262Error('#2: var x = new Array(2); x[1] = 1;  x.sort(myComparefn); x[0] === 1. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 1, '#2: var x = new Array(2); x[1] = 1;  x.sort(myComparefn); x[0] === 1');
 
-if (x[1] !== undefined) {
-  throw new Test262Error('#3: var x = new Array(2); x[1] = 1;  x.sort(myComparefn); x[1] === undefined. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], undefined, '#3: var x = new Array(2); x[1] = 1;  x.sort(myComparefn); x[1] === undefined');
 
 var x = new Array(2);
 x[0] = 1;
 x.sort(myComparefn);
 
-if (x.length !== 2) {
-  throw new Test262Error('#4: var x = new Array(2); x[0] = 1;  x.sort(myComparefn); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#4: var x = new Array(2); x[0] = 1;  x.sort(myComparefn); x.length === 2');
 
-if (x[0] !== 1) {
-  throw new Test262Error('#5: var x = new Array(2); x[0] = 1;  x.sort(myComparefn); x[0] === 1. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 1, '#5: var x = new Array(2); x[0] = 1;  x.sort(myComparefn); x[0] === 1');
 
-if (x[1] !== undefined) {
-  throw new Test262Error('#6: var x = new Array(2); x[0] = 1;  x.sort(myComparefn); x[1] === undefined. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], undefined, '#6: var x = new Array(2); x[0] = 1;  x.sort(myComparefn); x[1] === undefined');

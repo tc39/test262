@@ -11,12 +11,8 @@ description: Creating function with new Function() constructor
 
 //CHECK#1
 var MyFunction = new Function("return this");
-if (MyFunction() !== this) {
-  throw new Test262Error('#1: var MyFunction = new Function("return this"); MyFunction() === this. Actual: ' + (MyFunction()));
-}
+assert.sameValue(MyFunction(), this, '#1: var MyFunction = new Function("return this"); MyFunction() === this');
 
 //CHECK#2
 MyFunction = new Function("return eval(\'this\')");
-if (MyFunction() !== this) {
-  throw new Test262Error('#2: var MyFunction = new Function("return eval(\'this\')"); MyFunction() === this. Actual: ' + (MyFunction()));
-}
+assert.sameValue(MyFunction(), this, '#2: var MyFunction = new Function("return eval(\'this\')"); MyFunction() === this');

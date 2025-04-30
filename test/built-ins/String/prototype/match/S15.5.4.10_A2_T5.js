@@ -13,9 +13,7 @@ var __string = "123456abcde7890";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__string.match(/\D{2}/g).length !== 2) {
-  throw new Test262Error('#1: __string = "123456abcde7890"; __string.match(/\\D{2}/g).length=== 2. Actual: ' + __string.match(/\D{2}/g).length);
-}
+assert.sameValue(__string.match(/\D{2}/g).length, 2, '#1: __string = "123456abcde7890"; __string.match(/\\D{2}/g).length=== 2');
 //
 //////////////////////////////////////////////////////////////////////////////
 

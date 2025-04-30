@@ -20,16 +20,12 @@ var __obj = {
 __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__obj.toLocaleUpperCase() !== "1") {
-  throw new Test262Error('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase() ==="1". Actual: ' + __obj.toLocaleUpperCase());
-}
+assert.sameValue(__obj.toLocaleUpperCase(), "1", '#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase() ==="1"');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__obj.toLocaleUpperCase().length !== 1) {
-  throw new Test262Error('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase().length === 1. Actual: ' + __obj.toLocaleUpperCase().length);
-}
+assert.sameValue(__obj.toLocaleUpperCase().length, 1, '#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase().length === 1');
 //
 //////////////////////////////////////////////////////////////////////////////

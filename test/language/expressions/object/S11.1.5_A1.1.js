@@ -22,9 +22,7 @@ if (object instanceof Object !== true) {
 }
 
 //CHECK#3
-if (object.toString !== Object.prototype.toString) {
-  throw new Test262Error('#3: var object = {}; object.toString === Object.prototype.toString. Actual: ' + (object.toString));
-}
+assert.sameValue(object.toString, Object.prototype.toString, '#3: var object = {}; object.toString === Object.prototype.toString');
 
 //CHECK#4
 if (object.toString() !== "[object Object]") {

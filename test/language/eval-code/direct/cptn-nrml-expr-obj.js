@@ -14,10 +14,8 @@ var x = {};
 var y;
 if (eval("y = x") !== x) {
   throw new Test262Error('#1: var x = {}; eval("y = x") === x. Actual: ' + (eval("y = x")));
-}    
+}
 
 
 //CHECK#2
-if (eval("x") !== x) {
-  throw new Test262Error('#2: var x = {}; eval("x") === x. Actual: ' + (eval("x")));
-}
+assert.sameValue(eval("x"), x, '#2: var x = {}; eval("x") === x');

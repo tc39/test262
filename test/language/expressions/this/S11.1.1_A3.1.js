@@ -12,12 +12,8 @@ flags: [noStrict]
 
 //CHECK#1
 function ReturnThis() {return this}
-if (ReturnThis() !== this) {
-  throw new Test262Error('#1: function ReturnThis() {return this} ReturnThis() === this. Actual: ' + (ReturnThis()));
-}
+assert.sameValue(ReturnThis(), this, '#1: function ReturnThis() {return this} ReturnThis() === this');
 
 //CHECK#2
 function ReturnEvalThis() {return eval("this")}
-if (ReturnEvalThis() !== this) {
-  throw new Test262Error('#2: function ReturnEvalThis() {return eval("this")} ReturnEvalThis() === this. Actual: ' + (ReturnEvalThis()));
-}
+assert.sameValue(ReturnEvalThis(), this, '#2: function ReturnEvalThis() {return eval("this")} ReturnEvalThis() === this');

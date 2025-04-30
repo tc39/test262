@@ -10,9 +10,7 @@ description: >
 ---*/
 
 // CHECK#1
-if (String(undefined) !== "undefined") {
-  throw new Test262Error('#1: String(undefined) === "undefined". Actual: ' + (String(undefined)));
-}
+assert.sameValue(String(undefined), "undefined", '#1: String(undefined) === "undefined"');
 
 // CHECK#2
 if (String(void 0) !== "undefined") {

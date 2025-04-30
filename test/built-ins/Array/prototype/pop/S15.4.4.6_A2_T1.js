@@ -28,20 +28,12 @@ if (obj.length !== undefined) {
 
 obj.length = undefined;
 var pop = obj.pop();
-if (pop !== undefined) {
-  throw new Test262Error('#3: var obj = {}; obj.length = undefined; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));
-}
+assert.sameValue(pop, undefined, '#3: var obj = {}; obj.length = undefined; obj.pop = Array.prototype.pop; obj.pop() === undefined');
 
-if (obj.length !== 0) {
-  throw new Test262Error('#4: var obj = {}; obj.length = undefined; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 0, '#4: var obj = {}; obj.length = undefined; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0');
 
 obj.length = null
 var pop = obj.pop();
-if (pop !== undefined) {
-  throw new Test262Error('#5: var obj = {}; obj.length = null; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));
-}
+assert.sameValue(pop, undefined, '#5: var obj = {}; obj.length = null; obj.pop = Array.prototype.pop; obj.pop() === undefined');
 
-if (obj.length !== 0) {
-  throw new Test262Error('#6: var obj = {}; obj.length = null; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 0, '#6: var obj = {}; obj.length = null; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0');

@@ -24,19 +24,11 @@ if (obj.length !== undefined) {
 }
 
 obj.length = undefined;
-if (obj.join() !== "") {
-  throw new Test262Error('#3: var obj = {}; obj.length = undefined; obj.join = Array.prototype.join; obj.join() === ". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#3: var obj = {}; obj.length = undefined; obj.join = Array.prototype.join; obj.join() === "');
 
-if (obj.length !== undefined) {
-  throw new Test262Error('#4: var obj = {}; obj.length = undefined; obj.join = Array.prototype.join; obj.join(); obj.length === undefined. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, undefined, '#4: var obj = {}; obj.length = undefined; obj.join = Array.prototype.join; obj.join(); obj.length === undefined');
 
 obj.length = null
-if (obj.join() !== "") {
-  throw new Test262Error('#5: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), "", '#5: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join() === ""');
 
-if (obj.length !== null) {
-  throw new Test262Error('#6: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join(); obj.length === null. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, null, '#6: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join(); obj.length === null');

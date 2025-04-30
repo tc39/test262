@@ -10,13 +10,9 @@ description: Type(x) is number primitive or Number object
 //CHECK#1
 var x = -0.1;
 var y = x++;
-if (y !== -0.1) {
-  throw new Test262Error('#1: var x = -0.1; var y = x++; y === -0.1. Actual: ' + (y));
-}
+assert.sameValue(y, -0.1, '#1: var x = -0.1; var y = x++; y === -0.1');
 
 //CHECK#2
 var x = new Number(1.1);
 var y = x++;
-if (y !== 1.1) {
-  throw new Test262Error('#2: var x = new Number(1.1); var y = x++; y === 1.1. Actual: ' + (y));
-}
+assert.sameValue(y, 1.1, '#2: var x = new Number(1.1); var y = x++; y === 1.1');

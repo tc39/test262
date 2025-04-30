@@ -13,6 +13,4 @@ if (String.fromCharCode(new Boolean(true)).charCodeAt(0) !== 1) {
 }
 
 // CHECK#2
-if (String.fromCharCode(false).charCodeAt(0) !== 0) {
-  throw new Test262Error('#2: String.fromCharCode(false).charCodeAt(0) === 0. Actual: ' + (String.fromCharCode(false).charCodeAt(0)));
-}
+assert.sameValue(String.fromCharCode(false).charCodeAt(0), 0, '#2: String.fromCharCode(false).charCodeAt(0) === 0');

@@ -8,6 +8,4 @@ description: encodeURI.length === 1
 ---*/
 
 //CHECK#1
-if (encodeURI.length !== 1) {
-  throw new Test262Error('#1: encodeURI.length === 1. Actual: ' + (encodeURI.length));
-}
+assert.sameValue(encodeURI.length, 1, '#1: encodeURI.length === 1');

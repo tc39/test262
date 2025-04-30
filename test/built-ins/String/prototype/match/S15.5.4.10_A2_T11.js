@@ -20,17 +20,13 @@ __re.lastIndex = __string.lastIndexOf("0") + 1;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__string.match(__re).length !== 3) {
-  throw new Test262Error('#1: __string.match(__re).length=== 3. Actual: ' + __string.match(__re).length);
-}
+assert.sameValue(__string.match(__re).length, 3, '#1: __string.match(__re).length=== 3');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__string.match(__re).index !== __string.lastIndexOf("0")) {
-  throw new Test262Error('#2: __string.match(__re).index ===__string.lastIndexOf("0"). Actual: ' + __string.match(__re).index);
-}
+assert.sameValue(__string.match(__re).index, __string.lastIndexOf("0"), '#2: __string.match(__re).index ===__string.lastIndexOf("0")');
 //
 //////////////////////////////////////////////////////////////////////////////
 

@@ -9,8 +9,6 @@ description: Checking String.length
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#
-if (String.length !== 1) {
-  throw new Test262Error('String has length property whose value is 1. Actual: String.length===' + String.length);
-}
+assert.sameValue(String.length, 1, 'String has length property whose value is 1');
 //
 //////////////////////////////////////////////////////////////////////////////

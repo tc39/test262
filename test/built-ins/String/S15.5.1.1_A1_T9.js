@@ -25,8 +25,6 @@ if (typeof __str !== "string") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__str !== "__THIS__") {
-  throw new Test262Error('#2: toString=function(){return "__THIS__";}; __str = String(this); __str === "__THIS__". Actual: __str ===' + __str);
-}
+assert.sameValue(__str, "__THIS__", '#2: toString=function(){return "__THIS__";}; __str = String(this); __str === "__THIS__"');
 //
 //////////////////////////////////////////////////////////////////////////////

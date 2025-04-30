@@ -17,8 +17,6 @@ if (!(String.prototype.toUpperCase.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.toUpperCase.length !== 0) {
-  throw new Test262Error('#2: String.prototype.toUpperCase.length === 0. Actual: ' + String.prototype.toUpperCase.length);
-}
+assert.sameValue(String.prototype.toUpperCase.length, 0, '#2: String.prototype.toUpperCase.length === 0');
 //
 //////////////////////////////////////////////////////////////////////////////

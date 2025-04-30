@@ -8,9 +8,7 @@ description: Checking use propertyIsEnumerable, for-in
 ---*/
 
 //CHECK#1
-if (this.propertyIsEnumerable('encodeURI') !== false) {
-  throw new Test262Error('#1: this.propertyIsEnumerable(\'encodeURI\') === false. Actual: ' + (this.propertyIsEnumerable('encodeURI')));
-}
+assert.sameValue(this.propertyIsEnumerable('encodeURI'), false, '#1: this.propertyIsEnumerable(\'encodeURI\') === false');
 
 //CHECK#2
 var result = true;

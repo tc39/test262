@@ -17,8 +17,6 @@ var __instance = new __FACTORY;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.charAt(-1) !== "") {
-  throw new Test262Error('#1: __instance.charAt(-1) === "". Actual: __instance.charAt(-1) ===' + __instance.charAt(-1));
-}
+assert.sameValue(__instance.charAt(-1), "", '#1: __instance.charAt(-1) === ""');
 //
 //////////////////////////////////////////////////////////////////////////////

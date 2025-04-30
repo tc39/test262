@@ -18,8 +18,6 @@ __obj.toUpperCase = String.prototype.toUpperCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__obj.toUpperCase() !== "AB") {
-  throw new Test262Error('#1: var __obj = {toString:function(){return "\u0041b";}}; __obj.toUpperCase = String.prototype.toUpperCase; __obj.toUpperCase() ==="AB". Actual: ' + __obj.toUpperCase());
-}
+assert.sameValue(__obj.toUpperCase(), "AB", '#1: var __obj = {toString:function(){return "\u0041b";}}; __obj.toUpperCase = String.prototype.toUpperCase; __obj.toUpperCase() ==="AB"');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -13,6 +13,4 @@ eval("//\u000C single line \u000C comment \u000C");
 //CHECK#2
 var x = 0;
 eval("//\u000C single line \u000C comment \u000C x = 1;");
-if (x !== 0) {
-  throw new Test262Error('#1: var x = 0; eval("//\\u000C single line \\u000C comment \\u000C x = 1;"); x === 0. Actual: ' + (x));
-}
+assert.sameValue(x, 0, '#1: var x = 0; eval("//\\u000C single line \\u000C comment \\u000C x = 1;"); x === 0');

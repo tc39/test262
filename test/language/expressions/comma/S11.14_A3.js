@@ -21,16 +21,10 @@ var z = 0;
 x = 1, y = 2, z = 3;
 
 //CHECK#2
-if (x !== 1) {
-  throw new Test262Error('#2: var x = 0; var y = 0; var z = 0; x = 1, y = 2, z = 3; x === 1. Actual: ' + (x));
-}
+assert.sameValue(x, 1, '#2: var x = 0; var y = 0; var z = 0; x = 1, y = 2, z = 3; x === 1');
 
 //CHECK#3
-if (y !== 2) {
-  throw new Test262Error('#3: var x = 0; var y = 0; var z = 0; x = 1, y = 2, z = 3; y === 2. Actual: ' + (y));
-}
+assert.sameValue(y, 2, '#3: var x = 0; var y = 0; var z = 0; x = 1, y = 2, z = 3; y === 2');
 
 //CHECK#4
-if (z !== 3) {
-  throw new Test262Error('#4: var x = 0; var y = 0; var z = 0; x = 1, y = 2, z = 3; z === 3. Actual: ' + (z));
-}
+assert.sameValue(z, 3, '#4: var x = 0; var y = 0; var z = 0; x = 1, y = 2, z = 3; z === 3');

@@ -11,9 +11,7 @@ description: Checking this use new Array() and []
 
 var x = new Array(0, 1, 2, 3);
 var shift = x.shift();
-if (shift !== 0) {
-  throw new Test262Error('#1: x = new Array(0,1,2,3); x.shift() === 0. Actual: ' + (shift));
-}
+assert.sameValue(shift, 0, '#1: x = new Array(0,1,2,3); x.shift() === 0');
 
 if (x.length !== 3) {
   throw new Test262Error('#2: x = new Array(0,1,2,3); x.shift(); x.length == 3');
@@ -31,9 +29,7 @@ x = [];
 x[0] = 0;
 x[3] = 3;
 var shift = x.shift();
-if (shift !== 0) {
-  throw new Test262Error('#5: x = []; x[0] = 0; x[3] = 3; x.shift() === 0. Actual: ' + (shift));
-}
+assert.sameValue(shift, 0, '#5: x = []; x[0] = 0; x[3] = 3; x.shift() === 0');
 
 if (x.length !== 3) {
   throw new Test262Error('#6: x = []; x[0] = 0; x[3] = 3; x.shift(); x.length == 3');
@@ -49,10 +45,6 @@ if (x[12] !== undefined) {
 
 x.length = 1;
 var shift = x.shift();
-if (shift !== undefined) {
-  throw new Test262Error('#9: x = []; x[0] = 0; x[3] = 3; x.shift(); x.length = 1; x.shift() === undefined. Actual: ' + (shift));
-}
+assert.sameValue(shift, undefined, '#9: x = []; x[0] = 0; x[3] = 3; x.shift(); x.length = 1; x.shift() === undefined');
 
-if (x.length !== 0) {
-  throw new Test262Error('#10: x = []; x[0] = 0; x[3] = 3; x.shift(); x.length = 1; x.shift(); x.length === 0. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 0, '#10: x = []; x[0] = 0; x[3] = 3; x.shift(); x.length = 1; x.shift(); x.length === 0');

@@ -15,12 +15,10 @@ if (--x !== 1 - 1) {
 
 //CHECK#2
 var x = "x";
-if (isNaN(--x) !== true) {
-  throw new Test262Error('#2: var x = "x"; --x === Not-a-Number. Actual: ' + (--x));
-}
+assert.sameValue(isNaN(--x), true, '#2: var x = "x"; --x === Not-a-Number');
 
 //CHECK#3
-var x = new String("-1"); 
+var x = new String("-1");
 if (--x !== -1 - 1) {
   throw new Test262Error('#3: var x = new String("-1"); --x === -1 - 1. Actual: ' + (--x));
 }

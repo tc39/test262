@@ -12,41 +12,25 @@ description: Various float numbers convert to String by explicit transformation
 ---*/
 
 // CHECK#1
-if (String(0.1) !== "0.1") {
-  throw new Test262Error('#1: String(0.1) === "0.1". Actual: ' + (String(0.1)));
-}
+assert.sameValue(String(0.1), "0.1", '#1: String(0.1) === "0.1"');
 
 // CHECK#2
-if (String(0.000001) !== "0.000001") {
-  throw new Test262Error('#2: String(0.000001) === "0.000001". Actual: ' + (String(0.000001)));
-}
+assert.sameValue(String(0.000001), "0.000001", '#2: String(0.000001) === "0.000001"');
 
 // CHECK#3
-if (String(1e-6) !== "0.000001") {
-  throw new Test262Error('#3: String(1e-6) === "0.000001". Actual: ' + (String(1e-6)));
-}
+assert.sameValue(String(1e-6), "0.000001", '#3: String(1e-6) === "0.000001"');
 
 // CHECK#4
-if (String(1E-6) !== "0.000001") {
-  throw new Test262Error('#4: String(1E-6) === "0.000001". Actual: ' + (String(1E-6)));
-}
+assert.sameValue(String(1E-6), "0.000001", '#4: String(1E-6) === "0.000001"');
 
 // CHECK#5
-if (String(-0.1) !== "-0.1") {
-  throw new Test262Error('#5: String(-0.1) === "-0.1". Actual: ' + (String(-0.1)));
-}
+assert.sameValue(String(-0.1), "-0.1", '#5: String(-0.1) === "-0.1"');
 
 // CHECK#6
-if (String(-0.000001) !== "-0.000001") {
-  throw new Test262Error('#6: String(-0.000001) === "-0.000001". Actual: ' + (String(-0.000001)));
-}
+assert.sameValue(String(-0.000001), "-0.000001", '#6: String(-0.000001) === "-0.000001"');
 
 // CHECK#7
-if (String(-1e-6) !== "-0.000001") {
-  throw new Test262Error('#7: String(-1e-6) === "0.000001". Actual: ' + (String(-1e-6)));
-}
+assert.sameValue(String(-1e-6), "-0.000001", '#7: String(-1e-6) === "0.000001"');
 
 // CHECK#8
-if (String(-1E-6) !== "-0.000001") {
-  throw new Test262Error('#8: String(-1E-6) === "0.000001". Actual: ' + (String(-1E-6)));
-}
+assert.sameValue(String(-1E-6), "-0.000001", '#8: String(-1E-6) === "0.000001"');

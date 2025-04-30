@@ -15,8 +15,6 @@ description: Check type of null
 
 //////////////////////////////////////////////////////////////
 // CHECK#1
-if (typeof(null) !== "object") {
-  throw new Test262Error('#1: typeof null === "object". Actual: ' + (typeof null));
-}
+assert.sameValue(typeof(null), "object", '#1: typeof null === "object"');
 //
 /////////////////////////////////////////////////////////////

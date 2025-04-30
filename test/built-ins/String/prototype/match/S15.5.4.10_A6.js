@@ -9,8 +9,6 @@ description: Checking String.prototype.match.prototype
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.match.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.match.prototype === undefined. Actual: ' + String.prototype.match.prototype);
-}
+assert.sameValue(String.prototype.match.prototype, undefined, '#1: String.prototype.match.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////

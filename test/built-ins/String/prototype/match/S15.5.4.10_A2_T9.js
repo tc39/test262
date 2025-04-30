@@ -20,17 +20,13 @@ __re.lastIndex = __string.length;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__string.match(__re).length !== 3) {
-  throw new Test262Error('#1: __string = "Boston, MA 02134"; __re = /([\d]{5})([-\ ]?[\d]{4})?$/; __string.match(__re).length=== 3. Actual: ' + __string.match(__re).length);
-}
+assert.sameValue(__string.match(__re).length, 3, '#1: __string = "Boston, MA 02134"; __re = /([\d]{5})([-\ ]?[\d]{4})?$/; __string.match(__re).length=== 3');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__string.match(__re).index !== __string.lastIndexOf("0")) {
-  throw new Test262Error('#2: __string = "Boston, MA 02134"; __re = /([\d]{5})([-\ ]?[\d]{4})?$/; __re.lastIndex = __string.length; __string.match(__re).index ===__string.lastIndexOf("0"). Actual: ' + __string.match(__re).index);
-}
+assert.sameValue(__string.match(__re).index, __string.lastIndexOf("0"), '#2: __string = "Boston, MA 02134"; __re = /([\d]{5})([-\ ]?[\d]{4})?$/; __re.lastIndex = __string.length; __string.match(__re).index ===__string.lastIndexOf("0")');
 //
 //////////////////////////////////////////////////////////////////////////////
 

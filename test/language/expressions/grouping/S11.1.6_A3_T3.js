@@ -10,17 +10,11 @@ description: Applying grouping operator to String
 //Check for String
 
 //CHECK#1
-if (("1") !== "1") {
-  throw new Test262Error('#1: ("1") === "1". Actual: ' + (("1")));
-}
+assert.sameValue(("1"), "1", '#1: ("1") === "1"');
 
 //CHECK#2
-if (("x") !== "x") {
-  throw new Test262Error('#2: ("x") === "x". Actual: ' + (("x")));
-}
+assert.sameValue(("x"), "x", '#2: ("x") === "x"');
 
 //CHECK#3
 var x = new Number("1");
-if ((x) !== x) {
-  throw new Test262Error('#3: var x = new Number("1"); (x) === x. Actual: ' + ((x)));
-}
+assert.sameValue((x), x, '#3: var x = new Number("1"); (x) === x');

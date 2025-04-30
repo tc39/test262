@@ -12,11 +12,7 @@ function f_arg() {
 }
 
 //CHECK#1
-if (f_arg().length !== 0) {
-  throw new Test262Error('#1: function f_arg() {return arguments;} f_arg().length === 0. Actual: ' + (f_arg().length));
-}
+assert.sameValue(f_arg().length, 0, '#1: function f_arg() {return arguments;} f_arg().length === 0');
 
 //CHECK#2
-if (f_arg()[0] !== undefined) {
-  throw new Test262Error('#2: function f_arg() {return arguments;} f_arg()[0] === undefined. Actual: ' + (f_arg()[0]));
-}
+assert.sameValue(f_arg()[0], undefined, '#2: function f_arg() {return arguments;} f_arg()[0] === undefined');

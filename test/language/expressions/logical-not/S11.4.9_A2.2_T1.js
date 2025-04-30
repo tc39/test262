@@ -9,48 +9,32 @@ description: If Type(value) is Object, return false
 
 //CHECK#1
 var object = {valueOf: function() {return 1}};
-if (!object !== false) {
-  throw new Test262Error('#1: var object = {valueOf: function() {return 1}}; !object === false. Actual: ' + (!object));
-}
+assert.sameValue(!object, false, '#1: var object = {valueOf: function() {return 1}}; !object === false');
 
 //CHECK#2
 var object = {valueOf: function() {return 1}, toString: function() {return 0}};
-if (!object !== false) {
-  throw new Test262Error('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; !object === false. Actual: ' + (!object));
-} 
+assert.sameValue(!object, false, '#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; !object === false');
 
 //CHECK#3
 var object = {valueOf: function() {return 1}, toString: function() {return {}}};
-if (!object !== false) {
-  throw new Test262Error('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; !object === false. Actual: ' + (!object));
-}
+assert.sameValue(!object, false, '#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; !object === false');
 
 //CHECK#4
 var object = {valueOf: function() {return 1}, toString: function() {throw "error"}};
-if (!object !== false) {
-  throw new Test262Error('#4: var object = {valueOf: function() {return 1}, toString: function() {throw "error"}}; !object === false. Actual: ' + (!object));
-}
+assert.sameValue(!object, false, '#4: var object = {valueOf: function() {return 1}, toString: function() {throw "error"}}; !object === false');
 
 //CHECK#5
 var object = {toString: function() {return 1}};
-if (!object !== false) {
-  throw new Test262Error('#5: var object = {toString: function() {return 1}}; !object === false. Actual: ' + (!object));
-}
+assert.sameValue(!object, false, '#5: var object = {toString: function() {return 1}}; !object === false');
 
 //CHECK#6
 var object = {valueOf: function() {return {}}, toString: function() {return 1}}
-if (!object !== false) {
-  throw new Test262Error('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; !object === false. Actual: ' + (!object));
-}
+assert.sameValue(!object, false, '#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; !object === false');
 
 //CHECK#7
 var object = {valueOf: function() {throw "error"}, toString: function() {return 1}};
-if (!object !== false) {
-  throw new Test262Error('#7: var object = {valueOf: function() {throw "error"}, toString: function() {return 1}}; !object === false. Actual: ' + (!object));
-}  
+assert.sameValue(!object, false, '#7: var object = {valueOf: function() {throw "error"}, toString: function() {return 1}}; !object === false');
 
 //CHECK#8
 var object = {valueOf: function() {return {}}, toString: function() {return {}}};
-if (!object !== false) {
-  throw new Test262Error('#8: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; !object === false. Actual: ' + (!object));
-}
+assert.sameValue(!object, false, '#8: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; !object === false');

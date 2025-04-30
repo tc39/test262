@@ -8,24 +8,16 @@ description: Checking for number primitive
 ---*/
 
 //CHECK#1
-if (parseFloat(-1.1) !== parseFloat("-1.1")) {
-  throw new Test262Error('#1: parseFloat(-1.1) === parseFloat("-1.1"). Actual: ' + (parseFloat(-1.1)));
-}
+assert.sameValue(parseFloat(-1.1), parseFloat("-1.1"), '#1: parseFloat(-1.1) === parseFloat("-1.1")');
 
 //CHECK#2
-if (parseFloat(Infinity) !== parseFloat("Infinity")) {
-  throw new Test262Error('#2: parseFloat(Infinity) === parseFloat("Infinity"). Actual: ' + (parseFloat(Infinity)));
-}
+assert.sameValue(parseFloat(Infinity), parseFloat("Infinity"), '#2: parseFloat(Infinity) === parseFloat("Infinity")');
 
 //CHECK#3
-if (String(parseFloat(NaN)) !== "NaN") {
-  throw new Test262Error('#3: String(parseFloat(NaN)) === "NaN". Actual: ' + (String(parseFloat(NaN))));
-}
+assert.sameValue(String(parseFloat(NaN)), "NaN", '#3: String(parseFloat(NaN)) === "NaN"');
 
 //CHECK#4
-if (parseFloat(.01e+2) !== parseFloat(".01e+2")) {
-  throw new Test262Error('#4: parseFloat(.01e+2) === parseFloat(".01e+2"). Actual: ' + (parseFloat(.01e+2)));
-}
+assert.sameValue(parseFloat(.01e+2), parseFloat(".01e+2"), '#4: parseFloat(.01e+2) === parseFloat(".01e+2")');
 
 //CHECK#5
 if (parseFloat(-0) !== 0) {

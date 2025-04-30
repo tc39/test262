@@ -8,6 +8,4 @@ description: null convert to String by explicit transformation
 ---*/
 
 // CHECK#1
-if (String(null) !== "null") {
-  throw new Test262Error('#1: String(null) === "null". Actual: ' + (String(null)));
-}
+assert.sameValue(String(null), "null", '#1: String(null) === "null"');

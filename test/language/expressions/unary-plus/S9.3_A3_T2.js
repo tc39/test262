@@ -20,5 +20,5 @@ if (+(false) !== +0) {
 
 // CHECK#2
 if (+(true) !== 1) {
-  throw new Test262Error('#2: +(true) === 1. Actual: ' + (+(true)));	
+  throw new Test262Error('#2: +(true) === 1. Actual: ' + (+(true)));
 }

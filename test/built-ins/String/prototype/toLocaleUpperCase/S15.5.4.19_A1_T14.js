@@ -11,8 +11,6 @@ var __reg = new RegExp("abc");
 __reg.toLocaleUpperCase = String.prototype.toLocaleUpperCase;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__reg.toLocaleUpperCase() !== "/ABC/") {
-  throw new Test262Error('#1: var __reg = new RegExp("abc"); __reg.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __reg.toLocaleUpperCase() === "/ABC/". Actual: ' + __reg.toLocaleUpperCase());
-}
+assert.sameValue(__reg.toLocaleUpperCase(), "/ABC/", '#1: var __reg = new RegExp("abc"); __reg.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __reg.toLocaleUpperCase() === "/ABC/"');
 //
 //////////////////////////////////////////////////////////////////////////////

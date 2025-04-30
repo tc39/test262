@@ -10,16 +10,10 @@ description: "\"Infinity\"+\"some string\""
 ---*/
 
 //CHECK#1
-if (parseFloat("Infinity1") !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#1: parseFloat("Infinity1") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat("Infinity1")));
-}
+assert.sameValue(parseFloat("Infinity1"), Number.POSITIVE_INFINITY, '#1: parseFloat("Infinity1") === Number.POSITIVE_INFINITY');
 
 //CHECK#2
-if (parseFloat("Infinityx") !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#2: parseFloat("Infinityx") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat("Infinityx")));
-}
+assert.sameValue(parseFloat("Infinityx"), Number.POSITIVE_INFINITY, '#2: parseFloat("Infinityx") === Number.POSITIVE_INFINITY');
 
 //CHECK#3
-if (parseFloat("Infinity+1") !== Number.POSITIVE_INFINITY) {
-  throw new Test262Error('#3: parseFloat("Infinity+1") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat("Infinity+1")));
-}
+assert.sameValue(parseFloat("Infinity+1"), Number.POSITIVE_INFINITY, '#3: parseFloat("Infinity+1") === Number.POSITIVE_INFINITY');

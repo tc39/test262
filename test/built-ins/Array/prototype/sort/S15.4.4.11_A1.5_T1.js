@@ -10,29 +10,17 @@ description: Checking sort() and sort(undefined)
 var x = new Array(1, 0);
 x.sort();
 
-if (x.length !== 2) {
-  throw new Test262Error('#1: var x = new Array(1,0);  x.sort(); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#1: var x = new Array(1,0);  x.sort(); x.length === 2');
 
-if (x[0] !== 0) {
-  throw new Test262Error('#2: var x = new Array(1,0);  x.sort(); x[0] === 0. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 0, '#2: var x = new Array(1,0);  x.sort(); x[0] === 0');
 
-if (x[1] !== 1) {
-  throw new Test262Error('#3: var x = new Array(1,0);  x.sort(); x[1] === 1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], 1, '#3: var x = new Array(1,0);  x.sort(); x[1] === 1');
 
 var x = new Array(1, 0);
 x.sort(undefined);
 
-if (x.length !== 2) {
-  throw new Test262Error('#4: var x = new Array(1,0);  x.sort(undefined); x.length === 2. Actual: ' + (x.length));
-}
+assert.sameValue(x.length, 2, '#4: var x = new Array(1,0);  x.sort(undefined); x.length === 2');
 
-if (x[0] !== 0) {
-  throw new Test262Error('#5: var x = new Array(1,0);  x.sort(undefined); x[0] === 0. Actual: ' + (x[0]));
-}
+assert.sameValue(x[0], 0, '#5: var x = new Array(1,0);  x.sort(undefined); x[0] === 0');
 
-if (x[1] !== 1) {
-  throw new Test262Error('#6: var x = new Array(1,0);  x.sort(undefined); x[1] === 1. Actual: ' + (x[1]));
-}
+assert.sameValue(x[1], 1, '#6: var x = new Array(1,0);  x.sort(undefined); x[1] === 1');

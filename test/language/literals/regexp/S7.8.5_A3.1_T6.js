@@ -8,17 +8,11 @@ description: "IdentifierPart :: mig"
 ---*/
 
 //CHECK#1
-var regexp = /(?:)/mig; 
-if (regexp.global !== true) {
-  throw new Test262Error('#1: var regexp = /(?:)/g; regexp.global === true. Actual: ' + (regexp.global));
-}
+var regexp = /(?:)/mig;
+assert.sameValue(regexp.global, true, '#1: var regexp = /(?:)/g; regexp.global === true');
 
-//CHECK#2 
-if (regexp.ignoreCase !== true) {
-  throw new Test262Error('#2: var regexp = /(?:)/g; regexp.ignoreCase === true. Actual: ' + (regexp.ignoreCase));
-}
+//CHECK#2
+assert.sameValue(regexp.ignoreCase, true, '#2: var regexp = /(?:)/g; regexp.ignoreCase === true');
 
 //CHECK#3
-if (regexp.multiline !== true) {
-  throw new Test262Error('#3: var regexp = /(?:)/g; regexp.multiline === true. Actual: ' + (regexp.multiline));
-}
+assert.sameValue(regexp.multiline, true, '#3: var regexp = /(?:)/g; regexp.multiline === true');

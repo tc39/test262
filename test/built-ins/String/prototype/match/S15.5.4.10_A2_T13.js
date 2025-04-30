@@ -18,16 +18,12 @@ var __string = "Boston, MA 02134";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__string.match(__re).length !== __matches.length) {
-  throw new Test262Error('#1: __string.match(__re).length=== __matches.length. Actual: ' + __string.match(__re).length);
-}
+assert.sameValue(__string.match(__re).length, __matches.length, '#1: __string.match(__re).length=== __matches.length');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__string.match(__re)[0] !== __matches[0]) {
-  throw new Test262Error('#3: __string.match(__re)[0]===__matches[0]. Actual: ' + __string.match(__re)[0]);
-}
+assert.sameValue(__string.match(__re)[0], __matches[0], '#3: __string.match(__re)[0]===__matches[0]');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -9,8 +9,6 @@ description: Checking String.prototype.charCodeAt.prototype
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.charCodeAt.prototype !== undefined) {
-  throw new Test262Error('#1: String.prototype.charCodeAt.prototype === undefined. Actual: ' + String.prototype.charCodeAt.prototype);
-}
+assert.sameValue(String.prototype.charCodeAt.prototype, undefined, '#1: String.prototype.charCodeAt.prototype === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////

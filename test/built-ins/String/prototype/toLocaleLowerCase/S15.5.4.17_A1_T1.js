@@ -13,8 +13,6 @@ __instance.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.toLocaleLowerCase() !== "true") {
-  throw new Test262Error('#1: __instance = new Object(true); __instance.toLocaleLowerCase = String.prototype.toLocaleLowerCase;  __instance.toLocaleLowerCase() === "true". Actual: ' + __instance.toLocaleLowerCase());
-}
+assert.sameValue(__instance.toLocaleLowerCase(), "true", '#1: __instance = new Object(true); __instance.toLocaleLowerCase = String.prototype.toLocaleLowerCase;  __instance.toLocaleLowerCase() === "true"');
 //
 //////////////////////////////////////////////////////////////////////////////

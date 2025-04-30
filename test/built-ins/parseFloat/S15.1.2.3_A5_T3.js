@@ -8,16 +8,10 @@ description: Checking . DecimalDigits ExponentPart_opt
 ---*/
 
 //CHECK#1
-if (parseFloat("+.1") !== 0.1) {
-  throw new Test262Error('#1: parseFloat("+.1") === 0.1. Actual: ' + (parseFloat("+.1")));
-}
+assert.sameValue(parseFloat("+.1"), 0.1, '#1: parseFloat("+.1") === 0.1');
 
 //CHECK#2
-if (parseFloat(".01") !== 0.01) {
-  throw new Test262Error('#2: parseFloat(".01") === 0.01. Actual: ' + (parseFloat(".01")));
-}
+assert.sameValue(parseFloat(".01"), 0.01, '#2: parseFloat(".01") === 0.01');
 
 //CHECK#3
-if (parseFloat("+.22e-1") !== 0.022) {
-  throw new Test262Error('#3: parseFloat("+.22e-1") === 0.022. Actual: ' + (parseFloat("+.22e-1")));
-}
+assert.sameValue(parseFloat("+.22e-1"), 0.022, '#3: parseFloat("+.22e-1") === 0.022');

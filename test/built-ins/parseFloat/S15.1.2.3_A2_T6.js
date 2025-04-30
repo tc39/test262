@@ -8,14 +8,10 @@ description: "StrWhiteSpaceChar :: CR (U+000D)"
 ---*/
 
 //CHECK#1
-if (parseFloat("\u000D1.1") !== parseFloat("1.1")) {
-  throw new Test262Error('#1: parseFloat("\\u000D1.1") === parseFloat("1.1"). Actual: ' + (parseFloat("\u000D1.1")));
-}
+assert.sameValue(parseFloat("\u000D1.1"), parseFloat("1.1"), '#1: parseFloat("\\u000D1.1") === parseFloat("1.1")');
 
 //CHECK#2
-if (parseFloat("\u000D\u000D-1.1") !== parseFloat("-1.1")) {
-  throw new Test262Error('#2: parseFloat("\\u000D\\u000D-1.1") === parseFloat("-1.1"). Actual: ' + (parseFloat("\u000D\u000D-1.1")));
-}
+assert.sameValue(parseFloat("\u000D\u000D-1.1"), parseFloat("-1.1"), '#2: parseFloat("\\u000D\\u000D-1.1") === parseFloat("-1.1")');
 
 //CHECK#3
 assert.sameValue(parseFloat("\u000D"), NaN);

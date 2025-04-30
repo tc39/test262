@@ -11,6 +11,4 @@ includes: [propertyHelper.js]
 //CHECK#1
 var x = eval.length;
 verifyNotWritable(eval, "length", null, Infinity);
-if (eval.length !== x) {
-  throw new Test262Error('#1: x = eval.length; eval.length = Infinity; eval.length === x. Actual: ' + (eval.length));
-}
+assert.sameValue(eval.length, x, '#1: x = eval.length; eval.length = Infinity; eval.length === x');

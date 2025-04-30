@@ -8,18 +8,12 @@ description: Creating variables without defining it
 ---*/
 
 //CHECK#1
-if (this.x !== undefined) {
-  throw new Test262Error('#1: this.x === undefined. Actual: ' + (this.x));
-}
+assert.sameValue(this.x, undefined, '#1: this.x === undefined');
 
 //CHECK#2
 var object = new Object();
-if (object.prop !== undefined) {
-  throw new Test262Error('#2: var object = new Object(); object.prop === undefined. Actual: ' + (object.prop));
-}
+assert.sameValue(object.prop, undefined, '#2: var object = new Object(); object.prop === undefined');
 
 //CHECK#3
 this.y++;
-if (isNaN(y) !== true) {
-  throw new Test262Error('#3: this.y++; y === Not-a-Number. Actual: ' + (y));
-}
+assert.sameValue(isNaN(y), true, '#3: this.y++; y === Not-a-Number');

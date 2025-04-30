@@ -14,27 +14,19 @@ var x;
 //CHECK#1
 x = "1";
 x += null;
-if (x !== "1null") {
-  throw new Test262Error('#1: x = "1"; x += null; x === "1null". Actual: ' + (x));
-}
+assert.sameValue(x, "1null", '#1: x = "1"; x += null; x === "1null"');
 
 //CHECK#2
 x = null;
 x += "1";
-if (x !== "null1") {
-  throw new Test262Error('#2: x = null; x += "1"; x === "null1". Actual: ' + (x));
-}
+assert.sameValue(x, "null1", '#2: x = null; x += "1"; x === "null1"');
 
 //CHECK#3
 x = new String("1");
 x += null;
-if (x !== "1null") {
-  throw new Test262Error('#3: x = new String("1"); x += null; x === "1null". Actual: ' + (x));
-}
+assert.sameValue(x, "1null", '#3: x = new String("1"); x += null; x === "1null"');
 
 //CHECK#4
 x = null;
 x += new String("1");
-if (x !== "null1") {
-  throw new Test262Error('#4: x = null; x += new String("1"); x === "null1". Actual: ' + (x));
-}
+assert.sameValue(x, "null1", '#4: x = null; x += new String("1"); x === "null1"');

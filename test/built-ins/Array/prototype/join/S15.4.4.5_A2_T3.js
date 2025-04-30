@@ -13,37 +13,25 @@ var obj = {};
 obj.join = Array.prototype.join;
 
 obj.length = 4.5;
-if (obj.join() !== ",,,") {
-  throw new Test262Error('#1: var obj = {}; obj.length = 4.5; obj.join = Array.prototype.join; obj.join() === ",,,". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), ",,,", '#1: var obj = {}; obj.length = 4.5; obj.join = Array.prototype.join; obj.join() === ",,,"');
 
 obj[0] = undefined;
 obj[1] = 1;
 obj[2] = null;
-if (obj.join() !== ",1,,") {
-  throw new Test262Error('#1: var obj = {}; obj.length = 4.5; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join() === ",1,,". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), ",1,,", '#1: var obj = {}; obj.length = 4.5; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join() === ",1,,"');
 
-if (obj.length !== 4.5) {
-  throw new Test262Error('#1: var obj = {}; obj.length = 4.5; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join(); obj.length === 4.5. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, 4.5, '#1: var obj = {}; obj.length = 4.5; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join(); obj.length === 4.5');
 
 var obj = {};
 obj.join = Array.prototype.join;
 
 var x = new Number(4.5);
 obj.length = x;
-if (obj.join() !== ",,,") {
-  throw new Test262Error('#4: var obj = {}; var x = new Number(4.5); obj.length = x; obj.join = Array.prototype.join; obj.join() === ",,,". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), ",,,", '#4: var obj = {}; var x = new Number(4.5); obj.length = x; obj.join = Array.prototype.join; obj.join() === ",,,"');
 
 obj[0] = undefined;
 obj[1] = 1;
 obj[2] = null;
-if (obj.join() !== ",1,,") {
-  throw new Test262Error('#5: var obj = {}; var x = new Number(4.5); obj.length = x; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join() === ",1,,". Actual: ' + (obj.join()));
-}
+assert.sameValue(obj.join(), ",1,,", '#5: var obj = {}; var x = new Number(4.5); obj.length = x; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join() === ",1,,"');
 
-if (obj.length !== x) {
-  throw new Test262Error('#6: var obj = {}; var x = new Number(4.5); obj.length = x; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join(); obj.length === x. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, x, '#6: var obj = {}; var x = new Number(4.5); obj.length = x; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join(); obj.length === x');

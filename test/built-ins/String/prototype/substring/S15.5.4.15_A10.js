@@ -26,8 +26,6 @@ verifyNotWritable(String.prototype.substring, "length", null, function() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (String.prototype.substring.length !== __obj) {
-  throw new Test262Error('#2: __obj = String.prototype.substring.length; String.prototype.substring.length = function(){return "shifted";}; String.prototype.substring.length === __obj. Actual: ' + String.prototype.substring.length);
-}
+assert.sameValue(String.prototype.substring.length, __obj, '#2: __obj = String.prototype.substring.length; String.prototype.substring.length = function(){return "shifted";}; String.prototype.substring.length === __obj');
 //
 //////////////////////////////////////////////////////////////////////////////

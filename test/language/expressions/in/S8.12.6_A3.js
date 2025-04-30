@@ -13,17 +13,13 @@ var __obj={}; __obj.hole=undefined;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__obj.hole !== undefined) {
-  throw new Test262Error('#1: var __obj={}; __obj.hole=undefined; __obj.hole === undefined. Actual: ' + (__obj.hole));
-}
+assert.sameValue(__obj.hole, undefined, '#1: var __obj={}; __obj.hole=undefined; __obj.hole === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (__obj.notexist !== undefined) {
-  throw new Test262Error('#2: var __obj={}; __obj.hole=undefined; __obj.notexist === undefined. Actual: ' + (__obj.notexist));
-}
+assert.sameValue(__obj.notexist, undefined, '#2: var __obj={}; __obj.hole=undefined; __obj.notexist === undefined');
 //
 //////////////////////////////////////////////////////////////////////////////
 

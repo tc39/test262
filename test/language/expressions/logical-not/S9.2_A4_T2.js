@@ -10,16 +10,10 @@ description: +0, -0 and NaN convert to Boolean by implicit transformation
 ---*/
 
 // CHECK#1
-if (!(+0) !== true) {
-  throw new Test262Error('#1: !(+0) === true. Actual: ' + (!(+0))); 	 
-}
+assert.sameValue(!(+0), true, '#1: !(+0) === true');
 
 // CHECK#2
-if (!(-0) !== true) {
-  throw new Test262Error('#2: !(-0) === true. Actual: ' + (!(-0)));
-}
+assert.sameValue(!(-0), true, '#2: !(-0) === true');
 
 // CHECK#3
-if (!(Number.NaN) !== true) {
-  throw new Test262Error('#3: !(Number.NaN) === true. Actual: ' + (!(Number.NaN)));
-}
+assert.sameValue(!(Number.NaN), true, '#3: !(Number.NaN) === true');

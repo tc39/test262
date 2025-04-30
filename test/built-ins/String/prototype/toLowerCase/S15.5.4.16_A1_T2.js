@@ -13,8 +13,6 @@ __instance.toLowerCase = String.prototype.toLowerCase;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.toLowerCase() !== "false") {
-  throw new Test262Error('#1: __instance = new Boolean; __instance.toLowerCase = String.prototype.toLowerCase;  __instance.toLowerCase() === "false". Actual: ' + __instance.toLowerCase());
-}
+assert.sameValue(__instance.toLowerCase(), "false", '#1: __instance = new Boolean; __instance.toLowerCase = String.prototype.toLowerCase;  __instance.toLowerCase() === "false"');
 //
 //////////////////////////////////////////////////////////////////////////////

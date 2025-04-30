@@ -10,6 +10,4 @@ description: for statement
 ---*/
 
 //CHECK#1
-if (eval("for(false;false;false);") !== undefined) {
-  throw new Test262Error('#1: eval("for(false;false;false);") === undefined. Actual: ' + (eval("for(false;false;false);")));
-}
+assert.sameValue(eval("for(false;false;false);"), undefined, '#1: eval("for(false;false;false);") === undefined');

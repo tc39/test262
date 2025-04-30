@@ -13,8 +13,6 @@ __instance.match = String.prototype.match;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__instance.match(true)[0] !== "true") {
-  throw new Test262Error('#1: __instance = new Object(true); __instance.match = String.prototype.match;  __instance.match(true)[0] === "true". Actual: ' + __instance.match(true)[0]);
-}
+assert.sameValue(__instance.match(true)[0], "true", '#1: __instance = new Object(true); __instance.match = String.prototype.match;  __instance.match(true)[0] === "true"');
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -10,6 +10,4 @@ description: "\"\" convert to Boolean by implicit transformation"
 ---*/
 
 // CHECK#1
-if (!("") !== true) {
-  throw new Test262Error('#1: !("") === true. Actual: ' + (!("")));
-}
+assert.sameValue(!(""), true, '#1: !("") === true');

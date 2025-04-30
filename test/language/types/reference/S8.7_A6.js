@@ -18,9 +18,7 @@ addFirst2Second(n, m);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (m !== 1) {
-  throw new Test262Error('#1: var n = 1; var m = n; function addFirst2Second(first, second){first += second;} addFirst2Second(n, m); m === 1. Actual: ' + (m));
-}
+assert.sameValue(m, 1, '#1: var n = 1; var m = n; function addFirst2Second(first, second){first += second;} addFirst2Second(n, m); m === 1');
 
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -29,9 +29,5 @@ with (outerScope) {
   }
 }
 
-if (innerScope.x !== 3) {
-  throw new Test262Error('#1: innerScope.x === 3. Actual: ' + (innerScope.x));
-}
-if (outerScope.x !== 0) {
-  throw new Test262Error('#2: outerScope.x === 0. Actual: ' + (outerScope.x));
-}
+assert.sameValue(innerScope.x, 3, '#1: innerScope.x === 3');
+assert.sameValue(outerScope.x, 0, '#2: outerScope.x === 0');
