@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.freeze([]).pop() must throw a TypeError
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.prototype.splice, when it deletes elements, should make sure any deleted but not visited elements are suppressed from subsequent enumeration
 esid: pending

@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Freezing a dictionary mode object with a length property should make Object.isFrozen report true
 esid: pending

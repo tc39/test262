@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.preventExtensions([]).length = 0 should do nothing, not throw
 esid: pending
