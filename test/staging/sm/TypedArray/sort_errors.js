@@ -8,18 +8,17 @@ description: |
   pending
 esid: pending
 ---*/
+
 // Ensure that TypedArrays throw when attempting to sort a detached ArrayBuffer
-if (typeof $262.detachArrayBuffer === "function") {
-    assert.throws(TypeError, () => {
-        let buffer = new ArrayBuffer(32);
-        let array  = new Int32Array(buffer);
-        $262.detachArrayBuffer(buffer);
-        array.sort();
-    });
-}
+assert.throws(TypeError, () => {
+    let buffer = new ArrayBuffer(32);
+    let array  = new Int32Array(buffer);
+    $262.detachArrayBuffer(buffer);
+    array.sort();
+});
 
 // Ensure detaching buffer in comparator doesn't throw an error.
-if (typeof $262.detachArrayBuffer === "function") {
+{
     let detached = false;
     let ta = new Int32Array(3);
     ta.sort(function(a, b) {
@@ -43,7 +42,7 @@ let otherGlobal = $262.createRealm().global;
 }
 
 // Ensure detaching buffer in comparator doesn't throw an error when the typed array is wrapped.
-if (typeof $262.detachArrayBuffer === "function") {
+{
     let detached = false;
     let ta = new Int32Array(3);
     otherGlobal.Int32Array.prototype.sort.call(ta, function(a,b) {

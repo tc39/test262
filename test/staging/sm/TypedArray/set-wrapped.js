@@ -9,6 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 // Test %TypedArray%.prototype.set(typedArray, offset) when called with wrapped
 // typed array.
 
@@ -35,53 +36,52 @@ for (var TA of anyTypedArrayConstructors) {
 }
 
 // Detachment checks are also applied correctly for wrapped typed arrays.
-if (typeof $262.detachArrayBuffer === "function") {
-    // Create typed array from different global (explicit constructor call).
-    for (var TA of typedArrayConstructors) {
-        var target = new TA(4);
-        var source = new otherGlobal[TA.name](1);
-        taintLengthProperty(source);
 
-        // Called with wrapped typed array, array buffer already detached.
-        otherGlobal.$262.detachArrayBuffer(source.buffer);
-        assert.throws(TypeError, () => target.set(source));
+// Create typed array from different global (explicit constructor call).
+for (var TA of typedArrayConstructors) {
+    var target = new TA(4);
+    var source = new otherGlobal[TA.name](1);
+    taintLengthProperty(source);
 
-        var source = new otherGlobal[TA.name](1);
-        taintLengthProperty(source);
+    // Called with wrapped typed array, array buffer already detached.
+    otherGlobal.$262.detachArrayBuffer(source.buffer);
+    assert.throws(TypeError, () => target.set(source));
 
-        // Called with wrapped typed array, array buffer detached when
-        // processing offset parameter.
-        var offset = {
-            valueOf() {
-                otherGlobal.$262.detachArrayBuffer(source.buffer);
-                return 0;
-            }
-        };
-        assert.throws(TypeError, () => target.set(source, offset));
-    }
+    var source = new otherGlobal[TA.name](1);
+    taintLengthProperty(source);
 
-    // Create typed array from different global (implictly created when
-    // ArrayBuffer is a CCW).
-    for (var TA of typedArrayConstructors) {
-        var target = new TA(4);
-        var source = new TA(new otherGlobal.ArrayBuffer(1 * TA.BYTES_PER_ELEMENT));
-        taintLengthProperty(source);
+    // Called with wrapped typed array, array buffer detached when
+    // processing offset parameter.
+    var offset = {
+        valueOf() {
+            otherGlobal.$262.detachArrayBuffer(source.buffer);
+            return 0;
+        }
+    };
+    assert.throws(TypeError, () => target.set(source, offset));
+}
 
-        // Called with wrapped typed array, array buffer already detached.
-        otherGlobal.$262.detachArrayBuffer(source.buffer);
-        assert.throws(TypeError, () => target.set(source));
+// Create typed array from different global (implictly created when
+// ArrayBuffer is a CCW).
+for (var TA of typedArrayConstructors) {
+    var target = new TA(4);
+    var source = new TA(new otherGlobal.ArrayBuffer(1 * TA.BYTES_PER_ELEMENT));
+    taintLengthProperty(source);
 
-        var source = new TA(new otherGlobal.ArrayBuffer(1 * TA.BYTES_PER_ELEMENT));
-        taintLengthProperty(source);
+    // Called with wrapped typed array, array buffer already detached.
+    otherGlobal.$262.detachArrayBuffer(source.buffer);
+    assert.throws(TypeError, () => target.set(source));
 
-        // Called with wrapped typed array, array buffer detached when
-        // processing offset parameter.
-        var offset = {
-            valueOf() {
-                otherGlobal.$262.detachArrayBuffer(source.buffer);
-                return 0;
-            }
-        };
-        assert.throws(TypeError, () => target.set(source, offset));
-    }
+    var source = new TA(new otherGlobal.ArrayBuffer(1 * TA.BYTES_PER_ELEMENT));
+    taintLengthProperty(source);
+
+    // Called with wrapped typed array, array buffer detached when
+    // processing offset parameter.
+    var offset = {
+        valueOf() {
+            otherGlobal.$262.detachArrayBuffer(source.buffer);
+            return 0;
+        }
+    };
+    assert.throws(TypeError, () => target.set(source, offset));
 }
