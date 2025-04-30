@@ -125,9 +125,9 @@ function test() {
     // IteratorClose expects iter.return to return an Object.
     var g6 = y();
     g6.next();
-    assertThrowsInstanceOfWithMessageContains(
-        () => g6.throw("foo"),
+    assert.throws(
         TypeError,
+        () => g6.throw("foo"),
         "non-object"
     );
     assert.sameValue(returnCalled, ++returnCalledExpected);
