@@ -12,7 +12,7 @@ description: |
 esid: pending
 ---*/
 
-const otherIteratorProto = createNewGlobal({newCompartment: true}).Iterator.prototype;
+const otherIteratorProto = $262.createRealm().global.Iterator.prototype;
 
 const methods = [
   ["map", x => x],
