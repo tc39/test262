@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Passing a Date object to |new Date()| should copy it, not convert it to a primitive and create it from that.
 esid: pending
 ---*/
-var BUGNUMBER = 1187233;
-var summary =
-  "Passing a Date object to |new Date()| should copy it, not convert it to " +
-  "a primitive and create it from that.";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 Date.prototype.toString = Date.prototype.valueOf = null;
 var d = new Date(new Date(8675309));
@@ -39,7 +29,3 @@ assert.sameValue(d.getTime(), 3141592654);
 D.prototype.valueOf = () => 525600;
 d = new Date(new D(3141592654));
 assert.sameValue(d.getTime(), 3141592654);
-
-/******************************************************************************/
-
-print("Tests complete");
