@@ -8,17 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Line terminator after backslash is invalid in regexp literals
 esid: pending
 ---*/
-var BUGNUMBER = 615070;
-var summary = "Line terminator after backslash is invalid in regexp literals";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var regexps = ["/\\\u000A/", "/\\\u000D/", "/\\\u2028/", "/\\\u2029/",
 	       "/ab\\\n/", "/ab\\\r/", "/ab\\\u2028/", "/ab\\\u2029/",
@@ -34,7 +26,3 @@ for(var i=0; i<regexps.length; i++) {
     }
     assert.sameValue(0, 1);
 }
-
-/**************/
-
-print("All tests passed!");

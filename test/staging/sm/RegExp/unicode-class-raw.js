@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- raw unicode.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- raw unicode.";
-
-print(BUGNUMBER + ": " + summary);
 
 // ==== standalone ====
 
@@ -71,4 +67,3 @@ assert.compareArray(new RegExp("[\\uD83D\uDC38]", "").exec("\u{1F438}"),
 // escaped(trail), no unicode flag
 assert.compareArray(new RegExp("[\uD83D\\uDC38]", "").exec("\u{1F438}"),
               ["\uD83D"]);
-

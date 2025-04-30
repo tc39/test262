@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype.compile must perform all its steps *except* setting .lastIndex, then throw, when provided a RegExp whose .lastIndex has been made non-writable
 esid: pending
 ---*/
-var BUGNUMBER = 1253099;
-var summary =
-  "RegExp.prototype.compile must perform all its steps *except* setting " +
-  ".lastIndex, then throw, when provided a RegExp whose .lastIndex has been " +
-  "made non-writable";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var regex = /foo/i;
 
@@ -81,7 +70,3 @@ assert.sameValue(regex.test("012345678901234567890123456789012345678901baz"), fa
 assert.sameValue(regex.test("012345678901234567890123456789012345678901\nbaz"), true);
 assert.sameValue(regex.test("012345678901234567890123456789012345678901BAZ"), false);
 assert.sameValue(regex.test("012345678901234567890123456789012345678901\nBAZ"), false);
-
-/******************************************************************************/
-
-print("Tests complete");

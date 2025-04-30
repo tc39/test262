@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- braced pattern in RegExpUnicodeEscapeSequence.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- braced pattern in RegExpUnicodeEscapeSequence.";
-
-print(BUGNUMBER + ": " + summary);
 
 // ==== standalone ====
 
@@ -172,4 +168,3 @@ assert.sameValue(/\uD83D\u{DC38}+/u.exec("\uD83D\uDC38\uDC38"),
          null);
 assert.sameValue(/\u{D83D}\uDC38+/u.exec("\uD83D\uDC38\uDC38"),
          null);
-

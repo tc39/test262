@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- disallow range with CharacterClassEscape.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- disallow range with CharacterClassEscape.";
-
-print(BUGNUMBER + ": " + summary);
 
 assert.throws(SyntaxError, () => eval(`/[\\w-\\uFFFF]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\W-\\uFFFF]/u`));
@@ -34,4 +30,3 @@ assert.throws(SyntaxError, () => eval(`/[\\d-\\d]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\D-\\D]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\s-\\s]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\S-\\S]/u`));
-

@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExpExec should throw if returned value is not an object nor null.
 esid: pending
 ---*/
-var BUGNUMBER = 887016;
-var summary = "RegExpExec should throw if returned value is not an object nor null.";
-
-print(BUGNUMBER + ": " + summary);
 
 for (var ret of [null, {}, [], /a/]) {
   assert.sameValue(RegExp.prototype[Symbol.match].call({
@@ -37,4 +33,3 @@ for (ret of [undefined, 1, true, false, Symbol.iterator]) {
     }, "foo");
   });
 }
-

@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExpExec should throw if exec property of non-RegExp is not callable
 esid: pending
 ---*/
-var BUGNUMBER = 887016;
-var summary = "RegExpExec should throw if exec property of non-RegExp is not callable";
-
-print(BUGNUMBER + ": " + summary);
 
 for (var exec of [null, 0, false, undefined, ""]) {
   // RegExp with non-callable exec
@@ -23,4 +19,3 @@ for (var exec of [null, 0, false, undefined, ""]) {
   // non-RegExp with non-callable exec
   assert.throws(TypeError, () => RegExp.prototype[Symbol.match].call({ exec }, "foo"));
 }
-

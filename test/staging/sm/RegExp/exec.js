@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype.exec doesn't get the lastIndex and ToInteger() it for non-global regular expressions when it should
 esid: pending
 ---*/
-var BUGNUMBER = 646490;
-var summary =
-  "RegExp.prototype.exec doesn't get the lastIndex and ToInteger() it for " +
-  "non-global regular expressions when it should";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectThrowTypeError(fun)
 {
@@ -239,7 +229,3 @@ checkExec("/a(b)c/g take two", r, ["00abcd"],
  * 21. Return A.
  */
 // throughout, above (and in other tests)
-
-/******************************************************************************/
-
-print("All tests passed!");

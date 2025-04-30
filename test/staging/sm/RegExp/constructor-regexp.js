@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp constructor shouldn't invoke source/flags getters on argument RegExp instance.
 esid: pending
 ---*/
-var BUGNUMBER = 1130860;
-var summary = "RegExp constructor shouldn't invoke source/flags getters on argument RegExp instance.";
-
-print(BUGNUMBER + ": " + summary);
 
 // same-compartment
 var a = /foo/;
@@ -67,4 +63,3 @@ flagsCalled = false;
 assert.sameValue(new RegExp(b).source, "foo2");
 assert.sameValue(g.eval("sourceCalled;"), false);
 assert.sameValue(g.eval("flagsCalled;"), false);
-

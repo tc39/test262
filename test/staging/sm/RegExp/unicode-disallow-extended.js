@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement RegExp unicode flag -- disallow extended patterns.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- disallow extended patterns.";
-
-print(BUGNUMBER + ": " + summary);
 
 // IdentityEscape
 
@@ -145,4 +141,3 @@ assert.throws(SyntaxError, () => eval(`/[\\7]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\8]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\9]/u`));
 assert.throws(SyntaxError, () => eval(`/[\\10]/u`));
-

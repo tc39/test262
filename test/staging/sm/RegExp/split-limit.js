@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  RegExp.prototype[@@split] shouldn't use optimized path if limit is not number.
 esid: pending
 ---*/
-var BUGNUMBER = 1287525;
-var summary = "RegExp.prototype[@@split] shouldn't use optimized path if limit is not number.";
-
-print(BUGNUMBER + ": " + summary);
 
 var rx = /a/;
 var r = rx[Symbol.split]("abba", {valueOf() {
@@ -20,4 +16,3 @@ var r = rx[Symbol.split]("abba", {valueOf() {
   return 100;
 }});
 assert.sameValue(r.length, 1);
-
