@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JS_EnumerateStandardClasses uses wrong attributes for undefined
 esid: pending

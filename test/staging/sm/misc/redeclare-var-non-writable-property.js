@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   |var| statements for existing, read-only/permanent properties should not be errors
 esid: pending
