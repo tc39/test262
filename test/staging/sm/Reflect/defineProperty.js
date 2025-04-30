@@ -6,7 +6,7 @@
 /*---
 features:
   - IsHTMLDDA
-includes: [sm/non262-shell.js, sm/non262-Reflect-shell.js, deepEqual.js]
+includes: [sm/assertThrowsValue.js, sm/non262-Reflect-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |

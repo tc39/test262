@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [sm/non262-shell.js]
+includes: [sm/assertThrowsValue.js]
 flags:
   - noStrict
 description: |
