@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Number.MAX_SAFE_INTEGER
 esid: pending

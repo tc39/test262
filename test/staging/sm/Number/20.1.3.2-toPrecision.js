@@ -5,8 +5,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Number.prototype.toPrecision
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Number.prototype.to* should throw a RangeError when passed a bad precision
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   '0x' not followed by hex digits should be a syntax error
 esid: pending

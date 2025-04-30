@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Various tests of ToNumber(string), particularly +"0x" being NaN
 esid: pending

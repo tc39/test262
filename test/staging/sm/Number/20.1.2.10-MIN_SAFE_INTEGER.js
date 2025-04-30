@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Number.MIN_SAFE_INTEGER
 esid: pending

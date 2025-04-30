@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Number.prototype.toString should use ToInteger on the radix and should throw a RangeError if the radix is bad
 esid: pending
