@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Method Definitions
 esid: pending
 ---*/
-var BUGNUMBER = 924672;
-var summary = 'Method Definitions'
-
-print(BUGNUMBER + ": " + summary);
 
 // Function definitions.
 function syntaxError (script) {
@@ -210,4 +206,3 @@ testStrictMode();
 // Tests provided by benvie in the bug to distinguish from ES5 desugar.
 assert.sameValue(({ method() {} }).method.name, "method");
 assert.throws(ReferenceError, function() {({ method() { method() } }).method() });
-
