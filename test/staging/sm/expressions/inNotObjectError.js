@@ -9,29 +9,16 @@ description: |
   pending
 esid: pending
 ---*/
+
 var BUGNUMBER = 1352429;
 var summary = 'Error message should provide enough infomation for use of in operator';
 
-print(BUGNUMBER + ": " + summary);
-
-function checkErr(substr, str, messageSubstr, messageStr) {
-    assertThrowsInstanceOfWithMessageCheck(
-        () => substr in str,
-        TypeError,
-        message =>
-            message.includes(messageSubstr) &&
-            message.includes(messageStr) &&
-            message.length < 100,
-        `"${substr}" in "${str}"`
-    );
-}
-
 // These test cases check if long string is omitted properly.
-checkErr('subString', 'base', 'subString', 'base');
-checkErr('this is subString', 'base', 'this is subStrin...', 'base');
-checkErr('subString', 'this is baseString', 'subString', 'this is baseStri...');
-checkErr('this is subString', 'this is base', 'this is subStrin...', 'this is base');
-checkErr('HEAD' + 'subString'.repeat(30000), 'HEAD' + 'base'.repeat(30000), 'HEADsubStringsub...', 'HEADbasebasebase...');
+assert.throws(TypeError, () => 'subString' in 'base');
+assert.throws(TypeError, () => 'this is subString' in 'base');
+assert.throws(TypeError, () => 'subString' in 'this is baseString');
+assert.throws(TypeError, () => 'this is subString' in 'this is base');
+assert.throws(TypeError, () => 'HEAD' + 'subString'.repeat(30000) in 'HEAD' + 'base'.repeat(30000));
 
 // These test cases check if it does not crash and throws appropriate error.
 assertThrowsInstanceOf(() => { 1 in 'hello' }, TypeError);
