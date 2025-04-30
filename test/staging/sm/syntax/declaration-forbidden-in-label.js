@@ -23,16 +23,16 @@ print(BUGNUMBER + ": " + summary);
  * BEGIN TEST *
  **************/
 
-assertThrowsInstanceOf(() => Function("a: let x;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("b: const y = 3;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("c: class z {};"), SyntaxError);
+assert.throws(SyntaxError, () => Function("a: let x;"));
+assert.throws(SyntaxError, () => Function("b: const y = 3;"));
+assert.throws(SyntaxError, () => Function("c: class z {};"));
 
-assertThrowsInstanceOf(() => Function("'use strict'; d: function w() {};"), SyntaxError);
+assert.throws(SyntaxError, () => Function("'use strict'; d: function w() {};"));
 
 // Annex B.3.2 allows this in non-strict mode code.
 Function("e: function x() {};");
 
-assertThrowsInstanceOf(() => Function("f: function* y() {}"), SyntaxError);
+assert.throws(SyntaxError, () => Function("f: function* y() {}"));
 
 /******************************************************************************/
 

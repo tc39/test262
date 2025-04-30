@@ -66,7 +66,7 @@ var badScripts =
   ];
 
 for (var script of badScripts)
-  assertThrowsInstanceOf(() => Function(script), SyntaxError);
+  assert.throws(SyntaxError, () => Function(script));
 
 /******************************************************************************/
 
