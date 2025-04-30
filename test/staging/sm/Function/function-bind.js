@@ -245,7 +245,7 @@ function testBound(fun)
 testBound(strict);
 testBound(nonstrict);
 
-assertNativeFunction((function unbound(){"body"}).bind());
+assertNativeFunction(function unbound(){"body"}.bind());
 
 /* 22. Return F. */
 var passim = function p(){}.bind(1);
