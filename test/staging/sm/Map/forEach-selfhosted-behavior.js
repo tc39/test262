@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't use .call(...) in the self-hosted Map.prototype.forEach
 esid: pending

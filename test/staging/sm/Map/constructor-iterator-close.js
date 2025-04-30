@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Map/Set/WeakMap/WeakSet constructor should close iterator on error
 esid: pending
