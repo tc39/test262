@@ -9,7 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
-var global = createNewGlobal();
+var global = $262.createRealm().global;
 Promise.prototype.then = global.Promise.prototype.then;
 p1 = new Promise(function f(r) {
     r(1);

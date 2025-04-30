@@ -1564,7 +1564,7 @@ function test(sharedMem) {
     checkThrow(() => DataView.prototype.buffer, TypeError);
 
     // Protos and proxies, oh my!
-    var alien = createNewGlobal();
+    var alien = $262.createRealm().global;
     var alien_data = alien.eval('data = ' + JSON.stringify(data1));
     var alien_buffer = alien.eval(`buffer = new ${sharedMem ? 'Shared' : ''}ArrayBuffer(data.length)`);
     alien.eval('new Uint8Array(buffer).set(data)');

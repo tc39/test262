@@ -22,7 +22,7 @@ print(BUGNUMBER + ": " + summary);
  * BEGIN TEST *
  **************/
 
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 
 var otherStr = new g.String("foo");
 assert.sameValue(otherStr instanceof g.String, true);

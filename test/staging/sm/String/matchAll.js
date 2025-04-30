@@ -81,7 +81,7 @@ assertEqMatchResults("ababcca".matchAll("a"), matchResults("ababcca", /a/g));
 // Cross-compartment tests.
 
 {
-    let otherGlobal = createNewGlobal();
+    let otherGlobal = $262.createRealm().global;
 
     let iterator = otherGlobal.eval(`"ababcca".matchAll(/a/g)`);
     let expected = matchResults("ababcca", /a/g);
