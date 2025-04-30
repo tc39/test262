@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   If the toJSON property isn't callable, don't try to call it
 esid: pending

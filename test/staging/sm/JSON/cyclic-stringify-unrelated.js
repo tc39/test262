@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.stringify shouldn't use context-wide cycle detection
 esid: pending

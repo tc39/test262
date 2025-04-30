@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Boxed-string/number objects in replacer arrays
 esid: pending
