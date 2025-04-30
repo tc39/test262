@@ -8,12 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  Coerce the argument passed to Object.keys using ToObject
 esid: pending
 ---*/
-var BUGNUMBER = 1038545;
-var summary = "Coerce the argument passed to Object.keys using ToObject";
-print(BUGNUMBER + ": " + summary);
 
 assert.throws(TypeError, () => Object.keys());
 assert.throws(TypeError, () => Object.keys(undefined));
@@ -26,4 +23,3 @@ if (typeof Symbol === "function") {
 }
 
 assert.deepEqual(Object.keys("foo"), ["0", "1", "2"]);
-

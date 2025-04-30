@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.create(O [, Properties])
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 492840;
-var summary = 'ES5 Object.create(O [, Properties])';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.sameValue("create" in Object, true);
 assert.sameValue(Object.create.length, 2);
@@ -60,7 +51,3 @@ try {
 } catch (e) {
 }
 assert.sameValue(actual, "overridden");
-
-/******************************************************************************/
-
-print("All tests passed!");

@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.prototype.isPrototypeOf
 esid: pending
 ---*/
-var gTestfile = 'isPrototypeOf.js';
-var BUGNUMBER = 619283;
-var summary = "Object.prototype.isPrototypeOf";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectThrowTypeError(fun)
 {
@@ -84,8 +75,3 @@ assert.sameValue(this.isPrototypeOf(protoGlobal), true);
 assert.sameValue(Object.prototype.isPrototypeOf({}), true);
 assert.sameValue(Object.prototype.isPrototypeOf(new Number(17)), true);
 assert.sameValue(Object.prototype.isPrototypeOf(function(){}), true);
-
-
-/******************************************************************************/
-
-print("All tests passed!");

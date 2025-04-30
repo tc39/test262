@@ -8,13 +8,10 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.isFrozen() should return true when given primitive values as input
 esid: pending
 ---*/
-var BUGNUMBER = 1071464;
-var summary = "Object.isFrozen() should return true when given primitive values as input";
 
-print(BUGNUMBER + ": " + summary);
 assert.sameValue(Object.isFrozen(), true);
 assert.sameValue(Object.isFrozen(undefined), true);
 assert.sameValue(Object.isFrozen(null), true);
@@ -24,4 +21,3 @@ assert.sameValue(Object.isFrozen(true), true);
 if (typeof Symbol === "function") {
     assert.sameValue(Object.isFrozen(Symbol()), true);
 }
-

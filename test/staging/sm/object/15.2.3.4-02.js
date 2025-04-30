@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.getOwnPropertyNames: array objects
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 518663;
-var summary = 'Object.getOwnPropertyNames: array objects';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var a, names, expected;
 
@@ -49,8 +40,3 @@ a = [];
 names = Object.getOwnPropertyNames(a).sort();
 expected = ["length"];
 assert.sameValue(arraysEqual(names, expected), true);
-
-
-/******************************************************************************/
-
-print("All tests passed!");
