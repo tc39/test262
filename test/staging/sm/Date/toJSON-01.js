@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Date.prototype.toJSON isn't to spec
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Test for correct short-circuiting implementation of Date.set methods
 esid: pending
