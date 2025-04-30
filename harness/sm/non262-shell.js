@@ -5,7 +5,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*---
-defines: [makeIterator, Permutations, assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
+defines: [makeIterator, assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
 allow_unused: True
 ---*/
 
@@ -32,22 +32,6 @@ allow_unused: True
     };
 
     return function() { return iterator; };
-  };
-
-  /** Yield every permutation of the elements in some array. */
-  globalThis.Permutations = function* Permutations(items) {
-    if (items.length == 0) {
-      yield [];
-    } else {
-      items = items.slice(0);
-      for (let i = 0; i < items.length; i++) {
-        let swap = items[0];
-        items[0] = items[i];
-        items[i] = swap;
-        for (let e of Permutations(items.slice(1, items.length)))
-          yield [items[0]].concat(e);
-      }
-    }
   };
 
   if (typeof globalThis.assertThrowsValue === 'undefined') {
