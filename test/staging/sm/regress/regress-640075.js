@@ -10,9 +10,8 @@ description: |
   pending
 esid: pending
 ---*/
-"use strict";
+
 assert.throws(
     SyntaxError,
     () => eval("(function() { eval(); function eval() {} })")
 )
-

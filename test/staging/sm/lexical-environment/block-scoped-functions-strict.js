@@ -8,7 +8,6 @@ description: |
   pending
 esid: pending
 ---*/
-"use strict"
 
 var log = "";
 
