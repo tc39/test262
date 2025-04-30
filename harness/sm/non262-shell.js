@@ -5,7 +5,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*---
-defines: [assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage]
+defines: [assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf]
 allow_unused: True
 ---*/
 
@@ -70,11 +70,4 @@ allow_unused: True
       assertThrowsInstanceOfWithMessageCheck(f, ctor, _ => true, msg);
     };
   }
-
-  if (typeof globalThis.assertThrowsInstanceOfWithMessage === 'undefined') {
-    globalThis.assertThrowsInstanceOfWithMessage = function assertThrowsInstanceOfWithMessage(f, ctor, expected, msg) {
-      assertThrowsInstanceOfWithMessageCheck(f, ctor, message => message === expected, msg);
-    }
-  }
-
 })();
