@@ -59,7 +59,7 @@ for (let {regExp, lastIndex, input} of testCases) {
     let re = new RegExp(regExp);
     Object.defineProperty(re, "lastIndex", { value: lastIndex, writable: false });
     if (re.global || re.sticky) {
-        assertThrowsInstanceOf(() => re.exec(input), TypeError);
+        assert.throws(TypeError, () => re.exec(input));
     } else {
         re.exec(input);
     }
@@ -79,7 +79,7 @@ for (let {regExp, lastIndex, input} of testCases) {
         }
     };
     if (re.global || re.sticky) {
-        assertThrowsInstanceOf(() => re.exec(input), TypeError);
+        assert.throws(TypeError, () => re.exec(input));
     } else {
         re.exec(input);
     }

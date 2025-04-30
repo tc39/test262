@@ -15,7 +15,6 @@ var summary = "RegExp.prototype[@@split] should check this value.";
 print(BUGNUMBER + ": " + summary);
 
 for (var v of [null, 1, true, undefined, "", Symbol.iterator]) {
-  assertThrowsInstanceOf(() => RegExp.prototype[Symbol.split].call(v),
-                         TypeError);
+  assert.throws(TypeError, () => RegExp.prototype[Symbol.split].call(v));
 }
 

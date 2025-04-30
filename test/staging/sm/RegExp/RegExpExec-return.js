@@ -26,7 +26,7 @@ for (var ret of [null, {}, [], /a/]) {
 }
 
 for (ret of [undefined, 1, true, false, Symbol.iterator]) {
-  assertThrowsInstanceOf(() => {
+  assert.throws(TypeError, () => {
     RegExp.prototype[Symbol.match].call({
       get global() {
         return false;
@@ -35,6 +35,6 @@ for (ret of [undefined, 1, true, false, Symbol.iterator]) {
         return ret;
       }
     }, "foo");
-  }, TypeError);
+  });
 }
 

@@ -136,16 +136,16 @@ assert.compareArray(/[\uD83DA]*/u.exec("\uD83DAA\uD83D"),
 
 // ==== wrong patterns ====
 
-assertThrowsInstanceOf(() => eval(`/[\\u]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\u0]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\u00]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\u000]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\u000G]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\u0.00]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\uD83D\\u]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\uD83D\\u0]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\uD83D\\u00]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\uD83D\\u000]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\uD83D\\u000G]/u`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`/[\\uD83D\\u0.00]/u`), SyntaxError);
+assert.throws(SyntaxError, () => eval(`/[\\u]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\u0]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\u00]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\u000]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\u000G]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\u0.00]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\uD83D\\u]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\uD83D\\u0]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\uD83D\\u00]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\uD83D\\u000]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\uD83D\\u000G]/u`));
+assert.throws(SyntaxError, () => eval(`/[\\uD83D\\u0.00]/u`));
 

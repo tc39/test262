@@ -21,7 +21,6 @@ for (var exec of [null, 0, false, undefined, ""]) {
   RegExp.prototype[Symbol.match].call(re, "foo");
 
   // non-RegExp with non-callable exec
-  assertThrowsInstanceOf(() => RegExp.prototype[Symbol.match].call({ exec }, "foo"),
-                         TypeError);
+  assert.throws(TypeError, () => RegExp.prototype[Symbol.match].call({ exec }, "foo"));
 }
 

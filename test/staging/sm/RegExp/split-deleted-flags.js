@@ -16,5 +16,5 @@ print(BUGNUMBER + ": " + summary);
 
 delete RegExp.prototype.flags;
 
-assertThrowsInstanceOf(() => "aaaaa".split(/a/), SyntaxError);
+assert.throws(SyntaxError, () => "aaaaa".split(/a/));
 

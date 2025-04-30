@@ -48,7 +48,7 @@ assert.sameValue(regex.test("FOO"), true);
 assert.sameValue(regex.test("bar"), false);
 assert.sameValue(regex.test("BAR"), false);
 
-assertThrowsInstanceOf(() => regex.compile("bar"), TypeError);
+assert.throws(TypeError, () => regex.compile("bar"));
 
 assert.sameValue(regex.global, false);
 assert.sameValue(regex.ignoreCase, false);
@@ -62,7 +62,7 @@ assert.sameValue(regex.test("FOO"), false);
 assert.sameValue(regex.test("bar"), true);
 assert.sameValue(regex.test("BAR"), false);
 
-assertThrowsInstanceOf(() => regex.compile("^baz", "m"), TypeError);
+assert.throws(TypeError, () => regex.compile("^baz", "m"));
 
 assert.sameValue(regex.global, false);
 assert.sameValue(regex.ignoreCase, false);
