@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [sm/non262-shell.js, compareArray.js, deepEqual.js]
+includes: [sm/assertThrowsValue.js, compareArray.js, deepEqual.js]
 flags:
   - noStrict
 description: |
