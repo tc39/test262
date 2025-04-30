@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Destructuring should evaluate lhs reference before rhs
 esid: pending
 ---*/
-var BUGNUMBER = 1204028;
-var summary = "Destructuring should evaluate lhs reference before rhs";
-
-print(BUGNUMBER + ": " + summary);
 
 let storage = {
   clear() {
@@ -725,4 +721,3 @@ assert.sameValue(storage.values.v, "V");
 assert.sameValue(storage.values.x, "X");
 assert.sameValue(storage.values.z, "Z");
 assert.sameValue(storage.values.length, 2);
-

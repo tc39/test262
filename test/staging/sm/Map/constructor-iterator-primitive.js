@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Returning non-object from @@iterator should throw
 esid: pending
 ---*/
-var BUGNUMBER = 1021835;
-var summary = "Returning non-object from @@iterator should throw";
-
-print(BUGNUMBER + ": " + summary);
 
 let ctors = [
     Map,
@@ -40,4 +36,3 @@ for (let ctor of ctors) {
         assert.throws(TypeError, () => new ctor(arg));
     }
 }
-
