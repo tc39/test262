@@ -44,12 +44,12 @@ assertFalse(staticIncludes({length: 3, 1: 2}, 2, 2));
 assertFalse(staticIncludes({length: 3, get 0(){delete this[1]}, 1: 2}, 2));
 assertFalse(staticIncludes({length: -100, 0: 1}, 1));
 
-assertThrowsInstanceOf(() => staticIncludes(), TypeError);
-assertThrowsInstanceOf(() => staticIncludes(null), TypeError);
-assertThrowsInstanceOf(() => staticIncludes({get length(){throw TypeError()}}), TypeError);
-assertThrowsInstanceOf(() => staticIncludes({length: 3, get 1() {throw TypeError()}}, 2), TypeError);
-assertThrowsInstanceOf(() => staticIncludes({__proto__: {get 1() {throw TypeError()}}, length: 3}, 2), TypeError);
-assertThrowsInstanceOf(() => staticIncludes(new Proxy([1], {get(){throw TypeError()}})), TypeError);
+assert.throws(TypeError, () => staticIncludes());
+assert.throws(TypeError, () => staticIncludes(null));
+assert.throws(TypeError, () => staticIncludes({get length(){throw TypeError()}}));
+assert.throws(TypeError, () => staticIncludes({length: 3, get 1() {throw TypeError()}}, 2));
+assert.throws(TypeError, () => staticIncludes({__proto__: {get 1() {throw TypeError()}}, length: 3}, 2));
+assert.throws(TypeError, () => staticIncludes(new Proxy([1], {get(){throw TypeError()}})));
 
 function assertTrue(v) {
     assert.sameValue(v, true);
