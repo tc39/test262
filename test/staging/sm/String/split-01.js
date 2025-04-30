@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -11,31 +12,23 @@ description: |
 esid: pending
 ---*/
 
-function assertEqArr(a1, a2) {
-    assert.sameValue(a1.length, a2.length);
-
-    for(var i=0; i<a1.length; i++) {
-        assert.sameValue(a1[i], a2[i]);
-    }
-}
-
 var order = "";
 var o1 = { toString: function() { order += "b"; return "-"; }};
 var o2 = { valueOf:  function() { order += "a"; return 1; }};
 var res = "xyz-xyz".split(o1, o2);
 
 assert.sameValue(order, "ab");
-assertEqArr(res, ["xyz"]);
+assert.compareArray(res, ["xyz"]);
 
-assertEqArr("".split(/.?/), []);
-assertEqArr("abc".split(/\b/), ["abc"]);
+assert.compareArray("".split(/.?/), []);
+assert.compareArray("abc".split(/\b/), ["abc"]);
 
-assertEqArr("abc".split(/((()))./, 2), ["",""]);
-assertEqArr("abc".split(/((((()))))./, 9), ["","","","","","","","",""]);
+assert.compareArray("abc".split(/((()))./, 2), ["",""]);
+assert.compareArray("abc".split(/((((()))))./, 9), ["","","","","","","","",""]);
 
 // from ES5 15.5.4.14
-assertEqArr("ab".split(/a*?/), ["a", "b"]);
-assertEqArr("ab".split(/a*/), ["", "b"]);
-assertEqArr("A<B>bold</B>and<CODE>coded</CODE>".split(/<(\/)?([^<>]+)>/),
-            ["A", undefined, "B", "bold", "/", "B", "and", undefined,
-             "CODE", "coded", "/", "CODE", ""]);
+assert.compareArray("ab".split(/a*?/), ["a", "b"]);
+assert.compareArray("ab".split(/a*/), ["", "b"]);
+assert.compareArray("A<B>bold</B>and<CODE>coded</CODE>".split(/<(\/)?([^<>]+)>/),
+                    ["A", undefined, "B", "bold", "/", "B", "and", undefined,
+                     "CODE", "coded", "/", "CODE", ""]);
