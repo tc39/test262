@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-TypedArray-shell.js]
-flags:
-  - noStrict
 description: |
   Returning non-object from @@iterator should throw
 esid: pending

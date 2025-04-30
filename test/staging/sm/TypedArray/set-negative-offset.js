@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   %TypedArray%.prototype.set must throw a RangeError when passed a negative offset
 esid: pending

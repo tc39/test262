@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-TypedArray-shell.js, propertyHelper.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending

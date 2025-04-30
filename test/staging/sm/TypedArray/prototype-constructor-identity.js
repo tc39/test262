@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-TypedArray-shell.js]
-flags:
-  - noStrict
 description: |
   Typed array prototypes/constructors should be largely empty, inheriting most functionality from %TypedArray% and %TypedArray%.prototype
 esid: pending
