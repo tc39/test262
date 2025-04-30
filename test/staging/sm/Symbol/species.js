@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Implement @@species getter for builtin types
 esid: pending
