@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
@@ -14,10 +12,10 @@ esid: pending
 var gnew = $262.createRealm().global;
 
 gnew.eval("function f() { return this; }");
-f = gnew.f;
+var f = gnew.f;
 assert.sameValue(f(), gnew);
 
 gnew.eval("function g() { 'use strict'; return this; }");
-g = gnew.g;
+var g = gnew.g;
 assert.sameValue(g(), undefined);
 

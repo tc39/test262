@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
@@ -11,7 +9,7 @@ features: [host-gc-required]
 ---*/
 function TestGC2(m) {
   var head = new Object;
-  for (key = head, i = 0; i < 99999; i++, key = m.get(key)) {
+  for (var key = head, i = 0; i < 99999; i++, key = m.get(key)) {
     m.set(key, new Object);
   }
   $262.gc();
