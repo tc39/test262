@@ -13,7 +13,7 @@ esid: pending
 new Function('(() => new.target)()');
 
 // It's also good inside eval, but not global eval
-assertThrowsInstanceOf(() => eval('() => new.target'), SyntaxError);
+assert.throws(SyntaxError, () => eval('() => new.target'));
 
 function assertNewTarget(expected) {
     assert.sameValue((()=>new.target)(), expected);

@@ -21,13 +21,13 @@ class derived extends base {
     testDeleteProp() { delete super.prop; }
     testDeleteElem() {
         let sideEffect = 0;
-        assertThrowsInstanceOf(() => delete super[sideEffect = 1], ReferenceError);
+        assert.throws(ReferenceError, () => delete super[sideEffect = 1]);
         assert.sameValue(sideEffect, 1);
     }
 }
 
 var d = new derived();
-assertThrowsInstanceOf(() => d.testDeleteProp(), ReferenceError);
+assert.throws(ReferenceError, () => d.testDeleteProp());
 d.testDeleteElem();
 
 // |delete super.x| does not delete anything before throwing.
@@ -35,7 +35,7 @@ var thing1 = {
     go() { delete super.toString; }
 };
 let saved = Object.prototype.toString;
-assertThrowsInstanceOf(() => thing1.go(), ReferenceError);
+assert.throws(ReferenceError, () => thing1.go());
 assert.sameValue(Object.prototype.toString, saved);
 
 // |delete super.x| does not tell the prototype to delete anything, when it's a proxy.
@@ -45,7 +45,7 @@ var thing2 = {
 Object.setPrototypeOf(thing2, new Proxy({}, {
     deleteProperty(x) { throw "FAIL"; }
 }));
-assertThrowsInstanceOf(() => thing2.go(), ReferenceError);
+assert.throws(ReferenceError, () => thing2.go());
 
 class derivedTestDeleteProp extends base {
     constructor() {
@@ -53,11 +53,11 @@ class derivedTestDeleteProp extends base {
         // chain.
         Object.setPrototypeOf(derivedTestDeleteProp.prototype, null);
 
-        assertThrowsInstanceOf(() => delete super.prop, ReferenceError);
+        assert.throws(ReferenceError, () => delete super.prop);
 
         super();
 
-        assertThrowsInstanceOf(() => delete super.prop, ReferenceError);
+        assert.throws(ReferenceError, () => delete super.prop);
 
         return {};
     }

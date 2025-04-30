@@ -175,7 +175,7 @@ var obj = {
     meth : 3
 }
 assert.sameValue(obj.meth, 3);
-assertThrowsInstanceOf(function() {obj.meth();}, TypeError);
+assert.throws(TypeError, function() {obj.meth();});
 
 // Strict mode
 a = {b(c){"use strict";return c;}};
@@ -209,5 +209,5 @@ testStrictMode();
 
 // Tests provided by benvie in the bug to distinguish from ES5 desugar.
 assert.sameValue(({ method() {} }).method.name, "method");
-assertThrowsInstanceOf(function() {({ method() { method() } }).method() }, ReferenceError);
+assert.throws(ReferenceError, function() {({ method() { method() } }).method() });
 

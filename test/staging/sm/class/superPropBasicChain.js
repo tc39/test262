@@ -16,5 +16,5 @@ var o = {
 };
 
 // Delazify
-assertThrowsInstanceOf(o.access, TypeError);
+assert.throws(TypeError, o.access);
 

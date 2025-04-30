@@ -11,19 +11,19 @@ esid: pending
 ---*/
 // getter/setter with expression closure is allowed only in object literal.
 
-assertThrowsInstanceOf(() => eval(`
+assert.throws(SyntaxError, () => eval(`
   class foo {
     constructor() {}
 
     get a() 1
   }
-`), SyntaxError);
+`));
 
-assertThrowsInstanceOf(() => eval(`
+assert.throws(SyntaxError, () => eval(`
   class foo {
     constructor() {}
 
     set a(v) 1
   }
-`), SyntaxError);
+`));
 
