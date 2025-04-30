@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  parseInt should treat leading-zero inputs (with radix unspecified) as decimal, not octal
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 583925;
-var summary =
-  "parseInt should treat leading-zero inputs (with radix unspecified) as " +
-  "decimal, not octal (this changed in bug 786135)";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.sameValue(parseInt("08"), 8);
 assert.sameValue(parseInt("09"), 9);
@@ -32,7 +21,3 @@ function strictParseInt(s) { "use strict"; return parseInt(s); }
 assert.sameValue(strictParseInt("08"), 8);
 assert.sameValue(strictParseInt("09"), 9);
 assert.sameValue(strictParseInt("014"), 14);
-
-/******************************************************************************/
-
-print("All tests passed!");

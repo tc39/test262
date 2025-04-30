@@ -8,20 +8,10 @@ flags:
   - onlyStrict
 includes: [sm/non262.js, sm/non262-shell.js]
 description: |
-  pending
+  |delete window.NaN| should throw a TypeError
 esid: pending
 ---*/
 "use strict"
-
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 649570;
-var summary = "|delete window.NaN| should throw a TypeError";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var g = this, v = false;
 try
@@ -34,7 +24,3 @@ catch (e)
   assert.sameValue(e instanceof TypeError, true,
            "Expected a TypeError, got: " + e);
 }
-
-/******************************************************************************/
-
-print("Tests complete");
