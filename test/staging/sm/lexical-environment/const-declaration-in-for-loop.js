@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't crash compiling a non-body-level for-loop whose loop declaration is a const
 esid: pending

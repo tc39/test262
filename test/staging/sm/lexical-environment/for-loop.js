@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   for-loop semantics for for(;;) loops whose heads contain lexical declarations
 esid: pending
