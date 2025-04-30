@@ -96,6 +96,10 @@ iterator-sequencing
 # https://github.com/tc39/proposal-canonical-tz
 canonical-tz
 
+# Immutable Array Buffer
+# https://github.com/tc39/proposal-immutable-arraybuffer
+immutable-arraybuffer
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
