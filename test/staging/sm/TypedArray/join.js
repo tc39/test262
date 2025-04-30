@@ -9,6 +9,9 @@ description: |
   pending
 esid: pending
 ---*/
+
+var otherGlobal = $262.createRealm().global;
+
 for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(constructor.prototype.join.length, 1);
 
@@ -29,10 +32,8 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.throws(TypeError, () => new constructor().join(Symbol()));
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var join = createNewGlobal()[constructor.name].prototype.join;
-        assert.sameValue(join.call(new constructor([1, 2, 3]), "\t"), "1\t2\t3");
-    }
+    var join = otherGlobal[constructor.name].prototype.join;
+    assert.sameValue(join.call(new constructor([1, 2, 3]), "\t"), "1\t2\t3");
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,

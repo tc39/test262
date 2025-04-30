@@ -33,20 +33,20 @@ if (typeof $262.detachArrayBuffer === "function") {
     assert.sameValue(detached, true);
 }
 
+let otherGlobal = $262.createRealm().global;
+
 // Ensure detachment check doesn't choke on wrapped typed array.
-if (typeof createNewGlobal === "function") {
+{
     let ta = new Int32Array(3);
-    let otherGlobal = createNewGlobal();
     otherGlobal.Int32Array.prototype.sort.call(ta, function(a, b) {
         return a - b;
     });
 }
 
 // Ensure detaching buffer in comparator doesn't throw an error when the typed array is wrapped.
-if (typeof createNewGlobal === "function" && typeof $262.detachArrayBuffer === "function") {
+if (typeof $262.detachArrayBuffer === "function") {
     let detached = false;
     let ta = new Int32Array(3);
-    let otherGlobal = createNewGlobal();
     otherGlobal.Int32Array.prototype.sort.call(ta, function(a,b) {
         if (!detached) {
             detached = true;

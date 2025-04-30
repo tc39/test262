@@ -9,6 +9,9 @@ description: |
   pending
 esid: pending
 ---*/
+
+var otherGlobal = $262.createRealm().global;
+
 // Tests for TypedArray#every.
 for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(constructor.prototype.every.length, 1);
@@ -102,12 +105,10 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var every = createNewGlobal()[constructor.name].prototype.every;
-        var sum = 0;
-        assert.sameValue(every.call(new constructor([1, 2, 3]), v => sum += v), true);
-        assert.sameValue(sum, 6);
-    }
+    var every = otherGlobal[constructor.name].prototype.every;
+    var sum = 0;
+    assert.sameValue(every.call(new constructor([1, 2, 3]), v => sum += v), true);
+    assert.sameValue(sum, 6);
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
@@ -225,15 +226,13 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var some = createNewGlobal()[constructor.name].prototype.some;
-        var sum = 0;
-        assert.sameValue(some.call(new constructor([1, 2, 3]), v => {
-            sum += v;
-            return false;
-        }), false);
-        assert.sameValue(sum, 6);
-    }
+    var some = otherGlobal[constructor.name].prototype.some;
+    var sum = 0;
+    assert.sameValue(some.call(new constructor([1, 2, 3]), v => {
+        sum += v;
+        return false;
+    }), false);
+    assert.sameValue(sum, 6);
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,

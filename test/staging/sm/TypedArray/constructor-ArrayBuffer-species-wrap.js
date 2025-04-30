@@ -10,7 +10,7 @@ description: |
 esid: pending
 ---*/
 
-let g = createNewGlobal();
+let g = $262.createRealm().global;
 
 // Both TypedArray and ArrayBuffer from different global.
 for (let ctor of typedArrayConstructors) {

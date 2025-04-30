@@ -73,7 +73,7 @@ for (let constructor of anyTypedArrayConstructors) {
 Number.prototype.toLocaleString = originalNumberToLocaleString;
 
 // Calls Number.prototype.toLocaleString from the current Realm.
-const otherGlobal = createNewGlobal();
+const otherGlobal = $262.createRealm().global;
 for (let constructor of anyTypedArrayConstructors) {
     Number.prototype.toLocaleString = function() {
         "use strict";
