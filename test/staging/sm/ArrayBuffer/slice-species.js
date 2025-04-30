@@ -3,12 +3,11 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 const tests = [
   [Int8Array,         [9, 10, 11, 12, 13, 14, 15, 16]],
   [Uint8Array,        [9, 10, 11, 12, 13, 14, 15, 16]],
@@ -186,4 +185,3 @@ var a = arr.buffer;
   b = a.slice(8, 16);
   assert.sameValue(b.constructor, MyArrayBuffer2);
 }
-
