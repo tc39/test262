@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   GetElem for modified arguments shouldn't be optimized to get original argument.
 esid: pending
