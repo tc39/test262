@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Scripted proxies' [[GetPrototypeOf]] behavior
 esid: pending
 ---*/
-var gTestfile = "getPrototypeOf.js";
-var BUGNUMBER = 888969;
-var summary = "Scripted proxies' [[GetPrototypeOf]] behavior";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 const log = [];
 
@@ -272,7 +263,3 @@ p = new Proxy(Object.preventExtensions(new Number(55)),
               { getPrototypeOf() { return Number.prototype; } });
 
 assert.sameValue(Object.getPrototypeOf(p), Number.prototype);
-
-/******************************************************************************/
-
-print("Tests complete");

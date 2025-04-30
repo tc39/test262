@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Proxy constructor should not throw if either the target or handler is a revoked proxy.
 esid: pending
 ---*/
-var BUGNUMBER = 1151149;
-var summary = "Proxy constructor should not throw if either the target or handler is a revoked proxy.";
-
-print(BUGNUMBER + ": " + summary);
 
 var p = new Proxy({}, {});
 
@@ -59,4 +55,3 @@ g.eval(`r.revoke();`);
 
 new Proxy(p, {});
 new Proxy({}, p);
-
