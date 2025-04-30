@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Implement support for string literals as names for properties defined using ES5 get/set syntax
 esid: pending

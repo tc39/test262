@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   delete (foo), delete ((foo)), and so on are strict mode early errors
 esid: pending

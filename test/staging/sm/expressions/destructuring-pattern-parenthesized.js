@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Parenthesized "destructuring patterns" are not usable as destructuring patterns
 esid: pending

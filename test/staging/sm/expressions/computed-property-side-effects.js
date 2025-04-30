@@ -5,8 +5,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Computed property names must be considered as always effectful even when the name expression isn't effectful, because calling ToPropertyKey on some non-effectful expressions has user-modifiable behavior
 esid: pending
