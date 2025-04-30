@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Accessing a revocable proxy's [[Prototype]] shouldn't crash
 esid: pending

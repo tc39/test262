@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Scripted proxies' [[OwnPropertyKeys]] should have linear complexity
 esid: pending
