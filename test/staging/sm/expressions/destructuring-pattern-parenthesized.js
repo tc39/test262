@@ -9,6 +9,7 @@ flags:
 description: |
   Parenthesized "destructuring patterns" are not usable as destructuring patterns
 esid: pending
+features: [class]
 ---*/
 
 // Don't pollute the top-level script with eval references.
@@ -63,38 +64,18 @@ Function("var a, b; [(repair.man), b] = [1, 2];")();
 Function("var a, b; [(demolition['man']) = 'motel', b] = [1, 2];")();
 Function("var a, b; [(demolition['man' + {}]) = 'motel', b] = [1, 2];")(); // evade constant-folding
 
-function classesEnabled()
-{
-  try
-  {
-    new Function("class B { constructor() { } }; class D extends B { constructor() { super(); } }");
-    return true;
-  }
-  catch (e) {
-    if (!(e instanceof SyntaxError))
-      throw e;
-    return false;
-  }
-}
-
-if (classesEnabled())
-{
-  Function("var a, b; var obj = { x() { [(super.man), b] = [1, 2]; } };")();
-  Function("var a, b; var obj = { x() { [(super[8]) = 'motel', b] = [1, 2]; } };")();
-  Function("var a, b; var obj = { x() { [(super[8 + {}]) = 'motel', b] = [1, 2]; } };")(); // evade constant-folding
-}
+Function("var a, b; var obj = { x() { [(super.man), b] = [1, 2]; } };")();
+Function("var a, b; var obj = { x() { [(super[8]) = 'motel', b] = [1, 2]; } };")();
+Function("var a, b; var obj = { x() { [(super[8 + {}]) = 'motel', b] = [1, 2]; } };")(); // evade constant-folding
 
 // As noted above, when the assignment element has an initializer, the
 // assignment element must not be parenthesized.
 checkError("var a, b; [(repair.man = 17)] = [1];");
 checkError("var a, b; [(demolition['man'] = 'motel')] = [1, 2];");
 checkError("var a, b; [(demolition['man' + {}] = 'motel')] = [1];"); // evade constant-folding
-if (classesEnabled())
-{
-  checkError("var a, b; var obj = { x() { [(super.man = 5)] = [1]; } };");
-  checkError("var a, b; var obj = { x() { [(super[8] = 'motel')] = [1]; } };");
-  checkError("var a, b; var obj = { x() { [(super[8 + {}] = 'motel')] = [1]; } };"); // evade constant-folding
-}
+checkError("var a, b; var obj = { x() { [(super.man = 5)] = [1]; } };");
+checkError("var a, b; var obj = { x() { [(super[8] = 'motel')] = [1]; } };");
+checkError("var a, b; var obj = { x() { [(super[8 + {}] = 'motel')] = [1]; } };"); // evade constant-folding
 
 checkError("var a, b; [f() = 'ohai', b] = [1, 2];");
 checkError("var a, b; [(f()) = 'kthxbai', b] = [1, 2];");
