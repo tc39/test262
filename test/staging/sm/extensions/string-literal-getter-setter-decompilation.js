@@ -10,6 +10,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 var f;
 try
 {
@@ -29,14 +30,12 @@ assert.sameValue(fstr.indexOf("set") < fstr.indexOf("c d e"), true,
 assert.sameValue(fstr.indexOf("setter") < 0, true, "using old-style syntax?");
 
 var o = f();
-var ostr = "" + o;
 assert.sameValue("c d e" in o, true, "missing the property?");
 assert.sameValue("set" in Object.getOwnPropertyDescriptor(o, "c d e"), true,
          "'c d e' property not a setter?");
-// disabled because we still generate old-style syntax here (toSource
-// decompilation is as yet unfixed)
-// assert.sameValue(ostr.indexOf("set") < ostr.indexOf("c d e"), true,
-//         "should be using new-style syntax when getting the source of a " +
-//         "getter/setter while decompiling an object");
-// assert.sameValue(ostr.indexOf("setter") < 0, true, "using old-style syntax?");
 
+var ostr = Object.getOwnPropertyDescriptor(o, "c d e").set + o;
+assert.sameValue(ostr.indexOf("set") < ostr.indexOf("c d e"), true,
+        "should be using new-style syntax when getting the source of a " +
+        "getter/setter while decompiling an object" + ostr);
+assert.sameValue(ostr.indexOf("setter") < 0, true, "using old-style syntax?");
