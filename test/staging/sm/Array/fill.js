@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  Array.prototype.fill
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 911147;
-var summary = 'Array.prototype.fill';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.sameValue(typeof [].fill, 'function');
 assert.sameValue([].fill.length, 1);
@@ -101,4 +92,3 @@ assert.throws(TypeError, () => [].fill.call(frozenArray, 2));
 assert.throws(TypeError, () => [].fill.call("111", 2));
 assert.throws(TypeError, () => [].fill.call(null, 2));
 assert.throws(TypeError, () => [].fill.call(undefined, 2));
-

@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Use ArraySpeciesCreate in Array.prototype.{concat,filter,map,slice,splice}.
 esid: pending
 ---*/
-var BUGNUMBER = 1165052;
-var summary = 'Use ArraySpeciesCreate in Array.prototype.{concat,filter,map,slice,splice}.';
-
-print(BUGNUMBER + ": " + summary);
 
 var g = $262.createRealm().global;
 
@@ -189,4 +185,3 @@ test("filter", [x => x % 2], 0, "get:filter,get:length,get:constructor,c-get:Sym
 test("map", [x => x * 2], 5, "get:map,get:length,get:constructor,c-get:Symbol(Symbol.species),get:0,define:0:2:true:true:true,get:1,define:1:4:true:true:true,get:2,define:2:6:true:true:true,get:3,define:3:8:true:true:true,get:4,define:4:10:true:true:true,");
 test("slice", [], 5, "get:slice,get:length,get:constructor,c-get:Symbol(Symbol.species),get:0,define:0:1:true:true:true,get:1,define:1:2:true:true:true,get:2,define:2:3:true:true:true,get:3,define:3:4:true:true:true,get:4,define:4:5:true:true:true,set:length:5,");
 test("splice", [0, 5], 5, "get:splice,get:length,get:constructor,c-get:Symbol(Symbol.species),get:0,define:0:1:true:true:true,get:1,define:1:2:true:true:true,get:2,define:2:3:true:true:true,get:3,define:3:4:true:true:true,get:4,define:4:5:true:true:true,set:length:5,");
-
