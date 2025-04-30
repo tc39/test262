@@ -62,7 +62,7 @@ assertThrowsValue(() => Reflect.deleteProperty(proxy, "prop"), "vase");
 proxy = new Proxy(Object.freeze({prop: 1}), {
     deleteProperty(t, k) { return true; }
 });
-assertThrowsInstanceOf(() => Reflect.deleteProperty(proxy, "prop"), TypeError);
+assert.throws(TypeError, () => Reflect.deleteProperty(proxy, "prop"));
 
 
 // === Deleting elements from `arguments`
