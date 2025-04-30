@@ -9,6 +9,7 @@ flags:
 description: |
   DataView.prototype.set* methods shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer being modified
 esid: pending
+features: [host-gc-required]
 ---*/
 
 function testIndex()

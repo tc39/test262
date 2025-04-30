@@ -9,6 +9,7 @@ flags:
 description: |
   Properly handle GC of a dictionary accessor property whose [[Get]] or [[Set]] has been changed to |undefined|
 esid: pending
+features: [host-gc-required]
 ---*/
 
 function test(field)
