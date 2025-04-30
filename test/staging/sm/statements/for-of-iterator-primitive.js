@@ -29,9 +29,9 @@ for (let primitive of primitives) {
             return primitive;
         }
     };
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         for (let x of obj) {
         }
-    }, TypeError);
+    });
 }
 

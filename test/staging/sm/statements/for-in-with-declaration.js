@@ -24,14 +24,14 @@ print(BUGNUMBER + ": " + summary);
  * BEGIN TEST *
  **************/
 
-assertThrowsInstanceOf(() => Function("for (var x = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (var x, y = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (var x = 5, y = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (const x = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (const x = 5, y = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (let x = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (let x, y = 3 in {}; ; ) break;"), SyntaxError);
-assertThrowsInstanceOf(() => Function("for (let x = 2, y = 3 in {}; ; ) break;"), SyntaxError);
+assert.throws(SyntaxError, () => Function("for (var x = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (var x, y = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (var x = 5, y = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (const x = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (const x = 5, y = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (let x = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (let x, y = 3 in {}; ; ) break;"));
+assert.throws(SyntaxError, () => Function("for (let x = 2, y = 3 in {}; ; ) break;"));
 
 /******************************************************************************/
 
