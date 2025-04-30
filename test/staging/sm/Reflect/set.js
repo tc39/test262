@@ -237,7 +237,7 @@ for (obj of [{a: 0}, {get a() { return 0; }}]) {
     proxy = new Proxy(obj, {
         set(t, k, v, r) { return true; }
     });
-    assertThrowsInstanceOf(() => Reflect.set(proxy, "a", "b"), TypeError);
+    assert.throws(TypeError, () => Reflect.set(proxy, "a", "b"));
 }
 
 // Per spec, this should first call p.[[Set]]("0", 42, a) and

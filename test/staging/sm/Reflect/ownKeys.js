@@ -69,7 +69,7 @@ var obj = Object.preventExtensions({});
 var proxy = new Proxy(obj, {
     ownKeys() { return ["something"]; }
 });
-assertThrowsInstanceOf(() => Reflect.ownKeys(proxy), TypeError);
+assert.throws(TypeError, () => Reflect.ownKeys(proxy));
 
 // For more Reflect.ownKeys tests, see target.js.
 

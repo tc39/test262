@@ -15,7 +15,7 @@ esid: pending
 assert.sameValue(typeof Reflect, 'object');
 assert.sameValue(Object.getPrototypeOf(Reflect), Object.prototype);
 assert.sameValue(Reflect.toString(), '[object Reflect]');
-assertThrowsInstanceOf(() => new Reflect, TypeError);
+assert.throws(TypeError, () => new Reflect);
 
 var desc = Object.getOwnPropertyDescriptor(this, "Reflect");
 assert.sameValue(desc.enumerable, false);

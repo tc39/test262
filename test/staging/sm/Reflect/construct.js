@@ -75,8 +75,8 @@ var nonConstructors = [
     new Proxy(Reflect.construct, {construct(){}}),
 ];
 for (var obj of nonConstructors) {
-    assertThrowsInstanceOf(() => Reflect.construct(obj, []), TypeError);
-    assertThrowsInstanceOf(() => Reflect.construct(obj, [], Object), TypeError);
+    assert.throws(TypeError, () => Reflect.construct(obj, []));
+    assert.throws(TypeError, () => Reflect.construct(obj, [], Object));
 }
 
 
@@ -100,7 +100,7 @@ for (var ctor of constructors) {
 
 // The newTarget argument must be a constructor.
 for (var v of SOME_PRIMITIVE_VALUES.concat(nonConstructors)) {
-    assertThrowsInstanceOf(() => Reflect.construct(checkNewTarget, [], v), TypeError);
+    assert.throws(TypeError, () => Reflect.construct(checkNewTarget, [], v));
 }
 
 // The builtin Array constructor uses new.target.prototype and always

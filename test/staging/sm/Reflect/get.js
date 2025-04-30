@@ -46,7 +46,7 @@ var obj = new Proxy(x, {
 assert.sameValue(Reflect.get(obj, "mood"), "moodful");
 
 // Exceptions thrown by a proxy's get handler are propagated.
-assertThrowsInstanceOf(() => Reflect.get(obj, Symbol()), TypeError);
+assert.throws(TypeError, () => Reflect.get(obj, Symbol()));
 
 // Ordinary object, property has a setter and no getter
 obj = {set name(x) {}};

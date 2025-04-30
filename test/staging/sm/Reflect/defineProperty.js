@@ -79,13 +79,11 @@ assert.sameValue(Reflect.defineProperty(proxy, "prop", attributes), true);
 // many error cases to check that behavior.
 
 // missing attributes argument
-assertThrowsInstanceOf(() => Reflect.defineProperty(obj, "y"),
-                       TypeError);
+assert.throws(TypeError, () => Reflect.defineProperty(obj, "y"));
 
 // non-object attributes argument
 for (var attributes of SOME_PRIMITIVE_VALUES) {
-    assertThrowsInstanceOf(() => Reflect.defineProperty(obj, "y", attributes),
-                           TypeError);
+    assert.throws(TypeError, () => Reflect.defineProperty(obj, "y", attributes));
 }
 
 // inextensible object
@@ -155,8 +153,8 @@ proxy = new Proxy(obj, {
         return true;
     }
 });
-assertThrowsInstanceOf(() => Reflect.defineProperty(proxy, "x", {value: 2}), TypeError);
-assertThrowsInstanceOf(() => Reflect.defineProperty(proxy, "y", {value: 0}), TypeError);
+assert.throws(TypeError, () => Reflect.defineProperty(proxy, "x", {value: 2}));
+assert.throws(TypeError, () => Reflect.defineProperty(proxy, "y", {value: 0}));
 assert.sameValue(Reflect.defineProperty(proxy, "x", {value: 1}), true);
 
 // The second argument is converted ToPropertyKey before any internal methods

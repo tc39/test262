@@ -14,15 +14,11 @@ esid: pending
 // Tests for the argumentList argument to Reflect.apply and Reflect.construct.
 
 // Reflect.apply and Reflect.construct require an argumentList argument that must be an object.
-assertThrowsInstanceOf(() => Reflect.apply(Math.min, undefined),  // missing
-                       TypeError);
-assertThrowsInstanceOf(() => Reflect.construct(Object),  // missing
-                       TypeError);
+assert.throws(TypeError, () => Reflect.apply(Math.min, undefined));
+assert.throws(TypeError, () => Reflect.construct(Object));
 for (var primitive of SOME_PRIMITIVE_VALUES) {
-    assertThrowsInstanceOf(() => Reflect.apply(Math.min, undefined, primitive),
-                           TypeError);
-    assertThrowsInstanceOf(() => Reflect.construct(Object, primitive),
-                           TypeError);
+    assert.throws(TypeError, () => Reflect.apply(Math.min, undefined, primitive));
+    assert.throws(TypeError, () => Reflect.construct(Object, primitive));
 }
 
 // Array used by several tests below.
