@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't assert when JSON.stringify is passed a revocable proxy to an array, then that proxy is revoked midflight during stringification
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Behavior of __proto__ on ES6 proxies
 esid: pending

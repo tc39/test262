@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Scripted proxies' [[OwnPropertyKeys]] should not throw if the trap implementation returns duplicate properties and the object is non-extensible or has non-configurable properties. Revised (bug 1389752): Throw TypeError for duplicate properties.
 esid: pending
