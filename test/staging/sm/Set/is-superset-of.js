@@ -136,7 +136,7 @@ for (let values of [
   }, log);
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSupersetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSupersetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -151,7 +151,7 @@ for (let values of [
   setLikeObj.keys = () => 123;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSupersetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSupersetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -164,7 +164,7 @@ for (let values of [
   setLikeObj.keys = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSupersetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSupersetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -177,7 +177,7 @@ for (let values of [
   setLikeObj.has = nonCallable;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSupersetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSupersetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -189,7 +189,7 @@ for (let values of [
   sizeValue = NaN;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSupersetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSupersetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -200,7 +200,7 @@ for (let values of [
   sizeValue = undefined;
 
   log.length = 0;
-  assertThrowsInstanceOf(() => emptySet.isSupersetOf(setLike), TypeError);
+  assert.throws(TypeError, () => emptySet.isSupersetOf(setLike));
 
   assert.compareArray(log, [
     "[[get]]", "size",
@@ -209,7 +209,7 @@ for (let values of [
 }
 
 // Doesn't accept Array as an input.
-assertThrowsInstanceOf(() => emptySet.isSupersetOf([]), TypeError);
+assert.throws(TypeError, () => emptySet.isSupersetOf([]));
 
 // Works with Set subclasses.
 {
@@ -240,7 +240,7 @@ assertThrowsInstanceOf(() => emptySet.isSupersetOf([]), TypeError);
 for (let thisValue of [
   null, undefined, true, "", {}, new Map, new Proxy(new Set, {}),
 ]) {
-  assertThrowsInstanceOf(() => Set.prototype.isSupersetOf.call(thisValue, emptySet), TypeError);
+  assert.throws(TypeError, () => Set.prototype.isSupersetOf.call(thisValue, emptySet));
 }
 
 // Doesn't call |has| nor |keys| when this-value has fewer elements.
