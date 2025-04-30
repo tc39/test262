@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Stringification of Boolean/String/Number objects
 esid: pending
 ---*/
-var gTestfile = 'stringify-call-toJSON-once.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 584909;
-var summary = "Stringification of Boolean/String/Number objects";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var obj =
   {
@@ -33,7 +23,3 @@ var obj =
   };
 
 assert.sameValue(JSON.stringify(obj), '{"p":{}}');
-
-/******************************************************************************/
-
-print("Tests complete");

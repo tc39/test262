@@ -9,6 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 /**
  * These return* functions are used by the
  * replacer tests taken from bug 512447
@@ -157,7 +158,3 @@ catch (e)
 {
   assert.sameValue(e instanceof TypeError, true, "no TypeError thrown: " + e);
 }
-
-/******************************************************************************/
-
-print("Tests complete");

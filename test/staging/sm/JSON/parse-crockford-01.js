@@ -9,6 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 var str =
   '[\n' +
   '    "JSON Test Pattern pass1",\n' +
@@ -123,7 +124,3 @@ assert.sameValue(x[16], 1e00);
 assert.sameValue(x[17], 2e+00);
 assert.sameValue(x[18], 2e-00);
 assert.sameValue(x[19], "rosebud");
-
-/******************************************************************************/
-
-print("Tests complete");

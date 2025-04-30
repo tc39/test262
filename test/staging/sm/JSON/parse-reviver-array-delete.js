@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  JSON.parse with a reviver which elides array elements
 esid: pending
 ---*/
-var gTestfile = 'parse-reviver-array-delete.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 999999;
-var summary = "JSON.parse with a reviver which elides array elements";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 /*
  * The reviver deletes all properties from the to-be-returned array.  Thus
@@ -89,8 +79,3 @@ assert.sameValue(JSON.parse(str,
                       return undefined;
                     }) + "",
          expected2);
-
-
-/******************************************************************************/
-
-print("Tests complete");
