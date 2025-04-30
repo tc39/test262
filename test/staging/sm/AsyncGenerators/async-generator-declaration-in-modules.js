@@ -2,12 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 async function* f() {
     return "success";
 }

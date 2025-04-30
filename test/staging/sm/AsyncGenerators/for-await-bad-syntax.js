@@ -8,6 +8,7 @@ description: |
   pending
 esid: pending
 ---*/
+
 var AsyncGenerator = async function*(){}.constructor;
 
 function assertSyntaxError(code) {
@@ -29,4 +30,3 @@ for (var decl of ["", "var", "let", "const"]) {
         assertSyntaxError(`for await (${decl} ${head} in null) ;`);
     }
 }
-
