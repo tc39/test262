@@ -15,10 +15,8 @@ esid: pending
 var sortFunctions = [Int32Array.prototype.sort];
 
 // Also test with cross-compartment wrapped typed arrays.
-if (typeof createNewGlobal === "function") {
-    var otherGlobal = createNewGlobal();
-    sortFunctions.push(createNewGlobal().Int32Array.prototype.sort);
-}
+var otherGlobal = $262.createRealm().global;
+sortFunctions.push(otherGlobal.Int32Array.prototype.sort);
 
 // The bug manifests itself only with Float arrays,
 // but checking everything here just for sanity.

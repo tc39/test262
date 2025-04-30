@@ -9,6 +9,9 @@ description: |
   pending
 esid: pending
 ---*/
+
+var otherGlobal = $262.createRealm().global;
+
 // Tests for TypedArray#reduce.
 for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(constructor.prototype.reduce.length, 1);
@@ -80,10 +83,8 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var reduce = createNewGlobal()[constructor.name].prototype.reduce;
-        assert.sameValue(reduce.call(arr, (previous, current) => Math.min(previous, current)), 1);
-    }
+    var reduce = otherGlobal[constructor.name].prototype.reduce;
+    assert.sameValue(reduce.call(arr, (previous, current) => Math.min(previous, current)), 1);
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
@@ -173,10 +174,8 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Called from other globals.
-    if (typeof createNewGlobal === "function") {
-        var reduceRight = createNewGlobal()[constructor.name].prototype.reduceRight;
-        assert.sameValue(reduceRight.call(arr, (previous, current) => Math.min(previous, current)), 1);
-    }
+    var reduceRight = otherGlobal[constructor.name].prototype.reduceRight;
+    assert.sameValue(reduceRight.call(arr, (previous, current) => Math.min(previous, current)), 1);
 
     // Throws if `this` isn't a TypedArray.
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,

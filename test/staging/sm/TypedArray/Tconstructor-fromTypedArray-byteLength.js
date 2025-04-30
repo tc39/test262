@@ -9,7 +9,7 @@ description: |
   pending
 esid: pending
 ---*/
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 
 var arr = [1, 2, 3];
 for (var constructor of anyTypedArrayConstructors) {

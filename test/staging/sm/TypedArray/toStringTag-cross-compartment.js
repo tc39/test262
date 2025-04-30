@@ -12,7 +12,7 @@ esid: pending
 const TypedArrayPrototype = Object.getPrototypeOf(Int8Array.prototype);
 const {get: toStringTag} = Object.getOwnPropertyDescriptor(TypedArrayPrototype, Symbol.toStringTag);
 
-const otherGlobal = createNewGlobal();
+const otherGlobal = $262.createRealm().global;
 
 for (let constructor of anyTypedArrayConstructors) {
     let ta = new otherGlobal[constructor.name](0);
