@@ -37,7 +37,7 @@ var nonSymbols = [
     new Proxy(obj, {})
 ];
 for (var value of nonSymbols) {
-    assertThrowsInstanceOf(() => symbolToPrimitive.call(value, "string"), TypeError);
+    assert.throws(TypeError, () => symbolToPrimitive.call(value, "string"));
 }
 
 // Surface features:
