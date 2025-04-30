@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Stringification of Boolean/String/Number objects
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.parse with a reviver which elides array elements
 esid: pending

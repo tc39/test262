@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Properly detect cycles in JSON.stringify (throw TypeError, check for cycles rather than imprecisely rely on recursion limits)
 esid: pending

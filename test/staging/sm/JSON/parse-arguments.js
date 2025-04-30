@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.parse handling of omitted arguments
 esid: pending

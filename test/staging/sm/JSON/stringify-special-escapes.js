@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.stringify of \\b\\f\\n\\r\\t should use one-character escapes, not hex
 esid: pending

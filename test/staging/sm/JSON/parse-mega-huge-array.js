@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.parse should parse arrays of essentially unlimited size
 esid: pending

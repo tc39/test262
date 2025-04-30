@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Call the replacer function for array elements with stringified indexes
 esid: pending

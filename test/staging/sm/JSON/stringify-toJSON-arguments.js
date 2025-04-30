@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Arguments when an object's toJSON method is called
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Treat non-array, non-callable replacers as if none had been specified
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   JSON.stringify(_1, _2, numberGreaterThanOne) produces wrong output
 esid: pending
