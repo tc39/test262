@@ -29,6 +29,6 @@ const sum = (x, y) => x + y;
 const iter = new TestIterator();
 
 assert.sameValue(iter.closed, false);
-assertThrowsInstanceOf(() => iter.reduce(sum), Error);
+assert.throws(Error, () => iter.reduce(sum));
 assert.sameValue(iter.closed, false);
 

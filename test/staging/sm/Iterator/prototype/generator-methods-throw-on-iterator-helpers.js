@@ -20,7 +20,7 @@ const generatorProto = Object.getPrototypeOf(
 
 const iteratorHelper = [0].values().map(x => x);
 
-assertThrowsInstanceOf(() => generatorProto.next.call(iteratorHelper), TypeError);
-assertThrowsInstanceOf(() => generatorProto.return.call(iteratorHelper), TypeError);
-assertThrowsInstanceOf(() => generatorProto.throw.call(iteratorHelper), TypeError);
+assert.throws(TypeError, () => generatorProto.next.call(iteratorHelper));
+assert.throws(TypeError, () => generatorProto.return.call(iteratorHelper));
+assert.throws(TypeError, () => generatorProto.throw.call(iteratorHelper));
 

@@ -23,6 +23,6 @@ for (const method of methods) {
   const iterMethod = method(iter);
   let iterHelper;
   iterHelper = iterMethod.call(iter, x => iterHelper.next());
-  assertThrowsInstanceOf(() => iterHelper.next(), TypeError);
+  assert.throws(TypeError, () => iterHelper.next());
 }
 

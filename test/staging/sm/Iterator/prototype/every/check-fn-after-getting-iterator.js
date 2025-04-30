@@ -28,7 +28,7 @@ class TestIterator extends Iterator {
 }
 
 const iter = new Proxy(new TestIterator(), handlerProxy);
-assertThrowsInstanceOf(() => iter.every(1), TypeError);
+assert.throws(TypeError, () => iter.every(1));
 
 assert.compareArray(
   log,

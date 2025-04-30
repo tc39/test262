@@ -32,6 +32,6 @@ class TestIterator extends Iterator {
 
 const iterator = new TestIterator();
 assert.sameValue(iterator.closed, false, 'iterator starts unclosed');
-assertThrowsInstanceOf(() => iterator.reduce((x, y) => x + y, 0), TestError);
+assert.throws(TestError, () => iterator.reduce((x, y) => x + y, 0));
 assert.sameValue(iterator.closed, false, 'iterator remains unclosed');
 

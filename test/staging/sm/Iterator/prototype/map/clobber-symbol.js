@@ -16,7 +16,7 @@ info: |
   Iterator is not enabled unconditionally
 ---*/
 Symbol = undefined;
-assertThrowsInstanceOf(() => Symbol.iterator, TypeError);
+assert.throws(TypeError, () => Symbol.iterator);
 
 const iterator = [0].values();
 assert.sameValue(

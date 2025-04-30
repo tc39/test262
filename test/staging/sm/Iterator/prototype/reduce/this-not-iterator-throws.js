@@ -15,7 +15,7 @@ esid: pending
 ---*/
 
 const sum = (x, y) => x + y;
-assertThrowsInstanceOf(Iterator.prototype.reduce.bind(undefined, sum), TypeError);
-assertThrowsInstanceOf(Iterator.prototype.reduce.bind({}, sum), TypeError);
-assertThrowsInstanceOf(Iterator.prototype.reduce.bind({next: 0}, sum), TypeError);
+assert.throws(TypeError, Iterator.prototype.reduce.bind(undefined, sum));
+assert.throws(TypeError, Iterator.prototype.reduce.bind({}, sum));
+assert.throws(TypeError, Iterator.prototype.reduce.bind({next: 0}, sum));
 

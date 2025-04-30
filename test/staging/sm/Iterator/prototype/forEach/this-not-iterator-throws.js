@@ -15,7 +15,7 @@ esid: pending
 ---*/
 
 const fn = x => x;
-assertThrowsInstanceOf(Iterator.prototype.forEach.bind(undefined, fn), TypeError);
-assertThrowsInstanceOf(Iterator.prototype.forEach.bind({}, fn), TypeError);
-assertThrowsInstanceOf(Iterator.prototype.forEach.bind({next: 0}, fn), TypeError);
+assert.throws(TypeError, Iterator.prototype.forEach.bind(undefined, fn));
+assert.throws(TypeError, Iterator.prototype.forEach.bind({}, fn));
+assert.throws(TypeError, Iterator.prototype.forEach.bind({next: 0}, fn));
 
