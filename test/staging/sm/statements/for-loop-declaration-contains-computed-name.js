@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Support computed property names in destructuring declarations in for-in/of loop heads
 esid: pending

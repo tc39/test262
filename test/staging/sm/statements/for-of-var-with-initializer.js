@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't assert parsing |for (var x = 3 of 42);|
 esid: pending

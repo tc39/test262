@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't assert parsing a for-in/of loop whose target is a name, where the expression being iterated over contains a string containing an index
 esid: pending

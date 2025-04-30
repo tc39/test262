@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't mishandle deletion of a property from the internal iterator created for a for-in loop, when a gc occurs just after it
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't crash constant-folding an |if| governed by a truthy constant, whose alternative statement is another |if|
 esid: pending
