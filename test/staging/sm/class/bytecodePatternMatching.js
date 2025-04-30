@@ -20,7 +20,7 @@ function a() {
         }
     };
 
-    assertThrowsInstanceOf(() => "a".replace(/a/, X), TypeError);
+    assert.throws(TypeError, () => "a".replace(/a/, X));
 }
 
 function b() {
@@ -30,7 +30,7 @@ function b() {
         }
     }
 
-    assertThrowsInstanceOf(() => [1, 2, 3].sort(X), TypeError);
+    assert.throws(TypeError, () => [1, 2, 3].sort(X));
 }
 
 a();

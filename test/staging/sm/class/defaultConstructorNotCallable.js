@@ -9,9 +9,10 @@ description: |
   pending
 esid: pending
 ---*/
+
 class badBase {}
-assertThrowsInstanceOf(badBase, TypeError);
+assert.throws(TypeError, badBase);
 
 class badSub extends (class {}) {}
-assertThrowsInstanceOf(badSub, TypeError);
+assert.throws(TypeError, badSub);
 

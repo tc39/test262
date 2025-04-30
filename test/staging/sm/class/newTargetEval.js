@@ -19,7 +19,7 @@ try {
 }
 
 // new.target is invalid inside eval inside top-level arrow functions
-assertThrowsInstanceOf(() => eval('new.target'), SyntaxError);
+assert.throws(SyntaxError, () => eval('new.target'));
 
 // new.target is invalid inside indirect eval.
 let ieval = eval;
