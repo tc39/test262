@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   { get x(v) { } } and { set x(v, v2) { } } should be syntax errors
 esid: pending

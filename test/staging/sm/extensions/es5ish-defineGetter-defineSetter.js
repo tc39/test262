@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Implement __define[GS]etter__ using Object.defineProperty
 esid: pending

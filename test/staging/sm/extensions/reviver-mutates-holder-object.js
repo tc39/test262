@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Behavior when the JSON.parse reviver mutates the holder object
 esid: pending

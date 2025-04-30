@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   __proto__ should work in destructuring patterns as the targets of for-in/for-of loops
 esid: pending

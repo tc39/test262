@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Don't use a shared-permanent inherited property to implement [].length or (function(){}).length
 esid: pending

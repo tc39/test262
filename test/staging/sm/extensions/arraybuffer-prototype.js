@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   ArrayBuffer cannot access properties defined on the prototype chain.
 esid: pending

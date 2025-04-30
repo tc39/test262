@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Escape sequences aren't allowed in bolded grammar tokens (that is, in keywords, possibly contextual keywords)
 esid: pending

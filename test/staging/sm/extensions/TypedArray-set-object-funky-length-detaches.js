@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   %TypedArray%.prototype.set(object w/funky length property, offset) shouldn't misbehave if the funky length property detaches this typed array's buffer
 esid: pending
