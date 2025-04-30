@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   new Date(value) should call ToPrimitive on value before testing for string-ness
 esid: pending

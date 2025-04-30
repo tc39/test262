@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   new Date(...) must convert *all* arguments to number, not return NaN early if a non-finite argument is encountered
 esid: pending
