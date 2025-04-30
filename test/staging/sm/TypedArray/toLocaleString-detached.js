@@ -16,7 +16,7 @@ if (typeof $262.detachArrayBuffer === "function") {
     for (let constructor of typedArrayConstructors) {
         let typedArray = new constructor(42);
         $262.detachArrayBuffer(typedArray.buffer);
-        assertThrowsInstanceOf(() => typedArray.toLocaleString(), TypeError);
+        assert.throws(TypeError, () => typedArray.toLocaleString());
     }
 
     // Doesn't throw a TypeError if detached in Number.prototype.toLocaleString.

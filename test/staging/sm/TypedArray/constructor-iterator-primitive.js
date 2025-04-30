@@ -30,9 +30,9 @@ for (let ctor of typedArrayConstructors) {
                 return primitive;
             }
         };
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             new ctor(arg);
-        }, TypeError);
+        });
     }
 }
 

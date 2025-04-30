@@ -38,9 +38,9 @@ for (var constructor of anyTypedArrayConstructors) {
     var invalidReceivers = [undefined, null, 1, false, "", Symbol(), [], {}, /./,
                             new Proxy(new constructor(), {})];
     invalidReceivers.forEach(invalidReceiver => {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.prototype.slice.call(invalidReceiver, 0);
-        }, TypeError, "Assert that slice fails if this value is not a TypedArray");
+        }, "Assert that slice fails if this value is not a TypedArray");
     });
 
     // Test that the length getter is never called.

@@ -25,9 +25,9 @@ for (var constructor of anyTypedArrayConstructors) {
         () => ({})  // arrow functions are not constructors
     ];
     for (var v of nonconstructors) {
-        assertThrowsInstanceOf(() => {
+        assert.throws(TypeError, () => {
             constructor.from.call(v, arr);
-        }, TypeError);
+        });
     }
 
     // %TypedArray%.from does not get confused if global constructors for typed arrays

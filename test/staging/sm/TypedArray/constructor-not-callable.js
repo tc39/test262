@@ -10,10 +10,10 @@ description: |
 esid: pending
 ---*/
 for (var constructor of anyTypedArrayConstructors) {
-    assertThrowsInstanceOf(() => constructor(), TypeError);
-    assertThrowsInstanceOf(() => constructor(1), TypeError);
-    assertThrowsInstanceOf(() => constructor.call(null), TypeError);
-    assertThrowsInstanceOf(() => constructor.apply(null, []), TypeError);
-    assertThrowsInstanceOf(() => Reflect.apply(constructor, null, []), TypeError);
+    assert.throws(TypeError, () => constructor());
+    assert.throws(TypeError, () => constructor(1));
+    assert.throws(TypeError, () => constructor.call(null));
+    assert.throws(TypeError, () => constructor.apply(null, []));
+    assert.throws(TypeError, () => Reflect.apply(constructor, null, []));
 }
 

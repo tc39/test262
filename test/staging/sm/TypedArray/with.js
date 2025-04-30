@@ -24,7 +24,7 @@ let value = {
 
 let ta = new Int32Array(5);
 for (let index of indices) {
-  assertThrowsInstanceOf(() => ta.with(index, value), Err);
+  assert.throws(Err, () => ta.with(index, value), Err);
 }
 
 for (let index of indices) {
@@ -37,6 +37,6 @@ for (let index of indices) {
     }
   };
 
-  assertThrowsInstanceOf(() => ta.with(index, value), RangeError);
+  assert.throws(RangeError, () => ta.with(index, value));
 }
 

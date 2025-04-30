@@ -11,12 +11,12 @@ esid: pending
 ---*/
 // Ensure that TypedArrays throw when attempting to sort a detached ArrayBuffer
 if (typeof $262.detachArrayBuffer === "function") {
-    assertThrowsInstanceOf(() => {
+    assert.throws(TypeError, () => {
         let buffer = new ArrayBuffer(32);
         let array  = new Int32Array(buffer);
         $262.detachArrayBuffer(buffer);
         array.sort();
-    }, TypeError);
+    });
 }
 
 // Ensure detaching buffer in comparator doesn't throw an error.
@@ -58,23 +58,23 @@ if (typeof createNewGlobal === "function" && typeof $262.detachArrayBuffer === "
 }
 
 // Ensure that TypedArray.prototype.sort will not sort non-TypedArrays
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     let array = [4, 3, 2, 1];
     Int32Array.prototype.sort.call(array);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     Int32Array.prototype.sort.call({a: 1, b: 2});
-}, TypeError);
+});
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     Int32Array.prototype.sort.call(Int32Array.prototype);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     let buf = new ArrayBuffer(32);
     Int32Array.prototype.sort.call(buf);
-}, TypeError);
+});
 
 // Ensure that comparator errors are propagataed
 function badComparator(x, y) {
@@ -83,14 +83,14 @@ function badComparator(x, y) {
     return x - y;
 }
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     let array = new Uint8Array([99, 99, 99, 99]);
     array.sort(badComparator);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     let array = new Uint8Array([1, 99, 2, 99]);
     array.sort(badComparator);
-}, TypeError);
+});
 
 

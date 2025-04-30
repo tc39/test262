@@ -12,11 +12,11 @@ esid: pending
 for (var constructor of typedArrayConstructors) {
     var buf = new constructor();
     $262.detachArrayBuffer(buf.buffer);
-    assertThrowsInstanceOf(() => new constructor(buf), TypeError);
+    assert.throws(TypeError, () => new constructor(buf));
 
     var buffer = new ArrayBuffer();
     $262.detachArrayBuffer(buffer);
-    assertThrowsInstanceOf(() => new constructor(buffer), TypeError);
+    assert.throws(TypeError, () => new constructor(buffer));
 }
 
 

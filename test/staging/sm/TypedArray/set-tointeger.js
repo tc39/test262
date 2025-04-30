@@ -83,7 +83,7 @@ let invalidOffsets = [
 
 for (let offset of invalidOffsets) {
     for (let source of sources) {
-        assertThrowsInstanceOf(() => ta.set(source, offset), RangeError);
+        assert.throws(RangeError, () => ta.set(source, offset));
     }
 }
 
@@ -93,12 +93,12 @@ for (let source of emptySources) {
     ta.set(source, 4.9);
 }
 for (let source of nonEmptySource) {
-    assertThrowsInstanceOf(() => ta.set(source, 4), RangeError);
-    assertThrowsInstanceOf(() => ta.set(source, 4.9), RangeError);
+    assert.throws(RangeError, () => ta.set(source, 4));
+    assert.throws(RangeError, () => ta.set(source, 4.9));
 }
 
 // ToInteger(symbol value) throws a TypeError.
 for (let source of sources) {
-    assertThrowsInstanceOf(() => ta.set(source, Symbol()), TypeError);
+    assert.throws(TypeError, () => ta.set(source, Symbol()));
 }
 
