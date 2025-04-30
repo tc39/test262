@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement arguments[@@iterator].
 esid: pending
 ---*/
-var BUGNUMBER = 992617;
-var summary = "Implement arguments[@@iterator].";
-
-print(BUGNUMBER + ": " + summary);
 
 // MappedArgumentsObject
 let mapped = [
@@ -173,4 +169,3 @@ function f([a], b, c) {
 }
 f([1], 2, 3);
 `), "values");
-

@@ -8,17 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Function.prototype.call
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 575535;
-var summary = 'Function.prototype.call';
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectTypeError(fun, msg)
 {
@@ -130,8 +122,3 @@ strictSome.call("foo", obj);
 
 seenThis = obj;
 strictSome.call(obj, obj);
-
-
-/******************************************************************************/
-
-print("All tests passed!");

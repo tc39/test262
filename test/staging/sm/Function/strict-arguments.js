@@ -8,16 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  ES5 strict mode: arguments objects of strict mode functions must copy argument values
 esid: pending
 ---*/
-var gTestfile = 'strict-arguments.js';
-var BUGNUMBER = 516255;
-var summary =
-  "ES5 strict mode: arguments objects of strict mode functions must copy " +
-  "argument values";
-
-print(BUGNUMBER + ": " + summary);
 
 /**************
  * BEGIN TEST *
@@ -451,8 +444,3 @@ assert.sameValue(arraysEqual(strictNestedAssignShadowFunctionName(), []), true);
 assert.sameValue(arraysEqual(strictNestedAssignShadowFunctionName(99), [99]), true);
 assert.sameValue(arraysEqual(strictNestedAssignShadowFunctionName(""), [""]), true);
 assert.sameValue(arraysEqual(strictNestedAssignShadowFunctionName(obj), [obj]), true);
-
-
-/******************************************************************************/
-
-print("All tests passed!");
