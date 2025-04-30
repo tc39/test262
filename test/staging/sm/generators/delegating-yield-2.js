@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js, sm/non262-generators-shell.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending

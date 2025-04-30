@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
@@ -19,7 +17,7 @@ function* gen() {
 }
 
 var j = 0;
-for (i of gen())
+for (var i of gen())
     assert.sameValue(i, j++);
 
 // now mess up the stack
