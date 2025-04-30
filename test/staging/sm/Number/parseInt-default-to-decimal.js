@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Number.parseInt(string, radix). Verify that Number.parseInt defaults to decimal.
 esid: pending

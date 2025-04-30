@@ -5,8 +5,6 @@
 
 /*---
 includes: [sm/assertThrowsValue.js]
-flags:
-  - noStrict
 description: |
   Number.prototype.toExponential
 esid: pending
