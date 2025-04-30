@@ -13,5 +13,5 @@ esid: pending
     assert.sameValue(Object.getPrototypeOf(Object.create(null, props)), null);
 });
 
-assertThrowsInstanceOf(() => Object.create(null, null), TypeError);
+assert.throws(TypeError, () => Object.create(null, null));
 

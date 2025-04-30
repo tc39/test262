@@ -59,9 +59,9 @@ if ("values" in Object) {
     values = Object.values(o);
     assert.compareArray(values, [1, 3]);
 
-    assertThrowsInstanceOf(() => Object.values(), TypeError);
-    assertThrowsInstanceOf(() => Object.values(undefined), TypeError);
-    assertThrowsInstanceOf(() => Object.values(null), TypeError);
+    assert.throws(TypeError, () => Object.values());
+    assert.throws(TypeError, () => Object.values(undefined));
+    assert.throws(TypeError, () => Object.values(null));
 
     assert.compareArray(Object.values(1), []);
     assert.compareArray(Object.values(true), []);

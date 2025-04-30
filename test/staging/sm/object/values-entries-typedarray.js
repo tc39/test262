@@ -38,7 +38,7 @@ const ACCESS_ON_DETACHED_ARRAY_BUFFER_THROWS = (() => {
 
 function maybeThrowOnDetached(fn, returnValue) {
     if (ACCESS_ON_DETACHED_ARRAY_BUFFER_THROWS) {
-        assertThrowsInstanceOf(fn, TypeError);
+        assert.throws(TypeError, fn);
         return returnValue;
     }
     return fn();

@@ -44,9 +44,9 @@ assert.sameValue(Object.getOwnPropertySymbols(new Proxy(Object.create(obj), {}))
 
 // Primitives are coerced to objects; but there are never any symbol-keyed
 // properties on the resulting wrapper objects.
-assertThrowsInstanceOf(() => Object.getOwnPropertySymbols(), TypeError);
-assertThrowsInstanceOf(() => Object.getOwnPropertySymbols(undefined), TypeError);
-assertThrowsInstanceOf(() => Object.getOwnPropertySymbols(null), TypeError);
+assert.throws(TypeError, () => Object.getOwnPropertySymbols());
+assert.throws(TypeError, () => Object.getOwnPropertySymbols(undefined));
+assert.throws(TypeError, () => Object.getOwnPropertySymbols(null));
 for (var primitive of [true, 1, 3.14, "hello", Symbol()])
     assert.sameValue(Object.getOwnPropertySymbols(primitive).length, 0);
 

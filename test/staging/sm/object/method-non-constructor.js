@@ -10,12 +10,12 @@ description: |
 esid: pending
 ---*/
 var obj = { method() { } };
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     new obj.method;
-}, TypeError);
+});
 
 obj = { constructor() { } };
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     new obj.constructor;
-}, TypeError);
+});
 
