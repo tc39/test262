@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-Set-shell.js, deepEqual.js, compareArray.js]
+includes: [sm/non262-Set-shell.js, compareArray.js, propertyHelper.js]
 flags:
   - noStrict
 description: |
@@ -11,10 +11,10 @@ esid: pending
 ---*/
 
 assert.sameValue(typeof Set.prototype.isDisjointFrom, "function");
-assert.deepEqual(Object.getOwnPropertyDescriptor(Set.prototype.isDisjointFrom, "length"), {
+verifyProperty(Set.prototype.isDisjointFrom, "length", {
   value: 1, writable: false, enumerable: false, configurable: true,
 });
-assert.deepEqual(Object.getOwnPropertyDescriptor(Set.prototype.isDisjointFrom, "name"), {
+verifyProperty(Set.prototype.isDisjointFrom, "name", {
   value: "isDisjointFrom", writable: false, enumerable: false, configurable: true,
 });
 

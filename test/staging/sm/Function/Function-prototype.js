@@ -2,19 +2,18 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [propertyHelper.js]
 flags:
   - noStrict
 description: |
   pending
 esid: pending
 ---*/
-var desc = Object.getOwnPropertyDescriptor(Function.prototype, "length");
-assert.deepEqual(desc,
+
+verifyProperty(Function.prototype, "length",
     {value: 0, writable: false, enumerable: false, configurable: true});
 
 assert.sameValue(Function.prototype.prototype, undefined);
 assert.sameValue(Function.prototype.callee, undefined);
 assert.throws(TypeError, () => Function.prototype.caller);
 assert.throws(TypeError, () => Function.prototype.arguments);
-

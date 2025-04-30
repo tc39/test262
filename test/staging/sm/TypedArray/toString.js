@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-TypedArray-shell.js, deepEqual.js]
+includes: [sm/non262-TypedArray-shell.js, propertyHelper.js]
 flags:
   - noStrict
 description: |
@@ -20,11 +20,13 @@ assert.sameValue(TypedArrayPrototype.toString, Array.prototype.toString);
 // The concrete TypedArray prototypes do not have an own "toString" property.
 assert.sameValue(anyTypedArrayConstructors.every(c => !c.hasOwnProperty("toString")), true);
 
-assert.deepEqual(Object.getOwnPropertyDescriptor(TypedArrayPrototype, "toString"), {
+verifyProperty(TypedArrayPrototype, "toString", {
     value: TypedArrayPrototype.toString,
     writable: true,
     enumerable: false,
     configurable: true,
+}, {
+    restore: true
 });
 
 for (let constructor of anyTypedArrayConstructors) {
@@ -79,4 +81,3 @@ for (let constructor of anyTypedArrayConstructors) {
     let {array, expected} = testCases[constructor.name];
     assert.sameValue(new constructor(array).toString(), expected);
 }
-
