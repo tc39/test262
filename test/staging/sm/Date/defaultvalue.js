@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  [[DefaultValue]] behavior wrong for Date with overridden valueOf/toString
 esid: pending
 ---*/
-var BUGNUMBER = 645464;
-var summary =
-  "[[DefaultValue]] behavior wrong for Date with overridden valueOf/toString";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function allTests(Date)
 {
@@ -184,7 +175,3 @@ function allTests(Date)
 
 allTests(Date);
 allTests($262.createRealm().global.Date);
-
-/******************************************************************************/
-
-print("All tests passed!");

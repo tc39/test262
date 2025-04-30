@@ -6,17 +6,12 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Date.prototype.toISOString returns an invalid ISO-8601 string
 esid: pending
 ---*/
+
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
-
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 730831;
-var summary = 'Date.prototype.toISOString returns an invalid ISO-8601 string';
-
-print(BUGNUMBER + ": " + summary);
 
 function iso(t) {
   return new Date(t).toISOString();
@@ -58,5 +53,3 @@ assert.sameValue(minDateExtended, -8.64e15);
 assert.throws(RangeError, () => iso(minDateExtended - 1));
 assert.sameValue(iso(minDateExtended    ), "-271821-04-20T00:00:00.000Z");
 assert.sameValue(iso(minDateExtended + 1), "-271821-04-20T00:00:00.001Z");
-
-
