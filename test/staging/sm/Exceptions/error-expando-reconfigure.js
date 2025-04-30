@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Reconfiguring the first expando property added to an Error object shouldn't assert
 esid: pending
