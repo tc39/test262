@@ -7,7 +7,6 @@ description: |
   Eagerly throw TypeError when `this` is not an iterator.
 features:
   - iterator-helpers
-includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 ---*/

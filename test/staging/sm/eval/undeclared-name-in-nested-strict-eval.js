@@ -6,7 +6,6 @@
 /*---
 flags:
   - onlyStrict
-includes: [sm/non262.js, sm/non262-shell.js]
 description: |
   Verify that we don't optimize free names to gnames in eval code that's global, when the name refers to a binding introduced by a strict mode eval frame
 esid: pending

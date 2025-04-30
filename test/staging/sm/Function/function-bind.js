@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, nativeFunctionMatcher.js]
+includes: [nativeFunctionMatcher.js]
 flags:
   - noStrict
 description: |
