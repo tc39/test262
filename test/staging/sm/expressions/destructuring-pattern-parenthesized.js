@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Parenthesized "destructuring patterns" are not usable as destructuring patterns
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 1146136;
-var summary =
-  'Parenthesized "destructuring patterns" are not usable as destructuring ' +
-  'patterns';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // Don't pollute the top-level script with eval references.
 var savedEval = this[String.fromCharCode(101, 118, 97, 108)];
@@ -137,8 +126,3 @@ checkError("var a, b; [(f()) = 'kthxbai', b] = [1, 2];", SyntaxError, SyntaxErro
 
 Function("var a, b; ({ a: (a), b} = { a: 1, b: 2 });")();
 Function("var a, b; ({ a: (a) = 5, b} = { a: 1, b: 2 });")();
-
-
-/******************************************************************************/
-
-print("Tests complete");
