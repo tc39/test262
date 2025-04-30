@@ -10,6 +10,7 @@ flags:
 description: |
   Implement %TypedArray%.prototype.{findLast, findLastIndex}
 esid: pending
+features: [Symbol]
 ---*/
 
 const methods = ["findLast", "findLastIndex"];
@@ -27,9 +28,7 @@ anyTypedArrayConstructors.forEach(constructor => {
         assert.sameValue(arr[method](v => v === 3), 3);
         assert.sameValue(arr[method](v => v === 6), method === "findLast" ? undefined : -1);
 
-        var thisValues = [undefined, null, true, 1, "foo", [], {}];
-        if (typeof Symbol == "function")
-            thisValues.push(Symbol());
+        var thisValues = [undefined, null, true, 1, "foo", [], {}, Symbol()];
 
         thisValues.forEach(thisArg =>
             assert.throws(TypeError, () => arr[method].call(thisArg, () => true))

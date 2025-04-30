@@ -10,6 +10,7 @@ flags:
 description: |
   pending
 esid: pending
+features: [Symbol]
 ---*/
 if ("values" in Object) {
     assert.sameValue(Object.values.length, 1);
@@ -65,8 +66,7 @@ if ("values" in Object) {
 
     assert.compareArray(Object.values(1), []);
     assert.compareArray(Object.values(true), []);
-    if (typeof Symbol === "function")
-        assert.compareArray(Object.values(Symbol("foo")), []);
+    assert.compareArray(Object.values(Symbol("foo")), []);
 
     assert.compareArray(Object.values("foo"), ["f", "o", "o"]);
 

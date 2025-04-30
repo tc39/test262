@@ -10,7 +10,9 @@ flags:
 description: |
   pending
 esid: pending
+features: [Symbol]
 ---*/
+
 if ("entries" in Object) {
     assert.sameValue(Object.entries.length, 1);
 
@@ -65,8 +67,7 @@ if ("entries" in Object) {
 
     assert.deepEqual(Object.entries(1), []);
     assert.deepEqual(Object.entries(true), []);
-    if (typeof Symbol === "function")
-        assert.deepEqual(Object.entries(Symbol("foo")), []);
+    assert.deepEqual(Object.entries(Symbol("foo")), []);
 
     assert.deepEqual(Object.entries("foo"), [["0", "f"], ["1", "o"], ["2", "o"]]);
 

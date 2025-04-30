@@ -8,6 +8,7 @@ flags:
 description: |
   pending
 esid: pending
+features: [Symbol]
 ---*/
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
@@ -31,9 +32,7 @@ function logProxy(object) {
     return {proxy, log};
 }
 
-var properties = ["string-property"];
-if (typeof Symbol === 'function')
-    properties.push(Symbol("symbol-property"));
+var properties = ["string-property", Symbol("symbol-property")];
 
 for (var property of properties) {
     // Test 1: property is not present on object

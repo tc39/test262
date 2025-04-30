@@ -9,6 +9,7 @@ flags:
 description: |
   Object.isSealed() should return true when given primitive values as input
 esid: pending
+features: [Symbol]
 ---*/
 
 assert.sameValue(Object.isSealed(), true);
@@ -17,6 +18,4 @@ assert.sameValue(Object.isSealed(null), true);
 assert.sameValue(Object.isSealed(1), true);
 assert.sameValue(Object.isSealed("foo"), true);
 assert.sameValue(Object.isSealed(true), true);
-if (typeof Symbol === "function") {
-    assert.sameValue(Object.isSealed(Symbol()), true);
-}
+assert.sameValue(Object.isSealed(Symbol()), true);
