@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp.prototype[@@replace] should check latin1/twoBytes for all strings used in relate operation.
 esid: pending

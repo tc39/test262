@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Implement RegExp unicode flag -- empty class should not match anything.
 esid: pending

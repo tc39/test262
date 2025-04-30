@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp lastIndex property set should not coerce type to number
 esid: pending

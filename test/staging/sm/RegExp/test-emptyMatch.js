@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp.prototype.test should update lastIndex to correct position even if pattern starts with .*
 esid: pending

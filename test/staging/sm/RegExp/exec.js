@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp.prototype.exec doesn't get the lastIndex and ToInteger() it for non-global regular expressions when it should
 esid: pending
