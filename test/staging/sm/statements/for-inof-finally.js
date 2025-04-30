@@ -6,14 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Leaving for-in and try should handle stack value in correct order
 esid: pending
 ---*/
-var BUGNUMBER = 1332881;
-var summary =
-  "Leaving for-in and try should handle stack value in correct order";
-
-print(BUGNUMBER + ": " + summary);
 
 var called = 0;
 function reset() {
@@ -84,4 +79,3 @@ var d = (function () {
 })();
 assert.sameValue(called, 2);
 assert.sameValue(d, 14);
-

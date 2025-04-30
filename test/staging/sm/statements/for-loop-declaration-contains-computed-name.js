@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Support computed property names in destructuring declarations in for-in/of loop heads
 esid: pending
 ---*/
-var gTestfile = "for-loop-declaration-contains-computed-name.js";
-var BUGNUMBER = 1233767;
-var summary =
-  "Support computed property names in destructuring declarations in " +
-  "for-in/of loop heads";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var count;
 
@@ -47,7 +36,3 @@ for (var { length: x, [x - 1]: y } in "foo")
 
   count++;
 }
-
-/******************************************************************************/
-
-print("Tests complete");
