@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Implement RegExp unicode flag -- AdvanceStringIndex in global match and replace.
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.relace should zero the .lastIndex when called with a global RegExp
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.match behavior with zero-length matches involving forward lookahead
 esid: pending

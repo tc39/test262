@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExpStatics::makeMatch should make an undefined value when the last match had an undefined capture.
 esid: pending

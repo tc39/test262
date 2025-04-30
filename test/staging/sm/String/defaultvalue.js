@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   [[DefaultValue]] behavior wrong for String with overridden valueOf/toString
 esid: pending

@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.split should call ToUint32(limit) before ToString(separator).
 esid: pending

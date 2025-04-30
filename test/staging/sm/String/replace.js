@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   Call RegExp.prototype[@@replace] from String.prototype.replace.
 esid: pending

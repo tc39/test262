@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.match must define matches on the returned array, not set them
 esid: pending

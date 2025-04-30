@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.indexOf with empty searchString
 esid: pending

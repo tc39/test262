@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   String.prototype.match should zero the .lastIndex when called with a global RegExp
 esid: pending
