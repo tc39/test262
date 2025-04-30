@@ -28,6 +28,6 @@ for (let v of [null, undefined]) {
 }
 
 for (let v of [1, true, Symbol.iterator, "", {}, []]) {
-    assertThrowsInstanceOf(() => "a-a".search(create(v)), TypeError);
+    assert.throws(TypeError, () => "a-a".search(create(v)));
 }
 
