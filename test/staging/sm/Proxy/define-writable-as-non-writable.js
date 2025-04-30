@@ -2,13 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - onlyStrict
 description: |
   pending
 esid: pending
 ---*/
-"use strict";
 
 var target = {};
 Object.defineProperty(target, "test", {configurable: false, writable: true, value: 5});
@@ -23,4 +20,3 @@ var proxy = new Proxy(target, {
 assert.throws(TypeError, () => Object.defineProperty(proxy, "test", {writable: false}));
 
 assert.throws(TypeError, () => Reflect.defineProperty(proxy, "test", {writable: false}));
-
