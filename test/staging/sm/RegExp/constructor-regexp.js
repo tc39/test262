@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp constructor shouldn't invoke source/flags getters on argument RegExp instance.
 esid: pending

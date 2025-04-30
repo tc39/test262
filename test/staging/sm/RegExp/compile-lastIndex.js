@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp.prototype.compile must perform all its steps *except* setting .lastIndex, then throw, when provided a RegExp whose .lastIndex has been made non-writable
 esid: pending

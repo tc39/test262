@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   RegExp.prototype[@@split] should check if this value is RegExp.
 esid: pending

@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp constructor with pattern with @@match.
 esid: pending

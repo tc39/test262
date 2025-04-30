@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExp.prototype[@@replace] should not use optimized path if RegExp.prototype.unicode is modified.
 esid: pending

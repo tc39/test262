@@ -3,8 +3,6 @@
 
 /*---
 includes: [compareArray.js]
-flags:
-  - noStrict
 description: |
   Implement RegExp unicode flag -- ignoreCase flag with non-ascii to ascii map.
 esid: pending

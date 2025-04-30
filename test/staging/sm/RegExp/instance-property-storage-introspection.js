@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Represent /a/.{lastIndex,global,source,multiline,sticky,ignoreCase} with plain old data properties
 esid: pending

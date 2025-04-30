@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   RegExpExec should throw if exec property of non-RegExp is not callable
 esid: pending
