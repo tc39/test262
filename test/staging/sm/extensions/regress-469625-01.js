@@ -8,15 +8,12 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Array prototype and expression closures
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 469625;
-var summary = 'TM: Array prototype and expression closures';
+
 var actual = '';
 var expect = '';
-
 
 //-----------------------------------------------------------------------------
 test();
@@ -26,7 +23,6 @@ function test()
 {
   expect = 'TypeError: [].__proto__ is not a function';
 
-
   Array.prototype.__proto__ = function () { return 3; };
 
   try
@@ -35,8 +31,8 @@ function test()
   }
   catch(ex)
   {
-    print(actual = ex + '');
+    actual = ex + '';
   }
 
-  assert.sameValue(expect, actual, summary);
+  assert.sameValue(expect, actual);
 }

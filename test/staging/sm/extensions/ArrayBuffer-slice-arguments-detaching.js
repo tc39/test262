@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  ArrayBuffer.prototype.slice shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer being sliced
 esid: pending
 ---*/
-var gTestfile = "ArrayBuffer-slice-arguments-detaching.js";
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 991981;
-var summary =
-  "ArrayBuffer.prototype.slice shouldn't misbehave horribly if " +
-  "index-argument conversion detaches the ArrayBuffer being sliced";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function testStart()
 {
@@ -79,7 +67,3 @@ function testEnd()
   assert.sameValue(ab.byteLength, 0, "detaching should work for byteLength weirdness");
 }
 testEnd();
-
-/******************************************************************************/
-
-print("Tests complete");

@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Behavior when JSON.parse walks over a non-native object
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 901380;
-var summary = "Behavior when JSON.parse walks over a non-native object";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // A little trickiness to account for the undefined-ness of property
 // enumeration order.
@@ -57,7 +48,3 @@ else
 }
 
 assert.sameValue(observedTypedArrayElementCount, 1);
-
-/******************************************************************************/
-
-print("Tests complete");

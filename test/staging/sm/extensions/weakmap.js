@@ -8,18 +8,11 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  js weak maps
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 547941;
-var summary = 'js weak maps';
-var actual = '';
-var expect = '';
 
-//-----------------------------------------------------------------------------
 test();
-//-----------------------------------------------------------------------------
 
 function test()
 {
@@ -44,13 +37,6 @@ function test()
         if (todo) {
             TestTodoCount++;
 
-            if (success) {
-                var ex = new Error;
-                print ("=== TODO but PASSED? ===");
-                print (ex.stack);
-                print ("========================");
-            }
-
             return;
         }
 
@@ -58,15 +44,6 @@ function test()
             TestPassCount++;
         } else {
             TestFailCount++;
-
-            var ex = new Error;
-            print ("=== FAILED ===");
-            print (ex.stack);
-            if (thrown) {
-                print ("    threw exception:");
-                print (thrown);
-            }
-            print ("==============");
         }
     }
 
@@ -117,8 +94,6 @@ function test()
     check(() => map.get(key) == undefined);
 
     checkThrows(() => map.set("non-object key", value));
-
-    print ("done");
 
     assert.sameValue(0, TestFailCount, "weak map tests");
 }

@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  ECMAScript built-in methods that immediately throw when |this| is |undefined| or |null| (due to CheckObjectCoercible, ToObject, or ToString)
 esid: pending
 ---*/
-
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 619283;
-var summary =
-  "ECMAScript built-in methods that immediately throw when |this| is " +
-  "|undefined| or |null| (due to CheckObjectCoercible, ToObject, or ToString)";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 // This test fills out for the non-standard methods which
 // non262/misc/builtin-methods-reject-null-undefined-this.js declines to test.
@@ -103,7 +91,3 @@ for (var className in ClassToMethodMap)
     testMethod(Class, className, method);
   }
 }
-
-/******************************************************************************/
-
-print("All tests passed!");
