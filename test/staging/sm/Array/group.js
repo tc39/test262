@@ -3,8 +3,6 @@
 
 /*---
 includes: [deepEqual.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
@@ -90,8 +88,8 @@ Object.defineProperty(Object.prototype, "foo", {
 Object.groupBy([1, 2, 3], () => 'foo');
 
 // Ensure property key is correctly accessed
-count = 0;
-p = Object.groupBy([1], () => ({ toString() { count++; return 10 } }));
+let count = 0;
+const p = Object.groupBy([1], () => ({ toString() { count++; return 10 } }));
 assert.sameValue(count, 1);
 Map.groupBy([1], () => ({ toString() { count++; return 10 } }));
 assert.sameValue(count, 1);

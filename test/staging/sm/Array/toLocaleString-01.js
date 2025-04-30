@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.prototype.toLocaleString
 esid: pending
@@ -20,7 +18,7 @@ o = {};
 assert.sameValue(Array.prototype.toLocaleString.call(o), "");
 
 var log = '';
-arr = {length: {valueOf: function () { log += "L"; return 2; }},
+var arr = {length: {valueOf: function () { log += "L"; return 2; }},
       0: "x", 1: "z"};
 assert.sameValue(Array.prototype.toLocaleString.call(arr), "x,z");
 assert.sameValue(log, "L");
