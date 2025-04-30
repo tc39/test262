@@ -2,12 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 var getProtoCalled = false;
 
 var newTarget = Object.defineProperty(function(){}.bind(), "prototype", {
@@ -24,4 +23,3 @@ assert.throws(SyntaxError, () => {
 });
 
 assert.sameValue(getProtoCalled, false);
-
