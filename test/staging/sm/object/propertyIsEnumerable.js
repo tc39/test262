@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.prototype.propertyIsEnumerable
 esid: pending
 ---*/
-var gTestfile = 'propertyIsEnumerable.js';
-var BUGNUMBER = 619283;
-var summary = "Object.prototype.propertyIsEnumerable";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectThrowError(errorCtor, fun)
 {
@@ -198,7 +189,3 @@ assert.sameValue(propertyIsEnumerable.call({ x: 9 }, "x"), true);
 assert.sameValue(propertyIsEnumerable.call(function() { }, "prototype"), false);
 assert.sameValue(propertyIsEnumerable.call(function() { }, "length"), false);
 assert.sameValue(propertyIsEnumerable.call(function() { "use strict"; }, "caller"), false);
-
-/******************************************************************************/
-
-print("All tests passed!");

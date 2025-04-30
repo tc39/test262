@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Object.defineProperties(O, Properties)
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 430133;
-var summary = 'ES5 Object.defineProperties(O, Properties)';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 assert.sameValue("defineProperties" in Object, true);
 assert.sameValue(Object.defineProperties.length, 2);
@@ -137,7 +128,3 @@ catch (e)
     error = "bad exception: " + e;
 }
 assert.sameValue(error, "typeerror", "should throw on Properties == undefined");
-
-/******************************************************************************/
-
-print("All tests passed!");

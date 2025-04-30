@@ -8,19 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement Object.preventExtensions, Object.isExtensible
 esid: pending
 ---*/
-var gTestfile = '15.2.3.10-01.js';
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 492849;
-var summary = 'ES5: Implement Object.preventExtensions, Object.isExtensible';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function trySetProperty(o, p, v, strict)
 {
@@ -101,7 +91,3 @@ for (var i = 0, sz = objs.length; i < sz; i++)
   assert.sameValue(tryDefineProperty(o, "baz", 17), "throw",
            "unexpected behavior for new property definition on object " + i);
 }
-
-/******************************************************************************/
-
-print("All tests passed!");

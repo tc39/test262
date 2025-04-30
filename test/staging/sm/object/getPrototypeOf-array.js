@@ -8,20 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  The [[Prototype]] of an object whose prototype chain contains an array isn't that array's [[Prototype]]
 esid: pending
 ---*/
-var gTestfile = 'getPrototypeOf-array.js';
-var BUGNUMBER = 769041;
-var summary =
-  "The [[Prototype]] of an object whose prototype chain contains an array " +
-  "isn't that array's [[Prototype]]";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var arr = [];
 assert.sameValue(Array.isArray(arr), true);
@@ -31,7 +20,3 @@ assert.sameValue(Object.getPrototypeOf(objWithArrPrototype), arr);
 var objWithArrGrandPrototype = Object.create(objWithArrPrototype);
 assert.sameValue(!Array.isArray(objWithArrGrandPrototype), true);
 assert.sameValue(Object.getPrototypeOf(objWithArrGrandPrototype), objWithArrPrototype);
-
-/******************************************************************************/
-
-print("Tests complete");

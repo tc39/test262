@@ -8,12 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  Coerce the argument passed to Object.getOwnPropertyDescriptor using ToObject
 esid: pending
 ---*/
-var BUGNUMBER = 1079188;
-var summary = "Coerce the argument passed to Object.getOwnPropertyDescriptor using ToObject";
-print(BUGNUMBER + ": " + summary);
 
 assert.throws(TypeError, () => Object.getOwnPropertyDescriptor());
 assert.throws(TypeError, () => Object.getOwnPropertyDescriptor(undefined));

@@ -8,12 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Coerce the argument passed to Object.getPrototypeOf using ToObject
 esid: pending
 ---*/
-var BUGNUMBER = 1079090;
-var summary = "Coerce the argument passed to Object.getPrototypeOf using ToObject";
-print(BUGNUMBER + ": " + summary);
 
 assert.throws(TypeError, () => Object.getPrototypeOf());
 assert.throws(TypeError, () => Object.getPrototypeOf(undefined));
@@ -25,4 +22,3 @@ assert.sameValue(Object.getPrototypeOf("foo"), String.prototype);
 if (typeof Symbol === "function") {
     assert.sameValue(Object.getPrototypeOf(Symbol("foo")), Symbol.prototype);
 }
-
