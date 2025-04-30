@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Array.reduce should ignore holes
 esid: pending
@@ -20,6 +18,8 @@ function test()
 {
   function add(a, b) { return a + b; }
   function testreduce(v) { return v == 3 ? "PASS" : "FAIL"; }
+
+  var a;
 
   expect = 'PASS';
 
