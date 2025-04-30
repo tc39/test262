@@ -5,42 +5,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*---
-defines: [completesNormally, raisesException, deepEqual, makeIterator, Permutations, assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
+defines: [makeIterator, Permutations, assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
 allow_unused: True
 ---*/
 
 (function() {
   const undefined = void 0;
-
-  /*
-   * completesNormally(CODE) returns true if evaluating CODE (as eval
-   * code) completes normally (rather than throwing an exception).
-   */
-  globalThis.completesNormally = function completesNormally(code) {
-    try {
-      eval(code);
-      return true;
-    } catch (exception) {
-      return false;
-    }
-  }
-
-  /*
-   * raisesException(EXCEPTION)(CODE) returns true if evaluating CODE (as
-   * eval code) throws an exception object that is an instance of EXCEPTION,
-   * and returns false if it throws any other error or evaluates
-   * successfully. For example: raises(TypeError)("0()") == true.
-   */
-  globalThis.raisesException = function raisesException(exception) {
-    return function (code) {
-      try {
-        eval(code);
-        return false;
-      } catch (actual) {
-        return actual instanceof exception;
-      }
-    };
-  };
 
   /** Make an iterator with a return method. */
   globalThis.makeIterator = function makeIterator(overrides) {
