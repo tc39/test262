@@ -73,16 +73,9 @@ function strict()
 
   addDataProperty(arr,  27182818, "eep", false, false, false);
 
-  try
-  {
+  assert.throws(TypeError, function() {
     arr.length = 1;
-    throw new Error("didn't throw?!");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true,
-             "non-configurable property should trigger TypeError, got " + e);
-  }
+  }, "non-configurable property should trigger TypeError");
 
   assert.sameValue(arr.length, 27182819);
 

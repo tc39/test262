@@ -17,15 +17,9 @@ var otherStr = new g.String("foo");
 assert.sameValue(otherStr instanceof g.String, true);
 assert.sameValue(otherStr.valueOf(), "foo");
 
-try
-{
+// NOTE: not |g.TypeError|, because |new| itself throws because
+//       |!IsConstructor(constructor)|.
+assert.throws(TypeError, function() {
   var constructor = g.parseInt;
   new constructor();
-  throw new Error("no error thrown");
-}
-catch (e)
-{
-  // NOTE: not |g.TypeError|, because |new| itself throws because
-  //       |!IsConstructor(constructor)|.
-  assert.sameValue(e instanceof TypeError, true);
-}
+});

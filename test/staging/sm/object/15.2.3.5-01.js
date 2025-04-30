@@ -42,11 +42,8 @@ assert.sameValue(Object.getOwnPropertyDescriptor(o, "baz"), undefined);
 assert.sameValue(o.baz, 12);
 assert.sameValue(o.hasOwnProperty("baz"), false);
 
-try {
-  var actual =
-    Object.create(Object.create({},
-                                { boom: { get: function() { return "base"; }}}),
-                  { boom: { get: function() { return "overridden"; }}}).boom
-} catch (e) {
-}
+var actual =
+  Object.create(Object.create({},
+                              { boom: { get: function() { return "base"; }}}),
+                { boom: { get: function() { return "overridden"; }}}).boom
 assert.sameValue(actual, "overridden");

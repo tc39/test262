@@ -29,16 +29,9 @@ invokeConversionTwice2();
 
 function dontOverwriteError1()
 {
-  try
-  {
+  assert.throws(TypeError, function() {
     [].length = { valueOf: {}, toString: {} };
-    throw new Error("didn't throw a TypeError");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true,
-             "expected a TypeError running out of conversion options, got " + e);
-  }
+  }, "expected a TypeError running out of conversion options");
 }
 dontOverwriteError1();
 

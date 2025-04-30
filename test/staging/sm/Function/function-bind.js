@@ -180,11 +180,9 @@ assert.sameValue(one.bind(null, 1, 2).length, 0);
 
 // retch
 var br = Object.create(null, { length: { value: 0 } });
-try
-{
-  br = bind.call(/a/g, /a/g, "aaaa");
-}
-catch (e) { /* nothing */ }
+assert.throws(TypeError, function() {
+  bind.call(/a/g, /a/g, "aaaa");
+});
 assert.sameValue(br.length, 0);
 
 

@@ -11,14 +11,9 @@ esid: pending
 
 // Function definitions.
 function syntaxError (script) {
-    try {
+    assert.throws(SyntaxError, function() {
         Function(script);
-    } catch (e) {
-        if (e instanceof SyntaxError) {
-            return;
-        }
-    }
-    throw new Error('Expected syntax error: ' + script);
+    });
 }
 
 

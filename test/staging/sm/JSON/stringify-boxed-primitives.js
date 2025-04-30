@@ -51,34 +51,25 @@ redefine(Object.prototype, "valueOf", objValueOf);
 
 redefine(Number.prototype, "toString", function() { return 42; });
 assert.sameValue(JSON.stringify(new Number(5)), "5");
+
 redefine(Number.prototype, "valueOf", function() { return 17; });
 assert.sameValue(JSON.stringify(new Number(5)), "17");
+
 delete Number.prototype.toString;
 assert.sameValue(JSON.stringify(new Number(5)), "17");
+
 delete Number.prototype.valueOf;
 assert.sameValue(JSON.stringify(new Number(5)), "null"); // isNaN(Number("[object Number]"))
+
 delete Object.prototype.toString;
-try
-{
+assert.throws(TypeError, function() {
   JSON.stringify(new Number(5));
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "ToNumber failure, should throw TypeError");
-}
+}, "ToNumber failure, should throw TypeError");
+
 delete Object.prototype.valueOf;
-try
-{
+assert.throws(TypeError, function() {
   JSON.stringify(new Number(5));
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "ToNumber failure, should throw TypeError");
-}
+}, "ToNumber failure, should throw TypeError");
 
 
 redefine(Number.prototype, "toString", numToString);
@@ -89,31 +80,22 @@ redefine(Object.prototype, "valueOf", objValueOf);
 
 redefine(String.prototype, "valueOf", function() { return 17; });
 assert.sameValue(JSON.stringify(new String(5)), '"5"');
+
 redefine(String.prototype, "toString", function() { return 42; });
 assert.sameValue(JSON.stringify(new String(5)), '"42"');
+
 delete String.prototype.toString;
 assert.sameValue(JSON.stringify(new String(5)), '"[object String]"');
+
 delete Object.prototype.toString;
 assert.sameValue(JSON.stringify(new String(5)), '"17"');
+
 delete String.prototype.valueOf;
-try
-{
+assert.throws(TypeError, function() {
   JSON.stringify(new String(5));
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "ToString failure, should throw TypeError");
-}
+}, "ToString failure, should throw TypeError");
+
 delete Object.prototype.valueOf;
-try
-{
+assert.throws(TypeError, function() {
   JSON.stringify(new String(5));
-  throw new Error("didn't throw");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "ToString failure, should throw TypeError");
-}
+}, "ToString failure, should throw TypeError");

@@ -14,7 +14,7 @@ esid: pending
 var futureReservedWords =
   [
    "class",
-   // "const", // Mozilla extension enabled even for versionless code
+   "const",
    "enum",
    "export",
    "extends",
@@ -26,459 +26,97 @@ var strictFutureReservedWords =
   [
    "implements",
    "interface",
-   "let", // enabled: this file doesn't execute as JS1.7
+   "let",
    "package",
    "private",
    "protected",
    "public",
    "static",
-   "yield", // enabled: this file doesn't execute as JS1.7
+   "yield",
   ];
 
-function testWord(word, expectNormal, expectStrict)
-{
-  var actual, status;
+function testNormalAndStrict(word, code, message) {
+  if (strictFutureReservedWords.includes(word)) {
+    eval(code);
+  } else {
+    assert(futureReservedWords.includes(word));
+    assert.throws(SyntaxError, function() {
+      eval(code);
+    }, word + ": normal " + message);
+  }
 
+  assert.throws(SyntaxError, function() {
+    eval("'use strict'; " + code);
+  }, word + ": strict " + message);
+}
+
+function testWord(word) {
   // USE AS LHS FOR ASSIGNMENT
-
-  actual = "";
-  status = word + ": normal assignment";
-  try
-  {
-    eval(word + " = 'foo';");
-    actual = "no error";
-  }
-  catch(e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict assignment";
-  try
-  {
-    eval("'use strict'; " + word + " = 'foo';");
-    actual = "no error";
-  }
-  catch(e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  testNormalAndStrict(word, word + " = 'foo';", "assignment");
 
   // USE AS DESTRUCTURING SHORTHAND
-
-  actual = "";
-  status = word + ": destructuring shorthand";
-  try
-  {
-    eval("({ " + word + " } = 'foo');");
-    actual = "no error";
-  }
-  catch(e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict destructuring shorthand";
-  try
-  {
-    eval("'use strict'; ({ " + word + " } = 'foo');");
-    actual = "no error";
-  }
-  catch(e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  testNormalAndStrict(word, "({ " + word + " } = 'foo');", "destructuring shorthand");
 
   // USE IN VARIABLE DECLARATION
-
-  actual = "";
-  status = word + ": normal var";
-  try
-  {
-    eval("var " + word + ";");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict var";
-  try
-  {
-    eval("'use strict'; var " + word + ";");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  testNormalAndStrict(word, "var " + word + ";", "var");
 
   // USE IN FOR-IN VARIABLE DECLARATION
-
-  actual = "";
-  status = word + ": normal for-in var";
-  try
-  {
-    eval("for (var " + word + " in {});");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict for-in var";
-  try
-  {
-    eval("'use strict'; for (var " + word + " in {});");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  testNormalAndStrict(word, "for (var " + word + " in {});", "for-in var");
 
   // USE AS CATCH IDENTIFIER
-
-  actual = "";
-  status = word + ": normal var";
-  try
-  {
-    eval("try { } catch (" + word + ") { }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict var";
-  try
-  {
-    eval("'use strict'; try { } catch (" + word + ") { }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  testNormalAndStrict(word, "try { } catch (" + word + ") { }", "catch var");
 
   // USE AS LABEL
-
-  actual = "";
-  status = word + ": normal label";
-  try
-  {
-    eval(word + ": while (false);");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict label";
-  try
-  {
-    eval("'use strict'; " + word + ": while (false);");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  testNormalAndStrict(word, word + ": while (false);", "label");
 
   // USE AS ARGUMENT NAME IN FUNCTION DECLARATION
+  testNormalAndStrict(word, "function foo(" + word + ") { }", "function argument");
 
-  actual = "";
-  status = word + ": normal function argument";
-  try
-  {
-    eval("function foo(" + word + ") { }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict function argument";
-  try
-  {
-    eval("'use strict'; function foo(" + word + ") { }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
-
-  actual = "";
-  status = word + ": function argument retroactively strict";
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval("function foo(" + word + ") { 'use strict'; }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  }, word + ": function argument retroactively strict");
 
   // USE AS ARGUMENT NAME IN FUNCTION EXPRESSION
+  testNormalAndStrict(word, "var s = (function foo(" + word + ") { });", "function expression argument");
 
-  actual = "";
-  status = word + ": normal function expression argument";
-  try
-  {
-    eval("var s = (function foo(" + word + ") { });");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict function expression argument";
-  try
-  {
-    eval("'use strict'; var s = (function foo(" + word + ") { });");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
-
-  actual = "";
-  status = word + ": function expression argument retroactively strict";
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval("var s = (function foo(" + word + ") { 'use strict'; });");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  }, word + ": function expression argument retroactively strict");
 
   // USE AS ARGUMENT NAME WITH FUNCTION CONSTRUCTOR
-
-  actual = "";
-  status = word + ": argument with normal Function";
-  try
-  {
+  if (strictFutureReservedWords.includes(word)) {
     Function(word, "return 17");
-    actual = "no error";
+  } else {
+    assert.throws(SyntaxError, function() {
+      Function(word, "return 17");
+    }, word + ": argument with normal Function");
   }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
 
-  actual = "";
-  status = word + ": argument with strict Function";
-  try
-  {
+  assert.throws(SyntaxError, function() {
     Function(word, "'use strict'; return 17");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  }, word + ": argument with strict Function");
 
   // USE AS ARGUMENT NAME IN PROPERTY SETTER
+  testNormalAndStrict(word, "var o = { set x(" + word + ") { } };", "property setter argument");
 
-  actual = "";
-  status = word + ": normal property setter argument";
-  try
-  {
-    eval("var o = { set x(" + word + ") { } };");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict property setter argument";
-  try
-  {
-    eval("'use strict'; var o = { set x(" + word + ") { } };");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
-
-  actual = "";
-  status = word + ": property setter argument retroactively strict";
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval("var o = { set x(" + word + ") { 'use strict'; } };");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  }, word + ": property setter argument retroactively strict");
 
   // USE AS FUNCTION NAME IN FUNCTION DECLARATION
+  testNormalAndStrict(word, "function " + word + "() { }", "function name");
 
-  actual = "";
-  status = word + ": normal function name";
-  try
-  {
-    eval("function " + word + "() { }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict function name";
-  try
-  {
-    eval("'use strict'; function " + word + "() { }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
-
-  actual = "";
-  status = word + ": function name retroactively strict";
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval("function " + word + "() { 'use strict'; }");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  }, word + ": function name retroactively strict");
 
   // USE AS FUNCTION NAME IN FUNCTION EXPRESSION
+  testNormalAndStrict(word, "var s = (function " + word + "() { });", "function expression name");
 
-  actual = "";
-  status = word + ": normal function expression name";
-  try
-  {
-    eval("var s = (function " + word + "() { });");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectNormal, status);
-
-  actual = "";
-  status = word + ": strict function expression name";
-  try
-  {
-    eval("'use strict'; var s = (function " + word + "() { });");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
-
-  actual = "";
-  status = word + ": function expression name retroactively strict";
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval("var s = (function " + word + "() { 'use strict'; });");
-    actual = "no error";
-  }
-  catch (e)
-  {
-    actual = e.name;
-    status +=  ", " + e.name + ": " + e.message + " ";
-  }
-  assert.sameValue(actual, expectStrict, status);
+  }, word + ": function expression name retroactively strict");
 }
 
-function testFutureReservedWord(word)
-{
-  testWord(word, "SyntaxError", "SyntaxError");
-}
-
-function testStrictFutureReservedWord(word)
-{
-  testWord(word, "no error", "SyntaxError");
-}
-
-futureReservedWords.forEach(testFutureReservedWord);
-strictFutureReservedWords.forEach(testStrictFutureReservedWord);
+futureReservedWords.forEach(testWord);
+strictFutureReservedWords.forEach(testWord);

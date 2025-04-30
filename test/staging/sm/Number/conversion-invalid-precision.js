@@ -11,19 +11,10 @@ description: |
 esid: pending
 ---*/
 
-function test(method, prec)
-{
-  try
-  {
+function test(method, prec) {
+  assert.throws(RangeError, function() {
     Number.prototype[method].call(0, prec);
-    throw "should have thrown";
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof RangeError, true,
-             "expected RangeError for " + method + " with precision " + prec +
-             ", got " + e);
-  }
+  });
 }
 
 test("toExponential", -32);

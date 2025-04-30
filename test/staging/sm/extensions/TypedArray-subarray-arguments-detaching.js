@@ -26,16 +26,9 @@ function testBegin()
 
   var ta = new Uint8Array(ab);
 
-  var ok = false;
-  try
-  {
-    ta.subarray(begin);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "start weirdness should have thrown");
+  assert.throws(TypeError, function() {
+    ta.subarray(begin)
+  }, "start weirdness should have thrown");
   assert.sameValue(ab.byteLength, 0, "detaching should work for start weirdness");
 }
 testBegin();
@@ -55,16 +48,9 @@ function testBeginWithEnd()
 
   var ta = new Uint8Array(ab);
 
-  var ok = false;
-  try
-  {
+  assert.throws(TypeError, function() {
     ta.subarray(begin, 0x1000);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "start weirdness should have thrown");
+  }, "start weirdness should have thrown");
   assert.sameValue(ab.byteLength, 0, "detaching should work for start weirdness");
 }
 testBeginWithEnd();
@@ -84,16 +70,9 @@ function testEnd()
 
   var ta = new Uint8Array(ab);
 
-  var ok = false;
-  try
-  {
+  assert.throws(TypeError, function() {
     ta.subarray(0x800, end);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "start weirdness should have thrown");
-  assert.sameValue(ab.byteLength, 0, "detaching should work for start weirdness");
+  }, "end weirdness should have thrown");
+  assert.sameValue(ab.byteLength, 0, "detaching should work for end weirdness");
 }
 testEnd();

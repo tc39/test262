@@ -10,13 +10,12 @@ description: |
   pending
 esid: pending
 ---*/
+
 function C(){}
 C.prototype = 1;
-try {
-    Object.defineProperty(C, "prototype", {get: function() { throw 0; }});
-    actual = "no exception";
-} catch (exc) {
-    actual = exc.name;
-}
+
+assert.throws(TypeError, function() {
+  Object.defineProperty(C, "prototype", {get: function() { throw 0; }});
+});
+
 new C; // don't assert
-assert.sameValue(actual, "TypeError");

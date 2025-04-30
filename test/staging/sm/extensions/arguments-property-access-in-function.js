@@ -30,17 +30,9 @@ var sobj =
     {
      "use strict";
 
-      try
-      {
-        var args = sobj.test.arguments;
-        throw new Error("access to arguments property of strict mode " +
-                        "function didn't throw");
-      }
-      catch (e)
-      {
-        assert.sameValue(e instanceof TypeError, true,
-                 "should have thrown TypeError, instead got: " + e);
-      }
+      assert.throws(TypeError, function() {
+        sobj.test.arguments;
+      }, "access to arguments property of strict mode function");
     }
   };
 sobj.test(5, undefined);

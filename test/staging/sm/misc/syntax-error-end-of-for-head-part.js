@@ -13,16 +13,9 @@ esid: pending
 
 function checkSyntaxError(str)
 {
-  try
-  {
-    var f = Function("for(w in\\");
-    throw new Error("didn't throw, returned " + f);
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof SyntaxError, true,
-             "expected SyntaxError, got " + e);
-  }
+  assert.throws(SyntaxError, function() {
+    Function(str);
+  });
 }
 
 checkSyntaxError("for(var w in \\");

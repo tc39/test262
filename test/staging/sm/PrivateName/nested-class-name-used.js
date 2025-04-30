@@ -32,9 +32,6 @@ class A {
 };
 
 a = new A;
-try {
+assert.throws(TypeError, function() {
   a.g();
-} catch (e) {
-  assert.sameValue(e instanceof TypeError, true);
-}
-
+});

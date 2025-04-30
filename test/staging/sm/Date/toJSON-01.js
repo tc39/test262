@@ -30,27 +30,13 @@ assert.sameValue(dateToJSON.length, 1);
  * 1. Let O be the result of calling ToObject, giving it the this value as its
  *    argument.
  */
-try
-{
+assert.throws(TypeError, function() {
   dateToJSON.call(null);
-  throw new Error("should have thrown a TypeError");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "ToObject throws TypeError for null/undefined");
-}
+}, "ToObject throws TypeError for null");
 
-try
-{
+assert.throws(TypeError, function() {
   dateToJSON.call(undefined);
-  throw new Error("should have thrown a TypeError");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true,
-           "ToObject throws TypeError for null/undefined");
-}
+}, "ToObject throws TypeError for undefined");
 
 
 /*
@@ -123,19 +109,13 @@ assert.sameValue(dateToJSON.call({ valueOf: function() { called = true; return {
          NaN);
 assert.sameValue(asserted, true);
 
-try
-{
+assert.throws(TypeError, function() {
   var r = dateToJSON.call({ valueOf: null, toString: null,
                             get toISOString()
                             {
                               throw new Error("shouldn't have been gotten");
                             } });
-  throw new Error("didn't throw, returned: " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true, "bad exception: " + e);
-}
+});
 
 
 /* 3. If tv is a Number and is not finite, return null. */
@@ -167,45 +147,21 @@ catch (e)
 
 
 /* 5. If IsCallable(toISO) is false, throw a TypeError exception. */
-try
-{
-  var r = dateToJSON.call({ toISOString: null });
-  throw new Error("didn't throw, returned: " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true, "bad exception: " + e);
-}
+assert.throws(TypeError, function() {
+  dateToJSON.call({ toISOString: null });
+});
 
-try
-{
-  var r = dateToJSON.call({ toISOString: undefined });
-  throw new Error("didn't throw, returned: " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true, "bad exception: " + e);
-}
+assert.throws(TypeError, function() {
+  dateToJSON.call({ toISOString: undefined });
+});
 
-try
-{
-  var r = dateToJSON.call({ toISOString: "oogabooga" });
-  throw new Error("didn't throw, returned: " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true, "bad exception: " + e);
-}
+assert.throws(TypeError, function() {
+  dateToJSON.call({ toISOString: "oogabooga" });
+});
 
-try
-{
-  var r = dateToJSON.call({ toISOString: Math.PI });
-  throw new Error("didn't throw, returned: " + r);
-}
-catch (e)
-{
-  assert.sameValue(e instanceof TypeError, true, "bad exception: " + e);
-}
+assert.throws(TypeError, function() {
+  dateToJSON.call({ toISOString: Math.PI });
+});
 
 
 /*

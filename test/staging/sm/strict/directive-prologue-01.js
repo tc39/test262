@@ -11,51 +11,21 @@ description: |
 esid: pending
 ---*/
 
-try
-{
+assert.throws(SyntaxError, function() {
   eval(" '\\145'; 'use strict'; ");
-  throw new Error("no error thrown for eval");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true,
-           "wrong error for octal-escape before strict directive in eval");
-}
+}, "wrong error for octal-escape before strict directive in eval");
 
-try
-{
+assert.throws(SyntaxError, function() {
   Function(" '\\145'; 'use strict'; ");
-  throw new Error("no error thrown for Function");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true,
-           "wrong error for octal-escape before strict directive in Function");
-}
+}, "wrong error for octal-escape before strict directive in Function");
 
-try
-{
+assert.throws(SyntaxError, function() {
   eval(" function f(){ '\\145'; 'use strict'; } ");
-  throw new Error("no error thrown for eval of function");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true,
-           "wrong error for octal-escape before strict directive in eval of " +
-           "function");
-}
+}, "wrong error for octal-escape before strict directive in eval of function");
 
-try
-{
+assert.throws(SyntaxError, function() {
   Function(" function f(){ '\\145'; 'use strict'; } ");
-  throw new Error("no error thrown for eval of function");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true,
-           "wrong error for octal-escape before strict directive in eval of " +
-           "function");
-}
+}, "wrong error for octal-escape before strict directive in eval of function");
 
 eval("function notAnError1() { 5; '\\145'; function g() { 'use strict'; } }");
 

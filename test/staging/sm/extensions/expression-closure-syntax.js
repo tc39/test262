@@ -16,19 +16,9 @@ esid: pending
   {
     function testOne(replacement)
     {
-      var x, rv;
-      try
-      {
-        rv = eval(code.replace("@@@", replacement));
-      }
-      catch (e)
-      {
-        assert.sameValue(e instanceof SyntaxError, true,
-                 "should have thrown a SyntaxError, instead got: " + e);
-        return;
-      }
-
-      assert.sameValue(true, false, "should have thrown, instead returned " + rv);
+      assert.throws(SyntaxError, function() {
+        eval(code.replace("@@@", replacement));
+      });
     }
 
     testOne("function");

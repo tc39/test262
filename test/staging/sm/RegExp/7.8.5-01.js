@@ -17,11 +17,7 @@ var regexps = ["/\\\u000A/", "/\\\u000D/", "/\\\u2028/", "/\\\u2029/",
 
 for(var i=0; i<regexps.length; i++) {
     var src = regexps[i];
-    try {
-	x = eval(src).source;
-    } catch(e) {
-	assert.sameValue(e.constructor, SyntaxError);
-	continue;
-    }
-    assert.sameValue(0, 1);
+    assert.throws(SyntaxError, function() {
+        eval(src).source;
+    });
 }

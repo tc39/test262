@@ -10,7 +10,7 @@ description: |
   pending
 esid: pending
 ---*/
-try {
-    new {prototype: TypeError.prototype};
-} catch (e) {}
 
+assert.throws(TypeError, function() {
+  new {prototype: TypeError.prototype};
+});

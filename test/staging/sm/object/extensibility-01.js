@@ -11,56 +11,31 @@ description: |
 esid: pending
 ---*/
 
-function trySetProperty(o, p, v, strict)
+function tryStrictSetProperty(o, p, v)
 {
-  function strictSetProperty()
-  {
+  assert.sameValue(Object.prototype.hasOwnProperty.call(o, p), false);
+  assert.throws(TypeError, function() {
     "use strict";
     o[p] = v;
-  }
+  });
+}
 
-  function setProperty()
-  {
-    o[p] = v;
-  }
-
+function trySetProperty(o, p, v)
+{
   assert.sameValue(Object.prototype.hasOwnProperty.call(o, p), false);
 
-  try
-  {
-    if (strict)
-      strictSetProperty();
-    else
-      setProperty();
-    if (o[p] === v)
-      return "set";
-    if (p in o)
-      return "set-converted";
-    return "swallowed";
-  }
-  catch (e)
-  {
-    return "throw";
-  }
+  o[p] = v;
+
+  assert.notSameValue(o[p], v);
+  assert.sameValue(p in o, false);
 }
 
 function tryDefineProperty(o, p, v)
 {
   assert.sameValue(Object.prototype.hasOwnProperty.call(o, p), false);
-
-  try
-  {
+  assert.throws(TypeError, function() {
     Object.defineProperty(o, p, { value: v });
-    if (o[p] === v)
-      return "set";
-    if (p in o)
-      return "set-converted";
-    return "swallowed";
-  }
-  catch (e)
-  {
-    return "throw";
-  }
+  });
 }
 
 assert.sameValue(typeof Object.preventExtensions, "function");
@@ -81,12 +56,7 @@ for (var i = 0, sz = objs.length; i < sz; i++)
 
   assert.sameValue(Object.isExtensible(o), false, "object " + i + " is extensible?");
 
-  assert.sameValue(trySetProperty(o, "baz", 17, true), "throw",
-           "unexpected behavior for strict-mode property-addition to " +
-           "object " + i);
-  assert.sameValue(trySetProperty(o, "baz", 17, false), "swallowed",
-           "unexpected behavior for property-addition to object " + i);
-
-  assert.sameValue(tryDefineProperty(o, "baz", 17), "throw",
-           "unexpected behavior for new property definition on object " + i);
+  tryStrictSetProperty(o, "baz", 17);
+  trySetProperty(o, "baz", 17);
+  tryDefineProperty(o, "baz", 17);
 }

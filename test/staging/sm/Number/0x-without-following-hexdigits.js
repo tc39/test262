@@ -11,13 +11,6 @@ description: |
 esid: pending
 ---*/
 
-try
-{
+assert.throws(SyntaxError, function() {
   eval("0x");
-  throw new Error("didn't throw parsing 0x (with no subsequent hex digits)");
-}
-catch (e)
-{
-  assert.sameValue(e instanceof SyntaxError, true,
-           "bad exception thrown: " + e);
-}
+});

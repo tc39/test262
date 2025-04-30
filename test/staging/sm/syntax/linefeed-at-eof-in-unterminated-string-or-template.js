@@ -13,16 +13,9 @@ esid: pending
 
 function expectSyntaxError(code)
 {
-  try
-  {
+  assert.throws(SyntaxError, function() {
     eval(code);
-    throw new Error("didn't throw");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof SyntaxError, true,
-             "got " + e.name + ", expected SyntaxError");
-  }
+  });
 }
 
 // The fundamental requirements of this test:

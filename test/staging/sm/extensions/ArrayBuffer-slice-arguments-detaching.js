@@ -25,16 +25,9 @@ function testStart()
       }
     };
 
-  var ok = false;
-  try
-  {
+  assert.throws(TypeError, function() {
     ab.slice(start);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "start weirdness should have thrown");
+  }, "start weirdness should have thrown");
   assert.sameValue(ab.byteLength, 0, "detaching should work for start weirdness");
 }
 testStart();
@@ -53,16 +46,9 @@ function testEnd()
       }
     };
 
-  var ok = false;
-  try
-  {
+  assert.throws(TypeError, function() {
     ab.slice(0x800, end);
-  }
-  catch (e)
-  {
-    ok = true;
-  }
-  assert.sameValue(ok, true, "byteLength weirdness should have thrown");
+  }, "byteLength weirdness should have thrown");
   assert.sameValue(ab.byteLength, 0, "detaching should work for byteLength weirdness");
 }
 testEnd();

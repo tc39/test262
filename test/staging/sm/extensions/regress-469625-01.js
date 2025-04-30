@@ -11,27 +11,8 @@ description: |
 esid: pending
 ---*/
 
-var actual = '';
-var expect = '';
+Array.prototype.__proto__ = function () { return 3; };
 
-//-----------------------------------------------------------------------------
-test();
-//-----------------------------------------------------------------------------
-
-function test()
-{
-  expect = 'TypeError: [].__proto__ is not a function';
-
-  Array.prototype.__proto__ = function () { return 3; };
-
-  try
-  {
-    [].__proto__();
-  }
-  catch(ex)
-  {
-    actual = ex + '';
-  }
-
-  assert.sameValue(expect, actual);
-}
+assert.throws(TypeError, function() {
+  [].__proto__();
+});

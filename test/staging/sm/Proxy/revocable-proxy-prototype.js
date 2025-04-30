@@ -16,16 +16,9 @@ function checkFunctionAppliedToRevokedProxy(fun)
   var p = Proxy.revocable({}, {});
   p.revoke();
 
-  try
-  {
+  assert.throws(TypeError, function() {
     fun(p.proxy);
-    throw "didn't throw";
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true,
-             "expected TypeError, got " + e);
-  }
+  });
 }
 
 checkFunctionAppliedToRevokedProxy(proxy => Object.getPrototypeOf(proxy));

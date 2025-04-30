@@ -13,35 +13,12 @@ esid: pending
 
 function checkSyntaxError(code)
 {
-  function helper(maker)
-  {
-    var earlyError = false;
-    try
-    {
-      var f = maker(code);
-
-      var error = "no early error, created a function with code <" + code + ">";
-      try
-      {
-        f();
-        error += ", and the function can be called without error";
-      }
-      catch (e)
-      {
-        error +=", and calling the function throws " + e;
-      }
-
-      throw new Error(error);
-    }
-    catch (e)
-    {
-      assert.sameValue(e instanceof SyntaxError, true,
-               "expected syntax error, got " + e);
-    }
-  }
-
-  helper(Function);
-  helper(eval);
+  assert.throws(SyntaxError, function() {
+    Function(code);
+  });
+  assert.throws(SyntaxError, function() {
+    (1, eval)(code); // indirect eval
+  });
 }
 
 checkSyntaxError("function f() { 'use strict'; delete escape; } f();");

@@ -29,17 +29,10 @@ var BadSyntaxStrings = [
 ];
 
 function testString(s, i) {
-    var gotSyntaxError = -1;
-    try {
+    assert.throws(SyntaxError, function() {
         eval(s);
-    } catch(err) {
-        if (err instanceof SyntaxError)
-            gotSyntaxError = i;
-    }
-
-    assert.sameValue(gotSyntaxError, i);
+    });
 }
 
 for (var i = 0; i < BadSyntaxStrings.length; i++)
     testString(BadSyntaxStrings[i], i);
-
