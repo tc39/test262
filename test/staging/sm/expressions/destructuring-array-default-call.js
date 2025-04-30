@@ -3,8 +3,6 @@
 
 /*---
 includes: [sm/non262-expressions-shell.js]
-flags:
-  - noStrict
 description: |
   Array destructuring with various default values in various context - call/new expression
 esid: pending

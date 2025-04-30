@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Permit numbers and strings containing numbers as accessor property names
 esid: pending
