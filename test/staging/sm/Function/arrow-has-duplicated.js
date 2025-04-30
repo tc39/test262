@@ -14,12 +14,12 @@ function f0(a, a) {
 }
 
 // SyntaxError should be thrown if arrow function has duplicated name.
-assertThrowsInstanceOf(() => eval(`
+assert.throws(SyntaxError, () => eval(`
 (a, a) => {
 };
-`), SyntaxError);
-assertThrowsInstanceOf(() => eval(`
+`));
+assert.throws(SyntaxError, () => eval(`
 (a, ...a) => {
 };
-`), SyntaxError);
+`));
 

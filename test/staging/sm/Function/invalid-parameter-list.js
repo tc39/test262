@@ -32,6 +32,6 @@ const tests = [
 
 for (const test of tests) {
     DumpFunction(...test);
-    assertThrowsInstanceOf(() => new Function(...test), SyntaxError);
+    assert.throws(SyntaxError, () => new Function(...test));
 }
 

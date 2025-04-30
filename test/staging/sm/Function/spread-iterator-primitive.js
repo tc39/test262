@@ -32,6 +32,6 @@ for (let primitive of primitives) {
             return primitive;
         }
     };
-    assertThrowsInstanceOf(() => f(...arg), TypeError);
+    assert.throws(TypeError, () => f(...arg));
 }
 

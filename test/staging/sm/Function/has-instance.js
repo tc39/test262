@@ -53,11 +53,11 @@ for (let nonCallable of nonCallables) {
 
 // Non-callables should throw when used on the right hand side
 // of `instanceof`.
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     function foo() {};
     let obj = {};
     foo instanceof obj;
-}, TypeError);
+});
 
 // Non-callables do not throw for overridden methods
 let o = {[Symbol.hasInstance](v) { return true; }}
@@ -97,7 +97,7 @@ assert.sameValue(desc.configurable, false);
 
 // Attempting to use a non-callable @@hasInstance triggers a type error
 // Bug 1280892
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
     var fun = function() {}
     var p = new Proxy(fun, {
         get(target, key) {
@@ -105,6 +105,6 @@ assertThrowsInstanceOf(() => {
         }
     });
     fun instanceof p;
-}, TypeError);
+});
 
 

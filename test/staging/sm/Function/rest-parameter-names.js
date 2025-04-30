@@ -61,11 +61,9 @@ function h()
 
   for (var badName of ["yield", "eval", "let"])
   {
-    assertThrowsInstanceOf(() => eval(`var q = (...${badName}) => ${badName} + 42;`),
-                           SyntaxError);
+    assert.throws(SyntaxError, () => eval(`var q = (...${badName}) => ${badName} + 42;`));
 
-    assertThrowsInstanceOf(() => eval(`function r(x, ...${badName}) { return x + ${badName}; }`),
-                           SyntaxError);
+    assert.throws(SyntaxError, () => eval(`function r(x, ...${badName}) { return x + ${badName}; }`));
   }
 }
 h();

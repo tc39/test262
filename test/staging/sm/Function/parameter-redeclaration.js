@@ -15,14 +15,14 @@ function f1(a = 0) {
 }
 
 // 'let' and 'const' at body-level are not allowed to redeclare parameters.
-assertThrowsInstanceOf(() => {
+assert.throws(SyntaxError, () => {
   eval(`function f2(a = 0) {
     let a;
   }`);
-}, SyntaxError);
-assertThrowsInstanceOf(() => {
+});
+assert.throws(SyntaxError, () => {
   eval(`function f3(a = 0) {
     const a;
   }`);
-}, SyntaxError);
+});
 
