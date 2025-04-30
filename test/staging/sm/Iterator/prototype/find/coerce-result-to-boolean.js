@@ -35,6 +35,6 @@ assert.sameValue([array].values().find(fn), array);
 let object = {};
 assert.sameValue([object].values().find(fn), object);
 
-const htmlDDA = createIsHTMLDDA();
+const htmlDDA = $262.IsHTMLDDA;
 assert.sameValue([htmlDDA].values().find(fn), undefined);
 

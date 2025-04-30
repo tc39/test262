@@ -22,7 +22,7 @@ for (const value of [...truthyValues].values().filter(x => x)) {
 }
 
 // All falsy values are filtered out.
-const falsyValues = [false, 0, '', null, undefined, NaN, -0, 0n, createIsHTMLDDA()];
+const falsyValues = [false, 0, '', null, undefined, NaN, -0, 0n, $262.IsHTMLDDA];
 const result = falsyValues.values().filter(x => x).next();
 assert.sameValue(result.done, true);
 assert.sameValue(result.value, undefined);

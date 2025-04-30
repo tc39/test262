@@ -24,7 +24,7 @@ var it = g({
     next() {
         return {done: false};
     },
-    throw: createIsHTMLDDA(),
+    throw: $262.IsHTMLDDA,
     return() {
         calledReturn = true;
         return {done: false};

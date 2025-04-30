@@ -54,7 +54,7 @@ function testBasicCases() {
   shouldBe(([] ?? 3) instanceof Array, true);
   shouldBe((['hi'] ?? 3)[0], 'hi');
   // test document.all, which has odd behavior
-  shouldBe(typeof(createIsHTMLDDA() ?? 3), "undefined");
+  shouldBe(typeof($262.IsHTMLDDA ?? 3), "undefined");
 }
 
 for (let i = 0; i < 1e5; i++)
