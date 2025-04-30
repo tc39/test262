@@ -8,6 +8,7 @@ flags:
 description: |
   pending
 esid: pending
+features: [json-parse-with-source]
 ---*/
 
 (function checkJSONParseWithSource() {
