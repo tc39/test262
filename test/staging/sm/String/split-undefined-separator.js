@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -11,21 +12,14 @@ description: |
 esid: pending
 ---*/
 
-function assertEqArr(a1, a2) {
-    assert.sameValue(a1.length, a2.length);
-
-    for(var i=0; i<a1.length; i++) {
-        assert.sameValue(a1[i], a2[i]);
-    }
-}
 var s = '--undefined--undefined--';
 
-assertEqArr(s.split(undefined, undefined), [s]);
-assertEqArr(s.split(undefined, -1), [s]);
+assert.compareArray(s.split(undefined, undefined), [s]);
+assert.compareArray(s.split(undefined, -1), [s]);
 
-assertEqArr(s.split(undefined, 1), [s]);
-assertEqArr(s.split("undefined", 1), ["--"]);
+assert.compareArray(s.split(undefined, 1), [s]);
+assert.compareArray(s.split("undefined", 1), ["--"]);
 
-assertEqArr(s.split("-", 0), []);
-assertEqArr(s.split(undefined, 0), []);
-assertEqArr(s.split(s, 0), []);
+assert.compareArray(s.split("-", 0), []);
+assert.compareArray(s.split(undefined, 0), []);
+assert.compareArray(s.split(s, 0), []);

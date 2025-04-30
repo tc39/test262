@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -13,17 +14,12 @@ esid: pending
 
 var a, names, expected;
 
-function arraysEqual(a1, a2)
-{
-  return a1.length === a2.length &&
-         a1.every(function(v, i) { return v === a2[i]; });
-}
-
-
 a = [0, 1, 2];
 
 names = Object.getOwnPropertyNames(a).sort();
 expected = ["0", "1", "2", "length"].sort();
+assert.compareArray(names, expected);
+
 
 a = [1, , , 7];
 a.p = 2;
@@ -31,11 +27,11 @@ Object.defineProperty(a, "q", { value: 42, enumerable: false });
 
 names = Object.getOwnPropertyNames(a).sort();
 expected = ["0", "3", "p", "q", "length"].sort();
-assert.sameValue(arraysEqual(names, expected), true);
+assert.compareArray(names, expected);
 
 
 a = [];
 
 names = Object.getOwnPropertyNames(a).sort();
 expected = ["length"];
-assert.sameValue(arraysEqual(names, expected), true);
+assert.compareArray(names, expected);

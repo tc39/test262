@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
