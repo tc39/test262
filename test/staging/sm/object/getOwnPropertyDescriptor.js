@@ -5,8 +5,6 @@
 
 /*---
 includes: [deepEqual.js]
-flags:
-  - noStrict
 description: |
   Coerce the argument passed to Object.getOwnPropertyDescriptor using ToObject
 esid: pending

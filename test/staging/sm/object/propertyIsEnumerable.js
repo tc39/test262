@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.prototype.propertyIsEnumerable
 esid: pending

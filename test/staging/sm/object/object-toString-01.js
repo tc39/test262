@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   ({}).toString.call(null) == "[object Null]", ({}).toString.call(undefined) == "[object Undefined]"
 esid: pending

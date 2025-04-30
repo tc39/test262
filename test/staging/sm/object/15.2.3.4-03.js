@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.getOwnPropertyNames: function objects
 esid: pending

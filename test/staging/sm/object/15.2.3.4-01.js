@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.getOwnPropertyNames should play nicely with enumerator caching
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.getOwnPropertyNames: regular expression objects
 esid: pending

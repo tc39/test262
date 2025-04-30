@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.isExtensible() should return false when given primitive values as input
 esid: pending

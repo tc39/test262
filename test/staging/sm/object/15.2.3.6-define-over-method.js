@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Do not assert: !(attrs & (JSPROP_GETTER | JSPROP_SETTER)) with Object.defineProperty
 esid: pending

@@ -4,8 +4,6 @@
  */
 
 /*---
-flags:
-  - noStrict
 description: |
   Object.seal() should return its argument with no conversion when the argument is a primitive value
 esid: pending
