@@ -9,10 +9,10 @@ description: |
   pending
 esid: pending
 ---*/
+
 function createProxy(proxyTarget) {
   var {proxy, revoke} = Proxy.revocable(proxyTarget, new Proxy({}, {
     get(target, propertyKey, receiver) {
-      print("trap get:", propertyKey);
       revoke();
     }
   }));
@@ -78,4 +78,3 @@ assert.sameValue(createProxy(function() { return "ok" })(), "ok");
 // |new.target.prototype| to create the |this| for the construct operation, that
 // would be returned if |return obj;| didn't override it.
 assert.throws(TypeError, () => new (createProxy(function q(){ return obj; })));
-
