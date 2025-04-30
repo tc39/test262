@@ -2,13 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 // This file was written by Andy Wingo <wingo@igalia.com> and originally
 // contributed to V8 as generators-objects.js, available here:
 //
@@ -24,7 +25,7 @@ function TestGeneratorObject() {
   assert.sameValue(Object.getPrototypeOf(iter), g.prototype);
   assert.sameValue(iter instanceof g, true);
   assert.sameValue(String(iter), "[object Generator]");
-  assert.deepEqual(Object.getOwnPropertyNames(iter), []);
+  assert.compareArray(Object.getOwnPropertyNames(iter), []);
   assert.notSameValue(g(), iter);
 }
 TestGeneratorObject();

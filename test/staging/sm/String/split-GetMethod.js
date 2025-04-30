@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -20,7 +20,7 @@ function create(value) {
 }
 
 for (let v of [null, undefined]) {
-    assert.deepEqual("a-a".split(create(v)), ["a", "a"]);
+    assert.compareArray("a-a".split(create(v)), ["a", "a"]);
 }
 
 for (let v of [1, true, Symbol.iterator, "", {}, []]) {

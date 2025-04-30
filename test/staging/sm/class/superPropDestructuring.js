@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -33,7 +33,7 @@ const testArr = [525600, "Fred"];
 class derived extends base {
     constructor() { super(); }
     prepForTest() { seenValues = []; }
-    testAsserts() { assert.deepEqual(seenValues, testArr); }
+    testAsserts() { assert.compareArray(seenValues, testArr); }
     testProps() {
         this.prepForTest();
         [super.minutes, super.intendent] = testArr;

@@ -2,13 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
   pending
 esid: pending
 ---*/
+
 // This file was written by Andy Wingo <wingo@igalia.com> and originally
 // contributed to V8 as generators-runtime.js, available here:
 //
@@ -39,7 +40,7 @@ function TestGeneratorFunctionInstance() {
     f_own_property_names.sort();
     g_own_property_names.sort();
 
-    assert.deepEqual(f_own_property_names, g_own_property_names);
+    assert.compareArray(f_own_property_names, g_own_property_names);
     var i;
     for (i = 0; i < f_own_property_names.length; i++) {
         var prop = f_own_property_names[i];
@@ -84,8 +85,8 @@ function TestGeneratorObjectPrototype() {
     expected_property_names.sort();
     found_property_names.sort();
 
-    assert.deepEqual(found_property_names, expected_property_names);
-    assert.deepEqual(Object.getOwnPropertySymbols(GeneratorObjectPrototype), [Symbol.toStringTag]);
+    assert.compareArray(found_property_names, expected_property_names);
+    assert.compareArray(Object.getOwnPropertySymbols(GeneratorObjectPrototype), [Symbol.toStringTag]);
 }
 TestGeneratorObjectPrototype();
 
@@ -134,8 +135,6 @@ function TestPerGeneratorPrototype() {
     assert.sameValue(g.prototype instanceof Function, false);
     assert.sameValue(typeof (g.prototype), "object");
 
-    assert.deepEqual(Object.getOwnPropertyNames(g.prototype), []);
+    assert.compareArray(Object.getOwnPropertyNames(g.prototype), []);
 }
 TestPerGeneratorPrototype();
-
-

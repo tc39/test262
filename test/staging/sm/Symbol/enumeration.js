@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -55,6 +55,5 @@ var h = {
     }
 };
 p = new Proxy({}, h);
-assert.deepEqual(Object.keys(p), ["a", "0"]);
-assert.deepEqual(log, ["ownKeys", "gopd", "a", "gopd", "0"]);
-
+assert.compareArray(Object.keys(p), ["a", "0"]);
+assert.compareArray(log, ["ownKeys", "gopd", "a", "gopd", "0"]);

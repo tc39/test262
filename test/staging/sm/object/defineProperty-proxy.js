@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -51,7 +51,7 @@ for (var obj of testSubjects) {
 
     // It should have performed exactly these operations on the proxy, in this
     // order. See ES6 rev 24 (2014 April 27) 6.2.4.5 ToPropertyDescriptor.
-    assert.deepEqual(log, [
+    assert.compareArray(log, [
         "has enumerable", "get enumerable",
         "has configurable", "get configurable",
         "has value", "get value",

@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -16,10 +16,10 @@ assert.throws(TypeError, () => Object.keys());
 assert.throws(TypeError, () => Object.keys(undefined));
 assert.throws(TypeError, () => Object.keys(null));
 
-assert.deepEqual(Object.keys(1), []);
-assert.deepEqual(Object.keys(true), []);
+assert.compareArray(Object.keys(1), []);
+assert.compareArray(Object.keys(true), []);
 if (typeof Symbol === "function") {
-    assert.deepEqual(Object.keys(Symbol("foo")), []);
+    assert.compareArray(Object.keys(Symbol("foo")), []);
 }
 
-assert.deepEqual(Object.keys("foo"), ["0", "1", "2"]);
+assert.compareArray(Object.keys("foo"), ["0", "1", "2"]);

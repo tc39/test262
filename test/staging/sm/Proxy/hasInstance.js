@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -19,5 +19,5 @@ var p = new Proxy(fun, {
 });
 
 assert.sameValue(new fun instanceof p, true);
-assert.deepEqual(get, [Symbol.hasInstance, "prototype"]);
+assert.compareArray(get, [Symbol.hasInstance, "prototype"]);
 

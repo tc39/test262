@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js]
+includes: [compareArray.js]
 flags:
   - noStrict
 description: |
@@ -11,5 +11,5 @@ esid: pending
 ---*/
 
 var obj = { flags: "", toString: () => "-" };
-assert.deepEqual(RegExp.prototype[Symbol.split].call(obj, "a-b-c"),
+assert.compareArray(RegExp.prototype[Symbol.split].call(obj, "a-b-c"),
              ["a", "b", "c"]);
