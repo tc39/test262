@@ -8,21 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  for-loop semantics for for(;;) loops whose heads contain lexical declarations
 esid: pending
 ---*/
-var gTestfile = "for-loop.js";
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 985733;
-var summary =
-  "ES6 for-loop semantics for for(;;) loops whose heads contain lexical "
-  "declarations";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function isError(code, type)
 {
@@ -120,7 +108,3 @@ if (save() !== "OUTER V IGNORE")
   t(8, "body", 8);
   assert.sameValue(funcs.length, 9);
 }
-
-/******************************************************************************/
-
-print("Tests complete");

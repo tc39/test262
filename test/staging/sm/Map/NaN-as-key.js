@@ -8,18 +8,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  All NaNs must be treated as identical keys for Map
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 722260;
-var summary = 'All NaNs must be treated as identical keys for Map';
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 /* Avoid constant-folding that would happen were |undefined| to be used. */
 var key = -/a/g.missingProperty;
@@ -54,7 +45,3 @@ m.delete(key);
 assert.sameValue(m.has(key), false);
 assert.sameValue(m.has(-key), false);
 assert.sameValue(m.has(NaN), false);
-
-/******************************************************************************/
-
-print("Tests complete");

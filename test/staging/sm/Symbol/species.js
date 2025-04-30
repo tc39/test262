@@ -6,13 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js, deepEqual.js]
 flags:
   - noStrict
 description: |
-  pending
+  Implement @@species getter for builtin types
 esid: pending
 ---*/
-var BUGNUMBER = 1131043;
-var summary = "Implement @@species getter for builtin types";
-
-print(BUGNUMBER + ": " + summary);
 
 var TypedArray = Object.getPrototypeOf(Int8Array);
 
@@ -36,4 +32,3 @@ for (C of [Array, Map, Set, RegExp,
   assert.sameValue(desc.get.apply(undefined), undefined);
   assert.sameValue(desc.get.apply(42), 42);
 }
-

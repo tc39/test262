@@ -22,4 +22,3 @@ assert.throws(TypeError, () => ol.testNonExistent());
 
 var olElem = { testNonExistent() { var prop = "prop"; super[prop](); } };
 assert.throws(TypeError, () => olElem.testNonExistent());
-

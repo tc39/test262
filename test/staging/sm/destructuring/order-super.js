@@ -6,20 +6,9 @@ includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Destructuring should evaluate lhs reference before rhs in super property
 esid: pending
 ---*/
-var BUGNUMBER = 1204028;
-var summary = "Destructuring should evaluate lhs reference before rhs in super property";
-
-if (typeof assert.sameValue === "undefined") {
-  assert.sameValue = function(a, b) {
-    if (a !== b)
-      throw new Error(`expected ${b}, got ${a}\n${new Error().stack}`);
-  };
-}
-
-print(BUGNUMBER + ": " + summary);
 
 let logs = [];
 function log(x) {
@@ -707,4 +696,3 @@ class C2 extends C1 {
 }
 
 new C2();
-
