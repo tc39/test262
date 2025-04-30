@@ -21,9 +21,7 @@ var proxy = new Proxy(target, {
     }
 });
 
-assertThrowsInstanceOf(
-    () => Object.defineProperty(proxy, "test", {writable: false}), TypeError);
+assert.throws(TypeError, () => Object.defineProperty(proxy, "test", {writable: false}));
 
-assertThrowsInstanceOf(
-    () => Reflect.defineProperty(proxy, "test", {writable: false}), TypeError);
+assert.throws(TypeError, () => Reflect.defineProperty(proxy, "test", {writable: false}));
 

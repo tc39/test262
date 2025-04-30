@@ -15,8 +15,8 @@ function makeProxy(type) {
 
 for (var type of [123, 12.5, true, false, undefined, null, {}, []]) {
     var proxy = makeProxy(type);
-    assertThrowsInstanceOf(() => Object.ownKeys(proxy), TypeError);
-    assertThrowsInstanceOf(() => Object.getOwnPropertyNames(proxy), TypeError);
+    assert.throws(TypeError, () => Object.ownKeys(proxy));
+    assert.throws(TypeError, () => Object.getOwnPropertyNames(proxy));
 }
 
 type = Symbol();
