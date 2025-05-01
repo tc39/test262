@@ -13,8 +13,7 @@ info: |
   6. Append p to M.[[MapData]].
   7. Return p.[[Value]].
   ...
-features:
-- Symbol
+features: [Symbol, upsert]
 flags: [noStrict]
 ---*/
 var map = new Map();

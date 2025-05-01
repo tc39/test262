@@ -13,7 +13,7 @@ info: |
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
 
-  features: [arrow-function]
+features: [arrow-function, upsert]
 flags: [noStrict]
 ---*/
 var map = new Map();

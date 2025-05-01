@@ -10,7 +10,7 @@ info: |
 
   17 ECMAScript Standard Built-in Objects
 includes: [deepEqual.js]
-features: [arrow-function]
+features: [arrow-function, upsert]
 flags: [noStrict]
 ---*/
 assert.sameValue(

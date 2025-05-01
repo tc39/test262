@@ -12,7 +12,7 @@ info: |
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   6. Let value be ? Call(callbackfn, undefined, « key »).
   ...
-features: [WeakMap]
+features: [WeakMap, upsert]
 flags: [noStrict]
 ---*/
 var map = new Map([

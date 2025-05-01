@@ -12,7 +12,7 @@ info: |
   5. Let p be the Record {[[Key]]: key, [[Value]]: value}.
   6. Append p to M.[[WeakMapData]].
   ...
-features: [WeakMap]
+features: [WeakMap, upsert]
 flags: [noStrict]
 ---*/
 var map = new WeakMap();

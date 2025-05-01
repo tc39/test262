@@ -12,7 +12,7 @@ info: |
   4. For each Record { [[Key]], [[Value]] } p of M.[[WeakMapData]], do
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
-features: [Symbol, WeakMap, symbols-as-weakmap-keys]
+features: [Symbol, WeakMap, symbols-as-weakmap-keys, upsert]
 flags: [noStrict]
 ---*/
 var foo = Symbol('a description');

@@ -17,6 +17,7 @@ info: |
   9. Append p to M.[[WeakMapData]].
   ...
 flags: [noStrict]
+features: [upsert]
 ---*/
 var map = new Map();
 var foo = 1;

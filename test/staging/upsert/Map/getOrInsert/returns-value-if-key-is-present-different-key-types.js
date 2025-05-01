@@ -12,7 +12,7 @@ info: |
   4. For each Record { [[Key]], [[Value]] } p of M.[[MapData]], do
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
-features: [Symbol]
+features: [Symbol, upsert]
 flags: [noStrict]
 ---*/
 var map = new Map();

@@ -11,6 +11,7 @@ info: |
   ...
   2. Perform ? RequireInternalSlot(M, [[WeakMapData]]).
   ...
+features: [upsert]
 flags: [noStrict]
 ---*/
 assertThrowsInstanceOf(function() {

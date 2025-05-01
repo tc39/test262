@@ -12,7 +12,7 @@ info: |
   5. For each Record { [[Key]], [[Value]] } p of M.[[WeakMapData]], do
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
-features: [WeakMap]
+features: [WeakMap, upsert]
 flags: [noStrict]
 ---*/
 var foo = {};

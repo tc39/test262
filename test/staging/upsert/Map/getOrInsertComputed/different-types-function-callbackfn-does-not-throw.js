@@ -11,7 +11,7 @@ info: |
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
 
-  features: [arrow-function]
+features: [arrow-function, upsert]
 flags: [noStrict]
 ---*/
 var m = new Map();
@@ -41,7 +41,7 @@ assert.sameValue(
     m.getOrInsertComputed(4, new Function())
     , undefined);
 assert.sameValue(m.get(4), undefined);
- 
+
 
 assert.sameValue(
     m.getOrInsertComputed(5, (function() {return 5;}).bind(m))

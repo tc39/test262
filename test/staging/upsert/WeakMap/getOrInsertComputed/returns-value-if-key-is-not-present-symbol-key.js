@@ -12,7 +12,7 @@ info: |
   8. Let p be the Record { [[Key]]: key, [[Value]]: value }.
   9. Append p to M.[[WeakMapData]].
   10. Return value.
-features: [Symbol, WeakMap, symbols-as-weakmap-keys]
+features: [Symbol, WeakMap, symbols-as-weakmap-keys, upsert]
 flags: [noStrict]
 ---*/
 var foo = Symbol('a description');

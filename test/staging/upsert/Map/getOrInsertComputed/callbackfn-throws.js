@@ -12,6 +12,7 @@ info: |
 
   6. Let value be ? Call(callbackfn, key).
   ...
+features: [upsert]
 flags: [noStrict]
 ---*/
 var map = new Map();

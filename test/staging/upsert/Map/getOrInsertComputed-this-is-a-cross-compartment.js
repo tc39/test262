@@ -6,6 +6,7 @@ flags: [noStrict]
 description: |
   pending
 esid: proposal-upsert
+features: [upsert]
 ---*/
 
 const g = createNewGlobal({ newCompartment: true });

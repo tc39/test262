@@ -11,7 +11,7 @@ info: |
   1. Let M be the this value
   2. Perform ? RequireInternalSlot(M, [[MapData]])
   ...
-features: [Symbol, arrow-function]
+features: [Symbol, arrow-function, upsert]
 flags: [noStrict]
 ---*/
 var m = new Map();

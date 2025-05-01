@@ -11,7 +11,7 @@ info: |
   ...
   3. If CanBeHeldWeakly(key) is false, throw a TypeError exception.
   ...
-features: [Symbol, WeakMap]
+features: [Symbol, WeakMap, upsert]
 flags: [noStrict]
 ---*/
 var s = new WeakMap();

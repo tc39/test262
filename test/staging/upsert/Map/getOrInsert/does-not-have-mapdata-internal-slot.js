@@ -12,6 +12,7 @@ info: |
   1. Let M be the this value.
   2. Perform ? RequireInternalSLot(M, [[MapData]])
   ...
+features: [upsert]
 flags: [noStrict]
 ---*/
 var map = new Map();

@@ -12,7 +12,7 @@ info: |
   1. Let M be the this value.
   2. Perform ? RequireInternalSlot(M, [[MapData]])
   ...
-features: [Set, arrow-function]
+features: [Set, arrow-function, upsert]
 flags: [noStrict]
 ---*/
 assertThrowsInstanceOf(function () {

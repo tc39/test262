@@ -10,7 +10,7 @@ info: |
   ...
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
-  features: [arrow-function]
+features: [arrow-function, upsert]
 flags: [noStrict]
 ---*/
 var bar = {};
@@ -45,7 +45,7 @@ assert.sameValue(
     m.getOrInsertComputed(foobar, new Function())
     , undefined);
 assert.sameValue(m.get(foobar), undefined);
- 
+
 
 assert.sameValue(
     m.getOrInsertComputed(foobarbaz, (function() {return 5;}).bind(m))

@@ -16,7 +16,7 @@ info: |
 features:
 - Symbol
 - arrow-function
-flags: [noStrict]
+flags: [noStrict, upsert]
 ---*/
 var map = new Map();
 

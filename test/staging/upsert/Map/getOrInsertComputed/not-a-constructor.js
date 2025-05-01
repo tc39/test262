@@ -19,7 +19,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [Map, Reflect.construct, arrow-function]
+features: [Map, Reflect.construct, arrow-function, upsert]
 flags: [noStrict]
 ---*/
 assert.sameValue(isConstructor(Map.prototype.getOrInsertComputed), false, 'isConstructor(Map.prototype.getOrInsertComputed) must return false');
