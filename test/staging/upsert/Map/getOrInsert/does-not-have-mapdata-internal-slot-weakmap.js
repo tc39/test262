@@ -15,12 +15,12 @@ info: |
 features: [WeakMap, upsert]
 flags: [noStrict]
 ---*/
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   Map.prototype.getOrInsert.call(new WeakMap(), 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   var map = new Map();
   map.getOrInsert.call(new WeakMap(), 1, 1);
-}, TypeError);
+});
 

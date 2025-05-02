@@ -16,35 +16,35 @@ flags: [noStrict]
 ---*/
 var m = new Map();
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, "");
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, true);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, undefined);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, null);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, {});
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, []);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, 1, Symbol());
-}, TypeError);
+});
 

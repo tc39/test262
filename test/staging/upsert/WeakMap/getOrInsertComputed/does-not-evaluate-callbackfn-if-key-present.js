@@ -31,7 +31,7 @@ assert.sameValue(map.getOrInsertComputed(2, callback), 1);
 map.set(3, 2);
 assert.sameValue(map.getOrInsertComputed(3, callback), 2);
 
-assertThrowsInstanceOf(function() {
+assert.throws(Error, function() {
   map.getOrInsertComputed(4, callback)
 }, Error);
 

@@ -16,27 +16,27 @@ flags: [noStrict]
 ---*/
 var s = new WeakMap();
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   s.getOrInsertComputed(1, () => 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   s.getOrInsertComputed(false, () => 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   s.getOrInsertComputed(undefined, () => 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   s.getOrInsertComputed('string', () => 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   s.getOrInsertComputed(null, () => 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function() {
+assert.throws(TypeError, function() {
   s.getOrInsertComputed(Symbol.for('registered symbol'), () => 1);
-}, TypeError, 'Registered symbol not allowed as WeakMap key');
+}, 'Registered symbol not allowed as WeakMap key');
 

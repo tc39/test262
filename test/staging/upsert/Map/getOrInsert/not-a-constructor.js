@@ -24,7 +24,7 @@ flags: [noStrict]
 ---*/
 assert.sameValue(isConstructor(Map.prototype.getOrInsert), false, 'isConstructor(Map.prototype.getOrInsert) must return false');
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
   let m = new Map(); new m.getOrInsert();
-}, TypeError);
+});
 

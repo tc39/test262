@@ -17,7 +17,7 @@ var map = new WeakMap();
 
 var bar = {};
 
-assertThrowsInstanceOf(function() {
+assert.throws(Error, function() {
   map.getOrInsertComputed(bar, function() {
     throw new Error('throw in callback');
   })

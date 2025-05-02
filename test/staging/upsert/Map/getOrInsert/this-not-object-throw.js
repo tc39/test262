@@ -16,27 +16,27 @@ flags: [noStrict]
 ---*/
 var m = new Map();
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsert.call(false, 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsert.call(1, 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsert.call("", 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsert.call(undefined, 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsert.call(null, 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsert.call(Symbol(), 1, 1);
-}, TypeError);
+});
 

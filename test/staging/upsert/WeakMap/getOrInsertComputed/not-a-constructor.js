@@ -27,7 +27,7 @@ assert.sameValue(
   'isConstructor(WeakMap.prototype.getOrInsertComputed) must return false'
 );
 
-assertThrowsInstanceOf(() => {
+assert.throws(TypeError, () => {
   let wm = new WeakMap(); new wm.getOrInsertComputed({}, () => 1);
-}, TypeError);
+});
 

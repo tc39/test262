@@ -17,19 +17,19 @@ flags: [noStrict]
 ---*/
 var map = new Map();
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     Map.prototype.getOrInsert.call([], 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     map.getOrInsert.call([], 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     Map.prototype.getOrInsert.call({}, 1, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     map.getOrInsert.call({}, 1, 1);
-}, TypeError);
+});
 

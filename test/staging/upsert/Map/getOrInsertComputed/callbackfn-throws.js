@@ -17,7 +17,7 @@ flags: [noStrict]
 ---*/
 var map = new Map();
 
-assertThrowsInstanceOf(function() {
+assert.throws(Error, function() {
   map.getOrInsertComputed(1, function() {
     throw new Error('throw in callback');
   })

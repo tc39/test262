@@ -17,35 +17,35 @@ flags: [noStrict]
 var bar = {};
 var m = new WeakMap();
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, 1);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, "");
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, true);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, undefined);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, null);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, {});
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, []);
-}, TypeError);
+});
 
-assertThrowsInstanceOf(function () {
+assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, Symbol());
-}, TypeError);
+});
 
