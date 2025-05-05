@@ -47,7 +47,7 @@ Volunteer-maintained projects that may be used to execute Test262 in various ECM
 - https://bakkot.github.io/test262-web-runner/ (platform: web)
 - https://github.com/Izhido/test262_harness_cpp (platform: C++)
 - https://github.com/lahma/test262-harness-dotnet (platform: .NET)
-
+- https://github.com/cta-wave/WMAS/tree/latest/tools/wave/ecmascript (platform: Python; [Docker Deploy Instructions](https://github.com/cta-wave/WMAS-deploy/tree/wmas-latest))
 
 ### How To Read CI Results
 
