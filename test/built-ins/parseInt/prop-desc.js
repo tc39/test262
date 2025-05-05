@@ -11,7 +11,8 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(this, "parseInt", {
+verifyCallableProperty(this, "parseInt", "parseInt", 2, {
+  value: this.parseInt,
   writable: true,
   enumerable: false,
   configurable: true

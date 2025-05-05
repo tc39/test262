@@ -12,7 +12,8 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-verifyProperty(this, "parseFloat", {
+verifyCallableProperty(this, "parseFloat", "parseFloat", 1, {
+  value: this.parseFloat,
   writable: true,
   enumerable: false,
   configurable: true
