@@ -15,6 +15,7 @@ defines:
   - verifyConfigurable # deprecated
   - verifyNotConfigurable # deprecated
   - verifyPrimordialProperty
+  - verifyPrimordialCallableProperty
 ---*/
 
 // @ts-check
@@ -343,3 +344,10 @@ function verifyNotConfigurable(obj, name) {
  * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
  */
 var verifyPrimordialProperty = verifyProperty;
+
+/**
+ * Use this function to verify the primordial function-valued properties.
+ * For non-primordial functions, use verifyCallableProperty.
+ * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
+ */
+var verifyPrimordialCallableProperty = verifyCallableProperty;
