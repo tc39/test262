@@ -8,7 +8,7 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-verifyCallableProperty(this, "isNaN", "isNaN", 1, {
+verifyPrimordialCallableProperty(this, "isNaN", "isNaN", 1, {
   value: this.isNaN,
   writable: true,
   enumerable: false,

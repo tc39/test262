@@ -8,7 +8,7 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-verifyCallableProperty(this, "isFinite", "isFinite", 1, {
+verifyPrimordialCallableProperty(this, "isFinite", "isFinite", 1, {
   value: this.isFinite,
   writable: true,
   enumerable: false,
