@@ -9,7 +9,7 @@ info: |
   Map.prototype.getOrInsertComputed ( key , callbackfn )
 
   17 ECMAScript Standard Built-in Objects
-includes: [deepEqual.js]
+includes: [propertyHelper.js]
 features: [arrow-function, upsert]
 flags: [noStrict]
 ---*/
@@ -19,7 +19,7 @@ assert.sameValue(
   '`typeof Map.prototype.getOrInsertComputed` is `function`'
 );
 
-assert.deepEqual(Object.getOwnPropertyDescriptor(Map.prototype, "getOrInsertComputed"), {
+verifyProperty(Map.prototype, "getOrInsertComputed", {
   value: Map.prototype.getOrInsertComputed,
   writable: true,
   enumerable: false,

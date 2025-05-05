@@ -9,7 +9,7 @@ info: |
   WeakMap.prototype.getOrInsertComputed ( key, callbackfn )
 
   17 ECMAScript Standard Built-in Objects
-includes: [deepEqual.js]
+includes: [propertyHelper.js]
 features: [upsert]
 flags: [noStrict]
 ---*/
@@ -19,7 +19,7 @@ assert.sameValue(
   'typeof WeakMap.prototype.getOrInsertComputed is "function"'
 );
 
-assert.deepEqual(Object.getOwnPropertyDescriptor(WeakMap.prototype, "getOrInsertComputed"), {
+verifyProperty(WeakMap.prototype, "getOrInsertComputed", {
   value: WeakMap.prototype.getOrInsertComputed,
   writable: true,
   enumerable: false,

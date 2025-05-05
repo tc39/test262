@@ -9,7 +9,7 @@ info: |
   Map.prototype.getOrInsert ( key , value )
 
   17 ECMAScript Standard Built-in Objects
-includes: [deepEqual.js]
+includes: [propertyHelper.js]
 features: [upsert]
 flags: [noStrict]
 ---*/
@@ -20,7 +20,7 @@ assert.sameValue(
 );
 
 
-assert.deepEqual(Object.getOwnPropertyDescriptor(Map.prototype, "getOrInsert"), {
+verifyProperty(Map.prototype, "getOrInsert", {
   value: Map.prototype.getOrInsert,
   writable: true,
   enumerable: false,

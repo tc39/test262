@@ -9,7 +9,7 @@ info: |
   WeakMap.prototype.getOrInsert ( key, value )
 
   17 ECMAScript Standard Built-in Objects
-includes: [deepEqual.js]
+includes: [propertyHelper.js]
 features: [upsert]
 flags: [noStrict]
 ---*/
@@ -19,7 +19,7 @@ assert.sameValue(
   'typeof WeakMap.prototype.getOrInsert is "function"'
 );
 
-assert.deepEqual(Object.getOwnPropertyDescriptor(WeakMap.prototype, "getOrInsert"), {
+verifyProperty(WeakMap.prototype, "getOrInsert", {
   value: WeakMap.prototype.getOrInsert,
   writable: true,
   enumerable: false,

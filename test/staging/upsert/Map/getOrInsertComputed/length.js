@@ -9,11 +9,11 @@ info: |
   Map.prototype.getOrInsertComputed ( key , callbackfn )
 
   17 ECMAScript Standard Built-in Objects
-includes: [deepEqual.js]
+includes: [propertyHelper.js]
 features: [upsert]
 flags: [noStrict]
 ---*/
-assert.deepEqual(Object.getOwnPropertyDescriptor(Map.prototype.getOrInsertComputed, "length"), {
+verifyProperty(Map.prototype.getOrInsertComputed, "length", {
   value: 2,
   writable: false,
   enumerable: false,
