@@ -15,9 +15,8 @@ const validValues = ["standard", "compact", "scientific", "engineering", new Str
 const invalidValues = ["COMPACT", "ståndard", 123, false, Symbol("foo"), null, {}, [], ""];
 
 for (const value of validValues) {
-  assert.doesNotThrow(() => {
-    new Intl.PluralRules("en", { notation: value });
-  }, `No exception should be thrown for ${value}`);
+  const pr = new Intl.PluralRules("en", { notation: value });
+  assert(pr.resolvedOptions().notation === value, `Resolved options should have notation ${value}`);
 }
 for (const value of invalidValues) {
   assert.throws(RangeError, () => {

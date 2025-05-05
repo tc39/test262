@@ -16,5 +16,5 @@ info: |
     ...
 ---*/
 
-assert.sameValue(new Intl.PluralRules('fr-FR', { notation: 'compact' }).select(1.00000020e6), 'one', 'compact notation');
-assert.sameValue(new Intl.PluralRules('fr-FR', { notation: 'standard' }).select(1.00000020e6), 'other', 'standard notation');
+assert.sameValue(new Intl.PluralRules('sl', { notation: 'compact' }).select(1.00000020e6), 'one', 'compact notation');
+assert.sameValue(new Intl.PluralRules('sl', { notation: 'standard' }).select(1.00000020e6), 'other', 'standard notation');
