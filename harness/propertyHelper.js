@@ -223,7 +223,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
   assert.sameValue(typeof value, "function",
     "obj['" + String(name) + "'] descriptor should be a function");
 
-  if (!__hasOwnProperty(desc, value)) desc.value = value;
+  if (!__hasOwnProperty(desc, "value")) desc.value = value;
   verifyProperty(obj, name, desc, options);
 
   if (functionName === undefined) {
