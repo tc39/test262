@@ -44,6 +44,16 @@ new Intl.Locale(
       }
     },
 
+    get variants() {
+      order.push("get variants");
+      return {
+        toString() {
+          order.push("toString variants");
+          return "fonipa-1996";
+        }
+      }
+    },
+
     get calendar() {
       order.push("get calendar");
       return {
@@ -109,6 +119,8 @@ const expected_order = [
   "toString script",
   "get region",
   "toString region",
+  "get variants",
+  "toString variants",
   "get calendar",
   "toString calendar",
   "get collation",
