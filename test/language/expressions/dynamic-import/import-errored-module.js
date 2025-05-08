@@ -35,12 +35,16 @@ info: |
 
 flags: [async]
 features: [dynamic-import]
+includes: [asyncHelpers.js]
 ---*/
 
-import('./import-errored-module_FIXTURE.js').then(() => {
-  $DONE(new Test262Error('The import should reject (first import)'));
-}, () => {
-  import('./import-errored-module_FIXTURE.js').then(() => {
-    $DONE(new Test262Error('The import should reject (second import)'));
-  }, () => $DONE());
+asyncTest(async function () {
+  await assert.throwsAsync(
+    () => import('./import-errored-module_FIXTURE.js'),
+    'The import should reject (first import)'
+  );
+  await assert.throwsAsync(
+    () => import('./import-errored-module_FIXTURE.js'),
+    'The import should reject (second import)'
+  );
 });

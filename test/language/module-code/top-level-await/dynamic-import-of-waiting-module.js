@@ -1,4 +1,4 @@
-// Copyright (C) 2025 Igalia. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -35,35 +35,35 @@ info: |
 
 flags: [async]
 features: [dynamic-import]
+includes: [asyncHelpers.js]
 ---*/
 
 let continueExecution;
-globalThis.promise = new Promise(res => continueExecution = res);
+globalThis.promise = new Promise((resolve) => continueExecution = resolve);
 
-const executionStartPromise = new Promise(res => globalThis.executionStarted = res);
+const executionStartPromise = new Promise((resolve) => globalThis.executionStarted = resolve);
 
-const promiseForNamespace = import("./dynamic-import-of-waiting-module_FIXTURE.js");
+asyncTest(async function () {
+  const promiseForNamespace = import("./dynamic-import-of-waiting-module_FIXTURE.js");
 
-executionStartPromise.then(() => {
+  await executionStartPromise;
+
   const promiseForNamespace2 = import("./dynamic-import-of-waiting-module_FIXTURE.js");
 
-  // We only continuye execution of the first fixture file after importing a second,
+  // We only continue execution of the first fixture file after importing a second,
   // empty, fixture file. This is so that if the implementation uses a separate
   // queue to resolve dynamic import promises, if dynamic-import-of-waiting-module_FIXTURE
   // wasn't waiting on top-level await its top-level promise would already be resolved.
-  import("./dynamic-import-of-waiting-module-2_FIXTURE.js").then(() => {
-    continueExecution();
-  }, $DONE);
+  await import("./dynamic-import-of-waiting-module-2_FIXTURE.js");
+  continueExecution();
 
   let secondPromiseResolved = false;
-  return Promise.all([
+  await Promise.all([
     promiseForNamespace.then(() => {
-      console.log("Resolving first...");
       assert(!secondPromiseResolved, "The second import should not resolve before the first one");
     }),
     promiseForNamespace2.then(() => {
-      console.log("Resolving second...");
       secondPromiseResolved = true;
     })
   ]);
-}).then($DONE, $DONE);
+});
