@@ -40,10 +40,12 @@ includes: [asyncHelpers.js]
 
 asyncTest(async function () {
   await assert.throwsAsync(
+    Error,
     () => import('./import-errored-module_FIXTURE.js'),
     'The import should reject (first import)'
   );
   await assert.throwsAsync(
+    Error,
     () => import('./import-errored-module_FIXTURE.js'),
     'The import should reject (second import)'
   );
