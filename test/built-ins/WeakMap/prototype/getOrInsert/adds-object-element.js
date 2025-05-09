@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   Adds a value with an Object key if key is not already in the map.
 info: |
@@ -13,7 +13,6 @@ info: |
   6. Append p to M.[[WeakMapData]].
   ...
 features: [WeakMap, upsert]
-flags: [noStrict]
 ---*/
 var map = new WeakMap();
 var foo = {};

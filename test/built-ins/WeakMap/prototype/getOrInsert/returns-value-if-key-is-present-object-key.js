@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   Returns the value from the specified Object key
 info: |
@@ -13,7 +13,6 @@ info: |
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
 features: [WeakMap, upsert]
-flags: [noStrict]
 ---*/
 var foo = {};
 var bar = {};

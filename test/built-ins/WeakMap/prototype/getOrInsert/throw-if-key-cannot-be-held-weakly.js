@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   Throws TypeError if key cannot be held weakly.
 info: |
@@ -12,7 +12,6 @@ info: |
   3. If CanBeHeldWeakly(key) is false, throw a TypeError exception.
   ...
 features: [Symbol, WeakMap, upsert]
-flags: [noStrict]
 ---*/
 var s = new WeakMap();
 
