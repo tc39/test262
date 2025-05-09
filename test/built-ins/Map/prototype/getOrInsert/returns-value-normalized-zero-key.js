@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsert
 description: |
   Returns the value from the specified key normalizing +0 and -0.
 info: |
@@ -13,7 +13,6 @@ info: |
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
 features: [upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 
