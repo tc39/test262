@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsert
 description: |
   Append a new value as the last element of entries.
 info: |
@@ -16,7 +16,6 @@ info: |
   6. Append p to M.[[MapData]].
   ...
 features: [Symbol, upsert]
-flags: [noStrict]
 ---*/
 var s = Symbol(2);
 var map = new Map([[4, 4], ['foo3', 3], [s, 2]]);

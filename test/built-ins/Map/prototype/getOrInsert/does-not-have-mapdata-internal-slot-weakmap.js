@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsert
 description: |
   Throws a TypeError if `this` is a WeakMap object.
 info: |
@@ -13,7 +13,6 @@ info: |
   2. Perform ? RequireInternalSlot(M, [[MapData]]).
   ...
 features: [WeakMap, upsert]
-flags: [noStrict]
 ---*/
 assert.throws(TypeError, function() {
   Map.prototype.getOrInsert.call(new WeakMap(), 1, 1);
