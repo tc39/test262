@@ -2,17 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-RegExp-shell.js, compareArray.js]
-flags:
-  - noStrict
+includes: [compareArray.js]
 description: |
-  pending
+  Implement RegExp unicode flag -- negated CharacterClass.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- negated CharacterClass.";
-
-print(BUGNUMBER + ": " + summary);
 
 // ==== BMP ====
 
@@ -70,4 +64,3 @@ assert.compareArray(/[^\uDC38]/u.exec("\uDBFF\uDC38"),
               ["\uDBFF\uDC38"]);
 assert.compareArray(/[^\uDC38]/u.exec("\uDC00\uDC38"),
               ["\uDC00"]);
-
