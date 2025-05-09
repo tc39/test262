@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsert
 description: |
   Throws a TypeError if `this` object does not have a [[MapData]] internal slot.
 info: |
@@ -13,7 +13,6 @@ info: |
   2. Perform ? RequireInternalSLot(M, [[MapData]])
   ...
 features: [upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 

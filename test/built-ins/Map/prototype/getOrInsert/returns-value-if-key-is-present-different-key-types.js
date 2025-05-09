@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsert
 description: |
   Returns the value set before getOrInsert from the specified key on different types.
 info: |
@@ -13,7 +13,6 @@ info: |
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
 features: [Symbol, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 
