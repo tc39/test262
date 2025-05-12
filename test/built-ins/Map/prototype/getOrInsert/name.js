@@ -2,19 +2,18 @@
 // Copyright (C) 2024 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsert
 description: |
-  Map.prototype.getOrInsert.length value and descriptor.
+  Map.prototype.getOrInsert.name value and descriptor.
 info: |
   Map.prototype.getOrInsert ( key , value )
 
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
 features: [upsert]
-flags: [noStrict]
 ---*/
-verifyProperty(Map.prototype.getOrInsert, "length", {
-  value: 2,
+verifyProperty(Map.prototype.getOrInsert, "name", {
+  value: "getOrInsert",
   writable: false,
   enumerable: false,
   configurable: true
