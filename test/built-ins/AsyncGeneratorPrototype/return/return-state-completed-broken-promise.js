@@ -53,7 +53,7 @@ it.return(brokenPromise)
       throw new Test262Error("Expected rejection");
     },
     err => {
-      assert(unblocked, false, 'return should be rejected before generator is resumed');
+      assert(unblocked, 'return should be rejected when the generator is completed');
       assert.sameValue(err.message, 'broken promise');
     }
   )
