@@ -5,6 +5,7 @@ description: setting indexed property throws if buffer is immutable
 esid: sec-integer-indexed-exotic-objects-set-p-v-receiver
 includes: [testTypedArray.js]
 features: [TypedArray, immutable-arraybuffer]
+flags: [onlyStrict]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
@@ -13,4 +14,5 @@ testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
   	sample[0] = 1;
   });
+  assert.sameValue(sample[0], 0);
 });

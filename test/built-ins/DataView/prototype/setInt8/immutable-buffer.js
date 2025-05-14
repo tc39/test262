@@ -10,5 +10,5 @@ var buffer = new ArrayBuffer(1);
 var sample = new DataView(buffer.transferToImmutable(), 0);
 
 assert.throws(TypeError, function() {
-  sample.setInt8(0, 0n);
+  sample.setInt8(0, 0);
 });
