@@ -9,7 +9,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyPrimordialCallableProperty(this, "isNaN", "isNaN", 1, {
-  value: this.isNaN,
   writable: true,
   enumerable: false,
   configurable: true

@@ -12,7 +12,6 @@ includes: [propertyHelper.js]
 ---*/
 
 verifyPrimordialCallableProperty(this, "parseInt", "parseInt", 2, {
-  value: this.parseInt,
   writable: true,
   enumerable: false,
   configurable: true
