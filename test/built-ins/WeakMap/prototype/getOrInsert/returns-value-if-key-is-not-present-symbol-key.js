@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   Returns the value given as parameter when key is not present.
 info: |
@@ -15,17 +15,16 @@ info: |
   6. Append p to M.[[WeakMapData]].
   7. Return value.
 features: [Symbol, WeakMap, symbols-as-weakmap-keys, upsert]
-flags: [noStrict]
 ---*/
 var foo = Symbol('a description');
 var bar = Symbol('a description');
 var baz = Symbol('different description');
 var map = new WeakMap();
 
-assert.sameValue(map.getOrInsert(foo, 0), 0, 'Regular symbol as key, added in constructor');
+assert.sameValue(map.getOrInsert(foo, 0), 0);
 
-assert.sameValue(map.getOrInsert(baz, 2), 2, 'Regular symbol as key, added with set()');
-assert.sameValue(map.getOrInsert(bar, 1), 1, "Symbols with the same description don't overwrite each other");
+assert.sameValue(map.getOrInsert(baz, 2), 2);
+assert.sameValue(map.getOrInsert(bar, 1), 1);
 
-assert.sameValue(map.getOrInsert(Symbol.hasInstance, 3), 3, 'Well-known symbol as key');
+assert.sameValue(map.getOrInsert(Symbol.hasInstance, 3), 3);
 

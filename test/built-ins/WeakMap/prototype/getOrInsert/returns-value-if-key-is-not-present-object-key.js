@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   Returns the value given as parameter when key is not present.
 info: |
@@ -15,7 +15,6 @@ info: |
   6. Append p to M.[[WeakMapData]].
   7. Return value.
 features: [WeakMap, upsert]
-flags: [noStrict]
 ---*/
 var foo = {};
 var bar = {};

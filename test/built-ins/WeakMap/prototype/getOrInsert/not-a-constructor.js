@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   WeakMap.prototype.getOrInsert does not implement [[Construct]], is not new-able
 info: |
@@ -19,7 +19,6 @@ info: |
   ...
 includes: [isConstructor.js]
 features: [Reflect.construct, WeakMap, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 assert.sameValue(
   isConstructor(WeakMap.prototype.getOrInsert),

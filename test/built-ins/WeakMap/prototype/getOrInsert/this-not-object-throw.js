@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes, Sune Eriksson Lianes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getOrInsert
 description: |
   Throws a TypeError if `this` is not an Object.
 info: |
@@ -12,7 +12,6 @@ info: |
   2. Perform ? RequireInternalSlot(M, [[WeakMapData]])
   ...
 features: [Symbol, upsert]
-flags: [noStrict]
 ---*/
 var m = new WeakMap();
 
