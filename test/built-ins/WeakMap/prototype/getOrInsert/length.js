@@ -11,7 +11,6 @@ info: |
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
 features: [upsert]
-flags: [noStrict]
 ---*/
 verifyProperty(WeakMap.prototype.getOrInsert, "length", {
   value: 2,

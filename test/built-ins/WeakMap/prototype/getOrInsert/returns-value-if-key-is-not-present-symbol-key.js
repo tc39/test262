@@ -21,10 +21,10 @@ var bar = Symbol('a description');
 var baz = Symbol('different description');
 var map = new WeakMap();
 
-assert.sameValue(map.getOrInsert(foo, 0), 0, 'Regular symbol as key, added in constructor');
+assert.sameValue(map.getOrInsert(foo, 0), 0);
 
-assert.sameValue(map.getOrInsert(baz, 2), 2, 'Regular symbol as key, added with set()');
-assert.sameValue(map.getOrInsert(bar, 1), 1, "Symbols with the same description don't overwrite each other");
+assert.sameValue(map.getOrInsert(baz, 2), 2);
+assert.sameValue(map.getOrInsert(bar, 1), 1);
 
-assert.sameValue(map.getOrInsert(Symbol.hasInstance, 3), 3, 'Well-known symbol as key');
+assert.sameValue(map.getOrInsert(Symbol.hasInstance, 3), 3);
 
