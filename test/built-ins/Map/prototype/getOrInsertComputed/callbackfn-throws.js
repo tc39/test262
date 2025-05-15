@@ -20,5 +20,5 @@ assert.throws(Error, function() {
   map.getOrInsertComputed(1, function() {
     throw new Error('throw in callback');
   })
-}, Error);
+});
 
