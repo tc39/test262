@@ -1,7 +1,7 @@
 // Copyright (C) 2024 Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Does not throw if `callbackfn` is callable.
 info: |
@@ -12,7 +12,6 @@ info: |
   ...
 
 features: [arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var m = new Map();
 
