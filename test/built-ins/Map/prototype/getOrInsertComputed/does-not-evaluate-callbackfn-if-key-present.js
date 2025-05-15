@@ -1,7 +1,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Does not evaluate the callback function if the key is already in the map.
 info: |
@@ -13,7 +13,6 @@ info: |
   6. Let value be ? Call(callbackfn, undefined, « key »).
   ...
 features: [WeakMap, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map([
   [1, 0]

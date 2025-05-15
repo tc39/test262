@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Property type and descriptor.
 info: |
@@ -11,7 +11,6 @@ info: |
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
 features: [arrow-function, upsert]
-flags: [noStrict]
 ---*/
 assert.sameValue(
   typeof Map.prototype.getOrInsertComputed,

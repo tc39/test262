@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Returns the value from the specified key on different types, when key not present.
 info: |
@@ -14,7 +14,6 @@ info: |
   9. Return p.[[Value]].
   ...
 features: [Symbol, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 

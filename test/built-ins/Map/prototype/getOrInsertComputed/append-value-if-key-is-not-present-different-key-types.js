@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Inserts the value for the specified key on different types, when key not present.
 info: |
@@ -13,7 +13,6 @@ info: |
   8. Append p to M.[[MapData]].
   ...
 features: [Symbol, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 

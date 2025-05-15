@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Throws a TypeError if `callbackfn` is not callable.
 info: |
@@ -12,7 +12,6 @@ info: |
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
 features: [Symbol, upsert]
-flags: [noStrict]
 ---*/
 var m = new Map();
 

@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Throws a TypeError if `this` is not an Object.
 info: |
@@ -12,7 +12,6 @@ info: |
   2. Perform ? RequireInternalSlot(M, [[MapData]])
   ...
 features: [Symbol, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var m = new Map();
 

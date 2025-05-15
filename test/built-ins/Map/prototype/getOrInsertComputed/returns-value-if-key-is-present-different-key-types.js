@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Returns the value set before getOrInsertComputed from the specified key on different types.
 info: |
@@ -13,7 +13,6 @@ info: |
     a. If p.[[Key]] is not empty and SameValue(p.[[Key]], key) is true, return p.[[Value]].
   ...
 features: [Symbol, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 
