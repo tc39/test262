@@ -18,7 +18,7 @@ includes: [propertyHelper.js]
 features: [explicit-resource-management]
 ---*/
 
-var actual = DisposableStack.prototype.hasOwnProperty('constructor');
+var actual = Object.prototype.hasOwnProperty.call(DisposableStack, 'constructor');
 
 // If implemented, it should conform to the spec text
 if (actual) {
