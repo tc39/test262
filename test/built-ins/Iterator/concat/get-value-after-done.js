@@ -42,10 +42,6 @@ let iter = {
   }
 };
 
-Array.from(function*() { yield* iter; }());
-
-assert.sameValue(valueAccesses, 1, 'yield* accesses value getter after done');
-
 Array.from(Iterator.concat(iter, iter, iter));
 
-assert.sameValue(valueAccesses, 4, 'Iterator.concat also accesses value getter after each iterator is done');
+assert.sameValue(valueAccesses, 3, 'Iterator.concat also accesses value getter after each iterator is done');
