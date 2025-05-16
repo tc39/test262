@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Append a new value in the map normalizing +0 and -0.
 info: |
@@ -17,7 +17,6 @@ info: |
   8. Append p to M.[[MapData]].
   ...
 features: [Symbol, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 map.getOrInsertComputed(-0, () => 42);
