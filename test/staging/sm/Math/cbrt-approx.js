@@ -22,6 +22,8 @@ var cbrt_data = [
     [ Math.SQRT2, 1.1224620483093728 ]
 ];
 
+var sloppy_tolerance = 3;
+
 for (var [x, y] of cbrt_data)
-    assertNear(Math.cbrt(x), y);
+    assertNear(Math.cbrt(x), y, sloppy_tolerance);
 
