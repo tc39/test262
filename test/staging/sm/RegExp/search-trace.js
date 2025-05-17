@@ -2,17 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-RegExp-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  Trace RegExp.prototype[@@search] behavior.
 esid: pending
 ---*/
-var BUGNUMBER = 887016;
-var summary = "Trace RegExp.prototype[@@search] behavior.";
-
-print(BUGNUMBER + ": " + summary);
 
 var n;
 var log;
@@ -84,4 +77,3 @@ assert.sameValue(log,
          "get:exec,call:exec," +
          "get:lastIndex," +
          "set:lastIndex,");
-

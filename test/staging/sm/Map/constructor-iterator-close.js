@@ -2,17 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  Map/Set/WeakMap/WeakSet constructor should close iterator on error
 esid: pending
 ---*/
-var BUGNUMBER = 1180306;
-var summary = 'Map/Set/WeakMap/WeakSet constructor should close iterator on error';
-
-print(BUGNUMBER + ": " + summary);
 
 function test(ctors, { nextVal=undefined,
                        nextThrowVal=undefined,
@@ -61,7 +54,7 @@ function test(ctors, { nextVal=undefined,
             }
             assert.sameValue(caught, true);
         } else if (exceptionType) {
-            assertThrowsInstanceOf(() => new ctor(iterable), exceptionType);
+            assert.throws(exceptionType, () => new ctor(iterable));
         } else {
             new ctor(iterable);
         }
@@ -299,4 +292,3 @@ test([Set, WeakSet], {
     nextVal: { value: {}, done: false },
     closed: false,
 });
-
