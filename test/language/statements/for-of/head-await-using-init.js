@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-iteration-statements
+esid: sec-for-in-and-for-of-statements
 description: >
   ForDeclaration containing 'await using' does not support an initializer
 info: |
