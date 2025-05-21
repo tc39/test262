@@ -23,7 +23,8 @@ features: [Map, Reflect.construct, arrow-function, upsert]
 ---*/
 assert.sameValue(isConstructor(Map.prototype.getOrInsertComputed), false, 'isConstructor(Map.prototype.getOrInsertComputed) must return false');
 
+var m = new Map();
 assert.throws(TypeError, () => {
-  let m = new Map(); new m.getOrInsertComputed();
+    new m.getOrInsertComputed();
 });
 

@@ -28,6 +28,7 @@ assert.throws(Error, function() {
 assert.sameValue(map.get(0), 'zero');
 assert.sameValue(map.get(1), 'one');
 assert.sameValue(map.get(2), 'two');
+assert.sameValue(map.has(3), false)
 
 assert.throws(Error, function() {
   map.getOrInsertComputed(3, function() {
@@ -40,3 +41,17 @@ assert.throws(Error, function() {
 assert.sameValue(map.get(0), 'zero');
 assert.sameValue(map.get(1), 'mutated',);
 assert.sameValue(map.get(2), 'two');
+assert.sameValue(map.has(3), false)
+
+assert.throws(Error, function() {
+  map.getOrInsertComputed(3, function() {
+    map.set(3, 'mutated');
+    throw new Error('throw in callback');
+  })
+});
+
+// Check the values after throwing in callbackfn, with mutation.
+assert.sameValue(map.get(0), 'zero');
+assert.sameValue(map.get(1), 'mutated',);
+assert.sameValue(map.get(2), 'two');
+assert.sameValue(map.get(3), 'mutated')

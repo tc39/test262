@@ -16,16 +16,19 @@ features: [Symbol, arrow-function, upsert]
 ---*/
 var map = new Map();
 
-map.getOrInsertComputed('bar', () => 0);
-assert.sameValue(map.get('bar'), 0);
+var item = 'bar';
+map.getOrInsertComputed(item, () => 0);
+assert.sameValue(map.get(item), 0);
 
-map.getOrInsertComputed(1, () => 42);
-assert.sameValue(map.get(1), 42);
+item = 1;
+map.getOrInsertComputed(item, () => 42);
+assert.sameValue(map.get(item), 42);
 
-map.getOrInsertComputed(NaN, () => 1);
-assert.sameValue(map.get(NaN), 1);
+item = NaN;
+map.getOrInsertComputed(item, () => 1);
+assert.sameValue(map.get(item), 1);
 
-var item = {};
+item = {};
 map.getOrInsertComputed(item, () => 2);
 assert.sameValue(map.get(item), 2);
 

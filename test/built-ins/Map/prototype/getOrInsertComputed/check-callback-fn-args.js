@@ -19,4 +19,5 @@ var map = new Map();
 map.getOrInsertComputed(1, function(...args) {
   assert.sameValue(this, undefined);
   assert.sameValue(args.length, 1);
-  });
+  assert.sameValue(args[0], 1);
+});

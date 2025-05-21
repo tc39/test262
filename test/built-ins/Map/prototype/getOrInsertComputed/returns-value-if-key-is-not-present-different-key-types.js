@@ -4,7 +4,7 @@
 /*---
 esid: sec-map.prototype.getorinsertcomputed
 description: |
-  Returns the value from the specified key on different types, when key not present.
+  Test insertion of value returned from callback with different key types.
 info: |
   Map.prototype.getOrInsertComputed ( key , callbackfn )
 
@@ -16,14 +16,16 @@ info: |
 features: [Symbol, arrow-function, upsert]
 ---*/
 var map = new Map();
+var item = 'bar';
+assert.sameValue(map.getOrInsertComputed(item, () => 0), 0);
 
-assert.sameValue(map.getOrInsertComputed('bar', () => 0), 0);
+item = 1;
+assert.sameValue(map.getOrInsertComputed(item, () => 42), 42);
 
-assert.sameValue(map.getOrInsertComputed(1, () => 42), 42);
+item = NaN;
+assert.sameValue(map.getOrInsertComputed(item, () => 1), 1);
 
-assert.sameValue(map.getOrInsertComputed(NaN, () => 1), 1);
-
-var item = {};
+item = {};
 assert.sameValue(map.getOrInsertComputed(item, () => 2), 2);
 
 item = [];
