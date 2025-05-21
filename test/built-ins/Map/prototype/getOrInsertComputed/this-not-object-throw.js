@@ -39,3 +39,6 @@ assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(Symbol(), 1, () => 1);
 });
 
+assert.throws(TypeError, function () {
+    m.getOrInsertComputed.call(1n, 1, () => 1);
+});

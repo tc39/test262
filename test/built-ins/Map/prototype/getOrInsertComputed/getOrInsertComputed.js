@@ -10,15 +10,9 @@ info: |
 
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
-features: [arrow-function, upsert]
+features: [upsert]
 ---*/
-assert.sameValue(
-  typeof Map.prototype.getOrInsertComputed,
-  'function',
-  '`typeof Map.prototype.getOrInsertComputed` is `function`'
-);
-
-verifyProperty(Map.prototype, "getOrInsertComputed", {
+verifyPrimordialCallableProperty(Map.prototype, "getOrInsertComputed", "getOrInsertComputed", 2, {
   value: Map.prototype.getOrInsertComputed,
   writable: true,
   enumerable: false,
