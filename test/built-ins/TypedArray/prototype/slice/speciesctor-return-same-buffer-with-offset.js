@@ -4,7 +4,9 @@
 /*---
 esid: sec-%typedarray%.prototype.slice
 description: >
-  Species constructor returns a typed array using the same buffer, but with a different byte offset
+  When species constructs a typed array using the same buffer but with a
+  different byte offset, slice output reflects element-by-element copying into
+  that buffer.
 info: |
   %TypedArray%.prototype.slice ( start, end )
 
