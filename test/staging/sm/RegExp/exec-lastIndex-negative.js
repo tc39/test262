@@ -2,17 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-RegExp-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  negative lastIndex should be treated as 0.
 esid: pending
 ---*/
-var BUGNUMBER = 1207922;
-var summary = "negative lastIndex should be treated as 0.";
-
-print(BUGNUMBER + ": " + summary);
 
 var pattern = /abc/gi;
 var string = 'AbcaBcabC';
@@ -33,4 +26,3 @@ for (var index of indices) {
   assert.sameValue(result[0], "Abc");
   assert.sameValue(pattern.lastIndex, 3);
 }
-

@@ -4,22 +4,10 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-extensions-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  Implement __define[GS]etter__ using Object.defineProperty
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 715821;
-var summary = "Implement __define[GS]etter__ using Object.defineProperty";
-
-print(BUGNUMBER + ": " + summary);
-
-/*************
- * UTILITIES *
- *************/
 
 function s(desc)
 {
@@ -75,20 +63,6 @@ function check(obj, prop, expected)
   checkField("writable", desc, expected);
   checkField("enumerable", desc, expected);
   checkField("configurable", desc, expected);
-}
-
-function expectTypeError(f)
-{
-  try
-  {
-    f();
-    throw new Error("no error thrown");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true,
-             "wrong error thrown: got " + e + ", not a TypeError");
-  }
 }
 
 /**************
@@ -147,8 +121,8 @@ gsobj.__defineSetter__("baz", s3);
 check(gsobj, "baz", { get: g3, set: s3, enumerable: true, configurable: true });
 
 Object.defineProperty(gsobj, "baz", { configurable: false });
-expectTypeError(function() { gsobj.__defineSetter__("baz", s2); });
-expectTypeError(function() { gsobj.__defineSetter__("baz", s3); });
+assert.throws(TypeError, function() { gsobj.__defineSetter__("baz", s2); });
+assert.throws(TypeError, function() { gsobj.__defineSetter__("baz", s3); });
 check(gsobj, "baz", { get: g3, set: s3, enumerable: true, configurable: false });
 
 /******************************************************************************/
@@ -179,8 +153,8 @@ sgobj.__defineSetter__("baz", s4);
 check(sgobj, "baz", { get: g4, set: s4, enumerable: true, configurable: true });
 
 Object.defineProperty(sgobj, "baz", { configurable: false });
-expectTypeError(function() { sgobj.__defineGetter__("baz", g3); });
-expectTypeError(function() { sgobj.__defineSetter__("baz", s4); });
+assert.throws(TypeError, function() { sgobj.__defineGetter__("baz", g3); });
+assert.throws(TypeError, function() { sgobj.__defineSetter__("baz", s4); });
 check(sgobj, "baz", { get: g4, set: s4, enumerable: true, configurable: false });
 
 /******************************************************************************/
@@ -241,7 +215,7 @@ check(gncover, "moo", { value: 17, writable: true, enumerable: true, configurabl
 Object.defineProperty(gncover, "moo", { configurable: false });
 check(gncover, "moo", { value: 17, writable: true, enumerable: true, configurable: false });
 
-expectTypeError(function() { gncover.__defineGetter__("moo", g7); });
+assert.throws(TypeError, function() { gncover.__defineGetter__("moo", g7); });
 check(gncover, "moo", { value: 17, writable: true, enumerable: true, configurable: false });
 
 /******************************************************************************/
@@ -254,7 +228,7 @@ check(sncover, "moo", { value: 17, writable: true, enumerable: true, configurabl
 Object.defineProperty(sncover, "moo", { configurable: false });
 check(sncover, "moo", { value: 17, writable: true, enumerable: true, configurable: false });
 
-expectTypeError(function() { sncover.__defineSetter__("moo", s7); });
+assert.throws(TypeError, function() { sncover.__defineSetter__("moo", s7); });
 check(sncover, "moo", { value: 17, writable: true, enumerable: true, configurable: false });
 
 /******************************************************************************/
@@ -267,7 +241,7 @@ check(gncwover, "fwoosh", { value: 17, writable: true, enumerable: true, configu
 Object.defineProperty(gncwover, "fwoosh", { writable: false, configurable: false });
 check(gncwover, "fwoosh", { value: 17, writable: false, enumerable: true, configurable: false });
 
-expectTypeError(function() { gncwover.__defineGetter__("fwoosh", g7); });
+assert.throws(TypeError, function() { gncwover.__defineGetter__("fwoosh", g7); });
 check(gncwover, "fwoosh", { value: 17, writable: false, enumerable: true, configurable: false });
 
 /******************************************************************************/
@@ -280,9 +254,5 @@ check(sncwover, "fwoosh", { value: 17, writable: true, enumerable: true, configu
 Object.defineProperty(sncwover, "fwoosh", { writable: false, configurable: false });
 check(sncwover, "fwoosh", { value: 17, writable: false, enumerable: true, configurable: false });
 
-expectTypeError(function() { sncwover.__defineSetter__("fwoosh", s7); });
+assert.throws(TypeError, function() { sncwover.__defineSetter__("fwoosh", s7); });
 check(sncwover, "fwoosh", { value: 17, writable: false, enumerable: true, configurable: false });
-
-/******************************************************************************/
-
-print("Tests complete");

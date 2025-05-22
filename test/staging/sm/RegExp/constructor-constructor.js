@@ -2,19 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-RegExp-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  RegExp constructor should check pattern.constructor.
 esid: pending
 ---*/
-var BUGNUMBER = 1147817;
-var summary = "RegExp constructor should check pattern.constructor.";
 
-print(BUGNUMBER + ": " + summary);
-
-var g = createNewGlobal();
+var g = $262.createRealm().global;
 
 var re = /foo/;
 assert.sameValue(RegExp(re), re);
@@ -84,4 +77,3 @@ g.eval(`obj.constructor = RegExp`);
 assert.sameValue(RegExp(obj) === obj, false);
 obj.constructor = RegExp;
 assert.sameValue(RegExp(obj), obj);
-

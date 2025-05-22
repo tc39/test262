@@ -4,22 +4,10 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-extensions-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  __proto__ as accessor
 esid: pending
 ---*/
-var gTestfile = '__proto__.js';
-var BUGNUMBER = 770344;
-var summary = "__proto__ as accessor";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var protoDesc = Object.getOwnPropertyDescriptor(Object.prototype, "__proto__");
 assert.sameValue(protoDesc !== null, true);
@@ -52,7 +40,3 @@ assert.sameValue(desc.value, 5);
 assert.sameValue(desc.writable, true);
 assert.sameValue(desc.enumerable, true);
 assert.sameValue(desc.configurable, true);
-
-/******************************************************************************/
-
-print("Tests complete");
