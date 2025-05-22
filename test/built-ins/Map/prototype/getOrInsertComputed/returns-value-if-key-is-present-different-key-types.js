@@ -18,33 +18,33 @@ var map = new Map();
 
 var item = 'bar';
 map.set(item, 0);
-assert.sameValue(0, map.getOrInsertComputed(item, () =>  1));
+assert.sameValue(map.getOrInsertComputed(item, () => 1), 0);
 
 item = 1;
 map.set(item, 42);
-assert.sameValue(42, map.getOrInsertComputed(item, () => 43));
+assert.sameValue(map.getOrInsertComputed(item, () => 43), 42);
 
 item = NaN;
 map.set(item, 1);
-assert.sameValue(1, map.getOrInsertComputed(item, () => 2));
+assert.sameValue(map.getOrInsertComputed(item, () => 2), 1);
 
 item = {};
 map.set(item, 2);
-assert.sameValue(2, map.getOrInsertComputed(item, () => 3));
+assert.sameValue(map.getOrInsertComputed(item, () => 3), 2);
 
 item = [];
 map.set(item, 3);
-assert.sameValue(3, map.getOrInsertComputed(item, () => 4));
+assert.sameValue(map.getOrInsertComputed(item, () => 4), 3);
 
 item = Symbol('item');
 map.set(item, 4);
-assert.sameValue(4, map.getOrInsertComputed(item, () => 5));
+assert.sameValue(map.getOrInsertComputed(item, () => 5), 4);
 
 item = null;
 map.set(item, 5);
-assert.sameValue(5, map.getOrInsertComputed(item, () => 6));
+assert.sameValue(map.getOrInsertComputed(item, () => 6), 5);
 
 item = undefined;
 map.set(item, 6);
-assert.sameValue(6, map.getOrInsertComputed(item, () => 7));
+assert.sameValue(map.getOrInsertComputed(item, () => 7), 6);
 

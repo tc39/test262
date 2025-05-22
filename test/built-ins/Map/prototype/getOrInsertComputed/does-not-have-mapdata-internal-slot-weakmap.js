@@ -14,13 +14,13 @@ info: |
   ...
 features: [WeakMap, arrow-function, upsert]
 ---*/
-var map = new WeakMap();
+var weakmap = new WeakMap();
 assert.throws(TypeError, function() {
-  Map.prototype.getOrInsertComputed.call(map, 1, () => 1);
+  Map.prototype.getOrInsertComputed.call(weakmap, 1, () => 1);
 });
 
-map = new Map();
+var map = new Map();
 assert.throws(TypeError, function() {
-  Map.getOrInsertComputed.call(map, 1, () => 1);
+  map.getOrInsertComputed.call(weakmap, 1, () => 1);
 });
 
