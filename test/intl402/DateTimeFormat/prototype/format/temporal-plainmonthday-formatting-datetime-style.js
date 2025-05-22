@@ -8,74 +8,78 @@ locale: [en-US]
 features: [Temporal]
 ---*/
 
-const dateFormatterShort = new Intl.DateTimeFormat("en-US", { dateStyle: "short", timeZone: "Pacific/Apia" });
-const dateFormatterMedium = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "Pacific/Apia" });
-const dateFormatterLong = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "Pacific/Apia" });
-const dateFormatterFull = new Intl.DateTimeFormat("en-US", { dateStyle: "full", timeZone: "Pacific/Apia" });
-const timeFormatterShort = new Intl.DateTimeFormat("en-US", { timeStyle: "short", timeZone: "Pacific/Apia" });
-const timeFormatterMedium = new Intl.DateTimeFormat("en-US", { timeStyle: "medium", timeZone: "Pacific/Apia" });
-const timeFormatterLong = new Intl.DateTimeFormat("en-US", { timeStyle: "long", timeZone: "Pacific/Apia" });
-const timeFormatterFull = new Intl.DateTimeFormat("en-US", { timeStyle: "full", timeZone: "Pacific/Apia" });
-const dateTimeFormatterShort = new Intl.DateTimeFormat("en-US", { dateStyle: "short", timeStyle: "short", timeZone: "Pacific/Apia" });
-const dateTimeFormatterMedium = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "medium", timeZone: "Pacific/Apia" });
-const dateTimeFormatterLong = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeStyle: "long", timeZone: "Pacific/Apia" });
-const dateTimeFormatterFull = new Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "full", timeZone: "Pacific/Apia" });
-const dateTimeFormatterShortLong = new Intl.DateTimeFormat("en-US", { dateStyle: "short", timeStyle: "long", timeZone: "Pacific/Apia" });
-const dateTimeFormatterShortMedium = new Intl.DateTimeFormat("en-US", { dateStyle: "short", timeStyle: "medium", timeZone: "Pacific/Apia" });
-const dateTimeFormatterShortFull = new Intl.DateTimeFormat("en-US", { dateStyle: "short", timeStyle: "full", timeZone: "Pacific/Apia" });
-const dateTimeFormatterMediumLong = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "long", timeZone: "Pacific/Apia" });
-const dateTimeFormatterMediumShort = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "short", timeZone: "Pacific/Apia" });
-const dateTimeFormatterMediumFull = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "full", timeZone: "Pacific/Apia" });
-const dateTimeFormatterLongMedium = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeStyle: "medium", timeZone: "Pacific/Apia" });
-const dateTimeFormatterLongShort = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeStyle: "short", timeZone: "Pacific/Apia" });
-const dateTimeFormatterLongFull = new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeStyle: "full", timeZone: "Pacific/Apia" });
-const dateTimeFormatterFullMedium = new Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "medium", timeZone: "Pacific/Apia" });
-const dateTimeFormatterFullShort = new Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "short", timeZone: "Pacific/Apia" });
-const dateTimeFormatterFullLong = new Intl.DateTimeFormat("en-US", { dateStyle: "full", timeStyle: "long", timeZone: "Pacific/Apia" });
+const locale = "en-US";
+const timeZone = "Pacific/Apia";
+
+const dateStyles = [
+  "full", "long", "medium", "short",
+];
+
+const timeStyles = [
+  "full", "long", "medium", "short",
+];
 
 // Use a reference year so we can check that it doesn't occur in any string output
 const monthday = new Temporal.PlainMonthDay(3, 4, "gregory", 5678);
 
-const monthdayResultShort = dateFormatterShort.format(monthday);
-// assert.sameValue(monthdayResultShort, "3/4", "plain monthday, dateStyle=short");
-assert.sameValue(monthdayResultShort.search("78"), -1, "plain monthday, dateStyle=short: year should not appear");
-assert.notSameValue(monthdayResultShort.search("3"), -1, "plain monthday, dateStyle=short: month should appear");
-assert.notSameValue(monthdayResultShort.search("4"), -1, "plain monthday, dateStyle=short: day should appear");
+const expected = {
+  // "March 4"
+  full: {
+    year: ["5678", false],
+    month: ["3", false],
+    day: ["4", true],
+  },
 
-const monthdayResultMedium = dateFormatterMedium.format(monthday);
-// assert.sameValue(monthdayResultMedium, "Mar 4", "plain monthday, dateStyle=medium");
-assert.sameValue(monthdayResultMedium.search("5678"), -1, "plain monthday, dateStyle=medium: year should not appear");
-assert.sameValue(monthdayResultMedium.search("3"), -1, "plain monthday, dateStyle=medium: numeric month should not appear");
-assert.notSameValue(monthdayResultMedium.search("4"), -1, "plain monthday, dateStyle=medium: day should appear");
+  // "March 4"
+  long: {
+    year: ["5678", false],
+    month: ["3", false],
+    day: ["4", true],
+  },
 
-const monthdayResultLong = dateFormatterLong.format(monthday);
-// assert.sameValue(monthdayResultLong, "March 4", "plain monthday, dateStyle=long");
-assert.sameValue(monthdayResultLong.search("5678"), -1, "plain monthday, dateStyle=long: year should not appear");
-assert.sameValue(monthdayResultLong.search("3"), -1, "plain monthday, dateStyle=long: numeric month should not appear");
-assert.notSameValue(monthdayResultLong.search("4"), -1, "plain monthday, dateStyle=long: day should appear");
+  // "Mar 4"
+  medium: {
+    year: ["5678", false],
+    month: ["3", false],
+    day: ["4", true],
+  },
 
-const monthdayResultFull = dateFormatterFull.format(monthday);
-// assert.sameValue(monthdayResultFull, "March 4", "plain monthday, dateStyle=full");
-assert.sameValue(monthdayResultFull.search("5678"), -1, "plain monthday, dateStyle=full: year should not appear");
-assert.sameValue(monthdayResultFull.search("3"), -1, "plain monthday, dateStyle=full: numeric month should not appear");
-assert.notSameValue(monthdayResultFull.search("4"), -1, "plain monthday, dateStyle=full: day should appear");
+  // "3/4"
+  short: {
+    year: ["78", false],
+    month: ["3", true],
+    day: ["4", true],
+  },
+};
 
-assert.throws(TypeError, () => timeFormatterShort.format(monthday), "plain monthday, timeStyle=short");
-assert.throws(TypeError, () => timeFormatterMedium.format(monthday), "plain monthday, timeStyle=medium");
-assert.throws(TypeError, () => timeFormatterLong.format(monthday), "plain monthday, timeStyle=long");
-assert.throws(TypeError, () => timeFormatterFull.format(monthday), "plain monthday, timeStyle=full");
+function ensureDateField(result, field, dateStyle) {
+  let [searchValue, present] = expected[dateStyle][field];
+  let verb = present ? "should" : "should not";
 
-var monthdayResult = dateTimeFormatterShort.format(monthday);
-assert.sameValue(monthdayResult, monthdayResultShort, "plain monthday, dateStyle = timeStyle = short: should match output with dateStyle only");
+  assert.sameValue(
+    result.includes(searchValue),
+    present,
+    `dateStyle=${dateStyle}: ${field} ${verb} appear`
+  );
+}
 
-monthdayResult = dateTimeFormatterMedium.format(monthday);
-assert.sameValue(monthdayResult, monthdayResultMedium, "plain monthday, dateStyle = timeStyle = medium: should match output with dateStyle only");
+// timeStyle throws when no dateStyle is present.
+for (let timeStyle of timeStyles) {
+  let dtf = new Intl.DateTimeFormat(locale, {timeStyle, timeZone});
+  assert.throws(TypeError, () => dtf.format(monthday), `timeStyle=${timeStyle}`);
+}
 
-monthdayResult = dateTimeFormatterLong.format(monthday);
-assert.sameValue(monthdayResult, monthdayResultLong, "plain monthday, dateStyle = timeStyle = long: should match output with dateStyle only");
+for (let dateStyle of dateStyles) {
+  let dtf = new Intl.DateTimeFormat(locale, {dateStyle, timeZone});
+  let result = dtf.format(monthday);
 
-monthdayResult = dateTimeFormatterFull.format(monthday);
-assert.sameValue(monthdayResult, monthdayResultLong, "plain monthday, dateStyle = timeStyle = full: should match output with dateStyle only");
+  ensureDateField(result, "year", dateStyle);
+  ensureDateField(result, "month", dateStyle);
+  ensureDateField(result, "day", dateStyle);
 
-monthdayResult = dateTimeFormatterShortLong.format(monthday);
-assert.sameValue(monthdayResult, monthdayResultShort, "plain monthday, dateStyle short, = timeStyle = long: should match output with dateStyle only");
+  // timeStyle is ignored when dateStyle is present.
+  for (let timeStyle of timeStyles) {
+    let dtf = new Intl.DateTimeFormat(locale, {dateStyle, timeStyle, timeZone});
+    assert.sameValue(dtf.format(monthday), result, `dateStyle = ${dateStyle}, timeStyle = ${timeStyle}`);
+  }
+}
