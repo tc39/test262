@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Inserts the value for the specified key on different types, when key not present.
 info: |
@@ -13,20 +13,22 @@ info: |
   8. Append p to M.[[MapData]].
   ...
 features: [Symbol, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 
-map.getOrInsertComputed('bar', () => 0);
-assert.sameValue(map.get('bar'), 0);
+var item = 'bar';
+map.getOrInsertComputed(item, () => 0);
+assert.sameValue(map.get(item), 0);
 
-map.getOrInsertComputed(1, () => 42);
-assert.sameValue(map.get(1), 42);
+item = 1;
+map.getOrInsertComputed(item, () => 42);
+assert.sameValue(map.get(item), 42);
 
-map.getOrInsertComputed(NaN, () => 1);
-assert.sameValue(map.get(NaN), 1);
+item = NaN;
+map.getOrInsertComputed(item, () => 1);
+assert.sameValue(map.get(item), 1);
 
-var item = {};
+item = {};
 map.getOrInsertComputed(item, () => 2);
 assert.sameValue(map.get(item), 2);
 

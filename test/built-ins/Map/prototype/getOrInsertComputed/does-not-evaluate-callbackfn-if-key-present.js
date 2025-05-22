@@ -1,7 +1,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Does not evaluate the callback function if the key is already in the map.
 info: |
@@ -13,13 +13,14 @@ info: |
   6. Let value be ? Call(callbackfn, undefined, « key »).
   ...
 features: [WeakMap, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map([
   [1, 0]
 ]);
 
+var callbackCalls = 0;
 function callback() {
+    callbackCalls += 1;
     throw new Error('Callbackfn should not be evaluated if key is present');
 }
 
@@ -35,3 +36,4 @@ assert.throws(Error, function() {
   map.getOrInsertComputed(4, callback)}
 , Error);
 
+assert.sameValue(callbackCalls, 1);
