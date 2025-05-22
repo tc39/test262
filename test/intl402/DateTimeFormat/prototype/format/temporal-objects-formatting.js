@@ -145,8 +145,8 @@ assert.notSameValue(datetimeResult.search("4"), -1, "plain datetime, dateStyle =
 assert.sameValue(datetimeResult.search("888"), -1, "plain datetime, dateStyle = timeStyle = full: milliseconds should not appear");
 
 datetimeResult = dateTimeFormatterShortLong.format(datetime);
-// assert.sameValue(datetimeResult, "3/4/2222, 5:06:07 AM", "plain datetime, dateStyle = short, timeStyle = long");
-assert.notSameValue(datetimeResult.search("2222"), -1, "plain datetime, dateStyle = short, timeStyle = long: 4-digit year should appear");
+// assert.sameValue(datetimeResult, "3/4/22, 5:06:07 AM", "plain datetime, dateStyle = short, timeStyle = long");
+assert.sameValue(datetimeResult.search("2222"), -1, "plain datetime, dateStyle = short, timeStyle = long: 4-digit year should not appear");
 assert.notSameValue(datetimeResult.search("3"), -1, "plain datetime, dateStyle = short, timeStyle = long: numeric month should appear");
 assert.notSameValue(datetimeResult.search("4"), -1, "plain datetime, dateStyle = short, timeStyle = long: day should appear");
 assert.sameValue(datetimeResult.search("888"), -1, "plain datetime, dateStyle = short, timeStyle = long: milliseconds should not appear");
@@ -160,8 +160,8 @@ assert.notSameValue(datetimeResult.search("4"), -1, "plain datetime, dateStyle =
 assert.sameValue(datetimeResult.search("111"), -1, "plain datetime, dateStyle = short, timeStyle = medium: nanoseconds should not appear");
 
 datetimeResult = dateTimeFormatterShortFull.format(datetime);
-// assert.sameValue(datetimeResult, "3/4/2222, 5:06:07 AM", "plain datetime, dateStyle = short, timeStyle = full");
-assert.notSameValue(datetimeResult.search("2222"), -1, "plain datetime, dateStyle = short, timeStyle = full: 4-digit year should appear");
+// assert.sameValue(datetimeResult, "3/4/22, 5:06:07 AM", "plain datetime, dateStyle = short, timeStyle = full");
+assert.sameValue(datetimeResult.search("2222"), -1, "plain datetime, dateStyle = short, timeStyle = full: 4-digit year should not appear");
 assert.notSameValue(datetimeResult.search("3"), -1, "plain datetime, dateStyle = short, timeStyle = full: numeric month should appear");
 assert.notSameValue(datetimeResult.search("4"), -1, "plain datetime, dateStyle = short, timeStyle = full: day should appear");
 assert.sameValue(datetimeResult.search("999"), -1, "plain datetime, dateStyle = short, timeStyle = full: microseconds should not appear");
