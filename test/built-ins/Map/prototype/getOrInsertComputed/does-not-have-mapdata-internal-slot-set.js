@@ -21,6 +21,6 @@ assert.throws(TypeError, function () {
 
 var map = new Map();
 assert.throws(TypeError, function () {
-  Map.getOrInsertComputed.call(map, 1, () => 1);
+  map.getOrInsertComputed.call(set, 1, () => 1);
 });
 
