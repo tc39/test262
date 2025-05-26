@@ -11,15 +11,26 @@ info: |
     ...
 ---*/
 
-const validValues = ["standard", "compact", "scientific", "engineering", new String("standard"), new String("compact"), new String("scientific"), new String("engineering")];
-const invalidValues = ["COMPACT", "ståndard", 123, false, Symbol("foo"), null, {}, [], ""];
+const validValues = ["standard", "compact", "scientific", "engineering"];
+const invalidValues = ["COMPACT", "ståndard", 123, false, null, {}, [], ""];
 
 for (const value of validValues) {
   const pr = new Intl.PluralRules("en", { notation: value });
   assert(pr.resolvedOptions().notation === value, `Resolved options should have notation ${value}`);
 }
+
+// Also test with String wrappers.
+for (const value of validValues) {
+  const pr = new Intl.PluralRules("en", { notation: new String(value) });
+  assert(pr.resolvedOptions().notation === value, `Resolved options should have notation ${value}`);
+}
+
 for (const value of invalidValues) {
   assert.throws(RangeError, () => {
     new Intl.PluralRules("en", { notation: value });
   }, `Exception should be thrown for ${value}`);
 }
+
+assert.throws(TypeError, () => {
+  new Intl.PluralRules("en", { notation: Symbol("foo") });
+}, `Exception should be thrown for symbol`);
