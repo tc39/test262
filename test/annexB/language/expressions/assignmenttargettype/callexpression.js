@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-late-errors-for-function-call-assignment-targets
+esid: sec-runtime-errors-for-function-call-assignment-targets
 description: Function call LHS in `=` assignment is a runtime ReferenceError
 info: |
   CallExpression :
     CoverCallExpressionAndAsyncArrowHead
     CallExpression Arguments
-  1. If the host is a web browser or otherwise supports Late Errors for Function Call Assignment Targets, then
+  1. If the host is a web browser or otherwise supports Runtime Errors for Function Call Assignment Targets, then
      a. If IsStrict(this CallExpression) is false, return ~web-compat~.
   2. Return ~invalid~.
 flags: [noStrict]
