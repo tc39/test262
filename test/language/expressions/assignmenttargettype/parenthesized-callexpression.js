@@ -16,7 +16,7 @@ info: |
     CallExpression :
       CoverCallExpressionAndAsyncArrowHead
       CallExpression Arguments
-    1. If the host is a web browser or otherwise supports Late Errors for Function Call Assignment Targets, then
+    1. If the host is a web browser or otherwise supports Runtime Errors for Function Call Assignment Targets, then
        a. If IsStrict(this CallExpression) is false, return ~web-compat~.
     2. Return ~invalid~.
 
