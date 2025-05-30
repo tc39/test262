@@ -21,6 +21,16 @@ features: [Intl.Locale]
 const validVariantsOptions = [
   ['en', undefined, undefined],
   ['en', 'spanglis', 'en-spanglis'],
+
+  // unicode_variant_subtag = (alphanum{5,8} | digit alphanum{3})
+  ['xx', '1xyz', 'xx-1xyz'],
+  ['xx', '1234', 'xx-1234'],
+  ['xx', 'abcde', 'xx-abcde'],
+  ['xx', '12345678', 'xx-12345678'],
+  ['xx', '1xyz-1234-abcde-12345678', 'xx-1234-12345678-1xyz-abcde'],
+
+  // Canonicalization affects subtag ordering.
+  ['en', 'spanglis-oxendict', 'en-oxendict-spanglis'],
 ];
 for (const [lang, variants, baseName] of validVariantsOptions) {
   let options = { variants };

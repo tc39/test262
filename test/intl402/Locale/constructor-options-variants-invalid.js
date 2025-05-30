@@ -30,12 +30,22 @@ const invalidVariantsOptions = [
   "abc",
   "3xy",
   "abcd",
-  "12345",
-  "5wxyz",
   "abcdefghi",
 
   // Value contains more than just the 'variants' production.
   "GB-scouse",
+
+  // Value contains duplicates.
+  "fonipa-fonipa",
+  "fonipa-valencia-fonipa",
+
+  // Value contains out-of-place dashes.
+  "-",
+  "-spanglis",
+  "spanglis-",
+  "-spanglis-oxendict",
+  "spanglis-oxendict-",
+  "spanglis--oxendict",
 ];
 for (const variants of invalidVariantsOptions) {
   assert.throws(RangeError, function() {

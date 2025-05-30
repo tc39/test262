@@ -82,6 +82,13 @@ assert.sameValue(loc.script, undefined);
 assert.sameValue(loc.region, undefined);
 assert.sameValue(loc.variants, undefined);
 
+loc = new Intl.Locale("cel", { variants: "gaulish" });
+assert.sameValue(loc.baseName, "xtg");
+assert.sameValue(loc.language, "xtg");
+assert.sameValue(loc.script, undefined);
+assert.sameValue(loc.region, undefined);
+assert.sameValue(loc.variants, undefined);
+
 // Regular grandfathered language tag.
 assert.throws(RangeError, () => new Intl.Locale("zh-min"));
 
