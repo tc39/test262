@@ -37,7 +37,7 @@ const invalidVariantsOptions = [
 
   // Value contains duplicates.
   "fonipa-fonipa",
-  "fonipa-valencia-fonipa",
+  "fonipa-valencia-Fonipa",
 
   // Value contains out-of-place dashes.
   "-",
