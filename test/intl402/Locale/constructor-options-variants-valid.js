@@ -24,7 +24,7 @@ const validVariantsOptions = [
 ];
 for (const [lang, variants, baseName] of validVariantsOptions) {
   let options = { variants };
-  let optionsRepr = `{variants: ${variants == null ? variants : `"${variants}"`}}`;
+  let optionsRepr = `{variants: ${typeof variants === "string" ? `"${variants}"` : variants}}`;
   let instance;
   let expect;
 
