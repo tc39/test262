@@ -37,6 +37,7 @@ const invalidLanguageOptions = [
   "a",
   "ab7",
   "notalanguage",
+  "root",
   "undefined",
 
   // Value contains more than just the 'language' production.
