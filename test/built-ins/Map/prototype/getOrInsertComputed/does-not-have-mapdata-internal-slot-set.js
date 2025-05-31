@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Sune Eriksson Lianes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Throws a TypeError if `this` is a Set Object
 info: |
@@ -13,14 +13,14 @@ info: |
   2. Perform ? RequireInternalSlot(M, [[MapData]])
   ...
 features: [Set, arrow-function, upsert]
-flags: [noStrict]
 ---*/
+var set = new Set();
 assert.throws(TypeError, function () {
-  Map.prototype.getOrInsertComputed.call(new Set(), 1, () => 1);
+  Map.prototype.getOrInsertComputed.call(set, 1, () => 1);
 });
 
+var map = new Map();
 assert.throws(TypeError, function () {
-  var map = new Map();
-  map.getOrInsertComputed.call(new Set(), 1, () => 1);
+  map.getOrInsertComputed.call(set, 1, () => 1);
 });
 

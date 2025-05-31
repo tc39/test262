@@ -2,7 +2,7 @@
 // Copyright (C) 2024 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Returns the value from the specified key normalizing +0 and -0.
 info: |
@@ -14,7 +14,6 @@ info: |
   ...
 
 features: [arrow-function, upsert]
-flags: [noStrict]
 ---*/
 var map = new Map();
 
