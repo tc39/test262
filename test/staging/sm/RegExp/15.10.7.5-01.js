@@ -4,21 +4,10 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  RegExp lastIndex property set should not coerce type to number
 esid: pending
 ---*/
-var BUGNUMBER = 465199;
-var summary = "RegExp lastIndex property set should not coerce type to number";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 var called = false;
 var o = { valueOf: function() { called = true; return 1; } };
@@ -69,8 +58,3 @@ assert.sameValue(Array.isArray(m), true);
 assert.sameValue(m.length, 1);
 assert.sameValue(m[0], "a");
 assert.sameValue(r.lastIndex, 2);
-
-
-/******************************************************************************/
-
-print("All tests passed!");

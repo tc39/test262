@@ -4,23 +4,10 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  Represent /a/.{lastIndex,global,source,multiline,sticky,ignoreCase} with plain old data properties
 esid: pending
 ---*/
-var BUGNUMBER = 640072;
-var summary =
-  "Represent /a/.{lastIndex,global,source,multiline,sticky,ignoreCase} with " +
-  "plain old data properties";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function checkDataProperty(obj, p, expect, msg)
 {
@@ -127,7 +114,3 @@ do
   assert.sameValue(Object.getOwnPropertyDescriptor(r, "lastIndex").writable, false);
 }
 while (Math.random() > 17); // fake loop to discourage RegExp object caching
-
-/******************************************************************************/
-
-print("All tests passed!");

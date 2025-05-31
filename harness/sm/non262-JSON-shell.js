@@ -1,6 +1,5 @@
 /*---
 defines: [testJSON, testJSONSyntaxError]
-allow_unused: True
 ---*/
 
 function testJSON(str) {
