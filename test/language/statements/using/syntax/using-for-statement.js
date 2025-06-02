@@ -1,4 +1,4 @@
-// Copyright (C) 2011 the V8 project authors. All rights reserved.
+// Copyright (C) 2023 Ron Buckton. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-for-statement
