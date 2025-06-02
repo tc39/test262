@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-let-const-using-and-await-using-declarations
 description: >
     await using: |await using let| split across two lines is treated as two statements.
 info: |
