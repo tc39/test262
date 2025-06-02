@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid:sec-let-const-using-and-await-using-declarations-static-semantics-early-errors
+esid: sec-let-const-using-and-await-using-declarations-static-semantics-early-errors
 description: >
     using declarations not allowed at the top level of a Script
 info: |
