@@ -9,7 +9,7 @@ info: |
   AwaitUsingDeclaration : CoverAwaitExpressionAndAwaitUsingDeclarationHead BindingList ;
 
   - It is a Syntax Error if the goal symbol is Script and UsingDeclaration is not contained, either directly or 
-    indirectly, within a Block, CaseBlock, ForStatement, ForInOfStatement, FunctionBody, GeneratorBody, 
+    indirectly, within a Block, ForStatement, ForInOfStatement, FunctionBody, GeneratorBody, 
     AsyncGeneratorBody, AsyncFunctionBody, ClassStaticBlockBody, or ClassBody.
 
 flags: [module]
