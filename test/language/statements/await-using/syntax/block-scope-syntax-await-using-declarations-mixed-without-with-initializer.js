@@ -5,7 +5,7 @@
 esid: sec-let-and-const-declarations-static-semantics-early-errors
 description: >
     await using declarations mixed: without, with initializer
-info: >
+info: |
     Static Semantics : Early Errors
       LexicalBinding : BindingIdentifier Initializer?
 
