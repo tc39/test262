@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-let-const-using-and-await-using-declarations-static-semantics-early-errors
 description: >
     await using declarations allowed at the top level of a module
 info: |

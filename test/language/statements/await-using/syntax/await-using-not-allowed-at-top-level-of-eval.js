@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-let-const-using-and-await-using-declarations-static-semantics-early-errors
 description: >
-    await using declarations not allowed at the top level of eval
+    await using declarations not allowed at the top level of eval. Note that Eval parses text using the Script goal.
 info: |
   AwaitUsingDeclaration : CoverAwaitExpressionAndAwaitUsingDeclarationHead BindingList ;
 

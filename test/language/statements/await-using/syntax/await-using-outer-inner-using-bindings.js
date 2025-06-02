@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-runtime-semantics-fordeclarationbindinginstantiation
 description: >
     outer await using binding unchanged by for-loop await using binding
 flags: [async]
