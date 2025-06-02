@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-runtime-semantics-fordeclarationbindinginstantiation
 description: >
     outer using binding unchanged by for-loop using binding
 features: [explicit-resource-management]

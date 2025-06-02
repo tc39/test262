@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-if-statement
 description: >
     using declarations with initialisers in statement positions:
     if ( Expression ) Statement

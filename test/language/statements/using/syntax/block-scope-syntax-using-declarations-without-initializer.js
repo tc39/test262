@@ -2,9 +2,22 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-let-and-const-declarations-static-semantics-early-errors
 description: >
     using declarations without initializer
+info: |
+    Static Semantics : Early Errors
+      LexicalBinding : BindingIdentifier Initializer?
+
+      - It is a Syntax Error if Initializer is not present and IsConstantDeclaration of the LexicalDeclaration containing
+        this LexicalBinding is true.
+
+    Static Semantics : IsConstantDeclaration
+      UsingDeclaration :
+        `using` BindingList ;
+
+      1. Return true.
+
 negative:
   phase: parse
   type: SyntaxError

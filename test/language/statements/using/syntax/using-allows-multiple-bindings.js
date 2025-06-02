@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-let-const-using-and-await-using-declarations
 description: >
     'using' allows multiple lexical bindings
 features: [explicit-resource-management]

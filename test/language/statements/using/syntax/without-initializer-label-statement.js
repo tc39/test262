@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-labelled-statements
 description: >
     using declarations without initialisers in statement positions:
     label: Statement

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-for-statement
 description: >
     using declarations with initialisers in statement positions:
     for (;;) Statement
