@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-for-statement
+esid: sec-if-statement
 description: >
     await using declarations without initialisers in statement positions:
     if ( Expression ) Statement
