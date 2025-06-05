@@ -1,0 +1,20 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/field/error/private/static/
+name: private static field decorator behavior in class expression
+features: [class, decorators, class-static-fields-private]
+esid: prod-FieldDefinition
+---*/
+
+/*{ decorators }*/
+
+function evaluate() {
+  var C = class {
+    /*{ application }*/
+    static #element;
+  }
+}
+
+assert.throws(/*{ error }*/, evaluate);
