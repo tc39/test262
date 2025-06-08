@@ -470,6 +470,7 @@ Tests expressed with this convention are built automatically following the sourc
 - [Hermes](https://github.com/facebook/hermes/issues/new?labels%5B%5D=need+triage&labels%5B%5D=bug&template=01_bug_report.md&title=)
 - [JavaScriptCore](https://bugs.webkit.org/enter_bug.cgi?product=WebKit&component=JavaScriptCore)
 - [Kiesel](https://codeberg.org/kiesel-js/kiesel/issues/new)
+- [Ladybird LibJS](https://github.com/LadybirdBrowser/ladybird/issues/new?template=bug_report.yml)
 - [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)
 - [QuickJS](https://github.com/bellard/quickjs/issues/new)
 - [SpiderMonkey](https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=JavaScript%20Engine)
