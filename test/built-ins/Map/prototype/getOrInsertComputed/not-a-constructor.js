@@ -3,7 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: proposal-upsert
+esid: sec-map.prototype.getorinsertcomputed
 description: |
   Map.prototype.getOrInsertComputed does not implement [[Construct]], is not new-able
 info: |
@@ -20,11 +20,11 @@ info: |
   ...
 includes: [isConstructor.js]
 features: [Map, Reflect.construct, arrow-function, upsert]
-flags: [noStrict]
 ---*/
 assert.sameValue(isConstructor(Map.prototype.getOrInsertComputed), false, 'isConstructor(Map.prototype.getOrInsertComputed) must return false');
 
+var m = new Map();
 assert.throws(TypeError, () => {
-  let m = new Map(); new m.getOrInsertComputed();
+    new m.getOrInsertComputed();
 });
 
