@@ -27,6 +27,6 @@
     "test:diff:xs": "test262-harness -t 8 --hostType=xs --hostPath=xs $(npm run --silent diff)"
   },
   "dependencies": {
-    "@tc39/ecma262-biblio": "^2.1.2458"
+    "@tc39/ecma262-biblio": "^2.1.2897"
   }
 }
