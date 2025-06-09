@@ -17,39 +17,39 @@ var bar = {};
 var m = new WeakMap();
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, 1);
+    m.getOrInsertComputed(bar, 1);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, "");
+    m.getOrInsertComputed(bar, "");
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, true);
+    m.getOrInsertComputed(bar, true);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, undefined);
+    m.getOrInsertComputed(bar, undefined);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, null);
+    m.getOrInsertComputed(bar, null);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, {});
+    m.getOrInsertComputed(bar, {});
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, []);
+    m.getOrInsertComputed(bar, []);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, Symbol());
+    m.getOrInsertComputed(bar, Symbol());
 });
 
 // Check that it also throws if the key is already present (thus it does not try to call the callback)
 m.set(bar, "foo");
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, 1);
+    m.getOrInsertComputed(bar, 1);
 });

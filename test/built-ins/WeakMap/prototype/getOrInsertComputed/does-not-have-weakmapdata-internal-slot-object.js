@@ -17,8 +17,8 @@ assert.throws(TypeError, function() {
   WeakMap.prototype.getOrInsertComputed.call({}, {}, () => 1);
 });
 
+var map = new WeakMap();
 assert.throws(TypeError, function() {
-  var map = new WeakMap();
   map.getOrInsertComputed.call({}, {}, () => 1);
 });
 
