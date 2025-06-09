@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
   WeakMap.prototype.getOrInsertComputed.name descriptor
 info: |
@@ -11,7 +11,6 @@ info: |
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
 features: [upsert]
-flags: [noStrict]
 ---*/
 verifyProperty(Map.prototype.getOrInsertComputed, "name", {
   value: "getOrInsertComputed",
