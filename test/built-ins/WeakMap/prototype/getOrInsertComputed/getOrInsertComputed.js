@@ -12,13 +12,7 @@ info: |
 includes: [propertyHelper.js]
 features: [upsert]
 ---*/
-assert.sameValue(
-  typeof WeakMap.prototype.getOrInsertComputed,
-  'function',
-  'typeof WeakMap.prototype.getOrInsertComputed is "function"'
-);
-
-verifyProperty(WeakMap.prototype, "getOrInsertComputed", {
+verifyPrimordialCallableProperty(WeakMap.prototype, "getOrInsertComputed", "getOrInsertComputed", 2, {
   value: WeakMap.prototype.getOrInsertComputed,
   writable: true,
   enumerable: false,
