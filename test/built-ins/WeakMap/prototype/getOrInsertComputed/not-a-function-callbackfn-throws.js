@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
   Throws a TypeError if `callbackfn` is not callable.
 info: |
@@ -11,41 +11,45 @@ info: |
   ...
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
-features: [Symbol, upsert]
-flags: [noStrict]
+features: [WeakMap, Symbol, upsert]
 ---*/
 var bar = {};
 var m = new WeakMap();
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, 1);
+    m.getOrInsertComputed(bar, 1);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, "");
+    m.getOrInsertComputed(bar, "");
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, true);
+    m.getOrInsertComputed(bar, true);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, undefined);
+    m.getOrInsertComputed(bar, undefined);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, null);
+    m.getOrInsertComputed(bar, null);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, {});
+    m.getOrInsertComputed(bar, {});
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, []);
+    m.getOrInsertComputed(bar, []);
 });
 
 assert.throws(TypeError, function () {
-    m.getOrInsertComputed.call(m, bar, Symbol());
+    m.getOrInsertComputed(bar, Symbol());
 });
 
+// Check that it also throws if the key is already present (thus it does not try to call the callback)
+m.set(bar, "foo");
+assert.throws(TypeError, function () {
+    m.getOrInsertComputed(bar, 1);
+});

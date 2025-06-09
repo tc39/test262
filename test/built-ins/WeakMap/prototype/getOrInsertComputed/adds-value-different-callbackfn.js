@@ -1,7 +1,7 @@
 // Copyright (C) 2025 Jonas Haukenes, Mathias Ness. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
   Does not throw if `callbackfn` is callable.
 info: |
@@ -10,8 +10,7 @@ info: |
   ...
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
-features: [arrow-function, upsert]
-flags: [noStrict]
+features: [arrow-function, upsert, WeakMap]
 ---*/
 var bar = {};
 var baz = {};

@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
   Throws TypeError if `this` doesn't have a [[WeakMapData]] internal slot.
 info: |
@@ -11,15 +11,14 @@ info: |
   ...
   2. Perform ? RequireInternalSlot(M, [[WeakMapData]]).
   ...
-features: [upsert]
-flags: [noStrict]
+features: [upsert, WeakMap]
 ---*/
 assert.throws(TypeError, function() {
   WeakMap.prototype.getOrInsertComputed.call([], {}, () => 1);
 });
 
+var map = new WeakMap();
 assert.throws(TypeError, function() {
-  var map = new WeakMap();
   map.getOrInsertComputed.call([], {}, () => 1);
 });
 

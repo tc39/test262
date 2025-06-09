@@ -1,7 +1,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
   If the callbackfn inserts a value on the given key, the value is overwritten.
 info: |
@@ -16,8 +16,7 @@ info: |
   8. Let p be the Record { [[Key]]: key, [[Value]]: value }.
   9. Append p to M.[[WeakMapData]].
   ...
-features: [upsert]
-flags: [noStrict]
+features: [WeakMap, upsert]
 ---*/
 var map = new WeakMap();
 var foo = {};

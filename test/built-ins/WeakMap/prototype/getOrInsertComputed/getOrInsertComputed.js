@@ -2,20 +2,19 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
-  WeakMap.prototype.getOrInsertComputed.length descriptor
+  WeakMap.prototype.getOrInsertComputed property descriptor
 info: |
   WeakMap.prototype.getOrInsertComputed ( key, callbackfn )
 
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
-features: [upsert]
-flags: [noStrict]
+features: [WeakMap, upsert]
 ---*/
-verifyProperty(WeakMap.prototype.getOrInsertComputed, "length", {
-  value: 2,
-  writable: false,
+verifyPrimordialCallableProperty(WeakMap.prototype, "getOrInsertComputed", "getOrInsertComputed", 2, {
+  value: WeakMap.prototype.getOrInsertComputed,
+  writable: true,
   enumerable: false,
   configurable: true
 });

@@ -2,7 +2,7 @@
 // Copyright (C) 2025 Jonas Haukenes. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: proposal-upsert
+esid: sec-weakmap.prototype.getorinsertcomputed
 description: |
   Returns the value from the specified Symbol key
 info: |
@@ -14,7 +14,6 @@ info: |
   10. Return value.
 
 features: [Symbol, WeakMap, symbols-as-weakmap-keys, upsert]
-flags: [noStrict]
 ---*/
 var foo = Symbol('a description');
 var bar = Symbol('a description');
