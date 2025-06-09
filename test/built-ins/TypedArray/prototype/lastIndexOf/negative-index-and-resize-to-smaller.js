@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.lastIndexOf
+esid: sec-%typedarray%.prototype.lastindexof
 description: >
   Negative index is relative to the original typed array length.
 info: |
