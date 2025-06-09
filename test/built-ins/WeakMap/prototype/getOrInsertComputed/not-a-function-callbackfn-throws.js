@@ -48,3 +48,8 @@ assert.throws(TypeError, function () {
     m.getOrInsertComputed.call(m, bar, Symbol());
 });
 
+// Check that it also throws if the key is already present (thus it does not try to call the callback)
+m.set(bar, "foo");
+assert.throws(TypeError, function () {
+    m.getOrInsertComputed.call(m, bar, 1);
+});
