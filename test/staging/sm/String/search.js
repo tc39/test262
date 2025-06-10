@@ -2,17 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  Call RegExp.prototype[@@search] from String.prototype.search.
 esid: pending
 ---*/
-var BUGNUMBER = 887016;
-var summary = "Call RegExp.prototype[@@search] from String.prototype.search.";
-
-print(BUGNUMBER + ": " + summary);
 
 var called = 0;
 var myRegExp = {
@@ -33,4 +26,3 @@ RegExp.prototype[Symbol.search] = function(S) {
 };
 assert.sameValue("abcAbcABC".search("abc"), 43);
 assert.sameValue(called, 1);
-

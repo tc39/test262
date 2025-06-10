@@ -2,17 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  ignoreCase match should perform Canonicalize both on input and pattern.
 esid: pending
 ---*/
-var BUGNUMBER = 1280046;
-var summary = "ignoreCase match should perform Canonicalize both on input and pattern.";
-
-print(BUGNUMBER + ": " + summary);
 
 // Each element [code1, upper, code2] satisfies the following condition:
 //   ToUpperCase(code1) == upper
@@ -77,4 +70,3 @@ for (var [code1, upper, code2] of pairs) {
     assert.sameValue(new RegExp(code2, "i").test(code1), true);
     assert.sameValue(new RegExp(code2, "i").test(upper), true);
 }
-
