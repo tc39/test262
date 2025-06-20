@@ -2,17 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  RegExp constructor with pattern with @@match.
 esid: pending
 ---*/
-var BUGNUMBER = 1147817;
-var summary = "RegExp constructor with pattern with @@match.";
-
-print(BUGNUMBER + ": " + summary);
 
 var matchValue;
 var constructorValue;
@@ -92,4 +85,3 @@ assert.sameValue(matchGet, true);
 assert.sameValue(constructorGet, true);
 assert.sameValue(sourceGet, false);
 assert.sameValue(flagsGet, false);
-
