@@ -172,7 +172,7 @@ const validateNativeFunctionSource = function(source) {
   expect('function');
 
   // NativeFunctionAccessor
-  eat('get') || eat('set');
+  eat('get') || eat('set') || eat('bound');
 
   // PropertyName
   if (!eatIdentifier() && eat('[')) {
