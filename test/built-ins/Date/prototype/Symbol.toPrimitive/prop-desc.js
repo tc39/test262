@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-date.prototype-@@toprimitive
+esid: sec-date.prototype-%symbol.toprimitive%
 description: Date.prototype[Symbol.toPrimitive] property descriptor
 info: |
     This property has the attributes { [[Writable]]: false, [[Enumerable]]:

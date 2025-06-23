@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%array%.prototype.indexof
+esid: sec-array.prototype.indexof
 description: >
   Array.p.indexOf behaves correctly for special float values on TypedArrays
   backed by resizable buffers.

@@ -4,7 +4,7 @@
 /*---
 info: |
  Array has a property at `Symbol.species`
-esid: sec-get-array-@@species
+esid: sec-get-array-%symbol.species%
 author: Sam Mikes
 description: Array[Symbol.species] exists per spec
 includes: [propertyHelper.js]

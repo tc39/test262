@@ -1,7 +1,7 @@
 // Copyright (c) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-date-value
+esid: sec-date
 description: >
     Behavior when coercion via `Symbol.toPrimitive` yields a primitive value
 info: |

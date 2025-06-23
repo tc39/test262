@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%array%.prototype.reduceright
+esid: sec-array.prototype.reduceright
 description: >
   Array.p.reduceRight behaves correctly when the backing resizable buffer is
   shrunk mid-iteration.

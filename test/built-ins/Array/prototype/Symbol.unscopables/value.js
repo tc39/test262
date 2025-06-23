@@ -1,7 +1,7 @@
 // Copyright (C) 2015 Mike Pennisi. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-array.prototype-@@unscopables
+esid: sec-array.prototype-%symbol.unscopables%
 description: >
     Initial value of `Symbol.unscopables` property
 info: |

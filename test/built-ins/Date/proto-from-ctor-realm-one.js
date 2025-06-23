@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-date-value
+esid: sec-date
 description: Default [[Prototype]] value derived from realm of the newTarget
 info: |
     [...]

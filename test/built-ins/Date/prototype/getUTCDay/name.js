@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-date.prototype.getutcdaty
+esid: sec-date.prototype.getutcday
 description: >
   Date.prototype.getUTCDay.name is "getUTCDay".
 info: |

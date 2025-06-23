@@ -5,7 +5,7 @@
 info: |
     The [[Class]] property of the newly constructed object
     is set to "Date"
-esid: sec-date-value
+esid: sec-date
 description: Test based on delete prototype.toString
 includes: [dateConstants.js]
 ---*/

@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-date.prototype.getutcmmilliseconds
+esid: sec-date.prototype.getutcmilliseconds
 description: Return value for valid dates
 info: |
   1. Let t be ? thisTimeValue(this value).

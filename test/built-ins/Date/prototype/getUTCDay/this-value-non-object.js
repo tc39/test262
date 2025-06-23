@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-date.prototype.getutcdaty
+esid: sec-date.prototype.getutcday
 description: Behavior when "this" value is not an Object
 info: |
   1. Let t be ? thisTimeValue(this value).

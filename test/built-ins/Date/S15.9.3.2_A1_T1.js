@@ -5,7 +5,7 @@
 info: |
     When Date is called as part of a new expression it is
     a constructor: it initialises the newly created object
-esid: sec-date-value
+esid: sec-date
 description: Checking types of newly created objects and it values
 includes: [dateConstants.js]
 ---*/

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-date.prototype-@@toprimitive
+esid: sec-date.prototype-%symbol.toprimitive%
 description: >
     `this` value is resolved using strict mode semantics,
     throwing TypeError if called as top-level function.

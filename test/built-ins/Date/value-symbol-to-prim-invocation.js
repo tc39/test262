@@ -1,7 +1,7 @@
 // copyright (c) 2016 the v8 project authors. all rights reserved.
 // this code is governed by the bsd license found in the license file.
 /*---
-esid: sec-date-value
+esid: sec-date
 description: Invocation of `Symbol.toPrimitive` method
 info: |
   [...]

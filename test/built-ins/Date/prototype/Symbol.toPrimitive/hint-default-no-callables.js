@@ -1,7 +1,7 @@
 // Copyright (C) 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-date.prototype-@@toprimitive
+esid: sec-date.prototype-%symbol.toprimitive%
 description: >
     Behavior when `hint` is "default" and neither first nor second try are callable.
 info: |
