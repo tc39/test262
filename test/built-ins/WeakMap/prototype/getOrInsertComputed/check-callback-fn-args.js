@@ -17,8 +17,8 @@ flags: [onlyStrict]
 var map = new WeakMap();
 var symbol = Symbol('a description');
 
-map.getOrInsertComputed(symbol, function(...args) {
+map.getOrInsertComputed(symbol, function () {
   assert.sameValue(this, undefined);
-  assert.sameValue(args.length, 1);
-  assert.sameValue(args[0], symbol);
+  assert.sameValue(arguments.length, 1);
+  assert.sameValue(arguments[0], symbol);
 });
