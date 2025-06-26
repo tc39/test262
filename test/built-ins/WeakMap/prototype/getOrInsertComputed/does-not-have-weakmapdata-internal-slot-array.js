@@ -11,7 +11,7 @@ info: |
   ...
   2. Perform ? RequireInternalSlot(M, [[WeakMapData]]).
   ...
-features: [upsert]
+features: [upsert, WeakMap]
 ---*/
 assert.throws(TypeError, function() {
   WeakMap.prototype.getOrInsertComputed.call([], {}, () => 1);
