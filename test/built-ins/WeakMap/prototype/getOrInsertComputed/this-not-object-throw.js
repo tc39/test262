@@ -11,7 +11,7 @@ info: |
   1. Let M be the this value
   2. Perform ? RequireInternalSlot(M, [[WeakMapData]])
   ...
-features: [Symbol, upsert]
+features: [WeakMap, Symbol, upsert]
 ---*/
 var m = new WeakMap();
 

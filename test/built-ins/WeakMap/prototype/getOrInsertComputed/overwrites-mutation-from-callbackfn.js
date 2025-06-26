@@ -16,7 +16,7 @@ info: |
   8. Let p be the Record { [[Key]]: key, [[Value]]: value }.
   9. Append p to M.[[WeakMapData]].
   ...
-features: [upsert]
+features: [WeakMap, upsert]
 ---*/
 var map = new WeakMap();
 var foo = {};

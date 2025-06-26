@@ -10,7 +10,7 @@ info: |
 
   17 ECMAScript Standard Built-in Objects
 includes: [propertyHelper.js]
-features: [upsert]
+features: [WeakMap, upsert]
 ---*/
 verifyPrimordialCallableProperty(WeakMap.prototype, "getOrInsertComputed", "getOrInsertComputed", 2, {
   value: WeakMap.prototype.getOrInsertComputed,

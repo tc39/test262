@@ -11,7 +11,7 @@ info: |
   ...
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
-features: [Symbol, upsert]
+features: [WeakMap, Symbol, upsert]
 ---*/
 var bar = {};
 var m = new WeakMap();
