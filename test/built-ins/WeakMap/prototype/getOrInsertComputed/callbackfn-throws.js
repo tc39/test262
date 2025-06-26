@@ -10,7 +10,7 @@ info: |
   ...
   6. Let value be ? Call(callbackfn, undefined, key).
   ...
-features: [upsert]
+features: [upsert, WeakMap]
 ---*/
 var map = new WeakMap();
 
