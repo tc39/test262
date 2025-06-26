@@ -11,7 +11,7 @@ info: |
 
   6. Let value be ? Call(callbackfn, key).
   ...
-features: [upsert]
+features: [upsert, Symbol, WeakMap]
 flags: [onlyStrict]
 ---*/
 var map = new WeakMap();
