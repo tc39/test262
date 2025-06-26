@@ -10,7 +10,7 @@ info: |
   ...
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
-features: [arrow-function, upsert]
+features: [arrow-function, upsert, WeakMap]
 ---*/
 var bar = {};
 var baz = {};
