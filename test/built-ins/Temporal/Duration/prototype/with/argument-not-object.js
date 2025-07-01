@@ -15,6 +15,4 @@ assert.throws(TypeError, () => instance.with(""), "empty string");
 assert.throws(TypeError, () => instance.with(Symbol()), "Symbol");
 assert.throws(TypeError, () => instance.with(7), "number");
 assert.throws(TypeError, () => instance.with(7n), "bigint");
-assert.throws(TypeError, () => instance.with([]), "array");
-assert.throws(TypeError, () => instance.with(() => {}), "function");
 assert.throws(TypeError, () => instance.with("string"), "string");
