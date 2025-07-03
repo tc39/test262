@@ -100,6 +100,10 @@ canonical-tz
 # https://github.com/tc39/proposal-upsert
 upsert
 
+# Joint Iteration
+# https://github.com/tc39/proposal-joint-iteration
+joint-iteration
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
