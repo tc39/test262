@@ -4,24 +4,12 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-Date-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  [[DefaultValue]] behavior wrong for Date with overridden valueOf/toString
 esid: pending
 ---*/
-var BUGNUMBER = 645464;
-var summary =
-  "[[DefaultValue]] behavior wrong for Date with overridden valueOf/toString";
 
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
-
-function allTests()
+function allTests(Date)
 {
   var DS = new Date(2010, 1, 1).toString();
 
@@ -182,14 +170,5 @@ function allTests()
   testInOperatorName();
 }
 
-allTests();
-
-if (typeof createNewGlobal === "function")
-{
-  Date = createNewGlobal().Date;
-  allTests();
-}
-
-/******************************************************************************/
-
-print("All tests passed!");
+allTests(Date);
+allTests($262.createRealm().global.Date);
