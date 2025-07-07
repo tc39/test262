@@ -293,6 +293,18 @@ const WellKnownIntrinsicObjects = [
     name: '%WrapForValidIteratorPrototype%',
     source: 'Object.getPrototypeOf(Iterator.from({ [Symbol.iterator](){ return {}; } }))',
   },
+
+  // Extensions to well-known intrinsic objects.
+  //
+  // https://tc39.es/ecma262/#sec-additional-properties-of-the-global-object
+  {
+    name: "%escape%",
+    source: "escape",
+  },
+  {
+    name: "%unescape%",
+    source: "unescape",
+  },
 ];
 
 WellKnownIntrinsicObjects.forEach((wkio) => {
