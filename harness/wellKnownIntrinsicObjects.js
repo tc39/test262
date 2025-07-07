@@ -305,6 +305,62 @@ const WellKnownIntrinsicObjects = [
     name: "%unescape%",
     source: "unescape",
   },
+
+  // Extensions to well-known intrinsic objects.
+  //
+  // https://tc39.es/ecma402/#sec-402-well-known-intrinsic-objects
+  {
+    name: "%Intl%",
+    source: "Intl",
+  },
+  {
+    name: "%Intl.Collator%",
+    source: "Intl.Collator",
+  },
+  {
+    name: "%Intl.DateTimeFormat%",
+    source: "Intl.DateTimeFormat",
+  },
+  {
+    name: "%Intl.DisplayNames%",
+    source: "Intl.DisplayNames",
+  },
+  {
+    name: "%Intl.DurationFormat%",
+    source: "Intl.DurationFormat",
+  },
+  {
+    name: "%Intl.ListFormat%",
+    source: "Intl.ListFormat",
+  },
+  {
+    name: "%Intl.Locale%",
+    source: "Intl.Locale",
+  },
+  {
+    name: "%Intl.NumberFormat%",
+    source: "Intl.NumberFormat",
+  },
+  {
+    name: "%Intl.PluralRules%",
+    source: "Intl.PluralRules",
+  },
+  {
+    name: "%Intl.RelativeTimeFormat%",
+    source: "Intl.RelativeTimeFormat",
+  },
+  {
+    name: "%Intl.Segmenter%",
+    source: "Intl.Segmenter",
+  },
+  {
+    name: "%IntlSegmentIteratorPrototype%",
+    source: "Object.getPrototypeOf(new Intl.Segmenter().segment()[Symbol.iterator]())",
+  },
+  {
+    name: "%IntlSegmentsPrototype%",
+    source: "Object.getPrototypeOf(new Intl.Segmenter().segment())",
+  },
 ];
 
 WellKnownIntrinsicObjects.forEach((wkio) => {
