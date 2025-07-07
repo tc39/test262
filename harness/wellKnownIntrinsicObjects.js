@@ -361,6 +361,14 @@ const WellKnownIntrinsicObjects = [
     name: "%IntlSegmentsPrototype%",
     source: "Object.getPrototypeOf(new Intl.Segmenter().segment())",
   },
+
+  // Extensions to well-known intrinsic objects.
+  //
+  // https://tc39.es/proposal-temporal/#sec-well-known-intrinsic-objects
+  {
+    name: "%Temporal%",
+    source: "Temporal",
+  },
 ];
 
 WellKnownIntrinsicObjects.forEach((wkio) => {
