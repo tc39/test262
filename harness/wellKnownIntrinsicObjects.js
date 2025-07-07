@@ -42,7 +42,7 @@ const WellKnownIntrinsicObjects = [
   },
   {
     name: '%AsyncIteratorPrototype%',
-    source: '((async function * () {})())[Symbol.asyncIterator]()',
+    source: 'Object.getPrototypeOf(Object.getPrototypeOf(async function* () {}).prototype)',
   },
   {
     name: '%Atomics%',
@@ -215,7 +215,7 @@ const WellKnownIntrinsicObjects = [
   },
   {
     name: '%RegExpStringIteratorPrototype%',
-    source: 'RegExp.prototype[Symbol.matchAll]("")',
+    source: 'Object.getPrototypeOf(RegExp.prototype[Symbol.matchAll](""))',
   },
   {
     name: '%Set%',
