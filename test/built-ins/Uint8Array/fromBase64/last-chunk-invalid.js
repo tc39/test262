@@ -4,6 +4,7 @@
 esid: sec-uint8array.frombase64
 description: Uint8Array.fromBase64 throws a SyntaxError when chunk size is invalid or padding is invalid
 features: [uint8array-base64, TypedArray]
+includes: [compareArray.js]
 ---*/
 
 // Non-padded incomplete chunk 'A'
