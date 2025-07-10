@@ -1,4 +1,5 @@
 atomicsHelper: [Atomics]
+builtin.js: [Proxy, Reflect, Reflect.construct]
 typeCoercion.js: [Symbol.toPrimitive, BigInt]
 testAtomics.js: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray]
 testBigIntTypedArray.js: [BigInt, TypedArray]
