@@ -17,6 +17,12 @@ ignored_files = [
 def print_error(*values):
     print('ERROR:', *values, file=sys.stderr)
 
+# Return true if `test` is a generated file from this generator.
+def is_generated_from_template(test):
+    # Test must be marked as generated and include references to "case" and
+    # "template" files.
+    return test.is_generated() and ".case" in test.source and ".template" in test.source
+
 # When a directory contains at least one file with a `.case` extension, it
 # should be interpreted as a "case directory"
 def is_case_dir(location):
@@ -44,7 +50,7 @@ def clean(args):
                 continue
             test = Test(fileName)
             test.load()
-            if test.is_generated():
+            if is_generated_from_template(test):
                 print('Deleting file "' + fileName + '"...')
                 os.remove(fileName)
 
@@ -71,7 +77,7 @@ def create(args):
 
                     existing = Test(test_file)
                     existing.load()
-                    if not existing.is_generated():
+                    if not is_generated_from_template(existing):
                         print_error(
                             'Refusing to overwrite non-generated file: ' +
                             test.file_name)
