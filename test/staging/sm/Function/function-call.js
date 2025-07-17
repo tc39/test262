@@ -4,34 +4,12 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
 flags:
   - noStrict
 description: |
-  pending
+  Function.prototype.call
 esid: pending
 ---*/
-//-----------------------------------------------------------------------------
-var BUGNUMBER = 575535;
-var summary = 'Function.prototype.call';
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
-
-function expectTypeError(fun, msg)
-{
-  try
-  {
-    fun();
-    assert.sameValue(true, false, "should have thrown a TypeError");
-  }
-  catch (e)
-  {
-    assert.sameValue(e instanceof TypeError, true, msg + "; instead threw " + e);
-  }
-}
 
 function fun() { }
 
@@ -50,7 +28,7 @@ for (var i = 0, sz = nonfuns.length; i < sz; i++)
   };
   var msg =
     "expected TypeError calling Function.prototype.call with uncallable this";
-  expectTypeError(f, msg);
+  assert.throws(TypeError, f, msg);
 }
 
 
@@ -130,8 +108,3 @@ strictSome.call("foo", obj);
 
 seenThis = obj;
 strictSome.call(obj, obj);
-
-
-/******************************************************************************/
-
-print("All tests passed!");
