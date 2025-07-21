@@ -25,7 +25,7 @@ testWithTypedArrayConstructors(function(TA, makeCtorArg) {
 
   sample = new TA(makeCtorArg([3, 4, 3, 1, 0, 1, 2])).sort();
   assert(compareArray(sample, [0, 1, 1, 2, 3, 3, 4]), "repeating numbers");
-});
+}, null, null, ["immutable"]);
 
 testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var sample = new TA(makeCtorArg([1, 0, -0, 2])).sort();
