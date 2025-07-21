@@ -21,7 +21,7 @@ info: |
     b. If k < 0, let k be 0.
   ...
   9. Return -1.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

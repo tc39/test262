@@ -25,7 +25,7 @@ info: |
     b. If SameValueZero(searchElement, elementK) is true, return true.
     c. Increase k by 1.
   8. Return false.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

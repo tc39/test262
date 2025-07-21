@@ -21,7 +21,7 @@ info: |
 
   - If an abrupt completion is returned from any of these operations, it is
   immediately returned as the value of this function.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -23,7 +23,7 @@ info: |
     ...
     c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

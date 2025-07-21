@@ -11,7 +11,7 @@ info: |
   3. If O.[[TypedArrayName]] is "BigUint64Array" or "BigInt64Array",
      let value be ? ToBigInt(value).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

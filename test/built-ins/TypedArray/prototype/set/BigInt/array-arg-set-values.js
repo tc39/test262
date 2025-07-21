@@ -18,7 +18,7 @@ info: |
     Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType, kNumber).
     ...
   22. Return undefined.
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

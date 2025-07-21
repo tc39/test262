@@ -21,7 +21,7 @@ info: |
     5. Return n.
 
 flags: [noStrict]
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {

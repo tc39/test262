@@ -15,7 +15,7 @@ info: |
       ii. Return true.
   ...
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {

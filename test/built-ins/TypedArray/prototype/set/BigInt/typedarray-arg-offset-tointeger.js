@@ -11,7 +11,7 @@ info: |
   the definition in 22.2.3.23.1 applies.
   ...
   6. Let targetOffset be ? ToInteger(offset).
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -13,7 +13,7 @@ info: |
     b. If numericIndex is not undefined, then
       [...]
       ii. If Desc has a [[Configurable]] field and if Desc.[[Configurable]] is false, return false.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

@@ -21,7 +21,7 @@ info: |
       i. Let kValue be ? Get(O, Pk).
       ii. Perform ? Call(callbackfn, T, « kValue, k, O »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

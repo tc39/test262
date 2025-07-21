@@ -25,7 +25,7 @@ info: |
       value).
   ...
   29. Return undefined.
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

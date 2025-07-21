@@ -21,7 +21,7 @@ info: |
   ...
   3. Let relativeTarget be ? ToInteger(target).
   ...
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

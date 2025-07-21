@@ -15,7 +15,7 @@ info: |
         Let value be Desc.[[Value]].
         Return ? IntegerIndexedElementSet(O, numericIndex, value).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

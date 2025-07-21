@@ -13,7 +13,7 @@ info: |
   7. If offset < 0, throw a RangeError exception.
   8. If offset is -0, let offset be +0.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

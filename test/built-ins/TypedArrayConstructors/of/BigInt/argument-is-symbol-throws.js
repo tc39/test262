@@ -20,7 +20,7 @@ info: |
     Perform SetValueInBuffer(buffer, indexedPosition, elementType, numValue, true, Unordered).
   Return NormalCompletion(undefined).
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

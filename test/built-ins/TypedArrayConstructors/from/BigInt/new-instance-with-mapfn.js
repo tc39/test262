@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.from
 description: >
   Return a new TypedArray using mapfn
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

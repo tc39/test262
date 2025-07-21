@@ -10,7 +10,7 @@ info: |
 
   ...
   3. Return CreateArrayIterator(O, "key+value").
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 

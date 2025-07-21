@@ -22,7 +22,7 @@ info: |
       i. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, srcType).
       ii. Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType,
       value).
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

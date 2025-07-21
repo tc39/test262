@@ -13,7 +13,7 @@ info: |
       ...
       iii. If IsInteger(numericIndex) is false, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

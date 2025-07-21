@@ -30,7 +30,7 @@ info: |
   10. Set the [[Prototype]] internal slot of A to prototype.
   ...
   12. Return A.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

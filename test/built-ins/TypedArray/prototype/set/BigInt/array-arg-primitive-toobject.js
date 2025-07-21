@@ -22,7 +22,7 @@ info: |
     [...]
     f. Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType, value, true, Unordered).
     [...]
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray, Symbol]
 ---*/
 

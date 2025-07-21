@@ -13,7 +13,7 @@ info: |
     b. If numericIndex is not undefined, then
     ...
   3. Return ? OrdinarySet(O, P, V, Receiver).
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {

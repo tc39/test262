@@ -16,7 +16,7 @@ info: |
     a. Let data be ? CloneArrayBuffer(srcData, srcByteOffset).
   ...
   23. Return O.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
