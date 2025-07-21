@@ -21,7 +21,7 @@ info: |
     If SameValue(! ToString(n), argument) is false, return undefined.
     Return n.
 
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

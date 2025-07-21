@@ -19,7 +19,7 @@ info: |
   ...
   2. Let len be ? ToLength(? Get(O, "length")).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -31,7 +31,7 @@ info: |
   3. If argumentList is a List of a single Number, then
     ...
   4. Return newTypedArray.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 

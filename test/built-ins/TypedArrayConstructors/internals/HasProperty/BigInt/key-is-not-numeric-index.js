@@ -14,7 +14,7 @@ info: |
     ...
   4. Return ? OrdinaryHasProperty(O, P).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

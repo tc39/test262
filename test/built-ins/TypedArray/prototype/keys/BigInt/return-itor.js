@@ -8,7 +8,7 @@ info: |
 
   ...
   3. Return CreateArrayIterator(O, "key").
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

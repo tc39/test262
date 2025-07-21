@@ -29,7 +29,7 @@ info: |
   1. Let newTypedArray be ? Construct(constructor, argumentList).
   2. Perform ? ValidateTypedArray(newTypedArray).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 

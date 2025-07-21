@@ -22,7 +22,7 @@ info: |
       i. Let accumulator be ? Call(callbackfn, undefined, « accumulator, kValue,
       k, O »).
   ...
-includes: [detachArrayBuffer.js, testBigIntTypedArray.js]
+includes: [detachArrayBuffer.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

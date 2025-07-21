@@ -15,7 +15,7 @@ info: |
       i. If ! SameValue(O, Receiver) is true
         [...]
       ii. 1. Else if ! IsValidIntegerIndex(_O_, _numericIndex_) is *false*, return *true*.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray, Reflect]
 ---*/
 

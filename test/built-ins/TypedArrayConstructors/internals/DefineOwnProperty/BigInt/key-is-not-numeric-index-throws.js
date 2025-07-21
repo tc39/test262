@@ -19,7 +19,7 @@ info: |
   3. If ! IsIntegralNumber(index) is false, return false.
   4. If index is -0𝔽, return false.
   5. If ℝ(index) < 0 or ℝ(index) ≥ O.[[ArrayLength]], return false.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

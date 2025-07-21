@@ -10,7 +10,7 @@ info: |
   ...
   3. Let len be O.[[ArrayLength]].
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray, array-find-from-last]
 ---*/
 

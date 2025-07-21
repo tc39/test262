@@ -12,7 +12,7 @@ info: |
 
   1. If NewTarget is undefined, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

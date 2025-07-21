@@ -19,7 +19,7 @@ info: |
   7. Return false.
 
 features: [Atomics, BigInt, SharedArrayBuffer, TypedArray]
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

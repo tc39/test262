@@ -16,7 +16,7 @@ info: |
 
   [...]
   10. Return -1.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

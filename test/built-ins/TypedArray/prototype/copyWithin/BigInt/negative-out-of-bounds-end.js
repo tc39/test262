@@ -24,7 +24,7 @@ info: |
   8. If relativeEnd < 0, let final be max((len + relativeEnd), 0); else let
   final be min(relativeEnd, len).
   ...
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

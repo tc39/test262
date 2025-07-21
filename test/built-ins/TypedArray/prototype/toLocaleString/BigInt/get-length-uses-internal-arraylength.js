@@ -16,7 +16,7 @@ info: |
   1. Let array be ? ToObject(this value).
   2.Let len be ? ToLength(? Get(array, "length")).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

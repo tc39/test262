@@ -32,7 +32,7 @@ info: |
       kValue, k, O »).
     d. Decrease k by 1.
   9. Return accumulator.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

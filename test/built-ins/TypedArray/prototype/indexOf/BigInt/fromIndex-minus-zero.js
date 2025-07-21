@@ -17,7 +17,7 @@ info: |
   6. If n ≥ 0, then
     a. If n is -0, let k be +0; else let k be n.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

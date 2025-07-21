@@ -24,7 +24,7 @@ info: |
   4. If relativeStart < 0, let k be max((len + relativeStart), 0); else let k be
   min(relativeStart, len).
   ...
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
