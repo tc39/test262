@@ -18,8 +18,8 @@ includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(2);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(2));
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0", {
@@ -55,4 +55,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     "get and set accessors"
   );
   assert.sameValue(sample[0], 0n, "get and set accessors - side effect check");
-});
+}, null, ["passthrough"]);

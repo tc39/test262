@@ -44,4 +44,4 @@ testWithTypedArrayConstructors(function(TA) {
     separator +
     sample[2].toLocaleString().toString();
   assert.sameValue(sample.toLocaleString(), expected);
-});
+}, null, ["passthrough"]);

@@ -30,4 +30,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     sample.slice(obj, obj);
   });
-});
+}, null, ["passthrough"]);

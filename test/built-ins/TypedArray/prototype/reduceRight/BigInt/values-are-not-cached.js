@@ -27,8 +27,8 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([44n, 43n, 42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([44n, 43n, 42n]));
 
   sample.reduceRight(function(a, v, i) {
     if (i > 0) {

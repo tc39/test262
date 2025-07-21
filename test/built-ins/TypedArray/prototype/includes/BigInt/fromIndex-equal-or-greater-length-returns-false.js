@@ -27,10 +27,10 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var sample;
 
-  sample = new TA(42);
+  sample = new TA(makeCtorArg(42));
   assert.sameValue(sample.includes(0n, 42), false);
   assert.sameValue(sample.includes(0n, 43), false);
 });

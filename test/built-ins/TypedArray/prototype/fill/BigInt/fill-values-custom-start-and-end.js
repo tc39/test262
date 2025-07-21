@@ -33,10 +33,10 @@ includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  assert(compareArray(new TA([0n, 0n, 0n]).fill(8n, 1, 2), [0n, 8n, 0n]));
-  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, -3, 4), [0n, 0n, 8n, 8n, 0n]));
-  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, -2, -1), [0n, 0n, 0n, 8n, 0n]));
-  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, -1, -3), [0n, 0n, 0n, 0n, 0n]));
-  assert(compareArray(new TA([0n, 0n, 0n, 0n, 0n]).fill(8n, 1, 3), [0n, 8n, 8n, 0n, 0n]));
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  assert(compareArray(new TA(makeCtorArg([0n, 0n, 0n])).fill(8n, 1, 2), [0n, 8n, 0n]));
+  assert(compareArray(new TA(makeCtorArg([0n, 0n, 0n, 0n, 0n])).fill(8n, -3, 4), [0n, 0n, 8n, 8n, 0n]));
+  assert(compareArray(new TA(makeCtorArg([0n, 0n, 0n, 0n, 0n])).fill(8n, -2, -1), [0n, 0n, 0n, 8n, 0n]));
+  assert(compareArray(new TA(makeCtorArg([0n, 0n, 0n, 0n, 0n])).fill(8n, -1, -3), [0n, 0n, 0n, 0n, 0n]));
+  assert(compareArray(new TA(makeCtorArg([0n, 0n, 0n, 0n, 0n])).fill(8n, 1, 3), [0n, 8n, 8n, 0n, 0n]));
 });

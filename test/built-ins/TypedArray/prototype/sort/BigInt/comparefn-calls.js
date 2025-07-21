@@ -22,8 +22,8 @@ var expectedThis = (function() {
   return this;
 })();
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 42n, 42n, 42n, 42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 42n, 42n, 42n, 42n]));
   var calls = [];
 
   var comparefn = function() {

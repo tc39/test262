@@ -62,4 +62,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert(begin, "observable ToInteger(begin)");
   assert(end, "observable ToInteger(end)");
-});
+}, null, ["passthrough"]);
