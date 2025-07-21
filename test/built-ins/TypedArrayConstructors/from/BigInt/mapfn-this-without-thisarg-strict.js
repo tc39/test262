@@ -34,4 +34,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(results.length, 2);
   assert.sameValue(results[0], undefined);
   assert.sameValue(results[1], undefined);
-});
+}, null, ["passthrough"]);

@@ -24,8 +24,8 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n, 43n, 41n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n, 43n, 41n]));
 
   assert.sameValue(sample.lastIndexOf(43n, Infinity), 2, "lastIndexOf(43, Infinity)");
   assert.sameValue(sample.lastIndexOf(43n, -Infinity), -1, "lastIndexOf(43, -Infinity)");

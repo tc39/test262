@@ -38,4 +38,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   });
 
   assert.sameValue(loops, 2);
-});
+}, null, ["passthrough"]);

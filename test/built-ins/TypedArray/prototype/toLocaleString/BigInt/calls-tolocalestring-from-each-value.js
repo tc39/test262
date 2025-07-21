@@ -41,8 +41,8 @@ BigInt.prototype.toLocaleString = function() {
 
 var expected = ["hacks1", "hacks2"].join(separator);
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 0n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 0n]));
   calls = [];
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert(

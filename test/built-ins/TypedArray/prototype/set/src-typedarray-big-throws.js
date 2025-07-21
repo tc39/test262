@@ -22,11 +22,11 @@ features: [BigInt, TypedArray]
 var bigTypedArray;
 var littleTypedArray;
 
-testWithBigIntTypedArrayConstructors(function(BTA) {
+testWithBigIntTypedArrayConstructors(function(BTA, makeCtorArg) {
 
-  bigTypedArray = new BTA([1n]);
+  bigTypedArray = new BTA(makeCtorArg([1n]));
 
-  testWithTypedArrayConstructors(function(TA) {
+  testWithTypedArrayConstructors(function(TA, makeCtorArg) {
 
     littleTypedArray = new TA(1);
     assert.throws(TypeError, function() {

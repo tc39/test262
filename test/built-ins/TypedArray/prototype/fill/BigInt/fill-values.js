@@ -28,7 +28,7 @@ includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   assert(
     compareArray(
       new TA().fill(8n),
@@ -38,7 +38,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   );
 
   assert(
-    compareArray(new TA([0n, 0n, 0n]).fill(8n), [8n, 8n, 8n]),
+    compareArray(new TA(makeCtorArg([0n, 0n, 0n])).fill(8n), [8n, 8n, 8n]),
     "Default start and end indexes are 0 and this.length"
   );
 });

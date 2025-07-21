@@ -56,4 +56,4 @@ testWithBigIntTypedArrayConstructors(TA => {
     array.map(() => 0n);
     throw new Test262Error('map completed successfully');
   });
-});
+}, null, ["passthrough"]);

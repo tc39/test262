@@ -56,4 +56,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   );
 
   assert.sameValue(ta[0], undefined, 'The value of ta[0] is expected to equal `undefined`');
-});
+}, null, ["passthrough"]);

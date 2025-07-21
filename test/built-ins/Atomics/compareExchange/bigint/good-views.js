@@ -88,4 +88,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       'Atomics.compareExchange(view, Idx, 37n, 0n) returns 37n'
     );
   });
-});
+}, null, ["passthrough"]);

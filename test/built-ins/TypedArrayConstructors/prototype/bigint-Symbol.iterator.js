@@ -10,4 +10,4 @@ features: [BigInt, Symbol.iterator, TypedArray]
 
 testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(TA.prototype.hasOwnProperty(Symbol.iterator), false);
-});
+}, null, ["passthrough"]);

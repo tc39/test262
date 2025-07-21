@@ -18,4 +18,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       Atomics.xor(view, IdxGen(view), 10);
     });
   });
-});
+}, null, ["passthrough"]);
