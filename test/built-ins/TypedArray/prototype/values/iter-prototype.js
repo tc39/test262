@@ -16,7 +16,7 @@ features: [Symbol.iterator, TypedArray]
 
 var ArrayIteratorProto = Object.getPrototypeOf([][Symbol.iterator]());
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([0, 42, 64]);
   var iter = sample.values();
 
