@@ -10,6 +10,7 @@ defines:
   - typedArrayConstructors
   - TypedArray
   - testWithTypedArrayConstructors
+  - testWithBigIntTypedArrayConstructors
   - nonAtomicsFriendlyTypedArrayConstructors
   - testWithAtomicsFriendlyTypedArrayConstructors
   - testWithNonAtomicsFriendlyTypedArrayConstructors
@@ -59,6 +60,9 @@ var TypedArray = Object.getPrototypeOf(Int8Array);
 /**
  * Calls the provided function for every typed array constructor.
  *
+ * typedArrayCtor will not be BigInt64Array or BigUint64Array unless one or both
+ * of those are explicitly provided.
+ *
  * @param {typedArrayConstructorCallback} f - the function to call for each typed array constructor.
  * @param {Array} selected - An optional Array with filtered typed arrays
  */
@@ -73,6 +77,17 @@ function testWithTypedArrayConstructors(f, selected) {
       throw e;
     }
   }
+}
+
+/**
+ * Calls the provided function for every BigInt typed array constructor.
+ *
+ * @param {typedArrayConstructorCallback} f - the function to call
+ * @param {Array} constructors - An optional Array with filtered typed arrays
+ */
+function testWithBigIntTypedArrayConstructors(f, constructors) {
+  if (!constructors) constructors = [BigInt64Array, BigUint64Array];
+  testWithTypedArrayConstructors(f, constructors);
 }
 
 var nonAtomicsFriendlyTypedArrayConstructors = floatArrayConstructors.concat([Uint8ClampedArray]);
