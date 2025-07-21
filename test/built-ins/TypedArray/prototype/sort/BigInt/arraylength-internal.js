@@ -8,7 +8,7 @@ info: |
 
   ...
   3. Let len be the value of obj's [[ArrayLength]] internal slot.
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

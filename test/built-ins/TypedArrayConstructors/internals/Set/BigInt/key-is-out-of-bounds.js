@@ -21,7 +21,7 @@ info: |
   8. Let length be the value of O's [[ArrayLength]] internal slot.
   9. If index < 0 or index ≥ length, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {

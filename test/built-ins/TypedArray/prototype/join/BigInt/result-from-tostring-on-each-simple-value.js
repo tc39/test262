@@ -24,7 +24,7 @@ info: |
     let next be ? ToString(element).
     d. Let R be a String value produced by concatenating S and next.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

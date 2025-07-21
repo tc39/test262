@@ -17,7 +17,7 @@ info: |
   4. Let sep be ? ToString(separator).
   5. If len is zero, return the empty String.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

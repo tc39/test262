@@ -18,7 +18,7 @@ info: |
   15. Let src be ? ToObject(array).
   16. Let srcLength be ? ToLength(? Get(src, "length")).
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 

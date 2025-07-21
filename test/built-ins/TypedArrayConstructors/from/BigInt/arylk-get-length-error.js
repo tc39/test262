@@ -9,7 +9,7 @@ info: |
   ...
   7. Let len be ? ToLength(? Get(arrayLike, "length")).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

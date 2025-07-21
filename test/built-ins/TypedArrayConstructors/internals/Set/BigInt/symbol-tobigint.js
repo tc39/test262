@@ -47,7 +47,7 @@ info: |
     Argument Type: Symbol
     Result: Throw a TypeError exception.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray, Symbol]
 ---*/
 

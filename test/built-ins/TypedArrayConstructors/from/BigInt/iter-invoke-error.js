@@ -16,7 +16,7 @@ info: |
   2. If usingIterator is not undefined, then
     a. Let iterator be ? GetIterator(items, usingIterator).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 

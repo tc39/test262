@@ -59,7 +59,7 @@ info: |
     b. If Type(result) is not Object, return result.
     c. Throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.toPrimitive, TypedArray]
 ---*/
 

@@ -15,7 +15,7 @@ info: |
       i. Let buffer be O.[[ViewedArrayBuffer]].
       ii. If IsDetachedBuffer(buffer) is true, return false.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, cross-realm, Reflect, TypedArray]
 ---*/
 

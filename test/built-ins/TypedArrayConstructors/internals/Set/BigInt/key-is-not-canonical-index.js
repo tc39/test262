@@ -13,7 +13,7 @@ info: |
     b. If numericIndex is not undefined, then
   ...
   3. Return ? OrdinarySet(O, P, V, Receiver).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 var keys = ['1.0', '+1', '1000000000000000000000', '0.0000001'];

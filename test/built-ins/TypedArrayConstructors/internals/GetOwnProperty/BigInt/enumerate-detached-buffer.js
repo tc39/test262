@@ -26,7 +26,7 @@ info: |
     Property attributes of the target object must be obtained by
     calling its [[GetOwnProperty]] internal method.
 
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

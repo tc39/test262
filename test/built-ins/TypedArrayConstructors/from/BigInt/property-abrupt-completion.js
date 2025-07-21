@@ -12,7 +12,7 @@ info: |
     ...
     b. Let kValue be ? Get(arrayLike, Pk).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

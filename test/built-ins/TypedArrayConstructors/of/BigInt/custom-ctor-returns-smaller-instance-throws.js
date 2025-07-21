@@ -12,7 +12,7 @@ info: |
   ...
   5. Let newObj be ? TypedArrayCreate(C, « len »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

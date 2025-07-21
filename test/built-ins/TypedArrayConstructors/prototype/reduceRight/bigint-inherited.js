@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.reduceright
 description: >
   _TypedArray_.prototype has no own property "reduceRight"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

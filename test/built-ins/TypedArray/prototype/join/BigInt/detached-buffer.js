@@ -14,7 +14,7 @@ info: |
   Perform ? ValidateTypedArray(O).
   ...
 
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 

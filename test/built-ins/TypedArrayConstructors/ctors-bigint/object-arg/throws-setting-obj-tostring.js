@@ -69,7 +69,7 @@ info: |
     b. If IsCallable(method) is true, then
       i. Let result be ? Call(method, O).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

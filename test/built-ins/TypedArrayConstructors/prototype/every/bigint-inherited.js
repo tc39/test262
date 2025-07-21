@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.every
 description: >
   _TypedArray_.prototype has no own property "every"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

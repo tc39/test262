@@ -12,7 +12,7 @@ info: |
     ...
     c. Perform ? Set(newObj, Pk, kValue, true).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

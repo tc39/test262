@@ -17,7 +17,7 @@ info: |
   4. If argument fromIndex was passed, let n be ? ToInteger(fromIndex); else let
   n be len-1.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

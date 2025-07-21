@@ -23,7 +23,7 @@ info: |
       ...
       ii. Perform ? Call(callbackfn, T, « kValue, k, O »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

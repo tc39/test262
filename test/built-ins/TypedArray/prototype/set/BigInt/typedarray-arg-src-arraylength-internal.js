@@ -14,7 +14,7 @@ info: |
   ...
   22. If srcLength + targetOffset > targetLength, throw a RangeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

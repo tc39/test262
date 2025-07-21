@@ -10,7 +10,7 @@ info: |
   5. Let buffer be the value of O's [[ViewedArrayBuffer]] internal slot.
   6. If IsDetachedBuffer(buffer) is true, return 0.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 

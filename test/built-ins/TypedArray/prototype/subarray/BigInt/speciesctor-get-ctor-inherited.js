@@ -21,7 +21,7 @@ info: |
   2. Let C be ? Get(O, "constructor").
   3. If C is undefined, return defaultConstructor.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

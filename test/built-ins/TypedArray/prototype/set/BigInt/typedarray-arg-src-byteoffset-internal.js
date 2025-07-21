@@ -11,7 +11,7 @@ info: |
   ...
   21. Let srcByteOffset be typedArray.[[ByteOffset]].
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

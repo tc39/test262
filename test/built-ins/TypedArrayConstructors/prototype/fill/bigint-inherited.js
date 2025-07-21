@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.fill
 description: >
   _TypedArray_.prototype has no own property "fill"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

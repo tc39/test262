@@ -11,7 +11,7 @@ info: |
   2. If Type(P) is String, then
     ...
   3. Return ? OrdinaryGet(O, P, Receiver).
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.from
 description: >
   Return a new TypedArray using a custom Constructor
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

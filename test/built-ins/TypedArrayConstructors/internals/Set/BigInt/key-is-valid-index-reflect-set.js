@@ -14,7 +14,7 @@ info: |
     b. If numericIndex is not undefined, then
       [...]
   3. Return ? OrdinarySet(O, P, V, Receiver).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray, Reflect]
 ---*/
 

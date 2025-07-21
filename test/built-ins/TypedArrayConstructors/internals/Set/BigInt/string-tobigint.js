@@ -57,7 +57,7 @@ info: |
     * If the MV is NaN, return NaN, otherwise return the BigInt which exactly
       corresponds to the MV, rather than rounding to a Number.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {

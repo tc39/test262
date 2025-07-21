@@ -13,7 +13,7 @@ info: |
     b. If numericIndex is not undefined, then
       i. Return ? IntegerIndexedElementGet(O, numericIndex).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

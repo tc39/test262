@@ -23,7 +23,7 @@ info: |
   7. Repeat, while k < len
     ...
   8. Return false.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

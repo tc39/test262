@@ -12,7 +12,7 @@ info: |
   22.2.3.23.2 applies.
   ...
   6. Let targetOffset be ? ToInteger(offset).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

@@ -16,7 +16,7 @@ info: |
       If IsDetachedBuffer(O.[[ViewedArrayBuffer]]) is true, return true.
     ...
   Return ? OrdinaryDelete(O, P)
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

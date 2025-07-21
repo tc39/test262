@@ -11,7 +11,7 @@ info: |
   3. Let C be the this value.
   4. If IsConstructor(C) is false, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

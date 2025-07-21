@@ -27,7 +27,7 @@ info: |
       searchElement === elementK.
       iii. If same is true, return k.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

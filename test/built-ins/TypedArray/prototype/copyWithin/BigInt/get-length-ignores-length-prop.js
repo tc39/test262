@@ -21,7 +21,7 @@ info: |
   1. Let O be ? ToObject(this value).
   2. Let len be ? ToLength(? Get(O, "length")).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

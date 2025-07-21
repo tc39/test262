@@ -15,7 +15,7 @@ info: |
 
   The current tests on `prop-desc.js` and `length.js` already assert `length` is
   not a dynamic property as in regular arrays.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
