@@ -20,7 +20,7 @@ info: |
   7. Let length be the value of O's [[ArrayLength]] internal slot.
   8. If index < 0 or index ≥ length, return undefined.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

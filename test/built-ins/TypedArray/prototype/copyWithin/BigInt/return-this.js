@@ -19,7 +19,7 @@ info: |
   22.1.3.3 Array.prototype.copyWithin (target, start [ , end ] )
 
   13. Return O.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

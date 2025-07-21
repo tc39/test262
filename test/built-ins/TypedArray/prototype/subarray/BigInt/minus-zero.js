@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.subarray
 description: -0 values on begin and end
 info: |
   22.2.3.27 %TypedArray%.prototype.subarray( begin , end )
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

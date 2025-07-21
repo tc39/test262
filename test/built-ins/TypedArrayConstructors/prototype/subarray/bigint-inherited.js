@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.subarray
 description: >
   _TypedArray_.prototype has no own property "subarray"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

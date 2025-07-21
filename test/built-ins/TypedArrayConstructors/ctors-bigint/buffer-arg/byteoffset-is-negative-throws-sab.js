@@ -16,7 +16,7 @@ info: |
   7. Let offset be ? ToInteger(byteOffset).
   8. If offset < 0, throw a RangeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

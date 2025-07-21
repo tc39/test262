@@ -19,7 +19,7 @@ info: |
 
   ...
   7. Return obj
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

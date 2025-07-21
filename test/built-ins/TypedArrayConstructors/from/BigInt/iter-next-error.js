@@ -11,7 +11,7 @@ info: |
     d. Repeat, while next is not false
       i. Let next be ? IteratorStep(iterator).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 

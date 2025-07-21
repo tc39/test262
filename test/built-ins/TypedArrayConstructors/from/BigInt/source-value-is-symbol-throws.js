@@ -22,7 +22,7 @@ info: |
 
   Return NormalCompletion(undefined).
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

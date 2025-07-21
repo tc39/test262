@@ -4,7 +4,7 @@
 esid: sec-atomics.xor
 description: >
   Atomics.xor will operate on TA when TA.buffer is not a SharedArrayBuffer
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(TA => {

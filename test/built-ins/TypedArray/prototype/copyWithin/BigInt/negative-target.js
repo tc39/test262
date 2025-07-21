@@ -22,7 +22,7 @@ info: |
   4. If relativeTarget < 0, let to be max((len + relativeTarget), 0); else let
   to be min(relativeTarget, len).
   ...
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -13,7 +13,7 @@ info: |
     ...
   4. Return OrdinaryDefineOwnProperty(O, P, Desc).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

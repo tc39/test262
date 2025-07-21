@@ -4,7 +4,7 @@
 esid: sec-get-%typedarray%.prototype.bytelength
 description: >
   _TypedArray_.prototype has no own property "byteLength"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

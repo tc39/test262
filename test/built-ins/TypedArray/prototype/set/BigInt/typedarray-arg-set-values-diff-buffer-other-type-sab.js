@@ -7,7 +7,7 @@ esid: sec-%typedarray%.prototype.set-typedarray-offset
 description: >
   Set values from different instances using the different buffer and different
   type.
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

@@ -15,7 +15,7 @@ info: |
 
   1. Let newTypedArray be ? Construct(constructor, argumentList).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

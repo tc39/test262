@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.findindex
 description: >
   _TypedArray_.prototype has no own property "findIndex"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

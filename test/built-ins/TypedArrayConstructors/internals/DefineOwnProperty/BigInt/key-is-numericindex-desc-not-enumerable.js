@@ -14,7 +14,7 @@ info: |
       ix. If Desc has an [[Enumerable]] field and if Desc.[[Enumerable]] is
       false, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

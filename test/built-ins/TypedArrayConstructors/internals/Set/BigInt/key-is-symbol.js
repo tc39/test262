@@ -11,7 +11,7 @@ info: |
   2. If Type(P) is String, then
   ...
   3. Return ? OrdinarySet(O, P, V, Receiver).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, Symbol, TypedArray]
 ---*/
 var s1 = Symbol('1');

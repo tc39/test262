@@ -4,7 +4,7 @@
 esid: sec-atomics.compareexchange
 description: >
   Atomics.compareExchange will operate on TA when TA.buffer is not a SharedArrayBuffer
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, BigInt, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(TA => {

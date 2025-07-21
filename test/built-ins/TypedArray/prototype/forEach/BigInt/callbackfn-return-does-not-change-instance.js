@@ -11,7 +11,7 @@ info: |
   algorithm as Array.prototype.forEach as defined in 22.1.3.10 except that the
   this object's [[ArrayLength]] internal slot is accessed in place of performing
   a [[Get]] of "length"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

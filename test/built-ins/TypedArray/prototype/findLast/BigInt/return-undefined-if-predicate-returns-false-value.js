@@ -13,7 +13,7 @@ info: |
     c. Let testResult be ! ToBoolean(? Call(predicate, thisArg, « kValue, 𝔽(k), O »)).
     ...
   7. Return undefined.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray, array-find-from-last]
 ---*/
 

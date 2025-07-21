@@ -14,7 +14,7 @@ info: |
   ...
   7. Let offset be ? ToInteger(byteOffset).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

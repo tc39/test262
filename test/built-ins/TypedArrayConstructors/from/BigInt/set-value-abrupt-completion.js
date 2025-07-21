@@ -15,7 +15,7 @@ info: |
     d. Else, let mappedValue be kValue.
     e. Perform ? Set(targetObj, Pk, mappedValue, true).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

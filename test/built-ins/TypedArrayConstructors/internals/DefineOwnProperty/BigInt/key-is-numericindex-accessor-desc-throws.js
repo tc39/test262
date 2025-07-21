@@ -13,7 +13,7 @@ info: |
     b. If numericIndex is not undefined, then
       [...]
       iv. If IsAccessorDescriptor(Desc) is true, return false.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

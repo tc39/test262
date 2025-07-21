@@ -16,7 +16,7 @@ info: |
   14. Else,
     a. Let newLength be ? ToLength(length).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, SharedArrayBuffer, TypedArray]
 ---*/
 

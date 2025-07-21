@@ -17,7 +17,7 @@ info: |
   5. If n ≥ 0, then
     a. If n is -0, let k be +0; else let k be min(n, len - 1).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -15,7 +15,7 @@ info: |
   ...
   6. Perform ? AllocateTypedArrayBuffer(O, len).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

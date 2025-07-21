@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.slice
 description: Result does not import own properties
 info: |
   22.2.3.24 %TypedArray%.prototype.slice( start , end )
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

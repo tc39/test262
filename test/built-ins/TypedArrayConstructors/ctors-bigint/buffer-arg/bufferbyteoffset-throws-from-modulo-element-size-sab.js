@@ -16,7 +16,7 @@ info: |
   13. If length is undefined, then
     a. If bufferByteLength modulo elementSize ≠ 0, throw a RangeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

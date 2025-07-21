@@ -24,7 +24,7 @@ info: |
   7. If IsConstructor(S) is true, return S.
   8. Throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 

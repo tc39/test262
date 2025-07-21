@@ -21,7 +21,7 @@ info: |
       i. Let R be the empty String.
     d. Else,
       i. Let R be ? ToString(? Invoke(nextElement, "toLocaleString")).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

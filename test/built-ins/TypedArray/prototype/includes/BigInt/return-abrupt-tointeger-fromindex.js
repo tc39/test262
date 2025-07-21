@@ -18,7 +18,7 @@ info: |
   4. Let n be ? ToInteger(fromIndex). (If fromIndex is undefined, this step
   produces the value 0.)
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

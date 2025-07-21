@@ -14,7 +14,7 @@ info: |
   ...
   15. Set O's [[ViewedArrayBuffer]] internal slot to buffer.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

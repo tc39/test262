@@ -36,7 +36,7 @@ info: |
      impossible to create such a Data Block, throw a RangeError exception.
   3. Set all of the bytes of db to 0.
   4. Return db. 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

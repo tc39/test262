@@ -9,7 +9,7 @@ info: |
   ...
   3. Let len be the value of O's [[ArrayLength]] internal slot.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

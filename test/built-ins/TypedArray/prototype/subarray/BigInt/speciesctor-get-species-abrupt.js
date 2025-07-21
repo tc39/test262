@@ -23,7 +23,7 @@ info: |
   ...
   5. Let S be ? Get(C, @@species).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 

@@ -15,7 +15,7 @@ info: |
     c. If mapping is true, then
       i. Let mappedValue be ? Call(mapfn, T, « kValue, k »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 flags: [onlyStrict]
 features: [BigInt, TypedArray]
 ---*/

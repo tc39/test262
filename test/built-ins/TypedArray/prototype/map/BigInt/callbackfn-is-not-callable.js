@@ -10,7 +10,7 @@ info: |
   ...
   4. If IsCallable(callbackfn) is false, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

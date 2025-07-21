@@ -13,7 +13,7 @@ info: |
       ...
       iii. If ! IsValidIntegerIndex(O, numericIndex) is false, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 

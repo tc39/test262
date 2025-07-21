@@ -12,7 +12,7 @@ info: |
   If count > 0, then
     ...
   Return A
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Symbol.species, TypedArray]
 ---*/
 

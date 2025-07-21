@@ -8,7 +8,7 @@ info: |
 
   ...
   17. Return ? TypedArraySpeciesCreate(O, argumentsList).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

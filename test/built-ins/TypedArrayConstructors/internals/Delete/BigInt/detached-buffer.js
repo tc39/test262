@@ -15,7 +15,7 @@ info: |
     If numericIndex is not undefined, then
       If IsDetachedBuffer(O.[[ViewedArrayBuffer]]) is true, return true.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

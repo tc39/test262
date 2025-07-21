@@ -23,7 +23,7 @@ info: |
   3. If C is undefined, return defaultConstructor.
   4. If Type(C) is not Object, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

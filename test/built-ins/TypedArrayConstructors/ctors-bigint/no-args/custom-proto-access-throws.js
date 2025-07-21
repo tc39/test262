@@ -25,7 +25,7 @@ info: |
   ...
   3. Let proto be ? Get(constructor, "prototype").
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

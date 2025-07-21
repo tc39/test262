@@ -15,7 +15,7 @@ info: |
 
   ...
   6. Return O.
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.tostring
 description: >
   _TypedArray_.prototype has no own property "toString"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

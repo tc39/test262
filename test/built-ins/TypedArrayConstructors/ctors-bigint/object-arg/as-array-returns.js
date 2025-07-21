@@ -12,7 +12,7 @@ info: |
   object does not have either a [[TypedArrayName]] or an [[ArrayBufferData]]
   internal slot.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.filter
 description: >
   The callbackfn return does not change the instance
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

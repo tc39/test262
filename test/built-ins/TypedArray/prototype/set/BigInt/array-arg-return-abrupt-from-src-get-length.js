@@ -13,7 +13,7 @@ info: |
   ...
   16. Let srcLength be ? ToLength(? Get(src, "length")).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

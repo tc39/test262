@@ -26,7 +26,7 @@ info: |
       i. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, "Uint8").
       ii. Perform SetValueInBuffer(targetBuffer, targetByteIndex, "Uint8",
       value).
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

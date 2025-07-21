@@ -14,7 +14,7 @@ info: |
     ...
   Return ? OrdinaryDelete(O, P).
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Symbol, TypedArray]
 ---*/
 

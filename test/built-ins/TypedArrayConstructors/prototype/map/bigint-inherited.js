@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.map
 description: >
   _TypedArray_.prototype has no own property "map"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -21,7 +21,7 @@ info: |
   ...
   5. Let relativeStart be ? ToInteger(start).
   ...
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

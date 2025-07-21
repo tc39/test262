@@ -20,7 +20,7 @@ info: |
   Return ? OrdinaryDelete(O, P).
 
 flags: [onlyStrict]
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

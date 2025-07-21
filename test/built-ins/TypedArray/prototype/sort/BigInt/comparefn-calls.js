@@ -14,7 +14,7 @@ info: |
     a. Let v be ? Call(comparefn, undefined, « x, y »).
     ...
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

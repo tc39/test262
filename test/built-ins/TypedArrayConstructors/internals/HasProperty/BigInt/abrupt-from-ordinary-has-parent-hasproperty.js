@@ -23,7 +23,7 @@ info: |
   5. If parent is not null, then
     a. Return ? parent.[[HasProperty]](P).
   6. Return false.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, Proxy, TypedArray]
 ---*/
 

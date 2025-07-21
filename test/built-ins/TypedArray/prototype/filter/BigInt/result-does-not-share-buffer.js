@@ -11,7 +11,7 @@ info: |
   10. Let A be ? TypedArraySpeciesCreate(O, « captured »).
   ...
   13. Return A.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

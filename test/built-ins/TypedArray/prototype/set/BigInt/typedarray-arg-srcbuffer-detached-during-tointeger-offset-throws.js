@@ -16,7 +16,7 @@ info: |
   slot.
   12. If IsDetachedBuffer(srcBuffer) is true, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 

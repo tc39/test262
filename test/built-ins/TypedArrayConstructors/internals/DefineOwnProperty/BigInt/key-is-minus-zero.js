@@ -14,7 +14,7 @@ info: |
       ii. Let intIndex be numericIndex.
       iii. If intIndex = -0, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

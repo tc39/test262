@@ -34,7 +34,7 @@ info: |
     Perform SetValueInBuffer(buffer, indexedPosition, elementType, numValue, true, Unordered).
   Return NormalCompletion(undefined).
 
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
 testWithBigIntTypedArrayConstructors(function(TA) {

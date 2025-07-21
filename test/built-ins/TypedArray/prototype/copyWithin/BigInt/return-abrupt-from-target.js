@@ -21,7 +21,7 @@ info: |
   ...
   3. Let relativeTarget be ? ToInteger(target).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

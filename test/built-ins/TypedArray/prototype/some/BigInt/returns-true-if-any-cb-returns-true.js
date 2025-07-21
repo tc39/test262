@@ -22,7 +22,7 @@ info: |
       ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
       iii. If testResult is true, return true.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

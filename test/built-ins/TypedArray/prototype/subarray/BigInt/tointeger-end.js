@@ -10,7 +10,7 @@ info: |
   9. If end is undefined, let relativeEnd be srcLength; else, let relativeEnd be
   ? ToInteger(end).
   ...
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

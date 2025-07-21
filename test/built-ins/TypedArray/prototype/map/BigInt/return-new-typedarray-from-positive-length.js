@@ -16,7 +16,7 @@ info: |
     c. Let mappedValue be ? Call(callbackfn, T, « kValue, k, O »).
     ...
   9. Return A.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

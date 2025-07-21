@@ -19,7 +19,7 @@ info: |
   ...
   6. If index = -0, return undefined.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

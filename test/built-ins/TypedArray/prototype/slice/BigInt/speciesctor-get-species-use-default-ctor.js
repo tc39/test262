@@ -23,7 +23,7 @@ info: |
   5. Let S be ? Get(C, @@species).
   6. If S is either undefined or null, return defaultConstructor.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 

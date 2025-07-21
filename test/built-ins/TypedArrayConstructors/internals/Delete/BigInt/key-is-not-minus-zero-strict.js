@@ -25,7 +25,7 @@ info: |
   If ! IsValidIntegerIndex(O, index) is false, return undefined.
   ...
 flags: [onlyStrict]
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 

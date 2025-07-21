@@ -21,7 +21,7 @@ info: |
     ...
     c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
   ...
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

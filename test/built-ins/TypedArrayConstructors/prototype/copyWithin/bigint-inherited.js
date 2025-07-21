@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.copywithin
 description: >
   _TypedArray_.prototype has no own property "copyWithin"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

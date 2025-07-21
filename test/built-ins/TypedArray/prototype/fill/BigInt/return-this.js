@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.fill
 description: >
   Returns `this`.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

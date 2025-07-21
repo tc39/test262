@@ -13,7 +13,7 @@ info: |
       ii. If next is not false, then
         1. Let nextValue be ? IteratorValue(next).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 

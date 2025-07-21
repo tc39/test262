@@ -13,7 +13,7 @@ info: |
   ...
   4. Let numberLength be ? ToNumber(length).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

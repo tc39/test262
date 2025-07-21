@@ -15,7 +15,7 @@ info: |
     d. Perform ? Set(A, Pk, mappedValue, true).
     ...
   9. Return A.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

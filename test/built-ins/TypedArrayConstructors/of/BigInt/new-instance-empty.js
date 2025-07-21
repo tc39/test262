@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.of
 description: >
   Return a new empty TypedArray
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

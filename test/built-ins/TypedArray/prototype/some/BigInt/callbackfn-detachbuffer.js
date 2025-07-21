@@ -21,7 +21,7 @@ info: |
       i. Let kValue be ? Get(O, Pk).
       ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
   ...
-includes: [detachArrayBuffer.js, testBigIntTypedArray.js]
+includes: [detachArrayBuffer.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

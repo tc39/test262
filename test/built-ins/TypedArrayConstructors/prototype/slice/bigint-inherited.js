@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.slice
 description: >
   _TypedArray_.prototype has no own property "slice"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

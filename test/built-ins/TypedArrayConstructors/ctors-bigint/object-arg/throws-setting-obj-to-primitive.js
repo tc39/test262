@@ -57,7 +57,7 @@ info: |
   5. If exoticToPrim is not undefined, then
     a. Let result be ? Call(exoticToPrim, input, « hint »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.toPrimitive, TypedArray]
 ---*/
 

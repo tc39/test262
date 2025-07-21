@@ -14,7 +14,7 @@ info: |
   a [[Get]] of "length".
 
   22.1.3.19 Array.prototype.reduce ( callbackfn [ , initialValue ] )
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect.set, TypedArray]
 ---*/
 

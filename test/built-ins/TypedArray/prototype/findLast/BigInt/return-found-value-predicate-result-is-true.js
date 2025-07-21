@@ -12,7 +12,7 @@ info: |
     c. Let testResult be ! ToBoolean(? Call(predicate, thisArg, « kValue, 𝔽(k), O »)).
     d. If testResult is true, return kValue.
     ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray, array-find-from-last]
 ---*/
 
