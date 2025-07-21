@@ -16,9 +16,9 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var ctor = function() {
-    return new TA(1);
+    return new TA(makeCtorArg(1));
   };
 
   assert.throws(TypeError, function() {

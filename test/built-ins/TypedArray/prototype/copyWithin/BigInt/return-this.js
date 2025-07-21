@@ -23,13 +23,13 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var sample1 = new TA();
   var result1 = sample1.copyWithin(0, 0);
 
   assert.sameValue(result1, sample1);
 
-  var sample2 = new TA([1n, 2n, 3n]);
+  var sample2 = new TA(makeCtorArg([1n, 2n, 3n]));
   var result2 = sample2.copyWithin(1, 0);
 
   assert.sameValue(result2, sample2);

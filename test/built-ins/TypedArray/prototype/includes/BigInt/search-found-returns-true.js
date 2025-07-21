@@ -29,8 +29,8 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n, 42n, 41n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n, 42n, 41n]));
   assert.sameValue(sample.includes(42n), true, "includes(42)");
   assert.sameValue(sample.includes(43n), true, "includes(43)");
   assert.sameValue(sample.includes(43n, 1), true, "includes(43, 1)");

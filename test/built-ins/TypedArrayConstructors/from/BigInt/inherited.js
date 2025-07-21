@@ -22,4 +22,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     TA.hasOwnProperty("from"), false,
     "constructor does not define an own property named 'from'"
   );
-});
+}, null, ["passthrough"]);

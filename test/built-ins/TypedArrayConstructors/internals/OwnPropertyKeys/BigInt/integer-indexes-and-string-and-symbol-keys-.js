@@ -23,8 +23,8 @@ var s2 = Symbol("2");
 TypedArray.prototype[3] = 42;
 TypedArray.prototype.bar = 42;
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample1 = new TA([42n, 42n, 42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample1 = new TA(makeCtorArg([42n, 42n, 42n]));
   sample1[s1] = 42;
   sample1[s2] = 42;
   sample1.test262 = 42;
@@ -35,7 +35,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     "result1"
   );
 
-  var sample2 = new TA(4).subarray(2);
+  var sample2 = new TA(makeCtorArg(4)).subarray(2);
   sample2[s1] = 42;
   sample2[s2] = 42;
   sample2.test262 = 42;

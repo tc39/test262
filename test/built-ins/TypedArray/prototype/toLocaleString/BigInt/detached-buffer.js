@@ -25,4 +25,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     sample.toLocaleString();
   });
-});
+}, null, ["passthrough"]);

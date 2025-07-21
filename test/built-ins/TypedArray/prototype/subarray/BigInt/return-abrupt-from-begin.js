@@ -35,4 +35,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     sample.subarray(o2);
   });
-});
+}, null, ["passthrough"]);

@@ -36,4 +36,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   $DETACHBUFFER(sample.buffer);
   sample[0] = 1n;
   assert.sameValue(sample[0], undefined, '`sample[0]` is undefined');
-});
+}, null, ["passthrough"]);

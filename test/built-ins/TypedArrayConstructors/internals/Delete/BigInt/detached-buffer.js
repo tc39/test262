@@ -28,4 +28,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(delete sample["-1"], true, 'The value of `delete sample["-1"]` is true');
   assert.sameValue(delete sample["1"], true, 'The value of `delete sample["1"]` is true');
   assert.sameValue(delete sample["2"], true, 'The value of `delete sample["2"]` is true');
-});
+}, null, ["passthrough"]);

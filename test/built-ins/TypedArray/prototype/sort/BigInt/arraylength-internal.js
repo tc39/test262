@@ -22,8 +22,8 @@ var desc = {
 
 Object.defineProperty(TypedArray.prototype, "length", desc);
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 42n, 42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 42n, 42n]));
   getCalls = 0;
 
   Object.defineProperty(TA.prototype, "length", desc);
@@ -36,4 +36,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     compareArray(result, sample),
     "result is not affected by custom length"
   );
-});
+}, null, ["passthrough"]);

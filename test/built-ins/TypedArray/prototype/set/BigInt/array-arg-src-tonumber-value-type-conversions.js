@@ -22,7 +22,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var obj1 = {
       valueOf: function() {
         return 42n;
@@ -38,7 +38,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var arr = [false, true, obj1, [], [1]];
 
   var sample = new TA(arr.length);
-  var expected = new TA([0n, 1n, 42n, 0n, 1n]);
+  var expected = new TA(makeCtorArg([0n, 1n, 42n, 0n, 1n]));
 
   sample.set(arr);
 

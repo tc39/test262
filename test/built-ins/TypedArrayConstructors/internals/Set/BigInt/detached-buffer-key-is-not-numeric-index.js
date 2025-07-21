@@ -27,4 +27,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   );
 
   assert.sameValue(sample.foo, 'test262', 'The value of sample.foo is "test262"');
-});
+}, null, ["passthrough"]);

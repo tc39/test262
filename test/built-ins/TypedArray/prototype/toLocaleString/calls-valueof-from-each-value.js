@@ -53,4 +53,4 @@ testWithTypedArrayConstructors(function(TA) {
   calls = 0;
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert.sameValue(calls, 2, "valueOf called once for each item");
-});
+}, null, ["passthrough"]);

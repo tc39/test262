@@ -23,11 +23,11 @@ features: [BigInt, TypedArray]
 
 var notBigTypedArray;
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
 
-  notBigTypedArray = new TA(16);
+  notBigTypedArray = new TA(makeCtorArg(16));
 
-  testWithBigIntTypedArrayConstructors(function(BTA) {
+  testWithBigIntTypedArrayConstructors(function(BTA, makeCtorArg) {
     assert.throws(TypeError, function() {
       new BTA(notBigTypedArray);
     });

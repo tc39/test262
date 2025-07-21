@@ -14,11 +14,11 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var bytesPerElement = TA.BYTES_PER_ELEMENT;
   var ta1 = new TA();
   assert.sameValue(ta1.byteLength, 0);
 
-  var ta2 = new TA(42);
+  var ta2 = new TA(makeCtorArg(42));
   assert.sameValue(ta2.byteLength, 42 * bytesPerElement);
 });
