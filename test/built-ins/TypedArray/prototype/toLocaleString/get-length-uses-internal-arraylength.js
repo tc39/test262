@@ -30,7 +30,7 @@ var desc = {
 
 Object.defineProperty(TypedArray.prototype, "length", desc);
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
 
   Object.defineProperty(TA.prototype, "length", desc);
