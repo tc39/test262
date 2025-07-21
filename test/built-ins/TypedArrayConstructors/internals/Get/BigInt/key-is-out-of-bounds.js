@@ -34,10 +34,10 @@ Object.defineProperty(proto, "-1", throwDesc);
 Object.defineProperty(proto, "2", throwDesc);
 Object.defineProperty(proto, "3", throwDesc);
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n]));
 
   assert.sameValue(sample["-1"], undefined);
   assert.sameValue(sample["2"], undefined);
   assert.sameValue(sample["3"], undefined);
-});
+}, null, ["passthrough"]);

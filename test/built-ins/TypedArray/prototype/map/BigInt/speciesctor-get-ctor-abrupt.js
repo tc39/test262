@@ -26,8 +26,8 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([40n, 41n, 42n, 43n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([40n, 41n, 42n, 43n]));
   var callCount = 0;
 
   Object.defineProperty(sample, "constructor", {
@@ -42,4 +42,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     });
   });
   assert.sameValue(callCount, 0, "callback should not be called");
-});
+}, null, ["passthrough"]);

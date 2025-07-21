@@ -54,4 +54,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert(
     compareArray(sample, [42n, 0n, 1n, 17n])
   );
-});
+}, null, ["passthrough"]);

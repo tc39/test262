@@ -61,10 +61,10 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
 
   assert.throws(SyntaxError, function() {
-    new TA(["definately not a number"]);
+    new TA(makeCtorArg(["definately not a number"]));
   }, "StringToBigInt(prim) == NaN");
 
 });

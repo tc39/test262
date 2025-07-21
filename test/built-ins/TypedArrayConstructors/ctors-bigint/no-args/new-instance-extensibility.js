@@ -35,4 +35,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
 
   assert(Object.isExtensible(sample));
-});
+}, null, ["passthrough"]);

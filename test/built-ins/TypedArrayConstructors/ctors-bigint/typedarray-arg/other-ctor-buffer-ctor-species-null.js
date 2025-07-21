@@ -41,4 +41,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     ArrayBuffer.prototype,
     "buffer ctor is not called when species is null"
   );
-});
+}, null, ["passthrough"]);

@@ -56,4 +56,4 @@ testWithBigIntTypedArrayConstructors(TA => {
     array.sort();
     throw new Test262Error('sort completed successfully');
   });
-});
+}, null, ["passthrough"]);

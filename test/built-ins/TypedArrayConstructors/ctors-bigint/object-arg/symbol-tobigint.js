@@ -60,10 +60,10 @@ features: [BigInt, TypedArray, Symbol]
 
 var s = Symbol()
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
 
   assert.throws(TypeError, function() {
-    new TA([s]);
+    new TA(makeCtorArg([s]));
   }, "abrupt completion from Symbol");
 
 });

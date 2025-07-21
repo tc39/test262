@@ -32,4 +32,4 @@ function body(FA) {
   assert(compareArray(sourceBytes, targetBytes))
 }
 
-testWithTypedArrayConstructors(body, floatArrayConstructors);
+testWithTypedArrayConstructors((body), floatArrayConstructors);

@@ -17,9 +17,9 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var result;
-  var custom = new TA(3);
+  var custom = new TA(makeCtorArg(3));
   var ctor = function() {
     return custom;
   };

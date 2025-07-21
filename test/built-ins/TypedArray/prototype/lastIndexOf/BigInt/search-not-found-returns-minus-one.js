@@ -25,10 +25,10 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var sample;
 
-  sample = new TA([42n, 43n, 42n, 41n]);
+  sample = new TA(makeCtorArg([42n, 43n, 42n, 41n]));
   assert.sameValue(sample.lastIndexOf(44n), -1, "lastIndexOf(44)");
   assert.sameValue(sample.lastIndexOf(44n, -4), -1, "lastIndexOf(44, -4)");
   assert.sameValue(sample.lastIndexOf(44n, -5), -1, "lastIndexOf(44, -5)");

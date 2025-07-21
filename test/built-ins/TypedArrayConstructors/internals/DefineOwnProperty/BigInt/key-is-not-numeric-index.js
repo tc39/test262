@@ -17,8 +17,8 @@ includes: [testTypedArray.js, propertyHelper.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n]));
 
   assert.sameValue(
     Reflect.defineProperty(sample, "foo", {value:42}),
@@ -49,4 +49,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(desc.set, fnset, "accessor's set");
   verifyNotEnumerable(sample, "bar");
   verifyConfigurable(sample, "bar");
-});
+}, null, ["passthrough"]);

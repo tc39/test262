@@ -34,8 +34,8 @@ includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(2);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(2));
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = Array;

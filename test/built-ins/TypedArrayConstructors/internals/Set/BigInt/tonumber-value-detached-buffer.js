@@ -35,4 +35,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(result, true);
   assert.sameValue(ta[0], undefined);
   assert.sameValue(isDetached, true);
-});
+}, null, ["passthrough"]);

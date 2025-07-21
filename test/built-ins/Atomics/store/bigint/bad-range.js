@@ -17,4 +17,4 @@ testWithBigIntTypedArrayConstructors(TA => {
       Atomics.store(view, IdxGen(view), 10n);
     });
   });
-});
+}, null, ["passthrough"]);

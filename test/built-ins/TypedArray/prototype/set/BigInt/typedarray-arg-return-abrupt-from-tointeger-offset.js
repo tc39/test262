@@ -37,4 +37,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     sample.set(sample, obj2);
   }, "abrupt from toString");
-});
+}, null, ["passthrough"]);

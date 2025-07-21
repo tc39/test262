@@ -28,8 +28,8 @@ includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(2);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(2));
   var calls = 0;
 
   sample.constructor = {};
@@ -43,4 +43,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample.slice();
 
   assert.sameValue(calls, 1);
-});
+}, null, ["passthrough"]);

@@ -18,14 +18,14 @@ features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, Ty
 ---*/
 var keys = ['1.0', '+1', '1000000000000000000000', '0.0000001'];
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   keys.forEach(function(key) {
-    var sample = new TA([42n]);
+    var sample = new TA(makeCtorArg([42n]));
 
     assert.sameValue(
       Reflect.set(sample, key, 'ecma262'),
       true,
-      'Reflect.set("new TA([42n])", key, "ecma262") must return true'
+      'Reflect.set("new TA(makeCtorArg([42n]))", key, "ecma262") must return true'
     );
 
     assert.sameValue(sample[key], 'ecma262', 'The value of sample[key] is "ecma262"');
@@ -33,7 +33,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     assert.sameValue(
       Reflect.set(sample, key, 'es3000'),
       true,
-      'Reflect.set("new TA([42n])", key, "es3000") must return true'
+      'Reflect.set("new TA(makeCtorArg([42n]))", key, "es3000") must return true'
     );
 
     assert.sameValue(sample[key], 'es3000', 'The value of sample[key] is "es3000"');
@@ -43,7 +43,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       value: undefined
     });
 
-    assert.sameValue(Reflect.set(sample, key, 42), false, 'Reflect.set("new TA([42n])", key, 42) must return false');
+    assert.sameValue(Reflect.set(sample, key, 42), false, 'Reflect.set("new TA(makeCtorArg([42n]))", key, 42) must return false');
     assert.sameValue(sample[key], undefined, 'The value of sample[key] is expected to equal `undefined`');
   });
-});
+}, null, ["passthrough"]);

@@ -36,8 +36,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([40n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([40n]));
   var other = new BigInt64Array([1n, 0n, 1n]);
   var result;
 

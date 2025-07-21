@@ -29,12 +29,12 @@ includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var arr = [1n, 2n, 3n];
   var sample;
   var result;
 
-  sample = new TA(3);
+  sample = new TA(makeCtorArg(3));
   sample.find(function(val, i) {
     sample[i] = arr[i];
 

@@ -17,8 +17,8 @@ includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n]));
   Object.preventExtensions(sample);
 
   assert.sameValue(
@@ -41,4 +41,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   );
 
   assert.sameValue(Object.getOwnPropertyDescriptor(sample, "bar"), undefined);
-});
+}, null, ["passthrough"]);

@@ -18,4 +18,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   var buffer = new ArrayBuffer(3 * offset);
   $DETACHBUFFER(buffer);
   assert.throws(TypeError, () => new TA(buffer));
-});
+}, null, ["passthrough"]);

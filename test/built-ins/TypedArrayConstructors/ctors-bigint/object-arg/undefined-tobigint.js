@@ -54,10 +54,10 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
 
   assert.throws(TypeError, function() {
-    new TA([undefined]);
+    new TA(makeCtorArg([undefined]));
   }, "abrupt completion from undefined");
 
 });

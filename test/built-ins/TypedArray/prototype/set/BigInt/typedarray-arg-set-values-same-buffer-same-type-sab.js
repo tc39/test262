@@ -46,4 +46,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   result = sample.set(src, 2);
   assert(compareArray(sample, [1n, 2n, 1n, 2n]), "offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
-});
+}, null, ["passthrough"]);

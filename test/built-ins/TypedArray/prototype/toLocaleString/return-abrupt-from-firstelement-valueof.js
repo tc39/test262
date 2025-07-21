@@ -53,4 +53,4 @@ testWithTypedArrayConstructors(function(TA) {
     sample.toLocaleString();
   });
   assert.sameValue(calls, 1, "toString called once");
-});
+}, null, ["passthrough"]);

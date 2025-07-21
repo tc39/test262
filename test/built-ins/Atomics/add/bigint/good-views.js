@@ -50,4 +50,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     Atomics.store(view, Idx, 37n);
     assert.sameValue(Atomics.add(view, Idx, 0n), 37n, 'Atomics.add(view, Idx, 0) returns 37n');
   });
-});
+}, null, ["passthrough"]);

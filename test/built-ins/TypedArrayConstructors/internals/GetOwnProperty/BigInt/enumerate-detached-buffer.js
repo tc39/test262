@@ -39,4 +39,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     counter++;
   }
   assert.sameValue(counter, 0, 'The value of `counter` is 0');
-});
+}, null, ["passthrough"]);

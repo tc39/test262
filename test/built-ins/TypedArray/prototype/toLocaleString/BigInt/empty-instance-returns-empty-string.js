@@ -23,4 +23,4 @@ features: [BigInt, TypedArray]
 testWithBigIntTypedArrayConstructors(function(TA) {
   var sample = new TA();
   assert.sameValue(sample.toLocaleString(), "");
-});
+}, null, ["passthrough"]);

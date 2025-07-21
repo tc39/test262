@@ -14,16 +14,16 @@ includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var sample;
 
-  sample = new TA([4n, 3n, 2n, 1n]).sort();
+  sample = new TA(makeCtorArg([4n, 3n, 2n, 1n])).sort();
   assert(compareArray(sample, [1n, 2n, 3n, 4n]), "descending values");
 
-  sample = new TA([3n, 4n, 1n, 2n]).sort();
+  sample = new TA(makeCtorArg([3n, 4n, 1n, 2n])).sort();
   assert(compareArray(sample, [1n, 2n, 3n, 4n]), "mixed numbers");
 
-  sample = new TA([3n, 4n, 3n, 1n, 0n, 1n, 2n]).sort();
+  sample = new TA(makeCtorArg([3n, 4n, 3n, 1n, 0n, 1n, 2n])).sort();
   assert(compareArray(sample, [0n, 1n, 1n, 2n, 3n, 3n, 4n]), "repeating numbers");
 });
 

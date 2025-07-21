@@ -19,8 +19,8 @@ info: |
 includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, TypedArray]
 ---*/
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 42n]));
 
   assert.sameValue(Reflect.defineProperty(sample, '0', {
     value: 8n,
@@ -35,4 +35,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(desc.configurable, true, 'The value of desc.configurable is true');
   assert.sameValue(desc.enumerable, true, 'The value of desc.enumerable is true');
   assert.sameValue(desc.writable, true, 'The value of desc.writable is true');
-});
+}, null, ["passthrough"]);

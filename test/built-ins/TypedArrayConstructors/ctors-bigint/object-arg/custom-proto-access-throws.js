@@ -45,4 +45,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     Reflect.construct(TA, [o], newTarget);
   });
-});
+}, null, ["passthrough"]);

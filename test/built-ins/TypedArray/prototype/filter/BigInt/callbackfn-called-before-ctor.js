@@ -36,4 +36,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(calls, 42, "callbackfn called for each item");
   assert.sameValue(before, true, "all callbackfn called before");
-});
+}, null, ["passthrough"]);

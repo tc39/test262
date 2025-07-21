@@ -21,8 +21,8 @@ features: [align-detached-buffer-semantics-with-web-reality, BigInt, Reflect, Ty
 // Prevents false positives using OrdinaryHasProperty
 TypedArray.prototype["-0"] = "test262";
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(1));
 
   assert.sameValue(Reflect.has(sample, "-0"), false, 'Reflect.has(sample, "-0") must return false');
 });

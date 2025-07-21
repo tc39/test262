@@ -38,4 +38,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     undefined,
     'Object.getOwnPropertyDescriptor("new OtherTA(1)", 0) must return undefined'
   );
-});
+}, null, ["passthrough"]);

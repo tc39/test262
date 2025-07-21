@@ -25,4 +25,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, 7);
   });
-});
+}, null, ["passthrough"]);

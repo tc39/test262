@@ -33,4 +33,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     undefined,
     'Object.getOwnPropertyDescriptor(sample, 0) must return undefined'
   );
-});
+}, null, ["passthrough"]);

@@ -16,8 +16,8 @@ includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray, array-find-from-last]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([39n, 2n, 62n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([39n, 2n, 62n]));
   var called, result;
 
   called = 0;

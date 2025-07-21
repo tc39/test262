@@ -26,4 +26,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     TA.from.call(ctor, []);
   });
-});
+}, null, ["passthrough"]);

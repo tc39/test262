@@ -54,4 +54,4 @@ testWithTypedArrayConstructors(function(TA) {
     sample.toLocaleString();
   });
   assert.sameValue(calls, 2, "abrupt from a nextElement");
-});
+}, null, ["passthrough"]);

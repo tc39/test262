@@ -117,4 +117,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     enumerable: true,
     writable: true
   }), false, 'Reflect.defineProperty(sample, "6", {configurable: false, enumerable: true, writable: true}) must return false');
-});
+}, null, ["passthrough"]);

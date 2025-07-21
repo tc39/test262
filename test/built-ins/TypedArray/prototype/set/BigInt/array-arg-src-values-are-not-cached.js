@@ -22,8 +22,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(5);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(5));
   var obj = {
     length: 5,
     '1': 7n,
@@ -44,4 +44,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   sample.set(obj);
 
   assert(compareArray(sample, [42n, 43n, 44n, 45n, 46n]));
-});
+}, null, ["passthrough"]);

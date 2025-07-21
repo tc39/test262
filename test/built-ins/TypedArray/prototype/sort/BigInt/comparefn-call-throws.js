@@ -25,8 +25,8 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n, 44n, 45n, 46n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n, 44n, 45n, 46n]));
   var calls = 0;
 
   var comparefn = function() {

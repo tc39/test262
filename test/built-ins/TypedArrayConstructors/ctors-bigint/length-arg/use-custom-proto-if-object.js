@@ -41,4 +41,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(ta.constructor, Object);
   assert.sameValue(Object.getPrototypeOf(ta), proto);
-});
+}, null, ["passthrough"]);

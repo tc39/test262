@@ -33,4 +33,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(buffer, bpe * 2, undefined);
   });
-});
+}, null, ["passthrough"]);

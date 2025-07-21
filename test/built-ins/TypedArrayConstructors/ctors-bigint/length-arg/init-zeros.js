@@ -40,8 +40,8 @@ includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var subject = new TA(9);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var subject = new TA(makeCtorArg(9));
 
   assert.sameValue(subject[0], 0n, 'index 0');
   assert.sameValue(subject[1], 0n, 'index 1');

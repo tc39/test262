@@ -30,4 +30,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     sample.set(sample, -Infinity);
   }, "-Infinity");
-});
+}, null, ["passthrough"]);

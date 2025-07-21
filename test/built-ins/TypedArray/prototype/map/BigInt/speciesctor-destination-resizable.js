@@ -37,4 +37,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     ta.map(() => {});
   });
-});
+}, null, ["passthrough"]);

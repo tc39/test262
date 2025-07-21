@@ -16,8 +16,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([41n, 1n, 42n, 7n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([41n, 1n, 42n, 7n]));
   var result;
 
   result = sample.filter(function() { return true; });

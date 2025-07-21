@@ -34,12 +34,12 @@ ArrayIteratorPrototype.next = function() {
   return {value, done};
 };
 
-testWithTypedArrayConstructors(function(TypedArray) {
+testWithTypedArrayConstructors(function(TypedArray, makeCtorArg) {
   // Reset `values` array.
   values = [1, 2, 3, 4];
 
   // Constructor called with array which uses the modified array iterator.
-  var ta = new TypedArray([0]);
+  var ta = new TypedArray(makeCtorArg([0]));
 
   assert.sameValue(ta.length, 4);
   assert.sameValue(ta[0], 4);

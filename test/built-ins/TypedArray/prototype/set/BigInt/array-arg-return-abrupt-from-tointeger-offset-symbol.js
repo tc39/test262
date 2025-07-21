@@ -18,8 +18,8 @@ features: [BigInt, Symbol, TypedArray]
 
 var s = Symbol("1");
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(2);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(2));
 
   assert.throws(TypeError, function() {
     sample.set([1n], s);

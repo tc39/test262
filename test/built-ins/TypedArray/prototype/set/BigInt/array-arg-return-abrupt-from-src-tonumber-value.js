@@ -22,7 +22,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var obj = {
       length: 4,
       "0": 42n,
@@ -35,7 +35,7 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       "3": 44n
   };
 
-  var sample = new TA([1n, 2n, 3n, 4n]);
+  var sample = new TA(makeCtorArg([1n, 2n, 3n, 4n]));
 
   assert.throws(Test262Error, function() {
     sample.set(obj);

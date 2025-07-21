@@ -33,8 +33,8 @@ var obj2 = {
   }
 };
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([1n, 2n, 3n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([1n, 2n, 3n]));
 
   assert.throws(Test262Error, function() {
     sample.set(obj1);
