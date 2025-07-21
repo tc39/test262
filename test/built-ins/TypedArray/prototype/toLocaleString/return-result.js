@@ -35,7 +35,7 @@ var separator = ["", ""].toLocaleString();
 
 var arr = [42, 0, 43];
 
-testWithTypedArrayConstructors(function(TA, N) {
+testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(arr);
   var expected =
     sample[0].toLocaleString().toString() +
