@@ -9,7 +9,7 @@ info: |
   ...
   4. Let buffer be the value of O's [[ViewedArrayBuffer]] internal slot.
   5. Return buffer.
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.prototype.reduce
 description: >
   The callbackfn return does not change the `this` instance
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

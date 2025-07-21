@@ -10,7 +10,7 @@ info: |
   arguments x and y, the following steps are taken:
 
   ...
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

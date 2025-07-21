@@ -16,7 +16,7 @@ info: |
       v. Let length be the value of O's [[ArrayLength]] internal slot.
       vi. If intIndex ≥ length, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

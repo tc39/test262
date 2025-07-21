@@ -18,7 +18,7 @@ info: |
     b. Let newByteLength be newLength × elementSize.
     c. If offset+newByteLength > bufferByteLength, throw a RangeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

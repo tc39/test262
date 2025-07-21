@@ -24,7 +24,7 @@ info: |
   7. Repeat, while k < final
     a. Let Pk be ! ToString(k).
     b. Perform ? Set(O, Pk, value, true).
-includes: [compareArray.js, testBigIntTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -4,7 +4,7 @@
 esid: sec-%typedarray%.from
 description: >
   Throws a TypeError casting undefined value from sparse array to BigInt
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

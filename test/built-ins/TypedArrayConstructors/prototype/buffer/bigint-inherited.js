@@ -4,7 +4,7 @@
 esid: sec-get-%typedarray%.prototype.buffer
 description: >
   _TypedArray_.prototype has no own property "buffer"
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

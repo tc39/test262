@@ -12,7 +12,7 @@ info: |
   ...
   16. Let targetByteOffset be target.[[ByteOffset]].
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -70,7 +70,7 @@ info: |
       i. Let result be ? Call(method, O).
       ii. If Type(result) is not Object, return result.
   6. Throw a TypeError exception.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

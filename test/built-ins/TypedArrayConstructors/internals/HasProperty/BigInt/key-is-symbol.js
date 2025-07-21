@@ -11,7 +11,7 @@ info: |
   3. If Type(P) is String, then
     ...
   4. Return ? OrdinaryHasProperty(O, P).
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, Symbol, TypedArray]
 ---*/
 

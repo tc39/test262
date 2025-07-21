@@ -13,7 +13,7 @@ info: |
   ...
   15. Let src be ? ToObject(array).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

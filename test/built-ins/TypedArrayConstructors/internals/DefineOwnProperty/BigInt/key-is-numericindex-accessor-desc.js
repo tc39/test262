@@ -14,7 +14,7 @@ info: |
       ...
       vii. If IsAccessorDescriptor(Desc) is true, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

@@ -13,7 +13,7 @@ info: |
   8. Else, set _value_ to ? ToNumber(_value_).
   ...
 features: [BigInt, TypedArray, change-array-by-copy]
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 ---*/
 
 testWithBigIntTypedArrayConstructors(function(TA) {

@@ -12,7 +12,7 @@ info: |
     b. If numericIndex is not undefined, then
       i. If IsInteger(numericIndex) is false, return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 

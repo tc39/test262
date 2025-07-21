@@ -18,7 +18,7 @@ info: |
   10. Let len be ? ToLength(? Get(arrayLike, "length")).
   11. Let targetObj be ? TypedArrayCreate(C, « len »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.iterator, TypedArray]
 ---*/
 

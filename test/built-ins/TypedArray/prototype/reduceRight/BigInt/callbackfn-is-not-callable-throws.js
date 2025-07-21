@@ -18,7 +18,7 @@ info: |
   3. If IsCallable(callbackfn) is false, throw a TypeError exception.
   4. If len is 0 and initialValue is not present, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

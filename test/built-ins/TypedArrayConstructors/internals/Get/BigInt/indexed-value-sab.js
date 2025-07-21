@@ -5,7 +5,7 @@
 esid: sec-integer-indexed-exotic-objects-get-p-receiver
 description: >
   Return value from valid numeric index, with SharedArrayBuffer
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray, SharedArrayBuffer]
 ---*/
 

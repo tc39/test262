@@ -5,7 +5,7 @@ esid: sec-%typedarray%.prototype.slice
 description: -0 values on start and end
 info: |
   22.2.3.24 %TypedArray%.prototype.slice ( start, end )
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

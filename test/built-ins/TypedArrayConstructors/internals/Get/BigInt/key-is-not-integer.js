@@ -19,7 +19,7 @@ info: |
   ...
   5. If IsInteger(index) is false, return undefined.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

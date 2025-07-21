@@ -15,7 +15,7 @@ info: |
       other does not, throw a TypeError exception.
   ...
 
-includes: [testBigIntTypedArray.js, testTypedArray.js]
+includes: [testTypedArray.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

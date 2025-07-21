@@ -20,7 +20,7 @@ info: |
     a. Let k be len + n.
   7. Repeat, while k ≥ 0
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 

@@ -30,7 +30,7 @@ info: |
       ii. Let accumulator be ? Call(callbackfn, undefined, « accumulator,
       kValue, k, O »).
   9. Return accumulator.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 

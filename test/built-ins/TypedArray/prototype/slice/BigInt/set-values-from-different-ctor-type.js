@@ -26,7 +26,7 @@ info: |
       v. Increase n by 1.
   ...
   16. Return A
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 

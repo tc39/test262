@@ -6,7 +6,7 @@ esid: sec-typedarray-typedarray
 description: >
   Passing a SharedArrayBuffer-backed TypedArray to a TypedArray constructor
   produces an ArrayBuffer-backed TypedArray.
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, SharedArrayBuffer, TypedArray]
 ---*/
 

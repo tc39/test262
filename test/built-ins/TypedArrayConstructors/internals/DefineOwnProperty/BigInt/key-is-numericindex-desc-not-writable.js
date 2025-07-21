@@ -14,7 +14,7 @@ info: |
       x. If Desc has a [[Writable]] field and if Desc.[[Writable]] is false,
       return false.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 
