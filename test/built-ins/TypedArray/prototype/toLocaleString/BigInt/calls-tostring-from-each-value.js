@@ -55,4 +55,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   calls = 0;
   assert.sameValue(sample.toLocaleString(), expected, "returns expected value");
   assert.sameValue(calls, 2, "toString called once for each item");
-});
+}, null, ["passthrough"]);

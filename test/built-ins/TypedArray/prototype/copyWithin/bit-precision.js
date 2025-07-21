@@ -41,4 +41,4 @@ function body(FloatArray) {
   assert(compareArray(originalBytes, copiedBytes));
 }
 
-testWithTypedArrayConstructors(body, floatArrayConstructors);
+testWithTypedArrayConstructors((body), floatArrayConstructors);

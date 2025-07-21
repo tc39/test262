@@ -46,4 +46,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   );
   assert.sameValue(result.constructor, TA, 'The value of result.constructor is expected to equal the value of TA');
   assert.sameValue(counter, 2, 'The value of `counter` is 2');
-});
+}, null, ["passthrough"]);

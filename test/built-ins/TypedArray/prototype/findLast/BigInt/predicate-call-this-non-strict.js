@@ -18,8 +18,8 @@ features: [BigInt, TypedArray, array-find-from-last]
 
 var T = this;
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(1));
   var result;
 
   sample.findLast(function() {

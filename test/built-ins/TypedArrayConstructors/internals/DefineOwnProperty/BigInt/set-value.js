@@ -35,8 +35,8 @@ includes: [testTypedArray.js]
 features: [BigInt, Reflect, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([0n, 0n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([0n, 0n]));
 
   assert.sameValue(
     Reflect.defineProperty(sample, "0", {value: 1n}),
@@ -52,4 +52,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   assert.sameValue(sample[0], 1n, "sample[0]");
   assert.sameValue(sample[1], 2n, "sample[1]");
-});
+}, null, ["passthrough"]);

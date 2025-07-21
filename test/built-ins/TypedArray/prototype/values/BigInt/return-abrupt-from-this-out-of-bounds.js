@@ -56,4 +56,4 @@ testWithBigIntTypedArrayConstructors(TA => {
     array.values();
     throw new Test262Error('values completed successfully');
   });
-});
+}, null, ["passthrough"]);

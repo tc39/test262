@@ -33,8 +33,8 @@ features: [BigInt, TypedArray]
 
 var separator = ["", ""].toLocaleString();
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 0n, 43n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 0n, 43n]));
   var expected =
     sample[0].toLocaleString().toString() +
     separator +
