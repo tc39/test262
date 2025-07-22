@@ -106,7 +106,7 @@ function makeArrayBuffer(TA, primitiveOrIterable) {
   return new TA(arr).buffer;
 }
 
-var makeResizableArrayBuffer, makeGrownArrayBuffer, makeShrunkArrayBuffer;
+var makeResizableArrayBuffer, makeGrownArrayBuffer, makeShrunkArrayBuffer, makeImmutableArrayBuffer;
 if (ArrayBuffer.prototype.resize) {
   var copyIntoArrayBuffer = function(destBuffer, srcBuffer) {
     var destView = new Uint8Array(destBuffer);
@@ -156,6 +156,17 @@ if (ArrayBuffer.prototype.resize) {
     return shrunk;
   };
 }
+if (ArrayBuffer.prototype.transferToImmutable) {
+  makeImmutableArrayBuffer = function makeImmutableArrayBuffer(TA, primitiveOrIterable) {
+    if (isPrimitive(primitiveOrIterable)) {
+      var n = Number(primitiveOrIterable) * TA.BYTES_PER_ELEMENT;
+      if (!(n >= 0 && n < 9007199254740992)) return primitiveOrIterable;
+      return (new ArrayBuffer(n)).transferToImmutable();
+    }
+    var mutable = makeArrayBuffer(TA, primitiveOrIterable);
+    return mutable.transferToImmutable();
+  };
+}
 
 var typedArrayCtorArgFactories = [makePassthrough, makeArray, makeArrayLike];
 if (makeIterable) typedArrayCtorArgFactories.push(makeIterable);
@@ -163,9 +174,10 @@ typedArrayCtorArgFactories.push(makeArrayBuffer);
 if (makeResizableArrayBuffer) typedArrayCtorArgFactories.push(makeResizableArrayBuffer);
 if (makeGrownArrayBuffer) typedArrayCtorArgFactories.push(makeGrownArrayBuffer);
 if (makeShrunkArrayBuffer) typedArrayCtorArgFactories.push(makeShrunkArrayBuffer);
+if (makeImmutableArrayBuffer) typedArrayCtorArgFactories.push(makeImmutableArrayBuffer);
 
 /**
- * @typedef {"passthrough" | "arraylike" | "iterable" | "arraybuffer" | "resizable"} typedArrayArgFactoryFeature
+ * @typedef {"passthrough" | "arraylike" | "iterable" | "arraybuffer" | "resizable" | "immutable"} typedArrayArgFactoryFeature
  */
 
 /**
@@ -193,7 +205,8 @@ function ctorArgFactoryMatchesSome(argFactory, features) {
           argFactory === makeArrayBuffer ||
           argFactory === makeResizableArrayBuffer ||
           argFactory === makeGrownArrayBuffer ||
-          argFactory === makeShrunkArrayBuffer
+          argFactory === makeShrunkArrayBuffer ||
+          argFactory === makeImmutableArrayBuffer
         ) {
           return true;
         }
@@ -206,6 +219,9 @@ function ctorArgFactoryMatchesSome(argFactory, features) {
         ) {
           return true;
         }
+        break;
+      case "immutable":
+        if (argFactory === makeImmutableArrayBuffer) return true;
         break;
       default:
         throw Test262Error("unknown feature: " + features[i]);
