@@ -40,4 +40,4 @@ testWithTypedArrayConstructors(function(TA) {
     sample.findLastIndex(function() { return true; }),
     0
   );
-});
+}, null, ["passthrough"]);
