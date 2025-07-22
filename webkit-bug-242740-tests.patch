@@ -1,0 +1,172 @@
+From f95a348c8ce71668e969c2ffc8f3db6317093efa Mon Sep 17 00:00:00 2001
+From: Kirk Elliott <elliott@ionq.co>
+Date: Mon, 21 Jul 2025 22:39:36 -0400
+Subject: [PATCH] Add tests for WebKit Bug 242740: simultaneous imports with
+ top-level await
+
+- Add simultaneous-imports-race-condition.js to test that simultaneous imports wait for top-level await completion
+- Add simultaneous-imports-reference-error.js to test that no ReferenceError is thrown during simultaneous imports
+- Both tests will fail in WebKit-based browsers due to the bug
+- Tests follow test262 style and reproduce the race condition described in the bug report
+
+Bug: https://bugs.webkit.org/show_bug.cgi?id=242740
+---
+ .../simultaneous-imports-race-condition.js    | 47 +++++++++++++++++++
+ ...ltaneous-imports-race-condition_FIXTURE.js | 12 +++++
+ .../simultaneous-imports-reference-error.js   | 47 +++++++++++++++++++
+ ...taneous-imports-reference-error_FIXTURE.js | 12 +++++
+ 4 files changed, 118 insertions(+)
+ create mode 100644 test/language/module-code/top-level-await/simultaneous-imports-race-condition.js
+ create mode 100644 test/language/module-code/top-level-await/simultaneous-imports-race-condition_FIXTURE.js
+ create mode 100644 test/language/module-code/top-level-await/simultaneous-imports-reference-error.js
+ create mode 100644 test/language/module-code/top-level-await/simultaneous-imports-reference-error_FIXTURE.js
+
+diff --git a/test/language/module-code/top-level-await/simultaneous-imports-race-condition.js b/test/language/module-code/top-level-await/simultaneous-imports-race-condition.js
+new file mode 100644
+index 0000000000..6d4381027e
+--- /dev/null
++++ b/test/language/module-code/top-level-await/simultaneous-imports-race-condition.js
+@@ -0,0 +1,47 @@
++// Copyright (C) 2025 the V8 project authors. All rights reserved.
++// This code is governed by the BSD license found in the LICENSE file.
++
++/*---
++esid: sec-moduleevaluation
++description: >
++  Simultaneous imports of a module with top-level await should all wait for evaluation to complete
++info: |
++  Module Evaluation
++    1. If module.[[TopLevelCapability]] is not empty, then
++       a. Return module.[[TopLevelCapability]].[[Promise]].
++
++  When multiple modules simultaneously import the same module with top-level await,
++  all import promises should wait for the module's top-level capability to resolve.
++
++flags: [module, async]
++features: [top-level-await, dynamic-import]
++includes: [asyncHelpers.js]
++---*/
++
++let continueExecution;
++globalThis.promise = new Promise((resolve) => continueExecution = resolve);
++
++const executionStartPromise = new Promise((resolve) => globalThis.executionStarted = resolve);
++
++asyncTest(async function () {
++  const importPromises = [];
++
++  for (let i = 0; i < 3; i++) {
++    importPromises.push(import("./simultaneous-imports-race-condition_FIXTURE.js"));
++  }
++
++  await executionStartPromise;
++
++  continueExecution();
++
++  const results = await Promise.all(importPromises);
++
++  const firstResult = results[0];
++  for (let i = 1; i < results.length; i++) {
++    assert.sameValue(results[i], firstResult, 
++      `Import ${i} should return the same module namespace`);
++  }
++
++  assert.sameValue(firstResult.exportedValue, "success", "Exported value should be correct");
++  assert.sameValue(firstResult.importCount, 3, "Module should have been imported 3 times");
++}); 
+\ No newline at end of file
+diff --git a/test/language/module-code/top-level-await/simultaneous-imports-race-condition_FIXTURE.js b/test/language/module-code/top-level-await/simultaneous-imports-race-condition_FIXTURE.js
+new file mode 100644
+index 0000000000..b0bc6eeea8
+--- /dev/null
++++ b/test/language/module-code/top-level-await/simultaneous-imports-race-condition_FIXTURE.js
+@@ -0,0 +1,12 @@
++// Copyright (C) 2025 the V8 project authors. All rights reserved.
++// This code is governed by the BSD license found in the LICENSE file.
++
++globalThis.executionStarted();
++
++let importCount = 0;
++importCount++;
++
++await globalThis.promise;
++
++export const exportedValue = "success";
++export { importCount }; 
+\ No newline at end of file
+diff --git a/test/language/module-code/top-level-await/simultaneous-imports-reference-error.js b/test/language/module-code/top-level-await/simultaneous-imports-reference-error.js
+new file mode 100644
+index 0000000000..ae85866b83
+--- /dev/null
++++ b/test/language/module-code/top-level-await/simultaneous-imports-reference-error.js
+@@ -0,0 +1,47 @@
++// Copyright (C) 2025 the V8 project authors. All rights reserved.
++// This code is governed by the BSD license found in the LICENSE file.
++
++/*---
++esid: sec-moduleevaluation
++description: >
++  Simultaneous imports should not throw ReferenceError when importing module with top-level await
++info: |
++  Module Evaluation
++    1. If module.[[TopLevelCapability]] is not empty, then
++       a. Return module.[[TopLevelCapability]].[[Promise]].
++
++  When multiple modules simultaneously import the same module with top-level await,
++  no ReferenceError should be thrown during the import process.
++
++flags: [module, async]
++features: [top-level-await, dynamic-import]
++includes: [asyncHelpers.js]
++---*/
++
++let continueExecution;
++globalThis.promise = new Promise((resolve) => continueExecution = resolve);
++
++const executionStartPromise = new Promise((resolve) => globalThis.executionStarted = resolve);
++
++asyncTest(async function () {
++  const importPromises = [];
++
++  for (let i = 0; i < 5; i++) {
++    importPromises.push(import("./simultaneous-imports-reference-error_FIXTURE.js"));
++  }
++
++  await executionStartPromise;
++
++  continueExecution();
++
++  const results = await Promise.all(importPromises);
++
++  const firstResult = results[0];
++  for (let i = 1; i < results.length; i++) {
++    assert.sameValue(results[i], firstResult, 
++      `Import ${i} should return the same module namespace`);
++  }
++
++  assert.sameValue(firstResult.exportedValue, "success", "Exported value should be correct");
++  assert.sameValue(firstResult.importCount, 5, "Module should have been imported 5 times");
++}); 
+\ No newline at end of file
+diff --git a/test/language/module-code/top-level-await/simultaneous-imports-reference-error_FIXTURE.js b/test/language/module-code/top-level-await/simultaneous-imports-reference-error_FIXTURE.js
+new file mode 100644
+index 0000000000..b0bc6eeea8
+--- /dev/null
++++ b/test/language/module-code/top-level-await/simultaneous-imports-reference-error_FIXTURE.js
+@@ -0,0 +1,12 @@
++// Copyright (C) 2025 the V8 project authors. All rights reserved.
++// This code is governed by the BSD license found in the LICENSE file.
++
++globalThis.executionStarted();
++
++let importCount = 0;
++importCount++;
++
++await globalThis.promise;
++
++export const exportedValue = "success";
++export { importCount }; 
+\ No newline at end of file
+-- 
+2.44.0
+
