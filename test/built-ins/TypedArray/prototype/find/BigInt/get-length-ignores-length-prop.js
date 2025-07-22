@@ -51,4 +51,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     sample.find(function() { return true; }),
     42n
   );
-});
+}, null, ["passthrough"]);
