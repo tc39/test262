@@ -40,4 +40,4 @@ testWithTypedArrayConstructors(function(TA, makeCtorArg) {
       return true;
     });
   });
-}, null, ["passthrough"]);
+});
