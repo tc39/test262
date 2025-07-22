@@ -43,4 +43,4 @@ testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   sample.filter(function() {});
 
   assert.sameValue(calls, 1);
-}, null, ["passthrough"]);
+});
