@@ -15,7 +15,6 @@ info: |
 
 flags: [module, async]
 features: [top-level-await, dynamic-import]
-includes: [asyncHelpers.js]
 ---*/
 
 let continueExecution;
@@ -23,25 +22,25 @@ globalThis.promise = new Promise((resolve) => continueExecution = resolve);
 
 const executionStartPromise = new Promise((resolve) => globalThis.executionStarted = resolve);
 
-asyncTest(async function () {
-  const importPromises = [];
+const importPromises = [];
 
-  for (let i = 0; i < 3; i++) {
-    importPromises.push(import("./simultaneous-imports-race-condition_FIXTURE.js"));
-  }
+for (let i = 0; i < 3; i++) {
+  importPromises.push(import("./simultaneous-imports-race-condition_FIXTURE.js"));
+}
 
-  await executionStartPromise;
+await executionStartPromise;
 
-  continueExecution();
+continueExecution();
 
-  const results = await Promise.all(importPromises);
+const results = await Promise.all(importPromises);
 
-  const firstResult = results[0];
-  for (let i = 1; i < results.length; i++) {
-    assert.sameValue(results[i], firstResult, 
-      `Import ${i} should return the same module namespace`);
-  }
+const firstResult = results[0];
+for (let i = 1; i < results.length; i++) {
+  assert.sameValue(results[i], firstResult,
+    `Import ${i} should return the same module namespace`);
+}
 
-  assert.sameValue(firstResult.exportedValue, "success", "Exported value should be correct");
-  assert.sameValue(firstResult.importCount, 3, "Module should have been imported 3 times");
-}); 
+assert.sameValue(firstResult.exportedValue, "success", "Exported value should be correct");
+assert.sameValue(firstResult.importCount, 3, "Module should have been imported 3 times");
+
+$DONE(); 
