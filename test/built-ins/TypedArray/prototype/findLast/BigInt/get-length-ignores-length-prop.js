@@ -40,4 +40,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     sample.findLast(function() { return true; }),
     42n
   );
-});
+}, null, ["passthrough"]);

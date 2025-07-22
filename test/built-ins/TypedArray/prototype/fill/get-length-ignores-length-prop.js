@@ -48,4 +48,4 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.sameValue(sample.fill(1, 0), sample);
-});
+}, null, ["passthrough"]);
