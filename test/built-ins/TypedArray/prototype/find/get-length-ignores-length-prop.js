@@ -51,4 +51,4 @@ testWithTypedArrayConstructors(function(TA) {
     sample.find(function() { return true; }),
     42
   );
-});
+}, null, ["passthrough"]);
