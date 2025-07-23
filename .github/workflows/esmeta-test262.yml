@@ -39,11 +39,9 @@ jobs:
 
       - name: run test262
         if: steps.changed_tests.outputs.any_changed == 'true'
-        env:
-          CHANGED: ${{ steps.changed_tests.outputs.all_changed_files }}
         run: |
-          echo New or modified test files:
-          for file in $CHANGED; do
+          echo 'New or modified test files:'
+          for file in ${{ steps.changed_tests.outputs.all_changed_files }}; do
             echo $file
-          done
-          "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) $CHANGED
+          done | tee "$HOME/changed.txt"
+          cat "$HOME/changed.txt" | xargs "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd)
