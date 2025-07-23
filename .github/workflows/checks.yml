@@ -38,14 +38,12 @@ jobs:
         if: |
           github.event_name == 'pull_request' &&
             steps.changed_tests.outputs.any_changed == 'true'
-        env:
-          CHANGED: ${{ steps.changed_tests.outputs.all_changed_files }}
         run: |
-          echo New or modified test files:
-          for file in $CHANGED; do
+          echo 'New or modified test files:'
+          for file in ${{ steps.changed_tests.outputs.all_changed_files }}; do
             echo $file
-          done
-          ./tools/lint/lint.py $CHANGED 2> >(tee errors.out >&2)
+          done | tee "$HOME/changed.txt"
+          cat "$HOME/changed.txt" | xargs ./tools/lint/lint.py 2> >(tee errors.out >&2)
 
       - name: Create annotations in the PR
         if: failure() && github.event_name == 'pull_request'
