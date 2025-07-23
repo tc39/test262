@@ -9,6 +9,7 @@ defines:
   - intArrayConstructors
   - typedArrayConstructors
   - TypedArray
+  - testWithAllTypedArrayConstructors
   - testWithTypedArrayConstructors
   - testWithBigIntTypedArrayConstructors
   - nonAtomicsFriendlyTypedArrayConstructors
@@ -35,14 +36,27 @@ var intArrayConstructors = nonClampedIntArrayConstructors.concat([Uint8ClampedAr
 
 // Float16Array is a newer feature
 // adding it to this list unconditionally would cause implementations lacking it to fail every test which uses it
-if (typeof Float16Array !== 'undefined') {
+if (typeof Float16Array !== "undefined") {
   floatArrayConstructors.push(Float16Array);
+}
+
+var bigIntArrayConstructors = [];
+if (typeof BigInt64Array !== "undefined") {
+  bigIntArrayConstructors.push(BigInt64Array);
+}
+if (typeof BigUint64Array !== "undefined") {
+  bigIntArrayConstructors.push(BigUint64Array);
 }
 
 /**
  * Array containing every non-bigint typed array constructor.
  */
 var typedArrayConstructors = floatArrayConstructors.concat(intArrayConstructors);
+
+/**
+ * Array containing every typed array constructor, including those with bigint values.
+ */
+var allTypedArrayConstructors = typedArrayConstructors.concat(bigIntArrayConstructors);
 
 /**
  * The %TypedArray% intrinsic constructor function.
@@ -217,9 +231,6 @@ function ctorArgFactoryMatchesSome(argFactory, features) {
  * number) or iterable (usually an array) into a value suitable as the first
  * argument of typedArrayCtor (an Array, arraylike, iterable, or ArrayBuffer).
  *
- * typedArrayCtor will not be BigInt64Array or BigUint64Array unless one or both
- * of those are explicitly provided.
- *
  * @param {typedArrayConstructorCallback} f - the function to call
  * @param {Array} [constructors] - an explicit list of TypedArray constructors
  * @param {typedArrayArgFactoryFeature[]} [includeArgFactories] - for selecting
@@ -228,8 +239,8 @@ function ctorArgFactoryMatchesSome(argFactory, features) {
  * @param {typedArrayArgFactoryFeature[]} [excludeArgFactories] - for excluding
  *   constructor argument factory functions, after an initial selection
  */
-function testWithTypedArrayConstructors(f, constructors, includeArgFactories, excludeArgFactories) {
-  var ctors = constructors || typedArrayConstructors;
+function testWithAllTypedArrayConstructors(f, constructors, includeArgFactories, excludeArgFactories) {
+  var ctors = constructors || allTypedArrayConstructors;
   var ctorArgFactories = typedArrayCtorArgFactories;
   if (includeArgFactories) {
     ctorArgFactories = [];
@@ -266,6 +277,29 @@ function testWithTypedArrayConstructors(f, constructors, includeArgFactories, ex
 }
 
 /**
+ * Calls the provided function with (typedArrayCtor, typedArrayCtorArgFactory)
+ * pairs, where typedArrayCtor is Uint8Array/Int8Array/BigInt64Array/etc. and
+ * typedArrayCtorArgFactory is a function for mapping a primitive (usually a
+ * number) or iterable (usually an array) into a value suitable as the first
+ * argument of typedArrayCtor (an Array, arraylike, iterable, or ArrayBuffer).
+ *
+ * typedArrayCtor will not be BigInt64Array or BigUint64Array unless one or both
+ * of those are explicitly provided.
+ *
+ * @param {typedArrayConstructorCallback} f - the function to call
+ * @param {Array} [constructors] - an explicit list of TypedArray constructors
+ * @param {typedArrayArgFactoryFeature[]} [includeArgFactories] - for selecting
+ *   initial constructor argument factory functions, rather than starting with
+ *   all argument factories
+ * @param {typedArrayArgFactoryFeature[]} [excludeArgFactories] - for excluding
+ *   constructor argument factory functions, after an initial selection
+ */
+function testWithTypedArrayConstructors(f, constructors, includeArgFactories, excludeArgFactories) {
+  var ctors = constructors || typedArrayConstructors;
+  testWithAllTypedArrayConstructors(f, ctors, includeArgFactories, excludeArgFactories);
+}
+
+/**
  * Calls the provided function for every BigInt typed array constructor.
  *
  * @param {typedArrayConstructorCallback} f - the function to call
@@ -278,7 +312,7 @@ function testWithTypedArrayConstructors(f, constructors, includeArgFactories, ex
  */
 function testWithBigIntTypedArrayConstructors(f, constructors, includeArgFactories, excludeArgFactories) {
   var ctors = constructors || [BigInt64Array, BigUint64Array];
-  testWithTypedArrayConstructors(f, ctors, includeArgFactories, excludeArgFactories);
+  testWithAllTypedArrayConstructors(f, ctors, includeArgFactories, excludeArgFactories);
 }
 
 var nonAtomicsFriendlyTypedArrayConstructors = floatArrayConstructors.concat([Uint8ClampedArray]);
