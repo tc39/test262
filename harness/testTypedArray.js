@@ -337,9 +337,19 @@ var nonAtomicsFriendlyTypedArrayConstructors = floatArrayConstructors.concat([Ui
  *
  * @param {typedArrayConstructorCallback} f - the function to call for each typed array constructor.
  * @param {Array} selected - An optional Array with filtered typed arrays
+ * @param {typedArrayArgFactoryFeature[]} [includeArgFactories] - for selecting
+ *   initial constructor argument factory functions, rather than starting with
+ *   all argument factories
+ * @param {typedArrayArgFactoryFeature[]} [excludeArgFactories] - for excluding
+ *   constructor argument factory functions, after an initial selection
  */
-function testWithNonAtomicsFriendlyTypedArrayConstructors(f) {
-  testWithTypedArrayConstructors(f, nonAtomicsFriendlyTypedArrayConstructors);
+function testWithNonAtomicsFriendlyTypedArrayConstructors(f, includeArgFactories, excludeArgFactories) {
+  testWithAllTypedArrayConstructors(
+    f,
+    nonAtomicsFriendlyTypedArrayConstructors,
+    includeArgFactories,
+    excludeArgFactories
+  );
 }
 
 /**
@@ -347,16 +357,26 @@ function testWithNonAtomicsFriendlyTypedArrayConstructors(f) {
  *
  * @param {typedArrayConstructorCallback} f - the function to call for each typed array constructor.
  * @param {Array} selected - An optional Array with filtered typed arrays
+ * @param {typedArrayArgFactoryFeature[]} [includeArgFactories] - for selecting
+ *   initial constructor argument factory functions, rather than starting with
+ *   all argument factories
+ * @param {typedArrayArgFactoryFeature[]} [excludeArgFactories] - for excluding
+ *   constructor argument factory functions, after an initial selection
  */
-function testWithAtomicsFriendlyTypedArrayConstructors(f) {
-  testWithTypedArrayConstructors(f, [
-    Int32Array,
-    Int16Array,
-    Int8Array,
-    Uint32Array,
-    Uint16Array,
-    Uint8Array,
-  ]);
+function testWithAtomicsFriendlyTypedArrayConstructors(f, includeArgFactories, excludeArgFactories) {
+  testWithAllTypedArrayConstructors(
+    f,
+    [
+      Int32Array,
+      Int16Array,
+      Int8Array,
+      Uint32Array,
+      Uint16Array,
+      Uint8Array,
+    ],
+    includeArgFactories,
+    excludeArgFactories
+  );
 }
 
 /**
@@ -383,7 +403,7 @@ function testTypedArrayConversions(byteConversionValues, fn) {
       }
       fn(TA, value, exp, initial);
     });
-  });
+  }, null, ["passthrough"]);
 }
 
 /**
