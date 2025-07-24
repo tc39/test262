@@ -21,4 +21,4 @@ testWithAllTypedArrayConstructors(function(ctor, makeCtorArg) {
   var sample = new TA(makeCtorArg(0));
 
   assert(ArrayBuffer.isView(sample));
-}, null, ["passthrough"]);
+});
