@@ -20,7 +20,7 @@ var isView = ArrayBuffer.isView;
 testWithAllTypedArrayConstructors(function(ctor, makeCtorArg) {
   var sample = new ctor(makeCtorArg(0));
   assert.sameValue(isView(sample), true, "instance of TypedArray");
-}, null, ["passthrough"]);
+});
 
 var dv = new DataView(new ArrayBuffer(1), 0, 0);
 assert.sameValue(isView(dv), true, "instance of DataView");
