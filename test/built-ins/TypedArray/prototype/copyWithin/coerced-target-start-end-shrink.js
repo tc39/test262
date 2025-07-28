@@ -65,3 +65,33 @@ for (let ctor of ctors) {
   assert.compareArray(ToNumbers(lengthTracking), [2, 1, 2],
     ctor.name + " truncated copy backward.");
 }
+
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const lengthTracking = fillWithIndexes(new ctor(rab), 4);
+  // [0, 1, 2,] 3]
+  //        <=--> dest
+  //     <=-> src
+  const evil = () => {
+    rab.resize(3 * ctor.BYTES_PER_ELEMENT);
+    return 2;
+  };
+  lengthTracking.copyWithin({ valueOf: evil }, 1);
+  assert.compareArray(ToNumbers(lengthTracking), [0, 1, 1],
+    ctor.name + " truncated overlapping copy forward.");
+}
+
+for (let ctor of ctors) {
+  const rab = CreateResizableArrayBuffer(4 * ctor.BYTES_PER_ELEMENT, 8 * ctor.BYTES_PER_ELEMENT);
+  const lengthTracking = fillWithIndexes(new ctor(rab), 4);
+  // [0, 1, 2,] 3]
+  //        <=--> src
+  //     <=-> dest
+  const evil = () => {
+    rab.resize(3 * ctor.BYTES_PER_ELEMENT);
+    return 2;
+  };
+  lengthTracking.copyWithin(1, { valueOf: evil });
+  assert.compareArray(ToNumbers(lengthTracking), [0, 2, 2],
+    ctor.name + " truncated overlapping copy backward.");
+}
