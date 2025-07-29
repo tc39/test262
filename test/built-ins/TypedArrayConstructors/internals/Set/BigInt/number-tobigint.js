@@ -81,5 +81,4 @@ testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   assert.throws(TypeError, function() {
     typedArray[0] = NaN;
   });
-
-});
+}, null, null, ["immutable"]);
