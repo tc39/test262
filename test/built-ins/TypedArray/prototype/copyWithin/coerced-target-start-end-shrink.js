@@ -24,16 +24,16 @@ for (let ctor of ctors) {
     return 2;
   };
   assert.throws(TypeError, () => {
-    fixedLength.copyWithin({ valueOf: evil }, 0, 1, ctor.name + " evil target.");
-  });
+    fixedLength.copyWithin({ valueOf: evil }, 0, 1);
+  }, ctor.name + " evil target.");
   rab.resize(4 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    fixedLength.copyWithin(0, { valueOf: evil }, 3, ctor.name + " evil start.");
-  });
+    fixedLength.copyWithin(0, { valueOf: evil }, 3);
+  }, ctor.name + " evil start.");
   rab.resize(4 * ctor.BYTES_PER_ELEMENT);
   assert.throws(TypeError, () => {
-    fixedLength.copyWithin(0, 1, { valueOf: evil }, ctor.name + " evil end.");
-  });
+    fixedLength.copyWithin(0, 1, { valueOf: evil });
+  }, ctor.name + " evil end.");
 }
 
 for (let ctor of ctors) {
