@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.and
 description: >
-  Atomics.and throws when operating on non-sharable integer TypedArrays
+  Atomics.and throws when operating on incompatible TypedArrays
 includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
@@ -15,4 +15,4 @@ testWithNonAtomicsFriendlyTypedArrayConstructors((TA, makeCtorArg) => {
   assert.throws(TypeError, function() {
     Atomics.and(view, 0, 1);
   }, `Atomics.and(new ${TA.name}(buffer), 0, 1) throws TypeError`);
-}, ["arraybuffer"], ["immutable"]);
+}, ["arraybuffer"]);

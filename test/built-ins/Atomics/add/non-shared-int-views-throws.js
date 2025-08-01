@@ -4,7 +4,7 @@
 /*---
 esid: sec-atomics.add
 description: >
-  Atomics.add throws when operating on non-sharable integer TypedArrays
+  Atomics.add throws when operating on incompatible TypedArrays
 includes: [testTypedArray.js]
 features: [ArrayBuffer, Atomics, TypedArray]
 ---*/
