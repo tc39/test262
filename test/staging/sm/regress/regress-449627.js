@@ -4,9 +4,6 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
@@ -22,14 +19,14 @@ var expect = 'No Crash';
 
 if (typeof navigator == 'undefined')
 {
-  navigator = {
+  var navigator = {
     userAgent: "Firefox",
     vendor: "Mozilla",
     platform: "Mac"
   };
 }
 
-global = this;
+var global = this;
 
 var BrowserDetect = {
     init: function _init()
