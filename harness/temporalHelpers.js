@@ -61,65 +61,63 @@ var TemporalHelpers = {
    */
   CalendarEras: {
     buddhist: [
-      { era: "buddhist", aliases: ["be"] },
-    ],
-    chinese: [
-      { era: "chinese" },
+      { era: "be" },
     ],
     coptic: [
-      { era: "coptic" },
-      { era: "coptic-inverse" },
-    ],
-    dangi: [
-      { era: "dangi" },
+      { era: "am" },
     ],
     ethiopic: [
-      { era: "ethiopic", aliases: ["incar"] },
-      { era: "ethioaa", aliases: ["ethiopic-amete-alem", "mundi"] },
+      { era: "aa", aliases: ["mundi"] },
+      { era: "am", aliases: ["incar"] },
     ],
     ethioaa: [
-      { era: "ethioaa", aliases: ["ethiopic-amete-alem", "mundi"] },
+      { era: "aa", aliases: ["mundi"] },
     ],
     gregory: [
-      { era: "gregory", aliases: ["ce", "ad"] },
-      { era: "gregory-inverse", aliases: ["bc", "bce"] },
+      { era: "bce", aliases: ["bc"] },
+      { era: "ce", aliases: ["ad"] },
     ],
     hebrew: [
-      { era: "hebrew", aliases: ["am"] },
+      { era: "am" },
     ],
     indian: [
-      { era: "indian", aliases: ["saka"] },
+      { era: "shaka" },
     ],
     islamic: [
-      { era: "islamic", aliases: ["ah"] },
+      { era: "ah" },
+      { era: "bh" },
     ],
     "islamic-civil": [
-      { era: "islamic-civil", aliases: ["islamicc", "ah"] },
+      { era: "bh" },
+      { era: "ah" },
     ],
     "islamic-rgsa": [
-      { era: "islamic-rgsa", aliases: ["ah"] },
+      { era: "bh" },
+      { era: "ah" },
     ],
     "islamic-tbla": [
-      { era: "islamic-tbla", aliases: ["ah"] },
+      { era: "bh" },
+      { era: "ah" },
     ],
     "islamic-umalqura": [
-      { era: "islamic-umalqura", aliases: ["ah"] },
+      { era: "bh" },
+      { era: "ah" },
     ],
     japanese: [
+      { era: "bce", aliases: ["bc"] },
+      { era: "ce", aliases: ["ad"] },
       { era: "heisei" },
-      { era: "japanese", aliases: ["gregory", "ad", "ce"] },
-      { era: "japanese-inverse", aliases: ["gregory-inverse", "bc", "bce"] },
       { era: "meiji" },
       { era: "reiwa" },
       { era: "showa" },
       { era: "taisho" },
     ],
     persian: [
-      { era: "persian", aliases: ["ap"] },
+      { era: "ap" },
     ],
     roc: [
       { era: "roc", aliases: ["minguo"] },
-      { era: "roc-inverse", aliases: ["before-roc"] },
+      { era: "broc", aliases: ["before-roc", "minguo-qian"] },
     ],
   },
 
