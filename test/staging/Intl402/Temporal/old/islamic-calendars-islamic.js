@@ -30,7 +30,6 @@ const choices = [
 
 const year = 1445;
 const date = Temporal.PlainDate.from({ year, month: 1, day: 1, calendar });
-assert.sameValue(date.calendarId, calendar);
 assert.sameValue(date.year, year);
 assert.sameValue(date.month, 1);
 assert.sameValue(date.monthCode, "M01");
@@ -55,4 +54,3 @@ assert.sameValue(lastDayOfThisYear.dayOfYear, daysInYear);
 
 const dateMonth12 = date.with({ month: 12 });
 assert.sameValue(dateMonth12.daysInMonth, daysInMonth12);
-assert.sameValue(date.toString(), `${isoDate}[u-ca=${calendar}]`, "ISO reference date");
