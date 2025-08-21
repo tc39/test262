@@ -67,15 +67,86 @@ const tests = [
   },
 
   {
+    calendar: "buddhist",
+    era: "be",
+    start: "-000542-01-01",
+  },
+
+  {
     calendar: "coptic",
     era: "am",
     start: "0284-08-29",
   },
 
   {
+    calendar: "ethioaa",
+    era: "aa",
+    start: "-005492-07-18",
+  },
+
+  {
     calendar: "ethiopic",
     era: "am",
     start: "0008-08-27",
+  },
+  {
+    calendar: "ethiopic",
+    era: "aa",
+    start: "-005492-07-18",
+  },
+
+  {
+    calendar: "hebrew",
+    era: "am",
+    start: "-003760-09-07",
+  },
+
+  {
+    calendar: "indian",
+    era: "shaka",
+    start: "0079-03-23",
+  },
+
+  {
+    calendar: "islamic-civil",
+    era: "ah",
+    start: "0622-07-20",
+  },
+  {
+    calendar: "islamic-civil",
+    era: "bh",
+    inverse: true,
+    start: "0622-01-01",
+  },
+
+  {
+    calendar: "islamic-tbla",
+    era: "ah",
+    start: "0622-07-19",
+  },
+  {
+    calendar: "islamic-tbla",
+    era: "bh",
+    inverse: true,
+    start: "0622-01-01",
+  },
+
+  {
+    calendar: "islamic-umalqura",
+    era: "ah",
+    start: "0622-07-20",
+  },
+  {
+    calendar: "islamic-umalqura",
+    era: "bh",
+    inverse: true,
+    start: "0622-01-01",
+  },
+
+  {
+    calendar: "persian",
+    era: "ap",
+    start: "0622-03-22",
   },
 
   {
