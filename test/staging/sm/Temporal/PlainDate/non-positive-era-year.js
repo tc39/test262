@@ -21,6 +21,7 @@ const tests = [
   {
     calendar: "gregory",
     era: "bce",
+    inverse: true,
     start: "0000-01-01",
   },
 
@@ -61,6 +62,7 @@ const tests = [
   {
     calendar: "japanese",
     era: "bce",
+    inverse: true,
     start: "0000-01-01",
   },
 
@@ -84,11 +86,12 @@ const tests = [
   {
     calendar: "roc",
     era: "broc",
+    inverse: true,
     start: "1911-01-01",
   },
 ];
 
-for (let {calendar, era, start} of tests) {
+for (let {calendar, era, start, inverse} of tests) {
   let eraStart = Temporal.PlainDate.from(start).withCalendar(calendar);
 
   let monthCode = "M01";
@@ -104,13 +107,13 @@ for (let {calendar, era, start} of tests) {
     });
 
     let years = eraYear - 1;
-    if (era.endsWith("-inverse")) {
+    if (inverse) {
       years = -years;
     }
 
     let expected = eraStart.add({years}).with({monthCode, day});
 
-    assert.sameValue(date.equals(expected), true, `${date} != ${expected}`);
+    assert.sameValue(date.equals(expected), true, `${date} != ${expected} (${calendar} era ${era} year ${eraYear})`);
   }
 }
 
