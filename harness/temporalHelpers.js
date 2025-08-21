@@ -127,15 +127,11 @@ var TemporalHelpers = {
   canonicalizeCalendarEra(calendarId, eraName) {
     assert.sameValue(typeof calendarId, "string", "calendar must be string in canonicalizeCalendarEra");
 
-    if (calendarId === "iso8601") {
+    if (!Object.prototype.hasOwnProperty.call(TemporalHelpers.CalendarEras, calendarId)) {
       assert.sameValue(eraName, undefined);
       return undefined;
     }
-    assert(Object.prototype.hasOwnProperty.call(TemporalHelpers.CalendarEras, calendarId));
 
-    if (eraName === undefined) {
-      return undefined;
-    }
     assert.sameValue(typeof eraName, "string", "eraName must be string or undefined in canonicalizeCalendarEra");
 
     for (let {era, aliases = []} of TemporalHelpers.CalendarEras[calendarId]) {
