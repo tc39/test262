@@ -34,6 +34,6 @@ try {
   }
 }
 
-if (threw === false) {
+if (threw === true) {
   throw new Error('Expected a Test262Error, but no error was thrown.');
 }
