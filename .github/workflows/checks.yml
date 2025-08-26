@@ -103,4 +103,4 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm run test -- test/harness/*.js
+        run: npm run test -- --errorForFailures -- test/harness/*.js
