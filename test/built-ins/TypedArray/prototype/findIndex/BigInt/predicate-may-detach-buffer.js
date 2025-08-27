@@ -30,12 +30,12 @@ info: |
   3. Let buffer be the value of O's [[ViewedArrayBuffer]] internal slot.
   4. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(2);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(2));
   var loops = 0;
 
   sample.findIndex(function() {
@@ -45,4 +45,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     loops++;
   });
   assert.sameValue(loops, 2, "predicate is called once");
-});
+}, null, null, ["immutable"]);
