@@ -15,9 +15,6 @@ features: [resizable-arraybuffer, immutable-arraybuffer]
 includes: [compareArray.js]
 ---*/
 
-assert.sameValue(typeof ArrayBuffer.prototype.resize, 'function',
-  'Method must exist.');
-
 var calls = [];
 
 var ab = (new ArrayBuffer(4)).transferToImmutable();

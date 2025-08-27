@@ -49,7 +49,7 @@ assert.throws(TypeError, function() {
       return 2;
     }
   };
-  arrayBuffer.slice();
+  arrayBuffer.slice(start, end);
 });
 assert.compareArray(calls, ["start.valueOf", "end.valueOf", "Symbol.species(1)"],
   "Must read arguments before SpeciesConstructor.");
