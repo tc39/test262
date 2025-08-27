@@ -2,6 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+description: >
+  Returns a simple nanosecond time-duration when ISO year-month-day is same-day
+  and wallclock diff direction is the reverse of the epoch-nanosecond direction
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
