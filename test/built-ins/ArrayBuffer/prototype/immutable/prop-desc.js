@@ -26,9 +26,6 @@ includes: [propertyHelper.js]
 
 var desc = Object.getOwnPropertyDescriptor(ArrayBuffer.prototype, "immutable");
 var isHardened = Object.isFrozen(Object);
-if (isHardened && desc.get) {
-  Object.defineProperty(desc, "get", { configurable: false });
-}
 
 assert.sameValue(desc.value, undefined);
 assert.sameValue(desc.set, undefined);
