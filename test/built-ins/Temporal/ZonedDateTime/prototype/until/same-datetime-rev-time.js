@@ -1,0 +1,33 @@
+// Copyright (C) 2024 Adam Shaw. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+includes: [temporalHelpers.js]
+features: [Temporal]
+---*/
+
+/*
+Addresses https://github.com/tc39/proposal-temporal/issues/3141
+*/
+
+TemporalHelpers.assertDuration(
+  Temporal.ZonedDateTime
+    .from('2025-11-02T01:00:00-08:00[America/Vancouver]') // later
+    .until('2025-11-02T01:01:00-07:00[America/Vancouver]', { // earlier
+      largestUnit: 'year',
+      smallestUnit: 'millisecond',
+    }),
+  0, 0, 0, 0, 0, /* minutes = */ -59, 0, 0, 0, 0,
+  'same-day, negative epochNanoseconds diff, positive wallclock diff',
+)
+
+TemporalHelpers.assertDuration(
+  Temporal.ZonedDateTime
+    .from('2025-11-02T01:01:00-07:00[America/Vancouver]') // earlier
+    .until('2025-11-02T01:00:00-08:00[America/Vancouver]', { // later
+      largestUnit: 'year',
+      smallestUnit: 'millisecond',
+    }),
+  0, 0, 0, 0, 0, /* minutes = */ 59, 0, 0, 0, 0,
+  'same-day, positive epochNanoseconds diff, negative wallclock diff',
+)
