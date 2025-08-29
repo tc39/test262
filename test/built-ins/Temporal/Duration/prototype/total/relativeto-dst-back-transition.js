@@ -3,14 +3,10 @@
 
 /*---
 description: >
-  Ensures the total method does not error when delta from a relativeTo ZonedDateTime
-  results in a wallclock delta direction that is different from the duration's sign
+  Ensures correct total results when relativeTo is within the second wallclock occurence of a
+  DST fall-back transition.
 features: [Temporal]
 ---*/
-
-/*
-TODO: rename this file to relativeto-dst-back-transition.js
-*/
 
 /*
 Addresses https://github.com/tc39/proposal-temporal/issues/3148
