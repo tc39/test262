@@ -10,23 +10,101 @@ features: [Temporal]
 ---*/
 
 /*
-Related to https://github.com/tc39/proposal-temporal/issues/3141
+TODO: rename this file to relativeto-dst-back-transition.js
 */
 
+/*
+Addresses https://github.com/tc39/proposal-temporal/issues/3149
+(NudgeToCalendarUnit wrong span)
+*/
+{
+  // the second 01:00 time in the DST transition. 01:00-07:00 happens just before this
+  const origin = Temporal.ZonedDateTime.from('2025-11-02T01:00:00-08:00[America/Vancouver]');
+  const dur = Temporal.Duration.from({ hours: 11, minutes: 30 });
+  const roundedDur = dur.round({
+    largestUnit: 'days',
+    smallestUnit: 'days',
+    relativeTo: origin,
+    roundingMode: 'halfExpand',
+  });
+  TemporalHelpers.assertDuration(
+    roundedDur,
+    0, 0, 0, /* days = */ 0, 0, 0, 0, 0, 0, 0,
+    'relativeTo in fall-back DST transition, second wallclock time, assumed 24 hour span when +1 day',
+  );
+}
+
+/*
+Addresses https://github.com/tc39/proposal-temporal/issues/3149
+(NudgeToCalendarUnit wrong span)
+*/
+{
+  // the second 01:00 time in the DST transition. 01:00-07:00 happens just before this
+  const origin = Temporal.ZonedDateTime.from('2025-11-02T01:00:00-08:00[America/Vancouver]');
+  const dur = Temporal.Duration.from({ hours: -12, minutes: -30 });
+  const roundedDur = dur.round({
+    largestUnit: 'days',
+    smallestUnit: 'days',
+    relativeTo: origin,
+    roundingMode: 'halfExpand',
+  });
+  TemporalHelpers.assertDuration(
+    roundedDur,
+    0, 0, 0, /* days = */ -1, 0, 0, 0, 0, 0, 0,
+    'relativeTo in fall-back DST transition, second wallclock time, assumed 25 hour span when -1 day',
+  );
+}
+
+/*
+Related to https://github.com/tc39/proposal-temporal/issues/3141
+(DifferenceZonedDateTime assertion)
+*/
 TemporalHelpers.assertDuration(
   Temporal.Duration.from({ minutes: -59 }).round({
-    smallestUnit: 'hours',
+    smallestUnit: 'days',
     relativeTo: '2025-11-02T01:00:00-08:00[America/Vancouver]',
   }),
-  0, 0, 0, 0, /* hours = */ -1, 0, 0, 0, 0, 0,
+  0, 0, 0, /* days = */ 0, 0, 0, 0, 0, 0, 0,
   'negative delta from relativeTo, positive wallclock delta',
 );
 
+/*
+Related to https://github.com/tc39/proposal-temporal/issues/3141
+(DifferenceZonedDateTime assertion)
+*/
+TemporalHelpers.assertDuration(
+  Temporal.Duration.from({ minutes: -59 }).round({
+    smallestUnit: 'days',
+    relativeTo: '2025-11-02T01:00:00-08:00[America/Vancouver]',
+    roundingMode: 'expand',
+  }),
+  0, 0, 0, /* days = */ -1, 0, 0, 0, 0, 0, 0,
+  'negative delta from relativeTo, positive wallclock delta, expanding',
+);
+
+/*
+Related to https://github.com/tc39/proposal-temporal/issues/3141
+(DifferenceZonedDateTime assertion)
+*/
 TemporalHelpers.assertDuration(
   Temporal.Duration.from({ minutes: 59 }).round({
-    smallestUnit: 'hours',
+    smallestUnit: 'days',
     relativeTo: '2025-11-02T01:01:00-07:00[America/Vancouver]',
   }),
-  0, 0, 0, 0, /* hours = */ 1, 0, 0, 0, 0, 0,
+  0, 0, 0, /* days = */ 0, 0, 0, 0, 0, 0, 0,
   'positive delta from relativeTo, negative wallclock delta',
+);
+
+/*
+Related to https://github.com/tc39/proposal-temporal/issues/3141
+(DifferenceZonedDateTime assertion)
+*/
+TemporalHelpers.assertDuration(
+  Temporal.Duration.from({ minutes: 59 }).round({
+    smallestUnit: 'days',
+    relativeTo: '2025-11-02T01:01:00-07:00[America/Vancouver]',
+    roundingMode: 'expand',
+  }),
+  0, 0, 0, /* days = */ 1, 0, 0, 0, 0, 0, 0,
+  'positive delta from relativeTo, negative wallclock delta, expandikng',
 );
