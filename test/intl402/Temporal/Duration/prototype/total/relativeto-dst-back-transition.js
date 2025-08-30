@@ -34,7 +34,7 @@ Addresses https://github.com/tc39/proposal-temporal/issues/3148
   assert.sameValue(
     total,
     -2 / 25,
-    'relativeTo in fall-back DST transition, second wallclock time, assumed 24 hour span when +1 day',
+    'relativeTo in fall-back DST transition, second wallclock time, assumed 25 hour span when -1 day',
   );
 }
 

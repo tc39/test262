@@ -102,5 +102,5 @@ TemporalHelpers.assertDuration(
     roundingMode: 'expand',
   }),
   0, 0, 0, /* days = */ 1, 0, 0, 0, 0, 0, 0,
-  'positive delta from relativeTo, negative wallclock delta, expandikng',
+  'positive delta from relativeTo, negative wallclock delta, expanding',
 );
