@@ -32,8 +32,8 @@ features: [Symbol.species, TypedArray]
 
 var arr = [42, 43, 44];
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(arr);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(arr));
   var other = TA === Int8Array ? Uint8Array : Int8Array;
 
   sample.constructor = {};
