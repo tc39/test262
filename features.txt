@@ -214,6 +214,7 @@ rest-parameters
 Set
 set-methods
 SharedArrayBuffer
+stable-array-sort  # https://github.com/tc39/ecma262/pull/1340 & https://github.com/tc39/ecma262/pull/1433
 string-trimming
 String.fromCodePoint
 String.prototype.at
