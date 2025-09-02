@@ -2,17 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, compareArray.js]
-flags:
-  - noStrict
+includes: [compareArray.js]
 description: |
-  pending
+  Implement RegExp unicode flag -- raw unicode.
 esid: pending
 ---*/
-var BUGNUMBER = 1135377;
-var summary = "Implement RegExp unicode flag -- raw unicode.";
-
-print(BUGNUMBER + ": " + summary);
 
 // ==== standalone ====
 
@@ -145,4 +139,3 @@ assert.sameValue(new RegExp("\uD83D\uDC38?", "").exec(""),
 
 assert.compareArray(new RegExp("\uD83D\uDC38?", "").exec("\uD83D"),
               ["\uD83D"]);
-

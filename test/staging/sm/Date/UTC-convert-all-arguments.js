@@ -4,23 +4,10 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-Date-shell.js]
-flags:
-  - noStrict
 description: |
-  pending
+  Date.UTC must convert *all* arguments to number, not return NaN early if a non-finite argument is encountered
 esid: pending
 ---*/
-var BUGNUMBER = 1160356;
-var summary =
-  "Date.UTC must convert *all* arguments to number, not return NaN early if " +
-  "a non-finite argument is encountered";
-
-print(BUGNUMBER + ": " + summary);
-
-/**************
- * BEGIN TEST *
- **************/
 
 function expectThrowTypeError(f, i)
 {
@@ -69,7 +56,3 @@ var args =
 
 for (var i = 0, len = args.length; i < len; i++)
   expectThrowTypeError(function() { Date.UTC.apply(null, args[i]); }, i);
-
-/******************************************************************************/
-
-print("Tests complete");
