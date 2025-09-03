@@ -88,6 +88,10 @@ upsert
 # https://github.com/tc39/proposal-immutable-arraybuffer
 immutable-arraybuffer
 
+# AsyncContext
+# https://github.com/tc39/proposal-async-context
+AsyncContext
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
