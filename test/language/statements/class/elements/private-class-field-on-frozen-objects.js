@@ -2,30 +2,47 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: It is possible to add private fields on frozen objects
+description: It is not possible to add private fields on frozen objects
 esid: sec-define-field
 info: |
-  DefineField(receiver, fieldRecord)
+  1.1 PrivateFieldAdd ( O, P, value )
+    1. If O.[[Extensible]] is false, throw a TypeError exception.
     ...
-    8. If fieldName is a Private Name,
-      a. Perform ? PrivateFieldAdd(fieldName, receiver, initValue).
-    9. Else,
-      a. Assert: IsPropertyKey(fieldName) is true.
-      b. Perform ? CreateDataPropertyOrThrow(receiver, fieldName, initValue).
-    10. Return.
+
 features: [class, class-fields-private, class-fields-public]
 flags: [onlyStrict]
 ---*/
 
-class Test {
-  f = this;
-  #g = (Object.freeze(this), "Test262");
-
-  get g() {
-    return this.#g;
+class NonExtensibleBase {
+  constructor(seal) {
+    if (seal) Object.preventExtensions(this);
   }
 }
 
-let t = new Test();
-assert.sameValue(t.f, t);
-assert.sameValue(t.g, "Test262");
+class ClassWithPrivateField extends NonExtensibleBase {
+  #val;
+
+  constructor(seal) {
+    super(seal);
+    this.#val = 42;
+  }
+  val() {
+    return this.#val;
+  }
+}
+
+let t = new ClassWithPrivateField(false);
+assert.sameValue(t.val(), 42);
+
+assert.throws(TypeError, function () {
+  new ClassWithPrivateField(true);
+});
+
+
+class TestFreeze {
+  #g = (Object.freeze(this), "Test262");
+}
+
+assert.throws(TypeError, function () {
+  new TestFreeze();
+});
