@@ -12,7 +12,7 @@ info: |
   ...
   7. Let SortCompare be a new Abstract Closure with parameters (x, y) that
      captures comparator and performs the following steps when called:
-    a. Return ? CompareTypedArrayElements(x, y, comparator).    
+    a. Return ? CompareTypedArrayElements(x, y, comparator).
   ...
 includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray, change-array-by-copy]
