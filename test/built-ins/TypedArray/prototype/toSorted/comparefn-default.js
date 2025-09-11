@@ -21,6 +21,6 @@ features: [TypedArray, change-array-by-copy]
 testWithTypedArrayConstructors(TA => {
     assert.compareArray(new TA([4, 2, 1, 3]).toSorted(), [1, 2, 3, 4]);
     assert.compareArray(
-        [111, 33, 22, 11, 3, 2, 1].toSorted(),
+        new TA([111, 33, 22, 11, 3, 2, 1]).toSorted(),
         [1, 2, 3, 11, 22, 33, 111]);
 });
