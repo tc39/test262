@@ -22,7 +22,7 @@ var s = new WeakMap();
 for (let invalidKey of invalidKeys) {
   assert.throws(TypeError, function () {
     s.getOrInsertComputed(invalidKey,
-      () => log.push(`Unexpected evaluation of callback function, key: ${typeof invalidKey}`));
+      () => log.push(`Unexpected evaluation of callback function, key: ${invalidKey}`));
   }, `${typeof invalidKey} not allowed as WeakMap key`);
 }
 
