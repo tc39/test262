@@ -30,6 +30,6 @@ testWithTypedArrayConstructors(TA => {
         new TA([4, 3, 2, 1]).toSorted(reverseNumericCompare),
         [4, 3, 2, 1]);
     assert.compareArray(
-        [33, 3, 22, 2, 111, 11, 1].toSorted(reverseNumericCompare),
+        new TA([33, 3, 22, 2, 111, 11, 1]).toSorted(reverseNumericCompare),
         [111, 33, 22, 11, 3, 2, 1]);
 });
