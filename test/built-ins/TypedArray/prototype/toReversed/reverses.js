@@ -23,5 +23,5 @@ features: [TypedArray, change-array-by-copy]
 testWithTypedArrayConstructors(TA => {
     assert.compareArray(new TA([]).toReversed(), []);
     assert.compareArray(new TA([1]).toReversed(), [1]);
-    assert.compareArray([1, 2, 3, 4].toReversed(), [4, 3, 2, 1]);
+    assert.compareArray(new TA([1, 2, 3, 4]).toReversed(), [4, 3, 2, 1]);
 });
