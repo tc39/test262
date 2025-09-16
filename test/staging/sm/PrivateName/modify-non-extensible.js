@@ -2,6 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+features:
+  - class
+  - class-fields-private
+  - class-fields-public
+  - nonextensible-applies-to-private
 flags:
   - noStrict
 description: |
