@@ -40,7 +40,7 @@ class ClassWithPrivateField extends NonExtensibleBase {
   }
 }
 
-let t = new ClassWithPrivateField(false);
+const t = new ClassWithPrivateField(false);
 // extensible objects can be extended
 assert.sameValue(t.val(), 42);
 
@@ -65,7 +65,7 @@ class ClassWithPrivateMethod extends NonExtensibleBase {
   }
 }
 
-let m = new ClassWithPrivateMethod(false);
+const m = new ClassWithPrivateMethod(false);
 // extensible objects can be extended
 assert.sameValue(m.publicMethod(), 42);
 
@@ -90,7 +90,7 @@ class ClassWithPrivateAccessor extends NonExtensibleBase {
   }
 }
 
-let a = new ClassWithPrivateAccessor(false);
+const a = new ClassWithPrivateAccessor(false);
 // extensible objects can be extended
 assert.sameValue(m.publicAccessor, 42);
 

@@ -40,7 +40,7 @@ class ClassWithPrivateField extends TrojanBase {
   }
 }
 
-let t = new ClassWithPrivateField({});
+const t = new ClassWithPrivateField({});
 // extensible objects can be extended
 assert.sameValue(t.val(), 42);
 
@@ -65,7 +65,7 @@ class ClassWithPrivateMethod extends TrojanBase {
   }
 }
 
-let m = new ClassWithPrivateMethod({});
+const m = new ClassWithPrivateMethod({});
 // extensible objects can be extended
 assert.sameValue(m.publicMethod(), 42);
 
@@ -90,7 +90,7 @@ class ClassWithPrivateAccessor extends TrojanBase {
   }
 }
 
-let a = new ClassWithPrivateAccessor({});
+const a = new ClassWithPrivateAccessor({});
 // extensible objects can be extended
 assert.sameValue(m.publicAccessor, 42);
 
