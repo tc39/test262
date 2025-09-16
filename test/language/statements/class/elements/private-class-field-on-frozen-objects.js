@@ -9,7 +9,11 @@ info: |
     1. If O.[[Extensible]] is false, throw a TypeError exception.
     ...
 
-features: [class, class-fields-private, class-fields-public]
+features:
+  - class
+  - class-fields-private
+  - class-fields-public
+  - nonextensible-applies-to-private
 flags: [onlyStrict]
 ---*/
 

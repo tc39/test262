@@ -3,6 +3,11 @@
 
 /*---
 includes: [sm/non262.js, sm/non262-shell.js]
+features:
+  - class
+  - class-fields-private
+  - class-fields-public
+  - nonextensible-applies-to-private
 flags:
   - noStrict
 description: |
