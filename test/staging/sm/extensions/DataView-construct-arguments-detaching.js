@@ -6,6 +6,7 @@
 /*---
 description: |
   new DataView(...) shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer to be viewed
+info: bugzilla.mozilla.org/show_bug.cgi?id=991981
 esid: pending
 features: [host-gc-required]
 ---*/

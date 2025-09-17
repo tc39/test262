@@ -6,6 +6,7 @@
 /*---
 description: |
   Treat non-array, non-callable replacers as if none had been specified
+info: bugzilla.mozilla.org/show_bug.cgi?id=653782
 esid: pending
 ---*/
 

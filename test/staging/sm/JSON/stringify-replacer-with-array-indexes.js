@@ -6,6 +6,7 @@
 /*---
 description: |
   Call the replacer function for array elements with stringified indexes
+info: bugzilla.mozilla.org/show_bug.cgi?id=584909
 esid: pending
 ---*/
 

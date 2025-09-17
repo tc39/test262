@@ -6,6 +6,7 @@
 /*---
 description: |
   Better/more correct handling for replacer arrays with trailing holes through which inherited elements might appear
+info: bugzilla.mozilla.org/show_bug.cgi?id=1217069
 esid: pending
 ---*/
 

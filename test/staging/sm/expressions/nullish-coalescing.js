@@ -6,6 +6,7 @@ features:
   - IsHTMLDDA
 description: |
   Implement the Nullish Coalescing operator (??) proposal
+info: bugzilla.mozilla.org/show_bug.cgi?id=1566141
 esid: pending
 ---*/
 

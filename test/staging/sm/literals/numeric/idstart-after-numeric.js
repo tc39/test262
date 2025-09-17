@@ -6,6 +6,7 @@
 /*---
 description: |
   numeric literal followed by an identifier
+info: bugzilla.mozilla.org/show_bug.cgi?id='523401'
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   Uint8Array.prototype.set issues when this array changes during setting
+info: bugzilla.mozilla.org/show_bug.cgi?id=983344
 esid: pending
 features: [host-gc-required]
 ---*/

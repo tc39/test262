@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Handle infinite recursion
+info: bugzilla.mozilla.org/show_bug.cgi?id=622167
 esid: pending
 features: [host-gc-required]
 ---*/

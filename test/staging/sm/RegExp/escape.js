@@ -4,6 +4,7 @@
 /*---
 description: |
   Slash and LineTerminator should be escaped correctly.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1130860
 esid: pending
 ---*/
 

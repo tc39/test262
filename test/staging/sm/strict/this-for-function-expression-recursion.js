@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   JSOP_CALLEE should push undefined, not null, for this
+info: bugzilla.mozilla.org/show_bug.cgi?id=611276
 esid: pending
 ---*/
 

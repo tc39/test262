@@ -6,6 +6,7 @@
 /*---
 description: |
   Array.prototype.splice, when it deletes elements, should make sure any deleted but not visited elements are suppressed from subsequent enumeration
+info: bugzilla.mozilla.org/show_bug.cgi?id=668024
 esid: pending
 ---*/
 

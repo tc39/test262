@@ -6,6 +6,7 @@
 /*---
 description: |
   Promote evald initializer into upvar
+info: bugzilla.mozilla.org/show_bug.cgi?id=470758
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   Don't assert when freshening the scope chain for a for-loop whose head contains a lexical declaration, where the loop body might add more bindings at runtime
+info: bugzilla.mozilla.org/show_bug.cgi?id=1149797
 esid: pending
 ---*/
 

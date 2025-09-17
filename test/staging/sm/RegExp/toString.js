@@ -4,6 +4,7 @@
 /*---
 description: |
   Make RegExp.prototype.toString to be a generic function.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1079919
 esid: pending
 ---*/
 

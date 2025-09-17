@@ -6,6 +6,7 @@
 /*---
 description: |
   Make __proto__ in object literals a special form not influenced by |Object.prototype|
+info: bugzilla.mozilla.org/show_bug.cgi?id=948583
 esid: pending
 ---*/
 

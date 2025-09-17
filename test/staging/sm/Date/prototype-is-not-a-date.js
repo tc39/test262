@@ -6,6 +6,7 @@
 /*---
 description: |
   Date.prototype isn't an instance of Date
+info: bugzilla.mozilla.org/show_bug.cgi?id=861219
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   { __proto__: target } should work as a destructuring assignment pattern
+info: bugzilla.mozilla.org/show_bug.cgi?id=963641
 esid: pending
 ---*/
 

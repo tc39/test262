@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Do not assert: JSSTRING_IS_FLAT(str_)
+info: bugzilla.mozilla.org/show_bug.cgi?id=449666
 esid: pending
 ---*/
 

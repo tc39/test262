@@ -6,6 +6,7 @@
 /*---
 description: |
   Array prototype and expression closures
+info: bugzilla.mozilla.org/show_bug.cgi?id=469625
 esid: pending
 ---*/
 

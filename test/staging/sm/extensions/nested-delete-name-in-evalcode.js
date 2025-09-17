@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   |delete x| inside a function in eval code, where that eval code includes |var x| at top level, actually does delete the binding for x
+info: bugzilla.mozilla.org/show_bug.cgi?id=616294
 esid: pending
 ---*/
 

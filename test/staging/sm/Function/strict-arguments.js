@@ -9,6 +9,7 @@ flags:
   - noStrict
 description: |
   ES5 strict mode: arguments objects of strict mode functions must copy argument values
+info: bugzilla.mozilla.org/show_bug.cgi?id=516255
 esid: pending
 ---*/
 

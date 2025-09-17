@@ -6,6 +6,7 @@
 /*---
 description: |
   null as a trap value on a handler should operate on the target
+info: bugzilla.mozilla.org/show_bug.cgi?id=1257102
 esid: pending
 ---*/
 

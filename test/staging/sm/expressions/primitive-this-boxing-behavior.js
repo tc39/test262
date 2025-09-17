@@ -6,6 +6,7 @@
 /*---
 description: |
   Primitive values don't box correctly
+info: bugzilla.mozilla.org/show_bug.cgi?id=732669
 esid: pending
 ---*/
 

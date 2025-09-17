@@ -4,6 +4,7 @@
 /*---
 description: |
   String.raw
+info: bugzilla.mozilla.org/show_bug.cgi?id=1039774
 esid: pending
 ---*/
 

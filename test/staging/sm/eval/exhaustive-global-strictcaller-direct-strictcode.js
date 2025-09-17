@@ -8,6 +8,7 @@ flags:
   - onlyStrict
 description: |
   eval in all its myriad flavors
+info: bugzilla.mozilla.org/show_bug.cgi?id=514568
 esid: pending
 ---*/
 

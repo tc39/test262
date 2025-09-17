@@ -4,6 +4,7 @@
 /*---
 description: |
   ignoreCase match should perform Canonicalize both on input and pattern.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1280046
 esid: pending
 ---*/
 

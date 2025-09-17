@@ -5,6 +5,7 @@
 includes: [compareArray.js]
 description: |
   Implement @@species getter for builtin types
+info: bugzilla.mozilla.org/show_bug.cgi?id=1131043
 esid: pending
 ---*/
 

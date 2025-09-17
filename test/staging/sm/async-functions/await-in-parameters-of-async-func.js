@@ -6,6 +6,7 @@
 /*---
 description: |
   error for incomplete await expr in async function/generator parameter
+info: bugzilla.mozilla.org/show_bug.cgi?id=1478910
 esid: pending
 ---*/
 

@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Don't let constant-folding in the MemberExpression part of a tagged template cause an incorrect |this| be passed to the callee
+info: bugzilla.mozilla.org/show_bug.cgi?id=1182373
 esid: pending
 ---*/
 

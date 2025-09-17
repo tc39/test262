@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.create(O [, Properties])
+info: bugzilla.mozilla.org/show_bug.cgi?id=492840
 esid: pending
 ---*/
 

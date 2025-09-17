@@ -6,6 +6,7 @@
 /*---
 description: |
   Passing a Date object to |new Date()| should copy it, not convert it to a primitive and create it from that.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1187233
 esid: pending
 ---*/
 

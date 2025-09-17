@@ -6,6 +6,7 @@
 /*---
 description: |
   decodeURI{,Component} should return the specified character for '%EF%BF%BE' and '%EF%BF%BF', not return U+FFFD
+info: bugzilla.mozilla.org/show_bug.cgi?id=520095
 esid: pending
 ---*/
 

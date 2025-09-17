@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.preventExtensions should be idempotent
+info: bugzilla.mozilla.org/show_bug.cgi?id=599459
 esid: pending
 ---*/
 

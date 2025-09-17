@@ -6,6 +6,7 @@
 /*---
 description: |
   Function.prototype.caller should throw a TypeError for strict-mode functions
+info: bugzilla.mozilla.org/show_bug.cgi?id=514581
 esid: pending
 ---*/
 

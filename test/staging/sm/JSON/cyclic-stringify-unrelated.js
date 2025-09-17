@@ -6,6 +6,7 @@
 /*---
 description: |
   JSON.stringify shouldn't use context-wide cycle detection
+info: bugzilla.mozilla.org/show_bug.cgi?id=1197097
 esid: pending
 ---*/
 

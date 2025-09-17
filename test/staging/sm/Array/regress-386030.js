@@ -6,6 +6,7 @@
 /*---
 description: |
   Array.reduce should ignore holes
+info: bugzilla.mozilla.org/show_bug.cgi?id=386030
 esid: pending
 ---*/
 

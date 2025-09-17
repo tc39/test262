@@ -4,6 +4,7 @@
 /*---
 description: |
   try block should return try value if finally returned normally
+info: bugzilla.mozilla.org/show_bug.cgi?id=819125
 esid: pending
 ---*/
 

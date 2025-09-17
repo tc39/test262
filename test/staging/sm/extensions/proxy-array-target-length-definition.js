@@ -6,6 +6,7 @@
 /*---
 description: |
   Redefining an array's |length| property when redefining the |length| property on a proxy with an array as target
+info: bugzilla.mozilla.org/show_bug.cgi?id=905947
 esid: pending
 ---*/
 

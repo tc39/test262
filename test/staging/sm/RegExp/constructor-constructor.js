@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp constructor should check pattern.constructor.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1147817
 esid: pending
 ---*/
 

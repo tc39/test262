@@ -6,6 +6,7 @@
 /*---
 description: |
   Built-in functions defined in ECMAScript pick up arguments/caller properties from Function.prototype
+info: bugzilla.mozilla.org/show_bug.cgi?id=929642
 esid: pending
 ---*/
 

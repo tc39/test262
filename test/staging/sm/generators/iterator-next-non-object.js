@@ -4,6 +4,7 @@
 /*---
 description: |
   IteratorNext should throw if the value returned by iterator.next() is not an object.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1016936
 esid: pending
 ---*/
 

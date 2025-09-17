@@ -4,6 +4,7 @@
 /*---
 description: |
   String.prototype.codePointAt
+info: bugzilla.mozilla.org/show_bug.cgi?id=918879
 esid: pending
 ---*/
 

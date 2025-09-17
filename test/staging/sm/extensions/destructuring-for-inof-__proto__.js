@@ -6,6 +6,7 @@
 /*---
 description: |
   __proto__ should work in destructuring patterns as the targets of for-in/for-of loops
+info: bugzilla.mozilla.org/show_bug.cgi?id=963641
 esid: pending
 ---*/
 

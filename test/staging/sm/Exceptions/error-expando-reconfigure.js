@@ -6,6 +6,7 @@
 /*---
 description: |
   Reconfiguring the first expando property added to an Error object shouldn't assert
+info: bugzilla.mozilla.org/show_bug.cgi?id=961494
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   String.prototype.replace with non-regexp searchValue
+info: bugzilla.mozilla.org/show_bug.cgi?id=587366
 esid: pending
 ---*/
 

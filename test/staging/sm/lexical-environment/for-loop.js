@@ -6,6 +6,7 @@
 /*---
 description: |
   for-loop semantics for for(;;) loops whose heads contain lexical declarations
+info: bugzilla.mozilla.org/show_bug.cgi?id=985733
 esid: pending
 ---*/
 

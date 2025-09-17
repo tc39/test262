@@ -6,6 +6,7 @@
 /*---
 description: |
   [].reverse should swap elements low to high using accesses to low elements, then accesses to high elements
+info: bugzilla.mozilla.org/show_bug.cgi?id=858677
 esid: pending
 ---*/
 

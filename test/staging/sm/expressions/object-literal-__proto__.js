@@ -6,6 +6,7 @@
 /*---
 description: |
   __proto__ in object literals in non-__proto__:v contexts doesn't modify [[Prototype]]
+info: bugzilla.mozilla.org/show_bug.cgi?id=1061853
 esid: pending
 ---*/
 

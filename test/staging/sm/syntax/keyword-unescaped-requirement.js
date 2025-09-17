@@ -6,6 +6,7 @@
 /*---
 description: |
   Escape sequences aren't allowed in bolded grammar tokens (that is, in keywords, possibly contextual keywords)
+info: bugzilla.mozilla.org/show_bug.cgi?id=1204027
 esid: pending
 ---*/
 

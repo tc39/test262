@@ -6,6 +6,7 @@
 /*---
 description: |
   Number.parseFloat(string)
+info: bugzilla.mozilla.org/show_bug.cgi?id=886949
 esid: pending
 ---*/
 

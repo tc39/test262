@@ -4,6 +4,7 @@
 /*---
 description: |
   String.prototype.normalize - normalize rope string
+info: bugzilla.mozilla.org/show_bug.cgi?id=918987
 esid: pending
 ---*/
 

@@ -5,6 +5,7 @@
 includes: [deepEqual.js]
 description: |
   String.prototype.match should call GetMethod.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1290655
 esid: pending
 ---*/
 

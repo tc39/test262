@@ -7,6 +7,7 @@
 includes: [sm/non262-TypedArray-shell.js]
 description: |
   Implement %TypedArray%.prototype.{findLast, findLastIndex}
+info: bugzilla.mozilla.org/show_bug.cgi?id=1704385
 esid: pending
 features: [Symbol]
 ---*/

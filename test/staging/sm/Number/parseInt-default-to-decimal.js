@@ -6,6 +6,7 @@
 /*---
 description: |
   Number.parseInt(string, radix). Verify that Number.parseInt defaults to decimal.
+info: bugzilla.mozilla.org/show_bug.cgi?id=886949
 esid: pending
 ---*/
 

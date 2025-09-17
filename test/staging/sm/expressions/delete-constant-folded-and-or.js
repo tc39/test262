@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Deletion of a && or || expression that constant-folds to a name must not attempt to delete the name
+info: bugzilla.mozilla.org/show_bug.cgi?id=1183400
 esid: pending
 ---*/
 

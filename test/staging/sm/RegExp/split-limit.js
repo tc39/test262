@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp.prototype[@@split] shouldn't use optimized path if limit is not number.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1287525
 esid: pending
 ---*/
 

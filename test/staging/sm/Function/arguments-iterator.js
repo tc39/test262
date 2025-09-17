@@ -7,6 +7,7 @@ flags:
   - noStrict
 description: |
   Implement arguments[@@iterator].
+info: bugzilla.mozilla.org/show_bug.cgi?id=992617
 esid: pending
 ---*/
 

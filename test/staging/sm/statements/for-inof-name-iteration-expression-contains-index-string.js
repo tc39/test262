@@ -6,6 +6,7 @@
 /*---
 description: |
   Don't assert parsing a for-in/of loop whose target is a name, where the expression being iterated over contains a string containing an index
+info: bugzilla.mozilla.org/show_bug.cgi?id=1235640
 esid: pending
 ---*/
 

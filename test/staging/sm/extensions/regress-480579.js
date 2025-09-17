@@ -6,6 +6,7 @@
 /*---
 description: |
   Do not assert: pobj_ == obj2
+info: bugzilla.mozilla.org/show_bug.cgi?id=480579
 esid: pending
 ---*/
 

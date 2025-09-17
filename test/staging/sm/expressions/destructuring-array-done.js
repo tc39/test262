@@ -4,6 +4,7 @@
 /*---
 description: |
   iterator.next() should not be called when after iterator completes
+info: bugzilla.mozilla.org/show_bug.cgi?id=1184922
 esid: pending
 ---*/
 

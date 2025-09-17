@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   arguments.caller and arguments.callee are poison pills in ES5, later changed in ES2017 to only poison pill arguments.callee.
+info: bugzilla.mozilla.org/show_bug.cgi?id=514563
 esid: pending
 ---*/
 

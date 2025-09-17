@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp.prototype[@@split] should handle if lastIndex is out of bound.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1263851
 esid: pending
 ---*/
 

@@ -7,6 +7,7 @@
 includes: [compareArray.js]
 description: |
   Coerce the argument passed to Object.keys using ToObject
+info: bugzilla.mozilla.org/show_bug.cgi?id=1038545
 esid: pending
 features: [Symbol]
 ---*/

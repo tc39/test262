@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Function.prototype.call
+info: bugzilla.mozilla.org/show_bug.cgi?id=575535
 esid: pending
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 description: |
   Function in computed property in class expression in array destructuring default
+info: bugzilla.mozilla.org/show_bug.cgi?id=1322314
 esid: pending
 ---*/
 

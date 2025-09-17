@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.is{Sealed,Frozen}, Object.{seal,freeze}
+info: bugzilla.mozilla.org/show_bug.cgi?id=492849
 esid: pending
 ---*/
 

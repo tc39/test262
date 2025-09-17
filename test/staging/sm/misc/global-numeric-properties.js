@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   undefined, Infinity, and NaN global properties should not be writable
+info: bugzilla.mozilla.org/show_bug.cgi?id=537863
 esid: pending
 ---*/
 

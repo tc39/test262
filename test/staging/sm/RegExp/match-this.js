@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp.prototype[@@match] should check this value.
+info: bugzilla.mozilla.org/show_bug.cgi?id=887016
 esid: pending
 ---*/
 

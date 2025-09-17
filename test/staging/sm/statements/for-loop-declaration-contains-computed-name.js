@@ -6,6 +6,7 @@
 /*---
 description: |
   Support computed property names in destructuring declarations in for-in/of loop heads
+info: bugzilla.mozilla.org/show_bug.cgi?id=1233767
 esid: pending
 ---*/
 

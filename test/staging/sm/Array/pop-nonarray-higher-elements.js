@@ -6,6 +6,7 @@
 /*---
 description: |
   Array.prototype.pop shouldn't touch elements greater than length on non-arrays
+info: bugzilla.mozilla.org/show_bug.cgi?id=909602
 esid: pending
 ---*/
 

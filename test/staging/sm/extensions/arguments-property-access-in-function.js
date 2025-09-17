@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   f.arguments must trigger an arguments object in non-strict mode functions
+info: bugzilla.mozilla.org/show_bug.cgi?id=721322
 esid: pending
 ---*/
 

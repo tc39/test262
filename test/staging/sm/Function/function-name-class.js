@@ -4,6 +4,7 @@
 /*---
 description: |
   Anonymous class with name method shouldn't be affected by assignment
+info: bugzilla.mozilla.org/show_bug.cgi?id=883377
 esid: pending
 ---*/
 

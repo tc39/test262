@@ -6,6 +6,7 @@
 /*---
 description: |
   new Int8Array([1, 2, 3]).subarray(1).subarray(1)[0] === 3
+info: bugzilla.mozilla.org/show_bug.cgi?id=637643
 esid: pending
 ---*/
 

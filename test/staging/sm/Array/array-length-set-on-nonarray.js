@@ -6,6 +6,7 @@
 /*---
 description: |
   Don't use a shared-permanent inherited property to implement [].length or (function(){}).length
+info: bugzilla.mozilla.org/show_bug.cgi?id=548671
 esid: pending
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 description: |
   Leaving for-in and try should handle stack value in correct order
+info: bugzilla.mozilla.org/show_bug.cgi?id=1332881
 esid: pending
 ---*/
 

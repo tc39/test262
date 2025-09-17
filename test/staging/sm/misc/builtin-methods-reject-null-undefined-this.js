@@ -6,6 +6,7 @@
 /*---
 description: |
   ECMAScript built-in methods that immediately throw when |this| is |undefined| or |null| (due to CheckObjectCoercible, ToObject, or ToString)
+info: bugzilla.mozilla.org/show_bug.cgi?id=619283
 esid: pending
 ---*/
 

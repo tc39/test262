@@ -6,6 +6,7 @@
 /*---
 description: |
   JS_EnumerateStandardClasses uses wrong attributes for undefined
+info: bugzilla.mozilla.org/show_bug.cgi?id=547087
 esid: pending
 ---*/
 

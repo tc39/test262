@@ -6,6 +6,7 @@ flags:
   - noStrict
 description: |
   Dense array properties shouldn't be modified when they're frozen
+info: bugzilla.mozilla.org/show_bug.cgi?id=1310744
 esid: pending
 ---*/
 /*

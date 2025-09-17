@@ -6,6 +6,7 @@
 /*---
 description: |
   Implement Array.prototype.includes
+info: bugzilla.mozilla.org/show_bug.cgi?id=1069063
 esid: pending
 ---*/
 

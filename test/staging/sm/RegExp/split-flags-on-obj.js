@@ -5,6 +5,7 @@
 includes: [compareArray.js]
 description: |
   RegExp.prototype.split should reflect the change to Object.prototype.flags.
+info: bugzilla.mozilla.org/show_bug.cgi?id=0
 esid: pending
 ---*/
 

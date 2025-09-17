@@ -6,6 +6,7 @@
 /*---
 description: |
   delete (foo), delete ((foo)), and so on are strict mode early errors
+info: bugzilla.mozilla.org/show_bug.cgi?id=1111101
 esid: pending
 ---*/
 

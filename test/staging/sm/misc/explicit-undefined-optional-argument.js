@@ -6,6 +6,7 @@
 /*---
 description: |
   Properly handle explicitly-undefined optional arguments to a bunch of functions
+info: bugzilla.mozilla.org/show_bug.cgi?id=373118
 esid: pending
 ---*/
 

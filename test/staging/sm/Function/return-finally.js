@@ -4,6 +4,7 @@
 /*---
 description: |
   Return value should not be overwritten by finally block with normal execution.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1202134
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   [[DefaultValue]] behavior wrong for Number with overridden valueOf/toString
+info: bugzilla.mozilla.org/show_bug.cgi?id=645464
 esid: pending
 ---*/
 

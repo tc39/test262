@@ -6,6 +6,7 @@
 /*---
 description: |
   ArrayBuffer cannot access properties defined on the prototype chain.
+info: bugzilla.mozilla.org/show_bug.cgi?id=665961
 esid: pending
 ---*/
 

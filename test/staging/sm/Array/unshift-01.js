@@ -6,6 +6,7 @@
 /*---
 description: |
   Array.prototype.unshift without args
+info: bugzilla.mozilla.org/show_bug.cgi?id=614070
 esid: pending
 ---*/
 

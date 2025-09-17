@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Attributes for properties of arguments objects
+info: bugzilla.mozilla.org/show_bug.cgi?id=516255
 esid: pending
 ---*/
 

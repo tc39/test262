@@ -6,6 +6,7 @@
 /*---
 description: |
   Don't use .call(...) in the self-hosted Map.prototype.forEach
+info: bugzilla.mozilla.org/show_bug.cgi?id=987243
 esid: pending
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 description: |
   Date.prototype.toISOString returns an invalid ISO-8601 string
+info: bugzilla.mozilla.org/show_bug.cgi?id=730831
 esid: pending
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExpStatics::makeMatch should make an undefined value when the last match had an undefined capture.
+info: bugzilla.mozilla.org/show_bug.cgi?id=369778
 esid: pending
 ---*/
 

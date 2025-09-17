@@ -6,6 +6,7 @@
 /*---
 description: |
   pobj_ == obj2
+info: bugzilla.mozilla.org/show_bug.cgi?id=481516
 esid: pending
 ---*/
 

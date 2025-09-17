@@ -6,6 +6,7 @@
 /*---
 description: |
   '0x' not followed by hex digits should be a syntax error
+info: bugzilla.mozilla.org/show_bug.cgi?id=582643
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   Fractional days, months, years shouldn't trigger asserts
+info: bugzilla.mozilla.org/show_bug.cgi?id=771946
 esid: pending
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp constructor shouldn't invoke source/flags getters on argument RegExp instance.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1130860
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   { get x(v) { } } and { set x(v, v2) { } } should be syntax errors
+info: bugzilla.mozilla.org/show_bug.cgi?id=536472
 esid: pending
 ---*/
 

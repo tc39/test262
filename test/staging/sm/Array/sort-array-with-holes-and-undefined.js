@@ -6,6 +6,7 @@
 /*---
 description: |
   Sorting an array containing only holes and |undefined| should move all |undefined| to the start of the array
+info: bugzilla.mozilla.org/show_bug.cgi?id=664528
 esid: pending
 ---*/
 

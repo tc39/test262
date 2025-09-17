@@ -4,6 +4,7 @@
 /*---
 description: |
   CloneArrayBuffer should be called with byteLength of source typedArray
+info: bugzilla.mozilla.org/show_bug.cgi?id=1264941
 esid: pending
 ---*/
 

@@ -5,6 +5,7 @@
 includes: [sm/non262-expressions-shell.js]
 description: |
   Array destructuring with various default values in various context - class expression and super/new.target
+info: bugzilla.mozilla.org/show_bug.cgi?id=1184922
 esid: pending
 ---*/
 

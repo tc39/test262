@@ -4,6 +4,7 @@
 /*---
 description: |
   Destructuring should evaluate lhs reference before rhs
+info: bugzilla.mozilla.org/show_bug.cgi?id=1204028
 esid: pending
 ---*/
 

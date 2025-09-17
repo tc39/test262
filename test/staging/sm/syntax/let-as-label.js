@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   let can't be used as a label in strict mode code
+info: bugzilla.mozilla.org/show_bug.cgi?id=1288459
 esid: pending
 ---*/
 

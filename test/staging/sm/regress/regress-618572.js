@@ -6,6 +6,7 @@
 /*---
 description: |
   Do not assert when ungetting a Unicode char sequence
+info: bugzilla.mozilla.org/show_bug.cgi?id=618572
 esid: pending
 ---*/
 

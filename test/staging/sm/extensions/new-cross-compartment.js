@@ -6,6 +6,7 @@
 /*---
 description: |
   |new| on a cross-compartment wrapper to a non-constructor shouldn't assert
+info: bugzilla.mozilla.org/show_bug.cgi?id=1178653
 esid: pending
 ---*/
 

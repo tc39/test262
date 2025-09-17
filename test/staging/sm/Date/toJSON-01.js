@@ -6,6 +6,7 @@
 /*---
 description: |
   Date.prototype.toJSON isn't to spec
+info: bugzilla.mozilla.org/show_bug.cgi?id=584811
 esid: pending
 ---*/
 

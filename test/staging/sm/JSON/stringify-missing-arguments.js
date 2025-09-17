@@ -6,6 +6,7 @@
 /*---
 description: |
   JSON.stringify with no arguments
+info: bugzilla.mozilla.org/show_bug.cgi?id=648471
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   Permit numbers and strings containing numbers as accessor property names
+info: bugzilla.mozilla.org/show_bug.cgi?id=715682
 esid: pending
 ---*/
 

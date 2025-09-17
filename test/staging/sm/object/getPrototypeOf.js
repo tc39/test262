@@ -6,6 +6,7 @@
 /*---
 description: |
   Coerce the argument passed to Object.getPrototypeOf using ToObject
+info: bugzilla.mozilla.org/show_bug.cgi?id=1079090
 esid: pending
 features: [Symbol]
 ---*/

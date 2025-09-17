@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   A string literal containing an octal escape before a strict mode directive should be a syntax error
+info: bugzilla.mozilla.org/show_bug.cgi?id=601262
 esid: pending
 ---*/
 

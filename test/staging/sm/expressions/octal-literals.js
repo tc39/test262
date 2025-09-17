@@ -6,6 +6,7 @@
 /*---
 description: |
   Implement ES6 octal literals
+info: bugzilla.mozilla.org/show_bug.cgi?id=894026
 esid: pending
 ---*/
 

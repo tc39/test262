@@ -6,10 +6,9 @@
 /*---
 flags:
   - noStrict
-info: |
-  needs newGlobal()
 description: |
   |var eval = otherWindow.eval; eval(...)| should behave like indirectly calling that eval from a script in that other window
+info: bugzilla.mozilla.org/show_bug.cgi?id=608473
 esid: pending
 ---*/
 

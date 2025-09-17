@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.getOwnPropertyNames should play nicely with enumerator caching
+info: bugzilla.mozilla.org/show_bug.cgi?id=518663
 esid: pending
 ---*/
 

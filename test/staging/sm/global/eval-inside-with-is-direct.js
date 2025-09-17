@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   with (...) eval(...) is a direct eval
+info: bugzilla.mozilla.org/show_bug.cgi?id=601307
 esid: pending
 ---*/
 

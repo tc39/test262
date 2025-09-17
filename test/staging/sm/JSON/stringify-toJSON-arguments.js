@@ -6,6 +6,7 @@
 /*---
 description: |
   Arguments when an object's toJSON method is called
+info: bugzilla.mozilla.org/show_bug.cgi?id=584909
 esid: pending
 ---*/
 

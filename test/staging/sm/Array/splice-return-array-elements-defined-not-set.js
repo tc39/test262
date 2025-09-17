@@ -6,6 +6,7 @@
 /*---
 description: |
   Array.prototype.splice should define, not set, the elements of the array it returns
+info: bugzilla.mozilla.org/show_bug.cgi?id=668024
 esid: pending
 ---*/
 

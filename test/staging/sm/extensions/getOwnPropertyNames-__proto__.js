@@ -6,6 +6,7 @@
 /*---
 description: |
   __proto__ should show up with O.getOwnPropertyNames(O.prototype)
+info: bugzilla.mozilla.org/show_bug.cgi?id=837630
 esid: pending
 ---*/
 

@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Implement the ES5 algorithm for processing function statements
+info: bugzilla.mozilla.org/show_bug.cgi?id=577325
 esid: pending
 ---*/
 

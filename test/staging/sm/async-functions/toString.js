@@ -4,6 +4,7 @@
 /*---
 description: |
   async function toString
+info: bugzilla.mozilla.org/show_bug.cgi?id=1185106
 esid: pending
 ---*/
 

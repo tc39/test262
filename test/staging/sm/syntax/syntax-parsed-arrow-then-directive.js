@@ -6,6 +6,7 @@
 /*---
 description: |
   Properly apply a directive comment that's only tokenized by a syntax parser (because the directive comment appears immediately after an arrow function with expression body)
+info: bugzilla.mozilla.org/show_bug.cgi?id=1596706
 esid: pending
 ---*/
 

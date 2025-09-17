@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Calls to eval with same code + varying strict mode of script containing eval == fail
+info: bugzilla.mozilla.org/show_bug.cgi?id=620130
 esid: pending
 ---*/
 

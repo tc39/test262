@@ -4,6 +4,7 @@
 /*---
 description: |
   String.prototype.match with non-string non-standard flags argument.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1263139
 esid: pending
 ---*/
 

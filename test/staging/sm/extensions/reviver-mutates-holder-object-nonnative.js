@@ -6,6 +6,7 @@
 /*---
 description: |
   Behavior when JSON.parse walks over a non-native object
+info: bugzilla.mozilla.org/show_bug.cgi?id=901380
 esid: pending
 ---*/
 

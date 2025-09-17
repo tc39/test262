@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExpExec should throw if exec property of non-RegExp is not callable
+info: bugzilla.mozilla.org/show_bug.cgi?id=887016
 esid: pending
 ---*/
 

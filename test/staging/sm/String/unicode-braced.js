@@ -4,6 +4,7 @@
 /*---
 description: |
   Add \\u{xxxxxx} string literals
+info: bugzilla.mozilla.org/show_bug.cgi?id=320500
 esid: pending
 ---*/
 

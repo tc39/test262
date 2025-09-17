@@ -6,6 +6,7 @@
 /*---
 description: |
   Implement support for string literals as names for properties defined using ES5 get/set syntax
+info: bugzilla.mozilla.org/show_bug.cgi?id=520696
 esid: pending
 ---*/
 

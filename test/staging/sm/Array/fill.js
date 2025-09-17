@@ -7,6 +7,7 @@
 includes: [deepEqual.js]
 description: |
   Array.prototype.fill
+info: bugzilla.mozilla.org/show_bug.cgi?id=911147
 esid: pending
 ---*/
 

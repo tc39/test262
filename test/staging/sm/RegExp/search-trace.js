@@ -4,6 +4,7 @@
 /*---
 description: |
   Trace RegExp.prototype[@@search] behavior.
+info: bugzilla.mozilla.org/show_bug.cgi?id=887016
 esid: pending
 ---*/
 

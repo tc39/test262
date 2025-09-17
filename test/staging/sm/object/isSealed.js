@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.isSealed() should return true when given primitive values as input
+info: bugzilla.mozilla.org/show_bug.cgi?id=1062860
 esid: pending
 features: [Symbol]
 ---*/

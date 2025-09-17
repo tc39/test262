@@ -5,6 +5,7 @@
 includes: [sm/assertThrowsValue.js]
 description: |
   Computed Property Names
+info: bugzilla.mozilla.org/show_bug.cgi?id=924688
 esid: pending
 ---*/
 

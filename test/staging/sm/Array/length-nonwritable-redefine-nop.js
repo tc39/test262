@@ -6,6 +6,7 @@
 /*---
 description: |
   No-op array length redefinition
+info: bugzilla.mozilla.org/show_bug.cgi?id=858381
 esid: pending
 ---*/
 

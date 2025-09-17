@@ -6,6 +6,7 @@
 /*---
 description: |
   DataView tests
+info: bugzilla.mozilla.org/show_bug.cgi?id=575688
 esid: pending
 features: [host-gc-required]
 ---*/

@@ -6,6 +6,7 @@
 /*---
 description: |
   Behavior of [].pop on proxies
+info: bugzilla.mozilla.org/show_bug.cgi?id=858381
 esid: pending
 ---*/
 

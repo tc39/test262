@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.prototype.propertyIsEnumerable
+info: bugzilla.mozilla.org/show_bug.cgi?id=619283
 esid: pending
 ---*/
 

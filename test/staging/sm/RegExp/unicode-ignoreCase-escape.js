@@ -5,6 +5,7 @@
 includes: [compareArray.js]
 description: |
   Implement RegExp unicode flag -- ignoreCase flag with character class escape.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1135377
 esid: pending
 ---*/
 

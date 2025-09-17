@@ -6,6 +6,7 @@
 /*---
 description: |
   Be more careful with string math to avoid wrong results
+info: bugzilla.mozilla.org/show_bug.cgi?id=805121
 esid: pending
 ---*/
 

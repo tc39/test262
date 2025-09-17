@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Function.prototype.apply should accept any arraylike arguments
+info: bugzilla.mozilla.org/show_bug.cgi?id=562448
 esid: pending
 ---*/
 

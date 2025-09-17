@@ -4,6 +4,7 @@
 /*---
 description: |
   Use ArraySpeciesCreate in Array.prototype.{concat,filter,map,slice,splice}.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1165052
 esid: pending
 ---*/
 

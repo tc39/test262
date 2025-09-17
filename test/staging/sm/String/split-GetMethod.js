@@ -5,6 +5,7 @@
 includes: [compareArray.js]
 description: |
   String.prototype.split should call GetMethod.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1290655
 esid: pending
 ---*/
 

@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp.prototype[@@replace] should check latin1/twoBytes for all strings used in relate operation.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1269719
 esid: pending
 ---*/
 

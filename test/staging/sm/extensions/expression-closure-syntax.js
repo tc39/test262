@@ -6,6 +6,7 @@
 /*---
 description: |
   Expression closure syntax is only permitted for functions that constitute entire AssignmentExpressions, not PrimaryExpressions that are themselves components of larger binary expressions
+info: bugzilla.mozilla.org/show_bug.cgi?id=1416337
 esid: pending
 ---*/
 

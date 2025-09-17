@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.preventExtensions([]).length = 0 should do nothing, not throw
+info: bugzilla.mozilla.org/show_bug.cgi?id=600392
 esid: pending
 ---*/
 

@@ -7,6 +7,7 @@
 includes: [sm/assertThrowsValue.js]
 description: |
   Scripted proxies' [[SetPrototypeOf]] behavior
+info: bugzilla.mozilla.org/show_bug.cgi?id=888969
 esid: pending
 ---*/
 

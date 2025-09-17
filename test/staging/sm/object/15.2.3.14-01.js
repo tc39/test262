@@ -7,6 +7,7 @@
 includes: [compareArray.js]
 description: |
   Object.keys(O)
+info: bugzilla.mozilla.org/show_bug.cgi?id=307791
 esid: pending
 ---*/
 

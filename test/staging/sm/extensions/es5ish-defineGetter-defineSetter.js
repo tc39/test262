@@ -6,6 +6,7 @@
 /*---
 description: |
   Implement __define[GS]etter__ using Object.defineProperty
+info: bugzilla.mozilla.org/show_bug.cgi?id=715821
 esid: pending
 ---*/
 

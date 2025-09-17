@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Array length redefinition behavior with non-configurable elements
+info: bugzilla.mozilla.org/show_bug.cgi?id=858381
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   Better/more correct handling for replacer arrays with getter array index properties
+info: bugzilla.mozilla.org/show_bug.cgi?id=648471
 esid: pending
 ---*/
 

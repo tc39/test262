@@ -6,6 +6,7 @@
 /*---
 description: |
   Array length setting/truncating with non-dense, indexed elements
+info: bugzilla.mozilla.org/show_bug.cgi?id=858381
 esid: pending
 ---*/
 

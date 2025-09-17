@@ -6,6 +6,7 @@
 /*---
 description: |
   Properly detect cycles in JSON.stringify (throw TypeError, check for cycles rather than imprecisely rely on recursion limits)
+info: bugzilla.mozilla.org/show_bug.cgi?id=578273
 esid: pending
 ---*/
 

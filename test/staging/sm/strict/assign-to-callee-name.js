@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Assigning to a function expression's name within that function should throw a TypeError in strict mode code
+info: bugzilla.mozilla.org/show_bug.cgi?id=610350
 esid: pending
 ---*/
 

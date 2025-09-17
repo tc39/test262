@@ -6,6 +6,7 @@
 /*---
 description: |
   Behavior when the JSON.parse reviver mutates the holder array
+info: bugzilla.mozilla.org/show_bug.cgi?id=901351
 esid: pending
 ---*/
 

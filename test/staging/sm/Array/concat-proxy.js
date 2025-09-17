@@ -4,6 +4,7 @@
 /*---
 description: |
   Array.prototype.concat should check HasProperty everytime for non-dense array
+info: bugzilla.mozilla.org/show_bug.cgi?id=1287520
 esid: pending
 ---*/
 

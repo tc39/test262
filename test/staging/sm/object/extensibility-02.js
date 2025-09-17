@@ -6,6 +6,7 @@
 /*---
 description: |
   Implement Object.preventExtensions, Object.isExtensible
+info: bugzilla.mozilla.org/show_bug.cgi?id=492849
 esid: pending
 ---*/
 

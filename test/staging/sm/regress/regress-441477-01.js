@@ -23,12 +23,12 @@ function test()
 {
   try
   {
-    for (var i = 0; i < 5;) 
-    { 
-      if (i > 5) 
-        throw "bad"; 
-      i++; 
-      continue; 
+    for (var i = 0; i < 5;)
+    {
+      if (i > 5)
+        throw "bad";
+      i++;
+      continue;
     }
   }
   catch(ex)

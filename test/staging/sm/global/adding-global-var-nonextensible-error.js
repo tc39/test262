@@ -8,6 +8,7 @@ flags:
   - noStrict
 info: |
   preventExtensions on global
+  bugzilla.mozilla.org/show_bug.cgi?id=621432
 description: |
   If a var statement can't create a global property because the global object isn't extensible, and an error is thrown while decompiling the global, don't assert
 esid: pending

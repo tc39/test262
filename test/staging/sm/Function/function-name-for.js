@@ -6,6 +6,7 @@ flags:
   - noStrict
 description: |
   Anonymous function name should be set based on for-in initializer
+info: bugzilla.mozilla.org/show_bug.cgi?id=883377
 esid: pending
 ---*/
 

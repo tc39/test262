@@ -6,6 +6,7 @@
 /*---
 description: |
   { get x y() { } } is not valid getter syntax
+info: bugzilla.mozilla.org/show_bug.cgi?id=999999
 esid: pending
 ---*/
 // Contributor:

@@ -6,6 +6,7 @@
 /*---
 description: |
   Various quirks of setting array length properties to objects
+info: bugzilla.mozilla.org/show_bug.cgi?id=657298
 esid: pending
 ---*/
 

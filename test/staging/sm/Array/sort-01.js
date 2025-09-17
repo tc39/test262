@@ -6,6 +6,7 @@
 /*---
 description: |
   array.sort compare-function gets incorrect this
+info: bugzilla.mozilla.org/show_bug.cgi?id=604971
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   ArrayBuffer.prototype.slice shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer being sliced
+info: bugzilla.mozilla.org/show_bug.cgi?id=991981
 esid: pending
 features: [host-gc-required]
 ---*/

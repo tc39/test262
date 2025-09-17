@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Don't assert anything about a shape from the property cache until it's known the cache entry matches
+info: bugzilla.mozilla.org/show_bug.cgi?id=713944
 esid: pending
 ---*/
 

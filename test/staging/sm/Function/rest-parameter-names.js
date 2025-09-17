@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Rest parameters to functions can be named |yield| or |eval| or |let| in non-strict code
+info: bugzilla.mozilla.org/show_bug.cgi?id=1288460
 esid: pending
 ---*/
 

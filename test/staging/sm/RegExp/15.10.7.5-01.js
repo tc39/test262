@@ -6,6 +6,7 @@
 /*---
 description: |
   RegExp lastIndex property set should not coerce type to number
+info: bugzilla.mozilla.org/show_bug.cgi?id=465199
 esid: pending
 ---*/
 

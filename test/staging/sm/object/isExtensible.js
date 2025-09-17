@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.isExtensible() should return false when given primitive values as input
+info: bugzilla.mozilla.org/show_bug.cgi?id=1060873
 esid: pending
 features: [Symbol]
 ---*/

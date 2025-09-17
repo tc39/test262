@@ -6,6 +6,7 @@
 /*---
 description: |
   Don't assert assigning into memory detached while converting the value to assign into a number
+info: bugzilla.mozilla.org/show_bug.cgi?id=1001547
 esid: pending
 ---*/
 

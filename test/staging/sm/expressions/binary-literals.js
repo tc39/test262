@@ -6,6 +6,7 @@
 /*---
 description: |
   Implement ES6 binary literals
+info: bugzilla.mozilla.org/show_bug.cgi?id=894026
 esid: pending
 ---*/
 

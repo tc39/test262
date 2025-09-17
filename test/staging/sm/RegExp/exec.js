@@ -6,6 +6,7 @@
 /*---
 description: |
   RegExp.prototype.exec doesn't get the lastIndex and ToInteger() it for non-global regular expressions when it should
+info: bugzilla.mozilla.org/show_bug.cgi?id=646490
 esid: pending
 ---*/
 

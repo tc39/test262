@@ -4,6 +4,7 @@
 /*---
 description: |
   Internal usage of split should not be affected by prototpe change
+info: bugzilla.mozilla.org/show_bug.cgi?id=1268138
 esid: pending
 ---*/
 

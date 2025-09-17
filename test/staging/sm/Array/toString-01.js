@@ -6,6 +6,7 @@
 /*---
 description: |
   Array.prototype.toString
+info: bugzilla.mozilla.org/show_bug.cgi?id=562446
 esid: pending
 ---*/
 

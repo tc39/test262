@@ -4,6 +4,7 @@
 /*---
 description: |
   RegExp.prototype[@@replace] should call replacer function after collecting all matches.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1287524
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.defineProperty sets arguments.length without setting the length-overridden bit
+info: bugzilla.mozilla.org/show_bug.cgi?id=539766
 esid: pending
 ---*/
 

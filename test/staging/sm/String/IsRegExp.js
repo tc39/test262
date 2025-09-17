@@ -4,6 +4,7 @@
 /*---
 description: |
   String.prototype.{startsWith,endsWith,includes} should call IsRegExp.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1054755
 esid: pending
 ---*/
 

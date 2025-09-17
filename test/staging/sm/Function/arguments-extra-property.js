@@ -4,6 +4,7 @@
 /*---
 description: |
   GetElem for modified arguments shouldn't be optimized to get original argument.
+info: bugzilla.mozilla.org/show_bug.cgi?id=1263811
 esid: pending
 ---*/
 

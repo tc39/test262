@@ -6,6 +6,7 @@
 /*---
 description: |
   Error.prototype.toString called on function objects should work as on any object
+info: bugzilla.mozilla.org/show_bug.cgi?id=894653
 esid: pending
 ---*/
 

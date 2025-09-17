@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Assignments to a property that has a getter but not a setter should not throw a TypeError per ES5 (at least not until strict mode is supported)
+info: bugzilla.mozilla.org/show_bug.cgi?id=523846
 esid: pending
 ---*/
 

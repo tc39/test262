@@ -8,6 +8,7 @@ flags:
   - noStrict
 info: |
   preventExtensions on global
+  bugzilla.mozilla.org/show_bug.cgi?id=600128
 description: |
   Properly handle attempted addition of properties to non-extensible objects
 esid: pending

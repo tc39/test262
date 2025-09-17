@@ -6,6 +6,7 @@
 /*---
 description: |
   Assertion redefining length property of a frozen dictionary-mode array
+info: bugzilla.mozilla.org/show_bug.cgi?id=880591
 esid: pending
 ---*/
 

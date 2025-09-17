@@ -4,6 +4,7 @@
 /*---
 description: |
   sticky flag should not break assertion behavior.
+info: bugzilla.mozilla.org/show_bug.cgi?id=773687
 esid: pending
 ---*/
 

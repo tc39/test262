@@ -9,6 +9,7 @@ flags:
   - noStrict
 description: |
   Function.prototype.bind
+info: bugzilla.mozilla.org/show_bug.cgi?id=429507
 esid: pending
 ---*/
 

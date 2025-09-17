@@ -6,6 +6,7 @@
 /*---
 description: |
   Object.defineProperties(O, Properties)
+info: bugzilla.mozilla.org/show_bug.cgi?id=430133
 esid: pending
 ---*/
 

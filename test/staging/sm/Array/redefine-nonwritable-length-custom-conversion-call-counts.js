@@ -6,6 +6,7 @@
 /*---
 description: |
   Assertion redefining non-writable length to a non-numeric value
+info: bugzilla.mozilla.org/show_bug.cgi?id=866700
 esid: pending
 ---*/
 

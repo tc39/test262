@@ -6,6 +6,7 @@
 /*---
 description: |
   \\u and \\x must be followed by the appropriate number of hex digits or else it is a syntax error
+info: bugzilla.mozilla.org/show_bug.cgi?id=663300
 esid: pending
 ---*/
 

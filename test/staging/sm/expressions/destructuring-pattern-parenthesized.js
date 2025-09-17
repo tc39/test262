@@ -6,6 +6,7 @@
 /*---
 description: |
   Parenthesized "destructuring patterns" are not usable as destructuring patterns
+info: bugzilla.mozilla.org/show_bug.cgi?id=1146136
 esid: pending
 features: [class]
 ---*/

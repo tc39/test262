@@ -8,6 +8,7 @@ flags:
   - noStrict
 description: |
   Eval always has a lexical environment
+info: bugzilla.mozilla.org/show_bug.cgi?id=1193583
 esid: pending
 ---*/
 

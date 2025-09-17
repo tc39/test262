@@ -4,6 +4,7 @@
 /*---
 description: |
   Map/Set/WeakMap/WeakSet constructor should close iterator on error
+info: bugzilla.mozilla.org/show_bug.cgi?id=1180306
 esid: pending
 ---*/
 

@@ -6,6 +6,7 @@
 /*---
 description: |
   new Date(value) should call ToPrimitive on value before testing for string-ness
+info: bugzilla.mozilla.org/show_bug.cgi?id=738511
 esid: pending
 ---*/
 
