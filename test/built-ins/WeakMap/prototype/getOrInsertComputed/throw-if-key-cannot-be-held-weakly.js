@@ -11,6 +11,7 @@ info: |
   ...
   4. If CanBeHeldWeakly(_key_) is *false*, throw a *TypeError* exception.
   ...
+includes: [compareArray.js]
 features: [Symbol, WeakMap, upsert]
 ---*/
 
