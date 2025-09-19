@@ -14,8 +14,8 @@ features: [TypedArray]
 
 var sample = [0, 42, 64];
 
-testWithTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(sample);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var typedArray = new TA(makeCtorArg(sample));
   var itor = typedArray.entries();
 
   var next = itor.next();

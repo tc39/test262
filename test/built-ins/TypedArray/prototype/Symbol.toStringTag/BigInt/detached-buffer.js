@@ -10,12 +10,12 @@ info: |
   4. Let name be the value of O's [[TypedArrayName]] internal slot.
   5. Assert: name is a String value.
   6. Return name.
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, Symbol.toStringTag, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(1));
   $DETACHBUFFER(sample.buffer);
   assert.sameValue(sample[Symbol.toStringTag], TA.name);
-});
+}, null, null, ["immutable"]);
