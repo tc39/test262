@@ -2,6 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+features:
+  - class
+  - class-fields-private
+  - class-fields-public
+  - nonextensible-applies-to-private
 flags:
   - noStrict
 description: |
@@ -32,8 +37,8 @@ class A extends OverrideBase {
 }
 
 var obj = {};
-Object.seal(obj);
 new A(obj);  // Add #a to obj, but not g.
+Object.seal(obj);
 assert.sameValue('g' in obj, false);
 assert.sameValue(A.gs(obj), 1);
 A.inca(obj);
@@ -67,8 +72,10 @@ assert.sameValue(A.gs(proxy), 2)
 
 var target = { a: 10 };
 Object.freeze(target);
-new A(target);
-assert.sameValue(Object.isFrozen(target), true)
+assert.throws(TypeError, function () {
+  new A(target);
+});
+assert.sameValue(Object.isFrozen(target), true);
 
 var getOwnKeys = [];
 var proxy = new Proxy(target, {
@@ -80,4 +87,3 @@ var proxy = new Proxy(target, {
 
 Object.isFrozen(proxy);
 assert.sameValue(getOwnKeys.length, 1);
-
