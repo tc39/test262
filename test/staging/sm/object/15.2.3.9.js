@@ -4,9 +4,7 @@
  */
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, propertyHelper.js]
-flags:
-  - noStrict
+includes: [propertyHelper.js]
 description: |
   pending
 esid: pending
