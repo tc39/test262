@@ -12,8 +12,8 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([40, 41, 42, 43]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([40, 41, 42, 43]));
   var buffer = sample.buffer;
   var result = sample.subarray(1);
 
@@ -32,4 +32,4 @@ testWithTypedArrayConstructors(function(TA) {
     compareArray(sample, [40, 100, 111, 43]),
     "changes on the new instance values affect the original sample"
   );
-});
+}, null, null, ["immutable"]);
