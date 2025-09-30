@@ -35,14 +35,14 @@ class ClassWithPrivateField extends TrojanBase {
     super(obj);
     this.#val = 42;
   }
-  val() {
-    return this.#val;
+  static val(obj) {
+    return obj.#val;
   }
 }
 
 const t = new ClassWithPrivateField({});
 // extensible objects can be extended
-assert.sameValue(ClassWithPrivateField.prototype.val.call(t), 42);
+assert.sameValue(ClassWithPrivateField.val(t), 42);
 
 // where superclass prevented extensions & subclass extended
 assert.throws(TypeError, function () {
@@ -59,15 +59,14 @@ class ClassWithPrivateMethod extends TrojanBase {
   #privateMethod() {
     return 42;
   };
-  // public methods are on the prototype, so are ok.
-  publicMethod() {
-    return this.#privateMethod();
+  static val(obj) {
+    return obj.#privateMethod();
   }
 }
 
 const m = new ClassWithPrivateMethod({});
 // extensible objects can be extended
-assert.sameValue(ClassWithPrivateMethod.prototype.publicMethod.call(m), 42);
+assert.sameValue(ClassWithPrivateMethod.val(m), 42);
 
 // where superclass prevented extensions & subclass extended
 assert.throws(TypeError, function () {
@@ -84,21 +83,14 @@ class ClassWithPrivateAccessor extends TrojanBase {
   get #privateAccessor() {
     return 42;
   };
-  // public accessors are on the prototype, so are ok.
-  get publicAccessor() {
-    return this.#privateAccessor;
+  static val(obj) {
+    return obj.#privateAccessor;
   }
 }
 
 const a = new ClassWithPrivateAccessor({});
 // extensible objects can be extended
-assert.sameValue(
-  Object.getOwnPropertyDescriptor(
-    ClassWithPrivateAccessor.prototype,
-    'publicAccessor',
-  ).get.call(a),
-  42,
-);
+assert.sameValue(ClassWithPrivateAccessor.val(a), 42);
 
 // where superclass prevented extensions & subclass extended
 assert.throws(TypeError, function () {
