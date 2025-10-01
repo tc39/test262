@@ -62,16 +62,19 @@ features:
 
 - name: array-at
   files:
-  - test/built-ins
-  tags:
-  - Array.prototype.at
-  - TypedArray.prototype.at
+  - test/built-ins/TypedArray/prototype/at
+  - test/built-ins/Array/prototype/at
 
 - name: array-by-copy
   files:
-  - test/built-ins
-  tags:
-  - change-array-by-copy
+  - test/built-ins/Array/prototype/Symbol.unscopables/change-array-by-copy.js
+  - test/built-ins/Array/prototype/toReversed
+  - test/built-ins/Array/prototype/toSorted
+  - test/built-ins/Array/prototype/toSpliced
+  - test/built-ins/Array/prototype/with
+  - test/built-ins/TypedArray/prototype/toReversed
+  - test/built-ins/TypedArray/prototype/toSorted
+  - test/built-ins/TypedArray/prototype/with
 
 - name: array-copywithin
   files:
@@ -96,7 +99,8 @@ features:
 
 - name: array-findlast
   files:
-  - test/built-ins
+  - test/built-ins/Array
+  - test/built-ins/TypedArray
   tags:
   - array-find-from-last
 
@@ -115,15 +119,12 @@ features:
 
 - name: array-fromasync
   files:
-  - test/built-ins
-  tags:
-  - Array.fromAsync
+  - test/built-ins/Array/fromAsync
 
 - name: array-group
   files:
-  - test/built-ins
-  tags:
-  - array-grouping
+  - test/built-ins/Map/groupBy
+  - test/built-ins/Object/groupBy
 
 - name: array-includes
   files:
