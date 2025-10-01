@@ -172,7 +172,7 @@ features:
   - test/language/expressions/class/async-method
   - test/language/expressions/class/async-method-static
   - test/language/expressions/async-arrow-function
-- name: async-await'
+- name: async-await
   files:
   - test/language/expressions/object/method-definition
   tags:
@@ -314,6 +314,6 @@ features:
   - "!class-static-block"
 - name: generators
   files:
-  - test/language/expressions/object/method-definition',
+  - test/language/expressions/object/method-definition
   tags:
   - generators
