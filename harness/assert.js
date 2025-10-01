@@ -101,6 +101,42 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
+assert.compareArray = function(actual, expected, message) {
+  message  = message === undefined ? '' : message;
+
+  if (typeof message === 'symbol') {
+    message = message.toString();
+  }
+
+  assert(actual != null, `Actual argument shouldn't be nullish. ${message}`);
+  assert(expected != null, `Expected argument shouldn't be nullish. ${message}`);
+  var format = compareArray.format;
+  var result = compareArray(actual, expected);
+
+  // The following prevents actual and expected from being iterated and evaluated
+  // more than once unless absolutely necessary.
+  if (!result) {
+    assert(false, `Actual ${format(actual)} and expected ${format(expected)} should have the same contents. ${message}`);
+  }
+};
+
+function compareArray(a, b) {
+  if (b.length !== a.length) {
+    return false;
+  }
+
+  for (var i = 0; i < a.length; i++) {
+    if (!assert._isSameValue(b[i], a[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+compareArray.format = function(arrayLike) {
+  return `[${[].map.call(arrayLike, String).join(', ')}]`;
+};
+
 assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
   switch (value === null ? 'null' : typeof value) {
     case 'string':
