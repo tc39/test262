@@ -101,6 +101,10 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
+function isPrimitive(value) {
+  return !value || (typeof value !== 'object' && typeof value !== 'function');
+}
+
 assert.compareArray = function (actual, expected, message) {
   message = message === undefined ? '' : message;
 
@@ -108,16 +112,16 @@ assert.compareArray = function (actual, expected, message) {
     message = message.toString();
   }
 
-  assert(actual != null, `Actual argument shouldn't be nullish. ${message}`);
-  assert(expected != null, `Expected argument shouldn't be nullish. ${message}`);
-  var format = compareArray.format;
-  var result = compareArray(actual, expected);
-
-  // The following prevents actual and expected from being iterated and evaluated
-  // more than once unless absolutely necessary.
-  if (!result) {
-    assert(false, `Actual ${format(actual)} and expected ${format(expected)} should have the same contents. ${message}`);
+  if (isPrimitive(actual)) {
+    assert(false, `Actual argument [${actual}] shouldn't be primitive. ${message}`);
+  } else if (isPrimitive(expected)) {
+    assert(false, `Expected argument [${expected}] shouldn't be primitive. ${message}`);
   }
+  var result = compareArray(actual, expected);
+  if (result) return;
+
+  var format = compareArray.format;
+  assert(false, `Actual ${format(actual)} and expected ${format(expected)} should have the same contents. ${message}`);
 };
 
 function compareArray(a, b) {
@@ -133,7 +137,7 @@ function compareArray(a, b) {
 }
 
 compareArray.format = function (arrayLike) {
-  return `[${[].map.call(arrayLike, String).join(', ')}]`;
+  return `[${Array.prototype.map.call(arrayLike, String).join(', ')}]`;
 };
 
 assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
