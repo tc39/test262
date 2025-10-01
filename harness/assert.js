@@ -101,8 +101,8 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
-assert.compareArray = function(actual, expected, message) {
-  message  = message === undefined ? '' : message;
+assert.compareArray = function (actual, expected, message) {
+  message = message === undefined ? '' : message;
 
   if (typeof message === 'symbol') {
     message = message.toString();
@@ -124,7 +124,6 @@ function compareArray(a, b) {
   if (b.length !== a.length) {
     return false;
   }
-
   for (var i = 0; i < a.length; i++) {
     if (!assert._isSameValue(b[i], a[i])) {
       return false;
@@ -133,7 +132,7 @@ function compareArray(a, b) {
   return true;
 }
 
-compareArray.format = function(arrayLike) {
+compareArray.format = function (arrayLike) {
   return `[${[].map.call(arrayLike, String).join(', ')}]`;
 };
 
