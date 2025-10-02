@@ -20,9 +20,9 @@ function assertThrows(func, errorMessage) {
     assert(caught, `Expected ${func} to throw, but it didn't.`);
 }
 
-assertThrows(() => assert.compareArray(), "Actual argument shouldn't be nullish. ");
-assertThrows(() => assert.compareArray(null, []), "Actual argument shouldn't be nullish. ");
-assertThrows(() => assert.compareArray(null, [], "foo"), "Actual argument shouldn't be nullish. foo");
+assertThrows(() => assert.compareArray(), "Actual argument [undefined] shouldn't be primitive. ");
+assertThrows(() => assert.compareArray(null, []), "Actual argument [null] shouldn't be primitive. ");
+assertThrows(() => assert.compareArray(null, [], "foo"), "Actual argument [null] shouldn't be primitive. foo");
 
-assertThrows(() => assert.compareArray([]), "Expected argument shouldn't be nullish. ");
-assertThrows(() => assert.compareArray([], undefined, "foo"), "Expected argument shouldn't be nullish. foo");
+assertThrows(() => assert.compareArray([]), "Expected argument [undefined] shouldn't be primitive. ");
+assertThrows(() => assert.compareArray([], undefined, "foo"), "Expected argument [undefined] shouldn't be primitive. foo");
