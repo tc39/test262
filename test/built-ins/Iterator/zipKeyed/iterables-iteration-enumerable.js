@@ -38,7 +38,7 @@ var iterables = Object.create(null, {
         enumerable: false,
       });
 
-      return [];
+      return ['value for b'];
     }
   },
   c: {
@@ -58,7 +58,7 @@ var iterables = Object.create(null, {
         enumerable: true,
       });
 
-      return [];
+      return ['value for d'];
     }
   },
   e: {
@@ -66,15 +66,19 @@ var iterables = Object.create(null, {
     configurable: true,
     get() {
       log.push("get e");
-      return [];
+      return ['value for e'];
     }
   },
 });
 
-Iterator.zipKeyed(iterables);
+var result = Array.from(Iterator.zipKeyed(iterables));
 
 assert.compareArray(log, [
   "get b",
   "get d",
   "get e",
 ]);
+
+assert.sameValue(result.length, 1);
+assert.compareArray(Object.keys(result[0]), ["b", "d", "e"]);
+assert.compareArray(Object.values(result[0]), ["value for b", "value for d", "value for e"]);
