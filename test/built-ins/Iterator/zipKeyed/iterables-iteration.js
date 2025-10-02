@@ -42,11 +42,6 @@ var iterableReturningThrowingIterator = {
   }
 };
 
-// |undefined| values are ignored.
-Iterator.zipKeyed({
-  a: undefined,
-});
-
 // GetIteratorFlattenable accepts both iterables and iterators.
 Iterator.zipKeyed({
   a: throwingIterator,
@@ -61,6 +56,7 @@ var badIterators = [
   Symbol(),
   0,
   0n,
+  // undefined is handled separately
 ];
 
 for (var iterator of badIterators) {
