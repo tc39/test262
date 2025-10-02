@@ -92,7 +92,7 @@ class ClassWithPrivateAccessor extends NonExtensibleBase {
 
 const a = new ClassWithPrivateAccessor(false);
 // extensible objects can be extended
-assert.sameValue(m.publicAccessor, 42);
+assert.sameValue(a.publicAccessor, 42);
 
 // where superclass prevented extensions & subclass extended
 assert.throws(TypeError, function () {
