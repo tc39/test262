@@ -319,6 +319,16 @@ features:
     tags:
       - generators
 
+  - name: json-raw
+    files:
+      - test/built-ins/JSON/rawJSON
+      - test/built-ins/JSON/isRawJSON
+  - name: json-raw
+    files:
+      - test/built-ins/JSON/parse
+    tags:
+      - json-parse-with-source
+
   - name: let-const
     files:
       - test/language/statements/const
