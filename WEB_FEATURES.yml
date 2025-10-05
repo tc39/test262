@@ -319,6 +319,12 @@ features:
     tags:
       - generators
 
+  - name: iterators
+    files:
+      - test/built-ins/Iterator/*.js
+      - test/built-ins/Iterator/prototype/Symbol.iterator
+      - test/language/statements/for-of
+
   - name: javascript
     files:
       - test/language/statements/block
