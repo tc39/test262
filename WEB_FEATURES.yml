@@ -319,6 +319,10 @@ features:
     tags:
       - generators
 
+  - name: intl-segmenter
+    files:
+      - test/intl402/Segmenter
+
   - name: iterator-methods
     files:
       - test/built-ins/Iterator/constructor.js
