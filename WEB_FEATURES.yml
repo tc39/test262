@@ -319,6 +319,22 @@ features:
     tags:
       - generators
 
+  - name: iterator-methods
+    files:
+      - test/built-ins/Iterator/constructor.js
+      - test/built-ins/Iterator/from
+      - test/built-ins/Iterator/prototype/drop
+      - test/built-ins/Iterator/prototype/every
+      - test/built-ins/Iterator/prototype/filter
+      - test/built-ins/Iterator/prototype/find
+      - test/built-ins/Iterator/prototype/flatMap
+      - test/built-ins/Iterator/prototype/forEach
+      - test/built-ins/Iterator/prototype/map
+      - test/built-ins/Iterator/prototype/reduce
+      - test/built-ins/Iterator/prototype/some
+      - test/built-ins/Iterator/prototype/take
+      - test/built-ins/Iterator/prototype/toArray
+
   - name: iterators
     files:
       - test/built-ins/Iterator/*.js
