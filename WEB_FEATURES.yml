@@ -319,6 +319,23 @@ features:
     tags:
       - generators
 
+  - name: map
+    files:
+      - test/built-ins/Map/*.js
+      - test/built-ins/Map/Symbol.species
+      - test/built-ins/Map/prototype/*.js
+      - test/built-ins/Map/prototype/clear
+      - test/built-ins/Map/prototype/delete
+      - test/built-ins/Map/prototype/entries
+      - test/built-ins/Map/prototype/forEach
+      - test/built-ins/Map/prototype/get
+      - test/built-ins/Map/prototype/has
+      - test/built-ins/Map/prototype/keys
+      - test/built-ins/Map/prototype/set
+      - test/built-ins/Map/prototype/size
+      - test/built-ins/Map/prototype/values
+      - test/built-ins/Map/prototype/Symbol.iterator
+
   - name: math-sum-precise
     files:
       - test/built-ins/Math/sumPrecise
