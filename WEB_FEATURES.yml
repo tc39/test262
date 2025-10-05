@@ -319,6 +319,27 @@ features:
     tags:
       - generators
 
+  - name: intl-locale
+    files:
+      - test/intl402/Locale
+    tags:
+      - "!Intl.Locale-info"
+
+  - name: intl-locale-info
+    files:
+      - test/intl402/Locale
+    tags:
+      - Intl.Locale-info
+  - name: intl-locale-info
+    files:
+      - test/intl402/Locale/prototype/getCalendars
+      - test/intl402/Locale/prototype/getCollations
+      - test/intl402/Locale/prototype/getHourCycles
+      - test/intl402/Locale/prototype/getNumberingSystems
+      - test/intl402/Locale/prototype/getTextInfo
+      - test/intl402/Locale/prototype/getTimeZones
+      - test/intl402/Locale/prototype/getWeekInfo
+
   - name: intl-plural-rules
     files:
       - test/intl402/PluralRules
