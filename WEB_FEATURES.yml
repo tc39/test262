@@ -319,6 +319,10 @@ features:
     tags:
       - generators
 
+  - name: intl-list-format
+    files:
+      - test/intl402/ListFormat
+
   - name: intl-locale
     files:
       - test/intl402/Locale
