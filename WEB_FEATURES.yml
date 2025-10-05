@@ -319,13 +319,62 @@ features:
     tags:
       - generators
 
+  - name: math-sum-precise
+    files:
+      - test/built-ins/Math/sumPrecise
+
   - name: number
     files:
       - test/built-ins/Number
-      - test/built-ins/Math
       - test/built-ins/parseInt
       - test/built-ins/parseFloat
       - test/language/literals/numeric/*
+  - name: number
+    files:
+      - test/built-ins/Math/*.js
+      - test/built-ins/Math/E
+      - test/built-ins/Math/LN10
+      - test/built-ins/Math/LN2
+      - test/built-ins/Math/LOG10E
+      - test/built-ins/Math/LOG2E
+      - test/built-ins/Math/PI
+      - test/built-ins/Math/SQRT1_2
+      - test/built-ins/Math/SQRT2
+      - test/built-ins/Math/abs
+      - test/built-ins/Math/acos
+      - test/built-ins/Math/acosh
+      - test/built-ins/Math/asin
+      - test/built-ins/Math/asinh
+      - test/built-ins/Math/atan
+      - test/built-ins/Math/atan2
+      - test/built-ins/Math/atanh
+      - test/built-ins/Math/cbrt
+      - test/built-ins/Math/ceil
+      - test/built-ins/Math/clz32
+      - test/built-ins/Math/cos
+      - test/built-ins/Math/cosh
+      - test/built-ins/Math/exp
+      - test/built-ins/Math/expm1
+      - test/built-ins/Math/floor
+      - test/built-ins/Math/fround
+      - test/built-ins/Math/hypot
+      - test/built-ins/Math/imul
+      - test/built-ins/Math/log
+      - test/built-ins/Math/log10
+      - test/built-ins/Math/log1p
+      - test/built-ins/Math/log2
+      - test/built-ins/Math/max
+      - test/built-ins/Math/min
+      - test/built-ins/Math/pow
+      - test/built-ins/Math/random
+      - test/built-ins/Math/round
+      - test/built-ins/Math/sign
+      - test/built-ins/Math/sin
+      - test/built-ins/Math/sinh
+      - test/built-ins/Math/sqrt
+      - test/built-ins/Math/tan
+      - test/built-ins/Math/tanh
+      - test/built-ins/Math/trunc
 
   - name: nullish-coalescing
     files:
