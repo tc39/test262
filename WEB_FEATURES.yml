@@ -360,6 +360,22 @@ features:
       - test/built-ins/Proxy
       - test/built-ins/Reflect
 
+  - name: set
+    files:
+      - test/built-ins/Set/*.js
+      - test/built-ins/Set/Symbol.species
+      - test/built-ins/Set/prototype/*.js
+      - test/built-ins/Set/prototype/add
+      - test/built-ins/Set/prototype/clear
+      - test/built-ins/Set/prototype/delete
+      - test/built-ins/Set/prototype/entries
+      - test/built-ins/Set/prototype/forEach
+      - test/built-ins/Set/prototype/has
+      - test/built-ins/Set/prototype/keys
+      - test/built-ins/Set/prototype/size
+      - test/built-ins/Set/prototype/values
+      - test/built-ins/Set/prototype/Symbol.iterator
+
   - name: set-methods
     files:
       - test/built-ins/Set/prototype/difference
@@ -386,6 +402,30 @@ features:
   - name: stable-array-sort
     files:
       - test/built-ins/Array/prototype/sort/stability*
+
+  - name: strings
+    files:
+      - test/built-ins/String/*.js
+      - test/built-ins/String/fromCharCode
+      - test/built-ins/String/prototype/*.js
+      - test/built-ins/String/prototype/charAt
+      - test/built-ins/String/prototype/charCodeAt
+      - test/built-ins/String/prototype/concat
+      - test/built-ins/String/prototype/indexOf
+      - test/built-ins/String/prototype/lastIndexOf
+      - test/built-ins/String/prototype/match
+      - test/built-ins/String/prototype/replace
+      - test/built-ins/String/prototype/search
+      - test/built-ins/String/prototype/slice
+      - test/built-ins/String/prototype/split
+      - test/built-ins/String/prototype/substring
+      - test/built-ins/String/prototype/toLowerCase
+      - test/built-ins/String/prototype/toString
+      - test/built-ins/String/prototype/toUpperCase
+      - test/built-ins/String/prototype/trim
+      - test/built-ins/String/prototype/valueOf
+      - test/built-ins/String/prototype/Symbol.iterator
+      - test/language/literals/string
 
   - name: string-at
     files:
