@@ -319,6 +319,14 @@ features:
     tags:
       - generators
 
+  - name: intl-display-names
+    files:
+      - test/intl402/DisplayNames
+
+  - name: intl-duration-format
+    files:
+      - test/intl402/DurationFormat
+
   - name: intl-list-format
     files:
       - test/intl402/ListFormat
