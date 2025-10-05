@@ -319,6 +319,84 @@ features:
     tags:
       - generators
 
+  - name: javascript
+    files:
+      - test/language/statements/block
+      - test/language/statements/break
+      - test/language/statements/continue
+      - test/language/statements/debugger
+      - test/language/statements/do-while
+      - test/language/statements/empty
+      - test/language/statements/expression
+      - test/language/statements/if
+      - test/language/statements/labeled
+      - test/language/statements/return
+      - test/language/statements/switch
+      - test/language/statements/throw
+      - test/language/statements/with
+      - test/language/statements/while
+      - test/language/expressions/addition
+      - test/language/expressions/assignment
+      - test/language/expressions/bitwise-and
+      - test/language/expressions/bitwise-not
+      - test/language/expressions/bitwise-or
+      - test/language/expressions/bitwise-xor
+      - test/language/expressions/comma
+      - test/language/expressions/conditional
+      - test/language/expressions/delete
+      - test/language/expressions/division
+      - test/language/expressions/does-not-equals
+      - test/language/expressions/equals
+      - test/language/expressions/greater-than
+      - test/language/expressions/greater-than-or-equal
+      - test/language/expressions/in
+      - test/language/expressions/instanceof
+      - test/language/expressions/left-shift
+      - test/language/expressions/less-than
+      - test/language/expressions/less-than-or-equal
+      - test/language/expressions/logical-and
+      - test/language/expressions/logical-not
+      - test/language/expressions/logical-or
+      - test/language/expressions/modulus
+      - test/language/expressions/multiplication
+      - test/language/expressions/new
+      - test/language/expressions/postfix-decrement
+      - test/language/expressions/postfix-increment
+      - test/language/expressions/prefix-decrement
+      - test/language/expressions/prefix-increment
+      - test/language/expressions/property-accessors
+      - test/language/expressions/right-shift
+      - test/language/expressions/strict-equals
+      - test/language/expressions/strict-does-not-equals
+      - test/language/expressions/subtraction
+      - test/language/expressions/typeof
+      - test/language/expressions/unsigned-right-shift
+      - test/language/expressions/void
+      - test/built-ins/Boolean
+      - test/built-ins/Error
+      - test/built-ins/NativeErrors/EvalError
+      - test/built-ins/NativeErrors/RangeError
+      - test/built-ins/NativeErrors/ReferenceError
+      - test/built-ins/NativeErrors/SyntaxError
+      - test/built-ins/NativeErrors/TypeError
+      - test/built-ins/NativeErrors/URIError
+      - test/built-ins/decodeURI
+      - test/built-ins/decodeURIComponent
+      - test/built-ins/encodeURI
+      - test/built-ins/encodeURIComponent
+      - test/built-ins/eval
+      - test/built-ins/isFinite
+      - test/built-ins/isNaN
+    tags:
+      - "!class-fields-private"
+      - "!async-functions"
+      - "!async-iteration"
+      - "!generators"
+      - "!destructuring"
+      - "!default-parameters"
+      - "!rest-parameters"
+      - "!arrow-function"
+
   - name: json-modules
     files:
       - test/language/import/import-attributes
