@@ -319,6 +319,10 @@ features:
     tags:
       - generators
 
+  - name: intl-plural-rules
+    files:
+      - test/intl402/PluralRules
+
   - name: intl-relative-time-format
     files:
       - test/intl402/RelativeTimeFormat
