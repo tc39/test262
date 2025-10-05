@@ -22,7 +22,7 @@ def read_features(filename):
     return yaml.safe_load(frontmatter).get('features', [])
 
 def file_is_test(filename):
-    return not filename.endswith('FIXTURE.js')
+    return not (filename.endswith('FIXTURE.js') or filename.endswith('.json'))
 
 def pattern_from_path_spec(path_spec):
     return re.compile(re.sub('\*', '.*', path_spec))
