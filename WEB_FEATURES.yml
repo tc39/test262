@@ -319,6 +319,12 @@ features:
     tags:
       - generators
 
+  - name: json-modules
+    files:
+      - test/language/import/import-attributes
+    tags:
+      - json-modules
+
   - name: json-raw
     files:
       - test/built-ins/JSON/rawJSON
