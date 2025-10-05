@@ -319,6 +319,11 @@ features:
     tags:
       - generators
 
+  - name: logical-assignments
+    files:
+      - test/language/expressions/logical-assignment/lgcl-and*
+      - test/language/expressions/logical-assignment/lgcl-or*
+
   - name: map
     files:
       - test/built-ins/Map/*.js
