@@ -319,6 +319,33 @@ features:
     tags:
       - generators
 
+  - name: globalthis
+    files:
+      - test/built-ins/global
+    tags:
+      - globalThis
+
+  - name: hashbang-comments
+    files:
+      - test/language/comments/hashbang
+
+  - name: html-wrapper-methods
+    files:
+      - test/annexB/built-ins/String/prototype/anchor
+      - test/annexB/built-ins/String/prototype/big
+      - test/annexB/built-ins/String/prototype/blink
+      - test/annexB/built-ins/String/prototype/bold
+      - test/annexB/built-ins/String/prototype/fixed
+      - test/annexB/built-ins/String/prototype/fontcolor
+      - test/annexB/built-ins/String/prototype/fontsize
+      - test/annexB/built-ins/String/prototype/italics
+      - test/annexB/built-ins/String/prototype/link
+      - test/annexB/built-ins/String/prototype/small
+      - test/annexB/built-ins/String/prototype/strike
+      - test/annexB/built-ins/String/prototype/sub
+      - test/annexB/built-ins/String/prototype/substr
+      - test/annexB/built-ins/String/prototype/sup
+
   - name: intl-display-names
     files:
       - test/intl402/DisplayNames
