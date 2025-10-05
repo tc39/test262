@@ -319,6 +319,11 @@ features:
     tags:
       - generators
 
+  - name: let-const
+    files:
+      - test/language/statements/const
+      - test/language/statements/let
+
   - name: logical-assignments
     files:
       - test/language/expressions/logical-assignment/lgcl-and*
