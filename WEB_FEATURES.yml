@@ -335,6 +335,17 @@ features:
     files:
       - test/language/statements/try/optional-catch-binding*
 
+  - name: promise
+    files:
+      - test/built-ins/Promise/*.js
+      - test/built-ins/Promise/Symbol.species
+      - test/built-ins/Promise/all
+      - test/built-ins/Promise/prototype/catch
+      - test/built-ins/Promise/prototype/then
+      - test/built-ins/Promise/race
+      - test/built-ins/Promise/reject
+      - test/built-ins/Promise/resolve
+
   - name: promise-allsettled
     files:
       - test/built-ins/Promise/allSettled
