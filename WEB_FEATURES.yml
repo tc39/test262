@@ -327,6 +327,11 @@ features:
       - test/built-ins/parseFloat
       - test/language/literals/numeric/*
 
+  - name: nullish-coalescing
+    files:
+      - test/language/expressions/coalesce
+      - test/language/expressions/logical-assignment/lgcl-nullish*
+
   - name: numeric-separators
     files:
       - test/language/literals/numeric/numeric-separators
