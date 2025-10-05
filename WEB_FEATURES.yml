@@ -490,11 +490,6 @@ features:
   - name: template-literals
     files:
       - test/language/expressions/template-literal
-  - name: template-literals
-    files:
-      - test/language
-    tags:
-      - template
 
   - name: temporal
     files:
