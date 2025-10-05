@@ -319,6 +319,14 @@ features:
     tags:
       - generators
 
+  - name: number
+    files:
+      - test/built-ins/Number
+      - test/built-ins/Math
+      - test/built-ins/parseInt
+      - test/built-ins/parseFloat
+      - test/language/literals/numeric/*
+
   - name: numeric-separators
     files:
       - test/language/literals/numeric/numeric-separators
