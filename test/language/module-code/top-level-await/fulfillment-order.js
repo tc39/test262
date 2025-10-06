@@ -44,7 +44,7 @@ const importsP = Promise.all([
   import("./fulfillment-order_b_FIXTURE.js").finally(() => logs.push("B")).catch(() => {}),
 ]);
 
-// Wait for evaluation of both graphs with entyrpoints in A and B to start before
+// Wait for evaluation of both graphs with entry points in A and B to start before
 // settling the promise that B is blocked on.
 Promise.all([pA_start.promise, pB_start.promise]).then(p1.resolve);
 
