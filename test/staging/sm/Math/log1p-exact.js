@@ -5,6 +5,7 @@
 description: |
   pending
 esid: pending
+includes: [sm/non262-Math-shell.js]
 ---*/
 // Properties of Math.log1p that are guaranteed by the spec.
 

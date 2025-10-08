@@ -1,5 +1,5 @@
 /*---
-defines: [assertNear]
+defines: [assertNear, ONE_PLUS_EPSILON, ONE_MINUS_EPSILON]
 ---*/
 
 // The nearest representable values to +1.0.

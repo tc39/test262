@@ -5,6 +5,7 @@
 description: |
   pending
 esid: pending
+includes: [sm/non262-Math-shell.js]
 ---*/
 // If x is NaN, the result is NaN.
 assert.sameValue(Math.trunc(NaN), NaN);
