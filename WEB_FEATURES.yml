@@ -205,6 +205,7 @@ features:
   - name: async-iterators
     files:
       - test/built-ins/AsyncIteratorPrototype/Symbol.asyncIterator
+      - test/built-ins/Symbol/asyncIterator
   - name: async-iterators
     files:
       - test/language/statements/for-await-of
@@ -366,7 +367,7 @@ features:
 
   - name: intl-locale-info
     files:
-      - test/intl402/Locale
+      - test/intl402/Locale/*
     tags:
       - Intl.Locale-info
   - name: intl-locale-info
@@ -395,6 +396,7 @@ features:
     files:
       - test/built-ins/Iterator/constructor.js
       - test/built-ins/Iterator/from
+      - test/built-ins/Iterator/prototype/constructor # because the compat_feature includes "Iterator.Iterator"
       - test/built-ins/Iterator/prototype/drop
       - test/built-ins/Iterator/prototype/every
       - test/built-ins/Iterator/prototype/filter
@@ -409,7 +411,8 @@ features:
 
   - name: iterators
     files:
-      - test/built-ins/Iterator/*.js
+      - test/built-ins/Iterator/*
+      - "!test/built-ins/Iterator/constructor.js"
       - test/built-ins/Iterator/prototype/Symbol.iterator
       - test/language/statements/for-of
 
@@ -468,12 +471,7 @@ features:
       - test/language/expressions/void
       - test/built-ins/Boolean
       - test/built-ins/Error
-      - test/built-ins/NativeErrors/EvalError
-      - test/built-ins/NativeErrors/RangeError
-      - test/built-ins/NativeErrors/ReferenceError
-      - test/built-ins/NativeErrors/SyntaxError
-      - test/built-ins/NativeErrors/TypeError
-      - test/built-ins/NativeErrors/URIError
+      - test/built-ins/NativeErrors
       - test/built-ins/decodeURI
       - test/built-ins/decodeURIComponent
       - test/built-ins/encodeURI
@@ -485,6 +483,7 @@ features:
       - "!class-fields-private"
       - "!async-functions"
       - "!async-iteration"
+      - "!error-cause"
       - "!generators"
       - "!destructuring"
       - "!default-parameters"
@@ -519,9 +518,9 @@ features:
 
   - name: map
     files:
-      - test/built-ins/Map/*.js
+      - test/built-ins/Map/*
       - test/built-ins/Map/Symbol.species
-      - test/built-ins/Map/prototype/*.js
+      - test/built-ins/Map/prototype/*
       - test/built-ins/Map/prototype/clear
       - test/built-ins/Map/prototype/delete
       - test/built-ins/Map/prototype/entries
@@ -542,11 +541,9 @@ features:
     files:
       - test/built-ins/Number
       - test/built-ins/parseInt
-      - test/built-ins/parseFloat
       - test/language/literals/numeric/*
-  - name: number
-    files:
-      - test/built-ins/Math/*.js
+      - test/built-ins/Infinity
+      - test/built-ins/Math/*
       - test/built-ins/Math/E
       - test/built-ins/Math/LN10
       - test/built-ins/Math/LN2
@@ -590,6 +587,12 @@ features:
       - test/built-ins/Math/tan
       - test/built-ins/Math/tanh
       - test/built-ins/Math/trunc
+      - test/built-ins/NaN
+  - name: number
+    files:
+      - test/built-ins/parseFloat
+    tags:
+      - "!numeric-separator-literal"
 
   - name: nullish-coalescing
     files:
@@ -599,6 +602,11 @@ features:
   - name: numeric-separators
     files:
       - test/language/literals/numeric/numeric-separators
+  - name: numeric-separators
+    files:
+      - test/built-ins/parseFloat
+    tags:
+      - numeric-separator-literal
 
   - name: optional-catch-binding
     files:
@@ -606,7 +614,7 @@ features:
 
   - name: promise
     files:
-      - test/built-ins/Promise/*.js
+      - test/built-ins/Promise/*
       - test/built-ins/Promise/Symbol.species
       - test/built-ins/Promise/all
       - test/built-ins/Promise/prototype/catch
@@ -642,9 +650,9 @@ features:
 
   - name: set
     files:
-      - test/built-ins/Set/*.js
+      - test/built-ins/Set/*
       - test/built-ins/Set/Symbol.species
-      - test/built-ins/Set/prototype/*.js
+      - test/built-ins/Set/prototype/*
       - test/built-ins/Set/prototype/add
       - test/built-ins/Set/prototype/clear
       - test/built-ins/Set/prototype/delete
@@ -670,6 +678,11 @@ features:
     files:
       - test/built-ins/Atomics
       - test/built-ins/SharedArrayBuffer
+  - name: shared-memory
+    files:
+      - test/build-ins/DataView
+    tags:
+      - SharedArrayBuffer
 
   - name: spread
     files:
@@ -681,13 +694,20 @@ features:
 
   - name: stable-array-sort
     files:
-      - test/built-ins/Array/prototype/sort/stability*
+      - test/built-ins/Array/prototype/sort
+    tags:
+      - stable-array-sort
+  - name: stable-array-sort
+    files:
+      - test/built-ins/TypedArray/prototype/sort
+    tags:
+      - stable-typedarray-sort
 
   - name: strings
     files:
-      - test/built-ins/String/*.js
+      - test/built-ins/String/*
       - test/built-ins/String/fromCharCode
-      - test/built-ins/String/prototype/*.js
+      - test/built-ins/String/prototype/*
       - test/built-ins/String/prototype/charAt
       - test/built-ins/String/prototype/charCodeAt
       - test/built-ins/String/prototype/concat
@@ -762,7 +782,22 @@ features:
 
   - name: symbol
     files:
-      - test/built-ins/Symbol
+      - test/built-ins/Symbol/*
+      - test/built-ins/Symbol/for
+      - test/built-ins/Symbol/hasInstance
+      - test/built-ins/Symbol/isConcatSpreadable
+      - test/built-ins/Symbol/iterator
+      - test/built-ins/Symbol/keyFor
+      - test/built-ins/Symbol/match
+      - test/built-ins/Symbol/matchAll
+      - test/built-ins/Symbol/prototype
+      - test/built-ins/Symbol/replace
+      - test/built-ins/Symbol/search
+      - test/built-ins/Symbol/species
+      - test/built-ins/Symbol/split
+      - test/built-ins/Symbol/toPrimitive
+      - test/built-ins/Symbol/toStringTag
+      - test/built-ins/Symbol/unscopables
       - test/language/statements/class/subclass/builtin-objects/Symbol
     tags:
       - Symbol
@@ -770,6 +805,7 @@ features:
   - name: template-literals
     files:
       - test/language/expressions/template-literal
+      - test/language/expressions/tagged-template
 
   - name: temporal
     files:
@@ -797,27 +833,48 @@ features:
 
   - name: typed-array-iterators
     files:
-      - test/built-ins/ArrayIteratorPrototype/next/*Array.js
-      - test/built-ins/ArrayIteratorPrototype/next/detach-typedarray-in-progress.js
       - test/built-ins/TypedArray/from/*iter*
       - test/built-ins/TypedArray/prototype/Symbol.iterator
       - test/built-ins/TypedArray/prototype/entries
       - test/built-ins/TypedArray/prototype/keys
       - test/built-ins/TypedArray/prototype/values
+  - name: typed-array-iterators
+    files:
+      - test/built-ins/ArrayIteratorPrototype/next
+    tags:
+      - TypedArray
 
   - name: typed-arrays
     files:
       - test/built-ins/TypedArray
-      - test/built-ins/TypedArrayConstructors
+      - "!test/built-ins/TypedArray/from"
+      - "!test/built-ins/TypedArray/of"
+      - "!test/built-ins/TypedArray/prototype/at"
+      - "!test/built-ins/TypedArray/prototype/copyWithin"
+      - "!test/built-ins/TypedArray/prototype/fill"
+      - "!test/built-ins/TypedArray/prototype/find"
+      - "!test/built-ins/TypedArray/prototype/findIndex"
+      - "!test/built-ins/TypedArray/prototype/findLast"
+      - "!test/built-ins/TypedArray/prototype/findLastIndex"
+      - "!test/built-ins/TypedArray/prototype/includes"
+      - "!test/built-ins/TypedArray/prototype/toReversed"
+      - "!test/built-ins/TypedArray/prototype/toSorted"
+      - "!test/built-ins/TypedArray/prototype/with"
+      - "!test/built-ins/TypedArrayConstructors"
+      - "!test/built-ins/TypedArrayConstructors/BigInt64Array"
+      - "!test/built-ins/TypedArrayConstructors/BigUint64Array"
+      - "!test/built-ins/TypedArrayConstructors/from"
+      - "!test/built-ins/TypedArrayConstructors/of"
+      - "!test/built-ins/TypedArrayConstructors/prototype/copyWithin"
+      - "!test/built-ins/TypedArrayConstructors/prototype/fill"
+      - "!test/built-ins/TypedArrayConstructors/prototype/find"
+      - "!test/built-ins/TypedArrayConstructors/prototype/findIndex"
+    tags:
+      - "!stable-typedarray-sort"
 
   - name: uint8array-base64-hex
     files:
-      - test/built-ins/Uint8Array/fromBase64
-      - test/built-ins/Uint8Array/fromHex
-      - test/built-ins/Uint8Array/prototype/setFromBase64
-      - test/built-ins/Uint8Array/prototype/setFromHex
-      - test/built-ins/Uint8Array/prototype/toBase64
-      - test/built-ins/Uint8Array/prototype/toHex
+      - test/built-ins/Uint8Array
 
   - name: unicode-point-escapes
     files:
@@ -830,6 +887,7 @@ features:
   - name: weak-references
     files:
       - test/built-ins/WeakRef
+      - test/built-ins/FinalizationRegistry
       - test/language/expressions/class/subclass-builtins/subclass-WeakRef.js
       - test/language/statements/class/subclass-builtins/subclass-WeakRef.js
 
