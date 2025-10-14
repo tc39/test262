@@ -25,13 +25,13 @@ def file_is_test(filename):
     return not (filename.endswith('FIXTURE.js') or filename.endswith('.json'))
 
 def pattern_from_path_spec(path_spec):
-    return re.compile(re.sub('\*', '.*', path_spec))
+    return re.compile(re.sub('\*', '.*', path_spec) + '(/|$)')
 
 def get_filenames(path_spec):
     pattern = pattern_from_path_spec(path_spec)
 
     # path_spec is a literal path, not a pattern
-    if pattern.pattern == path_spec:
+    if pattern.pattern == path_spec + '(/|$)':
         if os.path.isfile(path_spec):
             yield path_spec
         elif os.path.isdir(path_spec):
@@ -61,7 +61,7 @@ def get_filenames(path_spec):
                 matched = True
                 yield file
 
-    assert matched, 'At least one matching file for "{path_spec}"'
+    assert matched, f'At least one matching file for "{path_spec}"'
 
 def get_filenames_from_path_specs(path_specs):
     filenames = set()
