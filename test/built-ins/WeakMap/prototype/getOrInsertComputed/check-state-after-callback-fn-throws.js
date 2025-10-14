@@ -11,7 +11,7 @@ info: |
 
   6. Let value be ? Call(callbackfn, key).
   ...
-features: [upsert, WeakMap, Symbol]
+features: [upsert, WeakMap, Symbol, symbols-as-weakmap-keys]
 ---*/
 var map = new WeakMap();
 const obj0 = {};
