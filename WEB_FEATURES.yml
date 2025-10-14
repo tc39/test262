@@ -680,7 +680,7 @@ features:
       - test/built-ins/SharedArrayBuffer
   - name: shared-memory
     files:
-      - test/build-ins/DataView
+      - test/built-ins/DataView
     tags:
       - SharedArrayBuffer
 
@@ -860,7 +860,7 @@ features:
       - "!test/built-ins/TypedArray/prototype/toReversed"
       - "!test/built-ins/TypedArray/prototype/toSorted"
       - "!test/built-ins/TypedArray/prototype/with"
-      - "!test/built-ins/TypedArrayConstructors"
+      - test/built-ins/TypedArrayConstructors
       - "!test/built-ins/TypedArrayConstructors/BigInt64Array"
       - "!test/built-ins/TypedArrayConstructors/BigUint64Array"
       - "!test/built-ins/TypedArrayConstructors/from"
