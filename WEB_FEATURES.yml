@@ -1,3 +1,5 @@
+# For documentation on the purpose and structure of this file, please see
+# tools/web-features/README.md
 features:
   - name: arguments-callee
     files:
