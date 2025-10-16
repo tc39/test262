@@ -1,6 +1,13 @@
 # For documentation on the purpose and structure of this file, please see
 # tools/web-features/README.md
 features:
+  - name: accessor-methods
+    files:
+      - test/built-ins/Object/prototype/__defineGetter__
+      - test/built-ins/Object/prototype/__defineSetter__
+      - test/built-ins/Object/prototype/__lookupGetter__
+      - test/built-ins/Object/prototype/__lookupSetter__
+
   - name: arguments-callee
     files:
       - test/language/arguments-object/S10.6_A1.js
@@ -228,6 +235,10 @@ features:
       - test/annexB/built-ins/Date/prototype/getYear
       - test/annexB/built-ins/Date/prototype/setYear
 
+  - name: date-to-gmt-string
+    files:
+      - test/annexB/built-ins/Date/prototype/toGMTString
+
   - name: destructuring
     files:
       - test/language/destructuring
@@ -247,6 +258,13 @@ features:
       - test/language/statements/function/dstr
       - test/language/statements/try/dstr
       - test/language/statements/variable/dstr
+
+  - name: error-cause
+    files:
+      - test/built-ins/Error
+      - test/built-ins/NativeErrors
+    tags:
+      - error-cause
 
   - name: escape-unescape
     files:
@@ -394,6 +412,10 @@ features:
     files:
       - test/intl402/Segmenter
 
+  - name: is-error
+    files:
+      - test/built-ins/Error/isError
+
   - name: iterator-methods
     files:
       - test/built-ins/Iterator/constructor.js
@@ -417,6 +439,8 @@ features:
       - "!test/built-ins/Iterator/constructor.js"
       - test/built-ins/Iterator/prototype/Symbol.iterator
       - test/language/statements/for-of
+    tags:
+      - "!resizable-arraybuffer"
 
   - name: javascript
     files:
@@ -610,6 +634,58 @@ features:
     tags:
       - numeric-separator-literal
 
+  - name: object-hasown
+    files:
+      - test/built-ins/Object/hasOwn
+
+  - name: object-object
+    files:
+      - test/built-ins/Object/*
+    tags:
+      - "!BigInt"
+  - name: object-object
+    files:
+      - test/built-ins/Object/*
+      - test/built-ins/Object/is
+      - test/built-ins/Object/assign
+      - test/built-ins/Object/create
+      - test/built-ins/Object/defineProperties
+      - test/built-ins/Object/defineProperty
+      - test/built-ins/Object/entries
+      - test/built-ins/Object/freeze
+      - test/built-ins/Object/fromEntries
+      - test/built-ins/Object/getOwnPropertyDescriptor
+      - test/built-ins/Object/getOwnPropertyDescriptors
+      - test/built-ins/Object/getOwnPropertyNames
+      - test/built-ins/Object/getOwnPropertySymbols
+      - test/built-ins/Object/getPrototypeOf
+      - test/built-ins/Object/isExtensible
+      - test/built-ins/Object/isFrozen
+      - test/built-ins/Object/isSealed
+      - test/built-ins/Object/keys
+      - test/built-ins/Object/preventExtensions
+      - test/built-ins/Object/seal
+      - test/built-ins/Object/setPrototypeOf
+      - test/built-ins/Object/values
+      - test/built-ins/Object/prototype/hasOwnProperty
+      - test/built-ins/Object/prototype/isPrototypeOf
+      - test/built-ins/Object/prototype/propertyIsEnumerable
+      - test/built-ins/Object/prototype/toString
+      - test/built-ins/Object/prototype/valueOf
+      - test/language/expressions/optional-chaining
+  - name: object-object
+    files:
+      - test/language/expressions/object/*
+      - "!test/language/expressions/object/object-spread-*"
+      - "!test/language/expressions/object/*__proto__*"
+      - test/language/expressions/object/method-definition
+    tags:
+      - "!async-functions"
+      - "!async-iteration"
+      - "!generators"
+      - "!class-methods-private"
+      - "!class-static-methods-private"
+
   - name: optional-catch-binding
     files:
       - test/language/statements/try/optional-catch-binding*
@@ -645,10 +721,63 @@ features:
     files:
       - test/built-ins/Promise/withResolvers
 
+  - name: proto
+    files:
+      - test/built-ins/JSON/parse/S15.12.2_A1.js
+      - test/built-ins/JSON/parse/duplicate-proto.js
+      - test/built-ins/Object/prototype/__proto__
+      - test/language/expressions/object/*__proto__*
+      - test/language/types/object/S8.6.2_A8.js
+
   - name: proxy-reflect
     files:
       - test/built-ins/Proxy
       - test/built-ins/Reflect
+
+  - name: regexp
+    files:
+      - test/built-ins/RegExp
+      - "!test/built-ins/RegExp/*unicode_restricted_identity_escape*"
+      - "!test/built-ins/RegExp/escape"
+      - test/language/literals/regexp
+    tags:
+      - "!numeric-separator-literal"
+
+  - name: regexp-compile
+    files:
+      - test/annexB/built-ins/RegExp/prototype/compile
+
+  - name: regexp-escape
+    files:
+      - test/built-ins/RegExp/escape
+
+  - name: regexp-static-properties
+    files:
+      - test/annexB/built-ins/RegExp/legacy-accessors
+
+  - name: resizable-buffers
+    files:
+      - test/built-ins/Array/prototype
+      - test/built-ins/ArrayBuffer
+      - "!test/built-ins/ArrayBuffer/prototype/detached"
+      - "!test/built-ins/ArrayBuffer/prototype/transfer"
+      - "!test/built-ins/ArrayBuffer/prototype/transferToFixedLength"
+      - test/built-ins/Function/prototype/apply
+      - test/built-ins/Object/defineProperties
+      - test/built-ins/Object/defineProperty
+      - test/built-ins/Object/freeze
+      - test/built-ins/SharedArrayBuffer
+      - test/built-ins/TypedArray
+      - test/built-ins/TypedArrayConstructors
+      - test/language/statements/for-of
+    tags:
+      - resizable-arraybuffer
+
+  - name: transferable-arraybuffer
+    files:
+      - test/built-ins/ArrayBuffer/prototype/detached
+      - test/built-ins/ArrayBuffer/prototype/transfer
+      - test/built-ins/ArrayBuffer/prototype/transferToFixedLength
 
   - name: set
     files:
