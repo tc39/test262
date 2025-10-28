@@ -26,7 +26,7 @@ info: |
   "importer of cycle leaf", _requiredModule_ is "cycle leaf (TLA)", and
   _requiredModule_.[[CycleRoot]] is "cycle root (TLA)".
   The [[Status]] of "cycle leaf (TLA)" and of "cycle root (TLA)" is ~evaluating-async~,
-  because they have alredy been traversed and they are blocked on the TLA in "cycle leaf (TLA)".
+  because they have already been traversed and they are blocked on the TLA in "cycle leaf (TLA)".
   Thus, their [[AsyncEvaluationOrder]] is an integer, so the _requiredModule_ variable is used
   to determine what module "importer of cycle leaf" should wait for.
 
