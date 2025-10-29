@@ -17,7 +17,7 @@ const primitiveTests = [
   [null, 'null'],
   [true, 'boolean'],
   ['', 'empty string'],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, 'number'],
   [1n, 'bigint']
 ];
 
