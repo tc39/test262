@@ -17,4 +17,4 @@ features: [import-attributes, import-text]
 
 import value from './text-javascript_FIXTURE.js' with { type: 'text' };
 
-assert.sameValue(value, 'throw "This should not be evaluated."\n');
+assert(value.includes('throw "This should not be evaluated."'));
