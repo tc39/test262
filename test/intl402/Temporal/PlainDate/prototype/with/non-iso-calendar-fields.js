@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.plaindate.prototype.with
 description: Properties passed to with() are calendar fields, not ISO date
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 const instance = new Temporal.PlainDate(2024, 8, 8, "hebrew");

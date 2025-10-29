@@ -22,7 +22,7 @@ info: |
   calendars with regnal eras.
 
 includes: [temporalHelpers.js]
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 // Based on a test originally by André Bargull <andre.bargull@gmail.com>

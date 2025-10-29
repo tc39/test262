@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.plaindate.prototype.with
 description: Behaviour when property bag forms a date out of bounds of the current era
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 // Last day of Showa era
