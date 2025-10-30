@@ -11,3 +11,5 @@ const maxYear = new Temporal.PlainDate(275760, 1, 1);
 const duration = new Temporal.Duration(0, 5432, 5432, 0, 0, 0, 0, 0, 0, 0);
 assert.throws(RangeError, () => maxYear.add(duration));
 
+const minYear = new Temporal.PlainDate(-271821, 4, 19);
+assert.throws(RangeError, () => minYear.add(duration.negated()));
