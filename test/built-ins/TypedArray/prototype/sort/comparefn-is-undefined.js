@@ -13,11 +13,11 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  let sample = new TA([42, 44, 46, 43, 45]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  let sample = new TA(makeCtorArg([42, 44, 46, 43, 45]));
   let explicit = sample.sort(undefined);
   let implicit = sample.sort();
 
   assert.compareArray(explicit, [42, 43, 44, 45, 46], 'The value of `explicit` is [42, 43, 44, 45, 46]');
   assert.compareArray(implicit, [42, 43, 44, 45, 46], 'The value of `implicit` is [42, 43, 44, 45, 46]');
-});
+}, null, null, ["immutable"]);
