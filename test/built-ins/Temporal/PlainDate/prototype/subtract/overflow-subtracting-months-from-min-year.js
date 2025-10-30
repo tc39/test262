@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.add
-description: Adding months to maximum year should throw
+esid: sec-temporal.plaindate.prototype.subtract
+description: Subtracting months from minimum year should throw
 features: [Temporal]
 ---*/
 
-const maxYear = new Temporal.PlainDate(275760, 1, 1);
+const minYear = new Temporal.PlainDate(-271821, 1, 1);
 const duration = new Temporal.Duration(0, 5432, 5432, 0, 0, 0, 0, 0, 0, 0);
-assert.throws(RangeError, () => maxYear.add(duration));
+assert.throws(RangeError, () => minYear.subtract(duration));
 
