@@ -26,8 +26,20 @@ assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({milliseconds: N
 assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({seconds: Number.MAX_SAFE_INTEGER})));
 assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({seconds: Number.MIN_SAFE_INTEGER})));
 
-const pdt2 = new Temporal.PlainDateTime(0, 1, 1);
 const bigNumber = 9007199254740990976;
+
+TemporalHelpers.assertPlainDateTime(pdt1.add(Temporal.Duration.from({nanoseconds: bigNumber})),
+                                    2305, 8, "M08", 4, 0, 45, 2, 488, 603, 554);
+TemporalHelpers.assertPlainDateTime(pdt1.add(Temporal.Duration.from({nanoseconds: -bigNumber})),
+                                    1734, 9, "M09", 26, 1, 9, 53, 6, 621, 602);
+
+assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({microseconds: bigNumber})));
+assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({microseconds: -bigNumber})));
+
+assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({milliseconds: bigNumber})));
+assert.throws(RangeError, () => pdt1.add(Temporal.Duration.from({milliseconds: -bigNumber})));
+
+const pdt2 = new Temporal.PlainDateTime(0, 1, 1);
 
 TemporalHelpers.assertPlainDateTime(pdt2.add(Temporal.Duration.from({nanoseconds: bigNumber})),
                                     285, 6, "M06", 4, 23, 47, 34, 740, 990, 976);

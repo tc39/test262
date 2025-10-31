@@ -25,8 +25,20 @@ assert.throws(RangeError, () => i1.add(Temporal.Duration.from({milliseconds: Num
 assert.throws(RangeError, () => i1.add(Temporal.Duration.from({seconds: Number.MAX_SAFE_INTEGER})));
 assert.throws(RangeError, () => i1.add(Temporal.Duration.from({seconds: Number.MIN_SAFE_INTEGER})));
 
-const i2 = new Temporal.Instant(0n);
 const bigNumber = 9007199254740990976;
+
+assert.sameValue(i1.add(Temporal.Duration.from({nanoseconds: bigNumber})).epochNanoseconds,
+                 10590165902488603554n);
+assert.sameValue(i1.add(Temporal.Duration.from({nanoseconds: -bigNumber})).epochNanoseconds,
+                 -7424232606993378398n);
+
+assert.throws(RangeError, () => i1.add(Temporal.Duration.from({milliseconds: bigNumber})));
+assert.throws(RangeError, () => i1.add(Temporal.Duration.from({milliseconds: -bigNumber})));
+
+assert.throws(RangeError, () => i1.add(Temporal.Duration.from({microseconds: bigNumber})));
+assert.throws(RangeError, () => i1.add(Temporal.Duration.from({microseconds: -bigNumber})));
+
+const i2 = new Temporal.Instant(0n);
 
 assert.sameValue(i2.add(Temporal.Duration.from({nanoseconds: bigNumber})).epochNanoseconds,
                  9007199254740990976n);

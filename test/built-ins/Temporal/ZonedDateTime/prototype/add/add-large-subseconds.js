@@ -26,8 +26,20 @@ assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({milliseconds: N
 assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({seconds: Number.MAX_SAFE_INTEGER})));
 assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({seconds: Number.MIN_SAFE_INTEGER})));
 
-const zdt2 = new Temporal.ZonedDateTime(0n, "UTC");
 const bigNumber = 9007199254740990976;
+
+assert.sameValue(zdt1.add(Temporal.Duration.from({nanoseconds: bigNumber})).epochNanoseconds,
+                 10590165902488603554n);
+assert.sameValue(zdt1.add(Temporal.Duration.from({nanoseconds: -bigNumber})).epochNanoseconds,
+                 -7424232606993378398n);
+
+assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({milliseconds: bigNumber})));
+assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({milliseconds: -bigNumber})));
+
+assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({microseconds: bigNumber})));
+assert.throws(RangeError, () => zdt1.add(Temporal.Duration.from({microseconds: -bigNumber})));
+
+const zdt2 = new Temporal.ZonedDateTime(0n, "UTC");
 
 assert.sameValue(zdt2.add(Temporal.Duration.from({nanoseconds: bigNumber})).epochNanoseconds,
                  9007199254740990976n);
