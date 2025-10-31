@@ -30,8 +30,24 @@ TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({seconds: Num
 TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({seconds: Number.MIN_SAFE_INTEGER})),
                                 8, 33, 58, 747, 612, 578);
 
-const t2 = new Temporal.PlainTime(0);
 const bigNumber = 9007199254740990976;
+
+TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({nanoseconds: bigNumber})),
+                                1, 9, 53, 6, 621, 602);
+TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({nanoseconds: -bigNumber})),
+                                0, 45, 2, 488, 603, 554);
+
+TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({microseconds: bigNumber})),
+                                15, 58, 26, 756, 636, 578);
+TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({microseconds: -bigNumber})),
+                                9, 56, 28, 738, 588, 578);
+
+TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({milliseconds: bigNumber})),
+                                17, 20, 56, 771, 612, 578);
+TemporalHelpers.assertPlainTime(t1.subtract(Temporal.Duration.from({milliseconds: -bigNumber})),
+                                8, 33, 58, 723, 612, 578);
+
+const t2 = new Temporal.PlainTime(0);
 
 TemporalHelpers.assertPlainTime(t2.subtract(Temporal.Duration.from({nanoseconds: bigNumber})),
                                 0, 12, 25, 259, 9, 24);
