@@ -46,11 +46,6 @@ const requiredCalendars = [
 ]
 
 const supportedCalendars = Intl.supportedValuesOf("calendar");
-let currentCalendar = "";
-
-function containedInCalendar(requiredCalendar){
-  currentCalendar = requiredCalendar;
-  return supportedCalendars.includes(requiredCalendar);
+for (const calendar of requiredCalendars) {
+  assert(supportedCalendars.includes(calendar), "Required calendar: " + calendar + " must be supported");
 }
-
-assert.sameValue(requiredCalendars.every(containedInCalendar), true, "Required calendar: " + currentCalendar + " not supported");
