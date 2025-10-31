@@ -6,7 +6,7 @@ esid: sec-temporal.plaindate.prototype.weekofyear
 description: >
   Temporal.PlainDate.prototype.weekOfYear returns undefined for all
   non-ISO calendars without a well-defined week numbering system.
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 assert.sameValue(

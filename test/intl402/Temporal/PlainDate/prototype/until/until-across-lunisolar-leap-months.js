@@ -4,7 +4,7 @@
 /*---
 description: dateUntil works as expected after a leap month in a lunisolar calendar
 esid: sec-temporal.plaindate.prototype.until
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 // 2001 is a leap year in the Chinese calendar with a M04L leap month.

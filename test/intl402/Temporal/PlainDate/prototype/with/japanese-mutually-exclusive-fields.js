@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindate.prototype.with
 description: Calendar-specific mutually exclusive keys in mergeFields
 includes: [temporalHelpers.js]
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 const lastDayOfShowa = Temporal.PlainDate.from({ era: "showa", eraYear: 64, year: 1989, month: 1, monthCode: "M01", day: 7, calendar: "japanese" });

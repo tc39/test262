@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindate.prototype.with
 description: Calendar-specific mutually exclusive keys in mergeFields
 includes: [temporalHelpers.js]
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 const instance = new Temporal.PlainDate(1981, 12, 15, "gregory");
