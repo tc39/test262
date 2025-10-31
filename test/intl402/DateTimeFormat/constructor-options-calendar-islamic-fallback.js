@@ -47,7 +47,7 @@ const islamicRgsa  = new Intl.DateTimeFormat("en", { calendar: "islamic-rgsa" })
 assert.sameValue(availableCalendars.includes(islamicRgsa.resolvedOptions().calendar), true, "no valid fallback for 'islamic-rgsa' calendar option");
 
 const islamicUExtension = new Intl.DateTimeFormat("en-u-ca-islamic");
-assert.sameValue(availableCalendars.includes(islamicRgsa.resolvedOptions().calendar), true, "no valid fallback for 'islamic' calendar u extension");
+assert.sameValue(availableCalendars.includes(islamicUExtension.resolvedOptions().calendar), true, "no valid fallback for 'islamic' calendar u extension");
 
 const islamicRgsaUExtension = new Intl.DateTimeFormat("en-u-ca-islamic-rgsa");
 assert.sameValue(availableCalendars.includes(islamicRgsaUExtension.resolvedOptions().calendar), true, "no valid fallback for 'islamic-rgsa' calendar u extension");
