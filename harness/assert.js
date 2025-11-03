@@ -101,6 +101,45 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
+function isPrimitive(value) {
+  return !value || (typeof value !== 'object' && typeof value !== 'function');
+}
+
+assert.compareArray = function (actual, expected, message) {
+  message = message === undefined ? '' : message;
+
+  if (typeof message === 'symbol') {
+    message = message.toString();
+  }
+
+  if (isPrimitive(actual)) {
+    assert(false, `Actual argument [${actual}] shouldn't be primitive. ${message}`);
+  } else if (isPrimitive(expected)) {
+    assert(false, `Expected argument [${expected}] shouldn't be primitive. ${message}`);
+  }
+  var result = compareArray(actual, expected);
+  if (result) return;
+
+  var format = compareArray.format;
+  assert(false, `Actual ${format(actual)} and expected ${format(expected)} should have the same contents. ${message}`);
+};
+
+function compareArray(a, b) {
+  if (b.length !== a.length) {
+    return false;
+  }
+  for (var i = 0; i < a.length; i++) {
+    if (!assert._isSameValue(b[i], a[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+compareArray.format = function (arrayLike) {
+  return `[${Array.prototype.map.call(arrayLike, String).join(', ')}]`;
+};
+
 assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
   switch (value === null ? 'null' : typeof value) {
     case 'string':

@@ -1,5 +1,5 @@
 /*---
-defines: [assertNear]
+defines: [assertNear, ONE_PLUS_EPSILON, ONE_MINUS_EPSILON]
 ---*/
 
 // The nearest representable values to +1.0.
@@ -50,10 +50,20 @@ const ONE_MINUS_EPSILON = 1 - Math.pow(2, -53);  // 1.0000000000000002
     ENDIAN = 0;  // try little-endian first
     if (diff(2, 4) === 0x100000)  // exact wrong answer we'll get on a big-endian platform
         ENDIAN = 1;
-    assert.sameValue(diff(2,4), 0x10000000000000);
-    assert.sameValue(diff(0, Number.MIN_VALUE), 1);
-    assert.sameValue(diff(1, ONE_PLUS_EPSILON), 1);
-    assert.sameValue(diff(1, ONE_MINUS_EPSILON), 1);
+    // For test262-harness compatibility,
+    // avoid `assert.sameValue` while still defining functions.
+    // https://github.com/bocoup/test262-stream/issues/34
+    const assertDiffResult = (a, b, expect, detail) => {
+        const result = diff(a, b);
+        if (result === expect) return;
+        throw new Error(
+            `Expected diff(${a}, ${b}) to be ${expect} but got ${result} [${detail}]`
+        );
+    };
+    assertDiffResult(2, 4, 0x10000000000000, "wanted 0x10000000000000");
+    assertDiffResult(0, Number.MIN_VALUE, 1, "0 vs. Number.MIN_VALUE");
+    assertDiffResult(1, ONE_PLUS_EPSILON, 1, "1 vs. ONE_PLUS_EPSILON");
+    assertDiffResult(1, ONE_MINUS_EPSILON, 1, "1 vs. ONE_MINUS_EPSILON");
 
     var assertNear = function assertNear(a, b, tolerance=1) {
         if (!Number.isFinite(b)) {
