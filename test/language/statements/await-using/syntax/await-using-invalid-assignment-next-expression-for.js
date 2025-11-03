@@ -13,6 +13,6 @@ features: [explicit-resource-management]
 
 asyncTest(async function () {
   await assert.throwsAsync(ReferenceError, async function() {
-    for (await using i = 0; i < 1; i++) {}
+    for (await using i = null; i === null; i = { [Symbol.dispose]() { } }) {}
   });
 });
