@@ -1,0 +1,1043 @@
+# For documentation on the purpose and structure of this file, please see
+# tools/web-features/README.md
+features:
+  - name: accessor-methods
+    files:
+      - test/built-ins/Object/prototype/__defineGetter__
+      - test/built-ins/Object/prototype/__defineSetter__
+      - test/built-ins/Object/prototype/__lookupGetter__
+      - test/built-ins/Object/prototype/__lookupSetter__
+
+  - name: arguments-callee
+    files:
+      - test/language/arguments-object/S10.6_A1.js
+      - test/language/arguments-object/S10.6_A2.js
+      - test/language/arguments-object/S10.6_A3_T1.js
+      - test/language/arguments-object/S10.6_A3_T2.js
+      - test/language/arguments-object/S10.6_A3_T3.js
+      - test/language/arguments-object/S10.6_A3_T4.js
+      - test/language/arguments-object/S10.6_A4.js
+      - test/language/arguments-object/S10.6_A5_T1.js
+      - test/language/arguments-object/S10.6_A5_T2.js
+      - test/language/arguments-object/S10.6_A5_T3.js
+      - test/language/arguments-object/S10.6_A5_T4.js
+      - test/language/arguments-object/S10.6_A6.js
+      - test/language/arguments-object/S10.6_A7.js
+      - test/built-ins/ThrowTypeError
+      - test/language/expressions/delete/11.4.1-4.a-11.js
+      - test/language/statements/class/strict-mode/arguments-callee.js
+      - test/language/statements/function/S13.2.2_A18_T*
+
+  - name: array
+    files:
+      - test/built-ins/Array/15.4.5*
+      - test/built-ins/Array/constructor.js
+      - test/built-ins/Array/is-a-constructor.js
+      - test/built-ins/Array/length.js
+      - test/built-ins/Array/name.js
+      - test/built-ins/Array/prop-desc.js
+      - test/built-ins/Array/property-cast-*
+      - test/built-ins/Array/S15.4*
+      - test/built-ins/Array/length/define-own-prop-length-error.js
+      - test/built-ins/Array/length/define-own-prop-length-overflow-order.js
+      - test/built-ins/Array/length/*15.4*
+      - test/built-ins/Array/prototype/constructor.js
+      - test/built-ins/Array/prototype/exotic-array.js
+      - test/built-ins/Array/prototype/length.js
+      - test/built-ins/Array/prototype/prop-desc.js
+      - test/built-ins/Array/prototype/toLocaleString
+      - test/built-ins/Array/prototype/toString
+      - test/built-ins/Array/prototype/concat
+      - test/built-ins/Array/prototype/join
+      - test/built-ins/Array/prototype/pop
+      - test/built-ins/Array/prototype/push
+      - test/built-ins/Array/prototype/reverse
+      - test/built-ins/Array/prototype/shift
+      - test/built-ins/Array/prototype/slice
+      - test/built-ins/Array/prototype/sort
+      - test/built-ins/Array/prototype/splice
+      - test/built-ins/Array/prototype/unshift
+      - test/built-ins/Array/prototype/indexOf
+      - test/built-ins/Array/prototype/lastIndexOf
+      - test/built-ins/Array/prototype/every
+      - test/built-ins/Array/prototype/some
+      - test/built-ins/Array/prototype/forEach
+      - test/built-ins/Array/prototype/map
+      - test/built-ins/Array/prototype/filter
+      - test/built-ins/Array/prototype/reduce
+      - test/built-ins/Array/prototype/reduceRight
+    tags:
+      - "!stable-array-sort"
+
+  - name: array-at
+    files:
+      - test/built-ins/TypedArray/prototype/at
+      - test/built-ins/Array/prototype/at
+
+  - name: array-by-copy
+    files:
+      - test/built-ins/Array/prototype/Symbol.unscopables/change-array-by-copy.js
+      - test/built-ins/Array/prototype/toReversed
+      - test/built-ins/Array/prototype/toSorted
+      - test/built-ins/Array/prototype/toSpliced
+      - test/built-ins/Array/prototype/with
+      - test/built-ins/TypedArray/prototype/toReversed
+      - test/built-ins/TypedArray/prototype/toSorted
+      - test/built-ins/TypedArray/prototype/with
+
+  - name: array-copywithin
+    files:
+      - test/built-ins/TypedArray/prototype/copyWithin
+      - test/built-ins/TypedArrayConstructors/prototype/copyWithin
+      - test/built-ins/Array/prototype/copyWithin
+
+  - name: array-fill
+    files:
+      - test/built-ins/TypedArray/prototype/fill
+      - test/built-ins/TypedArrayConstructors/prototype/fill
+      - test/built-ins/Array/prototype/fill
+
+  - name: array-find
+    files:
+      - test/built-ins/TypedArray/prototype/findIndex
+      - test/built-ins/TypedArray/prototype/find
+      - test/built-ins/TypedArrayConstructors/prototype/findIndex
+      - test/built-ins/TypedArrayConstructors/prototype/find
+      - test/built-ins/Array/prototype/findIndex
+      - test/built-ins/Array/prototype/find
+
+  - name: array-findlast
+    files:
+      - test/built-ins/Array
+      - test/built-ins/TypedArray
+    tags:
+      - array-find-from-last
+
+  - name: array-flat
+    files:
+      - test/built-ins/Array/prototype/flatMap
+      - test/built-ins/Array/prototype/flat
+
+  - name: array-from
+    files:
+      - test/built-ins/TypedArray/from
+      - test/built-ins/TypedArrayConstructors/from
+      - test/built-ins/Array/from
+      - test/annexB/built-ins/TypedArrayConstructors/from
+      - test/annexB/built-ins/Array/from
+
+  - name: array-fromasync
+    files:
+      - test/built-ins/Array/fromAsync
+
+  - name: array-group
+    files:
+      - test/built-ins/Map/groupBy
+      - test/built-ins/Object/groupBy
+
+  - name: array-includes
+    files:
+      - test/built-ins/Array/prototype/includes
+      - test/built-ins/TypedArray/prototype/includes
+
+  - name: array-isarray
+    files:
+      - test/built-ins/Array/isArray
+
+  - name: array-iteration-methods
+    files:
+      - test/built-ins/Array/prototype/every
+      - test/built-ins/Array/prototype/filter
+      - test/built-ins/Array/prototype/forEach
+      - test/built-ins/Array/prototype/indexOf
+      - test/built-ins/Array/prototype/lastIndexOf
+      - test/built-ins/Array/prototype/map
+      - test/built-ins/Array/prototype/reduce
+      - test/built-ins/Array/prototype/reduceRight
+      - test/built-ins/Array/prototype/some
+
+  - name: array-iterators
+    files:
+      - test/built-ins/Array/prototype/Symbol.iterator
+      - test/built-ins/Array/prototype/entries
+      - test/built-ins/Array/prototype/keys
+      - test/built-ins/Array/prototype/values
+
+  - name: array-splice
+    files:
+      - test/built-ins/Array/prototype/splice
+
+  - name: array-of
+    files:
+      - test/built-ins/TypedArray/of
+      - test/built-ins/TypedArrayConstructors/of
+      - test/built-ins/Array/of
+
+  - name: async-await
+    files:
+      - test/language/statements/async-function
+      - test/language/statements/class/async-method
+      - test/language/statements/class/async-method-static
+      - test/language/expressions/async-function
+      - test/language/expressions/class/async-method
+      - test/language/expressions/class/async-method-static
+      - test/language/expressions/async-arrow-function
+  - name: async-await
+    files:
+      - test/language/expressions/object/method-definition
+    tags:
+      - async-functions
+      - "!class-methods-private"
+
+  - name: async-generators
+    files:
+      - test/language/expressions/async-generator
+      - test/language/expressions/class/async-gen-method
+      - test/language/expressions/class/async-gen-method-static
+      - test/language/statements/async-generator
+      - test/language/statements/class/async-gen-method
+      - test/language/statements/class/async-gen-method-static
+  - name: async-generators
+    files:
+      - test/language/expressions/await
+      - test/language/block-scope/syntax/redeclaration
+      - test/language/expressions/class/dstr
+      - test/language/expressions/object/dstr
+      - test/language/expressions/object/method-definition
+      - test/language/expressions/class/elements/syntax/valid
+      - test/language/expressions/class/elements/syntax/early-errors
+    tags:
+      - async-iteration
+      - "!class-methods-private"
+      - "!class-static-methods-private"
+
+  - name: async-iterators
+    files:
+      - test/built-ins/AsyncIteratorPrototype/Symbol.asyncIterator
+      - test/built-ins/Symbol/asyncIterator
+  - name: async-iterators
+    files:
+      - test/language/statements/for-await-of
+    tags:
+      - "!explicit-resource-management"
+
+  - name: atomics-wait-async
+    files:
+      - test/built-ins/Atomics/waitAsync
+
+  - name: bigint64array
+    files:
+      - test/built-ins/TypedArrayConstructors/BigInt64Array
+      - test/built-ins/TypedArrayConstructors/BigUint64Array
+
+  - name: date-get-year-set-year
+    files:
+      - test/annexB/built-ins/Date/prototype/getYear
+      - test/annexB/built-ins/Date/prototype/setYear
+
+  - name: date-to-gmt-string
+    files:
+      - test/annexB/built-ins/Date/prototype/toGMTString
+
+  - name: destructuring
+    files:
+      - test/language/destructuring
+      - test/language/expressions/assignment/destructuring
+      - test/language/destructuring/binding
+      - test/language/expressions/arrow-function/dstr
+      - test/language/expressions/assignment/dstr
+      - test/language/expressions/function/dstr
+      - test/language/expressions/object
+      - test/language/expressions/object/dstr
+      - test/language/rest-parameters
+      - test/language/statements/class/dstr
+      - test/language/statements/class/elements/syntax/early-errors
+      - test/language/statements/for/dstr
+      - test/language/statements/for-in/dstr
+      - test/language/statements/for-of/dstr
+      - test/language/statements/function/dstr
+      - test/language/statements/try/dstr
+      - test/language/statements/variable/dstr
+
+  - name: error-cause
+    files:
+      - test/built-ins/Error
+      - test/built-ins/NativeErrors
+    tags:
+      - error-cause
+
+  - name: escape-unescape
+    files:
+      - test/annexB/built-ins/escape
+      - test/annexB/built-ins/unescape
+
+  - name: exponentiation
+    files:
+      - test/language/expressions/exponentiation
+    tags:
+      - "!BigInt"
+
+  - name: float16array
+    files:
+      - test/built-ins/DataView/prototype/getFloat16
+      - test/built-ins/DataView/prototype/setFloat16
+      - test/built-ins/Math/f16round
+    # All typed array constructors are tested in parallel. It's not clear whether
+    # it's better to include them (and risk false negatives resulting from
+    # defects in unrelated features) or exclude them (and risk false positives
+    # from under-reporting relevant issues)
+    #- test/built-ins/TypedArray
+    #- test/built-ins/TypedArrayConstructors
+
+  - name: functions
+    files:
+      - test/language/expressions/function
+      - test/language/statements/function
+    tags:
+      - "!generators"
+      - "!class-fields-private"
+      - "!class-static-block"
+  - name: functions
+    files:
+      - test/built-ins/Function
+    tags:
+      - "!class-fields-private"
+      - "!Proxy"
+      - "!class"
+      - "!Reflect"
+      - "!resizable-arraybuffer"
+      - "!Reflect.construct"
+      - "!arrow-function"
+      - "!Symbol.hasInstance"
+      - "!generators"
+      - "!class-methods-private"
+      - "!class-static-methods-private"
+      - "!async-iteration"
+
+  - name: functions-caller-arguments
+    files:
+      - test/built-ins/Function/15.3.5*
+      - test/built-ins/Function/StrictFunction_restricted-properties.js
+      - test/built-ins/Function/prototype/bind/15.3.4.5-20-*
+      - test/built-ins/Function/prototype/bind/15.3.4.5-21-*
+      - test/built-ins/Function/prototype/bind/BoundFunction_restricted-properties.js
+      - test/built-ins/Function/prototype/bind/S15.3.4.5_A1.js
+      - test/built-ins/Function/prototype/bind/S15.3.4.5_A2.js
+
+  - name: generators
+    files:
+      - test/language/statements/generators
+      - test/built-ins/GeneratorFunction
+      - test/built-ins/GeneratorPrototype
+  - name: generators
+    files:
+      - test/language/expressions/generators
+    tags:
+      - "!class-static-block"
+  - name: generators
+    files:
+      - test/language/expressions/object/method-definition
+    tags:
+      - generators
+
+  - name: globalthis
+    files:
+      - test/built-ins/global
+    tags:
+      - globalThis
+
+  - name: hashbang-comments
+    files:
+      - test/language/comments/hashbang
+
+  - name: html-wrapper-methods
+    files:
+      - test/annexB/built-ins/String/prototype/anchor
+      - test/annexB/built-ins/String/prototype/big
+      - test/annexB/built-ins/String/prototype/blink
+      - test/annexB/built-ins/String/prototype/bold
+      - test/annexB/built-ins/String/prototype/fixed
+      - test/annexB/built-ins/String/prototype/fontcolor
+      - test/annexB/built-ins/String/prototype/fontsize
+      - test/annexB/built-ins/String/prototype/italics
+      - test/annexB/built-ins/String/prototype/link
+      - test/annexB/built-ins/String/prototype/small
+      - test/annexB/built-ins/String/prototype/strike
+      - test/annexB/built-ins/String/prototype/sub
+      - test/annexB/built-ins/String/prototype/substr
+      - test/annexB/built-ins/String/prototype/sup
+
+  - name: intl-display-names
+    files:
+      - test/intl402/DisplayNames
+
+  - name: intl-duration-format
+    files:
+      - test/intl402/DurationFormat
+
+  - name: intl-list-format
+    files:
+      - test/intl402/ListFormat
+
+  - name: intl-locale
+    files:
+      - test/intl402/Locale
+    tags:
+      - "!Intl.Locale-info"
+
+  - name: intl-locale-info
+    files:
+      - test/intl402/Locale/*
+    tags:
+      - Intl.Locale-info
+  - name: intl-locale-info
+    files:
+      - test/intl402/Locale/prototype/getCalendars
+      - test/intl402/Locale/prototype/getCollations
+      - test/intl402/Locale/prototype/getHourCycles
+      - test/intl402/Locale/prototype/getNumberingSystems
+      - test/intl402/Locale/prototype/getTextInfo
+      - test/intl402/Locale/prototype/getTimeZones
+      - test/intl402/Locale/prototype/getWeekInfo
+
+  - name: intl-plural-rules
+    files:
+      - test/intl402/PluralRules
+
+  - name: intl-relative-time-format
+    files:
+      - test/intl402/RelativeTimeFormat
+
+  - name: intl-segmenter
+    files:
+      - test/intl402/Segmenter
+
+  - name: is-error
+    files:
+      - test/built-ins/Error/isError
+
+  - name: iterator-methods
+    files:
+      - test/built-ins/Iterator/constructor.js
+      - test/built-ins/Iterator/from
+      - test/built-ins/Iterator/prototype/constructor # because the compat_feature includes "Iterator.Iterator"
+      - test/built-ins/Iterator/prototype/drop
+      - test/built-ins/Iterator/prototype/every
+      - test/built-ins/Iterator/prototype/filter
+      - test/built-ins/Iterator/prototype/find
+      - test/built-ins/Iterator/prototype/flatMap
+      - test/built-ins/Iterator/prototype/forEach
+      - test/built-ins/Iterator/prototype/map
+      - test/built-ins/Iterator/prototype/reduce
+      - test/built-ins/Iterator/prototype/some
+      - test/built-ins/Iterator/prototype/take
+      - test/built-ins/Iterator/prototype/toArray
+
+  - name: iterators
+    files:
+      - test/built-ins/Iterator/*
+      - "!test/built-ins/Iterator/constructor.js"
+      - test/built-ins/Iterator/prototype/Symbol.iterator
+      - test/language/statements/for-of
+    tags:
+      - "!resizable-arraybuffer"
+
+  - name: javascript
+    files:
+      - test/language/statements/block
+      - test/language/statements/break
+      - test/language/statements/continue
+      - test/language/statements/debugger
+      - test/language/statements/do-while
+      - test/language/statements/empty
+      - test/language/statements/expression
+      - test/language/statements/if
+      - test/language/statements/labeled
+      - test/language/statements/return
+      - test/language/statements/switch
+      - test/language/statements/throw
+      - test/language/statements/with
+      - test/language/statements/while
+      - test/language/expressions/addition
+      - test/language/expressions/assignment
+      - test/language/expressions/bitwise-and
+      - test/language/expressions/bitwise-not
+      - test/language/expressions/bitwise-or
+      - test/language/expressions/bitwise-xor
+      - test/language/expressions/comma
+      - test/language/expressions/conditional
+      - test/language/expressions/delete
+      - test/language/expressions/division
+      - test/language/expressions/does-not-equals
+      - test/language/expressions/equals
+      - test/language/expressions/greater-than
+      - test/language/expressions/greater-than-or-equal
+      - test/language/expressions/in
+      - test/language/expressions/instanceof
+      - test/language/expressions/left-shift
+      - test/language/expressions/less-than
+      - test/language/expressions/less-than-or-equal
+      - test/language/expressions/logical-and
+      - test/language/expressions/logical-not
+      - test/language/expressions/logical-or
+      - test/language/expressions/modulus
+      - test/language/expressions/multiplication
+      - test/language/expressions/new
+      - test/language/expressions/postfix-decrement
+      - test/language/expressions/postfix-increment
+      - test/language/expressions/prefix-decrement
+      - test/language/expressions/prefix-increment
+      - test/language/expressions/property-accessors
+      - test/language/expressions/right-shift
+      - test/language/expressions/strict-equals
+      - test/language/expressions/strict-does-not-equals
+      - test/language/expressions/subtraction
+      - test/language/expressions/typeof
+      - test/language/expressions/unsigned-right-shift
+      - test/language/expressions/void
+      - test/built-ins/Boolean
+      - test/built-ins/Error
+      - test/built-ins/NativeErrors
+      - test/built-ins/decodeURI
+      - test/built-ins/decodeURIComponent
+      - test/built-ins/encodeURI
+      - test/built-ins/encodeURIComponent
+      - test/built-ins/eval
+      - test/built-ins/isFinite
+      - test/built-ins/isNaN
+    tags:
+      - "!class-fields-private"
+      - "!async-functions"
+      - "!async-iteration"
+      - "!error-cause"
+      - "!generators"
+      - "!destructuring"
+      - "!default-parameters"
+      - "!rest-parameters"
+      - "!arrow-function"
+
+  - name: json-modules
+    files:
+      - test/language/import/import-attributes
+    tags:
+      - json-modules
+
+  - name: json-raw
+    files:
+      - test/built-ins/JSON/rawJSON
+      - test/built-ins/JSON/isRawJSON
+  - name: json-raw
+    files:
+      - test/built-ins/JSON/parse
+    tags:
+      - json-parse-with-source
+
+  - name: let-const
+    files:
+      - test/language/statements/const
+      - test/language/statements/let
+
+  - name: logical-assignments
+    files:
+      - test/language/expressions/logical-assignment/lgcl-and*
+      - test/language/expressions/logical-assignment/lgcl-or*
+
+  - name: map
+    files:
+      - test/built-ins/Map/*
+      - test/built-ins/Map/Symbol.species
+      - test/built-ins/Map/prototype/*
+      - test/built-ins/Map/prototype/clear
+      - test/built-ins/Map/prototype/delete
+      - test/built-ins/Map/prototype/entries
+      - test/built-ins/Map/prototype/forEach
+      - test/built-ins/Map/prototype/get
+      - test/built-ins/Map/prototype/has
+      - test/built-ins/Map/prototype/keys
+      - test/built-ins/Map/prototype/set
+      - test/built-ins/Map/prototype/size
+      - test/built-ins/Map/prototype/values
+      - test/built-ins/Map/prototype/Symbol.iterator
+
+  - name: math-sum-precise
+    files:
+      - test/built-ins/Math/sumPrecise
+
+  - name: number
+    files:
+      - test/built-ins/Number
+      - test/built-ins/parseInt
+      - test/language/literals/numeric/*
+      - test/built-ins/Infinity
+      - test/built-ins/Math/*
+      - test/built-ins/Math/E
+      - test/built-ins/Math/LN10
+      - test/built-ins/Math/LN2
+      - test/built-ins/Math/LOG10E
+      - test/built-ins/Math/LOG2E
+      - test/built-ins/Math/PI
+      - test/built-ins/Math/SQRT1_2
+      - test/built-ins/Math/SQRT2
+      - test/built-ins/Math/abs
+      - test/built-ins/Math/acos
+      - test/built-ins/Math/acosh
+      - test/built-ins/Math/asin
+      - test/built-ins/Math/asinh
+      - test/built-ins/Math/atan
+      - test/built-ins/Math/atan2
+      - test/built-ins/Math/atanh
+      - test/built-ins/Math/cbrt
+      - test/built-ins/Math/ceil
+      - test/built-ins/Math/clz32
+      - test/built-ins/Math/cos
+      - test/built-ins/Math/cosh
+      - test/built-ins/Math/exp
+      - test/built-ins/Math/expm1
+      - test/built-ins/Math/floor
+      - test/built-ins/Math/fround
+      - test/built-ins/Math/hypot
+      - test/built-ins/Math/imul
+      - test/built-ins/Math/log
+      - test/built-ins/Math/log10
+      - test/built-ins/Math/log1p
+      - test/built-ins/Math/log2
+      - test/built-ins/Math/max
+      - test/built-ins/Math/min
+      - test/built-ins/Math/pow
+      - test/built-ins/Math/random
+      - test/built-ins/Math/round
+      - test/built-ins/Math/sign
+      - test/built-ins/Math/sin
+      - test/built-ins/Math/sinh
+      - test/built-ins/Math/sqrt
+      - test/built-ins/Math/tan
+      - test/built-ins/Math/tanh
+      - test/built-ins/Math/trunc
+      - test/built-ins/NaN
+  - name: number
+    files:
+      - test/built-ins/parseFloat
+    tags:
+      - "!numeric-separator-literal"
+
+  - name: nullish-coalescing
+    files:
+      - test/language/expressions/coalesce
+      - test/language/expressions/logical-assignment/lgcl-nullish*
+
+  - name: numeric-separators
+    files:
+      - test/language/literals/numeric/numeric-separators
+  - name: numeric-separators
+    files:
+      - test/built-ins/parseFloat
+    tags:
+      - numeric-separator-literal
+
+  - name: object-hasown
+    files:
+      - test/built-ins/Object/hasOwn
+
+  - name: object-object
+    files:
+      - test/built-ins/Object/*
+    tags:
+      - "!BigInt"
+  - name: object-object
+    files:
+      - test/built-ins/Object/*
+      - test/built-ins/Object/is
+      - test/built-ins/Object/assign
+      - test/built-ins/Object/create
+      - test/built-ins/Object/defineProperties
+      - test/built-ins/Object/defineProperty
+      - test/built-ins/Object/entries
+      - test/built-ins/Object/freeze
+      - test/built-ins/Object/fromEntries
+      - test/built-ins/Object/getOwnPropertyDescriptor
+      - test/built-ins/Object/getOwnPropertyDescriptors
+      - test/built-ins/Object/getOwnPropertyNames
+      - test/built-ins/Object/getOwnPropertySymbols
+      - test/built-ins/Object/getPrototypeOf
+      - test/built-ins/Object/isExtensible
+      - test/built-ins/Object/isFrozen
+      - test/built-ins/Object/isSealed
+      - test/built-ins/Object/keys
+      - test/built-ins/Object/preventExtensions
+      - test/built-ins/Object/seal
+      - test/built-ins/Object/setPrototypeOf
+      - test/built-ins/Object/values
+      - test/built-ins/Object/prototype/hasOwnProperty
+      - test/built-ins/Object/prototype/isPrototypeOf
+      - test/built-ins/Object/prototype/propertyIsEnumerable
+      - test/built-ins/Object/prototype/toString
+      - test/built-ins/Object/prototype/valueOf
+      - test/language/expressions/optional-chaining
+  - name: object-object
+    files:
+      - test/language/expressions/object/*
+      - "!test/language/expressions/object/object-spread-*"
+      - "!test/language/expressions/object/*__proto__*"
+      - test/language/expressions/object/method-definition
+    tags:
+      - "!async-functions"
+      - "!async-iteration"
+      - "!generators"
+      - "!class-methods-private"
+      - "!class-static-methods-private"
+
+  - name: optional-catch-binding
+    files:
+      - test/language/statements/try/optional-catch-binding*
+
+  - name: promise
+    files:
+      - test/built-ins/Promise/*
+      - test/built-ins/Promise/Symbol.species
+      - test/built-ins/Promise/all
+      - test/built-ins/Promise/prototype/catch
+      - test/built-ins/Promise/prototype/then
+      - test/built-ins/Promise/race
+      - test/built-ins/Promise/reject
+      - test/built-ins/Promise/resolve
+
+  - name: promise-allsettled
+    files:
+      - test/built-ins/Promise/allSettled
+
+  - name: promise-any
+    files:
+      - test/built-ins/Promise/any
+
+  - name: promise-finally
+    files:
+      - test/built-ins/Promise/prototype/finally
+
+  - name: promise-try
+    files:
+      - test/built-ins/Promise/try
+
+  - name: promise-withresolvers
+    files:
+      - test/built-ins/Promise/withResolvers
+
+  - name: proto
+    files:
+      - test/built-ins/JSON/parse/S15.12.2_A1.js
+      - test/built-ins/JSON/parse/duplicate-proto.js
+      - test/built-ins/Object/prototype/__proto__
+      - test/language/expressions/object/*__proto__*
+      - test/language/types/object/S8.6.2_A8.js
+
+  - name: proxy-reflect
+    files:
+      - test/built-ins/Proxy
+      - test/built-ins/Reflect
+
+  - name: regexp
+    files:
+      - test/built-ins/RegExp
+      - "!test/built-ins/RegExp/*unicode_restricted_identity_escape*"
+      - "!test/built-ins/RegExp/escape"
+      - test/language/literals/regexp
+    tags:
+      - "!numeric-separator-literal"
+
+  - name: regexp-compile
+    files:
+      - test/annexB/built-ins/RegExp/prototype/compile
+
+  - name: regexp-escape
+    files:
+      - test/built-ins/RegExp/escape
+
+  - name: regexp-static-properties
+    files:
+      - test/annexB/built-ins/RegExp/legacy-accessors
+
+  - name: resizable-buffers
+    files:
+      - test/built-ins/Array/prototype
+      - test/built-ins/ArrayBuffer
+      - "!test/built-ins/ArrayBuffer/prototype/detached"
+      - "!test/built-ins/ArrayBuffer/prototype/transfer"
+      - "!test/built-ins/ArrayBuffer/prototype/transferToFixedLength"
+      - test/built-ins/Function/prototype/apply
+      - test/built-ins/Object/defineProperties
+      - test/built-ins/Object/defineProperty
+      - test/built-ins/Object/freeze
+      - test/built-ins/SharedArrayBuffer
+      - test/built-ins/TypedArray
+      - test/built-ins/TypedArrayConstructors
+      - test/language/statements/for-of
+    tags:
+      - resizable-arraybuffer
+
+  - name: transferable-arraybuffer
+    files:
+      - test/built-ins/ArrayBuffer/prototype/detached
+      - test/built-ins/ArrayBuffer/prototype/transfer
+      - test/built-ins/ArrayBuffer/prototype/transferToFixedLength
+
+  - name: set
+    files:
+      - test/built-ins/Set/*
+      - test/built-ins/Set/Symbol.species
+      - test/built-ins/Set/prototype/*
+      - test/built-ins/Set/prototype/add
+      - test/built-ins/Set/prototype/clear
+      - test/built-ins/Set/prototype/delete
+      - test/built-ins/Set/prototype/entries
+      - test/built-ins/Set/prototype/forEach
+      - test/built-ins/Set/prototype/has
+      - test/built-ins/Set/prototype/keys
+      - test/built-ins/Set/prototype/size
+      - test/built-ins/Set/prototype/values
+      - test/built-ins/Set/prototype/Symbol.iterator
+
+  - name: set-methods
+    files:
+      - test/built-ins/Set/prototype/difference
+      - test/built-ins/Set/prototype/intersection
+      - test/built-ins/Set/prototype/isDisjointFrom
+      - test/built-ins/Set/prototype/isSubsetOf
+      - test/built-ins/Set/prototype/isSupersetOf
+      - test/built-ins/Set/prototype/symmetricDifference
+      - test/built-ins/Set/prototype/union
+
+  - name: shared-memory
+    files:
+      - test/built-ins/Atomics
+      - test/built-ins/SharedArrayBuffer
+  - name: shared-memory
+    files:
+      - test/built-ins/DataView
+    tags:
+      - SharedArrayBuffer
+
+  - name: spread
+    files:
+      - test/language/expressions/array/spread*
+      - test/language/expressions/call/spread*
+      - test/language/expressions/new/spread*
+      - test/language/expressions/object/object-spread-*
+      - test/language/expressions/super/call-spread-*
+
+  - name: stable-array-sort
+    files:
+      - test/built-ins/Array/prototype/sort
+    tags:
+      - stable-array-sort
+  - name: stable-array-sort
+    files:
+      - test/built-ins/TypedArray/prototype/sort
+    tags:
+      - stable-typedarray-sort
+
+  - name: strings
+    files:
+      - test/built-ins/String/*
+      - test/built-ins/String/fromCharCode
+      - test/built-ins/String/prototype/*
+      - test/built-ins/String/prototype/charAt
+      - test/built-ins/String/prototype/charCodeAt
+      - test/built-ins/String/prototype/concat
+      - test/built-ins/String/prototype/indexOf
+      - test/built-ins/String/prototype/lastIndexOf
+      - test/built-ins/String/prototype/match
+      - test/built-ins/String/prototype/replace
+      - test/built-ins/String/prototype/search
+      - test/built-ins/String/prototype/slice
+      - test/built-ins/String/prototype/split
+      - test/built-ins/String/prototype/substring
+      - test/built-ins/String/prototype/toLowerCase
+      - test/built-ins/String/prototype/toString
+      - test/built-ins/String/prototype/toUpperCase
+      - test/built-ins/String/prototype/trim
+      - test/built-ins/String/prototype/valueOf
+      - test/built-ins/String/prototype/Symbol.iterator
+      - test/language/literals/string
+
+  - name: string-at
+    files:
+      - test/built-ins/String/prototype/at
+
+  - name: string-codepoint
+    files:
+      - test/built-ins/String/prototype/codePointAt
+      - test/built-ins/String/fromCodePoint
+
+  - name: string-includes
+    files:
+      - test/built-ins/String/prototype/includes
+
+  - name: string-matchall
+    files:
+      - test/built-ins/String/prototype/matchAll
+
+  - name: string-normalize
+    files:
+      - test/built-ins/String/prototype/normalize
+
+  - name: string-pad
+    files:
+      - test/built-ins/String/prototype/padEnd
+      - test/built-ins/String/prototype/padStart
+
+  - name: string-raw
+    files:
+      - test/built-ins/String/raw
+
+  - name: string-repeat
+    files:
+      - test/built-ins/String/prototype/repeat
+
+  - name: string-replaceall
+    files:
+      - test/built-ins/String/prototype/replaceAll
+
+  - name: string-startsends-with
+    files:
+      - test/built-ins/String/prototype/endsWith
+      - test/built-ins/String/prototype/startsWith
+
+  - name: string-trim-startend
+    files:
+      - test/built-ins/String/prototype/trimEnd
+      - test/built-ins/String/prototype/trimStart
+
+  - name: string-wellformed
+    files:
+      - test/built-ins/String/prototype/isWellFormed
+      - test/built-ins/String/prototype/toWellFormed
+
+  - name: symbol
+    files:
+      - test/built-ins/Symbol/*
+      - test/built-ins/Symbol/for
+      - test/built-ins/Symbol/hasInstance
+      - test/built-ins/Symbol/isConcatSpreadable
+      - test/built-ins/Symbol/iterator
+      - test/built-ins/Symbol/keyFor
+      - test/built-ins/Symbol/match
+      - test/built-ins/Symbol/matchAll
+      - test/built-ins/Symbol/prototype
+      - test/built-ins/Symbol/replace
+      - test/built-ins/Symbol/search
+      - test/built-ins/Symbol/species
+      - test/built-ins/Symbol/split
+      - test/built-ins/Symbol/toPrimitive
+      - test/built-ins/Symbol/toStringTag
+      - test/built-ins/Symbol/unscopables
+      - test/language/statements/class/subclass/builtin-objects/Symbol
+    tags:
+      - Symbol
+
+  - name: template-literals
+    files:
+      - test/language/expressions/template-literal
+      - test/language/expressions/tagged-template
+
+  - name: temporal
+    files:
+      - test/built-ins/Date/prototype/toTemporalInstant
+      - test/built-ins/Temporal
+      - test/intl402/Temporal
+
+  - name: top-level-await
+    files:
+      - test/language/module-code/top-level-await
+    tags:
+      - top-level-await
+
+  - name: typed-array-iteration-methods
+    files:
+      - test/built-ins/TypedArray/prototype/every
+      - test/built-ins/TypedArray/prototype/filter
+      - test/built-ins/TypedArray/prototype/forEach
+      - test/built-ins/TypedArray/prototype/indexOf
+      - test/built-ins/TypedArray/prototype/lastIndexOf
+      - test/built-ins/TypedArray/prototype/map
+      - test/built-ins/TypedArray/prototype/reduce
+      - test/built-ins/TypedArray/prototype/reduceRight
+      - test/built-ins/TypedArray/prototype/some
+
+  - name: typed-array-iterators
+    files:
+      - test/built-ins/TypedArray/from/*iter*
+      - test/built-ins/TypedArray/prototype/Symbol.iterator
+      - test/built-ins/TypedArray/prototype/entries
+      - test/built-ins/TypedArray/prototype/keys
+      - test/built-ins/TypedArray/prototype/values
+  - name: typed-array-iterators
+    files:
+      - test/built-ins/ArrayIteratorPrototype/next
+    tags:
+      - TypedArray
+
+  - name: typed-arrays
+    files:
+      - test/built-ins/TypedArray
+      - "!test/built-ins/TypedArray/from"
+      - "!test/built-ins/TypedArray/of"
+      - "!test/built-ins/TypedArray/prototype/at"
+      - "!test/built-ins/TypedArray/prototype/copyWithin"
+      - "!test/built-ins/TypedArray/prototype/fill"
+      - "!test/built-ins/TypedArray/prototype/find"
+      - "!test/built-ins/TypedArray/prototype/findIndex"
+      - "!test/built-ins/TypedArray/prototype/findLast"
+      - "!test/built-ins/TypedArray/prototype/findLastIndex"
+      - "!test/built-ins/TypedArray/prototype/includes"
+      - "!test/built-ins/TypedArray/prototype/toReversed"
+      - "!test/built-ins/TypedArray/prototype/toSorted"
+      - "!test/built-ins/TypedArray/prototype/with"
+      - test/built-ins/TypedArrayConstructors
+      - "!test/built-ins/TypedArrayConstructors/BigInt64Array"
+      - "!test/built-ins/TypedArrayConstructors/BigUint64Array"
+      - "!test/built-ins/TypedArrayConstructors/from"
+      - "!test/built-ins/TypedArrayConstructors/of"
+      - "!test/built-ins/TypedArrayConstructors/prototype/copyWithin"
+      - "!test/built-ins/TypedArrayConstructors/prototype/fill"
+      - "!test/built-ins/TypedArrayConstructors/prototype/find"
+      - "!test/built-ins/TypedArrayConstructors/prototype/findIndex"
+    tags:
+      - "!stable-typedarray-sort"
+
+  - name: uint8array-base64-hex
+    files:
+      - test/built-ins/Uint8Array
+
+  - name: unicode-point-escapes
+    files:
+      - test/built-ins/RegExp/*unicode_restricted_identity_escape*
+      - test/language/expressions/template-literal/*unicode*
+      - test/language/identifiers/*escape*
+      - test/language/literals/regexp/*unicode*
+      - test/language/literals/string/*unicode*
+
+  - name: weak-references
+    files:
+      - test/built-ins/WeakRef
+      - test/built-ins/FinalizationRegistry
+      - test/language/expressions/class/subclass-builtins/subclass-WeakRef.js
+      - test/language/statements/class/subclass-builtins/subclass-WeakRef.js
+
+  - name: weakmap
+    files:
+      - test/built-ins/WeakMap
+      - test/language/expressions/class/subclass-builtins/subclass-WeakMap.js
+      - test/language/statements/class/subclass-builtins/subclass-WeakMap.js
+      - test/language/statements/class/subclass/builtin-objects/WeakMap
+
+  - name: weakset
+    files:
+      - test/built-ins/WeakSet
+      - test/language/expressions/class/subclass-builtins/subclass-WeakSet.js
+      - test/language/statements/class/subclass-builtins/subclass-WeakSet.js
+
+  - name: with
+    files:
+      - test/language/identifiers/val-with-via-escape-hex.js
+      - test/language/identifiers/val-with-via-escape-hex4.js
+      - test/language/identifiers/val-with.js
+      - test/language/statements/with
