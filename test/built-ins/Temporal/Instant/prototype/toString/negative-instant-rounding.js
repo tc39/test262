@@ -3,7 +3,9 @@
 
 /*---
 esid: sec-temporal.instant.prototype.tostring
-description: RoundNumberToIncrementAsIfPositive should multiply the remainder by an extra sign
+description: >
+  RoundNumberToIncrementAsIfPositive should multiply the remainder by an extra sign
+  before comparing it.
 features: [Temporal]
 ---*/
 

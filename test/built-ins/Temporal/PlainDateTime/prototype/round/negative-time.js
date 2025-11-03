@@ -3,8 +3,9 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.round
-description: RoundNumberToIncrementAsIfPositive should multiply the remainder by an extra sign
-             before comparing it
+description: >
+  RoundNumberToIncrementAsIfPositive should multiply the remainder by an extra sign
+  before comparing it
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
