@@ -10,5 +10,5 @@ features: [explicit-resource-management]
 ---*/
 
 assert.throws(ReferenceError, function() {
-  for (using x of [1, 2, 3]) { x++ }
+  for (using x of [null]) { x = { [Symbol.dispose]() { } }; }
 });
