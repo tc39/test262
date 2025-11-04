@@ -5,14 +5,14 @@
 esid: sec-declarative-environment-records-setmutablebinding-n-v-s
 description: >
     await using: invalid assignment in Statement body. Since an `await using` declaration introduces an immutable
-    binding, any attempt to change it results in a ReferenceError.
+    binding, any attempt to change it results in a TypeError.
 flags: [async]
 includes: [asyncHelpers.js]
 features: [explicit-resource-management]
 ---*/
 
 asyncTest(async function () {
-  await assert.throwsAsync(ReferenceError, async function () {
+  await assert.throwsAsync(TypeError, async function () {
     for (await using x of [null]) { x = { [Symbol.dispose]() { } }; }
   });
 });
