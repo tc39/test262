@@ -70,7 +70,7 @@ var iterableReturningThrowingIterator = {
 
 // "iterables" argument must be an iterable.
 assert.throws(TypeError, function() {
-  Iterator.zip({});
+  Iterator.zip(Object.create(null));
 });
 
 // GetIteratorFlattenable accepts both iterables and iterators.
@@ -116,7 +116,7 @@ var elements = [
   makeProxyWithGetHandler("second", iterableReturningThrowingIterator),
 
   // An object without any iteration methods.
-  makeProxyWithGetHandler("third", {}),
+  makeProxyWithGetHandler("third", Object.create(null)),
 ];
 
 var elementsIter = elements.values();

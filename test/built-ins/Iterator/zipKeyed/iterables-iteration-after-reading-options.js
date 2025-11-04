@@ -47,3 +47,25 @@ assert.compareArray(log, [
   "get padding",
   "own-keys",
 ]);
+
+for (var mode of [undefined, "shortest", "strict"]) {
+  log.length = 0;
+
+  options = {
+    get mode() {
+      log.push("get mode");
+      return mode;
+    },
+    get padding() {
+      log.push("unexpected get padding");
+      return [];
+    }
+  };
+
+  Iterator.zipKeyed(iterables, options);
+
+  assert.compareArray(log, [
+    "get mode",
+    "own-keys",
+  ]);
+}

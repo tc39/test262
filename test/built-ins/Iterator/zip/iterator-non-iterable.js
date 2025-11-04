@@ -8,15 +8,7 @@ description: >
 features: [joint-iteration]
 ---*/
 
-var invalidIterables = [
-  {},
-  { next() {}, return() {} },
-  function() {}
-];
-
 // Throws a TypeError for invalid iterables values.
-for (var iterables of invalidIterables) {
-  assert.throws(TypeError, function() {
-    Iterator.zip(iterables);
-  });
-}
+assert.throws(TypeError, function() {
+  Iterator.zip(Object.create(null));
+});

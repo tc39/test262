@@ -90,8 +90,8 @@ function _assertIsNullProtoMutableObject(object, label) {
   }
 }
 
-// Assert that the `zipped` iterator results as for Iterator.zip for the first `count` elements.
-// Assumes inputs is an array of arrays of length >= count.
+// Assert that the `zipped` iterator yields the first `count` outputs of Iterator.zip.
+// Assumes `inputs` is an array of arrays, each with length >= `count`.
 // Advances `zipped` by `count` steps.
 function assertZipped(zipped, inputs, count, label) {
   // Last returned elements array.
@@ -117,14 +117,12 @@ function assertZipped(zipped, inputs, count, label) {
     assert.compareArray(value, expected, itemLabel + ": values");
 
     // Ensure value is a packed array with default data properties.
-    //
-    // This operation is destructive, so it has to happen last.
     assertIsPackedArray(value, itemLabel);
   }
 }
 
-// Assert that the `zipped` iterator results as for Iterator.zipKeyed for the first `count` elements.
-// Assumes inputs is an object whose values are arrays of length >= count.
+// Assert that the `zipped` iterator yields the first `count` outputs of Iterator.zipKeyed.
+// Assumes `inputs` is an object whose values are arrays, each with length >= `count`.
 // Advances `zipped` by `count` steps.
 function assertZippedKeyed(zipped, inputs, count, label) {
   // Last returned elements array.
@@ -154,8 +152,6 @@ function assertZippedKeyed(zipped, inputs, count, label) {
     assert.compareArray(Object.values(value), expectedValues, itemLabel + ": result object values");
 
     // Ensure resulting object is a null-prototype mutable object with default data properties.
-    //
-    // This operation is destructive, so it has to happen last.
     _assertIsNullProtoMutableObject(value, itemLabel);
   }
 }
