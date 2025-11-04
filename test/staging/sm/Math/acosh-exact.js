@@ -2,12 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262.js, sm/non262-shell.js, sm/non262-Math-shell.js]
-flags:
-  - noStrict
 description: |
   pending
 esid: pending
+includes: [sm/non262-Math-shell.js]
 ---*/
 // Properties of Math.acosh that are guaranteed by the spec.
 

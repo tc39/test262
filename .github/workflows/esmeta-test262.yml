@@ -7,7 +7,7 @@ jobs:
     name: 'esmeta test262'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Setup JDK
         uses: actions/setup-java@v3
@@ -25,7 +25,7 @@ jobs:
       - name: download esmeta
         run: |
           mkdir -p "${ESMETA_HOME}"
-          git clone --branch v0.4.2 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
+          git clone --branch v0.6.2 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
           cd "${ESMETA_HOME}" && git submodule update --init --depth 1
       - name: build esmeta
         working-directory: ${{ env.ESMETA_HOME }}
@@ -39,11 +39,9 @@ jobs:
 
       - name: run test262
         if: steps.changed_tests.outputs.any_changed == 'true'
-        env:
-          CHANGED: ${{ steps.changed_tests.outputs.all_changed_files }}
         run: |
-          echo New or modified test files:
-          for file in $CHANGED; do
+          echo 'New or modified test files:'
+          for file in ${{ steps.changed_tests.outputs.all_changed_files }}; do
             echo $file
-          done
-          "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) $CHANGED
+          done | tee "$HOME/changed.txt"
+          cat "$HOME/changed.txt" | xargs "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd)
