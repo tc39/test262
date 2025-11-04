@@ -10,59 +10,59 @@ features: [Temporal]
 ---*/
 
 const instance = new Temporal.ZonedDateTime(-1000000000000000000n, "UTC");  // 1938-04-24T22:13:20Z
-const roundedDown = new Temporal.ZonedDateTime(-1000000800000000000n, "UTC"); // 1938-04-24T22:00:00Z
-const roundedUp = new Temporal.ZonedDateTime(-999997200000000000n, "UTC"); // 1938-04-24T23:00:00Z
+const roundedDown = -1000000800000000000n; // 1938-04-24T22:00:00Z
+const roundedUp = -999997200000000000n; // 1938-04-24T23:00:00Z
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "halfCeil" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with halfCeil rounds to the closest hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "halfFloor" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with halfFloor rounds to the closest hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "halfExpand" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with halfExpand rounds to the closest hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "halfTrunc" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with halfTrunc rounds to the closest hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "halfEven" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with halfEven rounds to the closest hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "ceil" }).epochNanoseconds,
-  roundedUp.epochNanoseconds,
+  roundedUp,
   "Rounding with ceil rounds to the next hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "floor" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with floor rounds to the closest hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "expand" }).epochNanoseconds,
-  roundedUp.epochNanoseconds,
+  roundedUp,
   "Rounding with expand rounds to the next hour"
 );
 
 assert.sameValue(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "trunc" }).epochNanoseconds,
-  roundedDown.epochNanoseconds,
+  roundedDown,
   "Rounding with trunc rounds to the closest hour"
 );
