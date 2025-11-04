@@ -19,6 +19,7 @@ features: [joint-iteration]
 var validPadding = [
   undefined,
   [],
+  Object("string"),
 ];
 
 var invalidPadding = [
@@ -45,7 +46,7 @@ for (var padding of invalidPadding) {
   });
 }
 
-// Invalid padding options are ignored when mode is not "longest".
+// Invalid padding options are okay when mode is not "longest" because the padding option is not read.
 for (var padding of invalidPadding) {
   Iterator.zip([], {padding});
   Iterator.zip([], {mode: undefined, padding});

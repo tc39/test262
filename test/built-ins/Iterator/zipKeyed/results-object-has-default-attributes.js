@@ -49,7 +49,7 @@ function assertPlainObject(actual, expected) {
   }
 }
 
-var iterables = Object.create(Array.prototype, {
+var iterables = Object.create(null, {
   a: {
     writable: true,
     enumerable: true,

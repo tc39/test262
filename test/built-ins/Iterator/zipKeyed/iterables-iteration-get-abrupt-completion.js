@@ -77,12 +77,40 @@ var second = {
   },
 };
 
+var symbol = {
+  next() {
+    log.push("unexpected call to next method");
+  },
+  return() {
+    log.push("unexpected call to return method");
+  },
+};
+
+var arrayIndex = {
+  next() {
+    log.push("unexpected call to next method");
+  },
+  return() {
+    // Called with the correct receiver and no arguments.
+    assert.sameValue(this, arrayIndex);
+    assert.sameValue(arguments.length, 0);
+
+    // NB: Log after above asserts, because failures aren't propagated.
+    log.push("close array-indexed iterator");
+
+    // IteratorClose ignores new exceptions when called with a Throw completion.
+    throw new Test262Error();
+  },
+};
+
 var iterables = {
+  [Symbol()]: symbol,
   first,
   second,
   get third() {
     throw new ExpectedError();
-  }
+  },
+  5: arrayIndex,
 };
 
 assert.throws(ExpectedError, function() {
@@ -93,4 +121,5 @@ assert.throws(ExpectedError, function() {
 assert.compareArray(log, [
   "close second iterator",
   "close first iterator",
+  "close array-indexed iterator",
 ]);
