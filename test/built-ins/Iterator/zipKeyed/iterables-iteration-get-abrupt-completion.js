@@ -104,7 +104,7 @@ var arrayIndex = {
 };
 
 var iterables = {
-  [new Symbol()]: symbol,
+  [Symbol()]: symbol,
   first,
   second,
   get third() {
