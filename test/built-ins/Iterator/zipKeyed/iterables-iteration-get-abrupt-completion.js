@@ -109,7 +109,7 @@ var iterables = {
   second,
   get third() {
     throw new ExpectedError();
-  }
+  },
   5: arrayIndex,
 };
 
