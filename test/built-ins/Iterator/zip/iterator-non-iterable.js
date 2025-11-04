@@ -9,9 +9,11 @@ features: [joint-iteration]
 ---*/
 
 var invalidIterables = [
-  {},
-  { next() {}, return() {} },
-  function() {}
+  Object.create(null),
+  Object.create(null, {
+    next: { value: function(){} },
+    return: { value: function(){} },
+  }),
 ];
 
 // Throws a TypeError for invalid iterables values.

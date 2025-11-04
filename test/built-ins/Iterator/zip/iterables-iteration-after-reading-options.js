@@ -49,3 +49,25 @@ assert.compareArray(log, [
   "get padding",
   "get iterator",
 ]);
+
+for (var mode of [undefined, "shortest", "strict"]) {
+  log.length = 0;
+
+  options = {
+    get mode() {
+      log.push("get mode");
+      return mode;
+    },
+    get padding() {
+      log.push("unexpected get padding");
+      return [];
+    }
+  };
+
+  Iterator.zip(iterables, options);
+
+  assert.compareArray(log, [
+    "get mode",
+    "get iterator",
+  ]);
+}

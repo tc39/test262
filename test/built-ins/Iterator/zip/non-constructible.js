@@ -13,9 +13,5 @@ features: [joint-iteration]
 ---*/
 
 assert.throws(TypeError, () => {
-  new Iterator.zip();
-});
-
-assert.throws(TypeError, () => {
   new Iterator.zip([]);
 });
