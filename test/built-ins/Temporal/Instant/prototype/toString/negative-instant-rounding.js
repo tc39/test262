@@ -14,55 +14,55 @@ const roundedDown = "1938-04-24T22:13:20.000Z";
 const roundedUp = "1938-04-24T22:13:20.001Z";
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfCeil'}),
-    roundedDown,
-    "Rounding with halfCeil rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfCeil'}),
+  roundedDown,
+  "Rounding with halfCeil rounds to the closest millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfFloor'}),
-    roundedDown,
-    "Rounding with halfFloor rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfFloor'}),
+  roundedDown,
+  "Rounding with halfFloor rounds to the closest millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfExpand'}),
-    roundedDown,
-    "Rounding with halfExpand rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfExpand'}),
+  roundedDown,
+  "Rounding with halfExpand rounds to the closest millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfTrunc'}),
-    roundedDown,
-    "Rounding with halfTrunc rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfTrunc'}),
+  roundedDown,
+  "Rounding with halfTrunc rounds to the closest millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfEven'}),
-    roundedDown,
-    "Rounding with halfEven rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'halfEven'}),
+  roundedDown,
+  "Rounding with halfEven rounds to the closest millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'ceil'}),
-    roundedUp,
-    "Rounding with ceil rounds to the next millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'ceil'}),
+  roundedUp,
+  "Rounding with ceil rounds to the next millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'floor'}),
-    roundedDown,
-    "Rounding with floor rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'floor'}),
+  roundedDown,
+  "Rounding with floor rounds to the closest millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'expand'}),
-    roundedUp,
-    "Rounding with expand rounds to the next millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'expand'}),
+  roundedUp,
+  "Rounding with expand rounds to the next millisecond"
 );
 
 assert.sameValue(
-    instance.toString({smallestUnit: 'millisecond', roundingMode: 'trunc'}),
-    roundedDown,
-    "Rounding with trunc rounds to the closest millisecond"
+  instance.toString({smallestUnit: 'millisecond', roundingMode: 'trunc'}),
+  roundedDown,
+  "Rounding with trunc rounds to the closest millisecond"
 );
