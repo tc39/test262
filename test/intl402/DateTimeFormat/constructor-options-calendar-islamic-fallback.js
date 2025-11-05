@@ -26,7 +26,6 @@ const availableCalendars = [
 	"dangi",
 	"ethioaa",
 	"ethiopic",
-	"ethiopic-amete-alem",
 	"gregory",
 	"hebrew",
 	"indian",
