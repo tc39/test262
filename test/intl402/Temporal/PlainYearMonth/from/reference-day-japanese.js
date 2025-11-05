@@ -3,7 +3,9 @@
 
 /*---
 esid: sec-temporal.calendar.prototype.calendaryearmonthfromfields
-description: Reference ISO day is chosen to be the first of the calendar month
+description: >
+  Reference ISO day is chosen to be the first of the calendar month
+  See https://github.com/tc39/proposal-temporal/issues/3150 for more context.
 info: |
   1. Let _firstDayIndex_ be the 1-based index of the first day of the month described by _fields_ (i.e., 1 unless the month's first day is skipped by this calendar.)
   2. Set _fields_.[[Day]] to _firstDayIndex_.
