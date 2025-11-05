@@ -11,8 +11,8 @@ features: [Temporal]
 ---*/
 
 const instance = new Temporal.PlainDateTime(1938, 4, 24, 22, 13, 20);
-const roundedDown = new Temporal.PlainDateTime(1938, 4, 24, 22, 00, 00);
-const roundedUp = new Temporal.PlainDateTime(1938, 4, 24, 23, 00, 00);
+const roundedDown = new Temporal.PlainDateTime(1938, 4, 24, 22, 0, 0);
+const roundedUp = new Temporal.PlainDateTime(1938, 4, 24, 23, 0, 0);
 
 TemporalHelpers.assertPlainDateTimesEqual(
   instance.round({ smallestUnit: "hour", roundingIncrement: 1, roundingMode: "halfCeil" }),
