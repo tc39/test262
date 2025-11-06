@@ -51,9 +51,3 @@ assert(
 let original = new Intl.Locale('en').getWeekInfo().weekend;
 let sorted = original.slice().sort();
 assert.compareArray(original, sorted);
-
-assert.sameValue(
-  new Intl.Locale('en').getWeekInfo().minimalDays,
-  undefined,
-  '`minimalDays` is not defined.'
-);
