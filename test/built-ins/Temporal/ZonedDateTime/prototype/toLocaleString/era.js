@@ -7,6 +7,7 @@ description: >
     If era option and no other options are provided to toLocaleString,
     ZonedDateTime should be foramtted with default options
 features: [Temporal]
+locales: [en]
 ---*/
 
 const zdt = new Temporal.ZonedDateTime(0n, "UTC");
