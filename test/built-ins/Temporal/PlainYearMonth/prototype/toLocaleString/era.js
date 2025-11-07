@@ -7,6 +7,7 @@ description: >
     If era option and no other options are provided to toLocaleString,
     PlainYearMonth should be foramtted with default options
 features: [Temporal]
+locales: [en]
 ---*/
 
 const date = new Temporal.PlainYearMonth(2000, 5, "gregory");

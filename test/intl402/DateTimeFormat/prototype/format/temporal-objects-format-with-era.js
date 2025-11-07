@@ -7,9 +7,10 @@ description: >
   If era option and no other options are provided to DateTimeFormat constructor,
   objects should be formatted with default options
 features: [Temporal]
+locales: [en]
 ---*/
 
-const formatter = new Intl.DateTimeFormat([], { era: "narrow" });
+const formatter = new Intl.DateTimeFormat(["en"], { era: "narrow" });
 
 assert(formatter.format(new Temporal.PlainDate(2025, 11, 4)).startsWith("11"), "formatting a PlainDate should work");
 assert(formatter.format(new Temporal.PlainYearMonth(2025, 11, "gregory")).startsWith("11"), "formatting a PlainYearMonth should work");

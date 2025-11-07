@@ -7,6 +7,7 @@ description: >
     If era option and no other options are provided to toLocaleString,
     PlainMonthDay should be foramtted with default options
 features: [Temporal]
+locales: [en]
 ---*/
 
 const date = new Temporal.PlainMonthDay(5, 2, "gregory");
