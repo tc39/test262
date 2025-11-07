@@ -11,7 +11,9 @@ info: |
 
   - It is a Syntax Error if AwaitUsingDeclaration is contained directly within the StatementList of either a CaseClause or
     DefaultClause.
-
+negative:
+  phase: parse
+  type: SyntaxError
 features: [explicit-resource-management]
 ---*/
 $DONOTEVALUATE();
