@@ -12,4 +12,4 @@ locales: [en]
 
 const instant = new Temporal.Instant(0n);
 
-assert(instant.toLocaleString("en", { era: "narrow" }).startsWith("1"), "toLocaleString on an Instant with era option should work");
+assert(instant.toLocaleString("en", { era: "narrow", timeZone: "UTC" }).startsWith("1"), "toLocaleString on an Instant with era option should work");
