@@ -7,7 +7,7 @@ description: >
     If era option and no other options are provided to toLocaleString,
     PlainDateTime should be foramtted with default options
 features: [Temporal]
-locales: [en]
+locale: [en]
 ---*/
 
 date = new Temporal.PlainDateTime(2000, 5, 2, 14, 46, 0, 0, 0, 0, "gregory");

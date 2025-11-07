@@ -7,7 +7,7 @@ description: >
     If era option and no other options are provided to toLocaleString,
     Instant should be foramtted with default options
 features: [Temporal]
-locales: [en]
+locale: [en]
 ---*/
 
 const instant = new Temporal.Instant(0n);

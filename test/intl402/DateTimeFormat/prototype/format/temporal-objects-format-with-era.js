@@ -7,7 +7,7 @@ description: >
   If era option and no other options are provided to DateTimeFormat constructor,
   objects should be formatted with default options
 features: [Temporal]
-locales: [en]
+locale: [en]
 ---*/
 
 const formatter = new Intl.DateTimeFormat(["en"], { era: "narrow", timeZone: "UTC" });
