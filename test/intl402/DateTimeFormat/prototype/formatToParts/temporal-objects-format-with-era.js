@@ -10,7 +10,7 @@ features: [Temporal]
 locale: [en]
 ---*/
 
-const formatter = new Intl.DateTimeFormat(["en"], { era: "narrow", timeZone: "UTC" });
+const formatter = new Intl.DateTimeFormat(["en"], { era: "narrow" });
 
 function checkEra(parts) {
     for (let part of parts) {

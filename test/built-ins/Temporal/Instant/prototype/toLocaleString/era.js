@@ -12,4 +12,6 @@ locale: [en]
 
 const instant = new Temporal.Instant(0n);
 
-assert(instant.toLocaleString("en", { era: "narrow", timeZone: "UTC" }).startsWith("1"), "toLocaleString on an Instant with era option should work");
+const instantResult = instant.toLocaleString("en", { era: "narrow" });
+const dateResult = new Date(0).toLocaleString(["en"], { era: "narrow" });
+assert.sameValue(instantResult, dateResult, "toLocaleString on an Instant with era option should return the same results as toLocaleString on the same Date with the same options");
