@@ -44,4 +44,8 @@ jobs:
           for file in ${{ steps.changed_tests.outputs.all_changed_files }}; do
             echo $file
           done | tee "$HOME/changed.txt"
-          cat "$HOME/changed.txt" | xargs "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd)
+          ESMETA_RESULT=0
+          cat "$HOME/changed.txt" | xargs "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) >"$HOME/esmeta.out" 2>&1 || ESMETA_RESULT=$?
+          cat "$HOME/esmeta.out"
+          # Still exit successfully if we hit an error but it was from lack of support.
+          [ $ESMETA_RESULT = 0 ] || tail -n 1 "$HOME/esmeta.out" | grep -q '^[[]NotSupported[]]' || exit $ESMETA_RESULT
