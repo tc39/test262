@@ -13,6 +13,62 @@ const options = { overflow: "reject" };
 
 // Years
 
+const years1 = new Temporal.Duration(-1);
+const years1n = new Temporal.Duration(1);
+const years5 = new Temporal.Duration(-5);
+const years5n = new Temporal.Duration(5);
+
+const date143902 = Temporal.PlainDate.from({ year: 1439, monthCode: "M02", day: 1, calendar }, options);
+const date144402 = Temporal.PlainDate.from({ year: 1444, monthCode: "M02", day: 29, calendar }, options);
+
+TemporalHelpers.assertPlainDate(
+  date143902.subtract(years1),
+  1440, 2, "M02", 1, "Adding 1 year to day 1 of a month",
+  "ah", 1440
+);
+
+TemporalHelpers.assertPlainDate(
+  date144402.subtract(years1),
+  1445, 2, "M02", 29, "Adding 1 year to day 29 of a month",
+  "ah", 1445
+);
+
+TemporalHelpers.assertPlainDate(
+  date143902.subtract(years5),
+  1444, 2, "M02", 1, "Adding 5 years to day 1 of a month",
+  "ah", 1444
+);
+
+TemporalHelpers.assertPlainDate(
+  date144402.subtract(years5),
+  1449, 2, "M02", 29, "Adding 5 years to day 29 of a month",
+  "ah", 1449
+);
+
+TemporalHelpers.assertPlainDate(
+  date143902.subtract(years1n),
+  1438, 2, "M02", 1, "Subtracting 1 year from day 1 of a month",
+  "ah", 1438
+);
+
+TemporalHelpers.assertPlainDate(
+  date144402.subtract(years1n),
+  1443, 2, "M02", 29, "Subtracting 1 year from day 29 of a month",
+  "ah", 1443
+);
+
+TemporalHelpers.assertPlainDate(
+  date143902.subtract(years5n),
+  1434, 2, "M02", 1, "Subtracting 5 years from day 1 of a month",
+  "ah", 1434
+);
+
+TemporalHelpers.assertPlainDate(
+  date144402.subtract(years5n),
+  1439, 2, "M02", 29, "Subtracting 5 years from day 29 of a month",
+  "ah", 1439
+);
+
 // Months
 
 const date1 = Temporal.PlainDate.from({ year: 1445, monthCode: "M01", day: 1, calendar }, options);
@@ -78,4 +134,74 @@ TemporalHelpers.assertPlainDate(
 
 // Weeks
 
+const months2weeks3 = new Temporal.Duration(0, /* months = */ -2, /* weeks = */ -3);
+const months2weeks3n = new Temporal.Duration(0, 2, 3);
+
+const date144101 = Temporal.PlainDate.from({ year: 1441, monthCode: "M01", day: 1, calendar }, options);
+
+TemporalHelpers.assertPlainDate(
+  date144101.subtract(months2weeks3),
+  1441, 3, "M03", 22, "add 2 months 3 weeks, ending in same year",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDate(
+  Temporal.PlainDate.from({ year: 1441, monthCode: "M12", day: 29, calendar }, options).subtract(months2weeks3),
+  1442, 3, "M03", 21, "add 2 months 3 weeks from end of year to next year",
+  "ah", 1442
+);
+
+TemporalHelpers.assertPlainDate(
+  Temporal.PlainDate.from({ year: 1441, monthCode: "M10", day: 1, calendar }, options).subtract(months2weeks3n),
+  1441, 7, "M07", 10, "subtract 2 months 3 weeks, ending in same year",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDate(
+  date144101.subtract(months2weeks3n),
+  1440, 10, "M10", 9, "subtract 2 months 3 weeks from beginning of year to previous year",
+  "ah", 1440
+);
+
 // Days
+
+const days10 = new Temporal.Duration(0, 0, 0, /* days = */ -10);
+const days10n = new Temporal.Duration(0, 0, 0, 10);
+
+const date14390129 = Temporal.PlainDate.from({ year: 1439, monthCode: "M01", day: 29, calendar }, options);
+
+TemporalHelpers.assertPlainDate(
+  date144101.subtract(days10),
+  1441, 1, "M01", 11, "add 10 days, ending in same month",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDate(
+  date14390129.subtract(days10),
+  1439, 2, "M02", 9, "add 10 days, ending in following month",
+  "ah", 1439
+);
+
+TemporalHelpers.assertPlainDate(
+  Temporal.PlainDate.from({ year: 1440, monthCode: "M12", day: 29, calendar }, options).subtract(days10),
+  1441, 1, "M01", 10, "add 10 days, ending in following year",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDate(
+  date14390129.subtract(days10n),
+  1439, 1, "M01", 19, "subtract 10 days, ending in same month",
+  "ah", 1439
+);
+
+TemporalHelpers.assertPlainDate(
+  Temporal.PlainDate.from({ year: 1439, monthCode: "M06", day: 1, calendar }, options).subtract(days10n),
+  1439, 5, "M05", 21, "subtract 10 days, ending in previous month",
+  "ah", 1439
+);
+
+TemporalHelpers.assertPlainDate(
+  date144101.subtract(days10n),
+  1440, 12, "M12", 20, "subtract 10 days, ending in previous year",
+  "ah", 1440
+);

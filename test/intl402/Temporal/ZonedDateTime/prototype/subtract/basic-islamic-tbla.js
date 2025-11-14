@@ -13,6 +13,62 @@ const options = { overflow: "reject" };
 
 // Years
 
+const years1 = new Temporal.Duration(-1);
+const years1n = new Temporal.Duration(1);
+const years5 = new Temporal.Duration(-5);
+const years5n = new Temporal.Duration(5);
+
+const date143902 = Temporal.ZonedDateTime.from({ year: 1439, monthCode: "M02", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+const date144402 = Temporal.ZonedDateTime.from({ year: 1444, monthCode: "M02", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+
+TemporalHelpers.assertPlainDateTime(
+  date143902.subtract(years1).toPlainDateTime(),
+  1440, 2, "M02", 1, 12, 34, 0, 0, 0, 0, "Adding 1 year to day 1 of a month",
+  "ah", 1440
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date144402.subtract(years1).toPlainDateTime(),
+  1445, 2, "M02", 29, 12, 34, 0, 0, 0, 0, "Adding 1 year to day 29 of a month",
+  "ah", 1445
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date143902.subtract(years5).toPlainDateTime(),
+  1444, 2, "M02", 1, 12, 34, 0, 0, 0, 0, "Adding 5 years to day 1 of a month",
+  "ah", 1444
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date144402.subtract(years5).toPlainDateTime(),
+  1449, 2, "M02", 29, 12, 34, 0, 0, 0, 0, "Adding 5 years to day 29 of a month",
+  "ah", 1449
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date143902.subtract(years1n).toPlainDateTime(),
+  1438, 2, "M02", 1, 12, 34, 0, 0, 0, 0, "Subtracting 1 year from day 1 of a month",
+  "ah", 1438
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date144402.subtract(years1n).toPlainDateTime(),
+  1443, 2, "M02", 29, 12, 34, 0, 0, 0, 0, "Subtracting 1 year from day 29 of a month",
+  "ah", 1443
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date143902.subtract(years5n).toPlainDateTime(),
+  1434, 2, "M02", 1, 12, 34, 0, 0, 0, 0, "Subtracting 5 years from day 1 of a month",
+  "ah", 1434
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date144402.subtract(years5n).toPlainDateTime(),
+  1439, 2, "M02", 29, 12, 34, 0, 0, 0, 0, "Subtracting 5 years from day 29 of a month",
+  "ah", 1439
+);
+
 // Months
 
 const date1 = Temporal.ZonedDateTime.from({ year: 1445, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
@@ -78,4 +134,74 @@ TemporalHelpers.assertPlainDateTime(
 
 // Weeks
 
+const months2weeks3 = new Temporal.Duration(0, /* months = */ -2, /* weeks = */ -3);
+const months2weeks3n = new Temporal.Duration(0, 2, 3);
+
+const date144101 = Temporal.ZonedDateTime.from({ year: 1441, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+
+TemporalHelpers.assertPlainDateTime(
+  date144101.subtract(months2weeks3).toPlainDateTime(),
+  1441, 3, "M03", 22, 12, 34, 0, 0, 0, 0, "add 2 months 3 weeks, ending in same year",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDateTime(
+  Temporal.ZonedDateTime.from({ year: 1441, monthCode: "M12", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }, options).subtract(months2weeks3).toPlainDateTime(),
+  1442, 3, "M03", 21, 12, 34, 0, 0, 0, 0, "add 2 months 3 weeks from end of year to next year",
+  "ah", 1442
+);
+
+TemporalHelpers.assertPlainDateTime(
+  Temporal.ZonedDateTime.from({ year: 1441, monthCode: "M10", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options).subtract(months2weeks3n).toPlainDateTime(),
+  1441, 7, "M07", 10, 12, 34, 0, 0, 0, 0, "subtract 2 months 3 weeks, ending in same year",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date144101.subtract(months2weeks3n).toPlainDateTime(),
+  1440, 10, "M10", 9, 12, 34, 0, 0, 0, 0, "subtract 2 months 3 weeks from beginning of year to previous year",
+  "ah", 1440
+);
+
 // Days
+
+const days10 = new Temporal.Duration(0, 0, 0, /* days = */ -10);
+const days10n = new Temporal.Duration(0, 0, 0, 10);
+
+const date14390129 = Temporal.ZonedDateTime.from({ year: 1439, monthCode: "M01", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+
+TemporalHelpers.assertPlainDateTime(
+  date144101.subtract(days10).toPlainDateTime(),
+  1441, 1, "M01", 11, 12, 34, 0, 0, 0, 0, "add 10 days, ending in same month",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date14390129.subtract(days10).toPlainDateTime(),
+  1439, 2, "M02", 9, 12, 34, 0, 0, 0, 0, "add 10 days, ending in following month",
+  "ah", 1439
+);
+
+TemporalHelpers.assertPlainDateTime(
+  Temporal.ZonedDateTime.from({ year: 1440, monthCode: "M12", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }, options).subtract(days10).toPlainDateTime(),
+  1441, 1, "M01", 10, 12, 34, 0, 0, 0, 0, "add 10 days, ending in following year",
+  "ah", 1441
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date14390129.subtract(days10n).toPlainDateTime(),
+  1439, 1, "M01", 19, 12, 34, 0, 0, 0, 0, "subtract 10 days, ending in same month",
+  "ah", 1439
+);
+
+TemporalHelpers.assertPlainDateTime(
+  Temporal.ZonedDateTime.from({ year: 1439, monthCode: "M06", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options).subtract(days10n).toPlainDateTime(),
+  1439, 5, "M05", 21, 12, 34, 0, 0, 0, 0, "subtract 10 days, ending in previous month",
+  "ah", 1439
+);
+
+TemporalHelpers.assertPlainDateTime(
+  date144101.subtract(days10n).toPlainDateTime(),
+  1440, 12, "M12", 20, 12, 34, 0, 0, 0, 0, "subtract 10 days, ending in previous year",
+  "ah", 1440
+);
