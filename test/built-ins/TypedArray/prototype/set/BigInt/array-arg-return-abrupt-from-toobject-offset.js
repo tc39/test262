@@ -13,12 +13,12 @@ info: |
   ...
   15. Let src be ? ToObject(array).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([1n, 2n, 3n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([1n, 2n, 3n]));
 
   assert.throws(TypeError, function() {
     sample.set(undefined);
@@ -27,4 +27,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     sample.set(null);
   }, "null");
-});
+}, null, null, ["immutable"]);

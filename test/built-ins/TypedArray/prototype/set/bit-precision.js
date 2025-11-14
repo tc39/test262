@@ -19,8 +19,8 @@ includes: [nans.js, compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-function body(FA) {
-  var source = new FA(NaNs);
+testWithTypedArrayConstructors(function body(FA, makeCtorArg) {
+  var source = new FA(makeCtorArg(NaNs));
   var target = new FA(NaNs.length);
   var sourceBytes, targetBytes;
 
@@ -30,6 +30,4 @@ function body(FA) {
   targetBytes = new Uint8Array(target.buffer);
 
   assert(compareArray(sourceBytes, targetBytes))
-}
-
-testWithTypedArrayConstructors(body, floatArrayConstructors);
+}, floatArrayConstructors, null, ["immutable"]);
