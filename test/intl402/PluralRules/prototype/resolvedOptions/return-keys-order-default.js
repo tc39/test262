@@ -11,6 +11,7 @@ const allKeys = [
     'locale',
     'type',
     'notation',
+    'compactDisplay',
     'minimumIntegerDigits',
     'minimumFractionDigits',
     'maximumFractionDigits',
