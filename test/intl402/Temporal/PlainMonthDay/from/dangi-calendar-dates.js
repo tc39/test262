@@ -9,35 +9,21 @@ features: [Temporal]
 
 const calendar = "dangi";
 
-const dangiYearOffset = new Temporal.PlainDate(1, 1, 1, calendar).year;
-
-const testChineseData = new Date("2001-02-01T00:00Z").toLocaleString("en-US-u-ca-chinese", {
-  day: "numeric",
-  month: "numeric",
-  year: "numeric",
-  era: "short",
-  timeZone: "UTC"
-});
-const hasOutdatedChineseIcuData = !testChineseData.endsWith("2001");
-
 const monthDayCases = [
   {
-    year: 2001 + dangiYearOffset,
+    year: 2001,
     month: 5,
     monthCode: "M04L",
     day: 15
   },
   {
-    year: 2000 + dangiYearOffset,
+    year: 2000,
     month: 6,
     monthCode: "M06",
     day: 29
   },
 ];
 for (var {monthCode, month, day, year} of monthDayCases) {
-  if (hasOutdatedChineseIcuData) {
-    continue;
-  }
   const md = Temporal.PlainMonthDay.from({
     year,
     month,

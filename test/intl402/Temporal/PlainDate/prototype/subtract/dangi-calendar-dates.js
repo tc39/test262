@@ -9,28 +9,17 @@ features: [Temporal]
 
 const calendar = "dangi";
 
-const dangiYearOffset = new Temporal.PlainDate(1, 1, 1, calendar).year;
-
-var testChineseData = new Date("2001-02-01T00:00Z").toLocaleString("en-US-u-ca-chinese", {
-  day: "numeric",
-  month: "numeric",
-  year: "numeric",
-  era: "short",
-  timeZone: "UTC"
-});
-const hasOutdatedChineseIcuData = !testChineseData.endsWith("2001");
-
 const durationCases = {
   days: {
     duration: { days: 280 },
     result: {
-      year: 2000 + dangiYearOffset,
+      year: 2000,
       month: 10,
       monthCode: "M10",
       day: 16,
     },
     startDate: {
-      year: 2000 + dangiYearOffset,
+      year: 2000,
       month: 1,
       day: 1
     }
@@ -38,13 +27,13 @@ const durationCases = {
   weeks: {
     duration: { weeks: 40 },
     result: {
-      year: 2000 + dangiYearOffset,
+      year: 2000,
       month: 10,
       monthCode: "M10",
       day: 16,
     },
     startDate: {
-      year: 2000 + dangiYearOffset,
+      year: 2000,
       month: 1,
       day: 1
     }
@@ -52,13 +41,13 @@ const durationCases = {
   months: {
     duration: { months: 6 },
     result: {
-      year: 2001 + dangiYearOffset,
+      year: 2001,
       month: 6,
       monthCode: "M05",
       day: 1,
     },
     startDate: {
-      year: 2000 + dangiYearOffset,
+      year: 2000,
       month: 12,
       day: 1
     }
@@ -70,22 +59,19 @@ const durationCases = {
       days: 17
     },
     result: {
-      year: 2001 + dangiYearOffset,
+      year: 2001,
       month: 6,
       monthCode: "M05",
       day: 18,
     },
     startDate: {
-      year: 1997 + dangiYearOffset,
+      year: 1997,
       monthCode: "M12",
       day: 1
     }
   }
 };
 for (var [unit, {duration, result, startDate}] of Object.entries(durationCases)) {
-  if (hasOutdatedChineseIcuData) {
-    continue;
-  }
   duration = Temporal.Duration.from(duration);
 
   const start = Temporal.PlainDate.from({

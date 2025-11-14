@@ -7,34 +7,23 @@ description: Test `from` with Dangi calendar
 features: [Temporal]
 ---*/
 
-var testChineseData = new Date("2001-02-01T00:00Z").toLocaleString("en-US-u-ca-chinese", {
-  day: "numeric",
-  month: "numeric",
-  year: "numeric",
-  era: "short",
-  timeZone: "UTC"
-});
-var hasOutdatedChineseIcuData = !testChineseData.endsWith("2001");
-
 const calendar = "dangi";
-
-const dangiYearOffset = new Temporal.PlainDate(1, 1, 1, calendar).year;
 
 const cases = {
   year2000: {
-    year: 1999 + dangiYearOffset,
+    year: 1999,
     month: 11,
     monthCode: "M11",
     day: 25
   },
   year1900: {
-    year: 1899 + dangiYearOffset,
+    year: 1899,
     month: 12,
     monthCode: "M12",
     day: 1
   },
   year2100: {
-    year: 2099 + dangiYearOffset,
+    year: 2099,
     month: 12,
     monthCode: "M11",
     day: 21
@@ -46,9 +35,6 @@ const dates = {
   year2100: Temporal.PlainDate.from("2100-01-01")
 };
 for (var [name, result] of Object.entries(cases)) {
-  if (hasOutdatedChineseIcuData) {
-    continue;
-  }
   const date = dates[name];
   const inCal = date.withCalendar(calendar);
 
