@@ -1,0 +1,56 @@
+// Copyright 2025 Google Inc, Igalia S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-temporal.plaindate.prototype.inleapyear
+description: with should work for Dangi calendar dates
+features: [Temporal]
+---*/
+
+const calendar = "dangi";
+
+const cases = {
+  year2000: {
+    year: 1999,
+    month: 11,
+    monthCode: "M11",
+    day: 25
+  },
+  year1900: {
+    year: 1899,
+    month: 12,
+    monthCode: "M11",
+    day: 1
+  },
+  year2100: {
+    year: 2099,
+    month: 11,
+    day: 21
+  }
+};
+var dates = {
+  year2000: Temporal.PlainDate.from("2000-01-01"),
+  year1900: Temporal.PlainDate.from("1900-01-01"),
+  year2100: Temporal.PlainDate.from("2100-01-01"),
+
+};
+
+for (var [name, result] of Object.entries(cases)) {
+  var date = dates[name];
+  var inCal = date.withCalendar(calendar);
+
+  var afterWithDay = inCal.with({ day: 1 });
+  assert.sameValue(afterWithDay.year, inCal.year, `${name} (after setting day)`);
+  assert.sameValue(afterWithDay.month, inCal.month, `${name} (after setting day)`);
+  assert.sameValue(afterWithDay.day, 1, `${name} (after setting day)`);
+
+  var afterWithMonth = afterWithDay.with({ month: 1 });
+  assert.sameValue(afterWithMonth.year, inCal.year, `${name} (after setting month)`);
+  assert.sameValue(afterWithMonth.month, 1, `${name} (after setting month)`);
+  assert.sameValue(afterWithMonth.day, 1, `${name} (after setting month)`);
+
+  var afterWithYear = afterWithMonth.with({ year: 2220 });
+  assert.sameValue(afterWithYear.year, 2220, `${name} (after setting year)`);
+  assert.sameValue(afterWithYear.month, 1, `${name} (after setting year)`);
+  assert.sameValue(afterWithYear.day, 1, `${name} (after setting year)`);
+}
