@@ -80,6 +80,10 @@ canonical-tz
 # https://github.com/tc39/proposal-upsert
 upsert
 
+# Joint Iteration
+# https://github.com/tc39/proposal-joint-iteration
+joint-iteration
+
 # Immutable Array Buffer
 # https://github.com/tc39/proposal-immutable-arraybuffer
 immutable-arraybuffer
