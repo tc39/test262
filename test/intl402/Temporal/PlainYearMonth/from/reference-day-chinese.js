@@ -13,14 +13,11 @@ features: [Temporal]
 
 // Month codes, month indices, and the ISO reference days of the months in 2022
 const months2022TestData = [
-  // TODO: Sources conflict over whether M01L and M12L exist in _any_ year.
-  // Clarify this, and delete if appropriate. ICU has them, but may be wrong.
-  //
-  // - ICU4C and ICU4X both have M01L in Gregorian year 1651.
-  // - ICU4C has M12L in Gregorian year 1889, but ICU4X doesn't.
-  // - ICU4X has M12L in Gregorian year 1403, but ICU4C doesn't.
 
-  ["M01", 1, 1],
+ // See https://github.com/tc39/proposal-intl-era-monthcode/issues/60#issuecomment-3336312868
+ // This assumes that M01L and M12L don't exist (they have not occurred
+ // in the recent past/future).
+
   ["M02", 2, 3],
   ["M03", 3, 1],
   ["M04", 4, 1],
@@ -31,7 +28,6 @@ const months2022TestData = [
   ["M09", 9, 26],
   ["M10", 10, 25],
   ["M11", 11, 24],
-  ["M12", 12, 23],
 ];
 for (let [nonLeapMonthCode, month, referenceISODay] of months2022TestData) {
   // Allow implementation-defined "epoch year" for the Chinese calendar.
@@ -53,7 +49,7 @@ for (let [nonLeapMonthCode, month, referenceISODay] of months2022TestData) {
   // 1. The previous month is used, i.e. "M01L" is constrained to "M01".
   // 2. The next month is used, i.e. "M01L" is constrained to "M02".
   if (result.month !== month) {
-    assert.sameValue(result.month, month + 1);
+    assert.sameValue(result.month, month + 1, `constrained month from ${JSON.stringify(fields)}`);
 
     // Adjust nonLeapMonthCode, month, referenceISODay using the data from the
     // next month.
@@ -75,9 +71,9 @@ for (let [nonLeapMonthCode, month, referenceISODay] of months2022TestData) {
   );
 }
 
-// Years in which leap months exist according to ICU4C/ICU4X.
+// Years in which leap months exist according to
+// https://github.com/tc39/proposal-intl-era-monthcode/issues/60#issuecomment-3336312868
 const leapMonthsTestData = [
-  ["M01L", 1651, 2, 20],
   ["M02L", 2023, 3, 22],
   ["M03L", 1993, 4, 22],
   ["M04L", 2020, 5, 23],
