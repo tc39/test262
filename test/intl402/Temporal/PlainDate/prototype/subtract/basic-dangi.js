@@ -17,9 +17,11 @@ const years1 = new Temporal.Duration(-1);
 const years1n = new Temporal.Duration(1);
 const years5 = new Temporal.Duration(-5);
 const years5n = new Temporal.Duration(5);
+const years3months6days17 = new Temporal.Duration(3, 6, 0, 17);
 
 const date201802 = Temporal.PlainDate.from({ year: 2018, monthCode: "M02", day: 1, calendar }, options);
 const date202302 = Temporal.PlainDate.from({ year: 2023, monthCode: "M02", day: 29, calendar }, options);
+const date199712 = Temporal.PlainDate.from({ year: 1997, monthCode: "M12", day: 1, calendar });
 
 TemporalHelpers.assertPlainDate(
   date201802.subtract(years1),
@@ -61,17 +63,38 @@ TemporalHelpers.assertPlainDate(
   2018, 2, "M02", 29, "Subtracting 5 years from day 29 of a month"
 );
 
+TemporalHelpers.assertPlainDate(
+  date199712.subtract(years3months6days17),
+  1994, 5, "M05", 14, "Subtracting 3 years/6 months/17 days from day 1 of a month"
+);
+
 // Months
 
 const months1 = new Temporal.Duration(0, -1);
 const months1n = new Temporal.Duration(0, 1);
 const months4 = new Temporal.Duration(0, -4);
 const months4n = new Temporal.Duration(0, 4);
+const months6 = new Temporal.Duration(0, 6);
+const durations = [
+  months1,
+  months1n,
+  months4,
+  months4n,
+  months6
+];
 
 const date201901 = Temporal.PlainDate.from({ year: 2019, monthCode: "M01", day: 1, calendar }, options);
 const date201906 = Temporal.PlainDate.from({ year: 2019, monthCode: "M06", day: 1, calendar }, options);
 const date201911 = Temporal.PlainDate.from({ year: 2019, monthCode: "M11", day: 1, calendar }, options);
 const date201912 = Temporal.PlainDate.from({ year: 2019, monthCode: "M12", day: 1, calendar }, options);
+const date200012 = Temporal.PlainDate.from({ year: 2000, monthCode: "M12", day: 1, calendar });
+const dates = [
+  date201901,
+  date201906,
+  date201911,
+  date201912,
+  date200012
+];
 
 TemporalHelpers.assertPlainDate(
   date201911.subtract(months1),
@@ -113,12 +136,56 @@ TemporalHelpers.assertPlainDate(
   2018, 9, "M09", 1, "Subtracting 4 months, with result in previous year"
 );
 
+TemporalHelpers.assertPlainDate(
+  date200012.subtract(months6),
+  2000, 6, "M06", 1, "Subtracting 6 months, with result in same year"
+);
+
+for (var duration of durations) {
+  for (var start of dates) {
+    const end = start.subtract(duration.negated());
+
+    // startYesterday = start - (1 day)
+    const startYesterday = start.subtract({ days: 1 });
+    // endYesterday = startYesterday + duration
+    const endYesterday = startYesterday.subtract(duration.negated());
+    // When adding months, the result day should be the same
+    // unless there are fewer days in the destination month than the source day
+    assert.sameValue(endYesterday.day, Math.min(startYesterday.day, endYesterday.daysInMonth), "adding months should result in same day");
+
+    // endYesterdayNextDay = endYesterday + (1 day)
+    var endYesterdayNextDay = endYesterday.subtract({ days: -1 });
+    // Move forward to next first-day-of-month
+    while (endYesterdayNextDay.day !== 1) {
+      endYesterdayNextDay = endYesterdayNextDay.subtract({ days: -1 });
+    }
+
+    TemporalHelpers.assertPlainDate(endYesterdayNextDay, end.year, end.month, end.monthCode, end.day, `endYesterdayNextDay`, end.era, end.eraYear);
+
+    // endReverse should equal end
+    const endReverse = endYesterdayNextDay.subtract({ days: 1 });
+    const startReverse = endReverse.subtract(duration);
+    // subtracting months give the same day unless there are fewer days in the destination month
+    assert.sameValue(startReverse.day, Math.min(endReverse.day, startReverse.daysInMonth));
+
+    // Move forward to next first-day-of-month
+    var startReverseNextDay = startReverse.subtract({ days: -1 });
+    while(startReverseNextDay.day !== 1) {
+      startReverseNextDay = startReverseNextDay.subtract({ days: -1 });
+    }
+
+    TemporalHelpers.assertPlainDate(startReverseNextDay, start.year, start.month, start.monthCode, start.day, `startReverseNextDay`, start.era, start.eraYear);
+  }
+}
+
 // Weeks
 
 const months2weeks3 = new Temporal.Duration(0, /* months = */ -2, /* weeks = */ -3);
 const months2weeks3n = new Temporal.Duration(0, 2, 3);
+const weeks40 = new Temporal.Duration(0, 0, /* weeks = */ 40);
 
 const date202101 = Temporal.PlainDate.from({ year: 2021, monthCode: "M01", day: 1, calendar }, options);
+const date20000101 = Temporal.PlainDate.from({ year: 2000, month: 1, day: 1, calendar });
 
 TemporalHelpers.assertPlainDate(
   date202101.subtract(months2weeks3),
@@ -140,11 +207,16 @@ TemporalHelpers.assertPlainDate(
   2020, 11, "M10", 10, "subtract 2 months 3 weeks from beginning of year to previous year"
 );
 
+TemporalHelpers.assertPlainDate(
+  date20000101.subtract(weeks40),
+  1999, 3, "M03", 16, "subtract 40 weeks, ending in previous year"
+);
 
 // Days
 
 const days10 = new Temporal.Duration(0, 0, 0, /* days = */ -10);
 const days10n = new Temporal.Duration(0, 0, 0, 10);
+const days200 = new Temporal.Duration(0, 0, 0, /* days = */ 200);
 
 const date20210129 = Temporal.PlainDate.from({ year: 2021, monthCode: "M01", day: 29, calendar }, options);
 
@@ -176,4 +248,9 @@ TemporalHelpers.assertPlainDate(
 TemporalHelpers.assertPlainDate(
   date202101.subtract(days10n),
   2020, 13, "M12", 21, "subtract 10 days, ending in previous year"
+);
+
+TemporalHelpers.assertPlainDate(
+  date20000101.subtract(days200),
+  1999, 6, "M06", 8, "subtract 200 days, ending in previous year"
 );
