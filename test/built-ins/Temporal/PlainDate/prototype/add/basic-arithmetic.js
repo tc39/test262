@@ -10,17 +10,33 @@ includes: [temporalHelpers.js]
 ---*/
 
 const years1 = new Temporal.Duration(1);
+const years1n = new Temporal.Duration(-1);
+const years4 = new Temporal.Duration(4);
+const years4n = new Temporal.Duration(-4);
 
 const date20210716 = Temporal.PlainDate.from("2021-07-16");
 
 TemporalHelpers.assertPlainDate(
     date20210716.add(years1),
     2022, 7, "M07", 16, "add 1y");
+TemporalHelpers.assertPlainDate(
+    date20210716.add(years4),
+    2025, 7, "M07", 16, "add 4y");
+
+TemporalHelpers.assertPlainDate(
+    date20210716.add(years1n),
+    2020, 7, "M07", 16, "subtract 1y");
+TemporalHelpers.assertPlainDate(
+    date20210716.add(years4n),
+    2017, 7, "M07", 16, "subtract 4y");
+
 
 // Months
 
 const months5 = new Temporal.Duration(0, 5);
+const months5n = new Temporal.Duration(0, -5);
 const years1months2 = new Temporal.Duration(1, 2);
+const years1months2n = new Temporal.Duration(-1, -2);
 
 TemporalHelpers.assertPlainDate(
     date20210716.add(months5),
@@ -42,21 +58,47 @@ TemporalHelpers.assertPlainDate(
     Temporal.PlainDate.from("2021-11-30").add(years1months2),
     2023, 1, "M01", 30, "add 1y 2mo with result in the next year");
 
+TemporalHelpers.assertPlainDate(
+    date20210716.add(months5n),
+    2021, 2, "M02", 16, "subtract 5mo with result in the same year");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-01-16").add(months5n),
+    2020, 8, "M08", 16, "subtract 5mo with result in the previous year");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2019-02-01").add(months5n),
+    2018, 9, "M09", 1, "subtract 5mo with result in the previous year on day 1 of month");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-03-31").add(months5n),
+    2020, 10, "M10", 31, "subtract 5mo with result in the previous year on day 31 of month");
+
+TemporalHelpers.assertPlainDate(
+    date20210716.add(years1months2n),
+    2020, 5, "M05", 16, "subtract 1y 2mo");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-02-17").add(years1months2n),
+    2019, 12, "M12", 17, "subtract 1y 2mo with result in the previous year");
+
 // Weeks
 
 const weeks1 = new Temporal.Duration(0, 0, 1);
+const weeks1n = new Temporal.Duration(0, 0, -1);
 const weeks6 = new Temporal.Duration(0, 0, 6);
+const weeks6n = new Temporal.Duration(0, 0, -6);
 const years1weeks2 = new Temporal.Duration(1, 0, 2);
+const years1weeks2n = new Temporal.Duration(-1, 0, -2);
 const months2weeks3 = new Temporal.Duration(0, 2, 3);
+const months2weeks3n = new Temporal.Duration(0, -2, -3);
 
 const date20201228 = Temporal.PlainDate.from("2020-12-28");
 const date20210127 = Temporal.PlainDate.from("2021-01-27");
+const date20210219 = Temporal.PlainDate.from("2021-02-19");
+const date20210604 = Temporal.PlainDate.from("2021-06-04");
 const date20210627 = Temporal.PlainDate.from("2021-06-27");
 const date20210727 = Temporal.PlainDate.from("2021-07-27");
 const date20211224 = Temporal.PlainDate.from("2021-12-24");
 
 TemporalHelpers.assertPlainDate(
-    Temporal.PlainDate.from("2021-02-19").add(weeks1),
+    date20210219.add(weeks1),
     2021, 2, "M02", 26, "add 1w");
 TemporalHelpers.assertPlainDate(
     date20211224.add(weeks1),
@@ -99,11 +141,52 @@ TemporalHelpers.assertPlainDate(
     Temporal.PlainDate.from("2019-10-31").add(months2weeks3),
     2020, 1, "M01", 21, "add 2mo 3w with result in the next year");
 
+TemporalHelpers.assertPlainDate(
+    date20210219.add(weeks1n),
+    2021, 2, "M02", 12, "subtract 1w");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-01-08").add(weeks1n),
+    2021, 1, "M01", 1, "subtract 1w with result on the first day of the year");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-01-07").add(weeks1n),
+    2020, 12, "M12", 31, "subtract 1w with result on the last day of the previous year");
+
+TemporalHelpers.assertPlainDate(
+    date20210604.add(weeks1n),
+    2021, 5, "M05", 28, "subtract 1w with result in the previous 31-day month");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-07-03").add(weeks1n),
+    2021, 6, "M06", 26, "subtract 1w with result in the previous 30-day month");
+
+TemporalHelpers.assertPlainDate(
+    date20210604.add(weeks6n),
+    2021, 4, "M04", 23, "subtract 6w with result in the same year");
+TemporalHelpers.assertPlainDate(
+    date20210127.add(weeks6n),
+    2020, 12, "M12", 16, "subtract 6w with result in the previous year");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-09-08").add(weeks6n),
+    2021, 7, "M07", 28, "subtract 6w crossing months of 30 and 31 days");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-08-08").add(weeks6n),
+    2021, 6, "M06", 27, "subtract 6w crossing months of 31 and 31 days");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2022-01-05").add(years1weeks2n),
+    2020, 12, "M12", 22, "subtract 1y 2w with result in the previous year");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2019-03-02").add(months2weeks3n),
+    2018, 12, "M12", 12, "subtract 2mo 3w with result in the previous year");
+
 // Days
 
 const days10 = new Temporal.Duration(0, 0, 0, 10);
+const days10n = new Temporal.Duration(0, 0, 0, -10);
 const weeks2days3 = new Temporal.Duration(0, 0, 2, 3);
+const weeks2days3n = new Temporal.Duration(0, 0, -2, -3);
 const years1months2days4 = new Temporal.Duration(1, 2, 0, 4);
+const years1months2days4n = new Temporal.Duration(-1, -2, 0, -4);
 
 TemporalHelpers.assertPlainDate(
     date20210716.add(days10),
@@ -134,3 +217,27 @@ TemporalHelpers.assertPlainDate(
 TemporalHelpers.assertPlainDate(
     Temporal.PlainDate.from("2021-06-30").add(years1months2days4),
     2022, 9, "M09", 3, "add 1y 2mo 4d with result in a month following a 31-day month");
+
+TemporalHelpers.assertPlainDate(
+    date20210716.add(days10n),
+    2021, 7, "M07", 6, "subtract 10 days with result in the same month");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-07-06").add(days10n),
+    2021, 6, "M06", 26, "subtract 10 days with result in the previous month");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-01-04").add(days10n),
+    2020, 12, "M12", 25, "subtract 10 days with result in the previous year");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-01-15").add(weeks2days3n),
+    2020, 12, "M12", 29, "subtract 2w 3d with result in the previous year");
+
+TemporalHelpers.assertPlainDate(
+    date20210716.add(years1months2days4n),
+    2020, 5, "M05", 12, "subtract 1y 2mo 4d");
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from("2021-07-04").add(years1months2days4n),
+    2020, 4, "M04", 30, "subtract 1y 2mo 4d with result in a 30-day month");
+TemporalHelpers.assertPlainDate(
+    date20210604.add(years1months2days4n),
+    2020, 3, "M03", 31, "subtract 1y 2mo 4d with result in a 31-day month");
