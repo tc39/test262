@@ -31,7 +31,6 @@ const requiredCalendars = [
   "dangi",
   "ethioaa",
   "ethiopic",
-  "ethiopic-amete-alem",
   "gregory",
   "hebrew",
   "indian",
