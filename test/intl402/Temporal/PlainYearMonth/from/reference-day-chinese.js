@@ -13,13 +13,6 @@ features: [Temporal]
 
 // Month codes, month indices, and the ISO reference days of the months in 2022
 const months2022TestData = [
-  // TODO: Sources conflict over whether M01L and M12L exist in _any_ year.
-  // Clarify this, and delete if appropriate. ICU has them, but may be wrong.
-  //
-  // - ICU4C and ICU4X both have M01L in Gregorian year 1651.
-  // - ICU4C has M12L in Gregorian year 1889, but ICU4X doesn't.
-  // - ICU4X has M12L in Gregorian year 1403, but ICU4C doesn't.
-
   ["M01", 1, 1],
   ["M02", 2, 3],
   ["M03", 3, 1],
@@ -75,9 +68,10 @@ for (let [nonLeapMonthCode, month, referenceISODay] of months2022TestData) {
   );
 }
 
-// Years in which leap months exist according to ICU4C/ICU4X.
+// Years in which leap months exist in our supported range according to
+// ICU4C/ICU4X. Note use of near-future year for "M11L" rather than use of a
+// year several hundred years before the start of our range.
 const leapMonthsTestData = [
-  ["M01L", 1651, 2, 20],
   ["M02L", 2023, 3, 22],
   ["M03L", 1993, 4, 22],
   ["M04L", 2020, 5, 23],
@@ -87,7 +81,7 @@ const leapMonthsTestData = [
   ["M08L", 1995, 9, 25],
   ["M09L", 2014, 10, 24],
   ["M10L", 1984, 11, 23],
-  ["M11L", 1517, 12, 23],
+  ["M11L", 2033, 12, 23],
 ];
 for (const [monthCode, relatedYear, month, referenceISODay, isoYear = relatedYear, isoMonth = month] of leapMonthsTestData) {
   // Allow implementation-defined "epoch year" for the Chinese calendar.
