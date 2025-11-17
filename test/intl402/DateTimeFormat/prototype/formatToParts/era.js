@@ -87,7 +87,6 @@ for (const [calendar, isoYears] of singleEraTests) {
 const noEraTests = [
   "chinese",
   "dangi",
-  "iso8601",
 ];
 
 for (const calendar of noEraTests) {
