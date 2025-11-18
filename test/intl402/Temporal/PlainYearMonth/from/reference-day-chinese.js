@@ -81,7 +81,7 @@ const leapMonthsTestData = [
   ["M08L", 1995, 9, 25],
   ["M09L", 2014, 10, 24],
   ["M10L", 1984, 11, 23],
-  ["M11L", 2033, 12, 23],
+  ["M11L", 2033, 12, 22],
 ];
 for (const [monthCode, relatedYear, month, referenceISODay, isoYear = relatedYear, isoMonth = month] of leapMonthsTestData) {
   // Allow implementation-defined "epoch year" for the Chinese calendar.
