@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.duration.prototype.total
 description: See https://github.com/tc39/proposal-temporal/issues/3168
-includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
