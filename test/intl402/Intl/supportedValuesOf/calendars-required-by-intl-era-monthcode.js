@@ -37,7 +37,6 @@ const requiredCalendars = [
   "islamic-civil",
   "islamic-tbla",
   "islamic-umalqura",
-  "islamicc",
   "iso8601",
   "japanese",
   "persian",
