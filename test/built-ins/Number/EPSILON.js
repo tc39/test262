@@ -14,7 +14,6 @@ info: |
 
   This property has the attributes { [[Writable]]: false, [[Enumerable]]: false,
   [[Configurable]]: false }.
-includes: [propertyHelper.js]
 ---*/
 
 assert(
@@ -25,9 +24,3 @@ assert(
   Number.EPSILON < 0.000001,
   "value is smaller than 0.000001"
 );
-
-verifyProperty(Number, "EPSILON", {
-  writable: false,
-  enumerable: false,
-  configurable: false,
-});

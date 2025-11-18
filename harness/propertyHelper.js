@@ -101,7 +101,7 @@ function verifyProperty(obj, name, desc, options) {
     }
   }
 
-  if (__hasOwnProperty(desc, 'enumerable') && desc.enumerable !== undefined) {
+  if (__hasOwnProperty(desc, 'enumerable')) {
     if (desc.enumerable !== originalDesc.enumerable ||
         desc.enumerable !== isEnumerable(obj, name)) {
       __push(failures, "obj['" + nameStr + "'] descriptor should " + (desc.enumerable ? '' : 'not ') + "be enumerable");
@@ -110,14 +110,14 @@ function verifyProperty(obj, name, desc, options) {
 
   // Operations past this point are potentially destructive!
 
-  if (__hasOwnProperty(desc, 'writable') && desc.writable !== undefined) {
+  if (__hasOwnProperty(desc, 'writable')) {
     if (desc.writable !== originalDesc.writable ||
         desc.writable !== isWritable(obj, name)) {
       __push(failures, "obj['" + nameStr + "'] descriptor should " + (desc.writable ? '' : 'not ') + "be writable");
     }
   }
 
-  if (__hasOwnProperty(desc, 'configurable') && desc.configurable !== undefined) {
+  if (__hasOwnProperty(desc, 'configurable')) {
     if (desc.configurable !== originalDesc.configurable ||
         desc.configurable !== isConfigurable(obj, name)) {
       __push(failures, "obj['" + nameStr + "'] descriptor should " + (desc.configurable ? '' : 'not ') + "be configurable");
