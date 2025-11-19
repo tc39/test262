@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindate.prototype.until
 description: Tests balancing of days to months at end of month (roc calendar)
 includes: [temporalHelpers.js]
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 const calendar = "roc";

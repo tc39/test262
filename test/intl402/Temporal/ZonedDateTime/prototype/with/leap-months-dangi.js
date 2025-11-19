@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.zoneddatetime.prototype.with
 description: Check constraining leap months when year changes in dangi calendar
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 includes: [temporalHelpers.js]
 ---*/
 
