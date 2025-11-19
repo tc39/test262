@@ -4,7 +4,7 @@
 /*---
 esid: sec-temporal.plaindate.prototype.subtract
 description: Basic addition and subtraction in the hebrew calendar
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 includes: [temporalHelpers.js]
 ---*/
 
