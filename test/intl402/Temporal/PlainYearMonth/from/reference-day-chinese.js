@@ -33,7 +33,7 @@ for (let [nonLeapMonthCode, month, referenceISODay] of months2022TestData) {
   const result = Temporal.PlainYearMonth.from(fields, { overflow: "constrain" });
   TemporalHelpers.assertPlainYearMonth(
     result,
-    year, month, nonLeapMonthCode,
+    2022, month, nonLeapMonthCode,
     `Chinese intercalary month ${leapMonthCode} is constrained to ${nonLeapMonthCode} in year 2022 (overflow constrain)`,
     /* era = */ undefined, /* era year = */ undefined, referenceISODay
   );
