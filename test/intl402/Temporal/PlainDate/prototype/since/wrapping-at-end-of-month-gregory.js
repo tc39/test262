@@ -94,12 +94,12 @@ const calendar = "gregory";
   TemporalHelpers.assertDuration(
     Temporal.PlainDate.from({ year: 1970, monthCode: "M12", day: 31, calendar }).since(end, { largestUnit: "months" }),
     0, -27, 0, -30, 0, 0, 0, 0, 0, 0,
-    "Dec 30th 1970 to Apr 30th 1973 is 27 months, 30 days, not 28 months"
+    "Dec 31st 1970 to Apr 30th 1973 is 27 months, 30 days, not 28 months"
   );
   TemporalHelpers.assertDuration(
     Temporal.PlainDate.from({ year: 1970, monthCode: "M12", day: 31, calendar }).since(end, { largestUnit: "years" }),
     -2, -3, 0, -30, 0, 0, 0, 0, 0, 0,
-    "Dec 30th 1970 to Apr 30th 1973 is 2 years, 3 months, 30 days, not 2 years 4 months"
+    "Dec 31st 1970 to Apr 30th 1973 is 2 years, 3 months, 30 days, not 2 years 4 months"
   );
 }
 
