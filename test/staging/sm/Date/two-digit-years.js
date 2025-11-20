@@ -64,3 +64,16 @@ for (let year of Array(1000).keys()) {
 
 assert.sameValue(new Date("may 1999 1999").getTime(), new Date(NaN).getTime());
 assert.sameValue(new Date("may 0 0").getTime(), new Date(NaN).getTime());
+
+for (let year = 50; year <= 99; ++year) {
+  for (let month = 0; month < 12; ++month) {
+    for (let day = 1; day <= 100; ++day) {
+        const date = `${year}/${month + 1}/${day}`;
+        if (day <= 31) {
+            assert.sameValue((new Date(year, month, day)).getTime(), (new Date(date).getTime()))
+        } else {
+            assert.sameValue(Number.isNaN(new Date(date).getTime()), true)
+        }
+    }
+  }
+}
