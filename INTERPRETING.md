@@ -85,42 +85,52 @@ properties of the global scope prior to test execution.
       running. The agent has no representation. The agent script will be
       run in an environment that has an object `$262` with a property `agent`
       with the following properties:
-      - **`receiveBroadcast`** - a function that takes a function and
-        calls the function when it has received a broadcast from the parent,
-        passing it the broadcast as two arguments, a SharedArrayBuffer and
-        an Int32 or BigInt. This function may return before a broadcast is received
-        (eg to return to an event loop to await a message) and no code should
-        follow the call to this function.
+      - **`receiveBroadcast`** - a function that takes a callback and
+        calls the callback when it has received a broadcast from the parent,
+        passing it the broadcast as a single SharedArrayBuffer. This function
+        may return before a broadcast is received (eg. to return to an event
+        loop to await a message) and no code should follow the call to this
+        function.
       - **`report`** - a function that accepts a single "message" argument,
-        which is converted to a string\* and placed in a transmit queue whence the parent will retrieve it. Messages should be short. (\* Note that string conversion has been implicit since the introduction of this host API, but is now explicit.)
+        which is converted to a string and placed in a transmit queue whence
+        the parent will retrieve it. Messages should be short. (Note that
+        string conversion has been implicit since the introduction of this host
+        API, but is now explicit.)
       - **`sleep`** - a function that takes a millisecond argument and
         sleeps the agent for approximately that duration.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
-      - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
-    - **`broadcast`** - a function that takes a SharedArrayBuffer and an
-        Int32 or BigInt and broadcasts the two values to all concurrent
-        agents. The function blocks until all agents have retrieved the
-        message. Note, this assumes that all agents that were started are
-        still running.
-    - **`getReport`** - a function that reads an incoming string from any agent,
-      and returns it if it exists, or returns `null` otherwise.
+      - **`monotonicNow`** - a function that returns a value that conforms to
+        [`DOMHighResTimeStamp`] and is produced in such a way that its
+        semantics conform to **[Monotonic Clock]**.
+    - **`broadcast`** - a function that takes a SharedArrayBuffer and
+    	  broadcasts it to all concurrent agents. The function blocks until all
+        agents have retrieved the message. Note, this assumes that all agents
+        that were started are still running.
+    - **`getReport`** - a function that reads an incoming string from any
+        agent, and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and
         sleeps the execution for approximately that duration.
-    - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
+    - **`monotonicNow`** - a function that returns a value that conforms to
+        [`DOMHighResTimeStamp`] and is produced in such a way that its
+        semantics conform to **[Monotonic Clock]**.
 
-In addition, consumers may choose to override any of [the functions defined by test harness files](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment) as they see fit. See [the documentation on handling errors and negative test cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases) for a useful example of this.
+In addition, consumers may choose to override any of [the functions defined by
+test harness files](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#test-environment)
+as they see fit. See [the documentation on handling errors and negative test
+cases](https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#handling-errors-and-negative-test-cases)
+for a useful example of this.
 
 
 #### Normative references
 
-[`DOMHighResTimeStamp`][], **[Monotonic Clock][]**<br>
+[`DOMHighResTimeStamp`], **[Monotonic Clock]**<br>
 Ilya Grigorik, James Simonsen, Jatinder Mann.<br>
 [High Resolution Time Level 2](https://www.w3.org/TR/hr-time-2/) March 2018. W3C. URL: [https://www.w3.org/TR/hr-time-2/](https://www.w3.org/TR/hr-time-2/)
 
 
-[`DOMHighResTimeStamp`]: https://www.w3.org/TR/hr-time-2/#sec-domhighrestimestamp        "**DOMHighResTimeStamp**"
-[Monotonic Clock]:  https://www.w3.org/TR/hr-time-2/#sec-monotonic-clock  "**Monotonic Clock**"
+[`DOMHighResTimeStamp`]: https://www.w3.org/TR/hr-time-2/#sec-domhighrestimestamp "**DOMHighResTimeStamp**"
+[Monotonic Clock]: https://www.w3.org/TR/hr-time-2/#sec-monotonic-clock "**Monotonic Clock**"
 
 
 ### Strict Mode
