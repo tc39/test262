@@ -21,7 +21,7 @@ const years3months6days17 = new Temporal.Duration(3, 6, 0, 17);
 
 const date201802 = Temporal.ZonedDateTime.from({ year: 2018, monthCode: "M02", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 const date202302 = Temporal.ZonedDateTime.from({ year: 2023, monthCode: "M02", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
-const date199712 = Temporal.ZonedDateTime.from({ year: 1997, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date199712 = Temporal.ZonedDateTime.from({ year: 1997, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 
 TemporalHelpers.assertPlainDateTime(
   date201802.subtract(years1).toPlainDateTime(),
@@ -80,7 +80,7 @@ const date201901 = Temporal.ZonedDateTime.from({ year: 2019, monthCode: "M01", d
 const date201906 = Temporal.ZonedDateTime.from({ year: 2019, monthCode: "M06", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 const date201911 = Temporal.ZonedDateTime.from({ year: 2019, monthCode: "M11", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 const date201912 = Temporal.ZonedDateTime.from({ year: 2019, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
-const date200012 = Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date200012 = Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 
 TemporalHelpers.assertPlainDateTime(
   date201911.subtract(months1).toPlainDateTime(),
@@ -134,7 +134,7 @@ const months2weeks3n = new Temporal.Duration(0, 2, 3);
 const weeks40 = new Temporal.Duration(0, 0, /* weeks = */ 40);
 
 const date202101 = Temporal.ZonedDateTime.from({ year: 2021, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
-const date20000101 = Temporal.ZonedDateTime.from({ year: 2000, month: 1, day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date20000101 = Temporal.ZonedDateTime.from({ year: 2000, month: 1, day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 
 TemporalHelpers.assertPlainDateTime(
   date202101.subtract(months2weeks3).toPlainDateTime(),

@@ -21,7 +21,7 @@ const years3months6days17 = new Temporal.Duration(3, 6, 0, 17);
 
 const date201802 = Temporal.PlainDate.from({ year: 2018, monthCode: "M02", day: 1, calendar }, options);
 const date202302 = Temporal.PlainDate.from({ year: 2023, monthCode: "M02", day: 29, calendar }, options);
-const date199712 = Temporal.PlainDate.from({ year: 1997, monthCode: "M12", day: 1, calendar });
+const date199712 = Temporal.PlainDate.from({ year: 1997, monthCode: "M12", day: 1, calendar }, options);
 
 TemporalHelpers.assertPlainDate(
   date201802.subtract(years1),
@@ -87,7 +87,7 @@ const date201901 = Temporal.PlainDate.from({ year: 2019, monthCode: "M01", day: 
 const date201906 = Temporal.PlainDate.from({ year: 2019, monthCode: "M06", day: 1, calendar }, options);
 const date201911 = Temporal.PlainDate.from({ year: 2019, monthCode: "M11", day: 1, calendar }, options);
 const date201912 = Temporal.PlainDate.from({ year: 2019, monthCode: "M12", day: 1, calendar }, options);
-const date200012 = Temporal.PlainDate.from({ year: 2000, monthCode: "M12", day: 1, calendar });
+const date200012 = Temporal.PlainDate.from({ year: 2000, monthCode: "M12", day: 1, calendar }, options);
 const dates = [
   date201901,
   date201906,
@@ -185,7 +185,7 @@ const months2weeks3n = new Temporal.Duration(0, 2, 3);
 const weeks40 = new Temporal.Duration(0, 0, /* weeks = */ 40);
 
 const date202101 = Temporal.PlainDate.from({ year: 2021, monthCode: "M01", day: 1, calendar }, options);
-const date20000101 = Temporal.PlainDate.from({ year: 2000, month: 1, day: 1, calendar });
+const date20000101 = Temporal.PlainDate.from({ year: 2000, month: 1, day: 1, calendar }, options);
 
 TemporalHelpers.assertPlainDate(
   date202101.subtract(months2weeks3),
