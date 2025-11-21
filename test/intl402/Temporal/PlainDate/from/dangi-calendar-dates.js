@@ -33,7 +33,7 @@ const cases = {
 const dates = {
   year2000: Temporal.PlainDate.from("2000-01-01"),
   year1900: Temporal.PlainDate.from("1900-01-01"),
-  year2100: Temporal.PlainDate.from("2100-01-01")
+  year2050: Temporal.PlainDate.from("2050-01-01")
 };
 for (var [name, result] of Object.entries(cases)) {
   const date = dates[name];

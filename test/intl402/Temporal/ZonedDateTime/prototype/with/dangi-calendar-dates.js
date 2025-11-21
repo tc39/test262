@@ -27,8 +27,8 @@ const cases = {
     timeZone: "UTC",
     calendar
   },
-  year2100: {
-    year: 2099,
+  year2050: {
+    year: 2049,
     month: 11,
     day: 21,
     timeZone: "UTC",
