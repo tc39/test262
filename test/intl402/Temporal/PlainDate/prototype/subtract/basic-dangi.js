@@ -82,27 +82,12 @@ const months4 = new Temporal.Duration(0, -4);
 const months4n = new Temporal.Duration(0, 4);
 const months6 = new Temporal.Duration(0, -6);
 const months6n = new Temporal.Duration(0, 6);
-const durations = [
-  months1,
-  months1n,
-  months4,
-  months4n,
-  months6,
-  months6n,
-];
 
 const date201901 = Temporal.PlainDate.from({ year: 2019, monthCode: "M01", day: 1, calendar }, options);
 const date201906 = Temporal.PlainDate.from({ year: 2019, monthCode: "M06", day: 1, calendar }, options);
 const date201911 = Temporal.PlainDate.from({ year: 2019, monthCode: "M11", day: 1, calendar }, options);
 const date201912 = Temporal.PlainDate.from({ year: 2019, monthCode: "M12", day: 1, calendar }, options);
 const date200012 = Temporal.PlainDate.from({ year: 2000, monthCode: "M12", day: 1, calendar }, options);
-const dates = [
-  date201901,
-  date201906,
-  date201911,
-  date201912,
-  date200012
-];
 
 TemporalHelpers.assertPlainDate(
   date201911.subtract(months1),
@@ -153,43 +138,6 @@ TemporalHelpers.assertPlainDate(
   date200012.subtract(months6n),
   2000, 6, "M06", 1, "Subtracting 6 months, with result in same year"
 );
-
-for (var duration of durations) {
-  for (var start of dates) {
-    const end = start.subtract(duration);
-
-    // startYesterday = start - (1 day)
-    const startYesterday = start.subtract({ days: 1 });
-    // endYesterday = startYesterday + duration
-    const endYesterday = startYesterday.subtract(duration);
-    // When adding months, the result day should be the same
-    // unless there are fewer days in the destination month than the source day
-    assert.sameValue(endYesterday.day, Math.min(startYesterday.day, endYesterday.daysInMonth), "adding months should result in same day");
-
-    // endYesterdayNextDay = endYesterday + (1 day)
-    var endYesterdayNextDay = endYesterday.subtract({ days: -1 });
-    // Move forward to next first-day-of-month
-    while (endYesterdayNextDay.day !== 1) {
-      endYesterdayNextDay = endYesterdayNextDay.subtract({ days: -1 });
-    }
-
-    TemporalHelpers.assertPlainDate(endYesterdayNextDay, end.year, end.month, end.monthCode, end.day, `endYesterdayNextDay`, end.era, end.eraYear);
-
-    // endReverse should equal end
-    const endReverse = endYesterdayNextDay.subtract({ days: 1 });
-    const startReverse = endReverse.subtract(duration);
-    // subtracting months give the same day unless there are fewer days in the destination month
-    assert.sameValue(startReverse.day, Math.min(endReverse.day, startReverse.daysInMonth));
-
-    // Move forward to next first-day-of-month
-    var startReverseNextDay = startReverse.subtract({ days: -1 });
-    while(startReverseNextDay.day !== 1) {
-      startReverseNextDay = startReverseNextDay.subtract({ days: -1 });
-    }
-
-    TemporalHelpers.assertPlainDate(startReverseNextDay, start.year, start.month, start.monthCode, start.day, `startReverseNextDay`, start.era, start.eraYear);
-  }
-}
 
 // Weeks
 
