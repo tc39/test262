@@ -12,15 +12,15 @@ const calendar = "islamic-civil";
 
 // Difference between end of longer month to end of following shorter month
 {
-  const end = Temporal.PlainDate.from({ year: 1970, monthCode: "M02", day: 29, calendar });
+  const end = Temporal.PlainDate.from({ year: 1400, monthCode: "M02", day: 29, calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 29, calendar }).until(end, { largestUnit }),
+      Temporal.PlainDate.from({ year: 1400, monthCode: "M01", day: 29, calendar }).until(end, { largestUnit }),
       0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
       `Muharram 29th to Safar 29th is one month (${largestUnit})`
     );
     TemporalHelpers.assertDuration(
-      Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 30, calendar }).until(end, { largestUnit }),
+      Temporal.PlainDate.from({ year: 1400, monthCode: "M01", day: 30, calendar }).until(end, { largestUnit }),
       0, 0, 0, 29, 0, 0, 0, 0, 0, 0,
       `Muharram 30th to Safar 29th is 29 days, not one month (${largestUnit})`
     );
@@ -29,10 +29,10 @@ const calendar = "islamic-civil";
 
 // Difference between end of leap-year Qadah to end of leap-year Hijjah
 {
-  const end = Temporal.PlainDate.from({ year: 1971, monthCode: "M12", day: 30, calendar });
+  const end = Temporal.PlainDate.from({ year: 1401, monthCode: "M12", day: 30, calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.PlainDate.from({ year: 1971, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit }),
+      Temporal.PlainDate.from({ year: 1401, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit }),
       0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
       `Qadah 30th to Hijjah 30th is one month (${largestUnit})`
     );
@@ -42,15 +42,15 @@ const calendar = "islamic-civil";
 // Difference between end of longer month to end of not-immediately-following
 // shorter month
 {
-  const end = Temporal.PlainDate.from({ year: 1970, monthCode: "M04", day: 29, calendar });
+  const end = Temporal.PlainDate.from({ year: 1400, monthCode: "M04", day: 29, calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 29, calendar }).until(end, { largestUnit }),
+      Temporal.PlainDate.from({ year: 1400, monthCode: "M01", day: 29, calendar }).until(end, { largestUnit }),
       0, 3, 0, 0, 0, 0, 0, 0, 0, 0,
       `Muharram 29th to Thani 29th is 3 months (${largestUnit})`
     );
     TemporalHelpers.assertDuration(
-      Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 30, calendar }).until(end, { largestUnit }),
+      Temporal.PlainDate.from({ year: 1400, monthCode: "M01", day: 30, calendar }).until(end, { largestUnit }),
       0, 2, 0, 29, 0, 0, 0, 0, 0, 0,
       `Muharram 30th to Thani 29th is 2 months 29 days, not 3 months (${largestUnit})`
     );
@@ -60,26 +60,26 @@ const calendar = "islamic-civil";
 // Difference between end of longer month in one year to shorter month in
 // later year
 {
-  const end = Temporal.PlainDate.from({ year: 1973, monthCode: "M02", day: 29, calendar });
+  const end = Temporal.PlainDate.from({ year: 1403, monthCode: "M02", day: 29, calendar });
   TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M11", day: 29, calendar }).until(end, { largestUnit: "months" }),
+    Temporal.PlainDate.from({ year: 1400, monthCode: "M11", day: 29, calendar }).until(end, { largestUnit: "months" }),
     0, 27, 0, 0, 0, 0, 0, 0, 0, 0,
-    "Qadah 29th 1970 to Safar 29th 1973 is 27 months"
+    "Qadah 29th 1400 to Safar 29th 1403 is 27 months"
   );
   TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M11", day: 29, calendar }).until(end, { largestUnit: "years" }),
+    Temporal.PlainDate.from({ year: 1400, monthCode: "M11", day: 29, calendar }).until(end, { largestUnit: "years" }),
     2, 3, 0, 0, 0, 0, 0, 0, 0, 0,
-    "Qadah 29th 1970 to Safar 29th 1973 is 2 years, 3 months"
+    "Qadah 29th 1400 to Safar 29th 1403 is 2 years, 3 months"
   );
   TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit: "months" }),
+    Temporal.PlainDate.from({ year: 1400, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit: "months" }),
     0, 26, 0, 29, 0, 0, 0, 0, 0, 0,
-    "Qadah 30th 1970 to Safar 29th 1973 is 26 months, 29 days, not 27 months"
+    "Qadah 30th 1400 to Safar 29th 1403 is 26 months, 29 days, not 27 months"
   );
   TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit: "years" }),
+    Temporal.PlainDate.from({ year: 1400, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit: "years" }),
     2, 2, 0, 29, 0, 0, 0, 0, 0, 0,
-    "Qadah 30th 1970 to Safar 29th 1973 is 2 years, 2 months, 29 days, not 2 years 3 months"
+    "Qadah 30th 1400 to Safar 29th 1403 is 2 years, 2 months, 29 days, not 2 years 3 months"
   );
 }
 
@@ -87,15 +87,15 @@ const calendar = "islamic-civil";
 // shorter than either the start or end month
 {
   TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 30, calendar })
-      .until(Temporal.PlainDate.from({ year: 1970, monthCode: "M03", day: 29, calendar }), { largestUnit: "months" }),
+    Temporal.PlainDate.from({ year: 1400, monthCode: "M01", day: 30, calendar })
+      .until(Temporal.PlainDate.from({ year: 1400, monthCode: "M03", day: 29, calendar }), { largestUnit: "months" }),
     0, 1, 0, 29, 0, 0, 0, 0, 0, 0,
     "Muharram 30th to Awwal 29th is 1 month 29 days, not 59 days"
   );
   TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 30, calendar })
-      .until(Temporal.PlainDate.from({ year: 1971, monthCode: "M03", day: 29, calendar }), { largestUnit: "years" }),
+    Temporal.PlainDate.from({ year: 1400, monthCode: "M01", day: 30, calendar })
+      .until(Temporal.PlainDate.from({ year: 1401, monthCode: "M03", day: 29, calendar }), { largestUnit: "years" }),
     1, 1, 0, 29, 0, 0, 0, 0, 0, 0,
-    "Muharram 30th 1970 to Awwal 29th 1971 is 1 year, 1 month, 29 days"
+    "Muharram 30th 1400 to Awwal 29th 1401 is 1 year, 1 month, 29 days"
   );
 }
