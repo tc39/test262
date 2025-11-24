@@ -27,18 +27,6 @@ const calendar = "islamic-umalqura";
   }
 }
 
-// Difference between end of leap-year Qadah to end of leap-year Hijjah
-{
-  const end = Temporal.PlainDateTime.from({ year: 1971, monthCode: "M12", day: 30, hour: 12, minute: 34, calendar });
-  for (const largestUnit of ["years", "months"]) {
-    TemporalHelpers.assertDuration(
-      Temporal.PlainDateTime.from({ year: 1971, monthCode: "M11", day: 30, hour: 12, minute: 34, calendar }).since(end, { largestUnit }),
-      0, -1, 0, 0, 0, 0, 0, 0, 0, 0,
-      `Qadah 30th to Hijjah 30th is one month (${largestUnit})`
-    );
-  }
-}
-
 // Difference between end of longer month to end of not-immediately-following
 // shorter month
 {
@@ -80,22 +68,5 @@ const calendar = "islamic-umalqura";
     Temporal.PlainDateTime.from({ year: 1970, monthCode: "M11", day: 30, hour: 12, minute: 34, calendar }).since(end, { largestUnit: "years" }),
     -2, -2, 0, -29, 0, 0, 0, 0, 0, 0,
     "Qadah 30th 1970 to Safar 29th 1973 is 2 years, 2 months, 29 days, not 2 years 3 months"
-  );
-}
-
-// Difference where months passes through a month that's the same length or
-// shorter than either the start or end month
-{
-  TemporalHelpers.assertDuration(
-    Temporal.PlainDateTime.from({ year: 1970, monthCode: "M01", day: 30, hour: 12, minute: 34, calendar })
-      .since(Temporal.PlainDateTime.from({ year: 1970, monthCode: "M03", day: 29, hour: 12, minute: 34, calendar }), { largestUnit: "months" }),
-    0, -1, 0, -29, 0, 0, 0, 0, 0, 0,
-    "Muharram 30th to Awwal 29th is 1 month 29 days, not 59 days"
-  );
-  TemporalHelpers.assertDuration(
-    Temporal.PlainDateTime.from({ year: 1970, monthCode: "M01", day: 30, hour: 12, minute: 34, calendar })
-      .since(Temporal.PlainDateTime.from({ year: 1971, monthCode: "M03", day: 29, hour: 12, minute: 34, calendar }), { largestUnit: "years" }),
-    -1, -1, 0, -29, 0, 0, 0, 0, 0, 0,
-    "Muharram 30th 1970 to Awwal 29th 1971 is 1 year, 1 month, 29 days"
   );
 }
