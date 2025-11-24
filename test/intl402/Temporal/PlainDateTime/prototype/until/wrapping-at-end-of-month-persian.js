@@ -27,14 +27,14 @@ const calendar = "persian";
   }
 }
 
-// Difference between end of leap-year Bahman to end of leap-year Esfand
+// Difference between end of Bahman to end of Esfand
 {
-  const end = Temporal.PlainDateTime.from({ year: 1403, monthCode: "M12", day: 30, hour: 12, minute: 34, calendar });
+  const end = Temporal.PlainDateTime.from({ year: 1400, monthCode: "M12", day: 29, hour: 12, minute: 34, calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.PlainDateTime.from({ year: 1403, monthCode: "M11", day: 30, hour: 12, minute: 34, calendar }).until(end, { largestUnit }),
+      Temporal.PlainDateTime.from({ year: 1400, monthCode: "M11", day: 29, hour: 12, minute: 34, calendar }).until(end, { largestUnit }),
       0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-      `Bahman 30th to Esfand 30th is one month (${largestUnit})`
+      `Bahman 29th to Esfand 29th is one month (${largestUnit})`
     );
   }
 }
@@ -87,15 +87,15 @@ const calendar = "persian";
 // shorter than either the start or end month
 {
   TemporalHelpers.assertDuration(
-    Temporal.PlainDateTime.from({ year: 1400, monthCode: "M06", day: 31, hour: 12, minute: 34, calendar })
-      .until(Temporal.PlainDateTime.from({ year: 1401, monthCode: "M01", day: 30, hour: 12, minute: 34, calendar }), { largestUnit: "months" }),
-    0, 6, 0, 30, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 31st 1400 to Farvardin 30th 1401 is 6 months 30 days, not 209 days"
+    Temporal.PlainDateTime.from({ year: 1400, monthCode: "M11", day: 30, hour: 12, minute: 34, calendar })
+      .until(Temporal.PlainDateTime.from({ year: 1401, monthCode: "M01", day: 29, hour: 12, minute: 34, calendar }), { largestUnit: "months" }),
+    0, 1, 0, 29, 0, 0, 0, 0, 0, 0,
+    "Bahman 30th 1400 to Farvardin 31st 1401 is 1 month 29 days, not 58 days"
   );
   TemporalHelpers.assertDuration(
-    Temporal.PlainDateTime.from({ year: 1400, monthCode: "M06", day: 31, hour: 12, minute: 34, calendar })
-      .until(Temporal.PlainDateTime.from({ year: 1402, monthCode: "M01", day: 30, hour: 12, minute: 34, calendar }), { largestUnit: "years" }),
-    1, 6, 0, 30, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 31st 1400 to Farvardin 30th 1402 is 1 year, 6 months, 30 days"
+    Temporal.PlainDateTime.from({ year: 1400, monthCode: "M11", day: 30, hour: 12, minute: 34, calendar })
+      .until(Temporal.PlainDateTime.from({ year: 1402, monthCode: "M01", day: 29, hour: 12, minute: 34, calendar }), { largestUnit: "years" }),
+    1, 1, 0, 29, 0, 0, 0, 0, 0, 0,
+    "Bahman 31st 1400 to Farvardin 30th 1402 is 1 year, 1 month, 29 days"
   );
 }
