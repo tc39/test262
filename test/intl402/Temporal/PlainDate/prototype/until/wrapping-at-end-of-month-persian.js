@@ -36,6 +36,11 @@ const calendar = "persian";
       0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
       `Bahman 29th to Esfand 29th is one month (${largestUnit})`
     );
+    TemporalHelpers.assertDuration(
+      Temporal.PlainDate.from({ year: 1400, monthCode: "M11", day: 30, calendar }).until(end, { largestUnit }),
+      0, 0, 0, 29, 0, 0, 0, 0, 0, 0,
+      `Bahman 30th to Esfand 29th is 29 days (${largestUnit})`
+    );
   }
 }
 
