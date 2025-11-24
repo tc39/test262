@@ -12,15 +12,15 @@ const calendar = "persian";
 
 // Difference between end of longer month to end of following shorter month
 {
-  const end = Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M07", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
+  const end = Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M07", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
+      Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
       0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
       `Shahrivar 30th to Mehr 30th is one month (${largestUnit})`
     );
     TemporalHelpers.assertDuration(
-      Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
+      Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
       0, 0, 0, 30, 0, 0, 0, 0, 0, 0,
       `Shahrivar 31st to Mehr 30th is 30 days, not one month (${largestUnit})`
     );
@@ -29,10 +29,10 @@ const calendar = "persian";
 
 // Difference between end of leap-year Bahman to end of leap-year Esfand
 {
-  const end = Temporal.ZonedDateTime.from({ year: 1973, monthCode: "M12", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
+  const end = Temporal.ZonedDateTime.from({ year: 1403, monthCode: "M12", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.ZonedDateTime.from({ year: 1973, monthCode: "M11", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
+      Temporal.ZonedDateTime.from({ year: 1403, monthCode: "M11", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
       0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
       `Bahman 30th to Esfand 30th is one month (${largestUnit})`
     );
@@ -42,15 +42,15 @@ const calendar = "persian";
 // Difference between end of longer month to end of not-immediately-following
 // shorter month
 {
-  const end = Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M08", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
+  const end = Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M08", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
   for (const largestUnit of ["years", "months"]) {
     TemporalHelpers.assertDuration(
-      Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
+      Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
       0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
       `Shahrivar 30th to Aban 30th is 2 months (${largestUnit})`
     );
     TemporalHelpers.assertDuration(
-      Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
+      Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit }),
       0, 1, 0, 30, 0, 0, 0, 0, 0, 0,
       `Shahrivar 30th to Aban 29th is 1 month 30 days, not 2 months (${largestUnit})`
     );
@@ -60,26 +60,26 @@ const calendar = "persian";
 // Difference between end of longer month in one year to shorter month in
 // later year
 {
-  const end = Temporal.ZonedDateTime.from({ year: 1971, monthCode: "M12", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
+  const end = Temporal.ZonedDateTime.from({ year: 1401, monthCode: "M12", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
   TemporalHelpers.assertDuration(
-    Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "months" }),
+    Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "months" }),
     0, 18, 0, 0, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 29th 1970 to Esfand 29th 1971 is 18 months"
+    "Shahrivar 29th 1400 to Esfand 29th 1401 is 18 months"
   );
   TemporalHelpers.assertDuration(
-    Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "years" }),
+    Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "years" }),
     1, 6, 0, 0, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 29th 1970 to Esfand 29th 1971 is 1 year, 6 months"
+    "Shahrivar 29th 1400 to Esfand 29th 1401 is 1 year, 6 months"
   );
   TemporalHelpers.assertDuration(
-    Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "months" }),
+    Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "months" }),
     0, 17, 0, 29, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 30th 1970 to Esfand 29th 1971 is 17 months, 29 days, not 18 months"
+    "Shahrivar 30th 1400 to Esfand 29th 1401 is 17 months, 29 days, not 18 months"
   );
   TemporalHelpers.assertDuration(
-    Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "years" }),
+    Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }).until(end, { largestUnit: "years" }),
     1, 5, 0, 29, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 30th 1970 to Esfand 29th 1971 is 1 year, 5 months, 29 days, not 1 year 6 months"
+    "Shahrivar 30th 1400 to Esfand 29th 1401 is 1 year, 5 months, 29 days, not 1 year 6 months"
   );
 }
 
@@ -87,15 +87,15 @@ const calendar = "persian";
 // shorter than either the start or end month
 {
   TemporalHelpers.assertDuration(
-    Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar })
-      .until(Temporal.ZonedDateTime.from({ year: 1971, monthCode: "M01", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }), { largestUnit: "months" }),
+    Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar })
+      .until(Temporal.ZonedDateTime.from({ year: 1401, monthCode: "M01", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }), { largestUnit: "months" }),
     0, 6, 0, 30, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 31st 1970 to Farvardin 30th 1971 is 6 months 30 days, not 209 days"
+    "Shahrivar 31st 1400 to Farvardin 30th 1401 is 6 months 30 days, not 209 days"
   );
   TemporalHelpers.assertDuration(
-    Temporal.ZonedDateTime.from({ year: 1970, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar })
-      .until(Temporal.ZonedDateTime.from({ year: 1972, monthCode: "M01", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }), { largestUnit: "years" }),
+    Temporal.ZonedDateTime.from({ year: 1400, monthCode: "M06", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar })
+      .until(Temporal.ZonedDateTime.from({ year: 1402, monthCode: "M01", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar }), { largestUnit: "years" }),
     1, 6, 0, 30, 0, 0, 0, 0, 0, 0,
-    "Shahrivar 31st 1970 to Farvardin 30th 1972 is 1 year, 6 months, 30 days"
+    "Shahrivar 31st 1400 to Farvardin 30th 1402 is 1 year, 6 months, 30 days"
   );
 }
