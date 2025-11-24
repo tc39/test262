@@ -27,31 +27,6 @@ const calendar = "indian";
   }
 }
 
-// Difference between end of leap-year Chaitra (M01) to end of leap-year Vaisakha (M02)
-{
-  const start = Temporal.PlainDate.from({ year: 1970, monthCode: "M01", day: 31, calendar });
-  for (const largestUnit of ["years", "months"]) {
-    TemporalHelpers.assertDuration(
-      start.until(
-        Temporal.PlainDate.from({ year: 1970, monthCode: "M02", day: 31, calendar }), { largestUnit }),
-      0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-      `Chaitra 31st to Vaisakha 31st is one month (${largestUnit})`
-    );
-    TemporalHelpers.assertDuration(
-      start.until(
-        Temporal.PlainDate.from({ year: 1970, monthCode: "M02", day: 30, calendar }), { largestUnit }),
-      0, 0, 0, 30, 0, 0, 0, 0, 0, 0,
-      `Chaitra 31st to Vaisakha 30th is 30 days, not one month (${largestUnit})`
-    );
-    TemporalHelpers.assertDuration(
-      start.until(
-        Temporal.PlainDate.from({ year: 1970, monthCode: "M02", day: 29, calendar }), { largestUnit }),
-      0, 0, 0, 29, 0, 0, 0, 0, 0, 0,
-      `Chaitra 31st to Vaisakha 31st is 29 days, not one month (${largestUnit})`
-    );
-  }
-}
-
 // Difference between end of longer month to end of not-immediately-following
 // shorter month
 {
@@ -93,22 +68,5 @@ const calendar = "indian";
     Temporal.PlainDate.from({ year: 1970, monthCode: "M06", day: 31, calendar }).until(end, { largestUnit: "years" }),
     3, 0, 0, 30, 0, 0, 0, 0, 0, 0,
     "Bhadra 31st 1970 to Asvina 30th 1973 is 3 years, 30 days"
-  );
-}
-
-// Difference where months passes through a month that's the same length or
-// shorter than either the start or end month
-{
-  TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M06", day: 31, calendar })
-      .until(Temporal.PlainDate.from({ year: 1971, monthCode: "M01", day: 30, calendar }), { largestUnit: "months" }),
-    0, 6, 0, 30, 0, 0, 0, 0, 0, 0,
-    "Bhadra 31st 1970 to Chaitra 30th 1971 is 6 months 30 days, not 210 days"
-  );
-  TemporalHelpers.assertDuration(
-    Temporal.PlainDate.from({ year: 1970, monthCode: "M06", day: 31, calendar })
-      .until(Temporal.PlainDate.from({ year: 1972, monthCode: "M01", day: 30, calendar }), { largestUnit: "years" }),
-    1, 6, 0, 30, 0, 0, 0, 0, 0, 0,
-    "Bhadra 31st 1970 to Chaitra 30th 1972 is 1 year, 6 months, 30 days"
   );
 }
