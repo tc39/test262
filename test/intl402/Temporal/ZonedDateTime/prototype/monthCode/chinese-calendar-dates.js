@@ -17,7 +17,7 @@ const leapMonthCases = [
   { year: 1979, month: 7, monthCode: "M06L", day: 1, referenceYear: 1960, referenceDay: 24 },
   { year: 1982, month: 5, monthCode: "M04L", day: 1, referenceYear: 1963, referenceDay: 23 },
   { year: 1984, month: 11, monthCode: "M10L", day: 1, referenceYear: 1870, referenceDay: 23 },
-  { year: 1987, month: 8, monthCode: "M07L", day: 1, referenceYear: 1968, referenceDay: 24 },
+  { year: 1987, month: 7, monthCode: "M06L", day: 1, referenceYear: 1960, referenceDay: 24 },
   { year: 1990, month: 6, monthCode: "M05L", day: 1, referenceYear: 1971, referenceDay: 23 },
   { year: 1993, month: 4, monthCode: "M03L", day: 1, referenceYear: 1966, referenceDay: 22 },
   { year: 1995, month: 9, monthCode: "M08L", day: 1, referenceYear: 1957, referenceDay: 25 },
