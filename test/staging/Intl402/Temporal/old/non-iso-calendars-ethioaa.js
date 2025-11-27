@@ -26,14 +26,14 @@ function compareFormatToPartsSnapshot(isoString, expectedComponents) {
 
 compareFormatToPartsSnapshot("2000-01-01T00:00Z", {
   year: 7492,
-  era: "ERA0",
+  era: "AA",
   month: 4,
   day: 22,
 });
 
 compareFormatToPartsSnapshot("0001-01-01T00:00Z", {
   year: 5493,
-  era: "ERA0",
+  era: "AA",
   month: 5,
   day: 8,
 });
