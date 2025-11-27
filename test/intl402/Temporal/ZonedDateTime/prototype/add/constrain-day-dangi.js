@@ -56,10 +56,10 @@ assert.throws(RangeError, function () {
 
 TemporalHelpers.assertPlainDateTime(
   longLeapMonth2.add(years19n).toPlainDateTime(),
-  1993, 4, "M03L", 29, 12, 34, 0, 0, 0, 0, "long M06L constrains to 29 when subtraction lands in year with short M06L");
+  1993, 4, "M03L", 29, 12, 34, 0, 0, 0, 0, "long M03L constrains to 29 when subtraction lands in year with short M03L");
 assert.throws(RangeError, function () {
   longLeapMonth2.add(years19n, options);
-}, "long M06L rejects when subtraction lands in year with short M06L");
+}, "long M03L rejects when subtraction lands in year with short M03L");
 
 // Constraining day 30 of each regular month to day 29
 
