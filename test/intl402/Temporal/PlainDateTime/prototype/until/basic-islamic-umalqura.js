@@ -49,13 +49,11 @@ const date13640201 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M02",
 const date13640205 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M02", day: 5, hour: 12, minute: 34, calendar });
 const date13640216 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M02", day: 16, hour: 12, minute: 34, calendar });
 const date13640228 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M02", day: 28, hour: 12, minute: 34, calendar })
-const date13640230 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M02", day: 30, hour: 12, minute: 34, calendar })
 const date13640304 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M03", day: 4, hour: 12, minute: 34, calendar });;
 const date13640305 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M03", day: 5, hour: 12, minute: 34, calendar });
 const date13640307 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M03", day: 7, hour: 12, minute: 34, calendar });
 const date13640316 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M03", day: 16, hour: 12, minute: 34, calendar });
 const date13640330 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M03", day: 30, hour: 12, minute: 34, calendar });
-const date13640415 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M04", day: 15, hour: 12, minute: 34, calendar });
 const date13640416 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M04", day: 16, hour: 12, minute: 34, calendar });
 const date13640513 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M05", day: 13, hour: 12, minute: 34, calendar });
 const date13640515 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M05", day: 15, hour: 12, minute: 34, calendar });
@@ -76,10 +74,7 @@ const date13640814 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M08",
 const date13640816 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M08", day: 16, hour: 12, minute: 34, calendar });
 const date13640817 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M08", day: 17, hour: 12, minute: 34, calendar });
 const date13640916 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M09", day: 16, hour: 12, minute: 34, calendar });
-const date13641116 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M11", day: 16, hour: 12, minute: 34, calendar });
-const date13641217 = Temporal.PlainDateTime.from({ year: 1364, monthCode: "M12", day: 17, hour: 12, minute: 34, calendar });
 const date13650228 = Temporal.PlainDateTime.from({ year: 1365, monthCode: "M02", day: 28, hour: 12, minute: 34, calendar });
-const date13650230 = Temporal.PlainDateTime.from({ year: 1365, monthCode: "M02", day: 30, hour: 12, minute: 34, calendar });
 const date13650716 = Temporal.PlainDateTime.from({ year: 1365, monthCode: "M07", day: 16, hour: 12, minute: 34, calendar });
 const date13650719 = Temporal.PlainDateTime.from({ year: 1365, monthCode: "M07", day: 19, hour: 12, minute: 34, calendar });
 const date13650919 = Temporal.PlainDateTime.from({ year: 1365, monthCode: "M09", day: 19, hour: 12, minute: 34, calendar });
@@ -124,10 +119,10 @@ const tests = [
     ["months", 0, 1, 0, 0],
   ],
   [
-    date13640416, date13640517, "1 month and 1 day in a month with 30 days",
+    date13640516, date13640617, "1 month and 1 day in a month with 29 days",
     ["years", 0, 1, 0, 1],
     ["months", 0, 1, 0, 1],
-    ["days", 0, 0, 0, 31],
+    ["days", 0, 0, 0, 30],
   ],
   [
     date13640716, date13640814, "28 days across a month which has 30 days",
@@ -136,11 +131,11 @@ const tests = [
     ["weeks", 0, 0, 4, 0],
   ],
   [
-    date13640416, date13640716, "2 months which both have 30 days",
-    ["years", 0, 3, 0, 0],
-    ["months", 0, 3, 0, 0],
-    ["weeks", 0, 0, 12, 4],
-    ["days", 0, 0, 0, 88],
+    date13640316, date13640516, "2 months which both have 30 days",
+    ["years", 0, 2, 0, 0],
+    ["months", 0, 2, 0, 0],
+    ["weeks", 0, 0, 8, 3],
+    ["days", 0, 0, 0, 59],
   ],
   [
     date13640716, date13650716, "1 year",
@@ -155,7 +150,7 @@ const tests = [
     ["months", 0, 12, 0, 0],
   ],
   [
-    date13640230, date13650230, "end of Safar",
+    date13640228, date13650228, "end of Safar",
     ["years", 1, 0, 0, 0],
     ["months", 0, 12, 0, 0],
   ],
@@ -256,23 +251,23 @@ const tests = [
     ["months", 0, -1, 0, 0],
   ],
   [
-    date13641217, date13641116, "negative 1 month and 1 day in a month with 30 days",
+    date13640617, date13640516, "negative 1 month and 1 day in a month with 29 days",
     ["years", 0, -1, 0, -1],
     ["months", 0, -1, 0, -1],
-    ["days", 0, 0, 0, -31],
+    ["days", 0, 0, 0, -30],
   ],
   [
-    date13640415, date13640316, "negative 28 days across a month which has 30 days",
-    ["years", 0, 0, 0, -28],
-    ["months", 0, 0, 0, -28],
-    ["weeks", 0, 0, -4, 0],
+    date13640515, date13640416, "negative 28 days across a month which has 29 days",
+    ["years", 0, 0, 0, -29],
+    ["months", 0, 0, 0, -29],
+    ["weeks", 0, 0, -4, -1],
   ],
   [
-    date13640716, date13640416, "negative 2 months which both have 30 days",
-    ["years", 0, -3, 0, 0],
-    ["months", 0, -3, 0, 0],
-    ["weeks", 0, 0, -12, -4],
-    ["days", 0, 0, 0, -88],
+    date13640716, date13640516, "negative 2 months which both have 30 days",
+    ["years", 0, -2, 0, 0],
+    ["months", 0, -2, 0, 0],
+    ["weeks", 0, 0, -8, -2],
+    ["days", 0, 0, 0, -58],
   ],
   [
     date13650716, date13640716, "negative 1 year",
