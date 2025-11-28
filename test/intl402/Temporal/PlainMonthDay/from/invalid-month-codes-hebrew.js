@@ -3,12 +3,12 @@
 
 /*---
 esid: sec-temporal.plainmonthday.from
-description: M13 month code is invalid for Hebrew calendar (12-month calendar with leap month M05L)
+description: Month codes that are invalid for Hebrew calendar
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
-// The Hebrew calendar is a 12-month lunisolar calendar with leap month M05L (Adar I)
-// but does not have a thirteenth month (M13)
+// The Hebrew calendar is a 12-month lunisolar calendar with leap month M05L
+// (Adar I) but does not have a thirteenth month (M13)
 
 const calendar = "hebrew";
 
@@ -25,3 +25,13 @@ assert.throws(RangeError, () => {
 assert.throws(RangeError, () => {
   Temporal.PlainMonthDay.from({ calendar, monthCode: "M13", day: 1 }, { overflow: "reject" });
 }, `M13 should not be valid for ${calendar} calendar with reject overflow`);
+
+// Invalid leap months: e.g. M02L
+for (var i = 1; i <= 12; i++) {
+  if (i === 5)
+    continue;
+  const monthCode = `M${ i.toString().padStart(2, "0") }L`;
+  assert.throws(RangeError, function () {
+    Temporal.PlainMonthDay.from({ monthCode, day: 1, calendar });
+  });
+}
