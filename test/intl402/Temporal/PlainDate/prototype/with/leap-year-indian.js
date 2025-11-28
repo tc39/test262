@@ -25,3 +25,20 @@ TemporalHelpers.assertPlainDate(
   leapDay.with({ year: 1942 }, options),
   1942, 1, "M01", 31, "Changing year to another leap year on leap day does not reject",
   "shaka", 1942);
+
+const nonLeapDayInLeapYear = Temporal.PlainDate.from({ year: 1926, monthCode: "M01", day: 1, calendar }, options);
+
+TemporalHelpers.assertPlainDate(
+  nonLeapDayInLeapYear.with({ day: 31 }, options),
+  1926, 1, "M01", 31, "Changing non-leap day to leap day in a leap year does not reject",
+  "shaka", 1926);
+
+const commonYear = Temporal.PlainDate.from({ year: 1927, monthCode: "M01", day: 1, calendar }, options);
+
+TemporalHelpers.assertPlainDate(
+  commonYear.with({ day: 31 }),
+  1927, 1, "M01", 30, "Changing day to leap day in a common year constrains to 30 Chaitra",
+  "shaka", 1927);
+assert.throws(RangeError, function () {
+  commonYear.with({ day: 31 }, options);
+}, "Changing day to leap day in a common year rejects");
