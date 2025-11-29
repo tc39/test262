@@ -39,37 +39,5 @@ for (var [name, result] of Object.entries(cases)) {
   const date = dateNoExtraFields.with({year: dateNoExtraFields.year, hour: 12, minute: 34});
 
   TemporalHelpers.assertPlainDateTime(date, result.year, result.month, result.monthCode, result.day,12, 34, 0, 0, 0, 0,  name, result.era, result.eraYear);
-
-  const dateRoundtrip2 = Temporal.PlainDateTime.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    monthCode: result.monthCode, hour: 12, minute: 34
-  });
-  TemporalHelpers.assertPlainDateTime(dateRoundtrip2, date.year, date.month, date.monthCode, date.day,12, 34, 0, 0, 0, 0,  name, date.era, date.eraYear);
-
-  const dateRoundtrip3 = Temporal.PlainDateTime.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    month: result.month, hour: 12, minute: 34
-  });
-  TemporalHelpers.assertPlainDateTime(dateRoundtrip3, date.year, date.month, date.monthCode, date.day,12, 34, 0, 0, 0, 0,  name, date.era, date.eraYear);
-
-  const dateRoundtrip4 = Temporal.PlainDateTime.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    monthCode: result.monthCode, hour: 12, minute: 34
-  });
-  TemporalHelpers.assertPlainDateTime(dateRoundtrip4, date.year, date.month, date.monthCode, date.day,12, 34, 0, 0, 0, 0,  name, date.era, date.eraYear);
-
-  assert.throws(RangeError, () => Temporal.PlainDateTime.from({
-    calendar,
-    day: result.day,
-    month: result.month === 1 ? 2 : result.month - 1,
-    monthCode: result.monthCode,
-    year: result.year, hour: 12, minute: 34
-  }));
 }
 

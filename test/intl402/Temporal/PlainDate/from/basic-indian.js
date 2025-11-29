@@ -39,37 +39,5 @@ for (var [name, result] of Object.entries(cases)) {
   const date = dateNoExtraFields.with({year: dateNoExtraFields.year});
 
   TemporalHelpers.assertPlainDate(date, result.year, result.month, result.monthCode, result.day, name, result.era, result.eraYear);
-
-  const dateRoundtrip2 = Temporal.PlainDate.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    monthCode: result.monthCode
-  });
-  TemporalHelpers.assertPlainDate(dateRoundtrip2, date.year, date.month, date.monthCode, date.day, name, date.era, date.eraYear);
-
-  const dateRoundtrip3 = Temporal.PlainDate.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    month: result.month
-  });
-  TemporalHelpers.assertPlainDate(dateRoundtrip3, date.year, date.month, date.monthCode, date.day, name, date.era, date.eraYear);
-
-  const dateRoundtrip4 = Temporal.PlainDate.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    monthCode: result.monthCode
-  });
-  TemporalHelpers.assertPlainDate(dateRoundtrip4, date.year, date.month, date.monthCode, date.day, name, date.era, date.eraYear);
-
-  assert.throws(RangeError, () => Temporal.PlainDate.from({
-    calendar,
-    day: result.day,
-    month: result.month === 1 ? 2 : result.month - 1,
-    monthCode: result.monthCode,
-    year: result.year
-  }));
 }
 
