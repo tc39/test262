@@ -2,31 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-features:
-  - Temporal
-description: |
-  pending
-esid: pending
+esid: sec-temporal.plainmonthday.from
+description: Throw a RangeError if fields conflict with each other
+features: [Temporal, Intl.Era-monthcode]
 ---*/
-
-// Equivalent monthCode and month are resolved to the same PlainMonthDay.
-{
-  let withMonthCode = Temporal.PlainMonthDay.from({
-    calendar: "gregory",
-    year: 2023,
-    monthCode: "M02",
-    day: 30,
-  });
-
-  let withMonth = Temporal.PlainMonthDay.from({
-    calendar: "gregory",
-    year: 2023,
-    month: 2,
-    day: 30,
-  });
-
-  assert.sameValue(withMonthCode.equals(withMonth), true);
-}
 
 // eraYear and year must be consistent when monthCode is present.
 {
