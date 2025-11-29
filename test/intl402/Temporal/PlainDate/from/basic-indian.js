@@ -35,8 +35,7 @@ const dates = {
   nonLeapYear: Temporal.PlainDate.from("2005-03-22[+00:00][u-ca=indian]")
 };
 for (var [name, result] of Object.entries(cases)) {
-  const dateNoExtraFields = dates[name];
-  const date = dateNoExtraFields.with({year: dateNoExtraFields.year});
+  const date = dates[name];
 
   TemporalHelpers.assertPlainDate(date, result.year, result.month, result.monthCode, result.day, name, result.era, result.eraYear);
 }
