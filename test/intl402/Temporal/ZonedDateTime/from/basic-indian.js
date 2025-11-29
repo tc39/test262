@@ -17,7 +17,7 @@ const cases = {
     year: 1926,
     month: 1,
     monthCode: "M01",
-    day: 1, hour: 12, minute: 34,
+    day: 1,
     era: 'shaka',
     eraYear: 1926
   },
@@ -25,7 +25,7 @@ const cases = {
     year: 1927,
     month: 1,
     monthCode: "M01",
-    day: 1, hour: 12, minute: 34,
+    day: 1,
     era: 'shaka',
     eraYear: 1927
   },
@@ -35,9 +35,8 @@ const dates = {
   nonLeapYear: Temporal.ZonedDateTime.from("2005-03-22[+00:00][u-ca=indian]")
 };
 for (var [name, result] of Object.entries(cases)) {
-  const dateNoExtraFields = dates[name];
-  const date = dateNoExtraFields.with({year: dateNoExtraFields.year, hour: 12, minute: 34});
+  const date = dates[name];
 
-  TemporalHelpers.assertPlainDateTime(date.toPlainDateTime(), result.year, result.month, result.monthCode, result.day,12, 34, 0, 0, 0, 0,  name, result.era, result.eraYear);
+  TemporalHelpers.assertPlainDateTime(date.toPlainDateTime(), result.year, result.month, result.monthCode, result.day,0, 0, 0, 0, 0, 0,  name, result.era, result.eraYear);
 }
 
