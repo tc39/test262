@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.zoneddatetime.prototype.dayofyear
 description: dayOfYear property in the islamic-umalqura calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 

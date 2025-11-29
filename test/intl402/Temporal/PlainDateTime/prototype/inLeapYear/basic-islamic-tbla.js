@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.prototype.inleapyear
 description: Leap years in the islamic-tbla calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 

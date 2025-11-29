@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.inleapyear
-description: Leap years in the islamic-civil calendar
+esid: sec-temporal.plainyearmonth.prototype.daysinyear
+description: Leap years in the islamic-tbla calendar
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
-const calendar = "islamic-civil";
+const calendar = "islamic-tbla";
 const options = { overflow: "reject" };
 
 // 1390 = ISO year 1970
@@ -41,14 +41,14 @@ const leapYears = [
   1461,
   1464,
   1466,
-  1469,
+  1469
 ]
 
 for (var year = 1390; year < 1470; year++) {
-    const date = Temporal.PlainDate.from({
+    const date = Temporal.PlainYearMonth.from({
         year,
         month: 1,
-        calendar, day: 1
+        calendar
     });
-    assert.sameValue(date.inLeapYear, leapYears.includes(year));
+    assert.sameValue(date.daysInYear, leapYears.includes(year) ? 355 : 354);
 }

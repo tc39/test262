@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.prototype.daysinmonth
 description: Days in each month in the islamic-tbla calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 

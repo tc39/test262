@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.zoneddatetime.prototype.daysinmonth
 description: Days in each month in the islamic-umalqura calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
