@@ -23,12 +23,18 @@ const date74890616 = Temporal.PlainDate.from({ year: 7489, monthCode: "M06", day
 const date74890617 = Temporal.PlainDate.from({ year: 7489, monthCode: "M06", day: 17, calendar });
 const date74890622 = Temporal.PlainDate.from({ year: 7489, monthCode: "M06", day: 22, calendar });
 const date74890716 = Temporal.PlainDate.from({ year: 7489, monthCode: "M07", day: 16, calendar });
+const date74891201 = Temporal.PlainDate.from({ year: 7489, monthCode: "M12", day: 1, calendar });
 const date74900616 = Temporal.PlainDate.from({ year: 7490, monthCode: "M06", day: 16, calendar });
 const date74900716 = Temporal.PlainDate.from({ year: 7490, monthCode: "M07", day: 16, calendar });
 const date74901216 = Temporal.PlainDate.from({ year: 7490, monthCode: "M12", day: 16, calendar });
 const date74901228 = Temporal.PlainDate.from({ year: 7490, monthCode: "M12", day: 28, calendar });
 const date74901230 = Temporal.PlainDate.from({ year: 7490, monthCode: "M12", day: 30, calendar });
 const date74901305 = Temporal.PlainDate.from({ year: 7490, monthCode: "M13", day: 5, calendar });
+const date74920101 = Temporal.PlainDate.from({ year: 7492, monthCode: "M01", day: 1, calendar });
+const date74921011 = Temporal.PlainDate.from({ year: 7492, monthCode: "M10", day: 11, calendar });
+const date74921201 = Temporal.PlainDate.from({ year: 7492, monthCode: "M12", day: 1, calendar });
+const date74930501 = Temporal.PlainDate.from({ year: 7493, monthCode: "M05", day: 1, calendar });
+const date74930518 = Temporal.PlainDate.from({ year: 7493, monthCode: "M05", day: 18, calendar });
 const date75120101 = Temporal.PlainDate.from({ year: 7512, monthCode: "M01", day: 1, calendar });
 const date75120201 = Temporal.PlainDate.from({ year: 7512, monthCode: "M02", day: 1, calendar });
 const date75120724 = Temporal.PlainDate.from({ year: 7512, monthCode: "M07", day: 24, calendar });
@@ -187,6 +193,10 @@ const tests = [
     ["years", 1, 3, 0, 16],
   ],
   [
+    date74891201, date74930518, "3 years, 6 months and 17 days",
+    ["years", 3, 6, 0, 17],
+  ],
+  [
     date74530330, date75140716, "61 years, 3 months and 16 days",
     ["years", 61, 3, 0, 16],
   ],
@@ -197,6 +207,15 @@ const tests = [
   [
     date75131305, date75140621, "6 months and 16 days",
     ["years", 0, 6, 0, 16],
+  ],
+  [
+    date74921201, date74930501, "6 months",
+    ["months", 0, 6, 0, 0],
+  ],
+  [
+    date74920101, date74921011, "40 weeks",
+    ["weeks", 0, 0, 40, 0],
+    ["days", 0, 0, 0, 280],
   ],
   [
     date74901305, date75140621, "23 years, 6 months and 16 days",
