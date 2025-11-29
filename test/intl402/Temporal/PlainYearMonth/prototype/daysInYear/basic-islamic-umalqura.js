@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.prototype.inleapyear
+esid: sec-temporal.plainyearmonth.prototype.daysinyear
 description: Leap years in the islamic-umalqura calendar
 features: [Temporal, Intl.Era-monthcode]
 ---*/
@@ -45,10 +45,11 @@ const leapYears = [
 ]
 
 for (var year = 1390; year < 1470; year++) {
-    const date = Temporal.PlainDateTime.from({
+    const date = Temporal.PlainYearMonth.from({
         year,
         month: 1,
-        calendar, day: 1, hour: 12, minute: 34
+        calendar
     });
-    assert.sameValue(date.inLeapYear, leapYears.includes(year));
+
+    assert.sameValue(date.daysInYear, leapYears.includes(year) ? 355 : 354);
 }

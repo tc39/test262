@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plainyearmonth.prototype.monthsinyear
 description: Always 12 months in a year in the islamic-umalqura calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 

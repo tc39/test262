@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plaindatetime.prototype.monthsinyear
 description: Always 12 months in a year in the islamic-civil calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 

@@ -4,7 +4,6 @@
 /*---
 esid: sec-temporal.plainyearmonth.prototype.daysinyear
 description: Days in years in the islamic-civil calendar
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
