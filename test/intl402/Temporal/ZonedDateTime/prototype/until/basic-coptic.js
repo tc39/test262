@@ -17,6 +17,12 @@ const calendar = "coptic";
 const date17100216 = Temporal.ZonedDateTime.from({ year: 1710, monthCode: "M02", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date17100330 = Temporal.ZonedDateTime.from({ year: 1710, monthCode: "M03", day: 30, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date17110329 = Temporal.ZonedDateTime.from({ year: 1711, monthCode: "M03", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date17131201 = Temporal.ZonedDateTime.from({ year: 1713, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date17160101 = Temporal.ZonedDateTime.from({ year: 1716, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date17161011 = Temporal.ZonedDateTime.from({ year: 1716, monthCode: "M10", day: 11, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date17161201 = Temporal.ZonedDateTime.from({ year: 1716, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date17170501 = Temporal.ZonedDateTime.from({ year: 1717, monthCode: "M05", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date17170518 = Temporal.ZonedDateTime.from({ year: 1717, monthCode: "M05", day: 18, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date17190724 = Temporal.ZonedDateTime.from({ year: 1719, monthCode: "M07", day: 24, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date17460516 = Temporal.ZonedDateTime.from({ year: 1746, monthCode: "M05", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date17460616 = Temporal.ZonedDateTime.from({ year: 1746, monthCode: "M06", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
@@ -126,6 +132,10 @@ const tests = [
     ["days", 0, 0, 0, 31],
   ],
   [
+    date17161201, date17170501, "6 months in different year",
+    ["months", 0, 6, 0, 0],
+  ],
+  [
     date17710205, date17710303, "28 days across a month which has 30 days",
     ["years", 0, 0, 0, 28],
     ["months", 0, 0, 0, 28],
@@ -152,6 +162,10 @@ const tests = [
   [
     date17710716, date17720919, "1 year 2 months and 3 days",
     ["years", 1, 2, 0, 3],
+  ],
+  [
+    date17131201, date17170518, "3 years, 6 months and 17 days",
+    ["years", 3, 6, 0, 17],
   ],
   [
     date17710716, date17811216, "10 years and 5 months",
@@ -204,6 +218,11 @@ const tests = [
   [
     date17691305, date17710210, "1 year, 2 months and 5 days",
     ["years", 1, 2, 0, 5],
+  ],
+  [
+    date17160101, date17161011, "40 weeks",
+    ["weeks", 0, 0, 40, 0],
+    ["days", 0, 0, 0, 280],
   ],
   [
     date17710717, date17710716, "negative one day",
