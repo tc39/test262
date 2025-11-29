@@ -19,24 +19,7 @@ locale: [en]
 features: [Intl.Era-monthcode]
 ---*/
 
-const availableCalendars = [
-  "buddhist",
-	"chinese",
-	"coptic",
-	"dangi",
-	"ethioaa",
-	"ethiopic",
-	"gregory",
-	"hebrew",
-	"indian",
-	"islamic-civil",
-	"islamic-tbla",
-	"islamic-umalqura",
-	"iso8601",
-	"japanese",
-	"persian",
-	"roc",
-];
+const availableCalendars = Intl.supportedValuesOf("calendar");
 
 const islamic = new Intl.DateTimeFormat("en", { calendar: "islamic" });
 assert.sameValue(availableCalendars.includes(islamic.resolvedOptions().calendar), true, "no valid fallback for 'islamic' calendar option");
