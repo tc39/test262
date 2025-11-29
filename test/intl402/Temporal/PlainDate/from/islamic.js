@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.from
-description: "islamic" calendar name is not supported
+description: islamic calendar name is not supported
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
