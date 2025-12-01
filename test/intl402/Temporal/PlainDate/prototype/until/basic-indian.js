@@ -22,8 +22,14 @@ const date18910724 = Temporal.PlainDate.from({ year: 1891, monthCode: "M07", day
 const date19190616 = Temporal.PlainDate.from({ year: 1919, monthCode: "M06", day: 16, calendar });
 const date19190617 = Temporal.PlainDate.from({ year: 1919, monthCode: "M06", day: 17, calendar });
 const date19190716 = Temporal.PlainDate.from({ year: 1919, monthCode: "M07", day: 16, calendar });
+const date19191201 = Temporal.PlainDate.from({ year: 1919, monthCode: "M12", day: 1, calendar });
 const date19191216 = Temporal.PlainDate.from({ year: 1919, monthCode: "M12", day: 16, calendar });
 const date19191230 = Temporal.PlainDate.from({ year: 1919, monthCode: "M12", day: 30, calendar });
+const date19220101 = Temporal.PlainDate.from({ year: 1922, monthCode: "M01", day: 1, calendar });
+const date19221005 = Temporal.PlainDate.from({ year: 1922, monthCode: "M10", day: 5, calendar });
+const date19221201 = Temporal.PlainDate.from({ year: 1922, monthCode: "M12", day: 1, calendar });
+const date19230601 = Temporal.PlainDate.from({ year: 1923, monthCode: "M06", day: 1, calendar });
+const date19230618 = Temporal.PlainDate.from({ year: 1923, monthCode: "M06", day: 18, calendar });
 const date19410101 = Temporal.PlainDate.from({ year: 1941, monthCode: "M01", day: 1, calendar });
 const date19410201 = Temporal.PlainDate.from({ year: 1941, monthCode: "M02", day: 1, calendar });
 const date19410316 = Temporal.PlainDate.from({ year: 1941, monthCode: "M03", day: 16, calendar });
@@ -193,6 +199,10 @@ const tests = [
     ["years", 1, 3, 0, 16],
   ],
   [
+    date19191201, date19230618, "3 years, 6 months and 17 days",
+    ["years", 3, 6, 0, 17],
+  ],
+  [
     date18820330, date19430715, "61 years, 3 months and 16 days",
     ["years", 61, 3, 0, 16],
   ],
@@ -203,6 +213,15 @@ const tests = [
   [
     date19421230, date19430715, "6 months and 16 days",
     ["years", 0, 6, 0, 16],
+  ],
+  [
+    date19221201, date19230601, "6 months",
+    ["months", 0, 6, 0, 0],
+  ],
+  [
+    date19220101, date19221005, "40 weeks",
+    ["weeks", 0, 0, 40, 0],
+    ["days", 0, 0, 0, 280],
   ],
   [
     date19191230, date19430715, "23 years, 6 months and 16 days",
