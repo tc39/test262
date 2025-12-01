@@ -16,7 +16,7 @@ const sampleYears = {
   "coptic": 1686,
   "dangi": 1969,
   "ethioaa": 7462,
-  "ethiopic": 7462,
+  "ethiopic": 1962,
   "gregory": 1970,
   "hebrew": 5730,
   "indian": 1891,
