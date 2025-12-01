@@ -2,11 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-features:
-  - Temporal
-description: |
-  pending
-esid: pending
+esid: sec-temporal.plaindate.from
+description: Check that computed kevi'ah symbols for years are in the valid set
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 // Ensure kevi'ah is correct.
@@ -46,7 +44,7 @@ function KeviahSymbol(year) {
 
   return `${daySymbol(startOfYear)}${yearSymbol[daysInYear]}${daySymbol(firstDayOfPesach)}`;
 }
-  
+
 const validKeviahSymbols = new Set([
   "2D3", "2C5", "2D5", "2C7",
   "3R5", "3R7",
@@ -54,16 +52,7 @@ const validKeviahSymbols = new Set([
   "7D1", "7C3", "7D3", "7C5"
 ]);
 
-// Modern years.
-for (let year = 5700; year <= 5800; ++year) {
+for (let year = 3700; year <= 5800; ++year) {
   let sym = KeviahSymbol(year);
   assert.sameValue(validKeviahSymbols.has(sym), true, `${year} -> ${sym}`);
 }
-
-// Things start to break when year is 3760 or earlier.
-// Temporal.PlainDate.from({calendar:"hebrew", year:3760, monthCode:"M01", day:1}).withCalendar("iso8601").year == -1
-//
-// Temporal.PlainDate.from({calendar:"hebrew", year:3760, monthCode:"M01", day:1}).dayOfWeek returns 7 (Sunday), but should be 6 (Saturday).
-//
-// https://github.com/unicode-org/icu4x/issues/4893
-
