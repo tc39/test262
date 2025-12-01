@@ -11,9 +11,6 @@ const calendar = "islamic-umalqura";
 const options = { overflow: "reject" };
 
 // 1390 = ISO year 1970
-const leapYear = 1390;
-const commonYear = 1391;
-
 const sampleYears = {
   1390: [
     29,
