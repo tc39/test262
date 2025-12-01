@@ -18,7 +18,10 @@ const date57220216 = Temporal.ZonedDateTime.from({ year: 5722, monthCode: "M02",
 const date57220329 = Temporal.ZonedDateTime.from({ year: 5722, monthCode: "M03", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57230216 = Temporal.ZonedDateTime.from({ year: 5723, monthCode: "M02", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57230329 = Temporal.ZonedDateTime.from({ year: 5723, monthCode: "M03", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
-const date57320724 = Temporal.ZonedDateTime.from({ year: 5732, monthCode: "M07", day: 24, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date57320724 = Temporal.ZonedDateTime.from({ year: 5732, monthCode: "M07", day: 24, hour: 12, minute: 34, timeZone: "UTC", calendar })
+const date57590101 = Temporal.ZonedDateTime.from({ year: 5759, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date57591014 = Temporal.ZonedDateTime.from({ year: 5759, monthCode: "M10", day: 14, hour: 12, minute: 34, timeZone: "UTC", calendar });;
+const date57591201 = Temporal.ZonedDateTime.from({ year: 5759, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57591229 = Temporal.ZonedDateTime.from({ year: 5759, monthCode: "M12", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57600117 = Temporal.ZonedDateTime.from({ year: 5760, monthCode: "M01", day: 17, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57600616 = Temporal.ZonedDateTime.from({ year: 5760, monthCode: "M06", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
@@ -26,6 +29,9 @@ const date57600716 = Temporal.ZonedDateTime.from({ year: 5760, monthCode: "M07",
 const date57601216 = Temporal.ZonedDateTime.from({ year: 5760, monthCode: "M12", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57601229 = Temporal.ZonedDateTime.from({ year: 5760, monthCode: "M12", day: 29, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57610716 = Temporal.ZonedDateTime.from({ year: 5761, monthCode: "M07", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date57611201 = Temporal.ZonedDateTime.from({ year: 5761, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date57620601 = Temporal.ZonedDateTime.from({ year: 5762, monthCode: "M06", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });;
+const date57620618 = Temporal.ZonedDateTime.from({ year: 5762, monthCode: "M06", day: 18, hour: 12, minute: 34, timeZone: "UTC", calendar })
 const date57810101 = Temporal.ZonedDateTime.from({ year: 5781, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57810201 = Temporal.ZonedDateTime.from({ year: 5781, monthCode: "M02", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date57810724 = Temporal.ZonedDateTime.from({ year: 5781, monthCode: "M07", day: 24, hour: 12, minute: 34, timeZone: "UTC", calendar });
@@ -167,6 +173,10 @@ const tests = [
     ["years", 1, 2, 0, 3],
   ],
   [
+    date57591201, date57620618, "2 years 6 months and 17 days",
+    ["years", 2, 6, 0, 17],
+  ],
+  [
     date57830716, date57931216, "10 years and 5 months",
     ["years", 10, 5, 0, 0],
   ],
@@ -205,6 +215,15 @@ const tests = [
   [
     date57821229, date57830716, "6 months and 16 days",
     ["years", 0, 6, 0, 16],
+  ],
+  [
+    date57611201, date57620601, "6 months",
+    ["months", 0, 6, 0, 0],
+  ],
+  [
+    date57590101, date57591014, "40 weeks",
+    ["weeks", 0, 0, 40, 0],
+    ["days", 0, 0, 0, 280],
   ],
   [
     date57600117, date57830704, "23 years, 5 months and 16 days",
