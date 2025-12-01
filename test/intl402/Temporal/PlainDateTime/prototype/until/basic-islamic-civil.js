@@ -32,6 +32,12 @@ const date14151216 = Temporal.PlainDateTime.from({ year: 1415, monthCode: "M12",
 const date14151230 = Temporal.PlainDateTime.from({ year: 1415, monthCode: "M12", day: 30, hour: 12, minute: 34, calendar })
 const date14160104 = Temporal.PlainDateTime.from({ year: 1416, monthCode: "M01", day: 4, hour: 12, minute: 34, calendar });;
 const date14160504 = Temporal.PlainDateTime.from({ year: 1416, monthCode: "M05", day: 4, hour: 12, minute: 34, calendar });
+const date14171201 = Temporal.PlainDateTime.from({ year: 1417, monthCode: "M12", day: 1, hour: 12, minute: 34, calendar });
+const date14200101 = Temporal.PlainDateTime.from({ year: 1420, monthCode: "M01", day: 1, hour: 12, minute: 34, calendar });
+const date14201015 = Temporal.PlainDateTime.from({ year: 1420, monthCode: "M10", day: 15, hour: 12, minute: 34, calendar });
+const date14201201 = Temporal.PlainDateTime.from({ year: 1420, monthCode: "M12", day: 1, hour: 12, minute: 34, calendar });
+const date14210601 = Temporal.PlainDateTime.from({ year: 1421, monthCode: "M06", day: 1, hour: 12, minute: 34, calendar });
+const date14210618 = Temporal.PlainDateTime.from({ year: 1421, monthCode: "M06", day: 18, hour: 12, minute: 34, calendar });
 const date14370101 = Temporal.PlainDateTime.from({ year: 1437, monthCode: "M01", day: 1, hour: 12, minute: 34, calendar });
 const date14370201 = Temporal.PlainDateTime.from({ year: 1437, monthCode: "M02", day: 1, hour: 12, minute: 34, calendar });
 const date14370316 = Temporal.PlainDateTime.from({ year: 1437, monthCode: "M03", day: 16, hour: 12, minute: 34, calendar });
@@ -206,6 +212,10 @@ const tests = [
     ["years", 1, 3, 0, 16],
   ],
   [
+    date14171201, date14210618, "3 years, 6 months and 17 days",
+    ["years", 3, 6, 0, 17],
+  ],
+  [
     date13780330, date14390716, "61 years, 3 months and 16 days",
     ["years", 61, 3, 0, 16],
   ],
@@ -216,6 +226,15 @@ const tests = [
   [
     date14381230, date14390716, "6 months and 16 days",
     ["years", 0, 6, 0, 16],
+  ],
+  [
+    date14201201, date14210601, "6 months",
+    ["months", 0, 6, 0, 0],
+  ],
+  [
+    date14200101, date14201015, "40 weeks",
+    ["weeks", 0, 0, 40, 0],
+    ["days", 0, 0, 0, 280],
   ],
   [
     date14151230, date14390716, "23 years, 6 months and 16 days",
