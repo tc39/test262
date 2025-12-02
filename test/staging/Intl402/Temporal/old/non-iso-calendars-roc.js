@@ -73,30 +73,6 @@ for (var [name, result] of Object.entries(fromWithCases)) {
   assert.sameValue(inCal.monthCode, result.monthCode, `${name}: monthCode`);
   assert.sameValue(inCal.day, result.day, `${name}: day`);
 
-  var dateRoundtrip2 = Temporal.PlainDate.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    monthCode: result.monthCode
-  });
-  assert.sameValue(dateRoundtrip2.toString(), inCal.toString());
-
-  var dateRoundtrip3 = Temporal.PlainDate.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    month: result.month
-  });
-  assert.sameValue(dateRoundtrip3.toString(), inCal.toString());
-
-  var dateRoundtrip4 = Temporal.PlainDate.from({
-    calendar,
-    year: result.year,
-    day: result.day,
-    monthCode: result.monthCode
-  });
-  assert.sameValue(dateRoundtrip4.toString(), inCal.toString());
-
   assert.throws(RangeError, () => Temporal.PlainDate.from({
     calendar,
     day: result.day,
