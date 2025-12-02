@@ -14,6 +14,12 @@ const calendar = "persian";
 
 // Years
 
+const date13751201 = Temporal.ZonedDateTime.from({ year: 1375, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date13780101 = Temporal.ZonedDateTime.from({ year: 1378, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date13781005 = Temporal.ZonedDateTime.from({ year: 1378, monthCode: "M10", day: 5, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date13781201 = Temporal.ZonedDateTime.from({ year: 1378, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date13790601 = Temporal.ZonedDateTime.from({ year: 1379, monthCode: "M06", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar });
+const date13790618 = Temporal.ZonedDateTime.from({ year: 1379, monthCode: "M06", day: 18, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date13810216 = Temporal.ZonedDateTime.from({ year: 1381, monthCode: "M02", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date13420216 = Temporal.ZonedDateTime.from({ year: 1342, monthCode: "M02", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
 const date13430216 = Temporal.ZonedDateTime.from({ year: 1343, monthCode: "M02", day: 16, hour: 12, minute: 34, timeZone: "UTC", calendar });
@@ -195,6 +201,10 @@ const tests = [
     ["years", 1, 2, 0, 3],
   ],
   [
+    date13751201, date13790618, "3 years, 6 months and 17 days",
+    ["years", 3, 6, 0, 17],
+  ],
+  [
     date14040716, date14141216, "10 years and 5 months",
     ["years", 10, 5, 0, 0],
   ],
@@ -237,6 +247,15 @@ const tests = [
   [
     date14031230, date14040716, "6 months and 17 days",
     ["years", 0, 6, 0, 17],
+  ],
+  [
+    date13781201, date13790601, "6 months",
+    ["months", 0, 6, 0, 0],
+  ],
+  [
+    date13780101, date13781005, "40 weeks",
+    ["weeks", 0, 0, 40, 0],
+    ["days", 0, 0, 0, 280],
   ],
   [
     date13801230, date14040715, "23 years, 6 months and 17 days",
