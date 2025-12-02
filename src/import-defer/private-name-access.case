@@ -20,6 +20,7 @@ info: |
       ...
 
 template: ignore
+features: [import-defer, nonextensible-applies-to-private]
 ---*/
 
 //- body
@@ -29,11 +30,8 @@ class Marker extends function (x) { return x } {
   static mark(obj) {
     new Marker(obj);
   }
-
-  static getMark(obj) {
-    return obj.#mark;
-  }
 }
 
-Marker.mark(ns);
-assert.sameValue(Marker.getMark(ns), "bar");
+assert.throws(TypeError, function () {
+  Marker.mark(ns);
+});

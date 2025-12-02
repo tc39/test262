@@ -4,7 +4,7 @@
 /*---
 description: PrivateGet and PrivateSet in a namespace object (does not trigger execution)
 esid: sec-module-namespace-exotic-objects
-features: [import-defer]
+features: [import-defer, nonextensible-applies-to-private]
 flags: [generated, module]
 info: |
     PrivateGet ( O, P )
@@ -36,13 +36,10 @@ class Marker extends function (x) { return x } {
   static mark(obj) {
     new Marker(obj);
   }
-
-  static getMark(obj) {
-    return obj.#mark;
-  }
 }
 
-Marker.mark(ns);
-assert.sameValue(Marker.getMark(ns), "bar");
+assert.throws(TypeError, function () {
+  Marker.mark(ns);
+});
 
 assert.sameValue(globalThis.evaluations.length, 0, "It does not trigger evaluation");
