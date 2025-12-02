@@ -48,7 +48,7 @@ const daysInMonth = {};
 daysInMonth[leapYear] = leapYearDaysInMonth;
 daysInMonth[commonYear] = commonYearDaysInMonth;
 
-for (year of [leapYear, commonYear]) {
+for (let year of [leapYear, commonYear]) {
   for (var month = 1; month < 13; month++) {
     const date = Temporal.PlainDateTime.from({
       year,
