@@ -257,7 +257,7 @@ TemporalHelpers.assertPlainDate(
 calculatedStart = date20000101.add(weeks40).add(weeks40n);
 TemporalHelpers.assertPlainDate(
   calculatedStart,
-  2000, 01, "M01", 1, "Subtracting 40 weeks, with result in same year", "ce", 2000
+  2000, 1, "M01", 1, "Subtracting 40 weeks, with result in same year", "ce", 2000
 );
 
 // Days
@@ -348,5 +348,5 @@ TemporalHelpers.assertPlainDate(
 calculatedStart = date20000101.add(days280).add(weeks40n);
 TemporalHelpers.assertPlainDate(
   calculatedStart,
-  2000, 01, "M01", 1, "Subtracting 280 days, with result in same year", "ce", 2000
+  2000, 1, "M01", 1, "Subtracting 280 days, with result in same year", "ce", 2000
 );
