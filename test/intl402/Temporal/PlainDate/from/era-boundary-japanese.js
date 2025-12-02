@@ -156,3 +156,35 @@ TemporalHelpers.assertPlainDate(
   bce1n,
   2, 1, "M01", 1, "BCE -1 resolves to CE 2",
   "ce", 2);
+
+// Years far after the end of an era
+
+const heisei100 = Temporal.PlainDate.from({ era: "heisei", eraYear: 100, monthCode: "M12", day: 31, calendar }, options);
+TemporalHelpers.assertPlainDate(
+  heisei100,
+  2088, 12, "M12", 31, "Heisei 100 resolves to Reiwa 70",
+  "reiwa", 70);
+
+const showa100 = Temporal.PlainDate.from({ era: "showa", eraYear: 100, monthCode: "M12", day: 31, calendar }, options);
+TemporalHelpers.assertPlainDate(
+  showa100,
+  2025, 12, "M12", 31, "Showa 100 resolves to Reiwa 7",
+  "reiwa", 7);
+
+const taisho100 = Temporal.PlainDate.from({ era: "taisho", eraYear: 100, monthCode: "M12", day: 31, calendar }, options);
+TemporalHelpers.assertPlainDate(
+  taisho100,
+  2011, 12, "M12", 31, "Taisho 100 resolves to Heisei 23",
+  "heisei", 23);
+
+const meiji100 = Temporal.PlainDate.from({ era: "meiji", eraYear: 100, monthCode: "M12", day: 31, calendar }, options);
+TemporalHelpers.assertPlainDate(
+  meiji100,
+  1967, 12, "M12", 31, "Meiji 100 resolves to Showa 42",
+  "showa", 42);
+
+const ce2000 = Temporal.PlainDate.from({ era: "ce", eraYear: 2000, monthCode: "M12", day: 31, calendar }, options);
+TemporalHelpers.assertPlainDate(
+  ce2000,
+  2000, 12, "M12", 31, "CE 2000 resolves to Heisei 12",
+  "heisei", 12);
