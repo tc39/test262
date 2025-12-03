@@ -72,7 +72,7 @@ const additionalCases = [
   ["2004-03-21[u-ca=indian]", 1926, 1, "M01", 1, "shaka", 1926, "first day of leap year"],
   ["2005-03-22[u-ca=indian]", 1927, 1, "M01", 1, "shaka", 1927, "first day of common year"],
   ["2006-07-25[u-ca=islamic-umalqura]", 1427, 6, "M06", 29, "ah", 1427, "ICU4C/ICU4X discrepancy"],
-  ["2025-04-19[u-ca=persian]", 1404, 1, "M01", 31, "ap", 1404, "ICU4C/ICU4X discrepancy"],
+  ["2025-04-19[u-ca=persian]", 1404, 1, "M01", 30, "ap", 1404, "ICU4C/ICU4X discrepancy"],
   ["2046-10-30[u-ca=hebrew]", 5807, 1, "M01", 30, "am", 5807, "ICU4C/ICU4X discrepancy"],
 ];
 
