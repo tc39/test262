@@ -4,6 +4,9 @@
 /*---
 esid: sec-temporal.zoneddatetime.prototype.daysinyear
 description: Days in year in the Hebrew calendar
+info: |
+  There are discrepancies in these data between ICU4C 77.1 and ICU4C 78.1,
+  which will affect implementations relying on ICU4C.
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
@@ -87,8 +90,8 @@ const sampleData = {
   5803: 385,
   5804: 353,
   5805: 355,
-  5806: 385,
-  5807: 354,
+  5806: 384,
+  5807: 355,
   5808: 353,
   5809: 384,
 }
@@ -99,5 +102,5 @@ for (var [year, days] of Object.entries(sampleData)) {
         month: 1,
         calendar, day: 1, hour: 12, minute: 34, timeZone: "UTC"
     });
-    assert.sameValue(date.daysInYear, days);
+    assert.sameValue(date.daysInYear, days, `days in year ${year}`);
 }
