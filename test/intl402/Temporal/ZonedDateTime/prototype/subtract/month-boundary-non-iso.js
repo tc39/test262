@@ -3,12 +3,11 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.prototype.subtract
-description: Addition around end of month in the Buddhist calendar
+description: Addition around end of month in non-ISO calendars
 features: [Temporal, Intl.Era-monthcode]
 includes: [temporalHelpers.js]
 ---*/
 
-const calendar = "buddhist";
 const options = { overflow: "reject" };
 
 const months1 = new Temporal.Duration(0, -1);
@@ -27,7 +26,7 @@ const durations = [
 ];
 
 const datesBuddhist = [
-  Temporal.ZonedDateTime.from({ year: 2555, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "buddhist" }, options),
+  Temporal.ZonedDateTime.from({ year: 2543, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "buddhist" }, options),
 ];
 
 const datesChinese = [
@@ -39,7 +38,7 @@ const datesChinese = [
 ];
 
 const datesCoptic = [
-  Temporal.ZonedDateTime.from({ year: 1716, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "coptic" }, options),
+  Temporal.ZonedDateTime.from({ year: 1716, monthCode: "M04", day: 22, hour: 12, minute: 34, timeZone: "UTC", calendar: "coptic" }, options),
 ];
 
 const datesDangi = [
@@ -51,47 +50,47 @@ const datesDangi = [
 ];
 
 const datesEthioaa = [
-  Temporal.ZonedDateTime.from({ year: 7492, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "ethioaa" }, options),
+  Temporal.ZonedDateTime.from({ year: 7492, monthCode: "M04", day: 22, hour: 12, minute: 34, timeZone: "UTC", calendar: "ethioaa" }, options),
 ];
 
 const datesEthiopic = [
-  Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "ethiopic" }, options),
+  Temporal.ZonedDateTime.from({ year: 1992, monthCode: "M04", day: 22, hour: 12, minute: 34, timeZone: "UTC", calendar: "ethiopic" }, options),
 ];
 
 const datesGregory = [
-  Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "gregory" }, options),
+  Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "gregory" }, options),
 ];
 
 const datesHebrew = [
-  Temporal.ZonedDateTime.from({ year: 5761, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "hebrew" }, options),
+  Temporal.ZonedDateTime.from({ year: 5760, monthCode: "M04", day: 23, hour: 12, minute: 34, timeZone: "UTC", calendar: "hebrew" }, options),
 ];
 
 const datesIndian = [
-  Temporal.ZonedDateTime.from({ year: 1919, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "indian" }),
+  Temporal.ZonedDateTime.from({ year: 1921, monthCode: "M10", day: 11, hour: 12, minute: 34, timeZone: "UTC", calendar: "indian" }, options),
 ];
 
 const datesIslamicCivil = [
-  Temporal.ZonedDateTime.from({ year: 1420, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "islamic-civil" }),
+  Temporal.ZonedDateTime.from({ year: 1420, monthCode: "M09", day: 24, hour: 12, minute: 34, timeZone: "UTC", calendar: "islamic-civil" }, options),
 ];
 
 const datesIslamicTbla = [
-  Temporal.ZonedDateTime.from({ year: 1420, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "islamic-tbla" }),
+  Temporal.ZonedDateTime.from({ year: 1420, monthCode: "M09", day: 25, hour: 12, minute: 34, timeZone: "UTC", calendar: "islamic-tbla" }, options),
 ];
 
 const datesIslamicUmalqura = [
-  Temporal.ZonedDateTime.from({ year: 1420, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "islamic-umalqura" }),
+  Temporal.ZonedDateTime.from({ year: 1420, monthCode: "M09", day: 24, hour: 12, minute: 34, timeZone: "UTC", calendar: "islamic-umalqura" }, options),
 ];
 
 const datesJapanese = [
-  Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M12", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "japanese" }),
+  Temporal.ZonedDateTime.from({ year: 2000, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "japanese" }),
 ];
 
 const datesPersian = [
-  Temporal.ZonedDateTime.from({ year: 1378, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "persian" }),
+  Temporal.ZonedDateTime.from({ year: 1378, monthCode: "M10", day: 11, hour: 12, minute: 34, timeZone: "UTC", calendar: "persian" }, options),
 ];
 
 const datesRoc = [
-  Temporal.ZonedDateTime.from({ year: 90, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "roc" }),
+  Temporal.ZonedDateTime.from({ year: 89, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar: "roc" }, options),
 ];
 
 const dates = [datesBuddhist, datesChinese, datesCoptic, datesDangi, datesEthioaa, datesEthiopic, datesGregory,
