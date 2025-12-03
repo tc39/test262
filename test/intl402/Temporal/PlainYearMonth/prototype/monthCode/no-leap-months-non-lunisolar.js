@@ -3,18 +3,30 @@
 
 /*---
 esid: sec-temporal.plainyearmonth.prototype.monthcode
-description: gregory calendar does not have leap months
+description: Non-lunisolar calendars do not have leap months
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
-const calendar = "gregory";
+const calendars = {
+  "buddhist": 2513,
+  "coptic": 1686,
+  "ethioaa": 7462,
+  "ethiopic": 1962,
+  "gregory": 1970,
+  "indian": 1892,
+  "islamic-civil": 1390,
+  "islamic-tbla": 1390,
+  "islamic-umalqura": 1390,
+  "persian": 1348,
+  "roc": 60,
+};
 
-for (var year = 1970; year < 1975; year++) {
+for (let [calendar, year] of Object.entries(calendars)) {
   for (var month = 1; month < 13; month++) {
     const date = Temporal.PlainYearMonth.from({
-        year,
+        year: year,
         month,
-        calendar
+        calendar, 
     });
     assert.sameValue(date.monthCode.endsWith("L"), false);
   }
