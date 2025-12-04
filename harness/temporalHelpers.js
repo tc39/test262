@@ -14,17 +14,17 @@ function formatPropertyName(propertyKey, objectName = "") {
     case "symbol":
       if (Symbol.keyFor(propertyKey) !== undefined) {
         return `${objectName}[Symbol.for('${Symbol.keyFor(propertyKey)}')]`;
-      } else if (propertyKey.description.startsWith('Symbol.')) {
+      } else if (propertyKey.description.startsWith("Symbol.")) {
         return `${objectName}[${propertyKey.description}]`;
       } else {
-        return `${objectName}[Symbol('${propertyKey.description}')]`
+        return `${objectName}[Symbol('${propertyKey.description}')]`;
       }
     case "string":
       if (propertyKey !== String(Number(propertyKey))) {
         if (ASCII_IDENTIFIER.test(propertyKey)) {
           return objectName ? `${objectName}.${propertyKey}` : propertyKey;
         }
-        return `${objectName}['${propertyKey.replace(/'/g, "\\'")}']`
+        return `${objectName}['${propertyKey.replace(/'/g, "\\'")}']`;
       }
       // fall through
     default:
@@ -347,7 +347,7 @@ var TemporalHelpers = {
     assert.sameValue(yearMonth.year, year, `${prefix}year result:`);
     assert.sameValue(yearMonth.month, month, `${prefix}month result:`);
     assert.sameValue(yearMonth.monthCode, monthCode, `${prefix}monthCode result:`);
-    const isoDay = Number(yearMonth.toString({ calendarName: "always" }).slice(1).split('-')[2].slice(0, 2));
+    const isoDay = Number(yearMonth.toString({ calendarName: "always" }).slice(1).split("-")[2].slice(0, 2));
     assert.sameValue(isoDay, referenceISODay, `${prefix}referenceISODay result:`);
   },
 
@@ -442,16 +442,16 @@ var TemporalHelpers = {
    */
   checkPluralUnitsAccepted(func, validSingularUnits) {
     const plurals = {
-      year: 'years',
-      month: 'months',
-      week: 'weeks',
-      day: 'days',
-      hour: 'hours',
-      minute: 'minutes',
-      second: 'seconds',
-      millisecond: 'milliseconds',
-      microsecond: 'microseconds',
-      nanosecond: 'nanoseconds',
+      year: "years",
+      month: "months",
+      week: "weeks",
+      day: "days",
+      hour: "hours",
+      minute: "minutes",
+      second: "seconds",
+      millisecond: "milliseconds",
+      microsecond: "microseconds",
+      nanosecond: "nanoseconds",
     };
 
     validSingularUnits.forEach((unit) => {
@@ -901,7 +901,7 @@ var TemporalHelpers = {
     const expected = [];
 
     const datetime = new Temporal.ZonedDateTime(1_000_000_000_987_654_321n, "UTC");
-    Object.defineProperty(datetime, 'toString', {
+    Object.defineProperty(datetime, "toString", {
       get() {
         actual.push("get toString");
         return function (options) {
@@ -961,7 +961,7 @@ var TemporalHelpers = {
         calls.push(`get ${formatPropertyName(propertyName, objectName)}`);
         return value;
       },
-      set(v) {
+      set() {
         calls.push(`set ${formatPropertyName(propertyName, objectName)}`);
       }
     });
@@ -1159,7 +1159,7 @@ var TemporalHelpers = {
       ];
       // Adding a calendar annotation to one of these strings must not cause
       // disambiguation in favour of time.
-      const stringsWithCalendar = ambiguousStrings.map((s) => s + '[u-ca=iso8601]');
+      const stringsWithCalendar = ambiguousStrings.map((s) => s + "[u-ca=iso8601]");
       return ambiguousStrings.concat(stringsWithCalendar);
     },
 
