@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.from
+esid: sec-temporal.plainmonthday.from
 features: [Temporal]
 description: Check correct results for 30-day leap months
 includes: [temporalHelpers.js]
