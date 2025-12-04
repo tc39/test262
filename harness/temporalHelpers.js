@@ -881,18 +881,18 @@ var TemporalHelpers = {
     const zonedDateTime = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC", "iso8601");
 
     [plainDate, plainDateTime, plainMonthDay, plainYearMonth, zonedDateTime].forEach((temporalObject) => {
-      const actual = [];
-      const expected = [];
-
       Object.defineProperty(temporalObject, "calendar", {
         get() {
-          actual.push("get calendar");
-          return calendar;
+          throw new Test262Error("should not get 'calendar' property");
+        },
+      });
+      Object.defineProperty(temporalObject, "calendarId", {
+        get() {
+          throw new Test262Error("should not get 'calendarId' property");
         },
       });
 
       func(temporalObject);
-      assert.compareArray(actual, expected, "calendar getter not called");
     });
   },
 
