@@ -48,6 +48,10 @@ const cases = [
 
   // Additional cases that were moved in from staging tests, or that we add to
   // catch regressions
+  ["chinese", 1899, 12, "M12", 1, undefined, undefined, "start of non-approximated range"],
+  ["chinese", 2099, 13, "M12", 21, undefined, undefined, "end of non-approximated range"],
+  ["dangi", 1899, 12, "M12", 1, undefined, undefined, "start of non-approximated range"],
+  ["dangi", 2049, 12, "M12", 8, undefined, undefined, "end of non-approximated range"],
   ["islamic-civil", 1445, 1, "M01", 1, "ah", 1445, "recent year"],
   ["islamic-tbla", 1445, 1, "M01", 1, "ah", 1445, "recent year"],
   ["islamic-umalqura", 1445, 1, "M01", 1, "ah", 1445, "recent year"],
