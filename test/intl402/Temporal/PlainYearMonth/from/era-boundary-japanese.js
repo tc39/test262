@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainyearmonth.prototype.from
+esid: sec-temporal.plainyearmonth.from
 description: >
   Dates in same year before era starts should resolve to previous era
   (Japanese calendar)

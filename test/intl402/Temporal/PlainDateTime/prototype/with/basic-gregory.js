@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.%%LC_interface%%.prototype.with
+esid: sec-temporal.plaindatetime.prototype.with
 description: with should work for gregory calendar dates
 features: [Temporal, Intl.Era-monthcode]
 includes: [temporalHelpers.js]
