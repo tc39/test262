@@ -334,9 +334,15 @@ var TemporalHelpers = {
    * equal to an expected value. (Except the `calendar` property, since callers
    * may want to assert either object equality with an object they put in there,
    * or the value of yearMonth.calendarId.)
+   *
+   * Pass null as the referenceISODay if you don't want to give it explicitly.
+   * In that case, the expected referenceISODay will be computed using PlainDate
+   * and only verified for consistency, not for equality with a specific value.
    */
   assertPlainYearMonth(yearMonth, year, month, monthCode, description = "", era = undefined, eraYear = undefined, referenceISODay = 1) {
     const prefix = description ? `${description}: ` : "";
+    assert(typeof referenceISODay === "number" || referenceISODay === null,
+      `TemporalHelpers.assertPlainYearMonth() referenceISODay argument should be a number or null, not ${referenceISODay}`);
     assert(yearMonth instanceof Temporal.PlainYearMonth, `${prefix}instanceof`);
     assert.sameValue(
       TemporalHelpers.canonicalizeCalendarEra(yearMonth.calendarId, yearMonth.era),
@@ -348,7 +354,8 @@ var TemporalHelpers = {
     assert.sameValue(yearMonth.month, month, `${prefix}month result:`);
     assert.sameValue(yearMonth.monthCode, monthCode, `${prefix}monthCode result:`);
     const isoDay = Number(yearMonth.toString({ calendarName: "always" }).slice(1).split("-")[2].slice(0, 2));
-    assert.sameValue(isoDay, referenceISODay, `${prefix}referenceISODay result:`);
+    const expectedISODay = referenceISODay ?? yearMonth.toPlainDate({ day: 1 }).withCalendar("iso8601").day;
+    assert.sameValue(isoDay, expectedISODay, `${prefix}referenceISODay result:`);
   },
 
   /*
