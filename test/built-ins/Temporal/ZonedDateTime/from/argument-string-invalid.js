@@ -5,7 +5,6 @@
 esid: sec-temporal.zoneddatetime.from
 description: >
   Check that UTC offsets are parsed properly
-includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
