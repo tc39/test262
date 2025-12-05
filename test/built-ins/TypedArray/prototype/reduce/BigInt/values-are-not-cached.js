@@ -22,12 +22,12 @@ info: |
       ii. Let accumulator be ? Call(callbackfn, undefined, « accumulator, kValue,
       k, O »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n, 44n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n, 44n]));
 
   sample.reduce(function(a, v, i) {
     if (i < sample.length - 1) {
@@ -38,4 +38,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
       v, 42n, "method does not cache values before callbackfn calls"
     );
   }, 0);
-});
+}, null, null, ["immutable"]);
