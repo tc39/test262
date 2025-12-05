@@ -11,9 +11,9 @@ const calendar = "hebrew";
 const options = { overflow: "reject" };
 
 // 5732 = ISO year 1972
-// 5732 is a common year; 5730 is a leap year
 
 const sampleYears = {
+  // Deficient leap year
   5730: [
     30,
     29,
@@ -29,6 +29,7 @@ const sampleYears = {
     30,
     29,
   ],
+  // Complete common year
   5732: [
     30,
     30,
@@ -42,8 +43,69 @@ const sampleYears = {
     29,
     30,
     29,
+  ],
+  // Regular common year
+  5778: [
+    30,
     29,
-  ]
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+  ],
+  // Complete leap year
+  5779: [
+    30,
+    30,
+    30,
+    29,
+    30,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+  ],
+  // Deficient common year
+  5781: [
+    30,
+    29,
+    29,
+    29,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+  ],
+  // Regular leap year
+  5782: [
+    30,
+    29,
+    30,
+    29,
+    30,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+    30,
+    29,
+  ],
 };
 
 for (var [year, daysInMonth] of Object.entries(sampleYears)) {
