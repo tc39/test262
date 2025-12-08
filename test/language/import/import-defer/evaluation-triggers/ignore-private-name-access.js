@@ -36,10 +36,16 @@ class Marker extends function (x) { return x } {
   static mark(obj) {
     new Marker(obj);
   }
+
+  static access(obj) {
+    return #mark in obj;
+  }
 }
 
 assert.throws(TypeError, function () {
   Marker.mark(ns);
 });
+
+assert.sameValue(false, Marker.access(ns));
 
 assert.sameValue(globalThis.evaluations.length, 0, "It does not trigger evaluation");
