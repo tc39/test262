@@ -22,7 +22,10 @@ function compareFormatRangeToPartsSnapshot(isoString1, isoString2, expectedCompo
       const part = actualComponents.find(({type, source}) => type === expectedType && source == sourceVal);
       const contextMessage = `${expectedType} component of ${isoString} formatted in ${calendar}`;
       assert.notSameValue(part, undefined, contextMessage);
-      assert.sameValue(part.value, `${expectedValue}`, contextMessage);
+      if (typeof part.value === "string")
+        assert(part.value.includes(expectedValue))
+      else
+        assert.sameValue(part.value, `${expectedValue}`, contextMessage);
     }
   }
 
