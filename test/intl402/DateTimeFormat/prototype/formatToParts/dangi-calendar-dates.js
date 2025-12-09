@@ -5,7 +5,7 @@
 esid: sec-partitiondatetimepattern
 description: >
   Check that Intl.DateTimeFormat.formatToParts output matches snapshot data
-locale: en-US-u-ca-dangi
+locale: [en-US-u-ca-dangi]
 features: [Temporal]
 ---*/
 
