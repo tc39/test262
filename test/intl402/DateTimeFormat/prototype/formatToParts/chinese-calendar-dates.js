@@ -18,11 +18,13 @@ function compareFormatToPartsSnapshot(isoString, expectedComponents) {
   for (let [expectedType, expectedValue] of Object.entries(expectedComponents)) {
     const part = actualComponents.find(({type}) => type === expectedType);
     const contextMessage = `${expectedType} component of ${isoString} formatted in ${calendar}`;
-    assert.notSameValue(part, undefined, contextMessage);
-    if (typeof part.value === "string")
-      assert(part.value === expectedValue || (expectedValue.length === 1 && part.value === '0' + expectedValue));
-    else
-      assert.sameValue(part.value, `${expectedValue}`, contextMessage);
+    assert.notSameValue(part, undefined, `${contextMessage} is missing`);
+    assert.sameValue(typeof part.value, "string", `${contextMessage} is not a string`);
+    assert(
+      part.value === String(expectedValue) ||
+        part.value === String(expectedValue).padStart(2, "0"),
+      `${contextMessage} has unexpected value`
+    );
   }
 }
 
