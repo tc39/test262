@@ -28,6 +28,10 @@ class TestCheckCoverage(unittest.TestCase):
         return dict(stdout=stdout, stderr=stderr, returncode=sp.returncode)
 
     def setUp(self):
+        # Defensively remove the output directory in case a critical error
+        # during a prior test execution prevented the removal.
+        shutil.rmtree(OUT_DIR, ignore_errors=True)
+
         os.mkdir(OUT_DIR)
 
     def tearDown(self):
