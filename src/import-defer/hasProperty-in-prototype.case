@@ -1,0 +1,18 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-hasproperty-p
+desc: _ [[HasProperty]] when namespace object is in the prototype chain
+info: |
+  [[HasProperty]] ( _P_, _Receiver_ )
+    1. If IsSymbolLikeNamespaceKey(_P_, _O_), return ! OrdinaryGet(_O_, _P_, _Receiver_).
+    1. Let _exports_ be ? GetModuleExportsList(_O_).
+    1. ...
+
+template: trigger-on-possible-export
+---*/
+
+//- body
+const obj = Object.create(ns);
+key in obj;
