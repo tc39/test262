@@ -1,0 +1,43 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-privateget
+desc: PrivateGet and PrivateSet in a namespace object
+info: |
+    PrivateGet ( O, P )
+      1. Let entry be PrivateElementFind(O, P).
+      1. If entry is EMPTY, throw a TypeError exception.
+      1. If entry.[[Kind]] is either FIELD or METHOD, then
+         a. Return entry.[[Value]].
+      ...
+
+    PrivateSet ( O, P, value )
+      1. Let entry be PrivateElementFind(O, P).
+      1. If entry is EMPTY, throw a TypeError exception.
+      1. If entry.[[Kind]] is FIELD, then
+         a. Set entry.[[Value]] to value.
+      ...
+
+template: ignore
+features: [import-defer, nonextensible-applies-to-private]
+---*/
+
+//- body
+class Marker extends function (x) { return x } {
+  #mark = "bar";
+
+  static mark(obj) {
+    new Marker(obj);
+  }
+
+  static access(obj) {
+    return #mark in obj;
+  }
+}
+
+assert.throws(TypeError, function () {
+  Marker.mark(ns);
+});
+
+assert.sameValue(false, Marker.access(ns));

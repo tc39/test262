@@ -40,7 +40,6 @@ const tests = [
     reiwa2, heisei30,
     [-2, 0, 0, 0, "-2y backwards from Heisei 30 March to Reiwa 2 March"],
     [0, -24, 0, 0, "-24mo backwards from Heisei 30 March to Reiwa 2 March"],
-  
   ],
   // Within same year but different eras
   [

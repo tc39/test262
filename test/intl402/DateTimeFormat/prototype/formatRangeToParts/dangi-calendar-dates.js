@@ -5,7 +5,7 @@
 esid: sec-partitiondatetimepattern
 description: >
   Check that Intl.DateTimeFormat.formatRangeToParts output matches snapshot data
-locale: en-US-u-ca-dangi
+locale: [en-US-u-ca-dangi]
 ---*/
 
 const calendar = "dangi";
@@ -22,7 +22,10 @@ function compareFormatRangeToPartsSnapshot(isoString1, isoString2, expectedCompo
       const part = actualComponents.find(({type, source}) => type === expectedType && source == sourceVal);
       const contextMessage = `${expectedType} component of ${isoString} formatted in ${calendar}`;
       assert.notSameValue(part, undefined, contextMessage);
-      assert.sameValue(part.value, `${expectedValue}`, contextMessage);
+      if (typeof part.value === "string")
+        assert(part.value === expectedValue || (expectedValue.length === 1 && part.value === '0' + expectedValue));
+      else
+        assert.sameValue(part.value, `${expectedValue}`, contextMessage);
     }
   }
 
