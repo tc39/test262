@@ -16,8 +16,8 @@ let relativeToDates = [
 
 let units = [ 'days', 'weeks', 'months', 'years' ];
 
-for (relativeTo of relativeToDates) {
-  for (unit of units) {
+for (const relativeTo of relativeToDates) {
+  for (const unit of units) {
     assert.sameValue(zero.total({ unit, relativeTo }), 0);
   }
 }

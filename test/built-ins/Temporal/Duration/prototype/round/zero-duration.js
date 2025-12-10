@@ -30,8 +30,8 @@ let units = [
   { smallestUnit: 'seconds', largestUnit: 'years' }
 ];
 
-for (relativeTo of relativeToDates) {
-  for (unit of units) {
+for (const relativeTo of relativeToDates) {
+  for (const unit of units) {
     TemporalHelpers.assertDuration(zero.round({
       smallestUnit: unit.smallestUnit,
       largestUnit: unit.largestUnit,
