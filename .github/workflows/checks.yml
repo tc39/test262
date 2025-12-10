@@ -89,7 +89,7 @@ jobs:
       - name: debug
         run: ls -lah
 
-      # Checking out the original branch ensure that if the patch under review
+      # Checking out the original branch ensures that if the patch under review
       # modified `check-coverage.py` itself, that modified version is used.
       - name: Checkout original branch
         uses: actions/checkout@v4

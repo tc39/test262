@@ -98,7 +98,7 @@ pattern impacts the set of matched test files). If invoked with the argument
 `--manifest`, this utility will write a "manifest" of all web-features and
 their associated test file names.
 
-### `check-coverage.py'
+### `check-coverage.py`
 
 This script compares two web-features manifests to identify changes that likely
 indicate an unintentional regression. Specifically, any reduction in the number
