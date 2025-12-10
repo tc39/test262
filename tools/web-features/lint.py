@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
-import argparse
-import json
 import os
 import re
-import sys
 import yaml
 
 def read_features(filename):
@@ -28,7 +25,7 @@ def file_is_test(filename):
     return not (filename.endswith('FIXTURE.js') or filename.endswith('.json'))
 
 def pattern_from_path_spec(path_spec):
-    return re.compile(re.sub('\\*', '.*', path_spec) + '(/|$)')
+    return re.compile(re.sub('\*', '.*', path_spec) + '(/|$)')
 
 def get_filenames(path_spec):
     pattern = pattern_from_path_spec(path_spec)
@@ -95,35 +92,23 @@ def match(file_path, tag_specs):
                 return False
     return True
 
-def main(web_features_filename, manifest_filename):
+def main(web_features_filename):
     with open(web_features_filename, 'r') as handle:
         features = yaml.safe_load(handle)['features']
-    manifest = {'data': dict(), 'version': 1}
 
     for feature in features:
         name = feature['name']
         path_specs = feature['files']
         tag_specs = feature.get('tags', [])
 
-        manifest['data'][name] = [*filter(
+        tests = [*filter(
             lambda candidate: match(candidate, tag_specs),
             get_filenames_from_path_specs(path_specs)
         )]
 
-    if manifest_filename:
-        with open(manifest_filename, 'w') as manifest_handle:
-            manifest_handle.write(json.dumps(manifest))
+        print(f'{name},{len(tests)}')
+
+    print(f'{web_features_filename} is conformant')
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Test262 web-features manifest regression checker'
-    )
-
-    parser.add_argument('--manifest', help='''The name of a JSON-formatted test
-        manifest file to create''')
-
-    args = parser.parse_args()
-
-    main('./WEB_FEATURES.yml', args.manifest)
-
-    print('./WEB_FEATURES.yml is conformant')
+    main('./WEB_FEATURES.yml')
