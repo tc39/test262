@@ -41,6 +41,10 @@ assert.sameValue(
   "maximum date is a valid ISO string for ZonedDateTime relativeTo"
 );
 
+relativeTo = "+275760-09-12T00:00:01+00:00[UTC]";
+assert.throws(RangeError, () => instance.total({ unit: "days", relativeTo }),
+  `${relativeTo} is out of range as a relativeTo argument for total`);
+
 relativeTo = { year: -271821, month: 4, day: 19 };
 const result5 = instance.total({ unit: "days", relativeTo });
 assert.sameValue(
