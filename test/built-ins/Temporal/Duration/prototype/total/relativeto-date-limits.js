@@ -33,7 +33,7 @@ assert.sameValue(
   "maximum date is a valid ISO string for PlainDateTime relativeTo"
 );
 
-relativeTo = "+275760-09-12T23:59:60+00:00[UTC]";
+relativeTo = "+275760-09-12T00:00:00+00:00[UTC]";
 const result4 = instance.total({ unit: "days", relativeTo });
 assert.sameValue(
   result4,
@@ -65,7 +65,7 @@ assert.sameValue(
   "minimum date is valid in a property bag for ZonedDateTime relativeTo"
 );
 
-relativeTo = { year: 275760, month: 9, day: 12, hour: 23, minute: 59, second: 60, timeZone: "UTC" };
+relativeTo = { year: 275760, month: 9, day: 12, hour: 0, minute: 0, second: 0, timeZone: "UTC" };
 const result8 = instance.total({ unit: "days", relativeTo });
 assert.sameValue(
   result8,
