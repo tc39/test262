@@ -48,6 +48,9 @@ const invalidStrings = [
   // valid, but outside the supported range:
   "-999999-01-01",
   "+999999-01-01",
+  // "00:0000" is invalid (the hour/minute and minute/second separator
+  // or lack thereof needs to match).
+  "2025-01-01T00:00:00+00:0000"
 ];
 
 invalidStrings.forEach((s) => {
