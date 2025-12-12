@@ -3,20 +3,14 @@
 
 /*---
 esid: sec-temporal.plainyearmonth.prototype.subtract
-description: RangeError thrown when subtracting positive duration and end of month is out of range
+description: RangeError should not be thrown when subtracting positive duration and end of month is out of range
+includes: [temporalHelpers.js]
 features: [Temporal]
-info: |
-  AddDurationToOrSubtractDurationFromPlainYearMonth:
-  12. If _sign_ &lt; 0, then
-    a. Let _oneMonthDuration_ be ! CreateTemporalDuration(0, 1, 0, 0, 0, 0, 0, 0, 0, 0).
-    b. Let _nextMonth_ be ? CalendarDateAdd(_calendar_, _intermediateDate_, _oneMonthDuration_, *undefined*, _dateAdd_).
-    c. Let _endOfMonthISO_ be ! AddISODate(_nextMonth_.[[ISOYear]], _nextMonth_.[[ISOMonth]], _nextMonth_.[[ISODay]], 0, 0, 0, -1, *"constrain"*).
-    d. Let _endOfMonth_ be ? CreateTemporalDate(_endOfMonthISO_.[[Year]], _endOfMonthISO_.[[Month]], _endOfMonthISO_.[[Day]], _calendar_).
 ---*/
 
 // Based on a test case by André Bargull <andre.bargull@gmail.com>
 
 const duration = new Temporal.Duration(0, 0, 0, 1);
 
-// Calendar addition result is out of range
-assert.throws(RangeError, () => new Temporal.PlainYearMonth(275760, 9).subtract(duration), "Addition of 1 month to receiver out of range");
+// Calendar subtraction result is not out of range
+TemporalHelpers.assertPlainYearMonth(new Temporal.PlainYearMonth(275760, 9).subtract(duration), 275760, 9, "M09", "subtractig 1 month from 275760-09");
