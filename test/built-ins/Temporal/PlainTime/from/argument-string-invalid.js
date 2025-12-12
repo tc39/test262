@@ -32,6 +32,9 @@ const invalidStrings = [
   // "00:0000" is invalid (the hour/minute and minute/second separator
   // or lack thereof needs to match).
   "00:00:00+00:0000",
+  "0000:00",
+  "00:0000",
+  "00:00:00+0000:00",
 ];
 for (const arg of invalidStrings) {
   assert.throws(
