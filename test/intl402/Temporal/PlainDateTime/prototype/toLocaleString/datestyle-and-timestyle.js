@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.tolocalestring
-description: Using both dateStyle and timeStyle should now throw
+description: Using both dateStyle and timeStyle should not throw
 features: [Temporal]
 ---*/
 
