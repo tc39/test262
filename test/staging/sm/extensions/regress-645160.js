@@ -6,6 +6,8 @@
 /*---
 flags:
   - noStrict
+features:
+  - proposal-error-stack-accessor
 description: |
   pending
 esid: pending
