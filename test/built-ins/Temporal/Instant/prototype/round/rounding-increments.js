@@ -46,8 +46,8 @@ TemporalHelpers.assertInstantsEqual(inst.round({
   roundingIncrement: 10
 }), Temporal.Instant.from("1976-11-18T14:23:30.12345679Z"));
 
-const unitsAndIncrements =
-  {"hour": [1, 2, 4, 6, 8, 12, 24],
+const unitsAndIncrements = {
+   "hour": [1, 2, 4, 6, 8, 12, 24],
    "minute": [1, 5, 10, 20, 30, 40, 80, 120, 720, 1440],
    "second": [1, 5, 10, 20, 25, 30, 50, 100, 400, 86400],
    "millisecond": [1, 5, 10, 20, 25, 30, 50, 100, 86_400_000],

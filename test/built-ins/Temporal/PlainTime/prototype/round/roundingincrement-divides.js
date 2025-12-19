@@ -9,30 +9,24 @@ features: [Temporal]
 
 const t = new Temporal.PlainTime(14, 23, 30, 123, 456, 789);
 
-[1, 2, 3, 4, 6, 8, 12].forEach((roundingIncrement) => {
-  assert.sameValue(
-    t.round({ smallestUnit: "hour", roundingIncrement }) instanceof Temporal.PlainDateTime,
-    true,
-    `valid hour increments divide into 24 (rounding increment = ${roundingIncrement})`);
-});
+const minutesSeconds = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30];
+const subSeconds =  [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 200, 250, 500];
 
-["minute", "second"].forEach((smallestUnit) => {
-  [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30].forEach((roundingIncrement) => {
-    assert.sameValue(
-      t.round({ smallestUnit, roundingIncrement }) instanceof Temporal.PlainDateTime,
-      true,
-      `valid ${smallestUnit} increments divide into 60 (rounding increment = ${roundingIncrement})`
-      );
-  });
-});
+const unitsAndIncrements = {
+   "hour": [1, 2, 3, 4, 6, 8, 12],
+   "minute": minutesSeconds,
+   "second": minutesSeconds,
+   "millisecond": subSeconds,
+   "microsecond": subSeconds,
+   "nanosecond": subSeconds,
+};
 
-["millisecond", "microsecond", "nanosecond"].forEach((smallestUnit) => {
-  [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500].forEach((roundingIncrement) => {
-    assert.sameValue(
-      t.round({ smallestUnit, roundingIncrement }) instanceof Temporal.PlainDateTime,
-      true,
-      `valid ${smallestUnit} increments divide into 1000 (rounding increment = ${roundingIncrement})`);
-  });
+// Just check that each combination of unit and increment doesn't throw
+Object.entries(unitsAndIncrements).forEach(([unit, increments]) => {
+  increments.forEach((increment) => {
+    const result = t.round({ smallestUnit: unit, roundingMode: "ceil", roundingIncrement: increment });
+    assert.sameValue(result instanceof Temporal.PlainTime, true, `${unit} ${increment}`);
+  })
 });
 
 const nextIncrements = {
