@@ -1,21 +1,28 @@
-// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 esid: sec-temporal.plainyearmonth.prototype.add
-description: RangeError thrown when adding negative duration to last representable month.
+description: RangeError should not be thrown when adding negative duration to last representable month.
+includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
 const lastMonth = new Temporal.PlainYearMonth(275760, 9);
 
-// See https://tc39.es/proposal-temporal/#sec-temporal-adddurationtoyearmonth
-// (step 10d)
-assert.throws(RangeError, () => lastMonth.add({seconds: -1}));
-assert.throws(RangeError, () => lastMonth.add({minutes: -1}));
-assert.throws(RangeError, () => lastMonth.add({hours: -1}));
-assert.throws(RangeError, () => lastMonth.add({days: -1}));
-assert.throws(RangeError, () => lastMonth.add({weeks: -1}));
-assert.throws(RangeError, () => lastMonth.add({months: -1}));
-assert.throws(RangeError, () => lastMonth.add({years: -1}));
+const durations = [
+  [{ seconds: -1 }, "seconds"],
+  [{ minutes: -1 }, "minutes"],
+  [{ hours: -1 }, "hours"],
+  [{ days: -1 }, "days"],
+  [{ weeks: -1 }, "weeks"],
+];
+
+durations.forEach(([duration, unit]) =>
+  TemporalHelpers.assertPlainYearMonth(lastMonth.add(duration), lastMonth.year, lastMonth.month, lastMonth.monthCode, `adding ${unit} to ${lastMonth}`)
+);
+
+TemporalHelpers.assertPlainYearMonth(lastMonth.add({ months: -1 }), lastMonth.year, 8, "M08", `adding months to ${lastMonth}`);
+
+TemporalHelpers.assertPlainYearMonth(lastMonth.add({ years: -1 }), lastMonth.year - 1, lastMonth.month, lastMonth.monthCode, `adding years to ${lastMonth}`);
 
