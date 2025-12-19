@@ -1,11 +1,13 @@
-// Copyright (C) 2025 Brage Hogstad, University of Bergen. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindatetime.from
+esid: sec-temporal.duration.prototype.subtract
 description: Invalid ISO string as calendar should throw RangeError
 features: [Temporal]
 ---*/
+
+const instance = new Temporal.Duration(1, 0, 0, 15);
 
 const invalidStrings = [
   ["", "empty string"],
@@ -14,10 +16,9 @@ const invalidStrings = [
 ];
 
 for (const [calendar, description] of invalidStrings) {
-  const arg = { year: 1976, monthCode: "M11", day: 18, calendar };
   assert.throws(
     RangeError,
-    () => Temporal.PlainDateTime.from(arg),
+    () => instance.subtract({ largestUnit: "months", relativeTo:"2025-01-01[calendar]" }),
     `${description} is not a valid calendar ID`
   );
 }

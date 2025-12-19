@@ -11,6 +11,8 @@ const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 32
 
 const invalidStrings = [
   ["", "empty string"],
+  ["1997-12-04[u-ca=iso8601]", "ISO string with calendar annotation"],
+  ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
 ];
 
 for (const [calendar, description] of invalidStrings) {

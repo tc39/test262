@@ -11,6 +11,8 @@ const datetime = new Temporal.ZonedDateTime(0n, "UTC");
 
 const invalidStrings = [
   ["", "empty string"],
+  ["1997-12-04[u-ca=iso8601]", "ISO string with calendar annotation"],
+  ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
 ];
 
 for (const [calendar, description] of invalidStrings) {
