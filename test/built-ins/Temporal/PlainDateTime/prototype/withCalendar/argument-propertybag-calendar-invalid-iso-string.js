@@ -3,20 +3,22 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.withcalendar
-description: Invalid ISO 8601 string is not accepted as calendar
+description: Invalid ISO string as calendar should throw RangeError
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, "iso8601");
+const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321);
 
 const invalidStrings = [
   ["", "empty string"],
+  ["1997-12-04[u-ca=iso8601]", "ISO string with calendar annotation"],
+  ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
 ];
 
-for (const [arg, description] of invalidStrings) {
+for (const [calendar, description] of invalidStrings) {
   assert.throws(
     RangeError,
-    () => instance.withCalendar(arg),
+    () => instance.withCalendar(calendar),
     `${description} is not a valid calendar ID`
   );
 }

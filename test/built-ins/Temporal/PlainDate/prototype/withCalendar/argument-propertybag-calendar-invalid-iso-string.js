@@ -2,10 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plainmonthday.constructor
-description: Various invalid ISO string values for calendar
+esid: sec-temporal.plaindate.prototype.withcalendar
+description: Invalid ISO string as calendar should throw RangeError
 features: [Temporal]
 ---*/
+
+const instance = new Temporal.PlainDate(2000, 5, 2);
 
 const invalidStrings = [
   ["", "empty string"],
@@ -13,10 +15,10 @@ const invalidStrings = [
   ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
 ];
 
-for (const [arg, description] of invalidStrings) {
+for (const [calendar, description] of invalidStrings) {
   assert.throws(
     RangeError,
-    () => new Temporal.PlainMonthDay(12, 15, arg, 1972),
+    () => instance.withCalendar(calendar),
     `${description} is not a valid calendar ID`
   );
 }

@@ -2,21 +2,24 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.withcalendar
+esid: sec-temporal.zoneddatetime.prototype.withcalendar
 description: Invalid ISO string as calendar should throw RangeError
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.PlainDate(1976, 11, 18, "iso8601");
+const timeZone = "UTC";
+const instance = new Temporal.ZonedDateTime(0n, timeZone);
 
 const invalidStrings = [
   ["", "empty string"],
+  ["1997-12-04[u-ca=iso8601]", "ISO string with calendar annotation"],
+  ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
 ];
 
-for (const [arg, description] of invalidStrings) {
+for (const [calendar, description] of invalidStrings) {
   assert.throws(
     RangeError,
-    () => instance.withCalendar(arg),
+    () => instance.withCalendar(calendar),
     `${description} is not a valid calendar ID`
   );
 }
