@@ -1,4 +1,4 @@
-// Copyright (C) 2021 the V8 project authors. All rights reserved.
+// Copyright (C) 2025 @styfle. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-create-bytes-module
