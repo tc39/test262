@@ -8,7 +8,7 @@ features: [import-attributes, immutable-arraybuffer, import-bytes]
 includes: [compareArray.js]
 ---*/
 
-import value from './bytes-from-png-FIXTURE.png' with { type: 'bytes' };
+import value from './bytes-from-png_FIXTURE.png' with { type: 'bytes' };
 
 assert(value instanceof Uint8Array);
 assert(value.buffer instanceof ArrayBuffer);
