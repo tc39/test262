@@ -10,8 +10,6 @@ def after_parse(fn):
     def wrapper(self, *args, **kwargs):
         if self.source is None and self.dynamic_source is not None:
             self.source = self.dynamic_source()
-            if isinstance(self.source, bytes):
-                self.source = self.source.decode('utf-8')
             self._parse()
         return fn(self, *args, **kwargs)
     return wrapper
@@ -27,7 +25,7 @@ class Test:
         self.attribs = dict(meta=None)
 
     def load(self):
-        with open(self.file_name, 'r', encoding='utf-8') as handle:
+        with open(self.file_name, 'r') as handle:
             self.source = handle.read()
         self._parse()
 
@@ -51,16 +49,13 @@ class Test:
 
     @after_parse
     def to_string(self):
-        source = self.source
-        if isinstance(source, bytes):
-            source = source.decode('utf-8')
         return '\n'.join([
             '/**',
             ' * ----------------------------------------------------------------',
             ' * ' + self.file_name,
             ' * ----------------------------------------------------------------',
             ' */',
-            source,
+            self.source.decode('utf-8'),
             '\n'])
 
     @after_parse
@@ -74,7 +69,4 @@ class Test:
                 raise Exception('Directory does not exist: ' + path)
 
         with open(location, 'wb') as handle:
-            data = self.source
-            if isinstance(data, str):
-                data = data.encode('utf-8')
-            handle.write(data)
+            handle.write(self.source)
