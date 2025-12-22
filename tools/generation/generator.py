@@ -42,6 +42,11 @@ def clean(args):
         for fileName in map(lambda x: os.path.join(subdir, x), fileNames):
             if os.path.basename(fileName) in ignored_files:
                 continue
+            # Test directories may contain binary fixtures which
+            # cannot be decoded as UTF-8, so we must skip them.
+            ext = os.path.splitext(fileName)[1].lower()
+            if ext == '.bin' or ext == '.png' or ext == '.jpg':
+                continue
             test = Test(fileName)
             test.load()
             if test.is_generated():
