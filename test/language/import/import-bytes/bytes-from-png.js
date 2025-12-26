@@ -15,6 +15,7 @@ assert(value.buffer instanceof ArrayBuffer);
 
 assert.sameValue(value.length, 67);
 assert.sameValue(value.buffer.byteLength, 67);
+assert.sameValue(value.buffer.immutable, true);
 
 assert.compareArray(
   Array.from(value),
