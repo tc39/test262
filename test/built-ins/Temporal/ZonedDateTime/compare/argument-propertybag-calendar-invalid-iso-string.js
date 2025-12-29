@@ -11,10 +11,12 @@ const datetime = new Temporal.ZonedDateTime(0n, "UTC");
 
 const invalidStrings = [
   ["", "empty string"],
+  ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
+  ["calendar: 'notacal'", "Unknown calendar"],
 ];
 
 for (const [calendar, description] of invalidStrings) {
-  const arg = { year: 1970, monthCode: "M01", day: 1, calendar, timeZone: "UTC" };
+  const arg = { year: 1976, monthCode: "M11", day: 18, calendar, timeZone: "UTC" };
   assert.throws(
     RangeError,
     () => Temporal.ZonedDateTime.compare(arg, datetime),
