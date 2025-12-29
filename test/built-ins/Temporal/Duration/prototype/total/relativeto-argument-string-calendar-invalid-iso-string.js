@@ -1,13 +1,13 @@
-// Copyright (C) 2025 Brage Hogstad, University of Bergen. All rights reserved.
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.withcalendar
-description: Invalid ISO string as calendar should throw RangeError
+esid: sec-temporal.duration.prototype.total
+description: Invalid ISO string as calendar in relativeTo option should throw RangeError
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.PlainDate(1976, 11, 18, "iso8601");
+const instance = new Temporal.Duration(1, 0, 0, 0, 24);
 
 const invalidStrings = [
   ["", "empty string"],
@@ -17,7 +17,8 @@ const invalidStrings = [
 for (const [arg, description] of invalidStrings) {
   assert.throws(
     RangeError,
-    () => instance.withCalendar(arg),
+    () => instance.total({ unit: "months", relativeTo: arg }),
     `${description} is not a valid calendar ID`
   );
 }
+
