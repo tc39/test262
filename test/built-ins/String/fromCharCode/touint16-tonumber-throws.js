@@ -22,4 +22,10 @@ features: [BigInt]
 
 assert.throws(TypeError, function () {
   String.fromCharCode(0n);
-}, "ToNumber throws, and String.fromCharCode must propagate it");
+}, "ToNumber throws when argument is BigInt, and String.fromCharCode must propagate it");
+
+assert.throws(Test262Error, function () {
+  String.fromCharCode({
+    valueOf: function () { throw new Test262Error(); }
+  });
+}, "ToNumber throws when its argument's ToPrimitive step calls a throwing valueOf, and String.fromCharCode must propagate it.");
