@@ -10,7 +10,7 @@ features: [Temporal]
 const t = new Temporal.PlainTime(14, 23, 30, 123, 456, 789);
 
 const minutesSeconds = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30];
-const subSeconds =  [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 200, 250, 500];
+const subSeconds = [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 200, 250, 500];
 
 const unitsAndIncrements = {
    "hour": [1, 2, 3, 4, 6, 8, 12],
