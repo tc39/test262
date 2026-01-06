@@ -74,3 +74,53 @@ TemporalHelpers.assertPlainDate(
     Temporal.PlainDate.from({year: 2021, monthCode: "M12", day: 133}),
     2021, 12, "M12", 31,
     "year/monthCode/day with day need to be constrained in Dec.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M03", day: 9033}),
+    2021, 3, "M03", 31,
+    "year/monthCode/day with day need to be constrained in Mar.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M04", day: 50}),
+    2021, 4, "M04", 30,
+    "year/monthCode/day with day need to be constrained in Apr.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M05", day: 77}),
+    2021, 5, "M05", 31,
+    "year/monthCode/day with day need to be constrained in May.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M06", day: 33}),
+    2021, 6, "M06", 30,
+    "year/monthCode/day with day need to be constrained in Jun.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M07", day: 33}),
+    2021, 7, "M07", 31,
+    "year/monthCode/day with day need to be constrained in Jul.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M08", day: 300}),
+    2021, 8, "M08", 31,
+    "year/monthCode/day with day need to be constrained in Aug.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M09", day: 400}),
+    2021, 9, "M09", 30,
+    "year/monthCode/day with day need to be constrained in Sep.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M10", day: 400}),
+    2021, 10, "M10", 31,
+    "year/monthCode/day with day need to be constrained in Oct.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M11", day: 400}),
+    2021, 11, "M11", 30,
+    "year/monthCode/day with day need to be constrained in Nov.");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, monthCode: "M12", day: 500}),
+    2021, 12, "M12", 31,
+    "year/monthCode/day with day need to be constrained in Dec.");

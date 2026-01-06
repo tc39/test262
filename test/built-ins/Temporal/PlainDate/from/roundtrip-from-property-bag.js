@@ -12,19 +12,29 @@ features: [Temporal, Intl.Era-monthcode]
 
 const options = { overflow: "reject" };
 
-testRoundtrip(2000);
-testRoundtrip(1);
+const testData = [
+  [2000, 1, "M01", 1],
+  [1, 1, "M01", 1],
+  [2021, 7, "M07", 15],
+  [2021, 7, "M07", 3],
+  [2021, 12, "M12", 31],
+  [2021, 7, "M07", 15],
+];
 
-function testRoundtrip(year) {
-  const dateFromYearMonth = Temporal.PlainDate.from({ year, month: 1, day: 1 }, options);
+for ([year, month, monthCode, day] of testData) {
+  testRoundtrip(year, month, monthCode, day);
+}
+
+function testRoundtrip(year, month, monthCode, day) {
+  const dateFromYearMonth = Temporal.PlainDate.from({ year, month, day }, options);
   TemporalHelpers.assertPlainDate(
     dateFromYearMonth,
-    year, 1, "M01", 1,
+    year, month, monthCode, day,
     `${dateFromYearMonth} - created from year and month`);
 
-  const dateFromYearMonthCode = Temporal.PlainDate.from({ year, monthCode: "M01", day: 1 }, options);
+  const dateFromYearMonthCode = Temporal.PlainDate.from({ year, monthCode, day }, options);
   TemporalHelpers.assertPlainDate(
     dateFromYearMonthCode,
-    year, 1, "M01", 1,
+    year, month, monthCode, day,
     `${dateFromYearMonthCode} - created from year and month code`);
 }
