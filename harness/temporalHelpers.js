@@ -262,6 +262,25 @@ var TemporalHelpers = {
   },
 
   /*
+   * assertPlainDatesEqual(actual, expected[, description]):
+   *
+   * Shorthand for asserting that two Temporal.PlainDates are of the correct
+   * type, equal according to their equals() methods, and additionally that
+   * their calendar internal slots are the same value.
+   */
+  assertPlainDatesEqual(actual, expected, description = "") {
+    const prefix = description ? `${description}: ` : "";
+    assert(expected instanceof Temporal.PlainDate, `${prefix}expected value should be a Temporal.PlainDate`);
+    assert(actual instanceof Temporal.PlainDate, `${prefix}instanceof`);
+    assert(actual.equals(expected), `${prefix}equals method`);
+    assert.sameValue(
+      actual.calendarId,
+      expected.calendarId,
+      `${prefix}calendar same value:`
+    );
+  },
+
+  /*
    * assertPlainDateTimesEqual(actual, expected[, description]):
    *
    * Shorthand for asserting that two Temporal.PlainDateTimes are of the correct
