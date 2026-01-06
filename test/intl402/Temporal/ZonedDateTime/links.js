@@ -294,23 +294,23 @@ let epochNanoseconds = [
   new Temporal.PlainDate(2030, 1, 1).toZonedDateTime("UTC").epochNanoseconds,
 ];
 
-for (testCases of [asiaHistoricalTestCases,
-                   africaHistoricalTestCases,
-                   australasiaHistoricalTestCases,
-                   europeHistoricalTestCases,
-                   northAmericaHistoricalTestCases]) {
+for (const testCases of [asiaHistoricalTestCases,
+                         africaHistoricalTestCases,
+                         australasiaHistoricalTestCases,
+                         europeHistoricalTestCases,
+                         northAmericaHistoricalTestCases]) {
   for (let link of testCases) {
     const instanceLink = new Temporal.ZonedDateTime(0n, link);
     assert.sameValue(instanceLink.timeZoneId, link, `creating ZonedDateTime for ${link}`);
   }
 }
 
-for (testCases of [asiaTestCases,
-                   africaTestCases,
-                   australasiaTestCases,
-                   europeTestCases,
-                   northAmericaTestCases,
-                   otherTestCases]) {
+for (const testCases of [asiaTestCases,
+                         africaTestCases,
+                         australasiaTestCases,
+                         europeTestCases,
+                         northAmericaTestCases,
+                         otherTestCases]) {
   for (let [link, zone] of Object.entries(testCases)) {
     const instanceLink = new Temporal.ZonedDateTime(0n, link);
     assert.sameValue(instanceLink.timeZoneId, link, `creating ZonedDateTime for ${link}`);
