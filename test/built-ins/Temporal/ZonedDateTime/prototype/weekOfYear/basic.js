@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-get-temporal.zoneddatetime.prototype.weekofyear
-description: Checking week of year for a "normal" case (non-undefined, non-boundary case, etc.)
+description: Checking week of year for a "normal" case, as well as for dates near the turn of the year.
 features: [Temporal]
 ---*/
 
