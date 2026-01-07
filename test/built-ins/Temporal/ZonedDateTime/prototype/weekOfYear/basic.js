@@ -7,7 +7,7 @@ description: Checking week of year for a "normal" case, as well as for dates nea
 features: [Temporal]
 ---*/
 
-const zdt = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, "iso8601").toZonedDateTime("UTC");
+const zdt = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789).toZonedDateTime("UTC");
 assert.sameValue(zdt.weekOfYear, 47, "check week of year information");
 
 for (let i = 29; i <= 31; ++i) {
