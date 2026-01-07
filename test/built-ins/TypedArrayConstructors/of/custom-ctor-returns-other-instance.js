@@ -17,9 +17,9 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var result;
-  var custom = new TA(3);
+  var custom = new TA(makeCtorArg(3));
   var ctor = function() {
     return custom;
   };
@@ -29,4 +29,4 @@ testWithTypedArrayConstructors(function(TA) {
 
   result = TypedArray.of.call(ctor, 1, 2);
   assert.sameValue(result, custom, "using iterator, higher length");
-});
+}, null, null, ["immutable"]);
