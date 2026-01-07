@@ -16,3 +16,18 @@ const tests = [
 for (const [plainDateTime, expected] of tests) {
   assert.sameValue(plainDateTime.daysInMonth, expected, `${expected} days in the month of ${plainDateTime}`);
 }
+
+assert.sameValue((new Temporal.PlainDateTime(1997, 1, 23, 5, 30, 13)).daysInMonth, 31);
+assert.sameValue((new Temporal.PlainDateTime(1996, 2, 23, 5, 30, 13)).daysInMonth, 29);
+assert.sameValue((new Temporal.PlainDateTime(2000, 2, 23, 5, 30, 13)).daysInMonth, 29);
+assert.sameValue((new Temporal.PlainDateTime(1997, 2, 23, 5, 30, 13)).daysInMonth, 28);
+assert.sameValue((new Temporal.PlainDateTime(1997, 3, 23, 5, 30, 13)).daysInMonth, 31);
+assert.sameValue((new Temporal.PlainDateTime(1997, 4, 23, 5, 30, 13)).daysInMonth, 30);
+assert.sameValue((new Temporal.PlainDateTime(1997, 5, 23, 5, 30, 13)).daysInMonth, 31);
+assert.sameValue((new Temporal.PlainDateTime(1997, 6, 23, 5, 30, 13)).daysInMonth, 30);
+assert.sameValue((new Temporal.PlainDateTime(1997, 7, 23, 5, 30, 13)).daysInMonth, 31);
+assert.sameValue((new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13)).daysInMonth, 31);
+assert.sameValue((new Temporal.PlainDateTime(1997, 9, 23, 5, 30, 13)).daysInMonth, 30);
+assert.sameValue((new Temporal.PlainDateTime(1997, 10, 23, 5, 30, 13)).daysInMonth, 31);
+assert.sameValue((new Temporal.PlainDateTime(1997, 11, 23, 5, 30, 13)).daysInMonth, 30);
+assert.sameValue((new Temporal.PlainDateTime(1997, 12, 23, 5, 30, 13)).daysInMonth, 31);
