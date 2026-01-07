@@ -8,27 +8,28 @@ features: [Temporal]
 ---*/
 
 const tests = [
-  [new Temporal.PlainDateTime(1976, 2, 18, 15, 23, 30, 123, 456, 789), 29],
-  [new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789), 30],
-  [new Temporal.PlainDateTime(1976, 12, 18, 15, 23, 30, 123, 456, 789), 31],
-  [new Temporal.PlainDateTime(1977, 2, 18, 15, 23, 30, 123, 456, 789), 28],
+  [1976, 2, 18, 29],
+  [1976, 11, 18, 30],
+  [1976, 12, 18, 31],
+  [1977, 2, 18, 28],
+  [1997, 1, 23, 31],
+  [1996, 2, 23, 29],
+  [2000, 2, 23, 29],
+  [1997, 2, 23, 28],
+  [1997, 3, 23, 31],
+  [1997, 4, 23, 30],
+  [1997, 5, 23, 31],
+  [1997, 6, 23, 30],
+  [1997, 7, 23, 31],
+  [1997, 8, 23, 31],
+  [1997, 9, 23, 30],
+  [1997, 10, 23, 31],
+  [1997, 11, 23, 30],
+  [1997, 12, 23, 31],
 ];
-for (const [plainDateTime, expected] of tests) {
+for (const [y, m, d, expected] of tests) {
+  const plainDateTime = new Temporal.PlainDateTime(y, m, d, 15, 23, 30, 123, 456, 789);
   assert.sameValue(plainDateTime.toZonedDateTime("UTC").daysInMonth, expected, `${expected} days in the month of ${plainDateTime}`);
 }
 
 
-assert.sameValue((new Temporal.PlainDateTime(1997, 1, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
-assert.sameValue((new Temporal.PlainDateTime(1996, 2, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 29);
-assert.sameValue((new Temporal.PlainDateTime(2000, 2, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 29);
-assert.sameValue((new Temporal.PlainDateTime(1997, 2, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 28);
-assert.sameValue((new Temporal.PlainDateTime(1997, 3, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
-assert.sameValue((new Temporal.PlainDateTime(1997, 4, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 30);
-assert.sameValue((new Temporal.PlainDateTime(1997, 5, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
-assert.sameValue((new Temporal.PlainDateTime(1997, 6, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 30);
-assert.sameValue((new Temporal.PlainDateTime(1997, 7, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
-assert.sameValue((new Temporal.PlainDateTime(1997, 8, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
-assert.sameValue((new Temporal.PlainDateTime(1997, 9, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 30);
-assert.sameValue((new Temporal.PlainDateTime(1997, 10, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
-assert.sameValue((new Temporal.PlainDateTime(1997, 11, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 30);
-assert.sameValue((new Temporal.PlainDateTime(1997, 12, 23, 5, 30, 13)).toZonedDateTime("UTC").daysInMonth, 31);
