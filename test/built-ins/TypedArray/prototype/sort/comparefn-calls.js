@@ -22,8 +22,8 @@ var expectedThis = (function() {
   return this;
 })();
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 42, 42, 42, 42]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42, 42, 42, 42, 42]));
   var calls = [];
 
   var comparefn = function() {
@@ -39,4 +39,4 @@ testWithTypedArrayConstructors(function(TA) {
     assert.sameValue(args[1][0], 42, "x is a listed value");
     assert.sameValue(args[1][0], 42, "y is a listed value");
   });
-});
+}, null, null, ["immutable"]);
