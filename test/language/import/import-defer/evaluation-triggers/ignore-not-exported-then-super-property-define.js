@@ -1,5 +1,5 @@
 // This file was procedurally generated from the following sources:
-// - src/import-defer/super-define-property.case
+// - src/import-defer/super-property-define.case
 // - src/import-defer/trigger-on-possible-export/then-not-exported.template
 /*---
 description: _ [[DefineOwnProperty]] called from class field definition (of 'then' when it is not an exported name, does not trigger execution)

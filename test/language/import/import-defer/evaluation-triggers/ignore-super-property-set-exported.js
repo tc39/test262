@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/import-defer/super-property-access-not-exported.case
+// - src/import-defer/super-property-set-exported.case
 // - src/import-defer/ignore/ignore.template
 /*---
-description: _ [[Set]] not exported called as super access (does not trigger execution)
+description: _ [[Set]] exported called as super access (does not trigger execution)
 esid: sec-module-namespace-exotic-objects
 features: [import-defer]
 flags: [generated, module]
@@ -23,7 +23,7 @@ class A { constructor() { return ns; } };
 class B extends A {
   constructor() {
     super();
-    super.notExported = 14;
+    super.exported = 14;
   }
 };
 
