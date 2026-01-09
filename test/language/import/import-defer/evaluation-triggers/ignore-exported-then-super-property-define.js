@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/import-defer/super-define-property.case
-// - src/import-defer/trigger-on-possible-export/symbol-toStringTag.template
+// - src/import-defer/super-property-define.case
+// - src/import-defer/trigger-on-possible-export/then-exported.template
 /*---
-description: _ [[DefineOwnProperty]] called from class field definition (of Symbol.toStringTag, does not trigger execution)
+description: _ [[DefineOwnProperty]] called from class field definition (of 'then' when it is an exported name, does not trigger execution)
 esid: sec-module-namespace-exotic-objects
 features: [import-defer]
 flags: [generated, module]
@@ -42,11 +42,11 @@ info: |
 
 import "./setup_FIXTURE.js";
 
-import defer * as ns from "./dep_FIXTURE.js";
+import defer * as ns from "./dep-then_FIXTURE.js";
 
 assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
 
-var key = Symbol.toStringTag;
+var key = "then";
 
 class A { constructor() { return ns; } };
 class B extends A {

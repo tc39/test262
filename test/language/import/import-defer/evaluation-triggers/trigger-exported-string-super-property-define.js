@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/import-defer/super-define-property.case
-// - src/import-defer/trigger-on-possible-export/string-not-exported.template
+// - src/import-defer/super-property-define.case
+// - src/import-defer/trigger-on-possible-export/string-exported.template
 /*---
-description: _ [[DefineOwnProperty]] called from class field definition (of a string that is not an exported name, triggers execution)
+description: _ [[DefineOwnProperty]] called from class field definition (of a string that is an exported name, triggers execution)
 esid: sec-module-namespace-exotic-objects
 features: [import-defer]
 flags: [generated, module]
@@ -46,7 +46,7 @@ import defer * as ns from "./dep_FIXTURE.js";
 
 assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
 
-var key = "notExported";
+var key = "exported";
 
 class A { constructor() { return ns; } };
 class B extends A {
