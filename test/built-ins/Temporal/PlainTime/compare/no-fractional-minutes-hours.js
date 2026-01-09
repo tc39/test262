@@ -15,12 +15,12 @@ const invalidStrings = [
 for (const [arg, description] of invalidStrings) {
   assert.throws(
     RangeError,
-      () => Temporal.PlainTime.compare(arg, new Temporal.PlainTime(20, 04, 03)),
+      () => Temporal.PlainTime.compare(arg, new Temporal.PlainTime(20, 4, 3)),
     `${description} not allowed in time string (first argument)`
   );
   assert.throws(
     RangeError,
-      () => Temporal.PlainTime.compare(new Temporal.PlainTime(20, 04, 03), arg),
+      () => Temporal.PlainTime.compare(new Temporal.PlainTime(20, 4, 3), arg),
     `${description} not allowed in time string (second argument)`
   );
 }
