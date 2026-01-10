@@ -84,3 +84,53 @@ TemporalHelpers.assertPlainDate(
     Temporal.PlainDate.from({year: 2021, month: 999999, day: 500}),
     2021, 12, "M12", 31,
     "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 3, day: 9033}),
+    2021, 3, "M03", 31,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 4, day: 50}),
+    2021, 4, "M04", 30,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 5, day: 77}),
+    2021, 5, "M05", 31,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 6, day: 33}),
+    2021, 6, "M06", 30,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 7, day: 33}),
+    2021, 7, "M07", 31,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 8, day: 300}),
+    2021, 8, "M08", 31,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 9, day: 400}),
+    2021, 9, "M09", 30,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 10, day: 400}),
+    2021, 10, "M10", 31,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 11, day: 400}),
+    2021, 11, "M11", 30,
+    "year/month/day with month and day need to be constrained");
+
+TemporalHelpers.assertPlainDate(
+    Temporal.PlainDate.from({year: 2021, month: 12, day: 500}),
+    2021, 12, "M12", 31,
+    "year/month/day with month and day need to be constrained");
