@@ -1,0 +1,25 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-set-p-v-receiver
+desc: _ [[Set]] exported called as super access
+info: |
+  [[Set]] ( P, V, Receiver )
+    1. return false.
+
+template: ignore
+---*/
+
+//- body
+class A { constructor() { return ns; } };
+class B extends A {
+  constructor() {
+    super();
+    super.exported = 14;
+  }
+};
+
+try {
+  new B();
+} catch (_) {}
