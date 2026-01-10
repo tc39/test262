@@ -13,5 +13,7 @@ info: |
 features: [Temporal]
 ---*/
 
-assert.throws(TypeError, () => Temporal.Instant.fromEpochMilliseconds(42n), "number");
-assert.throws(TypeError, () => Temporal.Instant.fromEpochMilliseconds(Symbol()), "symbol");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(), "cannot convert NaN to number");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(undefined), "cannot convert undefined to number");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochMilliseconds(42n), "BigInt cannot be converted to number");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochMilliseconds(Symbol()), "symbol cannot be converted to number");

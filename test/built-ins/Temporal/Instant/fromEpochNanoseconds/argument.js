@@ -13,8 +13,8 @@ info: |
 features: [Temporal]
 ---*/
 
-assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(), "undefined");
-assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(undefined), "undefined");
-assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(null), "null");
-assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(42), "number");
-assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(Symbol()), "symbol");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(), "cannot convert undefined to BigInt");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(undefined), "cannot convert undefined to BigInt");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(null), "cannot convert null to BigInt");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(42), "cannot convert number to BigInt");
+assert.throws(TypeError, () => Temporal.Instant.fromEpochNanoseconds(Symbol()), "cannot convert symbol to BigInt");
