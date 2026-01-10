@@ -2,10 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
-description: >
-  Automatically ported from instant-to-json test
-  in V8's mjsunit test instant-to-json.js
+esid: sec-temporal.instant.prototype.tojson
+description: Various test cases using fromEpochMilliseconds.
 features: [Temporal]
 ---*/
 
