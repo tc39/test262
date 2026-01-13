@@ -2,18 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
-description: >
-  Automatically ported from plain-date-with-calendar test
-  in V8's mjsunit test plain-date-with-calendar.js
+esid: sec-temporal.plaindate.prototype.withcalendar
+description: Converting from  iso8601 and back works as expected.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
 let d1 = new Temporal.PlainDate(1911, 10, 10);
-let badDate = { withCalendar: d1.withCalendar };
-assert.throws(TypeError, () => badDate.withCalendar('iso8601'));
-
 let d2 = d1.withCalendar('roc');
 assert.sameValue('roc', d2.calendarId);
 TemporalHelpers.assertPlainDate(d2, 0, 10, 'M10', 10, '', 'broc', 1);
