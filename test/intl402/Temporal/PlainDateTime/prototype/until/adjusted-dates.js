@@ -8,7 +8,7 @@ includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-for (largestUnit of ['years', 'months', 'weeks', 'days', 'hours']) {
+for (const largestUnit of ['years', 'months', 'weeks', 'days', 'hours']) {
   const d1 = new Temporal.PlainDateTime(2026, 1, 6, 11, 2, 0, 0, 0, 0, "gregory");
   const d2 = new Temporal.PlainDateTime(2026, 1, 7, 9, 2, 0, 0, 0, 0, "gregory");
   TemporalHelpers.assertDuration(d1.until(d2, { largestUnit }),
