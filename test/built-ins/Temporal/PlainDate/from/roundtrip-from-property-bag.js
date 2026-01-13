@@ -24,7 +24,7 @@ const testData = [
   [2021, 7, "M07", 15],
 ];
 
-for ([year, month, monthCode, day] of testData) {
+for (const [year, month, monthCode, day] of testData) {
   testRoundtrip(year, month, monthCode, day);
 }
 
