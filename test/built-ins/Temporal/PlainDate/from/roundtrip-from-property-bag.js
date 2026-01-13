@@ -10,21 +10,26 @@ includes: [temporalHelpers.js]
 features: [Temporal, Intl.Era-monthcode]
 ---*/
 
-const options = { overflow: "reject" };
+const options = [
+  { overflow: "constrain" },
+  { overflow: "reject" }
+]
 
 testRoundtrip(2000);
 testRoundtrip(1);
 
 function testRoundtrip(year) {
-  const dateFromYearMonth = Temporal.PlainDate.from({ year, month: 1, day: 1 }, options);
-  TemporalHelpers.assertPlainDate(
-    dateFromYearMonth,
-    year, 1, "M01", 1,
-    `${dateFromYearMonth} - created from year and month`);
+  for (const option of options) {
+    const dateFromYearMonth = Temporal.PlainDate.from({ year, month: 1, day: 1 }, option);
+    TemporalHelpers.assertPlainDate(
+      dateFromYearMonth,
+      year, 1, "M01", 1,
+      `${dateFromYearMonth} - created from year and month`);
 
-  const dateFromYearMonthCode = Temporal.PlainDate.from({ year, monthCode: "M01", day: 1 }, options);
-  TemporalHelpers.assertPlainDate(
-    dateFromYearMonthCode,
-    year, 1, "M01", 1,
-    `${dateFromYearMonthCode} - created from year and month code`);
+    const dateFromYearMonthCode = Temporal.PlainDate.from({ year, monthCode: "M01", day: 1 }, option);
+    TemporalHelpers.assertPlainDate(
+      dateFromYearMonthCode,
+      year, 1, "M01", 1,
+      `${dateFromYearMonthCode} - created from year and month code`);
+  }
 }
