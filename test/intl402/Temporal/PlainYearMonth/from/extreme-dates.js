@@ -18,7 +18,8 @@ includes: [temporalHelpers.js]
 
 const testData = [
   ["buddhist", -271278, 5, "M05", "be", -271278, 1, 276303, 9, "M09", "be", 276303, 1],
-  ["coptic", -272099, 4, "M04", "am", -272099, 27, 275471, 5, "M05", "am", 275471, 23],
+  // Fails in the reference implementation -- see https://github.com/tc39/proposal-temporal/issues/3251
+  ["coptic", -272099, 4, "M04", "am", -272099, 27, 275471, 6, "M06", "am", 275471, 23],
   ["ethioaa", -266323, 4, "M04", "aa", -266323, 27, 281247, 5, "M05", "aa", 281247, 23],
   ["ethiopic", -271823, 4, "M04", "aa", -266323, 27, 275747, 5, "M05", "am", 275747, 23],
   ["gregory", -271821, 5, "M05", "bce", 271822, 1, 275760, 9, "M09", "ce", 275760, 1],
