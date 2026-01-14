@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.plaindatetime.prototype.withcalendar
-description: Converting to iso8601 and back works as expeced.
+description: Converting to roc and back to iso8601 works as expeced.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
