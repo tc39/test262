@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.until
+esid: sec-temporal.plaindate.prototype.since
 description: Throws if largestUnit or smallestUnit is a time unit
 features: [Temporal]
 ---*/
@@ -14,9 +14,9 @@ const units = ['hour', 'minute', 'second', 'millisecond', 'microsecond', 'nanose
 
 for (const largestUnit of units) {
   for (const smallestUnit of units) {
-    assert.throws(RangeError, () => from.until(to, { largestUnit, smallestUnit }),
+    assert.throws(RangeError, () => from.since(to, { largestUnit, smallestUnit }),
                  `Can't use ${largestUnit} and ${smallestUnit} as largestUnit and smallestUnit for PlainDate`);
-    assert.throws(RangeError, () => from.until(to, { largestUnit: smallestUnit, smallestUnit: largestUnit }),
+    assert.throws(RangeError, () => from.since(to, { largestUnit: smallestUnit, smallestUnit: largestUnit }),
                  `Can't use ${smallestUnit} and ${largestUnit} as largestUnit and smallestUnit for PlainDate`);
   }
 }
