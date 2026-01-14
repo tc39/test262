@@ -49,7 +49,7 @@ assert.sameValue(
     millisecond: 271,
     microsecond: 986,
     nanosecond: 102
-}, dt2),
+  }, dt2),
   0,
   "casts first argument (plain object)"
 );
