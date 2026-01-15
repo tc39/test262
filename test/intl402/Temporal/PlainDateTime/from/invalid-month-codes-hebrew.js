@@ -9,8 +9,14 @@ features: [Temporal, Intl.Era-monthcode]
 
 const calendar = "hebrew";
 
+// 5779 is a leap year
 assert.throws(RangeError, () => {
   Temporal.PlainDateTime.from({ year: 5779, monthCode: "M13", day: 1, hour: 12, minute: 34, calendar });
+}, "M13 should not be a valid month code");
+
+// 5781 is a common year
+assert.throws(RangeError, () => {
+  Temporal.PlainDateTime.from({ year: 5781, monthCode: "M13", day: 1, hour: 12, minute: 34, calendar });
 }, "M13 should not be a valid month code");
 
 // Invalid leap months: e.g. M02L
