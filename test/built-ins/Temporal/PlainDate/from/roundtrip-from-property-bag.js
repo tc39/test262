@@ -29,15 +29,19 @@ for (const [year, month, monthCode, day] of testData) {
 }
 
 function testRoundtrip(year, month, monthCode, day) {
-  const dateFromYearMonth = Temporal.PlainDate.from({ year, month, day }, options);
-  TemporalHelpers.assertPlainDate(
-    dateFromYearMonth,
-    year, month, monthCode, day,
-    `${dateFromYearMonth} - created from year and month`);
+  for (const opt of options) {
+    const dateFromYearMonth = Temporal.PlainDate.from({ year, month, day }, opt);
+    TemporalHelpers.assertPlainDate(
+      dateFromYearMonth,
+      year, month, monthCode, day,
+      `${dateFromYearMonth} - created from year and month`);
+  }
 
-  const dateFromYearMonthCode = Temporal.PlainDate.from({ year, monthCode, day }, options);
-  TemporalHelpers.assertPlainDate(
-    dateFromYearMonthCode,
-    year, month, monthCode, day,
-    `${dateFromYearMonthCode} - created from year and month code`);
+  for (const opt of options) {
+    const dateFromYearMonthCode = Temporal.PlainDate.from({ year, monthCode, day }, opt);
+    TemporalHelpers.assertPlainDate(
+      dateFromYearMonthCode,
+      year, month, monthCode, day,
+      `${dateFromYearMonthCode} - created from year and month code`);
+  }
 }
