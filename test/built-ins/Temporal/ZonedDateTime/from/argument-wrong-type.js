@@ -28,7 +28,7 @@ for (const [arg, description] of primitiveTests) {
     `${description} does not convert to a valid ISO string`
   );
 
-  for (options of [undefined, { overflow: 'constrain' }, { overflow: 'reject' }]) {
+  for (const options of [undefined, { overflow: 'constrain' }, { overflow: 'reject' }]) {
     assert.throws(
       typeof arg === 'string' ? RangeError : TypeError,
       () => Temporal.ZonedDateTime.from(arg, options),
@@ -47,7 +47,7 @@ const typeErrorTests = [
 for (const [arg, description] of typeErrorTests) {
   assert.throws(TypeError, () => Temporal.ZonedDateTime.from(arg), `${description} is not a valid property bag and does not convert to a string`);
 
-  for (options of [undefined, { overflow: 'constrain' }, { overflow: 'reject' }]) {
+  for (const options of [undefined, { overflow: 'constrain' }, { overflow: 'reject' }]) {
     assert.throws(TypeError, () => Temporal.ZonedDateTime.from(arg, options), `${description} is not a valid property bag and does not convert to a string with options ${options}`);
   }
 }
