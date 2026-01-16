@@ -29,7 +29,7 @@ for (const [arg, description] of primitiveTests) {
     `${description} does not convert to a valid ISO string`
   );
 
-  for (options of [undefined, { overflow: 'constrain' }, { overflow: 'reject' }]) {
+  for (const options of [undefined, { overflow: 'constrain' }, { overflow: 'reject' }]) {
     assert.throws(
       TypeError,
       () => Temporal.Instant.from(arg, options),
