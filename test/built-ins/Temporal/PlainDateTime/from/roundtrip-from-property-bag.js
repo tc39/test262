@@ -12,19 +12,29 @@ features: [Temporal, Intl.Era-monthcode]
 
 const options = { overflow: "reject" };
 
-testRoundtrip(2000);
-testRoundtrip(1);
+const testData = [
+  [2000, 1, "M01", 1],
+  [1, 1, "M01", 1],
+  [2021, 7, "M07", 15],
+  [2021, 7, "M07", 3],
+  [2021, 12, "M12", 31],
+  [2021, 7, "M07", 15],
+];
 
-function testRoundtrip(year) {
-  const dateFromYearMonth = Temporal.PlainDateTime.from({ year, month: 1, day: 1, hour: 12, minute: 34, second: 56, millisecond: 987, microsecond: 654, nanosecond: 321 }, options);
+for (const [year, month, monthCode, day] of testData) {
+  testRoundtrip(year, month, monthCode, day);
+}
+
+function testRoundtrip(year, month, monthCode, day) {
+  const dateFromYearMonth = Temporal.PlainDateTime.from({ year, month, day, hour: 12, minute: 34, second: 56, millisecond: 987, microsecond: 654, nanosecond: 321 }, options);
   TemporalHelpers.assertPlainDateTime(
     dateFromYearMonth,
-    year, 1, "M01", 1, 12, 34, 56, 987, 654, 321,
+    year, month, monthCode, day, 12, 34, 56, 987, 654, 321,
     `${dateFromYearMonth} - created from year and month`);
 
-  const dateFromYearMonthCode = Temporal.PlainDateTime.from({ year, monthCode: "M01", day: 1, hour: 12, minute: 34, second: 56, millisecond: 987, microsecond: 654, nanosecond: 321 }, options);
+  const dateFromYearMonthCode = Temporal.PlainDateTime.from({ year, monthCode, day, hour: 12, minute: 34, second: 56, millisecond: 987, microsecond: 654, nanosecond: 321 }, options);
   TemporalHelpers.assertPlainDateTime(
     dateFromYearMonthCode,
-    year, 1, "M01", 1, 12, 34, 56, 987, 654, 321,
+    year, month, monthCode, day, 12, 34, 56, 987, 654, 321,
     `${dateFromYearMonthCode} - created from year and month code`);
 }

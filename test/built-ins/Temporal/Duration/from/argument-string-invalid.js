@@ -46,7 +46,8 @@ const tests = [
   "PT.1M",
   "PT,1M",
   "PT.1S",
-  "PT,1S"
+  "PT,1S",
+  "",
 ];
 
 for (const input of tests) {
