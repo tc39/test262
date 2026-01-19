@@ -17,5 +17,5 @@ const pdt = new Temporal.PlainDateTime(2026, 1, 5, 11, 22);
 for (const timeZoneNameStyle of timeZoneNameStyles) {
   const dtf = new Intl.DateTimeFormat(locale, { timeZoneName: timeZoneNameStyle });
   assert(Array.isArray(dtf.formatToParts(pdt)),
-    `cannot format a PlainDateTime with timeZoneName = ${timeZoneNameStyle}`);
+    `can format a PlainDateTime with timeZoneName = ${timeZoneNameStyle}`);
 }
