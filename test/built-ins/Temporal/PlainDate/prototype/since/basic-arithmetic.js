@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Igalia, S.L., and the V8 project authors. All rights reserved.
+// Copyright (C) 2026 Igalia, S.L., and the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -453,11 +453,15 @@ const tests = [
   ],
 ];
 
+function neg(x) {
+  return (x === 0) ? x : -x;
+}
+
 for (const [one, two, descr, ...units] of tests) {
   for (const [largestUnit, years, months, weeks, days] of units) {
     TemporalHelpers.assertDuration(
-      one.until(two, { largestUnit }),
-      years, months, weeks, days, 0, 0, 0, 0, 0, 0,
+      one.since(two, { largestUnit }),
+      neg(years), neg(months), neg(weeks), neg(days), 0, 0, 0, 0, 0, 0,
       descr
     );
   }
