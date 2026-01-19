@@ -16,7 +16,5 @@ for (const largestUnit of units) {
   for (const smallestUnit of units) {
     assert.throws(RangeError, () => from.until(to, { largestUnit, smallestUnit }),
                  `Can't use ${largestUnit} and ${smallestUnit} as largestUnit and smallestUnit for PlainDate`);
-    assert.throws(RangeError, () => from.until(to, { largestUnit: smallestUnit, smallestUnit: largestUnit }),
-                 `Can't use ${smallestUnit} and ${largestUnit} as largestUnit and smallestUnit for PlainDate`);
   }
 }
