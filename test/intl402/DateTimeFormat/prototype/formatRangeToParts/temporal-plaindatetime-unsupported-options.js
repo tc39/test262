@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-datetime-format-functions
-description: PlainDateTime cannot be formatted with a formatter created with the timeZoneName option.
+description: PlainDateTime can be formatted with a formatter created with the timeZoneName option.
 locale: [en-US]
 features: [Temporal]
 ---*/
@@ -17,6 +17,6 @@ const pdt2 = new Temporal.PlainDateTime(2026, 1, 5, 11, 23);
 
 for (const timeZoneNameStyle of timeZoneNameStyles) {
   const dtf = new Intl.DateTimeFormat(locale, { timeZoneName: timeZoneNameStyle });
-  assert.throws(TypeError, () => dtf.formatRangeToParts(pdt1, pdt2),
-    `cannot format a PlainDateTime with timeZoneName = ${timeZoneNameStyle}`);
+  assert(Array.isArray(dtf.formatRangeToParts(pdt1, pdt2)),
+    `can format a PlainDateTime with timeZoneName = ${timeZoneNameStyle}`);
 }
