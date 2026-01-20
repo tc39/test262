@@ -115,6 +115,24 @@ TemporalHelpers.assertPlainDateTime(
   1868, 10, "M10", 22, 12, 34, 0, 0, 0, 0, "Meiji 1 resolves to CE 1868 before era start date",
   "ce", 1868);
 
+const meiji1AfterStart = Temporal.ZonedDateTime.from({ era: "meiji", eraYear: 1, monthCode: "M10", day: 23, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+TemporalHelpers.assertPlainDateTime(
+  meiji1AfterStart.toPlainDateTime(),
+  1868, 10, "M10", 23, 12, 34, 0, 0, 0, 0, "Meiji 1 still resolves to CE 1868 after era start date",
+  "ce", 1868);
+
+const meiji5 = Temporal.ZonedDateTime.from({ era: "meiji", eraYear: 5, monthCode: "M12", day: 31, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+TemporalHelpers.assertPlainDateTime(
+  meiji5.toPlainDateTime(),
+  1872, 12, "M12", 31, 12, 34, 0, 0, 0, 0, "Meiji 5 resolves to CE 1872",
+  "ce", 1872);
+
+const ce1873 = Temporal.ZonedDateTime.from({ era: "ce", eraYear: 1873, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
+TemporalHelpers.assertPlainDateTime(
+  ce1873.toPlainDateTime(),
+  1873, 1, "M01", 1, 12, 34, 0, 0, 0, 0, "CE 1873 resolves to Meiji 6",
+  "meiji", 6);
+
 const meiji0 = Temporal.ZonedDateTime.from({ era: "meiji", eraYear: 0, monthCode: "M10", day: 23, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 TemporalHelpers.assertPlainDateTime(
   meiji0.toPlainDateTime(),
@@ -126,12 +144,6 @@ TemporalHelpers.assertPlainDateTime(
   meiji1n.toPlainDateTime(),
   1866, 10, "M10", 23, 12, 34, 0, 0, 0, 0, "Meiji -1 resolves to CE 1866",
   "ce", 1866);
-
-const ce1868AfterStart = Temporal.ZonedDateTime.from({ era: "ce", eraYear: 1868, monthCode: "M10", day: 23, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
-TemporalHelpers.assertPlainDateTime(
-  ce1868AfterStart.toPlainDateTime(),
-  1868, 10, "M10", 23, 12, 34, 0, 0, 0, 0, "CE 1868 resolves to Meiji 1 after era start date",
-  "meiji", 1);
 
 const ce0 = Temporal.ZonedDateTime.from({ era: "ce", eraYear: 0, monthCode: "M01", day: 1, hour: 12, minute: 34, timeZone: "UTC", calendar }, options);
 TemporalHelpers.assertPlainDateTime(

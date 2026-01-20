@@ -116,6 +116,24 @@ TemporalHelpers.assertPlainYearMonth(
   1868, 10, "M10", "Meiji 1 resolves to CE 1868 before era start date",
   "ce", 1868);
 
+const meiji1AfterStart = Temporal.PlainYearMonth.from({ era: "meiji", eraYear: 1, monthCode: "M11", calendar }, options);
+TemporalHelpers.assertPlainYearMonth(
+  meiji1AfterStart,
+  1868, 11, "M11", "Meiji 1 still resolves to CE 1868 after era start date",
+  "ce", 1868);
+
+const meiji5 = Temporal.PlainYearMonth.from({ era: "meiji", eraYear: 5, monthCode: "M12", calendar }, options);
+TemporalHelpers.assertPlainYearMonth(
+  meiji5,
+  1872, 12, "M12", "Meiji 5 resolves to CE 1872",
+  "ce", 1872);
+
+const ce1873 = Temporal.PlainYearMonth.from({ era: "ce", eraYear: 1873, monthCode: "M01", calendar }, options);
+TemporalHelpers.assertPlainYearMonth(
+  ce1873,
+  1873, 1, "M01", "CE 1873 resolves to Meiji 6",
+  "meiji", 6);
+
 const meiji0 = Temporal.PlainYearMonth.from({ era: "meiji", eraYear: 0, monthCode: "M10", calendar }, options);
 TemporalHelpers.assertPlainYearMonth(
   meiji0,
@@ -127,12 +145,6 @@ TemporalHelpers.assertPlainYearMonth(
   meiji1n,
   1866, 10, "M10", "Meiji -1 resolves to CE 1866",
   "ce", 1866);
-
-const ce1868AfterStart = Temporal.PlainYearMonth.from({ era: "ce", eraYear: 1868, monthCode: "M11", calendar }, options);
-TemporalHelpers.assertPlainYearMonth(
-  ce1868AfterStart,
-  1868, 11, "M11", "CE 1868 resolves to Meiji 1 after era start date",
-  "meiji", 1);
 
 const ce0 = Temporal.PlainYearMonth.from({ era: "ce", eraYear: 0, monthCode: "M01", calendar }, options);
 TemporalHelpers.assertPlainYearMonth(
