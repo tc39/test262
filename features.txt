@@ -92,6 +92,10 @@ nonextensible-applies-to-private
 # https://github.com/tc39/proposal-joint-iteration
 joint-iteration
 
+# Iterator Join
+# https://github.com/tc39/proposal-iterator-join
+Iterator.prototype.join
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
