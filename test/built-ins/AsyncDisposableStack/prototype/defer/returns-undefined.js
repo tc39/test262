@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-asyncdisposablestack.prototype.defer
-description: Returns the argument provided.
+description: Returns undefined.
 info: |
   AsyncDisposableStack.prototype.defer ( onDisposeAsync )
 
