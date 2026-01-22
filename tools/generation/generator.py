@@ -40,12 +40,8 @@ def find_cases(location):
 def clean(args):
     for (subdir, _, fileNames) in os.walk(args.directory):
         for fileName in map(lambda x: os.path.join(subdir, x), fileNames):
-            if os.path.basename(fileName) in ignored_files:
-                continue
-            # Test directories may contain binary fixtures which
-            # cannot be decoded as UTF-8, so we must skip them.
-            ext = os.path.splitext(fileName)[1].lower()
-            if ext == '.bin' or ext == '.png' or ext == '.jpg':
+            basename = os.path.basename(fileName)
+            if basename in ignored_files or '_FIXTURE' in basename:
                 continue
             test = Test(fileName)
             test.load()
