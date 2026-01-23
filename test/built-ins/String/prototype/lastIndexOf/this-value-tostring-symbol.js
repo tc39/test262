@@ -16,5 +16,5 @@ info: |
 features: [Symbol]
 ---*/
 assert.throws(TypeError, function () {
-    String.prototype.lastindexOf.call(Symbol(), "abc");
+    String.prototype.lastIndexOf.call(Symbol(), "abc");
 }, "If this value is a Symbol, String.prototype.lastindexOf must throw TypeError.")

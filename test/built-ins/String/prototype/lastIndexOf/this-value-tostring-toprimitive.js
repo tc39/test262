@@ -15,5 +15,5 @@ info: |
     10. let _primValue_ be ? ToPrimitive(_argument_, ~string~).
 ---*/
 assert.throws(TypeError, function () {
-    String.prototype.lastindexOf.call({toString: undefined,valueOf: undefined}, "abc");
+    String.prototype.lastIndexOf.call({toString: undefined,valueOf: undefined}, "abc");
 }, "String.prototype.lastindexOf should throw a TypeError in its ToPrimitive step")
