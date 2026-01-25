@@ -35,6 +35,9 @@ class CheckLicense(Check):
         if name.endswith('.json'):
             return
 
+        if '_FIXTURE' in name:
+            return
+
         if meta and 'flags' in meta and 'generated' in meta['flags']:
             return
 
