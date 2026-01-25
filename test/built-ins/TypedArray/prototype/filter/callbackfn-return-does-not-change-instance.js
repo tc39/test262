@@ -8,10 +8,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample1 = new TA(3);
-
-  sample1[1] = 1;
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample1 = new TA(makeCtorArg(["0", "1", "0"]));
 
   sample1.filter(function() {
     return 42;
