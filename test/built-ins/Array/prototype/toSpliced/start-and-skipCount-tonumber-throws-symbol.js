@@ -1,0 +1,32 @@
+// Copyright (C) 2026 Garham Lee. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-array.prototype.tospliced
+description: >
+    If _start_ or _skipCount_ is a Symbol, Array.prototype.toSpliced throws TypeError.
+info: |
+    Array.prototype.toSpliced ( _start_, _skipCount_, ..._items_ )
+
+    3. Let _relativeStart_ be ? ToIntegerOrInfinity(_start_).
+    10. Else,
+        a. Let _sc_ be ? ToIntegerOrInfinity(_skipCount_).
+
+    ToIntegerOrInfinity (_argument_)
+
+    1. Let _number_ be ? ToNumber(_argument_).
+
+    ToNumber (_argument_)
+
+    2. If _argument_ is either a Symbol or a BigInt, throw a *TypeError* exception.
+features: [Symbol]
+---*/
+//Check #1
+assert.throws(TypeError, function () {
+    [].toSpliced(Symbol(), 0, 0);
+}, "If _start_ is a Symbol, Array.prototype.toSpliced throws TypeError.");
+
+//Check #2
+assert.throws(TypeError, function () {
+    [].toSpliced(0, Symbol(), 0);
+}, "If _skipCount_ is a Symbol, Array.prototype.toSpliced throws TypeError.");
