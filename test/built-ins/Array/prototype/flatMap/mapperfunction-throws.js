@@ -4,7 +4,7 @@
 /*---
 esid: sec-array.prototype.flatmap
 description: >
-    Array.prototype.flatMap throws when _mapperFunction_ throws.
+    Array.prototype.flatMap throws when _soucreLen_ is not 0 and _mapperFunction_ throws.
 info: |
     Array.prototype.flatMap ( _mapperFunction_ [ , _thisArg_ ] )
 
@@ -25,6 +25,16 @@ info: |
                 1. Set _element_ to ? Call(_mapperFunction_, _thisArg_, « _element_, _sourceIndex_, _source_ »).
 features: [Array.prototype.flatMap]
 ---*/
+//Check #1
 assert.throws(Test262Error, function () {
     [0].flatMap(x => {throw new Test262Error});
 });
+
+//Check #2
+var callcount = 0;
+[].flatMap(() => {
+    callcount += 1;
+    throw new Test262Error;
+});
+
+assert.sameValue(callcount, 0, "If _soucreLen_ is 0, _mapperFunction_ should not be called.")
