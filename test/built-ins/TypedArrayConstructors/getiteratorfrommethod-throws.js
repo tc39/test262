@@ -39,5 +39,5 @@ for (var i = 0; i < TypedArrays.length; i++) {
     var TypedArray = TypedArrays[i];
     assert.throws(Test262Error, function () {
         new TypedArray({[Symbol.iterator] : () => {throw new Test262Error;}});
-    })
+    }, "Symbol.iterator method should throw.")
 }
