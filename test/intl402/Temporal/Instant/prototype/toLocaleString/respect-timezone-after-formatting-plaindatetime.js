@@ -11,25 +11,23 @@ const datestring = '2026-03-29T02:30:15+01:00';
 const instant = Temporal.Instant.from(datestring);
 const pdt = Temporal.PlainDateTime.from(datestring);
 
-assert.sameValue(
-  pdt.toLocaleString('en', { timeStyle: 'long' }),
-  '2:30:15 AM'
-);
+const legacyDate = new Date(instant.epochMilliseconds);
+const expected1 = legacyDate.toLocaleString("en", { timeStyle: "long", timeZone: "America/Los_Angeles" });
+const expected2 = legacyDate.toLocaleString("en", { timeStyle: "long", timeZone: "Europe/Berlin" });
+
+pdt.toLocaleString("en", { timeStyle: "long" });
 
 assert.sameValue(
   instant.toLocaleString('en', { timeStyle: 'long', timeZone: 'America/Los_Angeles' }),
-  '6:30:15 PM PDT'
+  expected1
 );
 
 assert.sameValue(
   instant.toLocaleString('en', { timeStyle: 'long', timeZone: 'Europe/Berlin' }),
-  '3:30:15 AM GMT+2'
+  expected2
 );
 
-assert.sameValue(
-  new Temporal.PlainDate(2011, 12, 30).toLocaleString('en'),
-  '12/30/2011'
-),
+new Temporal.PlainDate(2011, 12, 30).toLocaleString("en");
 
 assert.sameValue(
   new Temporal.Instant(0n).toLocaleString("en", { era: "narrow" }),

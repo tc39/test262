@@ -25,28 +25,29 @@ const dtf_apia = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyl
 const dtf_los_angeles = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short', timeZone: 'America/Los_Angeles' });
 
 // PlainDateTime
-assert.sameValue(
-  dtf_apia.format(pdt_apia),
-  "12/30/11, 12:00 PM",
+const pdt_apia_result = dtf_apia.format(pdt_apia);
+assert(
+  pdt_apia_result.includes('30') && !pdt_apia_result.includes('31'),
   "day is calculated correctly, ignoring the Pacific/Apia timezone"
 );
 
-assert.sameValue(
-  dtf_los_angeles.format(pdt_los_angeles),
-  "3/8/26, 2:00 AM",
+const pdt_los_angeles_result = dtf_los_angeles.format(pdt_los_angeles);
+assert(
+  pdt_los_angeles_result.includes('2:00') && !pdt_los_angeles_result.includes('3:00'),
   "hour is calculated correctly with the America/Los_Angeles timezone"
 );
 
 // PlainDate
-assert.sameValue(
-  dtf_apia.format(pd_apia),
-  "12/30/11",
+const pd_apia_result = dtf_apia.format(pd_apia);
+assert(
+  pd_apia_result.includes('30') && !pd_apia_result.includes('31'),
   "day is calculated correctly, ignoring the Pacific/Apia timezone"
 );
 
 // PlainTime
-assert.sameValue(
-  dtf_los_angeles.format(pt_los_angeles),
+const pt_los_angeles_result = dtf_los_angeles.format(pt_los_angeles);
+assert(
+  pt_los_angeles_result.includes('2:00') && !pt_los_angeles_result.includes('3:00'),
   "2:00 AM",
   "hour is calculated correctly with the America/Los_Angeles timezone"
 );

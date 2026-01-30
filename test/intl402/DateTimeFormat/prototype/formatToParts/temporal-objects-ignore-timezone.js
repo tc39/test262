@@ -24,29 +24,33 @@ const pt_los_angeles = Temporal.PlainTime.from(datetime_los_angeles);
 const dtf_apia = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Pacific/Apia' });
 const dtf_los_angeles = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short', timeZone: 'America/Los_Angeles' });
 
+function find_part(parts, expected_type) {
+  return parts.find(({ type }) => type === expected_type).value;
+}
+
 // PlainDateTime
 assert.sameValue(
-  dtf_apia.formatToParts(pdt_apia)[2].value,
+  find_part(dtf_apia.formatToParts(pdt_apia), "day"),
   "30",
   "day is calculated correctly, ignoring the Pacific/Apia timezone"
 );
 
 assert.sameValue(
-  dtf_los_angeles.formatToParts(pdt_los_angeles)[6].value,
+  find_part(dtf_los_angeles.formatToParts(pdt_los_angeles), "hour"),
   "2",
   "hour is calculated correctly with the America/Los_Angeles timezone"
 );
 
 // PlainDate
 assert.sameValue(
-  dtf_apia.formatToParts(pd_apia)[2].value,
+  find_part(dtf_apia.formatToParts(pd_apia), "day"),
   "30",
   "day is calculated correctly, ignoring the Pacific/Apia timezone"
 );
 
 // PlainTime
 assert.sameValue(
-  dtf_los_angeles.formatToParts(pt_los_angeles)[0].value,
+  find_part(dtf_los_angeles.formatToParts(pt_los_angeles), "hour"),
   "2",
   "hour is calculated correctly with the America/Los_Angeles timezone"
 );
