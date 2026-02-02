@@ -28,8 +28,8 @@ var fromIndex = {
   }
 };
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(0));
   assert.sameValue(sample.includes(0), false, "returns false");
   assert.sameValue(sample.includes(), false, "returns false - no arg");
   assert.sameValue(
