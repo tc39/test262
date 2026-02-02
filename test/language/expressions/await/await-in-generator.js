@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-esid: pending
+esid: await-in-generator
 description: >
   Await in a generator is an identifier
 features: [generators]

@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-esid: pending
+esid: await-has-UnaryExpression
 description: >
   Await's operand is a UnaryExpression
 flags: [async]

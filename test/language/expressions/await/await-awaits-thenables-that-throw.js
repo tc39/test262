@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-esid: pending
+esid: await-awaits-thenables-that-throw
 description: >
   Await can await any thenable.
 flags: [async]

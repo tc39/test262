@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-esid: pending
+esid: await-in-global
 description: >
   Await is an identifier in global scope
 ---*/

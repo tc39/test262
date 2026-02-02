@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-esid: pending
+esid: await-throws-rejections
 description: >
   Await throws errors from rejected promises
 flags: [async]
