@@ -3,37 +3,37 @@
 
 /*---
 esid: sec-temporal.plainmonthday.from
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 description: Check correct results for 30-day leap months
 includes: [temporalHelpers.js]
 ---*/
 
-// Common leap months should find a result not too far into the past.
+// Reference year for day 30 of leap months
 //
 // Month -> ISO year
 //
-// M01L     <uncommon>
-// M02L     1765
+// M01L     -
+// M02L     -
 // M03L     1955
 // M04L     1944
 // M05L     1952
 // M06L     1941
 // M07L     1938
-// M08L     1718
-// M09L     <uncommon>
-// M10L     <uncommon>
-// M11L     <uncommon>
-// M12L     <uncommon>
+// M08L     -
+// M09L     -
+// M10L     -
+// M11L     -
+// M12L     -
 //
-// M02L and M08L with 29 days is common, but with 30 is actually rather uncommon.
+// M02L and M08L with 29 days are common, but with 30 are actually rather
+// uncommon and are not known to have occurred in the range in which the Chinese
+// calendar can be accurately calculated.
 //
 // See also "The Mathematics of the Chinese Calendar", Table 21 [1] for a
 // distribution of leap months.
 //
 // [1] https://www.xirugu.com/CHI500/Dates_Time/Chinesecalender.pdf
 
-// In this test, we skip the months whose most recent year is outside
-// the range 1900-2100.
 const monthCodesWithYears = [
   { monthCode: "M03L", referenceYear: 1955 },
   { monthCode: "M04L", referenceYear: 1944 },
@@ -44,19 +44,15 @@ const monthCodesWithYears = [
 
 const calendar = "chinese";
 
-// Months can have up to 30 days.
-const day = 30;
-
 for (let {monthCode, referenceYear} of monthCodesWithYears) {
-  let pmd = Temporal.PlainMonthDay.from({calendar, monthCode, day});
-  TemporalHelpers.assertPlainMonthDay(pmd, monthCode, day, monthCode, referenceYear);
+  const pmd = Temporal.PlainMonthDay.from({ calendar, monthCode, day: 30 });
+  TemporalHelpers.assertPlainMonthDay(pmd, monthCode, 30, `${monthCode}-30`, referenceYear);
 
-  let constrain = Temporal.PlainMonthDay.from({calendar, monthCode, day: day + 1}, {overflow: "constrain"});
-  TemporalHelpers.assertPlainMonthDay(constrain, monthCode, day, `${monthCode} (constrained)`, referenceYear);
+  const constrain = Temporal.PlainMonthDay.from({ calendar, monthCode, day: 31 });
+  TemporalHelpers.assertPlainMonthDay(constrain, monthCode, 30, `${monthCode} (constrained)`, referenceYear);
   assert.sameValue(constrain.equals(pmd), true);
 
   assert.throws(RangeError, () => {
-    Temporal.PlainMonthDay.from({calendar, monthCode, day: day + 1}, {overflow: "reject"});
+    Temporal.PlainMonthDay.from({ calendar, monthCode, day: 31 }, { overflow: "reject" });
   });
 }
-
