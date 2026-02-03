@@ -8,9 +8,9 @@ description: >
 negative:
   phase: parse
   type: SyntaxError
-flags: [noStrict, explicit-resource-management]
+flags: [noStrict]
+features: [explicit-resource-management]
 ---*/
 
 $DONOTEVALUATE();
 (function() { 'use strict'; { using f = null; var f; } })
-
