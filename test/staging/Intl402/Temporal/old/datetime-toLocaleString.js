@@ -37,9 +37,9 @@ assert.sameValue(`${datetime.toLocaleString("de-AT", { timeZone: "Europe/Vienna"
 var fmt = maybeGetWeekdayOnlyFormat();
 if (fmt) assert.sameValue(fmt.format(datetime), "Thursday");
 
-// should use compatible disambiguation option
+// should use use "+00:00" time zone offset, even at daylight saving time start
 var dstStart = new Temporal.PlainDateTime(2020, 3, 8, 2, 30);
 assert.sameValue(
   `${dstStart.toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}`,
-  `3/8/2020, 3:30:00${usDayPeriodSpace}AM`
+  `3/8/2020, 2:30:00${usDayPeriodSpace}AM`
 );
