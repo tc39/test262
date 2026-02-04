@@ -3,19 +3,23 @@
 /*---
 esid: sec-set-constructor
 description: >
-    Set ( [ iterable ] )
+    Verify Set constructor behavior with null, undefined, or non-iterable arguments.
+info: |
+    Set ( [ _iterable_ ] )
 
-    When the Set function is called with optional argument iterable the following steps are taken:
+    4. If _iterable_ is either *undefined* or *null*, return _set_.
+    7. Let _iteratorRecord_ be ? GetIterator(_iterable_, ~sync~).
 
-    ...
-    5. If iterable is not present, let iterable be undefined.
-    6. If iterable is either undefined or null, let iter be undefined.
-    ...
-    8. If iter is undefined, return set.
+    GetIterator (_obj_,_kind_)
 
+    2. Else,
+        a. Let _method_ be ? GetMethod(_obj_, %Symbol.iterator%).
+    3. If _method_ is *undefined*, throw a *TypeError* exception.
+features: [Set]
 ---*/
-
-
 assert.sameValue(new Set().size, 0, "The value of `new Set().size` is `0`");
 assert.sameValue(new Set(undefined).size, 0, "The value of `new Set(undefined).size` is `0`");
 assert.sameValue(new Set(null).size, 0, "The value of `new Set(null).size` is `0`");
+assert.throws(TypeError, function () {
+    new Set({[Symbol.iterator] : undefined});
+}, "If Symbol.iterator method is undefined, Set constructor throws TypeError.")
