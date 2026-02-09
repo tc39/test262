@@ -10,6 +10,16 @@ locale: [en]
 features: [Intl.Era-monthcode]
 ---*/
 
+function NewDate(year, month, day) {
+  // `year` can be in 0..99, which is changed to 1900..1999 in MakeFullYear, so
+  // we can't directly call the Date constructor and instead have to call
+  // `setFullYear`. Also call `setHours` to set all time components to zero.
+  let date = new Date(0);
+  date.setFullYear(year, month, day);
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
+
 const multipleEraTests = [
   ["gregory", [-100, 2025]],
   ["islamic-civil", [600, 2025]],
@@ -29,7 +39,7 @@ for (const [calendar, isoYears] of multipleEraTests) {
   const eras = [];
 
   for (const isoYear of isoYears) {
-    const date = new Date(isoYear, 5, 15);
+    const date = NewDate(isoYear, 5, 15);
     const parts = formatter.formatToParts(date);
 
     const eraPart = parts.find(({ type }) => type === "era");
@@ -48,7 +58,7 @@ for (const [calendar, isoYears] of multipleEraTests) {
   assert.sameValue(new Set(eras).size, eras.length, `${calendar} eras (${eras.join(",")}) should be unique`);
 }
 
-// Test that ethopic has two distinct eras and the first one encompasses both
+// Test that ethiopic has two distinct eras and the first one encompasses both
 // negative and positive years
 {
   const formatter = new Intl.DateTimeFormat("en", {
@@ -60,7 +70,7 @@ for (const [calendar, isoYears] of multipleEraTests) {
   const eras = [];
 
   for (const isoYear of [-6000, 0, 2025]) {
-    const date = new Date(isoYear, 5, 15);
+    const date = NewDate(isoYear, 5, 15);
     const parts = formatter.formatToParts(date);
 
     const eraPart = parts.find(({ type }) => type === "era");
@@ -77,7 +87,7 @@ for (const [calendar, isoYears] of multipleEraTests) {
   }
 
   assert.sameValue(eras[0], eras[1], "Ethiopic AA era for both positive and negative years");
-  assert.notSameValue(eras[0], eras[2], "Ethopic AA and AM eras are distinct");
+  assert.notSameValue(eras[0], eras[2], "Ethiopic AA and AM eras are distinct");
 }
 
 
@@ -102,7 +112,7 @@ for (const [calendar, isoYears] of singleEraTests) {
   const eras = [];
 
   for (const isoYear of isoYears) {
-    const date = new Date(isoYear, 5, 15);
+    const date = NewDate(isoYear, 5, 15);
     const parts = formatter.formatToParts(date);
 
     const eraPart = parts.find(({ type }) => type === "era");
@@ -133,7 +143,7 @@ for (const calendar of noEraTests) {
     year: "numeric",
   });
 
-  const date = new Date(2025, 5, 15);
+  const date = NewDate(2025, 5, 15);
   const parts = formatter.formatToParts(date);
 
   const eraPart = parts.find(({ type }) => type === "era");
