@@ -14,12 +14,12 @@ info: |
   performing a [[Get]] of "length".
 
   22.1.3.20 Array.prototype.reduceRight ( callbackfn [ , initialValue ] )
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect.set, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n, 44n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n, 44n]));
   var newVal = 0n;
 
   sample.reduceRight(function(acc, val, i) {
@@ -46,4 +46,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(sample[0], 2n, "changed values after iteration [0] == 2");
   assert.sameValue(sample[1], 1n, "changed values after iteration [1] == 1");
   assert.sameValue(sample[2], 7n, "changed values after iteration [2] == 7");
-});
+}, null, null, ["immutable"]);
