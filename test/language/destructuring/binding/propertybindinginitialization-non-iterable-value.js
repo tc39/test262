@@ -45,6 +45,7 @@ info: |
 
     GetV (_V_, _P_)
     1. Let _O_ be ? ToObject(_V_).
+features: [destructuring-binding]
 ---*/
 //Check #1
 assert.throws(TypeError, function () {
