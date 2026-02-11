@@ -50,7 +50,7 @@ originalThen.call(
   originalThen.call(p, ns => {
     Promise.prototype.then = originalThen;
 
-    assert.sameValue(thenCallCount, 0, "Promise.prototype.then must not be called by SafePerformPromiseAll");
+    assert.sameValue(thenCallCount, 0, "Promise.prototype.then must not be called by import.defer internals");
     assert.compareArray(globalThis.evaluations, ["tla start", "tla end"]);
     ns.x;
     assert.compareArray(globalThis.evaluations, ["tla start", "tla end", "imports-tla"]);
