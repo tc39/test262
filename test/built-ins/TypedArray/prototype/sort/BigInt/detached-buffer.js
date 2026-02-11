@@ -14,7 +14,7 @@ info: |
   ...
   5. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 
@@ -22,10 +22,10 @@ var comparefn = function() {
   throw new Test262Error();
 };
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(1));
   $DETACHBUFFER(sample.buffer);
   assert.throws(TypeError, function() {
     sample.sort(comparefn);
   });
-});
+}, null, null, ["immutable"]);

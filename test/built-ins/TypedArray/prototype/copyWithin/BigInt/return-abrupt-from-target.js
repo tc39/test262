@@ -21,7 +21,7 @@ info: |
   ...
   3. Let relativeTarget be ? ToInteger(target).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
@@ -31,9 +31,9 @@ var o = {
   }
 };
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(0));
   assert.throws(Test262Error, function() {
     sample.copyWithin(o);
   });
-});
+}, null, null, ["immutable"]);

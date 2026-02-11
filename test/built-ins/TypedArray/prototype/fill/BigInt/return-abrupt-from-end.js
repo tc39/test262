@@ -24,7 +24,7 @@ info: |
   5. If end is undefined, let relativeEnd be len; else let relativeEnd be ?
   ToInteger(end).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
@@ -34,9 +34,9 @@ var end = {
   }
 };
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(0));
   assert.throws(Test262Error, function() {
     sample.fill(1n, 0, end);
   });
-});
+}, null, null, ["immutable"]);

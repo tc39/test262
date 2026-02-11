@@ -25,8 +25,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43, 44, 45, 46]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42, 43, 44, 45, 46]));
   var calls = 0;
 
   var comparefn = function() {
@@ -39,4 +39,4 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.sameValue(calls, 1, "immediately returned");
-});
+}, null, null, ["immutable"]);
