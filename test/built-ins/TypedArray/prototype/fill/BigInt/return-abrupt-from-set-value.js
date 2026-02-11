@@ -43,12 +43,12 @@ info: |
   Return NormalCompletion(undefined).
 
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n]));
   var obj = {
     valueOf: function() {
       throw new Test262Error();
@@ -58,4 +58,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {
     sample.fill(obj);
   });
-});
+}, null, null, ["immutable"]);

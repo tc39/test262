@@ -10,13 +10,13 @@ info: |
   4. Let buffer be the value of O's [[ViewedArrayBuffer]] internal slot.
   5. If IsDetachedBuffer(buffer) is true, return 0.
   ...
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var buffer = new ArrayBuffer(128);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var buffer = makeCtorArg(128);
   var sample = new TA(buffer, 8, 1);
   $DETACHBUFFER(sample.buffer);
   assert.sameValue(sample.byteOffset, 0);
-});
+}, null, ["arraybuffer"], ["immutable"]);

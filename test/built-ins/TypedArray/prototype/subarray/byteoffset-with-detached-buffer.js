@@ -20,8 +20,8 @@ features: [TypedArray]
 includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var ab = new ArrayBuffer(2 * TA.BYTES_PER_ELEMENT);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var ab = makeCtorArg(2 * TA.BYTES_PER_ELEMENT);
   var ta = new TA(ab, TA.BYTES_PER_ELEMENT, 1);
   var result = new TA(0);
 
@@ -42,4 +42,4 @@ testWithTypedArrayConstructors(function(TA) {
   };
 
   assert.sameValue(ta.subarray(1, end), result);
-});
+}, null, ["arraybuffer"], ["immutable"]);

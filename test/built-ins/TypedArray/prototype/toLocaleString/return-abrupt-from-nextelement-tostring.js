@@ -47,8 +47,8 @@ Number.prototype.toLocaleString = function() {
 
 var arr = [42, 0];
 
-testWithTypedArrayConstructors(function(TA, N) {
-  var sample = new TA(arr);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(arr));
   calls = 0;
   assert.throws(Test262Error, function() {
     sample.toLocaleString();

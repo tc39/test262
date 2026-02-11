@@ -13,14 +13,14 @@ info: |
     ...
     c. Let mappedValue be ? Call(callbackfn, T, « kValue, k, O »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var called = 0;
 
-  new TA().map(function() {
+  new TA(makeCtorArg(0)).map(function() {
     called++;
   });
 

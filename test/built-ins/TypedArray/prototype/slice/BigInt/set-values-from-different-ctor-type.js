@@ -26,14 +26,14 @@ info: |
       v. Increase n by 1.
   ...
   16. Return A
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
 var arr = [42n, 43n, 44n];
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA(arr);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(arr));
   var other = TA === BigInt64Array ? BigUint64Array : BigInt64Array;
 
   sample.constructor = {};

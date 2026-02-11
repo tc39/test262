@@ -21,15 +21,15 @@ features: [TypedArray]
 includes: [testTypedArray.js, compareArray.js]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var ta = new TA([
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var ta = new TA(makeCtorArg([
     10,
     20,
     30,
     40,
     50,
     60,
-  ]);
+  ]));
 
   ta.constructor = {
     [Symbol.species]: function() {

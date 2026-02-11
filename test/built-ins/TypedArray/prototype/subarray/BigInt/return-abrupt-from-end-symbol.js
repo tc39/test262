@@ -10,14 +10,14 @@ info: |
   9. If end is undefined, let relativeEnd be srcLength; else, let relativeEnd
   be ? ToInteger(end).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol, TypedArray]
 ---*/
 
 var s = Symbol("1");
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(0));
 
   assert.throws(TypeError, function() {
     sample.subarray(0, s);

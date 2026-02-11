@@ -17,7 +17,7 @@ info: |
   2. Let len be ? ToLength(? Get(O, "length")).
   3. If len is 0, return -1.
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
@@ -27,8 +27,8 @@ var fromIndex = {
   }
 };
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(0));
   assert.sameValue(sample.lastIndexOf(0), -1, "returns -1");
   assert.sameValue(
     sample.lastIndexOf(0n, fromIndex), -1,

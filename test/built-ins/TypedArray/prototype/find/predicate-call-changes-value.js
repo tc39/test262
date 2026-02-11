@@ -29,12 +29,12 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var arr = [1, 2, 3];
   var sample;
   var result;
 
-  sample = new TA(3);
+  sample = new TA(makeCtorArg(3));
   sample.find(function(val, i) {
     sample[i] = arr[i];
 
@@ -75,4 +75,4 @@ testWithTypedArrayConstructors(function(TA) {
     return true;
   });
   assert.sameValue(result, 1, "find() returns previous found value");
-});
+}, null, null, ["immutable"]);
