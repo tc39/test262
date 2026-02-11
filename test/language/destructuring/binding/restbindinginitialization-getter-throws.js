@@ -30,6 +30,7 @@ info: |
         i. Let _desc_ be ? <emu-meta effects="user-code">_from_.[[GetOwnProperty]]</emu-meta>(_nextKey_).
         ii. If _desc_ is not *undefined* and _desc_.[[Enumerable]] is *true*, then
             1. Let _propValue_ be ? Get(_from_, _nextKey_).
+features: [destructuring-binding]
 ---*/
 //Check #1
 assert.throws(Test262Error, function () {
