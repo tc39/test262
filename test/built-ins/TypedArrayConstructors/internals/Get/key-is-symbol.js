@@ -18,8 +18,8 @@ features: [align-detached-buffer-semantics-with-web-reality, Symbol, TypedArray]
 var parentKey = Symbol("2");
 TypedArray.prototype[parentKey] = "test262";
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42]));
 
   var s1 = Symbol("1");
 

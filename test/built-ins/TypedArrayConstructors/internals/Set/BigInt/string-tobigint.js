@@ -57,11 +57,11 @@ info: |
     * If the MV is NaN, return NaN, otherwise return the BigInt which exactly
       corresponds to the MV, rather than rounding to a Number.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var typedArray = new TA(makeCtorArg(1));
   typedArray[0] = '';
   assert.sameValue(typedArray[0], 0n, 'The value of typedArray[0] is 0n');
   typedArray[0] = '1';
@@ -82,4 +82,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.throws(SyntaxError, function() {
     typedArray[0] = '1e7';
   }, '`typedArray[0] = "1e7"` throws SyntaxError');
-});
+}, null, null, ["immutable"]);

@@ -8,12 +8,12 @@ info: |
 
   ...
   17. Return ? TypedArraySpeciesCreate(O, argumentsList).
-includes: [testBigIntTypedArray.js, compareArray.js]
+includes: [testTypedArray.js, compareArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([40n, 41n, 42n, 43n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([40n, 41n, 42n, 43n]));
   var buffer = sample.buffer;
   var result = sample.subarray(1);
 
@@ -32,4 +32,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     compareArray(sample, [40n, 100n, 111n, 43n]),
     "changes on the new instance values affect the original sample"
   );
-});
+}, null, null, ["immutable"]);

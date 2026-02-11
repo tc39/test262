@@ -16,8 +16,8 @@ features: [TypedArray, change-array-by-copy]
 includes: [testTypedArray.js, compareArray.js]
 ---*/
 
-testWithTypedArrayConstructors(TA => {
-  var arr = new TA([0, 1, 2]);
+testWithTypedArrayConstructors((TA, makeCtorArg) => {
+  var arr = new TA(makeCtorArg([0, 1, 2]));
 
   var value = {
     valueOf() {
@@ -28,4 +28,4 @@ testWithTypedArrayConstructors(TA => {
 
   assert.compareArray(arr.with(1, value), [3, 4, 2]);
   assert.compareArray(arr, [3, 1, 2]);
-});
+}, null, null, ["immutable"]);
