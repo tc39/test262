@@ -8,9 +8,9 @@ info: |
   AsyncDisposableStack.prototype.disposeAsync ( )
 
   1. Let asyncDisposableStack be the this value.
-  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[DisposableState]]).
-  3. If asyncDisposableStack.[[DisposableState]] is disposed, return undefined.
-  4. Set asyncDisposableStack.[[DisposableState]] to disposed.
+  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[AsyncDisposableState]]).
+  3. If asyncDisposableStack.[[AsyncDisposableState]] is disposed, return undefined.
+  4. Set asyncDisposableStack.[[AsyncDisposableState]] to disposed.
   5. Return DisposeResources(asyncDisposableStack.[[DisposeCapability]], NormalCompletion(undefined)).
 
   DisposeResources ( disposeCapability, completion )
