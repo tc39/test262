@@ -8,8 +8,8 @@ info: |
   AsyncDisposableStack.prototype.adopt ( value, onDisposeAsync )
 
   1. Let asyncDisposableStack be the this value.
-  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[DisposableState]]).
-  3. If asyncDisposableStack.[[DisposableState]] is disposed, throw a ReferenceError exception.
+  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[AsyncDisposableState]]).
+  3. If asyncDisposableStack.[[AsyncDisposableState]] is disposed, throw a ReferenceError exception.
   4. If IsCallable(onDisposeAsync) is false, throw a TypeError exception.
   5. Let closure be a new Abstract Closure with no parameters that captures value and onDisposeAsync and performs the following steps when called:
     a. Perform ? Call(onDisposeAsync, undefined, « value »).
