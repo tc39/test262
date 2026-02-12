@@ -4,22 +4,16 @@
 /*---
 esid: sec-static-semantics-toplevelvarscopeddeclarations
 description: >
-    tests TopLevelVarScopedDeclarations is called recursively when LabelledItem is a LabelledStatement
+    tests TopLevelVarScopedDeclarations is called recursively when |Statement| is Statement : LabelledStatement
 info: |
-    Static Semantics: TopLevelVarScopedDeclarations ( ): a List of Parse Nodes
+    Static Semantics: TopLevelVarScopedDeclarations ( )
+
+    StatementListItem : Statement
+    1. If |Statement| is Statement : LabelledStatement, return the TopLevelVarScopedDeclarations of |Statement|.
 
     LabelledStatement : LabelIdentifier `:` LabelledItem
     1. Return the TopLevelVarScopedDeclarations of |LabelledItem|.
-    
-    LabelledItem : Statement
-    1. If |Statement| is Statement : LabelledStatement, return the TopLevelVarScopedDeclarations of |Statement|.
-    2. Return the VarScopedDeclarations of |Statement|.
-
-    Static Semantics: VarScopedDeclarations ( ): a List of Parse Nodes
-
-    VariableDeclarationList : VariableDeclaration
-    1. Return « |VariableDeclaration| ».
 ---*/
 
 assert.sameValue(x, undefined);
-outer: inner: var x;
+outer: var x;
