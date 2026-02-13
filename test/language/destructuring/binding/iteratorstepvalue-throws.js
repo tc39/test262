@@ -27,9 +27,11 @@ info: |
     IteratorNext (_iteratorRecord_, optional _value_)
     1. If _value_ is not present, then
         a. Let _result_ be Completion(Call(_iteratorRecord_.[[NextMethod]], _iteratorRecord_.[[Iterator]])).
-    6. Return _result_.
-features: [destructuring-binding, async-functions, async-iteration, Symbol.iterator]
+    3. If _result_ is a throw completion, then
+        a. Set _iteratorRecord_.[[Done]] to *true*.
+        b. Return ? _result_.
+features: [destructuring-binding, Symbol.iterator]
 ---*/
 assert.throws(TypeError, function () {
-    var [[] = 1] = { [Symbol.iterator] : async function (x) {}};
+    var [{} = 1] = { [Symbol.iterator] : function () {return {};}};
 }, "IteratorStepValue throws when iteratorRecord.[[NextMethod]] is undefined.");
