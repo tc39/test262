@@ -13,8 +13,8 @@ import value from './bytes-from-js_FIXTURE.js' with { type: 'bytes' };
 assert(value instanceof Uint8Array);
 assert(value.buffer instanceof ArrayBuffer);
 
-assert.sameValue(value.length, 16);
-assert.sameValue(value.buffer.byteLength, 16);
+assert.sameValue(value.length, 139);
+assert.sameValue(value.buffer.byteLength, 139);
 assert.sameValue(value.buffer.immutable, true);
 
 assert.compareArray(
