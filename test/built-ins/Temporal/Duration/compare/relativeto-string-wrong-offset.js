@@ -10,4 +10,4 @@ features: [Temporal]
 const duration1 = new Temporal.Duration(0, 0, 0, 31);
 const duration2 = new Temporal.Duration(0, 1);
 assert.throws(RangeError, () => Temporal.Duration.compare(duration1, duration2, { relativeTo: "2000-01-01T00:00+05:30[UTC]" }));
-assert.throws(RangeError, () => Temporal.Duration.compare(duration1, duration2, { relativeTo: "1971-01-01T00:00+02:00[-00:44:30]" }));
+assert.throws(RangeError, () => Temporal.Duration.compare(duration1, duration2, { relativeTo: "1971-01-01T00:00+02:00[-00:44]" }));

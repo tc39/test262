@@ -19,5 +19,5 @@ const instance2 = new Temporal.Duration(0, 0, 0, 0, 0, 0, 0, 2, 31, 0);
 
 assert.throws(RangeError, () => instance2.total({
   unit: "months",
-  relativeTo: "1971-01-01T00:00+02:00[-00:44:30]"
+  relativeTo: "1971-01-01T00:00+02:00[-00:44]"
 }));
