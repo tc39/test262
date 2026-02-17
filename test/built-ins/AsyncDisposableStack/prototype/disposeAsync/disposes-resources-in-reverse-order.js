@@ -68,10 +68,5 @@ asyncTest(async function () {
   stack.defer(dispose5);
   stack.defer(dispose6);
   await stack.disposeAsync();
-  assert.sameValue(disposed[0], dispose6);
-  assert.sameValue(disposed[1], dispose5);
-  assert.sameValue(disposed[2], resource4);
-  assert.sameValue(disposed[3], resource3);
-  assert.sameValue(disposed[4], resource2);
-  assert.sameValue(disposed[5], resource1);
+  assert.compareArray(disposed, [dispose6, dispose5, resource4, resource3, resource2, resource1])
 });

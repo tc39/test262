@@ -51,14 +51,15 @@ asyncTest(async function () {
   stack.defer(function () { throw error1; });
   stack.defer(function () { throw error2; });
   stack.defer(function () { throw error3; });
+  var promise = stack.disposeAsync();
   try {
-    await stack.disposeAsync();
+    await promise;
     assert(false, 'Expected await stack.disposeAsync() to have thrown an error.');
   }
   catch (e) {
-    assert(e instanceof SuppressedError, "Expected await stack.disposeAsync() to have thrown a SuppressedError");
+    assert.sameValue(Object.getPrototypeOf(e), SuppressedError.prototype, "Expected await stack.disposeAsync() to have thrown a SuppressedError");
     assert.sameValue(e.error, error1, "Expected the outermost suppressing error to have been 'error1'");
-    assert(e.suppressed instanceof SuppressedError, "Expected the outermost suppressed error to have been a SuppressedError");
+    assert.sameValue(Object.getPrototypeOf(e.suppressed), SuppressedError.prototype, "Expected the outermost suppressed error to have been a SuppressedError");
     assert.sameValue(e.suppressed.error, error2, "Expected the innermost suppressing error to have been 'error2'");
     assert.sameValue(e.suppressed.suppressed, error3, "Expected the innermost suppressed error to have been 'error3'");
   }

@@ -41,4 +41,4 @@ features: [explicit-resource-management]
 ---*/
 
 var stack = new AsyncDisposableStack();
-assert(stack.disposeAsync() instanceof Promise);
+assert.sameValue(Object.getPrototypeOf(stack.disposeAsync()), Promise.prototype);

@@ -45,7 +45,10 @@ features: [explicit-resource-management]
 asyncTest(async function () {
   var stack = new AsyncDisposableStack();
   var p = stack.disposeAsync();
-  await stack.disposeAsync();
-  await p;
-  await stack.disposeAsync();
+  var r1 = await stack.disposeAsync();
+  var r2 = await p;
+  var r3 = await stack.disposeAsync();
+  assert.sameValue(r1, undefined);
+  assert.sameValue(r2, undefined);
+  assert.sameValue(r3, undefined);
 });
