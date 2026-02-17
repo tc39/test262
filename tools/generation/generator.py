@@ -40,7 +40,8 @@ def find_cases(location):
 def clean(args):
     for (subdir, _, fileNames) in os.walk(args.directory):
         for fileName in map(lambda x: os.path.join(subdir, x), fileNames):
-            if os.path.basename(fileName) in ignored_files:
+            basename = os.path.basename(fileName)
+            if basename in ignored_files or '_FIXTURE' in basename:
                 continue
             test = Test(fileName)
             test.load()
