@@ -51,6 +51,9 @@ asyncTest(async function () {
   stack.adopt({}, _ => { adoptCount++; });
   stack.defer(() => { deferCount++; });
   await stack.disposeAsync();
+  assert.sameValue(useCount, 1);
+  assert.sameValue(adoptCount, 1);
+  assert.sameValue(deferCount, 1);
   await stack.disposeAsync();
   assert.sameValue(useCount, 1);
   assert.sameValue(adoptCount, 1);
