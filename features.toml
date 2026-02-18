@@ -1,0 +1,783 @@
+## Proposed language features
+#
+# This project accepts tests for language proposals that have reached stage 3
+# in TC39's standardization process. Those tests should be annotated with a
+# dedicated feature flag so that consumers may more easily omit them as
+# necessary.
+#
+# Generally, feature flags should be per proposal, not per individual API
+# that a proposal adds. To filter for specific APIs, use the directory
+# structure.
+#
+# https://github.com/tc39/process-document
+
+[[proposal]]
+# Intl.Locale Info
+url = "https://github.com/tc39/proposal-intl-locale-info"
+name = "Intl.Locale-info"
+
+[[proposal]]
+# FinalizationRegistry#cleanupSome
+url = "https://github.com/tc39/proposal-cleanup-some"
+name = "FinalizationRegistry.prototype.cleanupSome"
+
+[[proposal]]
+# Intl.NumberFormat V3
+url = "https://github.com/tc39/proposal-intl-numberformat-v3"
+name = "Intl.NumberFormat-v3"
+
+[[proposal]]
+# Legacy RegExp features
+url = "https://github.com/tc39/proposal-regexp-legacy-features"
+name = "legacy-regexp"
+
+[[proposal]]
+# Import Attributes
+url = "https://github.com/tc39/proposal-import-attributes/"
+name = "import-attributes"
+
+[[proposal]]
+# Import Assertions (Normative Optional, Deprecated)
+# This feature should not be implemented, but if it is it must
+# respect the specified behavior
+url = "https://github.com/tc39/proposal-import-attributes/"
+name = "import-assertions"
+
+[[proposal]]
+# JSON modules
+url = "https://github.com/tc39/proposal-json-modules"
+name = "json-modules"
+
+[[proposal]]
+# Temporal
+url = "https://github.com/tc39/proposal-temporal"
+name = "Temporal"
+
+[[proposal]]
+# ShadowRealm, née Callable Boundary Realms
+url = "https://github.com/tc39/proposal-realms"
+name = "ShadowRealm"
+
+[[proposal]]
+# Intl.DurationFormat
+url = "https://github.com/tc39/proposal-intl-duration-format"
+name = "Intl.DurationFormat"
+
+[[proposal]]
+# Decorators
+url = "https://github.com/tc39/proposal-decorators"
+name = "decorators"
+
+[[proposal]]
+# Duplicate named capturing groups
+url = "https://github.com/tc39/proposal-duplicate-named-capturing-groups"
+name = "regexp-duplicate-named-groups"
+
+[[proposal]]
+url = "https://tc39.es/proposal-array-from-async/"
+name = "Array.fromAsync"
+
+[[proposal]]
+# JSON.parse with source
+url = "https://github.com/tc39/proposal-json-parse-with-source"
+name = "json-parse-with-source"
+
+[[proposal]]
+# RegExp.escape
+url = "https://github.com/tc39/proposal-regex-escaping"
+name = "RegExp.escape"
+
+[[proposal]]
+# Regular expression modifiers
+url = "https://github.com/tc39/proposal-regexp-modifiers"
+name = "regexp-modifiers"
+
+[[proposal]]
+# Iterator Helpers
+url = "https://github.com/tc39/proposal-iterator-helpers"
+name = "iterator-helpers"
+
+[[proposal]]
+# Promise.try
+url = "https://github.com/tc39/proposal-promise-try"
+name = "promise-try"
+
+[[proposal]]
+# Explicit Resource Management
+url = "https://github.com/tc39/proposal-explicit-resource-management"
+name = "explicit-resource-management"
+
+[[proposal]]
+# Float16Array + Math.f16round
+url = "https://github.com/tc39/proposal-float16array"
+name = "Float16Array"
+
+[[proposal]]
+# Math.sumPrecise
+url = "https://github.com/tc39/proposal-math-sum"
+name = "Math.sumPrecise"
+
+[[proposal]]
+# Source Phase Imports
+url = "https://github.com/tc39/proposal-source-phase-imports"
+name = "source-phase-imports"
+
+[[proposal]]
+## test262 special specifier
+name = "source-phase-imports-module-source"
+
+[[proposal]]
+# Uint8Array Base64
+url = "https://github.com/tc39/proposal-arraybuffer-base64"
+name = "uint8array-base64"
+
+[[proposal]]
+# Atomics.pause
+url = "https://github.com/tc39/proposal-atomics-microwait"
+name = "Atomics.pause"
+
+## Standard language features
+#
+# Language features that have been included in a published version of the
+# ECMA-262 specification. These flags are largely maintained for historical
+# reasons, though their use for relatively new features (i.e. prior to
+# availability across major implementations) is appreciated.
+
+[[std]]
+name = "AggregateError"
+edition = 2021
+
+[[std]]
+name = "align-detached-buffer-semantics-with-web-reality"
+url = "https://github.com/tc39/ecma262/pull/2164"
+edition = 2023
+
+[[std]]
+name = "arbitrary-module-namespace-names"
+edition = 2023
+url = "https://github.com/tc39/ecma262/pull/2154"
+
+[[std]]
+name = "ArrayBuffer"
+edition = 2015
+
+[[std]]
+name = "array-find-from-last"
+edition = 2022
+
+[[std]]
+name = "Array.prototype.at"
+edition = 2022
+
+[[std]]
+name = "Array.prototype.flat"
+edition = 2019
+
+[[std]]
+name = "Array.prototype.flatMap"
+edition = 2019
+
+[[std]]
+name = "Array.prototype.includes"
+edition = 2016
+
+[[std]]
+name = "Array.prototype.values"
+edition = 2022
+
+[[std]]
+name = "Atomics.waitAsync"
+edition = 2022
+
+[[std]]
+name = "array-grouping"
+edition = 2022
+
+[[std]]
+name = "arraybuffer-transfer"
+edition = 2022
+
+[[std]]
+name = "arrow-function"
+edition = 2015
+
+[[std]]
+name = "async-iteration"
+edition = 2018
+
+[[std]]
+name = "async-functions"
+edition = 2017
+
+[[std]]
+name = "Atomics"
+edition = 2017
+
+[[std]]
+name = "BigInt"
+edition = 2020
+
+[[std]]
+name = "caller"
+edition = 2015
+
+[[std]]
+name = "change-array-by-copy"
+edition = 2022
+
+[[std]]
+name = "class"
+edition = 2015
+
+[[std]]
+name = "class-fields-private"
+edition = 2022
+
+[[std]]
+name = "class-fields-private-in"
+edition = 2022
+
+[[std]]
+name = "class-fields-public"
+edition = 2022
+
+[[std]]
+name = "class-methods-private"
+edition = 2022
+
+[[std]]
+name = "class-static-block"
+edition = 2022
+
+[[std]]
+name = "class-static-fields-private"
+edition = 2022
+
+[[std]]
+name = "class-static-fields-public"
+edition = 2022
+
+[[std]]
+name = "class-static-methods-private"
+edition = 2022
+
+[[std]]
+name = "coalesce-expression"
+edition = 2021
+
+[[std]]
+name = "computed-property-names"
+edition = 2015
+
+[[std]]
+name = "const"
+edition = 2015
+
+[[std]]
+name = "cross-realm"
+edition = 2022
+
+[[std]]
+name = "DataView"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getFloat32"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getFloat64"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getInt16"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getInt32"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getInt8"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getUint16"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.getUint32"
+edition = 2015
+
+[[std]]
+name = "DataView.prototype.setUint8"
+edition = 2015
+
+[[std]]
+name = "default-parameters"
+edition = 2015
+
+[[std]]
+name = "destructuring-assignment"
+edition = 2018
+
+[[std]]
+name = "destructuring-binding"
+edition = 2018
+
+[[std]]
+name = "dynamic-import"
+edition = 2020
+
+[[std]]
+name = "error-cause"
+edition = 2022
+
+[[std]]
+name = "exponentiation"
+edition = 2016
+
+[[std]]
+name = "export-star-as-namespace-from-module"
+url = "https://github.com/tc39/ecma262/pull/1174"
+edition = 2022
+
+[[std]]
+name = "FinalizationRegistry"
+edition = 2020
+
+[[std]]
+name = "for-in-order"
+edition = 2022
+
+[[std]]
+name = "for-of"
+edition = 2018
+
+[[std]]
+name = "Float32Array"
+edition = 2015
+
+[[std]]
+name = "Float64Array"
+edition = 2015
+
+[[std]]
+name = "generators"
+edition = 2015
+
+[[std]]
+name = "globalThis"
+edition = 2020
+
+[[std]]
+name = "hashbang"
+edition = 2021
+
+[[std]]
+name = "import.meta"
+edition = 2016
+
+[[std]]
+name = "Int8Array"
+edition = 2015
+
+[[std]]
+name = "Int16Array"
+edition = 2015
+
+[[std]]
+name = "Int32Array"
+edition = 2015
+
+[[std]]
+name = "Intl-enumeration"
+edition = 2023
+
+[[std]]
+name = "intl-normative-optional"
+url = "https://tc39.es/ecma402/#legacy-constructor"
+edition = 2021
+
+[[std]]
+name = "Intl.DateTimeFormat-datetimestyle"
+edition = 2021
+
+[[std]]
+name = "Intl.DateTimeFormat-dayPeriod"
+url = "https://github.com/tc39/ecma402/pull/346"
+edition = 2022
+
+[[std]]
+name = "Intl.DateTimeFormat-extend-timezonename"
+edition = 2022
+
+[[std]]
+name = "Intl.DateTimeFormat-formatRange"
+edition = 2022
+
+[[std]]
+name = "Intl.DateTimeFormat-fractionalSecondDigits"
+url = "https://github.com/tc39/ecma402/pull/347"
+edition = 2022
+
+[[std]]
+name = "Intl.DisplayNames"
+edition = 2022
+
+[[std]]
+name = "Intl.DisplayNames-v2"
+edition = 2022
+
+[[std]]
+name = "Intl.ListFormat"
+edition = 2022
+
+[[std]]
+name = "Intl.Locale"
+edition = 2022
+
+[[std]]
+name = "Intl.NumberFormat-unified"
+edition = 2022
+
+[[std]]
+name = "Intl.RelativeTimeFormat"
+edition = 2022
+
+[[std]]
+name = "Intl.Segmenter"
+edition = 2022
+
+[[std]]
+name = "json-superset"
+edition = 2020
+
+[[std]]
+name = "let"
+edition = 2015
+
+[[std]]
+name = "logical-assignment-operators"
+edition = 2021
+
+[[std]]
+name = "Map"
+edition = 2015
+
+[[std]]
+name = "new.target"
+edition = 2015
+
+[[std]]
+name = "numeric-separator-literal"
+edition = 2021
+
+[[std]]
+name = "object-rest"
+edition = 2018
+
+[[std]]
+name = "object-spread"
+edition = 2018
+
+[[std]]
+name = "Object.fromEntries"
+edition = 2020
+
+[[std]]
+name = "Object.hasOwn"
+edition = 2022
+
+[[std]]
+name = "Object.is"
+edition = 2015
+
+[[std]]
+name = "optional-catch-binding"
+edition = 2021
+
+[[std]]
+name = "optional-chaining"
+edition = 2020
+
+[[std]]
+name = "Promise"
+edition = 2015
+
+[[std]]
+name = "Promise.allSettled"
+edition = 2020
+
+[[std]]
+name = "Promise.any"
+edition = 2021
+
+[[std]]
+name = "Promise.prototype.finally"
+edition = 2020
+
+[[std]]
+name = "promise-with-resolvers"
+edition = 2019
+
+[[std]]
+name = "Proxy"
+edition = 2015
+
+[[std]]
+name = "proxy-missing-checks"
+url = "https://github.com/tc39/ecma262/pull/666"
+edition = 2022
+
+[[std]]
+name = "Reflect"
+edition = 2015
+
+[[std]]
+name = "Reflect.construct"
+edition = 2015
+
+[[std]]
+name = "Reflect.set"
+edition = 2015
+
+[[std]]
+name = "Reflect.setPrototypeOf"
+edition = 2015
+
+[[std]]
+name = "regexp-dotall"
+edition = 2021
+
+[[std]]
+name = "regexp-lookbehind"
+edition = 2021
+
+[[std]]
+name = "regexp-match-indices"
+edition = 2022
+
+[[std]]
+name = "regexp-named-groups"
+edition = 2018
+
+[[std]]
+name = "regexp-unicode-property-escapes"
+edition = 2021
+
+[[std]]
+name = "regexp-v-flag"
+edition = 2021
+
+[[std]]
+name = "resizable-arraybuffer"
+edition = 2022
+
+[[std]]
+name = "rest-parameters"
+edition = 2015
+
+[[std]]
+name = "Set"
+edition = 2015
+
+[[std]]
+name = "set-methods"
+edition = 2021
+
+[[std]]
+name = "SharedArrayBuffer"
+edition = 2017
+
+[[std]]
+name = "string-trimming"
+edition = 2021
+
+[[std]]
+name = "String.fromCodePoint"
+edition = 2015
+
+[[std]]
+name = "String.prototype.at"
+edition = 2022
+
+[[std]]
+name = "String.prototype.endsWith"
+edition = 2015
+
+[[std]]
+name = "String.prototype.includes"
+edition = 2015
+
+[[std]]
+name = "String.prototype.isWellFormed"
+edition = 2021
+
+[[std]]
+name = "String.prototype.matchAll"
+edition = 2020
+
+[[std]]
+name = "String.prototype.replaceAll"
+edition = 2021
+
+[[std]]
+name = "String.prototype.trimEnd"
+edition = 2019
+
+[[std]]
+name = "String.prototype.trimStart"
+edition = 2019
+
+[[std]]
+name = "String.prototype.toWellFormed"
+edition = 2021
+
+[[std]]
+name = "super"
+edition = 2015
+
+[[std]]
+name = "Symbol"
+edition = 2015
+
+[[std]]
+name = "symbols-as-weakmap-keys"
+edition = 2022
+
+[[std]]
+name = "Symbol.asyncIterator"
+edition = 2018
+
+[[std]]
+name = "Symbol.hasInstance"
+edition = 2015
+
+[[std]]
+name = "Symbol.isConcatSpreadable"
+edition = 2015
+
+[[std]]
+name = "Symbol.iterator"
+edition = 2015
+
+[[std]]
+name = "Symbol.match"
+edition = 2015
+
+[[std]]
+name = "Symbol.matchAll"
+edition = 2020
+
+[[std]]
+name = "Symbol.prototype.description"
+edition = 2022
+
+[[std]]
+name = "Symbol.replace"
+edition = 2015
+
+[[std]]
+name = "Symbol.search"
+edition = 2015
+
+[[std]]
+name = "Symbol.species"
+edition = 2015
+
+[[std]]
+name = "Symbol.split"
+edition = 2015
+
+[[std]]
+name = "Symbol.toPrimitive"
+edition = 2015
+
+[[std]]
+name = "Symbol.toStringTag"
+edition = 2015
+
+[[std]]
+name = "Symbol.unscopables"
+edition = 2015
+
+[[std]]
+name = "tail-call-optimization"
+edition = 2015
+
+[[std]]
+name = "template"
+edition = 2015
+
+[[std]]
+name = "top-level-await"
+edition = 2021
+
+[[std]]
+name = "TypedArray"
+edition = 2015
+
+[[std]]
+name = "TypedArray.prototype.at"
+edition = 2022
+
+[[std]]
+name = "u180e"
+edition = 2021
+
+[[std]]
+name = "Uint8Array"
+edition = 2015
+
+[[std]]
+name = "Uint16Array"
+edition = 2015
+
+[[std]]
+name = "Uint32Array"
+edition = 2015
+
+[[std]]
+name = "Uint8ClampedArray"
+edition = 2015
+
+[[std]]
+name = "WeakMap"
+edition = 2015
+
+[[std]]
+name = "WeakRef"
+edition = 2021
+
+[[std]]
+name = "WeakSet"
+edition = 2015
+
+[[std]]
+name = "well-formed-json-stringify"
+edition = 2021
+
+[[std]]
+name = "__proto__"
+edition = 2015
+
+[[std]]
+name = "__getter__"
+edition = 2015
+
+[[std]]
+name = "__setter__"
+edition = 2015
+
+## Test-Harness Features
+#
+# The rare cases where testing language functionality requires non-standard
+# language features, exposed through global-environment functions on the $262
+# object, go here.
+
+[[test-harness]]
+name = "IsHTMLDDA"
+
+[[test-harness]]
+name = "host-gc-required"
