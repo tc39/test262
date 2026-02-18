@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.prototype.total
-description: relativeTo not required to round fixed-length units in durations without variable units.
+description: relativeTo option  not required to round fixed-length units in durations without variable units.
 features: [Temporal]
 ---*/
 
@@ -19,7 +19,6 @@ const totalD2 = {
   nanoseconds: d2Nanoseconds
 };
 
-// relativeTo not required to round fixed-length units in durations without variable units
 assert(Math.abs(d2.total({ unit: "days" }) - totalD2.days) < Number.EPSILON);
 assert(Math.abs(d2.total({ unit: "hours" }) - totalD2.hours) < Number.EPSILON);
 assert(Math.abs(d2.total({ unit: "minutes" }) - totalD2.minutes) < Number.EPSILON);
@@ -28,7 +27,6 @@ assert(Math.abs(d2.total({ unit: "milliseconds" }) - totalD2.milliseconds) < Num
 assert(Math.abs(d2.total({ unit: "microseconds" }) - totalD2.microseconds) < Number.EPSILON);
 assert.sameValue(d2.total({ unit: "nanoseconds" }), totalD2.nanoseconds);
 
-// relativeTo not required to round fixed-length units in durations without variable units (negative)
 const negativeD2 = d2.negated();
 assert(Math.abs(negativeD2.total({ unit: "days" }) - -totalD2.days) < Number.EPSILON);
 assert(Math.abs(negativeD2.total({ unit: "hours" }) - -totalD2.hours) < Number.EPSILON);
