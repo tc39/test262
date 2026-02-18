@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.prototype.total
-description: relativeTo option  not required to round fixed-length units in durations without variable units.
+description: relativeTo option not required to round fixed-length units in durations without variable units.
 features: [Temporal]
 ---*/
 
