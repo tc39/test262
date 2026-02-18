@@ -1,0 +1,48 @@
+name: Create a release for the web-features manifest file
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release web-features manifest
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/web-features/requirements.txt
+
+      - name: Generate manifest
+        run: |
+          ./tools/web-features/lint.py --manifest WEB_FEATURES_MANIFEST.json
+
+      - name: Compress manifest (bz2)
+        run: |
+          tar --bzip2 -cvf WEB_FEATURES_MANIFEST.json.bz2 WEB_FEATURES_MANIFEST.json
+
+      - name: Compress manifest (gz)
+        run: |
+          tar --gzip -cvf WEB_FEATURES_MANIFEST.json.gz WEB_FEATURES_MANIFEST.json
+
+      - name: Compress manifest (zst)
+        run: |
+          tar --zstd -cvf WEB_FEATURES_MANIFEST.json.zst WEB_FEATURES_MANIFEST.json
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create \
+              web-features-manifest-for-$GITHUB_SHA \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="WEB_FEATURES_MANIFEST for $GITHUB_SHA" \
+              WEB_FEATURES_MANIFEST.json.*
