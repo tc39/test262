@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.prototype.total
-description: Balances differently depending on relativeTo.
+description: Balances differently depending on relativeTo option
 features: [Temporal]
 ---*/
 
@@ -19,7 +19,6 @@ assert.sameValue(fortyDays.total({
   relativeTo: new Temporal.PlainDate(2020, 1, 1)
 }).toPrecision(16), (1 + 9 / 29).toPrecision(16));
 
-// balances differently depending on relativeTo (negative)
 assert.sameValue(negativeFortyDays.total({
   unit: "months",
   relativeTo: new Temporal.PlainDate(2020, 3, 1)

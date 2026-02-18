@@ -96,6 +96,10 @@ nonextensible-applies-to-private
 # https://github.com/tc39/proposal-joint-iteration
 joint-iteration
 
+# Await Dictionary
+# https://github.com/tc39/proposal-await-dictionary
+await-dictionary
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
