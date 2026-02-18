@@ -27,9 +27,9 @@ assert.sameValue(nf.format('-.00'), '-0.00');
 assert.sameValue(nf.format('3.100'), '3.100');
 assert.sameValue(nf.format('6.000000'), '6.000000');
 assert.sameValue(nf.format('1.230e1'), '12.30');
-assert.sameValue(nf.format('1.230e-2'), '0.0123');
+assert.sameValue(nf.format('1.230e-2'), '0.01230');
 
-// Default maximumfractionDigits is 3
+// maximumFractionDigits defaults to 3
 const nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1 });
 
 assert.sameValue(nf2.format('1'), '1.0');
