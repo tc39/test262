@@ -58,6 +58,8 @@ info: |
 ---*/
 
 var nf = new Intl.NumberFormat();
+var infinityStr = nf.format(Infinity);
+var negInfinityStr = nf.format(-Infinity);
 
 // Smallest out-of-bounds value as a BigInt value.
 //
@@ -67,25 +69,25 @@ var limit = 10n ** 10000n;
 if (typeof BigInt !== "undefined") {
   assert.notSameValue(
     nf.format(limit),
-    nf.format(Infinity),
+    infinityStr,
     "BigInt values are not constrained by 𝔽"
   );
   assert.notSameValue(
     nf.format(-limit),
-    nf.format(-Infinity),
+    negInfinityStr,
     "Negative BigInt values are not constrained by 𝔽"
   );
 }
 
 assert.sameValue(
   nf.format(limit.toString(10)),
-  nf.format(Infinity),
+  infinityStr,
   "Decimal number string values are constrained by 𝔽"
 );
 
 assert.sameValue(
   nf.format("-" + limit.toString(10)),
-  nf.format(-Infinity),
+  negInfinityStr,
   "Negative decimal number string values are constrained by 𝔽"
 );
 
@@ -94,18 +96,18 @@ assert.sameValue(
 
 assert.sameValue(
   nf.format("0x" + limit.toString(16)),
-  nf.format(Infinity),
+  infinityStr,
   "Hexadecimal number string values are constrained by 𝔽"
 );
 
 assert.sameValue(
   nf.format("0b" + limit.toString(2)),
-  nf.format(Infinity),
+  infinityStr,
   "Binary number string values are constrained by 𝔽"
 );
 
 assert.sameValue(
   nf.format("0o" + limit.toString(8)),
-  nf.format(Infinity),
+  infinityStr,
   "Octal number string values are constrained by 𝔽"
 );
