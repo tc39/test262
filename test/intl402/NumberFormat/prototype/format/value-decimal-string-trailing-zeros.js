@@ -27,7 +27,13 @@ assert.sameValue(nf.format('-.00'), '-0.00');
 assert.sameValue(nf.format('3.100'), '3.100');
 assert.sameValue(nf.format('6.000000'), '6.000000');
 assert.sameValue(nf.format('1.230e1'), '12.30');
+assert.sameValue(nf.format('1.230e0'), '1.230');
+assert.sameValue(nf.format('1.230e-1'), '0.1230');
 assert.sameValue(nf.format('1.230e-2'), '0.01230');
+assert.sameValue(nf.format('12.30e-1'), '1.230');
+assert.sameValue(nf.format('12.30e-2'), '0.1230');
+assert.sameValue(nf.format('12.30e-3'), '0.01230');
+assert.sameValue(nf.format('1.2345e-1000'), '0.00000000000000000000');
 
 // maximumFractionDigits defaults to 3
 const nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1 });
@@ -47,6 +53,21 @@ assert.sameValue(nf3.format('1.00'), '1.00');
 assert.sameValue(nf3.format('0.00'), '0.00');
 assert.sameValue(nf3.format('.00'), '0.00');
 assert.sameValue(nf3.format('1.000000'), '1.000');
+assert.sameValue(nf3.format('1.99999'), '2.000');
+
+const nf4 = new NumberFormat('en-US', {
+  minimumSignificantDigits: 2,
+  maximumSignificantDigits: 4,
+  trailingZeroDisplay: 'stripToMinimum',
+});
+
+assert.sameValue(nf4.format('1'), '1.0');
+assert.sameValue(nf4.format('1.0'), '1.0');
+assert.sameValue(nf4.format('1.00'), '1.0');
+assert.sameValue(nf4.format('0.00'), '0.0');
+assert.sameValue(nf4.format('.00'), '0.0');
+assert.sameValue(nf4.format('1.000000'), '1.0');
+assert.sameValue(nf4.format('1.99999'), '2.0');
 
 const pf = new Intl.NumberFormat('en-US', {
   style: 'percent',
@@ -64,6 +85,9 @@ assert.sameValue(sf.format('0.1'), '1E-1');
 assert.sameValue(sf.format('0.01'), '1E-2');
 assert.sameValue(sf.format('0.01200'), '1.200E-2');
 assert.sameValue(sf.format('120.0'), '1.200E2');
+assert.sameValue(sf.format('12.00e-3'), '1.200E-2');
+assert.sameValue(sf.format('1.200e-3'), '1.200E-3');
+assert.sameValue(sf.format('.1200e-3'), '1.200E-4');
 
 const spf = new Intl.NumberFormat('en-US', {
   style: 'percent',
