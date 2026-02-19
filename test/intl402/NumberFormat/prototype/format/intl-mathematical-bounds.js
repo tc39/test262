@@ -4,7 +4,7 @@
 /*---
 esid: sec-number-format-functions
 description: >
-  ToIntlMathematicalValue applies "Number value" to the IntlMV value
+  ToIntlMathematicalValue constrains non-bigint input.
 info: |
   Number Format Functions
 
@@ -25,15 +25,36 @@ info: |
   ...
   8. Let intlMV be the StringIntlMV of literal.
   9. If intlMV is a mathematical value, then
-    a.Let rounded be RoundMVResult(abs(intlMV)).
+    a. Let rounded be RoundMVResult(abs(intlMV)).
     b. If rounded is +∞𝔽 and intlMV < 0, return negative-infinity.
     c. If rounded is +∞𝔽, return positive-infinity.
     ...
+  10. Return intlMV.
 
   RoundMVResult ( n )
   1. If the decimal representation of n has 20 or fewer significant digits, return 𝔽(n).
   ...
   5. Return 𝔽(chosen).
+
+  Mathematical Operations
+  A conversion from a mathematical value or extended mathematical value x to a
+  Number is denoted as "the Number value for x" or 𝔽(x), and is defined in
+  The Number Type.
+
+  The Number Type
+  In this specification, the phrase “the Number value for x” where x represents
+  an exact real mathematical quantity (which might even be an irrational number
+  such as π) means a Number value chosen in the following manner. Consider the
+  set of all finite values of the Number type, with -0𝔽 removed and with two
+  additional values added to it that are not representable in the Number type,
+  namely 2**1024 (which is +1 × 2**53 × 2**971) and -2**1024 (which is
+  -1 × 2**53 × 2**971). Choose the member of this set that is closest in value
+  to x. If two values of the set are equally close, then the one with an even
+  significand is chosen; for this purpose, the two extra values 2**1024 and
+  -2**1024 are considered to have even significands. Finally, if 2**1024 was
+  chosen, replace it with +∞𝔽; if -2**1024 was chosen, replace it with -∞𝔽; if
+  +0𝔽 was chosen, replace it with -0𝔽 if and only if x < 0; any other chosen
+  value is used unchanged.
 ---*/
 
 var nf = new Intl.NumberFormat();
