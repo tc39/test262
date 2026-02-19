@@ -64,16 +64,18 @@ var nf = new Intl.NumberFormat();
 // From: https://github.com/tc39/ecma402/pull/1022
 var limit = 10n ** 10000n;
 
-assert.notSameValue(
-  nf.format(limit),
-  nf.format(Infinity),
-  "BigInt values are not constrained by 𝔽"
-);
-assert.notSameValue(
-  nf.format(-limit),
-  nf.format(-Infinity),
-  "Negative BigInt values are not constrained by 𝔽"
-);
+if (typeof BigInt !== "undefined") {
+  assert.notSameValue(
+    nf.format(limit),
+    nf.format(Infinity),
+    "BigInt values are not constrained by 𝔽"
+  );
+  assert.notSameValue(
+    nf.format(-limit),
+    nf.format(-Infinity),
+    "Negative BigInt values are not constrained by 𝔽"
+  );
+}
 
 assert.sameValue(
   nf.format(limit.toString(10)),
