@@ -16,10 +16,8 @@ const totalWeeks = almostWeek.total({
 });
 assert(Math.abs(totalWeeks - (6 + 20 / 24) / 7) < Number.EPSILON);
 
-// (Negative)
 const totalWeeksNegative = almostWeekNegative.total({
   unit: "weeks",
   relativeTo: new Temporal.PlainDate(2020, 1, 1)
 });
 assert(Math.abs(totalWeeksNegative - -((6 + 20 / 24) / 7)) < Number.EPSILON);
-

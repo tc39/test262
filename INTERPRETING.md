@@ -10,6 +10,8 @@ property of the JSON-formatted `package.json` file will be incremented. In this
 way, consumers who are transitioning between revisions of Test262 can more
 easily determine the cause of new test failures.
 
+**Note** Some tests are sensitive to line endings. On Windows, a Git configuration of `core.autocrlf = true` may cause unexpected test failures. It is advised to set `core.autocrlf = false` before cloning this repository.
+
 ## Test Execution
 
 Test262 tests are only valid under the runtime environment conditions described

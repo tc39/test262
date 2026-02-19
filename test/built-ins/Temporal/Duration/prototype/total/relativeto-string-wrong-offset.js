@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-temporal.duration.prototype.total
-description: Throws if a ZonedDateTime-like relativeTo string has the wrong UTC offset
+description: Throws if a ZonedDateTime-like relativeTo string has the wrong timezone offset
 features: [Temporal]
 ---*/
 
@@ -14,3 +14,10 @@ assert.throws(
   () => instance.total({ unit: "days", relativeTo }),
   "total should throw RangeError on a string with UTC offset mismatch"
 );
+
+const instance2 = new Temporal.Duration(0, 0, 0, 0, 0, 0, 0, 2, 31, 0);
+
+assert.throws(RangeError, () => instance2.total({
+  unit: "months",
+  relativeTo: "1971-01-01T00:00+02:00[-00:44]"
+}));
