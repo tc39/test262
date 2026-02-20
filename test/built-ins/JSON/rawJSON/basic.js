@@ -6,51 +6,71 @@ esid: sec-json.rawjson
 description: Basic functionality of JSON.rawJSON().
 info: |
   JSON.rawJSON ( text )
-
-  1. Let jsonString be ? ToString(text).
   ...
-  4. Let internalSlotsList be « [[IsRawJSON]] ».
-  5. Let obj be OrdinaryObjectCreate(null, internalSlotsList).
-  6. Perform ! CreateDataPropertyOrThrow(obj, "rawJSON", jsonString).
-  7. Perform ! SetIntegrityLevel(obj, frozen).
-  8. Return obj.
+  9. Let _obj_ be OrdinaryObjectCreate(*null*, _internalSlotsList_).
+  10. Perform ! CreateDataPropertyOrThrow(_obj_, *"rawJSON"*, _jsonString_).
+  11. Perform ! SetIntegrityLevel(_obj_, ~frozen~).
+  12. Return _obj_.
 
+includes: [propertyHelper.js]
 features: [json-parse-with-source]
 ---*/
 
-assert.sameValue(JSON.stringify(JSON.rawJSON(1)), '1');
-assert.sameValue(JSON.stringify(JSON.rawJSON(1.1)), '1.1');
-assert.sameValue(JSON.stringify(JSON.rawJSON(-1)), '-1');
-assert.sameValue(JSON.stringify(JSON.rawJSON(-1.1)), '-1.1');
-assert.sameValue(JSON.stringify(JSON.rawJSON(1.1e1)), '11');
-assert.sameValue(JSON.stringify(JSON.rawJSON(1.1e-1)), '0.11');
+function verifyRawJSON(primitive) {
+  var entries = [
+    ['primitive', JSON.rawJSON(primitive)],
+    ['string', JSON.rawJSON(String(primitive))],
+    ['toString', JSON.rawJSON({ toString: function() { return primitive; } })]
+  ];
+  for (var i = 0; i < entries.length; i++) {
+    var label = 'rawJSON of ' + entries[i][0] + ' ' + (typeof primitive) + ' ' + primitive;
+    var raw = entries[i][1];
+    assert.sameValue(Object.getPrototypeOf(raw), null, label + ' has a null prototype');
+    assert.sameValue(Object.isFrozen(raw), true, label + ' is frozen');
+    assert.sameValue(
+      Reflect.defineProperty(raw, 'expando', { value: true }),
+      false,
+      label + ' rejects new properties'
+    );
+    assert.sameValue(
+      Object.getOwnPropertyDescriptor(raw, 'expando'),
+      undefined,
+      label + ' does not define new properties'
+    );
+    assert.compareArray(Reflect.ownKeys(raw), ['rawJSON'], label + ' own properties');
+    verifyProperty(raw, 'rawJSON', {
+      value: String(primitive),
+      enumerable: true,
+      configurable: false,
+      writable: false
+    });
+    assert.sameValue(JSON.stringify(raw), String(primitive), label + ' JSON.stringify');
+  }
+  var composite = {
+    primitive: entries[0][1],
+    strings: [entries[1][1], entries[2][1]]
+  };
+  assert.sameValue(
+    JSON.stringify(composite),
+    '{"primitive":%s,"strings":[%s,%s]}'.replace(/%s/g, primitive),
+    'JSON.stringify a structure containing rawJSON for ' + primitive
+  );
+}
 
-assert.sameValue(JSON.stringify(JSON.rawJSON(null)), 'null');
-assert.sameValue(JSON.stringify(JSON.rawJSON(true)), 'true');
-assert.sameValue(JSON.stringify(JSON.rawJSON(false)), 'false');
-assert.sameValue(JSON.stringify(JSON.rawJSON('"foo"')), '"foo"');
+verifyRawJSON(null);
+verifyRawJSON(false);
+verifyRawJSON(true);
 
-assert.sameValue(JSON.stringify({ 42: JSON.rawJSON(37) }), '{"42":37}');
-assert.sameValue(
-  JSON.stringify({ x: JSON.rawJSON(1), y: JSON.rawJSON(2) }),
-  '{"x":1,"y":2}'
-);
-assert.sameValue(
-  JSON.stringify({ x: { x: JSON.rawJSON(1), y: JSON.rawJSON(2) } }),
-  '{"x":{"x":1,"y":2}}'
-);
+verifyRawJSON('""');
+verifyRawJSON('"foo"');
+verifyRawJSON('"\\u00bD"');
 
-assert.sameValue(JSON.stringify([JSON.rawJSON(1), JSON.rawJSON(1.1)]), '[1,1.1]');
-assert.sameValue(
-  JSON.stringify([
-    JSON.rawJSON('"1"'),
-    JSON.rawJSON(true),
-    JSON.rawJSON(null),
-    JSON.rawJSON(false),
-  ]),
-  '["1",true,null,false]'
-);
-assert.sameValue(
-  JSON.stringify([{ x: JSON.rawJSON(1), y: JSON.rawJSON(1) }]),
-  '[{"x":1,"y":1}]'
-);
+verifyRawJSON(1);
+verifyRawJSON(-1);
+verifyRawJSON(-1.2);
+
+verifyRawJSON('-0');
+verifyRawJSON('1e0');
+verifyRawJSON('1E1');
+verifyRawJSON('1.23e+1');
+verifyRawJSON('1.23E-1');
