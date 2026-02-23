@@ -9,7 +9,7 @@ locale: [en-US]
 ---*/
 
 function maybeGetWeekdayOnlyFormat() {
-  const fmt = new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: "Europe/Vienna" });
+  const fmt = new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: "+00:00" });
   const resolvedOptions = fmt.resolvedOptions();
   if (
     ["era", "year", "month", "day", "hour", "minute", "second", "timeZoneName"].some(
