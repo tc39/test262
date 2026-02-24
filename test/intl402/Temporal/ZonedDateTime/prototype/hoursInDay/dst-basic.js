@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal-zoneddatetime-objects
-description: properties around DST
+esid: sec-get-temporal.zoneddatetime.prototype.hoursinday
+description: Basic tests around DST
 features: [Temporal]
 ---*/
 
@@ -11,29 +11,25 @@ var hourBeforeDstStart = new Temporal.PlainDateTime(2000, 4, 2, 1).toZonedDateTi
 var dayBeforeDstStart = new Temporal.PlainDateTime(2000, 4, 1, 2, 30).toZonedDateTime("America/Vancouver");
 
 // hoursInDay works with DST start
-assert.sameValue(hourBeforeDstStart.hoursInDay, 23);
+assert.sameValue(hourBeforeDstStart.hoursInDay, 23,
+  "23 hours in dst start day");
 
 // hoursInDay works with non-DST days
-assert.sameValue(dayBeforeDstStart.hoursInDay, 24);
+assert.sameValue(dayBeforeDstStart.hoursInDay, 24,
+  "24 hours in a non-DST day");
 
 // hoursInDay works with DST end
 var dstEnd = Temporal.PlainDateTime.from("2000-10-29T01:00").toZonedDateTime("America/Vancouver");
-assert.sameValue(dstEnd.hoursInDay, 25);
-
-// startOfDay works
-var start = dayBeforeDstStart.startOfDay();
-assert.sameValue(`${ start.toPlainDate() }`, `${ dayBeforeDstStart.toPlainDate() }`);
-assert.sameValue(`${ start.toPlainTime() }`, "00:00:00");
+assert.sameValue(dstEnd.hoursInDay, 25,
+  "25 hours in DST end day");
 
 var dayAfterSamoaDateLineChange = Temporal.PlainDateTime.from("2011-12-31T22:00").toZonedDateTime("Pacific/Apia");
 var dayBeforeSamoaDateLineChange = Temporal.PlainDateTime.from("2011-12-29T22:00").toZonedDateTime("Pacific/Apia");
 
-// startOfDay works after Samoa date line change
-var start = dayAfterSamoaDateLineChange.startOfDay();
-assert.sameValue(`${ start.toPlainTime() }`, "00:00:00");
-
 // hoursInDay works after Samoa date line change
-assert.sameValue(dayAfterSamoaDateLineChange.hoursInDay, 24);
+assert.sameValue(dayAfterSamoaDateLineChange.hoursInDay, 24,
+  "24 hours in day after Samoa date line change");
 
 // hoursInDay works before Samoa date line change
-assert.sameValue(dayBeforeSamoaDateLineChange.hoursInDay, 24);
+assert.sameValue(dayBeforeSamoaDateLineChange.hoursInDay, 24,
+  "24 hours in day before Samoa date line change");
