@@ -85,7 +85,7 @@ assert.sameValue(`${ zdt }`,
 var zdt = Temporal.ZonedDateTime.from({
   ...DSTStart,
   offset: "-23:59"
-}, { offset: prefer });
+}, { offset: "prefer" });
 assert.sameValue(`${ zdt }`,
   "2000-04-02T03:30:00-07:00[America/Vancouver]",
   "Offset is wrong and option offset: prefer, non existent time");
