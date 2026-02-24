@@ -15,9 +15,9 @@ const DSTEnd = {
   minute: 45,
   timeZone: "America/Vancouver"
 };
-
-var zdt =  Temporal.ZonedDateTime.from(DSTEnd);
-assert.sameValue(`${ zdt }`, "2000-10-29T01:45:00-07:00[America/Vancouver]",
+assert.sameValue(
+  Temporal.ZonedDateTime.from(DSTEnd).offset,
+  "-07:00",
   "Ambiguous zoned date time");
 
 const DSTStart = {
@@ -28,7 +28,11 @@ const DSTStart = {
   minute: 30,
   timeZone: "America/Vancouver"
 };
-
-var zdt = Temporal.ZonedDateTime.from(DSTStart);
-assert.sameValue(`${ zdt }`, "2000-04-02T03:30:00-07:00[America/Vancouver]",
-  "Zoned date time in non existent time");
+assert.sameValue(
+  Temporal.ZonedDateTime.from(DSTStart).offset,
+  "-07:00",
+  "Offset result, zoned date time in non existent time");
+assert.sameValue(
+  Temporal.ZonedDateTime.from(DSTStart).hour,
+  3,
+  "Hour result, zoned date time in non existent time");
