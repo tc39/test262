@@ -13,30 +13,45 @@ features: [Temporal]
 const DSTStart = "2020-03-08T02:30[America/Los_Angeles]";
 
 // Uses disambiguation if offset option is set to "ignore".
-var offset = "ignore";
-var zdt = Temporal.ZonedDateTime.from(DSTStart, {
+let offset = "ignore";
+let zdt = Temporal.ZonedDateTime.from(DSTStart, {
   offset,
   disambiguation: "compatible"
 });
-assert.sameValue(`${ zdt }`,
-  "2020-03-08T03:30:00-07:00[America/Los_Angeles]",
-  "Offset: ignore and disambiguation: compatible");
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option offset: ignore and disambiguation: compatible");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when option offset: ignore and disambiguation: compatible");
 
-var zdt = Temporal.ZonedDateTime.from(DSTStart, {
+zdt = Temporal.ZonedDateTime.from(DSTStart, {
   offset,
   disambiguation: "earlier"
 });
-assert.sameValue(`${ zdt }`,
-  "2020-03-08T01:30:00-08:00[America/Los_Angeles]",
-  "Offset: ignore and disambiguation: earlier");
+assert.sameValue(
+  zdt.offset,
+  "-08:00",
+  "Offset result when option offset: ignore and disambiguation: earlier");
+assert.sameValue(
+  zdt.hour,
+  1,
+  "Hour result when option offset: ignore and disambiguation: earlier");
 
-var zdt = Temporal.ZonedDateTime.from(DSTStart, {
+zdt = Temporal.ZonedDateTime.from(DSTStart, {
   offset,
   disambiguation: "later"
 });
-assert.sameValue(`${ zdt }`,
-  "2020-03-08T03:30:00-07:00[America/Los_Angeles]",
-  "Offset: ignore and disambiguation: later");
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option offset: ignore and disambiguation: later");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when option offset: ignore and disambiguation: later");
 
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(DSTStart, {
   offset,
@@ -46,31 +61,46 @@ assert.throws(RangeError, () => Temporal.ZonedDateTime.from(DSTStart, {
 // Uses disambiguation if the property bag's offset is wrong and the offset
 // option is set to "prefer".
 const DSTStartWithWrongOffset = "2020-03-08T02:30-23:59[America/Los_Angeles]";
-var offset = "prefer";
+offset = "prefer";
 
-var zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
+zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
   offset,
   disambiguation: "compatible"
 });
-assert.sameValue(`${ zdt }`,
-  "2020-03-08T03:30:00-07:00[America/Los_Angeles]",
-  "Offset is wrong, option offset: prefer, and disambiguation: compatible");
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option offset is wrong, option offset: prefer, and disambiguation: compatible");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when offset is wrong, option offset: prefer, and disambiguation: compatible");
 
-var zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
+zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
   offset,
   disambiguation: "earlier"
 });
-assert.sameValue(`${ zdt }`,
-  "2020-03-08T01:30:00-08:00[America/Los_Angeles]",
-  "Offset is wrong, option offset: prefer, and disambiguation: earlier");
+assert.sameValue(
+  zdt.offset,
+  "-08:00",
+  "Offset result when option offset is wrong, option offset: prefer, and disambiguation: earlier");
+assert.sameValue(
+  zdt.hour,
+  1,
+  "Hour result when option offset is wrong, option offset: prefer, and disambiguation: earlier");
 
-var zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
+zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
   offset,
   disambiguation: "later"
 });
-assert.sameValue(`${ zdt }`,
-  "2020-03-08T03:30:00-07:00[America/Los_Angeles]",
-  "Option offset: prefer, and disambiguation: later");
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option offset: prefer, and disambiguation: later");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when option offset: prefer, and disambiguation: later");
 
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
   offset,

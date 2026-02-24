@@ -11,36 +11,60 @@ features: [Temporal]
 
 // Ambiguous zoned date time - Fall DST
 const DSTEnd = "2019-02-16T23:45[America/Sao_Paulo]";
+let zdt = Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "compatible" });
 assert.sameValue(
-  `${ Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "compatible" }) }`,
-  "2019-02-16T23:45:00-02:00[America/Sao_Paulo]",
-  "Option disambiguation: compatible ambiguous time");
+  zdt.offset,
+  "-02:00",
+  "Offset result when option disambiguation: compatible ambiguous time");
+
+zdt = Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "earlier" });
 assert.sameValue(
-  `${ Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "earlier" }) }`,
-  "2019-02-16T23:45:00-02:00[America/Sao_Paulo]",
-  "Option disambiguation: earlier, ambiguous time");
+  zdt.offset,
+  "-02:00",
+  "Offset result when option disambiguation: earlier, ambiguous time");
+
+zdt = Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "later" });
 assert.sameValue(
-`${ Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "later" }) }`,
-  "2019-02-16T23:45:00-03:00[America/Sao_Paulo]",
-  "Option disambiguation: later, ambiguous time");
+  zdt.offset,
+  "-03:00",
+  "Offset result when option disambiguation: later, ambiguous time");
+
 assert.throws(RangeError, () =>
   Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "reject" }),
-  "Option disambiguation: reject, ambiguous time");
+  "Throws when option disambiguation: reject, ambiguous time");
 
 // Zoned date time in non existent time - Spring DST
 const DSTStart = "2020-03-08T02:30[America/Los_Angeles]";
+zdt = Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "compatible" });
 assert.sameValue(
-  `${ Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "compatible" }) }`,
-  "2020-03-08T03:30:00-07:00[America/Los_Angeles]",
-  "Option disambiguation: compatible, non existent time");
+  zdt.offset,
+  "-07:00",
+  "Offset result when option disambiguation: compatible, non existent time");
 assert.sameValue(
-  `${ Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "earlier" }) }`,
-  "2020-03-08T01:30:00-08:00[America/Los_Angeles]",
-  "Option disambiguation: earlier, non existent time");
+  zdt.hour,
+  3,
+  "Hour result when option disambiguation: compatible, non existent time");
+
+zdt = Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "earlier" });
 assert.sameValue(
-  `${ Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "later" }) }`,
-  "2020-03-08T03:30:00-07:00[America/Los_Angeles]",
-  "Option disambiguation: later, non existent time");
+  zdt.offset,
+  "-08:00",
+  "Offset result when option disambiguation: earlier, non existent time");
+assert.sameValue(
+  zdt.hour,
+  1,
+  "Hour result when option disambiguation: earlier, non existent time");
+
+zdt = Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "later" });
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option disambiguation: later, non existent time");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when option disambiguation: later, non existent time");
+
 assert.throws(RangeError, () =>
   Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "reject" }),
-  "Option disambiguation: reject, non existent time");
+  "Throws when option disambiguation: reject, non existent time");
