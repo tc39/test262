@@ -28,11 +28,12 @@ const DSTStart = {
   minute: 30,
   timeZone: "America/Vancouver"
 };
+const zdt = Temporal.ZonedDateTime.from(DSTStart);
 assert.sameValue(
-  Temporal.ZonedDateTime.from(DSTStart).offset,
+  zdt.offset,
   "-07:00",
   "Offset result, zoned date time in non existent time");
 assert.sameValue(
-  Temporal.ZonedDateTime.from(DSTStart).hour,
+  zdt.hour,
   3,
   "Hour result, zoned date time in non existent time");
