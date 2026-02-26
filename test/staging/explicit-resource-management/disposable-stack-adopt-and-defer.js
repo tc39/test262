@@ -49,7 +49,7 @@ assert.compareArray(valuesNormal, [44, 43, 42]);
 function TestDisposableStackDeferOnDisposedStack() {
   let stack = new DisposableStack();
   stack.dispose();
-  stack.defer(() => console.log(42));
+  stack.defer(() => print(42));
 };
 
 assert.throws(
