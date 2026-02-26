@@ -23,5 +23,5 @@ features: [await-dictionary]
 Promise.allSettledKeyed({}).then(function(result) {
   assert.sameValue(Object.getPrototypeOf(result), null);
   assert.sameValue(result.hasOwnProperty, undefined);
-  assert.compareArray(Object.keys(result), []);
+  assert.compareArray(Reflect.ownKeys(result), []);
 }).then($DONE, $DONE);

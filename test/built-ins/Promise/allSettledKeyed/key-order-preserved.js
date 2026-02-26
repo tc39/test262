@@ -45,8 +45,8 @@ var input = {
 
 var combined = Promise.allSettledKeyed(input);
 
-resolveThird('third');
 resolveSecond('second');
+resolveThird('third');
 resolveFirst('first');
 
 combined.then(function(result) {
