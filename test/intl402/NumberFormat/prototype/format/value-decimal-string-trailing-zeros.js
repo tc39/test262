@@ -33,7 +33,7 @@ assert.sameValue(nf.format('1.230e-2'), '0.01230');
 assert.sameValue(nf.format('12.30e-1'), '1.230');
 assert.sameValue(nf.format('12.30e-2'), '0.1230');
 assert.sameValue(nf.format('12.30e-3'), '0.01230');
-assert.sameValue(nf.format('1.2345e-1000'), '0.00000000000000000000');
+assert.sameValue(nf.format('1.2345e-1000'), '0.0000');
 
 // maximumFractionDigits defaults to 3
 const nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1 });
