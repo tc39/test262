@@ -3,38 +3,30 @@
 
 /*---
 esid: sec-temporal.zoneddatetime.from
-description: Test behaviour around DST boundaries with the option disambiguation set, when the argument is a property bag.
+description: >
+  Test behaviour around DST boundaries with the option disambiguation set, when
+  the argument is a string.
 features: [Temporal]
 ---*/
 
-// Disambiguation options
-
 // Ambiguous zoned date time - Fall DST
-const DSTEnd = {
-  year: 2000,
-  month: 10,
-  day: 29,
-  hour: 1,
-  minute: 45,
-  timeZone: "America/Vancouver"
-};
-
+const DSTEnd = "2019-02-16T23:45[America/Sao_Paulo]";
 let zdt = Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "compatible" });
 assert.sameValue(
   zdt.offset,
-  "-07:00",
-  "Offset result when option disambiguation: compatible, ambiguous time");
+  "-02:00",
+  "Offset result when option disambiguation: compatible ambiguous time");
 
 zdt = Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "earlier" });
 assert.sameValue(
   zdt.offset,
-  "-07:00",
+  "-02:00",
   "Offset result when option disambiguation: earlier, ambiguous time");
 
 zdt = Temporal.ZonedDateTime.from(DSTEnd, { disambiguation: "later" });
 assert.sameValue(
   zdt.offset,
-  "-08:00",
+  "-03:00",
   "Offset result when option disambiguation: later, ambiguous time");
 
 assert.throws(RangeError, () =>
@@ -42,15 +34,7 @@ assert.throws(RangeError, () =>
   "Throws when option disambiguation: reject, ambiguous time");
 
 // Zoned date time in non existent time - Spring DST
-const DSTStart = {
-  year: 2000,
-  month: 4,
-  day: 2,
-  hour: 2,
-  minute: 30,
-  timeZone: "America/Vancouver"
-};
-
+const DSTStart = "2020-03-08T02:30[America/Los_Angeles]";
 zdt = Temporal.ZonedDateTime.from(DSTStart, { disambiguation: "compatible" });
 assert.sameValue(
   zdt.offset,

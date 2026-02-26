@@ -7,28 +7,17 @@ description: Test behaviour around DST boundaries without any options set.
 features: [Temporal]
 ---*/
 
-const DSTEnd = {
-  year: 2000,
-  month: 10,
-  day: 29,
-  hour: 1,
-  minute: 45,
-  timeZone: "America/Vancouver"
-};
+// Ambiguous zoned date time - Fall DST
+const DSTEnd = "2019-02-16T23:45[America/Sao_Paulo]";
+let zdt = Temporal.ZonedDateTime.from(DSTEnd);
 assert.sameValue(
-  Temporal.ZonedDateTime.from(DSTEnd).offset,
-  "-07:00",
+  zdt.offset,
+  "-02:00",
   "Ambiguous zoned date time");
 
-const DSTStart = {
-  year: 2000,
-  month: 4,
-  day: 2,
-  hour: 2,
-  minute: 30,
-  timeZone: "America/Vancouver"
-};
-const zdt = Temporal.ZonedDateTime.from(DSTStart);
+// Non existent zoned date time - Spring DST
+const DSTStart = "2020-03-08T02:30[America/Los_Angeles]";
+zdt = Temporal.ZonedDateTime.from(DSTStart);
 assert.sameValue(
   zdt.offset,
   "-07:00",

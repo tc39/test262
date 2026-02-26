@@ -4,20 +4,13 @@
 /*---
 esid: sec-temporal.zoneddatetime.from
 description: >
-  Test behaviour around DST boundaries with various combinations of values for
-  the options offset and disambiguation, when the argument is a property bag.
+    Test behaviour around DST boundaries with various combinations of values for
+    the options offset and disambiguation, when the argument is a string.
 features: [Temporal]
 ---*/
 
 // Non existent zoned date time - Spring DST
-const DSTStart = {
-  year: 2000,
-  month: 4,
-  day: 2,
-  hour: 2,
-  minute: 30,
-  timeZone: "America/Vancouver"
-};
+const DSTStart = "2020-03-08T02:30[America/Los_Angeles]";
 
 // Uses disambiguation if offset option is set to "ignore".
 let offset = "ignore";
@@ -28,11 +21,11 @@ let zdt = Temporal.ZonedDateTime.from(DSTStart, {
 assert.sameValue(
   zdt.offset,
   "-07:00",
-  "Offset result when offset: ignore and disambiguation: compatible");
+  "Offset result when option offset: ignore and disambiguation: compatible");
 assert.sameValue(
   zdt.hour,
   3,
-  "Hour result when offset: ignore and disambiguation: compatible");
+  "Hour result when option offset: ignore and disambiguation: compatible");
 
 zdt = Temporal.ZonedDateTime.from(DSTStart, {
   offset,
@@ -41,11 +34,11 @@ zdt = Temporal.ZonedDateTime.from(DSTStart, {
 assert.sameValue(
   zdt.offset,
   "-08:00",
-  "Offset result when offset: ignore and disambiguation: earlier");
+  "Offset result when option offset: ignore and disambiguation: earlier");
 assert.sameValue(
   zdt.hour,
   1,
-  "Hour result when offset: ignore and disambiguation: earlier");
+  "Hour result when option offset: ignore and disambiguation: earlier");
 
 zdt = Temporal.ZonedDateTime.from(DSTStart, {
   offset,
@@ -54,11 +47,11 @@ zdt = Temporal.ZonedDateTime.from(DSTStart, {
 assert.sameValue(
   zdt.offset,
   "-07:00",
-  "Offset result when offset: ignore and disambiguation: later");
+  "Offset result when option offset: ignore and disambiguation: later");
 assert.sameValue(
   zdt.hour,
   3,
-  "Hour result when offset: ignore and disambiguation: later");
+  "Hour result when option offset: ignore and disambiguation: later");
 
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(DSTStart, {
   offset,
@@ -67,10 +60,7 @@ assert.throws(RangeError, () => Temporal.ZonedDateTime.from(DSTStart, {
 
 // Uses disambiguation if the property bag's offset is wrong and the offset
 // option is set to "prefer".
-const DSTStartWithWrongOffset = {
-  ...DSTStart,
-  offset: "-23:59"
-};
+const DSTStartWithWrongOffset = "2020-03-08T02:30-23:59[America/Los_Angeles]";
 offset = "prefer";
 
 zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
@@ -80,7 +70,7 @@ zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
 assert.sameValue(
   zdt.offset,
   "-07:00",
-  "Offset result when offset is wrong, option offset: prefer, and disambiguation: compatible");
+  "Offset result when option offset is wrong, option offset: prefer, and disambiguation: compatible");
 assert.sameValue(
   zdt.hour,
   3,
@@ -93,11 +83,11 @@ zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
 assert.sameValue(
   zdt.offset,
   "-08:00",
-  "Offset result when offset is wrong, option offset: prefer, and disambiguation: earlier");
+  "Offset result when option offset is wrong, option offset: prefer, and disambiguation: earlier");
 assert.sameValue(
   zdt.hour,
   1,
-  "Hour result when offset is wrong, option offset: prefer, and disambiguation: earlier");
+  "Hour result when option offset is wrong, option offset: prefer, and disambiguation: earlier");
 
 zdt = Temporal.ZonedDateTime.from(DSTStartWithWrongOffset, {
   offset,
