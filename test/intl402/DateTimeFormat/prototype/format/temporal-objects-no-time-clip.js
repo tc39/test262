@@ -56,7 +56,7 @@ for (var calendar of calendars) {
 
   // Minimum plain date-time value.
   var minDateTime = dtf.format(new Temporal.PlainDateTime(-271821, 4, 19, 0, 0, 0, 0, 0, 1, calendar));
-  assert(minDateTime.includes("-271821") || minDate.includes("271822"), "minDateTime includes year");
+  assert(minDateTime.includes("-271821") || minDateTime.includes("271822"), "minDateTime includes year");
   assert(minDateTime.includes("4"), "minDateTime includes month");
   assert(minDateTime.includes("19"), "minDateTime includes day");
 
@@ -68,7 +68,7 @@ for (var calendar of calendars) {
 
   // Minimum plain year-month value.
   var minYearMonth = dtf.format(new Temporal.PlainYearMonth(-271821, 4, calendar));
-  assert(minYearMonth.includes("-271821") || minDate.includes("271822"), "minYearMonth includes year");
+  assert(minYearMonth.includes("-271821") || minYearMonth.includes("271822"), "minYearMonth includes year");
   assert(minYearMonth.includes("4"), "minYearMonth includes month");
 
   // Maximum plain year-month value.
