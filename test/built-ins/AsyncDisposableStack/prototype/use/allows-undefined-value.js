@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-asyncdisposablestack.prototype.use
-description: Throws if the argument is not an object and is neither null nor undefined.
+description: Does not throw when argument is 'undefined'
 info: |
   AsyncDisposableStack.prototype.use ( value )
 
@@ -18,7 +18,6 @@ info: |
   1. If method is not present then,
     a. If V is either null or undefined and hint is sync-dispose, then
       i. Return unused
-    b. Let resource be ? CreateDisposableResource(V, hint).
     ...
   ...
 
@@ -26,23 +25,4 @@ features: [explicit-resource-management]
 ---*/
 
 var stack = new AsyncDisposableStack();
-assert.throws(TypeError, function() {
-  stack.use(true);
-}, 'true');
-
-assert.throws(TypeError, function() {
-  stack.use(false);
-}, 'false');
-
-assert.throws(TypeError, function() {
-  stack.use(1);
-}, 'number');
-
-assert.throws(TypeError, function() {
-  stack.use('object');
-}, 'string');
-
-var s = Symbol();
-assert.throws(TypeError, function() {
-  stack.use(s);
-}, 'symbol');
+stack.use(undefined);

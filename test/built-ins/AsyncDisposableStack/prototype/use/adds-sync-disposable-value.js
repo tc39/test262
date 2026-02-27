@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-asyncdisposablestack.prototype.use
-description: Throws if the argument is not an object and is neither null nor undefined.
+description: Adds a synchronously disposable resource to the stack
 info: |
   AsyncDisposableStack.prototype.use ( value )
 
@@ -19,30 +19,25 @@ info: |
     a. If V is either null or undefined and hint is sync-dispose, then
       i. Return unused
     b. Let resource be ? CreateDisposableResource(V, hint).
+  2. Else,
     ...
-  ...
+  3. Append resource to disposeCapability.[[DisposableResourceStack]].
+  4. Return unused.
 
+flags: [async]
+includes: [asyncHelpers.js]
 features: [explicit-resource-management]
 ---*/
 
-var stack = new AsyncDisposableStack();
-assert.throws(TypeError, function() {
-  stack.use(true);
-}, 'true');
-
-assert.throws(TypeError, function() {
-  stack.use(false);
-}, 'false');
-
-assert.throws(TypeError, function() {
-  stack.use(1);
-}, 'number');
-
-assert.throws(TypeError, function() {
-  stack.use('object');
-}, 'string');
-
-var s = Symbol();
-assert.throws(TypeError, function() {
-  stack.use(s);
-}, 'symbol');
+asyncTest(async function () {
+  var stack = new AsyncDisposableStack();
+  var resource = {
+      disposed: false,
+      [Symbol.dispose]() {
+          this.disposed = true;
+      }
+  };
+  stack.use(resource);
+  await stack.disposeAsync();
+  assert.sameValue(resource.disposed, true, 'Expected resource to have been disposed');
+});
