@@ -1,0 +1,28 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/accessor/with-init/public/instance/
+name: public accessor with initializer decorator behavior in class expression
+features: [class, decorators, class-fields-public]
+esid: prod-FieldDefinition
+---*/
+
+/*{ decorators }*/
+
+var C = class {
+  /*{ application }*/
+  accessor element = /*{ initializer }*/;
+
+  getElement() {
+    return this.element;
+  }
+
+  setElement(value) {
+    this.element = value;
+  }
+}
+
+var classOrInstance = new C();
+
+/*{ assertions }*/

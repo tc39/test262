@@ -1,0 +1,29 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/getter/public/instance/
+name: public getter decorator behavior in class declaration
+features: [class, decorators]
+esid: prod-MethodDefinition
+---*/
+
+/*{ decorators }*/
+
+class C {
+  internalValue = 123;
+
+  /*{ application }*/
+  get element() {
+    return this.internalValue;
+  }
+
+  getElement() {
+    return this.element;
+  }
+}
+
+var classOrInstance = new C();
+
+/*{ assertions }*/
+

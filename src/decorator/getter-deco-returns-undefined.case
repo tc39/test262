@@ -1,0 +1,26 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Decorator undefined return defaults to previous value
+template: getters/standard/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec1(value, context) {
+  return function() {
+    assert.sameValue(value.call(this), 123);
+
+    return 456;
+  };
+}
+
+function dec2() {}
+
+//- application
+@dec2 @dec1
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), 456);

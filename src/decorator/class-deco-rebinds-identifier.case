@@ -1,0 +1,32 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoclassdefinition
+desc: Class decorator return value is rebound before static fields are run
+template: class/standard/cls-decl.template
+features: [decorators]
+---*/
+
+//- decorators
+var originalClass;
+var subClass;
+
+function dec(C, context) {
+  originalClass = C;
+  subClass = class D extends C {}
+
+  return subClass;
+}
+
+//- application
+@dec
+
+//- elements
+static foo = assert(C === subClass, 'class identifier was rebound');
+
+//- assertions
+var c = new C();
+
+assert.sameValue(C, subClass);
+assert(c instanceof originalClass, 'new class is subclass of old class');
