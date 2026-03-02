@@ -41,6 +41,8 @@ const nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1 });
 assert.sameValue(nf2.format('1'), '1.0');
 assert.sameValue(nf2.format('1.00'), '1.00');
 assert.sameValue(nf2.format('1.000000'), '1.000');
+assert.sameValue(nf2.format('0.999'), '0.999');
+assert.sameValue(nf2.format('0.9999'), '1.000');
 
 const nf3 = new Intl.NumberFormat('en-US', {
   minimumSignificantDigits: 2,
@@ -54,6 +56,9 @@ assert.sameValue(nf3.format('0.00'), '0.00');
 assert.sameValue(nf3.format('.00'), '0.00');
 assert.sameValue(nf3.format('1.000000'), '1.000');
 assert.sameValue(nf3.format('1.99999'), '2.000');
+assert.sameValue(nf3.format('1.2'), '1.2');
+assert.sameValue(nf3.format('0.12'), '0.12');
+assert.sameValue(nf3.format('0.012'), '0.012');
 
 const nf4 = new NumberFormat('en-US', {
   minimumSignificantDigits: 2,
