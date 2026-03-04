@@ -9,6 +9,7 @@ includes: [temporalHelpers.js]
 ---*/
 
 const tests = [
+  ["1976-05-02[u-ca=iso8601]", "without time or time zone"],
   ["1976-05-02T15:23[u-ca=iso8601]", "without time zone"],
   ["1976-05-02T15:23[UTC][u-ca=iso8601]", "with time zone"],
   ["1976-05-02T15:23[!u-ca=iso8601]", "with ! and no time zone"],
