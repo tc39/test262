@@ -3,9 +3,9 @@
 /*---
 esid: sec-string.prototype.lastindexof
 description: >
-    If this value is a Symbol, String.prototype.lastindexOf must throw TypeError.
+    If this value is a Symbol, String.prototype.lastIndexOf must throw TypeError.
 info: |
-    String.prototype.lastindexOf ( _searchString_ [ , _position_ ] )
+    String.prototype.lastIndexOf ( _searchString_ [ , _position_ ] )
 
     1. Let _O_ be ? RequireObjectCoercible(*this* value).
     2. Let _S_ be ? ToString(_O_).
@@ -17,4 +17,4 @@ features: [Symbol]
 ---*/
 assert.throws(TypeError, function () {
     String.prototype.lastIndexOf.call(Symbol(), "abc");
-}, "If this value is a Symbol, String.prototype.lastindexOf must throw TypeError.")
+}, "If this value is a Symbol, String.prototype.lastIndexOf must throw TypeError.")
