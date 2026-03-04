@@ -11,11 +11,12 @@ info: |
     7. Let _iteratorRecord_ be ? GetIterator(_iterable_, ~sync~).
 
     GetIterator (_obj_,_kind_)
-
+    
+    1. If _kind_ is ~async~, then
     2. Else,
         a. Let _method_ be ? GetMethod(_obj_, %Symbol.iterator%).
     3. If _method_ is *undefined*, throw a *TypeError* exception.
-features: [Set]
+features: [Set, Symbol.iterator]
 ---*/
 assert.sameValue(new Set().size, 0, "The value of `new Set().size` is `0`");
 assert.sameValue(new Set(undefined).size, 0, "The value of `new Set(undefined).size` is `0`");
