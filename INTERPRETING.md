@@ -45,6 +45,27 @@ properties of the global scope prior to test execution.
   tests (via the `async` flag, described below).
 - **`$262`** An ordinary object with the following properties:
   - **`AbstractModuleSource`** - a reference to the `%AbstractModuleSource%` constructor which does not appear as a property of the global object.
+  - **`createModuleSource`** - a function which accepts two arguments and
+    returns a new
+    [ModuleSource](https://tc39.es/proposal-source-phase-imports/#sec-module-source-objects)
+    object with a valid `[[ModuleSourceRecord]]` internal slot:
+
+        $262.createModuleSource(sourceText, id)
+
+    - `sourceText` -- a string of ECMAScript module source text.
+    - `id` -- a string used as the module's registry key. Two calls with
+      the same `id` produce ModuleSource objects that share the same
+      underlying Module Record identity; two calls with different `id`
+      values produce distinct Module Records. The host must resolve any
+      module specifiers in `sourceText` against this `id`. The `id`
+      becomes the `import.meta.moduleId` for that module (see
+      `importMetaHook`).
+
+    The returned object has `%ModuleSource.prototype%` as its prototype
+    (which inherits from `%AbstractModuleSource.prototype%`).
+
+    **Tests using this function are guarded with the
+    `source-phase-imports-module-source` feature flag.**
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/#sec-code-realms),
     defines this API on the new realm's global object, and returns the `$262`
@@ -70,6 +91,26 @@ properties of the global scope prior to test execution.
 
   - **`gc`** - a function that wraps the host's garbage collection invocation mechanism, if such a capability exists. Must throw an exception if no capability exists. This is necessary for testing the semantics of any feature that relies on garbage collection, e.g. the `WeakRef` API.
   - **`global`** - a reference to the global object on which `$262` was initially defined
+  - **`importMetaHook`** - the host's implementation of
+    [HostGetImportMetaProperties](https://tc39.github.io/ecma262/#sec-hostgetimportmetaproperties)
+    must set the following properties on every `import.meta` object:
+
+    - `instanceId` -- a non-negative integer, starting at `0` and
+      incrementing by `1` for each call to the hook. The counter resets
+      for each new test.
+    - `moduleId` -- a string. The host's registry key for the module.
+      For modules created via `$262.createModuleSource(sourceText, id)`,
+      this must be the `id` that was passed. For file-based modules, the
+      value is implementation-defined. In all cases, two modules that
+      share the same Module Record must have the same `moduleId`, and
+      two modules backed by different Module Records must have different
+      `moduleId` values.
+
+    This contract allows tests to verify module identity without depending
+    on host-specific URL schemes.
+
+    **Tests relying on this hook are guarded with the
+    `esm-phase-imports` feature flag.**
   - **`IsHTMLDDA`** - (present only in implementations that can provide it) an
     object that:
 
@@ -100,11 +141,24 @@ properties of the global scope prior to test execution.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
       - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
+      - **`receiveObject`** - a function that takes a function and calls
+        the function when it has received an object from the parent via
+        `postObject`, passing the object as the sole argument. The object
+        is a structured-clone copy of the value passed to `postObject`.
+        This function may return before an object is received. No code
+        should follow the call to this function.
     - **`broadcast`** - a function that takes a SharedArrayBuffer and an
         Int32 or BigInt and broadcasts the two values to all concurrent
         agents. The function blocks until all agents have retrieved the
         message. Note, this assumes that all agents that were started are
         still running.
+    - **`postObject`** - a function that accepts a single value and sends
+        a structured-clone copy of it to all concurrent agents that have
+        registered a `receiveObject` callback. The value must be
+        serializable via the
+        [StructuredSerializeWithTransfer](https://html.spec.whatwg.org/multipage/structured-data.html#structuredserializewithtransfer)
+        abstract operation (or host equivalent). The function blocks
+        until all agents have retrieved the object.
     - **`getReport`** - a function that reads an incoming string from any agent,
       and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and
