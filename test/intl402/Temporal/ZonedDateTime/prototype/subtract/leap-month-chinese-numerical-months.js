@@ -11,9 +11,8 @@ description: >
 features: [Temporal]
 ---*/
 
-// 5000 is a leap year, and month 6 is the leap month Adar I, inserted between
-// month 5 and 6 of a common year.
-const instance = Temporal.ZonedDateTime.from({ calendar: "hebrew", year: 5000, month: 6, day: 1, timeZone: "UTC" });
+// 2012 is a leap year, and month 5 is the leap month 闰四月, inserted after month 4 in 2012.
+const instance = Temporal.ZonedDateTime.from({ calendar: "chinese", year: 2012, month: 5, day: 1, timeZone: "UTC"});
 
 assert.throws(
   RangeError,
@@ -27,6 +26,3 @@ assert.throws(
   () => instance.subtract(oneYear, { overflow: "reject" }),
   "Subtracting a year to a numerical (leap) month."
 );
-
-
-
