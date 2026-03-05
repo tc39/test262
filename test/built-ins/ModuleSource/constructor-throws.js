@@ -11,7 +11,7 @@ info: |
 
   The ModuleSource constructor is not intended to be called directly.
   It always throws a TypeError.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
 ---*/
 

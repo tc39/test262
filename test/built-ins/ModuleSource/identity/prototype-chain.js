@@ -7,7 +7,7 @@ description: >
 info: |
   A ModuleSource object has %ModuleSource.prototype% as its [[Prototype]],
   which in turn has %AbstractModuleSource.prototype% as its [[Prototype]].
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
 ---*/
 

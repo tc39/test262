@@ -7,7 +7,7 @@ description: >
 info: |
   When the options argument is present but has no `with` property, or `with` is
   undefined, the import should proceed normally without error.
-features: [source-phase-imports, source-phase-imports-module-source, import-attributes]
+features: [source-phase-imports, esm-phase-imports, import-attributes]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

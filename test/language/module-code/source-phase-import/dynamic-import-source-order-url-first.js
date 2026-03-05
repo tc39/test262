@@ -23,7 +23,7 @@ info: |
   same id = same Module Record, so the created ModuleSource's
   [[ModuleSourceRecord]] equals the file module's [[SourceRecord]]. The
   source import must therefore unify with the already-loaded file module.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

@@ -9,7 +9,7 @@ info: |
   When a ModuleSource is created from source text that contains a syntax error,
   dynamically importing it must reject with a SyntaxError. The parse error is
   surfaced at import time.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

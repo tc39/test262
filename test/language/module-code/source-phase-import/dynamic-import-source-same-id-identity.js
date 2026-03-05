@@ -21,7 +21,7 @@ info: |
   produce ModuleSource objects that share the same underlying Module Record
   identity (and thus the same [[ModuleSource]] object). Importing either
   must yield the same Module Record and therefore the same namespace.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

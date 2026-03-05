@@ -17,7 +17,7 @@ info: |
   against the constructor's .prototype from the realm where instanceof is
   evaluated, so a cross-realm ModuleSource is not an instanceof the current
   realm's ModuleSource or AbstractModuleSource constructors.
-features: [source-phase-imports, source-phase-imports-module-source, cross-realm]
+features: [source-phase-imports, esm-phase-imports, cross-realm]
 flags: [module]
 ---*/
 

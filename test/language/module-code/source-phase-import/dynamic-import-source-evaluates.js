@@ -10,7 +10,7 @@ info: |
   evaluated and its side effects become observable. This test runs as a script
   (not a module) to verify that import() of a ModuleSource works in script
   context. It uses a fixture to discover the host's base id.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [async]
 includes: [asyncHelpers.js]
 ---*/

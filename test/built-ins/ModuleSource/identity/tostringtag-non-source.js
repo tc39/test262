@@ -13,7 +13,7 @@ info: |
   3. Let module be GetModuleSourceRecord(O).
   4. If module is ~not-a-source~, return undefined.
   ...
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
 ---*/
 

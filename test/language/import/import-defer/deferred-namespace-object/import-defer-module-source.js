@@ -19,7 +19,7 @@ info: |
   Accessing a property on the deferred namespace triggers evaluation.
   The deferred namespace is distinct from the eager namespace.
   Repeated import.defer() of the same ModuleSource returns the same object.
-features: [import-defer, source-phase-imports, source-phase-imports-module-source]
+features: [import-defer, source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

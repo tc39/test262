@@ -65,7 +65,7 @@ properties of the global scope prior to test execution.
     (which inherits from `%AbstractModuleSource.prototype%`).
 
     **Tests using this function are guarded with the
-    `source-phase-imports-module-source` feature flag.**
+    `esm-phase-imports` feature flag.**
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/#sec-code-realms),
     defines this API on the new realm's global object, and returns the `$262`
@@ -95,9 +95,6 @@ properties of the global scope prior to test execution.
     [HostGetImportMetaProperties](https://tc39.github.io/ecma262/#sec-hostgetimportmetaproperties)
     must set the following properties on every `import.meta` object:
 
-    - `instanceId` -- a non-negative integer, starting at `0` and
-      incrementing by `1` for each call to the hook. The counter resets
-      for each new test.
     - `moduleId` -- a string. The host's registry key for the module.
       For modules created via `$262.createModuleSource(sourceText, id)`,
       this must be the `id` that was passed. For file-based modules, the

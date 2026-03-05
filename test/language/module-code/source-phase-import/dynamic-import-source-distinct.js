@@ -8,7 +8,7 @@ info: |
   Two ModuleSource objects created with different ids have different
   host-defined keys and therefore map to different Module Records. Different
   Module Records produce different module namespace objects.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

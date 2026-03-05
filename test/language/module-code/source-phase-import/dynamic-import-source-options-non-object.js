@@ -17,7 +17,7 @@ info: |
       i. Perform ! Call(promiseCapability.[[Reject]], undefined,
          a newly created TypeError object).
       ii. Return promiseCapability.[[Promise]].
-features: [source-phase-imports, source-phase-imports-module-source, import-attributes]
+features: [source-phase-imports, esm-phase-imports, import-attributes]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

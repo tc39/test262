@@ -10,7 +10,7 @@ info: |
   Record to load and evaluate the module, returning the module namespace.
 
   Tested with both $262.createModuleSource and the import source declaration.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

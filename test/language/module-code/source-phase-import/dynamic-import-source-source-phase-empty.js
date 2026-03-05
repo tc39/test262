@@ -19,7 +19,7 @@ info: |
   A JSON module (imported via a string specifier with the "json" import
   attribute) is backed by a Synthetic Module Record whose [[ModuleSource]] is
   ~empty~, so requesting its source phase must reject with SyntaxError.
-features: [source-phase-imports, source-phase-imports-module-source, import-attributes, json-modules]
+features: [source-phase-imports, esm-phase-imports, import-attributes, json-modules]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

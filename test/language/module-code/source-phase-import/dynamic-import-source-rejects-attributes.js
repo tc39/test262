@@ -8,7 +8,7 @@ info: |
   Import attributes are not supported for source imports. When import() is
   called with a ModuleSource and a non-empty `with` attribute, it must reject
   with a TypeError.
-features: [source-phase-imports, source-phase-imports-module-source, import-attributes]
+features: [source-phase-imports, esm-phase-imports, import-attributes]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

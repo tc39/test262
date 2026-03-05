@@ -10,7 +10,7 @@ info: |
   to resolve it as a module specifier string. Since the ToString of a plain
   object is "[object Object]", which is not a valid module specifier, the
   import should reject.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

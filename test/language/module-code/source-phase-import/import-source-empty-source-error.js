@@ -19,7 +19,7 @@ info: |
 negative:
   phase: resolution
   type: SyntaxError
-features: [source-phase-imports, source-phase-imports-module-source, import-attributes, json-modules]
+features: [source-phase-imports, esm-phase-imports, import-attributes, json-modules]
 flags: [module]
 ---*/
 

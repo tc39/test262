@@ -9,7 +9,7 @@ info: |
   specifiers against the module's id and link the dependency graph before
   evaluation. This test creates a dependency module first (loading it into
   the module map), then creates a module that imports from it by id.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

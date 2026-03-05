@@ -18,7 +18,7 @@ info: |
           b. Return promiseCapability.[[Promise]].
 
   Since null is not undefined and not an Object, the import rejects with TypeError.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

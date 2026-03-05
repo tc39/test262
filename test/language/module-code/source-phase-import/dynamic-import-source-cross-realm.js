@@ -27,7 +27,7 @@ info: |
   string-based import of the same ID in the target realm must resolve to the
   same Module Record (HostLoadImportedModule condition 2: when one specifier
   is a String and ModuleSourcesEqual matches the other's source record).
-features: [source-phase-imports, source-phase-imports-module-source, cross-realm]
+features: [source-phase-imports, esm-phase-imports, cross-realm]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

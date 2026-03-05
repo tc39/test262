@@ -21,7 +21,7 @@ info: |
   which is an object brand — it works regardless of which realm created the
   object. A ModuleSource from another realm still has the slot, so the getter
   returns "ModuleSource".
-features: [source-phase-imports, source-phase-imports-module-source, cross-realm]
+features: [source-phase-imports, esm-phase-imports, cross-realm]
 flags: [module]
 ---*/
 

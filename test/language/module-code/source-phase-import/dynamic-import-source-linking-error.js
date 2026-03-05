@@ -10,7 +10,7 @@ info: |
   specifier that cannot be resolved, dynamically importing it must reject.
   The error occurs during the linking phase when the host fails to resolve the
   specifier.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

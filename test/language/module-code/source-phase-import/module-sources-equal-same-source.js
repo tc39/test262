@@ -16,7 +16,7 @@ info: |
   underlying Module Source Records share the same [[ModuleSource]] object,
   so ModuleSourcesEqual returns true. The host invariant then requires
   both calls to resolve to the same Module Record and thus the same namespace.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

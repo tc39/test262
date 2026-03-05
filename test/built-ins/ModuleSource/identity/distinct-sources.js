@@ -7,7 +7,7 @@ description: >
 info: |
   Each call to $262.createModuleSource with a different id returns a new,
   distinct ModuleSource object backed by a different Module Record.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
 ---*/
 

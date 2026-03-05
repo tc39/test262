@@ -16,7 +16,7 @@ info: |
   7. Return name.
 
   For Source Text Module Records, [[ModuleSourceKind]] is "ModuleSource".
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
 ---*/
 

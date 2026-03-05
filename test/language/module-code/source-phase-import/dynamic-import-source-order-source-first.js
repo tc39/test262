@@ -19,7 +19,7 @@ info: |
   ModuleRequest Record. The source import's Module Source Record satisfies
   ModuleSourcesEqual with the resolved module's [[SourceRecord]], so both
   must be the same Module Record.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

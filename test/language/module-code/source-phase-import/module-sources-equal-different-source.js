@@ -15,7 +15,7 @@ info: |
   Two ModuleSource objects created with different ids have different
   [[ModuleSource]] objects, so ModuleSourcesEqual returns false. This means
   they map to different Module Records and produce different namespaces.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/

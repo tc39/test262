@@ -12,9 +12,8 @@ info: |
 
   This property has the attributes { [[Enumerable]]: false, [[Configurable]]: true }.
   The initial value of the "name" property of this function is "get [Symbol.toStringTag]".
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
-includes: [propertyHelper.js]
 ---*/
 
 assert.sameValue(typeof $262.AbstractModuleSource, 'function');

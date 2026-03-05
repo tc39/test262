@@ -6,7 +6,7 @@ description: >
   %ModuleSource%.prototype.constructor is %ModuleSource%.
 info: |
   The initial value of %ModuleSource%.prototype.constructor is %ModuleSource%.
-features: [source-phase-imports, source-phase-imports-module-source]
+features: [source-phase-imports, esm-phase-imports]
 flags: [module]
 ---*/
 

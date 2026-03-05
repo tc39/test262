@@ -20,7 +20,7 @@ info: |
   import.source(crossRealmSource) succeeds and resolves with the same
   [[ModuleSource]] object from the Module Source Record, since
   ModuleSourcesEqual checks [[ModuleSource]] object identity.
-features: [source-phase-imports, source-phase-imports-module-source, cross-realm]
+features: [source-phase-imports, esm-phase-imports, cross-realm]
 flags: [module, async]
 includes: [asyncHelpers.js]
 ---*/
