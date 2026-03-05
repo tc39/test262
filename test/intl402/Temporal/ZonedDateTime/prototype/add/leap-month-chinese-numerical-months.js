@@ -12,7 +12,7 @@ features: [Temporal]
 ---*/
 
 // 2012 is a leap year, and month 5 is the leap month 闰四月, inserted after month 4 in 2012.
-const instance = Temporal.ZonedDateTime.from({ calendar: "chinese", year: 2012, month: 5, day: 1, timeZone: "UTC"});
+const instance = Temporal.ZonedDateTime.from({ calendar: "chinese", year: 2012, month: 5, day: 1, timeZone: "UTC" });
 
 assert.throws(
   RangeError,

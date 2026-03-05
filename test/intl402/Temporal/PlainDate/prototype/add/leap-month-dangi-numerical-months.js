@@ -12,7 +12,7 @@ features: [Temporal]
 ---*/
 
 // 2012 is a leap year, and month 4 is the leap month 윤3월, inserted after month 3 in 2012.
-const instance = Temporal.PlainDate.from({ calendar: "dangi", year: 2012, month: 4, day: 1, timeZone: "UTC" });
+const instance = Temporal.PlainDate.from({ calendar: "dangi", year: 2012, month: 4, day: 1 });
 
 assert.throws(
   RangeError,
