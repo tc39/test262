@@ -141,24 +141,11 @@ properties of the global scope prior to test execution.
       - **`leaving`** - a function that signals that the agent is done and
         may be terminated (if possible).
       - **`monotonicNow`** - a function that returns a value that conforms to [`DOMHighResTimeStamp`][] and is produced in such a way that its semantics conform to **[Monotonic Clock][]**.
-      - **`receiveObject`** - a function that takes a function and calls
-        the function when it has received an object from the parent via
-        `postObject`, passing the object as the sole argument. The object
-        is a structured-clone copy of the value passed to `postObject`.
-        This function may return before an object is received. No code
-        should follow the call to this function.
     - **`broadcast`** - a function that takes a SharedArrayBuffer and an
         Int32 or BigInt and broadcasts the two values to all concurrent
         agents. The function blocks until all agents have retrieved the
         message. Note, this assumes that all agents that were started are
         still running.
-    - **`postObject`** - a function that accepts a single value and sends
-        a structured-clone copy of it to all concurrent agents that have
-        registered a `receiveObject` callback. The value must be
-        serializable via the
-        [StructuredSerializeWithTransfer](https://html.spec.whatwg.org/multipage/structured-data.html#structuredserializewithtransfer)
-        abstract operation (or host equivalent). The function blocks
-        until all agents have retrieved the object.
     - **`getReport`** - a function that reads an incoming string from any agent,
       and returns it if it exists, or returns `null` otherwise.
     - **`sleep`** - a function that takes a millisecond argument and
