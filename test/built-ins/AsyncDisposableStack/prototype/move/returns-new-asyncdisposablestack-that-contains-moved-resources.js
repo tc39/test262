@@ -37,5 +37,4 @@ asyncTest(async function () {
 
   assert.deepEqual(wasDisposed, []);
   assert.deepEqual(isDisposed, [2, 1]);
-
 });
