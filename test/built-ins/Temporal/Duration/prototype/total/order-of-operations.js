@@ -32,6 +32,20 @@ instance.total(createOptionsObserver({ unit: "nanoseconds" }));
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// basic order of operations, with relativeTo a Temporal object
+const pd = new Temporal.PlainDate(2026, 3, 6);
+instance.total(createOptionsObserver({ unit: "nanoseconds", relativeTo: pd }));
+assert.compareArray(actual, expected,
+  "relativeTo PlainDate should not read property bag fields");
+actual.splice(0); // clear
+
+const zdt = new Temporal.ZonedDateTime(1772751600000000000n, "UTC");
+instance.total(createOptionsObserver({ unit: "nanoseconds", relativeTo: zdt }));
+assert.compareArray(actual, expected,
+  "relativeTo ZonedDateTime should not read property bag fields");
+actual.splice(0); // clear
+
+
 const expectedOpsForPlainRelativeTo = [
   // ToRelativeTemporalObject
   "get options.relativeTo",
