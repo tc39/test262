@@ -3,7 +3,9 @@
 
 /*---
 esid: sec-temporal.duration.prototype.round
-description: Properties on objects passed to round() are accessed in the correct order
+description: >
+  Properties on objects passed to round() are accessed in the correct order
+  when relativeTo is a property bag.
 includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
@@ -42,6 +44,21 @@ instance.round(createOptionsObserver({ smallestUnit: "microseconds" }));
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// basic order of operations, with relativeTo a Temporal.PlainDate object
+const pd = new Temporal.PlainDate(2026, 3, 6);
+instance.round(createOptionsObserver({ relativeTo: pd }));
+assert.compareArray(actual, expected,
+  "relativeTo PlainDate should not read property bag fields");
+actual.splice(0); // clear
+
+// basic order of operations, with relativeTo a Temporal.ZonedDateTime object
+const zdt = new Temporal.ZonedDateTime(1772751600000000000n, "UTC");
+instance.round(createOptionsObserver({ relativeTo: zdt }));
+assert.compareArray(actual, expected,
+  "relativeTo ZonedDateTime should not read property bag fields");
+actual.splice(0); // clear
+
+// basic order of operations, with relativeTo a plain property bag
 const expectedOpsForPlainRelativeTo = [
   "get options.largestUnit",
   "get options.largestUnit.toString",
