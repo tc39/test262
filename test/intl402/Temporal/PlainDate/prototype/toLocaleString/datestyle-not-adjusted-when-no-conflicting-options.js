@@ -13,7 +13,7 @@ locale: [ja]
 const date = new Date(0);
 const plainDate = new Temporal.PlainDate(1970, 1, 1);
 
-const options = { dateStyle: "full" };
+const options = { dateStyle: "full", timeZone: "UTC" };
 
 assert.sameValue(
   date.toLocaleString("ja", options),

@@ -13,9 +13,7 @@ locale: [ja]
 const date = new Date(0);
 const zonedDateTime = new Temporal.ZonedDateTime(0n, "UTC");
 
-const options = { dateStyle: "full" };
-
 assert.sameValue(
-  date.toLocaleString("ja", options),
-  zonedDateTime.toLocaleString("ja", options)
+  date.toLocaleString("ja", { dateStyle: "full", timeZone: "UTC" }),
+  zonedDateTime.toLocaleString("ja", { dateStyle: "full" })
 );
