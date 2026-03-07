@@ -46,6 +46,9 @@ for (const calendar of calendars){
       const pmd = Temporal.PlainMonthDay.from({calendar, year, monthCode, day});
       const pmdYear = Number(pmd.toString().split("-")[0]);
       assert.sameValue(pmdYear, referenceYear, `reference year for ${year} ${monthCode} ${day} is ${pmdYear}, should be ${referenceYear}`);
+      const pmdFromPd = pd.toPlainMonthDay();
+      const pmdFromPdYear = Number(pmdFromPd.toString().split("-")[0]);
+      assert.sameValue(pmdFromPdYear, referenceYear, `reference year for ${year} ${monthCode} ${day} is ${pmdYear}, should be ${referenceYear}`);
     }
   }
 }
