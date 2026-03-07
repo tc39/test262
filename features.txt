@@ -43,6 +43,10 @@ decorators
 # https://github.com/tc39/proposal-duplicate-named-capturing-groups
 regexp-duplicate-named-groups
 
+# RegExp Buffer Boundaries
+# https://github.com/tc39/proposal-regexp-buffer-boundaries
+regexp-buffer-boundaries
+
 # https://tc39.es/proposal-array-from-async/
 Array.fromAsync
 
