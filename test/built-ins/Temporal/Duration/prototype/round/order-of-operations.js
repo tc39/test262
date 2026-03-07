@@ -44,8 +44,19 @@ instance.round(createOptionsObserver({ smallestUnit: "microseconds" }));
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// Check fast path for temporal objects.
+function checkTemporalObject(object) {
+  ["year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
+    Object.defineProperty(object, property, {
+      get() {
+        throw new Test262Error(`should not get ${property}`);
+      }});
+  });
+}
+
 // basic order of operations, with relativeTo a Temporal.PlainDate object
 const pd = new Temporal.PlainDate(2026, 3, 6);
+checkTemporalObject(pd);
 instance.round(createOptionsObserver({ relativeTo: pd }));
 assert.compareArray(actual, expected,
   "relativeTo PlainDate should not read property bag fields");
@@ -53,6 +64,7 @@ actual.splice(0); // clear
 
 // basic order of operations, with relativeTo a Temporal.ZonedDateTime object
 const zdt = new Temporal.ZonedDateTime(1772751600000000000n, "UTC");
+checkTemporalObject(zdt);
 instance.round(createOptionsObserver({ relativeTo: zdt }));
 assert.compareArray(actual, expected,
   "relativeTo ZonedDateTime should not read property bag fields");
