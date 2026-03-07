@@ -46,10 +46,6 @@ regexp-duplicate-named-groups
 # https://tc39.es/proposal-array-from-async/
 Array.fromAsync
 
-# JSON.parse with source
-# https://github.com/tc39/proposal-json-parse-with-source
-json-parse-with-source
-
 # Explicit Resource Management
 # https://github.com/tc39/proposal-explicit-resource-management
 explicit-resource-management
@@ -68,17 +64,9 @@ Atomics.pause
 # https://tc39.es/proposal-defer-import-eval
 import-defer
 
-# Iterator Sequencing
-# https://github.com/tc39/proposal-iterator-sequencing
-iterator-sequencing
-
 # Time Zone Canonicalization
 # https://github.com/tc39/proposal-canonical-tz
 canonical-tz
-
-# Upsert
-# https://github.com/tc39/proposal-upsert
-upsert
 
 # Immutable Array Buffer
 # https://github.com/tc39/proposal-immutable-arraybuffer
@@ -169,6 +157,7 @@ hashbang
 import-attributes
 import.meta
 iterator-helpers
+iterator-sequencing
 Int8Array
 Int16Array
 Int32Array
@@ -188,6 +177,7 @@ Intl.NumberFormat-unified
 Intl.RelativeTimeFormat
 Intl.Segmenter
 json-modules
+json-parse-with-source
 json-superset
 let
 logical-assignment-operators
@@ -268,6 +258,7 @@ uint8array-base64
 Uint16Array
 Uint32Array
 Uint8ClampedArray
+upsert
 WeakMap
 WeakRef
 WeakSet
