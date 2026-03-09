@@ -11,7 +11,7 @@ const props = ["relativeTo", "roundingMode", "roundingIncrement", "largestUnit"]
 for (const prop of props) {
   Object.defineProperty(Object.prototype, prop, {
     get() {
-      $ERROR(`Object.prototype.${prop} was looked up`);
+      throw new Test262Error(`Object.prototype.${prop} was looked up`);
     },
     configurable: true,
   });
