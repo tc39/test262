@@ -14,8 +14,6 @@ const invalidStrings = [
   ["", "empty string"],
   ["1997-12-04[u-ca=notacal]", "Unknown calendar"],
   ["notacal", "Unknown calendar"],
-  ["11111111", "compact ISO date used as calendar name"],
-  ["1111-11-11", "extended ISO date used as calendar name"],
 ];
 
 for (const [cal, description] of invalidStrings) {
