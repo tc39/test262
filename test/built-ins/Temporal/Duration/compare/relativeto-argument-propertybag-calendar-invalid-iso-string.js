@@ -13,6 +13,8 @@ const instance_2 = new Temporal.Duration(2);
 const invalidStrings = [
   ["", "empty string"],
   ["notacal", "Unknown calendar"],
+  ["11111111", "compact ISO date used as calendar name"],
+  ["1111-11-11", "extended ISO date used as calendar name"],
 ];
 
 for (const [cal, description] of invalidStrings) {
