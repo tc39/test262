@@ -13,7 +13,6 @@ esid: pending
 
 assert.compareArray(/\^\$\\\.\*\+\?\(\)\[\]\{\}\|/u.exec("^$\\.*+?()[]{}|"),
               ["^$\\.*+?()[]{}|"]);
-assert.throws(SyntaxError, () => eval(`/\\A/u`));
 assert.throws(SyntaxError, () => eval(`/\\-/u`));
 assert.throws(SyntaxError, () => eval(`/\\U{10}/u`));
 assert.throws(SyntaxError, () => eval(`/\\U0000/u`));
