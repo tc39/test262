@@ -82,6 +82,7 @@ const expectedOpsForPrimitiveOptions = [
   "call fields.second.valueOf",
 ];
 
+// Non-integer values to ensure valueOf is called
 const fields2 = TemporalHelpers.propertyBagObserver(actual, {
   hour: 1.7,
   minute: 1.7,

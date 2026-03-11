@@ -72,6 +72,7 @@ const expectedOpsForPrimitiveOptions = [
   "call fields.year.valueOf",
 ];
 
+// Non-integer values to ensure valueOf is called
 const fields2 = TemporalHelpers.propertyBagObserver(actual, {
   year: 1.7,
   month: 1.7,
