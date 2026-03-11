@@ -45,3 +45,14 @@ instance.until(TemporalHelpers.toPrimitiveObserver(actual, "2001-09-09T01:46:40Z
 assert.compareArray(actual, expected, "order of operations with identical instants");
 
 actual.splice(0); // clear
+
+const expectedOpsForPrimitiveOptions = [
+  "get other.toString",
+  "call other.toString",
+];
+
+assert.throws(TypeError, () => instance.until(TemporalHelpers.toPrimitiveObserver(actual, "1970-01-01T00:00Z", "other"), null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "other instant is converted before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear
