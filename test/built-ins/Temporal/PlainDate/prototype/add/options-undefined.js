@@ -17,3 +17,7 @@ assert.sameValue(explicit.day, 29, "default overflow is constrain");
 const implicit = date.add(duration);
 assert.sameValue(implicit.month, 2, "default overflow is constrain");
 assert.sameValue(implicit.day, 29, "default overflow is constrain");
+
+const lambda = date.add(duration, () => {});
+assert.sameValue(lambda.month, 2, "default overflow is constrain");
+assert.sameValue(lambda.day, 29, "default overflow is constrain");
