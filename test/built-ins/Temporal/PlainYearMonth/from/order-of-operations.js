@@ -55,3 +55,33 @@ actual.splice(0);
 
 Temporal.PlainYearMonth.from("2000-05", options);
 assert.compareArray(actual, expectedOptionsReading, "order of operations when parsing a string");
+
+actual.splice(0);
+
+const expectedOpsForPrimitiveOptions = [
+  // GetTemporalCalendarSlotValueWithISODefault
+  "get fields.calendar",
+  // PrepareTemporalFields
+  "get fields.month",
+  "get fields.month.valueOf",
+  "call fields.month.valueOf",
+  "get fields.monthCode",
+  "get fields.monthCode.toString",
+  "call fields.monthCode.toString",
+  "get fields.year",
+  "get fields.year.valueOf",
+  "call fields.year.valueOf",
+];
+
+const fields2 = TemporalHelpers.propertyBagObserver(actual, {
+  year: 1.7,
+  month: 1.7,
+  monthCode: "M01",
+  calendar: "iso8601",
+}, "fields", ["calendar"]);
+
+assert.throws(TypeError, () => Temporal.PlainYearMonth.from(fields2, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "item fields are read before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear
