@@ -45,21 +45,25 @@ info: |
     a. Let method be ? GetMethod(V, @@dispose).
   3. Return method.
 
-includes: [deepEqual.js]
+includes: [deepEqual.js, asyncHelpers.js]
 features: [explicit-resource-management]
+flags: [async]
 ---*/
 
-var stack = new AsyncDisposableStack();
-var order = [];
-var resource = {
-    get [Symbol.asyncDispose]() {
-        order.push('Symbol.asyncDispose');
-        return undefined;
-    },
-    get [Symbol.dispose]() {
-        order.push('Symbol.dispose');
-        return function() {};
-    },
-};
-stack.use(resource);
-assert.deepEqual(order, ['Symbol.asyncDispose', 'Symbol.dispose']);
+asyncTest(async function () {
+  var stack = new AsyncDisposableStack();
+  var order = [];
+  var resource = {
+      get [Symbol.asyncDispose]() {
+          order.push('Symbol.asyncDispose');
+          return undefined;
+      },
+      get [Symbol.dispose]() {
+          order.push('Symbol.dispose');
+          return function() {};
+      },
+  };
+  stack.use(resource);
+  await stack.disposeAsync();
+  assert.deepEqual(order, ['Symbol.asyncDispose', 'Symbol.dispose']);
+});

@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-asyncdisposablestack.prototype.use
-description: Throws if the argument has a null-valued Symbol.asyncDispose property.
+description: Throws if the argument has a null-valued Symbol.dispose property.
 info: |
   AsyncDisposableStack.prototype.use ( value )
 
@@ -54,5 +54,8 @@ features: [explicit-resource-management]
 
 var stack = new AsyncDisposableStack();
 assert.throws(TypeError, function() {
-  stack.use({ [Symbol.asyncDispose]: null });
-}, 'true');
+  stack.use({ [Symbol.dispose]: null });
+}, 'null');
+assert.throws(TypeError, function() {
+  stack.use({ [Symbol.dispose]: undefined });
+}, 'undefined');

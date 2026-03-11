@@ -22,7 +22,12 @@ info: |
   ...
 
 features: [explicit-resource-management]
+flags: [async]
+includes: [asyncHelpers.js]
 ---*/
 
-var stack = new AsyncDisposableStack();
-stack.use(null);
+asyncTest(async function () {
+  var stack = new AsyncDisposableStack();
+  stack.use(null);
+  await stack.disposeAsync();
+});
