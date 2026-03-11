@@ -17,3 +17,7 @@ assert.sameValue(explicit.nanoseconds, 1, "default smallest unit is nanoseconds 
 const implicit = later.since(earlier);
 assert.sameValue(implicit.hours, 6, "default largest unit is hours");
 assert.sameValue(implicit.nanoseconds, 1, "default smallest unit is nanoseconds and no rounding");
+
+const lambda = later.since(earlier, () => {});
+assert.sameValue(lambda.hours, 6, "default largest unit is hours");
+assert.sameValue(lambda.nanoseconds, 1, "default smallest unit is nanoseconds and no rounding");

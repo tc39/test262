@@ -15,3 +15,5 @@ const explicit = later.since(earlier, { largestUnit: undefined });
 TemporalHelpers.assertDuration(explicit, 0, 0, 0, 397, 0, 0, 0, 0, 0, 0, "default largestUnit is day");
 const implicit = later.since(earlier, {});
 TemporalHelpers.assertDuration(implicit, 0, 0, 0, 397, 0, 0, 0, 0, 0, 0, "default largestUnit is day");
+const lambda = later.since(earlier, () => {});
+TemporalHelpers.assertDuration(lambda, 0, 0, 0, 397, 0, 0, 0, 0, 0, 0, "default largestUnit is day");
