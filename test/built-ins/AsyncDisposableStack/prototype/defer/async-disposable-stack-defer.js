@@ -2,8 +2,16 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-asyncdisposablestack.prototype.defer
 description: |
   Test developer exposed AsyncDisposableStack protype method defer().
+info: |
+  AsyncDisposableStack.prototype.defer ( )
+
+  1. Let asyncDisposableStack be the this value.
+  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[AsyncDisposableState]]).
+  3. ...
+
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [explicit-resource-management]
