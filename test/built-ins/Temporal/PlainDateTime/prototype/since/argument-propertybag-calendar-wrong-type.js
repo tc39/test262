@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindatetime.prototype.since
 description: >
   Appropriate error thrown when a calendar property from a property bag cannot
-  be converted to a calendar object or string
+  be converted to a calendar ID
 features: [BigInt, Symbol, Temporal]
 ---*/
 

@@ -5,7 +5,7 @@
 esid: sec-temporal.plainyearmonth.prototype.since
 description: >
   Appropriate error thrown when a calendar property from a property bag cannot
-  be converted to a calendar object or string
+  be converted to a calendar ID
 features: [BigInt, Symbol, Temporal]
 ---*/
 
@@ -14,7 +14,7 @@ const instance = new Temporal.PlainYearMonth(2000, 5);
 const wrongTypeTests = [
   [null, "null"],
   [true, "boolean"],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, "number"],
   [1n, "bigint"],
   [19970327, "large positive number"],
   [-19970327, "negative number"],
@@ -29,6 +29,6 @@ for (const [calendar, description] of wrongTypeTests) {
   assert.throws(
     TypeError,
     () => instance.since(arg),
-    `${description} does not convert to a valid ISO string`
+    `${description} is not a valid calendar`
   );
 }

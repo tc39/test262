@@ -50,3 +50,24 @@ jobs:
 
       - name: Test the generation tool
         run: ./tools/generation/test/run.py
+
+  web-features:
+    name: Test the web-features tooling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install dependencies for web-features tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/web-features/requirements.txt
+
+      - name: Test the web-features tooling
+        run: ./tools/web-features/test/run.py

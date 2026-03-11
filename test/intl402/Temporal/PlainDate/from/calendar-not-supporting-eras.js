@@ -5,7 +5,7 @@
 esid: sec-temporal.plaindate.from
 description: era and eraYear are ignored (for calendars not using eras)
 includes: [temporalHelpers.js]
-features: [Temporal]
+features: [Temporal, Intl.Era-monthcode]
 ---*/
 
 const result = Temporal.PlainDate.from({

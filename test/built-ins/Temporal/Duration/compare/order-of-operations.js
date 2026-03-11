@@ -85,6 +85,39 @@ Temporal.Duration.compare(
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+// Check fast path for temporal objects.
+function checkTemporalObject(object) {
+  ["year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
+    Object.defineProperty(object, property, {
+      get() {
+        throw new Test262Error(`should not get ${property}`);
+      }});
+  });
+}
+
+// basic order of operations, with relativeTo a Temporal object
+const pd = new Temporal.PlainDate(2026, 3, 6);
+checkTemporalObject(pd);
+Temporal.Duration.compare(
+  createDurationPropertyBagObserver("one", 0, 0, 0, 0, 7),
+  createDurationPropertyBagObserver("two", 0, 0, 0, 0, 6),
+  createOptionsObserver(pd)
+);
+assert.compareArray(actual, expected,
+  "relativeTo PlainDate should not read property bag fields");
+actual.splice(0); // clear
+
+const zdt = new Temporal.ZonedDateTime(1772751600000000000n, "UTC");
+checkTemporalObject(zdt);
+Temporal.Duration.compare(
+  createDurationPropertyBagObserver("one", 0, 0, 0, 0, 7),
+  createDurationPropertyBagObserver("two", 0, 0, 0, 0, 6),
+  createOptionsObserver(zdt)
+);
+assert.compareArray(actual, expected,
+  "relativeTo ZonedDateTime should not read property bag fields");
+actual.splice(0); // clear
+
 const baseExpectedOpsWithRelativeTo = expected.concat([
   // ToRelativeTemporalObject
   "get options.relativeTo.calendar",

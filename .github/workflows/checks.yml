@@ -54,6 +54,58 @@ jobs:
             printf "::error file=%s,line=1::%s\n", substr($0, 1, i-1), substr($0, i+2);
           }'
 
+  lint-web-features:
+    name: Lint web-features
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create stable copy of linting tools
+        run: |
+          cp -r tools/web-features tools/web-features-stable
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/web-features-stable/requirements.txt
+
+      - name: Validate WEB_FEATURES.yml
+        run: |
+          ./tools/web-features-stable/lint.py --manifest WEB_FEATURES-manifest-pr.json
+
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+          # The `clean` option must be unset in order to retain the first
+          # manifest file.
+          clean: false
+
+      - name: Generate manifest on base branch
+        run: |
+          ./tools/web-features-stable/lint.py --manifest WEB_FEATURES-manifest-base.json
+
+      - name: debug
+        run: ls -lah
+
+      # Checking out the original branch ensures that if the patch under review
+      # modified `check-coverage.py` itself, that modified version is used.
+      - name: Checkout original branch
+        uses: actions/checkout@v4
+        with:
+          # The `clean` option must be unset in order to retain the manifest
+          # files.
+          clean: false
+
+      - name: debug
+        run: ls -lah
+
+      - name: Verify absence of regressions in classification coverage
+        run: |
+          ./tools/web-features-stable/check-coverage.py \
+            --base WEB_FEATURES-manifest-base.json \
+            --new WEB_FEATURES-manifest-pr.json
 
   build:
     name: Build generated tests
