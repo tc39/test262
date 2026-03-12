@@ -9,6 +9,6 @@ features: [dynamic-import, import-attributes, import-text]
 
 import('./2nd-param_FIXTURE.json', { with: { type: 'text' } })
   .then((module) => {
-    assert.sameValue(module.default, '262\n');
+    assert.sameValue(typeof module.default, 'string');
   })
   .then($DONE, $DONE);

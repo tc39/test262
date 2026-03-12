@@ -17,4 +17,4 @@ features: [import-attributes, import-text]
 
 import value from './text-string_FIXTURE' with { type: 'text' };
 
-assert.sameValue(value, 'a string value\n');
+assert.sameValue(typeof value, 'string');

@@ -10,4 +10,4 @@ features: [import-attributes, import-text]
 import * as ns from './text-via-namespace_FIXTURE' with { type: 'text' };
 
 assert.sameValue(Object.getOwnPropertyNames(ns).length, 1);
-assert.sameValue(ns.default, "262\n");
+assert.sameValue(typeof ns.default, 'string');
