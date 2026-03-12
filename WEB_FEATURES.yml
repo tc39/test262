@@ -367,6 +367,14 @@ features:
       - test/annexB/built-ins/String/prototype/substr
       - test/annexB/built-ins/String/prototype/sup
 
+  - name: import-text
+    files:
+      - test/language/expressions/dynamic-import/import-attributes/2nd-param-with-type-text.js
+      - test/language/import/import-attributes/text-*
+      - "!test/language/import/import-attributes/text-*_FIXTURE*"
+    tags:
+      - import-text
+
   - name: intl-display-names
     files:
       - test/intl402/DisplayNames
@@ -518,7 +526,8 @@ features:
 
   - name: json-modules
     files:
-      - test/language/import/import-attributes
+      - test/language/import/import-attributes/json-*
+      - "!test/language/import/import-attributes/json-*_FIXTURE*"
     tags:
       - json-modules
 
