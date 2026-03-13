@@ -61,6 +61,10 @@ Atomics.pause
 # https://tc39.es/proposal-defer-import-eval
 import-defer
 
+# Import Text
+# https://github.com/tc39/proposal-import-text
+import-text
+
 # Time Zone Canonicalization
 # https://github.com/tc39/proposal-canonical-tz
 canonical-tz
