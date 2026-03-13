@@ -20,3 +20,8 @@ TemporalHelpers.assertPlainYearMonth(plainYearMonth.with({ month: 11, year: unde
   2001, 11, "M11",
   "only the properties that are present and defined in the plain object are copied"
 );
+
+TemporalHelpers.assertPlainYearMonth(plainYearMonth.with({ month: 11}),
+  2001, 11, "M11",
+  "only the properties that are present and defined in the plain object are copied"
+);

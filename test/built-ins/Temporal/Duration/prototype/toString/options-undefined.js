@@ -14,3 +14,6 @@ assert.sameValue(explicit, "P1Y2M3W4DT5H6M7.98765S", "default precision is auto,
 
 const implicit = duration.toString();
 assert.sameValue(implicit, "P1Y2M3W4DT5H6M7.98765S", "default precision is auto, and rounding is trunc");
+
+const lambda = duration.toString(() => {});
+assert.sameValue(lambda, "P1Y2M3W4DT5H6M7.98765S", "default precision is auto, and rounding is trunc");
