@@ -121,5 +121,11 @@ class TestGeneration(unittest.TestCase):
         self.assertEqual(result['returncode'], 0)
         self.compareTrees('indentation')
 
+    def test_regexp(self):
+        result = self.fixture('regexp.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('regexp')
+
+
 if __name__ == '__main__':
     unittest.main()
