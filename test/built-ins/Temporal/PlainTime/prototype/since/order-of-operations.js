@@ -68,3 +68,42 @@ const result = instance.since(other, options);
 assert.compareArray(actual, expected, "order of operations");
 
 actual.splice(0); // clear
+
+const expectedOpsForPrimitiveOptions = [
+  // ToTemporalTime
+  "get other.hour",
+  "get other.hour.valueOf",
+  "call other.hour.valueOf",
+  "get other.microsecond",
+  "get other.microsecond.valueOf",
+  "call other.microsecond.valueOf",
+  "get other.millisecond",
+  "get other.millisecond.valueOf",
+  "call other.millisecond.valueOf",
+  "get other.minute",
+  "get other.minute.valueOf",
+  "call other.minute.valueOf",
+  "get other.nanosecond",
+  "get other.nanosecond.valueOf",
+  "call other.nanosecond.valueOf",
+  "get other.second",
+  "get other.second.valueOf",
+  "call other.second.valueOf",
+];
+
+// Non-integer values to ensure valueOf is called
+const other2 = TemporalHelpers.propertyBagObserver(actual, {
+  hour: 1.7,
+  minute: 1.7,
+  second: 1.7,
+  millisecond: 1.7,
+  microsecond: 1.7,
+  nanosecond: 1.7,
+  calendar: "iso8601",
+}, "other", ["calendar"]);
+
+assert.throws(TypeError, () => instance.since(other2, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "other time fields are read before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear

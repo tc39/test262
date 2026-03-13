@@ -65,3 +65,33 @@ function createOptionsObserver({ smallestUnit = "days", largestUnit = "auto", ro
 instance.since(otherDatePropertyBag, createOptionsObserver({ largestUnit: "years" }));
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
+
+const expectedOpsForPrimitiveOptions = [
+  // ToTemporalDate
+  "get other.calendar",
+  "get other.day",
+  "get other.day.valueOf",
+  "call other.day.valueOf",
+  "get other.month",
+  "get other.month.valueOf",
+  "call other.month.valueOf",
+  "get other.monthCode",
+  "get other.monthCode.toString",
+  "call other.monthCode.toString",
+  "get other.year",
+  "get other.year.valueOf",
+  "call other.year.valueOf",
+];
+
+const otherDatePropertyBag2 = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2001,
+  month: 6,
+  monthCode: "M06",
+  day: 2,
+  calendar: "iso8601",
+}, "other", ["calendar"]);
+
+assert.throws(TypeError, () => instance.since(otherDatePropertyBag2, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "other date fields are read before TypeError is thrown for primitive options");
+actual.splice(0); // clear

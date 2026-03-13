@@ -57,3 +57,30 @@ function createOptionsObserver({ smallestUnit = "months", largestUnit = "auto", 
 
 instance.until(otherYearMonthPropertyBag, createOptionsObserver({ smallestUnit: "months", roundingIncrement: 1 }));
 assert.compareArray(actual, expected, "order of operations");
+actual.splice(0); // clear
+
+const expectedOpsForPrimitiveOptions = [
+  // ToTemporalYearMonth
+  "get other.calendar",
+  "get other.month",
+  "get other.month.valueOf",
+  "call other.month.valueOf",
+  "get other.monthCode",
+  "get other.monthCode.toString",
+  "call other.monthCode.toString",
+  "get other.year",
+  "get other.year.valueOf",
+  "call other.year.valueOf",
+];
+
+const otherYearMonthPropertyBag2 = TemporalHelpers.propertyBagObserver(actual, {
+  year: 2001,
+  month: 6,
+  monthCode: "M06",
+  calendar: "iso8601"
+}, "other", ["calendar"]);
+
+assert.throws(TypeError, () => instance.until(otherYearMonthPropertyBag2, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "other year-month fields are read before TypeError is thrown for primitive options");
+actual.splice(0); // clear
