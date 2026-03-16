@@ -27,24 +27,10 @@ const expected = [
   "get options.timeZoneName",
   "get options.timeZoneName.toString",
   "call options.timeZoneName.toString",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone[Symbol.toPrimitive]",
-  "get this.timeZone.toString",
-  "call this.timeZone.toString",
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
 ];
 const actual = [];
 
-const timeZone = TemporalHelpers.timeZoneObserver(actual, "this.timeZone");
-const calendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.ZonedDateTime(0n, timeZone, calendar);
-// clear observable operations that occurred during the constructor call
-actual.splice(0);
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 
 instance.toString(
   TemporalHelpers.propertyBagObserver(actual, {
@@ -77,16 +63,6 @@ const expectedForFractionalSecondDigits = [
   "get options.timeZoneName",
   "get options.timeZoneName.toString",
   "call options.timeZoneName.toString",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone[Symbol.toPrimitive]",
-  "get this.timeZone.toString",
-  "call this.timeZone.toString",
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
 ];
 
 instance.toString(

@@ -8,5 +8,4 @@ features: [Temporal]
 ---*/
 
 const result = Temporal.Now.plainDateTimeISO();
-assert(result.calendar instanceof Temporal.Calendar);
-assert.sameValue(result.calendar.id, "iso8601");
+assert.sameValue(result.calendarId, "iso8601", "calendar string should be iso8601");

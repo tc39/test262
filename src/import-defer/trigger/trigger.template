@@ -1,0 +1,21 @@
+// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/import/import-defer/evaluation-triggers/trigger-
+name: triggers execution
+esid: sec-module-namespace-exotic-objects
+
+flags: [module]
+features: [import-defer]
+---*/
+
+import "./setup_FIXTURE.js";
+
+import defer * as ns from "./dep_FIXTURE.js";
+
+assert.sameValue(globalThis.evaluations.length, 0, "import defer does not trigger evaluation");
+
+/*{ body }*/
+
+assert(globalThis.evaluations.length > 0, "It triggers evaluation");

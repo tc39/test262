@@ -4,7 +4,7 @@
 esid: sec-atomics.exchange
 description: >
   Test range checking of Atomics.exchange on arrays that allow atomic operations
-includes: [testAtomics.js, testBigIntTypedArray.js]
+includes: [testAtomics.js, testTypedArray.js]
 features: [ArrayBuffer, Atomics, BigInt, DataView, SharedArrayBuffer, Symbol, TypedArray]
 ---*/
 var buffer = new SharedArrayBuffer(BigInt64Array.BYTES_PER_ELEMENT * 2);
@@ -15,6 +15,6 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     assert.throws(RangeError, function() {
       Atomics.exchange(view, IdxGen(view), 10n, 0n);
-    }, '`Atomics.exchange(view, IdxGen(view), 10n, 0n)` throws RangeError');
+    });
   });
-});
+}, null, ["passthrough"]);

@@ -75,14 +75,14 @@ includes: [nans.js, testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(FA) {
-  var precision = FA === Float32Array ? "single" : "double";
-  var samples = new FA(1);
+testWithTypedArrayConstructors(function(FA, makeCtorArg) {
+  var precision = floatTypedArrayConstructorPrecision(FA);
+  var samples = new FA(makeCtorArg(1));
   var controls, idx, aNaN;
 
   for (idx = 0; idx < NaNs.length; ++idx) {
     aNaN = NaNs[idx];
-    controls = new FA([aNaN, aNaN, aNaN]);
+    controls = new FA(makeCtorArg([aNaN, aNaN, aNaN]));
 
     samples[0] = aNaN;
 
@@ -92,14 +92,14 @@ testWithTypedArrayConstructors(function(FA) {
 
       assert(
         samples[i] !== samples[i],
-        'The result of `(samples[i] !== samples[i])` is true'
+        `The result of \`(samples[i] !== samples[i])\` is true (${precision} precision)`
       );
 
       assert(
         controls[i] !== controls[i],
-        'The result of `(controls[i] !== controls[i])` is true'
+        `The result of \`(controls[i] !== controls[i])\` is true (${precision} precision)`
       );
     }
   }
-}, [Float32Array, Float64Array]);
+}, floatArrayConstructors);
 

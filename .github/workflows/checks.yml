@@ -1,0 +1,158 @@
+name: Checks
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lint:
+    name: Lint tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/lint/requirements.txt
+
+      - name: Lint all tests
+        if: github.event_name == 'push'
+        run: ./tools/lint/lint.py test/
+
+      - name: Identify new or changed tests
+        id: changed_tests
+        if: github.event_name == 'pull_request'
+        uses: tj-actions/changed-files@v45
+        with:
+          files: test/
+
+      - name: Lint new or changed tests
+        if: |
+          github.event_name == 'pull_request' &&
+            steps.changed_tests.outputs.any_changed == 'true'
+        run: |
+          echo 'New or modified test files:'
+          for file in ${{ steps.changed_tests.outputs.all_changed_files }}; do
+            echo $file
+          done | tee "$HOME/changed.txt"
+          cat "$HOME/changed.txt" | xargs ./tools/lint/lint.py 2> >(tee errors.out >&2)
+
+      - name: Create annotations in the PR
+        if: failure() && github.event_name == 'pull_request'
+        run: |
+          awk -v cwd="$(pwd)/" <errors.out '{
+            if (index($0, cwd)==1) $0=substr($0, length(cwd)+1);
+            i=index($0, ": ");
+            printf "::error file=%s,line=1::%s\n", substr($0, 1, i-1), substr($0, i+2);
+          }'
+
+  lint-web-features:
+    name: Lint web-features
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create stable copy of linting tools
+        run: |
+          cp -r tools/web-features tools/web-features-stable
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/web-features-stable/requirements.txt
+
+      - name: Validate WEB_FEATURES.yml
+        run: |
+          ./tools/web-features-stable/lint.py --manifest WEB_FEATURES-manifest-pr.json
+
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+          # The `clean` option must be unset in order to retain the first
+          # manifest file.
+          clean: false
+
+      - name: Generate manifest on base branch
+        run: |
+          ./tools/web-features-stable/lint.py --manifest WEB_FEATURES-manifest-base.json
+
+      - name: debug
+        run: ls -lah
+
+      # Checking out the original branch ensures that if the patch under review
+      # modified `check-coverage.py` itself, that modified version is used.
+      - name: Checkout original branch
+        uses: actions/checkout@v4
+        with:
+          # The `clean` option must be unset in order to retain the manifest
+          # files.
+          clean: false
+
+      - name: debug
+        run: ls -lah
+
+      - name: Verify absence of regressions in classification coverage
+        run: |
+          ./tools/web-features-stable/check-coverage.py \
+            --base WEB_FEATURES-manifest-base.json \
+            --new WEB_FEATURES-manifest-pr.json
+
+  build:
+    name: Build generated tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install dependencies for generation tool
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/generation/requirements.txt
+
+      - name: Install dependencies for regexp-generator tool
+        run: |
+          cd tools/regexp-generator
+          npm install
+
+      - name: Build tests
+        run: |
+          ./make.py clean >/dev/null
+          ./make.py
+
+      - name: Verify changes
+        uses: tj-actions/verify-changed-files@v20
+        with:
+          fail-if-changed: true
+          fail-message: |
+            New changes were found after re-generating the tests.
+            Please read the documentation on procedurally generated tests
+            https://github.com/tc39/test262/blob/HEAD/CONTRIBUTING.md#procedurally-generated-tests
+
+  self-test:
+    name: Run the harness tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install test262-harness
+        run: npm install
+
+      - name: Run tests
+        run: npm run test -- --errorForFailures -- test/harness/*.js

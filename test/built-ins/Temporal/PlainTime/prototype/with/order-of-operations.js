@@ -32,7 +32,7 @@ const expected = [
   "get fields.second",
   "get fields.second.valueOf",
   "call fields.second.valueOf",
-  // ToTemporalOverflow
+  // GetTemporalOverflowOption
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",

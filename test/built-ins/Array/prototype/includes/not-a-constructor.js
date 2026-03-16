@@ -18,7 +18,7 @@ info: |
   7. If IsConstructor(constructor) is false, throw a TypeError exception.
   ...
 includes: [isConstructor.js]
-features: [Reflect.construct, arrow-function]
+features: [Reflect.construct, arrow-function, Array.prototype.includes]
 ---*/
 
 assert.sameValue(
@@ -29,5 +29,5 @@ assert.sameValue(
 
 assert.throws(TypeError, () => {
   new Array.prototype.includes(1);
-}, '`new Array.prototype.includes(1)` throws TypeError');
+});
 

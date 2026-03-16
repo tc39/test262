@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.toSorted
+esid: sec-%typedarray%.prototype.tosorted
 description: >
   %TypedArray%.prototype.toSorted throws if the receiver is not a valid TypedArray
 info: |
@@ -41,4 +41,4 @@ testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, () => {
     sample.toSorted();
   }, `array has a detached buffer`);
-});
+}, null, ["passthrough"]);

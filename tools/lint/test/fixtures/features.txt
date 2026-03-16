@@ -1,4 +1,5 @@
-async-functions
+# Here is a full-line comment: not-a-valid-feature
+async-functions  # This is a partial-line comment
 object-spread
 generators
 BigInt

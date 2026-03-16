@@ -22,7 +22,7 @@ info: |
     Intl.DateTimeFormat objects. The list must include "gregory".
 includes: [testIntl.js]
 locale: [en]
-features: [Intl-enumeration, Intl.DisplayNames-v2]
+features: [Intl-enumeration, Intl.DisplayNames-v2, Array.prototype.includes]
 ---*/
 
 const calendars = Intl.supportedValuesOf("calendar");
@@ -35,10 +35,7 @@ for (let calendar of calendars) {
 }
 
 for (let calendar of allCalendars()) {
-  if (typeof obj.of(calendar) === "string") {
-    assert(calendars.includes(calendar),
-           `${calendar} supported but not returned by supportedValuesOf`);
-  } else {
+  if (typeof obj.of(calendar) !== "string") {
     assert(!calendars.includes(calendar),
            `${calendar} not supported but returned by supportedValuesOf`);
   }

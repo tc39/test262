@@ -47,39 +47,39 @@ info: |
     Argument Type: Number
     Result: Throw a TypeError exception.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var typedArray = new TA(makeCtorArg(1));
 
   assert.throws(TypeError, function() {
     typedArray[0] = 1;
-  }, '`typedArray[0] = 1` throws TypeError');
+  });
 
   assert.throws(TypeError, function() {
     typedArray[0] = Math.pow(2, 63);
-  }, '`typedArray[0] = Math.pow(2, 63)` throws TypeError');
+  });
 
   assert.throws(TypeError, function() {
     typedArray[0] = +0;
-  }, '`typedArray[0] = +0` throws TypeError');
+  });
 
   assert.throws(TypeError, function() {
     typedArray[0] = -0;
-  }, '`typedArray[0] = -0` throws TypeError');
+  });
 
   assert.throws(TypeError, function() {
     typedArray[0] = Infinity;
-  }, '`typedArray[0] = Infinity` throws TypeError');
+  });
 
   assert.throws(TypeError, function() {
     typedArray[0] = -Infinity;
-  }, '`typedArray[0] = -Infinity` throws TypeError');
+  });
 
   assert.throws(TypeError, function() {
     typedArray[0] = NaN;
-  }, '`typedArray[0] = NaN` throws TypeError');
+  });
 
 });

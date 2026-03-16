@@ -20,8 +20,8 @@ features: [Temporal]
 // This code path is encountered if the time zone offset is negative and its
 // absolute value in nanoseconds is greater than the nanosecond field of the
 // exact time's epoch parts
-const tz = new Temporal.TimeZone("-00:00:00.000000002");
-const datetime = new Temporal.ZonedDateTime(1001n, tz);
+const datetime = new Temporal.ZonedDateTime(1001n, "-00:02");
 
-assert.sameValue(datetime.microsecond, 0);
-assert.sameValue(datetime.nanosecond, 999);
+assert.sameValue(datetime.minute, 58);
+assert.sameValue(datetime.microsecond, 1);
+assert.sameValue(datetime.nanosecond, 1);

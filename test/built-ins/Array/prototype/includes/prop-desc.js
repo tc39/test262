@@ -9,8 +9,11 @@ info: |
   and in Annex B.2 has the attributes { [[Writable]]: true,
   [[Enumerable]]: false, [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
+features: [Array.prototype.includes]
 ---*/
 
-verifyNotEnumerable(Array.prototype, "includes");
-verifyWritable(Array.prototype, "includes");
-verifyConfigurable(Array.prototype, "includes");
+verifyProperty(Array.prototype, "includes", {
+  writable: true,
+  enumerable: false,
+  configurable: true
+});

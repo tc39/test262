@@ -14,7 +14,7 @@ var source = {
   length: 4
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var result = TA.from(source);
 
   assert.sameValue(result.length, 4);
@@ -25,12 +25,9 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 },
-[
-  Float32Array,
-  Float64Array
-]);
+floatArrayConstructors);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var result = TA.from(source);
 
   assert.sameValue(result.length, 4);
@@ -41,13 +38,4 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 },
-[
-  Int8Array,
-  Int32Array,
-  Int16Array,
-  Int8Array,
-  Uint32Array,
-  Uint16Array,
-  Uint8Array,
-  Uint8ClampedArray
-]);
+intArrayConstructors);

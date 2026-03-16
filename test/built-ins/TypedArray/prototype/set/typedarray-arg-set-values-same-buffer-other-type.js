@@ -34,6 +34,7 @@ features: [TypedArray]
 var expected = {
   Float64Array: [1.0000002464512363, 42, 1.875, 4, 5, 6, 7, 8],
   Float32Array: [0, 42, 512.0001220703125, 4, 5, 6, 7, 8],
+  Float16Array: [0, 42, 513, 4, 5, 6, 7, 8],
   Int32Array: [1109917696, 42, 0, 4, 5, 6, 7, 8],
   Int16Array: [0, 42, 0, 4, 5, 6, 7, 8],
   Int8Array: [0, 42, 0, 66, 5, 6, 7, 8],
@@ -43,10 +44,10 @@ var expected = {
   Uint8ClampedArray: [0, 42, 0, 66, 5, 6, 7, 8]
 };
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var other = TA === Float32Array ? Float64Array : Float32Array;
 
-  var sample = new TA([1, 2, 3, 4, 5, 6, 7, 8]);
+  var sample = new TA(makeCtorArg([1, 2, 3, 4, 5, 6, 7, 8]));
   var src = new other(sample.buffer, 0, 2);
 
   // Reflect changes on sample object

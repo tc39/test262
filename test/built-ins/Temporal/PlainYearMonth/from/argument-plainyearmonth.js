@@ -18,7 +18,7 @@ TemporalHelpers.assertPlainYearMonth(
   /* era = */ undefined, /* eraYear = */ undefined, /* isoDay = */ 7
 );
 
-assert.sameValue(result.calendar, orig.calendar, "Calendar is copied");
+assert.sameValue(result.calendarId, orig.calendarId, "Calendar is copied");
 
 assert.notSameValue(
   result,

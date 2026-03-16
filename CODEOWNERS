@@ -1,2 +1,3 @@
 * @tc39/test262-maintainers
+/features.txt @tc39/test262-staging @tc39/test262-maintainers
 /test/staging/ @tc39/test262-staging @tc39/test262-maintainers

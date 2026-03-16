@@ -35,11 +35,11 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 
-  if (TA === Float32Array || TA === Float64Array) {
+  if (isFloatTypedArrayConstructor(TA)) {
     assert.sameValue(typedArray[1], NaN);
     assert.sameValue(typedArray[4], NaN);
   } else {
     assert.sameValue(typedArray[1], 0);
     assert.sameValue(typedArray[4], 0);
   }
-});
+}, null, ["passthrough"]);

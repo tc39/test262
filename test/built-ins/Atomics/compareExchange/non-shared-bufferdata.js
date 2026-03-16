@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.compareExchange
+esid: sec-atomics.compareexchange
 description: >
   Atomics.compareExchange will operate on TA when TA.buffer is not a SharedArrayBuffer
 includes: [testTypedArray.js]
@@ -15,4 +15,4 @@ testWithAtomicsFriendlyTypedArrayConstructors(TA => {
 
   assert.sameValue(Atomics.compareExchange(view, 0, 0, 1), 0, 'Atomics.compareExchange(view, 0, 0, 1) returns 0');
   assert.sameValue(Atomics.load(view, 0), 1, 'Atomics.load(view, 0) returns 1');
-});
+}, null, ["passthrough"]);

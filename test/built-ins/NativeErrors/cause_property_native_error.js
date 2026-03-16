@@ -36,10 +36,11 @@ for (var i = 0; i < nativeErrors.length; ++i) {
   verifyProperty(error, "cause", {
     configurable: true,
     enumerable: false,
-    writeable: true,
+    writable: true,
     value: cause,
   });
 
   verifyProperty(new nativeError(message), "cause", undefined);
   verifyProperty(new nativeError(message, { cause: undefined }), "cause", { value: undefined });
+  verifyProperty(new nativeError(message, {}), "cause", undefined);
 }

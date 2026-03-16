@@ -5,31 +5,29 @@
 esid: sec-temporal.plaindatetime.prototype.withcalendar
 description: >
   Appropriate error thrown when argument cannot be converted to a valid string
-  or object for Calendar
+  for Calendar
 features: [BigInt, Symbol, Temporal]
 ---*/
 
-const instance = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, { id: "replace-me" });
+const instance = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 30, 123, 456, 789, "iso8601");
 
-const rangeErrorTests = [
+const wrongTypeTests = [
   [null, "null"],
   [true, "boolean"],
-  ["", "empty string"],
-  [1, "number that doesn't convert to a valid ISO string"],
+  [1, "number"],
   [1n, "bigint"],
-  [new Temporal.TimeZone("UTC"), "time zone instance"],
-];
-
-for (const [arg, description] of rangeErrorTests) {
-  assert.throws(RangeError, () => instance.withCalendar(arg), `${description} does not convert to a valid ISO string`);
-  assert.throws(RangeError, () => instance.withCalendar({ calendar: arg }), `${description} does not convert to a valid ISO string (in property bag)`);
-}
-
-const typeErrorTests = [
+  [19970327, "large number"],
+  [-19970327, "negative number"],
+  [1234567890, "very large integer"],
   [Symbol(), "symbol"],
+  [{}, "object"],
+  [new Temporal.Duration(), "duration instance"],
 ];
 
-for (const [arg, description] of typeErrorTests) {
-  assert.throws(TypeError, () => instance.withCalendar(arg), `${description} is not a valid object and does not convert to a string`);
-  assert.throws(TypeError, () => instance.withCalendar({ calendar: arg }), `${description} is not a valid object and does not convert to a string (in property bag)`);
+for (const [arg, description] of wrongTypeTests) {
+  assert.throws(
+    TypeError,
+    () => instance.withCalendar(arg),
+    `${description} is not a valid calendar`
+  );
 }

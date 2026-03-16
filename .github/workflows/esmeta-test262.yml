@@ -7,13 +7,17 @@ jobs:
     name: 'esmeta test262'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Setup JDK
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 17
+      - name: Setup SBT
+        uses: sbt/setup-sbt@v1
+        if: ${{ hashFiles('/usr/bin/sbt') == '' }}
+        # https://www.peterbe.com/plog/how-to-run-workflow-step-if-a-file-exists
       - name: Add to PATH
         shell: bash
         run: |
@@ -21,19 +25,23 @@ jobs:
       - name: download esmeta
         run: |
           mkdir -p "${ESMETA_HOME}"
-          git clone --branch v0.1.0-rc8 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
+          git clone --branch v0.7.1 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
           cd "${ESMETA_HOME}" && git submodule update --init --depth 1
       - name: build esmeta
         working-directory: ${{ env.ESMETA_HOME }}
         run: sbt assembly
+
+      - name: Identify new or changed tests
+        id: changed_tests
+        uses: tj-actions/changed-files@v45
+        with:
+          files: test/
+
       - name: run test262
+        if: steps.changed_tests.outputs.any_changed == 'true'
         run: |
-          git fetch origin main
-          paths=$(git diff --diff-filter ACMR --name-only origin/main.. -- test/)
-          if [ "$paths" == "" ]; then
-            echo No test files added or modified. Exiting.
-            exit 0
-          fi
-          echo New or modified test files:
-          echo "$paths"
-          "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd) $paths
+          echo 'New or modified test files:'
+          for file in ${{ steps.changed_tests.outputs.all_changed_files }}; do
+            echo $file
+          done | tee "$HOME/changed.txt"
+          cat "$HOME/changed.txt" | xargs "${ESMETA_HOME}"/bin/esmeta test262-test -status -test262dir=$(pwd)

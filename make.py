@@ -7,11 +7,11 @@ import os, shutil, subprocess, sys
 
 OUT_DIR = os.environ.get('OUT_DIR') or 'test'
 SRC_DIR = os.environ.get('SRC_DIR') or 'src'
-UPSTREAM = os.environ.get('UPSTREAM') or 'git@github.com:tc39/test262.git'
-MAINTAINER = os.environ.get('MAINTAINER') or 'test262@ecma-international.org'
 
-def shell(*args):
-    sp = subprocess.Popen(list(args), stdout=subprocess.PIPE, universal_newlines=True)
+
+def shell(*args, **kwargs):
+    sp = subprocess.Popen(list(args), stdout=subprocess.PIPE,
+                          universal_newlines=True, **kwargs)
     cmd_str = ' '.join(args)
 
     print('> ' + cmd_str)
@@ -38,42 +38,27 @@ def target(*deps):
         return wrapped
     return other
 
+
 @target()
+def npm_deps():
+    shell('npm', 'install', cwd='./tools/regexp-generator')
+
+
+@target('npm_deps')
 def build():
     shell(sys.executable, 'tools/generation/generator.py',
           'create',
+          '--parents',
           '--out', OUT_DIR,
           SRC_DIR)
+    shell('npm', 'run', 'build', cwd='./tools/regexp-generator')
 
-@target()
+
+@target('npm_deps')
 def clean():
     shell(sys.executable, 'tools/generation/generator.py', 'clean', OUT_DIR)
+    shell('npm', 'run', 'clean', cwd='./tools/regexp-generator')
 
-@target('clean', 'build')
-def deploy():
-    shell('git', 'add', '--all', OUT_DIR)
-    shell('git', 'commit', '--message', '"Re-build from source"')
-    shell('git', 'push', UPSTREAM, 'main')
-    shell('git', 'checkout', '-')
-
-# Generate a deploy key for use in a continuous integration system, allowing
-# for automated deployment in response to merge events.
-@target()
-def github_deploy_key():
-    shell('ssh-keygen',
-          '-t', 'rsa',
-          '-b', '4096',
-          '-C', MAINTAINER,
-          '-f', 'github-deploy-key')
-
-# Encrypt the deploy key so that it may be included in the repository (to be
-# decrypted by the continuous integration server during automated deployment)
-# This requires the "travis" Ruby gem
-# Source: https://docs.travis-ci.com/user/encrypting-files/
-@target('github_deploy_key')
-def github_deploy_key_enc():
-    shell('travis', 'login')
-    shell('travis', 'encrypt-file', 'github-deploy-key')
 
 if len(sys.argv) == 1:
     targets['build']()

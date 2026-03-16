@@ -9,12 +9,12 @@ includes: [temporalHelpers.js]
 ---*/
 
 const tests = [
+  ["2019-12-15[u-ca=iso8601]", "without time or time zone"],
   ["2019-12-15T15:23[u-ca=iso8601]", "without time zone"],
   ["2019-12-15T15:23[UTC][u-ca=iso8601]", "with time zone"],
   ["2019-12-15T15:23[!u-ca=iso8601]", "with ! and no time zone"],
   ["2019-12-15T15:23[UTC][!u-ca=iso8601]", "with ! and time zone"],
   ["2019-12-15T15:23[u-ca=iso8601][u-ca=discord]", "second annotation ignored"],
-  ["2019-12-15T15:23[u-ca=iso8601][!u-ca=discord]", "second annotation ignored even with !"],
 ];
 
 const instance = new Temporal.PlainYearMonth(2019, 12);

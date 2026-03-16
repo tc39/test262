@@ -16,14 +16,15 @@ info: |
     Unless otherwise specified, the name property of a built-in Function
     object, if it exists, has the attributes { [[Writable]]: false,
     [[Enumerable]]: false, [[Configurable]]: true }.
-includes: [propertyHelper.js, testBigIntTypedArray.js]
+includes: [propertyHelper.js, testTypedArray.js]
 features: [BigInt, Symbol.toStringTag]
 ---*/
 
 var desc = Object.getOwnPropertyDescriptor(TypedArray.prototype, Symbol.toStringTag);
 
-assert.sameValue(desc.get.name, "get [Symbol.toStringTag]");
-
-verifyNotEnumerable(desc.get, "name");
-verifyNotWritable(desc.get, "name");
-verifyConfigurable(desc.get, "name");
+verifyProperty(desc.get, "name", {
+  value: "get [Symbol.toStringTag]",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});

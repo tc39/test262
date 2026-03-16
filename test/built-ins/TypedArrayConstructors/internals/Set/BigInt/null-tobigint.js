@@ -47,15 +47,15 @@ info: |
     Argument Type: Null
     Result: Throw a TypeError exception.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var typedArray = new TA(makeCtorArg(1));
 
   assert.throws(TypeError, function() {
     typedArray[0] = null;
-  }, '`typedArray[0] = null` throws TypeError');
+  });
 
 });

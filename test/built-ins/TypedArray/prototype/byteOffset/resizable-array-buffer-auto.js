@@ -35,6 +35,12 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(array.byteOffset, BPE, "following shrink (within bounds)");
 
   try {
+    ab.resize(BPE * 3 - 1);
+  } catch (_) {}
+
+  assert.sameValue(array.byteOffset, BPE, "following shrink (partial element)");
+
+  try {
     ab.resize(BPE);
   } catch (_) {}
 
@@ -47,4 +53,4 @@ testWithTypedArrayConstructors(function(TA) {
   } catch (_) {}
 
   assert.sameValue(array.byteOffset, expected, "following shrink (out of bounds)");
-});
+}, null, ["passthrough"]);

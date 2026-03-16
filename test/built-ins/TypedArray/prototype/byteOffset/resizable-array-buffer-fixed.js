@@ -36,11 +36,11 @@ testWithTypedArrayConstructors(function(TA) {
 
   var expected;
   try {
-    ab.resize(BPE * 2);
+    ab.resize(BPE * 3 - 1);
     expected = 0;
   } catch (_) {
     expected = BPE;
   }
 
   assert.sameValue(array.byteOffset, expected, "following shrink (out of bounds)");
-});
+}, null, ["passthrough"]);

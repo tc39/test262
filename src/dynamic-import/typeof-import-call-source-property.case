@@ -1,0 +1,15 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: It's a SyntaxError on unexpected import source property
+template: syntax/invalid
+info: |
+  ImportCall[Yield, Await] :
+      import ( AssignmentExpression[+In, ?Yield, ?Await] )
+      import . source ( AssignmentExpression[+In, ?Yield, ?Await] )
+features: [source-phase-imports]
+---*/
+//- import
+typeof import.source.UNKNOWN
+//- teardown
+/* The params region intentionally empty */

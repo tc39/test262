@@ -72,9 +72,9 @@ includes: [nans.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(FA) {
-  var precision = FA === Float32Array ? "single" : "double";
-  var samples = new FA(3);
+testWithTypedArrayConstructors(function(FA, makeCtorArg) {
+  var precision = floatTypedArrayConstructorPrecision(FA);
+  var samples = new FA(makeCtorArg(3));
   var controls, idx, aNaN;
 
   for (idx = 0; idx < NaNs.length; ++idx) {
@@ -98,4 +98,4 @@ testWithTypedArrayConstructors(function(FA) {
       );
     }
   }
-}, [Float32Array, Float64Array]);
+}, floatArrayConstructors);

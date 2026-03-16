@@ -11,16 +11,11 @@ const invalidStrings = [
   "-000000-10-31T17:45Z",
   "-000000-10-31T17:45+00:00[UTC]",
 ];
-const instance = new Temporal.ZonedDateTime(0n, new Temporal.TimeZone("UTC"));
+const instance = new Temporal.ZonedDateTime(0n, "UTC");
 invalidStrings.forEach((timeZone) => {
   assert.throws(
     RangeError,
     () => instance.until({ year: 2020, month: 5, day: 2, timeZone }),
     "reject minus zero as extended year"
-  );
-  assert.throws(
-    RangeError,
-    () => instance.until({ year: 2020, month: 5, day: 2, timeZone: { timeZone } }),
-    "reject minus zero as extended year (nested property)"
   );
 });

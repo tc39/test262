@@ -15,3 +15,6 @@ npm-shrinkwrap.json
 # Created by test262-harness
 *.fail
 *.pass
+
+# Created by automated tests
+tools/web-features/test/out/

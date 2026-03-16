@@ -10,23 +10,40 @@ description: >
         testWithTypedArrayConstructors()
         testTypedArrayConversions()
 
-includes: [testTypedArray.js]
+includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray]
 ---*/
 
 assert(typeof TypedArray === "function");
 assert.sameValue(TypedArray, Object.getPrototypeOf(Uint8Array));
 
-var callCount = 0;
-testWithTypedArrayConstructors(() => callCount++);
-assert.sameValue(callCount, 9);
+var hasFloat16Array = typeof Float16Array !== "undefined";
+var expectCtors = [
+  Float64Array,
+  Float32Array,
+  hasFloat16Array ? Float16Array : undefined,
+  Int32Array,
+  Int16Array,
+  Int8Array,
+  Uint32Array,
+  Uint16Array,
+  Uint8Array,
+  Uint8ClampedArray
+];
+if (!hasFloat16Array) expectCtors.splice(2, 1);
+assert.compareArray(typedArrayConstructors, expectCtors, "typedArrayConstructors");
 
-assert.sameValue(typedArrayConstructors[0], Float64Array);
-assert.sameValue(typedArrayConstructors[1], Float32Array);
-assert.sameValue(typedArrayConstructors[2], Int32Array);
-assert.sameValue(typedArrayConstructors[3], Int16Array);
-assert.sameValue(typedArrayConstructors[4], Int8Array);
-assert.sameValue(typedArrayConstructors[5], Uint32Array);
-assert.sameValue(typedArrayConstructors[6], Uint16Array);
-assert.sameValue(typedArrayConstructors[7], Uint8Array);
-assert.sameValue(typedArrayConstructors[8], Uint8ClampedArray);
+var callCounts = {};
+var totalCallCount = 0;
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var name = TA.name;
+  callCounts[name] = (callCounts[name] || 0) + 1;
+  totalCallCount++;
+});
+assert(totalCallCount > typedArrayConstructors.length, "total call count");
+
+var expectEachCallCount = totalCallCount / typedArrayConstructors.length;
+for (var i = 0; i < typedArrayConstructors.length; i++) {
+  var name = typedArrayConstructors[i].name;
+  assert.sameValue(callCounts[name], expectEachCallCount, name + " call count");
+}

@@ -5,7 +5,6 @@
 from __future__ import print_function
 
 import argparse
-import inflect
 import os
 try:
     from pip._internal import main as pip
@@ -14,8 +13,6 @@ except ImportError:
     from pip import main as pip
     from pip.req import parse_requirements, InstallRequirement
 import sys
-
-ie = inflect.engine()
 
 try:
     __import__('yaml')
@@ -44,6 +41,7 @@ from lib.checks.filename import CheckFileName
 from lib.checks.nopadding import CheckNoPadding
 from lib.checks.flags import CheckFlags
 from lib.checks.posix import CheckPosix
+from lib.checks.parsetestrecord import CheckParseTestRecord
 from lib.eprint import eprint
 import lib.frontmatter
 import lib.exceptions
@@ -55,30 +53,38 @@ parser.add_argument('--exceptions',
 parser.add_argument('path',
         nargs='+',
         help='file name or directory of files to lint')
+parser.add_argument('--features',
+        help='File containing all known features usable in tests',
+        default='features.txt')
 
-checks = [
-    CheckEsid(),
-    CheckFileName(),
-    CheckFrontmatter(),
-    CheckFeatures('features.txt'),
-    CheckHarnessFeatures(),
-    CheckHarness(),
-    CheckIncludes(),
-    CheckLicense(),
-    CheckNegative(),
-    CheckNoPadding(),
-    CheckFlags(),
-    CheckPosix(),
-]
+def checks(features):
+    return [
+        CheckEsid(),
+        CheckFileName(),
+        CheckFrontmatter(),
+        CheckFeatures(features),
+        CheckHarnessFeatures(),
+        CheckHarness(),
+        CheckIncludes(),
+        CheckLicense(),
+        CheckNegative(),
+        CheckNoPadding(),
+        CheckFlags(),
+        CheckPosix(),
+        CheckParseTestRecord(),
+    ]
 
-def lint(file_names):
+def lint(file_names, features):
     errors = dict()
 
     for file_name in file_names:
+        if not file_name.endswith((".js", ".json")):
+            continue
+
         with open(file_name, 'r') as f:
             content = f.read()
         meta = lib.frontmatter.parse(content)
-        for check in checks:
+        for check in checks(features):
             error = check.run(file_name, meta, content)
 
             if error is not None:
@@ -93,13 +99,17 @@ if __name__ == '__main__':
     if args.exceptions:
         exceptions = lib.exceptions.parse(args.exceptions)
     else:
-        exceptions = dict()
+        try:
+            with open('lint.exceptions', 'r') as default_exceptions:
+                exceptions = lib.exceptions.parse(default_exceptions)
+        except FileNotFoundError:
+            exceptions = dict()
 
     files = [path for _path in args.path for path in collect_files(_path)]
     file_count = len(files)
-    print('Linting %s %s' % (file_count, ie.plural('file', file_count)))
+    print('Linting %s file(s)' % (file_count))
 
-    all_errors = lint(files)
+    all_errors = lint(files, args.features)
     unexpected_errors = dict(all_errors)
 
     for file_name, failures in all_errors.items():
@@ -109,7 +119,7 @@ if __name__ == '__main__':
             del unexpected_errors[file_name]
 
     error_count = len(unexpected_errors)
-    print('Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count)))
+    print('Linting complete. %s error(s) found.' % (error_count))
 
     if error_count == 0:
         sys.exit(0)

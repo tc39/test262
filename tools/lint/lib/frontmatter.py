@@ -28,6 +28,7 @@ def parse(src):
         return None
 
     try:
-        return Result(yaml.load(match.group(1), MyLoader), MyLoader.events)
+        # NB: Call strip() to match parseTestRecord.
+        return Result(yaml.load(match.group(1).strip(), MyLoader), MyLoader.events)
     except (yaml.scanner.ScannerError, yaml.parser.ParserError):
         return None

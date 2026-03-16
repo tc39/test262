@@ -1,0 +1,16 @@
+// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-setprototypeof
+desc: _ [[PreventExtensions]]
+info: |
+  [[PreventExtensions]] ( )
+    1. Return **true**.
+
+template: ignore
+---*/
+
+//- body
+Reflect.setPrototypeOf(ns, null);
+Reflect.setPrototypeOf(ns, {});

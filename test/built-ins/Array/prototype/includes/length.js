@@ -20,10 +20,12 @@ info: |
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
 includes: [propertyHelper.js]
+features: [Array.prototype.includes]
 ---*/
 
-assert.sameValue(Array.prototype.includes.length, 1);
-
-verifyNotEnumerable(Array.prototype.includes, "length");
-verifyNotWritable(Array.prototype.includes, "length");
-verifyConfigurable(Array.prototype.includes, "length");
+verifyProperty(Array.prototype.includes, "length", {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: true
+});

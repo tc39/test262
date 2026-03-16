@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.toReversed
+esid: sec-%typedarray%.prototype.toreversed
 description: >
   %TypedArray%.prototype.toReversed ignores @@species
 info: |
@@ -38,4 +38,4 @@ testWithTypedArrayConstructors(TA => {
     }
   });
   ta.toReversed();
-});
+}, null, ["passthrough"]);

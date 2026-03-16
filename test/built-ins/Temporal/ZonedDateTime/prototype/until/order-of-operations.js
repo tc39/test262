@@ -11,9 +11,6 @@ features: [Temporal]
 const expected = [
   // ToTemporalZonedDateTime
   "get other.calendar",
-  "has other.calendar.calendar",
-  "get other.calendar.fields",
-  "call other.calendar.fields",
   "get other.day",
   "get other.day.valueOf",
   "call other.day.valueOf",
@@ -48,20 +45,6 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
-  "has other.timeZone.timeZone",
-  "get other.calendar.dateFromFields",
-  "call other.calendar.dateFromFields",
-  "get other.timeZone.getPossibleInstantsFor",
-  "call other.timeZone.getPossibleInstantsFor",
-  "get other.timeZone.getOffsetNanosecondsFor",
-  "call other.timeZone.getOffsetNanosecondsFor",
-  // CalendarEquals
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
-  "get other.calendar[Symbol.toPrimitive]",
-  "get other.calendar.toString",
-  "call other.calendar.toString",
   // GetDifferenceSettings
   "get options.largestUnit",
   "get options.largestUnit.toString",
@@ -78,15 +61,13 @@ const expected = [
 ];
 const actual = [];
 
-const ownTimeZone = TemporalHelpers.timeZoneObserver(actual, "this.timeZone");
-const ownCalendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, ownTimeZone, ownCalendar);
+const instance = new Temporal.ZonedDateTime(1_000_000_000_000_000_000n, "UTC");
 
 const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
-  year: 2001,
+  year: 2004,
   month: 5,
   monthCode: "M05",
-  day: 2,
+  day: 12,
   hour: 1,
   minute: 46,
   second: 40,
@@ -94,14 +75,12 @@ const otherDateTimePropertyBag = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 500,
   nanosecond: 750,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "other.timeZone"),
-}, "other");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "other", ["calendar", "timeZone"]);
 
 function createOptionsObserver({ smallestUnit = "nanoseconds", largestUnit = "auto", roundingMode = "halfExpand", roundingIncrement = 1 } = {}) {
   return TemporalHelpers.propertyBagObserver(actual, {
-    // order is significant, due to iterating through properties in order to
-    // copy them to an internal null-prototype object:
     roundingIncrement,
     roundingMode,
     largestUnit,
@@ -110,129 +89,7 @@ function createOptionsObserver({ smallestUnit = "nanoseconds", largestUnit = "au
   }, "options");
 }
 
-// clear any observable things that happened while constructing the objects
-actual.splice(0);
-
 // basic order of observable operations, without rounding:
 instance.until(otherDateTimePropertyBag, createOptionsObserver());
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
-
-// Making largestUnit a calendar unit adds the following observable operations:
-const expectedOpsForCalendarDifference = [
-  // TimeZoneEquals
-  "get this.timeZone[Symbol.toPrimitive]",
-  "get this.timeZone.toString",
-  "call this.timeZone.toString",
-  "get other.timeZone[Symbol.toPrimitive]",
-  "get other.timeZone.toString",
-  "call other.timeZone.toString",
-  // CopyDataProperties
-  "ownKeys options",
-  "getOwnPropertyDescriptor options.roundingIncrement",
-  "get options.roundingIncrement",
-  "getOwnPropertyDescriptor options.roundingMode",
-  "get options.roundingMode",
-  "getOwnPropertyDescriptor options.largestUnit",
-  "get options.largestUnit",
-  "getOwnPropertyDescriptor options.smallestUnit",
-  "get options.smallestUnit",
-  "getOwnPropertyDescriptor options.additional",
-  "get options.additional",
-  // DifferenceZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  // DifferenceISODateTime
-  "get this.calendar.dateUntil",
-  "call this.calendar.dateUntil",
-  // AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
-  "call this.timeZone.getPossibleInstantsFor",
-  // NanosecondsToDays
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  // NanosecondsToDays → DifferenceISODateTime
-  "get this.calendar.dateUntil",
-  "call this.calendar.dateUntil",
-  // NanosecondsToDays → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
-  "call this.timeZone.getPossibleInstantsFor",
-  // BalanceDuration → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
-  "call this.timeZone.getPossibleInstantsFor",
-  // RoundDuration → ToTemporalDate
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  // RoundDuration → MoveRelativeZonedDateTime → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
-  "call this.timeZone.getPossibleInstantsFor",
-  // RoundDuration → NanosecondsToDays
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  // RoundDuration → NanosecondsToDays → DifferenceISODateTime
-  "get this.calendar.dateUntil",
-  "call this.calendar.dateUntil",
-  // RoundDuration → NanosecondsToDays → AddZonedDateTime
-  "get this.timeZone.getOffsetNanosecondsFor",
-  "call this.timeZone.getOffsetNanosecondsFor",
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
-  "get this.timeZone.getPossibleInstantsFor",
-  "call this.timeZone.getPossibleInstantsFor",
-];
-
-// code path through RoundDuration that rounds to the nearest year:
-const expectedOpsForYearRounding = expected.concat(expectedOpsForCalendarDifference, [
-  "get this.calendar.dateAdd",     // 9.b
-  "call this.calendar.dateAdd",    // 9.c
-  "call this.calendar.dateAdd",    // 9.e
-  "call this.calendar.dateAdd",    // 9.j
-  "get this.calendar.dateUntil",   // 9.m
-  "call this.calendar.dateUntil",  // 9.m
-  "call this.calendar.dateAdd",    // 9.r
-  "call this.calendar.dateAdd",    // 9.w MoveRelativeDate
-]);
-instance.until(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "years" }));
-assert.compareArray(actual, expectedOpsForYearRounding, "order of operations with smallestUnit = years");
-actual.splice(0); // clear
-
-// code path through RoundDuration that rounds to the nearest month:
-const expectedOpsForMonthRounding = expected.concat(expectedOpsForCalendarDifference, [
-  "get this.calendar.dateAdd",     // 10.b
-  "call this.calendar.dateAdd",    // 10.c
-  "call this.calendar.dateAdd",    // 10.e
-  "call this.calendar.dateAdd",    // 10.k MoveRelativeDate
-]);  // (10.n.iii MoveRelativeDate not called because weeks == 0)
-instance.until(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "months" }));
-assert.compareArray(actual, expectedOpsForMonthRounding, "order of operations with smallestUnit = months");
-actual.splice(0); // clear
-
-// code path through RoundDuration that rounds to the nearest week:
-const expectedOpsForWeekRounding = expected.concat(expectedOpsForCalendarDifference, [
-  "get this.calendar.dateAdd",   // 11.c
-  "call this.calendar.dateAdd",  // 11.d MoveRelativeDate
-]);  // (11.g.iii MoveRelativeDate not called because days already balanced)
-instance.until(otherDateTimePropertyBag, createOptionsObserver({ smallestUnit: "weeks" }));
-assert.compareArray(actual.slice(expected.length), expectedOpsForWeekRounding.slice(expected.length), "order of operations with smallestUnit = weeks");

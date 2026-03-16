@@ -29,6 +29,8 @@ defines:
   - getDateTimeComponents
   - getDateTimeComponentValues
   - isCanonicalizedStructurallyValidTimeZoneName
+  - partitionDurationFormatPattern
+  - formatDurationFormatPattern
 ---*/
 /**
  */
@@ -2096,7 +2098,7 @@ function allCollations() {
  * Returns an array of all known numbering systems.
  */
 function allNumberingSystems() {
-  // source: CLDR file common/bcp47/number.xml; version CLDR 40 & new in Unicode 14.0
+  // source: CLDR file common/bcp47/number.xml; version CLDR 48 & new in Unicode 17.0
   // https://github.com/unicode-org/cldr/blob/master/common/bcp47/number.xml
   return [
     "adlm",
@@ -2117,12 +2119,14 @@ function allNumberingSystems() {
     "ethi",
     "finance",
     "fullwide",
+    "gara",
     "geor",
     "gong",
     "gonm",
     "grek",
     "greklow",
     "gujr",
+    "gukh",
     "guru",
     "hanidays",
     "hanidec",
@@ -2138,8 +2142,10 @@ function allNumberingSystems() {
     "jpanfin",
     "jpanyear",
     "kali",
+    "kawi",
     "khmr",
     "knda",
+    "krai",
     "lana",
     "lanatham",
     "laoo",
@@ -2157,23 +2163,30 @@ function allNumberingSystems() {
     "mroo",
     "mtei",
     "mymr",
+    "mymrepka",
+    "mymrpao",
     "mymrshan",
     "mymrtlng",
+    "nagm",
     "native",
     "newa",
     "nkoo",
     "olck",
+    "onao",
     "orya",
     "osma",
+    "outlined",
     "rohg",
     "roman",
     "romanlow",
     "saur",
+    "segment",
     "shrd",
     "sind",
     "sinh",
     "sora",
     "sund",
+    "sunu",
     "takr",
     "talu",
     "taml",
@@ -2183,6 +2196,7 @@ function allNumberingSystems() {
     "thai",
     "tirh",
     "tibt",
+    "tols",
     "traditio",
     "vaii",
     "wara",
@@ -2216,7 +2230,7 @@ function isValidNumberingSystem(name) {
 
 /**
  * Provides the digits of numbering systems with simple digit mappings,
- * as specified in 11.3.2.
+ * as specified in <https://tc39.es/ecma402/#table-numbering-system-digits>.
  */
 
 var numberingSystemDigits = {
@@ -2233,17 +2247,21 @@ var numberingSystemDigits = {
   deva: "०१२३४५६७८९",
   diak: "𑥐𑥑𑥒𑥓𑥔𑥕𑥖𑥗𑥘𑥙",
   fullwide: "０１２３４５６７８９",
+  gara: "\u{10D40}\u{10D41}\u{10D42}\u{10D43}\u{10D44}\u{10D45}\u{10D46}\u{10D47}\u{10D48}\u{10D49}",
   gong: "𑶠𑶡𑶢𑶣𑶤𑶥𑶦𑶧𑶨𑶩",
   gonm: "𑵐𑵑𑵒𑵓𑵔𑵕𑵖𑵗𑵘𑵙",
   gujr: "૦૧૨૩૪૫૬૭૮૯",
+  gukh: "\u{16130}\u{16131}\u{16132}\u{16133}\u{16134}\u{16135}\u{16136}\u{16137}\u{16138}\u{16139}",
   guru: "੦੧੨੩੪੫੬੭੮੯",
   hanidec: "〇一二三四五六七八九",
   hmng: "𖭐𖭑𖭒𖭓𖭔𖭕𖭖𖭗𖭘𖭙",
   hmnp: "𞅀𞅁𞅂𞅃𞅄𞅅𞅆𞅇𞅈𞅉",
   java: "꧐꧑꧒꧓꧔꧕꧖꧗꧘꧙",
   kali: "꤀꤁꤂꤃꤄꤅꤆꤇꤈꤉",
+  kawi: "\u{11F50}\u{11F51}\u{11F52}\u{11F53}\u{11F54}\u{11F55}\u{11F56}\u{11F57}\u{11F58}\u{11F59}",
   khmr: "០១២៣៤៥៦៧៨៩",
   knda: "೦೧೨೩೪೫೬೭೮೯",
+  krai: "\u{16D70}\u{16D71}\u{16D72}\u{16D73}\u{16D74}\u{16D75}\u{16D76}\u{16D77}\u{16D78}\u{16D79}",
   lana: "᪀᪁᪂᪃᪄᪅᪆᪇᪈᪉",
   lanatham: "᪐᪑᪒᪓᪔᪕᪖᪗᪘᪙",
   laoo: "໐໑໒໓໔໕໖໗໘໙",
@@ -2261,13 +2279,18 @@ var numberingSystemDigits = {
   mroo: "𖩠𖩡𖩢𖩣𖩤𖩥𖩦𖩧𖩨𖩩",
   mtei: "꯰꯱꯲꯳꯴꯵꯶꯷꯸꯹",
   mymr: "၀၁၂၃၄၅၆၇၈၉",
+  mymrepka: "\u{116DA}\u{116DB}\u{116DC}\u{116DD}\u{116DE}\u{116DF}\u{116E0}\u{116E1}\u{116E2}\u{116E3}",
+  mymrpao: "\u{116D0}\u{116D1}\u{116D2}\u{116D3}\u{116D4}\u{116D5}\u{116D6}\u{116D7}\u{116D8}\u{116D9}",
   mymrshan: "႐႑႒႓႔႕႖႗႘႙",
   mymrtlng: "꧰꧱꧲꧳꧴꧵꧶꧷꧸꧹",
+  nagm: "\u{1E4F0}\u{1E4F1}\u{1E4F2}\u{1E4F3}\u{1E4F4}\u{1E4F5}\u{1E4F6}\u{1E4F7}\u{1E4F8}\u{1E4F9}",
   newa: "𑑐𑑑𑑒𑑓𑑔𑑕𑑖𑑗𑑘𑑙",
   nkoo: "߀߁߂߃߄߅߆߇߈߉",
   olck: "᱐᱑᱒᱓᱔᱕᱖᱗᱘᱙",
+  onao: "\u{1E5F1}\u{1E5F2}\u{1E5F3}\u{1E5F4}\u{1E5F5}\u{1E5F6}\u{1E5F7}\u{1E5F8}\u{1E5F9}\u{1E5FA}",
   orya: "୦୧୨୩୪୫୬୭୮୯",
   osma: "𐒠𐒡𐒢𐒣𐒤𐒥𐒦𐒧𐒨𐒩",
+  outlined: "\u{1CCF0}\u{1CCF1}\u{1CCF2}\u{1CCF3}\u{1CCF4}\u{1CCF5}\u{1CCF6}\u{1CCF7}\u{1CCF8}\u{1CCF9}",
   rohg: "𐴰𐴱𐴲𐴳𐴴𐴵𐴶𐴷𐴸𐴹",
   saur: "꣐꣑꣒꣓꣔꣕꣖꣗꣘꣙",
   segment: "🯰🯱🯲🯳🯴🯵🯶🯷🯸🯹",
@@ -2276,14 +2299,16 @@ var numberingSystemDigits = {
   sinh: "෦෧෨෩෪෫෬෭෮෯",
   sora: "𑃰𑃱𑃲𑃳𑃴𑃵𑃶𑃷𑃸𑃹",
   sund: "᮰᮱᮲᮳᮴᮵᮶᮷᮸᮹",
+  sunu: "\u{11BF0}\u{11BF1}\u{11BF2}\u{11BF3}\u{11BF4}\u{11BF5}\u{11BF6}\u{11BF7}\u{11BF8}\u{11BF9}",
   takr: "𑛀𑛁𑛂𑛃𑛄𑛅𑛆𑛇𑛈𑛉",
   talu: "᧐᧑᧒᧓᧔᧕᧖᧗᧘᧙",
   tamldec: "௦௧௨௩௪௫௬௭௮௯",
-  tnsa: "\u{16AC0}\u{16AC1}\u{16AC2}\u{16AC3}\u{16AC4}\u{16AC5}\u{16AC6}\u{16AC7}\u{16AC8}\u{16AC9}",
   telu: "౦౧౨౩౪౫౬౭౮౯",
   thai: "๐๑๒๓๔๕๖๗๘๙",
   tibt: "༠༡༢༣༤༥༦༧༨༩",
   tirh: "𑓐𑓑𑓒𑓓𑓔𑓕𑓖𑓗𑓘𑓙",
+  tnsa: "\u{16AC0}\u{16AC1}\u{16AC2}\u{16AC3}\u{16AC4}\u{16AC5}\u{16AC6}\u{16AC7}\u{16AC8}\u{16AC9}",
+  tols: "\u{11DE0}\u{11DE1}\u{11DE2}\u{11DE3}\u{11DE4}\u{11DE5}\u{11DE6}\u{11DE7}\u{11DE8}\u{11DE9}",
   vaii: "꘠꘡꘢꘣꘤꘥꘦꘧꘨꘩",
   wara: "𑣠𑣡𑣢𑣣𑣤𑣥𑣦𑣧𑣨𑣩",
   wcho: "𞋰𞋱𞋲𞋳𞋴𞋵𞋶𞋷𞋸𞋹",
@@ -2497,4 +2522,260 @@ function isCanonicalizedStructurallyValidTimeZoneName(timeZone) {
     return false;
   }
   return zoneNamePattern.test(timeZone);
+}
+
+
+/**
+ * @description Simplified PartitionDurationFormatPattern implementation which
+ * only supports the "en" locale.
+ * @param {Object} durationFormat the duration format object
+ * @param {Object} duration the duration record
+ * @result {Array} an array with formatted duration parts
+ */
+
+function partitionDurationFormatPattern(durationFormat, duration) {
+  function durationToFractional(duration, exponent) {
+    let {
+      seconds = 0,
+      milliseconds = 0,
+      microseconds = 0,
+      nanoseconds = 0,
+    } = duration;
+
+    // Directly return the duration amount when no sub-seconds are present.
+    switch (exponent) {
+      case 9: {
+        if (milliseconds === 0 && microseconds === 0 && nanoseconds === 0) {
+          return seconds;
+        }
+        break;
+      }
+      case 6: {
+        if (microseconds === 0 && nanoseconds === 0) {
+          return milliseconds;
+        }
+        break;
+      }
+      case 3: {
+        if (nanoseconds === 0) {
+          return microseconds;
+        }
+        break;
+      }
+    }
+
+    // Otherwise compute the overall amount of nanoseconds using BigInt to avoid
+    // loss of precision.
+    let ns = BigInt(nanoseconds);
+    switch (exponent) {
+      case 9:
+        ns += BigInt(seconds) * 1_000_000_000n;
+        // fallthrough
+      case 6:
+        ns += BigInt(milliseconds) * 1_000_000n;
+        // fallthrough
+      case 3:
+        ns += BigInt(microseconds) * 1_000n;
+        // fallthrough
+    }
+
+    let e = BigInt(10 ** exponent);
+
+    // Split the nanoseconds amount into an integer and its fractional part.
+    let q = ns / e;
+    let r = ns % e;
+
+    // Pad fractional part, without any leading negative sign, to |exponent| digits.
+    if (r < 0) {
+      r = -r;
+    }
+    r = String(r).padStart(exponent, "0");
+
+    // Return the result as a decimal string.
+    return `${q}.${r}`;
+  }
+
+  const units = [
+    "years",
+    "months",
+    "weeks",
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+    "milliseconds",
+    "microseconds",
+    "nanoseconds",
+  ];
+
+  let options = durationFormat.resolvedOptions();
+
+  // Only "en" is supported.
+  const locale = "en";
+  const numberingSystem = "latn";
+  const timeSeparator = ":";
+
+  let result = [];
+  let needSeparator = false;
+  let displayNegativeSign = true;
+
+  for (let unit of units) {
+    // Absent units default to zero.
+    let value = duration[unit] ?? 0;
+
+    let style = options[unit];
+    let display = options[unit + "Display"];
+
+    // NumberFormat requires singular unit names.
+    let numberFormatUnit = unit.slice(0, -1);
+
+    // Compute the matching NumberFormat options.
+    let nfOpts = Object.create(null);
+
+    // Numeric seconds and sub-seconds are combined into a single value.
+    let done = false;
+    if (unit === "seconds" || unit === "milliseconds" || unit === "microseconds") {
+      let nextStyle = options[units[units.indexOf(unit) + 1]];
+      if (nextStyle === "numeric") {
+        if (unit === "seconds") {
+          value = durationToFractional(duration, 9);
+        } else if (unit === "milliseconds") {
+          value = durationToFractional(duration, 6);
+        } else {
+          value = durationToFractional(duration, 3);
+        }
+
+        nfOpts.maximumFractionDigits = options.fractionalDigits ?? 9;
+        nfOpts.minimumFractionDigits = options.fractionalDigits ?? 0;
+        nfOpts.roundingMode = "trunc";
+
+        done = true;
+      }
+    }
+
+    // Display zero numeric minutes when seconds will be displayed.
+    let displayRequired = false;
+    if (unit === "minutes" && needSeparator) {
+      displayRequired = options.secondsDisplay === "always" ||
+                        (duration.seconds ?? 0) !== 0 ||
+                        (duration.milliseconds ?? 0) !== 0 ||
+                        (duration.microseconds ?? 0) !== 0 ||
+                        (duration.nanoseconds ?? 0) !== 0;
+    }
+
+    // "auto" display omits zero units.
+    if (value !== 0 || display !== "auto" || displayRequired) {
+      // Display only the first negative value.
+      if (displayNegativeSign) {
+        displayNegativeSign = false;
+
+        // Set to negative zero to ensure the sign is displayed.
+        if (value === 0) {
+          let negative = units.some(unit => (duration[unit] ?? 0) < 0);
+          if (negative) {
+            value = -0;
+          }
+        }
+      } else {
+        nfOpts.signDisplay = "never";
+      }
+
+      nfOpts.numberingSystem = options.numberingSystem;
+
+      // If the value is formatted as a 2-digit numeric value.
+      if (style === "2-digit") {
+        nfOpts.minimumIntegerDigits = 2;
+      }
+
+      // If the value is formatted as a standalone unit.
+      if (style !== "numeric" && style !== "2-digit") {
+        nfOpts.style = "unit";
+        nfOpts.unit = numberFormatUnit;
+        nfOpts.unitDisplay = style;
+      } else {
+        nfOpts.useGrouping = false;
+      }
+
+      let nf = new Intl.NumberFormat(locale, nfOpts);
+
+      let list;
+      if (!needSeparator) {
+        list = [];
+      } else {
+        list = result[result.length - 1];
+
+        // Prepend the time separator before the formatted number.
+        list.push({
+          type: "literal",
+          value: timeSeparator,
+        });
+      }
+
+      // Format the numeric value.
+      let parts = nf.formatToParts(value);
+
+      // Add |numberFormatUnit| to the formatted number.
+      for (let {value, type} of parts) {
+        list.push({type, value, unit: numberFormatUnit});
+      }
+
+      if (!needSeparator) {
+        // Prepend the separator before the next numeric unit.
+        if (style === "2-digit" || style === "numeric") {
+          needSeparator = true;
+        }
+
+        // Append the formatted number to |result|.
+        result.push(list);
+      }
+    }
+
+    if (done) {
+      break;
+    }
+  }
+
+  let listStyle = options.style;
+  if (listStyle === "digital") {
+    listStyle = "short";
+  }
+
+  let lf = new Intl.ListFormat(locale, {
+    type: "unit",
+    style: listStyle,
+  });
+
+  // Collect all formatted units into a list of strings.
+  let strings = [];
+  for (let parts of result) {
+    let string = "";
+    for (let {value} of parts) {
+      string += value;
+    }
+    strings.push(string);
+  }
+
+  // Format the list of strings and compute the overall result.
+  let flattened = [];
+  for (let {type, value} of lf.formatToParts(strings)) {
+    if (type === "element") {
+      flattened.push(...result.shift());
+    } else {
+      flattened.push({type, value});
+    }
+  }
+  return flattened;
+}
+
+
+/**
+ * @description Return the formatted string from partitionDurationFormatPattern.
+ * @param {Object} durationFormat the duration format object
+ * @param {Object} duration the duration record
+ * @result {String} a string containing the formatted duration
+ */
+
+function formatDurationFormatPattern(durationFormat, duration) {
+  let parts = partitionDurationFormatPattern(durationFormat, duration);
+  return parts.reduce((acc, e) => acc + e.value, "");
 }

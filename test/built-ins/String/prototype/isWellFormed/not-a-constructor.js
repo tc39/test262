@@ -4,7 +4,7 @@
 /*---
 esid: sec-ecmascript-standard-built-in-objects
 description: >
-  String.prototype.includes does not implement [[Construct]], is not new-able
+  String.prototype.isWellFormed does not implement [[Construct]], is not new-able
 info: |
   ECMAScript Function Objects
 
@@ -29,4 +29,4 @@ assert.sameValue(
 
 assert.throws(TypeError, function () {
   new String.prototype.isWellFormed();
-}, '`new String.prototype.isWellFormed()` throws TypeError');
+});

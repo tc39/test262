@@ -8,11 +8,24 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
+const expectedOptionsReading = [
+  // GetTemporalDisambiguationOption
+  "get options.disambiguation",
+  "get options.disambiguation.toString",
+  "call options.disambiguation.toString",
+  // GetTemporalOffsetOption
+  "get options.offset",
+  "get options.offset.toString",
+  "call options.offset.toString",
+  // GetTemporalOverflowOption
+  "get options.overflow",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
+];
+
 const expected = [
+  // ToTemporalCalendar
   "get item.calendar",
-  "has item.calendar.calendar",
-  "get item.calendar.fields",
-  "call item.calendar.fields",
   // PrepareTemporalFields
   "get item.day",
   "get item.day.valueOf",
@@ -48,29 +61,7 @@ const expected = [
   "get item.year",
   "get item.year.valueOf",
   "call item.year.valueOf",
-  "has item.timeZone.timeZone",
-  // InterpretTemporalDateTimeFields
-  "get options.disambiguation",
-  "get options.disambiguation.toString",
-  "call options.disambiguation.toString",
-  "get options.offset",
-  "get options.offset.toString",
-  "call options.offset.toString",
-  "get options.overflow",
-  "get options.overflow.toString",
-  "call options.overflow.toString",
-  "get item.calendar.dateFromFields",
-  "call item.calendar.dateFromFields",
-  // inside calendar.dateFromFields
-  "get options.overflow",
-  "get options.overflow.toString",
-  "call options.overflow.toString",
-  // InterpretISODateTimeOffset
-  "get item.timeZone.getPossibleInstantsFor",
-  "call item.timeZone.getPossibleInstantsFor",
-  "get item.timeZone.getOffsetNanosecondsFor",
-  "call item.timeZone.getOffsetNanosecondsFor",
-];
+].concat(expectedOptionsReading);
 const actual = [];
 
 const from = TemporalHelpers.propertyBagObserver(actual, {
@@ -85,17 +76,29 @@ const from = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "item.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "item.timeZone"),
-}, "item");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "item", ["calendar", "timeZone"]);
 
 function createOptionsObserver({ overflow = "constrain", disambiguation = "compatible", offset = "reject" } = {}) {
   return TemporalHelpers.propertyBagObserver(actual, {
     overflow,
     disambiguation,
     offset,
+    extra: "property",
   }, "options");
 }
 
-Temporal.ZonedDateTime.from(from, createOptionsObserver());
+const options = createOptionsObserver();
+Temporal.ZonedDateTime.from(from, options);
 assert.compareArray(actual, expected, "order of operations");
+
+actual.splice(0);  // clear for next test
+
+Temporal.ZonedDateTime.from(new Temporal.ZonedDateTime(0n, "UTC"), options);
+assert.compareArray(actual, expectedOptionsReading, "order of operations when cloning a ZonedDateTime instance");
+
+actual.splice(0);
+
+Temporal.ZonedDateTime.from("2001-05-02T06:54:32.987654321+00:00[UTC]", options);
+assert.compareArray(actual, expectedOptionsReading, "order of operations when parsing a string");

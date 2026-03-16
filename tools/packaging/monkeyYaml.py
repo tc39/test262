@@ -71,9 +71,12 @@ def myMultilineList(lines, value):
         leading = myLeadingSpaces(line)
         if myIsAllSpaces(line):
             pass
-        elif indent is not None and leading < indent:
+        elif indent is not None and (
+            leading < indent or
+            (leading == indent and line[leading] != "-")
+        ):
             lines.insert(0, line)
-            break;
+            break
         else:
             indent = indent or leading
             value += [myReadOneLine(myRemoveListHeader(indent, line))]
@@ -100,7 +103,10 @@ def myReadOneLine(value):
 
 def myFlowList(value):
     result = mYamlListPattern.match(value)
-    values = result.group(1).split(",")
+    values = result.group(1)
+    if values == "":
+        return []
+    values = values.split(",")
     return [myReadOneLine(v.strip()) for v in values]
 
 def myMultiline(lines, value):
@@ -113,7 +119,7 @@ def myMultiline(lines, value):
             value += ["\n"]
         elif myLeadingSpaces(line) < indent:
             lines.insert(0, line)
-            break;
+            break
         else:
             value += [line[(indent):]]
     value = " ".join(value)

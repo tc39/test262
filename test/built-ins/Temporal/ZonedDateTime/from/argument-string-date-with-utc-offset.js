@@ -10,15 +10,28 @@ features: [Temporal]
 const validStrings = [
   "1970-01-01T00Z[UTC]",
   "1970-01-01T00Z[!UTC]",
+  "1970-01-01T00+00[UTC]",
   "1970-01-01T00+00:00[UTC]",
+  "1970-01-01T00+00:00:00,0[UTC]",
+  "1970-01-01T00+00:00:00.000000000[UTC]",
+  "1970-01-01T00+0000[UTC]",
+  "1970-01-01T00+000000,0[UTC]",
+  "1970-01-01T00+000000.000000000[UTC]",
   "1970-01-01T00+00:00[!UTC]",
+  "1970-01-01T00-00[UTC]",
+  "1970-01-01T00-00:00[UTC]",
+  "1970-01-01T00-00:00:00,0[UTC]",
+  "1970-01-01T00-00:00:00.000000000[UTC]",
+  "1970-01-01T00-0000[UTC]",
+  "1970-01-01T00-000000,0[UTC]",
+  "1970-01-01T00-000000.000000000[UTC]",
 ];
 
 for (const arg of validStrings) {
   const result = Temporal.ZonedDateTime.from(arg);
 
   assert.sameValue(
-    result.timeZone.toString(),
+    result.timeZoneId,
     "UTC",
     `"${arg}" is a valid UTC offset with time for ZonedDateTime`
   );
