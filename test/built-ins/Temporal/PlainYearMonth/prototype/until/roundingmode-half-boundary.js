@@ -2,16 +2,20 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.until
+esid: sec-temporal.plainyearmonth.prototype.until
 description: Half rounding modes at the exact 0.5 boundary
 info: |
-  The dates 2019-01-01 and 2020-07-02 produce a difference of 1 year plus
-  183 days. Since the intermediate year (2020) is a leap year with 366 days,
-  the fractional progress is exactly 183/366 = 0.5. This exercises the
-  tie-breaking behavior of all half-* rounding modes in RoundRelativeDuration.
+  PlainYearMonth(2018, 6).until(PlainYearMonth(2019, 12)) produces a
+  difference of 1 year plus 6 months. RoundRelativeDuration converts the
+  6-month remainder to days relative to the reference date (1st of the month).
+  From 2019-06-01, six months spans Jun(30)+Jul(31)+Aug(31)+Sep(30)+Oct(31)+
+  Nov(30) = 183 days, and the year from 2019-06-01 to 2020-06-01 contains 366
+  days (crossing Feb 29, 2020), giving a fractional progress of exactly
+  183/366 = 0.5. This exercises the tie-breaking behavior of all half-*
+  rounding modes in RoundRelativeDuration.
 
-  The dates 2018-01-01 and 2020-07-02 produce a difference of 2 years plus
-  183 days, giving the same 0.5 fractional progress but with an even integer
+  PlainYearMonth(2017, 6).until(PlainYearMonth(2019, 12)) produces 2 years
+  plus 6 months with the same 0.5 fractional progress but an even integer
   part. This distinguishes halfEven from halfExpand: halfEven rounds to the
   nearest even integer (2), while halfExpand rounds away from zero (3).
 includes: [temporalHelpers.js]
@@ -19,8 +23,8 @@ features: [Temporal]
 ---*/
 
 // 1.5 years: odd integer part (1) + exact 0.5 fractional progress
-const earlier1 = new Temporal.PlainDate(2019, 1, 1);
-const later = new Temporal.PlainDate(2020, 7, 2);
+const earlier1 = new Temporal.PlainYearMonth(2018, 6);
+const later = new Temporal.PlainYearMonth(2019, 12);
 
 TemporalHelpers.assertDuration(
   earlier1.until(later, { smallestUnit: "years", roundingMode: "trunc" }),
@@ -70,7 +74,7 @@ TemporalHelpers.assertDuration(
 
 // 2.5 years: even integer part (2) + exact 0.5 fractional progress
 // This distinguishes halfEven from halfExpand
-const earlier2 = new Temporal.PlainDate(2018, 1, 1);
+const earlier2 = new Temporal.PlainYearMonth(2017, 6);
 
 TemporalHelpers.assertDuration(
   earlier2.until(later, { smallestUnit: "years", roundingMode: "trunc" }),

@@ -2,27 +2,28 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-temporal.plaindate.prototype.since
+esid: sec-temporal.zoneddatetime.prototype.since
 description: Half rounding modes at the exact 0.5 boundary
 info: |
-  Calling since() in the negative direction (earlier.since(later)) with dates
-  2019-01-01 and 2020-07-02 produces a difference of -1 year minus 183 days.
-  The intermediate year (2020) is a leap year with 366 days, so the fractional
-  progress is exactly 183/366 = 0.5. This exercises the tie-breaking behavior
-  of all half-* rounding modes in RoundRelativeDuration in the negative
-  direction, where halfExpand and halfCeil diverge (away from zero vs toward
-  positive infinity).
+  Calling since() in the negative direction (earlier.since(later)) with
+  instants 2019-01-01T00:00Z and 2020-07-02T00:00Z (in UTC) produces a
+  difference of -1 year minus 183 days. The intermediate year (2020) is a
+  leap year with 366 days, so the fractional progress is exactly
+  183/366 = 0.5. This exercises the tie-breaking behavior of all half-*
+  rounding modes in RoundRelativeDuration in the negative direction, where
+  halfExpand and halfCeil diverge (away from zero vs toward positive infinity).
 
-  With 2018-01-01 and 2020-07-02 the difference is -2 years minus 183 days,
-  giving the same 0.5 fractional progress but with an even integer part. This
-  distinguishes halfEven from halfExpand in the negative direction.
+  With 2018-01-01T00:00Z and 2020-07-02T00:00Z the difference is -2 years
+  minus 183 days, giving the same 0.5 fractional progress but with an even
+  integer part. This distinguishes halfEven from halfExpand in the negative
+  direction.
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
 // -1.5 years: odd integer part (1) + exact 0.5 fractional progress
-const earlier1 = new Temporal.PlainDate(2019, 1, 1);
-const later = new Temporal.PlainDate(2020, 7, 2);
+const earlier1 = new Temporal.ZonedDateTime(1546300800_000_000_000n /* 2019-01-01T00:00:00Z */, "UTC");
+const later = new Temporal.ZonedDateTime(1593648000_000_000_000n /* 2020-07-02T00:00:00Z */, "UTC");
 
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "trunc" }),
@@ -72,7 +73,7 @@ TemporalHelpers.assertDuration(
 
 // -2.5 years: even integer part (2) + exact 0.5 fractional progress
 // This distinguishes halfEven from halfExpand in the negative direction
-const earlier2 = new Temporal.PlainDate(2018, 1, 1);
+const earlier2 = new Temporal.ZonedDateTime(1514764800_000_000_000n /* 2018-01-01T00:00:00Z */, "UTC");
 
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "trunc" }),
