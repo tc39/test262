@@ -15,6 +15,6 @@ flags: [module]
 features: [import-attributes, import-text]
 ---*/
 
-import value from './text-valid_FIXTURE' with { type: 'text' };
+import value from './text-empty_FIXTURE' with { type: 'text' };
 
 assert.sameValue(typeof value, 'string');
