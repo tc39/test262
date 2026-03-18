@@ -25,3 +25,11 @@ assert.sameValue(implicit.weeks, 0, "default largest unit is hours");
 assert.sameValue(implicit.days, 0, "default largest unit is hours");
 assert.sameValue(implicit.hours, 744, "default largest unit is hours");
 assert.sameValue(implicit.nanoseconds, 1, "default smallest unit is nanoseconds and no rounding");
+
+const lambda = later.since(earlier, () => {});
+assert.sameValue(lambda.years, 0, "default largest unit is hours");
+assert.sameValue(lambda.months, 0, "default largest unit is hours");
+assert.sameValue(lambda.weeks, 0, "default largest unit is hours");
+assert.sameValue(lambda.days, 0, "default largest unit is hours");
+assert.sameValue(lambda.hours, 744, "default largest unit is hours");
+assert.sameValue(lambda.nanoseconds, 1, "default smallest unit is nanoseconds and no rounding");

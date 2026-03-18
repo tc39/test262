@@ -20,3 +20,9 @@ assert.sameValue(
   "1975-02-02T14:25:36.12345Z",
   "default time zone is none, precision is auto, and rounding is trunc"
 );
+
+assert.sameValue(
+  instant.toString(() => {}),
+  "1975-02-02T14:25:36.12345Z",
+  "default time zone is none, precision is auto, and rounding is trunc"
+);
