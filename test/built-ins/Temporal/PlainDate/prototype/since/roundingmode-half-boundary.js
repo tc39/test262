@@ -47,27 +47,27 @@ TemporalHelpers.assertDuration(
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "halfExpand" }),
   -2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-1.5 years, halfExpand rounds 0.5 away from zero"
+  "-1.5 years, halfExpand breaks ties away from zero"
 );
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "halfCeil" }),
   -1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-1.5 years, halfCeil rounds 0.5 toward positive infinity"
+  "-1.5 years, halfCeil breaks ties toward positive infinity"
 );
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "halfFloor" }),
   -2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-1.5 years, halfFloor rounds 0.5 toward negative infinity"
+  "-1.5 years, halfFloor breaks ties toward negative infinity"
 );
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "halfTrunc" }),
   -1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-1.5 years, halfTrunc rounds 0.5 toward zero"
+  "-1.5 years, halfTrunc breaks ties toward zero"
 );
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "halfEven" }),
   -2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-1.5 years, halfEven rounds 0.5 to nearest even (-2)"
+  "-1.5 years, halfEven breaks ties to nearest even (-2)"
 );
 
 // -2.5 years: even integer part (2) + exact 0.5 fractional progress
@@ -97,25 +97,25 @@ TemporalHelpers.assertDuration(
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "halfExpand" }),
   -3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-2.5 years, halfExpand rounds 0.5 away from zero"
+  "-2.5 years, halfExpand breaks ties away from zero"
 );
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "halfCeil" }),
   -2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-2.5 years, halfCeil rounds 0.5 toward positive infinity"
+  "-2.5 years, halfCeil breaks ties toward positive infinity"
 );
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "halfFloor" }),
   -3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-2.5 years, halfFloor rounds 0.5 toward negative infinity"
+  "-2.5 years, halfFloor breaks ties toward negative infinity"
 );
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "halfTrunc" }),
   -2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-2.5 years, halfTrunc rounds 0.5 toward zero"
+  "-2.5 years, halfTrunc breaks ties toward zero"
 );
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "halfEven" }),
   -2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "-2.5 years, halfEven rounds 0.5 to nearest even (-2)"
+  "-2.5 years, halfEven breaks ties to nearest even (-2)"
 );
