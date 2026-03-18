@@ -1,4 +1,4 @@
-// Copyright (C) 2026 Rudi Theunissen. All rights reserved.
+// Copyright (C) 2026 Rudolph Gottesheim. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
