@@ -15,7 +15,7 @@ const expectedOptionsReading = [
   "call options.overflow.toString",
 ];
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalTimeRecord
   "get fields.hour",
   "get fields.hour.valueOf",
@@ -35,7 +35,8 @@ const expected = [
   "get fields.second",
   "get fields.second.valueOf",
   "call fields.second.valueOf",
-].concat(expectedOptionsReading);
+];
+const expected = expectedOpsForPrimitiveOptions.concat(expectedOptionsReading);
 const actual = [];
 
 const fields = TemporalHelpers.propertyBagObserver(actual, {
@@ -77,40 +78,7 @@ assert.compareArray(actual, expectedOptionsReading, "order of operations when pa
 
 actual.splice(0);
 
-const expectedOpsForPrimitiveOptions = [
-  // ToTemporalTimeRecord
-  "get fields.hour",
-  "get fields.hour.valueOf",
-  "call fields.hour.valueOf",
-  "get fields.microsecond",
-  "get fields.microsecond.valueOf",
-  "call fields.microsecond.valueOf",
-  "get fields.millisecond",
-  "get fields.millisecond.valueOf",
-  "call fields.millisecond.valueOf",
-  "get fields.minute",
-  "get fields.minute.valueOf",
-  "call fields.minute.valueOf",
-  "get fields.nanosecond",
-  "get fields.nanosecond.valueOf",
-  "call fields.nanosecond.valueOf",
-  "get fields.second",
-  "get fields.second.valueOf",
-  "call fields.second.valueOf",
-];
-
-// Non-integer values to ensure valueOf is called
-const fields2 = TemporalHelpers.propertyBagObserver(actual, {
-  hour: 1.7,
-  minute: 1.7,
-  second: 1.7,
-  millisecond: 1.7,
-  microsecond: 1.7,
-  nanosecond: 1.7,
-  calendar: "iso8601",
-}, "fields");
-
-assert.throws(TypeError, () => Temporal.PlainTime.from(fields2, null));
+assert.throws(TypeError, () => Temporal.PlainTime.from(fields, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "item fields are read before TypeError is thrown for primitive options");
 

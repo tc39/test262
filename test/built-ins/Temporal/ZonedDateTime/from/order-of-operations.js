@@ -23,7 +23,7 @@ const expectedOptionsReading = [
   "call options.overflow.toString",
 ];
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalCalendar
   "get item.calendar",
   // PrepareTemporalFields
@@ -61,7 +61,8 @@ const expected = [
   "get item.year",
   "get item.year.valueOf",
   "call item.year.valueOf",
-].concat(expectedOptionsReading);
+];
+const expected = expectedOpsForPrimitiveOptions.concat(expectedOptionsReading);
 const actual = [];
 
 const from = TemporalHelpers.propertyBagObserver(actual, {
@@ -105,63 +106,7 @@ assert.compareArray(actual, expectedOptionsReading, "order of operations when pa
 
 actual.splice(0);
 
-const expectedOpsForPrimitiveOptions = [
-  // ToTemporalCalendar
-  "get item.calendar",
-  // PrepareTemporalFields
-  "get item.day",
-  "get item.day.valueOf",
-  "call item.day.valueOf",
-  "get item.hour",
-  "get item.hour.valueOf",
-  "call item.hour.valueOf",
-  "get item.microsecond",
-  "get item.microsecond.valueOf",
-  "call item.microsecond.valueOf",
-  "get item.millisecond",
-  "get item.millisecond.valueOf",
-  "call item.millisecond.valueOf",
-  "get item.minute",
-  "get item.minute.valueOf",
-  "call item.minute.valueOf",
-  "get item.month",
-  "get item.month.valueOf",
-  "call item.month.valueOf",
-  "get item.monthCode",
-  "get item.monthCode.toString",
-  "call item.monthCode.toString",
-  "get item.nanosecond",
-  "get item.nanosecond.valueOf",
-  "call item.nanosecond.valueOf",
-  "get item.offset",
-  "get item.offset.toString",
-  "call item.offset.toString",
-  "get item.second",
-  "get item.second.valueOf",
-  "call item.second.valueOf",
-  "get item.timeZone",
-  "get item.year",
-  "get item.year.valueOf",
-  "call item.year.valueOf",
-];
-
-const from2 = TemporalHelpers.propertyBagObserver(actual, {
-  year: 2001,
-  month: 5,
-  monthCode: "M05",
-  day: 2,
-  hour: 6,
-  minute: 54,
-  second: 32,
-  millisecond: 987,
-  microsecond: 654,
-  nanosecond: 321,
-  offset: "+00:00",
-  calendar: "iso8601",
-  timeZone: "UTC",
-}, "item", ["calendar", "timeZone"]);
-
-assert.throws(TypeError, () => Temporal.ZonedDateTime.from(from2, null));
+assert.throws(TypeError, () => Temporal.ZonedDateTime.from(from, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "item fields are read before TypeError is thrown for primitive options");
 

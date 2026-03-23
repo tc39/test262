@@ -14,7 +14,7 @@ const expectedOptionsReading = [
   "call options.overflow.toString",
 ];
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   "get fields.calendar",
   // PrepareTemporalFields
   "get fields.day",
@@ -29,7 +29,8 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
-].concat(expectedOptionsReading);
+];
+const expected = expectedOpsForPrimitiveOptions.concat(expectedOptionsReading);
 const actual = [];
 
 const fields = TemporalHelpers.propertyBagObserver(actual, {
@@ -60,33 +61,7 @@ assert.compareArray(actual, expectedOptionsReading, "order of operations when pa
 
 actual.splice(0);
 
-const expectedOpsForPrimitiveOptions = [
-  "get fields.calendar",
-  // PrepareTemporalFields
-  "get fields.day",
-  "get fields.day.valueOf",
-  "call fields.day.valueOf",
-  "get fields.month",
-  "get fields.month.valueOf",
-  "call fields.month.valueOf",
-  "get fields.monthCode",
-  "get fields.monthCode.toString",
-  "call fields.monthCode.toString",
-  "get fields.year",
-  "get fields.year.valueOf",
-  "call fields.year.valueOf",
-];
-
-// Non-integer values to ensure valueOf is called
-const fields2 = TemporalHelpers.propertyBagObserver(actual, {
-  year: 1.7,
-  month: 1.7,
-  monthCode: "M01",
-  day: 1.7,
-  calendar: "iso8601",
-}, "fields", ["calendar"]);
-
-assert.throws(TypeError, () => Temporal.PlainMonthDay.from(fields2, null));
+assert.throws(TypeError, () => Temporal.PlainMonthDay.from(fields, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "item fields are read before TypeError is thrown for primitive options");
 

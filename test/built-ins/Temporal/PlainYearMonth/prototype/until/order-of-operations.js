@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalYearMonth
   "get other.calendar",
   "get other.month",
@@ -20,6 +20,8 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetDifferenceSettings
   "get options.largestUnit",
   "get options.largestUnit.toString",
@@ -33,7 +35,7 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.PlainYearMonth(2000, 5, "iso8601", 1);
@@ -59,28 +61,7 @@ instance.until(otherYearMonthPropertyBag, createOptionsObserver({ smallestUnit: 
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
-const expectedOpsForPrimitiveOptions = [
-  // ToTemporalYearMonth
-  "get other.calendar",
-  "get other.month",
-  "get other.month.valueOf",
-  "call other.month.valueOf",
-  "get other.monthCode",
-  "get other.monthCode.toString",
-  "call other.monthCode.toString",
-  "get other.year",
-  "get other.year.valueOf",
-  "call other.year.valueOf",
-];
-
-const otherYearMonthPropertyBag2 = TemporalHelpers.propertyBagObserver(actual, {
-  year: 2001,
-  month: 6,
-  monthCode: "M06",
-  calendar: "iso8601"
-}, "other", ["calendar"]);
-
-assert.throws(TypeError, () => instance.until(otherYearMonthPropertyBag2, null));
+assert.throws(TypeError, () => instance.until(otherYearMonthPropertyBag, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "other year-month fields are read before TypeError is thrown for primitive options");
 actual.splice(0); // clear

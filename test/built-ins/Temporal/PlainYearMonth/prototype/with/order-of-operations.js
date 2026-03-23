@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // RejectObjectWithCalendarOrTimeZone
   "get fields.calendar",
   "get fields.timeZone",
@@ -22,11 +22,13 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetTemporalOverflowOption
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.PlainYearMonth(2000, 5);
@@ -47,30 +49,7 @@ assert.compareArray(actual, expected, "order of operations");
 
 actual.splice(0); // clear
 
-const expectedOpsForPrimitiveOptions = [
-  // RejectObjectWithCalendarOrTimeZone
-  "get fields.calendar",
-  "get fields.timeZone",
-  // PrepareTemporalFields on argument
-  "get fields.month",
-  "get fields.month.valueOf",
-  "call fields.month.valueOf",
-  "get fields.monthCode",
-  "get fields.monthCode.toString",
-  "call fields.monthCode.toString",
-  "get fields.year",
-  "get fields.year.valueOf",
-  "call fields.year.valueOf",
-];
-
-// Non-integer values to ensure valueOf is called
-const fields2 = TemporalHelpers.propertyBagObserver(actual, {
-  year: 1.7,
-  month: 1.7,
-  monthCode: "M01",
-}, "fields");
-
-assert.throws(TypeError, () => instance.with(fields2, null));
+assert.throws(TypeError, () => instance.with(fields, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "argument fields are read before TypeError is thrown for primitive options");
 

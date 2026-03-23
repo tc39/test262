@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalTime
   "get other.hour",
   "get other.hour.valueOf",
@@ -28,6 +28,8 @@ const expected = [
   "get other.second",
   "get other.second.valueOf",
   "call other.second.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetDifferenceSettings
   "get options.largestUnit",
   "get options.largestUnit.toString",
@@ -41,7 +43,7 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.PlainTime(12, 34, 56, 987, 654, 321);
@@ -83,40 +85,7 @@ assert.compareArray(actual, expected, "order of operations with identical times"
 
 actual.splice(0); // clear
 
-const expectedOpsForPrimitiveOptions = [
-  // ToTemporalTime
-  "get other.hour",
-  "get other.hour.valueOf",
-  "call other.hour.valueOf",
-  "get other.microsecond",
-  "get other.microsecond.valueOf",
-  "call other.microsecond.valueOf",
-  "get other.millisecond",
-  "get other.millisecond.valueOf",
-  "call other.millisecond.valueOf",
-  "get other.minute",
-  "get other.minute.valueOf",
-  "call other.minute.valueOf",
-  "get other.nanosecond",
-  "get other.nanosecond.valueOf",
-  "call other.nanosecond.valueOf",
-  "get other.second",
-  "get other.second.valueOf",
-  "call other.second.valueOf",
-];
-
-// Non-integer values to ensure valueOf is called
-const other2 = TemporalHelpers.propertyBagObserver(actual, {
-  hour: 1.7,
-  minute: 1.7,
-  second: 1.7,
-  millisecond: 1.7,
-  microsecond: 1.7,
-  nanosecond: 1.7,
-  calendar: "iso8601",
-}, "other", ["calendar"]);
-
-assert.throws(TypeError, () => instance.until(other2, null));
+assert.throws(TypeError, () => instance.until(other, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "other time fields are read before TypeError is thrown for primitive options");
 

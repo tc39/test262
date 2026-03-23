@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalDateTime
   "get other.calendar",
   "get other.day",
@@ -41,6 +41,8 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetDifferenceSettings
   "get options.largestUnit",
   "get options.largestUnit.toString",
@@ -54,7 +56,7 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, "iso8601");
@@ -90,56 +92,7 @@ instance.until(otherDateTimePropertyBag, createOptionsObserver({ largestUnit: "y
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
-const expectedOpsForPrimitiveOptions = [
-  // ToTemporalDateTime
-  "get other.calendar",
-  "get other.day",
-  "get other.day.valueOf",
-  "call other.day.valueOf",
-  "get other.hour",
-  "get other.hour.valueOf",
-  "call other.hour.valueOf",
-  "get other.microsecond",
-  "get other.microsecond.valueOf",
-  "call other.microsecond.valueOf",
-  "get other.millisecond",
-  "get other.millisecond.valueOf",
-  "call other.millisecond.valueOf",
-  "get other.minute",
-  "get other.minute.valueOf",
-  "call other.minute.valueOf",
-  "get other.month",
-  "get other.month.valueOf",
-  "call other.month.valueOf",
-  "get other.monthCode",
-  "get other.monthCode.toString",
-  "call other.monthCode.toString",
-  "get other.nanosecond",
-  "get other.nanosecond.valueOf",
-  "call other.nanosecond.valueOf",
-  "get other.second",
-  "get other.second.valueOf",
-  "call other.second.valueOf",
-  "get other.year",
-  "get other.year.valueOf",
-  "call other.year.valueOf",
-];
-
-const otherDateTimePropertyBag2 = TemporalHelpers.propertyBagObserver(actual, {
-  year: 2001,
-  month: 6,
-  monthCode: "M06",
-  day: 2,
-  hour: 1,
-  minute: 46,
-  second: 40,
-  millisecond: 250,
-  microsecond: 500,
-  nanosecond: 750,
-  calendar: "iso8601",
-}, "other", ["calendar"]);
-
-assert.throws(TypeError, () => instance.until(otherDateTimePropertyBag2, null));
+assert.throws(TypeError, () => instance.until(otherDateTimePropertyBag, null));
 assert.compareArray(actual, expectedOpsForPrimitiveOptions,
   "other datetime fields are read before TypeError is thrown for primitive options");
 actual.splice(0); // clear

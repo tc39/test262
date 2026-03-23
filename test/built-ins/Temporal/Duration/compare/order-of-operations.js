@@ -8,83 +8,6 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
-  // ToTemporalDuration on first argument
-  "get one.days",
-  "get one.days.valueOf",
-  "call one.days.valueOf",
-  "get one.hours",
-  "get one.hours.valueOf",
-  "call one.hours.valueOf",
-  "get one.microseconds",
-  "get one.microseconds.valueOf",
-  "call one.microseconds.valueOf",
-  "get one.milliseconds",
-  "get one.milliseconds.valueOf",
-  "call one.milliseconds.valueOf",
-  "get one.minutes",
-  "get one.minutes.valueOf",
-  "call one.minutes.valueOf",
-  "get one.months",
-  "get one.months.valueOf",
-  "call one.months.valueOf",
-  "get one.nanoseconds",
-  "get one.nanoseconds.valueOf",
-  "call one.nanoseconds.valueOf",
-  "get one.seconds",
-  "get one.seconds.valueOf",
-  "call one.seconds.valueOf",
-  "get one.weeks",
-  "get one.weeks.valueOf",
-  "call one.weeks.valueOf",
-  "get one.years",
-  "get one.years.valueOf",
-  "call one.years.valueOf",
-  // ToTemporalDuration on second argument
-  "get two.days",
-  "get two.days.valueOf",
-  "call two.days.valueOf",
-  "get two.hours",
-  "get two.hours.valueOf",
-  "call two.hours.valueOf",
-  "get two.microseconds",
-  "get two.microseconds.valueOf",
-  "call two.microseconds.valueOf",
-  "get two.milliseconds",
-  "get two.milliseconds.valueOf",
-  "call two.milliseconds.valueOf",
-  "get two.minutes",
-  "get two.minutes.valueOf",
-  "call two.minutes.valueOf",
-  "get two.months",
-  "get two.months.valueOf",
-  "call two.months.valueOf",
-  "get two.nanoseconds",
-  "get two.nanoseconds.valueOf",
-  "call two.nanoseconds.valueOf",
-  "get two.seconds",
-  "get two.seconds.valueOf",
-  "call two.seconds.valueOf",
-  "get two.weeks",
-  "get two.weeks.valueOf",
-  "call two.weeks.valueOf",
-  "get two.years",
-  "get two.years.valueOf",
-  "call two.years.valueOf",
-  // ToRelativeTemporalObject
-  "get options.relativeTo",
-];
-const actual = [];
-
-// basic order of observable operations with no relativeTo
-Temporal.Duration.compare(
-  createDurationPropertyBagObserver("one", 0, 0, 0, 7),
-  createDurationPropertyBagObserver("two", 0, 0, 0, 6),
-  createOptionsObserver(undefined)
-);
-assert.compareArray(actual, expected, "order of operations");
-actual.splice(0); // clear
-
 const expectedOpsForPrimitiveOptions = [
   // ToTemporalDuration on first argument
   "get one.days",
@@ -149,6 +72,20 @@ const expectedOpsForPrimitiveOptions = [
   "get two.years.valueOf",
   "call two.years.valueOf",
 ];
+const expected = expectedOpsForPrimitiveOptions.concat([
+  // ToRelativeTemporalObject
+  "get options.relativeTo",
+]);
+const actual = [];
+
+// basic order of observable operations with no relativeTo
+Temporal.Duration.compare(
+  createDurationPropertyBagObserver("one", 0, 0, 0, 7),
+  createDurationPropertyBagObserver("two", 0, 0, 0, 6),
+  createOptionsObserver(undefined)
+);
+assert.compareArray(actual, expected, "order of operations");
+actual.splice(0); // clear
 
 assert.throws(TypeError, () => Temporal.Duration.compare(
   createDurationPropertyBagObserver("one", 0, 0, 0, 7),
