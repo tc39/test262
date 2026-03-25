@@ -3,129 +3,121 @@
 
 /*---
 esid: sec-temporal.plaindate.prototype.until
-description: Half rounding modes at the exact 0.5 boundary
+description: Half rounding modes at the exact 0.5 boundary for years and months
 info: |
-  The dates 2019-01-01 and 2020-07-02 produce a difference of 1 year plus
-  183 days. Since the intermediate year (2020) is a leap year with 366 days,
-  the fractional progress is exactly 183/366 = 0.5. This exercises the
-  tie-breaking behavior of all half-* rounding modes in RoundRelativeDuration.
+  Tests that all rounding modes correctly break ties at the exact 0.5 boundary
+  in RoundRelativeDuration, for both odd and even integer parts (distinguishing
+  halfEven from other modes).
 
-  The dates 2018-01-01 and 2020-07-02 produce a difference of 2 years plus
-  183 days, giving the same 0.5 fractional progress but with an even integer
-  part. This distinguishes halfEven from halfExpand: halfEven rounds to the
-  nearest even integer (2), while halfExpand rounds away from zero (3).
+  Years: dates 2019-01-01 / 2020-07-02 produce 1 year + 183 days. The year
+  2020 is a leap year (366 days), so fractional progress = 183/366 = 0.5.
+  Dates 2018-01-01 / 2020-07-02 produce 2 years + 183 days (even integer part).
+
+  Months: dates 2019-01-01 / 2019-02-15 produce 1 month + 14 days. February
+  2019 has 28 days, so fractional progress = 14/28 = 0.5. Dates 2018-12-01 /
+  2019-02-15 produce 2 months + 14 days (even integer part).
 includes: [temporalHelpers.js]
 features: [Temporal]
 ---*/
 
+// --- years ---
+
 // 1.5 years: odd integer part (1) + exact 0.5 fractional progress
-const earlier1 = new Temporal.PlainDate(2019, 1, 1);
-const later = new Temporal.PlainDate(2020, 7, 2);
+const yearEarlier1 = new Temporal.PlainDate(2019, 1, 1);
+const yearLater = new Temporal.PlainDate(2020, 7, 2);
 
 assert.sameValue(
-  earlier1.until(later).total({ unit: "years", relativeTo: earlier1 }),
+  yearEarlier1.until(yearLater).total({ unit: "years", relativeTo: yearEarlier1 }),
   1.5,
   "1.5-year duration is on a 0.5 boundary"
 );
 
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "trunc" }),
-  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, trunc rounds toward zero"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "floor" }),
-  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, floor rounds toward negative infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "ceil" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, ceil rounds toward positive infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "expand" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, expand rounds away from zero"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "halfExpand" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, halfExpand breaks ties away from zero"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "halfCeil" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, halfCeil breaks ties toward positive infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "halfFloor" }),
-  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, halfFloor breaks ties toward negative infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "halfTrunc" }),
-  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, halfTrunc breaks ties toward zero"
-);
-TemporalHelpers.assertDuration(
-  earlier1.until(later, { smallestUnit: "years", roundingMode: "halfEven" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "1.5 years, halfEven breaks ties to nearest even (2)"
-);
+for (const mode of ["trunc", "floor", "halfTrunc", "halfFloor"]) {
+  TemporalHelpers.assertDuration(
+    yearEarlier1.until(yearLater, { smallestUnit: "years", roundingMode: mode }),
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    `1.5 years with ${mode} rounds down to 1`
+  );
+}
+for (const mode of ["ceil", "expand", "halfExpand", "halfCeil", "halfEven"]) {
+  TemporalHelpers.assertDuration(
+    yearEarlier1.until(yearLater, { smallestUnit: "years", roundingMode: mode }),
+    2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    `1.5 years with ${mode} rounds up to 2`
+  );
+}
 
-// 2.5 years: even integer part (2) + exact 0.5 fractional progress
-// This distinguishes halfEven from halfExpand
-const earlier2 = new Temporal.PlainDate(2018, 1, 1);
+// 2.5 years: even integer part (2) — distinguishes halfEven from halfExpand
+const yearEarlier2 = new Temporal.PlainDate(2018, 1, 1);
 
 assert.sameValue(
-  earlier2.until(later).total({ unit: "years", relativeTo: earlier2 }),
+  yearEarlier2.until(yearLater).total({ unit: "years", relativeTo: yearEarlier2 }),
   2.5,
   "2.5-year duration is on a 0.5 boundary"
 );
 
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "trunc" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, trunc rounds toward zero"
+for (const mode of ["trunc", "floor", "halfTrunc", "halfFloor", "halfEven"]) {
+  TemporalHelpers.assertDuration(
+    yearEarlier2.until(yearLater, { smallestUnit: "years", roundingMode: mode }),
+    2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    `2.5 years with ${mode} rounds down to 2`
+  );
+}
+for (const mode of ["ceil", "expand", "halfExpand", "halfCeil"]) {
+  TemporalHelpers.assertDuration(
+    yearEarlier2.until(yearLater, { smallestUnit: "years", roundingMode: mode }),
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    `2.5 years with ${mode} rounds up to 3`
+  );
+}
+
+// --- months ---
+
+// 1.5 months: odd integer part (1) + exact 0.5 fractional progress
+const monthEarlier1 = new Temporal.PlainDate(2019, 1, 1);
+const monthLater = new Temporal.PlainDate(2019, 2, 15);
+
+assert.sameValue(
+  monthEarlier1.until(monthLater).total({ unit: "months", relativeTo: monthEarlier1 }),
+  1.5,
+  "1.5-month duration is on a 0.5 boundary"
 );
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "floor" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, floor rounds toward negative infinity"
+
+for (const mode of ["trunc", "floor", "halfTrunc", "halfFloor"]) {
+  TemporalHelpers.assertDuration(
+    monthEarlier1.until(monthLater, { smallestUnit: "months", roundingMode: mode }),
+    0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+    `1.5 months with ${mode} rounds down to 1`
+  );
+}
+for (const mode of ["ceil", "expand", "halfExpand", "halfCeil", "halfEven"]) {
+  TemporalHelpers.assertDuration(
+    monthEarlier1.until(monthLater, { smallestUnit: "months", roundingMode: mode }),
+    0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+    `1.5 months with ${mode} rounds up to 2`
+  );
+}
+
+// 2.5 months: even integer part (2) — distinguishes halfEven from halfExpand
+const monthEarlier2 = new Temporal.PlainDate(2018, 12, 1);
+
+assert.sameValue(
+  monthEarlier2.until(monthLater).total({ unit: "months", relativeTo: monthEarlier2 }),
+  2.5,
+  "2.5-month duration is on a 0.5 boundary"
 );
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "ceil" }),
-  3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, ceil rounds toward positive infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "expand" }),
-  3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, expand rounds away from zero"
-);
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "halfExpand" }),
-  3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, halfExpand breaks ties away from zero"
-);
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "halfCeil" }),
-  3, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, halfCeil breaks ties toward positive infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "halfFloor" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, halfFloor breaks ties toward negative infinity"
-);
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "halfTrunc" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, halfTrunc breaks ties toward zero"
-);
-TemporalHelpers.assertDuration(
-  earlier2.until(later, { smallestUnit: "years", roundingMode: "halfEven" }),
-  2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  "2.5 years, halfEven breaks ties to nearest even (2)"
-);
+
+for (const mode of ["trunc", "floor", "halfTrunc", "halfFloor", "halfEven"]) {
+  TemporalHelpers.assertDuration(
+    monthEarlier2.until(monthLater, { smallestUnit: "months", roundingMode: mode }),
+    0, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+    `2.5 months with ${mode} rounds down to 2`
+  );
+}
+for (const mode of ["ceil", "expand", "halfExpand", "halfCeil"]) {
+  TemporalHelpers.assertDuration(
+    monthEarlier2.until(monthLater, { smallestUnit: "months", roundingMode: mode }),
+    0, 3, 0, 0, 0, 0, 0, 0, 0, 0,
+    `2.5 months with ${mode} rounds up to 3`
+  );
+}
