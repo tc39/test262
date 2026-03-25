@@ -86,7 +86,7 @@ function verifyProperty(obj, name, desc, options) {
         names[i] === "configurable" ||
         names[i] === "get" ||
         names[i] === "set",
-      "Invalid descriptor field: " + names[i],
+      "Invalid descriptor field: " + names[i]
     );
   }
 
