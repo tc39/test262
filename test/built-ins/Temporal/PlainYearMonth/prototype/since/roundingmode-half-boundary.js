@@ -28,6 +28,12 @@ features: [Temporal]
 const earlier1 = new Temporal.PlainYearMonth(2018, 6);
 const later = new Temporal.PlainYearMonth(2019, 12);
 
+assert.sameValue(
+  earlier1.until(later).total({ unit: "years", relativeTo: "2018-06-01" }),
+  1.5,
+  "1.5-year duration is on a 0.5 boundary"
+);
+
 TemporalHelpers.assertDuration(
   earlier1.since(later, { smallestUnit: "years", roundingMode: "trunc" }),
   -1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -77,6 +83,12 @@ TemporalHelpers.assertDuration(
 // -2.5 years: even integer part (2) + exact 0.5 fractional progress
 // This distinguishes halfEven from halfExpand in the negative direction
 const earlier2 = new Temporal.PlainYearMonth(2017, 6);
+
+assert.sameValue(
+  earlier2.until(later).total({ unit: "years", relativeTo: "2017-06-01" }),
+  2.5,
+  "2.5-year duration is on a 0.5 boundary"
+);
 
 TemporalHelpers.assertDuration(
   earlier2.since(later, { smallestUnit: "years", roundingMode: "trunc" }),

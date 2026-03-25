@@ -24,6 +24,12 @@ features: [Temporal]
 const earlier1 = new Temporal.ZonedDateTime(1546300800_000_000_000n /* 2019-01-01T00:00:00Z */, "UTC");
 const later = new Temporal.ZonedDateTime(1593648000_000_000_000n /* 2020-07-02T00:00:00Z */, "UTC");
 
+assert.sameValue(
+  earlier1.until(later).total({ unit: "years", relativeTo: earlier1 }),
+  1.5,
+  "1.5-year duration is on a 0.5 boundary"
+);
+
 TemporalHelpers.assertDuration(
   earlier1.until(later, { smallestUnit: "years", roundingMode: "trunc" }),
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -73,6 +79,12 @@ TemporalHelpers.assertDuration(
 // 2.5 years: even integer part (2) + exact 0.5 fractional progress
 // This distinguishes halfEven from halfExpand
 const earlier2 = new Temporal.ZonedDateTime(1514764800_000_000_000n /* 2018-01-01T00:00:00Z */, "UTC");
+
+assert.sameValue(
+  earlier2.until(later).total({ unit: "years", relativeTo: earlier2 }),
+  2.5,
+  "2.5-year duration is on a 0.5 boundary"
+);
 
 TemporalHelpers.assertDuration(
   earlier2.until(later, { smallestUnit: "years", roundingMode: "trunc" }),
