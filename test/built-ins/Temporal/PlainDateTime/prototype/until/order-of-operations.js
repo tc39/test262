@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalDateTime
   "get other.calendar",
   "get other.day",
@@ -41,6 +41,8 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetDifferenceSettings
   "get options.largestUnit",
   "get options.largestUnit.toString",
@@ -54,7 +56,7 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.PlainDateTime(2000, 5, 2, 12, 34, 56, 987, 654, 321, "iso8601");
@@ -88,4 +90,9 @@ function createOptionsObserver({ smallestUnit = "nanoseconds", largestUnit = "au
 // basic order of observable operations with calendar call, without rounding:
 instance.until(otherDateTimePropertyBag, createOptionsObserver({ largestUnit: "years" }));
 assert.compareArray(actual, expected, "order of operations");
+actual.splice(0); // clear
+
+assert.throws(TypeError, () => instance.until(otherDateTimePropertyBag, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "other datetime fields are read before TypeError is thrown for primitive options");
 actual.splice(0); // clear
