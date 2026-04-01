@@ -3,12 +3,12 @@
 /*---
 esid: sec-iterator.prototype.windows
 description: >
-  Iterator.prototype.windows throws RangeError when windowSize is out of the
-  valid range [1, 2^32 - 1]
+  Iterator.prototype.windows throws RangeError when windowSize is an integral
+  Number outside the valid range [1, 2^32 - 1]
 info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
-  4. If windowSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
+  6. If windowSize is not in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
     a. Let error be ThrowCompletion(a newly created RangeError object).
     b. Return ? IteratorClose(iterated, error).
 
@@ -26,26 +26,6 @@ assert.throws(RangeError, () => {
 
 assert.throws(RangeError, () => {
   iterator.windows(-1);
-});
-
-assert.throws(RangeError, () => {
-  iterator.windows(-Infinity);
-});
-
-assert.throws(RangeError, () => {
-  iterator.windows(0.5);
-});
-
-assert.throws(RangeError, () => {
-  iterator.windows(1.5);
-});
-
-assert.throws(RangeError, () => {
-  iterator.windows(NaN);
-});
-
-assert.throws(RangeError, () => {
-  iterator.windows(Infinity);
 });
 
 assert.throws(RangeError, () => {

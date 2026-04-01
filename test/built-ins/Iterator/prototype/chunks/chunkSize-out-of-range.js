@@ -3,12 +3,12 @@
 /*---
 esid: sec-iterator.prototype.chunks
 description: >
-  Iterator.prototype.chunks throws RangeError when chunkSize is out of the
-  valid range [1, 2^32 - 1]
+  Iterator.prototype.chunks throws RangeError when chunkSize is an integral
+  Number outside the valid range [1, 2^32 - 1]
 info: |
   Iterator.prototype.chunks ( chunkSize )
 
-  4. If chunkSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
+  6. If chunkSize is not in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
     a. Let error be ThrowCompletion(a newly created RangeError object).
     b. Return ? IteratorClose(iterated, error).
 
@@ -26,26 +26,6 @@ assert.throws(RangeError, () => {
 
 assert.throws(RangeError, () => {
   iterator.chunks(-1);
-});
-
-assert.throws(RangeError, () => {
-  iterator.chunks(-Infinity);
-});
-
-assert.throws(RangeError, () => {
-  iterator.chunks(0.5);
-});
-
-assert.throws(RangeError, () => {
-  iterator.chunks(1.5);
-});
-
-assert.throws(RangeError, () => {
-  iterator.chunks(NaN);
-});
-
-assert.throws(RangeError, () => {
-  iterator.chunks(Infinity);
 });
 
 assert.throws(RangeError, () => {

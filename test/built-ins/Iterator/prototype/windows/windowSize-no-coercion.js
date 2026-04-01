@@ -9,16 +9,14 @@ description: >
 info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
-  4. If windowSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
-    a. Let error be ThrowCompletion(a newly created RangeError object).
-    b. Return ? IteratorClose(iterated, error).
+  4. If windowSize is not a Number, throw a TypeError exception.
 
 features: [iterator-chunking]
 ---*/
 let iterator = (function* () {})();
 
 let valueOfCalled = false;
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows({
     valueOf() {
       valueOfCalled = true;
@@ -29,7 +27,7 @@ assert.throws(RangeError, () => {
 assert.sameValue(valueOfCalled, false, 'valueOf must not be called');
 
 let toStringCalled = false;
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows({
     toString() {
       toStringCalled = true;

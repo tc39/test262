@@ -10,14 +10,16 @@ info: |
   1. Let O be the this value.
   2. If O is not an Object, throw a TypeError exception.
   3. Let iterated be the Iterator Record { [[Iterator]]: O, [[NextMethod]]: undefined, [[Done]]: false }.
-  4. If windowSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
+  4. If windowSize is not a Number, throw a TypeError ... IteratorClose.
+  5. If windowSize is not an integral Number, throw a TypeError ... IteratorClose.
+  6. If windowSize is not in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
     a. Let error be ThrowCompletion(a newly created RangeError object).
     b. Return ? IteratorClose(iterated, error).
-  5. If undersized is undefined, set undersized to "only-full".
-  6. If undersized is neither "only-full" nor "allow-partial", then
+  7. If undersized is undefined, set undersized to "only-full".
+  8. If undersized is neither "only-full" nor "allow-partial", then
     a. Let error be ThrowCompletion(a newly created TypeError object).
     b. Return ? IteratorClose(iterated, error).
-  7. Set iterated to ? GetIteratorDirect(O).
+  9. Set iterated to ? GetIteratorDirect(O).
 
 includes: [compareArray.js]
 features: [iterator-chunking]

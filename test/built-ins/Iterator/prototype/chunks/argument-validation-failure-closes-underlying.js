@@ -8,7 +8,9 @@ info: |
   Iterator.prototype.chunks ( chunkSize )
 
   3. Let iterated be the Iterator Record { [[Iterator]]: O, [[NextMethod]]: undefined, [[Done]]: false }.
-  4. If chunkSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
+  4. If chunkSize is not a Number, throw a TypeError exception ... IteratorClose(iterated, error).
+  5. If chunkSize is not an integral Number, throw a TypeError exception ... IteratorClose(iterated, error).
+  6. If chunkSize is not in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
     a. Let error be ThrowCompletion(a newly created RangeError object).
     b. Return ? IteratorClose(iterated, error).
 
@@ -27,7 +29,7 @@ let closable = {
   },
 };
 
-assert.throws(RangeError, function () {
+assert.throws(TypeError, function () {
   closable.chunks();
 });
 assert.sameValue(closed, true, 'iterator closed when chunkSize is undefined');
@@ -39,13 +41,13 @@ assert.throws(RangeError, function () {
 assert.sameValue(closed, true, 'iterator closed when chunkSize is 0');
 
 closed = false;
-assert.throws(RangeError, function () {
+assert.throws(TypeError, function () {
   closable.chunks(NaN);
 });
 assert.sameValue(closed, true, 'iterator closed when chunkSize is NaN');
 
 closed = false;
-assert.throws(RangeError, function () {
+assert.throws(TypeError, function () {
   closable.chunks('1');
 });
 assert.sameValue(closed, true, 'iterator closed when chunkSize is a string');

@@ -3,46 +3,66 @@
 /*---
 esid: sec-iterator.prototype.chunks
 description: >
-  Iterator.prototype.chunks throws RangeError when chunkSize is not a Number
+  Iterator.prototype.chunks throws TypeError when chunkSize is not an integral
+  Number
 info: |
   Iterator.prototype.chunks ( chunkSize )
 
-  4. If chunkSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
-    a. Let error be ThrowCompletion(a newly created RangeError object).
-    b. Return ? IteratorClose(iterated, error).
+  4. If chunkSize is not a Number, throw a TypeError exception.
+  5. If chunkSize is not an integral Number, throw a TypeError exception.
 
 features: [iterator-chunking]
 ---*/
 let iterator = (function* () {})();
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks();
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks(undefined);
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks('1');
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks(true);
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks(null);
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks({});
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks(Symbol());
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.chunks([2]);
+});
+
+assert.throws(TypeError, () => {
+  iterator.chunks(NaN);
+});
+
+assert.throws(TypeError, () => {
+  iterator.chunks(0.5);
+});
+
+assert.throws(TypeError, () => {
+  iterator.chunks(1.5);
+});
+
+assert.throws(TypeError, () => {
+  iterator.chunks(Infinity);
+});
+
+assert.throws(TypeError, () => {
+  iterator.chunks(-Infinity);
 });

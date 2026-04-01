@@ -3,46 +3,66 @@
 /*---
 esid: sec-iterator.prototype.windows
 description: >
-  Iterator.prototype.windows throws RangeError when windowSize is not a Number
+  Iterator.prototype.windows throws TypeError when windowSize is not an
+  integral Number
 info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
-  4. If windowSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
-    a. Let error be ThrowCompletion(a newly created RangeError object).
-    b. Return ? IteratorClose(iterated, error).
+  4. If windowSize is not a Number, throw a TypeError exception.
+  5. If windowSize is not an integral Number, throw a TypeError exception.
 
 features: [iterator-chunking]
 ---*/
 let iterator = (function* () {})();
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows();
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows(undefined);
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows('1');
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows(true);
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows(null);
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows({});
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows(Symbol());
 });
 
-assert.throws(RangeError, () => {
+assert.throws(TypeError, () => {
   iterator.windows([2]);
+});
+
+assert.throws(TypeError, () => {
+  iterator.windows(NaN);
+});
+
+assert.throws(TypeError, () => {
+  iterator.windows(0.5);
+});
+
+assert.throws(TypeError, () => {
+  iterator.windows(1.5);
+});
+
+assert.throws(TypeError, () => {
+  iterator.windows(Infinity);
+});
+
+assert.throws(TypeError, () => {
+  iterator.windows(-Infinity);
 });

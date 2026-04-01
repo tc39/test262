@@ -8,11 +8,13 @@ info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
   3. Let iterated be the Iterator Record { [[Iterator]]: O, [[NextMethod]]: undefined, [[Done]]: false }.
-  4. If windowSize is not an integral Number in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
+  4. If windowSize is not a Number, throw a TypeError exception ... IteratorClose(iterated, error).
+  5. If windowSize is not an integral Number, throw a TypeError exception ... IteratorClose(iterated, error).
+  6. If windowSize is not in the inclusive interval from 1𝔽 to 𝔽(2^32 - 1), then
     a. Let error be ThrowCompletion(a newly created RangeError object).
     b. Return ? IteratorClose(iterated, error).
   ...
-  6. If undersized is neither "only-full" nor "allow-partial", then
+  8. If undersized is neither "only-full" nor "allow-partial", then
     a. Let error be ThrowCompletion(a newly created TypeError object).
     b. Return ? IteratorClose(iterated, error).
 
@@ -32,7 +34,7 @@ let closable = {
 };
 
 // windowSize validation failure closes
-assert.throws(RangeError, function () {
+assert.throws(TypeError, function () {
   closable.windows();
 });
 assert.sameValue(closed, true, 'iterator closed when windowSize is undefined');
@@ -44,13 +46,13 @@ assert.throws(RangeError, function () {
 assert.sameValue(closed, true, 'iterator closed when windowSize is 0');
 
 closed = false;
-assert.throws(RangeError, function () {
+assert.throws(TypeError, function () {
   closable.windows(NaN);
 });
 assert.sameValue(closed, true, 'iterator closed when windowSize is NaN');
 
 closed = false;
-assert.throws(RangeError, function () {
+assert.throws(TypeError, function () {
   closable.windows('1');
 });
 assert.sameValue(closed, true, 'iterator closed when windowSize is a string');
