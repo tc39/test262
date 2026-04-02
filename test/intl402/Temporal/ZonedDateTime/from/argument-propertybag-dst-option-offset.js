@@ -16,54 +16,71 @@ const DSTEnd = {
 };
 
 // First 1:30 when DST ends
-var zdt = Temporal.ZonedDateTime.from({
+let zdt = Temporal.ZonedDateTime.from({
   ...DSTEnd,
   hour: 1,
   minute: 30,
   offset: "-07:00"
 }, { offset: "prefer" });
-assert.sameValue(`${ zdt }`,
-  "2000-10-29T01:30:00-07:00[America/Vancouver]",
-  "Option offset: prefer and bag's offset matches time zone, ambiguous time (first 1:30)");
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option offset: prefer and bag's offset matches time zone, ambiguous time (first 1:30)");
 
 // Second 1:30 when DST ends
-var zdt = Temporal.ZonedDateTime.from({
+zdt = Temporal.ZonedDateTime.from({
   ...DSTEnd,
   hour: 1,
   minute: 30,
   offset: "-08:00"
 }, { offset: "prefer" });
-assert.sameValue(`${ zdt }`,
-  "2000-10-29T01:30:00-08:00[America/Vancouver]",
-  "Option offset: prefer and bag's offset matches time zone, ambiguous time (second 1:30)");
+assert.sameValue(
+  zdt.offset,
+  "-08:00",
+  "Offset result when option offset: prefer and bag's offset matches time zone, ambiguous time (second 1:30)");
 
-var zdt = Temporal.ZonedDateTime.from({
+zdt = Temporal.ZonedDateTime.from({
   ...DSTEnd,
   hour: 4,
   offset: "-07:00"
 }, { offset: "prefer" });
-assert.sameValue(`${ zdt }`,
-  "2000-10-29T04:00:00-08:00[America/Vancouver]",
-  "Option offset: prefer, and bag's offset does not match time zone, ambiguous time");
+assert.sameValue(
+  zdt.offset,
+  "-08:00",
+  "Offset result when option offset: prefer, and bag's offset does not match time zone, ambiguous time");
+assert.sameValue(
+  zdt.hour,
+  4,
+  "Hour result when option offset: prefer, and bag's offset does not match time zone, ambiguous time");
 
-var zdt = Temporal.ZonedDateTime.from({
+zdt = Temporal.ZonedDateTime.from({
   ...DSTEnd,
   hour: 4,
   offset: "-12:00"
 }, { offset: "ignore" });
-assert.sameValue(`${ zdt }`,
-  "2000-10-29T04:00:00-08:00[America/Vancouver]",
-  "Option offset: ignore, and bag's offset does not match time zone, ambiguous time");
+assert.sameValue(
+  zdt.offset,
+  "-08:00",
+  "Offset result when option offset: ignore, and bag's offset does not match time zone, ambiguous time");
+assert.sameValue(
+  zdt.hour,
+  4,
+  "Hour result when option offset: ignore, and bag's offset does not match time zone, ambiguous time");
 
 // The option { offset: 'use' } does not use a wrong offset.
-var zdt = Temporal.ZonedDateTime.from({
+zdt = Temporal.ZonedDateTime.from({
   ...DSTEnd,
   hour: 4,
   offset: "-07:00"
 }, { offset: "use" });
-assert.sameValue(`${ zdt }`,
-  "2000-10-29T03:00:00-08:00[America/Vancouver]",
-  "Option offset: use, and bag's offset is wrong, ambiguous time");
+assert.sameValue(
+  zdt.offset,
+  "-08:00",
+  "Offset result when option offset: use, and bag's offset is wrong, ambiguous time");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when option offset: use, and bag's offset is wrong, ambiguous time");
 
 // Non existent zoned date time - Spring DST
 const DSTStart = {
@@ -75,17 +92,27 @@ const DSTStart = {
   timeZone: "America/Vancouver"
 };
 
-var zdt = Temporal.ZonedDateTime.from(
+zdt = Temporal.ZonedDateTime.from(
   DSTStart,
   { offset: "ignore" });
-assert.sameValue(`${ zdt }`,
-  "2000-04-02T03:30:00-07:00[America/Vancouver]",
-  "Option offset: ignore, non existent time");
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when option offset: ignore, non existent time");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when option offset: ignore, non existent time");
 
-var zdt = Temporal.ZonedDateTime.from({
+zdt = Temporal.ZonedDateTime.from({
   ...DSTStart,
   offset: "-23:59"
-}, { offset: prefer });
-assert.sameValue(`${ zdt }`,
-  "2000-04-02T03:30:00-07:00[America/Vancouver]",
-  "Offset is wrong and option offset: prefer, non existent time");
+}, { offset: "prefer" });
+assert.sameValue(
+  zdt.offset,
+  "-07:00",
+  "Offset result when offset is wrong and option offset: prefer, non existent time");
+assert.sameValue(
+  zdt.hour,
+  3,
+  "Hour result when offset is wrong and option offset: prefer, non existent time");

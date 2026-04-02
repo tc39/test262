@@ -14,13 +14,13 @@ var foo = Symbol('a description');
 var bar = Symbol('a description');
 var s = new WeakSet();
 
-assert.sameValue(s.has(foo), false, 'Set is initially empty of regular symbol');
-assert.sameValue(s.has(Symbol.hasInstance), false, 'Set is initially empty of well-known symbol');
+assert.sameValue(s.has(foo), false, 'WeakSet is initially empty of regular symbol');
+assert.sameValue(s.has(Symbol.hasInstance), false, 'WeakSet is initially empty of well-known symbol');
 
 s.add(foo);
 assert.sameValue(s.has(bar), false, 'Symbols with the same description are not aliased to each other');
 
 s.delete(foo);
-assert.sameValue(s.has(foo), false, 'Set is again empty of regular symbol after deleting');
+assert.sameValue(s.has(foo), false, 'WeakSet is again empty of regular symbol after deleting');
 s.delete(Symbol.hasInstance);
-assert.sameValue(s.has(Symbol.hasInstance), false, 'Set is again empty of well-known symbol after deleting');
+assert.sameValue(s.has(Symbol.hasInstance), false, 'WeakSet is again empty of well-known symbol after deleting');

@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // RejectObjectWithCalendarOrTimeZone
   "get fields.calendar",
   "get fields.timeZone",
@@ -43,11 +43,13 @@ const expected = [
   "get fields.year",
   "get fields.year.valueOf",
   "call fields.year.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetTemporalOverflowOption
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
-];
+]);
 const actual = [];
 
 const calendar = "iso8601";
@@ -82,3 +84,11 @@ const options = TemporalHelpers.propertyBagObserver(actual, {
 
 instance.with(fields, options);
 assert.compareArray(actual, expected, "order of operations");
+
+actual.splice(0); // clear
+
+assert.throws(TypeError, () => instance.with(fields, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "argument fields are read before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear
