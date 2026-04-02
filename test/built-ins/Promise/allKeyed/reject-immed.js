@@ -16,6 +16,7 @@ info: |
         a. Let onRejected be resultCapability.[[Reject]].
       ...
       11. Perform ? Invoke(nextPromise, "then", « onFulfilled, onRejected »).
+includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -26,9 +27,10 @@ var p = new Promise(function(_, reject) {
   reject(error);
 });
 
-Promise.allKeyed({ key: p })
-  .then(function() {
+asyncTest(function() {
+  return Promise.allKeyed({ key: p }).then(function() {
     throw new Test262Error('The promise should not be fulfilled.');
   }, function(reason) {
     assert.sameValue(reason, error);
-  }).then($DONE, $DONE);
+  });
+});

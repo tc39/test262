@@ -15,6 +15,7 @@ info: |
     a. Let desc be ? promises.[[GetOwnProperty]](key).
     b. If desc is not undefined and desc.[[Enumerable]] is true, then
       ...
+includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary, Symbol]
 ---*/
@@ -23,14 +24,16 @@ var sym = Symbol('s');
 var input = { str: Promise.resolve(1) };
 input[sym] = Promise.resolve(2);
 
-Promise.allKeyed(input).then(function(result) {
-  assert.sameValue(Object.getPrototypeOf(result), null);
+asyncTest(function() {
+  return Promise.allKeyed(input).then(function(result) {
+    assert.sameValue(Object.getPrototypeOf(result), null);
 
-  var keys = Reflect.ownKeys(result);
-  assert.sameValue(keys.length, 2);
-  assert.sameValue(keys[0], 'str');
-  assert.sameValue(keys[1], sym);
+    var keys = Reflect.ownKeys(result);
+    assert.sameValue(keys.length, 2);
+    assert.sameValue(keys[0], 'str');
+    assert.sameValue(keys[1], sym);
 
-  assert.sameValue(result.str, 1);
-  assert.sameValue(result[sym], 2);
-}).then($DONE, $DONE);
+    assert.sameValue(result.str, 1);
+    assert.sameValue(result[sym], 2);
+  });
+});

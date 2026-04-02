@@ -17,18 +17,15 @@ info: |
 
   ...
   3. If IsCallable(promiseResolve) is false, throw a TypeError exception.
+includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
 
 Promise.resolve = null;
 
-Promise.allSettledKeyed({ key: 1 })
-  .then(
-    function() {
-      $DONE('The promise should not be resolved.');
-    },
-    function(error) {
-      assert(error instanceof TypeError);
-    }
-  ).then($DONE, $DONE);
+asyncTest(function() {
+  return assert.throwsAsync(TypeError, function() {
+    return Promise.allSettledKeyed({ key: 1 });
+  });
+});

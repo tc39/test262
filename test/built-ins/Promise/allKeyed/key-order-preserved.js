@@ -22,7 +22,7 @@ info: |
   8. If remainingElementsCount.[[Value]] = 0, then
     ...
     b. Let result be CreateKeyedPromiseCombinatorResultObject(keys, values).
-includes: [compareArray.js]
+includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -49,10 +49,12 @@ resolveSecond('second');
 resolveThird('third');
 resolveFirst('first');
 
-combined.then(function(result) {
-  assert.sameValue(Object.getPrototypeOf(result), null);
-  assert.compareArray(Object.keys(result), ['first', 'second', 'third']);
-  assert.sameValue(result.first, 'first');
-  assert.sameValue(result.second, 'second');
-  assert.sameValue(result.third, 'third');
-}).then($DONE, $DONE);
+asyncTest(function() {
+  return combined.then(function(result) {
+    assert.sameValue(Object.getPrototypeOf(result), null);
+    assert.compareArray(Object.keys(result), ['first', 'second', 'third']);
+    assert.sameValue(result.first, 'first');
+    assert.sameValue(result.second, 'second');
+    assert.sameValue(result.third, 'third');
+  });
+});

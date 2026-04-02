@@ -16,6 +16,7 @@ info: |
   Functions are objects, so they pass the type check. Only own enumerable
   properties are traversed; built-in function properties (name, length,
   prototype) are non-enumerable by default and should be excluded.
+includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -23,16 +24,18 @@ features: [await-dictionary]
 function fn() {}
 fn.key = Promise.resolve('val');
 
-Promise.allSettledKeyed(fn).then(function(result) {
-  assert.sameValue(Object.getPrototypeOf(result), null);
+asyncTest(function() {
+  return Promise.allSettledKeyed(fn).then(function(result) {
+    assert.sameValue(Object.getPrototypeOf(result), null);
 
-  var keys = Reflect.ownKeys(result);
-  assert.sameValue(keys.length, 1);
-  assert.sameValue(keys[0], 'key');
-  assert.sameValue(result.key.status, 'fulfilled');
-  assert.sameValue(result.key.value, 'val');
+    var keys = Reflect.ownKeys(result);
+    assert.sameValue(keys.length, 1);
+    assert.sameValue(keys[0], 'key');
+    assert.sameValue(result.key.status, 'fulfilled');
+    assert.sameValue(result.key.value, 'val');
 
-  assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'name'), false);
-  assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'length'), false);
-  assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'prototype'), false);
-}).then($DONE, $DONE);
+    assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'name'), false);
+    assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'length'), false);
+    assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'prototype'), false);
+  });
+});

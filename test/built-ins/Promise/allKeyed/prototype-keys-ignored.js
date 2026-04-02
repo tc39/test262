@@ -15,7 +15,7 @@ info: |
     a. Let desc be ? promises.[[GetOwnProperty]](key).
     b. If desc is not undefined and desc.[[Enumerable]] is true, then
       ...
-includes: [compareArray.js]
+includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -24,9 +24,11 @@ var proto = { inherited: Promise.resolve('nope') };
 var input = Object.create(proto);
 input.own = Promise.resolve('yes');
 
-Promise.allKeyed(input).then(function(result) {
-  assert.sameValue(Object.getPrototypeOf(result), null);
-  assert.compareArray(Object.keys(result), ['own']);
-  assert.sameValue(result.own, 'yes');
-  assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'inherited'), false);
-}).then($DONE, $DONE);
+asyncTest(function() {
+  return Promise.allKeyed(input).then(function(result) {
+    assert.sameValue(Object.getPrototypeOf(result), null);
+    assert.compareArray(Object.keys(result), ['own']);
+    assert.sameValue(result.own, 'yes');
+    assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'inherited'), false);
+  });
+});

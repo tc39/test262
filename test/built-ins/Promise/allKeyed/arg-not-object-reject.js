@@ -13,22 +13,22 @@ info: |
     a. Let error be a newly created TypeError object.
     b. Perform ? Call(promiseCapability.[[Reject]], undefined, « error »).
     c. Return promiseCapability.[[Promise]].
+includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary, Symbol]
 ---*/
 
-function checkRejects(value) {
-  return Promise.allKeyed(value).then(function() {
-    throw new Test262Error('The promise should be rejected for ' + typeof value);
-  }, function(error) {
-    assert(error instanceof TypeError, 'rejects with TypeError for ' + typeof value);
-  });
-}
+asyncTest(function() {
+  function check(value, msg) {
+    return assert.throwsAsync(TypeError, function() {
+      return Promise.allKeyed(value);
+    }, msg);
+  }
 
-checkRejects(undefined)
-  .then(function() { return checkRejects(null); })
-  .then(function() { return checkRejects(86); })
-  .then(function() { return checkRejects('string'); })
-  .then(function() { return checkRejects(true); })
-  .then(function() { return checkRejects(Symbol()); })
-  .then($DONE, $DONE);
+  return check(undefined, 'undefined')
+    .then(function() { return check(null, 'null'); })
+    .then(function() { return check(86, 'number'); })
+    .then(function() { return check('string', 'string'); })
+    .then(function() { return check(true, 'boolean'); })
+    .then(function() { return check(Symbol(), 'symbol'); });
+});

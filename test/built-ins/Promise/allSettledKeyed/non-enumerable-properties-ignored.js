@@ -13,7 +13,7 @@ info: |
     a. Let desc be ? promises.[[GetOwnProperty]](key).
     b. If desc is not undefined and desc.[[Enumerable]] is true, then
       ...
-includes: [compareArray.js]
+includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -27,10 +27,12 @@ Object.defineProperty(input, 'hidden', {
   value: Promise.resolve(1)
 });
 
-Promise.allSettledKeyed(input).then(function(result) {
-  assert.sameValue(Object.getPrototypeOf(result), null);
-  assert.compareArray(Object.keys(result), ['visible']);
-  assert.sameValue(result.visible.status, 'fulfilled');
-  assert.sameValue(result.visible.value, 2);
-  assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'hidden'), false);
-}).then($DONE, $DONE);
+asyncTest(function() {
+  return Promise.allSettledKeyed(input).then(function(result) {
+    assert.sameValue(Object.getPrototypeOf(result), null);
+    assert.compareArray(Object.keys(result), ['visible']);
+    assert.sameValue(result.visible.status, 'fulfilled');
+    assert.sameValue(result.visible.value, 2);
+    assert.sameValue(Object.prototype.hasOwnProperty.call(result, 'hidden'), false);
+  });
+});

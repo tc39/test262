@@ -13,12 +13,13 @@ info: |
     a. Let error be a newly created TypeError object.
     b. Perform ? Call(promiseCapability.[[Reject]], undefined, « error »).
     c. Return promiseCapability.[[Promise]].
+includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary, BigInt]
 ---*/
 
-Promise.allSettledKeyed(0n).then(function() {
-  throw new Test262Error('The promise should be rejected for BigInt');
-}, function(error) {
-  assert(error instanceof TypeError, 'rejects with TypeError for BigInt');
-}).then($DONE, $DONE);
+asyncTest(function() {
+  return assert.throwsAsync(TypeError, function() {
+    return Promise.allSettledKeyed(0n);
+  }, 'BigInt');
+});

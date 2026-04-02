@@ -16,7 +16,7 @@ info: |
     Let obj be OrdinaryObjectCreate(%Object.prototype%).
     Perform ! CreateDataPropertyOrThrow(obj, "status", "fulfilled").
     Perform ! CreateDataPropertyOrThrow(obj, "value", x).
-includes: [compareArray.js]
+includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -28,16 +28,18 @@ var input = {
   third: Promise.resolve(obj)
 };
 
-Promise.allSettledKeyed(input).then(function(settled) {
-  assert.sameValue(Object.getPrototypeOf(settled), null);
-  assert.compareArray(Object.keys(settled), ['first', 'second', 'third']);
+asyncTest(function() {
+  return Promise.allSettledKeyed(input).then(function(settled) {
+    assert.sameValue(Object.getPrototypeOf(settled), null);
+    assert.compareArray(Object.keys(settled), ['first', 'second', 'third']);
 
-  assert.sameValue(settled.first.status, 'fulfilled');
-  assert.sameValue(settled.first.value, 1);
+    assert.sameValue(settled.first.status, 'fulfilled');
+    assert.sameValue(settled.first.value, 1);
 
-  assert.sameValue(settled.second.status, 'fulfilled');
-  assert.sameValue(settled.second.value, 'test262');
+    assert.sameValue(settled.second.status, 'fulfilled');
+    assert.sameValue(settled.second.value, 'test262');
 
-  assert.sameValue(settled.third.status, 'fulfilled');
-  assert.sameValue(settled.third.value, obj);
-}).then($DONE, $DONE);
+    assert.sameValue(settled.third.status, 'fulfilled');
+    assert.sameValue(settled.third.value, obj);
+  });
+});

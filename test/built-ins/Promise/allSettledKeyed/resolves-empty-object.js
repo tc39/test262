@@ -15,13 +15,15 @@ info: |
   8. If remainingElementsCount.[[Value]] = 0, then
     a. Let result be CreateKeyedPromiseCombinatorResultObject(keys, values).
     b. Perform ? Call(resultCapability.[[Resolve]], undefined, « result »).
-includes: [compareArray.js]
+includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
 
-Promise.allSettledKeyed({}).then(function(result) {
-  assert.sameValue(Object.getPrototypeOf(result), null);
-  assert.sameValue(result.hasOwnProperty, undefined);
-  assert.compareArray(Reflect.ownKeys(result), []);
-}).then($DONE, $DONE);
+asyncTest(function() {
+  return Promise.allSettledKeyed({}).then(function(result) {
+    assert.sameValue(Object.getPrototypeOf(result), null);
+    assert.sameValue(result.hasOwnProperty, undefined);
+    assert.compareArray(Reflect.ownKeys(result), []);
+  });
+});

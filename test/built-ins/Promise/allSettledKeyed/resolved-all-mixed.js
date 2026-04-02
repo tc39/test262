@@ -18,7 +18,7 @@ info: |
   8. If remainingElementsCount.[[Value]] = 0, then
     ...
     b. Let result be CreateKeyedPromiseCombinatorResultObject(keys, values).
-includes: [compareArray.js]
+includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [await-dictionary]
 ---*/
@@ -34,32 +34,34 @@ var input = {
   sixth: Promise.resolve(obj2)
 };
 
-Promise.allSettledKeyed(input).then(function(settled) {
-  assert.sameValue(Object.getPrototypeOf(settled), null);
-  assert.compareArray(Object.keys(settled), [
-    'first',
-    'second',
-    'third',
-    'fourth',
-    'fifth',
-    'sixth'
-  ]);
+asyncTest(function() {
+  return Promise.allSettledKeyed(input).then(function(settled) {
+    assert.sameValue(Object.getPrototypeOf(settled), null);
+    assert.compareArray(Object.keys(settled), [
+      'first',
+      'second',
+      'third',
+      'fourth',
+      'fifth',
+      'sixth'
+    ]);
 
-  assert.sameValue(settled.first.status, 'rejected');
-  assert.sameValue(settled.first.reason, 1);
+    assert.sameValue(settled.first.status, 'rejected');
+    assert.sameValue(settled.first.reason, 1);
 
-  assert.sameValue(settled.second.status, 'fulfilled');
-  assert.sameValue(settled.second.value, 2);
+    assert.sameValue(settled.second.status, 'fulfilled');
+    assert.sameValue(settled.second.value, 2);
 
-  assert.sameValue(settled.third.status, 'fulfilled');
-  assert.sameValue(settled.third.value, 'tc39');
+    assert.sameValue(settled.third.status, 'fulfilled');
+    assert.sameValue(settled.third.value, 'tc39');
 
-  assert.sameValue(settled.fourth.status, 'rejected');
-  assert.sameValue(settled.fourth.reason, 'test262');
+    assert.sameValue(settled.fourth.status, 'rejected');
+    assert.sameValue(settled.fourth.reason, 'test262');
 
-  assert.sameValue(settled.fifth.status, 'rejected');
-  assert.sameValue(settled.fifth.reason, obj1);
+    assert.sameValue(settled.fifth.status, 'rejected');
+    assert.sameValue(settled.fifth.reason, obj1);
 
-  assert.sameValue(settled.sixth.status, 'fulfilled');
-  assert.sameValue(settled.sixth.value, obj2);
-}).then($DONE, $DONE);
+    assert.sameValue(settled.sixth.status, 'fulfilled');
+    assert.sameValue(settled.sixth.value, obj2);
+  });
+});
