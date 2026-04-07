@@ -4,7 +4,7 @@
 /*---
 esid: sec-performpromiseallkeyed
 description: >
-  Promise.allSettledKeyed includes enumerable symbol-keyed properties
+  Promise.allSettledKeyed includes enumerable symbol-keyed properties and ignores non-enumerable ones
 info: |
   PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
 
@@ -21,8 +21,13 @@ features: [await-dictionary, Symbol]
 ---*/
 
 var sym = Symbol('s');
+var hiddenSym = Symbol('hidden');
 var input = { str: Promise.resolve(1) };
 input[sym] = Promise.resolve(2);
+Object.defineProperty(input, hiddenSym, {
+  enumerable: false,
+  value: Promise.resolve(3)
+});
 
 asyncTest(function() {
   return Promise.allSettledKeyed(input).then(function(result) {
@@ -37,5 +42,6 @@ asyncTest(function() {
     assert.sameValue(result.str.value, 1);
     assert.sameValue(result[sym].status, 'fulfilled');
     assert.sameValue(result[sym].value, 2);
+    assert.sameValue(Object.prototype.hasOwnProperty.call(result, hiddenSym), false);
   });
 });
