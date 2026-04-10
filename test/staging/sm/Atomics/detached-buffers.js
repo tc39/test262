@@ -5,6 +5,7 @@
 description: |
   pending
 esid: pending
+features: [Atomics, SharedArrayBuffer]
 ---*/
 
 const intArrayConstructors = [
@@ -96,4 +97,3 @@ for (let TA of intArrayConstructors) {
   assert.throws(TypeError, () => Atomics.xor(ta, badValue(ta), 0));
   assert.throws(TypeError, () => Atomics.xor(ta, 0, badValue(ta)));
 }
-
