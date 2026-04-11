@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   pending
 esid: pending
@@ -29,7 +30,7 @@ for (let index of indices) {
 
   let value = {
     valueOf() {
-      $262.detachArrayBuffer(ta.buffer);
+      $DETACHBUFFER(ta.buffer);
       return 0;
     }
   };
