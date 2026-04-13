@@ -9,17 +9,23 @@ description: >
 info: |
   CollationsOfLocale ( loc )
   ...
-  4. Let list be a List of 1 or more unique collation identifiers, which must
-  be lower case String values conforming to the type sequence from UTS 35
-  Unicode Locale Identifier, section 3.2, sorted in descending preference of
-  those in common use for string comparison in locale. The values "standard"
-  and "search" must be excluded from list.
-features: [Intl.Locale, Intl.Locale-info, Array.prototype.includes]
+  3. If language is not "und", then
+    a. Let r be LookupMatchingLocaleByPrefix(%Intl.Collator%.[[AvailableLocales]], « loc.[[Locale]] »).
+    b. If r is not undefined, then
+      i. Let foundLocale be r.[[locale]].
+    ...
+    d. Let foundLocaleData be %Intl.Collator%.[[SortLocaleData]].[[<foundLocale>]].
+  ...
+  6. Return CreateArrayFromList(sorted).
+
+  Properties of the Intl.Collator Constructor - Internal slots:
+    The values "standard" and "search" must not be used as elements in any
+    [[SortLocaleData]].[[<locale>]].[[co]] and
+    [[SearchLocaleData]].[[<locale>]].[[co]] List.
+features: [Intl.Locale, Intl.Locale-info]
 ---*/
 
 const output = new Intl.Locale('en').getCollations();
 assert(output.length > 0, 'array has at least one element');
-output.forEach(c => {
-  if(['standard', 'search'].includes(c))
-    throw new Test262Error();
-});
+assert.sameValue(output.indexOf('standard'), -1, '"standard" collation');
+assert.sameValue(output.indexOf('search'), -1, '"sort" collation');
