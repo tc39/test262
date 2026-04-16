@@ -63,7 +63,7 @@ import-defer
 
 # Deferred re-exports
 # https://tc39.es/proposal-deferred-reexports/
-deferred-reexports
+export-defer
 
 # Import Text
 # https://github.com/tc39/proposal-import-text
