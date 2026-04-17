@@ -5,7 +5,7 @@
 description: |
   pending
 esid: pending
-features: [Atomics, SharedArrayBuffer]
+features: [Atomics]
 ---*/
 
 const intArrayConstructors = [
