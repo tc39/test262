@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-TypedArray-shell.js]
+includes: [sm/non262-TypedArray-shell.js, detachArrayBuffer.js]
 description: |
   pending
 esid: pending
@@ -23,7 +23,7 @@ for (var constructor of anyTypedArrayConstructors) {
 
     // Detached
     if (!isSharedConstructor(constructor)) {
-        $262.detachArrayBuffer(ta.buffer)
+        $DETACHBUFFER(ta.buffer)
 
         assert.sameValue(ta[0], undefined);
         assert.sameValue(Reflect.set(ta, 0, 42, receiver), true);

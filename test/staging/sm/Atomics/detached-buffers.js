@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   pending
 esid: pending
@@ -20,7 +21,7 @@ const intArrayConstructors = [
 function badValue(ta) {
   return {
     valueOf() {
-      $262.detachArrayBuffer(ta.buffer);
+      $DETACHBUFFER(ta.buffer);
       return 0;
     }
   };
