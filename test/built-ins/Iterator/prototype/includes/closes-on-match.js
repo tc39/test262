@@ -23,3 +23,4 @@ let iter = {
 
 assert.sameValue(iter.includes(5), true);
 assert.sameValue(closed, true);
+assert.sameValue(i, 5);
