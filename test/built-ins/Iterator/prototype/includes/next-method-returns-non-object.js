@@ -7,13 +7,12 @@ description: >
 features: [iterator-includes]
 ---*/
 
-class NonObjectIterator extends Iterator {
+let iterator = {
+  __proto__: Iterator.prototype,
   next() {
     return null;
   }
-}
-
-let iterator = new NonObjectIterator();
+};
 
 assert.throws(TypeError, function() {
   iterator.includes(0);

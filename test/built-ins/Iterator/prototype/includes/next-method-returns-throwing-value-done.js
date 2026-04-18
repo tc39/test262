@@ -7,7 +7,8 @@ description: >
 features: [iterator-includes]
 ---*/
 
-class ThrowingIterator extends Iterator {
+let iterator = {
+  __proto__: Iterator.prototype,
   next() {
     return {
       done: true,
@@ -16,8 +17,6 @@ class ThrowingIterator extends Iterator {
       },
     };
   }
-}
-
-let iterator = new ThrowingIterator();
+};
 
 assert.sameValue(iterator.includes(0), false);
