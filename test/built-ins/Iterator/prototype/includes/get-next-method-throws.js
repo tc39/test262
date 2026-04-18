@@ -11,6 +11,9 @@ let iterator = {
   __proto__: Iterator.prototype,
   get next() {
     throw new Test262Error();
+  },
+  get return() {
+    throw new TypeError();
   }
 };
 
