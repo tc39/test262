@@ -7,18 +7,23 @@ description: >
 features: [iterator-includes]
 ---*/
 
+let counter = 0;
 let iterator = {
   __proto__: Iterator.prototype,
   next() {
-    return {
-      done: false,
-      value: 0,
-    };
+    if (counter === 0) {
+      ++counter;
+      return { done: false, value: 0 };
+    } else {
+      return { done: true, value: undefined };
+    }
   },
   get return() {
     throw new Test262Error();
   }
 };
+
+assert.sameValue(iterator.includes(1), false);
 
 assert.throws(Test262Error, function() {
   iterator.includes(0);
