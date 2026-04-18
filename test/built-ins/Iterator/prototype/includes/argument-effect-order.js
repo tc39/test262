@@ -20,13 +20,11 @@ includes: [compareArray.js]
 features: [iterator-includes]
 ---*/
 
-let effects = [];
-
 assert.throws(TypeError, function() {
   Iterator.prototype.includes.call(null, 0, NaN);
 });
 
-assert.compareArray(effects, []);
+let effects = [];
 
 assert.throws(TypeError, function() {
   Iterator.prototype.includes.call(
