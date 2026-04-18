@@ -24,6 +24,7 @@ let iterator = {
 };
 
 assert.sameValue(iterator.includes(1), false);
+counter = 0;
 
 assert.throws(Test262Error, function() {
   iterator.includes(0);
