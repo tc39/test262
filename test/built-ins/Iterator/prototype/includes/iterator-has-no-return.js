@@ -7,7 +7,7 @@ description: >
 features: [iterator-includes]
 ---*/
 
-let iterator = [1, 2, 3, 4, 5][Symbol.iterator]();
+let iterator = [1, 2, 3, 4, 5].values();
 
 assert.sameValue(iterator.return, undefined);
 assert.sameValue(iterator.includes(4), true);
