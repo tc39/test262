@@ -16,6 +16,9 @@ let iterator = {
       },
       value: 1,
     };
+  },
+  get return() {
+    throw new TypeError();
   }
 };
 
