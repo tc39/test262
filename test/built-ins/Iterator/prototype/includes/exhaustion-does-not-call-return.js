@@ -19,9 +19,8 @@ let iterator = {
     }
     return { done: true, value: undefined };
   },
-  return() {
-    ++returnCalls;
-    return {};
+  get return() {
+    throw new Test262Error('return should not be read');
   },
 };
 
