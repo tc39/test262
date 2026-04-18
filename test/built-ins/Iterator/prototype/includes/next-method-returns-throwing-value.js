@@ -16,6 +16,9 @@ let iterator = {
         throw new Test262Error();
       },
     };
+  },
+  get return() {
+    throw new TypeError();
   }
 };
 
