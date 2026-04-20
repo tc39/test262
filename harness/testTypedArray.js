@@ -63,10 +63,6 @@ var allTypedArrayConstructors = typedArrayConstructors.concat(bigIntArrayConstru
  */
 var TypedArray = Object.getPrototypeOf(Int8Array);
 
-function isPrimitive(val) {
-  return !val || (typeof val !== "object" && typeof val !== "function");
-}
-
 function makePassthrough(TA, primitiveOrIterable) {
   return primitiveOrIterable;
 }
