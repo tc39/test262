@@ -18,8 +18,8 @@ class ThrowingIterator extends Iterator {
       value: 1,
     };
   }
-  return() {
-    throw new Error();
+  get return() {
+    throw new Test262Error();
   }
 }
 

@@ -12,6 +12,9 @@ features: [iterator-chunking]
 class NonObjectIterator extends Iterator {
   next() {
     return null;
+  },
+  get return() {
+    throw new Test262Error();
   }
 }
 

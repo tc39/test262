@@ -14,6 +14,9 @@ features: [iterator-chunking]
 class ThrowingIterator extends Iterator {
   get next() {
     throw new Test262Error();
+  },
+  get return() {
+    throw new TypeError();
   }
 }
 
