@@ -28,6 +28,9 @@ var checkPoint = "";
 function fn1(executor) {
   checkPoint += "a";
 }
+Object.defineProperty(fn1, 'resolve', {
+  get() { throw new Test262Error(); }
+});
 assert.throws(TypeError, function() {
   Promise.allKeyed.call(fn1, {});
 }, "executor not called at all");
@@ -39,6 +42,9 @@ function fn2(executor) {
   executor();
   checkPoint += "b";
 }
+Object.defineProperty(fn2, 'resolve', {
+  get() { throw new Test262Error(); }
+});
 assert.throws(TypeError, function() {
   Promise.allKeyed.call(fn2, {});
 }, "executor called with no arguments");
@@ -50,6 +56,9 @@ function fn3(executor) {
   executor(undefined, undefined);
   checkPoint += "b";
 }
+Object.defineProperty(fn3, 'resolve', {
+  get() { throw new Test262Error(); }
+});
 assert.throws(TypeError, function() {
   Promise.allKeyed.call(fn3, {});
 }, "executor called with (undefined, undefined)");
@@ -61,6 +70,9 @@ function fn4(executor) {
   executor(undefined, function() {});
   checkPoint += "b";
 }
+Object.defineProperty(fn4, 'resolve', {
+  get() { throw new Test262Error(); }
+});
 assert.throws(TypeError, function() {
   Promise.allKeyed.call(fn4, {});
 }, "executor called with (undefined, function)");
@@ -72,7 +84,24 @@ function fn5(executor) {
   executor(function() {}, undefined);
   checkPoint += "b";
 }
+Object.defineProperty(fn5, 'resolve', {
+  get() { throw new Test262Error(); }
+});
 assert.throws(TypeError, function() {
   Promise.allKeyed.call(fn5, {});
 }, "executor called with (function, undefined)");
 assert.sameValue(checkPoint, "ab", "executor called with (function, undefined)");
+
+checkPoint = "";
+function fn6(executor) {
+  checkPoint += "a";
+  executor(123, "invalid value");
+  checkPoint += "b";
+}
+Object.defineProperty(fn6, 'resolve', {
+  get() { throw new Test262Error(); }
+});
+assert.throws(TypeError, function() {
+  Promise.allKeyed.call(fn6, {});
+}, "executor called with (Number, String)");
+assert.sameValue(checkPoint, "ab", "executor called with (Number, String)");

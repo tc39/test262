@@ -29,7 +29,7 @@ var input = new Proxy({ key: Promise.resolve(1) }, {
 
 asyncTest(function() {
   return Promise.allSettledKeyed(input).then(function(result) {
-    assert.sameValue(Object.getPrototypeOf(result), null);
+    assert.sameValue(Object.getPrototypeOf(result), null, "result is null-prototype");
     assert.sameValue(Reflect.ownKeys(result).length, 0);
   });
 });

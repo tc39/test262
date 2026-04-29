@@ -36,7 +36,7 @@ function Constructor(executor) {
   function resolve(result) {
     callCount += 1;
     assert.sameValue(Object.getPrototypeOf(result), null, "result is null-prototype");
-    var keys = Object.keys(result);
+    var keys = Reflect.ownKeys(result);
     assert.sameValue(keys.length, 3, "result has 3 keys");
     assert.sameValue(result.a, "a-fulfill", "result.a");
     assert.sameValue(result.b, "b-fulfill", "result.b");
