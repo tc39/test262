@@ -8,7 +8,7 @@ description: >
 info: |
   CollationsOfLocale ( loc )
   ...
-  5. Return ! CreateArrayFromListAndPreferred( list, preferred ).
+  6. Return CreateArrayFromList(sorted).
 features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
