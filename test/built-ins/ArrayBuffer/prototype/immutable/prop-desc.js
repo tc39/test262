@@ -24,14 +24,7 @@ features: [immutable-arraybuffer]
 includes: [propertyHelper.js]
 ---*/
 
-var desc = Object.getOwnPropertyDescriptor(ArrayBuffer.prototype, "immutable");
-var isHardened = Object.isFrozen(Object);
-
-assert.sameValue(desc.value, undefined);
-assert.sameValue(desc.set, undefined);
-verifyCallableProperty(desc, "get", "get immutable", 0, { configurable: !isHardened });
-
-verifyPrimordialProperty(ArrayBuffer.prototype, "immutable", {
-  enumerable: false,
-  configurable: true
-});
+verifyPrimordialAccessorProperty(ArrayBuffer.prototype, "immutable", {
+  get: { name: "get immutable", length: 0 },
+  set: undefined,
+}, { label: "ArrayBuffer.prototype.immutable" });
