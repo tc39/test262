@@ -218,10 +218,12 @@ function isWritable(obj, name, verifyProp, value) {
  * @param {PropertyDescriptor} [desc] defaults to data property conventions (writable, non-enumerable, configurable)
  * @param {object} [options]
  * @param {boolean} [options.label]
+ * @param {typeof verifyProperty} [options.verifyProperty]
  * @param {boolean} [options.restore] revert mutations from verifying writable/configurable
  */
 function verifyCallableProperty(obj, name, functionName, functionLength, desc, options) {
   var label = options && options.label || String(name);
+  var propertyVerifier = options && options.verifyProperty || verifyProperty;
 
   var value = obj[name];
 
@@ -242,7 +244,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
     desc.value = value;
   }
 
-  verifyProperty(obj, name, desc, options);
+  propertyVerifier(obj, name, desc, options);
 
   if (functionName === undefined) {
     if (typeof name === "symbol") {
@@ -256,7 +258,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
   // [[Configurable]]: true }.
   // https://tc39.es/ecma262/multipage/ecmascript-standard-built-in-objects.html#sec-ecmascript-standard-built-in-objects
   // https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html#sec-setfunctionname
-  verifyProperty(value, "name", {
+  propertyVerifier(value, "name", {
     value: functionName,
     writable: false,
     enumerable: false,
@@ -268,7 +270,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
   // [[Configurable]]: true }.
   // https://tc39.es/ecma262/multipage/ecmascript-standard-built-in-objects.html#sec-ecmascript-standard-built-in-objects
   // https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html#sec-setfunctionlength
-  verifyProperty(value, "length", {
+  propertyVerifier(value, "length", {
     value: functionLength,
     writable: false,
     enumerable: false,
@@ -367,5 +369,17 @@ var verifyPrimordialProperty = verifyProperty;
  * Use this function to verify the primordial function-valued properties.
  * For non-primordial functions, use verifyCallableProperty.
  * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
+ *
+ * @type {typeof verifyCallableProperty}
  */
-var verifyPrimordialCallableProperty = verifyCallableProperty;
+function verifyPrimordialCallableProperty(obj, name, functionName, functionLength, desc, options) {
+  var resolvedOptions = {
+    verifyProperty: options && options.verifyProperty !== undefined
+      ? options.verifyProperty
+      : verifyPrimordialProperty
+  };
+  if (options && options.label !== undefined) resolvedOptions.label = options.label;
+  if (options && options.restore !== undefined) resolvedOptions.restore = options.restore;
+
+  return verifyCallableProperty(obj, name, functionName, functionLength, desc, resolvedOptions);
+}
