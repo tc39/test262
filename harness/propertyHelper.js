@@ -37,6 +37,7 @@ var nonIndexNumericPropertyName = Math.pow(2, 32) - 1;
  * @param {string|symbol} name
  * @param {PropertyDescriptor|undefined} desc
  * @param {object} [options]
+ * @param {boolean} [options.label]
  * @param {boolean} [options.restore] revert mutations from verifying writable/configurable
  */
 function verifyProperty(obj, name, desc, options) {
@@ -44,26 +45,23 @@ function verifyProperty(obj, name, desc, options) {
     arguments.length > 2,
     'verifyProperty should receive at least 3 arguments: obj, name, and descriptor'
   );
+  var label = options && options.label || String(name);
 
   var originalDesc = __getOwnPropertyDescriptor(obj, name);
-  var nameStr = String(name);
 
   // Allows checking for undefined descriptor if it's explicitly given.
   if (desc === undefined) {
     assert.sameValue(
       originalDesc,
       undefined,
-      "obj['" + nameStr + "'] descriptor should be undefined"
+      label + " descriptor should be undefined"
     );
 
     // desc and originalDesc are both undefined, problem solved;
     return true;
   }
 
-  assert(
-    __hasOwnProperty(obj, name),
-    "obj should have an own property " + nameStr
-  );
+  assert(__hasOwnProperty(obj, name), label + " should be an own property");
 
   assert.notSameValue(
     desc,
@@ -94,17 +92,17 @@ function verifyProperty(obj, name, desc, options) {
 
   if (__hasOwnProperty(desc, 'value')) {
     if (!isSameValue(desc.value, originalDesc.value)) {
-      __push(failures, "obj['" + nameStr + "'] descriptor value should be " + desc.value);
+      __push(failures, label + " descriptor value should be " + String(desc.value));
     }
     if (!isSameValue(desc.value, obj[name])) {
-      __push(failures, "obj['" + nameStr + "'] value should be " + desc.value);
+      __push(failures, label + " value should be " + String(desc.value));
     }
   }
 
   if (__hasOwnProperty(desc, 'enumerable') && desc.enumerable !== undefined) {
     if (desc.enumerable !== originalDesc.enumerable ||
         desc.enumerable !== isEnumerable(obj, name)) {
-      __push(failures, "obj['" + nameStr + "'] descriptor should " + (desc.enumerable ? '' : 'not ') + "be enumerable");
+      __push(failures, label + " descriptor should " + (desc.enumerable ? '' : 'not ') + "be enumerable");
     }
   }
 
@@ -113,14 +111,14 @@ function verifyProperty(obj, name, desc, options) {
   if (__hasOwnProperty(desc, 'writable') && desc.writable !== undefined) {
     if (desc.writable !== originalDesc.writable ||
         desc.writable !== isWritable(obj, name)) {
-      __push(failures, "obj['" + nameStr + "'] descriptor should " + (desc.writable ? '' : 'not ') + "be writable");
+      __push(failures, label + " descriptor should " + (desc.writable ? '' : 'not ') + "be writable");
     }
   }
 
   if (__hasOwnProperty(desc, 'configurable') && desc.configurable !== undefined) {
     if (desc.configurable !== originalDesc.configurable ||
         desc.configurable !== isConfigurable(obj, name)) {
-      __push(failures, "obj['" + nameStr + "'] descriptor should " + (desc.configurable ? '' : 'not ') + "be configurable");
+      __push(failures, label + " descriptor should " + (desc.configurable ? '' : 'not ') + "be configurable");
     }
   }
 
@@ -219,13 +217,15 @@ function isWritable(obj, name, verifyProp, value) {
  * @param {number} functionLength
  * @param {PropertyDescriptor} [desc] defaults to data property conventions (writable, non-enumerable, configurable)
  * @param {object} [options]
+ * @param {boolean} [options.label]
  * @param {boolean} [options.restore] revert mutations from verifying writable/configurable
  */
 function verifyCallableProperty(obj, name, functionName, functionLength, desc, options) {
+  var label = options && options.label || String(name);
+
   var value = obj[name];
 
-  assert.sameValue(typeof value, "function",
-    "obj['" + String(name) + "'] descriptor should be a function");
+  assert.sameValue(typeof value, "function", label + " should be a function");
 
   // Every other data property described in clauses 19 through 28 and in
   // Annex B.2 has the attributes { [[Writable]]: true, [[Enumerable]]: false,
@@ -261,7 +261,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
     writable: false,
     enumerable: false,
     configurable: desc.configurable
-  }, options);
+  }, { label: label + " name", restore: options && options.restore });
 
   // Unless otherwise specified, the "length" property of a built-in function
   // object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
@@ -273,7 +273,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
     writable: false,
     enumerable: false,
     configurable: desc.configurable
-  }, options);
+  }, { label: label + " length", restore: options && options.restore });
 }
 
 /**
