@@ -7,6 +7,7 @@ description: |
 defines:
   - verifyProperty
   - verifyCallableProperty
+  - verifyAccessorProperty
   - verifyEqualTo # deprecated
   - verifyWritable # deprecated
   - verifyNotWritable # deprecated
@@ -16,6 +17,7 @@ defines:
   - verifyNotConfigurable # deprecated
   - verifyPrimordialProperty
   - verifyPrimordialCallableProperty
+  - verifyPrimordialAccessorProperty
 ---*/
 
 // @ts-check
@@ -225,7 +227,7 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
   var label = options && options.label || String(name);
   var propertyVerifier = options && options.verifyProperty || verifyProperty;
 
-  var value = obj[name];
+  var value = obj && obj[name];
 
   assert.sameValue(typeof value, "function", label + " should be a function");
 
@@ -276,6 +278,107 @@ function verifyCallableProperty(obj, name, functionName, functionLength, desc, o
     enumerable: false,
     configurable: desc.configurable
   }, { label: label + " length", restore: options && options.restore });
+}
+
+/**
+ * Verify that there is an accessor property associated with `obj[name]` and
+ * following the conventions for built-in objects.
+ *
+ * @param {object} obj
+ * @param {string|symbol} name
+ * @param {object} desc
+ * @param {boolean} [desc.enumerable] defaults to accessor property conventions (non-enumerable)
+ * @param {boolean} [desc.configurable] defaults to accessor property conventions (configurable)
+ * @param {undefined | Function | {name?: string|symbol, length?: number}} [desc.get] if an object,
+ *   absent fields default to getter conventions (name derived from the property key with a "get "
+ *   prefix, length 0)
+ * @param {undefined | Function | {name?: string|symbol, length?: number}} [desc.set] if an object,
+ *   absent fields default to getter conventions (name derived from the property key with a "set "
+ *   prefix, length 1)
+ * @param {object} [options]
+ * @param {boolean} [options.label]
+ * @param {typeof verifyProperty} [options.verifyProperty]
+ * @param {typeof verifyCallableProperty} [options.verifyCallableProperty]
+ * @param {boolean} [options.restore] revert mutations from verifying property attributes
+ */
+function verifyAccessorProperty(obj, name, desc, options) {
+  var checkGet = __hasOwnProperty(desc, "get");
+  var checkSet = __hasOwnProperty(desc, "set");
+  assert(
+    checkGet || checkSet,
+    'verifyAccessorProperty requires at least one of "get" and "set"'
+  );
+  var label = options && options.label || String(name);
+  var propertyVerifier = options && options.verifyProperty || verifyProperty;
+  var callabilityVerifier = options && options.verifyCallableProperty || verifyCallableProperty;
+
+  var originalDesc = __getOwnPropertyDescriptor(obj, name);
+
+  // Every built-in function object, including constructors, has a "name"
+  // property whose value is a String. Unless otherwise specified, this value is
+  // the name that is given to the function in this specification. Functions
+  // that are identified as anonymous functions use the empty String as the
+  // value of the "name" property. For functions that are specified as
+  // properties of objects, the name value is the property name string used to
+  // access the function. Functions that are specified as get or set accessor
+  // functions of built-in properties have "get" or "set" (respectively) passed
+  // to the prefix parameter when calling CreateBuiltinFunction.
+  //
+  // The value of the "name" property is explicitly specified for each built-in
+  // functions whose property key is a Symbol value. If such an explicitly
+  // specified value starts with the prefix "get " or "set " and the function
+  // for which it is specified is a get or set accessor function of a built-in
+  // property, the value without the prefix is passed to the name parameter, and
+  // the value "get" or "set" (respectively) is passed to the prefix parameter
+  // when calling CreateBuiltinFunction.
+  // https://tc39.es/ecma262/multipage/ecmascript-standard-built-in-objects.html
+  if (checkGet) {
+    var expectGetter = desc.get;
+    var getterLabel = label + " getter";
+    if (expectGetter === undefined || typeof expectGetter === "function") {
+      assert.sameValue(originalDesc.get, expectGetter, getterLabel);
+    } else {
+      var getterName = expectGetter.name;
+      if (getterName === undefined) {
+        getterName = "get " + (typeof name === "symbol" ? "[" + name.description + "]" : name);
+      }
+      var getterLength = expectGetter.length !== undefined ? expectGetter.length : 0;
+      var getterOptions = { label: getterLabel };
+      callabilityVerifier(originalDesc, "get", getterName, getterLength, {}, getterOptions);
+    }
+  }
+  if (checkSet) {
+    var expectSetter = desc.set;
+    var setterLabel = label + " setter";
+    if (expectSetter === undefined || typeof expectSetter === "function") {
+      assert.sameValue(originalDesc.set, expectSetter, setterLabel);
+    } else {
+      var setterName = expectSetter.name;
+      if (setterName === undefined) {
+        setterName = "set " + (typeof name === "symbol" ? "[" + name.description + "]" : name);
+      }
+      var setterLength = expectSetter.length !== undefined ? expectSetter.length : 1;
+      var setterOptions = { label: setterLabel };
+      callabilityVerifier(originalDesc, "set", setterName, setterLength, {}, setterOptions);
+    }
+  }
+
+  // Every accessor property described in clauses 19 through 28 and in Annex B.2
+  // has the attributes { [[Enumerable]]: false, [[Configurable]]: true } unless
+  // otherwise specified.
+  // https://tc39.es/ecma262/multipage/ecmascript-standard-built-in-objects.html
+  var resolvedDesc = { get: originalDesc.get, set: originalDesc.set };
+  if (!__hasOwnProperty(desc, "enumerable")) {
+    resolvedDesc.enumerable = false;
+  } else if (desc.enumerable !== undefined) {
+    resolvedDesc.enumerable = desc.enumerable;
+  }
+  if (!__hasOwnProperty(desc, "configurable")) {
+    resolvedDesc.configurable = true;
+  } else if (desc.configurable !== undefined) {
+    resolvedDesc.configurable = desc.configurable;
+  }
+  propertyVerifier(obj, name, resolvedDesc, options);
 }
 
 /**
@@ -382,4 +485,26 @@ function verifyPrimordialCallableProperty(obj, name, functionName, functionLengt
   if (options && options.restore !== undefined) resolvedOptions.restore = options.restore;
 
   return verifyCallableProperty(obj, name, functionName, functionLength, desc, resolvedOptions);
+}
+
+/**
+ * Use this function to verify the primordial accessor properties.
+ * For non-primordial functions, use verifyAccessorProperty.
+ * See: https://github.com/tc39/how-we-work/blob/main/terminology.md#primordial
+ *
+ * @type {typeof verifyAccessorProperty}
+ */
+function verifyPrimordialAccessorProperty(obj, name, desc, options) {
+  var resolvedOptions = {
+    verifyProperty: options && options.verifyProperty !== undefined
+      ? options.verifyProperty
+      : verifyPrimordialProperty,
+    verifyCallableProperty: options && options.verifyCallableProperty !== undefined
+      ? options.verifyCallableProperty
+      : verifyPrimordialCallableProperty
+  };
+  if (options && options.label !== undefined) resolvedOptions.label = options.label;
+  if (options && options.restore !== undefined) resolvedOptions.restore = options.restore;
+
+  return verifyAccessorProperty(obj, name, desc, resolvedOptions);
 }
