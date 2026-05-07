@@ -18,12 +18,13 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
+function CustomError() {}
+
+function throwError() {
+  throw new CustomError();
+}
+
 testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var sample = new TA(makeCtorArg(10));
-  function throwFunc(){
-    throw Test262Error()
-    return 0;
-  }
-
-    assert.sameValue(sample.includes({valueOf : throwFunc}), false);
+  assert.sameValue(sample.includes({ valueOf: throwError }), false);
 });
