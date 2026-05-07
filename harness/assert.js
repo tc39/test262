@@ -3,9 +3,17 @@
 /*---
 description: |
     Collection of assertion functions used throughout test262
-defines: [assert, isPrimitive]
+defines: [assert, isNegativeZero, isPrimitive]
 ---*/
 
+
+function isNegativeZero(value) {
+  return value === 0 && 1 / value === -Infinity;
+}
+
+function isPrimitive(value) {
+  return !value || (typeof value !== 'object' && typeof value !== 'function');
+}
 
 function assert(mustBeTrue, message) {
   if (mustBeTrue === true) {
@@ -101,10 +109,6 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
-function isPrimitive(value) {
-  return !value || (typeof value !== 'object' && typeof value !== 'function');
-}
-
 assert.compareArray = function (actual, expected, message) {
   message = message === undefined ? '' : message;
 
@@ -147,7 +151,7 @@ assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
     case 'bigint':
       return String(value) + "n";
     case 'number':
-      if (value === 0 && 1 / value === -Infinity) return '-0';
+      if (isNegativeZero(value)) return '-0';
       // falls through
     case 'boolean':
     case 'undefined':
