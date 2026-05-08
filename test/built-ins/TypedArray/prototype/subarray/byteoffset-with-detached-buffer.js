@@ -16,7 +16,7 @@ info: |
     ...
     f. Let argumentsList be « buffer, 𝔽(beginByteOffset), 𝔽(newLength) ».
   17. Return ? TypedArraySpeciesCreate(O, argumentsList).
-features: [TypedArray]
+features: [Symbol.species, TypedArray]
 includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
 

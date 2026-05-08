@@ -17,7 +17,7 @@ info: |
         1. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, uint8, true, unordered).
         2. Perform SetValueInBuffer(targetBuffer, targetByteIndex, uint8, value, true, unordered).
         ...
-features: [TypedArray]
+features: [Symbol.species, TypedArray]
 includes: [testTypedArray.js, compareArray.js]
 ---*/
 
