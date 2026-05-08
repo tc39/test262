@@ -25,6 +25,7 @@ defines:
 // Capture primordial functions and receiver-uncurried primordial methods that
 // are used in verification but might be destroyed *by* that process itself.
 var __isArray = Array.isArray;
+var __max = Math.max;
 var __defineProperty = Object.defineProperty;
 var __getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 var __getOwnPropertyNames = Object.getOwnPropertyNames;
@@ -32,7 +33,12 @@ var __join = Function.prototype.call.bind(Array.prototype.join);
 var __push = Function.prototype.call.bind(Array.prototype.push);
 var __hasOwnProperty = Function.prototype.call.bind(Object.prototype.hasOwnProperty);
 var __propertyIsEnumerable = Function.prototype.call.bind(Object.prototype.propertyIsEnumerable);
-var nonIndexNumericPropertyName = Math.pow(2, 32) - 1;
+var __getTypedArrayByteLength =
+  Object.getPrototypeOf &&
+  typeof Uint8Array !== "undefined" &&
+  Function.prototype.call.bind(
+    __getOwnPropertyDescriptor(Object.getPrototypeOf(Uint8Array.prototype), "byteLength").get
+  );
 
 /**
  * @param {object} obj
@@ -119,7 +125,7 @@ function verifyProperty(obj, name, desc, options) {
 
   if (__hasOwnProperty(desc, 'configurable') && desc.configurable !== undefined) {
     if (desc.configurable !== originalDesc.configurable ||
-        desc.configurable !== isConfigurable(obj, name)) {
+        desc.configurable !== isConfigurable(obj, name, originalDesc)) {
       __push(failures, label + " descriptor should " + (desc.configurable ? '' : 'not ') + "be configurable");
     }
   }
@@ -135,7 +141,30 @@ function verifyProperty(obj, name, desc, options) {
   return true;
 }
 
-function isConfigurable(obj, name) {
+function toNumber(value) {
+  // https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.max
+  return __max(value);
+}
+
+// https://tc39.es/ecma262/multipage/abstract-operations.html#sec-canonicalnumericindexstring
+function isCanonicalNumericIndexString(value) {
+  if (typeof value !== "string") return false;
+  if (value === "-0") return true;
+  var n = toNumber(value);
+  return String(n) === value;
+}
+
+function isTypedArray(value) {
+  try {
+    // https://tc39.es/ecma262/multipage/indexed-collections.html#sec-get-%typedarray%.prototype.bytelength
+    __getTypedArrayByteLength(value);
+    return true;
+  } catch (_err) {
+    return false;
+  }
+}
+
+function isConfigurable(obj, name, originalDesc) {
   try {
     delete obj[name];
   } catch (e) {
@@ -143,7 +172,17 @@ function isConfigurable(obj, name) {
       throw new Test262Error("Expected TypeError, got " + e);
     }
   }
-  return !__hasOwnProperty(obj, name);
+  var deleted = !__hasOwnProperty(obj, name);
+
+  // TypedArray canonical numeric string properties are never *actually* deleted,
+  // so we skip post-hoc verification for them
+  // https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html#sec-typedarray-delete
+  if (isCanonicalNumericIndexString(name) && isTypedArray(obj) && originalDesc) {
+    if (deleted) throw new Test262Error("Expected TypedArray index deletion to be ignored");
+    return originalDesc.configurable;
+  }
+
+  return deleted;
 }
 
 function isEnumerable(obj, name) {
@@ -172,17 +211,28 @@ function isSameValue(a, b) {
 }
 
 function isWritable(obj, name, verifyProp, value) {
-  var unlikelyValue = __isArray(obj) && name === "length" ?
-    nonIndexNumericPropertyName :
-    "unlikelyValue";
-  var newValue = value || unlikelyValue;
   var hadValue = __hasOwnProperty(obj, name);
   var oldValue = obj[name];
-  var writeSucceeded;
-
-  if (arguments.length < 4 && newValue === oldValue) {
-    newValue = newValue + "2";
+  var newValue = value;
+  if (newValue === undefined) {
+    switch (typeof oldValue) {
+      // To accommodate Array and TypedArray instances, preserve a numeric type.
+      case "number":
+        if (oldValue <= 0 || __isArray(obj) && name === "length") {
+          newValue = oldValue === -Infinity ? 0 : oldValue + 1;
+        } else {
+          newValue = oldValue === Infinity ? 1 : oldValue - 1;
+        }
+        break;
+      case "bigint":
+        newValue = oldValue <= BigInt(0) ? oldValue + BigInt(1) : oldValue - BigInt(1);
+        break;
+      default:
+        newValue = oldValue !== "unlikelyValue" ? "unlikelyValue" : "unlikelyValue2";
+        break;
+    }
   }
+  var writeSucceeded;
 
   try {
     obj[name] = newValue;
