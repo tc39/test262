@@ -3,7 +3,7 @@
 
 /*---
 path: language/expressions/class/decorator/accessor/with-init/public/static/
-name: public static with initializer acessor decorator behavior in class expression
+name: public static with initializer accessor decorator behavior in class expression
 features: [class, decorators, class-static-fields-public]
 esid: prod-FieldDefinition
 ---*/

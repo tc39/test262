@@ -3,7 +3,7 @@
 
 /*---
 path: language/statements/class/decorator/accessor/error/private/instance/
-name: private acessor decorator evaluation error in class declaration
+name: private accessor decorator evaluation error in class declaration
 features: [class, decorators, class-fields-private]
 esid: prod-FieldDefinition
 ---*/

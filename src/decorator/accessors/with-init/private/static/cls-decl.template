@@ -3,7 +3,7 @@
 
 /*---
 path: language/statements/class/decorator/accessor/with-init/private/static/
-name: private static with initializer acessor decorator behavior in class declaration
+name: private static with initializer accessor decorator behavior in class declaration
 features: [class, decorators, class-static-fields-private]
 esid: prod-FieldDefinition
 ---*/

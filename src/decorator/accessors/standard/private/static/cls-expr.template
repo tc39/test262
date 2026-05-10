@@ -3,7 +3,7 @@
 
 /*---
 path: language/expressions/class/decorator/accessor/private/static/
-name: private static acessor decorator behavior in class expression
+name: private static accessor decorator behavior in class expression
 features: [class, decorators, class-static-fields-private]
 esid: prod-FieldDefinition
 ---*/

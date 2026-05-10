@@ -3,7 +3,7 @@
 
 /*---
 path: language/statements/class/decorator/accessor/error/public/instance/
-name: public acessor decorator behavior in class declaration
+name: public accessor decorator behavior in class declaration
 features: [class, decorators, class-fields-public]
 esid: prod-FieldDefinition
 ---*/

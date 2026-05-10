@@ -3,7 +3,7 @@
 
 /*---
 path: language/statements/class/decorator/accessor/private/instance/
-name: private acessor decorator behavior in class declaration
+name: private accessor decorator behavior in class declaration
 features: [class, decorators, class-fields-private]
 esid: prod-FieldDefinition
 ---*/
