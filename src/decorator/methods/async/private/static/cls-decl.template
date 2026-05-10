@@ -3,7 +3,7 @@
 
 /*---
 path: language/statements/class/decorator/method/async/private/static/
-name: private static method decorator behavior in class declaration
+name: private static async method decorator behavior in class declaration
 features: [class, decorators, class-static-methods-private]
 esid: prod-MethodDefinition
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 path: language/expressions/class/decorator/method/generator/private/instance/
-name: private method decorator behavior in class expression
+name: private generator method decorator behavior in class expression
 features: [class, decorators, class-methods-private]
 esid: prod-MethodDefinition
 ---*/

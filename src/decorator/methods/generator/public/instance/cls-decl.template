@@ -3,7 +3,7 @@
 
 /*---
 path: language/statements/class/decorator/method/generator/public/instance/
-name: public method decorator behavior in class declaration
+name: public generator method decorator behavior in class declaration
 features: [class, decorators]
 esid: prod-MethodDefinition
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 path: language/expressions/class/decorator/method/async/public/static/
-name: public static method decorator behavior in class expression
+name: public static async method decorator behavior in class expression
 features: [class, decorators]
 esid: prod-MethodDefinition
 ---*/

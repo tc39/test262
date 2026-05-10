@@ -3,7 +3,7 @@
 
 /*---
 path: language/expressions/class/decorator/method/generator/public/static/
-name: public static method decorator behavior in class expression
+name: public static generator method decorator behavior in class expression
 features: [class, decorators]
 esid: prod-MethodDefinition
 ---*/

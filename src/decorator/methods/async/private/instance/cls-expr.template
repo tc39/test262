@@ -3,7 +3,7 @@
 
 /*---
 path: language/expressions/class/decorator/method/async/private/instance/
-name: private method decorator behavior in class expression
+name: private async method decorator behavior in class expression
 features: [class, decorators, class-methods-private]
 esid: prod-MethodDefinition
 ---*/
