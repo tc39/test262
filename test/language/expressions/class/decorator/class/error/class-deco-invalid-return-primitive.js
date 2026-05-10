@@ -2,9 +2,9 @@
 // - src/decorator/class-deco-invalid-return-primitive.case
 // - src/decorator/class/error/cls-expr.template
 /*---
-description: Class decorator cannot return a random non-newable value (private method decorator evaluation error in class expression)
+description: Class decorator cannot return a random non-newable value (class decorator evaluation error in class expression)
 esid: prod-ClassExpression
-features: [decorators, class, class-methods-private]
+features: [decorators, class]
 flags: [generated]
 ---*/
 
@@ -15,12 +15,8 @@ function dec() {
 
 
 function evaluate() {
-  var C = class {
-    @dec
-
-    #element() {}
-  }
+  var C = @dec
+ class {}
 }
 
 assert.throws(TypeError, evaluate);
-

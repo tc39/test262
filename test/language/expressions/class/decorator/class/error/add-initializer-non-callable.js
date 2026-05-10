@@ -1,16 +1,16 @@
 // This file was procedurally generated from the following sources:
-// - src/decorator/class-deco-invalid-return-arrow.case
+// - src/decorator/add-initializer-non-callable.case
 // - src/decorator/class/error/cls-expr.template
 /*---
-description: Class decorator cannot return non-newable function (arrow) (class decorator evaluation error in class expression)
+description: addInitializer throws TypeError if argument is not callable (class decorator evaluation error in class expression)
 esid: prod-ClassExpression
 features: [decorators, class]
 flags: [generated]
 ---*/
 
 
-function dec() {
-  return () => {}
+function dec(_, context) {
+  context.addInitializer(123);
 }
 
 

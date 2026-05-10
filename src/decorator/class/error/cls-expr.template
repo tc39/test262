@@ -3,19 +3,15 @@
 
 /*---
 path: language/expressions/class/decorator/class/error/
-name: private method decorator evaluation error in class expression
-features: [class, decorators, class-methods-private]
+name: class decorator evaluation error in class expression
+features: [class, decorators]
 esid: prod-ClassExpression
 ---*/
 
 /*{ decorators }*/
 
 function evaluate() {
-  var C = class {
-    /*{ application }*/
-    #element() {}
-  }
+  var C = /*{ application }*/ class {}
 }
 
 assert.throws(/*{ error }*/, evaluate);
-
