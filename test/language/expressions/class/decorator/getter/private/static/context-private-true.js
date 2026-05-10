@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/decorator/context-private-false.case
-// - src/decorator/getters/standard/private/static/cls-decl.template
+// - src/decorator/context-private-true.case
+// - src/decorator/getters/standard/private/static/cls-expr.template
 /*---
-description: Context `private` is true for all types of private elements (private static getter decorator behavior in class declaration)
+description: Context `private` is true for all types of private elements (private static getter decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-static-methods-private]
 flags: [generated]
@@ -14,7 +14,7 @@ function dec(_, context) {
 }
 
 
-class C {
+var C = class {
   static internalValue = 123;
 
   @dec

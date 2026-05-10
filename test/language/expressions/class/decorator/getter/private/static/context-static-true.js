@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/decorator/context-static-true.case
-// - src/decorator/getters/standard/private/static/cls-decl.template
+// - src/decorator/getters/standard/private/static/cls-expr.template
 /*---
-description: Context `static` is false for all types of instance elements (private static getter decorator behavior in class declaration)
+description: Context `static` is true for all types of static elements (private static getter decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-static-methods-private]
 flags: [generated]
@@ -14,7 +14,7 @@ function dec(_, context) {
 }
 
 
-class C {
+var C = class {
   static internalValue = 123;
 
   @dec

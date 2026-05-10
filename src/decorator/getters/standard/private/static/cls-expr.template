@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/expressions/class/decorator/getter/error/private/static/
+path: language/expressions/class/decorator/getter/private/static/
 name: private static getter decorator behavior in class expression
 features: [class, decorators, class-static-methods-private]
 esid: prod-MethodDefinition
