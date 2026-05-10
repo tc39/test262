@@ -5,7 +5,7 @@
 path: language/expressions/class/decorator/class/
 name: decorator usage in a class expression
 features: [class]
-esid: prod-FieldExpression
+esid: prod-ClassExpression
 ---*/
 
 /*{ decorators }*/

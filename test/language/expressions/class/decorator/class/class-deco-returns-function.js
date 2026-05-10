@@ -3,7 +3,7 @@
 // - src/decorator/class/standard/cls-expr.template
 /*---
 description: Class decorator can return a standard function (decorator usage in a class expression)
-esid: prod-FieldExpression
+esid: prod-ClassExpression
 features: [decorators, class]
 flags: [generated]
 ---*/
