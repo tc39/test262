@@ -10,7 +10,6 @@ flags: [generated]
 
 
 var originalClass;
-var subClass;
 
 function dec(C, context) {
   originalClass = C;

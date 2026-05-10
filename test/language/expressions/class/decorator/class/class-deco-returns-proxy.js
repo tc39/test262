@@ -3,14 +3,13 @@
 // - src/decorator/class/standard/cls-expr.template
 /*---
 description: Class decorator can return a Proxy (decorator usage in a class expression)
-esid: prod-FieldExpression
+esid: prod-ClassExpression
 features: [decorators, Proxy, class]
 flags: [generated]
 ---*/
 
 
 var originalClass;
-var subClass;
 
 function dec(C, context) {
   originalClass = C;

@@ -10,7 +10,6 @@ features: [decorators, Proxy]
 
 //- decorators
 var originalClass;
-var subClass;
 
 function dec(C, context) {
   originalClass = C;
