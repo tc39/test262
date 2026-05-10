@@ -118,8 +118,10 @@ for (var i = 0; i < goodInputs.length; i++) {
   for (var j = 0; j < goodInputs.length; j++) {
     var rawEnd = goodInputs[j][0];
     var intEnd = goodInputs[j][1];
-    var intLength =
-      (intEnd >= 0 ? intEnd : 32 + intEnd) - (intStart >= 0 ? intStart : 32 + intStart);
+    var intLength = Math.max(
+      0,
+      (intEnd >= 0 ? intEnd : 32 + intEnd) - (intStart >= 0 ? intStart : 32 + intStart)
+    );
     var source = make32ByteArrayBuffer();
     var expectContents = Array.from(new Uint8Array(source)).slice(rawStart, rawEnd);
     var dest = source.sliceToImmutable(rawStart, rawEnd);
@@ -149,8 +151,10 @@ for (var i = 0; i < goodInputs.length; i++) {
     var intEnd = goodInputs[j][1];
     var paddedEnd = pad(rawEnd);
     if (paddedEnd.skip) continue;
-    var intLength =
-      (intEnd >= 0 ? intEnd : 32 + intEnd) - (intStart >= 0 ? intStart : 32 + intStart);
+    var intLength = Math.max(
+      0,
+      (intEnd >= 0 ? intEnd : 32 + intEnd) - (intStart >= 0 ? intStart : 32 + intStart)
+    );
     var source = make32ByteArrayBuffer();
     var expectContents = Array.from(new Uint8Array(source)).slice(rawStart, rawEnd);
     var dest = source.sliceToImmutable(paddedStart.string, paddedEnd.string);
@@ -167,8 +171,10 @@ for (var i = 0; i < goodInputs.length; i++) {
   for (var j = 0; j < goodInputs.length; j++) {
     var rawEnd = goodInputs[j][0];
     var intEnd = goodInputs[j][1];
-    var intLength =
-      (intEnd >= 0 ? intEnd : 32 + intEnd) - (intStart >= 0 ? intStart : 32 + intStart);
+    var intLength = Math.max(
+      0,
+      (intEnd >= 0 ? intEnd : 32 + intEnd) - (intStart >= 0 ? intStart : 32 + intStart)
+    );
 
     var calls = [];
 
