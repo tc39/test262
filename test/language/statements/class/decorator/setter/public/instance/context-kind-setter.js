@@ -2,7 +2,7 @@
 // - src/decorator/context-kind-setter.case
 // - src/decorator/setters/standard/public/instance/cls-decl.template
 /*---
-description: Context kind is the string "setter" when decorating a method (public setter decorator behavior in class declaration)
+description: Context kind is the string "setter" when decorating a setter (public setter decorator behavior in class declaration)
 esid: prod-MethodDefinition
 features: [decorators, class]
 flags: [generated]

@@ -3,7 +3,7 @@
 // - src/decorator/class/standard/cls-expr.template
 /*---
 description: Name of the class is correct on the context object (decorator usage in a class expression)
-esid: prod-FieldExpression
+esid: prod-ClassExpression
 features: [decorators, class]
 flags: [generated]
 ---*/

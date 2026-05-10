@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-createdecoratorcontextobject
-desc: Context kind is the string "class" when decorating a method
+desc: Context kind is the string "class" when decorating a class
 template: class/standard
 features: [decorators]
 ---*/

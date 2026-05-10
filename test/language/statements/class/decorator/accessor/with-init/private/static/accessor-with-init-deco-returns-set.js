@@ -2,7 +2,7 @@
 // - src/decorator/accessor-with-init-deco-returns-set.case
 // - src/decorator/accessors/with-init/private/static/cls-decl.template
 /*---
-description: Accessor decorator can return a new setter when initializer is present (private static with initializer acessor decorator behavior in class declaration)
+description: Accessor decorator can return a new setter when initializer is present (private static with initializer accessor decorator behavior in class declaration)
 esid: prod-FieldDefinition
 features: [decorators, class, class-static-fields-private]
 flags: [generated]

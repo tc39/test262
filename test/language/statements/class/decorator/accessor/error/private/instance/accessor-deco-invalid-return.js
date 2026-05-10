@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-invalid-return.case
 // - src/decorator/accessors/error/private/instance/cls-decl.template
 /*---
-description: Accessor decorator cannot return invalid init (private acessor decorator evaluation error in class declaration)
+description: Accessor decorator cannot return invalid init (private accessor decorator evaluation error in class declaration)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-private]
 flags: [generated]

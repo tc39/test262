@@ -3,19 +3,19 @@
 
 /*---
 esid: sec-createdecoratorcontextobject
-desc: Context `private` is false for all types of public elements
+desc: Context `private` is true for all types of private elements
 templates:
-  - accessors/standard/public/**/*
-  - fields/standard/public/**/*
-  - getters/standard/public/**/*
-  - methods/standard/public/**/*
-  - setters/standard/public/**/*
+  - accessors/standard/private/**/*
+  - fields/standard/private/**/*
+  - getters/standard/private/**/*
+  - methods/standard/private/**/*
+  - setters/standard/private/**/*
 features: [decorators]
 ---*/
 
 //- decorators
 function dec(_, context) {
-  assert.sameValue(context.private, false);
+  assert.sameValue(context.private, true);
 }
 
 //- application

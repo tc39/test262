@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-invalid-return-get.case
 // - src/decorator/accessors/error/public/instance/cls-expr.template
 /*---
-description: Accessor decorator cannot return invalid getter (public acessor decorator behavior in class expression)
+description: Accessor decorator cannot return invalid getter (public accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-public]
 flags: [generated]

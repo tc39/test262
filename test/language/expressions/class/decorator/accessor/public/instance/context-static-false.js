@@ -2,7 +2,7 @@
 // - src/decorator/context-static-false.case
 // - src/decorator/accessors/standard/public/instance/cls-expr.template
 /*---
-description: Context `static` is false for all types of instance elements (public acessor decorator behavior in class expression)
+description: Context `static` is false for all types of instance elements (public accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-public]
 flags: [generated]

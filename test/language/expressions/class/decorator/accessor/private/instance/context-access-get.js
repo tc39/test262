@@ -2,7 +2,7 @@
 // - src/decorator/context-access-get.case
 // - src/decorator/accessors/standard/private/instance/cls-expr.template
 /*---
-description: Context access `get` works on all gettable types of values (private acessor decorator behavior in class expression)
+description: Context access `get` works on all gettable types of values (private accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-private]
 flags: [generated]

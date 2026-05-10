@@ -2,7 +2,7 @@
 // - src/decorator/context-kind-accessor.case
 // - src/decorator/accessors/standard/private/static/cls-expr.template
 /*---
-description: Context kind is the string "accessor" when decorating a method (private static acessor decorator behavior in class expression)
+description: Context kind is the string "accessor" when decorating an accessor (private static accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-static-fields-private]
 flags: [generated]

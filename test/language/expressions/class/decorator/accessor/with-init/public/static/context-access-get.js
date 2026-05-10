@@ -2,7 +2,7 @@
 // - src/decorator/context-access-get.case
 // - src/decorator/accessors/with-init/public/static/cls-expr.template
 /*---
-description: Context access `get` works on all gettable types of values (public static with initializer acessor decorator behavior in class expression)
+description: Context access `get` works on all gettable types of values (public static with initializer accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-static-fields-public]
 flags: [generated]

@@ -2,7 +2,7 @@
 // - src/decorator/context-kind-method.case
 // - src/decorator/methods/async/public/instance/cls-expr.template
 /*---
-description: Context kind is the string "method" when decorating a method (public method decorator behavior in class expression)
+description: Context kind is the string "method" when decorating a method (public async method decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class]
 flags: [generated]

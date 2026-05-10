@@ -2,7 +2,7 @@
 // - src/decorator/context-name-private.case
 // - src/decorator/accessors/standard/private/instance/cls-expr.template
 /*---
-description: Context name is correct for all types of private elements (private acessor decorator behavior in class expression)
+description: Context name is correct for all types of private elements (private accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-private]
 flags: [generated]

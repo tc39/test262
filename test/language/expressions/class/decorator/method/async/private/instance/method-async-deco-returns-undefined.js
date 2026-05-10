@@ -2,7 +2,7 @@
 // - src/decorator/method-async-deco-returns-undefined.case
 // - src/decorator/methods/async/private/instance/cls-expr.template
 /*---
-description: Decorator undefined return defaults to previous value (private method decorator behavior in class expression)
+description: Decorator undefined return defaults to previous value (private async method decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-methods-private]
 flags: [generated]

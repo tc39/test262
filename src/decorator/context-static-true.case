@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-createdecoratorcontextobject
-desc: Context `static` is false for all types of instance elements
+desc: Context `static` is true for all types of static elements
 templates:
   - accessors/standard/private/static
   - accessors/standard/public/static

@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-returns-init.case
 // - src/decorator/accessors/standard/public/static/cls-decl.template
 /*---
-description: Accessor decorator can return a new init (public static acessor decorator behavior in class declaration)
+description: Accessor decorator can return a new init (public static accessor decorator behavior in class declaration)
 esid: prod-FieldDefinition
 features: [decorators, class, class-static-fields-public]
 flags: [generated]

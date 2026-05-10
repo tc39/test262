@@ -2,7 +2,7 @@
 // - src/decorator/method-async-deco-returns-undefined.case
 // - src/decorator/methods/async/public/static/cls-decl.template
 /*---
-description: Decorator undefined return defaults to previous value (public static method decorator behavior in class declaration)
+description: Decorator undefined return defaults to previous value (public static async method decorator behavior in class declaration)
 esid: prod-MethodDefinition
 features: [decorators, class]
 flags: [generated]

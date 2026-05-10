@@ -2,8 +2,8 @@
 // - src/decorator/context-kind-class.case
 // - src/decorator/class/standard/cls-expr.template
 /*---
-description: Context kind is the string "class" when decorating a method (decorator usage in a class expression)
-esid: prod-FieldExpression
+description: Context kind is the string "class" when decorating a class (decorator usage in a class expression)
+esid: prod-ClassExpression
 features: [decorators, class]
 flags: [generated]
 ---*/

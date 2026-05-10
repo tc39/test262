@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-returns-init.case
 // - src/decorator/accessors/standard/private/instance/cls-expr.template
 /*---
-description: Accessor decorator can return a new init (private acessor decorator behavior in class expression)
+description: Accessor decorator can return a new init (private accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-private]
 flags: [generated]

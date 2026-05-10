@@ -2,7 +2,7 @@
 // - src/decorator/context-access-set.case
 // - src/decorator/setters/standard/private/static/cls-expr.template
 /*---
-description: Context access `get` works on all gettable types of values (private static setter decorator behavior in class expression)
+description: Context access `set` works on all settable types of values (private static setter decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-static-methods-private]
 flags: [generated]

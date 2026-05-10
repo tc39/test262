@@ -2,7 +2,7 @@
 // - src/decorator/decorator-order-application-field-and-accessor.case
 // - src/decorator/accessors/with-init/private/static/cls-expr.template
 /*---
-description: Order of decorator application for elements with initializers (private static with initializer acessor decorator behavior in class expression)
+description: Order of decorator application for elements with initializers (private static with initializer accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-static-fields-private]
 flags: [generated]

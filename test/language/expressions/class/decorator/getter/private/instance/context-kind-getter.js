@@ -2,7 +2,7 @@
 // - src/decorator/context-kind-getter.case
 // - src/decorator/getters/standard/private/instance/cls-expr.template
 /*---
-description: Context kind is the string "method" when decorating a method (private getter decorator behavior in class expression)
+description: Context kind is the string "getter" when decorating a getter (private getter decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-methods-private]
 flags: [generated]

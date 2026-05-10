@@ -2,7 +2,7 @@
 // - src/decorator/field-and-accessor-init-this.case
 // - src/decorator/accessors/standard/public/instance/cls-expr.template
 /*---
-description: Field initializer `this` value is the instance or the class (public acessor decorator behavior in class expression)
+description: Field initializer `this` value is the instance or the class (public accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-public]
 flags: [generated]

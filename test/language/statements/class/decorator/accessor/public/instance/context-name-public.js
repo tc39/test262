@@ -2,7 +2,7 @@
 // - src/decorator/context-name-public.case
 // - src/decorator/accessors/standard/public/instance/cls-decl.template
 /*---
-description: Context name is correct for all types of public elements (public acessor decorator behavior in class declaration)
+description: Context name is correct for all types of public elements (public accessor decorator behavior in class declaration)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-public]
 flags: [generated]

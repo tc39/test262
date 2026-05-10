@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-returns-set.case
 // - src/decorator/accessors/standard/private/instance/cls-expr.template
 /*---
-description: Accessor decorator can return a new getter (private acessor decorator behavior in class expression)
+description: Accessor decorator can return a new setter (private accessor decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-private]
 flags: [generated]

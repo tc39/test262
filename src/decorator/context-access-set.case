@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-createdecoratorcontextobject
-desc: Context access `get` works on all gettable types of values
+desc: Context access `set` works on all settable types of values
 templates:
   - accessors/standard/**/*
   - accessors/with-init/**/*

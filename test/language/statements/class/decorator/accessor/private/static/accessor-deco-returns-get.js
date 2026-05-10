@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-returns-get.case
 // - src/decorator/accessors/standard/private/static/cls-decl.template
 /*---
-description: Accessor decorator can return a new getter (private static acessor decorator behavior in class declaration)
+description: Accessor decorator can return a new getter (private static accessor decorator behavior in class declaration)
 esid: prod-FieldDefinition
 features: [decorators, class, class-static-fields-private]
 flags: [generated]

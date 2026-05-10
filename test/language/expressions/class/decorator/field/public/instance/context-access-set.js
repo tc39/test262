@@ -2,7 +2,7 @@
 // - src/decorator/context-access-set.case
 // - src/decorator/fields/standard/public/instance/cls-expr.template
 /*---
-description: Context access `get` works on all gettable types of values (public field decorator behavior in class expression)
+description: Context access `set` works on all settable types of values (public field decorator behavior in class expression)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-public]
 flags: [generated]

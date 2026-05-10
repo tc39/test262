@@ -2,7 +2,7 @@
 // - src/decorator/method-async-deco-returns-replacement.case
 // - src/decorator/methods/async/private/instance/cls-expr.template
 /*---
-description: Can replace a decorated method with a new method (private method decorator behavior in class expression)
+description: Can replace a decorated method with a new method (private async method decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-methods-private]
 flags: [generated]

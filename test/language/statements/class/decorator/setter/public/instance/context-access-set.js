@@ -2,7 +2,7 @@
 // - src/decorator/context-access-set.case
 // - src/decorator/setters/standard/public/instance/cls-decl.template
 /*---
-description: Context access `get` works on all gettable types of values (public setter decorator behavior in class declaration)
+description: Context access `set` works on all settable types of values (public setter decorator behavior in class declaration)
 esid: prod-MethodDefinition
 features: [decorators, class]
 flags: [generated]

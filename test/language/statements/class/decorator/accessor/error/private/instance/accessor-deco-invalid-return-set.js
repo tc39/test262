@@ -2,7 +2,7 @@
 // - src/decorator/accessor-deco-invalid-return-set.case
 // - src/decorator/accessors/error/private/instance/cls-decl.template
 /*---
-description: Accessor decorator cannot return invalid setter (private acessor decorator evaluation error in class declaration)
+description: Accessor decorator cannot return invalid setter (private accessor decorator evaluation error in class declaration)
 esid: prod-FieldDefinition
 features: [decorators, class, class-fields-private]
 flags: [generated]
