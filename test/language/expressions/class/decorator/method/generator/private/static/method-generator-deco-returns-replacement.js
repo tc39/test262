@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
 // - src/decorator/method-generator-deco-returns-replacement.case
-// - src/decorator/methods/generator/public/instance/cls-decl.template
+// - src/decorator/methods/generator/private/static/cls-expr.template
 /*---
-description: Can replace a decorated method with a new method (public method decorator behavior in class declaration)
+description: Can replace a decorated method with a new method (private static generator method decorator behavior in class expression)
 esid: prod-MethodDefinition
-features: [decorators, class]
+features: [decorators, class, class-static-methods-private]
 flags: [generated]
 ---*/
 
@@ -16,19 +16,18 @@ function dec(value, context) {
 }
 
 
-class C {
+var C = class {
   @dec
 
-  * element() {
+  static * #element() {
     return 123;
   }
 
-  getElement() {
-    return this.element;
+  static getElement() {
+    return this.#element;
   }
 }
 
-var classOrInstance = new C();
+var classOrInstance = C;
 
 assert.sameValue(classOrInstance.getElement()(), 456);
-

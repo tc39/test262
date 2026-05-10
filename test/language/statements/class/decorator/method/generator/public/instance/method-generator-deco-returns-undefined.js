@@ -2,7 +2,7 @@
 // - src/decorator/method-generator-deco-returns-undefined.case
 // - src/decorator/methods/generator/public/instance/cls-decl.template
 /*---
-description: Decorator undefined return defaults to previous value (public method decorator behavior in class declaration)
+description: Decorator undefined return defaults to previous value (public generator method decorator behavior in class declaration)
 esid: prod-MethodDefinition
 features: [decorators, class]
 flags: [generated]

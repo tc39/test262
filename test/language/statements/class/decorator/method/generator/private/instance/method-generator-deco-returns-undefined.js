@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
 // - src/decorator/method-generator-deco-returns-undefined.case
-// - src/decorator/methods/generator/private/static/cls-expr.template
+// - src/decorator/methods/generator/private/instance/cls-decl.template
 /*---
-description: Decorator undefined return defaults to previous value (private static method decorator behavior in class expression)
+description: Decorator undefined return defaults to previous value (private generator method decorator behavior in class declaration)
 esid: prod-MethodDefinition
-features: [decorators, class, class-static-methods-private]
+features: [decorators, class, class-methods-private]
 flags: [generated]
 ---*/
 
@@ -20,18 +20,18 @@ function dec2(value, context) {
 }
 
 
-var C = class {
+class C {
   @dec2 @dec1
 
-  static * #element() {
+  * #element() {
     return 123;
   }
 
-  static getElement() {
+  getElement() {
     return this.#element;
   }
 }
 
-var classOrInstance = C;
+var classOrInstance = new C();
 
 assert.sameValue(classOrInstance.getElement()(), 456);

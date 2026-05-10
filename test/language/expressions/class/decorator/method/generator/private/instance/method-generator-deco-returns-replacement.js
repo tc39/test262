@@ -1,27 +1,23 @@
 // This file was procedurally generated from the following sources:
-// - src/decorator/method-generator-deco-returns-undefined.case
-// - src/decorator/methods/generator/private/instance/cls-decl.template
+// - src/decorator/method-generator-deco-returns-replacement.case
+// - src/decorator/methods/generator/private/instance/cls-expr.template
 /*---
-description: Decorator undefined return defaults to previous value (private method decorator behavior in class declaration)
+description: Can replace a decorated method with a new method (private generator method decorator behavior in class expression)
 esid: prod-MethodDefinition
 features: [decorators, class, class-methods-private]
 flags: [generated]
 ---*/
 
 
-function dec1(value, context) {
+function dec(value, context) {
   assert(value() instanceof Iterator, 'value is iterator');
 
   return () => 456;
 }
 
-function dec2(value, context) {
-  assert.sameValue(value(), 456);
-}
 
-
-class C {
-  @dec2 @dec1
+var C = class {
+  @dec
 
   * #element() {
     return 123;
