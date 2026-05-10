@@ -8,6 +8,7 @@ templates:
   - methods/standard/**/*
   - methods/async/**/*
   - methods/generator/**/*
+  - methods/async-generator/**/*
 features: [decorators]
 ---*/
 

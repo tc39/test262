@@ -12,6 +12,7 @@ templates:
   - methods/standard/**/*
   - methods/async
   - methods/generator
+  - methods/async-generator
   - getters/standard
 features: [decorators]
 ---*/
