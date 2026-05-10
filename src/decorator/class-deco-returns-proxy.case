@@ -1,0 +1,34 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoclassdefinition
+desc: Class decorator can return a Proxy
+template: class/standard
+features: [decorators, Proxy]
+---*/
+
+//- decorators
+var originalClass;
+var subClass;
+
+function dec(C, context) {
+  originalClass = C;
+
+  return new Proxy(C, {
+    construct(target, args, newTarget) {
+      var instance = Reflect.construct(target, args, newTarget);
+      instance.proxied = true;
+      return instance;
+    }
+  });
+}
+
+//- application
+@dec
+
+//- assertions
+assert(C !== originalClass, 'values are not the same');
+var instance = new C();
+assert(instance instanceof originalClass, 'instance is instance of original class');
+assert.sameValue(instance.proxied, true, 'proxy construct trap ran');
