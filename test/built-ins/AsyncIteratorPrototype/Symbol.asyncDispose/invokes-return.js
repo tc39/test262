@@ -34,11 +34,14 @@ asyncTest(async function () {
 
   const iter = Object.create(AsyncIteratorPrototype);
   var returnCalled = false;
+  var argumentCount = 0;
   iter.return = async function () {
+    argumentCount = arguments.length;
     returnCalled = true;
     return { done: true };
   };
 
   await iter[Symbol.asyncDispose]();
   assert.sameValue(returnCalled, true);
+  assert.sameValue(argumentCount, 0);
 });
