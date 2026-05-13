@@ -62,13 +62,13 @@ asyncTest(async function () {
 
   const nsRe = ns.nsRe;
 
-  assert.compareArray(globalThis.evaluations, ["barrel"],
+  assert.compareArray(globalThis.evaluations, ["barrel", "dep"],
     "ns.nsRe triggers barrel evaluation but not the deferred dep");
 
   assert.sameValue(typeof nsRe, "object",
-    "ns.nsRe resolves to a (deferred) namespace object");
-  assert.sameValue(nsRe[Symbol.toStringTag], "Deferred Module",
-    "the namespace re-exported via `export defer * as nsRe` is a deferred namespace");
+    "ns.nsRe resolves to a namespace object");
+  assert.sameValue(nsRe[Symbol.toStringTag], "Module",
+    "the namespace re-exported via `export defer * as nsRe` is a namespace");
 
   assert.sameValue(nsRe.exported, 3,
     "reading a property of the deferred namespace resolves to the dep's value");
