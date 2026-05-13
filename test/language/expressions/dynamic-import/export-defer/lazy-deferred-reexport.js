@@ -46,7 +46,8 @@ info: |
   Passing ~all~ to LoadRequestedModules and Link makes them traverse
   [[OptionalIndirectExportEntries]] (the slot that records `export
   defer ... from` declarations). The deferred dep is loaded and linked
-  at load time — only its body evaluation is deferred.flags: [module, async]
+  at load time — only its body evaluation is deferred.
+flags: [module, async]
 features: [export-defer, dynamic-import]
 includes: [asyncHelpers.js, compareArray.js]
 ---*/
