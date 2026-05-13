@@ -66,7 +66,7 @@ asyncTest(async function () {
   assert.sameValue(nsRe[Symbol.toStringTag], "Module",
     "the namespace re-exported via `export defer * as nsRe` is a namespace");
 
-  assert.compareArray(globalThis.evaluations, ["barrel"],
+  assert.compareArray(globalThis.evaluations, ["barrel", "dep"],
     "reading ns.nsRe does not evaluate the deferred dep");
 
   assert.sameValue(nsRe.exported, 3,
