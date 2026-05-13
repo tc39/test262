@@ -28,7 +28,7 @@ info: |
     ModuleExportName `as` ModuleExportName
 
 flags: [module]
-features: [export-defer, import-attributes]
+features: [export-defer, import-attributes, json-modules]
 ---*/
 
-export defer { x } from "./dep_FIXTURE.js" with { type: "json" };
+export defer { default as x } from "./dep_FIXTURE.json" with { type: "json" };
