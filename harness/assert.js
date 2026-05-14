@@ -3,7 +3,12 @@
 /*---
 description: |
     Collection of assertion functions used throughout test262
-defines: [assert, isNegativeZero, isPrimitive]
+defines:
+  - assert
+  - formatIdentityFreeValue
+  - formatSimpleValue
+  - isNegativeZero
+  - isPrimitive
 ---*/
 
 
@@ -13,6 +18,35 @@ function isNegativeZero(value) {
 
 function isPrimitive(value) {
   return !value || (typeof value !== 'object' && typeof value !== 'function');
+}
+
+function formatIdentityFreeValue(value) {
+  switch (value === null ? 'null' : typeof value) {
+    case 'string':
+      return typeof JSON !== "undefined" ? JSON.stringify(value) : '"' + value + '"';
+    case 'bigint':
+      return String(value) + "n";
+    case 'number':
+      if (isNegativeZero(value)) return '-0';
+      // falls through
+    case 'boolean':
+    case 'undefined':
+    case 'null':
+      return String(value);
+  }
+}
+
+function formatSimpleValue(value) {
+  var basic = formatIdentityFreeValue(value);
+  if (basic) return basic;
+  try {
+    return String(value);
+  } catch (err) {
+    if (err.name === 'TypeError') {
+      return Object.prototype.toString.call(value);
+    }
+    throw err;
+  }
 }
 
 function assert(mustBeTrue, message) {
@@ -144,31 +178,6 @@ compareArray.format = function (arrayLike) {
   return "[" + Array.prototype.map.call(arrayLike, String).join(", ") + "]";
 };
 
-assert._formatIdentityFreeValue = function formatIdentityFreeValue(value) {
-  switch (value === null ? 'null' : typeof value) {
-    case 'string':
-      return typeof JSON !== "undefined" ? JSON.stringify(value) : '"' + value + '"';
-    case 'bigint':
-      return String(value) + "n";
-    case 'number':
-      if (isNegativeZero(value)) return '-0';
-      // falls through
-    case 'boolean':
-    case 'undefined':
-    case 'null':
-      return String(value);
-  }
-};
+assert._formatIdentityFreeValue = formatIdentityFreeValue;
 
-assert._toString = function (value) {
-  var basic = assert._formatIdentityFreeValue(value);
-  if (basic) return basic;
-  try {
-    return String(value);
-  } catch (err) {
-    if (err.name === 'TypeError') {
-      return Object.prototype.toString.call(value);
-    }
-    throw err;
-  }
-};
+assert._toString = formatSimpleValue;
