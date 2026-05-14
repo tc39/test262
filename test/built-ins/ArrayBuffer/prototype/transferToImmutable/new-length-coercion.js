@@ -76,7 +76,7 @@ for (var i = 0; i < goodLengths.length; i++) {
   var intLength = goodLengths[i][1];
   var ab = new ArrayBuffer(8);
   assert.sameValue(ab.transferToImmutable(rawLength).byteLength, intLength,
-    "transferToImmutable(" + assert._toString(rawLength) + ").byteLength");
+    "transferToImmutable(" + formatSimpleValue(rawLength) + ").byteLength");
 }
 
 var whitespace = "\t\v\f\uFEFF\u3000\n\r\u2028\u2029";
@@ -91,7 +91,7 @@ for (var i = 0; i < goodLengths.length; i++) {
   var paddedLength = whitespace + rawLength + whitespace;
   var ab = new ArrayBuffer(8);
   assert.sameValue(ab.transferToImmutable(paddedLength).byteLength, intLength,
-    "transferToImmutable(" + assert._toString(paddedLength) + ").byteLength");
+    "transferToImmutable(" + formatSimpleValue(paddedLength) + ").byteLength");
 }
 
 for (var i = 0; i < goodLengths.length; i++) {
@@ -113,17 +113,17 @@ for (var i = 0; i < goodLengths.length; i++) {
 
   var ab = new ArrayBuffer(8);
   assert.sameValue(ab.transferToImmutable(objLength).byteLength, intLength,
-    "transferToImmutable({ valueOf: () => " + assert._toString(rawLength) + " }).byteLength");
+    "transferToImmutable({ valueOf: () => " + formatSimpleValue(rawLength) + " }).byteLength");
   assert.compareArray(calls, ["valueOf"],
-    "transferToImmutable({ valueOf: () => " + assert._toString(rawLength) + " }) calls");
+    "transferToImmutable({ valueOf: () => " + formatSimpleValue(rawLength) + " }) calls");
 
   badValueOf = true;
   calls = [];
   ab = new ArrayBuffer(8);
   assert.sameValue(ab.transferToImmutable(objLength).byteLength, intLength,
-    "transferToImmutable({ toString: () => " + assert._toString(rawLength) + " }).byteLength");
+    "transferToImmutable({ toString: () => " + formatSimpleValue(rawLength) + " }).byteLength");
   assert.compareArray(calls, ["valueOf", "toString"],
-    "transferToImmutable({ toString: () => " + assert._toString(rawLength) + " }) calls");
+    "transferToImmutable({ toString: () => " + formatSimpleValue(rawLength) + " }) calls");
 
   badToString = true;
   if (typeof Symbol === undefined || !Symbol.toPrimitive) continue;
@@ -134,9 +134,9 @@ for (var i = 0; i < goodLengths.length; i++) {
   };
   ab = new ArrayBuffer(8);
   assert.sameValue(ab.transferToImmutable(objLength).byteLength, intLength,
-    "transferToImmutable({ [Symbol.toPrimitive]: () => " + assert._toString(rawLength) + " }).byteLength");
+    "transferToImmutable({ [Symbol.toPrimitive]: () => " + formatSimpleValue(rawLength) + " }).byteLength");
   assert.compareArray(calls, ["Symbol.toPrimitive(number)"],
-    "transferToImmutable({ [Symbol.toPrimitive]: () => " + assert._toString(rawLength) + " }) calls");
+    "transferToImmutable({ [Symbol.toPrimitive]: () => " + formatSimpleValue(rawLength) + " }) calls");
 }
 
 var badLengths = [
@@ -158,7 +158,7 @@ for (var i = 0; i < badLengths.length; i++) {
   var ab = new ArrayBuffer(8);
   assert.throws(expectedErr, function() {
     ab.transferToImmutable(rawLength);
-  }, "transferToImmutable(" + assert._toString(rawLength) + ")");
+  }, "transferToImmutable(" + formatSimpleValue(rawLength) + ")");
 }
 
 for (var i = 0; i < badLengths.length; i++) {
@@ -170,7 +170,7 @@ for (var i = 0; i < badLengths.length; i++) {
   var ab = new ArrayBuffer(8);
   assert.throws(expectedErr, function() {
     ab.transferToImmutable(paddedLength);
-  }, "transferToImmutable(" + assert._toString(paddedLength) + ")");
+  }, "transferToImmutable(" + formatSimpleValue(paddedLength) + ")");
 }
 
 for (var i = 0; i < badLengths.length; i++) {
@@ -194,18 +194,18 @@ for (var i = 0; i < badLengths.length; i++) {
   var ab = new ArrayBuffer(8);
   assert.throws(expectedErr, function() {
     ab.transferToImmutable(objLength);
-  }, "transferToImmutable({ valueOf: () => " + assert._toString(rawLength) + " })");
+  }, "transferToImmutable({ valueOf: () => " + formatSimpleValue(rawLength) + " })");
   assert.compareArray(calls, ["valueOf"],
-    "transferToImmutable({ valueOf: () => " + assert._toString(rawLength) + " }) calls");
+    "transferToImmutable({ valueOf: () => " + formatSimpleValue(rawLength) + " }) calls");
 
   badValueOf = true;
   calls = [];
   ab = new ArrayBuffer(8);
   assert.throws(expectedErr, function() {
     ab.transferToImmutable(objLength);
-  }, "transferToImmutable({ toString: () => " + assert._toString(rawLength) + " })");
+  }, "transferToImmutable({ toString: () => " + formatSimpleValue(rawLength) + " })");
   assert.compareArray(calls, ["valueOf", "toString"],
-    "transferToImmutable({ toString: () => " + assert._toString(rawLength) + " }) calls");
+    "transferToImmutable({ toString: () => " + formatSimpleValue(rawLength) + " }) calls");
 
   badToString = true;
   if (typeof Symbol === undefined || !Symbol.toPrimitive) continue;
@@ -217,9 +217,9 @@ for (var i = 0; i < badLengths.length; i++) {
   ab = new ArrayBuffer(8);
   assert.throws(expectedErr, function() {
     ab.transferToImmutable(objLength);
-  }, "transferToImmutable({ [Symbol.toPrimitive]: () => " + assert._toString(rawLength) + " })");
+  }, "transferToImmutable({ [Symbol.toPrimitive]: () => " + formatSimpleValue(rawLength) + " })");
   assert.compareArray(calls, ["Symbol.toPrimitive(number)"],
-    "transferToImmutable({ [Symbol.toPrimitive]: () => " + assert._toString(rawLength) + " }) calls");
+    "transferToImmutable({ [Symbol.toPrimitive]: () => " + formatSimpleValue(rawLength) + " }) calls");
 }
 
 var calls = [];
