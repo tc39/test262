@@ -118,7 +118,7 @@ for (var i = 0; i < goodInputs.length; i++) {
     var source = make32ByteArrayBuffer();
     var expectContents = Array.from(new Uint8Array(source)).slice(rawStart, rawEnd);
     var dest = source.sliceToImmutable(rawStart, rawEnd);
-    var label = "sliceToImmutable(" + assert._toString(rawStart) + ", " + assert._toString(rawEnd) + ")";
+    var label = "sliceToImmutable(" + formatSimpleValue(rawStart) + ", " + formatSimpleValue(rawEnd) + ")";
     assert.sameValue(dest.byteLength, intLength, label + ".byteLength");
     assert.compareArray(new Uint8Array(dest), expectContents, label + " contents");
     assert.sameValue(dest.immutable, true, label + ".immutable");
@@ -154,7 +154,7 @@ for (var i = 0; i < goodInputs.length; i++) {
     var source = make32ByteArrayBuffer();
     var expectContents = Array.from(new Uint8Array(source)).slice(rawStart, rawEnd);
     var dest = source.sliceToImmutable(paddedStart.string, paddedEnd.string);
-    var label = "sliceToImmutable(" + assert._toString(paddedStart.string) + ", " + assert._toString(paddedEnd.string) + ")";
+    var label = "sliceToImmutable(" + formatSimpleValue(paddedStart.string) + ", " + formatSimpleValue(paddedEnd.string) + ")";
     assert.sameValue(dest.byteLength, intLength, label + ".byteLength");
     assert.compareArray(new Uint8Array(dest), expectContents, label + " contents");
     assert.sameValue(dest.immutable, true, label + ".immutable");
@@ -199,8 +199,8 @@ for (var i = 0; i < goodInputs.length; i++) {
       }
     };
     function reprArgs(startMethodName, endMethodName) {
-      var startRepr = "{ " + startMethodName + ": () => " + assert._toString(rawStart) + " }";
-      var endRepr = "{ " + endMethodName + ": () => " + assert._toString(rawEnd) + " }";
+      var startRepr = "{ " + startMethodName + ": () => " + formatSimpleValue(rawStart) + " }";
+      var endRepr = "{ " + endMethodName + ": () => " + formatSimpleValue(rawEnd) + " }";
       return "(" + startRepr + ", " + endRepr + ")";
     }
 
@@ -324,10 +324,10 @@ for (var i = 0; i < badInputs.length; i++) {
     function() {
       ab.sliceToImmutable(rawBad, objGood);
     },
-    "sliceToImmutable(" + assert._toString(rawBad) + ", { valueOf: () => " + assert._toString(rawGood) + " })"
+    "sliceToImmutable(" + formatSimpleValue(rawBad) + ", { valueOf: () => " + formatSimpleValue(rawGood) + " })"
   );
   assert.compareArray(calls, [],
-    "sliceToImmutable(" + assert._toString(rawBad) + ", { valueOf: () => " + assert._toString(rawGood) + " }) calls");
+    "sliceToImmutable(" + formatSimpleValue(rawBad) + ", { valueOf: () => " + formatSimpleValue(rawGood) + " }) calls");
 
   calls = [];
   assert.throws(
@@ -335,10 +335,10 @@ for (var i = 0; i < badInputs.length; i++) {
     function() {
       ab.sliceToImmutable(objGood, rawBad);
     },
-    "sliceToImmutable({ valueOf: () => " + assert._toString(rawGood) + " }, " + assert._toString(rawBad) + ")"
+    "sliceToImmutable({ valueOf: () => " + formatSimpleValue(rawGood) + " }, " + formatSimpleValue(rawBad) + ")"
   );
   assert.compareArray(calls, ["good.valueOf"],
-    "sliceToImmutable({ valueOf: () => " + assert._toString(rawGood) + " }, " + assert._toString(rawBad) + ") calls");
+    "sliceToImmutable({ valueOf: () => " + formatSimpleValue(rawGood) + " }, " + formatSimpleValue(rawBad) + ") calls");
 }
 
 var calls = [];
