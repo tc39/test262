@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalDurationRecord
   "get duration.days",
   "get duration.days.valueOf",
@@ -40,10 +40,12 @@ const expected = [
   "get duration.years",
   "get duration.years.valueOf",
   "call duration.years.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   "get options.overflow",
   "get options.overflow.toString",
   "call options.overflow.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.ZonedDateTime(0n, "UTC", "iso8601");
@@ -65,3 +67,11 @@ const options = TemporalHelpers.propertyBagObserver(actual, { overflow: "constra
 
 instance.subtract(duration, options);
 assert.compareArray(actual, expected, "order of operations");
+
+actual.splice(0); // clear
+
+assert.throws(TypeError, () => instance.subtract(duration, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "duration fields are read before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear

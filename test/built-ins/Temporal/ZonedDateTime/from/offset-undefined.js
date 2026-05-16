@@ -23,4 +23,4 @@ features: [Temporal]
 const propertyBag = { timeZone: "-04:00", offset: "+01:00", year: 2020, month: 2, day: 16, hour: 23, minute: 45 };
 
 assert.throws(RangeError, () => Temporal.ZonedDateTime.from(propertyBag, { offset: undefined }), "default offset is reject");
-// See options-undefined.js for {}
+// See options-object.js for {} and () => {}
