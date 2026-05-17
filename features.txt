@@ -53,6 +53,10 @@ source-phase-imports
 ## test262 special specifier
 source-phase-imports-module-source
 
+# ESM Phase Imports
+## https://github.com/tc39/proposal-esm-phase-imports
+esm-phase-imports
+
 # Atomics.pause
 # https://github.com/tc39/proposal-atomics-microwait
 Atomics.pause
