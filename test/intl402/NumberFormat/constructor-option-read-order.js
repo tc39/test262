@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializenumberformat
+esid: sec-intl.numberformat
 description: Checks the order of option read.
 features: [Intl.NumberFormat-v3]
 includes: [compareArray.js]
 ---*/
 
 let optionKeys = [
-    // Inside InitializeNumberFormat
+    // Inside new NumberFormat()
     "localeMatcher",
     "numberingSystem",
     // Inside SetNumberFormatUnitOptions
@@ -20,7 +20,7 @@ let optionKeys = [
         "unit",
         "unitDisplay",
     // End of SetNumberFormatUnitOptions
-    // Back to InitializeNumberFormat
+    // Back to new NumberFormat()
     "notation",
     // Inside SetNumberFormatDigitOptions
         "minimumIntegerDigits",
@@ -33,7 +33,7 @@ let optionKeys = [
         "roundingPriority",
         "trailingZeroDisplay",
     // End of SetNumberFormatDigitOptions
-    // Back to InitializeNumberFormat
+    // Back to new NumberFormat()
     "compactDisplay",
     "useGrouping",
     "signDisplay"
