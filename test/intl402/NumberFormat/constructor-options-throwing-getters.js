@@ -4,6 +4,7 @@
 /*---
 esid: sec-intl.numberformat
 description: Checks the propagation of exceptions from the options for the NumberFormat constructor.
+features: [Intl.NumberFormat-v3]
 ---*/
 
 function CustomError() {}
@@ -14,12 +15,22 @@ const options = [
   "style",
   "currency",
   "currencyDisplay",
+  "currencySign",
+  "unit",
+  "unitDisplay",
+  "notation",
   "minimumIntegerDigits",
   "minimumFractionDigits",
   "maximumFractionDigits",
   "minimumSignificantDigits",
   "maximumSignificantDigits",
+  "roundingIncrement",
+  "roundingMode",
+  "roundingPriority",
+  "trailingZeroDisplay",
   "useGrouping",
+  "compactDisplay",
+  "signDisplay",
 ];
 
 for (const option of options) {

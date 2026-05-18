@@ -3,7 +3,10 @@
 
 /*---
 esid: sec-intl.pluralrules
-description: Checks the propagation of exceptions from the options for the NumberFormat constructor.
+description: >
+  Checks the propagation of exceptions from the options for the PluralRules
+  constructor.
+locale: [en]
 ---*/
 
 function CustomError() {}
@@ -12,11 +15,16 @@ const options = [
   "localeMatcher",
   "type",
   "notation",
+  "compactDisplay",
   "minimumIntegerDigits",
   "minimumFractionDigits",
   "maximumFractionDigits",
   "minimumSignificantDigits",
   "maximumSignificantDigits",
+  "roundingIncrement",
+  "roundingMode",
+  "roundingPriority",
+  "trailingZeroDisplay",
 ];
 
 for (const option of options) {

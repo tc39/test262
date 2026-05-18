@@ -4,6 +4,7 @@
 /*---
 esid: sec-intl.collator
 description: Checks the propagation of exceptions from the options for the Collator constructor.
+locale: [en]
 ---*/
 
 function CustomError() {}
