@@ -12,7 +12,6 @@ info: |
   1. If _notation_ is *"compact"*, then
     1. Set _numberFormat_.[[CompactDisplay]] to _compactDisplay_.
 
-includes: [compareArray.js]
 features: [Intl.NumberFormat-unified]
 ---*/
 
@@ -23,23 +22,8 @@ const values = [
 ];
 
 for (const [value, expected = value] of values) {
-  const callOrder = [];
-  const nf = new Intl.NumberFormat([], {
-    get notation() {
-      callOrder.push("notation");
-      return "compact";
-    },
-    get compactDisplay() {
-      callOrder.push("compactDisplay");
-      return value;
-    }
-  });
+  const nf = new Intl.NumberFormat([], { notation: "compact", compactDisplay: value });
   const resolvedOptions = nf.resolvedOptions();
   assert.sameValue("compactDisplay" in resolvedOptions, true);
   assert.sameValue(resolvedOptions.compactDisplay, expected);
-
-  assert.compareArray(callOrder, [
-    "notation",
-    "compactDisplay",
-  ]);
 }
