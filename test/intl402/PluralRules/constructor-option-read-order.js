@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializepluralrules
-description: Checks the order of option read.
+esid: sec-intl.pluralrules
+description: Checks the order of options read.
 features: [Intl.NumberFormat-v3]
 includes: [compareArray.js]
 ---*/
 
 let optionKeys = [
-    // Inside InitializePluralRules
+    // Inside new PluralRules()
     "localeMatcher",
     "type",
     "notation",
