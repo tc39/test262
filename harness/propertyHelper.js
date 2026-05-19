@@ -214,10 +214,14 @@ function isWritable(obj, name, verifyProp, value) {
   var hadValue = __hasOwnProperty(obj, name);
   var oldValue = obj[name];
   var newValue = value;
-  if (newValue === undefined) {
+  if (arguments.length < 4) {
+    // Initialize newValue, preserving a numeric type from oldValue with a
+    // replacement that moves towards zero (to support the special behaviour of
+    // Array and TypedArray "length" and index properties).
     switch (typeof oldValue) {
-      // To accommodate Array and TypedArray instances, preserve a numeric type.
       case "number":
+        // As a special case, never decrease array length (which would delete
+        // properties not covered by the new length).
         if (oldValue <= 0 || __isArray(obj) && name === "length") {
           newValue = oldValue === -Infinity ? 0 : oldValue + 1;
         } else {
@@ -449,7 +453,10 @@ function verifyWritable(obj, name, verifyProp, value) {
     assert(__getOwnPropertyDescriptor(obj, name).writable,
          "Expected obj[" + String(name) + "] to have writable:true.");
   }
-  if (!isWritable(obj, name, verifyProp, value)) {
+  var result = arguments.length < 4
+    ? isWritable(obj, name, verifyProp)
+    : isWritable(obj, name, verifyProp, value);
+  if (!result) {
     throw new Test262Error("Expected obj[" + String(name) + "] to be writable, but was not.");
   }
 }
@@ -462,7 +469,10 @@ function verifyNotWritable(obj, name, verifyProp, value) {
     assert(!__getOwnPropertyDescriptor(obj, name).writable,
          "Expected obj[" + String(name) + "] to have writable:false.");
   }
-  if (isWritable(obj, name, verifyProp)) {
+  var result = arguments.length < 4
+    ? isWritable(obj, name, verifyProp)
+    : isWritable(obj, name, verifyProp, value);
+  if (result) {
     throw new Test262Error("Expected obj[" + String(name) + "] NOT to be writable, but was.");
   }
 }
