@@ -141,20 +141,20 @@ function verifyProperty(obj, name, desc, options) {
   return true;
 }
 
-function toNumber(value) {
+function _toNumber(value) {
   // https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.max
   return __max(value);
 }
 
 // https://tc39.es/ecma262/multipage/abstract-operations.html#sec-canonicalnumericindexstring
-function isCanonicalNumericIndexString(value) {
+function _isCanonicalNumericIndexString(value) {
   if (typeof value !== "string") return false;
   if (value === "-0") return true;
-  var n = toNumber(value);
+  var n = _toNumber(value);
   return String(n) === value;
 }
 
-function isTypedArray(value) {
+function _isTypedArray(value) {
   try {
     // https://tc39.es/ecma262/multipage/indexed-collections.html#sec-get-%typedarray%.prototype.bytelength
     __getTypedArrayByteLength(value);
@@ -177,7 +177,7 @@ function isConfigurable(obj, name, originalDesc) {
   // TypedArray canonical numeric string properties are never *actually* deleted,
   // so we skip post-hoc verification for them
   // https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html#sec-typedarray-delete
-  if (isCanonicalNumericIndexString(name) && isTypedArray(obj) && originalDesc) {
+  if (_isCanonicalNumericIndexString(name) && _isTypedArray(obj) && originalDesc) {
     if (deleted) throw new Test262Error("Expected TypedArray index deletion to be ignored");
     return originalDesc.configurable;
   }
