@@ -15,12 +15,12 @@ const invalidStrings = [
 for (const [arg, description] of invalidStrings) {
   assert.throws(
     RangeError,
-      () => Temporal.ZonedDateTime.compare(arg, new Temporal.ZonedDateTime(0n, "CET")),
+      () => Temporal.ZonedDateTime.compare(arg, new Temporal.ZonedDateTime(0n, "UTC")),
     `${description} not allowed in time string (first argument)`
   );
   assert.throws(
     RangeError,
-      () => Temporal.ZonedDateTime.compare(new Temporal.ZonedDateTime(0n, "CET"), arg),
+      () => Temporal.ZonedDateTime.compare(new Temporal.ZonedDateTime(0n, "UTC"), arg),
     `${description} not allowed in time string (second argument)`
   );
 }

@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   DataView.prototype.set* methods shouldn't misbehave horribly if index-argument conversion detaches the ArrayBuffer being modified
 info: bugzilla.mozilla.org/show_bug.cgi?id=991981
@@ -21,7 +22,7 @@ function testIndex()
     {
       valueOf: function()
       {
-        $262.detachArrayBuffer(ab);
+        $DETACHBUFFER(ab);
         $262.gc();
         return 0xFFF;
       }
@@ -44,7 +45,7 @@ function testValue()
     {
       valueOf: function()
       {
-        $262.detachArrayBuffer(ab);
+        $DETACHBUFFER(ab);
         $262.gc();
         return 0x42;
       }

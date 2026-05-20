@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalDuration on first argument
   "get one.days",
   "get one.days.valueOf",
@@ -71,9 +71,11 @@ const expected = [
   "get two.years",
   "get two.years.valueOf",
   "call two.years.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // ToRelativeTemporalObject
   "get options.relativeTo",
-];
+]);
 const actual = [];
 
 // basic order of observable operations with no relativeTo
@@ -85,8 +87,28 @@ Temporal.Duration.compare(
 assert.compareArray(actual, expected, "order of operations");
 actual.splice(0); // clear
 
+assert.throws(TypeError, () => Temporal.Duration.compare(
+  createDurationPropertyBagObserver("one", 0, 0, 0, 7),
+  createDurationPropertyBagObserver("two", 0, 0, 0, 6),
+  null
+));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "duration fields are read before TypeError is thrown for primitive options");
+actual.splice(0); // clear
+
+// Check fast path for temporal objects.
+function checkTemporalObject(object) {
+  ["year", "month", "monthCode", "day", "hour", "minute", "second", "millisecond", "microsecond", "nanosecond"].forEach((property) => {
+    Object.defineProperty(object, property, {
+      get() {
+        throw new Test262Error(`should not get ${property}`);
+      }});
+  });
+}
+
 // basic order of operations, with relativeTo a Temporal object
 const pd = new Temporal.PlainDate(2026, 3, 6);
+checkTemporalObject(pd);
 Temporal.Duration.compare(
   createDurationPropertyBagObserver("one", 0, 0, 0, 0, 7),
   createDurationPropertyBagObserver("two", 0, 0, 0, 0, 6),
@@ -97,6 +119,7 @@ assert.compareArray(actual, expected,
 actual.splice(0); // clear
 
 const zdt = new Temporal.ZonedDateTime(1772751600000000000n, "UTC");
+checkTemporalObject(zdt);
 Temporal.Duration.compare(
   createDurationPropertyBagObserver("one", 0, 0, 0, 0, 7),
   createDurationPropertyBagObserver("two", 0, 0, 0, 0, 6),

@@ -23,3 +23,5 @@ const explicit = datetime.with({ minute: 67 }, { overflow: undefined });
 TemporalHelpers.assertPlainDateTime(explicit, 2000, 5, "M05", 2, 12, 59, 0, 0, 0, 0, "default overflow is constrain");
 const implicit = datetime.with({ minute: 67 }, {});
 TemporalHelpers.assertPlainDateTime(implicit, 2000, 5, "M05", 2, 12, 59, 0, 0, 0, 0, "default overflow is constrain");
+const lambda = datetime.with({ minute: 67 }, () => {});
+TemporalHelpers.assertPlainDateTime(lambda, 2000, 5, "M05", 2, 12, 59, 0, 0, 0, 0, "default overflow is constrain");

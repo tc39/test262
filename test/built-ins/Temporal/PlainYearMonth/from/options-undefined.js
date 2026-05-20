@@ -14,3 +14,6 @@ assert.sameValue(explicit.month, 12, "default overflow is constrain");
 
 const implicit = Temporal.PlainYearMonth.from(fields);
 assert.sameValue(implicit.month, 12, "default overflow is constrain");
+
+const lambda = Temporal.PlainYearMonth.from(fields, () => {});
+assert.sameValue(lambda.month, 12, "default overflow is constrain");
