@@ -4,7 +4,7 @@
 /*---
 esid: sec-iterator.zip
 description: >
-  In strict mode, when all iterators finish at the same step, the result
+  With mode "strict", when all iterators finish at the same step, the result
   iterator completes normally and .next() is called on all of them.
 info: |
   IteratorZip ( iters, mode, padding, finishResults )
@@ -16,10 +16,14 @@ info: |
         ...
         iii. For each integer i such that 0 ≤ i < iterCount, in ascending order, do
           ...
+          1. Let iter be iters[i].
+          2. If iter is null, then
+             a. Assert: mode is "longest".
+             ...
           3. Else,
+            a. Let result be Completion(IteratorStepValue(iter)). 
             ...
             d. If result is done, then
-              i. Remove iter from openIters.
               ...
               iii. Else if mode is "strict", then
                 i. If i ≠ 0, then
@@ -27,9 +31,7 @@ info: |
                 ii. For each integer k such that 1 ≤ k < iterCount, in ascending order, do
                   i. Let open be Completion(IteratorStep(iters[k])).
                   ...
-                  v. If open is false, then
-                    i. Remove iters[k] from openIters.
-                iii. Return undefined.
+                iii. Return ReturnCompletion(undefined).
 includes: [compareArray.js]
 features: [joint-iteration]
 ---*/
