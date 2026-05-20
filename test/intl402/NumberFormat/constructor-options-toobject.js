@@ -4,7 +4,7 @@
 /*---
 esid: sec-intl.numberformat
 description: >
-  Tests that Intl.NumberFormat contructor converts the options argument to an
+  Tests that Intl.NumberFormat constructor converts the options argument to an
   object.
 ---*/
 
