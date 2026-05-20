@@ -9,11 +9,11 @@ info: |
   Runtime Semantics: CompileAssertion
   
   Assertion :: \A
-    1. Return a new Matcher with parameters (x, c) that captures nothing and performs the following steps when called:
-      a. Assert: x is a MatchState.
-      b. Assert: c is a MatcherContinuation.
-      c. Let e be x.[[EndIndex]].
-      d. If e = 0, return c(x).
+    1. Return a new Matcher with parameters (matchState, continue) that captures nothing and performs the following steps when called:
+      a. Assert: matchState is a MatchState.
+      b. Assert: continue is a MatcherContinuation.
+      c. Let e be matchState.[[EndIndex]].
+      d. If e = 0, return continue(matchState).
       e. Return ~failure~.
 
 esid: sec-patterns

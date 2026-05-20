@@ -4,7 +4,7 @@
 /*---
 author: Ron Buckton
 description: >
-  `\A` and `\z` are parsed successfully in v-mode
+  `\A`, `\z`, and `\Z` are parsed successfully in v-mode
 info: |
   Patterns
   
@@ -12,6 +12,7 @@ info: |
     ...
     [+UnicodeMode] `\` `A`
     [+UnicodeMode] `\` `z`
+    [+UnicodeMode] `\` `Z`
     ...
 
 esid: sec-patterns
@@ -32,6 +33,13 @@ features: [regexp-buffer-boundaries]
 /\z/vsi;
 /\z/vsm;
 /\z/vsmi;
+/\Z/v;
+/\Z/vm;
+/\Z/vmi;
+/\Z/vs;
+/\Z/vsi;
+/\Z/vsm;
+/\Z/vsmi;
 new RegExp("\\A", "v");
 new RegExp("\\A", "vm");
 new RegExp("\\A", "vmi");
@@ -46,3 +54,10 @@ new RegExp("\\z", "vs");
 new RegExp("\\z", "vsi");
 new RegExp("\\z", "vsm");
 new RegExp("\\z", "vsmi");
+new RegExp("\\Z", "v");
+new RegExp("\\Z", "vm");
+new RegExp("\\Z", "vmi");
+new RegExp("\\Z", "vs");
+new RegExp("\\Z", "vsi");
+new RegExp("\\Z", "vsm");
+new RegExp("\\Z", "vsmi");
