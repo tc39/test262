@@ -1,0 +1,18 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-hasproperty-p
+desc: _ [[HasProperty]]
+info: |
+  [[HasProperty]] ( _P_ )
+    1. If _P_ is a Symbol, return OrdinaryHasProperty(_O_, _P_).
+    1. Let _exports_ be _O_.[[Exports]].
+    1. If _exports_ contains _P_, return *true*.
+    1. Return *false*.
+
+template: no-trigger-on-exported
+---*/
+
+//- body
+key in ns;
