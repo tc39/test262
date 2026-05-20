@@ -37,10 +37,13 @@ includes: [asyncHelpers.js]
 import "./setup_FIXTURE.js";
 
 asyncTest(async () => {
+  let ns1 = await import("./reexport1_FIXTURE.js");
   let err1;
-  try { await import("./reexport1_FIXTURE.js"); } catch (e) { err1 = e; }
+  try { ns1.x; } catch (e) { err1 = e; }
+
+  let ns2 = await import("./reexport2_FIXTURE.js");
   let err2;
-  try { await import("./reexport2_FIXTURE.js"); } catch (e) { err2 = e; }
+  try { ns2.x; } catch (e) { err2 = e; }
 
   assert.sameValue(err1.someError, "the error from throws_FIXTURE");
   assert.sameValue(err1, err2, "both namespaces yield the same error value (identity)");

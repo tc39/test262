@@ -38,10 +38,11 @@ import "./setup_FIXTURE.js";
 
 asyncTest(async () => {
   let err1;
-  try { await import("./barrel-defer-throws_FIXTURE.js"); } catch (e) { err1 = e; }
+  let ns = await import("./barrel-defer-throws_FIXTURE.js"); 
+  try { ns.x; } catch (e) { err1 = e; }
   assert.sameValue(err1.someError, "the error from throws_FIXTURE");
 
   let err2;
-  try { await import("./barrel-defer-throws_FIXTURE.js"); } catch (e) { err2 = e; }
+  try { ns.x; } catch (e) { err2 = e; }
   assert.sameValue(err2, err1, "subsequent accesses throw the same error value");
 });
