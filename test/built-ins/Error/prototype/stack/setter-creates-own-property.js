@@ -22,32 +22,31 @@ info: |
   4. If desc is undefined, then
     a. Perform ? CreateDataPropertyOrThrow(this, p, v).
   [...]
-includes: [propertyHelper.js]
+includes: [nativeErrors.js, propertyHelper.js]
 features: [error-stack-accessor]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
-var errors = [
-  ['Error', new Error('msg')],
-  ['EvalError', new EvalError('msg')],
-  ['RangeError', new RangeError('msg')],
-  ['ReferenceError', new ReferenceError('msg')],
-  ['SyntaxError', new SyntaxError('msg')],
-  ['TypeError', new TypeError('msg')],
-  ['URIError', new URIError('msg')],
-  typeof AggregateError === 'undefined' ? null : [
+var errors = [];
+for (var i = 0; i < nativeErrors.length; ++i) {
+  var Ctor = nativeErrors[i];
+  errors.push([Ctor.name, new Ctor('msg')]);
+}
+if (typeof AggregateError !== 'undefined') {
+  errors.push([
     'AggregateError',
     new AggregateError([new Error('inner')], 'outer')
-  ],
-  typeof SuppressedError === 'undefined' ? null : [
+  ]);
+}
+if (typeof SuppressedError !== 'undefined') {
+  errors.push([
     'SuppressedError',
     new SuppressedError(new Error('inner'), new Error('suppressed'), 'msg')
-  ]
-];
+  ]);
+}
 
 for (var i = 0; i < errors.length; ++i) {
-  if (!errors[i]) continue;
   var name = errors[i][0];
   var err = errors[i][1];
 

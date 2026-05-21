@@ -25,25 +25,27 @@ info: |
   3. Let desc be ? this.[[GetOwnProperty]](p).
   4. If desc is undefined, then
     a. Perform ? CreateDataPropertyOrThrow(this, p, v).
-includes: [propertyHelper.js]
+includes: [nativeErrors.js, propertyHelper.js]
 features: [error-stack-accessor]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
-var prototypes = [
-  ['EvalError.prototype', EvalError.prototype],
-  ['RangeError.prototype', RangeError.prototype],
-  ['ReferenceError.prototype', ReferenceError.prototype],
-  ['SyntaxError.prototype', SyntaxError.prototype],
-  ['TypeError.prototype', TypeError.prototype],
-  ['URIError.prototype', URIError.prototype],
-  typeof AggregateError === 'undefined' ? null : ['AggregateError.prototype', AggregateError.prototype],
-  typeof SuppressedError === 'undefined' ? null : ['SuppressedError.prototype', SuppressedError.prototype]
-];
+var prototypes = [];
+for (var i = 0; i < nativeErrors.length; ++i) {
+  var Ctor = nativeErrors[i];
+  // Error.prototype is %Error.prototype% itself; that case is covered by setter-receiver-is-prototype.js.
+  if (Ctor === Error) continue;
+  prototypes.push([Ctor.name + '.prototype', Ctor.prototype]);
+}
+if (typeof AggregateError !== 'undefined') {
+  prototypes.push(['AggregateError.prototype', AggregateError.prototype]);
+}
+if (typeof SuppressedError !== 'undefined') {
+  prototypes.push(['SuppressedError.prototype', SuppressedError.prototype]);
+}
 
 for (var i = 0; i < prototypes.length; ++i) {
-  if (!prototypes[i]) continue;
   var label = prototypes[i][0];
   var proto = prototypes[i][1];
 

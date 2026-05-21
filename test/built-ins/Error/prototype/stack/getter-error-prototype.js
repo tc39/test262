@@ -20,25 +20,25 @@ info: |
   The Error prototype object:
     [...]
     is not an Error instance and does not have an [[ErrorData]] internal slot.
+includes: [nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 
-var prototypes = [
-  ['Error.prototype', Error.prototype],
-  ['EvalError.prototype', EvalError.prototype],
-  ['RangeError.prototype', RangeError.prototype],
-  ['ReferenceError.prototype', ReferenceError.prototype],
-  ['SyntaxError.prototype', SyntaxError.prototype],
-  ['TypeError.prototype', TypeError.prototype],
-  ['URIError.prototype', URIError.prototype],
-  typeof AggregateError === 'undefined' ? null : ['AggregateError.prototype', AggregateError.prototype],
-  typeof SuppressedError === 'undefined' ? null : ['SuppressedError.prototype', SuppressedError.prototype]
-];
+var prototypes = [];
+for (var i = 0; i < nativeErrors.length; ++i) {
+  var Ctor = nativeErrors[i];
+  prototypes.push([Ctor.name + '.prototype', Ctor.prototype]);
+}
+if (typeof AggregateError !== 'undefined') {
+  prototypes.push(['AggregateError.prototype', AggregateError.prototype]);
+}
+if (typeof SuppressedError !== 'undefined') {
+  prototypes.push(['SuppressedError.prototype', SuppressedError.prototype]);
+}
 
 for (var i = 0; i < prototypes.length; ++i) {
-  if (!prototypes[i]) continue;
   var label = prototypes[i][0];
   var proto = prototypes[i][1];
   assert.sameValue(get.call(proto), undefined, label);
