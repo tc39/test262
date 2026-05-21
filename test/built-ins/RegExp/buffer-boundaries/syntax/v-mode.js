@@ -16,7 +16,7 @@ info: |
     ...
 
 esid: sec-patterns
-features: [regexp-buffer-boundaries]
+features: [regexp-buffer-boundaries, regexp-v-flag]
 ---*/
 
 /\A/v;
