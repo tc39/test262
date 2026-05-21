@@ -26,12 +26,28 @@ assert(/x\z/v.test("x"), "Expected \\z to match end-of-buffer outside of multili
 assert(/x\z/vm.test("x"), "Expected \\z to match end-of-buffer inside of multiline mode (literal)");
 assert(!/x\z/v.test("xy"), "Expected \\z to not match when not at end-of-buffer outside of multiline mode (literal)");
 assert(!/x\z/vm.test("xy"), "Expected \\z to not match when not at end-of-buffer inside of multiline mode (literal)");
-assert(!/x\z/v.test("x\n"), "Expected \\z to not match when only at end-of-line outside of multiline mode (literal)");
-assert(!/x\z/vm.test("x\n"), "Expected \\z to not match when only at end-of-line inside of multiline mode (literal)");
+
+var terminators = [
+  ["\n", "<LF>"],
+  ["\r", "<CR>"],
+  ["\u2028", "<LS>"],
+  ["\u2029", "<PS>"],
+  ["\r\n", "<CRLF>"],
+];
+
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert(!/x\z/v.test("x" + lts), "Expected \\z to not match when only at " + desc + " outside of multiline mode (literal)");
+  assert(!/x\z/vm.test("x" + lts), "Expected \\z to not match when only at " + desc + " inside of multiline mode (literal)");
+}
 
 assert(new RegExp("x\\z", "v").test("x"), "Expected \\z to match end-of-buffer outside of multiline mode (constructed)");
 assert(new RegExp("x\\z", "vm").test("x"), "Expected \\z to match end-of-buffer inside of multiline mode (constructed)");
 assert(!new RegExp("x\\z", "v").test("xy"), "Expected \\z to not match when not at end-of-buffer outside of multiline mode (constructed)");
 assert(!new RegExp("x\\z", "vm").test("xy"), "Expected \\z to not match when not at end-of-buffer inside of multiline mode (constructed)");
-assert(!new RegExp("x\\z", "v").test("x\n"), "Expected \\z to not match when only at end-of-line outside of multiline mode (constructed)");
-assert(!new RegExp("x\\z", "vm").test("x\n"), "Expected \\z to not match when only at end-of-line inside of multiline mode (constructed)");
+
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert(!new RegExp("x\\z", "v").test("x" + lts), "Expected \\z to not match when only at " + desc + " outside of multiline mode (constructed)");
+  assert(!new RegExp("x\\z", "vm").test("x" + lts), "Expected \\z to not match when only at " + desc + " inside of multiline mode (constructed)");
+}
