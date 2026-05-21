@@ -26,20 +26,11 @@ info: |
   [...]
   3. Let success be ? CreateDataProperty(O, P, V).
   4. If success is false, throw a TypeError exception.
+includes: [nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 var integrityLevels = [
   { name: 'preventExtensions', fn: Object.preventExtensions },

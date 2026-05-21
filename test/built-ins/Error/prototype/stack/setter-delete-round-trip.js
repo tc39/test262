@@ -20,21 +20,12 @@ info: |
   [...]
   4. If desc is undefined, then
     a. Perform ? CreateDataPropertyOrThrow(this, p, v).
+includes: [nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];

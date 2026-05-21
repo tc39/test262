@@ -16,18 +16,9 @@ info: |
   Error instances are ordinary objects that inherit properties from the Error
   prototype object and have an [[ErrorData]] internal slot whose value is
   undefined.
+includes: [nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];

@@ -15,18 +15,9 @@ info: |
 
   Error.prototype.stack is an accessor property with attributes
   { [[Enumerable]]: false, [[Configurable]]: true }.
+includes: [nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];

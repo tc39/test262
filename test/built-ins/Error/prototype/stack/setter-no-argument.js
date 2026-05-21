@@ -12,20 +12,11 @@ info: |
   1. Let E be the this value.
   2. If E is not an Object, throw a TypeError exception.
   3. If v is not a String, throw a TypeError exception.
+includes: [nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];

@@ -19,21 +19,11 @@ info: |
   [...]
   5. Else,
     a. Perform ? Set(this, p, v, true).
-includes: [propertyHelper.js]
+includes: [propertyHelper.js, nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];

@@ -14,20 +14,11 @@ info: |
   2. If E is not an Object, throw a TypeError exception.
   3. If E does not have an [[ErrorData]] internal slot, return undefined.
   4. Return an implementation-defined string that represents the stack trace of E.
+includes: [nativeErrors.js]
 features: [error-stack-accessor, __proto__]
 ---*/
 
 var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];

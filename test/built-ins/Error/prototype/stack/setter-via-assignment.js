@@ -13,7 +13,7 @@ info: |
   3. If v is not a String, throw a TypeError exception.
   4. Perform ? SetterThatIgnoresPrototypeProperties(this value, %Error.prototype%, "stack", v).
   5. Return undefined.
-includes: [propertyHelper.js]
+includes: [propertyHelper.js, nativeErrors.js]
 features: [error-stack-accessor]
 ---*/
 
@@ -29,16 +29,6 @@ verifyProperty(plain, 'stack', {
   enumerable: true,
   configurable: true,
 });
-
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];
