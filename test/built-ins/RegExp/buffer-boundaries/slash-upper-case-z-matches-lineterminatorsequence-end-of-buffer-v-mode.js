@@ -4,7 +4,7 @@
 /*---
 author: Ron Buckton
 description: >
-  `\Z` (lower-case z) matches end of buffer in v-mode.
+  `\Z` (upper-case z) matches end of buffer after optional LineTerminatorSequence in v-mode.
 info: |
   Runtime Semantics: CompileAssertion
   
