@@ -10,7 +10,7 @@ defines: [allowProxyTraps]
 function allowProxyTraps(overrides, label) {
   var prefix = typeof label === 'string' && label.length > 0 ? label + ': ' : '';
   function throwTest262Error(msg) {
-    return function () { throw new Test262Error(prefix + msg); };
+    return function () { Test262Error.thrower(prefix + msg); };
   }
   if (!overrides) { overrides = {}; }
   return {
