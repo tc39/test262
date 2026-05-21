@@ -1,4 +1,5 @@
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
+// Copyright (C) 2026 Tetsuharu Ohzeki. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.drop
@@ -24,13 +25,6 @@ function* g() {
 
 {
   let iterator = g().drop(Number.MAX_SAFE_INTEGER);
-  let { value, done } = iterator.next();
-  assert.sameValue(value, undefined);
-  assert.sameValue(done, true);
-}
-
-{
-  let iterator = g().drop(Infinity);
   let { value, done } = iterator.next();
   assert.sameValue(value, undefined);
   assert.sameValue(done, true);

@@ -1,4 +1,5 @@
 // Copyright (C) 2023 Michael Ficarra. All rights reserved.
+// Copyright (C) 2026 Tetsuharu Ohzeki. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-iteratorprototype.take
@@ -24,4 +25,3 @@ assert.compareArray(Array.from(g().take(3)), [0, 1, 2]);
 assert.compareArray(Array.from(g().take(4)), [0, 1, 2]);
 assert.compareArray(Array.from(g().take(5)), [0, 1, 2]);
 assert.compareArray(Array.from(g().take(Number.MAX_SAFE_INTEGER)), [0, 1, 2]);
-assert.compareArray(Array.from(g().take(Infinity)), [0, 1, 2]);

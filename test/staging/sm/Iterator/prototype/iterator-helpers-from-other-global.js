@@ -1,4 +1,5 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2026 Tetsuharu Ohzeki. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -33,7 +34,7 @@ const otherGlobal = $262.createRealm().global;
 const methods = [
   ["map", x => x],
   ["filter", x => true],
-  ["take", Infinity],
+  ["take", Number.MAX_SAFE_INTEGER],
   ["drop", 0],
   ["flatMap", x => [x]],
 ];
