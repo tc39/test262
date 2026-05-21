@@ -35,7 +35,7 @@ var p1 = new Proxy(target1, allowProxyTraps({
     trapLog.push(['define', key, desc]);
     return Reflect.defineProperty(t, key, desc);
   }
-}));
+}, '(a)'));
 
 set.call(p1, 'sentinel');
 assert(trapLog.length >= 2, 'at least getOwnPropertyDescriptor and defineProperty were called');
@@ -79,7 +79,7 @@ var p2 = new Proxy(target2, allowProxyTraps({
     t[key] = value;
     return true;
   }
-}));
+}, '(b)'));
 
 set.call(p2, 'updated');
 var sawSet = false;

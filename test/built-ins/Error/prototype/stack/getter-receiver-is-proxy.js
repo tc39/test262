@@ -26,7 +26,7 @@ var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 // proxy traps should fire; allowProxyTraps with no overrides throws
 // Test262Error if any do.
 assert.sameValue(
-  get.call(new Proxy(new Error('inner'), allowProxyTraps())),
+  get.call(new Proxy(new Error('inner'), allowProxyTraps(null, '(a)'))),
   undefined,
   'Proxy wrapping Error returns undefined'
 );
@@ -44,13 +44,13 @@ var pB = new Proxy(new Error('inner'), allowProxyTraps({
     }
     return Reflect.get(t, key, receiver);
   }
-}));
+}, '(b)'));
 assert.sameValue(pB.stack, undefined, 'property access on proxy: receiver is proxy, no [[ErrorData]]');
 assert.sameValue(stackTrapCalls, 1, 'get trap fired once for the property access');
 
 // (c) Proxy wrapping a non-Error: still undefined.
 assert.sameValue(
-  get.call(new Proxy({}, allowProxyTraps())),
+  get.call(new Proxy({}, allowProxyTraps(null, '(c)'))),
   undefined,
   'Proxy wrapping plain object returns undefined'
 );
