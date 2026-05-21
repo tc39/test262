@@ -24,13 +24,14 @@ info: |
     a. Perform ? CreateDataPropertyOrThrow(this, p, v).
   5. Else,
     a. Perform ? Set(this, p, v, true).
+includes: [proxyTrapsHelper.js]
 features: [error-stack-accessor, Proxy]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
 var trapLog = [];
-var p = new Proxy(Error.prototype, {
+var p = new Proxy(Error.prototype, allowProxyTraps({
   getOwnPropertyDescriptor: function (t, key) {
     trapLog.push(['gOPD', key]);
     return Object.getOwnPropertyDescriptor(t, key);
@@ -39,8 +40,8 @@ var p = new Proxy(Error.prototype, {
     trapLog.push(['set', key, value]);
     // Don't actually mutate Error.prototype; just acknowledge.
     return true;
-  },
-});
+  }
+}));
 
 // SameValue(p, Error.prototype) is false: a Proxy is a distinct object from
 // its target. Step 2 does not throw; the algorithm proceeds to query the

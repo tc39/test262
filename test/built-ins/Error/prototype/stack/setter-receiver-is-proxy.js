@@ -16,15 +16,17 @@ info: |
     a. Perform ? CreateDataPropertyOrThrow(this, p, v).
   5. Else,
     a. Perform ? Set(this, p, v, true).
+includes: [proxyTrapsHelper.js]
 features: [error-stack-accessor, Proxy, Reflect]
 ---*/
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
 // (a) Proxy with no own "stack": getOwnPropertyDescriptor then defineProperty.
+// allowProxyTraps throws Test262Error for any other trap (including [[Set]]).
 var trapLog = [];
 var target1 = {};
-var p1 = new Proxy(target1, {
+var p1 = new Proxy(target1, allowProxyTraps({
   getOwnPropertyDescriptor: function (t, key) {
     trapLog.push(['gOPD', key]);
     return Object.getOwnPropertyDescriptor(t, key);
@@ -32,12 +34,8 @@ var p1 = new Proxy(target1, {
   defineProperty: function (t, key, desc) {
     trapLog.push(['define', key, desc]);
     return Reflect.defineProperty(t, key, desc);
-  },
-  set: function () {
-    trapLog.push(['set']);
-    throw new Test262Error('set trap should not be invoked when no own property exists');
-  },
-});
+  }
+}));
 
 set.call(p1, 'sentinel');
 assert(trapLog.length >= 2, 'at least getOwnPropertyDescriptor and defineProperty were called');
@@ -67,9 +65,11 @@ assert.sameValue('set' in passedDesc, false, 'descriptor has no set key');
 assert.sameValue(target1.stack, 'sentinel', 'value reached the underlying target');
 
 // (b) Proxy with own "stack": getOwnPropertyDescriptor then set trap.
+// allowProxyTraps throws Test262Error for any other trap (including
+// [[DefineOwnProperty]]).
 var trapLog2 = [];
 var target2 = { stack: 'old' };
-var p2 = new Proxy(target2, {
+var p2 = new Proxy(target2, allowProxyTraps({
   getOwnPropertyDescriptor: function (t, key) {
     trapLog2.push(['gOPD', key]);
     return Object.getOwnPropertyDescriptor(t, key);
@@ -78,12 +78,8 @@ var p2 = new Proxy(target2, {
     trapLog2.push(['set', key, value]);
     t[key] = value;
     return true;
-  },
-  defineProperty: function () {
-    trapLog2.push(['define']);
-    throw new Test262Error('defineProperty trap should not be invoked when own property exists');
-  },
-});
+  }
+}));
 
 set.call(p2, 'updated');
 var sawSet = false;

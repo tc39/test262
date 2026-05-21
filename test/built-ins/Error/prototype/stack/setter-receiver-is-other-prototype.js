@@ -6,9 +6,9 @@ esid: sec-set-error.prototype.stack
 description: >
   The SameValue check in SetterThatIgnoresPrototypeProperties is locked to
   %Error.prototype% only. Calling the setter with any other prototype object
-  (NativeError prototypes, AggregateError.prototype) as the receiver does NOT
-  throw via the home-object check; it installs an own data property on that
-  prototype.
+  (NativeError prototypes, AggregateError.prototype, SuppressedError.prototype)
+  as the receiver does NOT throw via the home-object check; it installs an own
+  data property on that prototype.
 info: |
   set Error.prototype.stack
 
@@ -31,29 +31,32 @@ features: [error-stack-accessor]
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
-var nativeErrors = [
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
+var prototypes = [
+  ['EvalError.prototype', EvalError.prototype],
+  ['RangeError.prototype', RangeError.prototype],
+  ['ReferenceError.prototype', ReferenceError.prototype],
+  ['SyntaxError.prototype', SyntaxError.prototype],
+  ['TypeError.prototype', TypeError.prototype],
+  ['URIError.prototype', URIError.prototype],
+  typeof AggregateError === 'undefined' ? null : ['AggregateError.prototype', AggregateError.prototype],
+  typeof SuppressedError === 'undefined' ? null : ['SuppressedError.prototype', SuppressedError.prototype]
 ];
 
-for (var i = 0; i < nativeErrors.length; ++i) {
-  var Ctor = nativeErrors[i];
-  var proto = Ctor.prototype;
+for (var i = 0; i < prototypes.length; ++i) {
+  if (!prototypes[i]) continue;
+  var label = prototypes[i][0];
+  var proto = prototypes[i][1];
 
   assert.sameValue(
     Object.getOwnPropertyDescriptor(proto, 'stack'),
     undefined,
-    Ctor.name + '.prototype: precondition: no own "stack" property'
+    label + ': precondition: no own "stack" property'
   );
 
-  set.call(proto, 'sentinel-' + Ctor.name);
+  set.call(proto, 'sentinel-' + label);
 
   verifyProperty(proto, 'stack', {
-    value: 'sentinel-' + Ctor.name,
+    value: 'sentinel-' + label,
     writable: true,
     enumerable: true,
     configurable: true,
@@ -65,6 +68,6 @@ for (var i = 0; i < nativeErrors.length; ++i) {
   assert.sameValue(
     Object.getOwnPropertyDescriptor(proto, 'stack'),
     undefined,
-    Ctor.name + '.prototype: cleanup'
+    label + ': cleanup'
   );
 }

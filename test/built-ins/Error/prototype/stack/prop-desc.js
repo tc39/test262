@@ -8,14 +8,24 @@ description: >
 info: |
   Error.prototype.stack is an accessor property with attributes
   { [[Enumerable]]: false, [[Configurable]]: true }.
+
+  ECMAScript Standard Built-in Objects
+
+  Functions that are specified as get or set accessor functions of built-in
+  properties have "get " or "set " prepended to the property name string.
+
+  Unless otherwise specified, the length property of a built-in function object
+  has the attributes { [[Writable]]: false, [[Enumerable]]: false,
+  [[Configurable]]: true }.
+
+  Unless otherwise specified, the name property of a built-in function object,
+  if it exists, has the attributes { [[Writable]]: false, [[Enumerable]]: false,
+  [[Configurable]]: true }.
 features: [error-stack-accessor]
+includes: [propertyHelper.js]
 ---*/
 
-var desc = Object.getOwnPropertyDescriptor(Error.prototype, 'stack');
-
-assert.sameValue(typeof desc.get, 'function', 'typeof desc.get');
-assert.sameValue(typeof desc.set, 'function', 'typeof desc.set');
-assert.sameValue(desc.value, undefined, 'desc.value');
-assert.sameValue(desc.writable, undefined, 'desc.writable');
-assert.sameValue(desc.enumerable, false, 'desc.enumerable');
-assert.sameValue(desc.configurable, true, 'desc.configurable');
+verifyPrimordialAccessorProperty(Error.prototype, 'stack', {
+  get: { name: 'get stack', length: 0 },
+  set: { name: 'set stack', length: 1 },
+}, { label: 'Error.prototype.stack' });

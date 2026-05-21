@@ -28,31 +28,40 @@ features: [error-stack-accessor]
 
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
+var errors = [
+  ['Error', new Error('msg')],
+  ['EvalError', new EvalError('msg')],
+  ['RangeError', new RangeError('msg')],
+  ['ReferenceError', new ReferenceError('msg')],
+  ['SyntaxError', new SyntaxError('msg')],
+  ['TypeError', new TypeError('msg')],
+  ['URIError', new URIError('msg')],
+  typeof AggregateError === 'undefined' ? null : [
+    'AggregateError',
+    new AggregateError([new Error('inner')], 'outer')
+  ],
+  typeof SuppressedError === 'undefined' ? null : [
+    'SuppressedError',
+    new SuppressedError(new Error('inner'), new Error('suppressed'), 'msg')
+  ]
 ];
 
-for (var i = 0; i < nativeErrors.length; ++i) {
-  var Ctor = nativeErrors[i];
-  var err = new Ctor('msg');
+for (var i = 0; i < errors.length; ++i) {
+  if (!errors[i]) continue;
+  var name = errors[i][0];
+  var err = errors[i][1];
 
   assert.sameValue(
     Object.prototype.hasOwnProperty.call(err, 'stack'),
     false,
-    Ctor.name + ': precondition: instance has no own "stack" property at construction'
+    name + ': precondition: instance has no own "stack" property at construction'
   );
 
-  var result = set.call(err, 'sentinel-' + Ctor.name);
-  assert.sameValue(result, undefined, Ctor.name + ': setter returns undefined');
+  var result = set.call(err, 'sentinel-' + name);
+  assert.sameValue(result, undefined, name + ': setter returns undefined');
 
   verifyProperty(err, 'stack', {
-    value: 'sentinel-' + Ctor.name,
+    value: 'sentinel-' + name,
     writable: true,
     enumerable: true,
     configurable: true,

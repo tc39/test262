@@ -4,9 +4,9 @@
 /*---
 esid: sec-get-error.prototype.stack
 description: >
-  The getter returns undefined when called on Error.prototype itself, because
-  the Error prototype object is not an Error instance and does not have an
-  [[ErrorData]] internal slot.
+  The getter returns undefined when called on Error.prototype itself or any
+  NativeError prototype: each is an ordinary object that is not an Error
+  instance and does not have an [[ErrorData]] internal slot.
 info: |
   get Error.prototype.stack
 
@@ -25,12 +25,24 @@ features: [error-stack-accessor]
 
 var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 
-assert.sameValue(get.call(Error.prototype), undefined, 'Error.prototype');
-assert.sameValue(Error.prototype.stack, undefined, 'access via property');
+var prototypes = [
+  ['Error.prototype', Error.prototype],
+  ['EvalError.prototype', EvalError.prototype],
+  ['RangeError.prototype', RangeError.prototype],
+  ['ReferenceError.prototype', ReferenceError.prototype],
+  ['SyntaxError.prototype', SyntaxError.prototype],
+  ['TypeError.prototype', TypeError.prototype],
+  ['URIError.prototype', URIError.prototype],
+  typeof AggregateError === 'undefined' ? null : ['AggregateError.prototype', AggregateError.prototype],
+  typeof SuppressedError === 'undefined' ? null : ['SuppressedError.prototype', SuppressedError.prototype]
+];
 
-assert.sameValue(get.call(EvalError.prototype), undefined, 'EvalError.prototype');
-assert.sameValue(get.call(RangeError.prototype), undefined, 'RangeError.prototype');
-assert.sameValue(get.call(ReferenceError.prototype), undefined, 'ReferenceError.prototype');
-assert.sameValue(get.call(SyntaxError.prototype), undefined, 'SyntaxError.prototype');
-assert.sameValue(get.call(TypeError.prototype), undefined, 'TypeError.prototype');
-assert.sameValue(get.call(URIError.prototype), undefined, 'URIError.prototype');
+for (var i = 0; i < prototypes.length; ++i) {
+  if (!prototypes[i]) continue;
+  var label = prototypes[i][0];
+  var proto = prototypes[i][1];
+  assert.sameValue(get.call(proto), undefined, label);
+}
+
+// Access via the property also returns undefined on Error.prototype.
+assert.sameValue(Error.prototype.stack, undefined, 'Error.prototype.stack property access');

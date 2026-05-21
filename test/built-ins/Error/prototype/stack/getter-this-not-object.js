@@ -17,26 +17,22 @@ var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 
 assert.sameValue(typeof get, 'function');
 
-assert.throws(TypeError, function () {
-  get.call(undefined);
-}, 'undefined');
+var badReceivers = [
+  ['undefined', undefined],
+  ['null', null],
+  ['true', true],
+  ['false', false],
+  ['number', 1],
+  ['string', ''],
+  typeof Symbol === 'undefined' ? null : ['symbol', Symbol('s')],
+  typeof BigInt === 'undefined' ? null : ['bigint', BigInt(0)]
+];
 
-assert.throws(TypeError, function () {
-  get.call(null);
-}, 'null');
-
-assert.throws(TypeError, function () {
-  get.call(true);
-}, 'true');
-
-assert.throws(TypeError, function () {
-  get.call(false);
-}, 'false');
-
-assert.throws(TypeError, function () {
-  get.call(1);
-}, 'number');
-
-assert.throws(TypeError, function () {
-  get.call('');
-}, 'string');
+for (var i = 0; i < badReceivers.length; ++i) {
+  if (!badReceivers[i]) continue;
+  var label = badReceivers[i][0];
+  var value = badReceivers[i][1];
+  assert.throws(TypeError, function () {
+    get.call(value);
+  }, label);
+}

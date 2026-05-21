@@ -26,50 +26,37 @@ var nativeErrors = [
   URIError
 ];
 
+// An object with a toString method is not coerced; the algorithm requires v
+// to already be a String.
+var coercible = {
+  toString: function () { return 'coerced'; },
+  valueOf: function () { return 'coerced'; },
+};
+
+var badValues = [
+  ['undefined', undefined],
+  ['null', null],
+  ['true', true],
+  ['false', false],
+  ['number', 1],
+  ['object', {}],
+  ['array', []],
+  ['object with toString', coercible],
+  ['String wrapper object', new String('boxed')],
+  typeof Symbol === 'undefined' ? null : ['symbol', Symbol('s')],
+  typeof BigInt === 'undefined' ? null : ['bigint', BigInt(0)]
+];
+
 for (var i = 0; i < nativeErrors.length; ++i) {
   var Ctor = nativeErrors[i];
   var err = new Ctor('msg');
 
-  assert.throws(TypeError, function () {
-    set.call(err, undefined);
-  }, Ctor.name + ': undefined');
-
-  assert.throws(TypeError, function () {
-    set.call(err, null);
-  }, Ctor.name + ': null');
-
-  assert.throws(TypeError, function () {
-    set.call(err, true);
-  }, Ctor.name + ': true');
-
-  assert.throws(TypeError, function () {
-    set.call(err, false);
-  }, Ctor.name + ': false');
-
-  assert.throws(TypeError, function () {
-    set.call(err, 1);
-  }, Ctor.name + ': number');
-
-  assert.throws(TypeError, function () {
-    set.call(err, {});
-  }, Ctor.name + ': object');
-
-  assert.throws(TypeError, function () {
-    set.call(err, []);
-  }, Ctor.name + ': array');
-
-  // An object with a toString method is not coerced; the algorithm requires v
-  // to already be a String.
-  var coercible = {
-    toString: function () { return 'coerced'; },
-    valueOf: function () { return 'coerced'; },
-  };
-  assert.throws(TypeError, function () {
-    set.call(err, coercible);
-  }, Ctor.name + ': object with toString');
-
-  // Boxed strings are still objects, not Strings.
-  assert.throws(TypeError, function () {
-    set.call(err, new String('boxed'));
-  }, Ctor.name + ': String wrapper object');
+  for (var j = 0; j < badValues.length; ++j) {
+    if (!badValues[j]) continue;
+    var label = badValues[j][0];
+    var value = badValues[j][1];
+    assert.throws(TypeError, function () {
+      set.call(err, value);
+    }, Ctor.name + ': ' + label);
+  }
 }

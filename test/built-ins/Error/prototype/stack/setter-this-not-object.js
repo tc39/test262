@@ -17,29 +17,25 @@ var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
 assert.sameValue(typeof set, 'function');
 
-assert.throws(TypeError, function () {
-  set.call(undefined, '');
-}, 'undefined');
+var badReceivers = [
+  ['undefined', undefined],
+  ['null', null],
+  ['true', true],
+  ['false', false],
+  ['number', 1],
+  ['string', 's'],
+  typeof Symbol === 'undefined' ? null : ['symbol', Symbol('s')],
+  typeof BigInt === 'undefined' ? null : ['bigint', BigInt(0)]
+];
 
-assert.throws(TypeError, function () {
-  set.call(null, '');
-}, 'null');
-
-assert.throws(TypeError, function () {
-  set.call(true, '');
-}, 'true');
-
-assert.throws(TypeError, function () {
-  set.call(false, '');
-}, 'false');
-
-assert.throws(TypeError, function () {
-  set.call(1, '');
-}, 'number');
-
-assert.throws(TypeError, function () {
-  set.call('s', '');
-}, 'string');
+for (var i = 0; i < badReceivers.length; ++i) {
+  if (!badReceivers[i]) continue;
+  var label = badReceivers[i][0];
+  var value = badReceivers[i][1];
+  assert.throws(TypeError, function () {
+    set.call(value, '');
+  }, label);
+}
 
 // A non-Object this combined with a non-String v throws TypeError. The spec
 // runs step 2 (this not Object) before step 3 (v not String), but both steps

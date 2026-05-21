@@ -17,25 +17,36 @@ features: [error-stack-accessor]
 
 var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 
-var nativeErrors = [
-  Error,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError
+var errors = [
+  ['Error', new Error('msg'), Error('msg')],
+  ['EvalError', new EvalError('msg'), EvalError('msg')],
+  ['RangeError', new RangeError('msg'), RangeError('msg')],
+  ['ReferenceError', new ReferenceError('msg'), ReferenceError('msg')],
+  ['SyntaxError', new SyntaxError('msg'), SyntaxError('msg')],
+  ['TypeError', new TypeError('msg'), TypeError('msg')],
+  ['URIError', new URIError('msg'), URIError('msg')],
+  typeof AggregateError === 'undefined' ? null : [
+    'AggregateError',
+    new AggregateError([new Error('inner')], 'outer'),
+    AggregateError([new Error('inner')], 'outer')
+  ],
+  typeof SuppressedError === 'undefined' ? null : [
+    'SuppressedError',
+    new SuppressedError(new Error('inner'), new Error('suppressed'), 'msg'),
+    SuppressedError(new Error('inner'), new Error('suppressed'), 'msg')
+  ]
 ];
 
-for (var i = 0; i < nativeErrors.length; ++i) {
-  var Ctor = nativeErrors[i];
+for (var i = 0; i < errors.length; ++i) {
+  if (!errors[i]) continue;
+  var name = errors[i][0];
+  var err = errors[i][1];
+  var err2 = errors[i][2];
 
-  var err = new Ctor('msg');
-  assert.sameValue(typeof get.call(err), 'string', Ctor.name + ': new Ctor instance via get.call');
-  assert.sameValue(typeof err.stack, 'string', Ctor.name + ': new Ctor instance via property access');
+  assert.sameValue(typeof get.call(err), 'string', name + ': new Ctor instance via get.call');
+  assert.sameValue(typeof err.stack, 'string', name + ': new Ctor instance via property access');
 
-  var err2 = Ctor('msg');
-  assert.sameValue(typeof get.call(err2), 'string', Ctor.name + ': Ctor called without new');
+  assert.sameValue(typeof get.call(err2), 'string', name + ': Ctor called without new');
 
-  assert.sameValue(typeof get.call(err), 'string', Ctor.name + ': second call still returns a string');
+  assert.sameValue(typeof get.call(err), 'string', name + ': second call still returns a string');
 }
