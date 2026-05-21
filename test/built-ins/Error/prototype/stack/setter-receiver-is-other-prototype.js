@@ -32,17 +32,11 @@ features: [error-stack-accessor]
 var set = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').set;
 
 var prototypes = [];
-for (var i = 0; i < nativeErrors.length; ++i) {
-  var Ctor = nativeErrors[i];
+for (var i = 0; i < allErrorConstructors.length; ++i) {
+  var Ctor = allErrorConstructors[i];
   // Error.prototype is %Error.prototype% itself; that case is covered by setter-receiver-is-prototype.js.
   if (Ctor === Error) continue;
   prototypes.push([Ctor.name + '.prototype', Ctor.prototype]);
-}
-if (typeof AggregateError !== 'undefined') {
-  prototypes.push(['AggregateError.prototype', AggregateError.prototype]);
-}
-if (typeof SuppressedError !== 'undefined') {
-  prototypes.push(['SuppressedError.prototype', SuppressedError.prototype]);
 }
 
 for (var i = 0; i < prototypes.length; ++i) {

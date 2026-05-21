@@ -19,23 +19,9 @@ features: [error-stack-accessor]
 var get = Object.getOwnPropertyDescriptor(Error.prototype, 'stack').get;
 
 var errors = [];
-for (var i = 0; i < nativeErrors.length; ++i) {
-  var Ctor = nativeErrors[i];
-  errors.push([Ctor.name, new Ctor('msg'), Ctor('msg')]);
-}
-if (typeof AggregateError !== 'undefined') {
-  errors.push([
-    'AggregateError',
-    new AggregateError([new Error('inner')], 'outer'),
-    AggregateError([new Error('inner')], 'outer')
-  ]);
-}
-if (typeof SuppressedError !== 'undefined') {
-  errors.push([
-    'SuppressedError',
-    new SuppressedError(new Error('inner'), new Error('suppressed'), 'msg'),
-    SuppressedError(new Error('inner'), new Error('suppressed'), 'msg')
-  ]);
+for (var i = 0; i < allErrorConstructors.length; ++i) {
+  var Ctor = allErrorConstructors[i];
+  errors.push([Ctor.name, makeNativeError(Ctor, true), makeNativeError(Ctor, false)]);
 }
 
 for (var i = 0; i < errors.length; ++i) {
