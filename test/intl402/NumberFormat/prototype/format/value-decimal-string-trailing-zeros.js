@@ -65,7 +65,7 @@ assert.sameValue(nf3.format('0.012'), '0.012');
 assert.sameValue(nf3.format('1.2345e-21'), '0.000000000000000000001235');
 assert.sameValue(nf3.format('1.2345e-1000'), '0.000');
 
-const nf4 = new NumberFormat('en-US', {
+const nf4 = new Intl.NumberFormat('en-US', {
   minimumSignificantDigits: 2,
   maximumSignificantDigits: 4,
   trailingZeroDisplay: 'stripToMinimum',
