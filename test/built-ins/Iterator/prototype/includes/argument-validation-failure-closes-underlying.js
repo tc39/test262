@@ -22,7 +22,13 @@ let closable = {
 assert.throws(RangeError, function() {
   closable.includes(null, -2);
 });
-assert.sameValue(closed, true, 'iterator closed when skippedElements validation produces a RangeError');
+assert.sameValue(closed, true, 'iterator closed for negative skippedElements');
+
+closed = false;
+assert.throws(RangeError, function() {
+  closable.includes(null, Number.MAX_SAFE_INTEGER + 1);
+});
+assert.sameValue(closed, true, 'iterator closed for too-large skippedElements');
 
 closed = false;
 assert.throws(TypeError, function() {

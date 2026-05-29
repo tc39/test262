@@ -14,7 +14,15 @@ info: |
   5. Else if skippedElements is not one of +Infinity, -Infinity, or an integral Number,
     a. Let error be ThrowCompletion(a newly created TypeError object).
     b. Return ? IteratorClose(iterated, error).
-  9. Set iterated to ? GetIteratorDirect(O).
+  6. Else, let toSkip be skippedElements.
+  7. If toSkip < -0F, then
+    a. Let error be ThrowCompletion(a newly created RangeError object).
+    b. Return ? IteratorClose(iterated, error).
+  8. If toSkip is finite and toSkip > F(2**53 - 1), then
+    a. Let error be ThrowCompletion(a newly created RangeError object).
+    b. Return ? IteratorClose(iterated, error).
+  9. Let skipped be +0F.
+  10. Set iterated to ? GetIteratorDirect(O).
 
 includes: [compareArray.js]
 features: [iterator-includes]
@@ -42,6 +50,29 @@ assert.throws(TypeError, function() {
     },
     0,
     NaN
+  );
+});
+
+assert.compareArray(effects, ['return']);
+
+effects = [];
+
+assert.throws(RangeError, function() {
+  Iterator.prototype.includes.call(
+    {
+      get next() {
+        effects.push('get next');
+        return function() {
+          return { done: true, value: undefined };
+        };
+      },
+      return() {
+        effects.push('return');
+        return {};
+      },
+    },
+    0,
+    Number.MAX_SAFE_INTEGER + 1
   );
 });
 
