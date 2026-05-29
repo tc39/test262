@@ -25,3 +25,5 @@ const explicit = datetime.add(duration, { overflow: undefined });
 assert.sameValue(explicit.epochNanoseconds, 5097599_999_999_999n, "default overflow is constrain");
 const implicit = datetime.add(duration, {});
 assert.sameValue(implicit.epochNanoseconds, 5097599_999_999_999n, "default overflow is constrain");
+const lambda = datetime.add(duration, () => {});
+assert.sameValue(lambda.epochNanoseconds, 5097599_999_999_999n, "default overflow is constrain");

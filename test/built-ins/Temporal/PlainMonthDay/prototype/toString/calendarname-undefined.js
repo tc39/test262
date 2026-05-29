@@ -17,4 +17,4 @@ features: [Temporal]
 const monthday = new Temporal.PlainMonthDay(5, 2);
 const result = monthday.toString({ calendarName: undefined });
 assert.sameValue(result, "05-02", `default calendarName option is auto with built-in ISO calendar`);
-// See options-object.js for {} and options-undefined.js for absent options arg
+// See options-object.js for {} and () => {}

@@ -15,3 +15,6 @@ assert.sameValue(explicit.month, 12, "default overflow is constrain");
 
 const implicit = yearmonth.with(fields);
 assert.sameValue(implicit.month, 12, "default overflow is constrain");
+
+const lambda = yearmonth.with(fields, () => {});
+assert.sameValue(lambda.month, 12, "default overflow is constrain");

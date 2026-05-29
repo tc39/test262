@@ -21,4 +21,4 @@ const later = new Temporal.PlainDate(2000, 5, 7);
 const explicit = earlier.until(later, { roundingIncrement: undefined });
 TemporalHelpers.assertDuration(explicit, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, "default roundingIncrement is 1");
 
-// See options-undefined.js for {}
+// See options-object.js for {} and () => {}

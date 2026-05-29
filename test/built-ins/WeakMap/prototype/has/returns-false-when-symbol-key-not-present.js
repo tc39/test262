@@ -14,15 +14,15 @@ var foo = Symbol('a description');
 var bar = Symbol('a description');
 var map = new WeakMap();
 
-assert.sameValue(map.has(foo), false, 'Map is initially empty of regular symbol');
-assert.sameValue(map.has(Symbol.hasInstance), false, 'Map is initially empty of well-known symbol');
+assert.sameValue(map.has(foo), false, 'WeakMap is initially empty of regular symbol');
+assert.sameValue(map.has(Symbol.hasInstance), false, 'WeakMap is initially empty of well-known symbol');
 
 map.set(foo, 1);
 assert.sameValue(map.has(bar), false, "Symbols with the same description don't alias each other");
 
 map.delete(foo);
-assert.sameValue(map.has(foo), false, 'Map is empty again of regular symbol after deleting');
+assert.sameValue(map.has(foo), false, 'WeakMap is empty again of regular symbol after deleting');
 
 map.set(Symbol.hasInstance, 2);
 map.delete(Symbol.hasInstance);
-assert.sameValue(map.has(Symbol.hasInstance), false, 'Map is empty again of well-known symbol after deleting');
+assert.sameValue(map.has(Symbol.hasInstance), false, 'WeakMap is empty again of well-known symbol after deleting');

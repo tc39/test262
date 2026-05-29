@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   %TypedArray.prototype.subarray shouldn't misbehave horribly if index-argument conversion detaches the underlying ArrayBuffer
 info: bugzilla.mozilla.org/show_bug.cgi?id=991981
@@ -18,7 +19,7 @@ function testBegin()
     {
       valueOf: function()
       {
-        $262.detachArrayBuffer(ab);
+        $DETACHBUFFER(ab);
         return 0x800;
       }
     };
@@ -40,7 +41,7 @@ function testBeginWithEnd()
     {
       valueOf: function()
       {
-        $262.detachArrayBuffer(ab);
+        $DETACHBUFFER(ab);
         return 0x800;
       }
     };
@@ -62,7 +63,7 @@ function testEnd()
     {
       valueOf: function()
       {
-        $262.detachArrayBuffer(ab);
+        $DETACHBUFFER(ab);
         return 0x1000;
       }
     };
