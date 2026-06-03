@@ -25,9 +25,6 @@ features: [await-dictionary, Proxy]
 
 var error = new Test262Error();
 var input = new Proxy({ key: 1 }, {
-  ownKeys: function() {
-    return ['key'];
-  },
   getOwnPropertyDescriptor: function() {
     throw error;
   }

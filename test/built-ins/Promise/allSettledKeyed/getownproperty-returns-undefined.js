@@ -15,13 +15,10 @@ info: |
       ...
 includes: [asyncHelpers.js]
 flags: [async]
-features: [await-dictionary, Proxy]
+features: [await-dictionary, Proxy, Reflect]
 ---*/
 
 var input = new Proxy({ key: Promise.resolve(1) }, {
-  ownKeys: function() {
-    return ['key'];
-  },
   getOwnPropertyDescriptor: function() {
     return undefined;
   }

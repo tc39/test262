@@ -27,7 +27,7 @@ info: |
     ...
     NOTE: This can happen even if keys was non-empty if an ill-behaved thenable
     synchronously invoked the callback passed to its "then" method.
-features: [await-dictionary]
+features: [await-dictionary, Reflect]
 ---*/
 
 var resolveStartCount = 0;

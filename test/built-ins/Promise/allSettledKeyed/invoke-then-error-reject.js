@@ -15,7 +15,7 @@ info: |
       ...
       iv. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
       ...
-      11. Perform ? Invoke(nextPromise, "then", « onFulfilled, onRejected »).
+      xiii. Perform ? Invoke(nextPromise, "then", « onFulfilled, onRejected »).
 includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary]

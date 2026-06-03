@@ -16,7 +16,7 @@ info: |
 
   ...
   6. Let promise be Construct(C, « executor »).
-features: [await-dictionary]
+features: [await-dictionary, new.target]
 ---*/
 
 var error = new Test262Error();

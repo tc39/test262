@@ -15,7 +15,7 @@ info: |
       ...
 includes: [asyncHelpers.js]
 flags: [async]
-features: [await-dictionary]
+features: [await-dictionary, Reflect]
 ---*/
 
 var input = Object.create(null);
