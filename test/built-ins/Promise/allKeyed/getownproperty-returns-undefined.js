@@ -27,6 +27,6 @@ var input = new Proxy({ key: Promise.resolve(1) }, {
 asyncTest(function() {
   return Promise.allKeyed(input).then(function(result) {
     assert.sameValue(Object.getPrototypeOf(result), null, "result is null-prototype");
-    assert.sameValue(Reflect.ownKeys(result).length, 0);
+    assert.sameValue(Reflect.ownKeys(result).length, 0, "no keys in result");
   });
 });
