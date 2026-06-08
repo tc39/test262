@@ -1,0 +1,20 @@
+// Copyright (C) 2026 Bloomberg L.P. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is a CallExpression, it can't be preceded by the new keyword (property access)
+template: syntax/invalid
+info: |
+  CallExpression:
+    ImportCall
+    CallExpression . IdentifierName
+
+  ImportCall :
+      import( AssignmentExpression[+In, ?Yield] )
+
+  NewExpression :
+    MemberExpression
+    new NewExpression
+---*/
+
+//- import
+new import('').prop
