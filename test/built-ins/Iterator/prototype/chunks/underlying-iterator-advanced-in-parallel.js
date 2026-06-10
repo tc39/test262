@@ -25,7 +25,6 @@ assert.sameValue(result.done, false);
 let { value, done } = iterator.next();
 assert.sameValue(value, 2);
 assert.sameValue(done, false);
-iterator.next();
 
 result = chunked.next();
 assert.compareArray(result.value, [3, 4]);
