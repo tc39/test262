@@ -18,7 +18,7 @@ let iter = {
       --count;
       return count >= 0 ? { done: false, value: count } : { done: true, value: undefined };
     };
-  },
+  }
 };
 
 let windowed = Iterator.prototype.windows.call(iter, 2);

@@ -18,7 +18,7 @@ let iter = {
       --count;
       return count >= 0 ? { done: false, value: count } : { done: true, value: undefined };
     };
-  },
+  }
 };
 
 let chunked = Iterator.prototype.chunks.call(iter, 2);

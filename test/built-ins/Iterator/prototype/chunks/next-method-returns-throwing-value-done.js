@@ -16,7 +16,7 @@ class ThrowingIterator extends Iterator {
       done: true,
       get value() {
         throw new Test262Error();
-      },
+      }
     };
   }
   get return() {

@@ -21,7 +21,7 @@ assert.throws(TypeError, () => {
     valueOf() {
       valueOfCalled = true;
       return 2;
-    },
+    }
   });
 });
 assert.sameValue(valueOfCalled, false, 'valueOf must not be called');
@@ -32,7 +32,7 @@ assert.throws(TypeError, () => {
     toString() {
       toStringCalled = true;
       return '2';
-    },
+    }
   });
 });
 assert.sameValue(toStringCalled, false, 'toString must not be called');

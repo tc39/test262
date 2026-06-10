@@ -19,7 +19,7 @@ assert.throws(TypeError, function () {
 Object.defineProperty(Number.prototype, 'next', {
   get: function () {
     throw new Test262Error();
-  },
+  }
 });
 assert.throws(TypeError, function () {
   Iterator.prototype.chunks.call(0, 1);

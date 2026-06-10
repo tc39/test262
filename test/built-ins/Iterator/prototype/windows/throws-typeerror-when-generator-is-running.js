@@ -30,7 +30,7 @@ var iterator = {
       iter.next();
       return { done: false, value: 0 };
     };
-  },
+  }
 };
 
 iter = Iterator.prototype.windows.call(iterator, 1);

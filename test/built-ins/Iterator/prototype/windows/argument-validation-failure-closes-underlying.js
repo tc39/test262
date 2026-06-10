@@ -30,7 +30,7 @@ let closable = {
   return() {
     closed = true;
     return {};
-  },
+  }
 };
 
 // windowSize validation failure closes

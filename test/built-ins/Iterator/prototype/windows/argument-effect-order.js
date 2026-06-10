@@ -40,7 +40,7 @@ assert.throws(RangeError, function () {
         return function () {
           return { done: true, value: undefined };
         };
-      },
+      }
     },
     0,
     'bad'
@@ -58,7 +58,7 @@ assert.throws(TypeError, function () {
         return function () {
           return { done: true, value: undefined };
         };
-      },
+      }
     },
     1,
     'bad'
@@ -75,7 +75,7 @@ Iterator.prototype.windows.call(
       return function () {
         return { done: true, value: undefined };
       };
-    },
+    }
   },
   1
 );

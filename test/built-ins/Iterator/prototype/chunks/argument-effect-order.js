@@ -36,7 +36,7 @@ assert.throws(RangeError, function () {
         return function () {
           return { done: true, value: undefined };
         };
-      },
+      }
     },
     0
   );
@@ -52,7 +52,7 @@ Iterator.prototype.chunks.call(
       return function () {
         return { done: true, value: undefined };
       };
-    },
+    }
   },
   1
 );
