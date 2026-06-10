@@ -12,7 +12,7 @@ info: |
     a. Let error be ThrowCompletion(a newly created RangeError object).
     b. Return ? IteratorClose(iterated, error).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 let iterator = (function* () {})();
 

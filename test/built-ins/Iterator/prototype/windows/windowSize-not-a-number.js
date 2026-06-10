@@ -11,7 +11,7 @@ info: |
   4. If windowSize is not a Number, throw a TypeError exception.
   5. If windowSize is not an integral Number, throw a TypeError exception.
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 let iterator = (function* () {})();
 
