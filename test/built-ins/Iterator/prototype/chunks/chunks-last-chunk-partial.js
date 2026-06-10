@@ -13,7 +13,7 @@ info: |
     6.a.ii.a. If buffer is not empty, then
       6.a.ii.a.i. Perform Completion(Yield(CreateArrayFromList(buffer))).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 includes: [compareArray.js]
 ---*/
 function* g() {

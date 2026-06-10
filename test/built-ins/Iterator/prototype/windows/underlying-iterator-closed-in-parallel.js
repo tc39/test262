@@ -7,7 +7,7 @@ description: >
 info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 let iterator = (function* () {
   for (let i = 0; i < 5; ++i) {

@@ -13,7 +13,7 @@ info: |
       8.a.ii.a.i. Perform Completion(Yield(CreateArrayFromList(buffer))).
     8.a.ii.b. Return ReturnCompletion(undefined).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 includes: [compareArray.js]
 ---*/
 function* g() {

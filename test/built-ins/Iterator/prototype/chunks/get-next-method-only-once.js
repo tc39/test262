@@ -9,7 +9,7 @@ info: |
 
   5. Set iterated to ? GetIteratorDirect(O).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 let nextGets = 0;
 let nextCalls = 0;

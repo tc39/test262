@@ -4,7 +4,7 @@
 esid: sec-iterator.prototype.chunks
 description: >
   Iterator.prototype.chunks is callable
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {}
 Iterator.prototype.chunks.call(g(), 1);

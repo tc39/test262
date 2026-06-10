@@ -13,7 +13,7 @@ info: |
     8.a.ii.a. If undersized is "allow-partial", buffer is not empty, and ...
     8.a.ii.b. Return ReturnCompletion(undefined).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {}
 

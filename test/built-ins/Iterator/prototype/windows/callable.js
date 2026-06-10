@@ -4,7 +4,7 @@
 esid: sec-iterator.prototype.windows
 description: >
   Iterator.prototype.windows is callable
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {}
 Iterator.prototype.windows.call(g(), 1);

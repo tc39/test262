@@ -11,7 +11,7 @@ info: |
   6.a.iv. If the number of elements in buffer is ℝ(chunkSize), then
     6.a.iv.a. Let completion be Completion(Yield(CreateArrayFromList(buffer))).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 includes: [compareArray.js]
 ---*/
 function* g(n) {

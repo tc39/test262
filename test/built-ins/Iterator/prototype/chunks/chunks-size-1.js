@@ -7,7 +7,7 @@ description: >
 info: |
   Iterator.prototype.chunks ( chunkSize )
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 includes: [compareArray.js]
 ---*/
 function* g() {

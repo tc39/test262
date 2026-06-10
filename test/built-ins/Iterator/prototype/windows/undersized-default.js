@@ -9,7 +9,7 @@ info: |
 
   5. If undersized is undefined, set undersized to "only-full".
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {
   yield 0;

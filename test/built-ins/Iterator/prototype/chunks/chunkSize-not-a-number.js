@@ -11,7 +11,7 @@ info: |
   4. If chunkSize is not a Number, throw a TypeError exception.
   5. If chunkSize is not an integral Number, throw a TypeError exception.
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 let iterator = (function* () {})();
 

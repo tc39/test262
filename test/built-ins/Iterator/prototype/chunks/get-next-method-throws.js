@@ -9,12 +9,12 @@ info: |
 
   5. Set iterated to ? GetIteratorDirect(O).
 
-features: [iterator-chunking]
+features: [iterator-chunking, class]
 ---*/
 class ThrowingIterator extends Iterator {
   get next() {
     throw new Test262Error();
-  },
+  }
   get return() {
     throw new TypeError;
   }

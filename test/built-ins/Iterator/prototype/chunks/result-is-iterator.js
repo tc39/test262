@@ -9,7 +9,7 @@ info: |
 
   6. Let result be CreateIteratorFromClosure(closure, "Iterator Helper", %IteratorHelperPrototype%, « [[UnderlyingIterators]] »).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 
 assert(

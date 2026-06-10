@@ -8,7 +8,7 @@ description: >
   Built-in function objects that are not identified as constructors do not
   implement the [[Construct]] internal method unless otherwise specified in
   the description of a particular function.
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {}
 let iter = g();

@@ -14,7 +14,7 @@ info: |
       ...
     6.a.ii.b. Return ReturnCompletion(undefined).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {}
 

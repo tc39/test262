@@ -13,7 +13,7 @@ info: |
   8.a.v. If the number of elements in buffer is ℝ(windowSize), then
     8.a.v.a. Let completion be Completion(Yield(CreateArrayFromList(buffer))).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 includes: [compareArray.js]
 ---*/
 function* g() {

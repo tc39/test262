@@ -9,7 +9,7 @@ info: |
 
   7. Set iterated to ? GetIteratorDirect(O).
 
-features: [iterator-chunking]
+features: [iterator-chunking, class]
 ---*/
 class ThrowingIterator extends Iterator {
   get next() {

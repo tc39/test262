@@ -7,7 +7,7 @@ description: >
 info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 includes: [compareArray.js]
 ---*/
 let iterator = (function* () {

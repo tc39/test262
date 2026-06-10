@@ -7,7 +7,7 @@ description: >
 info: |
   Iterator.prototype.chunks ( chunkSize )
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 let iterator = (function* () {
   for (let i = 0; i < 5; ++i) {

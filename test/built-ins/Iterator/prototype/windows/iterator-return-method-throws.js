@@ -7,7 +7,7 @@ description: >
 info: |
   Iterator.prototype.windows ( windowSize [ , undersized ] )
 
-features: [iterator-chunking]
+features: [iterator-chunking, class]
 ---*/
 class IteratorThrows extends Iterator {
   next() {

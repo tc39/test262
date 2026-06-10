@@ -8,7 +8,7 @@ description: >
 info: |
   Iterator.prototype.chunks ( chunkSize )
 
-features: [iterator-chunking]
+features: [iterator-chunking, class]
 ---*/
 
 class TestIterator extends Iterator {

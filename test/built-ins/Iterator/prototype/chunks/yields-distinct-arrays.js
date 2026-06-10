@@ -9,7 +9,7 @@ info: |
 
   6.a.iv.a. Let completion be Completion(Yield(CreateArrayFromList(buffer))).
 
-features: [iterator-chunking]
+features: [iterator-chunking, generators]
 ---*/
 function* g() {
   yield 0;
