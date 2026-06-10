@@ -20,8 +20,8 @@ class ThrowingIterator extends Iterator {
   }
 }
 
-let chunked = new ThrowingIterator().chunks(1);
+let iter = new ThrowingIterator();
 
 assert.throws(Test262Error, function () {
-  chunked.next();
+  iter.chunks(1);
 });

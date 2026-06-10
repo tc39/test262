@@ -20,8 +20,8 @@ class ThrowingIterator extends Iterator {
   }
 }
 
-let windowed = new ThrowingIterator().windows(1);
+let iter = new ThrowingIterator();
 
 assert.throws(Test262Error, function () {
-  windowed.next();
+  iter.windows(1);
 });
