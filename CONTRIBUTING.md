@@ -276,6 +276,26 @@ Tests in staging do not count towards the test262 coverage requirement for a TC3
 Implementations may designate a group of people who have permission to review and land tests in the staging folder.
 To add or remove people from this group, please open an issue.
 
+## Implementation Contributed
+
+There is a `test/implementation-contributed/` folder, containing tests that are subject to fewer requirements, in order to promote sharing of tests between implementations.
+
+Tests in implementation-contributed are not required to be split up into one test per file, or to conform to any particular style as long as they are runnable.
+In particular, mechanically-converted tests from implementations' private test suites are encouraged, as sharing them with other implementations promotes interoperability.
+
+These are the requirements for adding a test to staging:
+
+1. Just as with a test outside of staging, it must test an existing language feature, a Stage 3 TC39 proposal, or a normative pull request.
+2. It is correct.
+3. It is runnable using the usual test262 runner.
+4. It is reviewed by someone with permission to land tests in the staging folder, not necessarily a test262 maintainer.
+5. If it requires the implementation to support ECMA-402, it must be in `test/staging/intl402/` or a subfolder thereof.
+
+Tests in staging do not count towards the test262 coverage requirement for a TC39 proposal to reach Stage 4.
+
+Implementations may designate a group of people who have permission to review and land tests in the implementation-contributed folder.
+To add or remove people from this group, please open an issue.
+
 ## Test Environment
 
 Each test case is run in a fresh JavaScript environment; in a browser, this will be a new &lt;iframe&gt;; for a console runner, this will be a new process.
