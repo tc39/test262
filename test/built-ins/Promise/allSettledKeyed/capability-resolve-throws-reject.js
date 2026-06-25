@@ -15,10 +15,10 @@ info: |
   PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
 
   ...
-  7. Set remainingElementsCount.[[Value]] to remainingElementsCount.[[Value]] - 1.
-  8. If remainingElementsCount.[[Value]] = 0, then
-    ...
-    c. Perform ? Call(resultCapability.[[Resolve]], undefined, « result »).
+  Set remainingElementsCount.[[Value]] to remainingElementsCount.[[Value]] - 1.
+  If remainingElementsCount.[[Value]] = 0, then
+    Let result be CreateKeyedPromiseCombinatorResultObject(entries).
+    Perform ? Call(resultCapability.[[Resolve]], undefined, « result »).
 includes: [asyncHelpers.js]
 flags: [async]
 features: [await-dictionary]

@@ -10,10 +10,11 @@ info: |
   PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
 
   ...
-  5. Let allKeys be ? promises.[[OwnPropertyKeys]]().
-  6. For each element key of allKeys, do
-    a. Let desc be ? promises.[[GetOwnProperty]](key).
-    b. If desc is not undefined and desc.[[Enumerable]] is true, then
+  1. Let allKeys be ? promises.[[OwnPropertyKeys]]().
+  ...
+  5. For each element key of allKeys, do
+    a. Let propertyDesc be ? promises.[[GetOwnProperty]](key).
+    b. If propertyDesc is not undefined and propertyDesc.[[Enumerable]] is true, then
       ...
 includes: [asyncHelpers.js]
 flags: [async]
