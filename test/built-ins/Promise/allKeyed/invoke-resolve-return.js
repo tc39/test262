@@ -6,14 +6,14 @@ esid: sec-performpromiseallkeyed
 description: >
   Uses the value returned by the constructor's `resolve` method
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   5. For each element key of allKeys, do
     ...
     b. If propertyDesc is not undefined and propertyDesc.[[Enumerable]] is true, then
       ...
-      iv. Let nextPromise be ? Call(promiseResolve, constructor, « propertyValue »).
+      iv. Let nextPromise be ? Call(promiseResolve, ctor, « propertyValue »).
       ...
       xiii. Perform ? Invoke(nextPromise, "then", « onFulfilled, onRejected »).
 features: [await-dictionary]

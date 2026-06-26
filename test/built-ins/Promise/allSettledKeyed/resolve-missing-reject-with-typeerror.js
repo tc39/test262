@@ -9,7 +9,7 @@ info: |
   Promise.allSettledKeyed ( promises )
 
   ...
-  3. Let promiseResolve be Completion(GetPromiseResolve(C)).
+  3. Let promiseResolve be Completion(GetPromiseResolve(ctor)).
   4. IfAbruptRejectPromise(promiseResolve, promiseCapability).
   ...
 

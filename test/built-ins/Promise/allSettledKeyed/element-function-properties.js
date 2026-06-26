@@ -7,7 +7,7 @@ description: >
   Promise.allSettledKeyed resolve and reject element functions have the expected
   function shape
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   Let onFulfilled be CreateBuiltinFunction(fulfilledSteps, 1, "", « [[AlreadyCalled]], [[Index]] »).

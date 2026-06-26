@@ -6,7 +6,7 @@ esid: sec-performpromiseallkeyed
 description: >
   Does not get values for non-enumerable own properties
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   5. For each element key of allKeys, do

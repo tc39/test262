@@ -12,7 +12,7 @@ info: |
   6. Let result be Completion(PerformPromiseAllKeyed(...)).
   7. IfAbruptRejectPromise(result, promiseCapability).
 
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   Set remainingElementsCount.[[Value]] to remainingElementsCount.[[Value]] - 1.

@@ -6,7 +6,7 @@ esid: sec-performpromiseallkeyed
 description: >
   Rejects when getting an enumerable property value throws
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   1. Let allKeys be ? promises.[[OwnPropertyKeys]]().

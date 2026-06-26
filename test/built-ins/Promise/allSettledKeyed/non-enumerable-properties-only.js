@@ -7,7 +7,7 @@ description: >
   Promise.allSettledKeyed resolves to an empty result when all own keys are
   non-enumerable
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   1. Let allKeys be ? promises.[[OwnPropertyKeys]]().

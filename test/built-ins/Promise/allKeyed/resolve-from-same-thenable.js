@@ -7,13 +7,14 @@ description: >
   Cannot tamper remainingElementsCount when the same resolve element function is
   called multiple times.
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   The onFulfilled closure:
     ...
-    2. If alreadyCalled.[[Value]] is true, return undefined.
-    3. Set alreadyCalled.[[Value]] to true.
+    1. Let activeFunc be the active function object.
+    2. If activeFunc.[[AlreadyCalled]].[[Value]] is true, return undefined.
+    3. Set activeFunc.[[AlreadyCalled]].[[Value]] to true.
 features: [await-dictionary]
 ---*/
 

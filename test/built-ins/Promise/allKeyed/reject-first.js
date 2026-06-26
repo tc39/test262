@@ -6,12 +6,12 @@ esid: sec-performpromiseallkeyed
 description: >
   Promise.allKeyed rejects when the first promise to settle is rejected
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   6. For each element key of allKeys, do
     ...
-    b. If desc is not undefined and desc.[[Enumerable]] is true, then
+    b. If propertyDesc is not undefined and propertyDesc.[[Enumerable]] is true, then
       ...
       8. If variant is all, then
         a. Let onRejected be resultCapability.[[Reject]].

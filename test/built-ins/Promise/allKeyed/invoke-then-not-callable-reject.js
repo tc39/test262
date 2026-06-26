@@ -6,14 +6,14 @@ esid: sec-performpromiseallkeyed
 description: >
   Rejects when promiseResolve returns an object without a callable `then` method
 info: |
-  PerformPromiseAllKeyed ( variant, promises, constructor, resultCapability, promiseResolve )
+  PerformPromiseAllKeyed ( variant, promises, ctor, resultCapability, promiseResolve )
 
   ...
   6. For each element key of allKeys, do
     ...
-    b. If desc is not undefined and desc.[[Enumerable]] is true, then
+    b. If propertyDesc is not undefined and propertyDesc.[[Enumerable]] is true, then
       ...
-      iv. Let nextPromise be ? Call(promiseResolve, constructor, « nextValue »).
+      iv. Let nextPromise be ? Call(promiseResolve, ctor, « propertyValue »).
       ...
       xiii. Perform ? Invoke(nextPromise, "then", « onFulfilled, onRejected »).
 includes: [asyncHelpers.js]
