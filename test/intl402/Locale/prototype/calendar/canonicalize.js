@@ -17,7 +17,7 @@ features: [Intl.Locale]
 const loc = new Intl.Locale('en', {calendar: 'islamicc'});
 
 assert.sameValue(loc.toString(), "en-u-ca-islamic-civil",
-    "'islamicc' should be canonicalize to 'islamic-civil'");
+    "'islamicc' should be canonicalized to 'islamic-civil'");
 
 assert.sameValue(loc.calendar, "islamic-civil",
-    "'islamicc' should be canonicalize to 'islamic-civil'");
+    "'islamicc' should be canonicalized to 'islamic-civil'");
