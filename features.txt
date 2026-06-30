@@ -27,10 +27,6 @@ Intl.NumberFormat-v3
 # https://github.com/tc39/proposal-regexp-legacy-features
 legacy-regexp
 
-# Temporal
-# https://github.com/tc39/proposal-temporal
-Temporal
-
 # ShadowRealm, née Callable Boundary Realms
 # https://github.com/tc39/proposal-realms
 ShadowRealm
@@ -39,23 +35,11 @@ ShadowRealm
 # https://github.com/tc39/proposal-decorators
 decorators
 
-# Duplicate named capturing groups
-# https://github.com/tc39/proposal-duplicate-named-capturing-groups
-regexp-duplicate-named-groups
-
-# Explicit Resource Management
-# https://github.com/tc39/proposal-explicit-resource-management
-explicit-resource-management
-
 # Source Phase Imports
 ## https://github.com/tc39/proposal-source-phase-imports
 source-phase-imports
 ## test262 special specifier
 source-phase-imports-module-source
-
-# Atomics.pause
-# https://github.com/tc39/proposal-atomics-microwait
-Atomics.pause
 
 # Deferred import evaluation
 # https://tc39.es/proposal-defer-import-eval
@@ -69,10 +53,6 @@ export-defer
 # https://github.com/tc39/proposal-import-text
 import-text
 
-# Time Zone Canonicalization
-# https://github.com/tc39/proposal-canonical-tz
-canonical-tz
-
 # Immutable Array Buffer
 # https://github.com/tc39/proposal-immutable-arraybuffer
 immutable-arraybuffer
@@ -84,10 +64,6 @@ import-bytes
 # Non-extensible Applies to Private
 # https://github.com/tc39/proposal-nonextensible-applies-to-private
 nonextensible-applies-to-private
-
-# Joint Iteration
-# https://github.com/tc39/proposal-joint-iteration
-joint-iteration
 
 # Await Dictionary
 # https://github.com/tc39/proposal-await-dictionary
@@ -115,6 +91,7 @@ Array.prototype.flat
 Array.prototype.flatMap
 Array.prototype.includes
 Array.prototype.values
+Atomics.pause
 Atomics.waitAsync
 array-grouping
 arraybuffer-transfer
@@ -124,6 +101,7 @@ async-functions
 Atomics
 BigInt
 caller
+canonical-tz
 change-array-by-copy
 class
 class-fields-private
@@ -153,6 +131,7 @@ destructuring-binding
 dynamic-import
 error-cause
 Error.isError
+explicit-resource-management
 exponentiation
 export-star-as-namespace-from-module  # https://github.com/tc39/ecma262/pull/1174
 FinalizationRegistry
@@ -186,6 +165,7 @@ Intl.Locale
 Intl.NumberFormat-unified
 Intl.RelativeTimeFormat
 Intl.Segmenter
+joint-iteration
 json-modules
 json-parse-with-source
 json-superset
@@ -215,6 +195,7 @@ Reflect.construct
 Reflect.set
 Reflect.setPrototypeOf
 regexp-dotall
+regexp-duplicate-named-groups
 RegExp.escape
 regexp-lookbehind
 regexp-match-indices
@@ -259,6 +240,7 @@ Symbol.toStringTag
 Symbol.unscopables
 tail-call-optimization
 template
+Temporal
 top-level-await
 TypedArray
 TypedArray.prototype.at
