@@ -1,0 +1,21 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/field/error/private/instance/
+name: private field decorator behavior in class expression
+features: [class, decorators, class-fields-private]
+esid: prod-FieldDefinition
+---*/
+
+/*{ decorators }*/
+
+function evaluate() {
+  var C = class {
+    /*{ application }*/
+    #element;
+  }
+}
+
+assert.throws(/*{ error }*/, evaluate);
+
