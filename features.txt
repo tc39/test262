@@ -146,6 +146,7 @@ hashbang
 import-attributes
 import.meta
 iterator-helpers
+iterator-includes
 iterator-sequencing
 Int8Array
 Int16Array
