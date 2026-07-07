@@ -20,9 +20,6 @@ function verifyFormatParts(actual, expected, message) {
   }
 }
 
-// The unit/number separator is CLDR data, not specified by ECMA-402, so
-// read it from the implementation instead of hardcoding it.
-// (e.g. a literal " " part between the number and unit parts, or none)
 function makePart(type, value) {
   return value ? [{ "type": type, "value": value }] : [];
 }
@@ -37,6 +34,9 @@ function addUnitParts(numberParts, separators, prefixText, suffixText) {
   );
 }
 
+// The unit/number separator is CLDR data, not specified by ECMA-402, so
+// read it from the implementation instead of hardcoding it.
+// (e.g. a literal " " part between the number and unit parts, or none)
 const shortSep = getUnitSeparators("ja-JP", "short");
 const narrowSep = getUnitSeparators("ja-JP", "narrow");
 const longSep = getUnitSeparators("ja-JP", "long");
@@ -44,27 +44,26 @@ const longSep = getUnitSeparators("ja-JP", "long");
 const tests = [
   [
     -987,
-    [{"type":"minusSign","value":"-"},{"type":"integer","value":"987"}],
+    [{ type: "minusSign", value: "-" }, { type: "integer", value: "987" }],
   ],
   [
     -0.001,
-    [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"001"}],
+    [{ type: "minusSign", value: "-" }, { type: "integer", value: "0" }, { type: "decimal", value: "." }, { type: "fraction", value: "001" }],
   ],
   [
     -0,
-    [{"type":"minusSign","value":"-"},{"type":"integer","value":"0"}],
+    [{ type: "minusSign", value: "-" }, { type: "integer", value: "0" }],
   ],
   [
     0,
-    [{"type":"integer","value":"0"}],
-  ],
+    [{ type: "integer", value: "0" }]],
   [
     0.001,
-    [{"type":"integer","value":"0"},{"type":"decimal","value":"."},{"type":"fraction","value":"001"}],
+    [{ type: "integer", value: "0" }, { type: "decimal", value: "." }, { type: "fraction", value: "001" }],
   ],
   [
     987,
-    [{"type":"integer","value":"987"}],
+    [{ type: "integer", value: "987" }],
   ],
 ];
 
