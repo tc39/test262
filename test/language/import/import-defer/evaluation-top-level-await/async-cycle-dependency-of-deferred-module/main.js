@@ -8,13 +8,16 @@ description: >
 info: |
   In this test, the module A contains top-level await and forms a cycle with
   the module B, and the module Middle defers the module D, whose only
-  dependency is B. The first dynamic import starts evaluating the graph from
-  A, so A becomes the [[CycleRoot]] of the strongly connected component
-  {A, B}. When the concurrent dynamic import of Middle then starts
-  evaluating, B is already EVALUATED, but its cycle root A is still
-  EVALUATING-ASYNC. Middle's body must therefore only execute after the cycle
-  {A, B} has been fully evaluated, and accessing the deferred namespace of D
-  must then only evaluate D itself.
+  dependency is B. This test first dynamically imports A and waits until A's
+  evaluation has started and is suspended on the "blocker" promise, so A is
+  the [[CycleRoot]] of the strongly connected component {A, B} and is
+  guaranteed to still be EVALUATING-ASYNC. It then dynamically imports C,
+  which imports Middle followed by ResolveBlocker. When Middle's evaluation
+  starts, B is already EVALUATED, but its cycle root A is still
+  EVALUATING-ASYNC, so Middle must wait for the whole cycle {A, B} instead of
+  considering only B's individual status. ResolveBlocker then resolves the
+  blocker, allowing A to finish; only after that may Middle's body execute,
+  and accessing the deferred namespace of D must then only evaluate D itself.
 
   IsModuleSCCEvaluated ( _module_ )
     1. If _module_.[[CycleRoot]] is not EMPTY, then
@@ -55,24 +58,29 @@ info: |
           1. Return false.
     1. Return true.
 flags: [module, async]
-features: [import-defer, top-level-await, dynamic-import]
+features: [import-defer, top-level-await, dynamic-import, promise-with-resolvers]
 includes: [compareArray.js]
 ---*/
 
-import "./setup_FIXTURE.js";
+import { aStarted } from "./setup_FIXTURE.js";
 
 const pA = import("./a-tla_FIXTURE.js");
-const pMiddle = import("./middle_FIXTURE.js");
 
-Promise.all([pA, pMiddle])
-  .then(() => {
-    assert.compareArray(globalThis.evaluations, [
-      "B",
-      "A-before-await",
-      "A-after-await",
-      "Middle-before-nsD.z",
-      "D",
-      "Middle-after-nsD.z",
-    ]);
-  })
-  .then($DONE, $DONE);
+// Wait until A's evaluation has started and is suspended on the blocker, so
+// that A is guaranteed to be EVALUATING-ASYNC when Middle starts evaluating.
+await aStarted.promise;
+
+const pC = import("./c_FIXTURE.js");
+
+await Promise.all([pA, pC]);
+
+assert.compareArray(globalThis.evaluations, [
+  "B",
+  "A-before-await",
+  "A-after-await",
+  "Middle-before-nsD.z",
+  "D",
+  "Middle-after-nsD.z",
+]);
+
+$DONE();
