@@ -105,10 +105,13 @@ def main(web_features_filename, manifest_filename):
         path_specs = feature['files']
         tag_specs = feature.get('tags', [])
 
-        manifest['data'][name] = [*filter(
-            lambda candidate: match(candidate, tag_specs),
-            get_filenames_from_path_specs(path_specs)
-        )]
+        try:
+            manifest['data'][name] = [*filter(
+                lambda candidate: match(candidate, tag_specs),
+                get_filenames_from_path_specs(path_specs)
+            )]
+        except AssertionError as error:
+            raise ValueError(f"Invalid rule for {name}") from error
 
     if manifest_filename:
         with open(manifest_filename, 'w') as manifest_handle:
