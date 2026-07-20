@@ -57,7 +57,7 @@ description: >
     brief description, e.g. "Non-numeric input must be rejected with a TypeError"
 info: |
     verbose test description, multiple lines OK, usually direct quotes from ECMAScript.
-    optional; not encouraged in new tests.
+    Not generally encouraged in new tests.
     For example:
 
     String.fromCodePoint ( ..._codePoints_ )
