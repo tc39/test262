@@ -144,7 +144,9 @@ When writing a new test for a Stage 3+ spec not yet published on the draft, the 
 
 This allows a long, free-form comment. The comment is almost always a direct
 quote from ECMAScript. It is used to indicate the observable being tested
-within the file. Its use is not encouraged in new tests.
+within the file. Its use is not encouraged in new tests except where the content
+is deemed important for understanding them (and even then, be mindful that it is
+unlikely to be updated for editorial changes of upstream specification text).
 
 For example:
 
