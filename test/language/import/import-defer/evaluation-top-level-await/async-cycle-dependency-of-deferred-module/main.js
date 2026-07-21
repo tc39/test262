@@ -77,10 +77,12 @@ await Promise.all([pA, pC]);
 assert.compareArray(globalThis.evaluations, [
   "B",
   "A-before-await",
+  "resolve-blocker",
   "A-after-await",
   "Middle-before-nsD.z",
   "D",
   "Middle-after-nsD.z",
+  "C",
 ]);
 
 $DONE();

@@ -3,4 +3,5 @@
 
 import { blocker } from "./setup_FIXTURE.js";
 
+globalThis.evaluations.push("resolve-blocker");
 blocker.resolve();
