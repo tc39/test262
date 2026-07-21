@@ -5,3 +5,5 @@
 // blocker, and only then is the blocker resolved to let A finish.
 import "./middle_FIXTURE.js";
 import "./resolve-blocker_FIXTURE.js";
+
+globalThis.evaluations.push("C");
