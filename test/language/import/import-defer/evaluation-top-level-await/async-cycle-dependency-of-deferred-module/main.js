@@ -59,7 +59,6 @@ info: |
     1. Return true.
 flags: [module, async]
 features: [import-defer, top-level-await, dynamic-import, promise-with-resolvers]
-includes: [compareArray.js]
 ---*/
 
 import { aStarted } from "./setup_FIXTURE.js";
