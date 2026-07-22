@@ -3,13 +3,18 @@
 
 /*---
 esid: sec-intl.locale.prototype.getCollations
-description: >
-    Checks that the return value of Intl.Locale.prototype.getCollations is an Array.
+description: The return value is an Array
 info: |
   CollationsOfLocale ( loc )
   ...
-  5. Return ! CreateArrayFromListAndPreferred( list, preferred ).
+  6. Return CreateArrayFromList(_sorted_).
 features: [Intl.Locale,Intl.Locale-info]
+locale: [ar, de, en, ja, ko, sv, tr, zh]
 ---*/
 
-assert(Array.isArray(new Intl.Locale('en').getCollations()));
+for (const tag of ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"]) {
+  assert(
+    Array.isArray(new Intl.Locale(tag).getCollations()),
+    `getCollations() for ${tag} should return an array`,
+  );
+}
