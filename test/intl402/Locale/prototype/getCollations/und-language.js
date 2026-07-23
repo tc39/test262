@@ -3,12 +3,14 @@
 
 /*---
 esid: sec-Intl.Locale.prototype.getCollations
-description: Return value for language "und" is hardcoded in spec
+description: >
+  Return value for tags not matching any available locale is hardcoded in spec
 info: |
   CollationsOfLocale ( loc )
 
-  2. Let _language_ be GetLocaleLanguage(_loc_.[[Locale]]).
-  3. If _language_ is not *"und"*, then
+  2. Let _match_ be LookupMatchingLocaleByPrefix(
+     %Intl.Collator%.[[AvailableLocales]], « _loc_.[[Locale]] »).
+  3. If _match_ is not *undefined*, then
     ...
   4. Else,
     a. Let _list_ be « *"emoji"*, *"eor"* ».
@@ -35,5 +37,25 @@ for (const tag of undLocales) {
     locale.getCollations(),
     ["emoji", "eor"],
     `getCollations() for "${tag}" returns the root collations`
+  );
+}
+
+// Unreserved private-use language subtags (qfz..qtz) are guaranteed to have no
+// semantics in any CLDR release, so we assume they will fall back to the
+// hardcoded root collations.
+// https://www.unicode.org/reports/tr35/tr35.html#Private_Use_Codes
+//
+// Note regarding normative change https://github.com/tc39/ecma402/pull/1072:
+// this test might pass or fail if the normative change is not implemented,
+// depending on what the environment's default locale is. It should always pass
+// regardless of the environment's default locale if the normative change is
+// implemented correctly. Try running it with LC_ALL=de in the environment, for
+// example.
+
+for (const tag of ["qfz", "qga-DE", "qgb-ES", "qgc-KR", "qtz-CN"]) {
+  assert.compareArray(
+    new Intl.Locale(tag).getCollations(),
+    ["emoji", "eor"],
+    `getCollations() for unavailable locale "${tag}" returns the root collations`
   );
 }
