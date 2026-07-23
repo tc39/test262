@@ -46,8 +46,8 @@ function findSuitableTestData() {
   for (const [subdivisionTag, regionTag] of candidates) {
     const weekInfoWithSubdivisionRegion = new Intl.Locale(regionTag).getWeekInfo();
 
-    const bareLanguage = new Intl.Locale(subdivisionTag).baseName;
-    const fallbackLocale = new Intl.Locale(bareLanguage).maximize();
+    const baseName = subdivisionTag.replace(/-u-.*/, "");
+    const fallbackLocale = new Intl.Locale(baseName).maximize();
     if (!weekInfoEqual(fallbackLocale.getWeekInfo(), weekInfoWithSubdivisionRegion)) {
       return [subdivisionTag, weekInfoWithSubdivisionRegion];
     }

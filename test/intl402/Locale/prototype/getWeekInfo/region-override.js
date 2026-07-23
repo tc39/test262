@@ -53,8 +53,9 @@ function findSuitableTestData() {
   for (const [overrideTag, regionTag] of candidates) {
     const weekInfoWithOverrideRegion = new Intl.Locale(regionTag).getWeekInfo();
 
-    const withoutOverride = new Intl.Locale(new Intl.Locale(overrideTag).baseName);
-    if (!weekInfoEqual(withoutOverride.getWeekInfo(), weekInfoWithOverrideRegion)) {
+    const baseName = overrideTag.replace(/-u-.*/, "");
+    const baseLocale = new Intl.Locale(baseName);
+    if (!weekInfoEqual(baseLocale.getWeekInfo(), weekInfoWithOverrideRegion)) {
       return [overrideTag, weekInfoWithOverrideRegion];
     }
   }

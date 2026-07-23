@@ -77,7 +77,7 @@ for (let i = 0; i < levels.length - 1; i++) {
   assert(
     !weekInfoEqual(higher, lower),
     `Inconclusive: ${levels[i].description} and ${levels[i + 1].description} ` +
-    "select regions with identical week info in this implementation. Consider updating the test data"
+    "selected regions with identical week info in this implementation. Consider updating the test data"
   );
 }
 

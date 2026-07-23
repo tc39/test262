@@ -46,11 +46,10 @@ function weekInfoEqual(a, b) {
 function findSuitableTestData() {
   const candidates = ["th-TH", "fa-IR", "ja-JP", "sa-IN", "ps-AF"];
 
-  for (const candidate of candidates) {
-    const locale = new Intl.Locale(candidate);
-    const weekInfoWithLikelyRegion = locale.getWeekInfo();
+  for (const regionTag of candidates) {
+    const weekInfoWithLikelyRegion = new Intl.Locale(regionTag).getWeekInfo();
 
-    const bareLanguage = locale.language;
+    const bareLanguage = regionTag.replace(/-.*/, "");
     const fallbackLocale = new Intl.Locale(`${bareLanguage}-001`);
     if (!weekInfoEqual(fallbackLocale.getWeekInfo(), weekInfoWithLikelyRegion)) {
       return [bareLanguage, weekInfoWithLikelyRegion];
