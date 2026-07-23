@@ -14,24 +14,27 @@ features: [Intl.Locale,Intl.Locale-info]
 locale: [en, de, zh]
 ---*/
 
-const testCases = [
+var testCases = [
   ["en", "phonebk"],
   ["de", "phonebk"],
   ["zh", "stroke"],
   ["und", "pinyin"],
-  ["und", "emoji"],
+  ["und", "emoji"]
 ];
 
-for (const [tag, collation] of testCases) {
-  assert.compareArray(
-    new Intl.Locale(`${tag}-u-co-${collation}`).getCollations(),
-    [collation],
-    `getCollations() for ${tag}-u-co-${collation} returns only ${collation}`
-  );
+for (var i = 0; i < testCases.length; i++) {
+  var baseName = testCases[i][0];
+  var collation = testCases[i][1];
+  var fullTag = baseName + "-u-co-" + collation;
 
   assert.compareArray(
-    new Intl.Locale(tag, { collation }).getCollations(),
+    new Intl.Locale(fullTag).getCollations(),
     [collation],
-    `getCollations() for ${tag} with { collation: "${collation}" } returns only ${collation}`
+    "getCollations() for " + fullTag + " returns only " + collation
+  );
+  assert.compareArray(
+    new Intl.Locale(baseName, { collation: collation }).getCollations(),
+    [collation],
+    "getCollations() for " + baseName + " with { collation: " + collation + " } returns only " + collation
   );
 }
