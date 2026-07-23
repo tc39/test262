@@ -52,10 +52,13 @@ for (const tag of undLocales) {
 // implemented correctly. Try running it with LC_ALL=de in the environment, for
 // example.
 
-for (const tag of ["qfz", "qga-DE", "qgb-ES", "qgc-KR", "qtz-CN"]) {
+var privateUseTags = ["qfz", "qga-DE", "qgb-ES", "qgc-KR", "qtz-CN"];
+
+for (var i = 0; i < privateUseTags.length; i++) {
+  var tag = privateUseTags[i];
   assert.compareArray(
     new Intl.Locale(tag).getCollations(),
     ["emoji", "eor"],
-    `getCollations() for unavailable locale "${tag}" returns the root collations`
+    "getCollations() for unavailable locale " + tag + " must return the root collations"
   );
 }
