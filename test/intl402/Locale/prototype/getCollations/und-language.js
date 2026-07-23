@@ -17,7 +17,7 @@ info: |
 features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
-const undLocales = [
+var undLocales = [
   "und",
   "und-US",
   "und-Latn",
@@ -26,17 +26,18 @@ const undLocales = [
   "und-US-u-nu-latn",
 ];
 
-for (const tag of undLocales) {
-  const locale = new Intl.Locale(tag);
+for (var i = 0; i < undLocales.length; i++) {
+  var tag = undLocales[i];
+  var locale = new Intl.Locale(tag);
   assert.sameValue(
     locale.language,
     "und",
-    `"${tag}" has language subtag "und"`
+    tag + " must have language subtag 'und'"
   );
   assert.compareArray(
     locale.getCollations(),
     ["emoji", "eor"],
-    `getCollations() for "${tag}" returns the root collations`
+    "getCollations() for " + tag + " must return the root collations"
   );
 }
 

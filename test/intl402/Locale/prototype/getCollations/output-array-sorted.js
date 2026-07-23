@@ -14,11 +14,15 @@ features: [Intl.Locale,Intl.Locale-info]
 locale: [ar, de, en, ja, ko, sv, tr, zh]
 ---*/
 
-for (const tag of ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"]) {
-  const collations = new Intl.Locale(tag).getCollations();
+var tags = ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"];
+
+for (var i = 0; i < tags.length; i++) {
+  var tag = tags[i];
+  var collations = new Intl.Locale(tag).getCollations();
+  var sortedCollations = [].concat(new Intl.Locale(tag).getCollations()).sort();
   assert.compareArray(
     collations,
-    collations.toSorted(),
-    `getCollations() for ${tag} should be sorted in lexicographic code unit order`
+    sortedCollations,
+    "getCollations() for " + tag + " should be sorted in lexicographic code unit order"
   );
 }

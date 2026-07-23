@@ -13,9 +13,17 @@ features: [Intl.Locale, Intl.Locale-info, Array.prototype.includes]
 locale: [ar, de, en, ja, ko, sv, tr, zh]
 ---*/
 
-for (const tag of ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"]) {
-  const output = new Intl.Locale(tag).getCollations();
-  assert.notSameValue(output.length, 0, `getCollations() for ${tag} has at least one element`);
-  assert(!output.includes("standard"), `getCollations() for ${tag} should not contain 'standard'`);
-  assert(!output.includes("search"), `getCollations() for ${tag} should not contain 'search'`);
+var tags = ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"];
+
+for (var i = 0; i < tags.length; i++) {
+  var tag = tags[i];
+  var collations = new Intl.Locale(tag).getCollations();
+  assert.notSameValue(collations.length, 0,
+    "getCollations() for " + tag + " has at least one element");
+  for (var j = 0; j < collations.length; j++) {
+    assert.notSameValue(collations[j], "standard",
+      "getCollations() for " + tag + " must not contain 'standard'");
+    assert.notSameValue(collations[j], "search",
+      "getCollations() for " + tag + " must not contain 'search'");
+  }
 }

@@ -12,9 +12,12 @@ features: [Intl.Locale,Intl.Locale-info]
 locale: [ar, de, en, ja, ko, sv, tr, zh]
 ---*/
 
-for (const tag of ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"]) {
+var tags = ["ar", "de", "en", "ja", "ko", "sv", "tr", "zh"];
+
+for (var i = 0; i < tags.length; i++) {
+  var tag = tags[i];
   assert(
     Array.isArray(new Intl.Locale(tag).getCollations()),
-    `getCollations() for ${tag} should return an array`,
+    "getCollations() for " + tag + " must return an array"
   );
 }
