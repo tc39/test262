@@ -1,0 +1,42 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-ecmascript-function-objects-construct-argumentslist-newtarget
+desc: Order of decorator application for elements with initializers
+templates:
+  - accessors/with-init/**/*
+  - fields/with-init/**/*
+features: [decorators]
+---*/
+
+//- decorators
+var ord = [];
+
+function pushOrd(applyOrd, initOrd, extraInitOrd) {
+  return (value, context) => {
+    ord.push(applyOrd);
+    context.addInitializer(() => ord.push(extraInitOrd));
+
+    if (context.kind === 'field') {
+      return () => ord.push(initOrd);
+    } else {
+      return {
+        init() {
+          ord.push(initOrd);
+        }
+      }
+    }
+  }
+}
+
+//- initializer
+ord.push(2)
+
+//- application
+@pushOrd(1, 3, 6)
+@pushOrd(0, 4, 5)
+
+//- assertions
+assert.sameValue(ord.length, 7);
+ord.forEach(assert.sameValue);

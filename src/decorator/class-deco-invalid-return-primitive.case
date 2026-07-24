@@ -1,0 +1,20 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoclassdefinition
+desc: Class decorator cannot return a random non-newable value
+template: class/error
+features: [decorators]
+---*/
+
+//- decorators
+function dec() {
+  return 123;
+}
+
+//- application
+@dec
+
+//- error
+TypeError
