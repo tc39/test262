@@ -73,6 +73,10 @@ await-dictionary
 # https://github.com/tc39/proposal-error-stack-accessor
 error-stack-accessor
 
+# Error Code Property
+# https://github.com/tc39/proposal-error-code-property
+error-code
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
