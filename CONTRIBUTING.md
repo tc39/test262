@@ -425,6 +425,8 @@ Key | Description
 `esid` | see the general definition of the [`esid` frontmatter key](#esid).
 `info` | see the general definition of the [`info` frontmatter key](#info). Each generated test will have `info` that is the concatenation of the test template `info` field and the test case `info` field.
 `features` | see the general definition of the [`features` frontmatter key](#features). Each generated test will have a feature list that is the union of the test template `features` and the test case `features`.
+`placeholder-prefix` | a string to be treated as the start delimiter of a placeholder comment, in positions where `/*` would otherwise be misparsed (e.g., the body of a RegExp literal). Both `placeholder-prefix` and `placeholder-suffix` must be present for either to have any effect.
+`placeholder-suffix` | a string to be treated as the end delimiter of a placeholder comment instead of `*/`.
 any other valid frontmatter field | see the general definitions.
 
 ### test cases (`*.case`)

@@ -101,6 +101,26 @@ class Template:
             if match:
                 self.regions.insert(0, dict(name=match.group(1), **comment))
 
+        start_delim = self.attribs['meta'].get('placeholder-prefix')
+        end_delim = self.attribs['meta'].get('placeholder-suffix')
+        if start_delim is None or end_delim is None:
+            return
+
+        pattern = re.escape(start_delim) + '(.*?)' + re.escape(end_delim)
+        for match in re.finditer(pattern, self.source):
+            comment_match = interpolatePattern.match(match[1])
+            if not comment_match:
+                raise Exception(f'"{match[0]}" does not look like a ' +
+                                'placeholder. Are you sure the delimiters ' +
+                                f'"{start_delim}" and "{end_delim}" are ' +
+                                'unique?')
+            start_idx = match.start()
+            lineno = self.source[:start_idx].count('\n')
+            self.regions.insert(0, dict(name=comment_match[1], source=match[1],
+                                        firstchar=start_idx,
+                                        lastchar=match.end(), in_string=False,
+                                        lineno=lineno))
+
     def expand_regions(self, source, context):
         lines = source.split('\n')
 
