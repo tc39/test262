@@ -4,7 +4,6 @@
 /*---
 esid: sec-iterator.prototype.join
 description: Iterator.prototype.join looks up `next` on its receiver only after coercing the separator.
-includes: [compareArray.js]
 features: [Iterator.prototype.join]
 ---*/
 
