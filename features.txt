@@ -149,6 +149,7 @@ globalThis
 hashbang
 import-attributes
 import.meta
+iterator-chunking
 iterator-helpers
 iterator-includes
 iterator-sequencing
