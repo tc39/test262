@@ -7,7 +7,7 @@ description: Fractional minutes or hours in time string should throw RangeError
 features: [Temporal]
 ---*/
 
-const instance = new Temporal.ZonedDateTime(0n, "CET")
+const instance = new Temporal.ZonedDateTime(0n, "UTC")
 
 const invalidStrings = [
   ["2025-04-03T05:07.123", "Fractional minutes"],

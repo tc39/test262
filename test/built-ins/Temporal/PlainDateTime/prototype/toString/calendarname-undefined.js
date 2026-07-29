@@ -17,4 +17,4 @@ features: [Temporal]
 const datetime = new Temporal.PlainDateTime(1976, 11, 18, 15, 23, 0, 0, 0, 0);
 const result = datetime.toString({ calendarName: undefined });
 assert.sameValue(result, "1976-11-18T15:23:00", `default calendarName option is auto with built-in ISO calendar`);
-// See options-object.js for {} and options-undefined.js for absent options arg
+// See options-object.js for {} and () => {}

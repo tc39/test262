@@ -8,8 +8,8 @@ info: |
   AsyncDisposableStack.prototype.use ( value )
 
   1. Let asyncDisposableStack be the this value.
-  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[DisposableState]]).
-  3. If asyncDisposableStack.[[DisposableState]] is disposed, throw a ReferenceError exception.
+  2. Perform ? RequireInternalSlot(asyncDisposableStack, [[AsyncDisposableState]]).
+  3. If asyncDisposableStack.[[AsyncDisposableState]] is disposed, throw a ReferenceError exception.
   4. Perform ? AddDisposableResource(asyncDisposableStack.[[DisposeCapability]], value, async-dispose).
   ...
 
