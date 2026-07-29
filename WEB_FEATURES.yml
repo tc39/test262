@@ -345,6 +345,12 @@ features:
       - test/built-ins/global
     tags:
       - globalThis
+  
+  - name: getorinsert
+    files:
+      - test/built-ins/*Map/prototype/getOrInsert*
+    tags: 
+      - upsert
 
   - name: hashbang-comments
     files:
@@ -423,6 +429,12 @@ features:
   - name: is-error
     files:
       - test/built-ins/Error/isError
+
+  - name: iterator-concat
+    files:
+      - test/built-ins/Iterator/concat
+    tags:
+      - iterator-sequencing
 
   - name: iterator-methods
     files:
@@ -1037,6 +1049,8 @@ features:
       - test/language/expressions/class/subclass-builtins/subclass-WeakMap.js
       - test/language/statements/class/subclass-builtins/subclass-WeakMap.js
       - test/language/statements/class/subclass/builtin-objects/WeakMap
+    tags:
+      - "!upsert"
 
   - name: weakset
     files:
