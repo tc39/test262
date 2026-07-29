@@ -19,3 +19,5 @@ const explicit = datetime.with({ minute: 31 }, { offset: undefined });
 assert.sameValue(explicit.epochNanoseconds, 1572757261_000_000_000n, "default offset is prefer");
 const implicit = datetime.with({ minute: 31 }, {});
 assert.sameValue(implicit.epochNanoseconds, 1572757261_000_000_000n, "default offset is prefer");
+const lambda = datetime.with({ minute: 31 }, () => {});
+assert.sameValue(lambda.epochNanoseconds, 1572757261_000_000_000n, "default offset is prefer");

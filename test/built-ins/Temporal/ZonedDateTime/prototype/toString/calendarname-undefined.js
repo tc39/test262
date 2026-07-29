@@ -17,4 +17,4 @@ features: [Temporal]
 const datetime = new Temporal.ZonedDateTime(3661_987_654_321n, "UTC");
 const result = datetime.toString({ calendarName: undefined });
 assert.sameValue(result, "1970-01-01T01:01:01.987654321+00:00[UTC]", `default calendarName option is auto with built-in ISO calendar`);
-// See options-object.js for {} and options-undefined.js for absent options arg
+// See options-object.js for {} and () => {}

@@ -17,4 +17,4 @@ features: [Temporal]
 const yearmonth = new Temporal.PlainYearMonth(2000, 5);
 const result = yearmonth.toString({ calendarName: undefined });
 assert.sameValue(result, "2000-05", `default calendarName option is auto with built-in ISO calendar`);
-// See options-object.js for {} and options-undefined.js for absent options arg
+// See options-object.js for {} and () => {}

@@ -36,10 +36,12 @@ validValues.forEach((value) => {
   assert.sameValue(explicit.epochNanoseconds, 1_000_000_000_987_654_321n, "overflow is ignored");
   const implicit = Temporal.ZonedDateTime.from(value, {});
   assert.sameValue(implicit.epochNanoseconds, 1_000_000_000_987_654_321n, "overflow is ignored");
+  const lambda = Temporal.ZonedDateTime.from(value, () => {});
+  assert.sameValue(lambda.epochNanoseconds, 1_000_000_000_987_654_321n, "overflow is ignored");
 });
 
 const propertyBag = { year: 2000, month: 15, day: 34, hour: 12, timeZone: "UTC" };
 const explicit = Temporal.ZonedDateTime.from(propertyBag, { overflow: undefined });
 assert.sameValue(explicit.epochNanoseconds, 978_264_000_000_000_000n, "default overflow is constrain");
 
-// See options-undefined for {}
+// See options-object.js for {} and () => {}

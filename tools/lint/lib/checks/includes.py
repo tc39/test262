@@ -28,7 +28,7 @@ class CheckIncludes(Check):
             CheckIncludes._cache[include_name] = {
                 'name': include_name,
                 'source': CheckIncludes._remove_frontmatter(source),
-                'defines': parsed['defines'],
+                'defines': parsed.get('defines', []),
                 'allow_unused': parsed.get('allow_unused', False),
             }
 
