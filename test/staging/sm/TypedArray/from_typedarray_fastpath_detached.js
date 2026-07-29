@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   pending
 esid: pending
@@ -10,7 +11,7 @@ esid: pending
 // checks for detached buffers.
 
 var ta = new Int32Array(4);
-$262.detachArrayBuffer(ta.buffer);
+$DETACHBUFFER(ta.buffer);
 
 assert.throws(TypeError, () => Int32Array.from(ta));
 
