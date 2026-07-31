@@ -476,5 +476,6 @@ Tests expressed with this convention are built automatically following the sourc
 - [Ladybird LibJS](https://github.com/LadybirdBrowser/ladybird/issues/new?template=bug_report.yml)
 - [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)
 - [QuickJS](https://github.com/bellard/quickjs/issues/new)
+- [QuickJS-NG](https://github.com/quickjs-ng/quickjs/issues/new)
 - [SpiderMonkey](https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=JavaScript%20Engine)
 - [V8](https://bugs.chromium.org/p/v8/issues/entry)
