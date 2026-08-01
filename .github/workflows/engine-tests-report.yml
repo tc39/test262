@@ -1,0 +1,66 @@
+name: Engine tests report
+
+# This is a separate workflow from engine-tests.yml because it needs write
+# permissions in order to create the PR comment. engine-tests.yml may run
+# untrusted code from a fork, so it should not have write permissions.
+
+on:
+  workflow_run:
+    workflows:
+      - Engine tests
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: write
+
+jobs:
+  report:
+    name: Post results table
+    if: github.event.workflow_run.conclusion != 'cancelled'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Download results
+        # If no tests changed, the triggering workflow produced no artifacts.
+        # Allow this step to fail so that the job can skip posting gracefully.
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          path: artifacts
+          pattern: results-*
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Check for results
+        id: check
+        run: |
+          if [ -n "$(find artifacts -maxdepth 1 -name 'results-*.json' -print -quit 2>/dev/null)" ]; then
+            echo "has_results=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_results=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build comment body
+        if: steps.check.outputs.has_results == 'true'
+        run: node tools/misc/build-results-comment.mjs
+        env:
+          WORKFLOW_RUN_URL: ${{ github.event.workflow_run.html_url }}
+
+      - name: Post or update PR comment
+        if: steps.check.outputs.has_results == 'true'
+        uses: marocchino/sticky-pull-request-comment@v3.0.5
+        with:
+          path: comment-body.txt
+          header: test262-engine-results
+          number: ${{ github.event.workflow_run.pull_requests[0].number }}
