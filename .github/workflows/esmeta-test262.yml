@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
@@ -33,7 +33,7 @@ jobs:
 
       - name: Identify new or changed tests
         id: changed_tests
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v47.0.6
         with:
           files: test/
 
