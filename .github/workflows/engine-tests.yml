@@ -38,6 +38,8 @@ jobs:
           - { key: 'JavaScriptCore', hostType: 'jsc', bin: 'jsc', hostArgs: '--enable-all-experimental-features' }
           - { key: 'XS', hostType: 'xs', bin: 'xs' }
           - { key: 'Engine262', hostType: 'engine262', bin: 'engine262', hostArgs: '--features=all' }
+          - { key: 'GraalJS', hostType: 'graaljs', bin: 'graaljs', hostArgs: '--js.ecmascript-version=staging' }
+          - { key: 'QuickJS', hostType: 'qjs', bin: 'quickjs-run-test262' }
     steps:
       - name: Checkout
         uses: actions/checkout@v7
