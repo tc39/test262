@@ -1,0 +1,23 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoclassdefinition
+desc: Class decorator can return a standard function
+template: class/standard
+features: [decorators]
+---*/
+
+//- decorators
+function dec(C, context) {
+  return function() {
+    return 123;
+  };
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(C(), 123);
+
