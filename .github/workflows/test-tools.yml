@@ -2,6 +2,8 @@ name: Test tools
 
 on:
   push:
+    branches:
+      - main
     files:
       - 'tools/**'
   pull_request:
