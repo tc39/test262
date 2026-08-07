@@ -1,0 +1,26 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/method/async/private/instance/
+name: private method decorator behavior in class expression
+features: [class, decorators, class-methods-private]
+esid: prod-MethodDefinition
+---*/
+
+/*{ decorators }*/
+
+var C = class {
+  /*{ application }*/
+  async #element() {
+    return 123;
+  }
+
+  getElement() {
+    return this.#element;
+  }
+}
+
+var classOrInstance = new C();
+
+/*{ assertions }*/

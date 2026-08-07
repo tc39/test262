@@ -1,0 +1,23 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-initializefieldoraccessor
+desc: Decorator and initializer order
+template: fields/standard/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(value) {
+  return (init) => {
+    assert.sameValue(init, undefined);
+    return 123;
+  }
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), 123);
