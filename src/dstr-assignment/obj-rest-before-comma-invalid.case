@@ -1,12 +1,11 @@
-// Copyright (C) 2017 Caio Lima. All rights reserved.
+// Copyright (C) 2017 Richard Gibson. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 desc: >
-    Object rest element needs to be the last AssignmentProperty
-    in ObjectAssignmentPattern.
+  Object rest element cannot be followed by a comma in ObjectAssignmentPattern.
 template: syntax
-esid: pending
+esid: prod-ObjectAssignmentPattern
 negative:
   phase: parse
   type: SyntaxError
@@ -15,9 +14,9 @@ features: [object-rest]
 
 //- setup
 $DONOTEVALUATE();
-var rest, b;
+var rest;
 //- elems
-{...rest, b}
+{...rest,}
 //- vals
 {}
 
