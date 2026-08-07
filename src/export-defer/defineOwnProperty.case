@@ -1,0 +1,20 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-defineownproperty-p-desc
+desc: _ [[DefineOwnProperty]]
+info: |
+  [[DefineOwnProperty]] ( _P_, _Desc_ )
+    1. If _P_ is a Symbol, return OrdinaryDefineOwnProperty(_O_, _P_, _Desc_).
+    1. Let _current_ be ? _O_.[[GetOwnProperty]](_P_).
+    1. If _current_ is *undefined*, return *false*.
+    1. ...
+
+template: trigger-on-exported
+---*/
+
+//- body
+try {
+  Object.defineProperty(ns, key, { value: "hi" });
+} catch (_) {}
