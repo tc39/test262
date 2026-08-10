@@ -56,8 +56,8 @@ esid: reference to spec section, e.g. "sec-well-known-symbols"
 description: >
     brief description, e.g. "Non-numeric input must be rejected with a TypeError"
 info: |
-    verbose test description, multiple lines OK.
-    (info should contain relevant, direct quotes from ECMAScript if possible)
+    verbose test description, multiple lines OK, usually direct quotes from ECMAScript.
+    Not generally encouraged in new tests.
     For example:
 
     String.fromCodePoint ( ..._codePoints_ )
@@ -144,7 +144,9 @@ When writing a new test for a Stage 3+ spec not yet published on the draft, the 
 
 This allows a long, free-form comment. The comment is almost always a direct
 quote from ECMAScript. It is used to indicate the observable being tested
-within the file.
+within the file. Its use is not encouraged in new tests except where the content
+is deemed important for understanding them (and even then, be mindful that it is
+unlikely to be updated for editorial changes of upstream specification text).
 
 For example:
 
@@ -474,5 +476,6 @@ Tests expressed with this convention are built automatically following the sourc
 - [Ladybird LibJS](https://github.com/LadybirdBrowser/ladybird/issues/new?template=bug_report.yml)
 - [Moddable XS](https://github.com/Moddable-OpenSource/moddable/issues/new?assignees=&labels=&template=bug_report.md&title=)
 - [QuickJS](https://github.com/bellard/quickjs/issues/new)
+- [QuickJS-NG](https://github.com/quickjs-ng/quickjs/issues/new)
 - [SpiderMonkey](https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=JavaScript%20Engine)
 - [V8](https://bugs.chromium.org/p/v8/issues/entry)

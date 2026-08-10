@@ -3,7 +3,7 @@
 
 /*---
 desc: >
-    Object rest element needs to be the last AssignmenProperty
+    Object rest element needs to be the last AssignmentProperty
     in ObjectAssignmentPattern.
 template: syntax
 esid: pending
