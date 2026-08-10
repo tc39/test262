@@ -1,0 +1,22 @@
+// Copyright (C) 2017 Richard Gibson. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+  Object rest element cannot be followed by a comma in ObjectAssignmentPattern.
+template: syntax
+esid: prod-ObjectAssignmentPattern
+negative:
+  phase: parse
+  type: SyntaxError
+features: [object-rest]
+---*/
+
+//- setup
+$DONOTEVALUATE();
+var rest;
+//- elems
+{...rest,}
+//- vals
+{}
+
