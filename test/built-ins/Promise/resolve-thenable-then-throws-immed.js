@@ -19,6 +19,7 @@ info: |
            « thenCallResult.[[Value]] »).
       d. Return ! thenCallResult.
 flags: [async]
+includes: [asyncHelpers.js]
 ---*/
 
 var returnValue = null;
@@ -35,13 +36,10 @@ var promise = new Promise(function(resolve) {
 
 assert.sameValue(returnValue, undefined, '"resolve" return value');
 
-promise.then(function() {
-  $DONE('The promise should not be fulfilled.');
-}, function(val) {
-  if (val !== value) {
-    $DONE('The promise should be rejected with the thrown value.');
-    return;
-  }
-
-  $DONE();
+asyncTest(function() {
+  return promise.then(function() {
+    throw new Test262Error('The promise should not be fulfilled.');
+  }, function(val) {
+    assert.sameValue(val, value, 'The promise should be rejected with the thrown value.');
+  });
 });

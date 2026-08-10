@@ -25,6 +25,7 @@ info: |
     2. If IsPromise(promise) is false, throw a TypeError exception.
     3. Let ctor be ? SpeciesConstructor(promise, %Promise%).
 flags: [async]
+includes: [asyncHelpers.js]
 features: [Symbol.species]
 ---*/
 
@@ -42,15 +43,12 @@ var promise = new Promise(function(_resolve) {
   resolve = _resolve;
 });
 
-promise.then(function() {
-  $DONE('The promise should not be fulfilled.');
-}, function(val) {
-  if (val !== value) {
-    $DONE('The promise should be rejected with the thrown value.');
-    return;
-  }
-
-  $DONE();
+asyncTest(function() {
+  return promise.then(function() {
+    throw new Test262Error('The promise should not be fulfilled.');
+  }, function(val) {
+    assert.sameValue(val, value, 'The promise should be rejected with the thrown value.');
+  });
 });
 
 returnValue = resolve(thenable);
