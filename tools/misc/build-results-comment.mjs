@@ -53,28 +53,26 @@ function loadResults() {
     engines.push(engineKey);
 
     for (const test of data) {
-      const testPath = test.relative || test.file;
-      if (!testPath) {
+      const { relative, scenario, result } = test;
+      if (!relative || !scenario || !result) {
+        errors.push(`**${engineKey}**: Unexpected format of array entry in ${file} (${Object.keys(test)})`);
         continue;
       }
-      const normalizedPath = testPath.replace(/^test\//, '');
-      let pathResults = testResults.get(normalizedPath);
+      let pathResults = testResults.get(relative);
       if (!pathResults) {
         pathResults = {};
-        testResults.set(normalizedPath, pathResults);
+        testResults.set(relative, pathResults);
       }
-      if (test.result) {
-        const scenario = test.scenario === 'strict mode' ? 'strict' : 'sloppy';
-        let engineResults = pathResults[engineKey];
-        if (!engineResults) {
-          engineResults = {};
-          pathResults[engineKey] = engineResults;
-        }
-        engineResults[scenario] = {
-          pass: !!test.result.pass,
-          message: test.result.message,
-        };
+      const resultKey = scenario === 'strict mode' ? 'strict' : 'sloppy';
+      let engineResults = pathResults[engineKey];
+      if (!engineResults) {
+        engineResults = {};
+        pathResults[engineKey] = engineResults;
       }
+      engineResults[resultKey] = {
+        pass: !!result.pass,
+        message: result.message,
+      };
     }
   }
 
