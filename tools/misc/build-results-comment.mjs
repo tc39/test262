@@ -76,21 +76,21 @@ function loadResults() {
     }
   }
 
-  const orderedEngines = engines.sort();
-  return { orderedEngines, testResults, errors };
+  engines.sort();
+  return { engines, testResults, errors };
 }
 
-function buildCommentBody({ orderedEngines, testResults, errors }) {
+function buildCommentBody({ engines, testResults, errors }) {
   const errorList = errors.length ? "\n\nErrors encountered:" + errors.map(s => `\n- ${s}`).join("") : "";
-  if (orderedEngines.length === 0) {
+  if (engines.length === 0) {
     return `No engine results were produced.${errorList}`;
   }
 
   const sortedTests = Array.from(testResults.keys()).sort();
-  const table = buildMarkdownTable(sortedTests, orderedEngines, testResults);
+  const table = buildMarkdownTable(sortedTests, engines, testResults);
   const summary =
     `${sortedTests.length} new or modified ${sortedTests.length === 1 ? "test" : "tests"} ` +
-    `were run on ${orderedEngines.length} ${orderedEngines.length === 1 ? "engine" : "engines"}.`;
+    `were run on ${engines.length} ${engines.length === 1 ? "engine" : "engines"}.`;
   const link = WORKFLOW_RUN_URL ? `\n\n[View workflow run](${WORKFLOW_RUN_URL})` : '';
 
   return `${summary}${link}${errorList}\n\n${table}`;
