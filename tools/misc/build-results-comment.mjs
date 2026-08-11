@@ -17,32 +17,40 @@ function loadResults() {
   const engines = [];
   /** @type {Map<TestPath, Record<EngineKey, { sloppy?: Result; strict?: Result; }>>} */
   const testResults = new Map();
+  const errors = [];
 
   if (!fs.existsSync(ARTIFACTS_DIR)) {
-    return { engines, testResults };
+    errors.push(`CI job artifacts path "${ARTIFACTS_DIR}" not found`);
+    return { engines, testResults, errors };
   }
 
   const files = fs.readdirSync(ARTIFACTS_DIR).filter(
     f => f.startsWith('results-') && f.endsWith('.json')
   );
 
+  if (files.length === 0) {
+    errors.push(`No engine test results found in "${ARTIFACTS_DIR}"`);
+    return { engines, testResults, errors };
+  }
+
   for (const file of files) {
     const engineKey = file.slice('results-'.length, -'.json'.length);
-    engines.push(engineKey);
 
     const filePath = path.join(ARTIFACTS_DIR, file);
     let data;
     try {
       data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     } catch (err) {
-      console.warn(`Failed to parse ${file}: ${err.message}`);
+      errors.push(`**${engineKey}**: Failed to parse ${file}: ${err.message}`);
       continue;
     }
 
     if (!Array.isArray(data)) {
-      console.warn(`Unexpected format in ${file}: expected JSON array`);
+      errors.push(`**${engineKey}**: Unexpected format in ${file}, expected array`);
       continue;
     }
+
+    engines.push(engineKey);
 
     for (const test of data) {
       const testPath = test.relative || test.file;
@@ -71,12 +79,13 @@ function loadResults() {
   }
 
   const orderedEngines = engines.sort();
-  return { orderedEngines, testResults };
+  return { orderedEngines, testResults, errors };
 }
 
-function buildCommentBody({ orderedEngines, testResults }) {
+function buildCommentBody({ orderedEngines, testResults, errors }) {
+  const errorList = errors.length ? "\n\nErrors encountered:" + errors.map(s => `\n- ${s}`).join("") : "";
   if (orderedEngines.length === 0) {
-    return 'No engine results were produced.';
+    return `No engine results were produced.${errorList}`;
   }
 
   const sortedTests = Array.from(testResults.keys()).sort();
@@ -86,7 +95,7 @@ function buildCommentBody({ orderedEngines, testResults }) {
     `were run on ${orderedEngines.length} ${orderedEngines.length === 1 ? "engine" : "engines"}.`;
   const link = WORKFLOW_RUN_URL ? `\n\n[View workflow run](${WORKFLOW_RUN_URL})` : '';
 
-  return `${summary}${link}\n\n${table}`;
+  return `${summary}${link}${errorList}\n\n${table}`;
 }
 
 function buildMarkdownTable(tests, engines, testResults) {
