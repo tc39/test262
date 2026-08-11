@@ -5,6 +5,7 @@ import process from 'node:process';
 const ARTIFACTS_DIR = process.env.ARTIFACTS_DIR || 'artifacts';
 const OUTPUT_FILE = process.env.OUTPUT_FILE || 'comment-body.txt';
 const WORKFLOW_RUN_URL = process.env.WORKFLOW_RUN_URL;
+const TOO_MANY_TESTS = 15;  // more than this will be collapsed in <details>
 
 function main() {
   const results = loadResults();
@@ -93,7 +94,10 @@ function buildCommentBody({ engines, testResults, errors }) {
     `were run on ${engines.length} ${engines.length === 1 ? "engine" : "engines"}.`;
   const link = WORKFLOW_RUN_URL ? `\n\n[View workflow run](${WORKFLOW_RUN_URL})` : '';
 
-  return `${summary}${link}${errorList}\n\n${table}`;
+  const preamble = `${summary}${link}${errorList}\n\n`;
+  if (sortedTests.length <= TOO_MANY_TESTS) return preamble + table;
+
+  return `${preamble}<details><summary>Test results</summary>\n\n${table}\n\n</details>`;
 }
 
 function buildMarkdownTable(tests, engines, testResults) {
