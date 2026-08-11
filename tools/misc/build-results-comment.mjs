@@ -164,10 +164,13 @@ function sanitizeTooltip(text) {
     .replace(/[\u0000-\u001F\u007F]/g, (ch) => (ch === "\n" || ch === "\r" || ch === "\t" ? " " : "�"))
     // prevent HTML entities in the JS output from being expanded
     .replace(/&/g, "&amp;")
-    // prevent existing backslashes from interfering with double quote escapes
+    // HTML elements are not rendered in link titles, but escape them anyway in
+    // case someone manages to break the Markdown in some other way
+    .replace(/</g, "&lt;")
+    // prevent existing backslashes from interfering with the escapes below
     .replace(/\\/g, "\\\\")
-    // escape double quotes
-    .replace(/"/g, '\\"');
+    // escape double quotes (and pipes, which would break the table)
+    .replace(/["|]/g, '\\$&');
 }
 
 main();
