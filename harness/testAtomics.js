@@ -4,11 +4,83 @@
 description: |
     Collection of functions used to assert the correctness of Atomics methods.
 defines:
+  - testAtomicsIndexRevalidation
   - testWithAtomicsOutOfBoundsIndices
   - testWithAtomicsInBoundsIndices
   - testWithAtomicsNonViewValues
 ---*/
 
+
+/**
+ * Invokes the provided function with (TypedArray, makeIndex) pairs for
+ * use in testing index revalidation by Atomics methods.
+ * The provided function is required to invoke each makeIndex exactly once and
+ * then use the result in such a way that [RevalidateAtomicAccess](
+ * https://tc39.es/ecma262/multipage/structured-data.html#sec-revalidateatomicaccess
+ * ) fails with a thrown exception when makeIndex shrinks the resizable
+ * ArrayBuffer backing the corresponding TypedArray and returns an index made
+ * invalid by the shrinking (e.g., using makeIndex as the valueOf or toString
+ * method of an object used as the index argument for an Atomics method call).
+ *
+ * @param TA - a TypedArray constructor
+ * @param f - the function to call for each (typedArray, getBadIndex)
+ *   combination
+ */
+function testAtomicsIndexRevalidation(TA, f) {
+  // Make a resizable ArrayBuffer big enough to hold exactly four elements, and
+  // use it to back two TypedArrays:
+  // * one fixed at two elements that start halfway into the ArrayBuffer, and
+  // * one length-tracking that uses the entire ArrayBuffer.
+  var bytesPerElement = TA.prototype.BYTES_PER_ELEMENT;
+  var maxByteLength = bytesPerElement * 4;
+  var fixedByteOffset = maxByteLength / 2;
+  var rab = new ArrayBuffer(maxByteLength, { maxByteLength: maxByteLength });
+  assert(rab.resizable, 'testAtomicsIndexRevalidation requires ArrayBuffer resizing');
+  var fixedLength = new TA(rab, fixedByteOffset, 2);
+  var autoLength = new TA(rab);
+
+  // Shrinking a fixed-length TypedArray's backing ArrayBuffer to exclude a
+  // single byte of its last element makes it out-of-bounds.
+  var callCount = 0;
+  assert.throws(TypeError, function() {
+    f(fixedLength, function() {
+      callCount++;
+      rab.resize(fixedByteOffset + bytesPerElement * 2 - 1);
+      return 1;
+    });
+  }, 'shrink fixed-length TypedArray buffer');
+  assert.sameValue(callCount, 1, 'fixed-length TypedArray buffer shrinker must be called');
+
+  // Shrinking a length-tracking TypedArray's backing ArrayBuffer to exclude a
+  // single byte of its second element makes its length 1.
+  callCount = 0;
+  assert.throws(RangeError, function() {
+    f(autoLength, function() {
+      callCount++;
+      rab.resize(bytesPerElement * 2 - 1);
+      return 1;
+    });
+  }, 'shrink auto-length TypedArray buffer to just under 2 elements');
+  assert.sameValue(callCount, 1, 'first auto-length TypedArray buffer shrinker must be called');
+
+  // Shrinking a length-tracking TypedArray's backing ArrayBuffer to exclude a
+  // single byte of its first element makes its length 0.
+  callCount = 0;
+  assert.throws(RangeError, function() {
+    f(autoLength, function() {
+      callCount++;
+      rab.resize(bytesPerElement - 1);
+      return 0;
+    });
+  }, 'shrink auto-length TypedArray buffer to just under 1 element');
+  assert.sameValue(callCount, 1, 'second auto-length TypedArray buffer shrinker must be called');
+
+  // The TypedArrays become valid again when sufficient length is restored to
+  // their backing ArrayBuffer.
+  rab.resize(maxByteLength);
+  f(fixedLength, function() { return 1; });
+  f(autoLength, function() { return 3; });
+}
 
 /**
  * Constructs a collection of callbacks that each return a bad index for a
