@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: |
-    Collection of functions used to assert the correctness of SharedArrayBuffer objects.
+    Collection of functions used to assert the correctness of Atomics methods.
 defines:
   - testWithAtomicsOutOfBoundsIndices
   - testWithAtomicsInBoundsIndices
@@ -93,7 +93,6 @@ function testWithAtomicsInBoundsIndices(f) {
  *
  * @param f - the function to call for each non-view value.
  */
-
 function testWithAtomicsNonViewValues(f) {
   var values = [
     null,
@@ -108,13 +107,10 @@ function testWithAtomicsNonViewValues(f) {
     new Date,
     /a*utomaton/g,
     { password: 'qumquat' },
-    new DataView(new ArrayBuffer(10)),
     new ArrayBuffer(128),
-    new SharedArrayBuffer(128),
     new Error('Ouch'),
     [1,1,2,3,5,8],
     function(x) { return -x; },
-    Symbol('halleluja'),
     // TODO: Proxy?
     Object,
     Int32Array,
@@ -122,6 +118,15 @@ function testWithAtomicsNonViewValues(f) {
     Math,
     Atomics
   ];
+  if (typeof DataView !== 'undefined') {
+    values.push(new DataView(new ArrayBuffer(10)));
+  }
+  if (typeof SharedArrayBuffer !== 'undefined') {
+    values.push(new SharedArrayBuffer(128));
+  }
+  if (typeof Symbol !== 'undefined') {
+    values.push(Symbol('halleluja'));
+  }
 
   for (var i = 0; i < values.length; ++i) {
     var nonView = values[i];
