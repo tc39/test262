@@ -11,29 +11,42 @@ defines:
 
 
 /**
- * Calls the provided function for a each bad index that should throw a
- * RangeError when passed to an Atomics method on a SAB-backed view where
- * index 125 is out of range.
+ * Constructs a collection of callbacks that each return a bad index for a
+ * provided TypedArray (i.e., that should cause a RangeError when passed to an
+ * Atomics method along with that TypedArray) and calls the provided function
+ * once with each of them.
  *
  * @param f - the function to call for each bad index.
  */
 function testWithAtomicsOutOfBoundsIndices(f) {
-  var bad_indices = [
-    function(view) { return -1; },
-    function(view) { return view.length; },
-    function(view) { return view.length * 2; },
-    function(view) { return Number.POSITIVE_INFINITY; },
-    function(view) { return Number.NEGATIVE_INFINITY; },
-    function(view) { return { valueOf: function() { return 125; } }; },
-    function(view) { return { toString: function() { return '125'; }, valueOf: false }; }, // non-callable valueOf triggers invocation of toString
+  var cases = [
+    { label: '-1', makeBadIndex: function(view) { return -1; } },
+    { label: 'view.length', makeBadIndex: function(view) { return view.length; } },
+    { label: 'view.length * 2', makeBadIndex: function(view) { return view.length * 2; } },
+    { label: 'Infinity', makeBadIndex: function(view) { return Number.POSITIVE_INFINITY; } },
+    { label: '-Infinity', makeBadIndex: function(view) { return Number.NEGATIVE_INFINITY; } },
+    {
+      label: '{ valueOf: () => view.length }',
+      makeBadIndex: function(view) {
+        var length = view.length;
+        return { valueOf: function() { return length; } };
+      }
+    },
+    {
+      label: '{ toString: () => view.length }',
+      makeBadIndex: function(view) {
+        var strLength = String(view.length);
+        // non-callable valueOf triggers invocation of toString
+        return { toString: function() { return strLength; }, valueOf: false };
+      }
+    },
   ];
 
-  for (var i = 0; i < bad_indices.length; ++i) {
-    var IdxGen = bad_indices[i];
+  for (var i = 0; i < cases.length; ++i) {
     try {
-      f(IdxGen);
+      f(cases[i].makeBadIndex);
     } catch (e) {
-      e.message += ' (Testing with index gen ' + IdxGen + '.)';
+      e.message += ' (Testing with index ' + cases[i].label + '.)';
       throw e;
     }
   }
