@@ -6,7 +6,7 @@ esid: sec-string.prototype.matchall
 description: >
   Throws error when getting *"flags"* property.
 info: |
-  22.1.3.14 String.prototype.matchAll ( _regexpOrPattern_ )
+  String.prototype.matchAll ( _regexpOrPattern_ )
 
   [...]
   3. If _regexpOrPattern_ is an Object, then
