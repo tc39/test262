@@ -6,15 +6,15 @@ esid: sec-array.prototype.tolocalestring
 description: >
   Return abrupt from ToLength(Get(obj, "length")).
 info: |
-  Array.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+  Array.prototype.toLocaleString ( [ _reserved1_ [ , _reserved2_ ] ] )
 
-  1. Let array be ? ToObject(this value).
-  2. Let length be ? LengthOfArrayLike(array).
+  1. Let _array_ be ? ToObject(*this* value).
+  2. Let _length_ be ? LengthOfArrayLike(_array_).
   [...]
 
-  LengthOfArrayLike ( obj )
+  LengthOfArrayLike ( _obj_ )
 
-  1. Return ℝ(? ToLength(? Get(obj, "length"))).
+  1. Return ℝ(? ToLength(? Get(_obj_, *"length"*))).
 ---*/
 
 var o1 = {
