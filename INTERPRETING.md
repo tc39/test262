@@ -81,6 +81,7 @@ properties of the global scope prior to test execution.
           Use this property to test that ECMAScript algorithms aren't mis-implemented to treat `document.all` as being `undefined` or of type Undefined (instead of Object).
 
           **Tests using this function must be tagged with the `IsHTMLDDA` feature so that only hosts supporting this property will run them.**
+  - **`safeResolvePromise`** - (present only in implementations that can provide it) a function which takes as its first argument a promise and as its second argument a value, and uses the SafeResolve semantics provided by the [Thenable Curtailment](https://github.com/tc39/proposal-thenable-curtailment) proposal to resolve the provided promise with the value. 
   - **`agent`** - an ordinary object with the following properties:
     - **`start`** - a function that takes a script source string and runs
       the script in a concurrent agent. Will block until that agent is

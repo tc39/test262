@@ -277,3 +277,4 @@ __setter__
 
 IsHTMLDDA
 host-gc-required
+safeResolvePromise
