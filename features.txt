@@ -77,6 +77,10 @@ error-stack-accessor
 # https://github.com/tc39/proposal-iterator-join
 Iterator.prototype.join
 
+# Thenable Curtailment
+# https://github.com/tc39/proposal-thenable-curtailment
+thenable-curtailment
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
