@@ -11,15 +11,19 @@ info: |
     FunctionDeclarationInstantiation ( _func_, _argumentsList_ )
 
     [...]
-    4. Let _paramNames_ be the BoundNames of _formals_.
+    5. Let _paramNames_ be the BoundNames of _formals_.
     [...]
     22. If _argumentsObjectNeeded_ is *true*, then
       [...]
-      h. Let _paramBindings_ be the list-concatenation of _paramNames_ and
+      f. Let _paramBindings_ be the list-concatenation of _paramNames_ and
          « *"arguments"* ».
     [...]
-    35. If _strict_ is *false*, then
-      a. [normative-optional] If the host is a web browser [...], then
+    31. If _strict_ is *true*, then
+      [...]
+    32. Else,
+      a. [normative-optional] If the host is a web browser or otherwise supports
+         Block-Level Function Declarations Web Legacy Compatibility Semantics,
+         then
         i. For each |FunctionDeclaration| _funcDecl_ that is directly contained in
            the |StatementList| of any |Block|, |CaseClause|, or |DefaultClause| _x_
            such that _code_ Contains _x_ is *true*, do
@@ -36,14 +40,16 @@ info: |
                following steps in place of the |FunctionDeclaration| Evaluation
                algorithm provided in 15.2.6:
               [...]
-              iii. Perform ! _funcEnv_.SetMutableBinding(_funcName_, _funcObj_, *false*).
+              iv. Perform ! _funcEnv_.SetMutableBinding(_funcName_, _funcObj_, *false*).
 
-    The eligibility test in step 2 consults _paramNames_, which does not include the
-    implicit *"arguments"* added to _paramBindings_ by step 22.h. A block-level
-    `function arguments(){}` is therefore eligible, and only the creation of a *new*
-    var binding is skipped for that name -- the binding already exists, holding the
-    arguments object. The assignment in step c.iii still runs, so the arguments object
-    is replaced once the declaration is evaluated.
+    The eligibility test in step 32.a.i.2 consults _paramNames_, which does not
+    include the implicit *"arguments"* added to _paramBindings_ by step 22.f. A
+    block-level `function arguments(){}` is therefore eligible for the
+    |FunctionDeclaration| Evaluation changes, and only the creation of a *new*
+    var binding is skipped for that name -- the binding already exists,
+    initially holding the arguments object. The assignment in step 32.a.i.2.c.iv
+    still runs, so the arguments object is replaced once the declaration is
+    evaluated.
 ---*/
 
 // Simple parameters
@@ -79,8 +85,8 @@ info: |
   assert.sameValue(typeof arguments, "function");
 }());
 
-// A formal parameter really named 'arguments' IS in paramNames, so the
-// declaration is not eligible and the parameter is left alone.
+// A formal parameter named `arguments` *is* in paramNames, so the block-scoped
+// function declaration does not affect outer scope.
 (function(arguments) {
   assert.sameValue(typeof arguments, "number");
   {
