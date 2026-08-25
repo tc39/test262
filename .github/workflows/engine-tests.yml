@@ -5,7 +5,7 @@ on:
 
 jobs:
   changed-tests:
-    name: Identify changed tests
+    name: Prepare engine tests run
     runs-on: ubuntu-latest
     outputs:
       any_changed: ${{ steps.changed.outputs.any_changed }}
@@ -19,6 +19,15 @@ jobs:
         uses: tj-actions/changed-files@v47.0.6
         with:
           files: test/
+
+      - name: Record PR number
+        run: echo "${{ github.event.number }}" > pr_number.txt
+
+      - name: Upload PR number
+        uses: actions/upload-artifact@v7
+        with:
+          path: pr_number.txt
+          archive: false
 
   # Future work:
   # - Run each step of the matrix on main as well, and indicate in the table
