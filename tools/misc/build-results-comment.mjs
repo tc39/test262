@@ -101,7 +101,7 @@ function buildCommentBody({ engines, testResults, errors }) {
 }
 
 function buildMarkdownTable(tests, engines, testResults) {
-  const header = ['Test', ...engines];
+  const header = ['Test', ...engines].map(sanitizeTableMarkdown);
   const lines = ['| ' + header.join(' | ') + ' |'];
   lines.push('|' + header.map(() => ' --- ').join('|') + '|');
 
@@ -111,7 +111,7 @@ function buildMarkdownTable(tests, engines, testResults) {
       const result = results[engineKey];
       return formatCell(result);
     });
-    lines.push('| ' + [testPath, ...cells].join(' | ') + ' |');
+    lines.push('| ' + [sanitizeTableMarkdown(testPath), ...cells].join(' | ') + ' |');
   }
 
   return lines.join('\n');
@@ -152,11 +152,11 @@ function combineMessages(sloppyMessage, strictMessage) {
 
 function formatFail(message) {
   if (!message) return '❌';
-  return `[❌](## "${sanitizeTooltip(message)}")`;
+  return `[❌](## "${sanitizeTableMarkdown(message)}")`;
 }
 
 // https://spec.commonmark.org/0.31.2/#links
-function sanitizeTooltip(text) {
+function sanitizeTableMarkdown(text) {
   let s = String(text);
   if (s.length > 500) s = s.slice(0, 500) + "…";
   return s
