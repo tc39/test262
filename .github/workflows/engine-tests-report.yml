@@ -42,6 +42,23 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
+      - name: Download PR number
+        uses: actions/download-artifact@v8
+        with:
+          name: pr_number.txt
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Read PR number
+        id: pr
+        run: |
+          PR_NUMBER="$(head pr_number.txt -n1)"
+          if [[ ! "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Unexpected contents of pr_number.txt: $PR_NUMBER"
+            exit 1
+          fi
+          echo "number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+
       - name: Check for results
         id: check
         run: |
@@ -63,4 +80,4 @@ jobs:
         with:
           path: comment-body.txt
           header: test262-engine-results
-          number: ${{ github.event.workflow_run.pull_requests[0].number }}
+          number: ${{ steps.pr.outputs.number }}
