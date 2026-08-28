@@ -17,7 +17,6 @@
     "test262-harness": "^8.0.0"
   },
   "scripts": {
-    "ci": "./tools/scripts/ci_test.sh",
     "test": "test262-harness",
     "diff": "git diff --diff-filter ACMR --name-only main.. -- test/ && git ls-files --exclude-standard --others -- test/",
     "test:diff": "npm run test:diff:v8 && npm run test:diff:spidermonkey && npm run test:diff:javascriptcore",
