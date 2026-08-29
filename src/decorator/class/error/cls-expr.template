@@ -1,0 +1,17 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/class/error/
+name: class decorator evaluation error in class expression
+features: [class, decorators]
+esid: prod-ClassExpression
+---*/
+
+/*{ decorators }*/
+
+function evaluate() {
+  var C = /*{ application }*/ class {}
+}
+
+assert.throws(/*{ error }*/, evaluate);

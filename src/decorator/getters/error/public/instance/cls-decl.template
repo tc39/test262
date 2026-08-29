@@ -1,0 +1,21 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/getter/error/public/instance/
+name: public getter decorator evaluation error in class declaration
+features: [class, decorators]
+esid: prod-MethodDefinition
+---*/
+
+/*{ decorators }*/
+
+function evaluate() {
+  class C {
+    /*{ application }*/
+    get element() {}
+  }
+}
+
+assert.throws(/*{ error }*/, evaluate);
+

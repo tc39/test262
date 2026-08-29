@@ -1,0 +1,26 @@
+// Copyright (C) 2026 Benny Powers. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: addInitializer throws TypeError if argument is not callable
+templates:
+  - methods/error/**/*
+  - fields/error/**/*
+  - getters/error/**/*
+  - setters/error/**/*
+  - accessors/error/**/*
+  - class/error
+features: [decorators]
+---*/
+
+//- decorators
+function dec(_, context) {
+  context.addInitializer(123);
+}
+
+//- application
+@dec
+
+//- error
+TypeError
