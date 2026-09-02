@@ -123,7 +123,7 @@ function formatCell(result) {
   const { strict, sloppy } = result;
 
   if (sloppy && strict) {
-    if (sloppy.pass && strict.pass) return '✅';
+    if (sloppy.pass && strict.pass) return '👍';
     if (!sloppy.pass && !strict.pass) {
       return formatFail(combineMessages(sloppy.message, strict.message));
     }
@@ -135,7 +135,7 @@ function formatCell(result) {
 
   const only = sloppy || strict;
   if (!only.pass) return formatFail(only.message);
-  return '✅';
+  return '👍';
 }
 
 function combineMessages(sloppyMessage, strictMessage) {
@@ -151,8 +151,8 @@ function combineMessages(sloppyMessage, strictMessage) {
 }
 
 function formatFail(message) {
-  if (!message) return '❌';
-  return `[❌](## "${sanitizeTableMarkdown(message)}")`;
+  if (!message) return '👎';
+  return `[👎](## "${sanitizeTableMarkdown(message)}")`;
 }
 
 // https://spec.commonmark.org/0.31.2/#links
