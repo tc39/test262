@@ -8,7 +8,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var result = TA.from([-0, +0]);
   assert.sameValue(result.length, 2);
   assert.sameValue(result[0], -0, "-0 => -0");
@@ -16,12 +16,9 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 },
-[
-  Float32Array,
-  Float64Array
-]);
+floatArrayConstructors);
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var result = TA.from([-0, +0]);
   assert.sameValue(result.length, 2);
   assert.sameValue(result[0], 0, "-0 => 0");
@@ -29,12 +26,4 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(result), TA.prototype);
 },
-[
-  Int16Array,
-  Int32Array,
-  Int8Array,
-  Uint16Array,
-  Uint32Array,
-  Uint8Array,
-  Uint8ClampedArray
-]);
+intArrayConstructors);

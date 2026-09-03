@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.indexof
-description: Throws a TypeError if this has a detached buffer
+description: Returns -1 if buffer is detached after ValidateTypedArray
 info: |
   %TypedArray%.prototype.indexOf ( searchElement [ , fromIndex ] )
 
@@ -32,12 +32,12 @@ info: |
     Set k to k + 1.
   Return -1F.
 
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  const sample = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  const sample = new TA(makeCtorArg(1));
   const fromIndex = {
     valueOf() {
       $DETACHBUFFER(sample.buffer);
@@ -46,4 +46,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   };
 
   assert.sameValue(sample.indexOf(0n, fromIndex), -1);
-});
+}, null, null, ["immutable"]);

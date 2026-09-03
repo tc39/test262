@@ -17,12 +17,12 @@ includes: [compareArray.js, testTypedArray.js]
 features: [TypedArray, array-find-from-last]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var arr = [1, 2, 3];
   var sample;
   var result;
 
-  sample = new TA(3);
+  sample = new TA(makeCtorArg(3));
   sample.findLast(function(val, i) {
     sample[i] = arr[i];
 
@@ -63,4 +63,4 @@ testWithTypedArrayConstructors(function(TA) {
     return true;
   });
   assert.sameValue(result, 3, "findLast() returns previous found value");
-});
+}, null, null, ["immutable"]);

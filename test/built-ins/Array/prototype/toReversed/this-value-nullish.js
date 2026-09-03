@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.toReversed
+esid: sec-array.prototype.toreversed
 description: >
   Array.prototype.toReversed throws if the receiver is null or undefined
 info: |
@@ -15,8 +15,8 @@ features: [change-array-by-copy]
 
 assert.throws(TypeError, () => {
   Array.prototype.toReversed.call(null);
-}, '`Array.prototype.toReversed.call(null)` throws TypeError');
+});
 
 assert.throws(TypeError, () => {
   Array.prototype.toReversed.call(undefined);
-}, '`Array.prototype.toReversed.call(undefined)` throws TypeError');
+});

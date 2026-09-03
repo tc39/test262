@@ -1,7 +1,7 @@
 // Copyright (C) 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-map.prototype.forEach
+esid: sec-map.prototype.foreach
 description: >
   Property type and descriptor.
 info: |
@@ -17,6 +17,8 @@ assert.sameValue(
   '`typeof Map.prototype.forEach` is `function`'
 );
 
-verifyNotEnumerable(Map.prototype, 'forEach');
-verifyWritable(Map.prototype, 'forEach');
-verifyConfigurable(Map.prototype, 'forEach');
+verifyProperty(Map.prototype, 'forEach', {
+  writable: true,
+  enumerable: false,
+  configurable: true,
+});

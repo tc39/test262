@@ -55,7 +55,7 @@ class Test:
             ' * ' + self.file_name,
             ' * ----------------------------------------------------------------',
             ' */',
-            self.source,
+            self.source.decode('utf-8'),
             '\n'])
 
     @after_parse

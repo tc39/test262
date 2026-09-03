@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.forEach
+esid: sec-array.prototype.foreach
 description: >
   The "length" property of Array.prototype.forEach
 info: |
@@ -23,8 +23,9 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Array.prototype.forEach.length, 1);
-
-verifyNotEnumerable(Array.prototype.forEach, 'length');
-verifyNotWritable(Array.prototype.forEach, 'length');
-verifyConfigurable(Array.prototype.forEach, 'length');
+verifyProperty(Array.prototype.forEach, "length", {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: true
+});

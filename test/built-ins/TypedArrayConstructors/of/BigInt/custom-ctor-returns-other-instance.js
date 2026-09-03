@@ -13,13 +13,13 @@ info: |
   ...
   5. Let newObj be ? TypedArrayCreate(C, « len »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var result;
-  var custom = new TA(3);
+  var custom = new TA(makeCtorArg(3));
   var ctor = function() {
     return custom;
   };
@@ -29,4 +29,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   result = TypedArray.of.call(ctor, 1n, 2n);
   assert.sameValue(result, custom, "using iterator, higher length");
-});
+}, null, null, ["immutable"]);

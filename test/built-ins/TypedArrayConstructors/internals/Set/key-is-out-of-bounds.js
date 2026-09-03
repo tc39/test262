@@ -19,8 +19,8 @@ includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, Reflect, TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42]));
 
   assert.sameValue(Reflect.set(sample, "-1", 1), true, 'Reflect.set(sample, "-1", 1) must return true');
   assert.sameValue(Reflect.set(sample, "1", 1), true, 'Reflect.set(sample, "1", 1) must return true');
@@ -29,4 +29,4 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(sample.hasOwnProperty("-1"), false, 'sample.hasOwnProperty("-1") must return false');
   assert.sameValue(sample.hasOwnProperty("1"), false, 'sample.hasOwnProperty("1") must return false');
   assert.sameValue(sample.hasOwnProperty("2"), false, 'sample.hasOwnProperty("2") must return false');
-});
+}, null, null, ["immutable"]);

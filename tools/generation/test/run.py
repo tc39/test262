@@ -49,6 +49,39 @@ class TestGeneration(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(OUT_DIR, ignore_errors=True)
 
+    def test_clean_ignores_binary_fixtures(self):
+        os.makedirs(OUT_DIR, exist_ok=True)
+
+        png_path = os.path.join(OUT_DIR, 'example_FIXTURE.png')
+        with open(png_path, 'wb') as handle:
+            handle.write(b'\x89PNG\r\nSomeMoreBytesHere')
+
+        generated_path = os.path.join(OUT_DIR, 'generated-test.js')
+        with open(generated_path, 'w', encoding='utf-8') as handle:
+            handle.write(
+                '/*---\n'
+                'description: generated test\n'
+                'flags: [generated]\n'
+                '---*/\n'
+                '\n'
+                '"hello";\n'
+            )
+
+        sp = subprocess.Popen(
+            [ex, 'clean', OUT_DIR],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE)
+        stdout, stderr = sp.communicate()
+
+        self.assertEqual(
+            sp.returncode,
+            0,
+            msg='clean failed\nstdout:\n' + stdout.decode('utf-8', errors='replace') +
+                '\nstderr:\n' + stderr.decode('utf-8', errors='replace'))
+
+        self.assertTrue(os.path.exists(png_path))
+        self.assertFalse(os.path.exists(generated_path))
+
     def test_glob(self):
         result = self.fixture('glob.case')
         self.assertEqual(result['returncode'], 0)

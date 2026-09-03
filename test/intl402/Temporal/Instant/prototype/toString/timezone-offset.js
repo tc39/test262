@@ -3,14 +3,13 @@
 
 /*---
 esid: sec-temporal.instant.prototype.tostring
-description: The time zone offset part of the string serialization (Intl time zones)
+description: The time zone offset part of the string serialization (IANA time zones)
 features: [BigInt, Temporal]
 ---*/
 
 const instant = new Temporal.Instant(0n);
 
-function test(timeZoneIdentifier, expected, description) {
-  const timeZone = new Temporal.TimeZone(timeZoneIdentifier);
+function test(timeZone, expected, description) {
   assert.sameValue(instant.toString({ timeZone }), expected, description);
 }
 

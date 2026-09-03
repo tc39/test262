@@ -1,0 +1,17 @@
+// Copyright (C) 2024 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-set-p-v-receiver
+desc: _ [[Set]] of a string which is an export name
+info: |
+  [[Set]] ( _P_, _V_, _Receiver_ )
+    1. Return **false**.
+
+template: ignore
+---*/
+
+//- body
+try {
+  ns.exported = "hi";
+} catch (_) {}

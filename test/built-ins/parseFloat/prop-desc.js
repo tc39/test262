@@ -12,6 +12,4 @@ info: |
 includes: [propertyHelper.js]
 ---*/
 
-verifyNotEnumerable(this, "parseFloat");
-verifyWritable(this, "parseFloat");
-verifyConfigurable(this, "parseFloat");
+verifyPrimordialCallableProperty(this, "parseFloat", "parseFloat", 1);

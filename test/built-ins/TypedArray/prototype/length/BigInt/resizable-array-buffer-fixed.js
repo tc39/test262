@@ -5,7 +5,7 @@ esid: sec-get-%typedarray%.prototype.length
 description: |
   reset to 0 if the underlying ArrayBuffer is resized beyond the boundary of
   the fixed-sized TypedArray instance
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [ArrayBuffer, BigInt, TypedArray, resizable-arraybuffer]
 ---*/
 
@@ -36,11 +36,11 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
   var expected;
   try {
-    ab.resize(BPE * 2);
+    ab.resize(BPE * 3 - 1);
     expected = 0;
   } catch (_) {
     expected = 2;
   }
 
   assert.sameValue(array.length, expected, "following shrink (out of bounds)");
-});
+}, null, ["passthrough"]);

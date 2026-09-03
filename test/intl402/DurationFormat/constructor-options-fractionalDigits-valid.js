@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-Intl.DurationFormat
-description: Tests that the option localeMatcher is processed correctly.
+description: Tests that the option fractionalDigits is processed correctly.
 info: |
     Intl.DurationFormat ( [ locales [ , options ] ] )
     (...)
@@ -15,7 +15,8 @@ const validOptions = [
   0,
   1,
   5,
-  9
+  9,
+  undefined
 ];
 
 for (const fractionalDigits of validOptions) {

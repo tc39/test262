@@ -21,12 +21,12 @@ info: |
       i. Let kValue be ? Get(O, Pk).
       ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Reflect.set, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 43n, 44n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 43n, 44n]));
   var newVal = 0n;
 
   sample.some(function(val, i) {
@@ -53,4 +53,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   assert.sameValue(sample[0], 7n, "changed values after iteration [0] == 7");
   assert.sameValue(sample[1], 1n, "changed values after iteration [1] == 1");
   assert.sameValue(sample[2], 2n, "changed values after iteration [2] == 2");
-});
+}, null, null, ["immutable"]);

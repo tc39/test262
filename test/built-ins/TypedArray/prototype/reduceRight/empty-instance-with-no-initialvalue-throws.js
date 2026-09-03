@@ -21,11 +21,12 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var called = 0;
 
+  var ta = new TA(makeCtorArg(0));
   assert.throws(TypeError, function() {
-    new TA().reduceRight(function() {
+    ta.reduceRight(function() {
       called++;
     });
   });

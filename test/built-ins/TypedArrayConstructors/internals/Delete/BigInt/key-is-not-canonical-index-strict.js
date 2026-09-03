@@ -19,7 +19,7 @@ info: |
     ...
   Return ? OrdinaryDelete(O, P).
 flags: [onlyStrict]
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [align-detached-buffer-semantics-with-web-reality, BigInt, TypedArray]
 ---*/
 
@@ -59,8 +59,8 @@ testWithBigIntTypedArrayConstructors(function(TA) {
 
     assert.throws(TypeError, () => {
       delete sample[key];
-    }, '`delete sample[key]` throws TypeError');
+    });
 
     delete TypedArray.prototype[key];
   });
-});
+}, null, ["passthrough"]);

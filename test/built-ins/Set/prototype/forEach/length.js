@@ -1,7 +1,7 @@
 // Copyright (C) 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-set.prototype.forEach
+esid: sec-set.prototype.foreach
 description: >
     Set.prototype.forEach ( callbackfn [ , thisArg ] )
 
@@ -10,8 +10,9 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Set.prototype.forEach.length, 1, "The value of `Set.prototype.forEach.length` is `1`");
-
-verifyNotEnumerable(Set.prototype.forEach, "length");
-verifyNotWritable(Set.prototype.forEach, "length");
-verifyConfigurable(Set.prototype.forEach, "length");
+verifyProperty(Set.prototype.forEach, "length", {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: true
+});

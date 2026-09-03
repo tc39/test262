@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.toSorted
+esid: sec-%typedarray%.prototype.tosorted
 description: >
   %TypedArray%.prototype.toSorted doesn't call copmareFn if there is an error
 info: |
@@ -18,9 +18,9 @@ includes: [testTypedArray.js]
 features: [TypedArray, change-array-by-copy]
 ---*/
 
-testWithTypedArrayConstructors(TA => {
+testWithTypedArrayConstructors((TA, makeCtorArg) => {
   var calls = 0;
-  var ta = new TA([3, 1, 2]);
+  var ta = new TA(makeCtorArg([3, 1, 2]));
   try {
     ta.toSorted(() => {
       ++calls;

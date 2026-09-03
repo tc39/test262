@@ -17,8 +17,8 @@ includes: [testTypedArray.js]
 
 var isView = ArrayBuffer.isView;
 
-testWithTypedArrayConstructors(function(ctor) {
-  var sample = new ctor();
+testWithAllTypedArrayConstructors(function(ctor, makeCtorArg) {
+  var sample = new ctor(makeCtorArg(0));
   assert.sameValue(isView(sample), true, "instance of TypedArray");
 });
 

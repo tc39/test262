@@ -14,7 +14,7 @@ info: |
   Perform ? ValidateTypedArray(O).
   ...
 
-includes: [testBigIntTypedArray.js, detachArrayBuffer.js]
+includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [BigInt, TypedArray]
 ---*/
 
@@ -24,10 +24,10 @@ let obj = {
   }
 };
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  let sample = new TA(1);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  let sample = new TA(makeCtorArg(1));
   $DETACHBUFFER(sample.buffer);
   assert.throws(TypeError, () => {
     sample.join(obj);
   });
-});
+}, null, null, ["immutable"]);

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.toSpliced
+esid: sec-array.prototype.tospliced
 description: >
   Array.prototype.toSpliced limits the length to 2 ** 32 - 1
 info: |
@@ -19,7 +19,7 @@ info: |
   ArrayCreate ( length [, proto ] )
 
   1. If length > 2 ** 32 - 1, throw a RangeError exception.
-features: [change-array-by-copy]
+features: [change-array-by-copy, exponentiation]
 ---*/
 
 // Object with large "length" property

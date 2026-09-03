@@ -15,12 +15,9 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const calendar = {
-  toString() { return "custom"; }
-};
-const yearmonth = new Temporal.PlainYearMonth(2000, 5, calendar);
+const yearmonth = new Temporal.PlainYearMonth(2000, 5, "iso8601");
 
 TemporalHelpers.checkStringOptionWrongType("calendarName", "auto",
   (calendarName) => yearmonth.toString({ calendarName }),
-  (result, descr) => assert.sameValue(result, "2000-05-01[u-ca=custom]", descr),
+  (result, descr) => assert.sameValue(result, "2000-05", descr),
 );

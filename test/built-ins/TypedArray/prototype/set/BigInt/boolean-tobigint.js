@@ -33,14 +33,14 @@ info: |
     Argument Type: Boolean
     Result: Return 1n if prim is true and 0n if prim is false.
 
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var typedArray = new TA(2);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var typedArray = new TA(makeCtorArg(2));
   typedArray.set([false, true])
 
   assert.sameValue(typedArray[0], 0n, "False converts to BigInt");
   assert.sameValue(typedArray[1], 1n, "True converts to BigInt");
-});
+}, null, null, ["immutable"]);

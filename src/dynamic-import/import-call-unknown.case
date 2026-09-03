@@ -1,0 +1,15 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: It's a SyntaxError on unknown import call
+template: syntax/invalid
+info: |
+  ImportCall[Yield, Await] :
+      import ( AssignmentExpression[+In, ?Yield, ?Await] )
+      import . source ( AssignmentExpression[+In, ?Yield, ?Await] )
+features: [source-phase-imports]
+---*/
+//- import
+import.UNKNOWN('./empty_FIXTURE.js')
+//- teardown
+/* The params region intentionally empty */

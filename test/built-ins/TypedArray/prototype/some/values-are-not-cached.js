@@ -25,8 +25,8 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 43, 44]);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42, 43, 44]));
 
   sample.some(function(v, i) {
     if (i < sample.length - 1) {
@@ -37,4 +37,4 @@ testWithTypedArrayConstructors(function(TA) {
       v, 42, "method does not cache values before callbackfn calls"
     );
   });
-});
+}, null, null, ["immutable"]);

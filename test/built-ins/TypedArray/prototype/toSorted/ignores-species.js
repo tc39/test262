@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.toSorted
+esid: sec-%typedarray%.prototype.tosorted
 description: >
   %TypedArray%.prototype.toSorted ignores @@species
 info: |
@@ -17,21 +17,21 @@ info: |
   2. Let constructor be the intrinsic object listed in column one of Table 63 for exemplar.[[TypedArrayName]].
   ...
 includes: [testTypedArray.js]
-features: [TypedArray, change-array-by-copy]
+features: [Symbol.species, TypedArray, change-array-by-copy]
 ---*/
 
-testWithTypedArrayConstructors(TA => {
-  var ta = new TA();
+testWithTypedArrayConstructors((TA, makeCtorArg) => {
+  var ta = new TA(makeCtorArg(0));
   ta.constructor = TA === Uint8Array ? Int32Array : Uint8Array;
   assert.sameValue(Object.getPrototypeOf(ta.toSorted()), TA.prototype);
 
-  ta = new TA();
+  ta = new TA(makeCtorArg(0));
   ta.constructor = {
     [Symbol.species]: TA === Uint8Array ? Int32Array : Uint8Array,
   };
   assert.sameValue(Object.getPrototypeOf(ta.toSorted()), TA.prototype);
 
-  ta = new TA();
+  ta = new TA(makeCtorArg(0));
   Object.defineProperty(ta, "constructor", {
     get() {
       throw new Test262Error("Should not get .constructor");

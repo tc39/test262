@@ -2,22 +2,33 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializedatetimeformat
+esid: sec-createdatetimeformat
 description: Checks the propagation of exceptions from the options for the DateTimeFormat constructor.
+features:
+  - Intl.DateTimeFormat-datetimestyle
+  - Intl.DateTimeFormat-dayPeriod
+  - Intl.DateTimeFormat-fractionalSecondDigits
+locale: [en]
 ---*/
 
 function CustomError() {}
 
 const options = [
   "weekday", "year", "month", "day",
+  "dayPeriod",
   "hour", "minute", "second",
+  "fractionalSecondDigits",
   "localeMatcher",
+  "calendar",
+  "numberingSystem",
   "hour12",
   "hourCycle",
   "timeZone",
   "era",
   "timeZoneName",
   "formatMatcher",
+  "dateStyle",
+  "timeStyle",
 ];
 
 for (const option of options) {

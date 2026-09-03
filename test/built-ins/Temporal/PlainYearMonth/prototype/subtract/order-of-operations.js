@@ -8,7 +8,7 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalDuration
   "get fields.days",
   "get fields.days.valueOf",
@@ -40,64 +40,38 @@ const expected = [
   "get fields.years",
   "get fields.years.valueOf",
   "call fields.years.valueOf",
-  // CalendarFields
-  "get this.calendar.fields",
-  "call this.calendar.fields",
-  // PrepareTemporalFields on receiver
-  "get this.calendar.monthCode",
-  "call this.calendar.monthCode",
-  "get this.calendar.year",
-  "call this.calendar.year",
-  // CalendarDaysInMonth
-  "get this.calendar.daysInMonth",
-  "call this.calendar.daysInMonth",
-  // CalendarDateFromFields
-  "get this.calendar.dateFromFields",
-  "call this.calendar.dateFromFields",
-  // CopyDataProperties
-  "ownKeys options",
-  "getOwnPropertyDescriptor options.overflow",
-  "get options.overflow",
-  // CalendarDateAdd
-  "get this.calendar.dateAdd",
-  "call this.calendar.dateAdd",
-  // inside Calendar.p.dateAdd
-  "get options.overflow",
-  "get options.overflow.toString",
-  "call options.overflow.toString",
-  // PrepareTemporalFields on added date
-  "get this.calendar.monthCode",
-  "call this.calendar.monthCode",
-  "get this.calendar.year",
-  "call this.calendar.year",
-  // CalendarYearMonthFromFields
-  "get this.calendar.yearMonthFromFields",
-  "call this.calendar.yearMonthFromFields",
-  // inside Calendar.p.yearMonthFromFields
-  "get options.overflow.toString",
-  "call options.overflow.toString",
 ];
+const expected = expectedOpsForPrimitiveOptions.concat([
+  "get options.overflow",
+  "get options.overflow.toString",
+  "call options.overflow.toString",
+]);
 const actual = [];
 
-const calendar = TemporalHelpers.calendarObserver(actual, "this.calendar");
-const instance = new Temporal.PlainYearMonth(2000, 5, calendar);
-// clear observable operations that occurred during the constructor call
-actual.splice(0);
+const instance = new Temporal.PlainYearMonth(2000, 5, "iso8601");
 
 const fields = TemporalHelpers.propertyBagObserver(actual, {
   years: 1,
   months: 1,
-  weeks: 1,
-  days: 1,
-  hours: 1,
-  minutes: 1,
-  seconds: 1,
-  milliseconds: 1,
-  microseconds: 1,
-  nanoseconds: 1,
+  weeks: 0,
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  milliseconds: 0,
+  microseconds: 0,
+  nanoseconds: 0,
 }, "fields");
 
 const options = TemporalHelpers.propertyBagObserver(actual, { overflow: "constrain" }, "options");
 
 instance.subtract(fields, options);
 assert.compareArray(actual, expected, "order of operations");
+
+actual.splice(0); // clear
+
+assert.throws(TypeError, () => instance.subtract(fields, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "duration fields are read before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear

@@ -19,12 +19,8 @@ info: |
 
 esid: sec-nativeerror
 features: [error-cause]
-includes: [propertyHelper.js]
+includes: [propertyHelper.js, nativeErrors.js]
 ---*/
-
-var nativeErrors = [
-  EvalError, RangeError, ReferenceError, SyntaxError, TypeError, URIError
-];
 
 for (var i = 0; i < nativeErrors.length; ++i) {
   var nativeError = nativeErrors[i];
@@ -36,10 +32,11 @@ for (var i = 0; i < nativeErrors.length; ++i) {
   verifyProperty(error, "cause", {
     configurable: true,
     enumerable: false,
-    writeable: true,
+    writable: true,
     value: cause,
   });
 
   verifyProperty(new nativeError(message), "cause", undefined);
   verifyProperty(new nativeError(message, { cause: undefined }), "cause", { value: undefined });
+  verifyProperty(new nativeError(message, {}), "cause", undefined);
 }

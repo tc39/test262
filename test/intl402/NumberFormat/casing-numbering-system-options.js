@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializenumberformat
+esid: sec-intl.numberformat
 description: >
     Tests that the options numberingSystem are mapped to lower case.
 author: Caio Lima
+features: [Array.prototype.includes]
 ---*/
 
 let defaultLocale = new Intl.NumberFormat().resolvedOptions().locale;

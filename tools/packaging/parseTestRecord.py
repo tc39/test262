@@ -7,7 +7,7 @@ from __future__ import print_function
 
 import os
 import re
-import imp
+import sys
 
 # Matches trailing whitespace and any following blank lines.
 _BLANK_LINES = r"([ \t]*[\r\n]{1,2})*"
@@ -28,6 +28,12 @@ _LICENSE_PATTERN = re.compile(
        r'|' +
        r'// See LICENSE or https://github\.com/tc39/test262/blob/HEAD/LICENSE' +
    r')[\r\n]{1,2}' + _BLANK_LINES, re.IGNORECASE)
+
+_LICENSE_PATTERN_PUBLIC_DOMAIN = re.compile(
+   r'/\*[\r\n]{1,2}' +
+   r' \* Any copyright is dedicated to the Public Domain\.[\r\n]{1,2}' +
+   r' \* http://creativecommons\.org/licenses/publicdomain/[\r\n]{1,2}' +
+   r' \*/[\r\n]{1,2}' + _BLANK_LINES, re.IGNORECASE)
 
 yamlLoad = None
 
@@ -51,10 +57,14 @@ def yamlAttrParser(testRecord, attrs, name, onerror):
 
 def findLicense(src):
     match = _LICENSE_PATTERN.search(src)
-    if not match:
-        return None
+    if match:
+        return match.group(0)
 
-    return match.group(0)
+    match = _LICENSE_PATTERN_PUBLIC_DOMAIN.search(src)
+    if match:
+        return match.group(0)
+
+    return None
 
 def findAttrs(src):
     match = _YAML_PATTERN.search(src)
@@ -114,7 +124,9 @@ def importYamlLoad():
     monkeyYaml = loadMonkeyYaml()
     yamlLoad = monkeyYaml.load
 
-def loadMonkeyYaml():
+def loadMonkeyYaml2():
+    import imp
+
     f = None
     try:
         p = os.path.dirname(os.path.realpath(__file__))
@@ -126,3 +138,38 @@ def loadMonkeyYaml():
     finally:
         if f:
             f.close()
+
+def loadMonkeyYaml3():
+    import importlib.machinery
+    import importlib.util
+
+    packaging_dir = os.path.dirname(os.path.realpath(__file__))
+    module_name = "monkeyYaml"
+
+    # Create a FileFinder to load Python source files.
+    loader_details = (
+        importlib.machinery.SourceFileLoader,
+        importlib.machinery.SOURCE_SUFFIXES,
+    )
+    finder = importlib.machinery.FileFinder(packaging_dir, loader_details)
+
+    # Find the module spec.
+    spec = finder.find_spec(module_name)
+    if spec is None:
+        raise RuntimeError("Can't find monkeyYaml module")
+
+    # Create and execute the module.
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    # Return the executed module
+    return module
+
+def loadMonkeyYaml():
+    # The "imp" module is deprecated in Python 3.4 and will be removed in
+    # Python 3.12. Use it only if the current Python version is too old to use
+    # the "importlib" module.
+    if sys.version_info < (3, 4):
+        return loadMonkeyYaml2()
+
+    return loadMonkeyYaml3()

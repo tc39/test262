@@ -17,7 +17,7 @@ TemporalHelpers.assertPlainDateTime(
   "PlainDateTime is copied"
 );
 
-assert.sameValue(result.calendar, orig.calendar, "Calendar is copied");
+assert.sameValue(result.calendarId, orig.calendarId, "Calendar is copied");
 
 assert.notSameValue(
   result,

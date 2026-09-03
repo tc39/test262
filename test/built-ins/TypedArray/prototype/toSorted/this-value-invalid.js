@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-%typedarray%.prototype.toSorted
+esid: sec-%typedarray%.prototype.tosorted
 description: >
   %TypedArray%.prototype.toSorted throws if the receiver is not a valid TypedArray
 info: |
@@ -34,11 +34,11 @@ Object.entries(invalidValues).forEach(value => {
   }, `${value[0]} is not a valid TypedArray`);
 });
 
-testWithTypedArrayConstructors(function(TA) {
-  let buffer = new ArrayBuffer(8);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  let buffer = makeCtorArg(8);
   let sample = new TA(buffer, 0, 1);
   $DETACHBUFFER(sample.buffer);
   assert.throws(TypeError, () => {
     sample.toSorted();
   }, `array has a detached buffer`);
-});
+}, null, ["arraybuffer"], ["immutable"]);

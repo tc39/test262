@@ -3,9 +3,52 @@
 /*---
 description: |
     Collection of assertion functions used throughout test262
-defines: [assert]
+defines:
+  - assert
+  - compareArray
+  - formatIdentityFreeValue
+  - formatSimpleValue
+  - isNegativeZero
+  - isPrimitive
 ---*/
 
+
+function isNegativeZero(value) {
+  return value === 0 && 1 / value === -Infinity;
+}
+
+function isPrimitive(value) {
+  return !value || (typeof value !== 'object' && typeof value !== 'function');
+}
+
+function formatIdentityFreeValue(value) {
+  switch (value === null ? 'null' : typeof value) {
+    case 'string':
+      return typeof JSON !== "undefined" ? JSON.stringify(value) : '"' + value + '"';
+    case 'bigint':
+      return String(value) + "n";
+    case 'number':
+      if (isNegativeZero(value)) return '-0';
+      // falls through
+    case 'boolean':
+    case 'undefined':
+    case 'null':
+      return String(value);
+  }
+}
+
+function formatSimpleValue(value) {
+  var basic = formatIdentityFreeValue(value);
+  if (basic) return basic;
+  try {
+    return String(value);
+  } catch (err) {
+    if (err.name === 'TypeError') {
+      return Object.prototype.toString.call(value);
+    }
+    throw err;
+  }
+}
 
 function assert(mustBeTrue, message) {
   if (mustBeTrue === true) {
@@ -101,18 +144,41 @@ assert.throws = function (expectedErrorConstructor, func, message) {
   throw new Test262Error(message);
 };
 
-assert._toString = function (value) {
-  try {
-    if (value === 0 && 1 / value === -Infinity) {
-      return '-0';
-    }
+assert.compareArray = function (actual, expected, message) {
+  message = message === undefined ? '' : message;
 
-    return String(value);
-  } catch (err) {
-    if (err.name === 'TypeError') {
-      return Object.prototype.toString.call(value);
-    }
-
-    throw err;
+  if (typeof message === 'symbol') {
+    message = message.toString();
   }
+
+  if (isPrimitive(actual)) {
+    assert(false, "Actual argument [" + actual + "] shouldn't be primitive. " + String(message));
+  } else if (isPrimitive(expected)) {
+    assert(false, "Expected argument [" + expected + "] shouldn't be primitive. " + String(message));
+  }
+  var result = compareArray(actual, expected);
+  if (result) return;
+
+  var format = compareArray.format;
+  assert(false, "Actual " + format(actual) + " and expected " + format(expected) + " should have the same contents. " + String(message));
 };
+
+function compareArray(a, b) {
+  if (b.length !== a.length) {
+    return false;
+  }
+  for (var i = 0; i < a.length; i++) {
+    if (!assert._isSameValue(b[i], a[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+compareArray.format = function (arrayLike) {
+  return "[" + Array.prototype.map.call(arrayLike, String).join(", ") + "]";
+};
+
+assert._formatIdentityFreeValue = formatIdentityFreeValue;
+
+assert._toString = formatSimpleValue;

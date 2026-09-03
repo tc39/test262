@@ -18,12 +18,7 @@ includes: [testTypedArray.js]
 features: [TypedArray]
 ---*/
 
-testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(10);
-  function throwFunc(){
-    throw Test262Error()
-    return 0;
-  }
-
-    assert.sameValue(sample.includes({valueOf : throwFunc}), false);
+testWithTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg(10));
+  assert.sameValue(sample.includes({ valueOf: Test262Error.thrower }), false);
 });

@@ -22,13 +22,13 @@ info: |
       i. Let accumulator be ? Call(callbackfn, undefined, « accumulator, kValue,
       k, O »).
   ...
-includes: [detachArrayBuffer.js, testBigIntTypedArray.js]
+includes: [detachArrayBuffer.js, testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var loops = 0;
-  var sample = new TA(2);
+  var sample = new TA(makeCtorArg(2));
 
   sample.reduceRight(function() {
     if (loops === 0) {
@@ -39,4 +39,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
   }, 0);
 
   assert.sameValue(loops, 2);
-});
+}, null, null, ["immutable"]);

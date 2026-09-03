@@ -11,7 +11,7 @@ Test262 itself is described in [ECMA TR/104]((http://ecma-international.org/publ
 
 ### Goals & State of Test262
 
-The goal of Test262 is to provide test material that covers every observable behavior specified in the [ECMA-414 Standards Suite](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf). Development of Test262 is an on-going process. As of October 2017, Test262 consisted of over 29272 individual test files covering the majority of the pseudo-code algorithms and grammar productions defined in the [ECMA-414 Standards Suite](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf). Each of these files contains one or more distinct test cases. This marks the most comprehensive ECMAScript test suite to date. While test coverage is broad, TC39 does not consider coverage to be complete and as with any software project there exists the possibility of omissions and errors. This project welcomes any contributions to Test262 that help make test coverage of existing features more comprehensive.
+The goal of Test262 is to provide test material that covers every observable behavior specified in the [ECMA-414 Standards Suite](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf). Development of Test262 is an on-going process. As of May 2025, Test262 consisted of over 50,000 individual test files covering the majority of the pseudo-code algorithms and grammar productions defined in the [ECMA-414 Standards Suite](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf). Each of these files contains one or more distinct test cases. This marks the most comprehensive ECMAScript test suite to date. While test coverage is broad, TC39 does not consider coverage to be complete and as with any software project there exists the possibility of omissions and errors. This project welcomes any contributions to Test262 that help make test coverage of existing features more comprehensive.
 
 
 ### ECMAScript feature proposals
@@ -34,17 +34,20 @@ Guidance for contributing to Test262 can be found in [CONTRIBUTING.md](./CONTRIB
 
 Guidance for running Test262 and explanations of how a test file must be interpreted by a test runner is in [INTERPRETING](./INTERPRETING.md)
 
+### Rationale
+
+This project offers an explanation for many of its design decisions and maintenance practices--see [rationale.md](./docs/rationale.md).
 
 ### Test262 Runners
 
 Volunteer-maintained projects that may be used to execute Test262 in various ECMAScript hosts:
 
-- https://github.com/bterlson/test262-harness (platform: Node.js)
+- https://github.com/tc39/test262-harness (platform: Node.js)
 - https://github.com/test262-utils/test262-harness-py (platform: Python)
 - https://bakkot.github.io/test262-web-runner/ (platform: web)
 - https://github.com/Izhido/test262_harness_cpp (platform: C++)
 - https://github.com/lahma/test262-harness-dotnet (platform: .NET)
-
+- https://github.com/cta-wave/WMAS/tree/latest/tools/wave/ecmascript (platform: Python; [Docker Deploy Instructions](https://github.com/cta-wave/WMAS-deploy/tree/wmas-latest))
 
 ### How To Read CI Results
 
@@ -54,4 +57,4 @@ Test262 runs CI tests against every PR and commit. The only tests that are requi
 
 ### Where did `website/` go?
 
-It's been removed. If you need to access the code that contained in that directory, we've preserved it in a branch, [available here](https://github.com/tc39/test262/tree/preserved-website-directory).
+It's been removed. If you need to access the code that contained in that directory, you can find it [here](https://github.com/tc39/test262/tree/3fac29109a4e86142796ec89c4c381c5ca255e94/website).

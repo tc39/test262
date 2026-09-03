@@ -21,14 +21,14 @@ info: |
       i. Let kValue be ? Get(O, Pk).
       ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var called = 0;
 
-  new TA().some(function() {
+  new TA(makeCtorArg(0)).some(function() {
     called++;
   });
 

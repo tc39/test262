@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.toSpliced
+esid: sec-array.prototype.tospliced
 description: >
   Length is clamped to 2^53-1 when they exceed the integer limit.
 info: |
@@ -15,7 +15,7 @@ info: |
   1. Let len be ? ToIntegerOrInfinity(argument).
   2. If len ≤ 0, return +0𝔽.
   3. Return 𝔽(min(len, 2^53 - 1))
-features: [change-array-by-copy]
+features: [change-array-by-copy, exponentiation]
 includes: [compareArray.js]
 ---*/
 

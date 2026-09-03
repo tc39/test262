@@ -10,7 +10,7 @@ features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray
 
 var sab = new SharedArrayBuffer(1024);
 var ab = new ArrayBuffer(16);
-var views = intArrayConstructors.slice();
+var views = nonClampedIntArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
   // Make it interesting - use non-zero byteOffsets and non-zero indexes.
@@ -51,4 +51,4 @@ testWithTypedArrayConstructors(function(TA) {
     Atomics.store(view, Idx, 37);
     assert.sameValue(Atomics.sub(view, Idx, 0), 37, 'Atomics.sub(view, Idx, 0) returns 37');
   });
-}, views);
+}, views, ["passthrough"]);

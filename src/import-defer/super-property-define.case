@@ -1,0 +1,36 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-defineownproperty-p-desc
+desc: _ [[DefineOwnProperty]] called from class field definition
+info: |
+  [[DefineOwnProperty]] ( _P_, _Desc_ )
+    1. If IsSymbolLikeNamespaceKey(_P_, _O_), return ! OrdinaryDefineOwnProperty(_O_, _Desc_).
+    1. Let _current_ be ? _O_.[[GetOwnProperty]](_P_).
+    1. NOTE: If _O_.[[Deferred]] is *true*, the step above will ensure that the module is evaluated.
+    1. ...
+
+  DefineField ( receiver, fieldRecord )
+    1. Let fieldName be fieldRecord.[[Name]].
+    1. Let initializer be fieldRecord.[[Initializer]].
+    1. ...
+    1. If fieldName is a Private Name, then
+      a. Perform ? PrivateFieldAdd(receiver, fieldName, initValue).
+    1. Else,
+      1. Assert: fieldName is a property key.
+      a. Perform ? CreateDataPropertyOrThrow(receiver, fieldName, initValue).
+    1. Return unused.
+
+template: trigger-on-possible-export
+---*/
+
+//- body
+class A { constructor() { return ns; } };
+class B extends A {
+  [key] = 10; 
+};
+
+try {
+  new B();
+} catch (_) {}

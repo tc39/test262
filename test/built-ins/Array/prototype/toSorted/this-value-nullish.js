@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-array.prototype.toSorted
+esid: sec-array.prototype.tosorted
 description: >
   Array.prototype.toSorted throws if the receiver is null or undefined
 info: |
@@ -15,8 +15,8 @@ features: [change-array-by-copy]
 
 assert.throws(TypeError, () => {
   Array.prototype.toSorted.call(null);
-}, '`Array.prototype.toSorted.call(null)` throws TypeError');
+});
 
 assert.throws(TypeError, () => {
   Array.prototype.toSorted.call(undefined);
-}, '`Array.prototype.toSorted.call(undefined)` throws TypeError');
+});

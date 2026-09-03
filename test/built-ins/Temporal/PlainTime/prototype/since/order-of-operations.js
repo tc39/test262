@@ -8,11 +8,8 @@ includes: [compareArray.js, temporalHelpers.js]
 features: [Temporal]
 ---*/
 
-const expected = [
+const expectedOpsForPrimitiveOptions = [
   // ToTemporalTime
-  "get other.calendar",
-  "get other.calendar.toString",
-  "call other.calendar.toString",
   "get other.hour",
   "get other.hour.valueOf",
   "call other.hour.valueOf",
@@ -31,6 +28,8 @@ const expected = [
   "get other.second",
   "get other.second.valueOf",
   "call other.second.valueOf",
+];
+const expected = expectedOpsForPrimitiveOptions.concat([
   // GetDifferenceSettings
   "get options.largestUnit",
   "get options.largestUnit.toString",
@@ -44,7 +43,7 @@ const expected = [
   "get options.smallestUnit",
   "get options.smallestUnit.toString",
   "call options.smallestUnit.toString",
-];
+]);
 const actual = [];
 
 const instance = new Temporal.PlainTime(12, 34, 56, 987, 654, 321);
@@ -57,14 +56,23 @@ const other = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 1.7,
   nanosecond: 1.7,
   calendar: "iso8601",
-}, "other");
+}, "other", ["calendar"]);
 
 const options = TemporalHelpers.propertyBagObserver(actual, {
-  smallestUnit: "nanoseconds",
-  largestUnit: "hours",
-  roundingMode: "trunc",
   roundingIncrement: 1,
+  roundingMode: "trunc",
+  largestUnit: "hours",
+  smallestUnit: "nanoseconds",
+  additional: true,
 }, "options");
 
 const result = instance.since(other, options);
 assert.compareArray(actual, expected, "order of operations");
+
+actual.splice(0); // clear
+
+assert.throws(TypeError, () => instance.since(other, null));
+assert.compareArray(actual, expectedOpsForPrimitiveOptions,
+  "other time fields are read before TypeError is thrown for primitive options");
+
+actual.splice(0); // clear

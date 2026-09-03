@@ -4,7 +4,7 @@
 /*---
 desc: Computed property name from math
 template: evaluation
-features: [computed-property-names]
+features: [computed-property-names, exponentiation]
 ---*/
 //- ComputedPropertyName
 1 + 2 - 3 * 4 / 5 ** 6

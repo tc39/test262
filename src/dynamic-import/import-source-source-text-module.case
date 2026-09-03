@@ -1,0 +1,38 @@
+// Copyright (C) 2024 Chengzhong Wu. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    GetModuleSource of SourceTextModule always returns an abrupt completion.
+esid: sec-moduleevaluation
+info: |
+    16.2.1.7.2 GetModuleSource ( )
+    Source Text Module Record provides a GetModuleSource implementation that always returns an abrupt completion indicating that a source phase import is not available.
+    1. Throw a SyntaxError exception.
+
+    Import Calls
+
+    Runtime Semantics: Evaluation
+
+    ImportCall : import . source ( AssignmentExpression )
+    1. Return ? EvaluateImportCall(AssignmentExpression, source).
+
+    13.3.10.1.1 EvaluateImportCall ( specifierExpression, phase )
+    1. Let referrer be GetActiveScriptOrModule().
+    2. If referrer is null, set referrer to the current Realm Record.
+    3. Let specifierRef be ? Evaluation of specifierExpression.
+    4. Let specifier be ? GetValue(specifierRef).
+    5. Let promiseCapability be ! NewPromiseCapability(%Promise%).
+    6. Let specifierString be Completion(ToString(specifier)).
+    7. IfAbruptRejectPromise(specifierString, promiseCapability).
+    8. Let moduleRequest be a new ModuleRequest Record { [[Specifier]]: specifierString, [[Phase]]: phase }.
+    9. Perform HostLoadImportedModule(referrer, moduleRequest, empty, promiseCapability).
+    10. Return promiseCapability.[[Promise]].
+
+template: catch
+features: [source-phase-imports]
+---*/
+
+//- import
+import.source('./empty_FIXTURE.js')
+//- body
+assert.sameValue(error.name, 'SyntaxError');

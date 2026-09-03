@@ -10,7 +10,7 @@ features: [ArrayBuffer, Atomics, DataView, SharedArrayBuffer, Symbol, TypedArray
 
 const sab = new SharedArrayBuffer(1024);
 const ab = new ArrayBuffer(16);
-const views = intArrayConstructors.slice();
+const views = nonClampedIntArrayConstructors.slice();
 
 testWithTypedArrayConstructors(function(TA) {
   // Make it interesting - use non-zero byteOffsets and non-zero indexes.
@@ -51,7 +51,7 @@ testWithTypedArrayConstructors(function(TA) {
     Atomics.store(view, Idx, 37);
     assert.sameValue(Atomics.load(view, Idx), 37, 'Atomics.load(view, Idx) returns 37');
   });
-}, views);
+}, views, ["passthrough"]);
 
 function ToInteger(v) {
   v = +v;

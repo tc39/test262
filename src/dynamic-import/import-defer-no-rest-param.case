@@ -1,0 +1,18 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: ImportCall is not extensible - no rest parameter
+template: syntax/invalid
+info: |
+  ImportCall :
+      import . defer ( AssignmentExpression[+In, ?Yield] )
+
+  This production doesn't allow the following production from ArgumentsList:
+
+  ... AssignmentExpression
+features: [import-defer]
+---*/
+
+//- import
+import.defer(...['./empty_FIXTURE.js'])

@@ -8,14 +8,27 @@ features: [Temporal]
 includes: [temporalHelpers.js]
 ---*/
 
-const timeZone = new Temporal.TimeZone("UTC");
+const timeZone = "UTC";
 const instance = new Temporal.ZonedDateTime(0n, timeZone);
 
 const validStrings = [
   "1970-01-01T00Z[UTC]",
   "1970-01-01T00Z[!UTC]",
+  "1970-01-01T00+00[UTC]",
   "1970-01-01T00+00:00[UTC]",
+  "1970-01-01T00+00:00:00,0[UTC]",
+  "1970-01-01T00+00:00:00.000000000[UTC]",
+  "1970-01-01T00+0000[UTC]",
+  "1970-01-01T00+000000,0[UTC]",
+  "1970-01-01T00+000000.000000000[UTC]",
   "1970-01-01T00+00:00[!UTC]",
+  "1970-01-01T00-00[UTC]",
+  "1970-01-01T00-00:00[UTC]",
+  "1970-01-01T00-00:00:00,0[UTC]",
+  "1970-01-01T00-00:00:00.000000000[UTC]",
+  "1970-01-01T00-0000[UTC]",
+  "1970-01-01T00-000000,0[UTC]",
+  "1970-01-01T00-000000.000000000[UTC]",
 ];
 
 for (const arg of validStrings) {

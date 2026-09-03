@@ -10,9 +10,6 @@ features: [Temporal]
 
 const expected = [
   "get other.calendar",
-  "has other.calendar.calendar",
-  "get other.calendar.fields",
-  "call other.calendar.fields",
   // PrepareTemporalFields
   "get other.day",
   "get other.day.valueOf",
@@ -48,29 +45,6 @@ const expected = [
   "get other.year",
   "get other.year.valueOf",
   "call other.year.valueOf",
-  "has other.timeZone.timeZone",
-  // InterpretTemporalDateTimeFields
-  "get other.calendar.dateFromFields",
-  "call other.calendar.dateFromFields",
-  // InterpretISODateTimeOffset
-  "get other.timeZone.getPossibleInstantsFor",
-  "call other.timeZone.getPossibleInstantsFor",
-  "get other.timeZone.getOffsetNanosecondsFor",
-  "call other.timeZone.getOffsetNanosecondsFor",
-  // TimeZoneEquals
-  "get this.timeZone[Symbol.toPrimitive]",
-  "get this.timeZone.toString",
-  "call this.timeZone.toString",
-  "get other.timeZone[Symbol.toPrimitive]",
-  "get other.timeZone.toString",
-  "call other.timeZone.toString",
-  // CalendarEquals
-  "get this.calendar[Symbol.toPrimitive]",
-  "get this.calendar.toString",
-  "call this.calendar.toString",
-  "get other.calendar[Symbol.toPrimitive]",
-  "get other.calendar.toString",
-  "call other.calendar.toString",
 ];
 const actual = [];
 
@@ -86,18 +60,11 @@ const other = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "other.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "other.timeZone"),
-}, "other");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "other", ["calendar", "timeZone"]);
 
-const instance = new Temporal.ZonedDateTime(
-  988786472_987_654_321n,  /* 2001-05-02T06:54:32.987654321Z */
-  TemporalHelpers.timeZoneObserver(actual, "this.timeZone"),
-  TemporalHelpers.calendarObserver(actual, "this.calendar"),
-);
-// clear any observable operations that happen due to time zone or calendar
-// calls on the constructor
-actual.splice(0);
+const instance = new Temporal.ZonedDateTime(988786472_987_654_321n,  /* 2001-05-02T06:54:32.987654321Z */ "UTC");
 
 instance.equals(other);
 assert.compareArray(actual, expected, "order of operations");

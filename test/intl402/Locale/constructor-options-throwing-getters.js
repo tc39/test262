@@ -4,7 +4,8 @@
 /*---
 esid: sec-Intl.Locale
 description: Checks the propagation of exceptions from the options for the Locale constructor.
-features: [Intl.Locale]
+features: [Intl.Locale, Intl.Locale-info]
+locale: [en]
 ---*/
 
 function CustomError() {}
@@ -13,8 +14,10 @@ const options = [
   "language",
   "script",
   "region",
+  "variants",
   "calendar",
   "collation",
+  "firstDayOfWeek",
   "hourCycle",
   "caseFirst",
   "numeric",

@@ -10,9 +10,6 @@ features: [Temporal]
 
 const expected = [
   "get one.calendar",
-  "has one.calendar.calendar",
-  "get one.calendar.fields",
-  "call one.calendar.fields",
   // PrepareTemporalFields
   "get one.day",
   "get one.day.valueOf",
@@ -48,20 +45,8 @@ const expected = [
   "get one.year",
   "get one.year.valueOf",
   "call one.year.valueOf",
-  "has one.timeZone.timeZone",
-  // InterpretTemporalDateTimeFields
-  "get one.calendar.dateFromFields",
-  "call one.calendar.dateFromFields",
-  // InterpretISODateTimeOffset
-  "get one.timeZone.getPossibleInstantsFor",
-  "call one.timeZone.getPossibleInstantsFor",
-  "get one.timeZone.getOffsetNanosecondsFor",
-  "call one.timeZone.getOffsetNanosecondsFor",
   // Same set of operations, for the other argument:
   "get two.calendar",
-  "has two.calendar.calendar",
-  "get two.calendar.fields",
-  "call two.calendar.fields",
   // PrepareTemporalFields
   "get two.day",
   "get two.day.valueOf",
@@ -97,15 +82,6 @@ const expected = [
   "get two.year",
   "get two.year.valueOf",
   "call two.year.valueOf",
-  "has two.timeZone.timeZone",
-  // InterpretTemporalDateTimeFields
-  "get two.calendar.dateFromFields",
-  "call two.calendar.dateFromFields",
-  // InterpretISODateTimeOffset
-  "get two.timeZone.getPossibleInstantsFor",
-  "call two.timeZone.getPossibleInstantsFor",
-  "get two.timeZone.getOffsetNanosecondsFor",
-  "call two.timeZone.getOffsetNanosecondsFor",
 ];
 const actual = [];
 
@@ -121,9 +97,9 @@ const one = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 654,
   nanosecond: 321,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "one.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "one.timeZone"),
-}, "one");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "one", ["calendar", "timeZone"]);
 
 const two = TemporalHelpers.propertyBagObserver(actual, {
   year: 2014,
@@ -137,9 +113,9 @@ const two = TemporalHelpers.propertyBagObserver(actual, {
   microsecond: 456,
   nanosecond: 789,
   offset: "+00:00",
-  calendar: TemporalHelpers.calendarObserver(actual, "two.calendar"),
-  timeZone: TemporalHelpers.timeZoneObserver(actual, "two.timeZone"),
-}, "two");
+  calendar: "iso8601",
+  timeZone: "UTC",
+}, "two", ["calendar", "timeZone"]);
 
 Temporal.ZonedDateTime.compare(one, two);
 assert.compareArray(actual, expected, "order of operations");

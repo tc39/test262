@@ -13,13 +13,13 @@ info: |
     ...
   10. Let A be ? TypedArraySpeciesCreate(O, « captured »).
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, Symbol.species, TypedArray]
 ---*/
 
-testWithBigIntTypedArrayConstructors(function(TA) {
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var length = 42;
-  var sample = new TA(length);
+  var sample = new TA(makeCtorArg(length));
   var calls = 0;
   var before = false;
 

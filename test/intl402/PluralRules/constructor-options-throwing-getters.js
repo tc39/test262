@@ -2,8 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializepluralrules
-description: Checks the propagation of exceptions from the options for the NumberFormat constructor.
+esid: sec-intl.pluralrules
+description: >
+  Checks the propagation of exceptions from the options for the PluralRules
+  constructor.
+locale: [en]
 ---*/
 
 function CustomError() {}
@@ -11,11 +14,17 @@ function CustomError() {}
 const options = [
   "localeMatcher",
   "type",
+  "notation",
+  "compactDisplay",
   "minimumIntegerDigits",
   "minimumFractionDigits",
   "maximumFractionDigits",
   "minimumSignificantDigits",
   "maximumSignificantDigits",
+  "roundingIncrement",
+  "roundingMode",
+  "roundingPriority",
+  "trailingZeroDisplay",
 ];
 
 for (const option of options) {

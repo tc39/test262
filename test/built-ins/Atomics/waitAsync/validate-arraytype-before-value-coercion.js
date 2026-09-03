@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-atomics.notify
+esid: sec-atomics.waitasync
 description: >
   TypedArray type is validated before `value` argument is coerced.
 info: |
@@ -27,6 +27,7 @@ info: |
   9. If IsSharedArrayBuffer(buffer) is false, throw a TypeError exception.
   10. Return buffer.
 
+includes: [testTypedArray.js]
 features: [Atomics.waitAsync, Atomics, TypedArray, SharedArrayBuffer]
 ---*/
 assert.sameValue(typeof Atomics.waitAsync, 'function', 'The value of `typeof Atomics.waitAsync` is "function"');
@@ -37,10 +38,7 @@ const value = {
   }
 };
 
-const nonSharedArrayTypes = [
-  Int8Array, Uint8Array, Int16Array, Uint16Array, Uint32Array,
-  Uint8ClampedArray, Float32Array, Float64Array
-];
+var nonSharedArrayTypes = typedArrayConstructors.filter(function(TA) { return TA !== Int32Array; });
 
 for (const nonSharedArrayType of nonSharedArrayTypes) {
   const typedArray = new nonSharedArrayType(new SharedArrayBuffer(8));

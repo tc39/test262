@@ -2,19 +2,19 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-initializedatetimeformat
+esid: sec-createdatetimeformat
 description: >
     Conflicting properties of dateStyle/timeStyle must be rejected with a TypeError for the options argument to the DateTimeFormat constructor.
 info: |
-    InitializeDateTimeFormat ( dateTimeFormat, locales, options )
+  CreateDateTimeFormat ( newTarget, locales, options, required, defaults )
 
-    ...
-    36. If dateStyle is not undefined or timeStyle is not undefined, then
-      a. For each row in Table 4, except the header row, do
-        i. Let prop be the name given in the Property column of the row.
-        ii. Let p be opt.[[<prop>]].
-        iii. If p is not undefined, then
-          1. Throw a TypeError exception.
+  1. If _dateStyle_ is not *undefined* or _timeStyle_ is not *undefined*, then
+    1. If _hasExplicitFormatComponents_ is *true*, then
+      1. Throw a *TypeError* exception.
+    1. If _required_ is ~date~ and _timeStyle_ is not *undefined*, then
+      1. Throw a *TypeError* exception.
+    1. If _required_ is ~time~ and _dateStyle_ is not *undefined*, then
+      1. Throw a *TypeError* exception.
 ---*/
 
 

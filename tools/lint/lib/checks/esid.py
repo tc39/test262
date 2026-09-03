@@ -13,7 +13,8 @@ class CheckEsid(Check):
         # https://url.spec.whatwg.org/#fragment-state
         # However, that must also include "%"
         self.esidRegex = re.compile(
-            u"^[a-z0-9!$%&'()*+,\-./:;=?@_~\u00a0-\U0010fffd]+$", re.IGNORECASE
+            u"^[a-z0-9!$%&'()*+,\\-./:;=?@_~\u00a0-\U0010fffd]+$",
+            re.IGNORECASE
         )
 
     def run(self, name, meta, source):

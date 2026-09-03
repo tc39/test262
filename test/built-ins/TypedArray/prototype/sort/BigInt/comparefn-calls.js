@@ -14,7 +14,7 @@ info: |
     a. Let v be ? Call(comparefn, undefined, « x, y »).
     ...
   ...
-includes: [testBigIntTypedArray.js]
+includes: [testTypedArray.js]
 features: [BigInt, TypedArray]
 ---*/
 
@@ -22,8 +22,8 @@ var expectedThis = (function() {
   return this;
 })();
 
-testWithBigIntTypedArrayConstructors(function(TA) {
-  var sample = new TA([42n, 42n, 42n, 42n, 42n]);
+testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
+  var sample = new TA(makeCtorArg([42n, 42n, 42n, 42n, 42n]));
   var calls = [];
 
   var comparefn = function() {
@@ -39,4 +39,4 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     assert.sameValue(args[1][0], 42n, "x is a listed value");
     assert.sameValue(args[1][0], 42n, "y is a listed value");
   });
-});
+}, null, null, ["immutable"]);

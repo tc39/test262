@@ -8,12 +8,10 @@ features: [BigInt, Temporal]
 ---*/
 
 function test(timeZoneIdentifier, expectedOffsetString, description) {
-  const timeZone = new Temporal.TimeZone(timeZoneIdentifier);
-  const datetime = new Temporal.ZonedDateTime(0n, timeZone);
+  const datetime = new Temporal.ZonedDateTime(0n, timeZoneIdentifier);
   assert.sameValue(datetime.offset, expectedOffsetString, description);
 }
 
 test("UTC", "+00:00", "offset of UTC is +00:00");
 test("+01:00", "+01:00", "positive offset");
 test("-05:00", "-05:00", "negative offset");
-test("+00:44:59.123456789", "+00:44:59.123456789", "sub-minute offset is not rounded");

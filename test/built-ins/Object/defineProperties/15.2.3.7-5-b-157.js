@@ -12,7 +12,7 @@ includes: [propertyHelper.js]
 
 var obj = {};
 
-var descObj = new Date();
+var descObj = new Date(0);
 
 descObj.writable = false;
 
@@ -20,5 +20,6 @@ Object.defineProperties(obj, {
   property: descObj
 });
 
-assert(obj.hasOwnProperty("property"));
-verifyNotWritable(obj, "property");
+verifyProperty(obj, "property", {
+  writable: false,
+});

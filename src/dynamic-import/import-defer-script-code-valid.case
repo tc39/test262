@@ -1,0 +1,11 @@
+// Copyright (C) 2025 Igalia, S.L. All rights reserved.
+// Copyright (C) 2018 Leo Balter. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: import.defer() can be used in script code
+template: syntax/valid
+features: [import-defer]
+---*/
+
+//- import
+import.defer('./empty_FIXTURE.js')
