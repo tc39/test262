@@ -1,0 +1,22 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Accessor decorator cannot return invalid setter
+template: accessors/error/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec() {
+  return {
+    set: 123
+  };
+}
+
+//- application
+@dec
+
+//- error
+TypeError
