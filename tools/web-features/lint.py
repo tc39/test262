@@ -39,8 +39,7 @@ def get_filenames(path_spec):
             yield path_spec
         elif os.path.isdir(path_spec):
             for root, _, files in os.walk(path_spec):
-                test_files = filter(file_is_test, files)
-                yield from [os.path.join(root, file) for file in test_files]
+                yield from [os.path.join(root, file) for file in files]
         else:
             raise AssertionError(f'No such file/directory: "{path_spec}"')
         return
@@ -81,7 +80,7 @@ def get_filenames_from_path_specs(path_specs):
             assert used, f'Pathspec used at least once: "{path_spec}"'
         else:
             filenames.update(get_filenames(path_spec))
-    return filenames
+    return filter(file_is_test, filenames)
 
 def match(file_path, tag_specs):
     tags = read_features(file_path)
