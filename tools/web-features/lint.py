@@ -65,7 +65,7 @@ def get_filenames(path_spec):
 
     assert matched, f'At least one matching file for "{path_spec}"'
 
-def get_filenames_from_path_specs(path_specs):
+def get_test_filenames_from_path_specs(path_specs):
     filenames = set()
     for path_spec in path_specs:
         if path_spec.startswith('!'):
@@ -106,7 +106,7 @@ def main(web_features_filename, manifest_filename):
 
         manifest['data'][name] = [*filter(
             lambda candidate: match(candidate, tag_specs),
-            get_filenames_from_path_specs(path_specs)
+            get_test_filenames_from_path_specs(path_specs)
         )]
 
     if manifest_filename:
