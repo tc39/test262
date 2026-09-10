@@ -1,0 +1,25 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Can replace a decorated setter with a new setter
+template: setters/standard/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(set, context) {
+  return function (v) {
+    assert.sameValue(v, 456);
+    set.call(this, 789);
+  };
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), 123);
+classOrInstance.setElement(456);
+assert.sameValue(classOrInstance.getElement(), 789);

@@ -1,0 +1,18 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/class/
+name: decorator usage in a class declaration
+features: [class]
+esid: prod-ClassDeclaration
+---*/
+
+/*{ decorators }*/
+
+/*{ application }*/
+class C {
+  /*{ elements }*/
+}
+
+/*{ assertions }*/

@@ -1,0 +1,30 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Accessor decorator can return a new init that chains with default initializer
+template: accessors/with-init/**/*
+features: [decorators]
+---*/
+
+//- initializer
+123
+
+//- decorators
+function dec({ get, set }) {
+  return {
+    init(value) {
+      assert.sameValue(value, 123);
+      return 456;
+    }
+  };
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), 456);
+classOrInstance.setElement(789);
+assert.sameValue(classOrInstance.getElement(), 789);
