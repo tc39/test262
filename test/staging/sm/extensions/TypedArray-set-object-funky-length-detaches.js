@@ -4,6 +4,7 @@
  */
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   %TypedArray%.prototype.set(object w/funky length property, offset) shouldn't misbehave if the funky length property detaches this typed array's buffer
 info: bugzilla.mozilla.org/show_bug.cgi?id=991981
@@ -32,7 +33,7 @@ ctors.forEach(function(TypedArray) {
         9: 0,
         get length()
         {
-          $262.detachArrayBuffer(buf);
+          $DETACHBUFFER(buf);
           return 10;
         }
       };

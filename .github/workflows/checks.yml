@@ -1,8 +1,10 @@
 name: Checks
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   lint:
@@ -10,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
           cache: pip
@@ -30,7 +32,7 @@ jobs:
       - name: Identify new or changed tests
         id: changed_tests
         if: github.event_name == 'pull_request'
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v47.0.6
         with:
           files: test/
 
@@ -59,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Create stable copy of linting tools
         run: |
@@ -75,7 +77,7 @@ jobs:
           ./tools/web-features-stable/lint.py --manifest WEB_FEATURES-manifest-pr.json
 
       - name: Checkout base branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
           # The `clean` option must be unset in order to retain the first
@@ -92,7 +94,7 @@ jobs:
       # Checking out the original branch ensures that if the patch under review
       # modified `check-coverage.py` itself, that modified version is used.
       - name: Checkout original branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # The `clean` option must be unset in order to retain the manifest
           # files.
@@ -112,10 +114,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
           cache: pip
@@ -149,7 +151,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install test262-harness
         run: npm install

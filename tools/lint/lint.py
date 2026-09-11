@@ -76,6 +76,10 @@ def checks(features):
 
 def lint(file_names, features):
     errors = dict()
+    # The checks are stateless with respect to the files they inspect, so they
+    # are created once and reused for every file (some read data files during
+    # construction, which is expensive to repeat).
+    all_checks = checks(features)
 
     for file_name in file_names:
         if not file_name.endswith((".js", ".json")):
@@ -84,7 +88,7 @@ def lint(file_names, features):
         with open(file_name, 'r') as f:
             content = f.read()
         meta = lib.frontmatter.parse(content)
-        for check in checks(features):
+        for check in all_checks:
             error = check.run(file_name, meta, content)
 
             if error is not None:

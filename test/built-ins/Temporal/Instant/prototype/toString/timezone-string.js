@@ -10,7 +10,7 @@ features: [Temporal]
 const instance = new Temporal.Instant(0n);
 
 const result1 = instance.toString({ timeZone: "UTC" });
-assert.sameValue(result1.substr(-6), "+00:00", "Time zone created from string 'UTC'");
+assert.sameValue(result1.slice(-6), "+00:00", "Time zone created from string 'UTC'");
 
 const result2 = instance.toString({ timeZone: "-01:30" });
-assert.sameValue(result2.substr(-6), "-01:30", "Time zone created from string '-01:30'");
+assert.sameValue(result2.slice(-6), "-01:30", "Time zone created from string '-01:30'");

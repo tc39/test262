@@ -1,22 +1,17 @@
 import re
 import yaml
 
+try:
+    # The libyaml-backed parser is roughly an order of magnitude faster than
+    # the pure-Python one, but it is not available in every environment.
+    from yaml import CSafeLoader as Loader
+except ImportError:
+    from yaml import SafeLoader as Loader
+
 class Result(dict):
     def __init__(self, meta, events):
         self.parsing_events = events
         super(Result, self).__init__(**meta)
-
-class MyLoader(yaml.SafeLoader):
-    events = None
-
-    def __init__(self, *args, **kwargs):
-        MyLoader.events = []
-        super(MyLoader, self).__init__(*args, **kwargs)
-
-    def get_event(self):
-        event = super(MyLoader, self).get_event()
-        MyLoader.events.append(event)
-        return event
 
 def parse(src):
     '''Parse the YAML-formatted metadata found in a given string of source
@@ -27,8 +22,13 @@ def parse(src):
     if not match:
         return None
 
+    # NB: Call strip() to match parseTestRecord.
+    attrs = match.group(1).strip()
+
     try:
-        # NB: Call strip() to match parseTestRecord.
-        return Result(yaml.load(match.group(1).strip(), MyLoader), MyLoader.events)
+        # The event stream takes a second pass, since the
+        # libyaml parser cannot be instrumented from Python.
+        events = list(yaml.parse(attrs, Loader=Loader))
+        return Result(yaml.load(attrs, Loader), events)
     except (yaml.scanner.ScannerError, yaml.parser.ParserError):
         return None

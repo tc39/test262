@@ -25,7 +25,9 @@ class CheckFrontmatter(Check):
         for parsing_event in meta.parsing_events:
             if not isinstance(parsing_event, yaml.ScalarEvent):
                 continue
-            if parsing_event.style is not None:
+            # The pure-Python parser reports plain scalars with a style of
+            # `None`; the libyaml parser uses the empty string.
+            if parsing_event.style:
                 continue
             if parsing_event.start_mark.line != parsing_event.end_mark.line:
                 return 'YAML multiline scalar values in flow notation are disallowed (use "|" or ">")'

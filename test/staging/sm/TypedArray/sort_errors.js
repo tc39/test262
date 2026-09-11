@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   pending
 esid: pending
@@ -11,7 +12,7 @@ esid: pending
 assert.throws(TypeError, () => {
     let buffer = new ArrayBuffer(32);
     let array  = new Int32Array(buffer);
-    $262.detachArrayBuffer(buffer);
+    $DETACHBUFFER(buffer);
     array.sort();
 });
 
@@ -22,7 +23,7 @@ assert.throws(TypeError, () => {
     ta.sort(function(a, b) {
         if (!detached) {
             detached = true;
-            $262.detachArrayBuffer(ta.buffer);
+            $DETACHBUFFER(ta.buffer);
         }
         return a - b;
     });
@@ -46,7 +47,7 @@ let otherGlobal = $262.createRealm().global;
     otherGlobal.Int32Array.prototype.sort.call(ta, function(a,b) {
         if (!detached) {
             detached = true;
-            $262.detachArrayBuffer(ta.buffer);
+            $DETACHBUFFER(ta.buffer);
         }
         return a - b;
     });

@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
@@ -25,7 +25,7 @@ jobs:
       - name: download esmeta
         run: |
           mkdir -p "${ESMETA_HOME}"
-          git clone --branch v0.7.1 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
+          git clone --branch v0.8.0 --depth 1 https://github.com/es-meta/esmeta.git "${ESMETA_HOME}"
           cd "${ESMETA_HOME}" && git submodule update --init --depth 1
       - name: build esmeta
         working-directory: ${{ env.ESMETA_HOME }}
@@ -33,7 +33,7 @@ jobs:
 
       - name: Identify new or changed tests
         id: changed_tests
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v47.0.6
         with:
           files: test/
 

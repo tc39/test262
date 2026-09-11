@@ -1,0 +1,85 @@
+name: Engine tests
+
+on:
+  pull_request:
+
+jobs:
+  changed-tests:
+    name: Prepare engine tests run
+    runs-on: ubuntu-latest
+    outputs:
+      any_changed: ${{ steps.changed.outputs.any_changed }}
+      all_changed_files: ${{ steps.changed.outputs.all_changed_files }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Identify new or changed tests
+        id: changed
+        uses: tj-actions/changed-files@v47.0.6
+        with:
+          files: test/
+
+      - name: Record PR number
+        run: echo "${{ github.event.number }}" > pr_number.txt
+
+      - name: Upload PR number
+        uses: actions/upload-artifact@v7
+        with:
+          path: pr_number.txt
+          archive: false
+
+  # Future work:
+  # - Run each step of the matrix on main as well, and indicate in the table
+  #   whether a test moved from passing to failing or vice versa
+  # - Integrate ESMeta in this table
+  engine-tests:
+    name: ${{ matrix.engine.key }}
+    needs: changed-tests
+    if: needs.changed-tests.outputs.any_changed == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        engine:
+          - { key: 'V8', hostType: 'v8', bin: 'v8', hostArgs: '--harmony' }
+          - { key: 'SpiderMonkey', hostType: 'spidermonkey', bin: 'sm' }
+          - { key: 'JavaScriptCore', hostType: 'jsc', bin: 'jsc', hostArgs: '--enable-all-experimental-features' }
+          - { key: 'XS', hostType: 'xs', bin: 'xs' }
+          - { key: 'Engine262', hostType: 'engine262', bin: 'engine262', hostArgs: '--features=all' }
+          - { key: 'GraalJS', hostType: 'graaljs', bin: 'graaljs', hostArgs: '--js.ecmascript-version=staging' }
+          - { key: 'QuickJS', hostType: 'qjs', bin: 'quickjs-run-test262' }
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install engine
+        run: ./node_modules/.bin/esvu install ${{ matrix.engine.hostType }}
+
+      - name: Run changed tests
+        run: |
+          hostPath="$HOME/.esvu/bin/${{ matrix.engine.bin }}"
+          ./node_modules/.bin/test262-harness \
+            -t 1 \
+            --hostType="${{ matrix.engine.hostType }}" \
+            --hostPath="$hostPath" \
+            --hostArgs="${{ matrix.engine.hostArgs }}" \
+            --reporter json \
+            -- ${{ needs.changed-tests.outputs.all_changed_files }} \
+            > "results-${{ matrix.engine.key }}.json"
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          path: results-${{ matrix.engine.key }}.json
+          if-no-files-found: ignore
+          archive: false
