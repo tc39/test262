@@ -1,0 +1,25 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: Escaped contextual keywords as instance and static field names
+template: default
+includes: [compareArray.js]
+features: [class-fields-public, class-static-fields-public]
+---*/
+
+//- elements
+\u0067et;
+\u0073et;
+\u0073tatic;
+\u0061sync;
+static \u0067et;
+static \u0073et;
+static \u0073tatic;
+static \u0061sync;
+//- assertions
+var c = new C();
+assert.compareArray(Object.keys(c), ["get", "set", "static", "async"]);
+assert.compareArray(Object.keys(C), ["get", "set", "static", "async"]);
+assert.compareArray([c.get, c.set, c.static, c.async], [undefined, undefined, undefined, undefined]);
+assert.compareArray([C.get, C.set, C.static, C.async], [undefined, undefined, undefined, undefined]);
