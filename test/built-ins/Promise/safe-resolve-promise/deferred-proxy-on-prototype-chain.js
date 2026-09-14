@@ -18,7 +18,7 @@ info: |
     9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
-features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy]
+features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy, Reflect, rest-parameters]
 ---*/
 
 var actual = [];
@@ -26,12 +26,14 @@ var actual = [];
 // The Proxy is the immediate prototype, and further up the chain behind
 // ordinary objects.
 function makeValue(label, depth) {
-  var proxyProto = new Proxy({}, {
-    get: function(target, key, receiver) {
-      actual.push("get:" + String(key) + " " + label);
-      return Reflect.get(target, key, receiver);
+  var proxyProto = new Proxy({}, new Proxy({}, {
+    get: function(_, trap) {
+      return function(...args) {
+        actual.push((trap === "get" ? "get:" + String(args[1]) : trap) + " " + label);
+        return Reflect[trap](...args);
+      };
     },
-  });
+  }));
 
   var value = proxyProto;
   for (var i = 0; i < depth; i += 1) {

@@ -22,7 +22,7 @@ info: |
          _thenAction_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
-features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy]
+features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy, Reflect, rest-parameters]
 ---*/
 
 var expected = [
@@ -41,20 +41,21 @@ var expected = [
 
 var actual = [];
 
-// "then" is the only property read from the resolution, so any other lookup
-// shows up in the comparison below as an unexpected entry.
-var value = new Proxy({}, {
-  get: function(target, key) {
-    actual.push("get:" + String(key));
-    if (key !== "then") {
-      return undefined;
-    }
-    return function(resolve) {
-      actual.push("call then");
-      resolve("from the trap");
+// Record every trap, including descriptor and prototype inspection.
+var value = new Proxy({}, new Proxy({}, {
+  get: function(_, trap) {
+    return function(...args) {
+      actual.push(trap === "get" ? "get:" + String(args[1]) : trap);
+      if (trap === "get" && args[1] === "then") {
+        return function(resolve) {
+          actual.push("call then");
+          resolve("from the trap");
+        };
+      }
+      return Reflect[trap](...args);
     };
   },
-});
+}));
 
 asyncTest(function() {
   var ruler = Promise.resolve(0)
