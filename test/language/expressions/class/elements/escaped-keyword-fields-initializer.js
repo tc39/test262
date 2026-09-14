@@ -15,14 +15,16 @@ var C = class {
   \u{73}et = 2;
   \u{73}tatic = 3;
   \u{61}sync = 4;
+  \u{61}ccessor = 5;
   static \u{67}et = 1;
   static \u{73}et = 2;
   static \u{73}tatic = 3;
   static \u{61}sync = 4;
+  static \u{61}ccessor = 5;
 }
 
 var c = new C();
-assert.compareArray(Object.keys(c), ["get", "set", "static", "async"]);
-assert.compareArray(Object.keys(C), ["get", "set", "static", "async"]);
-assert.compareArray([c.get, c.set, c.static, c.async], [1, 2, 3, 4]);
-assert.compareArray([C.get, C.set, C.static, C.async], [1, 2, 3, 4]);
+assert.compareArray(Object.keys(c), ["get", "set", "static", "async", "accessor"]);
+assert.compareArray(Object.keys(C), ["get", "set", "static", "async", "accessor"]);
+assert.compareArray([c.get, c.set, c.static, c.async, c.accessor], [1, 2, 3, 4, 5]);
+assert.compareArray([C.get, C.set, C.static, C.async, C.accessor], [1, 2, 3, 4, 5]);
