@@ -2,9 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+includes: [detachArrayBuffer.js]
 description: |
   pending
 esid: pending
+features: [Atomics]
 ---*/
 
 const intArrayConstructors = [
@@ -19,7 +21,7 @@ const intArrayConstructors = [
 function badValue(ta) {
   return {
     valueOf() {
-      $262.detachArrayBuffer(ta.buffer);
+      $DETACHBUFFER(ta.buffer);
       return 0;
     }
   };
@@ -96,4 +98,3 @@ for (let TA of intArrayConstructors) {
   assert.throws(TypeError, () => Atomics.xor(ta, badValue(ta), 0));
   assert.throws(TypeError, () => Atomics.xor(ta, 0, badValue(ta)));
 }
-

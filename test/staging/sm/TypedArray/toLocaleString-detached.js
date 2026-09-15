@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [sm/non262-TypedArray-shell.js]
+includes: [sm/non262-TypedArray-shell.js, detachArrayBuffer.js]
 description: |
   pending
 esid: pending
@@ -15,7 +15,7 @@ const separator = ["", ""].toLocaleString();
 // Throws if array buffer is detached.
 for (let constructor of typedArrayConstructors) {
     let typedArray = new constructor(42);
-    $262.detachArrayBuffer(typedArray.buffer);
+    $DETACHBUFFER(typedArray.buffer);
     assert.throws(TypeError, () => typedArray.toLocaleString());
 }
 
@@ -24,7 +24,7 @@ for (let constructor of typedArrayConstructors) {
     Number.prototype.toLocaleString = function() {
         "use strict";
         if (!detached) {
-            $262.detachArrayBuffer(typedArray.buffer);
+            $DETACHBUFFER(typedArray.buffer);
             detached = true;
         }
         return this;
