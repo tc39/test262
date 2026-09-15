@@ -3,6 +3,7 @@
 
 /*---
 es5id: 6.2.4
+esid: sec-defaultlocale
 description: >
     Tests that the default locale is a String value representing the
     structurally valid and canonicalized BCP 47 language tag.
