@@ -435,5 +435,5 @@ The `locale` attribute allows tests to declare explicit information regarding lo
 
   var ar = new Intl.PluralRules('ar');
   assert.sameValue(ar.select(1), 'one', 'ar.select(1) returns "one"');
-  assert.sameValue(ar.select(2), 'other', 'ar.select(2) returns "two"');
+  assert.sameValue(ar.select(2), 'two', 'ar.select(2) returns "two"');
   ```
