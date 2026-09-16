@@ -59,7 +59,7 @@ asyncTest(function() {
     var value = { then: entry[1] };
 
     var capability = Promise.withResolvers();
-    $262.safeResolvePromise(capability.promise, value);
+    $262.safeResolvePromise(capability, value);
 
     checks.push(capability.promise.then(function(settledValue) {
       actual.push("settled then: " + label);

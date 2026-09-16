@@ -27,7 +27,7 @@ asyncTest(function() {
   // A thenable resolution, raced by both resolving functions.
   var thenCallCount = 0;
   var raced = Promise.withResolvers();
-  $262.safeResolvePromise(raced.promise, {
+  $262.safeResolvePromise(raced, {
     then: function(resolve) {
       thenCallCount += 1;
       resolve("from the thenable");
@@ -47,7 +47,7 @@ asyncTest(function() {
 
   // A thenable resolution, raced by reject alone.
   var rejected = Promise.withResolvers();
-  $262.safeResolvePromise(rejected.promise, {
+  $262.safeResolvePromise(rejected, {
     then: function(resolve) {
       resolve("still fulfilled");
     },
@@ -65,7 +65,7 @@ asyncTest(function() {
   // A deferred resolution which is not a thenable at all.
   var proxy = new Proxy({}, {});
   var nonThenable = Promise.withResolvers();
-  $262.safeResolvePromise(nonThenable.promise, proxy);
+  $262.safeResolvePromise(nonThenable, proxy);
   nonThenable.resolve("racing resolve");
 
   var nonThenableCheck = nonThenable.promise.then(function(settledValue) {

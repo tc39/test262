@@ -17,7 +17,7 @@ asyncTest(function() {
     var capability = Promise.withResolvers();
     var thenCallCount = 0;
 
-    $262.safeResolvePromise(capability.promise, {
+    $262.safeResolvePromise(capability, {
       then: function(resolve, reject) {
         thenCallCount += 1;
         resolve(inner.promise);

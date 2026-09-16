@@ -56,7 +56,7 @@ asyncTest(function() {
     var value = new Proxy(entry[1], {});
 
     var capability = Promise.withResolvers();
-    $262.safeResolvePromise(capability.promise, value);
+    $262.safeResolvePromise(capability, value);
 
     checks.push(capability.promise.then(function(settledValue) {
       actual.push("settled " + label);

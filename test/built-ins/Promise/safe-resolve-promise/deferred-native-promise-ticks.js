@@ -60,7 +60,7 @@ asyncTest(function() {
     });
 
   var safe = Promise.withResolvers();
-  $262.safeResolvePromise(safe.promise, Promise.resolve("inner"));
+  $262.safeResolvePromise(safe, Promise.resolve("inner"));
   var safeSettled = safe.promise.then(function(settledValue) {
     actual.push("settled safe");
     assert.sameValue(settledValue, "inner", "fulfilled with the inner promise's value");

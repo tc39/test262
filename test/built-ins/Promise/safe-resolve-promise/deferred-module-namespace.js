@@ -47,7 +47,7 @@ asyncTest(function() {
   assert.sameValue(ns.then, undefined, "the fixture module does not export \"then\"");
 
   var capability = Promise.withResolvers();
-  $262.safeResolvePromise(capability.promise, ns);
+  $262.safeResolvePromise(capability, ns);
   actual.push("start");
 
   var settled = capability.promise.then(function(settledValue) {

@@ -62,7 +62,7 @@ asyncTest(function() {
     configurable: true,
   });
 
-  $262.safeResolvePromise(capability.promise, capability.promise);
+  $262.safeResolvePromise(capability, capability.promise);
   actual.push("start");
 
   // "then" is shadowed on the promise, so reactions must be attached through

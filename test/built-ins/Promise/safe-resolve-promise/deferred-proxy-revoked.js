@@ -49,7 +49,7 @@ asyncTest(function() {
 
   var capability = Promise.withResolvers();
 
-  $262.safeResolvePromise(capability.promise, revocable.proxy);
+  $262.safeResolvePromise(capability, revocable.proxy);
   actual.push("start");
 
   var settled = capability.promise.then(

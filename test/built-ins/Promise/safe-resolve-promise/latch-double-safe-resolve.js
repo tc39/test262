@@ -21,12 +21,12 @@ asyncTest(function() {
   var secondThenCallCount = 0;
 
   var deferred = Promise.withResolvers();
-  $262.safeResolvePromise(deferred.promise, {
+  $262.safeResolvePromise(deferred, {
     then: function(resolve) {
       resolve("first");
     },
   });
-  $262.safeResolvePromise(deferred.promise, {
+  $262.safeResolvePromise(deferred, {
     then: function(resolve) {
       secondThenCallCount += 1;
       resolve("second");
@@ -44,12 +44,12 @@ asyncTest(function() {
 
   // A deferred resolution followed by one which would be synchronous.
   var mixed = Promise.withResolvers();
-  $262.safeResolvePromise(mixed.promise, {
+  $262.safeResolvePromise(mixed, {
     then: function(resolve) {
       resolve("deferred first");
     },
   });
-  $262.safeResolvePromise(mixed.promise, "synchronous second");
+  $262.safeResolvePromise(mixed, "synchronous second");
 
   var mixedCheck = mixed.promise.then(function(settledValue) {
     assert.sameValue(

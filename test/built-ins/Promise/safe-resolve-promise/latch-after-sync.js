@@ -20,7 +20,7 @@ features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]
 asyncTest(function() {
   var capability = Promise.withResolvers();
 
-  $262.safeResolvePromise(capability.promise, "first");
+  $262.safeResolvePromise(capability, "first");
   capability.resolve("racing resolve");
   capability.reject("racing reject");
 

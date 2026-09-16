@@ -53,7 +53,7 @@ asyncTest(function() {
   var capability = Promise.withResolvers();
 
   // SafePromiseResolve must not throw.
-  $262.safeResolvePromise(capability.promise, capability.promise);
+  $262.safeResolvePromise(capability, capability.promise);
   actual.push("start");
 
   var settled = capability.promise.then(

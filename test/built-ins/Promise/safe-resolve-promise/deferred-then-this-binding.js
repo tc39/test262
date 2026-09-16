@@ -34,7 +34,7 @@ var value = {
 
 asyncTest(function() {
   var capability = Promise.withResolvers();
-  $262.safeResolvePromise(capability.promise, value);
+  $262.safeResolvePromise(capability, value);
 
   return capability.promise.then(function(settledValue) {
     assert.sameValue(settledValue, "done", "promise is fulfilled with the resolved value");

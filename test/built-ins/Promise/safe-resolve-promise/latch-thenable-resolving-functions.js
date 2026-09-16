@@ -37,7 +37,7 @@ features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]
 asyncTest(function() {
   // resolve then reject: the rejection is ignored.
   var resolveFirst = Promise.withResolvers();
-  $262.safeResolvePromise(resolveFirst.promise, {
+  $262.safeResolvePromise(resolveFirst, {
     then: function(resolve, reject) {
       resolve("resolved first");
       reject(new Error("must be ignored"));
@@ -59,7 +59,7 @@ asyncTest(function() {
   // reject then resolve: the resolution is ignored.
   var rejectReason = new Error("rejected first");
   var rejectFirst = Promise.withResolvers();
-  $262.safeResolvePromise(rejectFirst.promise, {
+  $262.safeResolvePromise(rejectFirst, {
     then: function(resolve, reject) {
       reject(rejectReason);
       resolve("must be ignored");
@@ -81,7 +81,7 @@ asyncTest(function() {
   // resolve then throw: PerformPromiseResolveThenable step 4 calls the spent
   // reject function, which is a no-op.
   var resolveThenThrow = Promise.withResolvers();
-  $262.safeResolvePromise(resolveThenThrow.promise, {
+  $262.safeResolvePromise(resolveThenThrow, {
     then: function(resolve) {
       resolve("resolved before throwing");
       throw new Error("must be ignored");

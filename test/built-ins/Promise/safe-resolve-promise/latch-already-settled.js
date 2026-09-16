@@ -32,7 +32,7 @@ asyncTest(function() {
   // Already fulfilled.
   var fulfilled = Promise.withResolvers();
   fulfilled.resolve("fulfilled first");
-  $262.safeResolvePromise(fulfilled.promise, thenable);
+  $262.safeResolvePromise(fulfilled, thenable);
 
   var fulfilledCheck = fulfilled.promise.then(function(settledValue) {
     assert.sameValue(
@@ -46,7 +46,7 @@ asyncTest(function() {
   var reason = new Error("rejected first");
   var rejected = Promise.withResolvers();
   rejected.reject(reason);
-  $262.safeResolvePromise(rejected.promise, thenable);
+  $262.safeResolvePromise(rejected, thenable);
 
   var rejectedCheck = rejected.promise.then(
     function() {
