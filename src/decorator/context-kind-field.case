@@ -1,0 +1,17 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: Context kind is the string "field" when decorating a field
+template: fields/standard/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(_, context) {
+  assert.sameValue(context.kind, "field");
+}
+
+//- application
+@dec

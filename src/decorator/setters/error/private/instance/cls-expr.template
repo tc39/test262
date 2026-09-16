@@ -1,0 +1,21 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/setter/error/private/instance/
+name: private setter decorator evaluation error in class expression
+features: [class, decorators, class-methods-private]
+esid: prod-MethodDefinition
+---*/
+
+/*{ decorators }*/
+
+function evaluate() {
+  var C = class {
+    /*{ application }*/
+    set #element(value) {}
+  }
+}
+
+assert.throws(/*{ error }*/, evaluate);
+
