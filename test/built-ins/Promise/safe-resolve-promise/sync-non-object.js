@@ -6,16 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     SafePromiseResolve fulfills synchronously when the resolution is not an
     Object.
-info: |
-    RequiresDeferredPromiseResolution ( value )
-
-    1. If _value_ is not an Object, return *false*.
-
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    1. If RequiresDeferredPromiseResolution(_resolution_) is *false*, then
-      a. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-         « _resolution_ »).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Symbol, BigInt]

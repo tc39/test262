@@ -6,17 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     SafePromiseResolve defers the call to a callable "then" inherited from the
     prototype chain.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    8. If _proto_ is *null*, return *false*.
-    9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
-
-    RequiresDeferredPromiseResolution ( value )
-
-    3. Let _thenValue_ be ! _value_.[[Get]](*"then"*).
-    4. If IsCallable(_thenValue_) is *true*, return *true*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

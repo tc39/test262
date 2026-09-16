@@ -6,13 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     SafePromiseResolve defers resolution when the resolution has an own "then"
     getter, and the getter runs in the deferred job.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    6. If _desc_ is not *undefined*, then
-      a. If IsAccessorDescriptor(_desc_) is *true*, then
-        i. If _kind_ is either ~any~ or ~get~, and _desc_.[[Get]] is not
-           *undefined*, return *true*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

@@ -6,17 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     SafePromiseResolve fulfills synchronously when a non-callable "then" data
     property is inherited from the prototype chain.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    5. Let _desc_ be ! _o_.[[GetOwnProperty]](_propertyKey_).
-    6. If _desc_ is not *undefined*, then
-      a. If IsAccessorDescriptor(_desc_) is *true*, then
-        ...
-      b. Return *false*.
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    8. If _proto_ is *null*, return *false*.
-    9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

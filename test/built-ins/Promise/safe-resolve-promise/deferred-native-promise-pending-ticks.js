@@ -6,13 +6,6 @@ esid: sec-perform-promise-resolution
 description: >
     Resolving with a still-pending native promise via SafePromiseResolve takes
     the same number of microtasks as an ordinary resolution.
-info: |
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    9. If _thenCallTiming_ is ~deferred~, then
-      a. Perform ! PerformPromiseResolveThenable(_promise_, _resolution_,
-         _thenAction_).
-      b. Return ~unused~.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

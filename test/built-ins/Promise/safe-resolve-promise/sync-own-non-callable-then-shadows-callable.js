@@ -6,14 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     SafePromiseResolve fulfills synchronously when an own non-callable "then"
     data property shadows a callable "then" on the prototype chain.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    5. Let _desc_ be ! _o_.[[GetOwnProperty]](_propertyKey_).
-    6. If _desc_ is not *undefined*, then
-      a. If IsAccessorDescriptor(_desc_) is *true*, then
-        ...
-      b. Return *false*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

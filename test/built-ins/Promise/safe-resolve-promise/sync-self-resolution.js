@@ -6,22 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     Resolving a promise with itself through SafePromiseResolve rejects it
     synchronously when the promise does not look thenable.
-info: |
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    1. If RequiresDeferredPromiseResolution(_resolution_) is *false*, then
-      a. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-         « _resolution_ »).
-
-    CreateResolvingFunctions ( toResolve ), resolve steps
-
-    4. Perform ? PerformPromiseResolution(_promise_, _resolution_, ~sync~).
-
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    2. If SameValue(_resolution_, _promise_) is *true*, then
-      a. Let _selfResolutionError_ be a newly created *TypeError* object.
-      b. Perform RejectPromise(_promise_, _selfResolutionError_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

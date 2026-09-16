@@ -5,11 +5,6 @@
 esid: sec-safe-promise-resolve
 description: >
     SafePromiseResolve defers the call to an own callable "then" data property.
-info: |
-    RequiresDeferredPromiseResolution ( value )
-
-    3. Let _thenValue_ be ! _value_.[[Get]](*"then"*).
-    4. If IsCallable(_thenValue_) is *true*, return *true*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

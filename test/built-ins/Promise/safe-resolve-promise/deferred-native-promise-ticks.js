@@ -6,17 +6,6 @@ esid: sec-perform-promise-resolution
 description: >
     Resolving with an already-fulfilled native promise via SafePromiseResolve
     takes the same number of microtasks as an ordinary resolution.
-info: |
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    9. If _thenCallTiming_ is ~deferred~, then
-      a. Perform ! PerformPromiseResolveThenable(_promise_, _resolution_,
-         _thenAction_).
-      b. Return ~unused~.
-    10. Let _thenJobCallback_ be HostMakeJobCallback(_thenAction_).
-    11. Let _job_ be NewPromiseResolveThenableJob(_promise_, _resolution_,
-        _thenJobCallback_).
-    12. Perform HostEnqueuePromiseJob(_job_.[[Job]], _job_.[[Realm]]).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

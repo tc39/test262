@@ -6,12 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     A promise resolved through the synchronous path of SafePromiseResolve is
     latched: later calls to its resolving functions are no-ops.
-info: |
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    1. If RequiresDeferredPromiseResolution(_resolution_) is *false*, then
-      a. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-         « _resolution_ »).
 includes: [asyncHelpers.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

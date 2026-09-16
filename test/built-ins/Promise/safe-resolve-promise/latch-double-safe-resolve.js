@@ -6,11 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     A second call to SafePromiseResolve on the same promise is a no-op; the
     first resolution wins.
-info: |
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    7. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-       « _wrapper_ »).
 includes: [asyncHelpers.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

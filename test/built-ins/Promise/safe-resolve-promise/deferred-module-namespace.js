@@ -6,11 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     SafePromiseResolve defers resolution when the resolution is a module
     namespace exotic object.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    3. If _o_ has the [[GetPrototypeOf]] and [[GetOwnProperty]] internal methods
-       as defined in Module Namespace Exotic Objects, return *true*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [module, async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

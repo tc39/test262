@@ -6,21 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     SafePromiseResolve fulfills synchronously when the resolution is an ordinary
     object with no "then" property anywhere on its prototype chain.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    5. Let _desc_ be ! _o_.[[GetOwnProperty]](_propertyKey_).
-    6. If _desc_ is not *undefined*, then
-      ...
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    8. If _proto_ is *null*, return *false*.
-    9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
-
-    RequiresDeferredPromiseResolution ( value )
-
-    3. Let _thenValue_ be ! _value_.[[Get]](*"then"*).
-    4. If IsCallable(_thenValue_) is *true*, return *true*.
-    5. Return *false*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

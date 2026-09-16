@@ -6,14 +6,6 @@ esid: sec-perform-promise-resolution
 description: >
     Deleting the callable "then" after SafePromiseResolve returns, but before
     the deferred job runs, fulfills the promise with the resolution itself.
-info: |
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    4. Let _then_ be Completion(Get(_resolution_, *"then"*)).
-    ...
-    8. If IsCallable(_thenAction_) is *false*, then
-      a. Perform FulfillPromise(_promise_, _resolution_).
-      b. Return ~unused~.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

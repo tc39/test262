@@ -6,12 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     A callable "then" on Object.prototype defers resolution of an ordinary
     object.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    8. If _proto_ is *null*, return *false*.
-    9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

@@ -6,19 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     SafePromiseResolve fulfills synchronously when a "then" accessor with a
     setter but no getter is inherited from the prototype chain.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    6. If _desc_ is not *undefined*, then
-      a. If IsAccessorDescriptor(_desc_) is *true*, then
-        i. If _kind_ is either ~any~ or ~get~, and _desc_.[[Get]] is not
-           *undefined*, return *true*.
-        ii. If _kind_ is either ~any~ or ~set~, and _desc_.[[Set]] is not
-            *undefined*, return *true*.
-      b. Return *false*.
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    ...
-    9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

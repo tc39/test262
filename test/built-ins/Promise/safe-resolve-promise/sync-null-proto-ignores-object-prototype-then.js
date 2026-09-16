@@ -6,11 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     An object with a null prototype resolves synchronously even when
     Object.prototype has a callable "then".
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    8. If _proto_ is *null*, return *false*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

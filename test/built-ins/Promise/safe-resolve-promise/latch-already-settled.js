@@ -6,15 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     SafePromiseResolve is a no-op on a promise whose resolving functions have
     already been used.
-info: |
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    1. If RequiresDeferredPromiseResolution(_resolution_) is *false*, then
-      a. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-         « _resolution_ »).
-    ...
-    7. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-       « _wrapper_ »).
 includes: [asyncHelpers.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

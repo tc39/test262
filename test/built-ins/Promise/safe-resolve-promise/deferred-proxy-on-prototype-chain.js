@@ -6,16 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     SafePromiseResolve defers resolution when an ordinary object has a Proxy on
     its prototype chain.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    2. If _o_ has the [[GetPrototypeOf]] and [[GetOwnProperty]] internal methods
-       as defined in Proxy Object Internal Methods and Internal Slots, return
-       *true*.
-    ...
-    7. Let _proto_ be _o_.[[GetPrototypeOf]]().
-    8. If _proto_ is *null*, return *false*.
-    9. Return PropertyAccessCouldRunUserCode(_proto_, _propertyKey_, _kind_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy, Reflect, rest-parameters]

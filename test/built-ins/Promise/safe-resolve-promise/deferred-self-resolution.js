@@ -6,18 +6,6 @@ esid: sec-perform-promise-resolution
 description: >
     Resolving a promise with itself through SafePromiseResolve rejects it with a
     TypeError from the deferred job.
-info: |
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    2. If SameValue(_resolution_, _promise_) is *true*, then
-      a. Let _selfResolutionError_ be a newly created *TypeError* object.
-      b. Perform RejectPromise(_promise_, _selfResolutionError_).
-      c. Return ~unused~.
-
-    RequiresDeferredPromiseResolution ( value )
-
-    3. Let _thenValue_ be ! _value_.[[Get]](*"then"*).
-    4. If IsCallable(_thenValue_) is *true*, return *true*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

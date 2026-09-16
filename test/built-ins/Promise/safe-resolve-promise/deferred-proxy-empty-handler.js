@@ -6,12 +6,6 @@ esid: sec-has-property-which-could-run-user-code
 description: >
     SafePromiseResolve defers resolution when the resolution is a Proxy exotic
     object, even when its handler defines no traps.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    2. If _o_ has the [[GetPrototypeOf]] and [[GetOwnProperty]] internal methods
-       as defined in Proxy Object Internal Methods and Internal Slots, return
-       *true*.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy]

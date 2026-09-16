@@ -6,18 +6,6 @@ esid: sec-perform-promise-resolution
 description: >
     Resolving with a revoked Proxy rejects the promise from the deferred job,
     without SafePromiseResolve throwing.
-info: |
-    PropertyAccessCouldRunUserCode ( o, propertyKey, kind )
-
-    2. If _o_ has the [[GetPrototypeOf]] and [[GetOwnProperty]] internal methods
-       as defined in Proxy Object Internal Methods and Internal Slots, return
-       *true*.
-
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    4. Let _then_ be Completion(Get(_resolution_, *"then"*)).
-    5. If _then_ is an abrupt completion, then
-      a. Perform RejectPromise(_promise_, _then_.[[Value]]).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy]

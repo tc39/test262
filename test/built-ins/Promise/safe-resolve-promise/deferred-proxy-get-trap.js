@@ -6,20 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     A Proxy "get" trap returning a callable "then" is invoked from the deferred
     job, not from SafePromiseResolve itself.
-info: |
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    3. Let _deferredSteps_ be a new Abstract Closure that captures _promise_ and
-       _resolution_ and performs the following steps when called:
-      a. Perform ? PerformPromiseResolution(_promise_, _resolution_, ~deferred~).
-
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    4. Let _then_ be Completion(Get(_resolution_, *"then"*)).
-    ...
-    9. If _thenCallTiming_ is ~deferred~, then
-      a. Perform ! PerformPromiseResolveThenable(_promise_, _resolution_,
-         _thenAction_).
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy, Reflect, rest-parameters]

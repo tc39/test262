@@ -6,13 +6,6 @@ esid: sec-perform-promise-resolution
 description: >
     A throwing "then" getter rejects the promise from the deferred job, without
     SafePromiseResolve throwing.
-info: |
-    PerformPromiseResolution ( promise, resolution, thenCallTiming )
-
-    4. Let _then_ be Completion(Get(_resolution_, *"then"*)).
-    5. If _then_ is an abrupt completion, then
-      a. Perform RejectPromise(_promise_, _then_.[[Value]]).
-      b. Return ~unused~.
 includes: [asyncHelpers.js, compareArray.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]

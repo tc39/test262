@@ -6,14 +6,6 @@ esid: sec-safe-promise-resolve
 description: >
     A promise whose resolution was deferred is already latched on return from
     SafePromiseResolve: later calls to its resolving functions are no-ops.
-info: |
-    SafePromiseResolve ( promiseCapability, resolution )
-
-    ...
-    5. Let _wrapper_ be OrdinaryObjectCreate(*null*).
-    6. Perform ! CreateDataPropertyOrThrow(_wrapper_, *"then"*, _deferredThen_).
-    7. Return ? Call(_promiseCapability_.[[Resolve]], *undefined*,
-       « _wrapper_ »).
 includes: [asyncHelpers.js]
 flags: [async]
 features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy]
