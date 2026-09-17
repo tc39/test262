@@ -361,9 +361,11 @@ following strings:
   In the event of a passing test run, this function will be invoked with the
   string `'Test262:AsyncTestComplete'`. If invoked with a string that is
   prefixed with the character sequence `Test262:AsyncTestFailure:`, the test
-  must be interpreted as failed. The implementation is free to select an
-  appropriate length of time to wait before considering the test "timed out"
-  and failing.
+  must be interpreted as failed. If the `print` function is invoked with both
+  `'Test262:AsyncTestComplete'` and a string prefixed with
+  `'Test262:AsyncTestFailure:'`, the test must be interpreted as failed.
+  The implementation is free to select an appropriate length of time to wait
+  before considering the test "timed out" and failing.
 
   *Example*
 
