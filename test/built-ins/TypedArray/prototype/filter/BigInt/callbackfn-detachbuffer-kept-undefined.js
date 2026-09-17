@@ -22,7 +22,8 @@ testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
         assert.sameValue(value, 1n);
         $DETACHBUFFER(sample.buffer);
       } else {
-        assert.sameValue(value, undefined, "Missing elements are passed to the callback");
+        assert.sameValue(value, undefined,
+          "callback element is undefined for index " + index);
       }
       calls++;
       return true;

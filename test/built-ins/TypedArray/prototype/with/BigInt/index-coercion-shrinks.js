@@ -31,6 +31,5 @@ testWithBigIntTypedArrayConstructors(function(TA) {
     sample.with(index, 9n);
   });
   assert.sameValue(calls, 1, "index is coerced once");
-  assert.sameValue(sample.length, 1);
-  assert.sameValue(sample[0], 1n);
+  assert.compareArray(sample, [1n]);
 }, null, ["passthrough"]);

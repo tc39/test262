@@ -26,7 +26,8 @@ testWithTypedArrayConstructors(function(TA, makeCtorArg) {
       assert.sameValue(value, 0);
       $DETACHBUFFER(sample.buffer);
     } else {
-      assert.sameValue(value, undefined, "Missing elements are passed to the callback");
+      assert.sameValue(value, undefined,
+        "callback element is undefined for index " + index);
     }
     loops++;
     return true;
