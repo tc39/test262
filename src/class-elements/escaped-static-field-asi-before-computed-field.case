@@ -1,0 +1,20 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: ASI separates escaped static instance and static fields from following computed fields
+template: default
+includes: [compareArray.js]
+features: [class-fields-public, class-static-fields-public, computed-property-names]
+---*/
+
+//- elements
+stati\u{63}
+["a"] = 1;
+static stati\u{63}
+["b"] = 2;
+//- assertions
+var c = new C();
+assert.compareArray(Object.keys(c), ["static", "a", "b"]);
+assert.compareArray(Object.keys(C), ["static"]);
+assert.compareArray([c.a, c.b], [1, 2]);
