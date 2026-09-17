@@ -29,7 +29,8 @@ testWithBigIntTypedArrayConstructors(function(TA) {
           assert.sameValue(value, 1n);
           buffer.resize(TA.BYTES_PER_ELEMENT);
         } else {
-          assert.sameValue(value, undefined, "Missing elements are passed to the callback");
+          assert.sameValue(value, undefined,
+            "callback element is undefined for index " + index);
         }
         calls++;
         return true;

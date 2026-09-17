@@ -31,6 +31,5 @@ testWithTypedArrayConstructors(function(TA) {
   var converted = isFloatTypedArrayConstructor(TA) ? NaN : 0;
   assert.compareArray(result, [9, converted, converted]);
   assert.sameValue(calls, 1, "value is coerced once");
-  assert.sameValue(sample.length, 1);
-  assert.sameValue(sample[0], 1);
+  assert.compareArray(sample, [1]);
 }, null, ["passthrough"]);
