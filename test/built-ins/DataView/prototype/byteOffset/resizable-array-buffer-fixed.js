@@ -26,7 +26,7 @@ try {
 assert.sameValue(dataView.byteOffset, 1, "following grow");
 
 try {
-  ab.resize(BPE * 3);
+  ab.resize(3);
 } catch (_) {}
 
 assert.sameValue(dataView.byteOffset, 1, "following shrink (within bounds)");
