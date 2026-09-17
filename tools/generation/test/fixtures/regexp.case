@@ -1,0 +1,14 @@
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+template: regexp
+desc: test
+info: case info
+---*/
+
+//- comment
+import("./make sure that a slash in a string doesn't open a regexp literal")
+//- flags
+g
+//- subst
+bar
