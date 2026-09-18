@@ -21,7 +21,7 @@ testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var loops = 0;
   var sample = new TA(makeCtorArg(2));
 
-  var result = sample.filter(function(value) {
+  var result = sample.filter(function(value, index) {
     if (loops === 0) {
       assert.sameValue(value, 0);
       $DETACHBUFFER(sample.buffer);

@@ -22,7 +22,7 @@ testWithBigIntTypedArrayConstructors(function(TA, makeCtorArg) {
   var loops = 0;
   var sample = new TA(makeCtorArg(2));
 
-  var result = sample.filter(function(value) {
+  var result = sample.filter(function(value, index) {
     var flag = true;
     if (loops === 0) {
       assert.sameValue(value, 0n);
