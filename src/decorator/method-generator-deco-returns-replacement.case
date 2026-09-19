@@ -1,0 +1,22 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Can replace a decorated method with a new method
+template: methods/generator/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(value, context) {
+  assert(value() instanceof Iterator, 'value is iterator');
+
+  return () => 456;
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement()(), 456);

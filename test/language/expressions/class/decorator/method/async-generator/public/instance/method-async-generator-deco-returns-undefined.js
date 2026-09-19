@@ -1,0 +1,39 @@
+// This file was procedurally generated from the following sources:
+// - src/decorator/method-async-generator-deco-returns-undefined.case
+// - src/decorator/methods/async-generator/public/instance/cls-expr.template
+/*---
+description: Decorator undefined return defaults to previous value (public async generator method decorator behavior in class expression)
+esid: prod-MethodDefinition
+features: [decorators, async-iteration, class]
+flags: [generated]
+---*/
+
+
+function dec1(value, context) {
+  var iter = value();
+  assert.sameValue(typeof iter.next, 'function');
+  assert.sameValue(typeof iter.return, 'function');
+
+  return () => 456;
+}
+
+function dec2(value, context) {
+  assert.sameValue(value(), 456);
+}
+
+
+var C = class {
+  @dec2 @dec1
+
+  async * element() {
+    return 123;
+  }
+
+  getElement() {
+    return this.element;
+  }
+}
+
+var classOrInstance = new C();
+
+assert.sameValue(classOrInstance.getElement()(), 456);

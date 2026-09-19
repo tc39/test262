@@ -1,0 +1,32 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/setter/public/instance/
+name: public setter decorator behavior in class declaration
+features: [class, decorators]
+esid: prod-MethodDefinition
+---*/
+
+/*{ decorators }*/
+class C {
+  internalValue = 123;
+
+  /*{ application }*/
+  set element(value) {
+    this.internalValue = value;
+  }
+
+  getElement() {
+    return this.internalValue;
+  }
+
+  setElement(value) {
+    this.element = value;
+  }
+}
+
+var classOrInstance = new C();
+
+/*{ assertions }*/
+

@@ -1,0 +1,17 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: Name of the class is correct on the context object
+template: class/standard
+features: [decorators]
+---*/
+
+//- decorators
+function dec(_, context) {
+  assert.sameValue(context.name, "C");
+}
+
+//- application
+@dec
