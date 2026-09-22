@@ -9,17 +9,13 @@ info: |
   CollationsOfLocale ( loc )
   1. If loc.[[Collation]] is not undefined, then
     a. Return CreateArrayFromList(« loc.[[Collation]] »).
-  ...
-  3. If language is not "und", then
-    a. Let r be LookupMatchingLocaleByPrefix(%Intl.Collator%.[[AvailableLocales]], « loc.[[Locale]] »).
-    b. If r is not undefined, then
-      ...
-    c. Else,
-      i. Let foundLocale be DefaultLocale().
-    d. Let foundLocaleData be %Intl.Collator%.[[SortLocaleData]].[[<foundLocale>]].
-  ...
+  2. Let _match_ be LookupMatchingLocaleByPrefix(%Intl.Collator%.[[AvailableLocales]], « _loc_.[[Locale]] »).
+  3. If _match_ is not *undefined*, then
+    ...
+  4. Else,
+    1. Let _list_ be « *"emoji"*, *"eor"* ».
+  5. Let _sorted_ be a copy of _list_, sorted according to lexicographic code unit order.
   6. Return CreateArrayFromList(sorted).
-
 features: [Intl.Locale, Intl.Locale-info]
 ---*/
 
@@ -27,7 +23,7 @@ features: [Intl.Locale, Intl.Locale-info]
 // locale's collations.
 assert.compareArray(
   new Intl.Locale("abcdefgh").getCollations(),
-  new Intl.Locale(new Intl.Collator().resolvedOptions().locale).getCollations(),
+  ["emoji", "eor"],
   `with locale "abcdefgh"`
 );
 
