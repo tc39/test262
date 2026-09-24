@@ -151,8 +151,8 @@ function combineMessages(sloppyMessage, strictMessage) {
 }
 
 function formatFail(message) {
-  if (!message) return '❌';
-  return `[❌](## "${sanitizeTableMarkdown(message)}")`;
+  if (!message) return '➖';
+  return `[➖](## "${sanitizeTableMarkdown(message)}")`;
 }
 
 // https://spec.commonmark.org/0.31.2/#links
