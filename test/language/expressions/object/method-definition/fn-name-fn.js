@@ -16,12 +16,14 @@ features: [Symbol]
 
 var namedSym = Symbol('test262');
 var anonSym = Symbol();
+var registeredSym = Symbol.for('registered');
 var o;
 
 o = {
   id() {},
   [anonSym]() {},
-  [namedSym]() {}
+  [namedSym]() {},
+  [registeredSym]() {}
 };
 
 verifyProperty(o.id, 'name', {
@@ -40,6 +42,13 @@ verifyProperty(o[anonSym], 'name', {
 
 verifyProperty(o[namedSym], 'name', {
   value: '[test262]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
+verifyProperty(o[registeredSym], 'name', {
+  value: '[registered]',
   writable: false,
   enumerable: false,
   configurable: true,
