@@ -13,34 +13,26 @@ info: |
 features: [Intl.Locale, Intl.Locale-info]
 ---*/
 
-const languages = [
-  "und",
-  "en",
-];
+const locales = [
+  "und-u-co",
+  "und-u-co-true",
+  "en-u-co",
+  "en-u-co-true",
+]
 
-const extensions = [
-  "",
-  "true",
-];
+for (let locale of locales) {
+  let loc = new Intl.Locale(locale);
+  let collations = loc.getCollations();
 
-for (let language of languages) {
-  for (let extension of extensions) {
-    let locale = extension
-                 ? `${language}-u-co-${extension}`
-                 : `${language}-u-co`;
-    let loc = new Intl.Locale(locale);
-    let collations = loc.getCollations();
+  assert.sameValue(
+    loc.collation,
+    "",
+    `collation with locale "${locale}"`
+  );
 
-    assert.sameValue(
-      loc.collation,
-      "",
-      `collation with locale "${locale}"`
-    );
-
-    assert.compareArray(
-      collations,
-      [""],
-      `collations with locale "${locale}"`
-    );
-  }
+  assert.compareArray(
+    collations,
+    [""],
+    `collations with locale "${locale}"`
+  );
 }
