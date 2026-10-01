@@ -5,7 +5,7 @@
 author: Mathias Bynens
 esid: prod-PrivateIdentifier
 description: |
-  Test that Unicode v17.0.0 ID_Continue characters are accepted as
+  Test that Unicode v18.0.0 ID_Continue characters are accepted as
   identifier part characters in escaped form, i.e.
   - \uXXXX or \u{XXXX} for BMP symbols
   - \u{XXXXXX} for astral symbols
@@ -16,6 +16,6 @@ features: [class, class-fields-private]
 ---*/
 
 class _ {
-  #_\u1ACF\u1AD0\u1AD1\u1AD2\u1AD3\u1AD4\u1AD5\u1AD6\u1AD7\u1AD8\u1AD9\u1ADA\u1ADB\u1ADC\u1ADD\u1AE0\u1AE1\u1AE2\u1AE3\u1AE4\u1AE5\u1AE6\u1AE7\u1AE8\u1AE9\u1AEA\u1AEB\u{10EFA}\u{10EFB}\u{11B60}\u{11B61}\u{11B62}\u{11B63}\u{11B64}\u{11B65}\u{11B66}\u{11B67}\u{11DE0}\u{11DE1}\u{11DE2}\u{11DE3}\u{11DE4}\u{11DE5}\u{11DE6}\u{11DE7}\u{11DE8}\u{11DE9}\u{1E6E3}\u{1E6E6}\u{1E6EE}\u{1E6EF}\u{1E6F5};
+  #_\u05C8\u05C9\u0B53\u0B54\u1ADE\u1ADF\u1AEC\u1AED\u1AEE\u1AEF\u1AF0\u{10ECB}\u{10ECC}\u{10ECD}\u{10ECE}\u{10ECF}\u{10EF0}\u{10EF1}\u{10EF2}\u{10EF3}\u{10EF4}\u{10EF5}\u{10EF6}\u{10EF7}\u{10EF8}\u{10EF9}\u{11DF0}\u{1D127}\u{1D128}\u{1D250}\u{1D251}\u{1D252}\u{1D25B}\u{1D25C}\u{1D25F}\u{1D280}\u{1D281};
 
 };
