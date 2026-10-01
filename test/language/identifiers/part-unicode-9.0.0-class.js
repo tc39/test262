@@ -1,4 +1,4 @@
-// Copyright 2024 Mathias Bynens. All rights reserved.
+// Copyright 2026 Mathias Bynens. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -14,4 +14,5 @@ features: [class, class-fields-private]
 
 class _ {
   #_ࣔࣕࣖࣗࣘࣙࣚࣛࣜࣝࣞࣟ࣠࣡᷻ꣅ𑈾𑐵𑐶𑐷𑐸𑐹𑐺𑐻𑐼𑐽𑐾𑐿𑑀𑑁𑑂𑑃𑑄𑑅𑑆𑑐𑑑𑑒𑑓𑑔𑑕𑑖𑑗𑑘𑑙𑰯𑰰𑰱𑰲𑰳𑰴𑰵𑰶𑰸𑰹𑰺𑰻𑰼𑰽𑰾𑰿𑱐𑱑𑱒𑱓𑱔𑱕𑱖𑱗𑱘𑱙𑲒𑲓𑲔𑲕𑲖𑲗𑲘𑲙𑲚𑲛𑲜𑲝𑲞𑲟𑲠𑲡𑲢𑲣𑲤𑲥𑲦𑲧𑲩𑲪𑲫𑲬𑲭𑲮𑲯𑲰𑲱𑲲𑲳𑲴𑲵𑲶𞥊𞀀𞀁𞀂𞀃𞀄𞀅𞀆𞀈𞀉𞀊𞀋𞀌𞀍𞀎𞀏𞀐𞀑𞀒𞀓𞀔𞀕𞀖𞀗𞀘𞀛𞀜𞀝𞀞𞀟𞀠𞀡𞀣𞀤𞀦𞀧𞀨𞀩𞀪𞥄𞥅𞥆𞥇𞥈𞥉𞥐𞥑𞥒𞥓𞥔𞥕𞥖𞥗𞥘𞥙;
+
 };

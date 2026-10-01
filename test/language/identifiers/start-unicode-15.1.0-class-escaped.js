@@ -1,4 +1,4 @@
-// Copyright 2024 Mathias Bynens. All rights reserved.
+// Copyright 2026 Mathias Bynens. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -638,4 +638,5 @@ class _ {
   #\u{2EE5B};
   #\u{2EE5C};
   #\u{2EE5D};
+
 };
