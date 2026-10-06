@@ -9,7 +9,7 @@ info: |
   NumberingSystemsOfLocale ( loc )
   1. If loc.[[NumberingSystem]] is not undefined, then
     a. Return CreateArrayFromList(« loc.[[NumberingSystem]] »).
-  2. Let maatch be LookupMatchingLocaleByPrefix(%Intl.NumberFormat%.[[AvailableLocales]], « loc.[[Locale]] »).
+  2. Let match be LookupMatchingLocaleByPrefix(%Intl.NumberFormat%.[[AvailableLocales]], « loc.[[Locale]] »).
   3. If match is not undefined, then
     ...
   4. Else,
