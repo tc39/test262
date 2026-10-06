@@ -9,8 +9,8 @@ info: |
   NumberingSystemsOfLocale ( loc )
   1. If loc.[[NumberingSystem]] is not undefined, then
     a. Return CreateArrayFromList(« loc.[[NumberingSystem]] »).
-  2. Let r be LookupMatchingLocaleByPrefix(%Intl.NumberFormat%.[[AvailableLocales]], « loc.[[Locale]] »).
-  3. If r is not undefined, then
+  2. Let maatch be LookupMatchingLocaleByPrefix(%Intl.NumberFormat%.[[AvailableLocales]], « loc.[[Locale]] »).
+  3. If match is not undefined, then
     ...
   4. Else,
     a. Let list be « "latn" ».
