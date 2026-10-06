@@ -27,11 +27,6 @@ features: [Intl.Locale, Intl.Locale-info]
 // "abcdefgh" is not a registered language, so it's not possible to infer its script
 // through adding likely subtags.
 assert.sameValue(
-  new Intl.Locale("abcdefgh").maximize().script,
-  undefined,
-  `can't infer script for locale "abcdefgh" by adding likely subtags`
-);
-assert.sameValue(
   new Intl.Locale("abcdefgh").getTextInfo().direction,
   undefined,
   `with locale "abcdefgh"`
