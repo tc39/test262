@@ -13,34 +13,26 @@ info: |
 features: [Intl.Locale, Intl.Locale-info]
 ---*/
 
-const languages = [
-  "und",
-  "en",
+const locales = [
+  "und-u-nu",
+  "und-u-nu-true",
+  "en-u-nu",
+  "en-u-nu-true",
 ];
 
-const extensions = [
-  "",
-  "true",
-];
+for (let locale of locales) {
+  let loc = new Intl.Locale(locale);
+  let numberingSystems = loc.getNumberingSystems();
 
-for (let language of languages) {
-  for (let extension of extensions) {
-    let locale = extension
-                 ? `${language}-u-nu-${extension}`
-                 : `${language}-u-nu`;
-    let loc = new Intl.Locale(locale);
-    let numberingSystems = loc.getNumberingSystems();
+  assert.sameValue(
+    loc.numberingSystem,
+    "",
+    `numberingSystem with locale "${locale}"`
+  );
 
-    assert.sameValue(
-      loc.numberingSystem,
-      "",
-      `numberingSystem with locale "${locale}"`
-    );
-
-    assert.compareArray(
-      numberingSystems,
-      [""],
-      `numberingSystems with locale "${locale}"`
-    );
-  }
+  assert.compareArray(
+    numberingSystems,
+    [""],
+    `numberingSystems with locale "${locale}"`
+  );
 }
