@@ -17,5 +17,5 @@ features: [Intl.Locale,Intl.Locale-info]
 ---*/
 
 var numberingSystems = new Intl.Locale('en').getNumberingSystems();
-assert(Array.isArray(numberingSystems));
+assert.sameValue(Object.getPrototypeOf(numberingSystems), Array.prototype);
 assert.sameValue(numberingSystems.length, 1, 'array has exactly one element');
