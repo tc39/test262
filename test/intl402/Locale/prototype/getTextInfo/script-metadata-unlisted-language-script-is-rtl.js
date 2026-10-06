@@ -20,19 +20,11 @@ features: [Intl.Locale, Intl.Locale-info]
 ---*/
 
 // Arabic, spoken-only content.
-//
+var arDir = new Intl.Locale("ar-Zxxx").getTextInfo().direction;
 // Allow absent data, returning undefined, but reject "ltr".
-assert.notSameValue(
-  new Intl.Locale("ar-Zxxx").getTextInfo().direction,
-  "ltr",
-  `with locale "ar-Zxxx"`
-);
+assert(arDir === "rtl" || arDir === undefined, "with locale 'ar-Zxxx'");
 
 // Urdu, with script Arabic (Nastaliq variant).
-//
+var urDir = new Intl.Locale("ur-Aran").getTextInfo().direction;
 // Allow absent data, returning undefined, but reject "ltr".
-assert.notSameValue(
-  new Intl.Locale("ur-Aran").getTextInfo().direction,
-  "ltr",
-  `with locale "ur-Aran"`
-);
+assert(urDir === "rtl" || urDir === undefined, "with locale 'ur-Aran'");
