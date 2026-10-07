@@ -1,0 +1,18 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/class/error/
+name: class decorator evaluation error in class declaration
+features: [class, decorators]
+esid: prod-ClassDeclaration
+---*/
+
+/*{ decorators }*/
+
+function evaluate() {
+  /*{ application }*/
+  class C {}
+}
+
+assert.throws(/*{ error }*/, evaluate);
