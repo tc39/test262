@@ -1,0 +1,45 @@
+// Copyright (C) 2026 Alistair Smith. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+description: >
+    Resolving with a thenable whose `then` method throws before settling the
+    promise, from within the executor function
+esid: sec-newpromiseresolvethenablejob
+info: |
+    NewPromiseResolveThenableJob ( promiseToResolve, thenable, then )
+
+    1. Let job be a new Job Abstract Closure with no parameters that captures
+       promiseToResolve, thenable, and then and performs the following steps
+       when called:
+      a. Let resolvingFuncs be CreateResolvingFunctions(promiseToResolve).
+      b. Let thenCallResult be Completion(HostCallJobCallback(then, thenable,
+         « resolvingFuncs.[[Resolve]], resolvingFuncs.[[Reject]] »)).
+      c. If thenCallResult is an abrupt completion, then
+        i. Return ? Call(resolvingFuncs.[[Reject]], undefined,
+           « thenCallResult.[[Value]] »).
+      d. Return ! thenCallResult.
+flags: [async]
+includes: [asyncHelpers.js]
+---*/
+
+var returnValue = null;
+var value = {};
+var thenable = {
+  then: function() {
+    throw value;
+  }
+};
+
+var promise = new Promise(function(resolve) {
+  returnValue = resolve(thenable);
+});
+
+assert.sameValue(returnValue, undefined, '"resolve" return value');
+
+asyncTest(function() {
+  return promise.then(function() {
+    throw new Test262Error('The promise should not be fulfilled.');
+  }, function(val) {
+    assert.sameValue(val, value, 'The promise should be rejected with the thrown value.');
+  });
+});
