@@ -1,0 +1,16 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: ASI after an escaped set field at the end of a class body
+template: default
+includes: [compareArray.js]
+features: [class-fields-public]
+---*/
+
+//- elements
+se\u0074
+//- assertions
+var c = new C();
+assert.compareArray(Object.keys(c), ["set"]);
+assert.compareArray(Object.keys(C), []);
