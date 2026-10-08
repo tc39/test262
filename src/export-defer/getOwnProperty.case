@@ -1,0 +1,19 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-getownproperty-p
+desc: _ [[GetOwnProperty]]
+info: |
+  [[GetOwnProperty]] ( _P_ )
+    1. If _P_ is a Symbol, return OrdinaryGetOwnProperty(_O_, _P_).
+    1. Let _exports_ be _O_.[[Exports]].
+    1. If _exports_ does not contain _P_, return *undefined*.
+    1. Let value be ? _O_.[[Get]](_P_, _O_).
+    1. Return PropertyDescriptor { [[Value]]: _value_, [[Writable]]: *true*, [[Enumerable]]: *true*, [[Configurable]]: *false* }.
+
+template: trigger-on-exported
+---*/
+
+//- body
+Object.getOwnPropertyDescriptor(ns, key);
