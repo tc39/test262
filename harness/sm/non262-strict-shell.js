@@ -15,7 +15,7 @@ defines: [completesNormally, raisesException, testLenientAndStrict, parsesSucces
    */
   globalThis.completesNormally = function completesNormally(code) {
     try {
-      eval(code);
+      Function('code', 'eval(code)')(code);
       return true;
     } catch (exception) {
       return false;
@@ -31,7 +31,7 @@ defines: [completesNormally, raisesException, testLenientAndStrict, parsesSucces
   globalThis.raisesException = function raisesException(exception) {
     return function (code) {
       try {
-        eval(code);
+        Function('code', 'eval(code)')(code);
         return false;
       } catch (actual) {
         return actual instanceof exception;
@@ -48,7 +48,7 @@ defines: [completesNormally, raisesException, testLenientAndStrict, parsesSucces
    * in loose mode, but fails in strict mode.
    */
   global.testLenientAndStrict = function testLenientAndStrict(code, lenient_pred, strict_pred) {
-    return (strict_pred("'use strict'; " + code) && 
+    return (strict_pred("'use strict'; " + code) &&
             lenient_pred(code));
   }
 
@@ -88,7 +88,7 @@ defines: [completesNormally, raisesException, testLenientAndStrict, parsesSucces
   global.returns = function returns(value) {
     return function(code) {
       try {
-        return eval(code) === value;
+        return Function('code', 'return eval(code)')(code) === value;
       } catch (exception) {
         return false;
       }
