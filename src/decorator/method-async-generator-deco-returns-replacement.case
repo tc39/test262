@@ -1,0 +1,24 @@
+// Copyright (C) 2026 Benny Powers. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Can replace a decorated async generator method with a new method
+template: methods/async-generator/**/*
+features: [decorators, async-iteration]
+---*/
+
+//- decorators
+function dec(value, context) {
+  var iter = value();
+  assert.sameValue(typeof iter.next, 'function');
+  assert.sameValue(typeof iter.return, 'function');
+
+  return () => 456;
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement()(), 456);

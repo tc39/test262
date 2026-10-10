@@ -1,0 +1,28 @@
+// Copyright (C) 2026 Benny Powers. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Decorator undefined return defaults to previous value
+template: methods/async-generator/**/*
+features: [decorators, async-iteration]
+---*/
+
+//- decorators
+function dec1(value, context) {
+  var iter = value();
+  assert.sameValue(typeof iter.next, 'function');
+  assert.sameValue(typeof iter.return, 'function');
+
+  return () => 456;
+}
+
+function dec2(value, context) {
+  assert.sameValue(value(), 456);
+}
+
+//- application
+@dec2 @dec1
+
+//- assertions
+assert.sameValue(classOrInstance.getElement()(), 456);
