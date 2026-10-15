@@ -16,7 +16,7 @@ testWithTypedArrayConstructors(function(TA) {
   const view = new TA(buffer);
   testWithAtomicsOutOfBoundsIndices(function(IdxGen) {
     assert.throws(RangeError, function() {
-      Atomics.exchange(view, IdxGen(view), 10, 0);
+      Atomics.exchange(view, IdxGen(view), 10);
     });
   });
 }, views, ["passthrough"]);
