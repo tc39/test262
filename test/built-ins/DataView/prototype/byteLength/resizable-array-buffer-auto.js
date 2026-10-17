@@ -61,3 +61,10 @@ try {
 } catch (_) {}
 
 assert.sameValue(dataView.byteLength, expected, "following shrink (out of bounds)");
+
+try {
+  ab.resize(2);
+  expected = 1;
+} catch (_) {}
+
+assert.sameValue(dataView.byteLength, expected, "following grow (back into bounds)");

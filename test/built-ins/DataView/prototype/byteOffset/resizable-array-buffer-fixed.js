@@ -54,3 +54,10 @@ try {
 }
 
 assert.sameValue(dataView.byteOffset, expected, "following shrink (out of bounds)");
+
+try {
+  ab.resize(3);
+  expected = 1;
+} catch (_) {}
+
+assert.sameValue(dataView.byteOffset, expected, "following grow (back into bounds)");
