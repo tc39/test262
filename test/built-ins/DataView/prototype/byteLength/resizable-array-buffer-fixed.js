@@ -3,8 +3,7 @@
 /*---
 esid: sec-get-dataview.prototype.bytelength
 description: |
-  reset to 0 if the underlying ArrayBuffer is resized beyond the boundary of
-  the fixed-sized DataView instance
+  Returns 0 when the underlying ArrayBuffer shrinks beneath its end offset
 info: |
   get DataView.prototype.byteLength
 
