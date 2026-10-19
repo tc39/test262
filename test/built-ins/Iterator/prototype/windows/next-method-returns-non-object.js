@@ -9,11 +9,14 @@ info: |
 
 features: [iterator-chunking, class]
 ---*/
+
+var returnMethodCalled = false;
 class NonObjectIterator extends Iterator {
   next() {
     return null;
   }
   get return() {
+    returnMethodCalled = true;
     throw new Test262Error();
   }
 }
@@ -23,3 +26,5 @@ let iterator = new NonObjectIterator().windows(1);
 assert.throws(TypeError, function () {
   iterator.next();
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns a non-object");
