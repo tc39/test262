@@ -10,9 +10,15 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+
+var returnMethodCalled = false;
 class ThrowingIterator extends Iterator {
   next() {
     throw new Test262Error();
+  }
+  get return() {
+    returnMethodCalled = true;
+    throw new TypeError();
   }
 }
 
@@ -25,3 +31,5 @@ assert.throws(Test262Error, function () {
 assert.throws(Test262Error, function () {
   iterator.reduce(() => {}, 0);
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method throws");
