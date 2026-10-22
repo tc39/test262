@@ -1,0 +1,22 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Value passed to field decorators is undefined
+templates:
+  - fields/standard
+  - fields/with-init/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(value) {
+  assert.sameValue(value, undefined);
+}
+
+//- initializer
+123
+
+//- application
+@dec

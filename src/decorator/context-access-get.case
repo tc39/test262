@@ -1,0 +1,33 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: Context access `get` works on all gettable types of values
+templates:
+  - accessors/standard/**/*
+  - accessors/with-init/**/*
+  - fields/standard
+  - fields/with-init/**/*
+  - methods/standard/**/*
+  - methods/async
+  - methods/generator
+  - getters/standard
+features: [decorators]
+---*/
+
+//- initializer
+123
+
+//- decorators
+var access;
+
+function dec(_, context) {
+  access = context.access;
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), access.get(classOrInstance));
