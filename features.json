@@ -1,0 +1,764 @@
+{
+	"proposal": [
+	  {
+		"url": "https://github.com/tc39/proposal-intl-locale-info",
+		"name": "Intl.Locale-info",
+		"description": "Intl.Locale Info"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-cleanup-some",
+		"name": "FinalizationRegistry.prototype.cleanupSome",
+		"description": "FinalizationRegistry#cleanupSome"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-intl-numberformat-v3",
+		"name": "Intl.NumberFormat-v3",
+		"description": "Intl.NumberFormat V3"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-regexp-legacy-features",
+		"name": "legacy-regexp",
+		"description": "Legacy RegExp features"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-import-attributes/",
+		"name": "import-attributes",
+		"description": "Import Attributes"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-import-attributes/",
+		"name": "import-assertions",
+		"description": "Import Assertions (Normative Optional, Deprecated). This feature should not be implemented, but if it is it must respect the specified behavior"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-json-modules",
+		"name": "json-modules",
+		"description": "JSON modules"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-temporal",
+		"name": "Temporal",
+		"description": "Temporal"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-realms",
+		"name": "ShadowRealm",
+		"description": "ShadowRealm, née Callable Boundary Realms"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-intl-duration-format",
+		"name": "Intl.DurationFormat",
+		"description": "Intl.DurationFormat"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-decorators",
+		"name": "decorators",
+		"description": "Decorators"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-duplicate-named-capturing-groups",
+		"name": "regexp-duplicate-named-groups",
+		"description": "Duplicate named capturing groups"
+	  },
+	  {
+		"url": "https://tc39.es/proposal-array-from-async/",
+		"name": "Array.fromAsync"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-json-parse-with-source",
+		"name": "json-parse-with-source",
+		"description": "JSON.parse with source"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-regex-escaping",
+		"name": "RegExp.escape",
+		"description": "RegExp.escape"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-regexp-modifiers",
+		"name": "regexp-modifiers",
+		"description": "Regular expression modifiers"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-iterator-helpers",
+		"name": "iterator-helpers",
+		"description": "Iterator Helpers"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-promise-try",
+		"name": "promise-try",
+		"description": "Promise.try"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-explicit-resource-management",
+		"name": "explicit-resource-management",
+		"description": "Explicit Resource Management"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-float16array",
+		"name": "Float16Array",
+		"description": "Float16Array + Math.f16round"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-math-sum",
+		"name": "Math.sumPrecise",
+		"description": "Math.sumPrecise"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-source-phase-imports",
+		"name": "source-phase-imports",
+		"description": "Source Phase Imports"
+	  },
+	  {
+		"name": "source-phase-imports-module-source",
+		"description": " test262 special specifier"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-arraybuffer-base64",
+		"name": "uint8array-base64",
+		"description": "Uint8Array Base64"
+	  },
+	  {
+		"url": "https://github.com/tc39/proposal-atomics-microwait",
+		"name": "Atomics.pause",
+		"description": "Atomics.pause"
+	  }
+	],
+	"std": [
+	  {
+		"name": "AggregateError",
+		"edition": 2021
+	  },
+	  {
+		"name": "align-detached-buffer-semantics-with-web-reality",
+		"url": "https://github.com/tc39/ecma262/pull/2164",
+		"edition": 2023
+	  },
+	  {
+		"name": "arbitrary-module-namespace-names",
+		"edition": 2023,
+		"url": "https://github.com/tc39/ecma262/pull/2154"
+	  },
+	  {
+		"name": "ArrayBuffer",
+		"edition": 2015
+	  },
+	  {
+		"name": "array-find-from-last",
+		"edition": 2022
+	  },
+	  {
+		"name": "Array.prototype.at",
+		"edition": 2022
+	  },
+	  {
+		"name": "Array.prototype.flat",
+		"edition": 2019
+	  },
+	  {
+		"name": "Array.prototype.flatMap",
+		"edition": 2019
+	  },
+	  {
+		"name": "Array.prototype.includes",
+		"edition": 2016
+	  },
+	  {
+		"name": "Array.prototype.values",
+		"edition": 2022
+	  },
+	  {
+		"name": "Atomics.waitAsync",
+		"edition": 2022
+	  },
+	  {
+		"name": "array-grouping",
+		"edition": 2022
+	  },
+	  {
+		"name": "arraybuffer-transfer",
+		"edition": 2022
+	  },
+	  {
+		"name": "arrow-function",
+		"edition": 2015
+	  },
+	  {
+		"name": "async-iteration",
+		"edition": 2018
+	  },
+	  {
+		"name": "async-functions",
+		"edition": 2017
+	  },
+	  {
+		"name": "Atomics",
+		"edition": 2017
+	  },
+	  {
+		"name": "BigInt",
+		"edition": 2020
+	  },
+	  {
+		"name": "caller",
+		"edition": 2015
+	  },
+	  {
+		"name": "change-array-by-copy",
+		"edition": 2022
+	  },
+	  {
+		"name": "class",
+		"edition": 2015
+	  },
+	  {
+		"name": "class-fields-private",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-fields-private-in",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-fields-public",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-methods-private",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-static-block",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-static-fields-private",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-static-fields-public",
+		"edition": 2022
+	  },
+	  {
+		"name": "class-static-methods-private",
+		"edition": 2022
+	  },
+	  {
+		"name": "coalesce-expression",
+		"edition": 2021
+	  },
+	  {
+		"name": "computed-property-names",
+		"edition": 2015
+	  },
+	  {
+		"name": "const",
+		"edition": 2015
+	  },
+	  {
+		"name": "cross-realm",
+		"edition": 2022
+	  },
+	  {
+		"name": "DataView",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getFloat32",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getFloat64",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getInt16",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getInt32",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getInt8",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getUint16",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.getUint32",
+		"edition": 2015
+	  },
+	  {
+		"name": "DataView.prototype.setUint8",
+		"edition": 2015
+	  },
+	  {
+		"name": "default-parameters",
+		"edition": 2015
+	  },
+	  {
+		"name": "destructuring-assignment",
+		"edition": 2018
+	  },
+	  {
+		"name": "destructuring-binding",
+		"edition": 2018
+	  },
+	  {
+		"name": "dynamic-import",
+		"edition": 2020
+	  },
+	  {
+		"name": "error-cause",
+		"edition": 2022
+	  },
+	  {
+		"name": "exponentiation",
+		"edition": 2016
+	  },
+	  {
+		"name": "export-star-as-namespace-from-module",
+		"url": "https://github.com/tc39/ecma262/pull/1174",
+		"edition": 2022
+	  },
+	  {
+		"name": "FinalizationRegistry",
+		"edition": 2020
+	  },
+	  {
+		"name": "for-in-order",
+		"edition": 2022
+	  },
+	  {
+		"name": "for-of",
+		"edition": 2018
+	  },
+	  {
+		"name": "Float32Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Float64Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "generators",
+		"edition": 2015
+	  },
+	  {
+		"name": "globalThis",
+		"edition": 2020
+	  },
+	  {
+		"name": "hashbang",
+		"edition": 2021
+	  },
+	  {
+		"name": "import.meta",
+		"edition": 2016
+	  },
+	  {
+		"name": "Int8Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Int16Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Int32Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Intl-enumeration",
+		"edition": 2023
+	  },
+	  {
+		"name": "intl-normative-optional",
+		"url": "https://tc39.es/ecma402/#legacy-constructor",
+		"edition": 2021
+	  },
+	  {
+		"name": "Intl.DateTimeFormat-datetimestyle",
+		"edition": 2021
+	  },
+	  {
+		"name": "Intl.DateTimeFormat-dayPeriod",
+		"url": "https://github.com/tc39/ecma402/pull/346",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.DateTimeFormat-extend-timezonename",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.DateTimeFormat-formatRange",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.DateTimeFormat-fractionalSecondDigits",
+		"url": "https://github.com/tc39/ecma402/pull/347",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.DisplayNames",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.DisplayNames-v2",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.ListFormat",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.Locale",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.NumberFormat-unified",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.RelativeTimeFormat",
+		"edition": 2022
+	  },
+	  {
+		"name": "Intl.Segmenter",
+		"edition": 2022
+	  },
+	  {
+		"name": "json-superset",
+		"edition": 2020
+	  },
+	  {
+		"name": "let",
+		"edition": 2015
+	  },
+	  {
+		"name": "logical-assignment-operators",
+		"edition": 2021
+	  },
+	  {
+		"name": "Map",
+		"edition": 2015
+	  },
+	  {
+		"name": "new.target",
+		"edition": 2015
+	  },
+	  {
+		"name": "numeric-separator-literal",
+		"edition": 2021
+	  },
+	  {
+		"name": "object-rest",
+		"edition": 2018
+	  },
+	  {
+		"name": "object-spread",
+		"edition": 2018
+	  },
+	  {
+		"name": "Object.fromEntries",
+		"edition": 2020
+	  },
+	  {
+		"name": "Object.hasOwn",
+		"edition": 2022
+	  },
+	  {
+		"name": "Object.is",
+		"edition": 2015
+	  },
+	  {
+		"name": "optional-catch-binding",
+		"edition": 2021
+	  },
+	  {
+		"name": "optional-chaining",
+		"edition": 2020
+	  },
+	  {
+		"name": "Promise",
+		"edition": 2015
+	  },
+	  {
+		"name": "Promise.allSettled",
+		"edition": 2020
+	  },
+	  {
+		"name": "Promise.any",
+		"edition": 2021
+	  },
+	  {
+		"name": "Promise.prototype.finally",
+		"edition": 2020
+	  },
+	  {
+		"name": "promise-with-resolvers",
+		"edition": 2019
+	  },
+	  {
+		"name": "Proxy",
+		"edition": 2015
+	  },
+	  {
+		"name": "proxy-missing-checks",
+		"url": "https://github.com/tc39/ecma262/pull/666",
+		"edition": 2022
+	  },
+	  {
+		"name": "Reflect",
+		"edition": 2015
+	  },
+	  {
+		"name": "Reflect.construct",
+		"edition": 2015
+	  },
+	  {
+		"name": "Reflect.set",
+		"edition": 2015
+	  },
+	  {
+		"name": "Reflect.setPrototypeOf",
+		"edition": 2015
+	  },
+	  {
+		"name": "regexp-dotall",
+		"edition": 2021
+	  },
+	  {
+		"name": "regexp-lookbehind",
+		"edition": 2021
+	  },
+	  {
+		"name": "regexp-match-indices",
+		"edition": 2022
+	  },
+	  {
+		"name": "regexp-named-groups",
+		"edition": 2018
+	  },
+	  {
+		"name": "regexp-unicode-property-escapes",
+		"edition": 2021
+	  },
+	  {
+		"name": "regexp-v-flag",
+		"edition": 2021
+	  },
+	  {
+		"name": "resizable-arraybuffer",
+		"edition": 2022
+	  },
+	  {
+		"name": "rest-parameters",
+		"edition": 2015
+	  },
+	  {
+		"name": "Set",
+		"edition": 2015
+	  },
+	  {
+		"name": "set-methods",
+		"edition": 2021
+	  },
+	  {
+		"name": "SharedArrayBuffer",
+		"edition": 2017
+	  },
+	  {
+		"name": "string-trimming",
+		"edition": 2021
+	  },
+	  {
+		"name": "String.fromCodePoint",
+		"edition": 2015
+	  },
+	  {
+		"name": "String.prototype.at",
+		"edition": 2022
+	  },
+	  {
+		"name": "String.prototype.endsWith",
+		"edition": 2015
+	  },
+	  {
+		"name": "String.prototype.includes",
+		"edition": 2015
+	  },
+	  {
+		"name": "String.prototype.isWellFormed",
+		"edition": 2021
+	  },
+	  {
+		"name": "String.prototype.matchAll",
+		"edition": 2020
+	  },
+	  {
+		"name": "String.prototype.replaceAll",
+		"edition": 2021
+	  },
+	  {
+		"name": "String.prototype.trimEnd",
+		"edition": 2019
+	  },
+	  {
+		"name": "String.prototype.trimStart",
+		"edition": 2019
+	  },
+	  {
+		"name": "String.prototype.toWellFormed",
+		"edition": 2021
+	  },
+	  {
+		"name": "super",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol",
+		"edition": 2015
+	  },
+	  {
+		"name": "symbols-as-weakmap-keys",
+		"edition": 2022
+	  },
+	  {
+		"name": "Symbol.asyncIterator",
+		"edition": 2018
+	  },
+	  {
+		"name": "Symbol.hasInstance",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.isConcatSpreadable",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.iterator",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.match",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.matchAll",
+		"edition": 2020
+	  },
+	  {
+		"name": "Symbol.prototype.description",
+		"edition": 2022
+	  },
+	  {
+		"name": "Symbol.replace",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.search",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.species",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.split",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.toPrimitive",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.toStringTag",
+		"edition": 2015
+	  },
+	  {
+		"name": "Symbol.unscopables",
+		"edition": 2015
+	  },
+	  {
+		"name": "tail-call-optimization",
+		"edition": 2015
+	  },
+	  {
+		"name": "template",
+		"edition": 2015
+	  },
+	  {
+		"name": "top-level-await",
+		"edition": 2021
+	  },
+	  {
+		"name": "TypedArray",
+		"edition": 2015
+	  },
+	  {
+		"name": "TypedArray.prototype.at",
+		"edition": 2022
+	  },
+	  {
+		"name": "u180e",
+		"edition": 2021
+	  },
+	  {
+		"name": "Uint8Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Uint16Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Uint32Array",
+		"edition": 2015
+	  },
+	  {
+		"name": "Uint8ClampedArray",
+		"edition": 2015
+	  },
+	  {
+		"name": "WeakMap",
+		"edition": 2015
+	  },
+	  {
+		"name": "WeakRef",
+		"edition": 2021
+	  },
+	  {
+		"name": "WeakSet",
+		"edition": 2015
+	  },
+	  {
+		"name": "well-formed-json-stringify",
+		"edition": 2021
+	  },
+	  {
+		"name": "__proto__",
+		"edition": 2015
+	  },
+	  {
+		"name": "__getter__",
+		"edition": 2015
+	  },
+	  {
+		"name": "__setter__",
+		"edition": 2015
+	  }
+	],
+	"test-harness": [
+	  {
+		"name": "IsHTMLDDA"
+	  },
+	  {
+		"name": "host-gc-required"
+	  }
+	]
+  }
