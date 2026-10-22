@@ -3,18 +3,18 @@
 /*---
 esid: sec-initializeboundname
 description: >
-  In strict mode code, attempts to assign to an unresolvable reference must throw a ReferenceError exception
+  In strict mode code, re-resolve unresolvable references on the global in PutValue.
 info: |
   via sec-putvalue
 
   If IsUnresolvableReference(V) is true, then
     If IsStrictReference(V) is true, then
-      Throw a ReferenceError exception.
+      Let realm be the current Realm Record.
+      Set V to ? ResolveBinding(realm.[[GlobalEnv]], name).
+      Assert: IsStrictReference(V) is true.
+      If IsUnresolvableReference(V) is true, throw a ReferenceError exception.
 
 flags: [onlyStrict]
-negative:
-  phase: runtime
-  type: ReferenceError
 ---*/
 
 undeclared = (this.undeclared = 5);
