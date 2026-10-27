@@ -1,0 +1,28 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/accessor/with-init/private/static/
+name: private static with initializer acessor decorator behavior in class expression
+features: [class, decorators, class-static-fields-private]
+esid: prod-FieldDefinition
+---*/
+
+/*{ decorators }*/
+
+var C = class {
+  /*{ application }*/
+  static accessor #element = /*{ initializer }*/;
+
+  static getElement() {
+    return this.#element;
+  }
+
+  static setElement(value) {
+    this.#element = value;
+  }
+}
+
+var classOrInstance = C;
+
+/*{ assertions }*/

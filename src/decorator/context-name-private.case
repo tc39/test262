@@ -1,0 +1,22 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: Context name is correct for all types of private elements
+templates:
+  - accessors/standard/private/**/*
+  - fields/standard/private/**/*
+  - getters/standard/private/**/*
+  - methods/standard/private/**/*
+  - setters/standard/private/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(_, context) {
+  assert.sameValue(context.name, "#element");
+}
+
+//- application
+@dec
