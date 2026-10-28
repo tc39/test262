@@ -15,6 +15,13 @@ assert.sameValue(Math.sumPrecise([0.1, 0.1]), 0.2);
 assert.sameValue(Math.sumPrecise([0.1, -0.1]), 0);
 assert.sameValue(Math.sumPrecise([1e308, 1e308, 0.1, 0.1, 1e30, 0.1, -1e30, -1e308, -1e308]), 0.30000000000000004);
 assert.sameValue(Math.sumPrecise([1e30, 0.1, -1e30]), 0.1);
+assert.sameValue(Math.sumPrecise([-0.1, -0.1]), -0.2);
+assert.sameValue(Math.sumPrecise([-1e30, -0.1, 1e30]), -0.1);
+assert.sameValue(Math.sumPrecise([-1]), -1);
+assert.sameValue(Math.sumPrecise([-0.1]), -0.1);
+assert.sameValue(Math.sumPrecise([1, -1, -1]), -1);
+assert.sameValue(Math.sumPrecise([Number.MAX_VALUE]), Number.MAX_VALUE);
+assert.sameValue(Math.sumPrecise([-Number.MAX_VALUE]), -Number.MAX_VALUE);
 
 // These cases are chosen for having exercised bugs in real implementations.
 // There is no other logic behind choice of constants.
