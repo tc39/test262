@@ -55,6 +55,6 @@ var terminators = [
 
 for (var i = 0; i < terminators.length; i++) {
   var lts = terminators[i][0], desc = terminators[i][1];
-  assert(!/^x\Z$/.test("x" + lts), "Expected \\Z to not match at " + desc + " before end-of-buffer outside of unicode mode. (literal)");
-  assert(!new RegExp("^x\\Z$").test("x" + lts), "Expected \\Z to not match at " + desc + " before end-of-buffer outside of unicode mode. (constructed)");
+  assert(!/^x\Z/.test("x" + lts), "Expected \\Z to not match at " + desc + " before end-of-buffer outside of unicode mode. (literal)");
+  assert(!new RegExp("^x\\Z").test("x" + lts), "Expected \\Z to not match at " + desc + " before end-of-buffer outside of unicode mode. (constructed)");
 }

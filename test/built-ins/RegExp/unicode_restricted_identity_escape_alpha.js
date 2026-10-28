@@ -20,6 +20,12 @@ function isValidAlphaEscapeInAtom(s) {
     case "b":
     // Assertion [U] :: \B
     case "B":
+    // Assertion [U] :: \A
+    // Assertion [U] :: \z
+    // Assertion [U] :: \Z
+    case "A":
+    case "z":
+    case "Z":
     // ControlEscape :: one of f n r t v
     case "f":
     case "n":

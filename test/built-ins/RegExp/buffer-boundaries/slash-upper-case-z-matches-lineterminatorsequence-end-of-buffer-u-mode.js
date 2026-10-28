@@ -23,7 +23,7 @@ info: |
       i. Return failure.
 
 esid: sec-patterns
-features: [regexp-buffer-boundaries]
+features: [regexp-buffer-boundaries, regexp-lookbehind]
 ---*/
 
 var terminators = [
@@ -58,4 +58,42 @@ for (var i = 0; i < terminators.length; i++) {
   assert(new RegExp("x\\Z", "um").test("x" + lts), "Expected \\Z to match when at " + desc + " before end-of-buffer inside of multiline mode (constructed)");
   assert(!new RegExp("x\\Z", "u").test("x" + lts + "y"), "Expected \\Z to not match when at " + desc + " but not before end-of-buffer outside of multiline mode (constructed)");
   assert(!new RegExp("x\\Z", "um").test("x" + lts + "y"), "Expected \\Z to not match when at " + desc + " but not before end-of-buffer inside of multiline mode (constructed)");
+}
+
+assert(/\Z/u.test(""), "Expected \\Z to match empty input");
+assert.sameValue(/\Z/u.exec("")[0], "", "Expected \\Z to match empty string in empty input");
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert.sameValue(/\Z/u.exec(lts).index, 0, "Expected \\Z to match at start of input consisting only of " + desc);
+}
+
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert.sameValue(/x\Z/u.exec("x" + lts)[0], "x", "Expected \\Z to not consume " + desc);
+  assert(/x\Z(?:\r\n|[\n\r\u2028\u2029])$/u.test("x" + lts), "Expected \\Z to be followed by " + desc + " (literal)");
+  assert(new RegExp("x\\Z" + lts + "$", "u").test("x" + lts), "Expected \\Z to be followed by " + desc + " (constructed)");
+  assert.sameValue(/\Z/u.exec("x" + lts).index, 1, "Expected \\Z to first match before " + desc);
+}
+assert(/x\r\Z\n/u.test("x\r\n"), "Expected \\Z to match between <CR> and <LF> of a final <CRLF>");
+assert.sameValue(/\Z/u.exec("x\r\n").index, 1, "Expected \\Z to first match before a final <CRLF>");
+assert.sameValue(/\Z/u.exec("x\n\n").index, 2, "Expected \\Z to first match before the last of two final <LF>");
+
+for (var i = 0; i < terminators.length; i++) {
+  for (var j = 0; j < terminators.length; j++) {
+    var lts = terminators[i][0] + terminators[j][0], desc = terminators[i][1] + terminators[j][1];
+    var expected = lts === "\r\n";
+    assert.sameValue(/x\Z/u.test("x" + lts), expected, "Expected \\Z " + (expected ? "" : "not ") + "to match before final " + desc + " outside of multiline mode");
+    assert.sameValue(/x\Z/um.test("x" + lts), expected, "Expected \\Z " + (expected ? "" : "not ") + "to match before final " + desc + " inside of multiline mode");
+  }
+}
+
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert(/x(?=\Z)/u.test("x" + lts), "Expected \\Z in lookahead to match before final " + desc);
+  assert(!/x(?=\Z)/u.test("x" + lts + "y"), "Expected \\Z in lookahead to not match before non-final " + desc);
+  assert(!/x(?!\Z)/u.test("x" + lts), "Expected \\Z in negative lookahead to not match before final " + desc);
+  assert(/x(?!\Z)/u.test("x" + lts + "y"), "Expected \\Z in negative lookahead to match before non-final " + desc);
+  assert.sameValue(/(?<=x\Z)[^]/u.exec("x" + lts)[0], lts[0], "Expected \\Z in lookbehind to match before final " + desc);
+  assert(!/(?<=x\Z)/u.test("x" + lts + "y"), "Expected \\Z in lookbehind to not match before non-final " + desc);
+  assert(/(?<!x\Z)y/u.test("x" + lts + "y"), "Expected \\Z in negative lookbehind to match before non-final " + desc);
 }

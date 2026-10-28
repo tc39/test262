@@ -19,7 +19,7 @@ info: |
       g. Return failure.
 
 esid: sec-patterns
-features: [regexp-buffer-boundaries]
+features: [regexp-buffer-boundaries, regexp-lookbehind]
 ---*/
 
 assert(/x\z/u.test("x"), "Expected \\z to match end-of-buffer outside of multiline mode (literal)");
@@ -50,4 +50,28 @@ for (var i = 0; i < terminators.length; i++) {
   var lts = terminators[i][0], desc = terminators[i][1];
   assert(!new RegExp("x\\z", "u").test("x" + lts), "Expected \\z to not match when only at " + desc + " outside of multiline mode (constructed)");
   assert(!new RegExp("x\\z", "um").test("x" + lts), "Expected \\z to not match when only at " + desc + " inside of multiline mode (constructed)");
+}
+
+assert(/\z/u.test(""), "Expected \\z to match empty input");
+assert.sameValue(/\z/u.exec("")[0], "", "Expected \\z to match empty string in empty input");
+
+assert.sameValue(/x\z/u.exec("x")[0], "x", "Expected \\z to be zero-width");
+assert.sameValue(/\z/u.exec("xy").index, 2, "Expected \\z to match only at end-of-buffer");
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert.sameValue(/\z/u.exec("x" + lts).index, 1 + lts.length, "Expected \\z to match only after final " + desc);
+}
+
+assert(/x(?=\z)/u.test("x"), "Expected \\z in lookahead to match at end-of-buffer");
+assert(!/x(?=\z)/u.test("xy"), "Expected \\z in lookahead to not match when not at end-of-buffer");
+assert(!/x(?!\z)/u.test("x"), "Expected \\z in negative lookahead to not match at end-of-buffer");
+assert(/x(?!\z)/u.test("xy"), "Expected \\z in negative lookahead to match when not at end-of-buffer");
+assert(/(?<=x\z)/u.test("x"), "Expected \\z in lookbehind to match at end-of-buffer");
+assert(!/(?<=x\z)/u.test("xy"), "Expected \\z in lookbehind to not match when not at end-of-buffer");
+assert.sameValue(/(?<!\z)/u.exec("x").index, 0, "Expected \\z in negative lookbehind to match when not at end-of-buffer");
+assert(!/(?<!\z)$/u.test("x"), "Expected \\z in negative lookbehind to not match at end-of-buffer");
+for (var i = 0; i < terminators.length; i++) {
+  var lts = terminators[i][0], desc = terminators[i][1];
+  assert(!/x(?=\z)/u.test("x" + lts), "Expected \\z in lookahead to not match before final " + desc);
+  assert(/x(?!\z)/u.test("x" + lts), "Expected \\z in negative lookahead to match before final " + desc);
 }
