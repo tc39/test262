@@ -7,7 +7,9 @@ features: [uint8array-base64, TypedArray]
 ---*/
 
 assert.sameValue((new Uint8Array([])).toHex(), "");
+assert.sameValue((new Uint8Array([6])).toHex(), "06");
 assert.sameValue((new Uint8Array([102])).toHex(), "66");
+assert.sameValue((new Uint8Array([6, 111])).toHex(), "066f");
 assert.sameValue((new Uint8Array([102, 111])).toHex(), "666f");
 assert.sameValue((new Uint8Array([102, 111, 111])).toHex(), "666f6f");
 assert.sameValue((new Uint8Array([102, 111, 111, 98])).toHex(), "666f6f62");
