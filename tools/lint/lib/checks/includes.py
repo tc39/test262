@@ -53,10 +53,13 @@ class CheckIncludes(Check):
         if meta['includes'] != CheckIncludes._get_includes_flow_list(source):
             return 'If present, the `includes` tag must use flow style, eg. includes: [include1.js, include2.js]'
 
-        harness_files = [self._load(name) for name in meta['includes']]
-
-        if len(harness_files) == 0:
+        if len(meta['includes']) == 0:
             return 'If present, the `includes` tag must have at least one member'
+
+        if len(set(meta['includes'])) != len(meta['includes']):
+            return 'The `includes` tag must not include duplicate entries'
+
+        harness_files = [self._load(name) for name in meta['includes']]
 
         without_frontmatter = self._remove_frontmatter(source)
 

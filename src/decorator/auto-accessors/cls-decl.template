@@ -1,0 +1,13 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: staging/decorators/class-decl-
+name: auto-accessor in a class declaration
+esid: sec-terminal-symbols
+features: [decorators]
+---*/
+
+class C {
+  /*{ elements }*/
+}
