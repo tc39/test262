@@ -74,7 +74,8 @@ jobs:
             --hostArgs="${{ matrix.engine.hostArgs }}" \
             --reporter json \
             -- ${{ needs.changed-tests.outputs.all_changed_files }} \
-            > "results-${{ matrix.engine.key }}.json"
+            | jq 'map({relative, scenario, result})' \
+            | tee "results-${{ matrix.engine.key }}.json"
 
       - name: Upload results
         if: always()
