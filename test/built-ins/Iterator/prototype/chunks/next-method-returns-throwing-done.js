@@ -9,6 +9,8 @@ info: |
 
 features: [iterator-chunking, class]
 ---*/
+
+var returnMethodCalled = false;
 class ThrowingIterator extends Iterator {
   next() {
     return {
@@ -19,6 +21,7 @@ class ThrowingIterator extends Iterator {
     };
   }
   get return() {
+    returnMethodCalled = true;
     throw new Test262Error();
   }
 }
@@ -28,3 +31,5 @@ let iterator = new ThrowingIterator().chunks(1);
 assert.throws(Test262Error, function () {
   iterator.next();
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns an object with throwy getters");

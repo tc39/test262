@@ -10,6 +10,8 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+
+var returnMethodCalled = false;
 class ThrowingIterator extends Iterator {
   next() {
     return {
@@ -20,6 +22,7 @@ class ThrowingIterator extends Iterator {
     };
   }
   return() {
+    returnMethodCalled = true;
     throw new Error();
   }
 }
@@ -29,3 +32,5 @@ let iterator = new ThrowingIterator().map(() => 0);
 assert.throws(Test262Error, function () {
   iterator.next();
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns an object with throwy getters");
