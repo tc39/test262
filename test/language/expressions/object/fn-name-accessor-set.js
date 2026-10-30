@@ -16,12 +16,14 @@ features: [Symbol]
 
 var namedSym = Symbol('test262');
 var anonSym = Symbol();
+var registeredSym = Symbol.for('registered');
 var o, setter;
 
 o = {
   set id(_) {},
   set [anonSym](_) {},
-  set [namedSym](_) {}
+  set [namedSym](_) {},
+  set [registeredSym](_) {}
 };
 
 setter = Object.getOwnPropertyDescriptor(o, 'id').set;
@@ -43,6 +45,14 @@ verifyProperty(setter, 'name', {
 setter = Object.getOwnPropertyDescriptor(o, namedSym).set;
 verifyProperty(setter, 'name', {
   value: 'set [test262]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
+setter = Object.getOwnPropertyDescriptor(o, registeredSym).set;
+verifyProperty(setter, 'name', {
+  value: 'set [registered]',
   writable: false,
   enumerable: false,
   configurable: true,
