@@ -25,7 +25,7 @@ for (var cu = 0; cu <= 0xffff; ++cu) {
     try {
       var pattern = eval("/" + xx + "/");
     } catch (e) {
-      var identifierPartNotUnicodeIDContinue = ((cu === 0x0024) || (cu === 0x200C) || (cu === 0x200D));
+      var identifierPartNotUnicodeIDContinue = (cu === 0x0024);
       if (e instanceof SyntaxError && !identifierPartNotUnicodeIDContinue) {
         // Use eval with var-declaration to check if `cu` is in UnicodeIDContinue.
         try {
