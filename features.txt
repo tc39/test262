@@ -23,6 +23,10 @@ Intl.Locale-info
 # https://github.com/tc39/proposal-intl-numberformat-v3
 Intl.NumberFormat-v3
 
+# Keep trailing zeros in Intl.NumberFormat and Intl.PluralRules
+# https://github.com/tc39/proposal-intl-keep-trailing-zeros
+keep-trailing-zeros
+
 # Legacy RegExp features
 # https://github.com/tc39/proposal-regexp-legacy-features
 legacy-regexp
