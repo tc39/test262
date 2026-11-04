@@ -4,41 +4,42 @@
 /*---
 esid: sec-json.israwjson
 description: >
-  JSON.isRawJSON meets the requirements for built-in objects
+  JSON.isRawJSON meets the requirements for standard built-in objects
 info: |
-  JSON.isRawJSON ( O )
-
-  18 ECMAScript Standard Built-in Objects
+  ECMAScript Standard Built-in Objects
   ...
-  Unless specified otherwise, a built-in object that is callable as a function
-  is a built-in function object with the characteristics described in 10.3.
   Unless specified otherwise, the [[Extensible]] internal slot of a built-in
-  object initially has the value true. Every built-in function object has a
-  [[Realm]] internal slot whose value is the Realm Record of the realm for
-  which the object was initially created.
+  object initially has the value true.
   ...
   Unless otherwise specified every built-in function and every built-in
   constructor has the Function prototype object, which is the initial value of
   the expression Function.prototype (20.2.3), as the value of its [[Prototype]]
   internal slot.
   ...
-  Built-in function objects that are not identified as constructors do not
-  implement the [[Construct]] internal method unless otherwise specified in the
-  description of a particular function.
+  Built-in function objects that are not constructors do not have a "prototype"
+  property unless otherwise specified in the description of a particular
+  function.
+  ...
+  Each built-in function defined in this specification is created by calling the
+  CreateBuiltinFunction abstract operation (10.3.4). The values of the length
+  and name parameters are the initial values of the "length" and "name"
+  properties as discussed below. The values of the prefix parameter are
+  similarly discussed below.
 
+includes: [propertyHelper.js]
 features: [json-parse-with-source]
 ---*/
 
-assert(Object.isExtensible(JSON.isRawJSON), "JSON.isRawJSON is extensible");
 assert.sameValue(
-  typeof JSON.isRawJSON,
-  'function',
-  'The value of `typeof JSON.isRawJSON` is "function"'
+  Object.isExtensible(JSON.isRawJSON),
+  Object.isExtensible(Object.prototype),
+  "JSON.isRawJSON extensibility matches Object.prototype",
 );
+
 assert.sameValue(
   Object.getPrototypeOf(JSON.isRawJSON),
   Function.prototype,
-  'Object.getPrototypeOf(JSON.isRawJSON) must return the value of "Function.prototype"'
+  "JSON.isRawJSON [[Prototype]] is Function.prototype"
 );
 
 assert.sameValue(
@@ -46,3 +47,5 @@ assert.sameValue(
   undefined,
   "JSON.isRawJSON has no own prototype property"
 );
+
+verifyPrimordialCallableProperty(JSON, "isRawJSON", "isRawJSON", 1);
