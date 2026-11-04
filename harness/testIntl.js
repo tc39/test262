@@ -2404,12 +2404,17 @@ function allSimpleSanctionedUnits() {
  *   pre- and post-decimal digits.
  * @param {Object} testData maps input data (in ES5 9.3.1 format) to expected output strings
  *   in unlocalized format with Western digits.
- * @param {boolean} [inputsAsNumbers] if true, each input is converted to a
- *   Number before it is formatted, so that the result does not depend on how
- *   many digits the input string spells.
+ * @param {Object} [testOptions] optional settings for the test.
+ * @param {Function} [testOptions.makeInput] converts each input string in
+ *   testData to the value that is formatted, e.g. Number. By default the
+ *   string itself is formatted.
  */
 
-function testNumberFormat(locales, numberingSystems, options, testData, inputsAsNumbers) {
+function testNumberFormat(locales, numberingSystems, options, testData, testOptions) {
+  var makeInput = (testOptions && testOptions.makeInput) || function (input) {
+    return input;
+  };
+
   locales.forEach(function (locale) {
     numberingSystems.forEach(function (numbering) {
       var digits = numberingSystemDigits[numbering];
@@ -2462,7 +2467,7 @@ function testNumberFormat(locales, numberingSystems, options, testData, inputsAs
             patternParts = posPatternParts;
           }
           var expected = buildExpected(rawExpected, patternParts);
-          var actual = format.format(inputsAsNumbers ? Number(input) : input);
+          var actual = format.format(makeInput(input));
           if (actual !== expected) {
             throw new Test262Error("Formatted value for " + input + ", " +
             format.resolvedOptions().locale + " and options " +

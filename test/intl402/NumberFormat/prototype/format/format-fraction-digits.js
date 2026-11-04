@@ -59,4 +59,4 @@ var roundsToZero = {
     "-0.0000000012344501": "-000.0",
 };
 
-testNumberFormat(locales, numberingSystems, options, roundsToZero, true);
+testNumberFormat(locales, numberingSystems, options, roundsToZero, { makeInput: Number });

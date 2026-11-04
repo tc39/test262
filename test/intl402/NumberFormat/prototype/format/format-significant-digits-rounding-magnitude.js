@@ -111,7 +111,7 @@ testNumberFormat(locales, numberingSystems,
     "-0.9999": "-1",
     "9.999": "10",
     "-9.999": "-10",
-  }, true);
+  }, { makeInput: Number });
 
 // Lower minimum: step 7 trims at most maxPrecision - minPrecision zeros.
 testNumberFormat(locales, numberingSystems,
@@ -125,7 +125,7 @@ testNumberFormat(locales, numberingSystems,
   {
     "0.9999": "1.0",
     "9.999": "10",
-  }, true);
+  }, { makeInput: Number });
 
 // Two significant digits
 testNumberFormat(locales, numberingSystems,
