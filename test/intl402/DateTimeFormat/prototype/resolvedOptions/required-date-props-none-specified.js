@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-intl.datetimeformat
-description: No defaults are set for day, month, and year when only month is specified
+description: Defaults are set for day, month, and year when none are specified
 info: |
   11.1.1 Intl.DateTimeFormat ( [ locales [ , options ] ] )
   [...]
@@ -31,17 +31,36 @@ info: |
          BasicFormatMatcher(formatOptions, formats); else let bestFormat be
          BestFitFormatMatcher(formatOptions, formats).
    [...]
+
+  11.3.2 Intl.DateTimeFormat.prototype.resolvedOptions ( )
+  [...]
+  5. For each row of Table 15, except the header row, in table order, do
+      a. Let propertyKey be the Property value of the current row.
+      b. If there is an Internal Slot value in the current row, then
+         i. Let value be the value of dtf's internal slot whose name is the
+         Internal Slot value of the current row.
+      [...]
+      d. If value is not undefined, then
+         [...]
+         ii. Perform ! CreateDataPropertyOrThrow(options, propertyKey, value).
+   6. Return options.
 includes: [testIntl.js]
 locale: [en]
 ---*/
 
 for (const calendar of allCalendars()) {
-  const options = new Intl.DateTimeFormat('en', { calendar, month: 'numeric' }).resolvedOptions();
+  const options = new Intl.DateTimeFormat('en', { calendar }).resolvedOptions();
 
-  assert.sameValue('day' in options, false, calendar + ': day');
+  assert(
+    ['2-digit', 'numeric'].indexOf(options.day) > -1,
+    calendar + ': day (got "' + options.day + '")'
+  );
   assert(
     ['2-digit', 'numeric', 'narrow', 'short', 'long'].indexOf(options.month) > -1,
     calendar + ': month (got "' + options.month + '")'
   );
-  assert.sameValue('year' in options, false, calendar + ': year');
+  assert(
+    ['2-digit', 'numeric'].indexOf(options.year) > -1,
+    calendar + ': year (got "' + options.year + '")'
+  );
 }
