@@ -1,0 +1,65 @@
+// Copyright (C) 2026 Mozilla Corporation. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-has-property-which-could-run-user-code
+description: >
+    SafePromiseResolve fulfills synchronously when a "then" accessor with a
+    setter but no getter is inherited from the prototype chain.
+includes: [asyncHelpers.js, compareArray.js]
+flags: [async]
+features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers]
+---*/
+
+var expected = [
+  // Reading a setter-only "then" cannot run user code, so this is not deferred.
+  "start",
+  "tick 1",
+
+  // Resolved during the synchronous section, so its reaction is already queued.
+  "settled",
+
+  "tick 2",
+];
+
+var actual = [];
+
+var setterCallCount = 0;
+var proto = {};
+Object.defineProperty(proto, "then", {
+  set: function(_v) {
+    setterCallCount += 1;
+  },
+  configurable: true,
+});
+
+var value = Object.create(proto);
+
+asyncTest(function() {
+  var ruler = Promise.resolve(0)
+    .then(() => actual.push("tick 1"))
+    .then(() => actual.push("tick 2"))
+    .then(() => {
+      assert.compareArray(
+        actual,
+        expected,
+        "Ticks for an inherited setter-only \"then\""
+      );
+      assert.sameValue(setterCallCount, 0, "the setter is never called");
+    });
+
+  var capability = Promise.withResolvers();
+  $262.safeResolvePromise(capability, value);
+  actual.push("start");
+
+  var settled = capability.promise.then(function(settledValue) {
+    actual.push("settled");
+    assert.sameValue(
+      settledValue,
+      value,
+      "promise is fulfilled with the resolution itself"
+    );
+  });
+
+  return Promise.all([ruler, settled]);
+});
