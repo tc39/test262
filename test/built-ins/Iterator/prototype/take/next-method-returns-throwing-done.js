@@ -12,6 +12,9 @@ info: |
 features: [iterator-helpers]
 flags: []
 ---*/
+
+var returnMethodCalled = false;
+
 class ReturnCalledError extends Error {}
 class DoneGetterError extends Error {}
 
@@ -25,6 +28,7 @@ class ThrowingIterator extends Iterator {
     };
   }
   return() {
+    returnMethodCalled = true;
     throw new ReturnCalledError();
   }
 }
@@ -35,8 +39,13 @@ assert.throws(ReturnCalledError, function () {
   iterator.next();
 });
 
+assert.sameValue(returnMethodCalled, true, "take(0) closes the underlying iterator");
+
+returnMethodCalled = false;
 iterator = new ThrowingIterator().take(1);
 
 assert.throws(DoneGetterError, function () {
   iterator.next();
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns an object with throwy getters");

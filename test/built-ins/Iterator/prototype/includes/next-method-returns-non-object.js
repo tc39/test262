@@ -7,12 +7,15 @@ description: >
 features: [iterator-includes]
 ---*/
 
+var returnMethodCalled = false;
+
 let iterator = {
   __proto__: Iterator.prototype,
   next() {
     return null;
   },
   get return() {
+    returnMethodCalled = true;
     throw new Test262Error();
   }
 };
@@ -20,3 +23,5 @@ let iterator = {
 assert.throws(TypeError, function() {
   iterator.includes(0);
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns a non-object");
