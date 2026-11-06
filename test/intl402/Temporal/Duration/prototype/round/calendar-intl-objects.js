@@ -5,7 +5,7 @@
 esid: sec-temporal.duration.prototype.round
 description: DateTimeFormat or Locale rejected in relativeTo.calendar option
 info: |
-  Non-Temporal objects with a [[Calendar]] internal slot; eee
+  Non-Temporal objects with a [[Calendar]] internal slot; see
   https://github.com/tc39/ecma262/pull/3966/changes#paneldiscussion_r4284855527
 features: [Temporal, Intl.Locale]
 ---*/
