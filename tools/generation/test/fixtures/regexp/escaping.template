@@ -1,0 +1,24 @@
+// Copyright (C) 2023 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+name: RegExp template
+path: regexp/escaping-
+esid: sec-regexp
+info: template info
+---*/
+
+// This should be expanded, and not treat the // as a comment:
+
+/foo//*{ flags }*/;
+
+// This escaped slash should not confuse the parser:
+
+/foo\/bar//*{ flags }*/;
+
+// Multiple escaped slashes should not confuse the parser:
+
+/^https?:\/\/(.+?)\.//*{ flags }*/;
+
+// A star just before the ending slash should not confuse the parser:
+
+/foo*//*{ flags }*/;
