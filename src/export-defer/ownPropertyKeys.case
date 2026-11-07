@@ -1,0 +1,17 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-module-namespace-exotic-objects-ownpropertykeys
+desc: _ [[OwnPropertyKeys]]
+info: |
+  [[OwnPropertyKeys]] ( )
+    1. Let _exports_ be _O_.[[Exports]].
+    1. Let _symbolKeys_ be OrdinaryOwnPropertyKeys(_O_).
+    1. Return the list-concatenation of _exports_ and _symbolKeys_.
+
+template: no-trigger
+---*/
+
+//- body
+Reflect.ownKeys(ns);
