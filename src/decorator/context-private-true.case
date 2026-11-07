@@ -1,0 +1,22 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: Context `private` is false for all types of public elements
+templates:
+  - accessors/standard/public/**/*
+  - fields/standard/public/**/*
+  - getters/standard/public/**/*
+  - methods/standard/public/**/*
+  - setters/standard/public/**/*
+features: [decorators]
+---*/
+
+//- decorators
+function dec(_, context) {
+  assert.sameValue(context.private, false);
+}
+
+//- application
+@dec

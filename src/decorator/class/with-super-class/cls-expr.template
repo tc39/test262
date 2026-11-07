@@ -1,0 +1,19 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/class/decorator/class/with-super-class/
+name: decorator usage in a class expression
+features: [class]
+esid: prod-ClassExpression
+---*/
+
+/*{ decorators }*/
+
+class B {}
+
+var C = /*{ application }*/ class extends B {
+  /*{ elements }*/
+}
+
+/*{ assertions }*/
