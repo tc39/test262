@@ -17,8 +17,23 @@ info: |
 features: [BigInt]
 ---*/
 
-for (let r = 2; r <= 36; r++) {
+for (var r = 2; r <= 36; r++) {
   assert.sameValue((0n).toString(r), "0", "0, radix " + r);
   assert.sameValue((-1n).toString(r), "-1", "-1, radix " + r);
   assert.sameValue((1n).toString(r), "1", "1, radix " + r);
+}
+
+var numberOverflow = BigInt(Number.MAX_VALUE) + 1n;
+var digits = "0123456789abcdefghijklmnopqrstuvwxyz";
+for (var r = 2; r <= 36; r++) {
+  var str = numberOverflow.toString(r);
+
+  var val = 0n;
+  var R = BigInt(r);
+  for (var i = 0; i < str.length; i++) {
+    var x = digits.indexOf(str[i]);
+    assert(x >= 0);
+    val = val * R + BigInt(x);
+  }
+  assert.sameValue(val, numberOverflow, "Number.MAX_VALUE + 1 round-trip, radix " + r);
 }
