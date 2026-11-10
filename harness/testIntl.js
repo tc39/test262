@@ -2417,10 +2417,16 @@ function testNumberFormat(locales, numberingSystems, options, testData, testOpti
   };
 
   locales.forEach(function (locale) {
+    assert.sameValue(
+      locale,
+      getLocaleBaseName(locale),
+      "Unexpected extension in locale: '" + locale + "'"
+    );
+
     numberingSystems.forEach(function (numbering) {
       var digits = numberingSystemDigits[numbering];
       var formatter =
-        new Intl.NumberFormat(getLocaleBaseName(locale) + "-u-nu-" + numbering, options);
+        new Intl.NumberFormat(locale + "-u-nu-" + numbering, options);
       var resolved = formatter.resolvedOptions();
       if (resolved.numberingSystem !== numbering) {
         return;
