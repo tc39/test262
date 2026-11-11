@@ -33,8 +33,8 @@ TagPattern = text .regexp "!?[A-Za-z0-9_.-]+"
 ```
 
 `FilePattern` entries describe test files and directories that should be
-included in a given web feature. Then they match a directory name, then every
-file in that directory and its subdirectories should be included. When the
+included in a given web feature. When they match a directory name, then every
+test file in that directory and its subdirectories should be included. When the
 asterisk character (`*`) appears in these entires, it will be interpreted as a
 "wildcard" (or "glob") that can be satisfied by zero or more characters of any
 kind.

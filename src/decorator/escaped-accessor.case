@@ -1,0 +1,15 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: The accessor modifier of an instance auto-accessor cannot contain a Unicode escape
+template: auto-accessors
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- setup
+$DONOTEVALUATE();
+//- elements
+acc\u0065ssor value;

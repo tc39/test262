@@ -1,0 +1,16 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: ASI does not separate an escaped get instance field from a following method on the same line
+template: default
+features: [class-fields-public]
+negative:
+  phase: parse
+  type: SyntaxError
+---*/
+
+//- setup
+$DONOTEVALUATE();
+//- elements
+g\u0065t value() {}

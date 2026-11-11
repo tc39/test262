@@ -39,8 +39,7 @@ def get_filenames(path_spec):
             yield path_spec
         elif os.path.isdir(path_spec):
             for root, _, files in os.walk(path_spec):
-                test_files = filter(file_is_test, files)
-                yield from [os.path.join(root, file) for file in test_files]
+                yield from [os.path.join(root, file) for file in files]
         else:
             raise AssertionError(f'No such file/directory: "{path_spec}"')
         return
@@ -66,7 +65,7 @@ def get_filenames(path_spec):
 
     assert matched, f'At least one matching file for "{path_spec}"'
 
-def get_filenames_from_path_specs(path_specs):
+def get_test_filenames_from_path_specs(path_specs):
     filenames = set()
     for path_spec in path_specs:
         if path_spec.startswith('!'):
@@ -81,7 +80,7 @@ def get_filenames_from_path_specs(path_specs):
             assert used, f'Pathspec used at least once: "{path_spec}"'
         else:
             filenames.update(get_filenames(path_spec))
-    return filenames
+    return filter(file_is_test, filenames)
 
 def match(file_path, tag_specs):
     tags = read_features(file_path)
@@ -107,7 +106,7 @@ def main(web_features_filename, manifest_filename):
 
         manifest['data'][name] = [*filter(
             lambda candidate: match(candidate, tag_specs),
-            get_filenames_from_path_specs(path_specs)
+            get_test_filenames_from_path_specs(path_specs)
         )]
 
     if manifest_filename:

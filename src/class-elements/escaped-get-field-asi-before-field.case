@@ -1,0 +1,20 @@
+// Copyright (C) 2026 magic-akari. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: ASI separates escaped get instance and static fields from following fields
+template: default
+includes: [compareArray.js]
+features: [class-fields-public, class-static-fields-public]
+---*/
+
+//- elements
+\u0067et
+a = 1;
+static \u0067et
+b = 2;
+//- assertions
+var c = new C();
+assert.compareArray(Object.keys(c), ["get", "a", "b"]);
+assert.compareArray(Object.keys(C), ["get"]);
+assert.compareArray([c.a, c.b], [1, 2]);
