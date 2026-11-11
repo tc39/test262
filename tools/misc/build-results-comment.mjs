@@ -90,8 +90,8 @@ function buildCommentBody({ engines, testResults, errors }) {
   const sortedTests = Array.from(testResults.keys()).sort();
   const table = buildMarkdownTable(sortedTests, engines, testResults);
   const summary =
-    `${sortedTests.length} new or modified ${sortedTests.length === 1 ? "test" : "tests"} ` +
-    `were run on ${engines.length} ${engines.length === 1 ? "engine" : "engines"}.`;
+    `${sortedTests.length} new or modified ${sortedTests.length === 1 ? "test was" : "tests were"} ` +
+    `run on ${engines.length} ${engines.length === 1 ? "engine" : "engines"}.`;
   const link = WORKFLOW_RUN_URL ? `\n\n[View workflow run](${WORKFLOW_RUN_URL})` : '';
 
   const preamble = `${summary}${link}${errorList}\n\n`;
