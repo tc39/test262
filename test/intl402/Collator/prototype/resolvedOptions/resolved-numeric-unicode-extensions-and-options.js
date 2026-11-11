@@ -20,6 +20,22 @@ var tests = [
       numeric: true,
     }
   },
+  {
+    locale: "en-u-kn-true",
+    numeric: false,
+    resolved: {
+      locale: "en",
+      numeric: false,
+    }
+  },
+  {
+    locale: "en-u-kn",
+    numeric: false,
+    resolved: {
+      locale: "en",
+      numeric: false,
+    }
+  },
 
   // Unicode extension value is present and supported. Options value present and
   // supported. Unicode extension value is equal to options value. Unicode
@@ -30,6 +46,22 @@ var tests = [
     resolved: {
       locale: "en-u-kn",
       numeric: true,
+    }
+  },
+  {
+    locale: "en-u-kn",
+    numeric: true,
+    resolved: {
+      locale: "en-u-kn",
+      numeric: true,
+    }
+  },
+  {
+    locale: "en-u-kn-false",
+    numeric: false,
+    resolved: {
+      locale: "en-u-kn-false",
+      numeric: false,
     }
   },
 ];
