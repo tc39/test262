@@ -75,7 +75,13 @@ jobs:
             --reporter json \
             -- ${{ needs.changed-tests.outputs.all_changed_files }} \
             | jq 'map({relative, scenario, result})' \
-            | tee "results-${{ matrix.engine.key }}.json"
+            | tee "results-${{ matrix.engine.key }}.json" \
+            | jq -r '
+                map(
+                  "\n\(if .result.pass then "PASS" else "FAIL" end) \(.relative) [\(.scenario)]\(if .result.pass then "" else "\n\(.result.message)" end)"
+                )
+                | .[]
+              '
 
       - name: Upload results
         if: always()
