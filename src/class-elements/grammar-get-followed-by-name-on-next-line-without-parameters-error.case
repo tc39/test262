@@ -1,0 +1,28 @@
+// Copyright (C) 2026 hexbinoct. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: SyntaxError for a getter whose name is on the next line and that has no parameter list
+info: |
+  ClassElement :
+    MethodDefinition
+    static MethodDefinition
+    FieldDefinition ;
+    ;
+
+  MethodDefinition :
+    get ClassElementName ( ) { FunctionBody }
+
+  FieldDefinition :
+    ClassElementName Initializer _opt
+
+  The name after "get" is allowed by the getter production, so no semicolon is
+  inserted after "get", and the getter is missing its parameter list.
+
+template: syntax/invalid
+features: [class-fields-public]
+---*/
+
+//- elements
+get
+x
