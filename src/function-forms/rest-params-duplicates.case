@@ -1,0 +1,26 @@
+// Copyright (C) 2026 Igalia, S.L. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: It is a Syntax Error if the rest parameter has the same name as a preceding parameter.
+template: syntax
+negative:
+  phase: parse
+  type: SyntaxError
+info: |
+  Static Semantics: Early Errors
+
+  FormalParameters :
+    FunctionRestParameter
+    FormalParameterList ,opt
+    FormalParameterList , FunctionRestParameter
+
+  - It is a Syntax Error if the BoundNames of FormalParameters contains any
+    duplicate elements and either IsSimpleParameterList of FormalParameters is
+    false or IsStrict(FormalParameters) is true.
+features: [rest-parameters]
+---*/
+
+//- setup
+$DONOTEVALUATE();
+//- params
+x, ...x
