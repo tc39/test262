@@ -1,4 +1,5 @@
-
+// Copyright (C) 2026 Huáng Jùnliàng. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-grammar-notation
 description: >
