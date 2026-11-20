@@ -1,0 +1,28 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/decorator/field/with-init/private/instance/
+name: private field with initializer decorator behavior in class declaration
+features: [class, decorators, class-fields-private]
+esid: prod-FieldDefinition
+---*/
+
+/*{ decorators }*/
+
+class C {
+  /*{ application }*/
+  #element = /*{ initializer }*/;
+
+  getElement() {
+    return this.#element;
+  }
+
+  setElement(value) {
+    this.#element = value;
+  }
+}
+
+var classOrInstance = new C();
+
+/*{ assertions }*/

@@ -1,0 +1,30 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoelementdefinition
+desc: Accessor decorator can return a new setter when initializer is present
+template: accessors/with-init/**/*
+features: [decorators]
+---*/
+
+//- initializer
+123
+
+//- decorators
+function dec({ set }) {
+  return {
+    set(value) {
+      assert.sameValue(value, 456);
+      set.call(this, 789);
+    }
+  };
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), 123);
+classOrInstance.setElement(456);
+assert.sameValue(classOrInstance.getElement(), 789);
