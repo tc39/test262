@@ -1,0 +1,28 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-initializefieldoraccessor
+desc: Decorator initializer is called with initial value during initialization
+info: |
+  InitializeFieldOrAccessor ( receiver, elementRecord )
+
+  ...
+
+template: fields/with-init/**/*
+features: [decorators]
+---*/
+
+//- initializer
+123
+
+//- decorators
+function dec(value) {
+  assert.sameValue(value, undefined);
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(classOrInstance.getElement(), 123);

@@ -1,0 +1,33 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-applydecoratorstoclassdefinition
+desc: Class decorator can return a new class
+template: class/standard
+features: [decorators]
+---*/
+
+//- decorators
+var originalClass;
+var newClass;
+
+function dec(C, context) {
+  originalClass = C;
+  newClass = class D {
+    static foo() {
+      return 123;
+    }
+  };
+
+  return newClass;
+}
+
+//- application
+@dec
+
+//- assertions
+assert.sameValue(C, newClass);
+assert(!(C instanceof originalClass), 'new class is not a subclass of old class');
+assert.sameValue(C.foo(), 123);
+
