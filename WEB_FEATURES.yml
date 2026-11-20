@@ -370,7 +370,6 @@ features:
       - test/annexB/built-ins/String/prototype/small
       - test/annexB/built-ins/String/prototype/strike
       - test/annexB/built-ins/String/prototype/sub
-      - test/annexB/built-ins/String/prototype/substr
       - test/annexB/built-ins/String/prototype/sup
 
   - name: import-text
@@ -870,6 +869,7 @@ features:
       - test/built-ins/String/prototype/search
       - test/built-ins/String/prototype/slice
       - test/built-ins/String/prototype/split
+      - test/built-ins/String/prototype/substr
       - test/built-ins/String/prototype/substring
       - test/built-ins/String/prototype/toLowerCase
       - test/built-ins/String/prototype/toString
