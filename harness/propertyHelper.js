@@ -26,6 +26,7 @@ var INFINITY = 1 / 0;
 
 // Capture primordial functions and receiver-uncurried primordial methods that
 // are used in verification but might be destroyed *by* that process itself.
+var __String = String;
 var __isArray = Array.isArray;
 var __max = Math.max;
 var __defineProperty = Object.defineProperty;
@@ -55,7 +56,7 @@ function verifyProperty(obj, name, desc, options) {
     arguments.length > 2,
     'verifyProperty should receive at least 3 arguments: obj, name, and descriptor'
   );
-  var label = options && options.label || String(name);
+  var label = options && options.label || __String(name);
 
   var originalDesc = __getOwnPropertyDescriptor(obj, name);
 
@@ -82,7 +83,7 @@ function verifyProperty(obj, name, desc, options) {
   assert.sameValue(
     typeof desc,
     "object",
-    "The desc argument should be an object or undefined, " + String(desc)
+    "The desc argument should be an object or undefined, " + __String(desc)
   );
 
   var names = __getOwnPropertyNames(desc);
@@ -102,10 +103,10 @@ function verifyProperty(obj, name, desc, options) {
 
   if (__hasOwnProperty(desc, 'value')) {
     if (!isSameValue(desc.value, originalDesc.value)) {
-      __push(failures, label + " descriptor value should be " + String(desc.value));
+      __push(failures, label + " descriptor value should be " + __String(desc.value));
     }
     if (!isSameValue(desc.value, obj[name])) {
-      __push(failures, label + " value should be " + String(desc.value));
+      __push(failures, label + " value should be " + __String(desc.value));
     }
   }
 
@@ -153,7 +154,7 @@ function _isCanonicalNumericIndexString(value) {
   if (typeof value !== "string") return false;
   if (value === "-0") return true;
   var n = _toNumber(value);
-  return String(n) === value;
+  return __String(n) === value;
 }
 
 function _isTypedArray(value) {
@@ -282,7 +283,7 @@ function isWritable(obj, name, verifyProp, value) {
  * @param {boolean} [options.restore] revert mutations from verifying writable/configurable
  */
 function verifyCallableProperty(obj, name, functionName, functionLength, desc, options) {
-  var label = options && options.label || String(name);
+  var label = options && options.label || __String(name);
   var propertyVerifier = options && options.verifyProperty || verifyProperty;
 
   var value = obj && obj[name];
@@ -366,7 +367,7 @@ function verifyAccessorProperty(obj, name, desc, options) {
     checkGet || checkSet,
     'verifyAccessorProperty requires at least one of "get" and "set"'
   );
-  var label = options && options.label || String(name);
+  var label = options && options.label || __String(name);
   var propertyVerifier = options && options.verifyProperty || verifyProperty;
   var callabilityVerifier = options && options.verifyCallableProperty || verifyCallableProperty;
 
@@ -444,7 +445,7 @@ function verifyAccessorProperty(obj, name, desc, options) {
  */
 function verifyEqualTo(obj, name, value) {
   if (!isSameValue(obj[name], value)) {
-    throw new Test262Error("Expected obj[" + String(name) + "] to equal " + value +
+    throw new Test262Error("Expected obj[" + __String(name) + "] to equal " + value +
            ", actually " + obj[name]);
   }
 }
@@ -455,13 +456,13 @@ function verifyEqualTo(obj, name, value) {
 function verifyWritable(obj, name, verifyProp, value) {
   if (!verifyProp) {
     assert(__getOwnPropertyDescriptor(obj, name).writable,
-         "Expected obj[" + String(name) + "] to have writable:true.");
+         "Expected obj[" + __String(name) + "] to have writable:true.");
   }
   var result = arguments.length < 4
     ? isWritable(obj, name, verifyProp)
     : isWritable(obj, name, verifyProp, value);
   if (!result) {
-    throw new Test262Error("Expected obj[" + String(name) + "] to be writable, but was not.");
+    throw new Test262Error("Expected obj[" + __String(name) + "] to be writable, but was not.");
   }
 }
 
@@ -471,13 +472,13 @@ function verifyWritable(obj, name, verifyProp, value) {
 function verifyNotWritable(obj, name, verifyProp, value) {
   if (!verifyProp) {
     assert(!__getOwnPropertyDescriptor(obj, name).writable,
-         "Expected obj[" + String(name) + "] to have writable:false.");
+         "Expected obj[" + __String(name) + "] to have writable:false.");
   }
   var result = arguments.length < 4
     ? isWritable(obj, name, verifyProp)
     : isWritable(obj, name, verifyProp, value);
   if (result) {
-    throw new Test262Error("Expected obj[" + String(name) + "] NOT to be writable, but was.");
+    throw new Test262Error("Expected obj[" + __String(name) + "] NOT to be writable, but was.");
   }
 }
 
@@ -486,9 +487,9 @@ function verifyNotWritable(obj, name, verifyProp, value) {
  */
 function verifyEnumerable(obj, name) {
   assert(__getOwnPropertyDescriptor(obj, name).enumerable,
-       "Expected obj[" + String(name) + "] to have enumerable:true.");
+       "Expected obj[" + __String(name) + "] to have enumerable:true.");
   if (!isEnumerable(obj, name)) {
-    throw new Test262Error("Expected obj[" + String(name) + "] to be enumerable, but was not.");
+    throw new Test262Error("Expected obj[" + __String(name) + "] to be enumerable, but was not.");
   }
 }
 
@@ -497,9 +498,9 @@ function verifyEnumerable(obj, name) {
  */
 function verifyNotEnumerable(obj, name) {
   assert(!__getOwnPropertyDescriptor(obj, name).enumerable,
-       "Expected obj[" + String(name) + "] to have enumerable:false.");
+       "Expected obj[" + __String(name) + "] to have enumerable:false.");
   if (isEnumerable(obj, name)) {
-    throw new Test262Error("Expected obj[" + String(name) + "] NOT to be enumerable, but was.");
+    throw new Test262Error("Expected obj[" + __String(name) + "] NOT to be enumerable, but was.");
   }
 }
 
@@ -508,9 +509,9 @@ function verifyNotEnumerable(obj, name) {
  */
 function verifyConfigurable(obj, name) {
   assert(__getOwnPropertyDescriptor(obj, name).configurable,
-       "Expected obj[" + String(name) + "] to have configurable:true.");
+       "Expected obj[" + __String(name) + "] to have configurable:true.");
   if (!isConfigurable(obj, name)) {
-    throw new Test262Error("Expected obj[" + String(name) + "] to be configurable, but was not.");
+    throw new Test262Error("Expected obj[" + __String(name) + "] to be configurable, but was not.");
   }
 }
 
@@ -519,9 +520,9 @@ function verifyConfigurable(obj, name) {
  */
 function verifyNotConfigurable(obj, name) {
   assert(!__getOwnPropertyDescriptor(obj, name).configurable,
-       "Expected obj[" + String(name) + "] to have configurable:false.");
+       "Expected obj[" + __String(name) + "] to have configurable:false.");
   if (isConfigurable(obj, name)) {
-    throw new Test262Error("Expected obj[" + String(name) + "] NOT to be configurable, but was.");
+    throw new Test262Error("Expected obj[" + __String(name) + "] NOT to be configurable, but was.");
   }
 }
 
