@@ -1,0 +1,27 @@
+// Copyright (C) 2024 Kristen Maevyn Hewell Garrett. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-createdecoratorcontextobject
+desc: Context `static` is false for all types of instance elements
+templates:
+  - accessors/standard/private/static
+  - accessors/standard/public/static
+  - fields/standard/private/static
+  - fields/standard/public/static
+  - getters/standard/private/static
+  - getters/standard/public/static
+  - methods/standard/private/static
+  - methods/standard/public/static
+  - setters/standard/private/static
+  - setters/standard/public/static
+features: [decorators]
+---*/
+
+//- decorators
+function dec(_, context) {
+  assert.sameValue(context.static, true);
+}
+
+//- application
+@dec
