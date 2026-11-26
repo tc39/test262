@@ -7,6 +7,8 @@ description: >
 features: [iterator-includes]
 ---*/
 
+var returnMethodCalled = false;
+
 let iterator = {
   __proto__: Iterator.prototype,
   next() {
@@ -18,6 +20,7 @@ let iterator = {
     };
   },
   get return() {
+    returnMethodCalled = true;
     throw new TypeError();
   }
 };
@@ -25,3 +28,5 @@ let iterator = {
 assert.throws(Test262Error, function() {
   iterator.includes(0);
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns an object with throwy getters");

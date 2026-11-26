@@ -18,6 +18,8 @@ info: |
 features: [iterator-sequencing]
 ---*/
 
+var returnMethodCalled = false;
+
 let throwingIterator = {
   next() {
     return {
@@ -28,6 +30,7 @@ let throwingIterator = {
     };
   },
   return() {
+    returnMethodCalled = true;
     throw new Error();
   }
 };
@@ -43,3 +46,5 @@ let iterator = Iterator.concat(iterable);
 assert.throws(Test262Error, function() {
   iterator.next();
 });
+
+assert.sameValue(returnMethodCalled, false, "an iterator's return method is not called when its next method returns an object with throwy getters");
