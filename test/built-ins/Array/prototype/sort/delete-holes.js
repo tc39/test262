@@ -74,3 +74,16 @@ if (typeof Proxy !== "undefined") {
   assert.compareArray(holes, [undefined, undefined]);
   assert.sameValue("0" in holes, false, "non-overwritten original hole remains");
 }
+
+// And finally, an array whose hole is replaced with a non-configurable property
+// inside the comparison callback.
+var arr = new Array(3);
+arr[0] = 2;
+arr[1] = 1;
+assert.throws(TypeError, function() {
+  arr.sort(function(a, b) {
+    Object.defineProperty(arr, "2", { value: -1, configurable: false, writable: true });
+    return a - b;
+  });
+}, "Array whose hole becomes non-configurable");
+assert.compareArray(arr, [1, 2, -1], "Array whose hole becomes non-configurable");
