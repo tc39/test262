@@ -8,6 +8,7 @@ defines:
   - nonClampedIntArrayConstructors
   - intArrayConstructors
   - typedArrayConstructors
+  - bigIntArrayConstructors
   - TypedArray
   - testWithAllTypedArrayConstructors
   - testWithTypedArrayConstructors
