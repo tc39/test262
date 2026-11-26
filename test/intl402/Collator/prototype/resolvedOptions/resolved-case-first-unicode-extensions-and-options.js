@@ -20,6 +20,46 @@ var tests = [
       caseFirst: "upper",
     }
   },
+  {
+    locale: "en-u-kf-lower",
+    caseFirst: "false",
+    resolved: {
+      locale: "en",
+      caseFirst: "false",
+    }
+  },
+  {
+    locale: "en-u-kf-upper",
+    caseFirst: "lower",
+    resolved: {
+      locale: "en",
+      caseFirst: "lower",
+    }
+  },
+  {
+    locale: "en-u-kf-upper",
+    caseFirst: "false",
+    resolved: {
+      locale: "en",
+      caseFirst: "false",
+    }
+  },
+  {
+    locale: "en-u-kf-false",
+    caseFirst: "upper",
+    resolved: {
+      locale: "en",
+      caseFirst: "upper",
+    }
+  },
+  {
+    locale: "en-u-kf-false",
+    caseFirst: "lower",
+    resolved: {
+      locale: "en",
+      caseFirst: "lower",
+    }
+  },
 
   // Unicode extension value is present and supported. Options value present and
   // supported. Unicode extension value is equal to options value. Unicode
@@ -30,6 +70,22 @@ var tests = [
     resolved: {
       locale: "en-u-kf-lower",
       caseFirst: "lower",
+    }
+  },
+  {
+    locale: "en-u-kf-upper",
+    caseFirst: "upper",
+    resolved: {
+      locale: "en-u-kf-upper",
+      caseFirst: "upper",
+    }
+  },
+  {
+    locale: "en-u-kf-false",
+    caseFirst: "false",
+    resolved: {
+      locale: "en-u-kf-false",
+      caseFirst: "false",
     }
   },
 ];
