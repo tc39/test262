@@ -13,7 +13,9 @@ var instance = Promise.withResolvers();
 
 assert.sameValue(typeof instance, "object");
 assert.notSameValue(instance, null);
+
 assert(instance instanceof Object);
+assert.sameValue(Object.getPrototypeOf(instance), Object.prototype);
 
 verifyProperty(instance, "promise", {
     writable: true,
