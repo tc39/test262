@@ -74,6 +74,6 @@ flags: [module]
 export * from "./namespace-export-star-as-from-1_FIXTURE.js";
 export * from "./namespace-import-star-as-and-export-1_FIXTURE.js";
 
-import { foo } from './namespace-unambiguous-if-import-star-as-and-export.js';
+import { foo } from './namespace-unambiguous-if-export-star-as-from-and-import-star-as-and-export.js';
 
 assert.sameValue(typeof foo, 'object');
