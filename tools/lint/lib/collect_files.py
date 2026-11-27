@@ -6,7 +6,7 @@ def collect_files(path):
     that begin with a period (.) character.'''
 
     if os.path.isfile(path):
-        yield path
+        yield path.replace(os.sep, '/')
         return
 
     if not os.path.isdir(path):
@@ -17,4 +17,5 @@ def collect_files(path):
             if file_name.startswith('.'):
                 continue
 
-            yield os.path.join(root, file_name)
+            file_path = os.path.join(root, file_name)
+            yield file_path.replace(os.sep, '/')
