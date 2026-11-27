@@ -1,0 +1,68 @@
+// Copyright (C) 2026 Mozilla Corporation. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-safe-promise-resolve
+description: >
+    A Proxy "get" trap returning a callable "then" is invoked from the deferred
+    job, not from SafePromiseResolve itself.
+includes: [asyncHelpers.js, compareArray.js]
+flags: [async]
+features: [thenable-curtailment, safeResolvePromise, promise-with-resolvers, Proxy, Reflect, rest-parameters]
+---*/
+
+var expected = [
+  // Being a Proxy forces deferral before any trap can run.
+  "start",
+
+  "tick 1",
+
+  // The deferred job reads "then" once and calls what the trap returned.
+  "get:then",
+  "call then",
+
+  "tick 2",
+  "settled",
+];
+
+var actual = [];
+
+// Record every trap, including descriptor and prototype inspection.
+var value = new Proxy({}, new Proxy({}, {
+  get: function(_, trap) {
+    return function(...args) {
+      actual.push(trap === "get" ? "get:" + String(args[1]) : trap);
+      if (trap === "get" && args[1] === "then") {
+        return function(resolve) {
+          actual.push("call then");
+          resolve("from the trap");
+        };
+      }
+      return Reflect[trap](...args);
+    };
+  },
+}));
+
+asyncTest(function() {
+  var ruler = Promise.resolve(0)
+    .then(() => actual.push("tick 1"))
+    .then(() => actual.push("tick 2"))
+    .then(() => {
+      assert.compareArray(actual, expected, "Ticks for a Proxy \"get\" trap");
+    });
+
+  var capability = Promise.withResolvers();
+  $262.safeResolvePromise(capability, value);
+  actual.push("start");
+
+  var settled = capability.promise.then(function(settledValue) {
+    actual.push("settled");
+    assert.sameValue(
+      settledValue,
+      "from the trap",
+      "promise is fulfilled with the value passed to the resolving function"
+    );
+  });
+
+  return Promise.all([ruler, settled]);
+});
