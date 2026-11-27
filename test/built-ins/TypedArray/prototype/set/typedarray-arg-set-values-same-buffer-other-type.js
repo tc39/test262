@@ -31,7 +31,7 @@ includes: [testTypedArray.js, compareArray.js]
 features: [TypedArray]
 ---*/
 
-var expected = {
+var expectedLittleEndian = {
   Float64Array: [1.0000002464512363, 42, 1.875, 4, 5, 6, 7, 8],
   Float32Array: [0, 42, 512.0001220703125, 4, 5, 6, 7, 8],
   Float16Array: [0, 42, 513, 4, 5, 6, 7, 8],
@@ -43,6 +43,23 @@ var expected = {
   Uint8Array: [0, 42, 0, 66, 5, 6, 7, 8],
   Uint8ClampedArray: [0, 42, 0, 66, 5, 6, 7, 8]
 };
+
+var expectedBigEndian = {
+  Float64Array: [51539607552, 42, 0, 4, 5, 6, 7, 8],
+  Float32Array: [3.078125, 42, 32.00000762939453, 4, 5, 6, 7, 8],
+  Float16Array: [3.078125, 42, 32.0625, 4, 5, 6, 7, 8],
+  Int32Array: [1109917696, 42, 0, 4, 5, 6, 7, 8],
+  Int16Array: [16936, 42, 0, 4, 5, 6, 7, 8],
+  Int8Array: [66, 42, 0, 0, 5, 6, 7, 8],
+  Uint32Array: [1109917696, 42, 0, 4, 5, 6, 7, 8],
+  Uint16Array: [16936, 42, 0, 4, 5, 6, 7, 8],
+  Uint8Array: [66, 42, 0, 0, 5, 6, 7, 8],
+  Uint8ClampedArray: [66, 42, 0, 0, 5, 6, 7, 8]
+};
+
+const isLittleEndian = new Uint8Array(new Uint16Array([1]).buffer)[0] !== 0;
+
+var expected = isLittleEndian ? expectedLittleEndian : expectedBigEndian;
 
 testWithTypedArrayConstructors(function(TA, makeCtorArg) {
   var other = TA === Float32Array ? Float64Array : Float32Array;
