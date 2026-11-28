@@ -16,15 +16,18 @@ features: [Symbol]
 
 var namedSym = Symbol('test262');
 var anonSym = Symbol();
+var registeredSym = Symbol.for('registered');
 var setter;
 
 class A {
   set id(_) {}
   set [anonSym](_) {}
   set [namedSym](_) {}
+  set [registeredSym](_) {}
   static set id(_) {}
   static set [anonSym](_) {}
   static set [namedSym](_) {}
+  static set [registeredSym](_) {}
 }
 
 setter = Object.getOwnPropertyDescriptor(A.prototype, 'id').set;
@@ -51,6 +54,14 @@ verifyProperty(setter, 'name', {
   configurable: true,
 });
 
+setter = Object.getOwnPropertyDescriptor(A.prototype, registeredSym).set;
+verifyProperty(setter, 'name', {
+  value: 'set [registered]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
 setter = Object.getOwnPropertyDescriptor(A, 'id').set;
 verifyProperty(setter, 'name', {
   value: 'set id',
@@ -70,6 +81,14 @@ verifyProperty(setter, 'name', {
 setter = Object.getOwnPropertyDescriptor(A, namedSym).set;
 verifyProperty(setter, 'name', {
   value: 'set [test262]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
+setter = Object.getOwnPropertyDescriptor(A, registeredSym).set;
+verifyProperty(setter, 'name', {
+  value: 'set [registered]',
   writable: false,
   enumerable: false,
   configurable: true,

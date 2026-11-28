@@ -15,15 +15,18 @@ features: [Symbol]
 
 var namedSym = Symbol('test262');
 var anonSym = Symbol();
+var registeredSym = Symbol.for('registered');
 var getter;
 
 class A {
   get id() {}
   get [anonSym]() {}
   get [namedSym]() {}
+  get [registeredSym]() {}
   static get id() {}
   static get [anonSym]() {}
   static get [namedSym]() {}
+  static get [registeredSym]() {}
 }
 
 getter = Object.getOwnPropertyDescriptor(A.prototype, 'id').get;
@@ -50,6 +53,14 @@ verifyProperty(getter, 'name', {
   configurable: true,
 });
 
+getter = Object.getOwnPropertyDescriptor(A.prototype, registeredSym).get;
+verifyProperty(getter, 'name', {
+  value: 'get [registered]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
 getter = Object.getOwnPropertyDescriptor(A, 'id').get;
 verifyProperty(getter, 'name', {
   value: 'get id',
@@ -69,6 +80,14 @@ verifyProperty(getter, 'name', {
 getter = Object.getOwnPropertyDescriptor(A, namedSym).get;
 verifyProperty(getter, 'name', {
   value: 'get [test262]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
+getter = Object.getOwnPropertyDescriptor(A, registeredSym).get;
+verifyProperty(getter, 'name', {
+  value: 'get [registered]',
   writable: false,
   enumerable: false,
   configurable: true,

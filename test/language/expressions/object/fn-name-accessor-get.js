@@ -15,12 +15,14 @@ features: [Symbol]
 
 var namedSym = Symbol('test262');
 var anonSym = Symbol();
+var registeredSym = Symbol.for('registered');
 var o, getter;
 
 o = {
   get id() {},
   get [anonSym]() {},
-  get [namedSym]() {}
+  get [namedSym]() {},
+  get [registeredSym]() {}
 };
 
 getter = Object.getOwnPropertyDescriptor(o, 'id').get;
@@ -42,6 +44,14 @@ verifyProperty(getter, 'name', {
 getter = Object.getOwnPropertyDescriptor(o, namedSym).get;
 verifyProperty(getter, 'name', {
   value: 'get [test262]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
+getter = Object.getOwnPropertyDescriptor(o, registeredSym).get;
+verifyProperty(getter, 'name', {
+  value: 'get [registered]',
   writable: false,
   enumerable: false,
   configurable: true,

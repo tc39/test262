@@ -16,14 +16,17 @@ features: [Symbol]
 
 var namedSym = Symbol('test262');
 var anonSym = Symbol();
+var registeredSym = Symbol.for('registered');
 
 class A {
   id() {}
   [anonSym]() {}
   [namedSym]() {}
+  [registeredSym]() {}
   static id() {}
   static [anonSym]() {}
   static [namedSym]() {}
+  static [registeredSym]() {}
 }
 
 verifyProperty(A.prototype.id, 'name', {
@@ -47,6 +50,13 @@ verifyProperty(A.prototype[namedSym], 'name', {
   configurable: true,
 });
 
+verifyProperty(A.prototype[registeredSym], 'name', {
+  value: '[registered]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
 verifyProperty(A.id, 'name', {
   value: 'id',
   writable: false,
@@ -63,6 +73,13 @@ verifyProperty(A[anonSym], 'name', {
 
 verifyProperty(A[namedSym], 'name', {
   value: '[test262]',
+  writable: false,
+  enumerable: false,
+  configurable: true,
+});
+
+verifyProperty(A[registeredSym], 'name', {
+  value: '[registered]',
   writable: false,
   enumerable: false,
   configurable: true,
